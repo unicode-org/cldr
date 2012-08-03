@@ -10,6 +10,7 @@
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>, </localeSeparator>
+			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">Afar</language>
@@ -22,6 +23,7 @@
 			<language type="af">Afrikaans</language>
 			<language type="afa">Afro-Aziatische taal</language>
 			<language type="afh">Afrihili</language>
+			<language type="agq" draft="contributed">Aghem</language>
 			<language type="ain">Ainu</language>
 			<language type="ak">Akan</language>
 			<language type="akk">Akkadisch</language>
@@ -56,17 +58,21 @@
 			<language type="ban">Balinees</language>
 			<language type="bas">Basa</language>
 			<language type="bat">Baltische taal</language>
+			<language type="bax" draft="contributed">Bamun</language>
+			<language type="bbj" draft="contributed">Ghomala</language>
 			<language type="be">Wit-Russisch</language>
 			<language type="bej">Beja</language>
 			<language type="bem">Bemba</language>
 			<language type="ber">Berber</language>
 			<language type="bez" draft="provisional">Bena</language>
+			<language type="bfd" draft="contributed">Bafut</language>
 			<language type="bg">Bulgaars</language>
 			<language type="bh">Bihari</language>
 			<language type="bho">Bhojpuri</language>
 			<language type="bi">Bislama</language>
 			<language type="bik">Bikol</language>
 			<language type="bin">Bini</language>
+			<language type="bkm" draft="contributed">Kom</language>
 			<language type="bla">Siksika</language>
 			<language type="bm">Bambara</language>
 			<language type="bn">Bengalees</language>
@@ -74,20 +80,26 @@
 			<language type="bo">Tibetaans</language>
 			<language type="br">Bretons</language>
 			<language type="bra">Braj</language>
+			<language type="brx" draft="contributed">Bodo</language>
 			<language type="bs">Bosnisch</language>
+			<language type="bss" draft="contributed">Akoose</language>
 			<language type="btk">Batak</language>
 			<language type="bua">Buriat</language>
 			<language type="bug">Buginees</language>
+			<language type="bum" draft="contributed">Bulu</language>
 			<language type="byn">Blin</language>
+			<language type="byv" draft="contributed">Medumba</language>
 			<language type="ca">Catalaans</language>
 			<language type="cad">Caddo</language>
 			<language type="cai">Midden-Amerikaans Indiaanse taal</language>
 			<language type="car">Caribisch</language>
 			<language type="cau">Kaukasische taal</language>
+			<language type="cay" draft="contributed">Cayuga</language>
 			<language type="cch">Atsam</language>
 			<language type="ce">Tsjetsjeens</language>
 			<language type="ceb">Cebuano</language>
 			<language type="cel">Keltische taal</language>
+			<language type="cgg" draft="contributed">Chiga</language>
 			<language type="ch">Chamorro</language>
 			<language type="chb">Chibcha</language>
 			<language type="chg">Chagatai</language>
@@ -98,6 +110,7 @@
 			<language type="chp">Chipewyan</language>
 			<language type="chr">Cherokee</language>
 			<language type="chy">Cheyenne</language>
+			<language type="ckb" draft="contributed">Soranî</language>
 			<language type="cmc">Chamische taal</language>
 			<language type="co">Corsicaans</language>
 			<language type="cop">Koptisch</language>
@@ -116,6 +129,7 @@
 			<language type="da">Deens</language>
 			<language type="dak">Dakota</language>
 			<language type="dar">Dargwa</language>
+			<language type="dav" draft="contributed">Taita</language>
 			<language type="day">Dajak</language>
 			<language type="de">Duits</language>
 			<language type="de_AT">Oostenrijks Duits</language>
@@ -124,14 +138,17 @@
 			<language type="den">Slave</language>
 			<language type="dgr">Dogrib</language>
 			<language type="din">Dinka</language>
+			<language type="dje" draft="contributed">Zarma</language>
 			<language type="doi">Dogri</language>
 			<language type="dra">Dravidische taal</language>
 			<language type="dsb">Nedersorbisch</language>
 			<language type="dua">Duala</language>
 			<language type="dum">Middelnederlands</language>
 			<language type="dv">Divehi</language>
+			<language type="dyo" draft="contributed">Jola-Fonyi</language>
 			<language type="dyu">Dyula</language>
 			<language type="dz">Dzongkha</language>
+			<language type="dzg" draft="contributed">Dazaga</language>
 			<language type="ebu" draft="provisional">Embu</language>
 			<language type="ee">Ewe</language>
 			<language type="efi">Efik</language>
@@ -148,7 +165,7 @@
 			<language type="eo">Esperanto</language>
 			<language type="es">Spaans</language>
 			<language type="es_419">Latijns-Amerikaans Spaans</language>
-			<language type="es_ES">Iberisch Spaans</language>
+			<language type="es_ES">Europees Spaans</language>
 			<language type="et">Estlands</language>
 			<language type="eu">Baskisch</language>
 			<language type="ewo">Ewondo</language>
@@ -190,6 +207,7 @@
 			<language type="grc">Oudgrieks</language>
 			<language type="gsw">Zwitsers Duits</language>
 			<language type="gu">Gujarati</language>
+			<language type="guz" draft="contributed">Gusii</language>
 			<language type="gv">Manx</language>
 			<language type="gwi">Gwichʼin</language>
 			<language type="ha">Hausa</language>
@@ -211,6 +229,7 @@
 			<language type="hz">Herero</language>
 			<language type="ia">Interlingua</language>
 			<language type="iba">Iban</language>
+			<language type="ibb" draft="contributed">Ibibio</language>
 			<language type="id">Indonesisch</language>
 			<language type="ie">Interlingue</language>
 			<language type="ig">Igbo</language>
@@ -229,6 +248,7 @@
 			<language type="iu">Inuktitut</language>
 			<language type="ja">Japans</language>
 			<language type="jbo">Lojban</language>
+			<language type="jmc" draft="contributed">Machame</language>
 			<language type="jpr">Judeo-Perzisch</language>
 			<language type="jrb">Judeo-Arabisch</language>
 			<language type="jv">Javaans</language>
@@ -241,17 +261,22 @@
 			<language type="kar">Karen</language>
 			<language type="kaw">Kawi</language>
 			<language type="kbd">Kabardisch</language>
+			<language type="kbl" draft="contributed">Kanembu</language>
 			<language type="kcg">Tyap</language>
+			<language type="kde" draft="contributed">Makonde</language>
 			<language type="kea" draft="contributed">Kabuverdianu</language>
 			<language type="kfo">Koro</language>
 			<language type="kg">Kongo</language>
 			<language type="kha">Khasi</language>
 			<language type="khi">Khoisan-taal</language>
 			<language type="kho">Khotanees</language>
+			<language type="khq" draft="contributed">Koyra Chiini</language>
 			<language type="ki">Kikuyu</language>
 			<language type="kj">Kuanyama</language>
 			<language type="kk">Kazachs</language>
+			<language type="kkj" draft="contributed">Kako</language>
 			<language type="kl">Groenlands</language>
+			<language type="kln" draft="contributed">Kalenjin</language>
 			<language type="km">Khmer</language>
 			<language type="kmb">Kimbundu</language>
 			<language type="kn">Kannada</language>
@@ -265,6 +290,9 @@
 			<language type="kro">Kru</language>
 			<language type="kru">Kurukh</language>
 			<language type="ks">Kasjmiri</language>
+			<language type="ksb" draft="contributed">Shambala</language>
+			<language type="ksf" draft="contributed">Bafia</language>
+			<language type="ksh" draft="contributed">Kölsch</language>
 			<language type="ku">Koerdisch</language>
 			<language type="kum">Koemuks</language>
 			<language type="kut">Kutenai</language>
@@ -273,6 +301,7 @@
 			<language type="ky">Kirgizisch</language>
 			<language type="la">Latijn</language>
 			<language type="lad">Ladino</language>
+			<language type="lag" draft="contributed">Langi</language>
 			<language type="lah">Lahnda</language>
 			<language type="lam">Lamba</language>
 			<language type="lb">Luxemburgs</language>
@@ -290,20 +319,25 @@
 			<language type="lun">Lunda</language>
 			<language type="luo">Luo</language>
 			<language type="lus">Lushai</language>
-			<language type="luy" draft="provisional">Luhya</language>
+			<language type="luy" draft="contributed">Luyia</language>
 			<language type="lv">Letlands</language>
 			<language type="mad">Madurees</language>
+			<language type="maf" draft="contributed">Mafa</language>
 			<language type="mag">Magahi</language>
 			<language type="mai">Maithili</language>
 			<language type="mak">Makassaars</language>
 			<language type="man">Mandingo</language>
 			<language type="map">Austronesisch</language>
 			<language type="mas">Masai</language>
+			<language type="mde" draft="contributed">Maba</language>
 			<language type="mdf">Moksha</language>
 			<language type="mdr">Mandar</language>
 			<language type="men">Mende</language>
+			<language type="mer" draft="contributed">Meru</language>
+			<language type="mfe" draft="contributed">Morisyen</language>
 			<language type="mg">Malagasisch</language>
 			<language type="mga">Middeliers</language>
+			<language type="mgh" draft="contributed">Makhuwa-Meetto</language>
 			<language type="mh">Marshallees</language>
 			<language type="mi">Maori</language>
 			<language type="mic">Mi'kmaq</language>
@@ -322,18 +356,21 @@
 			<language type="mr">Marathi</language>
 			<language type="ms">Maleis</language>
 			<language type="mt">Maltees</language>
+			<language type="mua" draft="contributed">Mundang</language>
 			<language type="mul">Meerdere talen</language>
 			<language type="mun">Munda-taal</language>
 			<language type="mus">Creek</language>
 			<language type="mwl">Mirandees</language>
 			<language type="mwr">Marwari</language>
 			<language type="my">Birmees</language>
+			<language type="mye" draft="contributed">Myene</language>
 			<language type="myn">Mayan-taal</language>
 			<language type="myv">Erzja</language>
 			<language type="na">Nauruaans</language>
 			<language type="nah">Nahuatl</language>
 			<language type="nai">Noord-Amerikaans Indiaanse taal</language>
 			<language type="nap">Napolitaans</language>
+			<language type="naq" draft="contributed">Nama</language>
 			<language type="nb">Noors - Bokmål</language>
 			<language type="nd">Noord-Ndbele</language>
 			<language type="nds">Laagduits</language>
@@ -345,7 +382,9 @@
 			<language type="niu">Niueaans</language>
 			<language type="nl">Nederlands</language>
 			<language type="nl_BE">Vlaams</language>
+			<language type="nmg" draft="contributed">Kwasio</language>
 			<language type="nn">Noors - Nynorsk</language>
+			<language type="nnh" draft="contributed">Ngiemboon</language>
 			<language type="no">Noors</language>
 			<language type="nog">Nogai</language>
 			<language type="non">Oudnoors</language>
@@ -353,6 +392,7 @@
 			<language type="nr">Zuid-Ndbele</language>
 			<language type="nso">Noord-Sotho</language>
 			<language type="nub">Nubische taal</language>
+			<language type="nus" draft="contributed">Nuer</language>
 			<language type="nv">Navajo</language>
 			<language type="nwc">Klassiek Newari</language>
 			<language type="ny">Nyanja</language>
@@ -387,7 +427,7 @@
 			<language type="ps" alt="variant" draft="contributed">Pashto</language>
 			<language type="pt">Portugees</language>
 			<language type="pt_BR">Braziliaans Portugees</language>
-			<language type="pt_PT">Iberisch Portugees</language>
+			<language type="pt_PT">Europees Portugees</language>
 			<language type="qu">Quechua</language>
 			<language type="raj">Rajasthani</language>
 			<language type="rap">Rapanui</language>
@@ -396,31 +436,41 @@
 			<language type="rn">Kirundi</language>
 			<language type="ro">Roemeens</language>
 			<language type="roa">Romaanse taal</language>
+			<language type="rof" draft="contributed">Rombo</language>
 			<language type="rom">Romani</language>
 			<language type="root">Root</language>
 			<language type="ru">Russisch</language>
 			<language type="rup">Aromaniaans</language>
 			<language type="rw">Kinyarwanda</language>
+			<language type="rwk" draft="contributed">Rwa</language>
 			<language type="sa">Sanskriet</language>
 			<language type="sad">Sandawe</language>
 			<language type="sah">Jakoets</language>
 			<language type="sai">Zuid-Amerikaans Indiaanse taal</language>
 			<language type="sal">Salishan-taal</language>
 			<language type="sam">Samaritaans-Aramees</language>
+			<language type="saq" draft="contributed">Samburu</language>
 			<language type="sas">Sasak</language>
 			<language type="sat">Santali</language>
+			<language type="sba" draft="contributed">Ngambay</language>
+			<language type="sbp" draft="contributed">Sangu</language>
 			<language type="sc">Sardinisch</language>
 			<language type="scn">Siciliaans</language>
 			<language type="sco">Schots</language>
 			<language type="sd">Sindhi</language>
 			<language type="se">Noord-Samisch</language>
+			<language type="see" draft="contributed">Seneca</language>
+			<language type="seh" draft="contributed">Sena</language>
 			<language type="sel">Selkup</language>
 			<language type="sem">Semitische taal</language>
+			<language type="ses" draft="contributed">Koyraboro Senni</language>
 			<language type="sg">Sango</language>
 			<language type="sga">Oudiers</language>
 			<language type="sgn">Gebarentaal</language>
 			<language type="sh">Servokroatisch</language>
+			<language type="shi" draft="contributed">Tachelhit</language>
 			<language type="shn">Shan</language>
+			<language type="shu" draft="contributed">Tsjadisch Arabisch</language>
 			<language type="si">Singalees</language>
 			<language type="sid">Sidamo</language>
 			<language type="sio">Siouaanse talen</language>
@@ -445,6 +495,7 @@
 			<language type="srr">Serer</language>
 			<language type="ss">Swazi</language>
 			<language type="ssa">Nilo-Saharaanse taal</language>
+			<language type="ssy" draft="contributed">Saho</language>
 			<language type="st">Zuid-Sotho</language>
 			<language type="su">Soendanees</language>
 			<language type="suk">Sukuma</language>
@@ -453,12 +504,14 @@
 			<language type="sv">Zweeds</language>
 			<language type="sw">Swahili</language>
 			<language type="swb">Shimaore</language>
+			<language type="swc" draft="contributed">Congo Swahili</language>
 			<language type="syc">Klassiek Syrisch</language>
 			<language type="syr">Syrisch</language>
 			<language type="ta">Tamil</language>
 			<language type="tai">Tai-taal</language>
 			<language type="te">Telugu</language>
 			<language type="tem">Timne</language>
+			<language type="teo" draft="contributed">Teso</language>
 			<language type="ter">Tereno</language>
 			<language type="tet">Tetun</language>
 			<language type="tg">Tadzjieks</language>
@@ -477,6 +530,7 @@
 			<language type="tog">Nyasa Tonga</language>
 			<language type="tpi">Tok Pisin</language>
 			<language type="tr">Turks</language>
+			<language type="trv" draft="contributed">Taroko</language>
 			<language type="ts">Tsonga</language>
 			<language type="tsi">Tsimshian</language>
 			<language type="tt">Tataars</language>
@@ -485,8 +539,10 @@
 			<language type="tut">Altaïsche taal</language>
 			<language type="tvl">Tuvaluaans</language>
 			<language type="tw">Twi</language>
+			<language type="twq" draft="contributed">Tasawaq</language>
 			<language type="ty">Tahitisch</language>
 			<language type="tyv">Tuvinisch</language>
+			<language type="tzm" draft="contributed">Tamazight (Centraal-Marokko)</language>
 			<language type="udm">Oedmoerts</language>
 			<language type="ug">Oeigoers</language>
 			<language type="ug" alt="variant" draft="contributed">Oeigoers</language>
@@ -501,7 +557,9 @@
 			<language type="vi">Vietnamees</language>
 			<language type="vo">Volapük</language>
 			<language type="vot">Votisch</language>
+			<language type="vun" draft="contributed">Vunjo</language>
 			<language type="wa">Waals</language>
+			<language type="wae" draft="contributed">Walser</language>
 			<language type="wak">Wakashan-taal</language>
 			<language type="wal">Walamo</language>
 			<language type="war">Waray</language>
@@ -510,8 +568,11 @@
 			<language type="wo">Wolof</language>
 			<language type="xal">Kalmyk</language>
 			<language type="xh">Xhosa</language>
+			<language type="xog" draft="contributed">Soga</language>
 			<language type="yao">Yao</language>
 			<language type="yap">Yapees</language>
+			<language type="yav" draft="contributed">Yangben</language>
+			<language type="ybb" draft="contributed">Yemba</language>
 			<language type="yi">Jiddisch</language>
 			<language type="yo">Yoruba</language>
 			<language type="ypk">Yupik-talen</language>
@@ -683,7 +744,7 @@
 			<territory type="034">Zuid-Azië</territory>
 			<territory type="035">Zuidoost-Azië</territory>
 			<territory type="039">Zuid-Europa</territory>
-			<territory type="053">Australië en Nieuw-Zeeland</territory>
+			<territory type="053">Australazië</territory>
 			<territory type="054">Melanesië</territory>
 			<territory type="057" draft="contributed">Micronesische regio</territory>
 			<territory type="061">Polynesië</territory>
@@ -726,6 +787,7 @@
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivia</territory>
+			<territory type="BQ" draft="contributed">Caribisch Nederland</territory>
 			<territory type="BR">Brazilië</territory>
 			<territory type="BS">Bahama’s</territory>
 			<territory type="BT">Bhutan</territory>
@@ -917,7 +979,7 @@
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalië</territory>
 			<territory type="SR">Suriname</territory>
-			<territory type="SS" draft="provisional">Zuid-Soedan</territory>
+			<territory type="SS" draft="contributed">Zuid-Soedan</territory>
 			<territory type="ST">Sao Tomé en Principe</territory>
 			<territory type="SV">El Salvador</territory>
 			<territory type="SX">Sint-Maarten</territory>
@@ -1022,9 +1084,20 @@
 		</variants>
 		<keys>
 			<key type="calendar">Kalender</key>
-			<key type="collation">Volgorde</key>
+			<key type="colAlternate" draft="contributed">Sorteren van symbolen negeren</key>
+			<key type="colBackwards" draft="contributed">Omgekeerd sorteren op accenten</key>
+			<key type="colCaseFirst" draft="contributed">Indelen op hoofdletters/kleine letters</key>
+			<key type="colCaseLevel" draft="contributed">Hoofdlettergevoelig sorteren</key>
+			<key type="colHiraganaQuaternary" draft="contributed">Kana sorteren</key>
+			<key type="collation">Sorteervolgorde</key>
+			<key type="colNormalization" draft="contributed">Genormaliseerd sorteren</key>
+			<key type="colNumeric" draft="contributed">Numeriek sorteren</key>
+			<key type="colStrength" draft="contributed">Sorteervoorrang</key>
 			<key type="currency">Valuta</key>
 			<key type="numbers">Cijfers</key>
+			<key type="timezone" draft="contributed">Tijdzone</key>
+			<key type="va" draft="contributed">Landvariant</key>
+			<key type="variableTop" draft="contributed">Sorteren als symbolen</key>
 			<key type="x" draft="contributed">Privégebruik</key>
 		</keys>
 		<types>
@@ -1043,6 +1116,7 @@
 			<type type="ethi" key="numbers">Ethiopische cijfers</type>
 			<type type="ethiopic" key="calendar">Ethiopische kalender</type>
 			<type type="ethiopic-amete-alem" key="calendar">Ethiopische Amete Alem-kalender</type>
+			<type type="finance" key="numbers" draft="contributed">Financiële cijfers</type>
 			<type type="fullwide" key="numbers">Cijfers met volledige breedte</type>
 			<type type="gb2312han" key="collation">Vereenvoudigd-Chinese sorteervolgorde - GB2312</type>
 			<type type="geor" key="numbers">Georgische cijfers</type>
@@ -1058,6 +1132,7 @@
 			<type type="hantfin" key="numbers">Traditioneel Chinese financiële cijfers</type>
 			<type type="hebr" key="numbers">Hebreeuwse cijfers</type>
 			<type type="hebrew" key="calendar">Hebreeuwse kalender</type>
+			<type type="identical" key="colStrength" draft="contributed">Alles sorteren</type>
 			<type type="indian" key="calendar">Indiase nationale kalender</type>
 			<type type="islamic" key="calendar">Islamitische kalender</type>
 			<type type="islamic-civil" key="calendar">Islamitische kalender (cyclisch)</type>
@@ -1068,29 +1143,56 @@
 			<type type="knda" key="numbers">Kannada cijfers</type>
 			<type type="laoo" key="numbers">Laotiaanse cijfers</type>
 			<type type="latn" key="numbers">Westerse cijfers</type>
+			<type type="lower" key="colCaseFirst" draft="contributed">Eerst sorteren op kleine letters</type>
 			<type type="mlym" key="numbers">Malayalam cijfers</type>
 			<type type="mong" key="numbers">Mongoolse cijfers</type>
 			<type type="mymr" key="numbers">Myanmarese cijfers</type>
+			<type type="native" key="numbers" draft="contributed">Binnenlandse cijfers</type>
+			<type type="no" key="colBackwards" draft="contributed">Normaal sorteren op accenten</type>
+			<type type="no" key="colCaseFirst" draft="contributed">Sorteervolgorde algemeen hoofdlettergebruik</type>
+			<type type="no" key="colCaseLevel" draft="contributed">Niet hoofdlettergevoelig sorteren</type>
+			<type type="no" key="colHiraganaQuaternary" draft="contributed">Kana afzonderlijk sorteren</type>
+			<type type="no" key="colNormalization" draft="contributed">Zonder normalisatie sorteren</type>
+			<type type="no" key="colNumeric" draft="contributed">Cijfers afzonderlijk sorteren</type>
+			<type type="non-ignorable" key="colAlternate" draft="contributed">Symbolen sorteren</type>
 			<type type="orya" key="numbers">Oriya cijfers</type>
 			<type type="persian" key="calendar">Perzische kalender</type>
 			<type type="phonebook" key="collation">Telefoonboeksorteervolgorde</type>
+			<type type="phonetic" key="collation" draft="contributed">Fonetische sorteervolgorde</type>
 			<type type="pinyin" key="collation">Pinyinvolgorde</type>
+			<type type="primary" key="colStrength" draft="contributed">Alleen sorteren op letters</type>
+			<type type="quaternary" key="colStrength" draft="contributed">Sorteren op accenten/hoofdlettergebruik/breedte/Kana</type>
 			<type type="reformed" key="collation">Herziene sorteervolgorde</type>
 			<type type="roc" key="calendar">Kalender van de Chinese Republiek</type>
 			<type type="roman" key="numbers">Romeinse cijfers</type>
 			<type type="romanlow" key="numbers">Kleine Romeinse cijfers</type>
 			<type type="search" key="collation">Algemeen zoeken</type>
+			<type type="searchjl" key="collation" draft="contributed">Zoeken op eerste Hangul-medeklinker</type>
+			<type type="secondary" key="colStrength" draft="contributed">Sorteren op accenten</type>
+			<type type="shifted" key="colAlternate" draft="contributed">Sorteren zonder symbolen</type>
 			<type type="stroke" key="collation">Streeksorteervolgorde</type>
 			<type type="taml" key="numbers">Traditionele Tamil cijfers</type>
+			<type type="tamldec" key="numbers" draft="contributed">Tamil cijfers</type>
 			<type type="telu" key="numbers">Telugu cijfers</type>
+			<type type="tertiary" key="colStrength" draft="contributed">Sorteren op accenten/hoofdlettergebruik/breedte</type>
 			<type type="thai" key="numbers">Thaise cijfers</type>
 			<type type="tibt" key="numbers">Tibetaanse cijfers</type>
 			<type type="traditional" key="collation">Traditionele sorteervolgorde</type>
+			<type type="traditional" key="numbers" draft="contributed">Traditionele cijfers</type>
 			<type type="unihan" key="collation">Sorteervolgorde radicalen/strepen</type>
+			<type type="upper" key="colCaseFirst" draft="contributed">Eerst sorteren op hoofdletters</type>
+			<type type="vaii" key="numbers" draft="contributed">Vai-cijfers</type>
+			<type type="yes" key="colBackwards" draft="contributed">Omgekeerd sorteren op accenten</type>
+			<type type="yes" key="colCaseLevel" draft="contributed">Hoofdlettergevoelig sorteren</type>
+			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Kana anders sorteren</type>
+			<type type="yes" key="colNormalization" draft="contributed">Unicode genormaliseerd sorteren</type>
+			<type type="yes" key="colNumeric" draft="contributed">Cijfers numeriek sorteren</type>
 		</types>
 		<transformNames>
+			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Numeriek</transformName>
 			<transformName type="Tone" draft="contributed">Toon</transformName>
+			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Accenten</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Volledige breedte</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Halve breedte</transformName>
@@ -1133,6 +1235,10 @@
 		<exemplarCharacters type="currencySymbol">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
+		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
+		<ellipsis type="medial" draft="contributed">{0}…{1}</ellipsis>
+		<moreInformation draft="contributed">?</moreInformation>
 		<stopwords>
 			<stopwordList type="collation" draft="provisional">een de het</stopwordList>
 		</stopwords>
@@ -1220,6 +1326,20 @@
 							<month type="11">nov.</month>
 							<month type="12">dec.</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januari</month>
 							<month type="2">februari</month>
@@ -1241,6 +1361,7 @@
 							<month type="2">feb</month>
 							<month type="3">mrt</month>
 							<month type="4">apr</month>
+							<month type="5">mei</month>
 							<month type="6">jun</month>
 							<month type="7">jul</month>
 							<month type="8">aug</month>
@@ -1263,6 +1384,20 @@
 							<month type="11">N</month>
 							<month type="12">D</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">januari</month>
+							<month type="2">februari</month>
+							<month type="3">maart</month>
+							<month type="4">april</month>
+							<month type="5">mei</month>
+							<month type="6">juni</month>
+							<month type="7">juli</month>
+							<month type="8">augustus</month>
+							<month type="9">september</month>
+							<month type="10">oktober</month>
+							<month type="11">november</month>
+							<month type="12">december</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1276,6 +1411,24 @@
 							<day type="fri">vr</day>
 							<day type="sat">za</day>
 						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">Z</day>
+							<day type="mon">M</day>
+							<day type="tue">D</day>
+							<day type="wed">W</day>
+							<day type="thu">D</day>
+							<day type="fri">V</day>
+							<day type="sat">Z</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">zo</day>
+							<day type="mon" draft="contributed">ma</day>
+							<day type="tue" draft="contributed">di</day>
+							<day type="wed" draft="contributed">wo</day>
+							<day type="thu" draft="contributed">do</day>
+							<day type="fri" draft="contributed">vr</day>
+							<day type="sat" draft="contributed">za</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">zondag</day>
 							<day type="mon">maandag</day>
@@ -1287,6 +1440,15 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">zo</day>
+							<day type="mon">ma</day>
+							<day type="tue">di</day>
+							<day type="wed">wo</day>
+							<day type="thu">do</day>
+							<day type="fri">vr</day>
+							<day type="sat">za</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Z</day>
 							<day type="mon">M</day>
@@ -1295,6 +1457,24 @@
 							<day type="thu">D</day>
 							<day type="fri">V</day>
 							<day type="sat">Z</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">zo</day>
+							<day type="mon" draft="contributed">ma</day>
+							<day type="tue" draft="contributed">di</day>
+							<day type="wed" draft="contributed">wo</day>
+							<day type="thu" draft="contributed">do</day>
+							<day type="fri" draft="contributed">vr</day>
+							<day type="sat" draft="contributed">za</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">zondag</day>
+							<day type="mon">maandag</day>
+							<day type="tue">dinsdag</day>
+							<day type="wed">woensdag</day>
+							<day type="thu">donderdag</day>
+							<day type="fri">vrijdag</day>
+							<day type="sat">zaterdag</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1311,6 +1491,26 @@
 							<quarter type="2">2</quarter>
 							<quarter type="3">3</quarter>
 							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="contributed">1e kwartaal</quarter>
+							<quarter type="2" draft="contributed">2e kwartaal</quarter>
+							<quarter type="3" draft="contributed">3e kwartaal</quarter>
+							<quarter type="4" draft="contributed">4e kwartaal</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1</quarter>
+							<quarter type="2" draft="contributed">2</quarter>
+							<quarter type="3" draft="contributed">3</quarter>
+							<quarter type="4" draft="contributed">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="contributed">1e kwartaal</quarter>
@@ -1404,10 +1604,35 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d-M</dateFormatItem>
 						<dateFormatItem id="MEd">E d-M</dateFormatItem>
@@ -1497,7 +1722,7 @@
 							<greatestDifference id="M" draft="contributed">E d MMM - E d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M" draft="contributed">LLLL-LLLL</greatestDifference>
+							<greatestDifference id="M" draft="contributed">MMMM–MMMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y" draft="contributed">y-y</greatestDifference>
@@ -1560,11 +1785,13 @@
 					</field>
 					<field type="day">
 						<displayName>Dag</displayName>
+						<relative type="-3" draft="contributed">Drie dagen geleden</relative>
 						<relative type="-2" draft="contributed">Eergisteren</relative>
 						<relative type="-1" draft="contributed">Gisteren</relative>
 						<relative type="0" draft="contributed">Vandaag</relative>
 						<relative type="1" draft="contributed">Morgen</relative>
 						<relative type="2" draft="contributed">Overmorgen</relative>
+						<relative type="3" draft="contributed">Over drie dagen</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Dag van de week</displayName>
@@ -1842,11 +2069,114 @@
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>
+			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat draft="contributed">{0}-tijd</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat>{1}-tijd ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity draft="contributed">Beneden Prinsen Kwartier</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity draft="contributed">Beulah, Noord-Dakota</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity draft="contributed">GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity draft="contributed">GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity draft="contributed">GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity draft="contributed">GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity draft="contributed">GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity draft="contributed">GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity draft="contributed">GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity draft="contributed">GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity draft="contributed">GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity draft="contributed">GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity draft="contributed">GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity draft="contributed">GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity draft="contributed">GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity draft="contributed">GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity draft="contributed">GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity draft="contributed">GMT</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Onbekend</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity draft="contributed">GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity draft="contributed">GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity draft="contributed">GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity draft="contributed">GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity draft="contributed">GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity draft="contributed">GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity draft="contributed">GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity draft="contributed">GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity draft="contributed">GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity draft="contributed">GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity draft="contributed">GMT-11</exemplarCity>
+			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity draft="contributed">Andorra</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity draft="contributed">Dubai</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity draft="contributed">Kabul</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity draft="contributed">Antigua</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity draft="contributed">Anguilla</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
 				<exemplarCity>Tirana</exemplarCity>
@@ -1857,29 +2187,113 @@
 			<zone type="America/Curacao">
 				<exemplarCity>Curaçao</exemplarCity>
 			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity draft="contributed">Luanda</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="contributed">Rothera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="contributed">Palmer</exemplarCity>
+			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Zuidpool</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="contributed">Syowa</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="contributed">Mawson</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="contributed">Davis</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="contributed">Vostok</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="contributed">Casey</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="contributed">Dumont d’Urville</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="contributed">McMurdo</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
 				<exemplarCity>Río Gallegos</exemplarCity>
 			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity draft="contributed">San Juan</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity draft="contributed">Ushuaia</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity draft="contributed">La Rioja</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity draft="contributed">San Luis</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity draft="contributed">Catamarca</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity draft="contributed">Salta</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity draft="contributed">Tucumán</exemplarCity>
+			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>Córdoba</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="contributed">Buenos Aires</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity draft="contributed">Pago Pago</exemplarCity>
 			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Wenen</exemplarCity>
 			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity draft="contributed">Perth</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="contributed">Adelaide</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="contributed">Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="contributed">Sydney</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="contributed">Brisbane</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity draft="contributed">Aruba</exemplarCity>
+			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity>Bakoe</exemplarCity>
 			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity draft="contributed">Barbados</exemplarCity>
+			</zone>
 			<zone type="Europe/Brussels">
 				<exemplarCity>Brussel</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity draft="contributed">Sofia</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
 				<exemplarCity>Bahrein</exemplarCity>
 			</zone>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity draft="contributed">Saint Barthélemy</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity draft="contributed">Bermuda</exemplarCity>
 			</zone>
 			<zone type="America/Porto_Velho">
 				<exemplarCity>Pôrto Velho</exemplarCity>
@@ -1893,11 +2307,101 @@
 			<zone type="America/Sao_Paulo">
 				<exemplarCity>São Paulo</exemplarCity>
 			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity draft="contributed">Fortaleza</exemplarCity>
+			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maceió</exemplarCity>
 			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="contributed">Recife</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity draft="contributed">Nassau</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity draft="contributed">Minsk</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity draft="contributed">Belize</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity draft="contributed">Dawson</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity draft="contributed">Whitehorse</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="contributed">Inuvik</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity draft="contributed">Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="contributed">Dawson Creek</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity draft="contributed">Yellowknife</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="contributed">Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity draft="contributed">Swift Current</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity draft="contributed">Cambridge Bay</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity draft="contributed">Regina</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="contributed">Winnipeg</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity draft="contributed">Resolute</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity draft="contributed">Rainy River</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity draft="contributed">Rankin Inlet</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity draft="contributed">Atikokan</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity draft="contributed">Thunder Bay</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity draft="contributed">Nipigon</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="contributed">Toronto</exemplarCity>
+			</zone>
 			<zone type="America/Montreal">
 				<exemplarCity>Montréal</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity draft="contributed">Iqaluit</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity draft="contributed">Pangnirtung</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity draft="contributed">Moncton</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity draft="contributed">Halifax</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity draft="contributed">Goose Bay</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity draft="contributed">Glace Bay</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity draft="contributed">Blanc-Sablon</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. John’s</exemplarCity>
@@ -1908,6 +2412,9 @@
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zürich</exemplarCity>
 			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity draft="contributed">Rarotonga</exemplarCity>
+			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>Paaseiland</exemplarCity>
 			</zone>
@@ -1916,6 +2423,12 @@
 			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity>Bogotá</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity draft="contributed">Costa Rica</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity draft="contributed">Havana</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>Kaapverdië</exemplarCity>
@@ -1932,6 +2445,12 @@
 			<zone type="Europe/Copenhagen">
 				<exemplarCity>Kopenhagen</exemplarCity>
 			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity draft="contributed">Dominica</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity draft="contributed">Santo Domingo</exemplarCity>
+			</zone>
 			<zone type="Pacific/Galapagos">
 				<exemplarCity>Galápagos</exemplarCity>
 			</zone>
@@ -1947,8 +2466,14 @@
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Addis Abeba</exemplarCity>
 			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity draft="contributed">Helsinki</exemplarCity>
+			</zone>
 			<zone type="Pacific/Ponape">
 				<exemplarCity>Pohnpei</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="contributed">Kosrae</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Faeröer</exemplarCity>
@@ -1957,7 +2482,28 @@
 				<exemplarCity>Parijs</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
+				<long>
+					<daylight draft="contributed">Britse zomertijd</daylight>
+				</long>
 				<exemplarCity>Londen</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity draft="contributed">Grenada</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity draft="contributed">Guernsey</exemplarCity>
+			</zone>
+			<zone type="America/Thule">
+				<exemplarCity draft="contributed">Thule</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="contributed">Godthab</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="contributed">Scoresbysund</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="contributed">Danmarkshavn</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Athene</exemplarCity>
@@ -1965,20 +2511,41 @@
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>Zuid-Georgia</exemplarCity>
 			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity draft="contributed">Guam</exemplarCity>
+			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Hongkong</exemplarCity>
 			</zone>
 			<zone type="Europe/Budapest">
 				<exemplarCity>Boedapest</exemplarCity>
 			</zone>
+			<zone type="Asia/Jakarta">
+				<exemplarCity draft="contributed">Jakarta</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight draft="contributed">Ierse zomertijd</daylight>
+				</long>
+				<exemplarCity draft="contributed">Dublin</exemplarCity>
+			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jeruzalem</exemplarCity>
+			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity draft="contributed">Chagosarchipel</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity draft="contributed">Bagdad</exemplarCity>
 			</zone>
 			<zone type="Asia/Tehran">
 				<exemplarCity>Teheran</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity draft="contributed">Reykjavik</exemplarCity>
+			</zone>
+			<zone type="Europe/Rome">
+				<exemplarCity draft="contributed">Rome</exemplarCity>
 			</zone>
 			<zone type="Asia/Tokyo">
 				<exemplarCity>Tokio</exemplarCity>
@@ -1991,6 +2558,9 @@
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>St. Kitts</exemplarCity>
+			</zone>
+			<zone type="Asia/Seoul">
+				<exemplarCity draft="contributed">Seoul</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuwait">
 				<exemplarCity>Koeweit</exemplarCity>
@@ -2007,8 +2577,14 @@
 			<zone type="America/St_Lucia">
 				<exemplarCity>St. Lucia</exemplarCity>
 			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity draft="contributed">Vilnius</exemplarCity>
+			</zone>
 			<zone type="Europe/Luxembourg">
 				<exemplarCity>Luxemburg</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity draft="contributed">Riga</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulaanbaator</exemplarCity>
@@ -2031,8 +2607,20 @@
 			<zone type="Pacific/Noumea">
 				<exemplarCity>Nouméa</exemplarCity>
 			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity draft="contributed">Amsterdam</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity draft="contributed">Oslo</exemplarCity>
+			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity>Kathmandu</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity draft="contributed">Niue</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="contributed">Tahiti</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Marquesaseilanden</exemplarCity>
@@ -2045,6 +2633,12 @@
 			</zone>
 			<zone type="Europe/Warsaw">
 				<exemplarCity>Warschau</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity draft="contributed">Miquelon</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pitcairn">
+				<exemplarCity draft="contributed">Pitcairn</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azoren</exemplarCity>
@@ -2097,8 +2691,17 @@
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Khartoem</exemplarCity>
 			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity draft="contributed">Stockholm</exemplarCity>
+			</zone>
 			<zone type="Atlantic/St_Helena">
 				<exemplarCity>Sint-Helena</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity draft="contributed">San Marino</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity draft="contributed">Paramaribo</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>Sao Tomé</exemplarCity>
@@ -2106,29 +2709,137 @@
 			<zone type="America/El_Salvador">
 				<exemplarCity>Salvador</exemplarCity>
 			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity draft="contributed">Damascus</exemplarCity>
+			</zone>
 			<zone type="America/Grand_Turk">
 				<exemplarCity>Grand Turk</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity draft="contributed">Kerguelen</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
 				<exemplarCity>Lomé</exemplarCity>
 			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity draft="contributed">Bangkok</exemplarCity>
+			</zone>
 			<zone type="Asia/Dushanbe">
 				<exemplarCity>Dusjanbe</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity draft="contributed">Fakaofo</exemplarCity>
 			</zone>
 			<zone type="Asia/Ashgabat">
 				<exemplarCity>Asjchabad</exemplarCity>
 			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity draft="contributed">Tongatapu</exemplarCity>
+			</zone>
 			<zone type="Europe/Istanbul">
 				<exemplarCity>Istanboel</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity draft="contributed">Funafuti</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Oezjhorod</exemplarCity>
 			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="contributed">Kiev</exemplarCity>
+			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporizja</exemplarCity>
 			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="contributed">Midway</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="contributed">Johnston</exemplarCity>
+			</zone>
 			<zone type="Pacific/Wake">
 				<exemplarCity>Wake</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity draft="contributed">Adak</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity draft="contributed">Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="contributed">Honolulu</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="contributed">Anchorage</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity draft="contributed">Yakutat</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity draft="contributed">Juneau</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="contributed">Los Angeles</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity draft="contributed">Boise</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity draft="contributed">Phoenix</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity draft="contributed">Shiprock</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="contributed">Denver</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/New_Salem">
+				<exemplarCity draft="contributed">New Salem, North Dakota</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Center">
+				<exemplarCity draft="contributed">Center, North Dakota</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="contributed">Chicago</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity draft="contributed">Menominee</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity draft="contributed">Vincennes, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity draft="contributed">Petersburg, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity draft="contributed">Tell City, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity draft="contributed">Knox, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity draft="contributed">Winamac, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity draft="contributed">Marengo, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity draft="contributed">Indianapolis</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="contributed">Louisville</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity draft="contributed">Vevay, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity draft="contributed">Monticello, Kentucky</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="contributed">Detroit</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity draft="contributed">New York</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Tasjkent</exemplarCity>
@@ -2144,6 +2855,15 @@
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity draft="contributed">Ho Chi Minhstad</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity draft="contributed">Wallis</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity draft="contributed">Apia</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity draft="contributed">Johannesburg</exemplarCity>
 			</zone>
 			<metazone type="Acre">
 				<long>
@@ -2416,9 +3136,9 @@
 			</metazone>
 			<metazone type="Chatham">
 				<long>
-					<generic draft="contributed">Chatham-tijd</generic>
-					<standard draft="contributed">Chatham-standaardtijd</standard>
-					<daylight draft="contributed">Chatham-zomertijd</daylight>
+					<generic draft="contributed">Chatham tijd</generic>
+					<standard draft="contributed">Chatham standaardtijd</standard>
+					<daylight draft="contributed">Chatham zomertijd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
@@ -2438,7 +3158,7 @@
 			<metazone type="Choibalsan">
 				<long>
 					<generic draft="contributed">Choibalsan-tijd</generic>
-					<standard draft="contributed">Choibalsan-standaardtijd</standard>
+					<standard draft="contributed">Tsjojbalsan standaardtijd</standard>
 					<daylight draft="contributed">Choibalsan-zomertijd</daylight>
 				</long>
 			</metazone>
@@ -2480,12 +3200,12 @@
 			</metazone>
 			<metazone type="Davis">
 				<long>
-					<standard draft="contributed">Davis-tijd</standard>
+					<standard draft="contributed">Davis tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<standard draft="contributed">Dumont-d'Urville-tijd</standard>
+					<standard draft="contributed">Dumont-d'Urville tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Dushanbe">
@@ -2606,6 +3326,11 @@
 					<standard draft="contributed">Gilberteilandse tijd</standard>
 				</long>
 			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Greenwich Mean Time</standard>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Central">
 				<long>
 					<generic draft="contributed">Centraal-Groenlandse tijd</generic>
@@ -2634,7 +3359,7 @@
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<standard draft="contributed">Golf-standaardtijd</standard>
+					<standard draft="contributed">Golf standaardtijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Guyana">
@@ -2651,15 +3376,15 @@
 			</metazone>
 			<metazone type="Hong_Kong">
 				<long>
-					<generic draft="contributed">Hongkong-tijd</generic>
-					<standard draft="contributed">Hongkong-standaardtijd</standard>
-					<daylight draft="contributed">Hongkong-zomertijd</daylight>
+					<generic draft="contributed">Hongkongse tijd</generic>
+					<standard draft="contributed">Hongkongse standaardtijd</standard>
+					<daylight draft="contributed">Hongkongse zomertijd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic draft="contributed">Hovd-tijd</generic>
-					<standard draft="contributed">Hovd-standaardtijd</standard>
+					<standard draft="contributed">Hovd standaardtijd</standard>
 					<daylight draft="contributed">Hovd-zomertijd</daylight>
 				</long>
 			</metazone>
@@ -2822,7 +3547,7 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<standard draft="contributed">Macquarie-tijd</standard>
+					<standard draft="contributed">Macquarie-eilandse tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -2866,13 +3591,13 @@
 			</metazone>
 			<metazone type="Mawson">
 				<long>
-					<standard draft="contributed">Mawson-tijd</standard>
+					<standard draft="contributed">Mawson tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic draft="contributed">Ulaanbaatar-tijd</generic>
-					<standard draft="contributed">Ulaanbaatar-standaardtijd</standard>
+					<generic draft="contributed">Ulaanbaatar tijd</generic>
+					<standard draft="contributed">Ulaanbaatar standaardtijd</standard>
 					<daylight draft="contributed">Ulaanbaatar-zomertijd</daylight>
 				</long>
 			</metazone>
@@ -2969,7 +3694,7 @@
 			</metazone>
 			<metazone type="Papua_New_Guinea">
 				<long>
-					<standard draft="contributed">Papoea-Nieuw-Guinea-tijd</standard>
+					<standard draft="contributed">Papoea-Nieuw-Guineese tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Paraguay">
@@ -3007,12 +3732,12 @@
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
-					<standard draft="contributed">Pitcairnse tijd</standard>
+					<standard draft="contributed">Pitcairneilandse tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Ponape">
 				<long>
-					<standard draft="contributed">Pohnpeise tijd</standard>
+					<standard draft="contributed">Pohnpei tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Qyzylorda">
@@ -3029,7 +3754,7 @@
 			</metazone>
 			<metazone type="Rothera">
 				<long>
-					<standard draft="contributed">Rothera-tijd</standard>
+					<standard draft="contributed">Rothera tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
@@ -3077,7 +3802,7 @@
 			</metazone>
 			<metazone type="Solomon">
 				<long>
-					<standard draft="contributed">Solomoneilandse tijd</standard>
+					<standard draft="contributed">Salomonseilandse tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="South_Georgia">
@@ -3099,7 +3824,7 @@
 			</metazone>
 			<metazone type="Syowa">
 				<long>
-					<standard draft="contributed">Syowa-tijd</standard>
+					<standard draft="contributed">Syowa tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Tahiti">
@@ -3135,7 +3860,7 @@
 			</metazone>
 			<metazone type="Tokelau">
 				<long>
-					<standard draft="contributed">Tokelause tijd</standard>
+					<standard draft="contributed">Tokelau-eilandse tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Tonga">
@@ -3223,7 +3948,7 @@
 			</metazone>
 			<metazone type="Vostok">
 				<long>
-					<standard draft="contributed">Vostok-tijd</standard>
+					<standard draft="contributed">Vostok tijd</standard>
 				</long>
 			</metazone>
 			<metazone type="Wake">
@@ -3282,49 +4007,77 @@
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="contributed">#,##0.###</pattern>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="contributed">0.0 duizend</pattern>
+					<pattern type="1000" count="other" draft="contributed">0.0 duizend</pattern>
+					<pattern type="10000" count="one" draft="contributed">00 duizend</pattern>
+					<pattern type="10000" count="other" draft="contributed">00 duizend</pattern>
+					<pattern type="100000" count="one" draft="contributed">000 duizend</pattern>
+					<pattern type="100000" count="other" draft="contributed">000 duizend</pattern>
+					<pattern type="1000000" count="one" draft="contributed">0.0 miljoen</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0 miljoen</pattern>
+					<pattern type="10000000" count="one" draft="contributed">00 miljoen</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00 miljoen</pattern>
+					<pattern type="100000000" count="one" draft="contributed">000 miljoen</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000 miljoen</pattern>
+					<pattern type="1000000000" count="one" draft="contributed">0.0 miljard</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0 miljard</pattern>
+					<pattern type="10000000000" count="one" draft="contributed">00 miljard</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00 miljard</pattern>
+					<pattern type="100000000000" count="one" draft="contributed">000 miljard</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000 miljard</pattern>
+					<pattern type="1000000000000" count="one" draft="contributed">0.0 biljoen</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0 biljoen</pattern>
+					<pattern type="10000000000000" count="one" draft="contributed">00 biljoen</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00 biljoen</pattern>
+					<pattern type="100000000000000" count="one" draft="contributed">000 biljoen</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000 biljoen</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0000</pattern>
-					<pattern type="1000" count="other" draft="contributed">0000</pattern>
-					<pattern type="10000" count="one" draft="contributed">00000</pattern>
-					<pattern type="10000" count="other" draft="contributed">00000</pattern>
-					<pattern type="100000" count="one" draft="contributed">000000</pattern>
-					<pattern type="100000" count="other" draft="contributed">000000</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0 mln</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0 mln</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00 mln</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 mln</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000 mln</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 mln</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0.0 mld</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0 mld</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00 mld</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 mld</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000 mld</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 mld</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0 bilj</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0 bilj</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00 bilj</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 bilj</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000 bilj</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 bilj</pattern>
+					<pattern type="1000" count="one" draft="contributed">0.0K</pattern>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="one" draft="contributed">00K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="one" draft="contributed">000K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="one" draft="contributed">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0 mln'.'</pattern>
+					<pattern type="10000000" count="one" draft="contributed">00 mln'.'</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00 mln'.'</pattern>
+					<pattern type="100000000" count="one" draft="contributed">000 mln'.'</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000 mln'.'</pattern>
+					<pattern type="1000000000" count="one" draft="contributed">0.0 mld'.'</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0 mld'.'</pattern>
+					<pattern type="10000000000" count="one" draft="contributed">00 mld'.'</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00 mld'.'</pattern>
+					<pattern type="100000000000" count="one" draft="contributed">000 mld'.'</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000 mld'.'</pattern>
+					<pattern type="1000000000000" count="one" draft="contributed">0.0 bln'.'</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0 bln'.'</pattern>
+					<pattern type="10000000000000" count="one" draft="contributed">00 bln'.'</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00 bln'.'</pattern>
+					<pattern type="100000000000000" count="one" draft="contributed">000 bln'.'</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000 bln'.'</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="contributed">#E0</pattern>
+					<pattern>#E0</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="contributed">#,##0%</pattern>
+					<pattern>#,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -3342,11 +4095,13 @@
 				<displayName>Andorrese peseta</displayName>
 				<displayName count="one">Andorrese peseta</displayName>
 				<displayName count="other">Andorrese peseta</displayName>
+				<symbol draft="unconfirmed">ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>Verenigde Arabische Emiraten-dirham</displayName>
 				<displayName count="one">VAE-dirham</displayName>
 				<displayName count="other">VAE-dirham</displayName>
+				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afghani (1927-2002)</displayName>
@@ -3357,20 +4112,31 @@
 				<displayName>Afghaanse afghani</displayName>
 				<displayName count="one">Afghaanse afghani</displayName>
 				<displayName count="other">Afghaanse afghani</displayName>
+				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albanese lek</displayName>
 				<displayName count="one">Albanese lek</displayName>
 				<displayName count="other">Albanese lek</displayName>
+				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Armeense dram</displayName>
+				<displayName count="one">Armeense dram</displayName>
+				<displayName count="other">Armeense dram</displayName>
+				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Nederlands-Antilliaanse gulden</displayName>
+				<displayName count="one">Nederlands-Antilliaanse gulden</displayName>
+				<displayName count="other">Nederlands-Antilliaanse gulden</displayName>
+				<symbol draft="contributed">ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Angolese kwanza</displayName>
+				<displayName count="one">Angolese kwanza</displayName>
+				<displayName count="other">Angolese kwanza</displayName>
+				<symbol draft="contributed">AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angolese kwanza (1977-1990)</displayName>
@@ -3389,32 +4155,46 @@
 			</currency>
 			<currency type="ARS">
 				<displayName>Argentijnse peso</displayName>
+				<displayName count="one">Argentijnse peso</displayName>
+				<displayName count="other">Argentijnse peso</displayName>
+				<symbol draft="contributed">ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Oostenrijkse schilling</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>Australische dollar</displayName>
+				<displayName count="one">Australische dollar</displayName>
+				<displayName count="other">Australische dollar</displayName>
+				<symbol draft="contributed">AU $</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Arubaanse florin</displayName>
 				<displayName count="one">Arubaanse florin</displayName>
 				<displayName count="other">Arubaanse florin</displayName>
+				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName draft="contributed">Azerbeidzjaanse manat (1993-2006)</displayName>
 			</currency>
 			<currency type="AZN">
 				<displayName draft="contributed">Azerbeidzjaanse manat</displayName>
+				<displayName count="one">Azerbeidzjaanse manat</displayName>
+				<displayName count="other">Azerbeidzjaanse manat</displayName>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosnische dinar</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>Bosnische convertibele mark</displayName>
+				<displayName count="one">Bosnische convertibele mark</displayName>
+				<displayName count="other">Bosnische convertibele mark</displayName>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadaanse dollar</displayName>
+				<displayName count="one">Barbadaanse dollar</displayName>
+				<displayName count="other">Barbadaanse dollar</displayName>
+				<symbol draft="contributed">BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Bengalese taka</displayName>
@@ -3435,21 +4215,32 @@
 				<displayName>Bulgaarse lev</displayName>
 				<displayName count="one">Bulgaarse lev</displayName>
 				<displayName count="other">Bulgaarse leva</displayName>
+				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahreinse dinar</displayName>
+				<displayName count="one">Bahreinse dinar</displayName>
+				<displayName count="other">Bahreinse dinar</displayName>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundese franc</displayName>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermuda-dollar</displayName>
+				<displayName count="one">Bermuda-dollar</displayName>
+				<displayName count="other">Bermuda-dollar</displayName>
+				<symbol draft="contributed">BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Bruneise dollar</displayName>
+				<displayName count="one">Bruneise dollar</displayName>
+				<displayName count="other">Bruneise dollar</displayName>
 			</currency>
 			<currency type="BOB">
 				<displayName>Boliviano</displayName>
+				<displayName count="one">Boliviano</displayName>
+				<displayName count="other">Boliviano</displayName>
+				<symbol draft="contributed">BOB</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Boliviaanse peso</displayName>
@@ -3468,6 +4259,9 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Braziliaanse real</displayName>
+				<displayName count="one">Braziliaanse real</displayName>
+				<displayName count="other">Braziliaanse real</displayName>
+				<symbol draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Braziliaanse cruzado novo</displayName>
@@ -3477,15 +4271,21 @@
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahamaanse dollar</displayName>
+				<displayName count="one">Bahamaanse dollar</displayName>
+				<displayName count="other">Bahamaanse dollar</displayName>
 			</currency>
 			<currency type="BTN">
 				<displayName>Bhutaanse ngultrum</displayName>
+				<displayName count="one">Bhutaanse ngultrum</displayName>
+				<displayName count="other">Bhutaanse ngultrum</displayName>
 			</currency>
 			<currency type="BUK">
 				<displayName>Birmese kyat</displayName>
 			</currency>
 			<currency type="BWP">
 				<displayName>Botswaanse pula</displayName>
+				<displayName count="one">Botswaanse pula</displayName>
+				<displayName count="other">Botswaanse pula</displayName>
 			</currency>
 			<currency type="BYB">
 				<displayName>Wit-Russische nieuwe roebel (1994-1999)</displayName>
@@ -3498,6 +4298,7 @@
 			</currency>
 			<currency type="CAD">
 				<displayName>Canadese dollar</displayName>
+				<symbol draft="contributed">C$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Congolese franc</displayName>
@@ -3523,6 +4324,7 @@
 			</currency>
 			<currency type="CNY">
 				<displayName>Chinese yuan renminbi</displayName>
+				<symbol draft="contributed">CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Colombiaanse peso</displayName>
@@ -3532,6 +4334,8 @@
 			</currency>
 			<currency type="CRC">
 				<displayName>Costaricaanse colón</displayName>
+				<displayName count="one">Costaricaanse colón</displayName>
+				<displayName count="other">Costaricaanse colón</displayName>
 			</currency>
 			<currency type="CSD">
 				<displayName>Oude Servische dinar</displayName>
@@ -3549,6 +4353,9 @@
 			</currency>
 			<currency type="CVE">
 				<displayName>Kaapverdische escudo</displayName>
+				<displayName count="one">Kaapverdische escudo</displayName>
+				<displayName count="other">Kaapverdische escudo</displayName>
+				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Cyprisch pond</displayName>
@@ -3567,7 +4374,9 @@
 			</currency>
 			<currency type="DKK">
 				<displayName>Deense kroon</displayName>
+				<displayName count="one">Deense kroon</displayName>
 				<displayName count="other">Deense kronen</displayName>
+				<symbol draft="contributed">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominicaanse peso</displayName>
@@ -3606,6 +4415,7 @@
 				<displayName>Euro</displayName>
 				<displayName count="one" draft="contributed">euro</displayName>
 				<displayName count="other" draft="contributed">euro</displayName>
+				<symbol draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finse markka</displayName>
@@ -3614,6 +4424,7 @@
 				<displayName>Fiji-dollar</displayName>
 				<displayName count="one">Fiji-dollar</displayName>
 				<displayName count="other">Fiji-dollar</displayName>
+				<symbol draft="contributed">FJ$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Falklandeilands pond</displayName>
@@ -3623,6 +4434,8 @@
 			</currency>
 			<currency type="GBP">
 				<displayName>Brits pond sterling</displayName>
+				<displayName count="one">Brits pond sterling</displayName>
+				<displayName count="other">Brits pond sterling</displayName>
 			</currency>
 			<currency type="GEK">
 				<displayName>Georgische kupon larit</displayName>
@@ -3635,6 +4448,9 @@
 			</currency>
 			<currency type="GHS">
 				<displayName draft="contributed">Ghanese cedi</displayName>
+				<displayName count="one">Ghanese cedi</displayName>
+				<displayName count="other">Ghanese cedi</displayName>
+				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltarees pond</displayName>
@@ -3668,6 +4484,7 @@
 			</currency>
 			<currency type="HKD">
 				<displayName>Hongkongse dollar</displayName>
+				<symbol draft="contributed">HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Hondurese lempira</displayName>
@@ -3700,6 +4517,7 @@
 			</currency>
 			<currency type="INR">
 				<displayName>Indiase rupee</displayName>
+				<symbol draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Iraakse dinar</displayName>
@@ -3709,6 +4527,7 @@
 			</currency>
 			<currency type="ISK">
 				<displayName>IJslandse kroon</displayName>
+				<displayName count="one">IJslandse kroon</displayName>
 				<displayName count="other">IJslandse kronen</displayName>
 			</currency>
 			<currency type="ITL">
@@ -3722,9 +4541,12 @@
 			</currency>
 			<currency type="JPY">
 				<displayName>Japanse yen</displayName>
+				<symbol draft="contributed">JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Keniaanse shilling</displayName>
+				<displayName count="one">Keniaanse shilling</displayName>
+				<displayName count="other">Keniaanse shilling</displayName>
 			</currency>
 			<currency type="KGS">
 				<displayName>Kirgizische som</displayName>
@@ -3740,6 +4562,7 @@
 			</currency>
 			<currency type="KRW">
 				<displayName>Zuid-Koreaanse won</displayName>
+				<symbol draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Koeweitse dinar</displayName>
@@ -3784,6 +4607,8 @@
 			</currency>
 			<currency type="LVL">
 				<displayName>Letse lats</displayName>
+				<displayName count="one">Letse lats</displayName>
+				<displayName count="other">Letse lats</displayName>
 			</currency>
 			<currency type="LVR">
 				<displayName>Letse roebel</displayName>
@@ -3834,15 +4659,19 @@
 				<displayName>Mauritaanse roepie</displayName>
 				<displayName count="one">Mauritaanse roepie</displayName>
 				<displayName count="other">Mauritaanse roepie</displayName>
+				<symbol draft="contributed">MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Maldivische rufiyaa</displayName>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malawische kwacha</displayName>
+				<displayName count="one">Malawische kwacha</displayName>
+				<displayName count="other">Malawische kwacha</displayName>
 			</currency>
 			<currency type="MXN">
 				<displayName>Mexicaanse peso</displayName>
+				<symbol draft="contributed">MX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>Mexicaanse zilveren peso (1861-1992)</displayName>
@@ -3864,6 +4693,8 @@
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibische dollar</displayName>
+				<displayName count="one">Namibische dollar</displayName>
+				<displayName count="other">Namibische dollar</displayName>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigeriaanse naira</displayName>
@@ -3879,15 +4710,20 @@
 			</currency>
 			<currency type="NOK">
 				<displayName>Noorse kroon</displayName>
+				<displayName count="one">Noorse kroon</displayName>
 				<displayName count="other">Noorse kronen</displayName>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepalese roepie</displayName>
 				<displayName count="one">Nepalese roepie</displayName>
 				<displayName count="other">Nepalese roepie</displayName>
+				<symbol draft="contributed">NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Nieuw-Zeelandse dollar</displayName>
+				<displayName count="one">Nieuw-Zeelandse dollar</displayName>
+				<displayName count="other">Nieuw-Zeelandse dollar</displayName>
+				<symbol draft="contributed">NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Omaanse rial</displayName>
@@ -3914,6 +4750,7 @@
 				<displayName>Pakistaanse roepie</displayName>
 				<displayName count="one">Pakistaanse roepie</displayName>
 				<displayName count="other">Pakistaanse roepie</displayName>
+				<symbol draft="contributed">PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Poolse zloty</displayName>
@@ -3926,6 +4763,7 @@
 			</currency>
 			<currency type="PYG">
 				<displayName>Paraguayaanse guarani</displayName>
+				<symbol draft="contributed">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Qatarese rial</displayName>
@@ -3958,6 +4796,7 @@
 				<displayName>Salomon-dollar</displayName>
 				<displayName count="one">Salomon-dollar</displayName>
 				<displayName count="other">Salomon-dollar</displayName>
+				<symbol draft="contributed">SI$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seychelse roepie</displayName>
@@ -3971,6 +4810,7 @@
 				<displayName>Soedanees pond</displayName>
 				<displayName count="one">Soedanees pond</displayName>
 				<displayName count="other">Soedanees pond</displayName>
+				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Soedanees pond (1957-1998)</displayName>
@@ -3979,6 +4819,7 @@
 			</currency>
 			<currency type="SEK">
 				<displayName>Zweedse kroon</displayName>
+				<displayName count="one">Zweedse kroon</displayName>
 				<displayName count="other">Zweedse kronen</displayName>
 			</currency>
 			<currency type="SGD">
@@ -4000,12 +4841,20 @@
 			</currency>
 			<currency type="SOS">
 				<displayName>Somalische shilling</displayName>
+				<displayName count="one">Somalische shilling</displayName>
+				<displayName count="other">Somalische shilling</displayName>
 			</currency>
 			<currency type="SRD">
 				<displayName>Surinaamse dollar</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>Surinaamse gulden</displayName>
+			</currency>
+			<currency type="SSP">
+				<displayName>Zuid-Soedanees pond</displayName>
+				<displayName count="one" draft="contributed">Zuid-Soedanees pond</displayName>
+				<displayName count="other" draft="contributed">Zuid-Soedanees pond</displayName>
+				<symbol draft="contributed">SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Santomese dobra</displayName>
@@ -4024,6 +4873,9 @@
 			</currency>
 			<currency type="THB">
 				<displayName>Thaise baht</displayName>
+				<displayName count="one">Thaise baht</displayName>
+				<displayName count="other">Thaise baht</displayName>
+				<symbol draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Tadzjikistaanse roebel</displayName>
@@ -4057,15 +4909,19 @@
 				<displayName>Turkse lira</displayName>
 				<displayName count="one" draft="contributed">Turkse lira</displayName>
 				<displayName count="other" draft="contributed">Turkse lira</displayName>
+				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad en Tobago-dollar</displayName>
 			</currency>
 			<currency type="TWD">
 				<displayName>Nieuwe Taiwanese dollar</displayName>
+				<symbol draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzaniaanse shilling</displayName>
+				<displayName count="one">Tanzaniaanse shilling</displayName>
+				<displayName count="other">Tanzaniaanse shilling</displayName>
 			</currency>
 			<currency type="UAH">
 				<displayName>Oekraïense hryvnia</displayName>
@@ -4078,9 +4934,14 @@
 			</currency>
 			<currency type="UGX">
 				<displayName>Oegandese shilling</displayName>
+				<displayName count="one">Oegandese shilling</displayName>
+				<displayName count="other">Oegandese shilling</displayName>
 			</currency>
 			<currency type="USD">
 				<displayName>Amerikaanse dollar</displayName>
+				<displayName count="one">Amerikaanse dollar</displayName>
+				<displayName count="other">Amerikaanse dollar</displayName>
+				<symbol draft="contributed">US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>Amerikaanse dollar (volgende dag)</displayName>
@@ -4108,6 +4969,9 @@
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnamese dong</displayName>
+				<displayName count="one">Vietnamese dong</displayName>
+				<displayName count="other">Vietnamese dong</displayName>
+				<symbol draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatuaanse vatu</displayName>
@@ -4120,13 +4984,14 @@
 			</currency>
 			<currency type="XAG">
 				<displayName>Zilver</displayName>
-				<displayName count="one" draft="contributed">troy ounce zilver</displayName>
-				<displayName count="other" draft="contributed">troy ounces zilver</displayName>
+				<displayName count="one" draft="contributed">Troy ounce zilver</displayName>
+				<displayName count="other" draft="contributed">Troy ounces zilver</displayName>
+				<symbol draft="unconfirmed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Goud</displayName>
-				<displayName count="one" draft="contributed">troy ounce goud</displayName>
-				<displayName count="other" draft="contributed">troy ounces goud</displayName>
+				<displayName count="one" draft="contributed">Troy ounce goud</displayName>
+				<displayName count="other" draft="contributed">Troy ounces goud</displayName>
 			</currency>
 			<currency type="XBA">
 				<displayName>Europese samengestelde eenheid</displayName>
@@ -4160,16 +5025,16 @@
 			</currency>
 			<currency type="XPD">
 				<displayName>Palladium</displayName>
-				<displayName count="one" draft="contributed">troy ounce palladium</displayName>
-				<displayName count="other" draft="contributed">troy ounces palladium</displayName>
+				<displayName count="one" draft="contributed">Troy ounce palladium</displayName>
+				<displayName count="other" draft="contributed">Troy ounces palladium</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP-franc</displayName>
 			</currency>
 			<currency type="XPT">
 				<displayName>Platina</displayName>
-				<displayName count="one" draft="contributed">troy ounce platina</displayName>
-				<displayName count="other" draft="contributed">troy ounces platina</displayName>
+				<displayName count="one" draft="contributed">Troy ounce platina</displayName>
+				<displayName count="other" draft="contributed">Troy ounces platina</displayName>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET-fondsen</displayName>
@@ -4179,8 +5044,9 @@
 			</currency>
 			<currency type="XXX">
 				<displayName>Onbekende munteenheid</displayName>
-				<displayName count="one" draft="contributed">onbekende/ongeldige munteenheid</displayName>
+				<displayName count="one" draft="contributed">onbekende munteenheid</displayName>
 				<displayName count="other">onbekende munteenheid</displayName>
+				<symbol draft="unconfirmed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>Jemenitische dinar</displayName>
@@ -4205,6 +5071,8 @@
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambiaanse kwacha</displayName>
+				<displayName count="one">Zambiaanse kwacha</displayName>
+				<displayName count="other">Zambiaanse kwacha</displayName>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zaïrese nieuwe zaïre</displayName>
@@ -4232,13 +5100,13 @@
 		<unit type="day-future">
 			<unitPattern count="0" draft="contributed">Over 0 dagen</unitPattern>
 			<unitPattern count="1" draft="contributed">Over 1 dag</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">in {0} etmalen</unitPattern>
+			<unitPattern count="one" draft="contributed">Over {0} dag</unitPattern>
 			<unitPattern count="other">Over {0} dagen</unitPattern>
 		</unit>
 		<unit type="day-past">
 			<unitPattern count="0" draft="contributed">0 dagen geleden</unitPattern>
 			<unitPattern count="1" draft="contributed">1 dag geleden</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">voor {0} etmalen geleden</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} dag geleden</unitPattern>
 			<unitPattern count="other">{0} dagen geleden</unitPattern>
 		</unit>
 		<unit type="hour">
@@ -4250,13 +5118,13 @@
 		<unit type="hour-future">
 			<unitPattern count="0" draft="contributed">Over 0 uur</unitPattern>
 			<unitPattern count="1" draft="contributed">Over 1 uur</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">in {0} uur</unitPattern>
+			<unitPattern count="one" draft="contributed">Over {0} uur</unitPattern>
 			<unitPattern count="other">Over {0} uur</unitPattern>
 		</unit>
 		<unit type="hour-past">
 			<unitPattern count="0" draft="contributed">0 uur geleden</unitPattern>
 			<unitPattern count="1" draft="contributed">1 uur geleden</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">voor {0} uur geleden</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} uur geleden</unitPattern>
 			<unitPattern count="other">{0} uur geleden</unitPattern>
 		</unit>
 		<unit type="minute">
@@ -4268,13 +5136,13 @@
 		<unit type="minute-future">
 			<unitPattern count="0" draft="contributed">Over 0 minuten</unitPattern>
 			<unitPattern count="1" draft="contributed">Over 1 minuut</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">in {0} minuut</unitPattern>
+			<unitPattern count="one" draft="contributed">Over {0} minuut</unitPattern>
 			<unitPattern count="other">Over {0} minuten</unitPattern>
 		</unit>
 		<unit type="minute-past">
 			<unitPattern count="0" draft="contributed">0 minuten geleden</unitPattern>
 			<unitPattern count="1" draft="contributed">1 minuut geleden</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">voor {0} minuut geleden</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} minuut geleden</unitPattern>
 			<unitPattern count="other">{0} minuten geleden</unitPattern>
 		</unit>
 		<unit type="month">
@@ -4286,13 +5154,13 @@
 		<unit type="month-future">
 			<unitPattern count="0" draft="contributed">Over 0 maanden</unitPattern>
 			<unitPattern count="1" draft="contributed">Over 1 maand</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">in {0} maand</unitPattern>
+			<unitPattern count="one" draft="contributed">Over {0} maand</unitPattern>
 			<unitPattern count="other">Over {0} maanden</unitPattern>
 		</unit>
 		<unit type="month-past">
 			<unitPattern count="0" draft="contributed">0 maanden geleden</unitPattern>
 			<unitPattern count="1" draft="contributed">1 maand geleden</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">voor {0} maand geleden</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} maand geleden</unitPattern>
 			<unitPattern count="other">{0} maanden geleden</unitPattern>
 		</unit>
 		<unit type="second">
@@ -4304,13 +5172,13 @@
 		<unit type="second-future">
 			<unitPattern count="0" draft="contributed">Over 0 seconden</unitPattern>
 			<unitPattern count="1" draft="contributed">Over 1 seconde</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">in {0} seconde</unitPattern>
+			<unitPattern count="one" draft="contributed">Over {0} seconde</unitPattern>
 			<unitPattern count="other">Over {0} seconden</unitPattern>
 		</unit>
 		<unit type="second-past">
 			<unitPattern count="0" draft="contributed">0 seconden geleden</unitPattern>
 			<unitPattern count="1" draft="contributed">1 seconde geleden</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">voor {0} seconde geleden</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} seconde geleden</unitPattern>
 			<unitPattern count="other">{0} seconden geleden</unitPattern>
 		</unit>
 		<unit type="week">
@@ -4322,13 +5190,13 @@
 		<unit type="week-future">
 			<unitPattern count="0" draft="contributed">Over 0 weken</unitPattern>
 			<unitPattern count="1" draft="contributed">Over 1 week</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">in {0} week</unitPattern>
+			<unitPattern count="one" draft="contributed">Over {0} week</unitPattern>
 			<unitPattern count="other">Over {0} weken</unitPattern>
 		</unit>
 		<unit type="week-past">
 			<unitPattern count="0" draft="contributed">0 weken geleden</unitPattern>
 			<unitPattern count="1" draft="contributed">1 week geleden</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">voor {0} week geleden</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} week geleden</unitPattern>
 			<unitPattern count="other">{0} weken geleden</unitPattern>
 		</unit>
 		<unit type="year">
@@ -4340,13 +5208,13 @@
 		<unit type="year-future">
 			<unitPattern count="0" draft="contributed">Over 0 jaar</unitPattern>
 			<unitPattern count="1" draft="contributed">Over 1 jaar</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">in {0} jaar</unitPattern>
+			<unitPattern count="one" draft="contributed">Over {0} jaar</unitPattern>
 			<unitPattern count="other">Over {0} jaar</unitPattern>
 		</unit>
 		<unit type="year-past">
 			<unitPattern count="0" draft="contributed">0 jaar geleden</unitPattern>
 			<unitPattern count="1" draft="contributed">1 jaar geleden</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">voor {0} jaar geleden</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} jaar geleden</unitPattern>
 			<unitPattern count="other">{0} jaar geleden</unitPattern>
 		</unit>
 	</units>
@@ -4354,6 +5222,8 @@
 		<listPattern>
 			<listPatternPart type="2">{0} en {1}</listPatternPart>
 			<listPatternPart type="end">{0} en {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

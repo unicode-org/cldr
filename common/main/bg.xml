@@ -96,6 +96,7 @@
 			<language type="chp">чиипувски</language>
 			<language type="chr">чероки</language>
 			<language type="chy">чейенски</language>
+			<language type="ckb" draft="contributed">кюрдски [сорани]</language>
 			<language type="cmc">чамски</language>
 			<language type="co">корсикански</language>
 			<language type="cop">коптски</language>
@@ -297,6 +298,7 @@
 			<language type="mdf">мокша</language>
 			<language type="mdr">мандар</language>
 			<language type="men">менде</language>
+			<language type="mfe" draft="contributed">морисиен</language>
 			<language type="mg">малгашки</language>
 			<language type="mga">средновековен ирландски</language>
 			<language type="mh">маршалезе</language>
@@ -711,6 +713,7 @@
 			<territory type="BM">Бермуда</territory>
 			<territory type="BN">Бруней Дарусалам</territory>
 			<territory type="BO">Боливия</territory>
+			<territory type="BQ" draft="contributed">Карибска Нидерландия</territory>
 			<territory type="BR">Бразилия</territory>
 			<territory type="BS">Бахами</territory>
 			<territory type="BT">Бутан</territory>
@@ -737,6 +740,7 @@
 			<territory type="CR">Коста Рика</territory>
 			<territory type="CU">Куба</territory>
 			<territory type="CV">Кабо Верде</territory>
+			<territory type="CW" draft="contributed">Кюрасао</territory>
 			<territory type="CX">Остров Кристмас</territory>
 			<territory type="CY">Кипър</territory>
 			<territory type="CZ">Чешка република</territory>
@@ -901,9 +905,10 @@
 			<territory type="SN">Сенегал</territory>
 			<territory type="SO">Сомалия</territory>
 			<territory type="SR">Суринам</territory>
-			<territory type="SS" draft="provisional">Южен Судан</territory>
+			<territory type="SS" draft="contributed">Южен Судан</territory>
 			<territory type="ST">Сао Томе и Принципе</territory>
 			<territory type="SV">Ел Салвадор</territory>
+			<territory type="SX" draft="contributed">Синт Мартен</territory>
 			<territory type="SY">Сирийска арабска република</territory>
 			<territory type="SZ">Суазиленд</territory>
 			<territory type="TA">Тристан да Куня</territory>
@@ -981,9 +986,20 @@
 		</variants>
 		<keys>
 			<key type="calendar">Календар</key>
+			<key type="colAlternate" draft="contributed">Пренебрегване на сортирането по символи</key>
+			<key type="colBackwards" draft="contributed">Сортиране по диакритични знаци в обратен ред</key>
+			<key type="colCaseFirst" draft="contributed">Подреждане по горен/долен регистър</key>
+			<key type="colCaseLevel" draft="contributed">Сортиране с различаване на регистъра на буквите</key>
+			<key type="colHiraganaQuaternary" draft="contributed">Сортиране на кана</key>
 			<key type="collation">Сортиране</key>
+			<key type="colNormalization" draft="contributed">Нормализирано сортиране</key>
+			<key type="colNumeric" draft="contributed">Сортиране на цифрите</key>
+			<key type="colStrength" draft="contributed">Сила на сортиране</key>
 			<key type="currency">Валута</key>
 			<key type="numbers" draft="contributed">Цифри</key>
+			<key type="timezone" draft="contributed">Часова зона</key>
+			<key type="va" draft="contributed">Вариант на локала</key>
+			<key type="variableTop" draft="contributed">Сортиране като символи</key>
 			<key type="x" draft="contributed">Собствена употреба</key>
 		</keys>
 		<types>
@@ -1002,6 +1018,7 @@
 			<type type="ethi" key="numbers" draft="contributed">Етиопски цифри</type>
 			<type type="ethiopic" key="calendar" draft="contributed">Етиопски календар</type>
 			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Етиопски календар Амит Алем</type>
+			<type type="finance" key="numbers" draft="contributed">Финансови цифри</type>
 			<type type="fullwide" key="numbers" draft="contributed">Цифри с пълна ширина</type>
 			<type type="gb2312han" key="collation">Опростен китайски (GB2312)</type>
 			<type type="geor" key="numbers" draft="contributed">Грузински цифри</type>
@@ -1017,6 +1034,7 @@
 			<type type="hantfin" key="numbers" draft="contributed">Финансови цифри в традиционен китайски</type>
 			<type type="hebr" key="numbers" draft="contributed">Цифри в иврит</type>
 			<type type="hebrew" key="calendar">Еврейски календар</type>
+			<type type="identical" key="colStrength" draft="contributed">Сортиране на всички</type>
 			<type type="indian" key="calendar">Индийски граждански календар</type>
 			<type type="islamic" key="calendar">Ислямски календар</type>
 			<type type="islamic-civil" key="calendar">Ислямски цивилен календар</type>
@@ -1027,25 +1045,49 @@
 			<type type="knda" key="numbers" draft="contributed">Цифри в каннада</type>
 			<type type="laoo" key="numbers" draft="contributed">Лаоски цифри</type>
 			<type type="latn" key="numbers" draft="contributed">Западни цифри</type>
+			<type type="lower" key="colCaseFirst" draft="contributed">Сортиране първо по долен регистър</type>
 			<type type="mlym" key="numbers" draft="contributed">Цифри в малаялам</type>
 			<type type="mong" key="numbers" draft="contributed">Монголски цифри</type>
 			<type type="mymr" key="numbers" draft="contributed">Мианмарски цифри</type>
+			<type type="native" key="numbers" draft="contributed">Местни цифри</type>
+			<type type="no" key="colBackwards" draft="contributed">Нормално сортиране по диакритични знаци</type>
+			<type type="no" key="colCaseFirst" draft="contributed">Сортиране с нормален ред за регистъра</type>
+			<type type="no" key="colCaseLevel" draft="contributed">Сортиране без различаване на регистъра на буквите</type>
+			<type type="no" key="colHiraganaQuaternary" draft="contributed">Сортиране на кана отделно</type>
+			<type type="no" key="colNormalization" draft="contributed">Сортиране без нормализиране</type>
+			<type type="no" key="colNumeric" draft="contributed">Сортиране на цифрите индивидуално</type>
+			<type type="non-ignorable" key="colAlternate" draft="contributed">Сортиране по символи</type>
 			<type type="orya" key="numbers" draft="contributed">Цифри в ория</type>
 			<type type="persian" key="calendar" draft="contributed">Персийски календар</type>
 			<type type="phonebook" key="collation">Азбучен ред</type>
+			<type type="phonetic" key="collation" draft="contributed">Фонетичен ред на сортиране</type>
 			<type type="pinyin" key="collation">Сортиране Пинин</type>
+			<type type="primary" key="colStrength" draft="contributed">Сортиране само по основни букви</type>
+			<type type="quaternary" key="colStrength" draft="contributed">Сортиране по диакритични знаци/регистър/ширина/кана</type>
 			<type type="reformed" key="collation" draft="contributed">Следреформен ред на сортиране</type>
 			<type type="roc" key="calendar">Календар на Република Китай</type>
 			<type type="roman" key="numbers" draft="contributed">Римски цифри</type>
 			<type type="romanlow" key="numbers" draft="contributed">Римски цифри в долен регистър</type>
 			<type type="search" key="collation" draft="contributed">Търсене с общо предназначение</type>
+			<type type="searchjl" key="collation" draft="contributed">Търсене по първоначални съгласни в хангул</type>
+			<type type="secondary" key="colStrength" draft="contributed">Сортиране по диакритични знаци</type>
+			<type type="shifted" key="colAlternate" draft="contributed">Сортиране с пренебрегване на символи</type>
 			<type type="stroke" key="collation">Сортиране по щрих</type>
 			<type type="taml" key="numbers" draft="contributed">Тамилски цифри</type>
 			<type type="telu" key="numbers" draft="contributed">Цифри в телугу</type>
+			<type type="tertiary" key="colStrength" draft="contributed">Сортиране по диакритични знаци/регистър/ширина</type>
 			<type type="thai" key="numbers" draft="contributed">Тайландски цифри</type>
 			<type type="tibt" key="numbers" draft="contributed">Тибетски цифри</type>
 			<type type="traditional" key="collation">Традиционно</type>
+			<type type="traditional" key="numbers" draft="contributed">Традиционни цифри</type>
 			<type type="unihan" key="collation" draft="contributed">Ред на сортиране по ключове и черти</type>
+			<type type="upper" key="colCaseFirst" draft="contributed">Сортиране първо по горен регистър</type>
+			<type type="vaii" key="numbers" draft="contributed">Цифри във ваи</type>
+			<type type="yes" key="colBackwards" draft="contributed">Обратно сортиране по диакритични знаци</type>
+			<type type="yes" key="colCaseLevel" draft="contributed">Сортиране с различаване на регистъра на буквите</type>
+			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Сортиране на кана по различен начин</type>
+			<type type="yes" key="colNormalization" draft="contributed">Нормализирано сортиране в Уникод</type>
+			<type type="yes" key="colNumeric" draft="contributed">Сортиране на цифрите по числена стойност</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN" draft="contributed">АКГН (BGN)</transformName>
@@ -1064,12 +1106,20 @@
 			<measurementSystemName type="UK" draft="contributed">Имперска</measurementSystemName>
 			<measurementSystemName type="US">Американска</measurementSystemName>
 		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="contributed">{0}</codePattern>
+			<codePattern type="script" draft="contributed">{0}</codePattern>
+			<codePattern type="territory" draft="contributed">{0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ь ю я]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[{а\u0300} ѐ ѝ {о\u0300} {у\u0300} ъ ѣ {ю\u0300} {я\u0300} ѫ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[А Б В Г Д Е Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ю Я]</exemplarCharacters>
+		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
+		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
 		<ellipsis type="medial" draft="contributed">{0}… {1}</ellipsis>
+		<moreInformation draft="contributed">?</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
@@ -1139,6 +1189,15 @@
 							<day type="fri">пт</day>
 							<day type="sat">сб</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">нд</day>
+							<day type="mon" draft="contributed">пн</day>
+							<day type="tue" draft="contributed">вт</day>
+							<day type="wed" draft="contributed">ср</day>
+							<day type="thu" draft="contributed">чт</day>
+							<day type="fri" draft="contributed">пт</day>
+							<day type="sat" draft="contributed">сб</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">неделя</day>
 							<day type="mon">понеделник</day>
@@ -1158,6 +1217,15 @@
 							<day type="thu">ч</day>
 							<day type="fri">п</day>
 							<day type="sat">с</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">нд</day>
+							<day type="mon" draft="contributed">пн</day>
+							<day type="tue" draft="contributed">вт</day>
+							<day type="wed" draft="contributed">ср</day>
+							<day type="thu" draft="contributed">чт</day>
+							<day type="fri" draft="contributed">пт</day>
+							<day type="sat" draft="contributed">сб</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1188,6 +1256,12 @@
 							<quarter type="2" draft="contributed">2 трим.</quarter>
 							<quarter type="3" draft="contributed">3 трим.</quarter>
 							<quarter type="4" draft="contributed">4 трим.</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1</quarter>
+							<quarter type="2" draft="contributed">2</quarter>
+							<quarter type="3" draft="contributed">3</quarter>
+							<quarter type="4" draft="contributed">4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1278,21 +1352,25 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="Ed" draft="contributed">E, d</dateFormatItem>
-						<dateFormatItem id="h" draft="unconfirmed">h a</dateFormatItem>
+						<dateFormatItem id="h" draft="contributed">h</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d.M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E, d.MM</dateFormatItem>
 						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMM, E</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMdd">dd MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y 'г'.</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">M.y 'г'.</dateFormatItem>
 						<dateFormatItem id="yMd">dd.MM.yy</dateFormatItem>
@@ -1315,35 +1393,39 @@
 							<greatestDifference id="d">d-d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="unconfirmed">h a – h a</greatestDifference>
+							<greatestDifference id="a" draft="contributed">H – H</greatestDifference>
 							<greatestDifference id="h">h-h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
+							<greatestDifference id="a" draft="contributed">HH–HH</greatestDifference>
 							<greatestDifference id="H">HH-HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="a" draft="contributed">H:mm – H:mm</greatestDifference>
 							<greatestDifference id="h">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm-h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
+							<greatestDifference id="a" draft="contributed">HH:mm–HH:mm</greatestDifference>
 							<greatestDifference id="H">HH:mm-HH:mm</greatestDifference>
 							<greatestDifference id="m">HH:mm-HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="a" draft="contributed">H:mm – H:mm v</greatestDifference>
 							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a" draft="contributed">HH:mm–HH:mm v</greatestDifference>
 							<greatestDifference id="H">HH:mm-HH:mm v</greatestDifference>
 							<greatestDifference id="m">HH:mm-HH:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="unconfirmed">h a – h a v</greatestDifference>
+							<greatestDifference id="a" draft="contributed">H – H v</greatestDifference>
 							<greatestDifference id="h">h-h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
+							<greatestDifference id="a" draft="contributed">HH–HH v</greatestDifference>
 							<greatestDifference id="H">HH-HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
@@ -1429,11 +1511,13 @@
 					</field>
 					<field type="day">
 						<displayName>Ден</displayName>
+						<relative type="-3" draft="contributed">Преди три дни</relative>
 						<relative type="-2">Онзи ден</relative>
 						<relative type="-1">Вчера</relative>
 						<relative type="0">Днес</relative>
 						<relative type="1">Утре</relative>
 						<relative type="2">Вдругиден</relative>
+						<relative type="3" draft="contributed">След три дни</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Ден от седмицата</displayName>
@@ -1525,11 +1609,95 @@
 			<regionFormat draft="contributed">{0} време</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat draft="contributed">{1} време ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity draft="contributed">Лоуър принсес куортър</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity draft="contributed">Бюла, Северна Дакота</exemplarCity>
 			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity draft="contributed">GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity draft="contributed">GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity draft="contributed">GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity draft="contributed">GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity draft="contributed">GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity draft="contributed">GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity draft="contributed">GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity draft="contributed">GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity draft="contributed">GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity draft="contributed">GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity draft="contributed">GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity draft="contributed">GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity draft="contributed">GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity draft="contributed">GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity draft="contributed">GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity draft="contributed">GMT</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Неизвестен</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity draft="contributed">GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity draft="contributed">GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity draft="contributed">GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity draft="contributed">GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity draft="contributed">GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity draft="contributed">GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity draft="contributed">GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity draft="contributed">GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity draft="contributed">GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity draft="contributed">GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity draft="contributed">GMT-11</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity draft="contributed">Андора</exemplarCity>
@@ -2734,26 +2902,31 @@
 			<zone type="Africa/Harare">
 				<exemplarCity draft="contributed">Хараре</exemplarCity>
 			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard draft="contributed">Афганистанско време</standard>
+				</long>
+			</metazone>
 			<metazone type="Africa_Central">
 				<long>
-					<standard>Централноафриканско време</standard>
+					<standard draft="contributed">Централноафриканско време</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
-					<standard>Източноафриканско време</standard>
+					<standard draft="contributed">Източноафриканско време</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<standard>Южноафриканско време</standard>
+					<standard draft="contributed">Южноафриканско стандартно време</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>Западноафриканско време</generic>
-					<standard>Западноафриканско стандартно време</standard>
-					<daylight>Западноафриканско лятно часово време</daylight>
+					<generic draft="contributed">Западноафриканско време</generic>
+					<standard draft="contributed">Западноафриканско стандартно време</standard>
+					<daylight draft="contributed">Западноафриканско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -2807,16 +2980,16 @@
 			</metazone>
 			<metazone type="Arabian">
 				<long>
-					<generic>Арабско време</generic>
-					<standard>Арабско стандартно време</standard>
-					<daylight>Арабско лятно часово време</daylight>
+					<generic draft="contributed">Арабско време</generic>
+					<standard draft="contributed">Арабско стандартно време</standard>
+					<daylight draft="contributed">Арабско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic>Аржентинско време</generic>
 					<standard>Аржентина – стандартно време</standard>
-					<daylight draft="contributed">Аржентина – лятно часово време</daylight>
+					<daylight>Аржентина – лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
@@ -2824,6 +2997,13 @@
 					<generic>Аржентина – западно време</generic>
 					<standard>Аржентина – западно стандартно време</standard>
 					<daylight>Аржентина – западно лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic draft="contributed">Арменско време</generic>
+					<standard draft="contributed">Арменско стандартно време</standard>
+					<daylight draft="contributed">Арменско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -2861,11 +3041,73 @@
 					<daylight draft="contributed">Австралия – западно лятно часово време</daylight>
 				</long>
 			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<generic draft="contributed">Азербайджанско време</generic>
+					<standard draft="contributed">Азербайджанско стандартно време</standard>
+					<daylight draft="contributed">Азербайджанско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic draft="contributed">Азорски острови</generic>
+					<standard draft="contributed">Азорски острови – стандартно време</standard>
+					<daylight draft="contributed">Азорски острови – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<generic draft="contributed">Бангладешко време</generic>
+					<standard draft="contributed">Бангладешко стандартно време</standard>
+					<daylight draft="contributed">Бангладешко лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard draft="contributed">Бутанско време</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard draft="contributed">Боливийско време</standard>
+				</long>
+			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic>Бразилско време</generic>
 					<standard>Бразилско стандартно време</standard>
 					<daylight>Бразилско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard draft="contributed">Бруней Даруссалам</standard>
+				</long>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<generic draft="contributed">Кабо Верде</generic>
+					<standard draft="contributed">Кабо Верде – стандартно време</standard>
+					<daylight draft="contributed">Кабо Верде – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<standard draft="contributed">Чаморо – стандартно време</standard>
+				</long>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<generic draft="contributed">Чатъм</generic>
+					<standard draft="contributed">Чатъм – стандартно време</standard>
+					<daylight draft="contributed">Чатъм – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic draft="contributed">Чилийско време</generic>
+					<standard draft="contributed">Чилийско стандартно време</standard>
+					<daylight draft="contributed">Чилийско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="China">
@@ -2882,11 +3124,62 @@
 					<daylight>Чойбалсанско лятно часово време</daylight>
 				</long>
 			</metazone>
+			<metazone type="Christmas">
+				<long>
+					<standard draft="contributed">Остров Рождество</standard>
+				</long>
+			</metazone>
+			<metazone type="Cocos">
+				<long>
+					<standard draft="contributed">Кокосови острови</standard>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic draft="contributed">Колумбийско време</generic>
+					<standard draft="contributed">Колумбийско стандартно време</standard>
+					<daylight draft="contributed">Колумбийско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<generic draft="contributed">Острови Кук</generic>
+					<standard draft="contributed">Острови Кук – стандартно време</standard>
+					<daylight draft="contributed">Острови Кук – лятно часово време</daylight>
+				</long>
+			</metazone>
 			<metazone type="Cuba">
 				<long>
 					<generic>Кубинско време</generic>
 					<standard>Кубинско стандартно време</standard>
 					<daylight>Кубинско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Davis">
+				<long>
+					<standard draft="contributed">Дейвис</standard>
+				</long>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
+					<standard draft="contributed">Дюмон-Дюрвил</standard>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard draft="contributed">Източен Тимор</standard>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic draft="contributed">Великденски остров</generic>
+					<standard draft="contributed">Великденски остров – стандартно време</standard>
+					<daylight draft="contributed">Великденски остров – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard draft="contributed">Еквадорско време</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
@@ -2910,6 +3203,52 @@
 					<daylight>Западноевропейско лятно време</daylight>
 				</long>
 			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic draft="contributed">Фолкландски острови</generic>
+					<standard draft="contributed">Фолкландски острови – стандартно време</standard>
+					<daylight draft="contributed">Фолкландски острови – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
+					<generic draft="contributed">Фиджи</generic>
+					<standard draft="contributed">Фиджи – стандартно време</standard>
+					<daylight draft="contributed">Фиджи – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard draft="contributed">Френска Гвиана</standard>
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard draft="contributed">Френски южни и антарктически територии</standard>
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard draft="contributed">Галапагоско време</standard>
+				</long>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard draft="contributed">Гамбие</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<generic draft="contributed">Грузинско време</generic>
+					<standard draft="contributed">Грузинско стандартно време</standard>
+					<daylight draft="contributed">Грузинско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard draft="contributed">Острови Гилбърт</standard>
+				</long>
+			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>Часова зона Гринуич</standard>
@@ -2929,11 +3268,28 @@
 					<daylight>Западногренландско лятно часово време</daylight>
 				</long>
 			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard draft="contributed">Персийски залив – стандартно време</standard>
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard draft="contributed">Гаяна</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic>Хавайско алеутско време</generic>
 					<standard>Хавайско алеутско стандартно време</standard>
 					<daylight>Хавайско алеутско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic draft="contributed">Хонконгско време</generic>
+					<standard draft="contributed">Хонконгско стандартно време</standard>
+					<daylight draft="contributed">Хонконгско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
@@ -2945,7 +3301,17 @@
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard draft="provisional">Индийска часова зона</standard>
+					<standard draft="contributed">Индийско стандартно време</standard>
+				</long>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard draft="contributed">Индийски океан</standard>
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard draft="contributed">Индокитайско време</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
@@ -2961,6 +3327,13 @@
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard draft="contributed">Индонезия – западно време</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic draft="contributed">Иранско време</generic>
+					<standard draft="contributed">Иранско стандартно време</standard>
+					<daylight draft="contributed">Иранско лятно часово време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -2993,19 +3366,24 @@
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<standard draft="contributed">Казахстан – източно време</standard>
+					<standard draft="contributed">Казахстан – източно стандартно време</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<standard draft="contributed">Казахстан – западно време</standard>
+					<standard draft="contributed">Казахстан – западно стандартно време</standard>
 				</long>
 			</metazone>
 			<metazone type="Korea">
 				<long>
-					<generic>Корейско време</generic>
-					<standard>Корейско стандартно време</standard>
-					<daylight>Корейско лятно часово време</daylight>
+					<generic draft="contributed">Корейско време</generic>
+					<standard draft="contributed">Корейско стандартно време</standard>
+					<daylight draft="contributed">Корейско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard draft="contributed">Кошрай</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
@@ -3013,6 +3391,16 @@
 					<generic>Красноярско време</generic>
 					<standard>Красноярск – стандартно време</standard>
 					<daylight>Красноярск – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard draft="contributed">Киргизстанско време</standard>
+				</long>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard draft="contributed">Екваториални острови</standard>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -3034,6 +3422,38 @@
 					<daylight>Магадан – лятно часово време</daylight>
 				</long>
 			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard draft="contributed">Малайзийско време</standard>
+				</long>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard draft="contributed">Малдивски острови</standard>
+				</long>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard draft="contributed">Маркизки острови</standard>
+				</long>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard draft="contributed">Маршалови острови</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic draft="contributed">Мавриций</generic>
+					<standard draft="contributed">Мавриций – стандартно време</standard>
+					<daylight draft="contributed">Мавриций – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard draft="contributed">Станция „Моусън“</standard>
+				</long>
+			</metazone>
 			<metazone type="Mongolia">
 				<long>
 					<generic>*Улан Батор</generic>
@@ -3048,11 +3468,50 @@
 					<daylight>Москва – лятно часово време</daylight>
 				</long>
 			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard draft="contributed">Мианмарско време</standard>
+				</long>
+			</metazone>
+			<metazone type="Nauru">
+				<long>
+					<standard draft="contributed">Науру</standard>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard draft="contributed">Непалско време</standard>
+				</long>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
+					<generic draft="contributed">Новокаледонско време</generic>
+					<standard draft="contributed">Новокаледонско стандартно време</standard>
+					<daylight draft="contributed">Нова Каледония – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic draft="contributed">Новозеландско време</generic>
+					<standard draft="contributed">Новозеландско стандартно време</standard>
+					<daylight draft="contributed">Новозеландско лятно часово време</daylight>
+				</long>
+			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<generic>Нюфаундленд</generic>
 					<standard>Часова зона Нюфаундленд</standard>
 					<daylight>Лятна часова зона Нюфаундленд</daylight>
+				</long>
+			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard draft="contributed">Ниуе</standard>
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard draft="contributed">Норфолкско време</standard>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -3076,11 +3535,74 @@
 					<daylight>Омск – лятно часово време</daylight>
 				</long>
 			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic draft="contributed">Пакистанско време</generic>
+					<standard draft="contributed">Пакистанско стандартно време</standard>
+					<daylight draft="contributed">Пакистанско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Palau">
+				<long>
+					<standard draft="contributed">Палау</standard>
+				</long>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
+					<standard draft="contributed">Папуа – Нова Гвинея</standard>
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<generic draft="contributed">Парагвайско време</generic>
+					<standard draft="contributed">Парагвайско стандартно време</standard>
+					<daylight draft="contributed">Парагвайско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic draft="contributed">Перуанско време</generic>
+					<standard draft="contributed">Перуанско стандартно време</standard>
+					<daylight draft="contributed">Перуанско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic draft="contributed">Филипинско време</generic>
+					<standard draft="contributed">Филипинско стандартно време</standard>
+					<daylight draft="contributed">Филипинско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard draft="contributed">Острови Феникс</standard>
+				</long>
+			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
 					<generic>Сен Пиер и Микелон време</generic>
 					<standard>Сен Пиер и Микелон – стандартно време</standard>
 					<daylight>Сен Пиер и Микелон – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pitcairn">
+				<long>
+					<standard draft="contributed">Питкерн</standard>
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard draft="contributed">Понапе</standard>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard draft="contributed">Реюнион</standard>
+				</long>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
+					<standard draft="contributed">Ротера</standard>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
@@ -3097,6 +3619,113 @@
 					<daylight>Самара – лятно часово време</daylight>
 				</long>
 			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<standard draft="contributed">Самоа – стандартно време</standard>
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard draft="contributed">Сейшелски острови</standard>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard draft="contributed">Сингапурско стандартно време</standard>
+				</long>
+			</metazone>
+			<metazone type="Solomon">
+				<long>
+					<standard draft="contributed">Соломонови острови</standard>
+				</long>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard draft="contributed">Южна Джорджия</standard>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard draft="contributed">Суринамско време</standard>
+				</long>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard draft="contributed">Шова</standard>
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard draft="contributed">Таити</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic draft="contributed">Тайпе</generic>
+					<standard draft="contributed">Тайпе – стандартно време</standard>
+					<daylight draft="contributed">Тайпе – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard draft="contributed">Таджикистанско време</standard>
+				</long>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard draft="contributed">Токелау</standard>
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<generic draft="contributed">Тонга</generic>
+					<standard draft="contributed">Тонга – стандартно време</standard>
+					<daylight draft="contributed">Тонга – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard draft="contributed">Чуюк</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic draft="contributed">Туркменистанско време</generic>
+					<standard draft="contributed">Туркменистанско стандартно време</standard>
+					<daylight draft="contributed">Туркменистанско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
+					<standard draft="contributed">Тувалу</standard>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<generic draft="contributed">Уругвайско време</generic>
+					<standard draft="contributed">Уругвайско стандартно време</standard>
+					<daylight draft="contributed">Уругвайско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic draft="contributed">Узбекистанско време</generic>
+					<standard draft="contributed">Узбекистанско стандартно време</standard>
+					<daylight draft="contributed">Узбекистанско лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vanuatu">
+				<long>
+					<generic draft="contributed">Вануату</generic>
+					<standard draft="contributed">Вануату – стандартно време</standard>
+					<daylight draft="contributed">Вануату – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard draft="contributed">Венецуелско време</standard>
+				</long>
+			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic>Владивостокско време</generic>
@@ -3109,6 +3738,21 @@
 					<generic>Волгоградско време</generic>
 					<standard>Волгоград – стандартно време</standard>
 					<daylight>Волгоград – лятно часово време</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard draft="contributed">Станция „Восток“</standard>
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard draft="contributed">Остров Уейк</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard draft="contributed">Уолис и Футуна</standard>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
@@ -3135,6 +3779,7 @@
 			<percentSign>%</percentSign>
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
+			<exponential draft="contributed">E</exponential>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan draft="contributed">NaN</nan>
@@ -3147,12 +3792,30 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
+					<pattern type="1000" count="one" draft="contributed">хиляда</pattern>
+					<pattern type="1000" count="other" draft="contributed">хиляди</pattern>
+					<pattern type="10000" count="one" draft="contributed">00 хиляди</pattern>
+					<pattern type="10000" count="other" draft="contributed">00 хиляди</pattern>
+					<pattern type="100000" count="one" draft="contributed">000 Х</pattern>
+					<pattern type="100000" count="other" draft="contributed">000 хиляди</pattern>
 					<pattern type="1000000" count="one">0.0 милион</pattern>
 					<pattern type="1000000" count="other">0.0 милиона</pattern>
+					<pattern type="10000000" count="one" draft="contributed">00 милиона</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00 милиона</pattern>
+					<pattern type="100000000" count="one" draft="contributed">000 милиона</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000 милиона</pattern>
 					<pattern type="1000000000" count="one">0.0 милиард</pattern>
 					<pattern type="1000000000" count="other">0.0 милиарда</pattern>
+					<pattern type="10000000000" count="one" draft="contributed">00 милиарда</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00 милиарда</pattern>
+					<pattern type="100000000000" count="one" draft="contributed">000 милиарда</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000 милиарда</pattern>
 					<pattern type="1000000000000" count="one">0.0 трилион</pattern>
 					<pattern type="1000000000000" count="other">0.0 трилиона</pattern>
+					<pattern type="10000000000000" count="one" draft="contributed">00 трилиона</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00 трилиона</pattern>
+					<pattern type="100000000000000" count="one" draft="contributed">000 трилиона</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000 трилиона</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
@@ -3184,6 +3847,13 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="contributed">#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -3197,6 +3867,10 @@
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="0" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="1" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -3497,6 +4171,8 @@
 			</currency>
 			<currency type="CVE">
 				<displayName>Кабо Верде ескудо</displayName>
+				<displayName count="one">Кабо Верде ескудо</displayName>
+				<displayName count="other">Кабо Верде ескудо</displayName>
 			</currency>
 			<currency type="CYP">
 				<displayName>Кипърска лира</displayName>
@@ -3571,6 +4247,8 @@
 			</currency>
 			<currency type="EUR">
 				<displayName>Евро</displayName>
+				<displayName count="one">Евро</displayName>
+				<displayName count="other">Евро</displayName>
 			</currency>
 			<currency type="FIM">
 				<displayName>Финландска марка</displayName>
@@ -3612,6 +4290,8 @@
 			</currency>
 			<currency type="GHS">
 				<displayName>Ганайско седи</displayName>
+				<displayName count="one">Ганайско седи</displayName>
+				<displayName count="other">Ганайско седи</displayName>
 			</currency>
 			<currency type="GIP">
 				<displayName>Гибралтарска лира</displayName>
@@ -3942,6 +4622,8 @@
 			</currency>
 			<currency type="MZN">
 				<displayName>Мозамбишки метикал</displayName>
+				<displayName count="one">Мозамбишки метикал</displayName>
+				<displayName count="other">Мозамбишки метикал</displayName>
 			</currency>
 			<currency type="NAD">
 				<displayName>Намибийски долар</displayName>
@@ -3960,6 +4642,8 @@
 			</currency>
 			<currency type="NIO">
 				<displayName>Никарагуанска златна кордоба</displayName>
+				<displayName count="one">Никарагуанска златна кордоба</displayName>
+				<displayName count="other">Никарагуанска златна кордоба</displayName>
 			</currency>
 			<currency type="NLG">
 				<displayName>Холандски гулден</displayName>
@@ -4083,7 +4767,9 @@
 			</currency>
 			<currency type="SBD">
 				<displayName>Соломонови острови - долар</displayName>
+				<displayName count="one">Соломонови острови - долара</displayName>
 				<displayName count="other">Соломонови острови - долара</displayName>
+				<symbol draft="contributed">SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Сейшелска рупия</displayName>
@@ -4112,6 +4798,8 @@
 			</currency>
 			<currency type="SHP">
 				<displayName>Света Елена лира</displayName>
+				<displayName count="one">Света Елена лира</displayName>
+				<displayName count="other">Света Елена лира</displayName>
 			</currency>
 			<currency type="SIT">
 				<displayName>Словенски толар</displayName>
@@ -4141,8 +4829,15 @@
 				<displayName count="one">суринамски гилдер</displayName>
 				<displayName count="other">суринамски гилдера</displayName>
 			</currency>
+			<currency type="SSP">
+				<displayName draft="contributed">Южносудански паунд</displayName>
+				<displayName count="one" draft="contributed">южносудански паунд</displayName>
+				<displayName count="other" draft="contributed">южносудански паунда</displayName>
+			</currency>
 			<currency type="STD">
 				<displayName>Сао Томе и Принсипи - добра</displayName>
+				<displayName count="one">Сао Томе и Принсипи - добра</displayName>
+				<displayName count="other">Сао Томе и Принсипи - добра</displayName>
 			</currency>
 			<currency type="SUR">
 				<displayName>Съветска рубла</displayName>
@@ -4196,6 +4891,8 @@
 			</currency>
 			<currency type="TOP">
 				<displayName>Тонга - па анга</displayName>
+				<displayName count="one">Тонга - па анга</displayName>
+				<displayName count="other">Тонга - па анга</displayName>
 			</currency>
 			<currency type="TPE">
 				<displayName>Тиморско ескудо</displayName>
@@ -4290,6 +4987,8 @@
 			</currency>
 			<currency type="WST">
 				<displayName>Самоа - тала</displayName>
+				<displayName count="one">Самоа - тала</displayName>
+				<displayName count="other">Самоа - тала</displayName>
 			</currency>
 			<currency type="XAF">
 				<displayName>Буркина Фасо - CFA - франк</displayName>
@@ -4330,6 +5029,8 @@
 			</currency>
 			<currency type="XOF">
 				<displayName>Бенин - CFA франк</displayName>
+				<displayName count="one">Бенин - CFA франк</displayName>
+				<displayName count="other">Бенин - CFA франк</displayName>
 			</currency>
 			<currency type="XPD">
 				<displayName>Паладий</displayName>
@@ -4540,6 +5241,8 @@
 		<listPattern>
 			<listPatternPart type="2" draft="contributed">{0} и {1}</listPatternPart>
 			<listPatternPart type="end" draft="contributed">{0} и {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

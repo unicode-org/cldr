@@ -10,11 +10,12 @@
 		<localeDisplayPattern>
 			<localePattern>{0}({1})</localePattern>
 			<localeSeparator>，</localeSeparator>
+			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">アファル語</language>
 			<language type="ab">アブハズ語</language>
-			<language type="ace">アチェー語</language>
+			<language type="ace">アチェ語</language>
 			<language type="ach">アチョリ語</language>
 			<language type="ada">アダングメ語</language>
 			<language type="ady">アディゲ語</language>
@@ -22,6 +23,7 @@
 			<language type="af">アフリカーンス語</language>
 			<language type="afa">セム・ハム諸語</language>
 			<language type="afh">アフリヒリ語</language>
+			<language type="agq">アゲム語</language>
 			<language type="ain">アイヌ語</language>
 			<language type="ak">アカン語</language>
 			<language type="akk">アッカド語</language>
@@ -30,25 +32,25 @@
 			<language type="alt">南アルタイ語</language>
 			<language type="am">アムハラ語</language>
 			<language type="an">アラゴン語</language>
-			<language type="ang">古代英語</language>
+			<language type="ang">古英語</language>
 			<language type="anp">アンギカ語</language>
 			<language type="apa">アパッチ語族</language>
 			<language type="ar">アラビア語</language>
 			<language type="arc">アラム語</language>
 			<language type="arn">アラウカン語</language>
 			<language type="arp">アラパホー語</language>
-			<language type="art">人工諸語</language>
+			<language type="art">人工言語</language>
 			<language type="arw">アラワク語</language>
 			<language type="as">アッサム語</language>
 			<language type="asa">アス語</language>
 			<language type="ast">アストゥリアス語</language>
 			<language type="ath">アサパスカン語族</language>
-			<language type="aus">オーストラリア語族</language>
+			<language type="aus">オーストラリア諸語</language>
 			<language type="av">アヴァル語</language>
 			<language type="awa">アワディー語</language>
 			<language type="ay">アイマラ語</language>
 			<language type="az">アゼルバイジャン語</language>
-			<language type="az" alt="short" draft="contributed">アゼリー語</language>
+			<language type="az" alt="short">アゼリー語</language>
 			<language type="ba">バシキール語</language>
 			<language type="bad">バンダ語</language>
 			<language type="bai">バミレケ語族</language>
@@ -56,17 +58,21 @@
 			<language type="ban">バリ語</language>
 			<language type="bas">バサ語</language>
 			<language type="bat">バルト諸語</language>
+			<language type="bax">バムン語</language>
+			<language type="bbj" draft="contributed">ゴーマラ語</language>
 			<language type="be">ベラルーシ語</language>
 			<language type="bej">ベジャ語</language>
 			<language type="bem">ベンバ語</language>
 			<language type="ber">ベルベル諸語</language>
 			<language type="bez">ベナ語</language>
+			<language type="bfd">バフット語</language>
 			<language type="bg">ブルガリア語</language>
 			<language type="bh">ビハール語</language>
-			<language type="bho">ボージプリー語</language>
+			<language type="bho">ボージュプリー語</language>
 			<language type="bi">ビスラマ語</language>
 			<language type="bik">ビコル語</language>
 			<language type="bin">ビニ語</language>
+			<language type="bkm">コム語</language>
 			<language type="bla">シクシカ語</language>
 			<language type="bm">バンバラ語</language>
 			<language type="bn">ベンガル語</language>
@@ -76,29 +82,35 @@
 			<language type="bra">ブラジ語</language>
 			<language type="brx">ボド語</language>
 			<language type="bs">ボスニア語</language>
+			<language type="bss">アコース語</language>
 			<language type="btk">バタク語</language>
 			<language type="bua">ブリヤート語</language>
 			<language type="bug">ブギ語</language>
+			<language type="bum">ブル語</language>
 			<language type="byn">ビリン語</language>
+			<language type="byv">メドゥンバ語</language>
 			<language type="ca">カタロニア語</language>
 			<language type="cad">カドー語</language>
 			<language type="cai">中米インディアン諸語</language>
 			<language type="car">カリブ語</language>
 			<language type="cau">コーカサス諸語</language>
+			<language type="cay">カユーガ語</language>
 			<language type="cch">チャワイ語</language>
 			<language type="ce">チェチェン語</language>
 			<language type="ceb">セブアノ語</language>
 			<language type="cel">ケルト諸語</language>
+			<language type="cgg">チガ語</language>
 			<language type="ch">チャモロ語</language>
 			<language type="chb">チブチャ語</language>
 			<language type="chg">チャガタイ語</language>
 			<language type="chk">チューク語</language>
 			<language type="chm">マリ語</language>
-			<language type="chn">ビーチ・ラ・マー 等</language>
+			<language type="chn">チヌーク混成語</language>
 			<language type="cho">チョクトー語</language>
 			<language type="chp">チペワイアン語</language>
 			<language type="chr">チェロキー語</language>
 			<language type="chy">シャイアン語</language>
+			<language type="ckb" draft="provisional">クルド語[ソラニー]</language>
 			<language type="cmc">チャム語族</language>
 			<language type="co">コルシカ語</language>
 			<language type="cop">コプト語</language>
@@ -112,11 +124,12 @@
 			<language type="csb">カシューブ語</language>
 			<language type="cu">教会スラブ語</language>
 			<language type="cus">クシュ諸語</language>
-			<language type="cv">チュヴァシュ語</language>
+			<language type="cv">チュヴァシ語</language>
 			<language type="cy">ウェールズ語</language>
 			<language type="da">デンマーク語</language>
 			<language type="dak">ダコタ語</language>
 			<language type="dar">ダルガン語</language>
+			<language type="dav">タイタ語</language>
 			<language type="day">ダヤク語</language>
 			<language type="de">ドイツ語</language>
 			<language type="de_AT">ドイツ語[オーストリア]</language>
@@ -125,17 +138,20 @@
 			<language type="den">スレイビー語</language>
 			<language type="dgr">ドグリブ語</language>
 			<language type="din">ディンカ語</language>
-			<language type="doi">ドグリ語</language>
+			<language type="dje">ザルマ語</language>
+			<language type="doi">ドーグリー語</language>
 			<language type="dra">ドラヴィダ諸語</language>
 			<language type="dsb">低ソルビア語</language>
 			<language type="dua">ドゥアラ語</language>
 			<language type="dum">中世オランダ語</language>
 			<language type="dv">ディベヒ語</language>
-			<language type="dyu">デゥウラ語</language>
+			<language type="dyo" draft="provisional">ジョラ＝フォニィ語</language>
+			<language type="dyu">ジュラ語</language>
 			<language type="dz">ゾンカ語</language>
+			<language type="dzg">ダザガ語</language>
 			<language type="ebu">エンブ語</language>
 			<language type="ee">エウェ語</language>
-			<language type="efi">エフィック語</language>
+			<language type="efi">エフィク語</language>
 			<language type="egy">古代エジプト語</language>
 			<language type="eka">エカジュク語</language>
 			<language type="el">ギリシャ語</language>
@@ -168,9 +184,10 @@
 			<language type="fr_CH">フランス語[スイス]</language>
 			<language type="frm">中期フランス語</language>
 			<language type="fro">古フランス語</language>
+			<language type="frr">北フリジア語</language>
 			<language type="frs">東フリジア語</language>
 			<language type="fur">フリウリ語</language>
-			<language type="fy">フリジア語</language>
+			<language type="fy">西フリジア語</language>
 			<language type="ga">アイルランド語</language>
 			<language type="gaa">ガ語</language>
 			<language type="gay">ガヨ語</language>
@@ -190,6 +207,7 @@
 			<language type="grc">古代ギリシャ語</language>
 			<language type="gsw">スイスドイツ語</language>
 			<language type="gu">グジャラート語</language>
+			<language type="guz">グシイ語</language>
 			<language type="gv">マン島語</language>
 			<language type="gwi">グウィッチン語</language>
 			<language type="ha">ハウサ語</language>
@@ -201,7 +219,7 @@
 			<language type="him">ヒマチャル語</language>
 			<language type="hit">ヒッタイト語</language>
 			<language type="hmn">フモン語</language>
-			<language type="ho">ヒリモトゥ語</language>
+			<language type="ho">ヒリモツ語</language>
 			<language type="hr">クロアチア語</language>
 			<language type="hsb">上ソルビア語</language>
 			<language type="ht">ハイチ語</language>
@@ -209,10 +227,11 @@
 			<language type="hup">アタパスカ語</language>
 			<language type="hy">アルメニア語</language>
 			<language type="hz">ヘレロ語</language>
-			<language type="ia">インターリングア語</language>
+			<language type="ia">インターリングア</language>
 			<language type="iba">イバン語</language>
+			<language type="ibb">イビビオ語</language>
 			<language type="id">インドネシア語</language>
-			<language type="ie">インターリング語</language>
+			<language type="ie">インターリング</language>
 			<language type="ig">イボ語</language>
 			<language type="ii">四川イ語</language>
 			<language type="ijo">イジョー語</language>
@@ -220,7 +239,7 @@
 			<language type="ilo">イロカノ語</language>
 			<language type="inc">インド諸語</language>
 			<language type="ine">印欧諸語</language>
-			<language type="inh">イングシ語</language>
+			<language type="inh">イングーシ語</language>
 			<language type="io">イド語</language>
 			<language type="ira">イラン語</language>
 			<language type="iro">イロコイ語族</language>
@@ -229,42 +248,51 @@
 			<language type="iu">イヌクウティトット語</language>
 			<language type="ja">日本語</language>
 			<language type="jbo">ロジバン語</language>
+			<language type="jmc">マチャメ語</language>
 			<language type="jpr">ユダヤ・ペルシア語</language>
 			<language type="jrb">ユダヤ・アラビア語</language>
 			<language type="jv">ジャワ語</language>
 			<language type="ka">グルジア語</language>
-			<language type="kaa">カラ・カルパク語</language>
+			<language type="kaa">カラカルパク語</language>
 			<language type="kab">カビル語</language>
 			<language type="kac">カチン語</language>
 			<language type="kaj">カジェ語</language>
 			<language type="kam">カンバ語</language>
-			<language type="kar">カレン語</language>
+			<language type="kar">カレン諸語</language>
 			<language type="kaw">カウィ語</language>
 			<language type="kbd">カバルド語</language>
+			<language type="kbl">カネンブ語</language>
 			<language type="kcg">カタブ語</language>
+			<language type="kde">マコンデ語</language>
 			<language type="kea">カーボベルデ・クレオール語</language>
 			<language type="kfo">コロ語</language>
 			<language type="kg">コンゴ語</language>
 			<language type="kha">カシ語</language>
 			<language type="khi">コイサン諸語</language>
 			<language type="kho">コータン語</language>
+			<language type="khq">コイラ・チーニ語</language>
 			<language type="ki">キクユ語</language>
-			<language type="kj">クアニャマ語</language>
+			<language type="kj">クワニャマ語</language>
 			<language type="kk">カザフ語</language>
+			<language type="kkj">カコ語</language>
 			<language type="kl">グリーンランド語</language>
+			<language type="kln">カレンジン語</language>
 			<language type="km">クメール語</language>
-			<language type="kmb">キンブンドゥ語</language>
+			<language type="kmb">キンブンド語</language>
 			<language type="kn">カンナダ語</language>
 			<language type="ko">韓国語</language>
 			<language type="kok">コンカニ語</language>
-			<language type="kos">コシャエ語</language>
+			<language type="kos">コスラエ語</language>
 			<language type="kpe">クペレ語</language>
 			<language type="kr">カヌリ語</language>
 			<language type="krc">カラチャイ語</language>
 			<language type="krl">カレリア語</language>
-			<language type="kro">クルー語</language>
+			<language type="kro">クルー諸語</language>
 			<language type="kru">クルク語</language>
 			<language type="ks">カシミール語</language>
+			<language type="ksb">サンバー語</language>
+			<language type="ksf">バフィア語</language>
+			<language type="ksh">ケルン語</language>
 			<language type="ku">クルド語</language>
 			<language type="kum">クムク語</language>
 			<language type="kut">クテナイ語</language>
@@ -272,7 +300,8 @@
 			<language type="kw">コーンウォール語</language>
 			<language type="ky">キルギス語</language>
 			<language type="la">ラテン語</language>
-			<language type="lad">ラジノ語</language>
+			<language type="lad">ラディノ語</language>
+			<language type="lag">ランギ語</language>
 			<language type="lah">ラフンダー語</language>
 			<language type="lam">ランバ語</language>
 			<language type="lb">ルクセンブルク語</language>
@@ -282,7 +311,7 @@
 			<language type="ln">リンガラ語</language>
 			<language type="lo">ラオ語</language>
 			<language type="lol">モンゴ語</language>
-			<language type="loz">ロズィ語</language>
+			<language type="loz">ロジ語</language>
 			<language type="lt">リトアニア語</language>
 			<language type="lu">ルバ・カタンガ語</language>
 			<language type="lua">ルバ・ルルア語</language>
@@ -293,17 +322,22 @@
 			<language type="luy">ルヒヤ語</language>
 			<language type="lv">ラトビア語</language>
 			<language type="mad">マドゥラ語</language>
+			<language type="maf">マファ語</language>
 			<language type="mag">マガヒー語</language>
 			<language type="mai">マイティリー語</language>
 			<language type="mak">マカッサル語</language>
 			<language type="man">マンディンゴ語</language>
 			<language type="map">オーストロネシア諸語</language>
 			<language type="mas">マサイ語</language>
+			<language type="mde">マバ語</language>
 			<language type="mdf">モクシャ語</language>
 			<language type="mdr">マンダル語</language>
 			<language type="men">メンデ語</language>
+			<language type="mer">メル語</language>
+			<language type="mfe">モーリシャス・クレオール語</language>
 			<language type="mg">マダガスカル語</language>
 			<language type="mga">中期アイルランド語</language>
+			<language type="mgh">マクア・ミート語</language>
 			<language type="mh">マーシャル語</language>
 			<language type="mi">マオリ語</language>
 			<language type="mic">ミクマク語</language>
@@ -314,7 +348,7 @@
 			<language type="ml">マラヤーラム語</language>
 			<language type="mn">モンゴル語</language>
 			<language type="mnc">満州語</language>
-			<language type="mni">マニプル語</language>
+			<language type="mni">マニプリ語</language>
 			<language type="mno">マノボ語族</language>
 			<language type="mo">モルダビア語</language>
 			<language type="moh">モーホーク語</language>
@@ -322,21 +356,24 @@
 			<language type="mr">マラーティー語</language>
 			<language type="ms">マレー語</language>
 			<language type="mt">マルタ語</language>
+			<language type="mua">ムンダン語</language>
 			<language type="mul">複数言語</language>
 			<language type="mun">ムンダ語族</language>
 			<language type="mus">クリーク語</language>
 			<language type="mwl">ミランダ語</language>
 			<language type="mwr">マールワーリー語</language>
 			<language type="my">ビルマ語</language>
+			<language type="mye">ミエネ語</language>
 			<language type="myn">マヤ語族</language>
 			<language type="myv">エルジャ語</language>
 			<language type="na">ナウル語</language>
 			<language type="nah">ナワトル語</language>
 			<language type="nai">北米インディアン諸語</language>
 			<language type="nap">ナポリ語</language>
+			<language type="naq">ナマ語</language>
 			<language type="nb">ノルウェー語[ブークモール]</language>
 			<language type="nd">北ンデベレ語</language>
-			<language type="nds">低地ドイツ語、低地サクソン語</language>
+			<language type="nds">低地ドイツ語</language>
 			<language type="ne">ネパール語</language>
 			<language type="new">ネワール語</language>
 			<language type="ng">ンドンガ語</language>
@@ -345,7 +382,9 @@
 			<language type="niu">ニウーエイ語</language>
 			<language type="nl">オランダ語</language>
 			<language type="nl_BE">フレミッシュ語</language>
+			<language type="nmg">クワシオ語</language>
 			<language type="nn">ノルウェー語[ニーノシュク]</language>
+			<language type="nnh">ンジエムブーン語</language>
 			<language type="no">ノルウェー語</language>
 			<language type="nog">ノガイ語</language>
 			<language type="non">古ノルド語</language>
@@ -353,25 +392,26 @@
 			<language type="nr">南ンデベレ語</language>
 			<language type="nso">北部ソト語</language>
 			<language type="nub">ヌビア語族</language>
+			<language type="nus">ヌエル語</language>
 			<language type="nv">ナバホ語</language>
 			<language type="nwc">古典ネワール語</language>
-			<language type="ny">ニャンジャ語、チチェワ語、チェワ語</language>
+			<language type="ny">ニャンジャ語</language>
 			<language type="nym">ニャムウェジ語</language>
 			<language type="nyn">ニャンコレ語</language>
 			<language type="nyo">ニョロ語</language>
 			<language type="nzi">ンゼマ語</language>
 			<language type="oc">オック語</language>
-			<language type="oj">オブジワ語</language>
+			<language type="oj">オジブウェー語</language>
 			<language type="om">オロモ語</language>
 			<language type="or">オリヤー語</language>
-			<language type="os">オセト語</language>
+			<language type="os">オセット語</language>
 			<language type="osa">オセージ語</language>
 			<language type="ota">オスマントルコ語</language>
 			<language type="oto">オトミ語族</language>
 			<language type="pa">パンジャブ語</language>
 			<language type="paa">パプア諸語</language>
 			<language type="pag">パンガシナン語</language>
-			<language type="pal">パフラヴィ語</language>
+			<language type="pal">パフラヴィー語</language>
 			<language type="pam">パンパンガ語</language>
 			<language type="pap">パピアメント語</language>
 			<language type="pau">パラオ語</language>
@@ -381,7 +421,7 @@
 			<language type="pi">パーリ語</language>
 			<language type="pl">ポーランド語</language>
 			<language type="pon">ポンペイ語</language>
-			<language type="pra">プラークリット語族</language>
+			<language type="pra">プラークリット諸語</language>
 			<language type="pro">古期プロバンス語</language>
 			<language type="ps">パシュトゥー語</language>
 			<language type="ps" alt="variant" draft="contributed">パシュトゥ語</language>
@@ -391,8 +431,8 @@
 			<language type="qu">ケチュア語</language>
 			<language type="raj">ラージャスターン語</language>
 			<language type="rap">ラパヌイ語</language>
-			<language type="rar">ラロトガ語</language>
-			<language type="rm">レト・ロマン語</language>
+			<language type="rar">ラロトンガ語</language>
+			<language type="rm">ロマンシュ語</language>
 			<language type="rn">ルンディ語</language>
 			<language type="ro">ルーマニア語</language>
 			<language type="roa">ロマンス諸語</language>
@@ -409,23 +449,31 @@
 			<language type="sai">南米インディアン諸語</language>
 			<language type="sal">セイリッシュ語族</language>
 			<language type="sam">サマリア・アラム語</language>
+			<language type="saq">サンブル語</language>
 			<language type="sas">ササク語</language>
 			<language type="sat">サンターリー語</language>
+			<language type="sba">ンガムバイ語</language>
+			<language type="sbp">サング語</language>
 			<language type="sc">サルデーニャ語</language>
 			<language type="scn">シチリア語</language>
 			<language type="sco">スコットランド語</language>
 			<language type="sd">シンド語</language>
 			<language type="se">北サーミ語</language>
+			<language type="see">セネカ語</language>
+			<language type="seh">セナ語</language>
 			<language type="sel">セリクプ語</language>
 			<language type="sem">セム諸語</language>
+			<language type="ses">コイラボロ・センニ語</language>
 			<language type="sg">サンゴ語</language>
 			<language type="sga">古期アイルランド語</language>
-			<language type="sgn">手まね言語</language>
-			<language type="sh">セルボ＝クロアチア語</language>
+			<language type="sgn">手話</language>
+			<language type="sh">セルボ・クロアチア語</language>
+			<language type="shi">タシルハイト語</language>
 			<language type="shn">シャン語</language>
+			<language type="shu">チャド・アラビア語</language>
 			<language type="si">シンハラ語</language>
 			<language type="sid">シダモ語</language>
-			<language type="sio">スー語族</language>
+			<language type="sio">スー諸語</language>
 			<language type="sit">シナ・チベット諸語</language>
 			<language type="sk">スロバキア語</language>
 			<language type="sl">スロベニア語</language>
@@ -445,8 +493,9 @@
 			<language type="sr">セルビア語</language>
 			<language type="srn">スリナム語</language>
 			<language type="srr">セレル語</language>
-			<language type="ss">シスワティ語</language>
+			<language type="ss">スワジ語</language>
 			<language type="ssa">ナイル・サハラ諸語</language>
+			<language type="ssy">サホ語</language>
 			<language type="st">南部ソト語</language>
 			<language type="su">スンダ語</language>
 			<language type="suk">スクマ語</language>
@@ -455,11 +504,14 @@
 			<language type="sv">スウェーデン語</language>
 			<language type="sw">スワヒリ語</language>
 			<language type="swb">コモロ語</language>
+			<language type="swc">コンゴ・スワヒリ語</language>
+			<language type="syc">古典シリア語</language>
 			<language type="syr">シリア語</language>
-			<language type="ta">タミール語</language>
+			<language type="ta">タミル語</language>
 			<language type="tai">タイ諸語</language>
 			<language type="te">テルグ語</language>
 			<language type="tem">テムネ語</language>
+			<language type="teo">テソ語</language>
 			<language type="ter">テレーノ語</language>
 			<language type="tet">テトゥン語</language>
 			<language type="tg">タジク語</language>
@@ -478,6 +530,7 @@
 			<language type="tog">トンガ語[ニアサ]</language>
 			<language type="tpi">トク・ピシン語</language>
 			<language type="tr">トルコ語</language>
+			<language type="trv">タロコ語</language>
 			<language type="ts">ツォンガ語</language>
 			<language type="tsi">チムシュ語</language>
 			<language type="tt">タタール語</language>
@@ -486,40 +539,47 @@
 			<language type="tut">アルタイ諸語</language>
 			<language type="tvl">ツバル語</language>
 			<language type="tw">トウィ語</language>
+			<language type="twq">タサワク語</language>
 			<language type="ty">タヒチ語</language>
 			<language type="tyv">トゥヴァ語</language>
+			<language type="tzm" draft="provisional">中央アトラス・タマジクト語</language>
 			<language type="udm">ウドムルト語</language>
 			<language type="ug">ウイグル語</language>
 			<language type="ug" alt="variant" draft="contributed">ウイグル</language>
 			<language type="uga">ウガリト語</language>
 			<language type="uk">ウクライナ語</language>
-			<language type="umb">ウンブンドゥ語</language>
-			<language type="und">非確定</language>
+			<language type="umb">ムブンドゥ語</language>
+			<language type="und">言語不明</language>
 			<language type="ur">ウルドゥー語</language>
 			<language type="uz">ウズベク語</language>
 			<language type="vai">ヴァイ語</language>
 			<language type="ve">ベンダ語</language>
 			<language type="vi">ベトナム語</language>
-			<language type="vo">ボラピュク語</language>
-			<language type="vot">ボート語</language>
+			<language type="vo">ヴォラピュク語</language>
+			<language type="vot">ヴォート語</language>
+			<language type="vun">ヴンジョ語</language>
 			<language type="wa">ワロン語</language>
 			<language type="wae">ヴァリス語</language>
 			<language type="wak">ワカシ語族</language>
-			<language type="wal">ワッラモ語</language>
+			<language type="wal">ウォライタ語</language>
 			<language type="war">ワライ語</language>
 			<language type="was">ワショ語</language>
 			<language type="wen">ソルビア語族</language>
 			<language type="wo">ウォロフ語</language>
 			<language type="xal">カルムイク語</language>
 			<language type="xh">コサ語</language>
+			<language type="xog">ソガ語</language>
 			<language type="yao">ヤオ語</language>
 			<language type="yap">ヤップ語</language>
+			<language type="yav">ヤンベン語</language>
+			<language type="ybb">イエンバ語</language>
 			<language type="yi">イディッシュ語</language>
 			<language type="yo">ヨルバ語</language>
 			<language type="ypk">ユピック語族</language>
 			<language type="yue">広東語</language>
 			<language type="za">チワン語</language>
-			<language type="zap">ザポテック語</language>
+			<language type="zap">サポテカ語</language>
+			<language type="zbl">ブリスシンボル</language>
 			<language type="zen">ゼナガ語</language>
 			<language type="zh">中国語</language>
 			<language type="zh_Hans">簡体中国語</language>
@@ -528,12 +588,18 @@
 			<language type="zu">ズールー語</language>
 			<language type="zun">ズニ語</language>
 			<language type="zxx">言語的内容なし</language>
+			<language type="zza">ザザ語</language>
 		</languages>
 		<scripts>
+			<script type="Afak">アファカ文字</script>
 			<script type="Arab">アラビア文字</script>
-			<script type="Arab" alt="variant" draft="contributed">ペルソ・アラビア</script>
+			<script type="Arab" alt="variant">ペルソ・アラビア文字</script>
+			<script type="Armi">帝国アラム文字</script>
 			<script type="Armn">アルメニア文字</script>
+			<script type="Avst">アヴェスター文字</script>
 			<script type="Bali">バリ文字</script>
+			<script type="Bamu">バムン文字</script>
+			<script type="Bass">バサ文字</script>
 			<script type="Batk">バタク文字</script>
 			<script type="Beng">ベンガル文字</script>
 			<script type="Blis">ブリスシンボル</script>
@@ -542,25 +608,28 @@
 			<script type="Brai">ブライユ点字</script>
 			<script type="Bugi">ブギス文字</script>
 			<script type="Buhd">ブヒッド文字</script>
-			<script type="Cans">統合カナダ先住民記号</script>
-			<script type="Cari">カリ文字</script>
+			<script type="Cakm">チャクマ文字</script>
+			<script type="Cans">統合カナダ先住民音節文字</script>
+			<script type="Cari">カリア文字</script>
 			<script type="Cham">チャム文字</script>
 			<script type="Cher">チェロキー文字</script>
 			<script type="Cirt">キアス文字</script>
 			<script type="Copt">コプト文字</script>
 			<script type="Cprt">キプロス文字</script>
 			<script type="Cyrl">キリル文字</script>
-			<script type="Cyrs">キリル文字[古代教会スラブ語の文字]</script>
+			<script type="Cyrs">古代教会スラブ語キリル文字</script>
 			<script type="Deva">デーバナーガリー文字</script>
 			<script type="Dsrt">デセレット文字</script>
+			<script type="Dupl" draft="provisional">デュプロワエ式速記</script>
 			<script type="Egyd">エジプト民衆文字</script>
 			<script type="Egyh">エジプト神官文字</script>
 			<script type="Egyp">エジプト聖刻文字</script>
 			<script type="Ethi">エチオピア文字</script>
 			<script type="Geok">グルジア文字[フツリ]</script>
 			<script type="Geor">グルジア文字</script>
-			<script type="Glag">グラゴール文字</script>
+			<script type="Glag">グラゴル文字</script>
 			<script type="Goth">ゴート文字</script>
+			<script type="Gran">グランタ文字</script>
 			<script type="Grek">ギリシャ文字</script>
 			<script type="Gujr">グジャラート文字</script>
 			<script type="Guru">グルムキー文字</script>
@@ -568,64 +637,99 @@
 			<script type="Hani">漢字</script>
 			<script type="Hano">ハヌノオ文字</script>
 			<script type="Hans">簡体字</script>
-			<script type="Hans" alt="stand-alone" draft="contributed">漢字（簡体字）</script>
+			<script type="Hans" alt="stand-alone">漢字[簡体字]</script>
 			<script type="Hant">繁体字</script>
-			<script type="Hant" alt="stand-alone" draft="contributed">漢字（繁体字）</script>
+			<script type="Hant" alt="stand-alone">漢字[繁体字]</script>
 			<script type="Hebr">ヘブライ文字</script>
 			<script type="Hira">ひらがな</script>
+			<script type="Hluw" draft="provisional">アナトリア象形文字</script>
 			<script type="Hmng">パハウ・フモン文字</script>
-			<script type="Hrkt">カタカナとひらがな</script>
+			<script type="Hrkt">仮名</script>
 			<script type="Hung">古代ハンガリー文字</script>
 			<script type="Inds">インダス文字</script>
-			<script type="Ital">古代イタリアの文字</script>
+			<script type="Ital">古イタリア文字</script>
 			<script type="Java">ジャワ文字</script>
 			<script type="Jpan">日本語の文字</script>
+			<script type="Jurc">女真文字</script>
 			<script type="Kali">カヤー文字</script>
 			<script type="Kana">カタカナ</script>
 			<script type="Khar">カローシュティー文字</script>
 			<script type="Khmr">クメール文字</script>
+			<script type="Khoj">ホジャ文字</script>
 			<script type="Knda">カンナダ文字</script>
 			<script type="Kore">韓国語の文字</script>
+			<script type="Kpel">クペレ文字</script>
+			<script type="Kthi">カイティ文字</script>
+			<script type="Lana">ラーンナー文字</script>
 			<script type="Laoo">ラオ文字</script>
 			<script type="Latf">ラテン文字[ドイツ文字]</script>
 			<script type="Latg">ラテン文字 [ゲール文字]</script>
 			<script type="Latn">ラテン文字</script>
 			<script type="Lepc">レプチャ文字</script>
 			<script type="Limb">リンブ文字</script>
-			<script type="Lina">線文字[A]</script>
-			<script type="Linb">線文字[B]</script>
+			<script type="Lina">線文字A</script>
+			<script type="Linb">線文字B</script>
+			<script type="Lisu">フレイザー文字</script>
+			<script type="Loma">ロマ文字</script>
+			<script type="Lyci">リキア文字</script>
+			<script type="Lydi">リディア文字</script>
 			<script type="Mand">マンダ文字</script>
+			<script type="Mani">マニ文字</script>
 			<script type="Maya">マヤ象形文字</script>
+			<script type="Mend">メンデ文字</script>
+			<script type="Merc">メロエ文字草書体</script>
 			<script type="Mero">メロエ文字</script>
 			<script type="Mlym">マラヤーラム文字</script>
 			<script type="Mong">モンゴル文字</script>
 			<script type="Moon">ムーン文字</script>
+			<script type="Mroo">ムロ文字</script>
 			<script type="Mtei">メイテイ文字</script>
 			<script type="Mymr">ミャンマー文字</script>
+			<script type="Narb">古代北アラビア文字</script>
+			<script type="Nbat">ナバテア文字</script>
+			<script type="Nkgb">ナシ族ゲバ文字</script>
 			<script type="Nkoo">ンコ文字</script>
+			<script type="Nshu">女書</script>
 			<script type="Ogam">オガム文字</script>
 			<script type="Olck">オルチキ文字</script>
 			<script type="Orkh">オルホン文字</script>
 			<script type="Orya">オリヤー文字</script>
 			<script type="Osma">オスマニア文字</script>
-			<script type="Perm">古ペルミック文字</script>
+			<script type="Palm">パルミラ文字</script>
+			<script type="Perm">古ぺルム文字</script>
 			<script type="Phag">パスパ文字</script>
+			<script type="Phli">碑文パフラヴィー文字</script>
+			<script type="Phlp">詩編用パフラヴィー文字</script>
+			<script type="Phlv">書物用パフラヴィー文字</script>
 			<script type="Phnx">フェニキア文字</script>
 			<script type="Plrd">ポラード音声記号</script>
+			<script type="Prti">碑文パルティア文字</script>
+			<script type="Rjng">ルジャン文字</script>
 			<script type="Roro">ロンゴロンゴ文字</script>
 			<script type="Runr">ルーン文字</script>
+			<script type="Samr">サマリア文字</script>
 			<script type="Sara">サラティ文字</script>
+			<script type="Sarb">古代南アラビア文字</script>
+			<script type="Saur">サウラーシュトラ文字</script>
+			<script type="Sgnw">手話文字</script>
 			<script type="Shaw">ショー文字</script>
+			<script type="Shrd">シャーラダー文字</script>
+			<script type="Sind">クダワディ文字</script>
 			<script type="Sinh">シンハラ文字</script>
+			<script type="Sora">ソラング・ソンペング文字</script>
+			<script type="Sund">スンダ文字</script>
 			<script type="Sylo">シロティ・ナグリ文字</script>
 			<script type="Syrc">シリア文字</script>
 			<script type="Syre">シリア文字[エストランゲロ文字]</script>
 			<script type="Syrj">シリア文字[西方シリア文字]</script>
 			<script type="Syrn">シリア文字[東方シリア文字]</script>
 			<script type="Tagb">タグバンワ文字</script>
-			<script type="Tale">タイレ文字</script>
+			<script type="Takr">タークリー文字</script>
+			<script type="Tale">タイ・レ文字</script>
 			<script type="Talu">新タイ・ルー文字</script>
 			<script type="Taml">タミール文字</script>
+			<script type="Tang">西夏文字</script>
+			<script type="Tavt">タイ・ヴェト文字</script>
 			<script type="Telu">テルグ文字</script>
 			<script type="Teng">テングワール文字</script>
 			<script type="Tfng">ティフナグ文字</script>
@@ -633,17 +737,21 @@
 			<script type="Thaa">ターナ文字</script>
 			<script type="Thai">タイ文字</script>
 			<script type="Tibt">チベット文字</script>
-			<script type="Ugar">ウガリト文字</script>
+			<script type="Tirh">ティルフータ文字</script>
+			<script type="Ugar">ウガリット文字</script>
 			<script type="Vaii">ヴァイ文字</script>
 			<script type="Visp">視話法</script>
+			<script type="Wara">バラン・クシティ文字</script>
+			<script type="Wole">ウォレアイ文字</script>
 			<script type="Xpeo">古代ペルシア文字</script>
 			<script type="Xsux">シュメール＝アッカド語楔形文字</script>
 			<script type="Yiii">イ文字</script>
 			<script type="Zinh">基底文字の種別を継承する結合文字</script>
+			<script type="Zmth">数学記号</script>
 			<script type="Zsym">記号文字</script>
-			<script type="Zxxx">非表記文字</script>
-			<script type="Zyyy">共用文字</script>
-			<script type="Zzzz">言語不明または無効な文字</script>
+			<script type="Zxxx">非表記</script>
+			<script type="Zyyy">未解読文字</script>
+			<script type="Zzzz">未定義文字</script>
 		</scripts>
 		<territories>
 			<territory type="001">世界</territory>
@@ -664,7 +772,7 @@
 			<territory type="034">南アジア</territory>
 			<territory type="035">東南アジア</territory>
 			<territory type="039">南ヨーロッパ</territory>
-			<territory type="053">オーストラリア・ニュージーランド</territory>
+			<territory type="053">オーストララシア</territory>
 			<territory type="054">メラネシア</territory>
 			<territory type="057">ミクロネシア</territory>
 			<territory type="061">ポリネシア</territory>
@@ -684,14 +792,14 @@
 			<territory type="AI">アンギラ</territory>
 			<territory type="AL">アルバニア</territory>
 			<territory type="AM">アルメニア</territory>
-			<territory type="AN">オランダ領アンティル諸島</territory>
+			<territory type="AN">オランダ領アンティル</territory>
 			<territory type="AO">アンゴラ</territory>
 			<territory type="AQ">南極</territory>
 			<territory type="AR">アルゼンチン</territory>
 			<territory type="AS">米領サモア</territory>
 			<territory type="AT">オーストリア</territory>
 			<territory type="AU">オーストラリア</territory>
-			<territory type="AW">アルバ島</territory>
+			<territory type="AW">アルバ</territory>
 			<territory type="AX">オーランド諸島</territory>
 			<territory type="AZ">アゼルバイジャン</territory>
 			<territory type="BA">ボスニア・ヘルツェゴビナ</territory>
@@ -703,10 +811,11 @@
 			<territory type="BH">バーレーン</territory>
 			<territory type="BI">ブルンジ</territory>
 			<territory type="BJ">ベナン</territory>
-			<territory type="BL">サン・バルテルミー</territory>
+			<territory type="BL">サン・バルテルミー島</territory>
 			<territory type="BM">バミューダ</territory>
 			<territory type="BN">ブルネイ</territory>
 			<territory type="BO">ボリビア</territory>
+			<territory type="BQ">オランダ領カリブ</territory>
 			<territory type="BR">ブラジル</territory>
 			<territory type="BS">バハマ</territory>
 			<territory type="BT">ブータン</territory>
@@ -733,6 +842,7 @@
 			<territory type="CR">コスタリカ</territory>
 			<territory type="CU">キューバ</territory>
 			<territory type="CV">カーボベルデ</territory>
+			<territory type="CW">キュラソー</territory>
 			<territory type="CX">クリスマス島</territory>
 			<territory type="CY">キプロス</territory>
 			<territory type="CZ">チェコ共和国</territory>
@@ -801,7 +911,7 @@
 			<territory type="JO">ヨルダン</territory>
 			<territory type="JP">日本</territory>
 			<territory type="KE">ケニア</territory>
-			<territory type="KG">キルギスタン</territory>
+			<territory type="KG">キルギス</territory>
 			<territory type="KH">カンボジア</territory>
 			<territory type="KI">キリバス</territory>
 			<territory type="KM">コモロ</territory>
@@ -826,24 +936,24 @@
 			<territory type="MC">モナコ</territory>
 			<territory type="MD">モルドバ</territory>
 			<territory type="ME">モンテネグロ</territory>
-			<territory type="MF">セント・マーチン</territory>
+			<territory type="MF">サン・マルタン</territory>
 			<territory type="MG">マダガスカル</territory>
-			<territory type="MH">マーシャル諸島共和国</territory>
+			<territory type="MH">マーシャル諸島</territory>
 			<territory type="MK">マケドニア</territory>
-			<territory type="MK" alt="variant">マケドニア[旧ユーゴスラヴィア共和国]</territory>
+			<territory type="MK" alt="variant">マケドニア[旧ユーゴスラビア共和国]</territory>
 			<territory type="ML">マリ</territory>
 			<territory type="MM">ミャンマー</territory>
 			<territory type="MN">モンゴル</territory>
 			<territory type="MO">中華人民共和国マカオ特別行政区</territory>
 			<territory type="MO" alt="short">マカオ</territory>
 			<territory type="MP">北マリアナ諸島</territory>
-			<territory type="MQ">マルティニーク島</territory>
+			<territory type="MQ">マルティニーク</territory>
 			<territory type="MR">モーリタニア</territory>
-			<territory type="MS">モントセラト島</territory>
+			<territory type="MS">モントセラト</territory>
 			<territory type="MT">マルタ</territory>
 			<territory type="MU">モーリシャス</territory>
 			<territory type="MV">モルジブ</territory>
-			<territory type="MW">マラウィ</territory>
+			<territory type="MW">マラウイ</territory>
 			<territory type="MX">メキシコ</territory>
 			<territory type="MY">マレーシア</territory>
 			<territory type="MZ">モザンビーク</territory>
@@ -868,14 +978,14 @@
 			<territory type="PK">パキスタン</territory>
 			<territory type="PL">ポーランド</territory>
 			<territory type="PM">サンピエール島・ミクロン島</territory>
-			<territory type="PN">ピトケアン島</territory>
+			<territory type="PN">ピトケアン諸島</territory>
 			<territory type="PR">プエルトリコ</territory>
 			<territory type="PS">パレスチナ</territory>
 			<territory type="PT">ポルトガル</territory>
 			<territory type="PW">パラオ</territory>
 			<territory type="PY">パラグアイ</territory>
 			<territory type="QA">カタール</territory>
-			<territory type="QO">その他のオセアニア</territory>
+			<territory type="QO">オセアニア周辺地域</territory>
 			<territory type="RE">レユニオン島</territory>
 			<territory type="RO">ルーマニア</territory>
 			<territory type="RS">セルビア</territory>
@@ -896,19 +1006,20 @@
 			<territory type="SN">セネガル</territory>
 			<territory type="SO">ソマリア</territory>
 			<territory type="SR">スリナム</territory>
-			<territory type="SS" draft="provisional">南スーダン</territory>
+			<territory type="SS">南スーダン</territory>
 			<territory type="ST">サントメ・プリンシペ</territory>
 			<territory type="SV">エルサルバドル</territory>
+			<territory type="SX">シント・マールテン</territory>
 			<territory type="SY">シリア</territory>
 			<territory type="SZ">スワジランド</territory>
 			<territory type="TA">トリスタン・ダ・クーニャ</territory>
-			<territory type="TC">タークス諸島・カイコス諸島</territory>
+			<territory type="TC">タークス・カイコス諸島</territory>
 			<territory type="TD">チャド</territory>
 			<territory type="TF">仏領極南諸島</territory>
 			<territory type="TG">トーゴ</territory>
 			<territory type="TH">タイ</territory>
 			<territory type="TJ">タジキスタン</territory>
-			<territory type="TK">トケラウ諸島</territory>
+			<territory type="TK">トケラウ</territory>
 			<territory type="TL">東ティモール</territory>
 			<territory type="TL" alt="variant" draft="contributed">東ティモール</territory>
 			<territory type="TM">トルクメニスタン</territory>
@@ -922,7 +1033,7 @@
 			<territory type="UA">ウクライナ</territory>
 			<territory type="UG">ウガンダ</territory>
 			<territory type="UM">米領太平洋諸島</territory>
-			<territory type="US">アメリカ合衆国</territory>
+			<territory type="US">アメリカ</territory>
 			<territory type="UY">ウルグアイ</territory>
 			<territory type="UZ">ウズベキスタン</territory>
 			<territory type="VA">バチカン市国</territory>
@@ -942,63 +1053,101 @@
 			<territory type="ZZ">不明な地域</territory>
 		</territories>
 		<variants>
-			<variant type="1901">伝統的ドイツ語正書法[1901]</variant>
+			<variant type="1901">ドイツ語旧正書法</variant>
 			<variant type="1994" draft="provisional">標準レージア方言正書法</variant>
 			<variant type="1996">ドイツ語正書法[1996]</variant>
 			<variant type="1606NICT">後期中世フランス語[〜1606]</variant>
 			<variant type="1694ACAD">初期現代フランス語</variant>
 			<variant type="1959ACAD" draft="provisional">標準ベラルーシ語 (1959)</variant>
+			<variant type="ALALC97" draft="contributed">ALA-LCラテン文字化[1997]</variant>
+			<variant type="ALUKU" draft="contributed">アロコ方言</variant>
 			<variant type="AREVELA">東アルメニア文語</variant>
 			<variant type="AREVMDA">西アルメニア文語</variant>
 			<variant type="BAKU1926" draft="provisional">統一トルコラテン文字</variant>
+			<variant type="BAUDDHA" draft="contributed">バウッダ</variant>
+			<variant type="BISCAYAN" draft="contributed">ビスカヤ語</variant>
 			<variant type="BISKE" draft="provisional">サン・ジョルジョ/ビーラ方言</variant>
 			<variant type="BOONT">ブーントリング</variant>
 			<variant type="FONIPA">国際音声記号</variant>
 			<variant type="FONUPA">ウラル音声記号</variant>
+			<variant type="FONXSAMP" draft="contributed">フォンクサンプ</variant>
+			<variant type="HEPBURN" draft="contributed">ヘボン式ローマ字</variant>
+			<variant type="HOGNORSK" draft="contributed">ヘグノシュク</variant>
+			<variant type="ITIHASA" draft="contributed">イティハーサ</variant>
+			<variant type="JAUER" draft="contributed">JAUER</variant>
+			<variant type="JYUTPING" draft="contributed">略称粤拼</variant>
 			<variant type="KKCOR" draft="provisional">共通コーンウォール語正書法</variant>
+			<variant type="LAUKIKA" draft="contributed">ラウキカ</variant>
 			<variant type="LIPAW" draft="provisional">レージア方言 リポヴァツ方言</variant>
+			<variant type="LUNA1918" draft="contributed">LUNA1918</variant>
 			<variant type="MONOTON">モノトニック</variant>
+			<variant type="NDYUKA" draft="contributed">ンジュカ方言</variant>
 			<variant type="NEDIS">ナティゾーネ方言</variant>
 			<variant type="NJIVA" draft="provisional">ニヴァ方言</variant>
 			<variant type="OSOJS" draft="provisional">オゼアッコ/オソヤネ方言</variant>
+			<variant type="PAMAKA" draft="contributed">パマカ方言</variant>
+			<variant type="PETR1708" draft="contributed">PETR1708</variant>
 			<variant type="PINYIN">ピン音[ローマ字表記法]</variant>
 			<variant type="POLYTON">ポリトニック</variant>
 			<variant type="POSIX">コンピュータ</variant>
+			<variant type="PUTER" draft="contributed">PUTER</variant>
 			<variant type="REVISED">改訂版</variant>
 			<variant type="ROZAJ">レシア方言</variant>
+			<variant type="RUMGR" draft="contributed">RUMGR</variant>
 			<variant type="SAAHO">サホ語</variant>
 			<variant type="SCOTLAND" draft="provisional">スコットランド標準英語</variant>
 			<variant type="SCOUSE">リバプール方言</variant>
 			<variant type="SOLBA" draft="provisional">ストルヴィッツァ/ソルビツァ方言</variant>
+			<variant type="SURMIRAN" draft="contributed">SURMIRAN</variant>
+			<variant type="SURSILV" draft="contributed">SURSILV</variant>
+			<variant type="SUTSILV" draft="contributed">SUTSILV</variant>
 			<variant type="TARASK" draft="provisional">タラシケヴィツァ正書法</variant>
 			<variant type="UCCOR" draft="provisional">統一コーンウォール語正書法</variant>
 			<variant type="UCRCOR" draft="provisional">改訂統一コーンウォール語正書法</variant>
+			<variant type="ULSTER" draft="contributed">アルスター</variant>
+			<variant type="VAIDIKA" draft="contributed">ヴァイディカ</variant>
 			<variant type="VALENCIA">バレンシア方言</variant>
+			<variant type="VALLADER" draft="contributed">ヴァラダー</variant>
 			<variant type="WADEGILE">ウェード式ローマ字表記法</variant>
 		</variants>
 		<keys>
 			<key type="calendar">暦法</key>
-			<key type="collation">照合</key>
+			<key type="colAlternate" draft="contributed">記号を無視した並べ替え</key>
+			<key type="colBackwards" draft="contributed">アクセント（逆方向）による並べ替え</key>
+			<key type="colCaseFirst" draft="contributed">大文字順/小文字順による並べ替え</key>
+			<key type="colCaseLevel" draft="contributed">大文字小文字を区別した並べ替え</key>
+			<key type="colHiraganaQuaternary" draft="contributed">仮名による並べ替え</key>
+			<key type="collation">並べ替え順序</key>
+			<key type="colNormalization" draft="contributed">正規化による並べ替え</key>
+			<key type="colNumeric" draft="contributed">数値による並べ替え</key>
+			<key type="colStrength" draft="contributed">強度による並べ替え</key>
 			<key type="currency">通貨</key>
 			<key type="numbers">数値書式</key>
-			<key type="x" draft="contributed">私用</key>
+			<key type="timezone" draft="contributed">タイムゾーン</key>
+			<key type="va" draft="contributed">ロケールのバリアント</key>
+			<key type="variableTop" draft="contributed">記号として並べ替え</key>
+			<key type="x">私用</key>
 		</keys>
 		<types>
 			<type type="arab" key="numbers">アラビア・インド数字</type>
 			<type type="arabext" key="numbers">ペルシア数字</type>
 			<type type="armn" key="numbers">アルメニア数字</type>
 			<type type="armnlow" key="numbers">アルメニア数字[小文字]</type>
+			<type type="bali" key="numbers">バリ数字</type>
 			<type type="beng" key="numbers">ベンガル数字</type>
 			<type type="big5han" key="collation">繁体字中国語順[Big5]</type>
 			<type type="buddhist" key="calendar">タイ仏教暦</type>
+			<type type="cham" key="numbers">チャム数字</type>
 			<type type="chinese" key="calendar">中国暦</type>
 			<type type="coptic" key="calendar">コプト暦</type>
 			<type type="deva" key="numbers">デーヴァナーガリー数字</type>
 			<type type="dictionary" key="collation">辞書順</type>
+			<type type="direct" key="collation" draft="contributed">直接</type>
 			<type type="ducet" key="collation">ユニコード照合順</type>
 			<type type="ethi" key="numbers">エチオピア数字</type>
 			<type type="ethiopic" key="calendar">エチオピア暦</type>
 			<type type="ethiopic-amete-alem" key="calendar">エチオピア創世紀元暦</type>
+			<type type="finance" key="numbers" draft="contributed">財務用漢数字</type>
 			<type type="fullwide" key="numbers">全角数字</type>
 			<type type="gb2312han" key="collation">簡体字中国語順[GB2312]</type>
 			<type type="geor" key="numbers">グルジア数字</type>
@@ -1007,46 +1156,87 @@
 			<type type="greklow" key="numbers">ギリシャ数字[小文字]</type>
 			<type type="gujr" key="numbers">グジャラート数字</type>
 			<type type="guru" key="numbers">グルムキー数字</type>
-			<type type="hanidec" key="numbers">漢数字(位取り記数法)</type>
+			<type type="hanidec" key="numbers">漢数字[位取り記数法]</type>
 			<type type="hans" key="numbers">簡体漢数字</type>
 			<type type="hansfin" key="numbers">簡体大字</type>
 			<type type="hant" key="numbers">繁体漢数字</type>
 			<type type="hantfin" key="numbers">繁体大字</type>
 			<type type="hebr" key="numbers">ヘブライ数字</type>
 			<type type="hebrew" key="calendar">ユダヤ暦</type>
+			<type type="identical" key="colStrength" draft="contributed">すべてを区別して並べ替え</type>
 			<type type="indian" key="calendar">インド国定暦</type>
 			<type type="islamic" key="calendar">イスラム暦</type>
 			<type type="islamic-civil" key="calendar">太陽イスラム暦</type>
 			<type type="japanese" key="calendar">和暦</type>
+			<type type="java" key="numbers">ジャワ数字</type>
 			<type type="jpan" key="numbers">漢数字</type>
 			<type type="jpanfin" key="numbers">大字</type>
+			<type type="kali" key="numbers">カヤー数字</type>
 			<type type="khmr" key="numbers">クメール数字</type>
 			<type type="knda" key="numbers">カンナダ数字</type>
+			<type type="lana" key="numbers">ラーンナー数字</type>
+			<type type="lanatham" key="numbers">ラーンナー・タム数字</type>
 			<type type="laoo" key="numbers">ラオ数字</type>
 			<type type="latn" key="numbers">算用数字</type>
+			<type type="lepc" key="numbers">レプチャ数字</type>
+			<type type="limb" key="numbers">リンブ数字</type>
+			<type type="lower" key="colCaseFirst" draft="contributed">小文字優先で並べ替え</type>
 			<type type="mlym" key="numbers">マラヤーラム数字</type>
 			<type type="mong" key="numbers">モンゴル数字</type>
+			<type type="mtei" key="numbers">マニプリ数字</type>
 			<type type="mymr" key="numbers">ミャンマー数字</type>
+			<type type="mymrshan" key="numbers">ミャンマー・シャン数字</type>
+			<type type="native" key="numbers" draft="contributed">独自の記数法</type>
+			<type type="nkoo" key="numbers">ンコ数字</type>
+			<type type="no" key="colBackwards" draft="contributed">アクセント（順方向）で並べ替え</type>
+			<type type="no" key="colCaseFirst" draft="contributed">大文字小文字を通常の順序で並べ替え</type>
+			<type type="no" key="colCaseLevel" draft="contributed">大文字小文字を区別しないで並べ替え</type>
+			<type type="no" key="colHiraganaQuaternary" draft="contributed">仮名を区別しないで並べ替え</type>
+			<type type="no" key="colNormalization" draft="contributed">正規化しないで並べ替え</type>
+			<type type="no" key="colNumeric" draft="contributed">数値を独立して並べ替え</type>
+			<type type="non-ignorable" key="colAlternate" draft="contributed">記号で並べ替え</type>
+			<type type="olck" key="numbers">オルチキ数字</type>
 			<type type="orya" key="numbers">オリヤー数字</type>
 			<type type="persian" key="calendar">ペルシア暦</type>
 			<type type="phonebook" key="collation">電話帳順</type>
+			<type type="phonetic" key="collation" draft="contributed">音声順による並べ替え</type>
 			<type type="pinyin" key="collation">ピンイン順</type>
+			<type type="primary" key="colStrength" draft="contributed">基本文字のみで並べ替え</type>
+			<type type="quaternary" key="colStrength" draft="contributed">アクセント/大文字小文字/全角半角/仮名で並べ替え</type>
 			<type type="reformed" key="collation">リフォーム</type>
 			<type type="roc" key="calendar">中華民国暦</type>
 			<type type="roman" key="numbers">ローマ数字</type>
 			<type type="romanlow" key="numbers">ローマ数字[小文字]</type>
+			<type type="saur" key="numbers">サウラーシュトラ数字</type>
 			<type type="search" key="collation">汎用検索</type>
+			<type type="searchjl" key="collation">ハングル語頭子音による並べ替え</type>
+			<type type="secondary" key="colStrength" draft="contributed">アクセントで並べ替え</type>
+			<type type="shifted" key="colAlternate" draft="contributed">記号を無視して並べ替え</type>
 			<type type="stroke" key="collation">画数順</type>
+			<type type="sund" key="numbers">スンダ数字</type>
+			<type type="talu" key="numbers">新タイ・ルー数字</type>
 			<type type="taml" key="numbers">タミール数字</type>
+			<type type="tamldec" key="numbers">タミル数字</type>
 			<type type="telu" key="numbers">テルグ数字</type>
+			<type type="tertiary" key="colStrength" draft="contributed">アクセント/大文字小文字/全角半角で並べ替え</type>
 			<type type="thai" key="numbers">タイ数字</type>
 			<type type="tibt" key="numbers">チベット数字</type>
 			<type type="traditional" key="collation">トラディッショナル</type>
+			<type type="traditional" key="numbers" draft="contributed">従来の記数法</type>
 			<type type="unihan" key="collation">部首順</type>
+			<type type="upper" key="colCaseFirst" draft="contributed">大文字優先で並べ替え</type>
+			<type type="vaii" key="numbers">ヴァイ文字の記数法</type>
+			<type type="yes" key="colBackwards" draft="contributed">アクセント（逆方向）で並べ替え</type>
+			<type type="yes" key="colCaseLevel" draft="contributed">大文字小文字を区別して並べ替え</type>
+			<type type="yes" key="colHiraganaQuaternary" draft="contributed">仮名を区別して並べ替え</type>
+			<type type="yes" key="colNormalization" draft="contributed">Unicode 正規化で並べ替え</type>
+			<type type="yes" key="colNumeric" draft="contributed">数値を数値として並べ替え</type>
 		</types>
 		<transformNames>
+			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">数字</transformName>
 			<transformName type="Tone" draft="contributed">声調</transformName>
+			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">アクセント</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">全角</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">半角</transformName>
@@ -1074,6 +1264,7 @@
 		<ellipsis type="final" draft="contributed">{0}...</ellipsis>
 		<ellipsis type="initial" draft="contributed">...{0}</ellipsis>
 		<ellipsis type="medial" draft="contributed">{0}...{1}</ellipsis>
+		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart>「</quotationStart>
@@ -1088,6 +1279,9 @@
 					<eraNames>
 						<era type="0">仏暦</era>
 					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">BE</era>
+					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1132,6 +1326,12 @@
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">GGGGy年</dateFormatItem>
+						<dateFormatItem id="yM" draft="contributed">GGGGy年M月</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="contributed">GGGGy年M/d(E)</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="contributed">GGGGy年M月</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="contributed">GGGGy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yQ" draft="contributed">GGGGy QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="contributed">GGGGy第Q四半期</dateFormatItem>
 						<dateFormatItem id="yyyy">GGGGy年</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
@@ -1146,6 +1346,20 @@
 			<calendar type="chinese">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="narrow">
+							<month type="1">正</month>
+							<month type="2">二</month>
+							<month type="3">三</month>
+							<month type="4">四</month>
+							<month type="5">五</month>
+							<month type="6">六</month>
+							<month type="7">七</month>
+							<month type="8">八</month>
+							<month type="9">九</month>
+							<month type="10">十</month>
+							<month type="11">十一</month>
+							<month type="12">十二</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">正月</month>
 							<month type="2">二月</month>
@@ -1317,7 +1531,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>U/M/d</pattern>
+							<pattern>U-M-d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1462,6 +1676,21 @@
 							<month type="12" draft="contributed">メスラ</month>
 							<month type="13" draft="contributed">ナシエ</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">トウト</month>
 							<month type="2" draft="contributed">ババ</month>
@@ -1493,6 +1722,21 @@
 							<month type="11" draft="contributed">エペープ</month>
 							<month type="12" draft="contributed">メスラ</month>
 							<month type="13" draft="contributed">ナシエ</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">トウト</month>
@@ -1530,6 +1774,21 @@
 							<month type="12" draft="contributed">ネハッセ</month>
 							<month type="13" draft="contributed">パグメン</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">メスケレム</month>
 							<month type="2" draft="contributed">テケムト</month>
@@ -1561,6 +1820,21 @@
 							<month type="11" draft="contributed">ハムレ</month>
 							<month type="12" draft="contributed">ネハッセ</month>
 							<month type="13" draft="contributed">パグメン</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">メスケレム</month>
@@ -1626,6 +1900,15 @@
 							<day type="fri">金</day>
 							<day type="sat">土</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">日</day>
+							<day type="mon">月</day>
+							<day type="tue">火</day>
+							<day type="wed">水</day>
+							<day type="thu">木</day>
+							<day type="fri">金</day>
+							<day type="sat">土</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">日曜日</day>
 							<day type="mon">月曜日</day>
@@ -1646,21 +1929,30 @@
 							<day type="fri">金</day>
 							<day type="sat">土</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">日</day>
+							<day type="mon">月</day>
+							<day type="tue">火</day>
+							<day type="wed">水</day>
+							<day type="thu">木</day>
+							<day type="fri">金</day>
+							<day type="sat">土</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
+							<quarter type="1">1Q</quarter>
+							<quarter type="2">2Q</quarter>
+							<quarter type="3">3Q</quarter>
+							<quarter type="4">4Q</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">第1四半期</quarter>
@@ -1671,10 +1963,16 @@
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">Q1</quarter>
-							<quarter type="2" draft="contributed">Q2</quarter>
-							<quarter type="3" draft="contributed">Q3</quarter>
-							<quarter type="4" draft="contributed">Q4</quarter>
+							<quarter type="1">Q1</quarter>
+							<quarter type="2">Q2</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1696,6 +1994,10 @@
 						<era type="0">BC</era>
 						<era type="1">AD</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0">BC</era>
+						<era type="1">AD</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -1903,29 +2205,31 @@
 					</field>
 					<field type="year">
 						<displayName>年</displayName>
-						<relative type="-1" draft="contributed">昨年</relative>
-						<relative type="0" draft="contributed">今年</relative>
-						<relative type="1" draft="contributed">翌年</relative>
+						<relative type="-1">昨年</relative>
+						<relative type="0">今年</relative>
+						<relative type="1">翌年</relative>
 					</field>
 					<field type="month">
 						<displayName>月</displayName>
-						<relative type="-1" draft="contributed">先月</relative>
-						<relative type="0" draft="contributed">今月</relative>
-						<relative type="1" draft="contributed">翌月</relative>
+						<relative type="-1">先月</relative>
+						<relative type="0">今月</relative>
+						<relative type="1">翌月</relative>
 					</field>
 					<field type="week">
 						<displayName>週</displayName>
-						<relative type="-1" draft="contributed">先週</relative>
-						<relative type="0" draft="contributed">今週</relative>
-						<relative type="1" draft="contributed">翌週</relative>
+						<relative type="-1">先週</relative>
+						<relative type="0">今週</relative>
+						<relative type="1">翌週</relative>
 					</field>
 					<field type="day">
 						<displayName>日</displayName>
+						<relative type="-3" draft="contributed">3 日前</relative>
 						<relative type="-2">一昨日</relative>
 						<relative type="-1">昨日</relative>
 						<relative type="0">今日</relative>
 						<relative type="1">明日</relative>
 						<relative type="2">明後日</relative>
+						<relative type="3" draft="contributed">3 日後</relative>
 					</field>
 					<field type="weekday">
 						<displayName>曜日</displayName>
@@ -1967,8 +2271,20 @@
 							<month type="13" draft="contributed">エルル</month>
 						</monthWidth>
 						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
 							<month type="7" yeartype="leap">7</month>
-							<month type="12" draft="unconfirmed">アヴ</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ティスレ</month>
@@ -2038,6 +2354,11 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="contributed">AM</era>
+					</eraAbbr>
+				</eras>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -2055,6 +2376,20 @@
 							<month type="10" draft="contributed">パウサ</month>
 							<month type="11" draft="contributed">マーガ</month>
 							<month type="12" draft="contributed">パルグナ</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">カイトラ</month>
@@ -2085,6 +2420,20 @@
 							<month type="10" draft="contributed">パウサ</month>
 							<month type="11" draft="contributed">マーガ</month>
 							<month type="12" draft="contributed">パルグナ</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">カイトラ</month>
@@ -2125,6 +2474,20 @@
 							<month type="11" draft="contributed">ズル・カイダ</month>
 							<month type="12" draft="contributed">ズル・ヒッジャ</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ムハッラム</month>
 							<month type="2" draft="contributed">サフアル</month>
@@ -2155,6 +2518,20 @@
 							<month type="11" draft="contributed">ズル・カイダ</month>
 							<month type="12" draft="contributed">ズル・ヒッジャ</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ムハッラム</month>
 							<month type="2" draft="contributed">サフアル</month>
@@ -2171,6 +2548,11 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="contributed">AH</era>
+					</eraAbbr>
+				</eras>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
@@ -2412,6 +2794,244 @@
 						<era type="234">昭和</era>
 						<era type="235">平成</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">大化</era>
+						<era type="1" draft="contributed">白雉</era>
+						<era type="2" draft="contributed">白鳯</era>
+						<era type="3" draft="contributed">朱鳥</era>
+						<era type="4" draft="contributed">大宝</era>
+						<era type="5" draft="contributed">慶雲</era>
+						<era type="6" draft="contributed">和銅</era>
+						<era type="7" draft="contributed">霊亀</era>
+						<era type="8" draft="contributed">養老</era>
+						<era type="9" draft="contributed">神亀</era>
+						<era type="10" draft="contributed">天平</era>
+						<era type="11" draft="contributed">天平感宝</era>
+						<era type="12" draft="contributed">天平勝宝</era>
+						<era type="13" draft="contributed">天平宝字</era>
+						<era type="14" draft="contributed">天平神護</era>
+						<era type="15" draft="contributed">神護景雲</era>
+						<era type="16" draft="contributed">宝亀</era>
+						<era type="17" draft="contributed">天応</era>
+						<era type="18" draft="contributed">延暦</era>
+						<era type="19" draft="contributed">大同</era>
+						<era type="20" draft="contributed">弘仁</era>
+						<era type="21" draft="contributed">天長</era>
+						<era type="22" draft="contributed">承和</era>
+						<era type="23" draft="contributed">嘉祥</era>
+						<era type="24" draft="contributed">仁寿</era>
+						<era type="25" draft="contributed">斉衡</era>
+						<era type="26" draft="contributed">天安</era>
+						<era type="27" draft="contributed">貞観</era>
+						<era type="28" draft="contributed">元慶</era>
+						<era type="29" draft="contributed">仁和</era>
+						<era type="30" draft="contributed">寛平</era>
+						<era type="31" draft="contributed">昌泰</era>
+						<era type="32" draft="contributed">延喜</era>
+						<era type="33" draft="contributed">延長</era>
+						<era type="34" draft="contributed">承平</era>
+						<era type="35" draft="contributed">天慶</era>
+						<era type="36" draft="contributed">天暦</era>
+						<era type="37" draft="contributed">天徳</era>
+						<era type="38" draft="contributed">応和</era>
+						<era type="39" draft="contributed">康保</era>
+						<era type="40" draft="contributed">安和</era>
+						<era type="41" draft="contributed">天禄</era>
+						<era type="42" draft="contributed">天延</era>
+						<era type="43" draft="contributed">貞元</era>
+						<era type="44" draft="contributed">天元</era>
+						<era type="45" draft="contributed">永観</era>
+						<era type="46" draft="contributed">寛和</era>
+						<era type="47" draft="contributed">永延</era>
+						<era type="48" draft="contributed">永祚</era>
+						<era type="49" draft="contributed">正暦</era>
+						<era type="50" draft="contributed">長徳</era>
+						<era type="51" draft="contributed">長保</era>
+						<era type="52" draft="contributed">寛弘</era>
+						<era type="53" draft="contributed">長和</era>
+						<era type="54" draft="contributed">寛仁</era>
+						<era type="55" draft="contributed">治安</era>
+						<era type="56" draft="contributed">万寿</era>
+						<era type="57" draft="contributed">長元</era>
+						<era type="58" draft="contributed">長暦</era>
+						<era type="59" draft="contributed">長久</era>
+						<era type="60" draft="contributed">寛徳</era>
+						<era type="61" draft="contributed">永承</era>
+						<era type="62" draft="contributed">天喜</era>
+						<era type="63" draft="contributed">康平</era>
+						<era type="64" draft="contributed">治暦</era>
+						<era type="65" draft="contributed">延久</era>
+						<era type="66" draft="contributed">承保</era>
+						<era type="67" draft="contributed">承暦</era>
+						<era type="68" draft="contributed">永保</era>
+						<era type="69" draft="contributed">応徳</era>
+						<era type="70" draft="contributed">寛治</era>
+						<era type="71" draft="contributed">嘉保</era>
+						<era type="72" draft="contributed">永長</era>
+						<era type="73" draft="contributed">承徳</era>
+						<era type="74" draft="contributed">康和</era>
+						<era type="75" draft="contributed">長治</era>
+						<era type="76" draft="contributed">嘉承</era>
+						<era type="77" draft="contributed">天仁</era>
+						<era type="78" draft="contributed">天永</era>
+						<era type="79" draft="contributed">永久</era>
+						<era type="80" draft="contributed">元永</era>
+						<era type="81" draft="contributed">保安</era>
+						<era type="82" draft="contributed">天治</era>
+						<era type="83" draft="contributed">大治</era>
+						<era type="84" draft="contributed">天承</era>
+						<era type="85" draft="contributed">長承</era>
+						<era type="86" draft="contributed">保延</era>
+						<era type="87" draft="contributed">永治</era>
+						<era type="88" draft="contributed">康治</era>
+						<era type="89" draft="contributed">天養</era>
+						<era type="90" draft="contributed">久安</era>
+						<era type="91" draft="contributed">仁平</era>
+						<era type="92" draft="contributed">久寿</era>
+						<era type="93" draft="contributed">保元</era>
+						<era type="94" draft="contributed">平治</era>
+						<era type="95" draft="contributed">永暦</era>
+						<era type="96" draft="contributed">応保</era>
+						<era type="97" draft="contributed">長寛</era>
+						<era type="98" draft="contributed">永万</era>
+						<era type="99" draft="contributed">仁安</era>
+						<era type="100" draft="contributed">嘉応</era>
+						<era type="101" draft="contributed">承安</era>
+						<era type="102" draft="contributed">安元</era>
+						<era type="103" draft="contributed">治承</era>
+						<era type="104" draft="contributed">養和</era>
+						<era type="105" draft="contributed">寿永</era>
+						<era type="106" draft="contributed">元暦</era>
+						<era type="107" draft="contributed">文治</era>
+						<era type="108" draft="contributed">建久</era>
+						<era type="109" draft="contributed">正治</era>
+						<era type="110" draft="contributed">建仁</era>
+						<era type="111" draft="contributed">元久</era>
+						<era type="112" draft="contributed">建永</era>
+						<era type="113" draft="contributed">承元</era>
+						<era type="114" draft="contributed">建暦</era>
+						<era type="115" draft="contributed">建保</era>
+						<era type="116" draft="contributed">承久</era>
+						<era type="117" draft="contributed">貞応</era>
+						<era type="118" draft="contributed">元仁</era>
+						<era type="119" draft="contributed">嘉禄</era>
+						<era type="120" draft="contributed">安貞</era>
+						<era type="121" draft="contributed">寛喜</era>
+						<era type="122" draft="contributed">貞永</era>
+						<era type="123" draft="contributed">天福</era>
+						<era type="124" draft="contributed">文暦</era>
+						<era type="125" draft="contributed">嘉禎</era>
+						<era type="126" draft="contributed">暦仁</era>
+						<era type="127" draft="contributed">延応</era>
+						<era type="128" draft="contributed">仁治</era>
+						<era type="129" draft="contributed">寛元</era>
+						<era type="130" draft="contributed">宝治</era>
+						<era type="131" draft="contributed">建長</era>
+						<era type="132" draft="contributed">康元</era>
+						<era type="133" draft="contributed">正嘉</era>
+						<era type="134" draft="contributed">正元</era>
+						<era type="135" draft="contributed">文応</era>
+						<era type="136" draft="contributed">弘長</era>
+						<era type="137" draft="contributed">文永</era>
+						<era type="138" draft="contributed">建治</era>
+						<era type="139" draft="contributed">弘安</era>
+						<era type="140" draft="contributed">正応</era>
+						<era type="141" draft="contributed">永仁</era>
+						<era type="142" draft="contributed">正安</era>
+						<era type="143" draft="contributed">乾元</era>
+						<era type="144" draft="contributed">嘉元</era>
+						<era type="145" draft="contributed">徳治</era>
+						<era type="146" draft="contributed">延慶</era>
+						<era type="147" draft="contributed">応長</era>
+						<era type="148" draft="contributed">正和</era>
+						<era type="149" draft="contributed">文保</era>
+						<era type="150" draft="contributed">元応</era>
+						<era type="151" draft="contributed">元亨</era>
+						<era type="152" draft="contributed">正中</era>
+						<era type="153" draft="contributed">嘉暦</era>
+						<era type="154" draft="contributed">元徳</era>
+						<era type="155" draft="contributed">元弘</era>
+						<era type="156" draft="contributed">建武</era>
+						<era type="157" draft="contributed">延元</era>
+						<era type="158" draft="contributed">興国</era>
+						<era type="159" draft="contributed">正平</era>
+						<era type="160" draft="contributed">建徳</era>
+						<era type="161" draft="contributed">文中</era>
+						<era type="162" draft="contributed">天授</era>
+						<era type="163" draft="contributed">康暦</era>
+						<era type="164" draft="contributed">弘和</era>
+						<era type="165" draft="contributed">元中</era>
+						<era type="166" draft="contributed">至徳</era>
+						<era type="167" draft="contributed">嘉慶</era>
+						<era type="168" draft="contributed">康応</era>
+						<era type="169" draft="contributed">明徳</era>
+						<era type="170" draft="contributed">応永</era>
+						<era type="171" draft="contributed">正長</era>
+						<era type="172" draft="contributed">永享</era>
+						<era type="173" draft="contributed">嘉吉</era>
+						<era type="174" draft="contributed">文安</era>
+						<era type="175" draft="contributed">宝徳</era>
+						<era type="176" draft="contributed">享徳</era>
+						<era type="177" draft="contributed">康正</era>
+						<era type="178" draft="contributed">長禄</era>
+						<era type="179" draft="contributed">寛正</era>
+						<era type="180" draft="contributed">文正</era>
+						<era type="181" draft="contributed">応仁</era>
+						<era type="182" draft="contributed">文明</era>
+						<era type="183" draft="contributed">長享</era>
+						<era type="184" draft="contributed">延徳</era>
+						<era type="185" draft="contributed">明応</era>
+						<era type="186" draft="contributed">文亀</era>
+						<era type="187" draft="contributed">永正</era>
+						<era type="188" draft="contributed">大永</era>
+						<era type="189" draft="contributed">享禄</era>
+						<era type="190" draft="contributed">天文</era>
+						<era type="191" draft="contributed">弘治</era>
+						<era type="192" draft="contributed">永禄</era>
+						<era type="193" draft="contributed">元亀</era>
+						<era type="194" draft="contributed">天正</era>
+						<era type="195" draft="contributed">文禄</era>
+						<era type="196" draft="contributed">慶長</era>
+						<era type="197" draft="contributed">元和</era>
+						<era type="198" draft="contributed">寛永</era>
+						<era type="199" draft="contributed">正保</era>
+						<era type="200" draft="contributed">慶安</era>
+						<era type="201" draft="contributed">承応</era>
+						<era type="202" draft="contributed">明暦</era>
+						<era type="203" draft="contributed">万治</era>
+						<era type="204" draft="contributed">寛文</era>
+						<era type="205" draft="contributed">延宝</era>
+						<era type="206" draft="contributed">天和</era>
+						<era type="207" draft="contributed">貞享</era>
+						<era type="208" draft="contributed">元禄</era>
+						<era type="209" draft="contributed">宝永</era>
+						<era type="210" draft="contributed">正徳</era>
+						<era type="211" draft="contributed">享保</era>
+						<era type="212" draft="contributed">元文</era>
+						<era type="213" draft="contributed">寛保</era>
+						<era type="214" draft="contributed">延享</era>
+						<era type="215" draft="contributed">寛延</era>
+						<era type="216" draft="contributed">宝暦</era>
+						<era type="217" draft="contributed">明和</era>
+						<era type="218" draft="contributed">安永</era>
+						<era type="219" draft="contributed">天明</era>
+						<era type="220" draft="contributed">寛政</era>
+						<era type="221" draft="contributed">享和</era>
+						<era type="222" draft="contributed">文化</era>
+						<era type="223" draft="contributed">文政</era>
+						<era type="224" draft="contributed">天保</era>
+						<era type="225" draft="contributed">弘化</era>
+						<era type="226" draft="contributed">嘉永</era>
+						<era type="227" draft="contributed">安政</era>
+						<era type="228" draft="contributed">万延</era>
+						<era type="229" draft="contributed">文久</era>
+						<era type="230" draft="contributed">元治</era>
+						<era type="231" draft="contributed">慶応</era>
+						<era type="232" draft="contributed">明</era>
+						<era type="233" draft="contributed">大</era>
+						<era type="234" draft="contributed">昭</era>
+						<era type="235" draft="contributed">平</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -2436,6 +3056,26 @@
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
@@ -2449,8 +3089,10 @@
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
@@ -2480,6 +3122,20 @@
 							<month type="10" draft="contributed">デイ</month>
 							<month type="11" draft="contributed">バフマン</month>
 							<month type="12" draft="contributed">エスファンド</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ファルヴァルディーン</month>
@@ -2511,6 +3167,20 @@
 							<month type="11" draft="contributed">バフマン</month>
 							<month type="12" draft="contributed">エスファンド</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">ファルヴァルディーン</month>
 							<month type="2" draft="contributed">オルディーベヘシュト</month>
@@ -2527,6 +3197,11 @@
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="contributed">AP</era>
+					</eraAbbr>
+				</eras>
 			</calendar>
 			<calendar type="roc">
 				<eras>
@@ -2575,6 +3250,7 @@
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
@@ -2592,15 +3268,99 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">GMT（グリニッジ標準時）</gmtZeroFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}時間</regionFormat>
 			<fallbackFormat>{1}（{0}）</fallbackFormat>
 			<fallbackRegionFormat>{1}時間（{0}）</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>ローワー・プリンセズ・クウォーター</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>ノースダコタ州ビューラー</exemplarCity>
 			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity>グリニッジ標準時[GMT]+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity>グリニッジ標準時[GMT]-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity>グリニッジ標準時[GMT]+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity>グリニッジ標準時[GMT]-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity>グリニッジ標準時[GMT]+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity>グリニッジ標準時[GMT]-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity>グリニッジ標準時[GMT]+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity>グリニッジ標準時[GMT]+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity>グリニッジ標準時[GMT]+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity>グリニッジ標準時[GMT]+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity>グリニッジ標準時[GMT]+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity>グリニッジ標準時[GMT]+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity>グリニッジ標準時[GMT]+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity>グリニッジ標準時[GMT]+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity>グリニッジ標準時[GMT]+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity>グリニッジ標準時[GMT]</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>地域不明</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity>グリニッジ標準時[GMT]-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity>グリニッジ標準時[GMT]-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity>グリニッジ標準時[GMT]-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity>グリニッジ標準時[GMT]-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity>グリニッジ標準時[GMT]-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity>グリニッジ標準時[GMT]-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity>グリニッジ標準時[GMT]-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity>グリニッジ標準時[GMT]-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity>グリニッジ標準時[GMT]-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity>グリニッジ標準時[GMT]-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity>グリニッジ標準時[GMT]-11</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity>アンドラ</exemplarCity>
@@ -2669,7 +3429,7 @@
 				<exemplarCity>サンファン</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Ushuaia">
-				<exemplarCity>ウスアイア</exemplarCity>
+				<exemplarCity>ウシュアイア</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/La_Rioja">
 				<exemplarCity>ラリオハ</exemplarCity>
@@ -2774,7 +3534,7 @@
 				<exemplarCity>ポルトノボ</exemplarCity>
 			</zone>
 			<zone type="America/St_Barthelemy">
-				<exemplarCity>サン・バルテルミ</exemplarCity>
+				<exemplarCity>サン・バルテルミー</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity>バミューダ</exemplarCity>
@@ -2882,7 +3642,7 @@
 				<exemplarCity>ウィニペグ</exemplarCity>
 			</zone>
 			<zone type="America/Resolute">
-				<exemplarCity>レソリュート</exemplarCity>
+				<exemplarCity>レゾリュート</exemplarCity>
 			</zone>
 			<zone type="America/Rainy_River">
 				<exemplarCity>レイニーリバー</exemplarCity>
@@ -3059,7 +3819,7 @@
 				<exemplarCity>チューク</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
-				<exemplarCity>ポナペ</exemplarCity>
+				<exemplarCity>ポンペイ島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
 				<exemplarCity>コスラエ</exemplarCity>
@@ -3074,6 +3834,9 @@
 				<exemplarCity>リーブルヴィル</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
+				<long>
+					<daylight>英国夏時間</daylight>
+				</long>
 				<exemplarCity>ロンドン</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3164,6 +3927,9 @@
 				<exemplarCity>ジャヤプラ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
+				<long>
+					<daylight>アイルランド夏時間</daylight>
+				</long>
 				<exemplarCity>ダブリン</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3248,7 +4014,7 @@
 				<exemplarCity>アクトベ</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
-				<exemplarCity>キジルオルダ</exemplarCity>
+				<exemplarCity>クズロルダ</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity>アルマトイ</exemplarCity>
@@ -3335,7 +4101,7 @@
 				<exemplarCity>サイパン</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
-				<exemplarCity>マルチニーク</exemplarCity>
+				<exemplarCity>マルティニーク</exemplarCity>
 			</zone>
 			<zone type="Africa/Nouakchott">
 				<exemplarCity>ヌアクショット</exemplarCity>
@@ -3395,7 +4161,7 @@
 				<exemplarCity>ヌメア</exemplarCity>
 			</zone>
 			<zone type="Africa/Niamey">
-				<exemplarCity>ニアメー</exemplarCity>
+				<exemplarCity>ニアメ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Norfolk">
 				<exemplarCity>ノーフォーク島</exemplarCity>
@@ -3458,7 +4224,7 @@
 				<exemplarCity>ワルシャワ</exemplarCity>
 			</zone>
 			<zone type="America/Miquelon">
-				<exemplarCity>ミクロン</exemplarCity>
+				<exemplarCity>ミクロン島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
 				<exemplarCity>ピトケアン諸島</exemplarCity>
@@ -3569,7 +4335,7 @@
 				<exemplarCity>リュブリャナ</exemplarCity>
 			</zone>
 			<zone type="Arctic/Longyearbyen">
-				<exemplarCity>ロングイヤービーエン</exemplarCity>
+				<exemplarCity>ロングイェールビーン</exemplarCity>
 			</zone>
 			<zone type="Europe/Bratislava">
 				<exemplarCity>ブラチスラバ</exemplarCity>
@@ -3608,7 +4374,7 @@
 				<exemplarCity>ンジャメナ</exemplarCity>
 			</zone>
 			<zone type="Indian/Kerguelen">
-				<exemplarCity>ケルゲレン</exemplarCity>
+				<exemplarCity>ケルゲレン諸島</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
 				<exemplarCity>ロメ</exemplarCity>
@@ -3665,7 +4431,7 @@
 				<exemplarCity>カンパラ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Midway">
-				<exemplarCity>ミッドウェー</exemplarCity>
+				<exemplarCity>ミッドウェー島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
 				<exemplarCity>ジョンストン島</exemplarCity>
@@ -3814,7 +4580,7 @@
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
-					<standard>アフガニスタン標準時</standard>
+					<standard>アフガニスタン時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Central">
@@ -3855,9 +4621,9 @@
 			</metazone>
 			<metazone type="Alaska_Hawaii">
 				<long>
-					<generic>アラスカ−ハワイ時間</generic>
-					<standard>アラスカ−ハワイ標準時</standard>
-					<daylight>アラスカ−ハワイ夏時間</daylight>
+					<generic>アラスカ・ハワイ時間</generic>
+					<standard>アラスカ・ハワイ標準時</standard>
+					<daylight>アラスカ・ハワイ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Almaty">
@@ -3904,9 +4670,9 @@
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic draft="contributed">アナジル時間</generic>
-					<standard draft="contributed">アナジル標準時</standard>
-					<daylight draft="contributed">アナジル夏時間</daylight>
+					<generic>アナディリ時間</generic>
+					<standard>アナディリ標準時</standard>
+					<daylight>アナディリ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -3925,9 +4691,9 @@
 			</metazone>
 			<metazone type="Arabian">
 				<long>
-					<generic>アラブ時間</generic>
-					<standard>アラブ標準時</standard>
-					<daylight>アラブ夏時間</daylight>
+					<generic>アラビア時間</generic>
+					<standard>アラビア標準時</standard>
+					<daylight>アラビア夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
@@ -3939,9 +4705,9 @@
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic>アルゼンチン西部時間</generic>
-					<standard>アルゼンチン西部標準時</standard>
-					<daylight>アルゼンチン西部夏時間</daylight>
+					<generic>西部アルゼンチン時間</generic>
+					<standard>西部アルゼンチン標準時</standard>
+					<daylight>西部アルゼンチン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -4030,12 +4796,12 @@
 			</metazone>
 			<metazone type="Bhutan">
 				<long>
-					<standard>ブータン標準時</standard>
+					<standard>ブータン時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
-					<standard>ボリビア標準時</standard>
+					<standard>ボリビア時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Borneo">
@@ -4054,7 +4820,7 @@
 			</metazone>
 			<metazone type="Brunei">
 				<long>
-					<standard>ブルネイ・ダルサラーム標準時</standard>
+					<standard>ブルネイ・ダルサラーム時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Cape_Verde">
@@ -4064,6 +4830,11 @@
 					<daylight>カーボベルデ夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Casey">
+				<long>
+					<standard draft="provisional">ケイシー基地時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Chamorro">
 				<long>
 					<standard>チャモロ時間</standard>
@@ -4071,14 +4842,14 @@
 			</metazone>
 			<metazone type="Changbai">
 				<long>
-					<standard>チャンバイ標準時</standard>
+					<standard>チャンバイ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Chatham">
 				<long>
-					<generic draft="provisional">チャタム時間</generic>
-					<standard draft="provisional">チャタム標準時</standard>
-					<daylight draft="provisional">チャタム夏時間</daylight>
+					<generic>チャタム時間</generic>
+					<standard>チャタム標準時</standard>
+					<daylight>チャタム夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
@@ -4104,12 +4875,12 @@
 			</metazone>
 			<metazone type="Christmas">
 				<long>
-					<standard>クリスマス島標準時</standard>
+					<standard>クリスマス島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Cocos">
 				<long>
-					<standard>ココス諸島標準時</standard>
+					<standard>ココス諸島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Colombia">
@@ -4121,9 +4892,9 @@
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<generic draft="provisional">クック諸島時間</generic>
-					<standard draft="provisional">クック諸島標準時</standard>
-					<daylight draft="provisional">クック諸島夏時間</daylight>
+					<generic>クック諸島時間</generic>
+					<standard>クック諸島標準時</standard>
+					<daylight>クック諸島夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cuba">
@@ -4135,7 +4906,7 @@
 			</metazone>
 			<metazone type="Dacca">
 				<long>
-					<standard>ダッカ標準時</standard>
+					<standard>ダッカ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Davis">
@@ -4162,19 +4933,19 @@
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
-					<standard>東ティモール標準時</standard>
+					<standard>東ティモール時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Easter">
 				<long>
-					<generic draft="provisional">イースター島時間</generic>
-					<standard draft="provisional">イースター島標準時</standard>
-					<daylight draft="provisional">イースター島夏時間</daylight>
+					<generic>イースター島時間</generic>
+					<standard>イースター島標準時</standard>
+					<daylight>イースター島夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Ecuador">
 				<long>
-					<standard>エクアドル標準時</standard>
+					<standard>エクアドル時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
@@ -4207,19 +4978,19 @@
 			</metazone>
 			<metazone type="Fiji">
 				<long>
-					<generic draft="provisional">フィジー時間</generic>
-					<standard draft="provisional">フィジー標準時</standard>
-					<daylight draft="provisional">フィジー夏時間</daylight>
+					<generic>フィジー時間</generic>
+					<standard>フィジー標準時</standard>
+					<daylight>フィジー夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
-					<standard>仏領ギアナ標準時</standard>
+					<standard>仏領ギアナ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard>フランス領南方・南極地域標準時</standard>
+					<standard>仏領南方南極時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Frunze">
@@ -4231,12 +5002,12 @@
 			</metazone>
 			<metazone type="Galapagos">
 				<long>
-					<standard draft="provisional">ガラパゴス時間</standard>
+					<standard>ガラパゴス時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Gambier">
 				<long>
-					<standard draft="provisional">ガンビエ時間</standard>
+					<standard>ガンビエ諸島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Georgia">
@@ -4248,7 +5019,7 @@
 			</metazone>
 			<metazone type="Gilbert_Islands">
 				<long>
-					<standard draft="provisional">ギルバート諸島時間</standard>
+					<standard>ギルバート諸島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="GMT">
@@ -4279,7 +5050,7 @@
 			</metazone>
 			<metazone type="Guam">
 				<long>
-					<standard>グアム標準時</standard>
+					<standard>グアム時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Gulf">
@@ -4289,14 +5060,14 @@
 			</metazone>
 			<metazone type="Guyana">
 				<long>
-					<standard>ギアナ標準時</standard>
+					<standard>ガイアナ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic>ハワイ アリューシャン時間</generic>
-					<standard>ハワイ−アリューシャン標準時</standard>
-					<daylight>ハワイ−アリューシャン夏時間</daylight>
+					<generic>ハワイ・アリューシャン時間</generic>
+					<standard>ハワイ・アリューシャン標準時</standard>
+					<daylight>ハワイ・アリューシャン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -4308,24 +5079,24 @@
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic>ホブト時間</generic>
-					<standard>ホブト標準時</standard>
-					<daylight>ホブト夏時間</daylight>
+					<generic>ホブド時間</generic>
+					<standard>ホブド標準時</standard>
+					<daylight>ホブド夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>インド標準時</standard>
+					<standard>インド時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
-					<standard>英領インド洋地域標準時</standard>
+					<standard>インド洋時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Indochina">
 				<long>
-					<standard>インドシナ標準時</standard>
+					<standard>インドシナ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
@@ -4377,29 +5148,36 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">ペトロパブロフスク カムチャツキー時間</generic>
-					<standard draft="contributed">ペトロパブロフスク カムチャツキー標準時</standard>
-					<daylight draft="contributed">ペトロパブロフスク カムチャツキー夏時間</daylight>
+					<generic>ペトロパブロフスク・カムチャツキー時間</generic>
+					<standard>ペトロパブロフスク・カムチャツキー標準時</standard>
+					<daylight>ペトロパブロフスク・カムチャツキー夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Karachi">
 				<long>
-					<standard>カラチ標準時</standard>
+					<standard>カラチ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Kashgar">
 				<long>
-					<standard>カシュガル標準時</standard>
+					<standard>カシュガル時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<standard>カザフスタン東部時間</standard>
+					<standard>東カザフスタン時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<standard>カザフスタン西部時間</standard>
+					<standard>西カザフスタン時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Kizilorda">
+				<long>
+					<generic>キジロルダ時間</generic>
+					<standard>キジロルダ標準時</standard>
+					<daylight>キジロルダ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Korea">
@@ -4411,7 +5189,7 @@
 			</metazone>
 			<metazone type="Kosrae">
 				<long>
-					<standard draft="provisional">コスラエ時間</standard>
+					<standard>コスラエ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
@@ -4430,12 +5208,27 @@
 			</metazone>
 			<metazone type="Kwajalein">
 				<long>
-					<standard draft="provisional">クワジャレイン時間</standard>
+					<standard>クェゼリン時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard>キルギスタン時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Lanka">
+				<long>
+					<standard>ランカ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Line_Islands">
 				<long>
-					<standard draft="provisional">ライン諸島時間</standard>
+					<standard>ライン諸島時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Long_Shu">
+				<long>
+					<standard draft="provisional">隴蜀時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -4445,9 +5238,16 @@
 					<daylight>ロードハウ夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Macau">
+				<long>
+					<generic>マカオ時間</generic>
+					<standard>マカオ標準時</standard>
+					<daylight>マカオ夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<standard>マッコーリー時間</standard>
+					<standard>マッコーリー島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4457,19 +5257,29 @@
 					<daylight>マガダン夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Malaya">
+				<long>
+					<standard>マラヤ時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard>マレーシア時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Maldives">
 				<long>
-					<standard>モルディブ標準時</standard>
+					<standard>モルディブ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
-					<standard draft="provisional">マルケサス時間</standard>
+					<standard>マルキーズ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
-					<standard draft="provisional">マーシャル諸島時間</standard>
+					<standard>マーシャル諸島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Mauritius">
@@ -4498,59 +5308,69 @@
 					<daylight>モスクワ夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard>ミャンマー時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Nauru">
 				<long>
-					<standard draft="provisional">ナウル時間</standard>
+					<standard>ナウル時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard>ネパール時間</standard>
 				</long>
 			</metazone>
 			<metazone type="New_Caledonia">
 				<long>
-					<generic draft="provisional">ニューカレドニア時間</generic>
-					<standard draft="provisional">ニューカレドニア標準時</standard>
-					<daylight draft="provisional">ニューカレドニア夏時間</daylight>
+					<generic>ニューカレドニア時間</generic>
+					<standard>ニューカレドニア標準時</standard>
+					<daylight>ニューカレドニア夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="New_Zealand">
 				<long>
-					<generic draft="provisional">ニュージーランド時間</generic>
-					<standard draft="provisional">ニュージーランド標準時</standard>
-					<daylight draft="provisional">ニュージーランド夏時間</daylight>
+					<generic>ニュージーランド時間</generic>
+					<standard>ニュージーランド標準時</standard>
+					<daylight>ニュージーランド夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
-					<generic>ニューファンドランド島時間</generic>
-					<standard>ニューファンドランド島標準時</standard>
-					<daylight>ニューファンドランド島夏時間</daylight>
+					<generic>ニューファンドランド時間</generic>
+					<standard>ニューファンドランド標準時</standard>
+					<daylight>ニューファンドランド夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Niue">
 				<long>
-					<standard draft="provisional">ニウエ時間</standard>
+					<standard>ニウエ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<standard draft="contributed">ノーフォーク諸島時間</standard>
+					<standard>ノーフォーク島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">フェルナンド ド ノローニャ時間</generic>
-					<standard draft="contributed">フェルナンド ド ノローニャ標準時</standard>
-					<daylight draft="contributed">フェルナンド ド ノローニャ夏時間</daylight>
+					<generic>フェルナンド・デ・ノローニャ時間</generic>
+					<standard>フェルナンド・デ・ノローニャ標準時</standard>
+					<daylight>フェルナンド・デ・ノローニャ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="North_Mariana">
 				<long>
-					<standard draft="provisional">北マリアナ諸島時間</standard>
+					<standard draft="contributed">北マリアナ諸島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
-					<generic>ノボシビルスク時間</generic>
-					<standard>ノボシビルスク標準時</standard>
-					<daylight>ノボシビルスク夏時間</daylight>
+					<generic>ノヴォシビルスク時間</generic>
+					<standard>ノヴォシビルスク標準時</standard>
+					<daylight>ノヴォシビルスク夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
@@ -4560,14 +5380,21 @@
 					<daylight>オムスク夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic>パキスタン時間</generic>
+					<standard>パキスタン標準時</standard>
+					<daylight>パキスタン夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Palau">
 				<long>
-					<standard draft="provisional">パラオ時間</standard>
+					<standard>パラオ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Papua_New_Guinea">
 				<long>
-					<standard draft="provisional">パプアニューギニア時間</standard>
+					<standard>パプアニューギニア時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Paraguay">
@@ -4584,36 +5411,50 @@
 					<daylight>ペルー夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic>フィリピン時間</generic>
+					<standard>フィリピン標準時</standard>
+					<daylight>フィリピン夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Phoenix_Islands">
 				<long>
-					<standard draft="provisional">フェニックス諸島時間</standard>
+					<standard>フェニックス諸島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
-					<generic draft="provisional">サンピエール島・ミクロン島時間</generic>
-					<standard draft="provisional">サンピエール島・ミクロン島標準時</standard>
-					<daylight draft="provisional">サンピエール島・ミクロン島夏時間</daylight>
+					<generic>サンピエール・ミクロン時間</generic>
+					<standard>サンピエール・ミクロン標準時</standard>
+					<daylight>サンピエール・ミクロン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
-					<standard draft="provisional">ピトケアン時間</standard>
+					<standard>ピトケアン時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Ponape">
 				<long>
-					<standard draft="provisional">ポナペ時間</standard>
+					<standard>ポナペ時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Qyzylorda">
+				<long>
+					<generic>クズロルダ時間</generic>
+					<standard>クズロルダ標準時</standard>
+					<daylight>クズロルダ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
 				<long>
-					<standard>レユニオン標準時</standard>
+					<standard>レユニオン時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Rothera">
 				<long>
-					<standard>ロゼラ研究基地時間</standard>
+					<standard>ロゼラ基地時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
@@ -4630,29 +5471,55 @@
 					<daylight draft="contributed">サマラ夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Samarkand">
+				<long>
+					<generic>サマルカンド時間</generic>
+					<standard>サマルカンド標準時</standard>
+					<daylight>サマルカンド夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<standard draft="provisional">サモア標準時</standard>
+					<standard>サモア時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
 				<long>
-					<standard>セーシェル標準時</standard>
+					<standard>セーシェル時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Shevchenko">
+				<long>
+					<generic>シェフチェンコ時間</generic>
+					<standard>シェフチェンコ標準時</standard>
+					<daylight>シェフチェンコ夏時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard>シンガポール時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
 				<long>
-					<standard draft="provisional">ソロモン諸島時間</standard>
+					<standard draft="contributed">ソロモン諸島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="South_Georgia">
 				<long>
-					<standard>サウスジョージア標準時</standard>
+					<standard>サウスジョージア時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Suriname">
 				<long>
-					<standard>スリナム標準時</standard>
+					<standard>スリナム時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Sverdlovsk">
+				<long>
+					<generic draft="provisional">スヴェルドロフスク時間</generic>
+					<standard draft="provisional">スヴェルドロフスク標準時</standard>
+					<daylight draft="provisional">スヴェルドロフスク夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Syowa">
@@ -4662,24 +5529,50 @@
 			</metazone>
 			<metazone type="Tahiti">
 				<long>
-					<standard draft="provisional">タヒチ時間</standard>
+					<standard>タヒチ時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>台北時間</generic>
+					<standard>台北標準時</standard>
+					<daylight>台北夏時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard>タジキスタン時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Tashkent">
+				<long>
+					<generic>タシュケント時間</generic>
+					<standard>タシュケント標準時</standard>
+					<daylight>タシュケント夏時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tbilisi">
+				<long>
+					<generic>トビリシ時間</generic>
+					<standard>トビリシ標準時</standard>
+					<daylight>トビリシ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tokelau">
 				<long>
-					<standard draft="provisional">トケラウ時間</standard>
+					<standard>トケラウ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Tonga">
 				<long>
-					<generic draft="provisional">トンガ時間</generic>
-					<standard draft="provisional">トンガ標準時</standard>
-					<daylight draft="provisional">トンガ夏時間</daylight>
+					<generic>トンガ時間</generic>
+					<standard>トンガ標準時</standard>
+					<daylight>トンガ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Truk">
 				<long>
-					<standard draft="provisional">チューク時間</standard>
+					<standard>チューク時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Turkey">
@@ -4689,9 +5582,23 @@
 					<daylight>トルコ夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic>トルクメニスタン時間</generic>
+					<standard>トルクメニスタン標準時</standard>
+					<daylight>トルクメニスタン夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Tuvalu">
 				<long>
-					<standard draft="provisional">ツバル時間</standard>
+					<standard>ツバル時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Uralsk">
+				<long>
+					<generic>オラル時間</generic>
+					<standard>オラル標準時</standard>
+					<daylight>オラル夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Uruguay">
@@ -4701,16 +5608,28 @@
 					<daylight>ウルグアイ夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>ウルムチ時間</standard>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic>ウズベキスタン時間</generic>
+					<standard>ウズベキスタン標準時</standard>
+					<daylight>ウズベキスタン夏時間</daylight>
+				</long>
+			</metazone>
 			<metazone type="Vanuatu">
 				<long>
-					<generic draft="provisional">バヌアツ時間</generic>
-					<standard draft="provisional">バヌアツ標準時</standard>
-					<daylight draft="provisional">バヌアツ夏時間</daylight>
+					<generic>バヌアツ時間</generic>
+					<standard>バヌアツ標準時</standard>
+					<daylight>バヌアツ夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Venezuela">
 				<long>
-					<standard>ベネズエラ標準時</standard>
+					<standard>ベネズエラ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
@@ -4723,7 +5642,7 @@
 			<metazone type="Volgograd">
 				<long>
 					<generic>ボルゴグラード時間</generic>
-					<standard>ボルゴグラード標準時</standard>
+					<standard>ヴォルゴグラード標準時</standard>
 					<daylight>ボルゴグラード夏時間</daylight>
 				</long>
 			</metazone>
@@ -4734,12 +5653,12 @@
 			</metazone>
 			<metazone type="Wake">
 				<long>
-					<standard draft="provisional">ウェーク島時間</standard>
+					<standard>ウェーク島時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Wallis">
 				<long>
-					<standard draft="provisional">ワリス・フテュナ時間</standard>
+					<standard>ウォリス・フツナ時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
@@ -4754,6 +5673,13 @@
 					<generic>エカテリンブルグ時間</generic>
 					<standard>エカテリンブルグ標準時</standard>
 					<daylight>エカテリンブルグ夏時間</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yerevan">
+				<long>
+					<generic>エレバン時間</generic>
+					<standard>エレバン標準時</standard>
+					<daylight>エレバン夏時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yukon">
@@ -4775,28 +5701,681 @@
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>
-			<nan draft="contributed">NaN（非数）</nan>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>NaN</nan>
 		</symbols>
+		<decimalFormats numberSystem="arab">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="arabext">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="bali">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="beng">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="cham">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="deva">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="fullwide">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="gujr">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="guru">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="hanidec">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="java">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="kali">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="khmr">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="knda">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="lana">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="lanatham">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="laoo">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
-			<decimalFormatLength type="short">
+			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0000</pattern>
+					<pattern type="1000" count="other">0.0千</pattern>
 					<pattern type="10000" count="other">0.0万</pattern>
-					<pattern type="100000" count="other">00万</pattern>
+					<pattern type="100000" count="other" draft="provisional">00.0万</pattern>
 					<pattern type="1000000" count="other">000万</pattern>
-					<pattern type="10000000" count="other">0000万</pattern>
-					<pattern type="100000000" count="other">0.0億</pattern>
+					<pattern type="10000000" count="other" draft="provisional">0,000万</pattern>
+					<pattern type="100000000" count="other" draft="provisional">0.00億</pattern>
 					<pattern type="1000000000" count="other">00億</pattern>
 					<pattern type="10000000000" count="other">000億</pattern>
-					<pattern type="100000000000" count="other">0000億</pattern>
+					<pattern type="100000000000" count="other" draft="provisional">0,000億</pattern>
 					<pattern type="1000000000000" count="other">0.0兆</pattern>
 					<pattern type="10000000000000" count="other">00兆</pattern>
 					<pattern type="100000000000000" count="other">000兆</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="lepc">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="limb">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="mlym">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="mong">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="mtei">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="mymr">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="mymrshan">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="nkoo">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="olck">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="orya">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="saur">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="sund">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="talu">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="tamldec">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="telu">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="thai">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="tibt">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="vaii">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="10000" count="other" draft="contributed">00K</pattern>
+					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4820,175 +6399,262 @@
 					<pattern>¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="0" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="1" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
 				<displayName>アンドラ ペセタ</displayName>
+				<symbol draft="contributed">ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>アラブ首長国連邦ディルハム</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>アフガニスタン アフガニー (1927-2002)</displayName>
+				<symbol draft="contributed">AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>アフガニー</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>アルバニア レク</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>アルメニア ドラム</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>オランダ領アンティル ギルダー</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>クワンザ</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>アンゴラ クワンザ (1977-1991)</displayName>
+				<symbol draft="contributed">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>アンゴラ 新クワンザ (1990-2000)</displayName>
+				<symbol draft="contributed">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>アンゴラ 旧クワンザ (1995-1999)</displayName>
+				<symbol draft="contributed">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>アルゼンチン アゥストラール</displayName>
+				<symbol draft="contributed">ARA</symbol>
+			</currency>
+			<currency type="ARL">
+				<displayName draft="contributed">アルゼンチン・ペソ・レイ（1970-1983）</displayName>
+				<symbol draft="contributed">ARL</symbol>
+			</currency>
+			<currency type="ARM">
+				<displayName draft="contributed">アルゼンチン・ペソ（1881-1970）</displayName>
+				<symbol draft="contributed">ARM</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>アルゼンチン ペソ (1983-1985)</displayName>
+				<symbol draft="contributed">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>アルゼンチン ペソ</displayName>
+				<symbol>ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>オーストリア シリング</displayName>
+				<symbol draft="contributed">ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>オーストラリア ドル</displayName>
+				<symbol draft="contributed">AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>アルバ ギルダー</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>アゼルバイジャン マナト (1993-2006)</displayName>
+				<symbol draft="contributed">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>アゼルバイジャン マナト</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>ボスニア・ヘルツェゴビナ ディナール (1992-1994)</displayName>
+				<symbol draft="contributed">BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>ボスニア マルク (BAM)</displayName>
+				<symbol>BAM</symbol>
+			</currency>
+			<currency type="BAN">
+				<displayName draft="contributed">ボスニア・ヘルツェゴビナ 新ディナール（1994-1997）</displayName>
+				<symbol draft="contributed">BAN</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>バルバドス ドル</displayName>
+				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>バングラデシュ タカ</displayName>
+				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>ベルギー フラン (BEC)</displayName>
+				<symbol draft="contributed">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>ベルギー フラン</displayName>
+				<symbol draft="contributed">BEF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>ベルギー フラン (BEL)</displayName>
+				<symbol draft="contributed">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>ブルガリア レフ</displayName>
+				<symbol draft="contributed">BGL</symbol>
+			</currency>
+			<currency type="BGM">
+				<displayName draft="contributed">ブルガリア社会主義 レフ</displayName>
+				<symbol draft="contributed">BGM</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>ブルガリア 新レフ</displayName>
+				<symbol>BGN</symbol>
+			</currency>
+			<currency type="BGO">
+				<displayName draft="contributed">ブルガリア レフ（1879-1952）</displayName>
+				<symbol draft="contributed">BGO</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>バーレーン ディナール</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>ブルンジ フラン</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>バミューダ ドル</displayName>
+				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>ブルネイ ドル</displayName>
+				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
-				<displayName>ボリビアーノ</displayName>
+				<displayName>ボリビア ボリビアーノ</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName>ボリビア ボリビアーノ (1863-1963)</displayName>
+				<symbol draft="contributed">BOL</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>ボリビア ペソ</displayName>
+				<symbol draft="contributed">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>ボリビア (Mvdol)</displayName>
+				<symbol draft="contributed">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>ブラジル 新クルゼイロ (1967-1986)</displayName>
+				<symbol draft="contributed">BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>ブラジル クルザード (1986-1989)</displayName>
+				<symbol draft="contributed">BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>ブラジル クルゼイロ (1990-1993)</displayName>
+				<symbol draft="contributed">BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>ブラジル レアル</displayName>
+				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>ブラジル 新クルザード (1989-1990)</displayName>
+				<symbol draft="contributed">BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>ブラジル クルゼイロ (1993-1994)</displayName>
+				<symbol draft="contributed">BRR</symbol>
+			</currency>
+			<currency type="BRZ">
+				<displayName draft="contributed">ブラジル クルゼイロ（1942-1967）</displayName>
+				<symbol draft="contributed">BRZ</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>バハマ ドル</displayName>
+				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>ブータン ニュルタム</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>ビルマ チャット</displayName>
+				<symbol draft="contributed">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>ボツワナ プラ</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>ベラルーシ 新ルーブル (1994-1999)</displayName>
+				<symbol draft="contributed">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>ベラルーシ ルーブル</displayName>
+				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>ベリーズ ドル</displayName>
+				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>カナダ ドル</displayName>
+				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>コンゴ フラン</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>ユーロ (WIR)</displayName>
+				<symbol draft="contributed">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>スイス フラン</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>フラン (WIR)</displayName>
+				<symbol draft="contributed">CHW</symbol>
+			</currency>
+			<currency type="CLE">
+				<displayName draft="contributed">チリ エスクード</displayName>
+				<symbol draft="contributed">CLE</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>チリ ウニダ・デ・フォメント (UF)</displayName>
+				<symbol draft="contributed">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>チリ ペソ</displayName>
+				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>中国人民元</displayName>
@@ -4996,189 +6662,251 @@
 			</currency>
 			<currency type="COP">
 				<displayName>コロンビア ペソ</displayName>
+				<symbol>COP</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>コロンビア レアル （UVR)</displayName>
+				<symbol draft="contributed">COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>コスタリカ コロン</displayName>
+				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>セルビア ディナール (2002-2006)</displayName>
+				<symbol draft="contributed">CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>チェコスロバキア コルナ</displayName>
+				<symbol draft="contributed">CSK</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>キューバ 兌換ペソ</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>キューバ ペソ</displayName>
+				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>カーボベルデ エスクード</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>キプロス ポンド</displayName>
+				<symbol draft="contributed">CYP</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>チェコ コルナ</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>東ドイツ マルク</displayName>
+				<symbol draft="contributed">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>ドイツ マルク</displayName>
+				<symbol draft="contributed">DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>ジブチ フラン</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>デンマーク クローネ</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>ドミニカ ペソ</displayName>
+				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>アルジェリア ディナール</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>エクアドル スクレ</displayName>
+				<symbol draft="contributed">ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>エクアドル (UVC)</displayName>
+				<symbol draft="contributed">ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>エストニア クルーン</displayName>
+				<symbol draft="contributed">EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>エジプト ポンド</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>エリトリア ナクファ</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>スペインペセタ</displayName>
+				<symbol draft="contributed">ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>スペイン 兌換ペセタ</displayName>
+				<symbol draft="contributed">ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>スペイン ペセタ</displayName>
+				<symbol draft="contributed">ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>エチオピア ブル</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ユーロ</displayName>
+				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>フィンランド マルカ</displayName>
+				<symbol draft="contributed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>フィジー諸島 ドル</displayName>
+				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>フォークランド（マルビナス）諸島 ポンド</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>フランス フラン</displayName>
+				<symbol draft="contributed">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>英国ポンド</displayName>
+				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>グルジア クーポン ラリ</displayName>
+				<symbol draft="contributed">GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>グルジア ラリ</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>ガーナ セディ (1979-2007)</displayName>
+				<symbol draft="contributed">GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>ガーナ セディ</displayName>
+				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>ジブラルタル ポンド</displayName>
+				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>ガンビア ダラシ</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>ギニア フラン</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>ギニア シリー</displayName>
+				<symbol draft="contributed">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>赤道ギニア エクウェレ</displayName>
+				<symbol draft="contributed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>ギリシャ ドラクマ</displayName>
+				<symbol draft="contributed">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>グアテマラ ケツァル</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>ポルトガル領ギニア エスクード</displayName>
+				<symbol draft="contributed">GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>ギニアビサウ ペソ</displayName>
+				<symbol draft="contributed">GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>ガイアナ ドル</displayName>
+				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>香港ドル</displayName>
+				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>ホンジュラス レンピラ</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>クロアチア ディナール</displayName>
+				<symbol draft="contributed">HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>クロアチア クーナ</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>ハイチ グールド</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>ハンガリー フォリント</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>インドネシア ルピア</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>アイリッシュ ポンド</displayName>
+				<symbol draft="contributed">IEP</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>イスラエル ポンド</displayName>
+				<symbol draft="contributed">ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>イスラエル新シェケル</displayName>
+				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>インド ルピー</displayName>
+				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>イラク ディナール</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>イラン リアル</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>アイスランド クローナ</displayName>
+				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>イタリア リラ</displayName>
+				<symbol draft="contributed">ITL</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>ジャマイカ ドル</displayName>
+				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>ヨルダン ディナール</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>日本円</displayName>
@@ -5186,18 +6914,31 @@
 			</currency>
 			<currency type="KES">
 				<displayName>ケニア シリング</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>キルギスタン ソム</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>カンボジア リエル</displayName>
+				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>コモロ フラン</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>北朝鮮 ウォン</displayName>
+				<symbol>KPW</symbol>
+			</currency>
+			<currency type="KRH">
+				<displayName draft="contributed">韓国 ファン（1953-1962）</displayName>
+				<symbol draft="contributed">KRH</symbol>
+			</currency>
+			<currency type="KRO">
+				<displayName draft="contributed">韓国 ウォン（1945-1953）</displayName>
+				<symbol draft="contributed">KRO</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>韓国 ウォン</displayName>
@@ -5205,315 +6946,435 @@
 			</currency>
 			<currency type="KWD">
 				<displayName>クウェート ディナール</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>ケイマン諸島 ドル</displayName>
+				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>カザフスタン テンゲ</displayName>
+				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>ラオス キープ</displayName>
+				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>レバノン ポンド</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>スリランカ ルピー</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>リベリア ドル</displayName>
+				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>レソト ロティ</displayName>
+				<symbol draft="contributed">LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>リトアニア リタス</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>リトアニア タロナ</displayName>
+				<symbol draft="contributed">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>ルクセンブルク 兌換フラン</displayName>
+				<symbol draft="contributed">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>ルクセンブルグ フラン</displayName>
+				<symbol draft="contributed">LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>ルクセンブルク 金融フラン</displayName>
+				<symbol draft="contributed">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>ラトビア ラッツ</displayName>
+				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>ラトビア ルーブル</displayName>
+				<symbol draft="contributed">LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>リビア ディナール</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>モロッコ ディルハム</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>モロッコ フラン</displayName>
+				<symbol draft="contributed">MAF</symbol>
+			</currency>
+			<currency type="MCF">
+				<displayName draft="contributed">モネガスク フラン</displayName>
+				<symbol draft="contributed">MCF</symbol>
+			</currency>
+			<currency type="MDC">
+				<displayName draft="contributed">モルドバ クーポン</displayName>
+				<symbol draft="contributed">MDC</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>モルドバ レイ</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>マダガスカル アリアリ</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>マラガシ フラン</displayName>
+				<symbol draft="contributed">MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>マケドニア デナル</displayName>
+				<symbol>MKD</symbol>
+			</currency>
+			<currency type="MKN">
+				<displayName draft="contributed">マケドニア ディナール（1992-1993）</displayName>
+				<symbol draft="contributed">MKN</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>マリ フラン</displayName>
+				<symbol draft="contributed">MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>ミャンマー チャット</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>モンゴル トグログ</displayName>
+				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>マカオ パタカ</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>モーリタニア ウギア</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>マルタ リラ</displayName>
+				<symbol draft="contributed">MTL</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>マルタ ポンド</displayName>
+				<symbol draft="contributed">MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>モーリシャス ルピー</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>モルディブ諸島 ルフィア</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>マラウィ クワチャ</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>メキシコ ペソ</displayName>
+				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>メキシコ ペソ (1861-1992)</displayName>
+				<symbol draft="contributed">MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>メキシコ (UDI)</displayName>
+				<symbol draft="contributed">MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>マレーシア リンギット</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>モザンピーク エスクード</displayName>
+				<symbol draft="contributed">MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>モザンビーク メティカル (1980-2006)</displayName>
+				<symbol draft="contributed">MZM</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>モザンビーク メティカル</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>ナミビア ドル</displayName>
+				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>ナイジェリア ナイラ</displayName>
+				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>ニカラグア コルドバ (1988-1991)</displayName>
+				<symbol draft="contributed">NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>ニカラグア コルドバ オロ</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>オランダ ギルダー</displayName>
+				<symbol draft="contributed">NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>ノルウェー クローネ</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>ネパール ルピー</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>ニュージーランド ドル</displayName>
+				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>オマーン リアル</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>パナマ バルボア</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>ペルー インティ</displayName>
+				<symbol draft="contributed">PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>ペルー 新ソル</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>ペルー ソル (1863-1965)</displayName>
+				<symbol draft="contributed">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>パプアニューギニア キナ</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>フィリピン ペソ</displayName>
+				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>パキスタン ルピー</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>ポーランド ズウォティ</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>ポーランド ズウォティ (1950-1995)</displayName>
+				<symbol draft="contributed">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>ポルトガル エスクード</displayName>
+				<symbol draft="contributed">PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>パラグアイ グアラニ</displayName>
+				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>カタール リアル</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>ローデシア ドル</displayName>
+				<symbol draft="contributed">RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>ルーマニア レイ (1952-2006)</displayName>
+				<symbol draft="contributed">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>ルーマニア レイ</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>ディナール (セルビア)</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>ロシア ルーブル</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>ロシア ルーブル (1991-1998)</displayName>
+				<symbol draft="contributed">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>ルワンダ フラン</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>サウジ リヤル</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>ソロモン諸島 ドル</displayName>
+				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
-				<displayName>セイシェル ルピー</displayName>
+				<displayName>セーシェル ルピー</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>スーダン ディナール (1992-2007)</displayName>
+				<symbol draft="contributed">SDD</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>スーダン ポンド</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>スーダン ポンド (1957-1998)</displayName>
+				<symbol draft="contributed">SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>スウェーデン クローナ</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>シンガポール ドル</displayName>
+				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>セントヘレナ島 ポンド</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>スロベニア トラール</displayName>
+				<symbol draft="contributed">SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>スロバキア コルナ</displayName>
+				<symbol draft="contributed">SKK</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>シエラレオネ レオン</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>ソマリア シリング</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>スリナム ドル</displayName>
+				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>スリナム ギルダー</displayName>
+				<symbol draft="contributed">SRG</symbol>
+			</currency>
+			<currency type="SSP">
+				<displayName>南スーダン・ポンド</displayName>
+				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>サントメ・プリンシペ ドブラ</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>ソ連 ルーブル</displayName>
+				<symbol draft="contributed">SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>エルサルバドル コロン</displayName>
+				<symbol draft="contributed">SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>シリア ポンド</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>スワジランド リランゲニ</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>タイ バーツ</displayName>
+				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>タジキスタン ルーブル</displayName>
+				<symbol draft="contributed">TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>タジキスタン ソモニ</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>トルクメニスタン マナト (1993-2009)</displayName>
+				<symbol draft="contributed">TMM</symbol>
 			</currency>
 			<currency type="TMT">
-				<displayName>トルクメニスタン 新マナト</displayName>
+				<displayName>トルクメニスタン マナト</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>チュニジア ディナール</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>トンガ パ・アンガ</displayName>
+				<symbol draft="contributed">TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>ティモール エスクード</displayName>
+				<symbol draft="contributed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>トルコ リラ (1922-2005)</displayName>
+				<symbol draft="contributed">TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>新トルコリラ</displayName>
+				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>トリニダードトバゴ ドル</displayName>
+				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>新台湾ドル</displayName>
+				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>タンザニア シリング</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>ウクライナ グリブナ</displayName>
+				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>ウクライナ カルボバネツ</displayName>
+				<symbol draft="contributed">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>ウガンダ シリング (1966-1987)</displayName>
+				<symbol draft="contributed">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>ウガンダ シリング</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>米ドル</displayName>
@@ -5521,129 +7382,183 @@
 			</currency>
 			<currency type="USN">
 				<displayName>米ドル (翌日)</displayName>
+				<symbol draft="contributed">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>米ドル (当日)</displayName>
+				<symbol draft="contributed">USS</symbol>
+			</currency>
+			<currency type="UYI">
+				<displayName draft="contributed">ウルグアイ ペソエン</displayName>
+				<symbol draft="contributed">UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>ウルグアイ ペソ (1975-1993)</displayName>
+				<symbol draft="contributed">UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>ウルグアイ ペソ</displayName>
+				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>ウズベキスタン スム</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>ベネズエラ ボリバル (1871-2008)</displayName>
+				<symbol draft="contributed">VEB</symbol>
 			</currency>
 			<currency type="VEF">
-				<displayName>ベネズエラ ボリバルフエルテ</displayName>
+				<displayName>ベネズエラ ボリバル</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ベトナム ドン</displayName>
+				<symbol>₫</symbol>
+			</currency>
+			<currency type="VNN">
+				<displayName draft="contributed">ベトナム ドン（1978-1985）</displayName>
+				<symbol draft="contributed">VNN</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>バヌアツ バツ</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
-				<displayName>西サモア タラ</displayName>
+				<displayName>サモア タラ</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
-				<displayName>フラン (CFA-BEAC)</displayName>
+				<displayName>CFA フラン（BEAC）</displayName>
+				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>銀</displayName>
+				<symbol draft="contributed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>金</displayName>
+				<symbol draft="contributed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>ヨーロッパ混合単位 (EURCO)</displayName>
+				<symbol draft="contributed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>ヨーロッパ通貨単位 (EMU-6)</displayName>
+				<symbol draft="contributed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>ヨーロッパ勘定単位 (EUA-9)</displayName>
+				<symbol draft="contributed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>ヨーロッパ勘定単位 (EUA-17)</displayName>
+				<symbol draft="contributed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>東カリブ ドル</displayName>
+				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>特別引き出し権</displayName>
+				<symbol draft="contributed">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>ヨーロッパ通貨単位</displayName>
+				<symbol draft="contributed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>フランス金フラン</displayName>
+				<symbol draft="contributed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>フランス フラン (UIC)</displayName>
+				<symbol draft="contributed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
-				<displayName>フラン (CFA-BCEAO)</displayName>
+				<displayName>CFA フラン（BCEAO）</displayName>
+				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>パラジウム</displayName>
+				<symbol draft="contributed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP フラン</displayName>
+				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>プラチナ</displayName>
+				<symbol draft="contributed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET基金</displayName>
+				<symbol draft="contributed">XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName>テスト用通貨コード</displayName>
+				<symbol draft="contributed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>不明または無効な通貨</displayName>
+				<symbol draft="contributed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>イエメン ディナール</displayName>
+				<symbol draft="contributed">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>イエメン リアル</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>ユーゴスラビア ハード・ディナール (1966-1990)</displayName>
+				<symbol draft="contributed">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>ユーゴスラビア ノビ・ディナール (1994-2002)</displayName>
+				<symbol draft="contributed">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>ユーゴスラビア 兌換ディナール (1990-1992)</displayName>
+				<symbol draft="contributed">YUN</symbol>
+			</currency>
+			<currency type="YUR">
+				<displayName draft="contributed">ユーゴスラビア 改革ディナール（1992-1993）</displayName>
+				<symbol draft="contributed">YUR</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>南アフリカ ランド (ZAL)</displayName>
+				<symbol draft="contributed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>南アフリカ ランド</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>ザンビア クワチャ</displayName>
+				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>ザイール 新ザイール (1993-1998)</displayName>
+				<symbol draft="contributed">ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>ザイール ザイール (1971-1993)</displayName>
+				<symbol draft="contributed">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>ジンバブエ ドル (1980-2008)</displayName>
+				<symbol draft="contributed">ZWD</symbol>
 			</currency>
 			<currency type="ZWL">
 				<displayName>ジンバブエ ドル (2009)</displayName>
+				<symbol draft="contributed">ZWL</symbol>
 			</currency>
 			<currency type="ZWR">
 				<displayName>シンバブエ ドル（2008）</displayName>
+				<symbol draft="contributed">ZWR</symbol>
 			</currency>
 		</currencies>
 	</numbers>
@@ -5653,13 +7568,13 @@
 			<unitPattern count="other" alt="short">{0}日</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0" draft="contributed">0 日後</unitPattern>
-			<unitPattern count="1" draft="contributed">1 日後</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} 日後</unitPattern>
+			<unitPattern count="0">{0}日後</unitPattern>
+			<unitPattern count="1">{0}日後</unitPattern>
+			<unitPattern count="other">{0}日後</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0" draft="contributed">0 日前</unitPattern>
-			<unitPattern count="1" draft="contributed">1 日前</unitPattern>
+			<unitPattern count="0">{0}日前</unitPattern>
+			<unitPattern count="1">{0}日前</unitPattern>
 			<unitPattern count="other">{0}日前</unitPattern>
 		</unit>
 		<unit type="hour">
@@ -5667,13 +7582,13 @@
 			<unitPattern count="other" alt="short">{0}時間</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0" draft="contributed">0 時間後</unitPattern>
-			<unitPattern count="1" draft="contributed">1 時間後</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} 時間後</unitPattern>
+			<unitPattern count="0">{0}時間後</unitPattern>
+			<unitPattern count="1">{0}時間後</unitPattern>
+			<unitPattern count="other">{0}時間後</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0" draft="contributed">0 時間前</unitPattern>
-			<unitPattern count="1" draft="contributed">1 時間前</unitPattern>
+			<unitPattern count="0">{0}時間前</unitPattern>
+			<unitPattern count="1">{0}時間前</unitPattern>
 			<unitPattern count="other">{0}時間前</unitPattern>
 		</unit>
 		<unit type="minute">
@@ -5681,13 +7596,13 @@
 			<unitPattern count="other" alt="short">{0}分</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0" draft="contributed">0 分後</unitPattern>
-			<unitPattern count="1" draft="contributed">1 分後</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} 分後</unitPattern>
+			<unitPattern count="0">{0}分後</unitPattern>
+			<unitPattern count="1">{0}分後</unitPattern>
+			<unitPattern count="other">{0}分後</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0" draft="contributed">0 分前</unitPattern>
-			<unitPattern count="1" draft="contributed">1 分前</unitPattern>
+			<unitPattern count="0">{0}分前</unitPattern>
+			<unitPattern count="1">{0}分前</unitPattern>
 			<unitPattern count="other">{0}分前</unitPattern>
 		</unit>
 		<unit type="month">
@@ -5695,13 +7610,13 @@
 			<unitPattern count="other" alt="short">{0}か月</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0" draft="contributed">0 か月後</unitPattern>
-			<unitPattern count="1" draft="contributed">1 か月後</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} か月後</unitPattern>
+			<unitPattern count="0">{0}か月後</unitPattern>
+			<unitPattern count="1">{0}か月後</unitPattern>
+			<unitPattern count="other">{0}か月後</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0" draft="contributed">0 か月前</unitPattern>
-			<unitPattern count="1" draft="contributed">1 か月前</unitPattern>
+			<unitPattern count="0">{0}か月前</unitPattern>
+			<unitPattern count="1">{0}か月前</unitPattern>
 			<unitPattern count="other">{0}か月前</unitPattern>
 		</unit>
 		<unit type="second">
@@ -5709,13 +7624,13 @@
 			<unitPattern count="other" alt="short">{0}秒</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0" draft="contributed">0 秒後</unitPattern>
-			<unitPattern count="1" draft="contributed">1 秒後</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} 秒後</unitPattern>
+			<unitPattern count="0">{0}秒後</unitPattern>
+			<unitPattern count="1">{0}秒後</unitPattern>
+			<unitPattern count="other">{0}秒後</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0" draft="contributed">0 秒前</unitPattern>
-			<unitPattern count="1" draft="contributed">1 秒前</unitPattern>
+			<unitPattern count="0">{0}秒前</unitPattern>
+			<unitPattern count="1">{0}秒前</unitPattern>
 			<unitPattern count="other">{0}秒前</unitPattern>
 		</unit>
 		<unit type="week">
@@ -5737,13 +7652,13 @@
 			<unitPattern count="other" alt="short">{0}年</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0" draft="contributed">0 年後</unitPattern>
-			<unitPattern count="1" draft="contributed">1 年後</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} 年後</unitPattern>
+			<unitPattern count="0">{0}年後</unitPattern>
+			<unitPattern count="1">{0}年後</unitPattern>
+			<unitPattern count="other">{0}年後</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0" draft="contributed">0 年前</unitPattern>
-			<unitPattern count="1" draft="contributed">1 年前</unitPattern>
+			<unitPattern count="0">{0}年前</unitPattern>
+			<unitPattern count="1">{0}年前</unitPattern>
 			<unitPattern count="other">{0}年前</unitPattern>
 		</unit>
 	</units>

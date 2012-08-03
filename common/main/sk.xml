@@ -8,11 +8,14 @@
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>,</localeSeparator>
+			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">afarčina</language>
 			<language type="ab">abcházština</language>
+			<language type="ace" draft="contributed">acehčina</language>
 			<language type="ach">ačoli</language>
 			<language type="ada">adangme</language>
 			<language type="ady">adygčina</language>
@@ -20,21 +23,26 @@
 			<language type="af">afrikánčina</language>
 			<language type="afa">afroázijské jazyky</language>
 			<language type="afh">afrihili</language>
+			<language type="agq" draft="contributed">aghem</language>
 			<language type="ain">ainčina</language>
 			<language type="ak">akančina</language>
 			<language type="akk">akkadčina</language>
 			<language type="ale">aleutčina</language>
 			<language type="alg">algonkinské jazyky</language>
+			<language type="alt" draft="contributed">južná altajčina</language>
 			<language type="am">amharčina</language>
 			<language type="an">aragónčina</language>
+			<language type="ang" draft="contributed">stará angličtina</language>
 			<language type="anp">angika</language>
 			<language type="apa">apačské jazyky</language>
 			<language type="ar">arabčina</language>
+			<language type="arc" draft="contributed">aramejčina</language>
 			<language type="arn">araukánčina</language>
 			<language type="arp">arapaho</language>
 			<language type="art">umelý jazyk</language>
 			<language type="arw">arawačtina</language>
 			<language type="as">ásámčina</language>
+			<language type="asa" draft="contributed">asu</language>
 			<language type="ast">astúrčina</language>
 			<language type="ath">athabaské jazyky</language>
 			<language type="aus">austrálske jazyky</language>
@@ -42,58 +50,87 @@
 			<language type="awa">avadhčina</language>
 			<language type="ay">aymarčina</language>
 			<language type="az">azerbajdžančina</language>
+			<language type="az" alt="short" draft="contributed">azerčina</language>
 			<language type="ba">baskirčina</language>
+			<language type="bad" draft="contributed">banda</language>
 			<language type="bai">bamileke</language>
 			<language type="bal">balúčtina</language>
 			<language type="ban">balijčina</language>
 			<language type="bas">basa</language>
 			<language type="bat">baltské jazyky</language>
+			<language type="bax" draft="contributed">bamun</language>
+			<language type="bbj" draft="contributed">ghomala</language>
 			<language type="be">bieloruština</language>
 			<language type="bej">bedža</language>
 			<language type="bem">bemba</language>
 			<language type="ber">berberské jazyky</language>
+			<language type="bez" draft="contributed">bena</language>
+			<language type="bfd" draft="contributed">bafut</language>
 			<language type="bg">bulharčina</language>
 			<language type="bh">bihárske jazyky</language>
 			<language type="bho">bhódžpurčina</language>
 			<language type="bi">bislama</language>
 			<language type="bik">bikol</language>
 			<language type="bin">bini</language>
+			<language type="bkm" draft="contributed">kom</language>
+			<language type="bla" draft="contributed">siksika</language>
 			<language type="bm">bambarčina</language>
 			<language type="bn">bengálčina</language>
 			<language type="bnt">bantuské jazyky</language>
 			<language type="bo">tibetčina</language>
 			<language type="br">bretónčina</language>
 			<language type="bra">bradžčina</language>
+			<language type="brx" draft="contributed">bodo</language>
 			<language type="bs">bosniačtina</language>
+			<language type="bss" draft="contributed">akoose</language>
 			<language type="btk">batacké jazyky</language>
 			<language type="bua">buriatčina</language>
 			<language type="bug">bugiština</language>
+			<language type="bum" draft="contributed">bulu</language>
 			<language type="byn">blin</language>
+			<language type="byv" draft="contributed">medumba</language>
 			<language type="ca">katalánčina</language>
+			<language type="cad" draft="contributed">kaddo</language>
 			<language type="cai" draft="contributed">jazyk stredoamerických indiánov</language>
 			<language type="car" draft="contributed">karibský</language>
 			<language type="cau">kaukazské jazyky</language>
+			<language type="cay" draft="contributed">cayuga</language>
+			<language type="cch" draft="contributed">atsam</language>
 			<language type="ce">čečenčina</language>
 			<language type="ceb">cebuánčina</language>
 			<language type="cel">keltské jazyky</language>
+			<language type="cgg" draft="contributed">čiga</language>
 			<language type="ch">čamorčina</language>
 			<language type="chb">čibča</language>
 			<language type="chg">čagatajčina</language>
+			<language type="chk" draft="contributed">truk</language>
+			<language type="chm" draft="contributed">marijčina</language>
 			<language type="chn">činucký žargón</language>
 			<language type="cho">čoktavčina</language>
 			<language type="chp">čipevajčina</language>
 			<language type="chr">čerokí</language>
 			<language type="chy">čejenčina</language>
+			<language type="ckb">kurdčina (sorání)</language>
 			<language type="cmc">čamaské jazyky</language>
 			<language type="co">korzičtina</language>
+			<language type="cop" draft="contributed">koptčina</language>
+			<language type="cpe" draft="contributed">anglická kreolčina alebo pidžin</language>
+			<language type="cpf" draft="contributed">francúzska kreolčina alebo pidžin</language>
+			<language type="cpp" draft="contributed">portugalská kreolčina alebo pidžin</language>
 			<language type="cr">krí</language>
+			<language type="crh" draft="contributed">krymská turečtina</language>
+			<language type="crp" draft="contributed">kreolčina alebo pidžin</language>
 			<language type="cs">čeština</language>
+			<language type="csb" draft="contributed">kašubčina</language>
 			<language type="cu">cirkevná slovančina</language>
+			<language type="cus" draft="contributed">kušitské jazyky</language>
 			<language type="cv">čuvaština</language>
 			<language type="cy">waleština</language>
 			<language type="da">dánčina</language>
 			<language type="dak">dakotčina</language>
 			<language type="dar">darginčina</language>
+			<language type="dav" draft="contributed">taita</language>
+			<language type="day" draft="contributed">dajačtina</language>
 			<language type="de">nemčina</language>
 			<language type="de_AT">rakúska nemčina</language>
 			<language type="de_CH">švajčiarska spisovná nemčina</language>
@@ -101,12 +138,18 @@
 			<language type="den">slovančina</language>
 			<language type="dgr">dogribčina</language>
 			<language type="din">dinka</language>
+			<language type="dje" draft="contributed">zarma</language>
 			<language type="doi">dógrí</language>
 			<language type="dra">drávidské jazyky</language>
+			<language type="dsb" draft="contributed">dolnolužická srbčina</language>
 			<language type="dua">duala</language>
+			<language type="dum" draft="contributed">stredná holandčina</language>
 			<language type="dv">divehi</language>
+			<language type="dyo" draft="contributed">jola-fonyi</language>
 			<language type="dyu">ďula</language>
 			<language type="dz">dzongkä</language>
+			<language type="dzg" draft="contributed">dazaga</language>
+			<language type="ebu" draft="contributed">embu</language>
 			<language type="ee">eweština</language>
 			<language type="efi">efik</language>
 			<language type="egy" draft="contributed">staroegyptský</language>
@@ -118,6 +161,7 @@
 			<language type="en_CA">kanadská angličtina</language>
 			<language type="en_GB">britská angličtina</language>
 			<language type="en_US">americká angličtina</language>
+			<language type="enm" draft="contributed">stredná angličtina</language>
 			<language type="eo">esperanto</language>
 			<language type="es">španielčina</language>
 			<language type="es_419">latinskoamerická španielčina</language>
@@ -138,6 +182,9 @@
 			<language type="fr">francúzština</language>
 			<language type="fr_CA">kanadská francúzština</language>
 			<language type="fr_CH">švajčiarska francúzština</language>
+			<language type="frm" draft="contributed">stredná francúzština</language>
+			<language type="fro" draft="contributed">stará francúzština</language>
+			<language type="frr" draft="contributed">severná frízština</language>
 			<language type="frs">východná frízština</language>
 			<language type="fur">friulčina</language>
 			<language type="fy">západná frízština</language>
@@ -147,170 +194,404 @@
 			<language type="gba">gbaja</language>
 			<language type="gd">škótčina</language>
 			<language type="gem">germánske jazyky</language>
+			<language type="gez" draft="contributed">etiópčina</language>
+			<language type="gil" draft="contributed">kiribatčina</language>
 			<language type="gl">galícijčina</language>
+			<language type="gmh" draft="contributed">stredná horná nemčina</language>
 			<language type="gn">guaraní</language>
+			<language type="goh" draft="contributed">stará horná nemčina</language>
+			<language type="gon" draft="contributed">góndčina</language>
+			<language type="gor" draft="contributed">gorontalo</language>
 			<language type="got">gótčina</language>
+			<language type="grb" draft="contributed">grebo</language>
 			<language type="grc">starogréčtina</language>
 			<language type="gsw">švajčiarska nemčina</language>
 			<language type="gu">gudžarátčina</language>
+			<language type="guz" draft="contributed">gusii</language>
 			<language type="gv">mančina</language>
+			<language type="gwi" draft="contributed">gwichʼin</language>
 			<language type="ha">hauština</language>
+			<language type="hai" draft="contributed">haida</language>
 			<language type="haw">havajčina</language>
 			<language type="he">hebrejčina</language>
 			<language type="hi">hindčina</language>
+			<language type="hil" draft="contributed">hiligajnončina</language>
+			<language type="him" draft="contributed">himachali</language>
+			<language type="hit" draft="contributed">chetitčina</language>
+			<language type="hmn" draft="contributed">hmong</language>
 			<language type="ho">hiri motu</language>
 			<language type="hr">chorvátčina</language>
-			<language type="ht" draft="contributed">haitský</language>
+			<language type="hsb" draft="contributed">hornolužická srbčina</language>
+			<language type="ht">haitčina</language>
 			<language type="hu">maďarčina</language>
+			<language type="hup" draft="contributed">hupčina</language>
 			<language type="hy">arménčina</language>
 			<language type="hz">herero</language>
 			<language type="ia">interlingua</language>
+			<language type="iba" draft="contributed">ibančina</language>
+			<language type="ibb" draft="contributed">ibibio</language>
 			<language type="id">indonézština</language>
 			<language type="ie">interlingue</language>
 			<language type="ig">igboština</language>
+			<language type="ii" draft="contributed">s’čchuanská ioština</language>
+			<language type="ijo" draft="contributed">idžo</language>
+			<language type="ik" draft="contributed">inupiaq</language>
+			<language type="ilo" draft="contributed">ilokánčina</language>
+			<language type="inc" draft="contributed">indické jazyky</language>
 			<language type="ine">indoeurópske jazyky</language>
+			<language type="inh" draft="contributed">inguština</language>
+			<language type="io" draft="contributed">ido</language>
 			<language type="ira">iránske jazyky</language>
+			<language type="iro" draft="contributed">irokézske jazyky</language>
 			<language type="is">islandčina</language>
 			<language type="it">taliančina</language>
+			<language type="iu" draft="contributed">inuktitut</language>
 			<language type="ja">japončina</language>
+			<language type="jbo" draft="contributed">lojban</language>
+			<language type="jmc" draft="contributed">machame</language>
+			<language type="jpr" draft="contributed">židovská perzština</language>
+			<language type="jrb" draft="contributed">židovská arabčina</language>
 			<language type="jv">jávčina</language>
 			<language type="ka">gruzínčina</language>
-			<language type="kg">konžština</language>
+			<language type="kaa" draft="contributed">karakalpačtina</language>
+			<language type="kab" draft="contributed">kabylčina</language>
+			<language type="kac" draft="contributed">kačjinčina</language>
+			<language type="kaj" draft="contributed">jju</language>
+			<language type="kam" draft="contributed">kamba</language>
+			<language type="kar" draft="contributed">karenčina</language>
+			<language type="kaw" draft="contributed">kawi</language>
+			<language type="kbd" draft="contributed">kabardčina</language>
+			<language type="kbl" draft="contributed">kanembu</language>
+			<language type="kcg" draft="contributed">tyap</language>
+			<language type="kde" draft="contributed">makonde</language>
+			<language type="kea" draft="contributed">kapverdčina</language>
+			<language type="kfo" draft="contributed">koro</language>
+			<language type="kg">kongčina</language>
+			<language type="kha" draft="contributed">khasijčina</language>
+			<language type="khi" draft="contributed">kojsanské jazyky</language>
+			<language type="kho" draft="contributed">chotančina</language>
+			<language type="khq" draft="contributed">západná songhajčina</language>
+			<language type="ki" draft="contributed">kikuju</language>
 			<language type="kj">kuaňama</language>
 			<language type="kk">kazaština</language>
+			<language type="kkj" draft="contributed">kako</language>
 			<language type="kl">grónska eskimáčtina</language>
+			<language type="kln" draft="contributed">kalenjin</language>
 			<language type="km">kambodžská khmérčina</language>
+			<language type="kmb" draft="contributed">kimbundu</language>
 			<language type="kn">kannadčina</language>
 			<language type="ko">kórejčina</language>
+			<language type="kok" draft="contributed">kónkánčina</language>
+			<language type="kos" draft="contributed">kusaie</language>
+			<language type="kpe" draft="contributed">kpelle</language>
 			<language type="kr">kanurijčina</language>
+			<language type="krc" draft="contributed">karačajevsko-balkarský jazyk</language>
+			<language type="krl" draft="contributed">karelčina</language>
+			<language type="kro" draft="contributed">kru</language>
+			<language type="kru" draft="contributed">kurukhčina</language>
 			<language type="ks">kašmírčina</language>
+			<language type="ksb" draft="contributed">šambala</language>
+			<language type="ksf" draft="contributed">bafia</language>
+			<language type="ksh" draft="contributed">kolínčina</language>
 			<language type="ku">kurdčina</language>
+			<language type="kum" draft="contributed">kumyčtina</language>
+			<language type="kut" draft="contributed">kutenajčina</language>
 			<language type="kv">komijčina</language>
 			<language type="kw">kornčina</language>
 			<language type="ky">kirgizština</language>
 			<language type="la">latinčina</language>
+			<language type="lad" draft="contributed">židovská španielčina</language>
+			<language type="lag" draft="contributed">langi</language>
+			<language type="lah" draft="contributed">lahandčina</language>
+			<language type="lam" draft="contributed">lamba</language>
 			<language type="lb">luxemburčina</language>
+			<language type="lez" draft="contributed">lezginčina</language>
 			<language type="lg">gandčina</language>
+			<language type="li" draft="contributed">limburčina</language>
 			<language type="ln">lingalčina</language>
 			<language type="lo">laoština</language>
 			<language type="lol">mongo</language>
+			<language type="loz">lozi</language>
 			<language type="lt">litovčina</language>
 			<language type="lu">luba-katanga</language>
+			<language type="lua">luba-luluánčina</language>
+			<language type="lui" draft="contributed">luiseňo</language>
+			<language type="lun" draft="contributed">lunda</language>
+			<language type="luo" draft="contributed">luo</language>
+			<language type="lus" draft="contributed">mizorámčina</language>
+			<language type="luy" draft="contributed">luyia</language>
 			<language type="lv">lotyština</language>
+			<language type="mad" draft="contributed">madurčina</language>
+			<language type="maf" draft="contributed">mafa</language>
+			<language type="mag" draft="contributed">magadhčina</language>
+			<language type="mai" draft="contributed">maithilčina</language>
+			<language type="mak" draft="contributed">makasarčina</language>
+			<language type="man" draft="contributed">mandingo</language>
 			<language type="map">austronézske jazyky</language>
+			<language type="mas" draft="contributed">masajčina</language>
+			<language type="mde" draft="contributed">maba</language>
+			<language type="mdf" draft="contributed">mokšiančina</language>
+			<language type="mdr" draft="contributed">mandarčina</language>
+			<language type="men" draft="contributed">mendi</language>
+			<language type="mer" draft="contributed">meru</language>
+			<language type="mfe">maurícijská kreolčina</language>
 			<language type="mg">malgaština</language>
+			<language type="mga" draft="contributed">stredná írčina</language>
+			<language type="mgh" draft="contributed">makhuwa-meetto</language>
 			<language type="mh">kajin-majol</language>
 			<language type="mi">maorijčina</language>
+			<language type="mic" draft="contributed">mikmakčina</language>
+			<language type="min" draft="contributed">minangkabaučina</language>
+			<language type="mis" draft="contributed">rôznorodý jazyk</language>
 			<language type="mk">macedónčina</language>
+			<language type="mkh" draft="contributed">mon-khmérsky jazyk</language>
 			<language type="ml">malajálamčina</language>
 			<language type="mn">mongolčina</language>
+			<language type="mnc" draft="contributed">mandžuština</language>
+			<language type="mni" draft="contributed">manípurčina</language>
+			<language type="mno" draft="contributed">jazyk manobo</language>
 			<language type="mo">moldavčina</language>
+			<language type="moh" draft="contributed">mohawk</language>
+			<language type="mos" draft="contributed">mossi</language>
 			<language type="mr">maráthčina</language>
 			<language type="ms">malajčina</language>
 			<language type="mt">maltčina</language>
+			<language type="mua" draft="contributed">mundang</language>
+			<language type="mul" draft="contributed">viaceré jazyky</language>
+			<language type="mun" draft="contributed">mundský jazyk</language>
+			<language type="mus" draft="contributed">kríkčina</language>
+			<language type="mwl" draft="contributed">mirandčina</language>
+			<language type="mwr" draft="contributed">marawari</language>
 			<language type="my">barmčina</language>
+			<language type="mye" draft="contributed">myene</language>
 			<language type="myn">mayské jazyky</language>
 			<language type="myv">erzjančina</language>
 			<language type="na">nauru</language>
+			<language type="nah" draft="contributed">nahuaský jazyk</language>
 			<language type="nai" draft="contributed">jazyk severoamerických indiánov</language>
-			<language type="nb">bokmål</language>
+			<language type="nap" draft="contributed">neapolčina</language>
+			<language type="naq" draft="contributed">nama</language>
+			<language type="nb">nórsky bokmål</language>
 			<language type="nd" draft="contributed">severné ndbele</language>
+			<language type="nds" draft="contributed">dolná nemčina</language>
 			<language type="ne">nepálčina</language>
+			<language type="new" draft="contributed">nevárčina</language>
 			<language type="ng">ndonga</language>
+			<language type="nia" draft="contributed">niasánčina</language>
+			<language type="nic" draft="contributed">nigersko-konžský jazyk</language>
+			<language type="niu" draft="contributed">niueština</language>
 			<language type="nl">holandčina</language>
 			<language type="nl_BE">flámčina</language>
+			<language type="nmg" draft="contributed">kwasio</language>
 			<language type="nn">nórsky nynorsk</language>
+			<language type="nnh" draft="contributed">ngiemboon</language>
 			<language type="no">nórčina</language>
+			<language type="nog" draft="contributed">nogajčina</language>
+			<language type="non" draft="contributed">stará nórčina</language>
+			<language type="nqo" draft="contributed">n’ko</language>
+			<language type="nr" draft="contributed">južná ndebelčina</language>
 			<language type="nso" draft="contributed">severná sothčina</language>
+			<language type="nub" draft="contributed">núbijský jazyk</language>
+			<language type="nus" draft="contributed">nuer</language>
 			<language type="nv">navajo</language>
+			<language type="nwc" draft="contributed">klasická nevárčina</language>
 			<language type="ny">čewa</language>
+			<language type="nym" draft="contributed">ňamwezi</language>
+			<language type="nyn">ňankole</language>
+			<language type="nyo" draft="contributed">ňoro</language>
+			<language type="nzi" draft="contributed">nzima</language>
 			<language type="oc">okcitánčina</language>
 			<language type="oj">odžibva</language>
 			<language type="om">oromčina</language>
 			<language type="or">uríjčina</language>
 			<language type="os">osetčina</language>
+			<language type="osa" draft="contributed">osagčina</language>
+			<language type="ota" draft="contributed">osmanská turečtina</language>
+			<language type="oto" draft="contributed">oto-pameský jazyk</language>
 			<language type="pa">pandžábčina</language>
 			<language type="paa" draft="contributed">papuánsky</language>
+			<language type="pag" draft="contributed">pangasinančina</language>
+			<language type="pal" draft="contributed">pahlaví</language>
+			<language type="pam" draft="contributed">pampanga</language>
+			<language type="pap" draft="contributed">papiamento</language>
+			<language type="pau" draft="contributed">palaučina</language>
+			<language type="peo" draft="contributed">stará perzština</language>
+			<language type="phi" draft="contributed">filipínsky jazyk</language>
+			<language type="phn" draft="contributed">feničtina</language>
 			<language type="pi">pálí</language>
 			<language type="pl">poľština</language>
+			<language type="pon" draft="contributed">pohnpeičina</language>
+			<language type="pra" draft="contributed">prakrity</language>
+			<language type="pro" draft="contributed">stará okcitánčina</language>
 			<language type="ps">paštúnčina</language>
 			<language type="ps" alt="variant" draft="contributed">paštčina</language>
 			<language type="pt">portugalčina</language>
 			<language type="pt_BR">brazílska portugalčina</language>
 			<language type="pt_PT">iberská portugalčina</language>
 			<language type="qu">kečuánčina</language>
+			<language type="raj" draft="contributed">radžastančina</language>
+			<language type="rap" draft="contributed">rapanujčina</language>
+			<language type="rar" draft="contributed">rarotongan</language>
 			<language type="rm">rétorománčina</language>
 			<language type="rn">rundčina</language>
 			<language type="ro">rumunčina</language>
+			<language type="roa" draft="contributed">románsky jazyk</language>
+			<language type="rof" draft="contributed">rombo</language>
+			<language type="rom" draft="contributed">rómčina</language>
+			<language type="root" draft="contributed">koreň</language>
 			<language type="ru">ruština</language>
+			<language type="rup" draft="contributed">arumunčina</language>
 			<language type="rw">rwandčina</language>
+			<language type="rwk" draft="contributed">rwa</language>
 			<language type="sa">sanskrit</language>
+			<language type="sad" draft="contributed">sandawe</language>
+			<language type="sah" draft="contributed">jakutčina</language>
 			<language type="sai" draft="contributed">jazyk juhoamerických indiánov</language>
+			<language type="sal" draft="contributed">sališský jazyk</language>
+			<language type="sam" draft="contributed">samaritánska aramejčina</language>
+			<language type="saq" draft="contributed">samburu</language>
+			<language type="sas" draft="contributed">sasačtina</language>
+			<language type="sat" draft="contributed">santalčina</language>
+			<language type="sba" draft="contributed">ngambay</language>
+			<language type="sbp" draft="contributed">sangu</language>
 			<language type="sc">sardínčina</language>
 			<language type="scn">sicílčina</language>
+			<language type="sco" draft="contributed">škótčina</language>
 			<language type="sd">sindhčina</language>
 			<language type="se" draft="contributed">severná saamčina</language>
+			<language type="see" draft="contributed">seneca</language>
+			<language type="seh" draft="contributed">sena</language>
+			<language type="sel" draft="contributed">selkupčina</language>
+			<language type="sem" draft="contributed">semitský jazyk</language>
+			<language type="ses" draft="contributed">koyraboro senni</language>
 			<language type="sg">sango</language>
+			<language type="sga" draft="contributed">stará írčina</language>
 			<language type="sgn" draft="contributed">znaková reč</language>
 			<language type="sh">srbochorvátčina</language>
+			<language type="shi" draft="contributed">tachelhit</language>
+			<language type="shn" draft="contributed">šančina</language>
+			<language type="shu" draft="contributed">čadská arabčina</language>
 			<language type="si">sinhalčina</language>
+			<language type="sid" draft="contributed">sidamo</language>
+			<language type="sio" draft="contributed">siouský jazyk</language>
+			<language type="sit" draft="contributed">sinotibetský jazyk</language>
 			<language type="sk">slovenčina</language>
 			<language type="sl">slovinčina</language>
 			<language type="sla">slovenský jazyk</language>
 			<language type="sm">samojčina</language>
+			<language type="sma" draft="contributed">južná saamčina</language>
+			<language type="smi" draft="contributed">saamský jazyk</language>
+			<language type="smj" draft="contributed">luleská saamčina</language>
+			<language type="smn" draft="contributed">inariská saamčina</language>
+			<language type="sms" draft="contributed">skolt</language>
 			<language type="sn">šončina</language>
+			<language type="snk" draft="contributed">soninke</language>
 			<language type="so">somálčina</language>
+			<language type="sog" draft="contributed">sogdijčina</language>
+			<language type="son" draft="contributed">songhajčina</language>
 			<language type="sq">albánčina</language>
 			<language type="sr">srbčina</language>
+			<language type="srn" draft="contributed">sranan</language>
+			<language type="srr" draft="contributed">serer</language>
 			<language type="ss">svazijčina</language>
+			<language type="ssa" draft="contributed">nilosaharský jazyk</language>
+			<language type="ssy" draft="contributed">saho</language>
 			<language type="st">južná sothčina</language>
 			<language type="su">sundčina</language>
+			<language type="suk" draft="contributed">sukuma</language>
+			<language type="sus" draft="contributed">susu</language>
 			<language type="sux">sumerčina</language>
 			<language type="sv">švédčina</language>
 			<language type="sw">swahilčina</language>
-			<language type="swb" draft="provisional">komorčina</language>
+			<language type="swb" draft="contributed">komorčina</language>
+			<language type="swc" draft="contributed">konžská svahilčina</language>
+			<language type="syc" draft="contributed">klasická sýrčina</language>
 			<language type="syr">sýrčina</language>
 			<language type="ta">tamilčina</language>
+			<language type="tai" draft="contributed">thajský jazyk</language>
 			<language type="te">telugčina</language>
+			<language type="tem" draft="contributed">temne</language>
+			<language type="teo" draft="contributed">teso</language>
+			<language type="ter" draft="contributed">tereno</language>
 			<language type="tet" draft="contributed">tetum</language>
 			<language type="tg">tadžičtina</language>
 			<language type="th">thajčina</language>
-			<language type="ti">tigrejčina</language>
+			<language type="ti">tigriňa</language>
+			<language type="tig" draft="contributed">tigrejčina</language>
+			<language type="tiv" draft="contributed">tiv</language>
 			<language type="tk">turkménčina</language>
+			<language type="tkl" draft="contributed">tokelaučina</language>
 			<language type="tl">tagalčina</language>
 			<language type="tlh">klingónčina</language>
+			<language type="tli" draft="contributed">tlingitčina</language>
+			<language type="tmh" draft="contributed">tamašek</language>
 			<language type="tn">tswančina</language>
-			<language type="to">tonžtina</language>
+			<language type="to">tongčina</language>
+			<language type="tog" draft="contributed">ňasa tonga</language>
 			<language type="tpi" draft="contributed">tok pisin</language>
 			<language type="tr">turečtina</language>
+			<language type="trv" draft="contributed">taroko</language>
 			<language type="ts">tsonga</language>
+			<language type="tsi" draft="contributed">tsimshijské jazyky</language>
 			<language type="tt">tatárčina</language>
+			<language type="tum" draft="contributed">tumbuka</language>
+			<language type="tup" draft="contributed">jazyk tupi</language>
 			<language type="tut">altajské jazyky</language>
+			<language type="tvl" draft="contributed">tuvalčina</language>
 			<language type="tw">twi</language>
+			<language type="twq" draft="contributed">tasawak</language>
 			<language type="ty">tahitčina</language>
+			<language type="tyv" draft="contributed">tuviančina</language>
+			<language type="tzm" draft="contributed">stredomarocká berberčina</language>
+			<language type="udm" draft="contributed">udmurtčina</language>
 			<language type="ug">ujgurčina</language>
+			<language type="ug" alt="variant" draft="contributed">ujgurčina</language>
+			<language type="uga" draft="contributed">ugaritčina</language>
 			<language type="uk">ukrajinčina</language>
-			<language type="und">neznámy alebo neplatný jazyk</language>
+			<language type="umb" draft="contributed">umbundu</language>
+			<language type="und">neznámy jazyk</language>
 			<language type="ur">urdčina</language>
 			<language type="uz">uzbečtina</language>
+			<language type="vai" draft="contributed">vai</language>
 			<language type="ve">vendčina</language>
 			<language type="vi">vietnamčina</language>
 			<language type="vo">volapük</language>
+			<language type="vot" draft="contributed">vodčina</language>
+			<language type="vun" draft="contributed">vunjo</language>
 			<language type="wa">valónčina</language>
+			<language type="wae" draft="contributed">walserčina</language>
+			<language type="wak" draft="contributed">wakašský jazyk</language>
+			<language type="wal" draft="contributed">walamo</language>
+			<language type="war" draft="contributed">waray</language>
+			<language type="was" draft="contributed">washo</language>
+			<language type="wen" draft="contributed">lužickosrbský jazyk</language>
 			<language type="wo">wolof</language>
+			<language type="xal" draft="contributed">kalmyčtina</language>
 			<language type="xh">xhosa</language>
+			<language type="xog" draft="contributed">soga</language>
+			<language type="yao" draft="contributed">jao</language>
+			<language type="yap" draft="contributed">japčina</language>
+			<language type="yav" draft="contributed">jangben</language>
+			<language type="ybb" draft="contributed">yemba</language>
 			<language type="yi">jidiš</language>
 			<language type="yo">jorubčina</language>
-			<language type="yue" draft="provisional">kantončina</language>
+			<language type="ypk" draft="contributed">juitsko-jupický jazyk</language>
+			<language type="yue" draft="contributed">kantončina</language>
 			<language type="za">čuangčina</language>
+			<language type="zap" draft="contributed">zapotéčtina</language>
+			<language type="zbl" draft="contributed">systém Bliss</language>
+			<language type="zen" draft="contributed">zenaga</language>
 			<language type="zh">čínština</language>
 			<language type="zh_Hans">zjednodušená čínština</language>
 			<language type="zh_Hant">tradičná čínština</language>
+			<language type="znd" draft="contributed">zandský jazyk</language>
 			<language type="zu">zuluština</language>
+			<language type="zun" draft="contributed">zuniština</language>
 			<language type="zxx" draft="contributed">bez jazykového obsahu</language>
+			<language type="zza" draft="contributed">zázá</language>
 		</languages>
 		<scripts>
-			<script type="Arab">Arabský</script>
+			<script type="Arab">arabské</script>
 			<script type="Arab" alt="variant">Perzsko-arabské znaky</script>
 			<script type="Armn">Arménsky</script>
 			<script type="Bali" draft="contributed">balijský</script>
@@ -330,16 +611,16 @@
 			<script type="Hang" draft="contributed">Hangul</script>
 			<script type="Hani" draft="contributed">Han</script>
 			<script type="Hans">Zjednodušené čínske</script>
-			<script type="Hans" alt="stand-alone" draft="contributed">Han (zjednodušené)</script>
+			<script type="Hans" alt="stand-alone">han – zjednodušené</script>
 			<script type="Hant">Tradičné čínske</script>
-			<script type="Hant" alt="stand-alone" draft="contributed">Han (tradičné)</script>
+			<script type="Hant" alt="stand-alone">han – tradičné</script>
 			<script type="Hebr" draft="contributed">hebrejský</script>
 			<script type="Hira" draft="contributed">Hiragana</script>
-			<script type="Jpan" draft="contributed">japonský</script>
+			<script type="Jpan">japonské</script>
 			<script type="Kana" draft="contributed">Katakana</script>
 			<script type="Khmr" draft="contributed">kmérsky</script>
 			<script type="Knda" draft="contributed">Kannadčina</script>
-			<script type="Kore" draft="contributed">kórejský</script>
+			<script type="Kore">kórejské</script>
 			<script type="Laoo" draft="contributed">Lao</script>
 			<script type="Latn" draft="contributed">latinka</script>
 			<script type="Lina" draft="contributed">lineárna A</script>
@@ -381,7 +662,7 @@
 			<territory type="034">Južná Ázia</territory>
 			<territory type="035">Juhovýchodná Ázia</territory>
 			<territory type="039">Južná Európa</territory>
-			<territory type="053">Austrália a Nový Zéland</territory>
+			<territory type="053">Australázia</territory>
 			<territory type="054">Melanézia</territory>
 			<territory type="057">Mikronézia – oblasť</territory>
 			<territory type="061">Polynézia</territory>
@@ -403,7 +684,7 @@
 			<territory type="AM">Arménsko</territory>
 			<territory type="AN">Holandské Antily</territory>
 			<territory type="AO">Angola</territory>
-			<territory type="AQ">Antarctica</territory>
+			<territory type="AQ">Antarktída</territory>
 			<territory type="AR">Argentína</territory>
 			<territory type="AS">Americká Samoa</territory>
 			<territory type="AT">Rakúsko</territory>
@@ -424,9 +705,10 @@
 			<territory type="BM">Bermudy</territory>
 			<territory type="BN">Brunej</territory>
 			<territory type="BO">Bolívia</territory>
+			<territory type="BQ">Karibské Holandsko</territory>
 			<territory type="BR">Brazília</territory>
 			<territory type="BS">Bahamy</territory>
-			<territory type="BT">Bután</territory>
+			<territory type="BT">Bhután</territory>
 			<territory type="BV">Bouvetov ostrov</territory>
 			<territory type="BW">Botswana</territory>
 			<territory type="BY">Bielorusko</territory>
@@ -450,12 +732,13 @@
 			<territory type="CR">Kostarika</territory>
 			<territory type="CU">Kuba</territory>
 			<territory type="CV">Kapverdy</territory>
+			<territory type="CW">Curaçao</territory>
 			<territory type="CX">Vianočný ostrov</territory>
 			<territory type="CY">Cyprus</territory>
 			<territory type="CZ">Česká republika</territory>
 			<territory type="DE">Nemecko</territory>
 			<territory type="DG" draft="contributed">Diego Garcia</territory>
-			<territory type="DJ">Džibuti</territory>
+			<territory type="DJ">Džibutsko</territory>
 			<territory type="DK">Dánsko</territory>
 			<territory type="DM">Dominika</territory>
 			<territory type="DO">Dominikánska republika</territory>
@@ -472,7 +755,7 @@
 			<territory type="FI">Fínsko</territory>
 			<territory type="FJ">Fidži</territory>
 			<territory type="FK">Falklandské ostrovy</territory>
-			<territory type="FK" alt="variant" draft="contributed">Falklandy [Islas Malvinas]</territory>
+			<territory type="FK" alt="variant">Falklandy [Islas Malvinas]</territory>
 			<territory type="FM">Mikronézia</territory>
 			<territory type="FO">Faerské ostrovy</territory>
 			<territory type="FR">Francúzsko</territory>
@@ -496,9 +779,9 @@
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Guinea-Bissau</territory>
 			<territory type="GY">Guayana</territory>
-			<territory type="HK">Hongkong S.A.R. Číny</territory>
+			<territory type="HK">Hongkong OAO Číny</territory>
 			<territory type="HK" alt="short">Hong Kong</territory>
-			<territory type="HM">Heardove ostrovy a McDonaldove ostrovy</territory>
+			<territory type="HM">Heardov ostrov a McDonaldove ostrovy</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Chorvátsko</territory>
 			<territory type="HT">Haiti</territory>
@@ -525,11 +808,11 @@
 			<territory type="KM">Komory</territory>
 			<territory type="KN">Saint Kitts a Nevis</territory>
 			<territory type="KP">Kórejská ľudovodemokratická republika</territory>
-			<territory type="KR">Kórejská republika</territory>
+			<territory type="KR">Južná Kórea</territory>
 			<territory type="KW">Kuvajt</territory>
 			<territory type="KY">Kajmanské ostrovy</territory>
 			<territory type="KZ">Kazachstan</territory>
-			<territory type="LA">Laoská ľudovodemokratická republika</territory>
+			<territory type="LA">Laos</territory>
 			<territory type="LB">Libanon</territory>
 			<territory type="LC">Svätá Lucia</territory>
 			<territory type="LI">Lichtenštajnsko</territory>
@@ -539,12 +822,12 @@
 			<territory type="LT">Litva</territory>
 			<territory type="LU">Luxembursko</territory>
 			<territory type="LV">Lotyšsko</territory>
-			<territory type="LY">Lýbijská arabská džamahírija</territory>
+			<territory type="LY">Líbya</territory>
 			<territory type="MA">Maroko</territory>
 			<territory type="MC">Monako</territory>
 			<territory type="MD">Moldavsko</territory>
 			<territory type="ME">Čierna Hora</territory>
-			<territory type="MF">Svätý Martin</territory>
+			<territory type="MF">Saint Martin</territory>
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Marshallove ostrovy</territory>
 			<territory type="MK">Macedónsko</territory>
@@ -552,7 +835,7 @@
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Mjanmarsko</territory>
 			<territory type="MN">Mongolsko</territory>
-			<territory type="MO">Makao S.A.R. Číny</territory>
+			<territory type="MO">Macao OAO Číny</territory>
 			<territory type="MO" alt="short">Macao</territory>
 			<territory type="MP">Severné Mariány</territory>
 			<territory type="MQ">Martinik</territory>
@@ -597,7 +880,7 @@
 			<territory type="RE">Reunion</territory>
 			<territory type="RO">Rumunsko</territory>
 			<territory type="RS">Srbsko</territory>
-			<territory type="RU">Ruská federácia</territory>
+			<territory type="RU">Rusko</territory>
 			<territory type="RW">Rwanda</territory>
 			<territory type="SA">Saudská Arábia</territory>
 			<territory type="SB">Šalamúnove ostrovy</territory>
@@ -608,16 +891,17 @@
 			<territory type="SH">Svätá Helena</territory>
 			<territory type="SI">Slovinsko</territory>
 			<territory type="SJ">Špicbergy a Jan Mayen</territory>
-			<territory type="SK">Slovenská republika</territory>
+			<territory type="SK">Slovensko</territory>
 			<territory type="SL">Sierra Leone</territory>
 			<territory type="SM">San Maríno</territory>
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somálsko</territory>
 			<territory type="SR">Surinam</territory>
-			<territory type="SS" draft="provisional">Južný Sudán</territory>
+			<territory type="SS">Južný Sudán</territory>
 			<territory type="ST">Svätý Tomáš a Princove ostrovy</territory>
 			<territory type="SV">Salvador</territory>
-			<territory type="SY">Sýrska arabská republika</territory>
+			<territory type="SX">Sint Maarten</territory>
+			<territory type="SY">Sýria</territory>
 			<territory type="SZ">Svazijsko</territory>
 			<territory type="TA" draft="contributed">Tristan da Cunha</territory>
 			<territory type="TC">Turks a Caicos</territory>
@@ -635,7 +919,7 @@
 			<territory type="TR">Turecko</territory>
 			<territory type="TT">Trinidad a Tobago</territory>
 			<territory type="TV">Tuvalu</territory>
-			<territory type="TW">Tajwan</territory>
+			<territory type="TW">Taiwan</territory>
 			<territory type="TZ">Tanzánia</territory>
 			<territory type="UA">Ukrajina</territory>
 			<territory type="UG">Uganda</territory>
@@ -657,17 +941,29 @@
 			<territory type="ZA">Južná Afrika</territory>
 			<territory type="ZM">Zambia</territory>
 			<territory type="ZW">Zimbabwe</territory>
-			<territory type="ZZ">Neznámy alebo neplatný región</territory>
+			<territory type="ZZ">Neznámy región</territory>
 		</territories>
 		<variants>
 			<variant type="PINYIN" draft="provisional">romanizovaná mandarínčina</variant>
+			<variant type="SCOTLAND" draft="contributed">škótska štandardná angličtina</variant>
 			<variant type="WADEGILE" draft="provisional">romanizovaná mandarínčina Wade-Giles</variant>
 		</variants>
 		<keys>
 			<key type="calendar">Kalendár</key>
+			<key type="colAlternate" draft="contributed">Ignorovať radenie symbolov</key>
+			<key type="colBackwards" draft="contributed">Obrátené radenie akcentov</key>
+			<key type="colCaseFirst" draft="contributed">Radenie veľkých a malých písmen</key>
+			<key type="colCaseLevel" draft="contributed">Rozlišovanie veľkých a malých písmen pri radení</key>
+			<key type="colHiraganaQuaternary" draft="contributed">Radenie podľa slabičných písiem (kana)</key>
 			<key type="collation">Triedenie</key>
+			<key type="colNormalization" draft="contributed">Normalizované radenie</key>
+			<key type="colNumeric" draft="contributed">Číselné radenie</key>
+			<key type="colStrength" draft="contributed">Sila radenia</key>
 			<key type="currency">Mena</key>
 			<key type="numbers" draft="contributed">Číslice</key>
+			<key type="timezone" draft="contributed">Časové pásmo</key>
+			<key type="va" draft="contributed">Variant miestneho nastavenia</key>
+			<key type="variableTop" draft="contributed">Radiť ako symboly</key>
 			<key type="x" draft="contributed">Súkromné použitie</key>
 		</keys>
 		<types>
@@ -686,6 +982,7 @@
 			<type type="ethi" key="numbers" draft="contributed">Etiópske číslice</type>
 			<type type="ethiopic" key="calendar" draft="contributed">Etiópsky kalendár</type>
 			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Etiópsky kalendár Amete Alem</type>
+			<type type="finance" key="numbers" draft="contributed">Finančnícky zápis čísiel</type>
 			<type type="fullwide" key="numbers" draft="contributed">Číslice s celou šírkou</type>
 			<type type="gb2312han" key="collation" draft="contributed">Zjednodušený čínsky GB2312</type>
 			<type type="geor" key="numbers" draft="contributed">Gruzínske číslice</type>
@@ -701,6 +998,7 @@
 			<type type="hantfin" key="numbers" draft="contributed">Finančné číslice tradičnej čínštiny</type>
 			<type type="hebr" key="numbers" draft="contributed">Hebrejské číslice</type>
 			<type type="hebrew" key="calendar">Židovský kalendár</type>
+			<type type="identical" key="colStrength" draft="contributed">Radiť všetko</type>
 			<type type="indian" key="calendar" draft="contributed">Indický národný kalendár</type>
 			<type type="islamic" key="calendar">Islamský kalendár</type>
 			<type type="islamic-civil" key="calendar">Islamský občiansky kalendár</type>
@@ -711,29 +1009,56 @@
 			<type type="knda" key="numbers" draft="contributed">Kannadské číslice</type>
 			<type type="laoo" key="numbers" draft="contributed">Číslice písma lao</type>
 			<type type="latn" key="numbers">Arabské číslice</type>
+			<type type="lower" key="colCaseFirst" draft="contributed">Najprv radiť malé písmená</type>
 			<type type="mlym" key="numbers" draft="contributed">Malajámske číslice</type>
 			<type type="mong" key="numbers" draft="contributed">Mongolské číslice</type>
 			<type type="mymr" key="numbers" draft="contributed">Mjanmarské číslice</type>
+			<type type="native" key="numbers" draft="contributed">Natívne číslice</type>
+			<type type="no" key="colBackwards" draft="contributed">Normálne radenie akcentov</type>
+			<type type="no" key="colCaseFirst" draft="contributed">Normálne radenie veľkých a malých písmen</type>
+			<type type="no" key="colCaseLevel" draft="contributed">Pri radení nerozlišovať veľké a malé písmená</type>
+			<type type="no" key="colHiraganaQuaternary" draft="contributed">Radiť slabičné písma (kana) samostatne</type>
+			<type type="no" key="colNormalization" draft="contributed">Radiť bez normalizácie</type>
+			<type type="no" key="colNumeric" draft="contributed">Radiť číslice jednotlivo</type>
+			<type type="non-ignorable" key="colAlternate" draft="contributed">Radiť symboly</type>
 			<type type="orya" key="numbers" draft="contributed">Oríjske číslice</type>
 			<type type="persian" key="calendar" draft="contributed">Perzský kalendár</type>
 			<type type="phonebook" key="collation">Lexikografické triedenie</type>
+			<type type="phonetic" key="collation" draft="contributed">Fonetické radenie</type>
 			<type type="pinyin" key="collation">Triedenie pinyin</type>
+			<type type="primary" key="colStrength" draft="contributed">Radiť iba základné písmená</type>
+			<type type="quaternary" key="colStrength" draft="contributed">Radiť akcenty/veľké a malé písmená/šírku/kana</type>
 			<type type="reformed" key="collation" draft="contributed">Reformované usporiadanie</type>
 			<type type="roc" key="calendar" draft="contributed">Kalendár Čínskej republiky</type>
 			<type type="roman" key="numbers" draft="contributed">Rímske číslice</type>
 			<type type="romanlow" key="numbers" draft="contributed">Rímske číslice (malé písmená)</type>
 			<type type="search" key="collation" draft="contributed">Všeobecné vyhľadávanie</type>
+			<type type="searchjl" key="collation" draft="contributed">Hľadať podľa počiatočnej spoluhlásky písma Hangul</type>
+			<type type="secondary" key="colStrength" draft="contributed">Radiť akcenty</type>
+			<type type="shifted" key="colAlternate" draft="contributed">Pri radení ignorovať symboly</type>
 			<type type="stroke" key="collation">Tiedenie podľa ťahov</type>
 			<type type="taml" key="numbers" draft="contributed">Tamilské číslice</type>
+			<type type="tamldec" key="numbers" draft="contributed">Tamilské číslice</type>
 			<type type="telu" key="numbers" draft="contributed">Telugské číslice</type>
+			<type type="tertiary" key="colStrength" draft="contributed">Radiť akcenty/veľké a malé písmená/šírku</type>
 			<type type="thai" key="numbers" draft="contributed">Thajské číslice</type>
 			<type type="tibt" key="numbers" draft="contributed">Tibetské číslice</type>
 			<type type="traditional" key="collation">Tradičné</type>
+			<type type="traditional" key="numbers" draft="contributed">Tradičné číslovky</type>
 			<type type="unihan" key="collation" draft="contributed">Usporiadanie podľa znakov radikál</type>
+			<type type="upper" key="colCaseFirst" draft="contributed">Najprv radiť veľké písmená</type>
+			<type type="vaii" key="numbers" draft="contributed">Vaiské číslice</type>
+			<type type="yes" key="colBackwards" draft="contributed">Radiť akcenty opačne</type>
+			<type type="yes" key="colCaseLevel" draft="contributed">Pri radení rozlišovať veľké a malé písmená</type>
+			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Radiť slabičné písma (kana) inak</type>
+			<type type="yes" key="colNormalization" draft="contributed">Radenie podľa normalizovaného kódovania Unicode</type>
+			<type type="yes" key="colNumeric" draft="contributed">Numerické radenie číslic</type>
 		</types>
 		<transformNames>
+			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Číslice</transformName>
 			<transformName type="Tone" draft="contributed">Tón</transformName>
+			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Diakritika</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Celá šírka</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Polovičná šírka</transformName>
@@ -742,9 +1067,9 @@
 			<transformName type="x-Publishing" draft="contributed">Uverejnenie</transformName>
 		</transformNames>
 		<measurementSystemNames>
-			<measurementSystemName type="metric" draft="contributed">Metrický</measurementSystemName>
-			<measurementSystemName type="UK">Imperiálny</measurementSystemName>
-			<measurementSystemName type="US" draft="contributed">Americký</measurementSystemName>
+			<measurementSystemName type="metric">metrický</measurementSystemName>
+			<measurementSystemName type="UK">imperiálny</measurementSystemName>
+			<measurementSystemName type="US">americký</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="contributed">Jazyk: {0}</codePattern>
@@ -757,6 +1082,10 @@
 		<exemplarCharacters type="auxiliary" draft="contributed">[à ă â å ā æ ç è ĕ ê ë ē ì ĭ î ï ī ñ ò ŏ ö ø ō œ ř ù ŭ û ü ū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[A Ä B C Č D Ď E F G H {CH} I J K L Ľ M N O Ô P Q R S Š T Ť U V W X Y Z Ž]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – , ; \: ! ? . … ‘ ‚ “ „ ( ) \[ \] § @ * / \&amp;]</exemplarCharacters>
+		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">… {0}</ellipsis>
+		<ellipsis type="medial">{0}… {1}</ellipsis>
+		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
@@ -783,22 +1112,50 @@
 							<month type="11">nov</month>
 							<month type="12">dec</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">j</month>
+							<month type="2">f</month>
+							<month type="3">m</month>
+							<month type="4">a</month>
+							<month type="5">m</month>
+							<month type="6">j</month>
+							<month type="7">j</month>
+							<month type="8">a</month>
+							<month type="9">s</month>
+							<month type="10">o</month>
+							<month type="11">n</month>
+							<month type="12">d</month>
+						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">januára</month>
-							<month type="2">februára</month>
-							<month type="3">marca</month>
-							<month type="4">apríla</month>
-							<month type="5">mája</month>
-							<month type="6">júna</month>
-							<month type="7">júla</month>
-							<month type="8">augusta</month>
-							<month type="9">septembra</month>
-							<month type="10">októbra</month>
-							<month type="11">novembra</month>
-							<month type="12">decembra</month>
+							<month type="1">január</month>
+							<month type="2">február</month>
+							<month type="3">marec</month>
+							<month type="4">apríl</month>
+							<month type="5">máj</month>
+							<month type="6">jún</month>
+							<month type="7">júl</month>
+							<month type="8">august</month>
+							<month type="9">september</month>
+							<month type="10">október</month>
+							<month type="11">november</month>
+							<month type="12">december</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">jan</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">apr</month>
+							<month type="5">máj</month>
+							<month type="6">jún</month>
+							<month type="7">júl</month>
+							<month type="8">aug</month>
+							<month type="9">sep</month>
+							<month type="10">okt</month>
+							<month type="11">nov</month>
+							<month type="12">dec</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">j</month>
 							<month type="2">f</month>
@@ -849,6 +1206,15 @@
 							<day type="fri" draft="contributed">P</day>
 							<day type="sat" draft="contributed">S</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Ne</day>
+							<day type="mon">Po</day>
+							<day type="tue">Ut</day>
+							<day type="wed">St</day>
+							<day type="thu">Št</day>
+							<day type="fri">Pi</day>
+							<day type="sat">So</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">nedeľa</day>
 							<day type="mon">pondelok</day>
@@ -877,6 +1243,15 @@
 							<day type="thu">Š</day>
 							<day type="fri">P</day>
 							<day type="sat">S</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Ne</day>
+							<day type="mon">Po</day>
+							<day type="tue">Ut</day>
+							<day type="wed">St</day>
+							<day type="thu">Št</day>
+							<day type="fri">Pi</day>
+							<day type="sat">So</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun" draft="contributed">nedeľa</day>
@@ -916,6 +1291,12 @@
 							<quarter type="2" draft="contributed">2Q</quarter>
 							<quarter type="3" draft="contributed">3Q</quarter>
 							<quarter type="4" draft="contributed">4Q</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="contributed">1. štvrťrok</quarter>
@@ -984,25 +1365,49 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d.</dateFormatItem>
-						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Ed">E d.</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M" draft="contributed">L.</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="MEd">E, d.M.</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMd">d. MMM.</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d. MMM.</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d. MMMM</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M.yyyy</dateFormatItem>
 						<dateFormatItem id="yMd" draft="contributed">d.M.yyyy</dateFormatItem>
-						<dateFormatItem id="yMEd">E, d.M.yyyy</dateFormatItem>
+						<dateFormatItem id="yMEd">E d. M. y</dateFormatItem>
 						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMd" draft="contributed">d.M.yyyy</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d. MMM y</dateFormatItem>
@@ -1015,16 +1420,16 @@
 						<dateFormatItem id="yyyyMMMM">LLLL y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d. – d.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="a" draft="contributed">h a - h a</greatestDifference>
+							<greatestDifference id="a">h a – h a</greatestDifference>
 							<greatestDifference id="h">h – h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="contributed">H-H</greatestDifference>
+							<greatestDifference id="a">HH – HH</greatestDifference>
 							<greatestDifference id="H">HH – HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
@@ -1033,9 +1438,9 @@
 							<greatestDifference id="m">h:mm - h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="a">H:mm - H:mm</greatestDifference>
-							<greatestDifference id="H">H:mm - H:mm</greatestDifference>
-							<greatestDifference id="m">H:mm - H:mm</greatestDifference>
+							<greatestDifference id="a">HH:mm – HH:mm</greatestDifference>
+							<greatestDifference id="H">H:mm – H:mm</greatestDifference>
+							<greatestDifference id="m">H:mm – H:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a - h:mm a v</greatestDifference>
@@ -1043,16 +1448,16 @@
 							<greatestDifference id="m">h:mm - h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a">H:mm - H:mm v</greatestDifference>
-							<greatestDifference id="H">H:mm - H:mm v</greatestDifference>
-							<greatestDifference id="m">H:mm - H:mm v</greatestDifference>
+							<greatestDifference id="a">H:mm – H:mm v</greatestDifference>
+							<greatestDifference id="H">H:mm – H:mm v</greatestDifference>
+							<greatestDifference id="m">H:mm – H:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a" draft="contributed">h a - h a v</greatestDifference>
 							<greatestDifference id="h">h – h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="contributed">H-H v</greatestDifference>
+							<greatestDifference id="a">HH – HH v</greatestDifference>
 							<greatestDifference id="H">HH – HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
@@ -1141,11 +1546,13 @@
 					</field>
 					<field type="day">
 						<displayName>Deň</displayName>
+						<relative type="-3" draft="contributed">Pred troma dňami</relative>
 						<relative type="-2">Predvčerom</relative>
 						<relative type="-1">Včera</relative>
 						<relative type="0">Dnes</relative>
 						<relative type="1">Zajtra</relative>
 						<relative type="2">Pozajtra</relative>
+						<relative type="3" draft="contributed">O tri dni</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Deň v týždni</displayName>
@@ -1163,18 +1570,107 @@
 						<displayName>Sekunda</displayName>
 					</field>
 					<field type="zone">
-						<displayName>Pásmo</displayName>
+						<displayName>Časové pásmo</displayName>
 					</field>
 				</fields>
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<hourFormat>+HHmm;-HHmm</hourFormat>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
-			<regionFormat draft="contributed">{0} čas</regionFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<regionFormat>{0}</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat draft="contributed">{1} čas ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity draft="contributed">Lower Prince's Quarter</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity draft="contributed">GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity draft="contributed">GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity draft="contributed">GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity draft="contributed">GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity draft="contributed">GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity draft="contributed">GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity draft="contributed">GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity draft="contributed">GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity draft="contributed">GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity draft="contributed">GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity draft="contributed">GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity draft="contributed">GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity draft="contributed">GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity draft="contributed">GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity draft="contributed">GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity draft="contributed">GMT</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
-				<exemplarCity draft="contributed">Neznáme časové pásmo</exemplarCity>
+				<exemplarCity>Neznáme mesto</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity draft="contributed">GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity draft="contributed">GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity draft="contributed">GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity draft="contributed">GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity draft="contributed">GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity draft="contributed">GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity draft="contributed">GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity draft="contributed">GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity draft="contributed">GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity draft="contributed">GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity draft="contributed">GMT-11</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity draft="contributed">Curacao</exemplarCity>
 			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Južný pól</exemplarCity>
@@ -1182,8 +1678,14 @@
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="contributed">Dumont D'Urville</exemplarCity>
 			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity draft="contributed">Svätý Bartolomej</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Bermuda">
 				<exemplarCity draft="contributed">Bermudy</exemplarCity>
+			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity draft="contributed">Sv. Ján</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity draft="contributed">Veľkonočné ostrovy</exemplarCity>
@@ -1266,8 +1768,14 @@
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisabon</exemplarCity>
 			</zone>
+			<zone type="America/Asuncion">
+				<exemplarCity draft="contributed">Asunción</exemplarCity>
+			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity draft="contributed">Katar</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity draft="contributed">Réunion</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskva</exemplarCity>
@@ -1296,6 +1804,9 @@
 			<zone type="Europe/Bratislava">
 				<exemplarCity draft="contributed">Bratislava</exemplarCity>
 			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity draft="contributed">Svätý Tomáš</exemplarCity>
+			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity draft="contributed">Salvádor</exemplarCity>
 			</zone>
@@ -1323,26 +1834,31 @@
 			<zone type="America/St_Thomas">
 				<exemplarCity draft="contributed">Sv. Tomáš</exemplarCity>
 			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard draft="contributed">Afganský čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Africa_Central">
 				<long>
-					<standard draft="contributed">Stredoafrický čas</standard>
+					<standard>Stredoafrický čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Eastern">
 				<long>
-					<standard draft="contributed">Východoafrický čas</standard>
+					<standard>Východoafrický čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<standard draft="contributed">Juhoafrický čas</standard>
+					<standard>Juhoafrický čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic draft="contributed">Západoafrický čas</generic>
-					<standard draft="contributed">Západoafrický štandardný čas</standard>
-					<daylight draft="contributed">Západoafrický letný čas</daylight>
+					<generic>Západoafrický čas</generic>
+					<standard>Západoafrický štandardný čas</standard>
+					<daylight>Západoafrický letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -1394,6 +1910,13 @@
 					<daylight draft="contributed">Anadyrský letný čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic>Arabský čas</generic>
+					<standard>Arabský štandardný čas</standard>
+					<daylight>Arabský letný čas</daylight>
+				</long>
+			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Argentínsky čas</generic>
@@ -1403,9 +1926,16 @@
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="contributed">Západo Argentínsky čas</generic>
-					<standard draft="contributed">Západo Argentínsky štandardný čas</standard>
-					<daylight draft="contributed">Západo Argentínsky letný čas</daylight>
+					<generic>Západoargentínsky čas</generic>
+					<standard>Západoargentínsky štandardný čas</standard>
+					<daylight>Západoargentínsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic draft="contributed">Arménsky čas</generic>
+					<standard draft="contributed">Arménsky štandardný čas</standard>
+					<daylight draft="contributed">Arménsky letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -1443,6 +1973,37 @@
 					<daylight>Západoaustrálsky letný čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<generic draft="contributed">Azerbajdžanský čas</generic>
+					<standard draft="contributed">Azerbajdžanský štandardný čas</standard>
+					<daylight draft="contributed">Azerbajdžanský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic draft="contributed">Azorský čas</generic>
+					<standard draft="contributed">Azorský štandardný čas</standard>
+					<daylight draft="contributed">Azorský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<generic draft="contributed">Bangladéšsky čas</generic>
+					<standard draft="contributed">Bangladéšsky štandardný čas</standard>
+					<daylight draft="contributed">Bangladéšsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard draft="contributed">Bhutánsky čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard draft="contributed">Bolívijský čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic draft="contributed">Brazílsky čas</generic>
@@ -1450,61 +2011,261 @@
 					<daylight draft="contributed">Brazílsky letný čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard draft="contributed">Brunejský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<generic draft="contributed">Kapverdský čas</generic>
+					<standard draft="contributed">Kapverdský štandardný čas</standard>
+					<daylight draft="contributed">Kapverdský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<standard draft="contributed">Chamorrský štandardný čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<generic draft="contributed">Chathamský čas</generic>
+					<standard draft="contributed">Chathamský štandardný čas</standard>
+					<daylight draft="contributed">Chathamský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic draft="contributed">Čilský čas</generic>
+					<standard draft="contributed">Čilský štandardný čas</standard>
+					<daylight draft="contributed">Čilský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>Čínsky čas</generic>
+					<standard>Čínsky štandardný čas</standard>
+					<daylight>Čínsky letný čas</daylight>
+				</long>
+			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic draft="contributed">Choibalsanský čas</generic>
-					<standard draft="contributed">Choibalsanský štandardný čas</standard>
+					<standard>Čojbalsanský štandardný čas</standard>
 					<daylight draft="contributed">Choibalsanský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Christmas">
+				<long>
+					<standard draft="contributed">Čas Vianočného ostrova</standard>
+				</long>
+			</metazone>
+			<metazone type="Cocos">
+				<long>
+					<standard draft="contributed">Čas Kokosových ostrovov</standard>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic draft="contributed">Kolumbijský čas</generic>
+					<standard draft="contributed">Kolumbijský štandardný čas</standard>
+					<daylight draft="contributed">Kolumbijský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<generic draft="contributed">Čas Cookových ostrovov</generic>
+					<standard draft="contributed">Štandardný čas Cookových ostrovov</standard>
+					<daylight draft="contributed">Letný čas Cookových ostrovov</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic>Kubánsky čas</generic>
+					<standard>Kubánsky štandardný čas</standard>
+					<daylight>Kubánsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Davis">
+				<long>
+					<standard draft="contributed">Čas Davisovej stanice</standard>
+				</long>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
+					<standard draft="contributed">Čas stanice Dumonta d'Urvillea</standard>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard draft="contributed">Východotimorský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic draft="contributed">Čas Veľkonočného ostrova</generic>
+					<standard draft="contributed">Štandardný čas Veľkonočného ostrova</standard>
+					<daylight draft="contributed">Letný čas Veľkonočného ostrova</daylight>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard draft="contributed">Ekvádorský čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic draft="contributed">Stredoeurópsky čas</generic>
-					<standard draft="contributed">Stredoeurópsky štandardný čas</standard>
-					<daylight draft="contributed">Stredoeurópsky letný čas</daylight>
+					<generic>Stredoeurópsky čas</generic>
+					<standard>Stredoeurópsky štandardný čas</standard>
+					<daylight>Stredoeurópsky letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic draft="contributed">Východoeurópsky čas</generic>
-					<standard draft="contributed">Východoeurópsky štandardný čas</standard>
-					<daylight draft="contributed">Východoeurópsky letný čas</daylight>
+					<generic>Východoeurópsky čas</generic>
+					<standard>Východoeurópsky štandardný čas</standard>
+					<daylight>Východoeurópsky letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic draft="contributed">Západoeurópsky čas</generic>
-					<standard draft="contributed">Západoeurópsky štandardný čas</standard>
-					<daylight draft="contributed">Západoeurópsky letný čas</daylight>
+					<generic>Západoeurópsky čas</generic>
+					<standard>Západoeurópsky štandardný čas</standard>
+					<daylight>Západoeurópsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic draft="contributed">Čas Falklandských ostrovov</generic>
+					<standard draft="contributed">Štandardný čas Falklandských ostrovov</standard>
+					<daylight draft="contributed">Letný čas Falklandských ostrovov</daylight>
+				</long>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
+					<generic draft="contributed">Fidžijský čas</generic>
+					<standard draft="contributed">Fidžijský štandardný čas</standard>
+					<daylight draft="contributed">Fidžijský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard draft="contributed">Čas Francúzskej Guyany</standard>
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard draft="contributed">Francúzsky južný a antarktický čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard draft="contributed">Galapágsky čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard draft="contributed">Gambierský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<generic draft="contributed">Gruzínsky čas</generic>
+					<standard draft="contributed">Gruzínsky štandardný čas</standard>
+					<daylight draft="contributed">Gruzínsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard draft="contributed">Čas Gilbertových ostrovov</standard>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Greenwichský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>Východogrónsky čas</generic>
+					<standard>Východogrónsky štandardný čas</standard>
+					<daylight>Východogrónsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>Západogrónsky čas</generic>
+					<standard>Západogrónsky štandardný čas</standard>
+					<daylight>Západogrónsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard draft="contributed">Štandardný čas Perzského zálivu</standard>
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard draft="contributed">Guyanský čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">Havajský aleuitanský čas</generic>
-					<standard draft="contributed">Havajský aleuitanský štandardný čas</standard>
-					<daylight draft="contributed">Havajský aleuitanský letný čas</daylight>
+					<standard>Havajsko-aleutský štandardný čas</standard>
+					<daylight>Havajsko-aleutský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic draft="contributed">Hongkongský čas</generic>
+					<standard draft="contributed">Hongkongský štandardný čas</standard>
+					<daylight draft="contributed">Hongkongský letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic draft="contributed">Chovdský čas</generic>
+					<generic>Chovdský čas</generic>
 					<standard draft="contributed">Chovdský štandardný čas</standard>
 					<daylight draft="contributed">Chovdský letný čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="India">
+				<long>
+					<standard>Indický čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard draft="contributed">Čas Indického oceánu</standard>
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard>Indočínsky čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<standard draft="contributed">Indonézsky centrálny čas</standard>
+					<standard>Stredoindonézsky čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<standard draft="contributed">Indonézsky východný čas</standard>
+					<standard>Východoindonézsky čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<standard draft="contributed">Indonézsky západný čas</standard>
+					<standard>Západoindonézsky čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic draft="contributed">Iránsky čas</generic>
+					<standard draft="contributed">Iránsky štandardný čas</standard>
+					<daylight draft="contributed">Iránsky letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -1512,6 +2273,20 @@
 					<generic draft="contributed">Irkutský čas</generic>
 					<standard draft="contributed">Irkutský štandardný čas</standard>
 					<daylight draft="contributed">Irkutský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic>Izraelský čas</generic>
+					<standard>Izraelský štandardný čas</standard>
+					<daylight>Izraelský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>Japonský čas</generic>
+					<standard>Japonský štandardný čas</standard>
+					<daylight>Japonský letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
@@ -1531,11 +2306,33 @@
 					<standard draft="contributed">Západokazašský čas</standard>
 				</long>
 			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>Kórejský čas</generic>
+					<standard>Kórejský štandardný čas</standard>
+					<daylight>Kórejský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard draft="contributed">Kosraeský čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic draft="contributed">Krasnojarský čas</generic>
 					<standard draft="contributed">Krasnojarský štandardný čas</standard>
 					<daylight draft="contributed">Krasnojarský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard draft="contributed">Kirgizský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard draft="contributed">Čas Rovníkových ostrovov</standard>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -1557,6 +2354,38 @@
 					<daylight draft="contributed">Magadanský letný čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard draft="contributed">Malajský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard draft="contributed">Maledivský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard draft="contributed">Markézsky čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard draft="contributed">Čas Marshallových ostrovov</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic draft="contributed">Maurícijský čas</generic>
+					<standard draft="contributed">Maurícijský štandardný čas</standard>
+					<daylight draft="contributed">Maurícijský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard draft="contributed">Čas Mawsonovej stanice</standard>
+				</long>
+			</metazone>
 			<metazone type="Mongolia">
 				<long>
 					<generic draft="contributed">Ulanbátarský čas</generic>
@@ -1571,6 +2400,35 @@
 					<daylight>Moskovský letný čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard draft="contributed">Mjanmarský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Nauru">
+				<long>
+					<standard draft="contributed">Čas ostrova Nauru</standard>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard draft="contributed">Nepálsky čas</standard>
+				</long>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
+					<generic draft="contributed">Novokaledónsky čas</generic>
+					<standard draft="contributed">Novokaledónsky štandardný čas</standard>
+					<daylight draft="contributed">Novokaledónsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic draft="contributed">Novozélandský čas</generic>
+					<standard draft="contributed">Novozélandský štandardný čas</standard>
+					<daylight draft="contributed">Novozélandský letný čas</daylight>
+				</long>
+			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<generic draft="contributed">Newfoundlandský čas</generic>
@@ -1578,17 +2436,27 @@
 					<daylight draft="contributed">Newfoundlandský letný čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard draft="contributed">Čas ostrova Niue</standard>
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard draft="contributed">Čas Norfolkských ostrovov</standard>
+				</long>
+			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">Čas ostrovov Fernanda de Noronha</generic>
-					<standard draft="contributed">Štandardný čas ostrovov Fernanda de Noronha</standard>
+					<generic>Čas ostrova Fernando de Noronha</generic>
+					<standard>Štandardný čas ostrova Fernando de Noronha</standard>
 					<daylight draft="contributed">Letný čas ostrovov Fernanda de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic draft="contributed">Novosibírsky čas</generic>
-					<standard draft="contributed">Novosibírsky štandardný čas</standard>
+					<standard>Novosibirský štandardný čas</standard>
 					<daylight draft="contributed">Novosibírsky letný čas</daylight>
 				</long>
 			</metazone>
@@ -1597,6 +2465,76 @@
 					<generic draft="contributed">Omský čas</generic>
 					<standard draft="contributed">Omský štandardný čas</standard>
 					<daylight draft="contributed">Omský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic draft="contributed">Pakistanský čas</generic>
+					<standard draft="contributed">Pakistanský štandardný čas</standard>
+					<daylight draft="contributed">Pakistanský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Palau">
+				<long>
+					<standard draft="contributed">Palauský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
+					<standard draft="contributed">Čas Papuy-Novej Guiney</standard>
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<generic draft="contributed">Paraguajský čas</generic>
+					<standard draft="contributed">Paraguajský štandardný čas</standard>
+					<daylight draft="contributed">Paraguajský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic draft="contributed">Peruánsky čas</generic>
+					<standard draft="contributed">Peruánsky štandardný čas</standard>
+					<daylight draft="contributed">Peruánsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic draft="contributed">Filipínsky čas</generic>
+					<standard draft="contributed">Filipínsky štandardný čas</standard>
+					<daylight draft="contributed">Filipínsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard draft="contributed">Čas Fénixových ostrovov</standard>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>Čas ostrovov Saint-Pierre a Miquelon</generic>
+					<standard>Štandardný čas ostrovov Saint-Pierre a Miquelon</standard>
+					<daylight>Letný čas ostrovov Saint-Pierre a Miquelon</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pitcairn">
+				<long>
+					<standard draft="contributed">Čas Pitcairnovho ostrova</standard>
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard draft="contributed">Ponapský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard draft="contributed">Réunionský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
+					<standard draft="contributed">Čas Rotherovej stanice</standard>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
@@ -1613,6 +2551,113 @@
 					<daylight draft="contributed">Samarský letný čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<standard draft="contributed">Samojský štandardný čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard draft="contributed">Seychelský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard draft="contributed">Singapurský štandardný čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Solomon">
+				<long>
+					<standard draft="contributed">Čas Šalamúnových ostrovov</standard>
+				</long>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard draft="contributed">Čas Južnej Georgie</standard>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard draft="contributed">Surinamský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard draft="contributed">Čas stanice Šówa</standard>
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard draft="contributed">Tahitský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic draft="contributed">Tchajpejský čas</generic>
+					<standard draft="contributed">Tchajpejský štandardný čas</standard>
+					<daylight draft="contributed">Tchajpejský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard draft="contributed">Tadžický čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard draft="contributed">Tokelauský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<generic draft="contributed">Tonžský čas</generic>
+					<standard draft="contributed">Tonžský štandardný čas</standard>
+					<daylight draft="contributed">Tonžský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard draft="contributed">Chuukský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic draft="contributed">Turkménsky čas</generic>
+					<standard draft="contributed">Turkménsky štandardný čas</standard>
+					<daylight draft="contributed">Turkménsky letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
+					<standard draft="contributed">Tuvalský čas</standard>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<generic draft="contributed">Uruguajský čas</generic>
+					<standard draft="contributed">Uruguajský štandardný čas</standard>
+					<daylight draft="contributed">Uruguajský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic draft="contributed">Uzbecký čas</generic>
+					<standard draft="contributed">Uzbecký štandardný čas</standard>
+					<daylight draft="contributed">Uzbecký letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vanuatu">
+				<long>
+					<generic draft="contributed">Vanuatský čas</generic>
+					<standard draft="contributed">Vanuatský štandardný čas</standard>
+					<daylight draft="contributed">Vanuatský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard draft="contributed">Venezuelský čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic draft="contributed">Vladivostocký čas</generic>
@@ -1625,6 +2670,21 @@
 					<generic draft="contributed">Volgogradský čas</generic>
 					<standard draft="contributed">Volgogradský štandardný čas</standard>
 					<daylight draft="contributed">Volgogradský letný čas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard draft="contributed">Čas stanice Vostok</standard>
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard draft="contributed">Čas ostrova Wake</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard draft="contributed">Čas ostrovov Wallis a Futuna</standard>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
@@ -1647,38 +2707,109 @@
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group> </group>
-			<list>,</list>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>NaN</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="few" draft="contributed">0</pattern>
+					<pattern type="1000" count="one" draft="contributed">0</pattern>
+					<pattern type="1000" count="other" draft="contributed">0</pattern>
+					<pattern type="10000" count="few" draft="contributed">00 tisíc</pattern>
+					<pattern type="10000" count="one" draft="contributed">00 tisíc</pattern>
+					<pattern type="10000" count="other" draft="contributed">00 tisíc</pattern>
+					<pattern type="100000" count="few" draft="contributed">000 tisíc</pattern>
+					<pattern type="100000" count="one" draft="contributed">000 tisíc</pattern>
+					<pattern type="100000" count="other" draft="contributed">000 tisíc</pattern>
+					<pattern type="1000000" count="few" draft="contributed">0.0 milióna</pattern>
+					<pattern type="1000000" count="one" draft="contributed">0.0 milióna</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0 milióna</pattern>
+					<pattern type="10000000" count="few" draft="contributed">00 miliónov</pattern>
+					<pattern type="10000000" count="one" draft="contributed">00 miliónov</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00 miliónov</pattern>
+					<pattern type="100000000" count="few" draft="contributed">000 miliónov</pattern>
+					<pattern type="100000000" count="one" draft="contributed">000 miliónov</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000 miliónov</pattern>
+					<pattern type="1000000000" count="few" draft="contributed">0.0 miliardy</pattern>
+					<pattern type="1000000000" count="one" draft="contributed">0.0 miliardy</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0 miliardy</pattern>
+					<pattern type="10000000000" count="few" draft="contributed">00 miliárd</pattern>
+					<pattern type="10000000000" count="one" draft="contributed">00 miliárd</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00 miliárd</pattern>
+					<pattern type="100000000000" count="few" draft="contributed">000 miliárd</pattern>
+					<pattern type="100000000000" count="one" draft="contributed">000 miliárd</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000 miliárd</pattern>
+					<pattern type="1000000000000" count="few" draft="contributed">0.0 bilióna</pattern>
+					<pattern type="1000000000000" count="one" draft="contributed">0.0 bilióna</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0 bilióna</pattern>
+					<pattern type="10000000000000" count="few" draft="contributed">00 biliónov</pattern>
+					<pattern type="10000000000000" count="one" draft="contributed">00 biliónov</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00 biliónov</pattern>
+					<pattern type="100000000000000" count="few" draft="contributed">000 biliónov</pattern>
+					<pattern type="100000000000000" count="one" draft="contributed">000 biliónov</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000 biliónov</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
+					<pattern type="1000" count="few" draft="contributed">0.0 tis'.'</pattern>
 					<pattern type="1000" count="one" draft="contributed">0.0 tis'.'</pattern>
 					<pattern type="1000" count="other" draft="contributed">0.0 tis'.'</pattern>
+					<pattern type="10000" count="few" draft="contributed">00 tis'.'</pattern>
 					<pattern type="10000" count="one" draft="contributed">00 tis'.'</pattern>
 					<pattern type="10000" count="other" draft="contributed">00 tis'.'</pattern>
+					<pattern type="100000" count="few" draft="contributed">000 tis'.'</pattern>
 					<pattern type="100000" count="one" draft="contributed">000 tis'.'</pattern>
 					<pattern type="100000" count="other" draft="contributed">000 tis'.'</pattern>
+					<pattern type="1000000" count="few" draft="contributed">0.0 mil'.'</pattern>
 					<pattern type="1000000" count="one" draft="contributed">0.0 mil'.'</pattern>
 					<pattern type="1000000" count="other" draft="contributed">0.0 mil'.'</pattern>
+					<pattern type="10000000" count="few" draft="contributed">00 mil'.'</pattern>
 					<pattern type="10000000" count="one" draft="contributed">00 mil'.'</pattern>
 					<pattern type="10000000" count="other" draft="contributed">00 mil'.'</pattern>
+					<pattern type="100000000" count="few" draft="contributed">000 mil'.'</pattern>
 					<pattern type="100000000" count="one" draft="contributed">000 mil'.'</pattern>
 					<pattern type="100000000" count="other" draft="contributed">000 mil'.'</pattern>
+					<pattern type="1000000000" count="few" draft="contributed">0.0 mld'.'</pattern>
 					<pattern type="1000000000" count="one" draft="contributed">0.0 mld'.'</pattern>
 					<pattern type="1000000000" count="other" draft="contributed">0.0 mld'.'</pattern>
+					<pattern type="10000000000" count="few" draft="contributed">00 mld'.'</pattern>
 					<pattern type="10000000000" count="one" draft="contributed">00 mld'.'</pattern>
 					<pattern type="10000000000" count="other" draft="contributed">00 mld'.'</pattern>
+					<pattern type="100000000000" count="few" draft="contributed">000 mld'.'</pattern>
 					<pattern type="100000000000" count="one" draft="contributed">000 mld'.'</pattern>
 					<pattern type="100000000000" count="other" draft="contributed">000 mld'.'</pattern>
+					<pattern type="1000000000000" count="few" draft="contributed">0.0 bil'.'</pattern>
 					<pattern type="1000000000000" count="one" draft="contributed">0.0 bil'.'</pattern>
 					<pattern type="1000000000000" count="other" draft="contributed">0.0 bil'.'</pattern>
+					<pattern type="10000000000000" count="few" draft="contributed">00 bil'.'</pattern>
 					<pattern type="10000000000000" count="one" draft="contributed">00 bil'.'</pattern>
 					<pattern type="10000000000000" count="other" draft="contributed">00 bil'.'</pattern>
+					<pattern type="100000000000000" count="few" draft="contributed">000 bil'.'</pattern>
 					<pattern type="100000000000000" count="one" draft="contributed">000 bil'.'</pattern>
 					<pattern type="100000000000000" count="other" draft="contributed">000 bil'.'</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -1689,11 +2820,14 @@
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>#,##0.00 ¤</pattern>
+					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="0" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="few">{0} {1}</unitPattern>
 			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -1701,21 +2835,33 @@
 			</currency>
 			<currency type="AED">
 				<displayName>UAE dirham</displayName>
+				<displayName count="few">SAE dirhamy</displayName>
+				<displayName count="one">SAE dirham</displayName>
+				<displayName count="other">UAE dirham</displayName>
+				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName draft="contributed">Afganský afgání</displayName>
+				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albánsky lek</displayName>
+				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Armenský dram</displayName>
+				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
-				<displayName>Nizozemský Antilský guilder</displayName>
+				<displayName>Antilský gulden</displayName>
+				<displayName count="few">antilské guldeny</displayName>
+				<displayName count="one">antilský gulden</displayName>
+				<displayName count="other">Nizozemský Antilský guilder</displayName>
+				<symbol draft="contributed">ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Angolská kwanza</displayName>
+				<symbol draft="contributed">AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angolská kwanza (1977-1990)</displayName>
@@ -1734,6 +2880,7 @@
 			</currency>
 			<currency type="ARS">
 				<displayName>Argentinské peso</displayName>
+				<symbol draft="contributed">ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Rakúsky šiling</displayName>
@@ -1743,27 +2890,39 @@
 				<displayName count="few" draft="contributed">austrálske doláre</displayName>
 				<displayName count="one" draft="contributed">austrálsky dolár</displayName>
 				<displayName count="other" draft="contributed">austrálskych dolárov, austrálskeho dolára</displayName>
+				<symbol draft="contributed">AUD</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Arubský guilder</displayName>
+				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Azerbaidžanský manat</displayName>
 			</currency>
 			<currency type="AZN">
 				<displayName draft="contributed">Azerbajdžanský manat</displayName>
+				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosnianský dinár</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>Bosnianský konvertibilná marka</displayName>
+				<displayName count="few">Bosnianský konvertibilná marka</displayName>
+				<displayName count="one">Bosnianský konvertibilná marka</displayName>
+				<displayName count="other">Bosnianský konvertibilná marka</displayName>
+				<symbol draft="contributed">BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadoský dolár</displayName>
+				<displayName count="few">Barbadoský dolár</displayName>
+				<displayName count="one">Barbadoský dolár</displayName>
+				<displayName count="other">Barbadoský dolár</displayName>
+				<symbol draft="contributed">BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Bangladéšska taka</displayName>
+				<symbol draft="contributed">BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belgický frank (konvertibilný)</displayName>
@@ -1779,21 +2938,36 @@
 			</currency>
 			<currency type="BGN">
 				<displayName>Bulharský leva nový</displayName>
+				<displayName count="few">Bulharský leva nový</displayName>
+				<displayName count="one">Bulharský leva nový</displayName>
+				<displayName count="other">Bulharský leva nový</displayName>
+				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahraiský dinár</displayName>
+				<displayName count="few">Bahraiský dinár</displayName>
+				<displayName count="one">Bahraiský dinár</displayName>
+				<displayName count="other">Bahraiský dinár</displayName>
+				<symbol draft="contributed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundský frank</displayName>
+				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermudský dolár</displayName>
+				<symbol draft="contributed">BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Bruneiský dolár</displayName>
+				<displayName count="few">Bruneiský dolár</displayName>
+				<displayName count="one">Bruneiský dolár</displayName>
+				<displayName count="other">Bruneiský dolár</displayName>
+				<symbol draft="contributed">BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName draft="contributed">Bolívijské boliviano</displayName>
+				<symbol draft="contributed">BOB</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Bolivíjske peso</displayName>
@@ -1815,6 +2989,7 @@
 				<displayName count="few" draft="contributed">brazílske realy</displayName>
 				<displayName count="one" draft="contributed">brazílsky real</displayName>
 				<displayName count="other" draft="contributed">brazílskych realov, brazílskeho realu</displayName>
+				<symbol draft="contributed">BRL</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Brazílske Cruzado Novo</displayName>
@@ -1827,54 +3002,89 @@
 			</currency>
 			<currency type="BTN">
 				<displayName>Bhutansky ngultrum</displayName>
+				<displayName count="few">Bhutansky ngultrum</displayName>
+				<displayName count="one">Bhutansky ngultrum</displayName>
+				<displayName count="other">Bhutansky ngultrum</displayName>
+				<symbol draft="contributed">BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>Burmese Kyat</displayName>
 			</currency>
 			<currency type="BWP">
-				<displayName>Botswanan Pula</displayName>
+				<displayName>Botswanská pula</displayName>
+				<displayName count="few">botswanské puly</displayName>
+				<displayName count="one">botswanská pula</displayName>
+				<displayName count="other">Botswanan Pula</displayName>
+				<symbol draft="contributed">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Belarussian nový rubeľ (1994-1999)</displayName>
+				<displayName count="few">Belarussian nový rubeľ (1994-1999)</displayName>
+				<displayName count="one">Belarussian nový rubeľ (1994-1999)</displayName>
+				<displayName count="other">Belarussian nový rubeľ (1994-1999)</displayName>
 			</currency>
 			<currency type="BYR">
-				<displayName>Belarussian rubeľ</displayName>
+				<displayName>Bieloruský rubeľ</displayName>
+				<displayName count="few">Belarussian rubeľ</displayName>
+				<displayName count="one">Belarussian rubeľ</displayName>
+				<displayName count="other">Belarussian rubeľ</displayName>
+				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
-				<displayName>Belize dolár</displayName>
+				<displayName>Belizejský dolár</displayName>
+				<displayName count="few">Belize dolár</displayName>
+				<displayName count="one">Belize dolár</displayName>
+				<displayName count="other">Belize dolár</displayName>
+				<symbol draft="contributed">BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanadský dolár</displayName>
 				<displayName count="few" draft="contributed">kanadské doláre</displayName>
 				<displayName count="one" draft="contributed">kanadský dolár</displayName>
 				<displayName count="other" draft="contributed">kanadských dolárov, kanadského dolára</displayName>
+				<symbol draft="contributed">CAD</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Konžský frank Congolais</displayName>
+				<displayName count="few">Konžský frank Congolais</displayName>
+				<displayName count="one">Konžský frank Congolais</displayName>
+				<displayName count="other">Konžský frank Congolais</displayName>
+				<symbol draft="contributed">CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Švajčiarský frank</displayName>
 				<displayName count="few" draft="contributed">švajčiarske franky</displayName>
 				<displayName count="one" draft="contributed">švajčiarsky frank</displayName>
 				<displayName count="other" draft="contributed">švajčiarskych frankov, švajčiarskeho franku</displayName>
+				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>Čílske Unidades de Fomento</displayName>
 			</currency>
 			<currency type="CLP">
 				<displayName>Čílske peso</displayName>
+				<symbol draft="contributed">CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Čínsky jüan</displayName>
 				<displayName count="few" draft="contributed">čínske jüany</displayName>
 				<displayName count="one" draft="contributed">čínsky jüan</displayName>
 				<displayName count="other" draft="contributed">čínskych jüanov, čínskeho jüana</displayName>
+				<symbol draft="contributed">CNY</symbol>
 			</currency>
 			<currency type="COP">
-				<displayName>Colombijské peso</displayName>
+				<displayName>Kolumbijské peso</displayName>
+				<displayName count="few">kolumbijské pesos</displayName>
+				<displayName count="one">kolumbijské peso</displayName>
+				<displayName count="other">kolumbijských pesos</displayName>
+				<symbol draft="contributed">COP</symbol>
 			</currency>
 			<currency type="CRC">
-				<displayName>Kostarikský colon</displayName>
+				<displayName>Kostarický colón</displayName>
+				<displayName count="few">Kostarikský colon</displayName>
+				<displayName count="one">Kostarikský colon</displayName>
+				<displayName count="other">Kostarikský colon</displayName>
+				<symbol draft="contributed">CRC</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>Československá koruna</displayName>
@@ -1886,7 +3096,11 @@
 				<displayName>Kubánske peso</displayName>
 			</currency>
 			<currency type="CVE">
-				<displayName>Cape Verde eskudo</displayName>
+				<displayName>Kapverdské escudo</displayName>
+				<displayName count="few">kapverdské escudá</displayName>
+				<displayName count="one">kapverdské escudo</displayName>
+				<displayName count="other">Cape Verde eskudo</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Cypruská libra</displayName>
@@ -1896,6 +3110,7 @@
 				<displayName count="few" draft="contributed">české koruny</displayName>
 				<displayName count="one" draft="contributed">česká koruna</displayName>
 				<displayName count="other" draft="contributed">českých korún, českej koruny</displayName>
+				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Východonemecká marka</displayName>
@@ -1905,18 +3120,21 @@
 			</currency>
 			<currency type="DJF">
 				<displayName>Džibutský frank</displayName>
+				<symbol draft="contributed">DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Dánska koruna</displayName>
 				<displayName count="few" draft="contributed">dánske koruny</displayName>
 				<displayName count="one" draft="contributed">dánska koruna</displayName>
 				<displayName count="other" draft="contributed">dánskych korún, dánskej koruny</displayName>
+				<symbol draft="contributed">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominikánske peso</displayName>
 			</currency>
 			<currency type="DZD">
 				<displayName>Alžírsky dinár</displayName>
+				<symbol draft="contributed">DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Ekuadorský sucre</displayName>
@@ -1926,62 +3144,84 @@
 			</currency>
 			<currency type="EEK">
 				<displayName>Estónska kroon</displayName>
+				<displayName count="few">Estónska kroon</displayName>
+				<displayName count="one">Estónska kroon</displayName>
+				<displayName count="other">Estónska kroon</displayName>
 			</currency>
 			<currency type="EGP">
 				<displayName>Egyptská libra</displayName>
+				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritrejská nakfa</displayName>
+				<symbol draft="contributed">ERN</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Španielská peseta</displayName>
 			</currency>
 			<currency type="ETB">
 				<displayName>Ethiopský birr</displayName>
+				<symbol draft="contributed">ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
 				<displayName count="few" draft="contributed">eurá</displayName>
 				<displayName count="one" draft="contributed">euro</displayName>
 				<displayName count="other" draft="contributed">eur, eura</displayName>
+				<symbol draft="contributed">EUR</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Finská marka</displayName>
 			</currency>
 			<currency type="FJD">
-				<displayName>Fiji dolár</displayName>
+				<displayName>Fidžijský dolár</displayName>
+				<displayName count="few">fidžijské doláre</displayName>
+				<displayName count="one">fidžijský dolár</displayName>
+				<displayName count="other">Fiji dolár</displayName>
+				<symbol draft="contributed">FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Falklandská libra</displayName>
+				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Francúzsky frank</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>Britská libra</displayName>
+				<displayName count="few">britských libier, britskej libry</displayName>
 				<displayName count="one" draft="contributed">britská libra</displayName>
 				<displayName count="other" draft="contributed">britských libier, britskej libry</displayName>
+				<symbol draft="contributed">GPB</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Gruzínsky Kupon Larit</displayName>
 			</currency>
 			<currency type="GEL">
 				<displayName>Gruzínsky lari</displayName>
+				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Ghanský cedi (1979-2007)</displayName>
 			</currency>
 			<currency type="GHS">
 				<displayName draft="contributed">Ghanský cedi</displayName>
+				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltarská libra</displayName>
+				<symbol draft="contributed">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Gambský dalasi</displayName>
+				<displayName count="few">Gambský dalasi</displayName>
+				<displayName count="one">Gambský dalasi</displayName>
+				<displayName count="other">Gambský dalasi</displayName>
+				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Guinejský frank</displayName>
+				<symbol draft="contributed">GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Guinejský syli</displayName>
@@ -1994,30 +3234,41 @@
 			</currency>
 			<currency type="GTQ">
 				<displayName>Guatemalský quetzal</displayName>
+				<symbol draft="contributed">GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Portugalská Guinea eskudo</displayName>
 			</currency>
 			<currency type="GWP">
 				<displayName>Guinea-Bissau peso</displayName>
+				<displayName count="few">Guinea-Bissau peso</displayName>
+				<displayName count="one">Guinea-Bissau peso</displayName>
+				<displayName count="other">Guinea-Bissau peso</displayName>
 			</currency>
 			<currency type="GYD">
 				<displayName>Guyanský dolár</displayName>
+				<symbol draft="contributed">GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Hongkongský dolár</displayName>
 				<displayName count="few" draft="contributed">hongkongské doláre</displayName>
 				<displayName count="one" draft="contributed">hongkongský dolár</displayName>
 				<displayName count="other" draft="contributed">hongkongských dolárov, hongkongského dolára</displayName>
+				<symbol draft="contributed">HKD</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Hoduraská lempira</displayName>
+				<displayName count="few">Hoduraská lempira</displayName>
+				<displayName count="one">Hoduraská lempira</displayName>
+				<displayName count="other">Hoduraská lempira</displayName>
+				<symbol draft="contributed">HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Chorvátsky dinár</displayName>
 			</currency>
 			<currency type="HRK">
 				<displayName>Chorvátska kuna</displayName>
+				<symbol draft="contributed">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haitské gourde</displayName>
@@ -2027,12 +3278,14 @@
 				<displayName count="few" draft="contributed">maďarské forinty</displayName>
 				<displayName count="one" draft="contributed">maďarský forint</displayName>
 				<displayName count="other" draft="contributed">maďarských forintov</displayName>
+				<symbol draft="contributed">HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Indonézska rupia</displayName>
 				<displayName count="few" draft="contributed">indonézske rupie</displayName>
 				<displayName count="one" draft="contributed">indonézska rupia</displayName>
 				<displayName count="other" draft="contributed">indonézskych rupií</displayName>
+				<symbol draft="contributed">IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Írska libra</displayName>
@@ -2042,21 +3295,26 @@
 			</currency>
 			<currency type="ILS">
 				<displayName>Izraelský šekel</displayName>
+				<symbol draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Indická rupia</displayName>
 				<displayName count="few" draft="contributed">indické rupie</displayName>
 				<displayName count="one" draft="contributed">indická rupia</displayName>
 				<displayName count="other" draft="contributed">indických rupií, indickej rupie</displayName>
+				<symbol draft="contributed">INR</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Iracký dinár</displayName>
+				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Iránsky rial</displayName>
+				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>Islandská krona</displayName>
+				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Talianská lira</displayName>
@@ -2066,54 +3324,83 @@
 			</currency>
 			<currency type="JOD">
 				<displayName>Jordánsky dinár</displayName>
+				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Japonský jen</displayName>
 				<displayName count="few" draft="contributed">japonské jeny</displayName>
 				<displayName count="one" draft="contributed">japonský jen</displayName>
 				<displayName count="other" draft="contributed">japonských jenov</displayName>
+				<symbol draft="contributed">JPY</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Keňský šiling</displayName>
+				<symbol draft="contributed">KES</symbol>
 			</currency>
 			<currency type="KGS">
-				<displayName>Kyrgyský som</displayName>
+				<displayName>Kirgizský som</displayName>
+				<displayName count="few">kirgizské somy</displayName>
+				<displayName count="one">kirgizský som</displayName>
+				<displayName count="other">Kyrgyský som</displayName>
+				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Kambodžský riel</displayName>
+				<symbol draft="contributed">KHR</symbol>
 			</currency>
 			<currency type="KMF">
-				<displayName>Comoro frank</displayName>
+				<displayName>Komorský frank</displayName>
+				<displayName count="few">komorské franky</displayName>
+				<displayName count="one">Comoro frank</displayName>
+				<displayName count="other">komorských frankov</displayName>
+				<symbol draft="contributed">KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Severokórejský won</displayName>
+				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Juhokórejský won</displayName>
 				<displayName count="few" draft="contributed">juhokórejské wony</displayName>
 				<displayName count="one" draft="contributed">juhokórejský won</displayName>
 				<displayName count="other" draft="contributed">juhokórejských wonov</displayName>
+				<symbol draft="contributed">KRW</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuvaitský dinár</displayName>
+				<displayName count="few">Kuvaitský dinár</displayName>
+				<displayName count="one">Kuvaitský dinár</displayName>
+				<displayName count="other">Kuvaitský dinár</displayName>
+				<symbol draft="contributed">KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Kajmanský dolár</displayName>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazažský tenge</displayName>
+				<displayName count="few">Kazažský tenge</displayName>
+				<displayName count="one">Kazažský tenge</displayName>
+				<displayName count="other">Kazažský tenge</displayName>
+				<symbol draft="contributed">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Laoský kip</displayName>
+				<symbol draft="contributed">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Libanonská libra</displayName>
+				<symbol draft="contributed">LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Šrilanská rupia</displayName>
+				<displayName count="few">Šrilanská rupia</displayName>
+				<displayName count="one">Šrilanská rupia</displayName>
+				<displayName count="other">Šrilanská rupia</displayName>
+				<symbol draft="contributed">LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Libérský dolár</displayName>
+				<symbol draft="contributed">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesothský loti</displayName>
@@ -2123,6 +3410,7 @@
 				<displayName count="few" draft="contributed">litovské litasy</displayName>
 				<displayName count="one" draft="contributed">litovský litas</displayName>
 				<displayName count="other" draft="contributed">litovských litasov, litovského litasa</displayName>
+				<symbol draft="contributed">LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Litevský talonas</displayName>
@@ -2135,45 +3423,61 @@
 				<displayName count="few" draft="contributed">lotyšské laty</displayName>
 				<displayName count="one" draft="contributed">lotyšský lat</displayName>
 				<displayName count="other" draft="contributed">lotyšských latov, lotyšského latu</displayName>
+				<symbol draft="contributed">LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Lotyšský rubeľ</displayName>
 			</currency>
 			<currency type="LYD">
 				<displayName>Libyjský dinár</displayName>
+				<symbol draft="contributed">LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Marocký dirham</displayName>
+				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Marocký frank</displayName>
 			</currency>
 			<currency type="MDL">
 				<displayName>Moldavský leu</displayName>
+				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Madagaskarský ariary</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Madagaskarský frank</displayName>
 			</currency>
 			<currency type="MKD">
 				<displayName>Macedónsky denár</displayName>
+				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>Malský frank</displayName>
 			</currency>
 			<currency type="MMK">
 				<displayName>Myanmarský kyat</displayName>
+				<symbol draft="contributed">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Mongolský tugrik</displayName>
+				<symbol draft="contributed">MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Macao Pataca</displayName>
+				<displayName count="few">Macao Pataca</displayName>
+				<displayName count="one">Macao Pataca</displayName>
+				<displayName count="other">Macao Pataca</displayName>
+				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Mauritania Ouguiya</displayName>
+				<displayName count="few">Mauritania Ouguiya</displayName>
+				<displayName count="one">Mauritania Ouguiya</displayName>
+				<displayName count="other">Mauritania Ouguiya</displayName>
+				<symbol draft="contributed">MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Maltská lira</displayName>
@@ -2182,13 +3486,22 @@
 				<displayName>Maltská libra</displayName>
 			</currency>
 			<currency type="MUR">
-				<displayName>Mauritská rupia</displayName>
+				<displayName>Maurícijská rupia</displayName>
+				<displayName count="few">Mauritská rupia</displayName>
+				<displayName count="one">Mauritská rupia</displayName>
+				<displayName count="other">Mauritská rupia</displayName>
+				<symbol draft="contributed">MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Maldivská rufiyaa</displayName>
+				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malavská kwacha</displayName>
+				<displayName count="few">Malavská kwacha</displayName>
+				<displayName count="one">Malavská kwacha</displayName>
+				<displayName count="other">Malavská kwacha</displayName>
+				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Mexické peso</displayName>
@@ -2205,24 +3518,50 @@
 			</currency>
 			<currency type="MYR">
 				<displayName>Malajský ringgit</displayName>
+				<displayName count="few">Malajský ringgit</displayName>
+				<displayName count="one">Malajský ringgit</displayName>
+				<displayName count="other">Malajský ringgit</displayName>
+				<symbol draft="contributed">MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambijské eskudo</displayName>
+				<displayName count="few">Mozambijské eskudo</displayName>
+				<displayName count="one">Mozambijské eskudo</displayName>
+				<displayName count="other">Mozambijské eskudo</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>Mozambijské metical</displayName>
+				<displayName count="few">Mozambijské metical</displayName>
+				<displayName count="one">Mozambijské metical</displayName>
+				<displayName count="other">Mozambijské metical</displayName>
+			</currency>
+			<currency type="MZN">
+				<displayName draft="provisional">mozambický metical</displayName>
+				<displayName count="few" draft="contributed">mozambické meticaly</displayName>
+				<displayName count="one" draft="contributed">mozambický metical</displayName>
+				<displayName count="other" draft="contributed">mozambických meticalov, mozambického meticalu</displayName>
+				<symbol draft="contributed">MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibský dolár</displayName>
+				<displayName count="few">Namibský dolár</displayName>
+				<displayName count="one">Namibský dolár</displayName>
+				<displayName count="other">Namibský dolár</displayName>
+				<symbol draft="contributed">NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigerská naira</displayName>
+				<symbol draft="contributed">NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Nikaragujská cordoba</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName>Nikaragujská Cordoba Oro</displayName>
+				<displayName count="few">Nikaragujská Cordoba Oro</displayName>
+				<displayName count="one">Nikaragujská Cordoba Oro</displayName>
+				<displayName count="other">Nikaragujská Cordoba Oro</displayName>
+				<symbol draft="contributed">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Nizozemský guilder</displayName>
@@ -2232,36 +3571,51 @@
 				<displayName count="few" draft="contributed">nórske koruny</displayName>
 				<displayName count="one" draft="contributed">nórska koruna</displayName>
 				<displayName count="other" draft="contributed">nórskych korún, nórskej koruny</displayName>
+				<symbol draft="contributed">NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepálska rupia</displayName>
+				<symbol draft="contributed">NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Novozélandský dolár</displayName>
+				<symbol draft="contributed">NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Ománský rial</displayName>
+				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Panamská balboa</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Peruvský inti</displayName>
 			</currency>
 			<currency type="PEN">
 				<displayName>Peruvský sol Nuevo</displayName>
+				<displayName count="few">Peruvský sol Nuevo</displayName>
+				<displayName count="one">Peruvský sol Nuevo</displayName>
+				<displayName count="other">Peruvský sol Nuevo</displayName>
+				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Peruvský sol</displayName>
 			</currency>
 			<currency type="PGK">
 				<displayName>Papua Nová Guinea kina</displayName>
+				<displayName count="few">Papua Nová Guinea kina</displayName>
+				<displayName count="one">Papua Nová Guinea kina</displayName>
+				<displayName count="other">Papua Nová Guinea kina</displayName>
+				<symbol draft="contributed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Filipínske peso</displayName>
+				<symbol draft="contributed">PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistanská rupia</displayName>
+				<symbol draft="contributed">PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Poľský zlotý</displayName>
@@ -2278,48 +3632,73 @@
 			</currency>
 			<currency type="PYG">
 				<displayName>Paraguayské guarani</displayName>
+				<displayName count="few">Paraguayské guarani</displayName>
+				<displayName count="one">Paraguayské guarani</displayName>
+				<displayName count="other">Paraguayské guarani</displayName>
+				<symbol draft="contributed">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Qatarský rial</displayName>
+				<displayName count="few">Qatarský rial</displayName>
+				<displayName count="one">Qatarský rial</displayName>
+				<displayName count="other">Qatarský rial</displayName>
+				<symbol draft="contributed">QAR</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>Rumunský leu</displayName>
 			</currency>
 			<currency type="RON">
-				<displayName draft="provisional">Rumunský Lei</displayName>
+				<displayName draft="provisional">rumunský lei</displayName>
+				<displayName count="few">Rumunský Lei</displayName>
+				<displayName count="one">Rumunský Lei</displayName>
+				<displayName count="other">Rumunský Lei</displayName>
+				<symbol draft="contributed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName draft="contributed">Srbský dinár</displayName>
+				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Ruský rubeľ</displayName>
 				<displayName count="few" draft="contributed">ruské ruble</displayName>
 				<displayName count="one" draft="contributed">ruský rubeľ</displayName>
 				<displayName count="other" draft="contributed">ruských rubľov, ruského rubľa</displayName>
+				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Ruský rubeľ (1991-1998)</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>Rwandský frank</displayName>
+				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Saudskoarabský rial</displayName>
 				<displayName count="few" draft="contributed">saudskoarabské rialy</displayName>
 				<displayName count="one" draft="contributed">saudskoarabský rial</displayName>
 				<displayName count="other" draft="contributed">saudskoarabských rialov, saudskoarabského rialu</displayName>
+				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Solomon Islands dolár</displayName>
+				<displayName count="few">Solomon Islands dolár</displayName>
+				<displayName count="one">Solomon Islands dolár</displayName>
+				<displayName count="other">Solomon Islands dolár</displayName>
+				<symbol draft="contributed">SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Sejšelská rupia</displayName>
+				<displayName count="few">Sejšelská rupia</displayName>
+				<displayName count="one">Sejšelská rupia</displayName>
+				<displayName count="other">Sejšelská rupia</displayName>
+				<symbol draft="contributed">SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>Sudánsky dinár</displayName>
 			</currency>
 			<currency type="SDG">
 				<displayName draft="contributed">Sudánska libra</displayName>
+				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Sudánska libra (1957-1998)</displayName>
@@ -2328,12 +3707,19 @@
 				<displayName>Švédska koruna</displayName>
 				<displayName count="few" draft="contributed">švédske koruny</displayName>
 				<displayName count="one" draft="contributed">švédska koruna</displayName>
+				<displayName count="other">Švédska koruna</displayName>
+				<symbol draft="contributed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapúrsky dolár</displayName>
+				<symbol draft="contributed">SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Libra</displayName>
+				<displayName count="few">Libra</displayName>
+				<displayName count="one">Libra</displayName>
+				<displayName count="other">Libra</displayName>
+				<symbol draft="contributed">SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Slovinský Tolar</displayName>
@@ -2343,54 +3729,90 @@
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leone Leone</displayName>
+				<displayName count="few">Sierra Leone Leone</displayName>
+				<displayName count="one">Sierra Leone Leone</displayName>
+				<displayName count="other">Sierra Leone Leone</displayName>
+				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somálsky šiling</displayName>
+				<symbol draft="contributed">SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName draft="contributed">Surinamský dolár</displayName>
+				<symbol draft="contributed">SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Surinamský guilder</displayName>
 			</currency>
+			<currency type="SSP">
+				<displayName draft="contributed">Juhosudánska libra</displayName>
+				<displayName count="few" draft="contributed">Juhosudánske libry</displayName>
+				<displayName count="one" draft="contributed">Juhosudánska libra</displayName>
+				<displayName count="other" draft="contributed">Juhosudánskych libier</displayName>
+				<symbol draft="contributed">SSP</symbol>
+			</currency>
 			<currency type="STD">
 				<displayName>Sao Tome a Principe dobra</displayName>
+				<displayName count="few">Sao Tome a Principe dobra</displayName>
+				<displayName count="one">Sao Tome a Principe dobra</displayName>
+				<displayName count="other">Sao Tome a Principe dobra</displayName>
+				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Sovietský rubeľ</displayName>
 			</currency>
 			<currency type="SVC">
 				<displayName>El Salvadorský colon</displayName>
+				<displayName count="few">El Salvadorský colon</displayName>
+				<displayName count="one">El Salvadorský colon</displayName>
+				<displayName count="other">El Salvadorský colon</displayName>
 			</currency>
 			<currency type="SYP">
 				<displayName>Syrská libra</displayName>
+				<symbol draft="contributed">SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Swaziland lilangeni</displayName>
+				<displayName count="few">Swaziland lilangeni</displayName>
+				<displayName count="one">Swaziland lilangeni</displayName>
+				<displayName count="other">Swaziland lilangeni</displayName>
+				<symbol draft="contributed">SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Thajský baht</displayName>
 				<displayName count="few" draft="contributed">thajské bahty</displayName>
 				<displayName count="one" draft="contributed">thajský baht</displayName>
 				<displayName count="other" draft="contributed">thajských bahtov, thajského bahtu</displayName>
+				<symbol draft="contributed">THB</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Tadžikistanský rubeľ</displayName>
 			</currency>
 			<currency type="TJS">
 				<displayName>Tadžikistanský somoni</displayName>
+				<displayName count="few">Tadžikistanský somoni</displayName>
+				<displayName count="one">Tadžikistanský somoni</displayName>
+				<displayName count="other">Tadžikistanský somoni</displayName>
+				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Turkménsky manat (1993-2009)</displayName>
 			</currency>
 			<currency type="TMT">
 				<displayName draft="contributed">Turkménsky manat</displayName>
+				<symbol draft="contributed">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Tuniský dinár</displayName>
+				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Tonga Paʻanga</displayName>
+				<displayName count="few">Tonga Paʻanga</displayName>
+				<displayName count="one">Tonga Paʻanga</displayName>
+				<displayName count="other">Tonga Paʻanga</displayName>
+				<symbol draft="contributed">TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Timorské eskudo</displayName>
@@ -2403,21 +3825,32 @@
 				<displayName count="few" draft="contributed">nové turecké líry</displayName>
 				<displayName count="one" draft="contributed">nová turecká líra</displayName>
 				<displayName count="other" draft="contributed">nových tureckých lír, novej tureckej líry</displayName>
+				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
-				<displayName>Trinidad a Tobago dolár</displayName>
+				<displayName>Trinidadsko-tobažský dolár</displayName>
+				<displayName count="few">Trinidad a Tobago dolár</displayName>
+				<displayName count="one">Trinidad a Tobago dolár</displayName>
+				<displayName count="other">Trinidad a Tobago dolár</displayName>
+				<symbol draft="contributed">TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Nový taiwanský dolár</displayName>
 				<displayName count="few" draft="contributed">nové taiwanské doláre</displayName>
 				<displayName count="one" draft="contributed">nový taiwanský dolár</displayName>
 				<displayName count="other" draft="contributed">nových taiwanských dolárov, nového taiwanského dolára</displayName>
+				<symbol draft="contributed">TWD</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzanský šiling</displayName>
+				<symbol draft="contributed">TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrainská hrivna</displayName>
+				<displayName count="few">Ukrainská hrivna</displayName>
+				<displayName count="one">Ukrainská hrivna</displayName>
+				<displayName count="other">Ukrainská hrivna</displayName>
+				<symbol draft="contributed">UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrainský karbovanetz</displayName>
@@ -2427,12 +3860,14 @@
 			</currency>
 			<currency type="UGX">
 				<displayName>Ugandský šiling</displayName>
+				<symbol draft="contributed">UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>Americký dolár</displayName>
 				<displayName count="few" draft="contributed">americké doláre</displayName>
 				<displayName count="one" draft="contributed">americký dolár</displayName>
 				<displayName count="other" draft="contributed">amerických dolárov, amerického dolára</displayName>
+				<symbol draft="contributed">USD</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>US dolár (Next day)</displayName>
@@ -2445,33 +3880,56 @@
 			</currency>
 			<currency type="UYU">
 				<displayName>Uruguajské peso Uruguayo</displayName>
+				<displayName count="few">Uruguajské peso Uruguayo</displayName>
+				<displayName count="one">Uruguajské peso Uruguayo</displayName>
+				<displayName count="other">Uruguajské peso Uruguayo</displayName>
+				<symbol draft="contributed">UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Uzbekistanský sum</displayName>
+				<displayName count="few">Uzbekistanský sum</displayName>
+				<displayName count="one">Uzbekistanský sum</displayName>
+				<displayName count="other">Uzbekistanský sum</displayName>
+				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Venezuelský bolivar</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName draft="contributed">Venezuelský bolívar</displayName>
+				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnamský dong</displayName>
+				<symbol draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatu vatu</displayName>
+				<displayName count="few">Vanuatu vatu</displayName>
+				<displayName count="one">Vanuatu vatu</displayName>
+				<displayName count="other">Vanuatu vatu</displayName>
+				<symbol draft="contributed">VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Západná Samoa tala</displayName>
+				<displayName count="few">Západná Samoa tala</displayName>
+				<displayName count="one">Západná Samoa tala</displayName>
+				<displayName count="other">Západná Samoa tala</displayName>
+				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA frank BEAC</displayName>
+				<symbol draft="contributed">FCFA</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>Zlato</displayName>
 			</currency>
 			<currency type="XCD">
-				<displayName>East Caribbean dolár</displayName>
+				<displayName>Východokaribský dolár</displayName>
+				<displayName count="few">East Caribbean dolár</displayName>
+				<displayName count="one">East Caribbean dolár</displayName>
+				<displayName count="other">East Caribbean dolár</displayName>
+				<symbol draft="contributed">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Špeciálne práva čerpania</displayName>
@@ -2484,18 +3942,24 @@
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA frank BCEAO</displayName>
+				<symbol draft="contributed">CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP frank</displayName>
+				<symbol draft="contributed">CFPF</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Neznáma mena</displayName>
+				<displayName count="few">Neznáma mena</displayName>
+				<displayName count="one">Neznáma mena</displayName>
+				<displayName count="other">Neznáma mena</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>Jemenský dinár</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>Jemenský rial</displayName>
+				<symbol draft="contributed">YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>Juhoslávsky dinár [YUD]</displayName>
@@ -2514,9 +3978,14 @@
 				<displayName count="few" draft="contributed">juhoafrické randy</displayName>
 				<displayName count="one" draft="contributed">juhoafrický rand</displayName>
 				<displayName count="other" draft="contributed">juhoafrických randov, juhoafrického randu</displayName>
+				<symbol draft="contributed">ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambská kwacha</displayName>
+				<displayName count="few">Zambská kwacha</displayName>
+				<displayName count="one">Zambská kwacha</displayName>
+				<displayName count="other">Zambská kwacha</displayName>
+				<symbol draft="contributed">ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zairský nový zaire</displayName>
@@ -2526,6 +3995,21 @@
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabský dolár</displayName>
+				<displayName count="few">Zimbabský dolár</displayName>
+				<displayName count="one">Zimbabský dolár</displayName>
+				<displayName count="other">Zimbabský dolár</displayName>
+			</currency>
+			<currency type="ZWL">
+				<displayName draft="contributed">Zimbabwiansky dolár (2009)</displayName>
+				<displayName count="few" draft="contributed">zimbabwianske doláre (2009)</displayName>
+				<displayName count="one" draft="contributed">zimbabwiansky dolár (2009)</displayName>
+				<displayName count="other" draft="contributed">zimbabwianskych dolárov (2009), zimbabwianskeho dolára (2009)</displayName>
+			</currency>
+			<currency type="ZWR">
+				<displayName draft="contributed">Zimbabwiansky dolár (2008)</displayName>
+				<displayName count="few" draft="contributed">zimbabwianske doláre (2008)</displayName>
+				<displayName count="one" draft="contributed">zimbabwiansky dolár (2008)</displayName>
+				<displayName count="other" draft="contributed">zimbabwianskych dolárov (2008), zimbabwianskeho dolára (2008)</displayName>
 			</currency>
 		</currencies>
 	</numbers>
@@ -2689,6 +4173,8 @@
 		<listPattern>
 			<listPatternPart type="2" draft="contributed">{0} a {1}</listPatternPart>
 			<listPatternPart type="end" draft="contributed">{0} a {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

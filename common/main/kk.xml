@@ -386,6 +386,7 @@
 						<monthWidth type="wide">
 							<month type="1" draft="unconfirmed">қаңтар</month>
 							<month type="2" draft="unconfirmed">Ақпан</month>
+							<month type="3">наурыз</month>
 							<month type="12" draft="unconfirmed">желтоқсан</month>
 						</monthWidth>
 					</monthContext>
@@ -408,6 +409,12 @@
 							<day type="fri" draft="unconfirmed">6</day>
 							<day type="sat" draft="unconfirmed">7</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">жс.</day>
+							<day type="tue" draft="unconfirmed">сс.</day>
+							<day type="wed" draft="unconfirmed">ср.</day>
+							<day type="sat" draft="unconfirmed">сн</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">жексені</day>
 							<day type="mon">дуйсенбі</day>
@@ -427,6 +434,10 @@
 							<day type="fri" draft="unconfirmed">жм.</day>
 							<day type="sat" draft="unconfirmed">сн.</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="mon" draft="unconfirmed">дс.</day>
+							<day type="tue" draft="unconfirmed">сс.</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun" draft="unconfirmed">жексенбі</day>
 							<day type="mon" draft="unconfirmed">дүйсенбі</day>
@@ -439,6 +450,10 @@
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="3" draft="unconfirmed">3-інші тоқсан</quarter>
+							<quarter type="4" draft="unconfirmed">4-інші тоқсан</quarter>
+						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="4" draft="unconfirmed">4</quarter>
 						</quarterWidth>

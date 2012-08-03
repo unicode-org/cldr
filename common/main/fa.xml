@@ -291,6 +291,7 @@
 			<language type="mdf">مکشایی</language>
 			<language type="mdr" draft="contributed">ماندار</language>
 			<language type="men">منده‌ای</language>
+			<language type="mfe">موریسین</language>
 			<language type="mg">مالاگاسیایی</language>
 			<language type="mga">ایرلندی میانه</language>
 			<language type="mh">مارشالی</language>
@@ -690,6 +691,7 @@
 			<territory type="BM">برمودا</territory>
 			<territory type="BN">برونئی</territory>
 			<territory type="BO">بولیوی</territory>
+			<territory type="BQ">کارائیب هلند</territory>
 			<territory type="BR">برزیل</territory>
 			<territory type="BS">باهاما</territory>
 			<territory type="BT">بوتان</territory>
@@ -716,6 +718,7 @@
 			<territory type="CR">کاستاریکا</territory>
 			<territory type="CU">کوبا</territory>
 			<territory type="CV">کیپ‌ورد</territory>
+			<territory type="CW">کوراکائو</territory>
 			<territory type="CX">جزیرهٔ کریسمس</territory>
 			<territory type="CY">قبرس</territory>
 			<territory type="CZ">جمهوری چک</territory>
@@ -880,9 +883,10 @@
 			<territory type="SN">سنگال</territory>
 			<territory type="SO">سومالی</territory>
 			<territory type="SR">سورینام</territory>
-			<territory type="SS" draft="provisional">سودان جنوبی</territory>
+			<territory type="SS">سودان جنوبی</territory>
 			<territory type="ST">سائوتومه و پرینسیپه</territory>
 			<territory type="SV">السالوادور</territory>
+			<territory type="SX">سنت مارتن</territory>
 			<territory type="SY">سوریه</territory>
 			<territory type="SZ">سوازیلند</territory>
 			<territory type="TA">تریستان دا کونا</territory>
@@ -939,9 +943,20 @@
 		</variants>
 		<keys>
 			<key type="calendar">تقویم</key>
+			<key type="colAlternate">مرتب‌سازی با نادیده گرفتن نمادها</key>
+			<key type="colBackwards">مرتب‌سازی معکوس براساس آکسان</key>
+			<key type="colCaseFirst">ترتیب بر اساس حروف کوچک/بزرگ</key>
+			<key type="colCaseLevel">مرتب‌سازی حساس به اندازه حروف</key>
+			<key type="colHiraganaQuaternary">سیستم مرتب‌سازی کانا</key>
 			<key type="collation">ترتیب</key>
+			<key type="colNormalization">مرتب‌سازی معمولی</key>
+			<key type="colNumeric">مرتب‌سازی عددی</key>
+			<key type="colStrength">قدرت مرتب‌سازی</key>
 			<key type="currency">واحد پول</key>
 			<key type="numbers">اعداد</key>
+			<key type="timezone">منطقه زمانی</key>
+			<key type="va">متغیر محلی</key>
+			<key type="variableTop">مرتب‌سازی به عنوان نماد</key>
 			<key type="x">استفادهٔ خصوصی</key>
 		</keys>
 		<types>
@@ -961,6 +976,7 @@
 			<type type="ethi" key="numbers">اعداد اتیوپیایی</type>
 			<type type="ethiopic" key="calendar">تقویم اتیوپیایی</type>
 			<type type="ethiopic-amete-alem" key="calendar">تقویم اتیوپیایی عامت عالم</type>
+			<type type="finance" key="numbers">سیستم عددی مالی</type>
 			<type type="fullwide" key="numbers">ارقام تمام‌عرض</type>
 			<type type="gb2312han" key="collation">ترتیب چینی ساده‌شده - GB2312</type>
 			<type type="geor" key="numbers">اعداد گرجی</type>
@@ -976,6 +992,7 @@
 			<type type="hantfin" key="numbers">اعداد مالی چینی سنتی</type>
 			<type type="hebr" key="numbers">اعداد عبری</type>
 			<type type="hebrew" key="calendar">تقویم عبری</type>
+			<type type="identical" key="colStrength">مرتب‌سازی همه</type>
 			<type type="indian" key="calendar">تقویم ملی هند</type>
 			<type type="islamic" key="calendar">تقویم هجری قمری</type>
 			<type type="islamic-civil" key="calendar">تقویم هجری قمری مدنی</type>
@@ -987,33 +1004,57 @@
 			<type type="knda" key="numbers">ارقام کاناده‌ای</type>
 			<type type="laoo" key="numbers">ارقام لائوسی</type>
 			<type type="latn" key="numbers">ارقام غربی</type>
+			<type type="lower" key="colCaseFirst">ابتدا مرتب‌سازی حروف کوچک</type>
 			<type type="mlym" key="numbers">ارقام مالایالامی</type>
 			<type type="mong" key="numbers">ارقام مغولی</type>
 			<type type="mymr" key="numbers">ارقام میانماری</type>
 			<type type="mymrshan" key="numbers">ارقام شان میانماری</type>
+			<type type="native" key="numbers">ارقام بومی</type>
+			<type type="no" key="colBackwards">مرتب‌سازی آکسان‌ها به صورت معمولی</type>
+			<type type="no" key="colCaseFirst">مرتب‌سازی به ترتیب معمولی بزرگ و کوچکی حروف</type>
+			<type type="no" key="colCaseLevel">مرتب‌سازی بدون توجه به کوچک و بزرگی حروف</type>
+			<type type="no" key="colHiraganaQuaternary">مرتب‌سازی بر اساس سیستم کانا به صورت جداگانه</type>
+			<type type="no" key="colNormalization">مرتب‌سازی بدون عادی‌سازی</type>
+			<type type="no" key="colNumeric">مرتب‌سازی ارقام بصورت مجزا</type>
+			<type type="non-ignorable" key="colAlternate">مرتب‌سازی نمادها</type>
 			<type type="orya" key="numbers">ارقام اوریه‌ای</type>
 			<type type="persian" key="calendar">تقویم هجری شمسی</type>
 			<type type="phonebook" key="collation">ترتیب دفتر تلفن</type>
+			<type type="phonetic" key="collation">مرتب کردن بر اساس آوایی</type>
 			<type type="pinyin" key="collation">ترتیب پین‌یین</type>
+			<type type="primary" key="colStrength">مرتب‌سازی فقط حروف پایه</type>
+			<type type="quaternary" key="colStrength">مرتب‌سازی بر اساس آکسان/اندازه حروف/عرض/کانا</type>
 			<type type="reformed" key="collation">ترتیب اصلاح‌شده</type>
 			<type type="roc" key="calendar">تقویم جمهوری چین [تایوان]</type>
 			<type type="roman" key="numbers">اعداد رومی</type>
 			<type type="romanlow" key="numbers">اعداد رومی با حروف کوچک</type>
 			<type type="search" key="collation">جستجوی عمومی</type>
 			<type type="searchjl" key="collation">جستجو با صامت اول هانگول</type>
+			<type type="secondary" key="colStrength">مرتب‌سازی آکسان‌ها</type>
+			<type type="shifted" key="colAlternate">مرتب‌سازی با نادیده گرفتن نمادها</type>
 			<type type="stroke" key="collation">ترتیب حرکتی</type>
 			<type type="taml" key="numbers">اعداد سنتی تامیلی</type>
 			<type type="tamldec" key="numbers">ارقام تامیلی</type>
 			<type type="telu" key="numbers">ارقام تلوگویی</type>
+			<type type="tertiary" key="colStrength">مرتب‌سازی بر اساس آکسان/اندازه حرف/عرض</type>
 			<type type="thai" key="numbers">ارقام تایلندی</type>
 			<type type="tibt" key="numbers">ارقام تبتی</type>
 			<type type="traditional" key="collation">ترتیب سنتی</type>
+			<type type="traditional" key="numbers">سیستم اعداد سنتی</type>
 			<type type="unihan" key="collation">ترتیب رادیکالی-حرکتی</type>
+			<type type="upper" key="colCaseFirst">مرتب‌سازی بر اساس حرف بزرگ در ابتدا</type>
 			<type type="vaii" key="numbers">ارقام وایی</type>
+			<type type="yes" key="colBackwards">مرتب‌سازی معکوس براساس آکسان</type>
+			<type type="yes" key="colCaseLevel">مرتب‌سازی با حساسیت به اندازه حروف</type>
+			<type type="yes" key="colHiraganaQuaternary">مرتب‌سازی کانا به صورت متفاوت</type>
+			<type type="yes" key="colNormalization">مرتب‌سازی یونیکد نرمال شده</type>
+			<type type="yes" key="colNumeric">مرتب‌سازی شماره‌ها با سیستم عددی</type>
 		</types>
 		<transformNames>
+			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">سیستم اعداد</transformName>
 			<transformName type="Tone">تون</transformName>
+			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">تکیه</transformName>
 			<transformName type="x-Fullwidth">تمام‌عرض</transformName>
 			<transformName type="x-Halfwidth">نیم‌عرض</transformName>
@@ -1041,6 +1082,9 @@
 		<exemplarCharacters type="currencySymbol">[﷼ a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index">[آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ، ٫ ٬ ؛ \: ! ؟ . … « » ( ) \[ \] * / \\]</exemplarCharacters>
+		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="medial">{0}…{1}</ellipsis>
 		<moreInformation>؟</moreInformation>
 		<stopwords>
 			<stopwordList type="collation" draft="provisional">یک این آن</stopwordList>
@@ -1165,6 +1209,15 @@
 							<day type="fri">ج</day>
 							<day type="sat">ش</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">۱ش</day>
+							<day type="mon">۲ش</day>
+							<day type="tue">۳ش</day>
+							<day type="wed">۴ش</day>
+							<day type="thu">۵ش</day>
+							<day type="fri">ج</day>
+							<day type="sat">ش</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">یکشنبه</day>
 							<day type="mon">دوشنبه</day>
@@ -1191,6 +1244,15 @@
 							<day type="tue">س</day>
 							<day type="wed">چ</day>
 							<day type="thu">پ</day>
+							<day type="fri">ج</day>
+							<day type="sat">ش</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">۱ش</day>
+							<day type="mon">۲ش</day>
+							<day type="tue">۳ش</day>
+							<day type="wed">۴ش</day>
+							<day type="thu">۵ش</day>
 							<day type="fri">ج</day>
 							<day type="sat">ش</day>
 						</dayWidth>
@@ -1497,11 +1559,13 @@
 					</field>
 					<field type="day">
 						<displayName>روز</displayName>
+						<relative type="-3">سه روز پیش</relative>
 						<relative type="-2">پریروز</relative>
 						<relative type="-1">دیروز</relative>
 						<relative type="0">امروز</relative>
 						<relative type="1">فردا</relative>
 						<relative type="2">پس‌فردا</relative>
+						<relative type="3">سه روز دیگر</relative>
 					</field>
 					<field type="weekday">
 						<displayName>روز هفته</displayName>
@@ -1887,17 +1951,95 @@
 			<regionFormat>وقت {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat>وقت {1} ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>بخش شاهزاده‌‌نشین پایین</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>بیولا، داکوتای شمالی</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity>GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity>GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity>GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity>GMT-13</exemplarCity>
 			</zone>
 			<zone type="Etc/GMT+10">
 				<exemplarCity>GMT+10</exemplarCity>
 			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity>GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity>GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity>GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity>GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity>GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity>GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity>GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity>GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity>GMT+2</exemplarCity>
+			</zone>
 			<zone type="Etc/GMT+1">
 				<exemplarCity>GMT+1</exemplarCity>
 			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity>GMT</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>شهر نامشخص</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity>GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity>GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity>GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity>GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity>GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity>GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity>GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity>GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity>GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity>GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity>GMT-11</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity>آندورا</exemplarCity>
@@ -4202,7 +4344,7 @@
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>#,##0.00 ¤;−#,##0.00 ¤</pattern>
+					<pattern>‎¤#,##0.00;‎(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
@@ -4593,6 +4735,9 @@
 			<currency type="MZE">
 				<displayName>اسکودوی موزامبیک</displayName>
 			</currency>
+			<currency type="MZN">
+				<displayName>متیکال موزامبیک</displayName>
+			</currency>
 			<currency type="NAD">
 				<displayName>دلار نامیبیا</displayName>
 			</currency>
@@ -4647,6 +4792,9 @@
 			<currency type="RHD">
 				<displayName>دلار رودزیا</displayName>
 			</currency>
+			<currency type="RON">
+				<displayName>لئوی رومانی</displayName>
+			</currency>
 			<currency type="RSD">
 				<displayName>دینار صربستان</displayName>
 			</currency>
@@ -4694,6 +4842,9 @@
 			</currency>
 			<currency type="SRG">
 				<displayName>گیلدر سورینام</displayName>
+			</currency>
+			<currency type="SSP">
+				<displayName>پوند سودان جنوبی</displayName>
 			</currency>
 			<currency type="STD">
 				<displayName>دوبرای سائوتومه و پرنسیپ</displayName>

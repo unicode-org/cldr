@@ -9,11 +9,14 @@
 	<fallback>en_ZA</fallback>
 	<localeDisplayNames>
 		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>,</localeSeparator>
 		</localeDisplayPattern>
 		<languages>
 			<language type="ab">isi-Abkhazian</language>
+			<language type="ach">Isi-Acoli</language>
 			<language type="af">isiBhunu</language>
+			<language type="ak">I-Akan</language>
 			<language type="am">isi-Amharic</language>
 			<language type="ar">isi-Alabhu</language>
 			<language type="as">isi-Assamese</language>
@@ -21,13 +24,17 @@
 			<language type="az">isi-Azerbaijani</language>
 			<language type="az" alt="short">isi-Azeria</language>
 			<language type="be">isi-Belarusian</language>
+			<language type="bem">Isi-Bemba</language>
 			<language type="bg">isi-Bulgari</language>
-			<language type="bh" draft="unconfirmed">IsiBhihari</language>
+			<language type="bh">IsiBhihari</language>
 			<language type="bn">isi-Bengali</language>
 			<language type="bo">isi-Tibetan</language>
-			<language type="br" draft="unconfirmed">isihlobo sase Britain</language>
+			<language type="br">Isi-Breton</language>
 			<language type="bs">isi-Bosnian</language>
 			<language type="ca">isi-Catalan</language>
+			<language type="chr">Isi-Cherokee</language>
+			<language type="ckb">Isi-Sorani Kurdish</language>
+			<language type="co">isi-Corsican</language>
 			<language type="cs">isi-Czech</language>
 			<language type="cy">isi-Welsh</language>
 			<language type="da">isi-Danish</language>
@@ -36,6 +43,7 @@
 			<language type="de_CH">isi-Swiss High German</language>
 			<language type="dv">isi-Divehi</language>
 			<language type="dz">isi-Dzongkha</language>
+			<language type="ee">Isi-Ewe</language>
 			<language type="efi">isi-Efik</language>
 			<language type="el">isi-Greek</language>
 			<language type="en">isiNgisi</language>
@@ -46,7 +54,7 @@
 			<language type="eo">isi-Esperanto</language>
 			<language type="es">isiSpeyini</language>
 			<language type="es_419">isi-Latin American Spanish</language>
-			<language type="es_ES">isi-Iberian Spanish</language>
+			<language type="es_ES">Isipenishi saseYurophu</language>
 			<language type="et">isi-Estonia</language>
 			<language type="eu">isi-Basque</language>
 			<language type="fa">isi-Persian</language>
@@ -59,6 +67,7 @@
 			<language type="fr_CH">isi-Swiss French</language>
 			<language type="fy">isi-Western Frisian</language>
 			<language type="ga">isi-Irish</language>
+			<language type="gaa">Isi-Ga</language>
 			<language type="gd">i-Scottish Gaelic</language>
 			<language type="gl">isi-Galicia</language>
 			<language type="gn">isi-Guarani</language>
@@ -72,7 +81,7 @@
 			<language type="ht">isi-Haitian</language>
 			<language type="hu">isi-Hungarian</language>
 			<language type="hy">isi-Armenia</language>
-			<language type="ia" draft="unconfirmed">Izilimi ezihlangene</language>
+			<language type="ia">Izilimi ezihlangene</language>
 			<language type="id">isi-Indonesian</language>
 			<language type="ie" draft="unconfirmed">Izilimu</language>
 			<language type="ig">isi-Igbo</language>
@@ -81,6 +90,7 @@
 			<language type="ja">isi-Japanese</language>
 			<language type="jv">isi-Javanese</language>
 			<language type="ka">isi-Georgian</language>
+			<language type="kg">Isi-Kongo</language>
 			<language type="kk">isi-Kazakh</language>
 			<language type="km">isi-Khmer</language>
 			<language type="kn">isi-Kannada</language>
@@ -90,10 +100,14 @@
 			<language type="ky">isi-Kirghiz</language>
 			<language type="la">isi-Latin</language>
 			<language type="lb">isi-Luxembourgish</language>
+			<language type="lg">Isi-Ganda</language>
 			<language type="ln">isi-Lingala</language>
 			<language type="lo">i-Lao</language>
+			<language type="loz">Isi-Lozi</language>
 			<language type="lt">isi-Lithuanian</language>
+			<language type="lua">Isi-Luba-Lulua</language>
 			<language type="lv">isi-Latvia</language>
+			<language type="mfe">Isi-Morisyen</language>
 			<language type="mg">isi-Malagasy</language>
 			<language type="mi">isi-Maori</language>
 			<language type="mk">isi-Macedonia</language>
@@ -112,7 +126,9 @@
 			<language type="no" draft="unconfirmed">IsiNoweyi</language>
 			<language type="nso">isi-Northern Sotho</language>
 			<language type="ny">isi-Nyanja</language>
-			<language type="oc" draft="unconfirmed">Isi-Osithani</language>
+			<language type="nyn">Isi-Nyankole</language>
+			<language type="oc">Isi-Osithani</language>
+			<language type="om">Isi-Oromo</language>
 			<language type="or">isi-Oriya</language>
 			<language type="os">isi-Ossetic</language>
 			<language type="pa">isi-Punjabi</language>
@@ -121,7 +137,7 @@
 			<language type="ps" alt="variant">isi-Pushto</language>
 			<language type="pt">isi-Portuguese</language>
 			<language type="pt_BR">isi-Brazillian Portuguese</language>
-			<language type="pt_PT">isi-Iberian Portuguese</language>
+			<language type="pt_PT">Isiputukezi saseYurophu</language>
 			<language type="qu">isi-Quechua</language>
 			<language type="rm">isi-Romansh</language>
 			<language type="rn">isi-Rundi</language>
@@ -153,13 +169,14 @@
 			<language type="th">isi-Thai</language>
 			<language type="ti">isi-Tigrinya</language>
 			<language type="tk">isi-Turkmen</language>
-			<language type="tlh" draft="unconfirmed">IsiKlingoni</language>
+			<language type="tlh">Isi-Klingon</language>
 			<language type="tn">isi-Tswana</language>
-			<language type="to">isi-Tonga</language>
+			<language type="to">Isi-Tongan</language>
 			<language type="tpi">isi-Tok Pisin</language>
 			<language type="tr">isi-Turkish</language>
 			<language type="ts">isi-Tsonga</language>
 			<language type="tt">isi-Tatar</language>
+			<language type="tum">Isi-Tumbuka</language>
 			<language type="tw" draft="unconfirmed">Twi</language>
 			<language type="ty">isi-Tahitian</language>
 			<language type="ug">isi-Uighur</language>
@@ -172,7 +189,7 @@
 			<language type="vi">isi-Vietnamese</language>
 			<language type="wo">isi-Wolof</language>
 			<language type="xh">isiXhosa</language>
-			<language type="yi" draft="unconfirmed">ulimu olwi Yidish</language>
+			<language type="yi">Isi-Yidish</language>
 			<language type="yo">isi-Yoruba</language>
 			<language type="zh">isi-Chinese</language>
 			<language type="zh_Hans">isi-Sipmlified Chinese</language>
@@ -243,7 +260,7 @@
 			<territory type="034">e-Southern Asia</territory>
 			<territory type="035">e-South-Eastern Asia</territory>
 			<territory type="039">e-Southern Europe</territory>
-			<territory type="053">i-Australia ne-New Zealand</territory>
+			<territory type="053">I-Australasia</territory>
 			<territory type="054">i-Melanesia</territory>
 			<territory type="057">e-Micronesian Region</territory>
 			<territory type="061">i-Polynesia</territory>
@@ -286,6 +303,7 @@
 			<territory type="BM">i-Bermuda</territory>
 			<territory type="BN">i-Brunei</territory>
 			<territory type="BO">i-Bolivia</territory>
+			<territory type="BQ">I-Caribbean Netherlands</territory>
 			<territory type="BR">i-Brazil</territory>
 			<territory type="BS">i-Bahamas</territory>
 			<territory type="BT">i-Bhutan</territory>
@@ -312,6 +330,7 @@
 			<territory type="CR">i-Costa Rica</territory>
 			<territory type="CU">i-Cuba</territory>
 			<territory type="CV">i-Cape Verde</territory>
+			<territory type="CW">I-Curaçao</territory>
 			<territory type="CX">i-Christmas Island</territory>
 			<territory type="CY">i-Cyprus</territory>
 			<territory type="CZ">i-Czech Republic</territory>
@@ -475,8 +494,10 @@
 			<territory type="SN">i-Senegal</territory>
 			<territory type="SO">i-Somalia</territory>
 			<territory type="SR">i-Suriname</territory>
+			<territory type="SS">Iningizimu Sudan</territory>
 			<territory type="ST">i-São Tomé kanye ne-Príncipe</territory>
 			<territory type="SV">i-El Salvador</territory>
+			<territory type="SX">I-Sint Maarten</territory>
 			<territory type="SY">i-Syria</territory>
 			<territory type="SZ">i-Swaziland</territory>
 			<territory type="TA">i-Tristan da Cunha</territory>
@@ -521,9 +542,20 @@
 		</territories>
 		<keys>
 			<key type="calendar">Ikhalenda</key>
-			<key type="collation">i-Collation</key>
+			<key type="colAlternate">Ziba Ukuhlelwa Kwezimpawu</key>
+			<key type="colBackwards">Ukuhlelwa Kwendlela Yokubiza Okuhlehlisiwe</key>
+			<key type="colCaseFirst">Ukuhlelwa Ngokwezinhlamvu Ezinkulu/Ezincane</key>
+			<key type="colCaseLevel">Ukuhlelwa Okuncike Ezinkinobhweni</key>
+			<key type="colHiraganaQuaternary">Ukuhlela ngokwe-Kana</key>
+			<key type="collation">Uhlelo lokuhlunga</key>
+			<key type="colNormalization">Ukuhlelwa Okulinganisiwe</key>
+			<key type="colNumeric">Ukuhlelwa Ngezinombolo</key>
+			<key type="colStrength">Amandla Okuhlelwa</key>
 			<key type="currency">Ikharensi</key>
 			<key type="numbers">Izinombolo</key>
+			<key type="timezone">Izoni yesikhathi:</key>
+			<key type="va">Okokwehlukanisa Kwasendaweni</key>
+			<key type="variableTop">Hlela Njengezimpawu</key>
 			<key type="x">i-Private-Use</key>
 		</keys>
 		<types>
@@ -542,6 +574,7 @@
 			<type type="ethi" key="numbers">i-Ethiopic Numerals</type>
 			<type type="ethiopic" key="calendar">i-Ethipic Calender</type>
 			<type type="ethiopic-amete-alem" key="calendar">i-Ethiopic Amete Alem Calender</type>
+			<type type="finance" key="numbers">Izinombolo Zezomnotho</type>
 			<type type="fullwide" key="numbers">i-Full Width Digits</type>
 			<type type="gb2312han" key="collation">Ukuhlunga kwe-Simplified Chinese - GB2312</type>
 			<type type="geor" key="numbers">i-Georgian Numerals</type>
@@ -557,6 +590,7 @@
 			<type type="hantfin" key="numbers">i-Traditional Chinese Financial Numerals</type>
 			<type type="hebr" key="numbers">i-Hebrew Numerals</type>
 			<type type="hebrew" key="calendar">i-Hebrew Calender</type>
+			<type type="identical" key="colStrength">Hlela konke</type>
 			<type type="indian" key="calendar">i-Indian National Calender</type>
 			<type type="islamic" key="calendar">i-Islamic Calender</type>
 			<type type="islamic-civil" key="calendar">i-Islamic-Civil Calendar</type>
@@ -567,29 +601,55 @@
 			<type type="knda" key="numbers">i-Kannada Digits</type>
 			<type type="laoo" key="numbers">i-Lao Digits</type>
 			<type type="latn" key="numbers">i-Western Digits</type>
+			<type type="lower" key="colCaseFirst">Hlela Okwezinhlamvu Eziphansi Kuqala</type>
 			<type type="mlym" key="numbers">i-Malayalam Digits</type>
 			<type type="mong" key="numbers">i-Mongolian Digits</type>
 			<type type="mymr" key="numbers">i-Myanmar Digits</type>
+			<type type="native" key="numbers">Izinkinobho Zasendaweni</type>
+			<type type="no" key="colBackwards">Hlela Izindlela Zokuphimisela Ngokujwayelekile</type>
+			<type type="no" key="colCaseFirst">Hlela Ngokwenhlamvu Ezejwayelekile</type>
+			<type type="no" key="colCaseLevel">Hlela Okungancikile Ezinkinobhweni</type>
+			<type type="no" key="colHiraganaQuaternary">Hlela i-Kana Eceleni</type>
+			<type type="no" key="colNormalization">Hlela Ngaphandle Kokulinganisa</type>
+			<type type="no" key="colNumeric">Hlela Izinhlamvu Zenombolo Ngazinye</type>
+			<type type="non-ignorable" key="colAlternate">Hlela Izimpawu</type>
 			<type type="orya" key="numbers">i-Oriya Digits</type>
 			<type type="persian" key="calendar">i-Persian Calendar</type>
 			<type type="phonebook" key="collation">Ukuhlunga kwebhuku lefoni</type>
+			<type type="phonetic" key="collation">Hlela Ngokwefonetiki</type>
 			<type type="pinyin" key="collation">Ukuhlunga nge-Pinyin</type>
+			<type type="primary" key="colStrength">Hlela Izinhlamvu Zaphansi Kuphela</type>
+			<type type="quaternary" key="colStrength">Hlola Ukuphimisela/Ukuma kwezinhlamvu/Ububanzi/i-Kana</type>
 			<type type="reformed" key="collation">Ukuhlunga okwenziwe kabusha</type>
 			<type type="roc" key="calendar">i-Minguo Calender</type>
 			<type type="roman" key="numbers">i-Roman Numerals</type>
 			<type type="romanlow" key="numbers">i-Roman Lowercase Numerals</type>
 			<type type="search" key="collation">Usesho olujwayelekile</type>
+			<type type="searchjl" key="collation">Sesha nge-Hangul Ongwaqa Basekuqaleni</type>
+			<type type="secondary" key="colStrength">Hlela Ukuphimisela</type>
+			<type type="shifted" key="colAlternate">Hlela Ukuziba Izimpawu</type>
 			<type type="stroke" key="collation">Ukuhlunga kwe-Stroke</type>
 			<type type="taml" key="numbers">i-Tamil Numerals</type>
 			<type type="telu" key="numbers">i-Telegu Digits</type>
+			<type type="tertiary" key="colStrength">Hlela Ukuphimisela/Ukuma kwezinhlamvu/Ububanzi</type>
 			<type type="thai" key="numbers">i-Thai Digits</type>
 			<type type="tibt" key="numbers">i-Tibetan Digits</type>
 			<type type="traditional" key="collation">Ukuhlunga ngokisiko</type>
+			<type type="traditional" key="numbers">Izinombolo Ezijwayelekile</type>
 			<type type="unihan" key="collation">Ukuhlunga kwe-Radical-Stroke</type>
+			<type type="upper" key="colCaseFirst">Hlela Izinhlamvu Ezinkulu Kuqala</type>
+			<type type="vaii" key="numbers">Izinhlazu Zezinombolo ze-Vai</type>
+			<type type="yes" key="colBackwards">Ukuhlelwa Kokuphimisela Kuhlehlisiwe</type>
+			<type type="yes" key="colCaseLevel">Hlela Okuncike Ekumeni Kwezinkinobho</type>
+			<type type="yes" key="colHiraganaQuaternary">Hlela i-Kana Ngendlela Ehlukile</type>
+			<type type="yes" key="colNormalization">Ukuhlelwa Khekhodi Enye Kulinganisiwe</type>
+			<type type="yes" key="colNumeric">Hlela Izinhlamvu Ngokwezinombolo</type>
 		</types>
 		<transformNames>
+			<transformName type="BGN">I-BGN</transformName>
 			<transformName type="Numeric">Okwezinombolo</transformName>
 			<transformName type="Tone">Ithoni</transformName>
+			<transformName type="UNGEGN">I-UNGEGN</transformName>
 			<transformName type="x-Accents">Ama-Accent</transformName>
 			<transformName type="x-Fullwidth">i-Fullwidth</transformName>
 			<transformName type="x-Halfwidth">Ubude obuhhafu</transformName>
@@ -608,6 +668,10 @@
 		<exemplarCharacters type="auxiliary">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ö ø ō œ ú ù ŭ û ü ū ÿ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
+		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="medial">{0}…{1}</ellipsis>
+		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -691,6 +755,15 @@
 							<day type="fri">Hla</day>
 							<day type="sat">Mgq</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Isonto</day>
+							<day type="mon">Umsombuluko</day>
+							<day type="tue">Ulwesibili</day>
+							<day type="wed">Ulwesithathu</day>
+							<day type="thu">Ulwesine</day>
+							<day type="fri">Ulwesihlanu</day>
+							<day type="sat">Umgqibelo</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Sonto</day>
 							<day type="mon">Msombuluko</day>
@@ -710,6 +783,15 @@
 							<day type="thu">S</day>
 							<day type="fri">H</day>
 							<day type="sat">M</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Isonto</day>
+							<day type="mon">Umsombuluko</day>
+							<day type="tue">Ulwesibili</day>
+							<day type="wed">Ulwesithathu</day>
+							<day type="thu">Ulwesine</day>
+							<day type="fri">Ulwesihlanu</day>
+							<day type="sat">Umgqibelo</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -741,6 +823,12 @@
 							<quarter type="3">Q3</quarter>
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">ikota yoku-1</quarter>
 							<quarter type="2">ikota yesi-2</quarter>
@@ -758,6 +846,10 @@
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="am">a</dayPeriod>
 							<dayPeriod type="pm">p</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">Ekuseni</dayPeriod>
+							<dayPeriod type="pm">Ntambama</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -812,10 +904,43 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">Y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
@@ -826,8 +951,48 @@
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d-d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a">HH–HH</greatestDifference>
+							<greatestDifference id="H">HH–HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="a">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a">HH–HH v</greatestDifference>
+							<greatestDifference id="H">HH–HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">M/d – M/d</greatestDifference>
@@ -909,11 +1074,13 @@
 					</field>
 					<field type="day">
 						<displayName>Usuku</displayName>
+						<relative type="-3">Ezinsukwini ezintathu ezedlule</relative>
 						<relative type="-2">Usuku olwandulela olwayizolo</relative>
 						<relative type="-1">Izolo</relative>
 						<relative type="0">Namhlanje</relative>
 						<relative type="1">Kusasa</relative>
 						<relative type="2">Usuku olulandela olakusasa</relative>
+						<relative type="3">Ezinsukwini ezintathu kusukela manje</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Usuku evikini</displayName>
@@ -937,8 +1104,60 @@
 			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat>+HH:mm;-HH:mm</hourFormat>
+			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>Isiskhathi sase-{0}</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat>Isikhathi sase-{1} ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>I-Lower Prince's Quarter</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity>I-Curaçao</exemplarCity>
+			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity>I-Saint Barthélemy</exemplarCity>
+			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity>I-St. John’s</exemplarCity>
+			</zone>
+			<zone type="America/Asuncion">
+				<exemplarCity>I-Asunción</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity>I-Réunion</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity>I-São Tomé</exemplarCity>
+			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard>Isikhathi sase-Afghanistan</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Central">
+				<long>
+					<standard>Isikhathi sase-Central Africa</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Eastern">
+				<long>
+					<standard>Isikhathi saseMpumalanga Afrika</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Southern">
+				<long>
+					<standard>Isikhathi esivamile saseNingizimu Afrika</standard>
+				</long>
+			</metazone>
+			<metazone type="Africa_Western">
+				<long>
+					<generic>Isikhathi saseNtshonalanga Afrika</generic>
+					<standard>Isikhathi esivamile saseNtshonalanga Afrika</standard>
+					<daylight>Isikhathi sehlobo saseNtshonalanga Afrika</daylight>
+				</long>
+			</metazone>
 			<metazone type="Alaska">
 				<long>
 					<generic>esase-Alaska Time</generic>
@@ -949,8 +1168,8 @@
 			<metazone type="Amazon">
 				<long>
 					<generic>esase-Amazon Time</generic>
-					<standard>esase-Amazon Standard Time</standard>
-					<daylight>esase-Amazon Daylight Time</daylight>
+					<standard>Isikhathi esivamile sase-Amazon</standard>
+					<daylight>Isikhathi sehlobo sase-Amazon</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -988,18 +1207,32 @@
 					<daylight>esase-Anadyr Summer Time</daylight>
 				</long>
 			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic>Isikhathi sase-Arabian</generic>
+					<standard>Isikhathi esivamile sase-Arabian</standard>
+					<daylight>Isikhathi semini sase-Arabian</daylight>
+				</long>
+			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic>esase-Argentina Time</generic>
-					<standard>esase-Argentina Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Argentina</standard>
 					<daylight>esase-Argentina Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic>esase-Western Argentina Time</generic>
-					<standard>esase-Western Argentina Standard Time</standard>
-					<daylight>esase-Western Argentina Summer Time</daylight>
+					<generic>Isikhathi saseNyakatho ne-Argentina</generic>
+					<standard>Isikhathi Esimisiwe sase-Ntshonalanga ne-Argentina</standard>
+					<daylight>Isikhathi Sasehlobo sase-Ntshonalanga ne-Argentina</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic>Isikhathi saseArmenia</generic>
+					<standard>Isikhathi esezingeni sase-Armenia</standard>
+					<daylight>Isikhathi sehlobo sase-Armenia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -1037,54 +1270,320 @@
 					<daylight>esase-Austrilian Western Daylight Time</daylight>
 				</long>
 			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<generic>Isikhathi sase-Azerbaijan</generic>
+					<standard>Isikhathi esivamile sase-Azerbaijan</standard>
+					<daylight>Isikhathi sehlobo sase-Azerbaijan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic>Isikhathi sase-Azores</generic>
+					<standard>Isikhathi esivamile sase-Azores</standard>
+					<daylight>Isikhathi sehlobo sase-Azores</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<generic>Isikhathi sase-Bangladesh</generic>
+					<standard>Isikhathi esivamile sase-Bangladesh</standard>
+					<daylight>Isikhathi sehlobo sase-Bangladesh</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard>Isikhathi sase-Bhutan</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard>Isikhathi sase-Bolivia</standard>
+				</long>
+			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic>esase-Brasilia Time</generic>
-					<standard>esase-Brasilia Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Brasilia</standard>
 					<daylight>esase-Brasilia Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard>Isikhathi sase-Brunei Darussalam</standard>
+				</long>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<generic>Isikhathi sase-Cape Verde</generic>
+					<standard>Isikhathi esezingeni sase-Cape Verde</standard>
+					<daylight>Isikhathi sehlobo sase-Cape Verde</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<standard>Isikhathi esezingeni sase-Chamorro</standard>
+				</long>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<generic>Isikhathi sase-Chatham</generic>
+					<standard>Isikhathi esivamile sase-Chatham</standard>
+					<daylight>Isikhathi semini sase-Chatham</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic>Isikhathi sase-Chile</generic>
+					<standard>Isikhathi esivamile sase-Chile</standard>
+					<daylight>Isikhathi sehlobo sase-Chile</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>Isikhathi sase-China</generic>
+					<standard>Isikhathi esivamile sase-China</standard>
+					<daylight>Isikhathi semini sase-China</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
 					<generic>esase-Choibalsan Time</generic>
-					<standard>esase-Choibalsan Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Choibalsan</standard>
 					<daylight>esase-Choibalsan Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Christmas">
+				<long>
+					<standard>Isikhathi sase-Christmas Island</standard>
+				</long>
+			</metazone>
+			<metazone type="Cocos">
+				<long>
+					<standard>Isikhathi sase-Cocos Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic>Isikhathi sase-Colombia</generic>
+					<standard>Isikhathi esivamile sase-Colombia</standard>
+					<daylight>Isikhathi sehlobo sase-Colombia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<generic>Isikhathi sase-Cook Islands</generic>
+					<standard>Isikhathi esivamile sase-Cook Islands</standard>
+					<daylight>Isikhathi esiyingxenye yasehlobo sase-Cook Islands</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic>Isikhathi sase-Cuba</generic>
+					<standard>Isikhathi esivamile sase-Cuba</standard>
+					<daylight>Isikhathi semini sase-Cuba</daylight>
+				</long>
+			</metazone>
+			<metazone type="Davis">
+				<long>
+					<standard>Isikhathi sase-Davis</standard>
+				</long>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
+					<standard>Isikhathi sase-Dumont-d’Urville</standard>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard>Isikhathi sase-East Timor</standard>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic>Isikhathi sase-Easter Island</generic>
+					<standard>Isikhathi esivamile sase-Easter Island</standard>
+					<daylight>Isikhathi sehlobo sase-Easter Island</daylight>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard>Isikhathi sase-Ecuador</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic>Isikhathi sase-Central Europe</generic>
+					<standard>Isikhathi esivamile sase-Central Europe</standard>
+					<daylight>Isikhathi sehlobo sase-Central Europe</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic>Isikhathi sase-Eastern Europe</generic>
+					<standard>Isikhathi esivamile sase-Eastern Europe</standard>
+					<daylight>Isikhathi sehlobo sase-Eastern Europe</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>Isikhathi sase-Western Europe</generic>
+					<standard>Isikhathi esivamile sase-Western Europe</standard>
+					<daylight>Isikhathi sehlobo sase-Western Europe</daylight>
+				</long>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic>Isikhathi sase-Falkland Islands</generic>
+					<standard>Isikhathi esivamile sase-Falkland Islands</standard>
+					<daylight>Isikhathi sehlobo sase-Falkland Islands</daylight>
+				</long>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
+					<generic>Isikhathi sase-Fiji</generic>
+					<standard>Isikhathi esivamile sase-Fiji</standard>
+					<daylight>Isikhathi sehlobo sase-Fiji</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard>Isikhathi sase-French Guiana</standard>
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard>Isikhathi sase-French Southern and Antarctic</standard>
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard>Isikhathi sase-Galapagos</standard>
+				</long>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard>Isikhathi sase-Gambier</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<generic>Isikhathi sase-Georgia</generic>
+					<standard>Isikhathi esivamile sase-Georgia</standard>
+					<daylight>Isikhathi sehlobo sase-Georgia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard>Isikhathi sase-Gilbert Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Isikhathi sase-Greenwich Mean</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>Isikhathi sase-East Greenland</generic>
+					<standard>Isikhathi esivamile sase-East Greenland</standard>
+					<daylight>Isikhathi sehlobo sase-East Greenland</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>Isikhathi sase-West Greenland</generic>
+					<standard>Isikhathi esivamile sase-West Greenland</standard>
+					<daylight>Isikhathi sehlobo sase-West Greenland</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard>Isikhathi esivamile sase-Gulf</standard>
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard>Isikhathi sase-Guyana</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic>esase-Hawaii Aleutian Time</generic>
-					<standard>esase-Hawaii Aleutian Standard Time</standard>
-					<daylight>esase-Hawaii Aleutian Daylight Time</daylight>
+					<generic>Isikathi sase-Hawaii-Aleutian</generic>
+					<standard>Isikhathi esivamile sase-Hawaii-Aleutian</standard>
+					<daylight>Isikhathi semini sase-Hawaii-Aleutian</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic>Isikhathi sase-Hong Kong</generic>
+					<standard>Isikhathi esivamile sase-Hong Kong</standard>
+					<daylight>Isikhathi sehlobo sase-Hong Kong</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
 				<long>
 					<generic>esase-Hovd Time</generic>
-					<standard>esase-Hovd Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Hovd</standard>
 					<daylight>esase-Hovd Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard>Isikhathi esivamile sase-India</standard>
+				</long>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard>Isikhathi sase-Indian Ocean</standard>
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard>Isikhathi sase-Indochina</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<standard>esase-Indonesia Central Time</standard>
+					<standard>Isikhathi sase-Central Indonesia</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<standard>esase-Indonesia Eastern Time</standard>
+					<standard>Isikhathi sase-Eastern Indonesia</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<standard>esase-Indonesia Western Time</standard>
+					<standard>Isikhathi sase-Western Indonesia</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic>Isikhathi sase-Iran</generic>
+					<standard>Isikhathi esivamile sase-Iran</standard>
+					<daylight>Isikhathi sasemini sase-Iran</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
 					<generic>esase-Irkutsk Time</generic>
-					<standard>esase-Irkutsk Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Irkutsk</standard>
 					<daylight>esase-Irkutsk Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic>Isikhathi sase-Israel</generic>
+					<standard>Isikhathi esivamile sase-Israel</standard>
+					<daylight>Isikhathi sasemini sase-Israel</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>Isikhathi sase-Japan</generic>
+					<standard>Isikhathi esivamile sase-Japan</standard>
+					<daylight>Isikhathi semini sase-Japan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
@@ -1096,19 +1595,41 @@
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
-					<standard>esase-East Kazakhstan Time</standard>
+					<standard>Isikhathi sase-Mpumalanga ne-Kazakhstan</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Western">
 				<long>
-					<standard>esase-West Kazakhstan Time</standard>
+					<standard>Isikhathi saseNtshonalanga ne-Kazakhstan</standard>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>Isikhathi sase-Korea</generic>
+					<standard>Isikhathi esisezengeni sase-Korea</standard>
+					<daylight>Isikhathi semini sase-Korea</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard>Isikhathi sase-Kosrae</standard>
 				</long>
 			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic>esase-Krasnoyarsk Time</generic>
-					<standard>esase-Krasnoyarsk Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Krasnoyarsk</standard>
 					<daylight>esase-Krasnoyarsk Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard>Isikhathi sase-Kyrgystan</standard>
+				</long>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard>Isikhathi sase-Line Islands</standard>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -1120,20 +1641,52 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<standard>esase-Macquarie Time</standard>
+					<standard>Isikhathi sase-Macquarie Island</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>esase-Magadan Time</generic>
-					<standard>esase-Magadan Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Magadan</standard>
 					<daylight>esase-Magadan Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard>Isikhathi sase-Malaysia</standard>
+				</long>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard>Isikhathi sase-Maldives</standard>
+				</long>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard>Isikhathi sase-Marquesas</standard>
+				</long>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard>Isikhathi sase-Marshall Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic>Isikhathi sase-Mauritius</generic>
+					<standard>Isikhathi esivamile sase-Mauritius</standard>
+					<daylight>Isikhathi sehlobo sase-Mauritius</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard>Isikhathi sase-Mawson</standard>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
 				<long>
-					<generic>esase-Ulan Bator Time</generic>
-					<standard>esase-Ulan Bator Standard Time</standard>
+					<generic>Isikhathi sase-Ulan Bator</generic>
+					<standard>Isikhathi Esimisiwe sase-Ulan Bator</standard>
 					<daylight>esase-Ulan Bator Summer Time</daylight>
 				</long>
 			</metazone>
@@ -1144,6 +1697,35 @@
 					<daylight>esase-Moscow Summer Time</daylight>
 				</long>
 			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard>Isikhathi sase-Myanmar</standard>
+				</long>
+			</metazone>
+			<metazone type="Nauru">
+				<long>
+					<standard>Isikhathi sase-Nauru</standard>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard>Isikhathi sase-Nepal</standard>
+				</long>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
+					<generic>Isikhathi sase-New Caledonia</generic>
+					<standard>Isikhathi esivamile sase-New Caledonia</standard>
+					<daylight>Isikhathi sehlobo sase-New Caledonia</daylight>
+				</long>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic>Isikhathi sase-New Zealand</generic>
+					<standard>Isikhathi esivamile sase-New Zealand</standard>
+					<daylight>Isikhathi sasemini sase-New Zealand</daylight>
+				</long>
+			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<generic>esase-Newfoundland Time</generic>
@@ -1151,31 +1733,111 @@
 					<daylight>esase-Newfoundland Daylight Time</daylight>
 				</long>
 			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard>Isikhathi sase-Niue</standard>
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard>Isikhathi sase-Norfolk Islands</standard>
+				</long>
+			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic>esase-Fernando de Noronha Time</generic>
-					<standard>esase-Fernando de Noronha Standard Time</standard>
+					<generic>Isikhathi sase-Fernando de Noronha</generic>
+					<standard>Isikhathi Esimisiwe sase-Fernando de Noronha</standard>
 					<daylight>esase-Fernando de Noronha Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>esase-Novosibirsk Time</generic>
-					<standard>esase-Novosibirsk Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Novosibirsk</standard>
 					<daylight>esase-Novosibirsk Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Omsk">
 				<long>
 					<generic>esase-Omsk Time</generic>
-					<standard>esase-Omsk Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Omsk</standard>
 					<daylight>esase-Omsk Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic>Isikhathi sase-Pakistan</generic>
+					<standard>Isikhathi esivamile sase-Pakistan</standard>
+					<daylight>Isikhathi sehlobo sase-Pakistan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Palau">
+				<long>
+					<standard>Isikhathi sase-Palau</standard>
+				</long>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
+					<standard>Isikhathi sase-Papua New Guinea</standard>
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<generic>Isikhathi sase-Paraguay</generic>
+					<standard>Isikhathi esivamile sase-Paraguay</standard>
+					<daylight>Isikhathi sehlobo sase-Paraguay</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic>Isikhathi sase-Peru</generic>
+					<standard>Isikhathi esivamile sase-Peru</standard>
+					<daylight>Isikhathi sehlobo sase-Peru</daylight>
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic>Isikhathi sase-Philippine</generic>
+					<standard>Isikhathi esivamile sase-Philippine</standard>
+					<daylight>Isikhathi sehlobo sase-Philippine</daylight>
+				</long>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard>Isikhathi sase-Phoenix Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>Isikhathi sase-Pierre and Miquelon</generic>
+					<standard>Isikhathi esivamile sase-Pierre and Miquelon</standard>
+					<daylight>Isikhathi semini sase-Pierre and Miquelon</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pitcairn">
+				<long>
+					<standard>Isikhathi sase-Pitcairn</standard>
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard>Isikhathi sase-Ponape</standard>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard>Isikhathi sase-Reunion</standard>
+				</long>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
+					<standard>Isikhathi sase-Rothera</standard>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic>esase-Sakhalin Time</generic>
-					<standard>esase-Sakhalin Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Sakhalin</standard>
 					<daylight>esase-Sakhalin Summer Time</daylight>
 				</long>
 			</metazone>
@@ -1186,31 +1848,153 @@
 					<daylight>esase-Samara Summer Time</daylight>
 				</long>
 			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<standard>Isikhathi esivamile sase-Samoa</standard>
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard>Isikhathi sase-Seychelles</standard>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard>Isikhathi esivamile sase-Singapore</standard>
+				</long>
+			</metazone>
+			<metazone type="Solomon">
+				<long>
+					<standard>Isikhathi sase-Solomon Islands</standard>
+				</long>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard>Isikhathi sase-South Georgia</standard>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard>Isikhathi sase-Suriname</standard>
+				</long>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard>Isikhathi sase-Syowa</standard>
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard>Isikhathi sase-Tahiti</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>Isikhathi sase-Taipei</generic>
+					<standard>Isikhathi esivamile sase-Taipei</standard>
+					<daylight>Isikhathi semini sase-Taipei</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard>Isikhathi sase-Tajikistan</standard>
+				</long>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard>Isikhathi sase-Tokelau</standard>
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<generic>Isikhathi sase-Tonga</generic>
+					<standard>Isikhathi esivamile sase-Tonga</standard>
+					<daylight>Isikhathi sehlobo sase-Tonga</daylight>
+				</long>
+			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard>Isikhathi sase-Chuuk</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic>Isikhathi sase-Turkmenistan</generic>
+					<standard>Isikhathi esivamile sase-Turkmenistan</standard>
+					<daylight>Isikhathi sehlobo sase-Turkmenistan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
+					<standard>Isikhathi sase-Tuvalu</standard>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<generic>Isikhathi sase-Uruguay</generic>
+					<standard>Isikhathi esivamile sase-Uruguay</standard>
+					<daylight>Isikhathi sehlobo sase-Uruguay</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic>Isikhathi sase-Uzbekistan</generic>
+					<standard>Isikhathi esivamile sase-Uzbekistan</standard>
+					<daylight>Isikhathi sehlobo sase-Uzbekistan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vanuatu">
+				<long>
+					<generic>Isikhathi sase-Vanuatu</generic>
+					<standard>Isikhathi esivamile sase-Vanuatu</standard>
+					<daylight>Isikhathi sehlobo sase-Vanuatu</daylight>
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard>Isikhathi sase-Venezuela</standard>
+				</long>
+			</metazone>
 			<metazone type="Vladivostok">
 				<long>
 					<generic>esase-Vladivostok Time</generic>
-					<standard>esase-Vladivostok Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Vladivostok</standard>
 					<daylight>esase-Vladivostok Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Volgograd">
 				<long>
 					<generic>esase-Volgograd Time</generic>
-					<standard>esase-Volgograd Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Volgograd</standard>
 					<daylight>esase-Volgograd Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard>Isikhathi sase-Vostok</standard>
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard>Isikhathi sase-Wake Island</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard>Isikhathi sase-Wallis and Futuna</standard>
 				</long>
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic>esase-Yakutsk Time</generic>
-					<standard>esase-Yakutsk Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Yakutsk</standard>
 					<daylight>esase-Yakutsk Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
 					<generic>esase-Yekaterinburg Time</generic>
-					<standard>esase-Yekaterinburg Standard Time</standard>
+					<standard>Isikhathi Esimisiwe sase-Yekaterinburg</standard>
 					<daylight>esase-Yekaterinburg Summer Time</daylight>
 				</long>
 			</metazone>
@@ -1218,8 +2002,16 @@
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">
-			<decimal>,</decimal>
-			<group> </group>
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>I-NaN</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -1227,14 +2019,96 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="0">0.0 inkulungwane</pattern>
+					<pattern type="1000" count="1">0.0 inkulungwane</pattern>
+					<pattern type="1000" count="one">0.0 inkulungwane</pattern>
+					<pattern type="1000" count="other">0.0 inkulungwane</pattern>
+					<pattern type="10000" count="0">00 inkulungwane</pattern>
+					<pattern type="10000" count="1">00 inkulungwane</pattern>
+					<pattern type="10000" count="one">00 inkulungwane</pattern>
+					<pattern type="10000" count="other">00 inkulungwane</pattern>
+					<pattern type="100000" count="0">000 inkulungwane</pattern>
+					<pattern type="100000" count="1">000 inkulungwane</pattern>
+					<pattern type="100000" count="one">000 inkulungwane</pattern>
+					<pattern type="100000" count="other">000 inkulungwane</pattern>
+					<pattern type="1000000" count="0">0.0 isigidi</pattern>
+					<pattern type="1000000" count="1">0.0 isigidi</pattern>
+					<pattern type="1000000" count="one">0.0 isigidi</pattern>
+					<pattern type="1000000" count="other">0.0 isigidi</pattern>
+					<pattern type="10000000" count="0">00 isigidi</pattern>
+					<pattern type="10000000" count="1">00 isigidi</pattern>
+					<pattern type="10000000" count="one">00 isigidi</pattern>
+					<pattern type="10000000" count="other">00 isigidi</pattern>
+					<pattern type="100000000" count="0">000 isigidi</pattern>
+					<pattern type="100000000" count="1">000 isigidi</pattern>
+					<pattern type="100000000" count="one">000 isigidi</pattern>
+					<pattern type="100000000" count="other">000 isigidi</pattern>
+					<pattern type="1000000000" count="one">0.0 isigidi sezigidi</pattern>
+					<pattern type="1000000000" count="other">0.0 isigidi sezigidi</pattern>
+					<pattern type="10000000000" count="one">00 isigidi sezigidi</pattern>
+					<pattern type="10000000000" count="other">00 isigidi sezigidi</pattern>
+					<pattern type="100000000000" count="one">000 isigidi sezigidi</pattern>
+					<pattern type="100000000000" count="other">000 isigidi sezigidi</pattern>
+					<pattern type="1000000000000" count="0">0.0</pattern>
+					<pattern type="1000000000000" count="1">0.0 isigidintathu</pattern>
+					<pattern type="1000000000000" count="one">0.0 isigidintathu</pattern>
+					<pattern type="1000000000000" count="other">0.0 isigidintathu</pattern>
+					<pattern type="10000000000000" count="0">00 isigidintathu</pattern>
+					<pattern type="10000000000000" count="1">00 isigidintathu</pattern>
+					<pattern type="10000000000000" count="one">00 isigidintathu</pattern>
+					<pattern type="10000000000000" count="other">00 isigidintathu</pattern>
+					<pattern type="100000000000000" count="0">000 isigidintathu</pattern>
+					<pattern type="100000000000000" count="1">000 isigidintathu</pattern>
+					<pattern type="100000000000000" count="one">000 isigidintathu</pattern>
+					<pattern type="100000000000000" count="other">000 isigidintathu</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
+					<pattern type="1000" count="0">0.OK</pattern>
+					<pattern type="1000" count="1">0.OK</pattern>
+					<pattern type="1000" count="one">0.0K</pattern>
+					<pattern type="1000" count="other">0.0K</pattern>
+					<pattern type="10000" count="0">00K</pattern>
+					<pattern type="10000" count="1">00K</pattern>
+					<pattern type="10000" count="one">00K</pattern>
+					<pattern type="10000" count="other">00K</pattern>
+					<pattern type="100000" count="0">000K</pattern>
+					<pattern type="100000" count="1">000K</pattern>
+					<pattern type="100000" count="one">000K</pattern>
+					<pattern type="100000" count="other">000K</pattern>
+					<pattern type="1000000" count="0">0.0M</pattern>
+					<pattern type="1000000" count="1">0.0M</pattern>
+					<pattern type="1000000" count="one">0.0M</pattern>
+					<pattern type="1000000" count="other">0.0M</pattern>
+					<pattern type="10000000" count="0">00M</pattern>
+					<pattern type="10000000" count="1">00M</pattern>
+					<pattern type="10000000" count="one">00M</pattern>
+					<pattern type="10000000" count="other">00M</pattern>
+					<pattern type="100000000" count="0">000M</pattern>
+					<pattern type="100000000" count="1">000M</pattern>
+					<pattern type="100000000" count="one">000M</pattern>
+					<pattern type="100000000" count="other">000M</pattern>
 					<pattern type="1000000000" count="one">0.0B</pattern>
 					<pattern type="1000000000" count="other">0.0B</pattern>
 					<pattern type="10000000000" count="one">00B</pattern>
 					<pattern type="10000000000" count="other">00B</pattern>
 					<pattern type="100000000000" count="one">000B</pattern>
 					<pattern type="100000000000" count="other">000B</pattern>
+					<pattern type="1000000000000" count="0">0.0T</pattern>
+					<pattern type="1000000000000" count="1">0.0T</pattern>
+					<pattern type="1000000000000" count="one">0.0T</pattern>
+					<pattern type="1000000000000" count="other">0.0T</pattern>
+					<pattern type="10000000000000" count="0">00T</pattern>
+					<pattern type="10000000000000" count="1">00T</pattern>
+					<pattern type="10000000000000" count="one">00T</pattern>
+					<pattern type="10000000000000" count="other">00T</pattern>
+					<pattern type="100000000000000" count="0">000T</pattern>
+					<pattern type="100000000000000" count="1">000T</pattern>
+					<pattern type="100000000000000" count="one">000T</pattern>
+					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -1255,9 +2129,13 @@
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤#,##0.00</pattern>
+					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="0">{0} {1}</unitPattern>
+			<unitPattern count="1">{0} {1}</unitPattern>
+			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -1554,6 +2432,9 @@
 			<currency type="MYR">
 				<displayName>i-Malaysian Ringgit</displayName>
 			</currency>
+			<currency type="MZN">
+				<displayName>I-Metical yase-Mozambicque</displayName>
+			</currency>
 			<currency type="NAD">
 				<displayName>i-Namibian Dollar</displayName>
 			</currency>
@@ -1599,6 +2480,9 @@
 			<currency type="QAR">
 				<displayName>i-Qatari Rial</displayName>
 			</currency>
+			<currency type="RON">
+				<displayName>I-Romanian Leu</displayName>
+			</currency>
 			<currency type="RSD">
 				<displayName>i-Serbian Dinar</displayName>
 			</currency>
@@ -1637,6 +2521,9 @@
 			</currency>
 			<currency type="SRD">
 				<displayName>i-Surinamese Dollar</displayName>
+			</currency>
+			<currency type="SSP">
+				<displayName>Upondo waseNingizimu Sudan</displayName>
 			</currency>
 			<currency type="STD">
 				<displayName>i-São Tomé kanye ne-Príncipe Dobra</displayName>
@@ -1860,6 +2747,8 @@
 		<listPattern>
 			<listPatternPart type="2">I-{0} ne-{1}</listPatternPart>
 			<listPatternPart type="end">{0}, no-{1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

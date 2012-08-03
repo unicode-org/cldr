@@ -10,6 +10,7 @@
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>, </localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">Afar</language>
@@ -19,9 +20,10 @@
 			<language type="ada">Adangme</language>
 			<language type="ady">Adigece</language>
 			<language type="ae">Avestçe</language>
-			<language type="af">Afrikaan Dili</language>
+			<language type="af">Afrikaanca</language>
 			<language type="afa">Afro-Asyatik Diller</language>
 			<language type="afh">Afrihili</language>
+			<language type="agq">Aghem</language>
 			<language type="ain">Ayni Dili</language>
 			<language type="ak">Akan</language>
 			<language type="akk">Akad Dili</language>
@@ -40,6 +42,7 @@
 			<language type="art">Yapay Diller</language>
 			<language type="arw">Arawak Dili</language>
 			<language type="as">Assamca</language>
+			<language type="asa">Asu</language>
 			<language type="ast">Asturyasca</language>
 			<language type="ath">Atabaşkan Dilleri</language>
 			<language type="aus">Avustralya Dilleri</language>
@@ -47,7 +50,7 @@
 			<language type="awa">Awadhi</language>
 			<language type="ay">Aymara</language>
 			<language type="az">Azerice</language>
-			<language type="az" alt="short">Azeri</language>
+			<language type="az" alt="short">Azerice</language>
 			<language type="ba">Başkırtça</language>
 			<language type="bad">Banda Dili</language>
 			<language type="bai">Bamileke Dilleri</language>
@@ -55,37 +58,48 @@
 			<language type="ban">Bali Dili</language>
 			<language type="bas">Basa Dili</language>
 			<language type="bat">Baltık Dilleri</language>
+			<language type="bax">Bamun</language>
+			<language type="bbj">Ghomala</language>
 			<language type="be">Beyaz Rusça</language>
 			<language type="bej">Beja Dili</language>
 			<language type="bem">Bemba</language>
 			<language type="ber">Berberi</language>
+			<language type="bez">Bena</language>
+			<language type="bfd">Bafut</language>
 			<language type="bg">Bulgarca</language>
 			<language type="bh">Bihari</language>
 			<language type="bho">Arayanice</language>
 			<language type="bi">Bislama</language>
 			<language type="bik">Bikol</language>
 			<language type="bin">Bini</language>
+			<language type="bkm">Kom</language>
 			<language type="bla">Siksika</language>
 			<language type="bm">Bambara</language>
 			<language type="bn">Bengalce</language>
 			<language type="bnt">Bantu Dili</language>
 			<language type="bo">Tibetçe</language>
-			<language type="br">Bretonca</language>
+			<language type="br">Breton</language>
 			<language type="bra">Braj</language>
+			<language type="brx">Bodo</language>
 			<language type="bs">Boşnakça</language>
+			<language type="bss">Akoose</language>
 			<language type="btk">Batak</language>
 			<language type="bua">Buryat</language>
 			<language type="bug">Bugis</language>
+			<language type="bum">Bulu</language>
 			<language type="byn">Blin</language>
+			<language type="byv">Medumba</language>
 			<language type="ca">Katalanca</language>
 			<language type="cad">Caddo</language>
 			<language type="cai">Orta Amerika Yerli Dilleri</language>
 			<language type="car">Carib</language>
 			<language type="cau">Kafkas Dilleri</language>
+			<language type="cay">Cayuga</language>
 			<language type="cch">Atsam</language>
 			<language type="ce">Çeçence</language>
 			<language type="ceb">Cebuano</language>
 			<language type="cel">Kelt Dilleri</language>
+			<language type="cgg">Chiga</language>
 			<language type="ch">Chamorro</language>
 			<language type="chb">Chibcha</language>
 			<language type="chg">Çağatay Dili</language>
@@ -94,8 +108,9 @@
 			<language type="chn">Chinook Jargon</language>
 			<language type="cho">Choctaw</language>
 			<language type="chp">Chipewyan</language>
-			<language type="chr">Çeroki</language>
+			<language type="chr">Cherokee</language>
 			<language type="chy">Şayen Dili</language>
+			<language type="ckb">Orta Kürtçe</language>
 			<language type="cmc">Chamic Dilleri</language>
 			<language type="co">Korsikaca</language>
 			<language type="cop">Kıptice</language>
@@ -114,6 +129,7 @@
 			<language type="da">Danca</language>
 			<language type="dak">Dakota</language>
 			<language type="dar">Dargince</language>
+			<language type="dav">Taita</language>
 			<language type="day">Dayak</language>
 			<language type="de">Almanca</language>
 			<language type="de_AT">Avusturya Almancası</language>
@@ -122,14 +138,18 @@
 			<language type="den">Slavey</language>
 			<language type="dgr">Dogrib</language>
 			<language type="din">Dinka</language>
+			<language type="dje">Zarma</language>
 			<language type="doi">Dogri</language>
 			<language type="dra">Dravid Dilleri</language>
 			<language type="dsb">Aşağı Sorbça</language>
 			<language type="dua">Duala</language>
 			<language type="dum">Ortaçağ Felemenkçesi</language>
 			<language type="dv">Divehi</language>
+			<language type="dyo">Jola-Fonyi</language>
 			<language type="dyu">Dyula</language>
 			<language type="dz">Butan Dili</language>
+			<language type="dzg">Dazaga</language>
+			<language type="ebu">Embu</language>
 			<language type="ee">Ewe</language>
 			<language type="efi">Efik</language>
 			<language type="egy">Eski Mısır Dili</language>
@@ -145,7 +165,7 @@
 			<language type="eo">Esperanto</language>
 			<language type="es">İspanyolca</language>
 			<language type="es_419">Latin Amerika İspanyolcası</language>
-			<language type="es_ES">İber İspanyolcası</language>
+			<language type="es_ES">Avrupa İspanyolcası</language>
 			<language type="et">Estonca</language>
 			<language type="eu">Baskça</language>
 			<language type="ewo">Ewondo</language>
@@ -154,7 +174,7 @@
 			<language type="fat">Fanti</language>
 			<language type="ff">Fulah</language>
 			<language type="fi">Fince</language>
-			<language type="fil">Filipino</language>
+			<language type="fil">Filipince</language>
 			<language type="fiu">Finno - Ugrik Diller</language>
 			<language type="fj">Fiji Dili</language>
 			<language type="fo">Faroe Dili</language>
@@ -168,7 +188,7 @@
 			<language type="frs">Doğu Frizcesi</language>
 			<language type="fur">Friulian</language>
 			<language type="fy">Batı Frizcesi</language>
-			<language type="ga">İrlanda Dili</language>
+			<language type="ga">İrlandaca</language>
 			<language type="gaa">Ga</language>
 			<language type="gay">Gayo</language>
 			<language type="gba">Gbaya</language>
@@ -178,7 +198,7 @@
 			<language type="gil">Kiribati Dili</language>
 			<language type="gl">Galiçyaca</language>
 			<language type="gmh">Ortaçağ Yüksek Almancası</language>
-			<language type="gn">Guarani</language>
+			<language type="gn">Guarani Dili</language>
 			<language type="goh">Eski Yüksek Almanca</language>
 			<language type="gon">Gondi</language>
 			<language type="gor">Gorontalo</language>
@@ -187,6 +207,7 @@
 			<language type="grc">Antik Yunanca</language>
 			<language type="gsw">İsviçre Almancası</language>
 			<language type="gu">Gücerat Dili</language>
+			<language type="guz">Gusii</language>
 			<language type="gv">Manks</language>
 			<language type="gwi">Gwichʼin</language>
 			<language type="ha">Hausa</language>
@@ -208,9 +229,10 @@
 			<language type="hz">Herero</language>
 			<language type="ia">Interlingua</language>
 			<language type="iba">Iban</language>
+			<language type="ibb">Ibibio</language>
 			<language type="id">Endonezce</language>
 			<language type="ie">Interlingue</language>
-			<language type="ig">İgbo Dili</language>
+			<language type="ig">İbo Dili</language>
 			<language type="ii">Sichuan Yi</language>
 			<language type="ijo">Ijo</language>
 			<language type="ik">Inupiak</language>
@@ -226,6 +248,7 @@
 			<language type="iu">Inuktitut</language>
 			<language type="ja">Japonca</language>
 			<language type="jbo">Lojban</language>
+			<language type="jmc">Machame</language>
 			<language type="jpr">Yahudi Farsçası</language>
 			<language type="jrb">Yahudi Arapçası</language>
 			<language type="jv">Cava Dili</language>
@@ -238,17 +261,23 @@
 			<language type="kar">Karen</language>
 			<language type="kaw">Kawi</language>
 			<language type="kbd">Kabardeyce</language>
+			<language type="kbl">Kanembu</language>
 			<language type="kcg">Tyap</language>
+			<language type="kde">Makonde</language>
+			<language type="kea">Kabuverdianu</language>
 			<language type="kfo">Koro</language>
 			<language type="kg">Kongo</language>
 			<language type="kha">Khasi</language>
 			<language type="khi">Hoisan Dilleri</language>
 			<language type="kho">Hotanca</language>
+			<language type="khq">Koyra Chiini</language>
 			<language type="ki">Kikuyu</language>
 			<language type="kj">Kuanyama</language>
 			<language type="kk">Kazakça</language>
+			<language type="kkj">Kako</language>
 			<language type="kl">Grönland Dili</language>
-			<language type="km">Kamboçya Dili</language>
+			<language type="kln">Kalenjin</language>
+			<language type="km">Kmerce</language>
 			<language type="kmb">Kimbundu</language>
 			<language type="kn">Kannada</language>
 			<language type="ko">Korece</language>
@@ -261,6 +290,9 @@
 			<language type="kro">Kru</language>
 			<language type="kru">Kurukh</language>
 			<language type="ks">Keşmirce</language>
+			<language type="ksb">Shambala</language>
+			<language type="ksf">Bafia</language>
+			<language type="ksh">Köln Diyalekti</language>
 			<language type="ku">Kürtçe</language>
 			<language type="kum">Kumukça</language>
 			<language type="kut">Kutenai</language>
@@ -269,6 +301,7 @@
 			<language type="ky">Kırgızca</language>
 			<language type="la">Latince</language>
 			<language type="lad">Ladino</language>
+			<language type="lag">Langi</language>
 			<language type="lah">Lahnda</language>
 			<language type="lam">Lamba</language>
 			<language type="lb">Lüksemburgca</language>
@@ -276,7 +309,7 @@
 			<language type="lg">Ganda</language>
 			<language type="li">Limburgca</language>
 			<language type="ln">Lingala</language>
-			<language type="lo">Laos Dili</language>
+			<language type="lo">Laoca</language>
 			<language type="lol">Mongo</language>
 			<language type="loz">Lozi</language>
 			<language type="lt">Litvanyaca</language>
@@ -286,21 +319,27 @@
 			<language type="lun">Lunda</language>
 			<language type="luo">Luo</language>
 			<language type="lus">Lushai</language>
+			<language type="luy">Luyia</language>
 			<language type="lv">Letonca</language>
 			<language type="mad">Madura Dili</language>
+			<language type="maf">Mafa</language>
 			<language type="mag">Magahi</language>
 			<language type="mai">Maithili</language>
 			<language type="mak">Makasar</language>
 			<language type="man">Mandingo</language>
 			<language type="map">Avustronezya Dili</language>
 			<language type="mas">Masai</language>
+			<language type="mde">Maba</language>
 			<language type="mdf">Mokşa Dili</language>
 			<language type="mdr">Mandar</language>
 			<language type="men">Mende</language>
-			<language type="mg">Malagasi</language>
+			<language type="mer">Meru</language>
+			<language type="mfe">Morisyen</language>
+			<language type="mg">Malgaşça</language>
 			<language type="mga">Ortaçağ İrlandacası</language>
+			<language type="mgh">Makhuwa-Meetto</language>
 			<language type="mh">Marshall Adaları Dili</language>
-			<language type="mi">Maori</language>
+			<language type="mi">Maori Dili</language>
 			<language type="mic">Micmac</language>
 			<language type="min">Minangkabau</language>
 			<language type="mis">Çeşitli Diller</language>
@@ -315,20 +354,23 @@
 			<language type="moh">Mohavk Dili</language>
 			<language type="mos">Mossi</language>
 			<language type="mr">Marathi</language>
-			<language type="ms">Malay</language>
+			<language type="ms">Malayca</language>
 			<language type="mt">Maltaca</language>
+			<language type="mua">Mundang</language>
 			<language type="mul">Birden Fazla Dil</language>
 			<language type="mun">Munda Dilleri</language>
 			<language type="mus">Creek</language>
 			<language type="mwl">Miranda Dili</language>
 			<language type="mwr">Marvari</language>
-			<language type="my">Birmanya Dili</language>
+			<language type="my">Burmaca</language>
+			<language type="mye">Myene</language>
 			<language type="myn">Maya Dilleri</language>
 			<language type="myv">Erzya</language>
 			<language type="na">Nauru Dili</language>
 			<language type="nah">Nahuatl</language>
 			<language type="nai">Kuzey Amerika Yerli Dilleri</language>
 			<language type="nap">Napolice</language>
+			<language type="naq">Nama</language>
 			<language type="nb">Norveççe Bokmål</language>
 			<language type="nd">Kuzey Ndebele</language>
 			<language type="nds">Aşağı Almanca</language>
@@ -338,9 +380,11 @@
 			<language type="nia">Nias</language>
 			<language type="nic">Nijer-Kordofan Dilleri</language>
 			<language type="niu">Niuean</language>
-			<language type="nl">Felemenkçe</language>
+			<language type="nl">Hollandaca</language>
 			<language type="nl_BE">Flamanca</language>
+			<language type="nmg">Kwasio</language>
 			<language type="nn">Norveççe Nynorsk</language>
+			<language type="nnh">Ngiemboon</language>
 			<language type="no">Norveççe</language>
 			<language type="nog">Nogayca</language>
 			<language type="non">Eski Norse</language>
@@ -348,6 +392,7 @@
 			<language type="nr">Güney Ndebele</language>
 			<language type="nso">Kuzey Sotho</language>
 			<language type="nub">Nubian Dilleri</language>
+			<language type="nus">Nuer</language>
 			<language type="nv">Navaho Dili</language>
 			<language type="nwc">Klasik Nevari</language>
 			<language type="ny">Nyanja</language>
@@ -355,15 +400,15 @@
 			<language type="nyn">Nyankole</language>
 			<language type="nyo">Nyoro</language>
 			<language type="nzi">Nzima</language>
-			<language type="oc">Oksitanca</language>
+			<language type="oc">Occitan</language>
 			<language type="oj">Ojibva Dili</language>
 			<language type="om">Oromo</language>
-			<language type="or">Oriya</language>
+			<language type="or">Oriya Dili</language>
 			<language type="os">Osetçe</language>
 			<language type="osa">Osage</language>
 			<language type="ota">Osmanlı Türkçesi</language>
 			<language type="oto">Otomi Dilleri</language>
-			<language type="pa">Pencap Dili</language>
+			<language type="pa">Pencapça</language>
 			<language type="paa">Papua Dilleri</language>
 			<language type="pag">Pangasinan</language>
 			<language type="pal">Pehlevi Dili</language>
@@ -382,40 +427,50 @@
 			<language type="ps" alt="variant">Peştuca</language>
 			<language type="pt">Portekizce</language>
 			<language type="pt_BR">Brezilya Portekizcesi</language>
-			<language type="pt_PT">İber Portekizcesi</language>
-			<language type="qu">Quechua</language>
+			<language type="pt_PT">Avrupa Portekizcesi</language>
+			<language type="qu">Keçuvaca</language>
 			<language type="raj">Rajasthani</language>
 			<language type="rap">Rapanui</language>
 			<language type="rar">Rarotongan</language>
-			<language type="rm">Rhaeto-Roman Dili</language>
+			<language type="rm">Romanşça</language>
 			<language type="rn">Kirundi</language>
 			<language type="ro">Romence</language>
 			<language type="roa">Roman Dilleri</language>
+			<language type="rof">Rombo</language>
 			<language type="rom">Romanca</language>
 			<language type="root">Köken</language>
 			<language type="ru">Rusça</language>
 			<language type="rup">Ulahça</language>
 			<language type="rw">Kinyarwanda</language>
+			<language type="rwk">Rwa</language>
 			<language type="sa">Sanskritçe</language>
 			<language type="sad">Sandave</language>
 			<language type="sah">Yakutça</language>
 			<language type="sai">Güney Amerika Yerli Dilleri</language>
 			<language type="sal">Salishan Dilleri</language>
 			<language type="sam">Samarit Aramcası</language>
+			<language type="saq">Samburu</language>
 			<language type="sas">Sasak</language>
 			<language type="sat">Santali</language>
+			<language type="sba">Ngambay</language>
+			<language type="sbp">Sangu</language>
 			<language type="sc">Sardunya Dili</language>
 			<language type="scn">Sicilyaca</language>
 			<language type="sco">Scots</language>
 			<language type="sd">Sindhi</language>
 			<language type="se">Kuzey Sami</language>
+			<language type="see">Seneca</language>
+			<language type="seh">Sena</language>
 			<language type="sel">Selkup</language>
 			<language type="sem">Semitik Diller</language>
+			<language type="ses">Koyraboro Senni</language>
 			<language type="sg">Sangho</language>
 			<language type="sga">Eski İrlandaca</language>
 			<language type="sgn">İşaret Dilleri</language>
 			<language type="sh">Sırp-Hırvat Dili</language>
+			<language type="shi">Taşelhit</language>
 			<language type="shn">Shan Dili</language>
+			<language type="shu">Çad Arapçası</language>
 			<language type="si">Seylanca</language>
 			<language type="sid">Sidamo</language>
 			<language type="sio">Siu Dilleri</language>
@@ -431,7 +486,7 @@
 			<language type="sms">Skolt Sami</language>
 			<language type="sn">Shona</language>
 			<language type="snk">Soninke</language>
-			<language type="so">Somali Dili</language>
+			<language type="so">Somalice</language>
 			<language type="sog">Sogdiana Dili</language>
 			<language type="son">Songhai</language>
 			<language type="sq">Arnavutça</language>
@@ -440,6 +495,7 @@
 			<language type="srr">Serer</language>
 			<language type="ss">Sisvati</language>
 			<language type="ssa">Nil-Sahara Dilleri</language>
+			<language type="ssy">Saho</language>
 			<language type="st">Güney Sotho</language>
 			<language type="su">Sunda Dili</language>
 			<language type="suk">Sukuma</language>
@@ -448,12 +504,14 @@
 			<language type="sv">İsveççe</language>
 			<language type="sw">Svahili</language>
 			<language type="swb">Komorca</language>
+			<language type="swc">Kongo Svahili</language>
 			<language type="syc">Klasik Süryanice</language>
 			<language type="syr">Süryanice</language>
 			<language type="ta">Tamilce</language>
 			<language type="tai">Tai Dili</language>
-			<language type="te">Telugu</language>
+			<language type="te">Telugu Dili</language>
 			<language type="tem">Timne</language>
+			<language type="teo">Teso</language>
 			<language type="ter">Tereno</language>
 			<language type="tet">Tetum</language>
 			<language type="tg">Tacikçe</language>
@@ -464,14 +522,15 @@
 			<language type="tk">Türkmence</language>
 			<language type="tkl">Tokelau</language>
 			<language type="tl">Takalotça</language>
-			<language type="tlh">Klingon</language>
+			<language type="tlh">Klingonca</language>
 			<language type="tli">Tlingit</language>
 			<language type="tmh">Tamaşek</language>
 			<language type="tn">Setsvana</language>
-			<language type="to">Tonga</language>
+			<language type="to">Tongaca</language>
 			<language type="tog">Nyasa Tonga</language>
 			<language type="tpi">Tok Pisin</language>
 			<language type="tr">Türkçe</language>
+			<language type="trv">Taroko</language>
 			<language type="ts">Tsonga</language>
 			<language type="tsi">Tsimshian</language>
 			<language type="tt">Tatarca</language>
@@ -480,8 +539,10 @@
 			<language type="tut">Altay Dilleri</language>
 			<language type="tvl">Tuvalu</language>
 			<language type="tw">Tvi</language>
+			<language type="twq">Tasawaq</language>
 			<language type="ty">Tahiti Dili</language>
 			<language type="tyv">Tuvaca</language>
+			<language type="tzm">Orta Atlas Tamazigt</language>
 			<language type="udm">Udmurtça</language>
 			<language type="ug">Uygurca</language>
 			<language type="ug" alt="variant">Uygurca</language>
@@ -496,17 +557,22 @@
 			<language type="vi">Vietnamca</language>
 			<language type="vo">Volapük</language>
 			<language type="vot">Votic</language>
+			<language type="vun">Vunjo</language>
 			<language type="wa">Valonca</language>
+			<language type="wae">Walser</language>
 			<language type="wak">Vakaşan Dilleri</language>
 			<language type="wal">Valamo</language>
 			<language type="war">Varay</language>
 			<language type="was">Vaşo</language>
 			<language type="wen">Sorb Dilleri</language>
-			<language type="wo">Volofca</language>
+			<language type="wo">Volofça</language>
 			<language type="xal">Kalmıkça</language>
 			<language type="xh">Zosa</language>
+			<language type="xog">Soga</language>
 			<language type="yao">Yao</language>
 			<language type="yap">Yapça</language>
+			<language type="yav">Yangben</language>
+			<language type="ybb">Yemba</language>
 			<language type="yi">Yidiş</language>
 			<language type="yo">Yoruba</language>
 			<language type="ypk">Yupik Dili</language>
@@ -519,7 +585,7 @@
 			<language type="zh_Hans">Basitleştirilmiş Çince</language>
 			<language type="zh_Hant">Geleneksel Çince</language>
 			<language type="znd">Zande</language>
-			<language type="zu">Zulu</language>
+			<language type="zu">Zuluca</language>
 			<language type="zun">Zuni</language>
 			<language type="zxx">Dilbilim içeriği yok</language>
 			<language type="zza">Zazaca</language>
@@ -553,14 +619,14 @@
 			<script type="Dsrt">Deseret</script>
 			<script type="Egyd">Demotik Mısır</script>
 			<script type="Egyh">Hiyeratik Mısır</script>
-			<script type="Egyp">Hiyeroglif Mısır</script>
+			<script type="Egyp">Mısır Hiyeroglifleri</script>
 			<script type="Ethi">Etiyopya</script>
 			<script type="Geok">Hutsuri Gürcü</script>
 			<script type="Geor">Gürcü</script>
 			<script type="Glag">Glagolit</script>
 			<script type="Goth">Gotik</script>
 			<script type="Grek">Yunan</script>
-			<script type="Gujr">Gücerat</script>
+			<script type="Gujr">Gucerat</script>
 			<script type="Guru">Gurmukhi</script>
 			<script type="Hang">Hangıl</script>
 			<script type="Hani">Han</script>
@@ -571,6 +637,7 @@
 			<script type="Hant" alt="stand-alone">Geleneksel Han</script>
 			<script type="Hebr">İbrani</script>
 			<script type="Hira">Hiragana</script>
+			<script type="Hluw">Anadolu Hiyeroglifleri</script>
 			<script type="Hmng">Pahavh Hmong</script>
 			<script type="Hrkt">Katakana veya Hiragana</script>
 			<script type="Hung">Eski Macar</script>
@@ -581,11 +648,12 @@
 			<script type="Kali">Kayah Li</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khar">Kharoshthi</script>
-			<script type="Khmr">Khmer</script>
+			<script type="Khmr">Kmer</script>
 			<script type="Knda">Kannada</script>
+			<script type="Kore">Kore</script>
 			<script type="Kthi">Kaithi</script>
 			<script type="Lana">Lanna</script>
-			<script type="Laoo">Lao Dili</script>
+			<script type="Laoo">Lao</script>
 			<script type="Latf">Fraktur Latin</script>
 			<script type="Latg">Gael Latin</script>
 			<script type="Latn">Latin</script>
@@ -602,7 +670,7 @@
 			<script type="Mong">Moğol</script>
 			<script type="Moon">Moon</script>
 			<script type="Mtei">Meitei Mayek</script>
-			<script type="Mymr">Myanmar</script>
+			<script type="Mymr">Burma</script>
 			<script type="Nkoo">N’Ko</script>
 			<script type="Ogam">Ogham</script>
 			<script type="Olck">Ol Chiki</script>
@@ -625,7 +693,7 @@
 			<script type="Saur">Saurashtra</script>
 			<script type="Sgnw">İşaret Dili</script>
 			<script type="Shaw">Shavian</script>
-			<script type="Sinh">Sinhal</script>
+			<script type="Sinh">Seylan</script>
 			<script type="Sund">Sunda</script>
 			<script type="Sylo">Syloti Nagri</script>
 			<script type="Syrc">Süryani</script>
@@ -674,9 +742,9 @@
 			<territory type="029">Karayipler</territory>
 			<territory type="030">Doğu Asya</territory>
 			<territory type="034">Güney Asya</territory>
-			<territory type="035">Güney Doğu Asya</territory>
+			<territory type="035">Güneydoğu Asya</territory>
 			<territory type="039">Güney Avrupa</territory>
-			<territory type="053">Avustralya ve Yeni Zelanda</territory>
+			<territory type="053">Avustralasya</territory>
 			<territory type="054">Melanezya</territory>
 			<territory type="057">Mikronezya</territory>
 			<territory type="061">Polinezya</territory>
@@ -704,7 +772,7 @@
 			<territory type="AT">Avusturya</territory>
 			<territory type="AU">Avustralya</territory>
 			<territory type="AW">Aruba</territory>
-			<territory type="AX">Aland Adaları</territory>
+			<territory type="AX">Åland Adaları</territory>
 			<territory type="AZ">Azerbaycan</territory>
 			<territory type="BA">Bosna Hersek</territory>
 			<territory type="BB">Barbados</territory>
@@ -719,6 +787,7 @@
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolivya</territory>
+			<territory type="BQ">Karayip Hollanda</territory>
 			<territory type="BR">Brezilya</territory>
 			<territory type="BS">Bahamalar</territory>
 			<territory type="BT">Butan</territory>
@@ -727,7 +796,7 @@
 			<territory type="BY">Beyaz Rusya</territory>
 			<territory type="BZ">Belize</territory>
 			<territory type="CA">Kanada</territory>
-			<territory type="CC">Cocos Adaları</territory>
+			<territory type="CC">Cocos [Keeling] Adaları</territory>
 			<territory type="CD">Kongo - Kinşasa</territory>
 			<territory type="CD" alt="variant">Demokratik Kongo Cumhuriyeti</territory>
 			<territory type="CF">Orta Afrika Cumhuriyeti</territory>
@@ -745,6 +814,7 @@
 			<territory type="CR">Kosta Rika</territory>
 			<territory type="CU">Küba</territory>
 			<territory type="CV">Cape Verde</territory>
+			<territory type="CW">Curaçao</territory>
 			<territory type="CX">Christmas Adası</territory>
 			<territory type="CY">Güney Kıbrıs Rum Kesimi</territory>
 			<territory type="CZ">Çek Cumhuriyeti</territory>
@@ -791,7 +861,7 @@
 			<territory type="GU">Guam</territory>
 			<territory type="GW">Gine-Bissau</territory>
 			<territory type="GY">Guyana</territory>
-			<territory type="HK">Hong Kong SAR - Çin</territory>
+			<territory type="HK">Çin Hong Kong ÖYB</territory>
 			<territory type="HK" alt="short">Hong Kong</territory>
 			<territory type="HM">Heard Adası ve McDonald Adaları</territory>
 			<territory type="HN">Honduras</territory>
@@ -845,9 +915,9 @@
 			<territory type="MK">Makedonya</territory>
 			<territory type="MK" alt="variant">Makedonya [EYMC]</territory>
 			<territory type="ML">Mali</territory>
-			<territory type="MM">Myanmar</territory>
+			<territory type="MM">Myanmar [Burma]</territory>
 			<territory type="MN">Moğolistan</territory>
-			<territory type="MO">Makao SAR - Çin</territory>
+			<territory type="MO">Çin Makao ÖYB</territory>
 			<territory type="MO" alt="short">Makao</territory>
 			<territory type="MP">Kuzey Mariana Adaları</territory>
 			<territory type="MQ">Martinik</territory>
@@ -881,15 +951,15 @@
 			<territory type="PK">Pakistan</territory>
 			<territory type="PL">Polonya</territory>
 			<territory type="PM">Saint Pierre ve Miquelon</territory>
-			<territory type="PN">Pitcairn</territory>
+			<territory type="PN">Pitcairn Adaları</territory>
 			<territory type="PR">Porto Riko</territory>
-			<territory type="PS">Filistin Bölgesi</territory>
+			<territory type="PS">Filistin Bölgeleri</territory>
 			<territory type="PT">Portekiz</territory>
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paraguay</territory>
 			<territory type="QA">Katar</territory>
 			<territory type="QO">Uzak Okyanusya</territory>
-			<territory type="RE">Reunion</territory>
+			<territory type="RE">Réunion</territory>
 			<territory type="RO">Romanya</territory>
 			<territory type="RS">Sırbistan</territory>
 			<territory type="RU">Rusya</territory>
@@ -909,9 +979,10 @@
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somali</territory>
 			<territory type="SR">Surinam</territory>
-			<territory type="SS" draft="provisional">Güney Sudan</territory>
-			<territory type="ST">Sao Tome ve Principe</territory>
+			<territory type="SS">Güney Sudan</territory>
+			<territory type="ST">São Tomé ve Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
+			<territory type="SX">Sint Maarten</territory>
 			<territory type="SY">Suriye</territory>
 			<territory type="SZ">Svaziland</territory>
 			<territory type="TA">Tristan da Cunha</territory>
@@ -934,15 +1005,15 @@
 			<territory type="TZ">Tanzanya</territory>
 			<territory type="UA">Ukrayna</territory>
 			<territory type="UG">Uganda</territory>
-			<territory type="UM">Amerika Birleşik Devletleri Küçük Dış Adaları</territory>
-			<territory type="US">Amerika Birleşik Devletleri</territory>
+			<territory type="UM">ABD Dış Adaları</territory>
+			<territory type="US">ABD</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Özbekistan</territory>
 			<territory type="VA">Vatikan</territory>
 			<territory type="VC">Saint Vincent ve Grenadinler</territory>
 			<territory type="VE">Venezuela</territory>
-			<territory type="VG">İngiliz Virgin Adaları</territory>
-			<territory type="VI">ABD Virgin Adaları</territory>
+			<territory type="VG">Britanya Virjin Adaları</territory>
+			<territory type="VI">ABD Virjin Adaları</territory>
 			<territory type="VN">Vietnam</territory>
 			<territory type="VU">Vanuatu</territory>
 			<territory type="WF">Wallis ve Futuna Adaları</territory>
@@ -980,7 +1051,7 @@
 			<variant type="REVISED">Gözden Geçirilmiş Yazım Kuralları</variant>
 			<variant type="ROZAJ">Resia Lehçesi</variant>
 			<variant type="SAAHO">Saho</variant>
-			<variant type="SCOTLAND">İskoç Standart İngilizcesi</variant>
+			<variant type="SCOTLAND">Standart İskoç İngilizcesi</variant>
 			<variant type="SCOUSE">Scouse</variant>
 			<variant type="SOLBA">Stolvizza/Solbica Lehçesi</variant>
 			<variant type="TARASK">Taraskievica Yazım Kuralları</variant>
@@ -991,17 +1062,28 @@
 		</variants>
 		<keys>
 			<key type="calendar">Takvim</key>
-			<key type="collation">Sıralama</key>
+			<key type="colAlternate">Sembolleri Sıralamayı Yoksayma</key>
+			<key type="colBackwards">Ters Aksan Sıralama</key>
+			<key type="colCaseFirst">Büyük/Küçük Harf Sıralama</key>
+			<key type="colCaseLevel">Büyük/Küçük Harfe Duyarlı Sıralama</key>
+			<key type="colHiraganaQuaternary">Kana Sıralaması</key>
+			<key type="collation">Sıralama Düzeni</key>
+			<key type="colNormalization">Normalleştirilmiş Sıralama</key>
+			<key type="colNumeric">Sayısal Sıralama</key>
+			<key type="colStrength">Sıralama Gücü</key>
 			<key type="currency">Para Birimi</key>
 			<key type="numbers">Sayılar</key>
+			<key type="timezone">Saat Dilimi</key>
+			<key type="va">Yerel Varyant</key>
+			<key type="variableTop">Sembollere Göre Sıralama</key>
 			<key type="x">Özel Kullanım</key>
 		</keys>
 		<types>
 			<type type="arab" key="numbers">Hint-Arap Rakamları</type>
 			<type type="arabext" key="numbers">Genişletilmiş Hint-Arap Rakamları</type>
-			<type type="armn" key="numbers">Ermenice Rakamlar</type>
-			<type type="armnlow" key="numbers">Ermenice Rakamlar (Küçük Harf)</type>
-			<type type="beng" key="numbers">Bengalce Rakamlar</type>
+			<type type="armn" key="numbers">Ermeni Rakamları</type>
+			<type type="armnlow" key="numbers">Küçük Harf Ermeni Rakamları</type>
+			<type type="beng" key="numbers">Bengal Rakamları</type>
 			<type type="big5han" key="collation">Geleneksel Çince Sıralaması - Big5</type>
 			<type type="buddhist" key="calendar">Budist Takvimi</type>
 			<type type="chinese" key="calendar">Çin Takvimi</type>
@@ -1009,57 +1091,86 @@
 			<type type="deva" key="numbers">Devanagari Rakamları</type>
 			<type type="dictionary" key="collation">Sözlük Sıralama Düzeni</type>
 			<type type="ducet" key="collation">Saptanmış Unicode Sıralaması</type>
-			<type type="ethi" key="numbers">Etiyopik Rakamlar</type>
+			<type type="ethi" key="numbers">Ge'ez Rakamları</type>
 			<type type="ethiopic" key="calendar">Etiyopik Takvim</type>
 			<type type="ethiopic-amete-alem" key="calendar">Etiyopik Amete Alem Takvimi</type>
+			<type type="finance" key="numbers">Finansal Sayılar</type>
 			<type type="fullwide" key="numbers">Tam Genişlikte Rakamlar</type>
 			<type type="gb2312han" key="collation">Basitleştirilmiş Çince Sıralaması - GB2312</type>
-			<type type="geor" key="numbers">Gürcüce Rakamlar</type>
+			<type type="geor" key="numbers">Gürcü Rakamları</type>
 			<type type="gregorian" key="calendar">Miladi Takvim</type>
-			<type type="grek" key="numbers">Yunanca Rakamlar</type>
-			<type type="greklow" key="numbers">Yunanca Rakamlar (Küçük Harf)</type>
+			<type type="grek" key="numbers">Yunan Rakamları</type>
+			<type type="greklow" key="numbers">Küçük Harf Yunan Rakamları</type>
 			<type type="gujr" key="numbers">Gucerat Rakamları</type>
 			<type type="guru" key="numbers">Gurmukhi Rakamları</type>
-			<type type="hanidec" key="numbers">Çince Ondalık Rakamlar</type>
-			<type type="hans" key="numbers">Basitleştirilmiş Çince Rakamlar</type>
-			<type type="hansfin" key="numbers">Basitleştirilmiş Çince Finansal Rakamlar</type>
-			<type type="hant" key="numbers">Geleneksel Çince Rakamlar</type>
-			<type type="hantfin" key="numbers">Geleneksel Çince Finansal Rakamlar</type>
-			<type type="hebr" key="numbers">İbranice Rakamlar</type>
+			<type type="hanidec" key="numbers">Çin Rakamları</type>
+			<type type="hans" key="numbers">Basitleştirilmiş Çin Rakamları</type>
+			<type type="hansfin" key="numbers">Finansal Basitleştirilmiş Çin Rakamları</type>
+			<type type="hant" key="numbers">Geleneksel Çin Rakamları</type>
+			<type type="hantfin" key="numbers">Finansal Geleneksel Çin Rakamları</type>
+			<type type="hebr" key="numbers">İbrani Rakamları</type>
 			<type type="hebrew" key="calendar">Yahudi Takvimi</type>
+			<type type="identical" key="colStrength">Tümünü Sıralama</type>
 			<type type="indian" key="calendar">Ulusal Hint Takvimi</type>
 			<type type="islamic" key="calendar">Hicri Takvim</type>
 			<type type="islamic-civil" key="calendar">Arap Takvimi</type>
 			<type type="japanese" key="calendar">Japon Takvimi</type>
-			<type type="jpan" key="numbers">Japonca Rakamlar</type>
-			<type type="jpanfin" key="numbers">Japonca Finansal Rakamlar</type>
-			<type type="khmr" key="numbers">Khmer Rakamları</type>
+			<type type="jpan" key="numbers">Japon Rakamları</type>
+			<type type="jpanfin" key="numbers">Finansal Japon Rakamları</type>
+			<type type="khmr" key="numbers">Kmer Rakamları</type>
 			<type type="knda" key="numbers">Kannada Rakamları</type>
 			<type type="laoo" key="numbers">Lao Rakamları</type>
 			<type type="latn" key="numbers">Batı Rakamları</type>
+			<type type="lower" key="colCaseFirst">Önce Küçük Harfleri Sıralama</type>
 			<type type="mlym" key="numbers">Malayalam Rakamları</type>
 			<type type="mong" key="numbers">Moğolca Rakamlar</type>
 			<type type="mymr" key="numbers">Myanmar Rakamları</type>
+			<type type="native" key="numbers">Yerel Rakamlar</type>
+			<type type="no" key="colBackwards">Aksanları Normal Olarak Sıralama</type>
+			<type type="no" key="colCaseFirst">Normal Büyük/Küçük Harf Düzeninde Sıralama</type>
+			<type type="no" key="colCaseLevel">Büyük/Küçük Harfe Duyarlı Olmadan Sıralama</type>
+			<type type="no" key="colHiraganaQuaternary">Kana'yı Ayrı Sıralama</type>
+			<type type="no" key="colNormalization">Normalleştirme Olmadan Sıralama</type>
+			<type type="no" key="colNumeric">Rakamları Ayrı Sıralama</type>
+			<type type="non-ignorable" key="colAlternate">Sembolleri Sıralama</type>
 			<type type="orya" key="numbers">Oriya Rakamları</type>
 			<type type="persian" key="calendar">Farsça Takvim</type>
 			<type type="phonebook" key="collation">Telefon Defteri Sıralaması</type>
+			<type type="phonetic" key="collation">Fonetik Sıralama Düzeni</type>
 			<type type="pinyin" key="collation">Basitleştirilmiş Çince Pinyin Sıralaması</type>
+			<type type="primary" key="colStrength">Yalnızca Taban Harflerini Sıralama</type>
+			<type type="quaternary" key="colStrength">Aksanları/Büyük-Küçük Harfleri/Genişliği/Kana'yı Sıralama</type>
 			<type type="reformed" key="collation">Yeni Sıralama Düzeni</type>
 			<type type="roc" key="calendar">Çin Cumhuriyeti Takvimi</type>
 			<type type="roman" key="numbers">Roma Rakamları</type>
-			<type type="romanlow" key="numbers">Roma Rakamları (Küçük Harf)</type>
+			<type type="romanlow" key="numbers">Küçük Harf Roma Rakamları</type>
 			<type type="search" key="collation">Genel Amaçlı Arama</type>
+			<type type="searchjl" key="collation">Hangul İlk Sessiz Harfe Göre Arama</type>
+			<type type="secondary" key="colStrength">Aksanları Sıralama</type>
+			<type type="shifted" key="colAlternate">Sembolleri Yoksayarak Sıralama</type>
 			<type type="stroke" key="collation">Geleneksel Çince Vuruş Sıralaması</type>
-			<type type="taml" key="numbers">Tamil Rakamları</type>
+			<type type="taml" key="numbers">Geleneksel Tamil Rakamları</type>
+			<type type="tamldec" key="numbers">Tamil Rakamları</type>
 			<type type="telu" key="numbers">Telugu Rakamları</type>
-			<type type="thai" key="numbers">Tay Dili Rakamları</type>
+			<type type="tertiary" key="colStrength">Aksanları/Büyük-Küçük Harfleri/Genişliği Sıralama</type>
+			<type type="thai" key="numbers">Tay Rakamları</type>
 			<type type="tibt" key="numbers">Tibet Rakamları</type>
 			<type type="traditional" key="collation">Geleneksel Sıralama</type>
+			<type type="traditional" key="numbers">Geleneksel Rakamlar</type>
 			<type type="unihan" key="collation">Radical-Stroke Sıralama Düzeni</type>
+			<type type="upper" key="colCaseFirst">Önce Büyük Harfleri Sıralama</type>
+			<type type="vaii" key="numbers">Vai Rakamları</type>
+			<type type="yes" key="colBackwards">Aksanları Ters Sıralama</type>
+			<type type="yes" key="colCaseLevel">Büyük/Küçük Harfe Duyarla Sıralama</type>
+			<type type="yes" key="colHiraganaQuaternary">Kana'yı Farklı Sıralama</type>
+			<type type="yes" key="colNormalization">Unicode Normalleştirilmiş Olarak Sıralama</type>
+			<type type="yes" key="colNumeric">Rakamları Sayısal Olarak Sıralama</type>
 		</types>
 		<transformNames>
+			<transformName type="BGN">BGN</transformName>
 			<transformName type="Numeric">Rakam</transformName>
 			<transformName type="Tone">Ton</transformName>
+			<transformName type="UNGEGN">UNGEGN</transformName>
 			<transformName type="x-Accents">Aksanlar</transformName>
 			<transformName type="x-Fullwidth">Tam Genişlik</transformName>
 			<transformName type="x-Halfwidth">Yarım genişlik</transformName>
@@ -1084,6 +1195,10 @@
 		<exemplarCharacters type="currencySymbol">[a b c č d e f g h i j k l ł m n o º p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C Ç D E F G H I İ J K L M N O Ö P Q R S Ş T U Ü V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="medial">{0}…{1}</ellipsis>
+		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
@@ -1305,6 +1420,15 @@
 							<day type="fri">C</day>
 							<day type="sat">C</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Pa</day>
+							<day type="mon">Pt</day>
+							<day type="tue">Sa</day>
+							<day type="wed">Ça</day>
+							<day type="thu">Pe</day>
+							<day type="fri">Cu</day>
+							<day type="sat">Ct</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Pazar</day>
 							<day type="mon">Pazartesi</day>
@@ -1334,6 +1458,15 @@
 							<day type="fri">C</day>
 							<day type="sat">C</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Pa</day>
+							<day type="mon">Pt</day>
+							<day type="tue">Sa</day>
+							<day type="wed">Ça</day>
+							<day type="thu">Pe</day>
+							<day type="fri">Cu</day>
+							<day type="sat">Ct</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Pazar</day>
 							<day type="mon">Pazartesi</day>
@@ -1354,10 +1487,10 @@
 							<quarter type="4">Ç4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
+							<quarter type="1">1.</quarter>
+							<quarter type="2">2.</quarter>
+							<quarter type="3">3.</quarter>
+							<quarter type="4">4.</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1. çeyrek</quarter>
@@ -1373,6 +1506,12 @@
 							<quarter type="3">Ç3</quarter>
 							<quarter type="4">Ç4</quarter>
 						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1.</quarter>
+							<quarter type="2">2.</quarter>
+							<quarter type="3">3.</quarter>
+							<quarter type="4">4.</quarter>
+						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1. çeyrek</quarter>
 							<quarter type="2">2. çeyrek</quarter>
@@ -1384,8 +1523,8 @@
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">ÖÖ</dayPeriod>
+							<dayPeriod type="pm">ÖS</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1444,6 +1583,26 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
@@ -1454,8 +1613,8 @@
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">dd.MM</dateFormatItem>
-						<dateFormatItem id="MEd">dd.MM E</dateFormatItem>
+						<dateFormatItem id="Md">dd/MM</dateFormatItem>
+						<dateFormatItem id="MEd">dd/MM E</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMMM E</dateFormatItem>
@@ -1464,15 +1623,15 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">MM.yy</dateFormatItem>
+						<dateFormatItem id="yM">MM/y</dateFormatItem>
 						<dateFormatItem id="yMd">dd.MM.yyyy</dateFormatItem>
 						<dateFormatItem id="yMEd">dd.MM.yyyy E</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">dd MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">d MMM y E</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQ">y-Q</dateFormatItem>
-						<dateFormatItem id="yQQQ">y-QQQ</dateFormatItem>
+						<dateFormatItem id="yQ">y/Q</dateFormatItem>
+						<dateFormatItem id="yQQQ">y/QQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
 						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
@@ -1524,12 +1683,12 @@
 							<greatestDifference id="M">MM - MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">dd.MM - dd.MM</greatestDifference>
-							<greatestDifference id="M">dd.MM - dd.MM</greatestDifference>
+							<greatestDifference id="d">dd/MM - dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM - dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">dd.MM E - dd.MM E</greatestDifference>
-							<greatestDifference id="M">dd.MM E - dd.MM E</greatestDifference>
+							<greatestDifference id="d">dd/MM E - dd/MM E</greatestDifference>
+							<greatestDifference id="M">dd/MM E - dd/MM E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">MMM-MMM</greatestDifference>
@@ -1546,8 +1705,8 @@
 							<greatestDifference id="y">y-y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM.yy - MM.yy</greatestDifference>
-							<greatestDifference id="y">MM.yy - MM.yy</greatestDifference>
+							<greatestDifference id="M">MM/yy - MM/yy</greatestDifference>
+							<greatestDifference id="y">MM/yy - MM/yy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="d">dd.MM.yy - dd.MM.yy</greatestDifference>
@@ -1603,17 +1762,19 @@
 					</field>
 					<field type="day">
 						<displayName>Gün</displayName>
+						<relative type="-3">Üç gün önce</relative>
 						<relative type="-2">Evvelsi gün</relative>
 						<relative type="-1">Dün</relative>
 						<relative type="0">Bugün</relative>
 						<relative type="1">Yarın</relative>
-						<relative type="2">Yarından sonraki gün</relative>
+						<relative type="2">Öbür gün</relative>
+						<relative type="3">Üç gün sonra</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Haftanın Günü</displayName>
 					</field>
 					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
+						<displayName>ÖÖ/ÖS</displayName>
 					</field>
 					<field type="hour">
 						<displayName>Saat</displayName>
@@ -1867,17 +2028,114 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0} Saati</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat>{1} Saati ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>Lower Prince's Quarter</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, Kuzey Dakota</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity>GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity>GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity>GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity>GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity>GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity>GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity>GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity>GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity>GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity>GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity>GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity>GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity>GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity>GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity>GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity>GMT</exemplarCity>
 			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Bilinmeyen Şehir</exemplarCity>
 			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity>GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity>GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity>GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity>GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity>GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity>GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity>GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity>GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity>GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity>GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity>GMT-11</exemplarCity>
+			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity>Andorra</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity>Dubai</exemplarCity>
+			</zone>
 			<zone type="Asia/Kabul">
 				<exemplarCity>Kabil</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity>Antigua</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity>Anguilla</exemplarCity>
 			</zone>
 			<zone type="Europe/Tirane">
 				<exemplarCity>Tiran</exemplarCity>
@@ -1885,17 +2143,125 @@
 			<zone type="Asia/Yerevan">
 				<exemplarCity>Erivan</exemplarCity>
 			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity>Curaçao</exemplarCity>
+			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity>Luanda</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity>Rothera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity>Palmer</exemplarCity>
+			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Güney Kutbu</exemplarCity>
 			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity>Syowa</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity>Mawson</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity>Davis</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity>Vostok</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity>Casey</exemplarCity>
+			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>Dumont D'Urville</exemplarCity>
+				<exemplarCity>Dumont d’Urville</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity>McMurdo</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity>Rio Gallegos</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity>Mendoza</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity>San Juan</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity>Ushuaia</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity>La Rioja</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity>San Luis</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity>Catamarca</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>Salta</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity>Jujuy</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity>Tucuman</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity>Cordoba</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>Buenos Aires</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity>Pago Pago</exemplarCity>
 			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity>Viyana</exemplarCity>
 			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity>Perth</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity>Eucla</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity>Darwin</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity>Adelaide</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity>Broken Hill</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>Currie</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity>Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity>Hobart</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity>Lindeman</exemplarCity>
+			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>Sidney</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity>Brisbane</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity>Lord Howe</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity>Aruba</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity>Mariehamn</exemplarCity>
 			</zone>
 			<zone type="Asia/Baku">
 				<exemplarCity>Bakü</exemplarCity>
@@ -1903,11 +2269,17 @@
 			<zone type="Europe/Sarajevo">
 				<exemplarCity>Saraybosna</exemplarCity>
 			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity>Barbados</exemplarCity>
+			</zone>
 			<zone type="Asia/Dhaka">
 				<exemplarCity>Dakka</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
 				<exemplarCity>Brüksel</exemplarCity>
+			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity>Ouagadougou</exemplarCity>
 			</zone>
 			<zone type="Europe/Sofia">
 				<exemplarCity>Sofya</exemplarCity>
@@ -1915,8 +2287,179 @@
 			<zone type="Asia/Bahrain">
 				<exemplarCity>Bahreyn</exemplarCity>
 			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity>Bujumbura</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity>Porto-Novo</exemplarCity>
+			</zone>
+			<zone type="America/St_Barthelemy">
+				<exemplarCity>Saint Barthélemy</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity>Bermuda</exemplarCity>
+			</zone>
+			<zone type="Asia/Brunei">
+				<exemplarCity>Brunei</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity>La Paz</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity>Eirunepe</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity>Rio Branco</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity>Porto Velho</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity>Boa Vista</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity>Manaus</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity>Cuiaba</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity>Santarem</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity>Campo Grande</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity>Belem</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity>Araguaina</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity>Sao Paulo</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity>Bahia</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity>Fortaleza</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity>Maceio</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity>Recife</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity>Noronha</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity>Nassau</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity>Thimphu</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity>Gaborone</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity>Minsk</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity>Belize</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity>Dawson</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity>Whitehorse</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>Inuvik</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity>Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity>Dawson Creek</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity>Yellowknife</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity>Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity>Swift Current</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity>Cambridge Bay</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity>Regina</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity>Winnipeg</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity>Resolute</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity>Rainy River</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity>Rankin Inlet</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity>Atikokan</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity>Thunder Bay</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity>Nipigon</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity>Toronto</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity>Montreal</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity>Iqaluit</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity>Pangnirtung</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity>Moncton</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity>Halifax</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity>Goose Bay</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity>Glace Bay</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity>Blanc-Sablon</exemplarCity>
+			</zone>
+			<zone type="America/St_Johns">
+				<exemplarCity>St. John’s</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity>Cocos</exemplarCity>
+			</zone>
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Kinşasa</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity>Lubumbashi</exemplarCity>
+			</zone>
+			<zone type="Africa/Bangui">
+				<exemplarCity>Bangui</exemplarCity>
 			</zone>
 			<zone type="Africa/Brazzaville">
 				<exemplarCity>Brazzavil</exemplarCity>
@@ -1927,6 +2470,18 @@
 			<zone type="Africa/Abidjan">
 				<exemplarCity>Abican</exemplarCity>
 			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity>Rarotonga</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>Easter</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity>Santiago</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity>Douala</exemplarCity>
+			</zone>
 			<zone type="Asia/Kashgar">
 				<exemplarCity>Kaşgar</exemplarCity>
 			</zone>
@@ -1934,13 +2489,25 @@
 				<exemplarCity>Urumçi</exemplarCity>
 			</zone>
 			<zone type="Asia/Chongqing">
-				<exemplarCity>Çunking</exemplarCity>
+				<exemplarCity>Çongçing</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
-				<exemplarCity>Şangay</exemplarCity>
+				<exemplarCity>Şanghay</exemplarCity>
+			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity>Harbin</exemplarCity>
+			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity>Bogota</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity>Kosta Rika</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity>Havana</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Cape_Verde">
+				<exemplarCity>Cape Verde</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Christmas</exemplarCity>
@@ -1951,6 +2518,9 @@
 			<zone type="Europe/Prague">
 				<exemplarCity>Prag</exemplarCity>
 			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity>Berlin</exemplarCity>
+			</zone>
 			<zone type="Africa/Djibouti">
 				<exemplarCity>Cibuti</exemplarCity>
 			</zone>
@@ -1960,14 +2530,29 @@
 			<zone type="America/Dominica">
 				<exemplarCity>Dominika</exemplarCity>
 			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity>Santo Domingo</exemplarCity>
+			</zone>
 			<zone type="Africa/Algiers">
 				<exemplarCity>Cezayir</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity>Galapagos</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity>Guayaquil</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity>Tallinn</exemplarCity>
 			</zone>
 			<zone type="Africa/Cairo">
 				<exemplarCity>Kahire</exemplarCity>
 			</zone>
 			<zone type="Africa/El_Aaiun">
-				<exemplarCity>El Aaiun</exemplarCity>
+				<exemplarCity>Layun</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity>Asmara</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanarya Adaları</exemplarCity>
@@ -1975,11 +2560,56 @@
 			<zone type="Africa/Ceuta">
 				<exemplarCity>Septe</exemplarCity>
 			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity>Madrid</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity>Addis Ababa</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity>Helsinki</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity>Fiji</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity>Stanley</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity>Chuuk</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity>Pohnpei</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity>Kosrae</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Faeroe">
+				<exemplarCity>Faroe</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity>Paris</exemplarCity>
+			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity>Libreville</exemplarCity>
+			</zone>
 			<zone type="Europe/London">
+				<long>
+					<daylight>İngiltere Yaz Saati</daylight>
+				</long>
 				<exemplarCity>Londra</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity>Grenada</exemplarCity>
 			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity>Tiflis</exemplarCity>
+			</zone>
+			<zone type="America/Cayenne">
+				<exemplarCity>Cayenne</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity>Guernsey</exemplarCity>
 			</zone>
 			<zone type="Africa/Accra">
 				<exemplarCity>Akra</exemplarCity>
@@ -1987,8 +2617,29 @@
 			<zone type="Europe/Gibraltar">
 				<exemplarCity>Cebelitarık</exemplarCity>
 			</zone>
+			<zone type="America/Thule">
+				<exemplarCity>Thule</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity>Godthab</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity>Scoresbysund</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity>Danmarkshavn</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity>Banjul</exemplarCity>
+			</zone>
 			<zone type="Africa/Conakry">
 				<exemplarCity>Konakri</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity>Guadeloupe</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity>Malabo</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Atina</exemplarCity>
@@ -1996,11 +2647,50 @@
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>Güney Georgia</exemplarCity>
 			</zone>
+			<zone type="America/Guatemala">
+				<exemplarCity>Guatemala</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity>Guam</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity>Bissau</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity>Guyana</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity>Hong Kong</exemplarCity>
+			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity>Tegucigalpa</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity>Zagreb</exemplarCity>
+			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity>Port-au-Prince</exemplarCity>
+			</zone>
 			<zone type="Europe/Budapest">
 				<exemplarCity>Budapeşte</exemplarCity>
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Cakarta</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity>Pontianak</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity>Makassar</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity>Jayapura</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight>İrlanda Yaz Saati</daylight>
+				</long>
+				<exemplarCity>Dublin</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Kudüs</exemplarCity>
@@ -2011,23 +2701,59 @@
 			<zone type="Asia/Calcutta">
 				<exemplarCity>Kalküta</exemplarCity>
 			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity>Chagos</exemplarCity>
+			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Bağdat</exemplarCity>
 			</zone>
 			<zone type="Asia/Tehran">
 				<exemplarCity>Tahran</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity>Reykjavik</exemplarCity>
+			</zone>
 			<zone type="Europe/Rome">
 				<exemplarCity>Roma</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity>Jersey</exemplarCity>
 			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity>Jamaika</exemplarCity>
 			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity>Amman</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<exemplarCity>Tokyo</exemplarCity>
+			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity>Nairobi</exemplarCity>
+			</zone>
 			<zone type="Asia/Bishkek">
 				<exemplarCity>Bişkek</exemplarCity>
 			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity>Phnom Penh</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity>Enderbury</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity>Kiritimati</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity>Tarawa</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity>Komor</exemplarCity>
+			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>St. Kitts</exemplarCity>
+			</zone>
+			<zone type="Asia/Pyongyang">
+				<exemplarCity>Pyongyang</exemplarCity>
 			</zone>
 			<zone type="Asia/Seoul">
 				<exemplarCity>Seul</exemplarCity>
@@ -2042,7 +2768,7 @@
 				<exemplarCity>Aktav</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
-				<exemplarCity>Uralsk</exemplarCity>
+				<exemplarCity>Oral</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aktöbe</exemplarCity>
@@ -2053,17 +2779,35 @@
 			<zone type="Asia/Almaty">
 				<exemplarCity>Almatı</exemplarCity>
 			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity>Vientiane</exemplarCity>
+			</zone>
 			<zone type="Asia/Beirut">
 				<exemplarCity>Beyrut</exemplarCity>
 			</zone>
 			<zone type="America/St_Lucia">
 				<exemplarCity>St. Lucia</exemplarCity>
 			</zone>
+			<zone type="Europe/Vaduz">
+				<exemplarCity>Vaduz</exemplarCity>
+			</zone>
 			<zone type="Asia/Colombo">
 				<exemplarCity>Kolombo</exemplarCity>
 			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity>Monrovia</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity>Maseru</exemplarCity>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity>Vilnius</exemplarCity>
+			</zone>
 			<zone type="Europe/Luxembourg">
 				<exemplarCity>Lüksemburg</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity>Riga</exemplarCity>
 			</zone>
 			<zone type="Africa/Tripoli">
 				<exemplarCity>Trablus</exemplarCity>
@@ -2077,14 +2821,32 @@
 			<zone type="Europe/Chisinau">
 				<exemplarCity>Kişinev</exemplarCity>
 			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity>Podgorica</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity>Marigot</exemplarCity>
+			</zone>
+			<zone type="Indian/Antananarivo">
+				<exemplarCity>Antananarivo</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity>Kwajalein</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity>Majuro</exemplarCity>
+			</zone>
 			<zone type="Europe/Skopje">
 				<exemplarCity>Üsküp</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity>Bamako</exemplarCity>
 			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity>Yangon</exemplarCity>
 			</zone>
 			<zone type="Asia/Hovd">
-				<exemplarCity>Kobdo</exemplarCity>
+				<exemplarCity>Hovd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Batur</exemplarCity>
@@ -2095,8 +2857,20 @@
 			<zone type="Asia/Macau">
 				<exemplarCity>Makao</exemplarCity>
 			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity>Saipan</exemplarCity>
+			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity>Martinique</exemplarCity>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity>Nouakchott</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity>Montserrat</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity>Malta</exemplarCity>
 			</zone>
 			<zone type="Indian/Mauritius">
 				<exemplarCity>Mauritius</exemplarCity>
@@ -2104,11 +2878,65 @@
 			<zone type="Indian/Maldives">
 				<exemplarCity>Maldivler</exemplarCity>
 			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity>Blantyre</exemplarCity>
+			</zone>
+			<zone type="America/Tijuana">
+				<exemplarCity>Tijuana</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity>Hermosillo</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity>Mazatlan</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity>Chihuahua</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity>Monterrey</exemplarCity>
+			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Meksiko City</exemplarCity>
 			</zone>
+			<zone type="America/Merida">
+				<exemplarCity>Merida</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity>Cancun</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity>Kuala Lumpur</exemplarCity>
+			</zone>
 			<zone type="Asia/Kuching">
 				<exemplarCity>Kuçing</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity>Maputo</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity>Windhoek</exemplarCity>
+			</zone>
+			<zone type="Pacific/Noumea">
+				<exemplarCity>Noumea</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity>Niamey</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity>Norfolk</exemplarCity>
+			</zone>
+			<zone type="Africa/Lagos">
+				<exemplarCity>Lagos</exemplarCity>
+			</zone>
+			<zone type="America/Managua">
+				<exemplarCity>Managua</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity>Amsterdam</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity>Oslo</exemplarCity>
 			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity>Katmandu</exemplarCity>
@@ -2116,17 +2944,47 @@
 			<zone type="Pacific/Nauru">
 				<exemplarCity>Nauru</exemplarCity>
 			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity>Niue</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity>Chatham</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity>Auckland</exemplarCity>
+			</zone>
 			<zone type="Asia/Muscat">
 				<exemplarCity>Maskat</exemplarCity>
 			</zone>
+			<zone type="America/Panama">
+				<exemplarCity>Panama</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity>Lima</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity>Tahiti</exemplarCity>
+			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Markiz Adaları</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity>Gambier</exemplarCity>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity>Port Moresby</exemplarCity>
+			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity>Manila</exemplarCity>
 			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity>Karaçi</exemplarCity>
 			</zone>
 			<zone type="Europe/Warsaw">
 				<exemplarCity>Varşova</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity>Miquelon</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
 				<exemplarCity>Pitcairn</exemplarCity>
@@ -2140,14 +2998,23 @@
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azor Adaları</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity>Madeira Adaları</exemplarCity>
+			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lizbon</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity>Palau</exemplarCity>
+			</zone>
+			<zone type="America/Asuncion">
+				<exemplarCity>Asunción</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>Katar</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>Reunion</exemplarCity>
+				<exemplarCity>Réunion</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bükreş</exemplarCity>
@@ -2155,14 +3022,44 @@
 			<zone type="Europe/Belgrade">
 				<exemplarCity>Belgrad</exemplarCity>
 			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity>Kaliningrad</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskova</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity>Volgograd</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>Samara</exemplarCity>
+			</zone>
+			<zone type="Asia/Yekaterinburg">
+				<exemplarCity>Yekaterinburg</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity>Omsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity>Novosibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity>Krasnoyarsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>İrkutsk</exemplarCity>
 			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity>Yakutsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity>Vladivostok</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sahalin</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity>Magadan</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamçatka</exemplarCity>
@@ -2170,8 +3067,17 @@
 			<zone type="Asia/Anadyr">
 				<exemplarCity>Anadır</exemplarCity>
 			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity>Kigali</exemplarCity>
+			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity>Riyad</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity>Guadalcanal</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity>Mahe</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Hartum</exemplarCity>
@@ -2182,8 +3088,35 @@
 			<zone type="Asia/Singapore">
 				<exemplarCity>Singapur</exemplarCity>
 			</zone>
+			<zone type="Atlantic/St_Helena">
+				<exemplarCity>St. Helena</exemplarCity>
+			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity>Ljubljana</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity>Longyearbyen</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity>Bratislava</exemplarCity>
+			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity>Freetown</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity>San Marino</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity>Dakar</exemplarCity>
+			</zone>
 			<zone type="Africa/Mogadishu">
 				<exemplarCity>Mogadişu</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity>Paramaribo</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity>São Tomé</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>El Salvador</exemplarCity>
@@ -2191,8 +3124,32 @@
 			<zone type="Asia/Damascus">
 				<exemplarCity>Şam</exemplarCity>
 			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity>Mbabane</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity>Grand Turk</exemplarCity>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<exemplarCity>Ndjamena</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity>Kerguelen</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity>Lome</exemplarCity>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity>Bangkok</exemplarCity>
+			</zone>
 			<zone type="Asia/Dushanbe">
 				<exemplarCity>Duşanbe</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity>Fakaofo</exemplarCity>
+			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity>Dili</exemplarCity>
 			</zone>
 			<zone type="Asia/Ashgabat">
 				<exemplarCity>Aşkabat</exemplarCity>
@@ -2200,11 +3157,20 @@
 			<zone type="Africa/Tunis">
 				<exemplarCity>Tunus</exemplarCity>
 			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity>Tongatapu</exemplarCity>
+			</zone>
 			<zone type="Europe/Istanbul">
 				<exemplarCity>İstanbul</exemplarCity>
 			</zone>
 			<zone type="America/Port_of_Spain">
 				<exemplarCity>Port of Spain</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity>Funafuti</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity>Taipei</exemplarCity>
 			</zone>
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Darüsselam</exemplarCity>
@@ -2212,11 +3178,59 @@
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Ujgorod</exemplarCity>
 			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity>Kiev</exemplarCity>
+			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>Akmescit</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporojye</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity>Kampala</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity>Midway</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>Johnston</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity>Wake</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity>Adak</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity>Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity>Yakutat</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity>Juneau</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity>Los Angeles</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity>Boise</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>Phoenix</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity>Shiprock</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>New Salem, Kuzey Dakota</exemplarCity>
@@ -2224,11 +3238,50 @@
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Merkez, Kuzey Dakota</exemplarCity>
 			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>Chicago</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity>Menominee</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity>Vincennes, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity>Petersburg, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity>Tell City, Indiana</exemplarCity>
+			</zone>
 			<zone type="America/Indiana/Knox">
-				<exemplarCity>Knox</exemplarCity>
+				<exemplarCity>Knox, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity>Winamac, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Marengo">
-				<exemplarCity>Marengo</exemplarCity>
+				<exemplarCity>Marengo, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity>Indianapolis</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity>Louisville</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity>Vevay, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity>Monticello, Kentucky</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity>Detroit</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity>New York</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity>Montevideo</exemplarCity>
 			</zone>
 			<zone type="Asia/Samarkand">
 				<exemplarCity>Semerkand</exemplarCity>
@@ -2245,14 +3298,38 @@
 			<zone type="America/Caracas">
 				<exemplarCity>Karakas</exemplarCity>
 			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity>Tortola</exemplarCity>
+			</zone>
 			<zone type="America/St_Thomas">
 				<exemplarCity>St. Thomas</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Ho Chi Minh Kenti</exemplarCity>
 			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity>Efate</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity>Wallis</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity>Apia</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity>Aden</exemplarCity>
+			</zone>
 			<zone type="Indian/Mayotte">
 				<exemplarCity>Mayotte</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity>Johannesburg</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity>Lusaka</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity>Harare</exemplarCity>
 			</zone>
 			<metazone type="Acre">
 				<long>
@@ -2278,7 +3355,7 @@
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<standard>Güney Afrika Standart Saati</standard>
+					<standard>Güney Afrika Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -2325,30 +3402,30 @@
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic>Merkezi Saat</generic>
-					<standard>Merkezi Standart Saati</standard>
-					<daylight>Merkezi Yaz Saati</daylight>
+					<generic>Kuzey Amerika Merkezi Saati</generic>
+					<standard>Kuzey Amerika Merkezi Standart Saati</standard>
+					<daylight>Kuzey Amerika Merkezi Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic>Doğu Saati</generic>
-					<standard>Doğu Standart Saati</standard>
-					<daylight>Doğu Yaz Saati</daylight>
+					<generic>Kuzey Amerika Doğu Saati</generic>
+					<standard>Kuzey Amerika Doğu Standart Saati</standard>
+					<daylight>Kuzey Amerika Doğu Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
-					<generic>ABD Sıradağlar Saati</generic>
-					<standard>ABD Sıradağlar Standart Saati</standard>
-					<daylight>ABD Sıradağlar Yaz Saati</daylight>
+					<generic>Kuzey Amerika Dağ Saati</generic>
+					<standard>Kuzey Amerika Dağ Standart Saati</standard>
+					<daylight>Kuzey Amerika Dağ Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
-					<generic>Pasifik Saati</generic>
-					<standard>Pasifik Standart Saati</standard>
-					<daylight>Pasifik Yaz Saati</daylight>
+					<generic>Kuzey Amerika Pasifik Saati</generic>
+					<standard>Kuzey Amerika Pasifik Standart Saati</standard>
+					<daylight>Kuzey Amerika Pasifik Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="Anadyr">
@@ -2451,9 +3528,9 @@
 			</metazone>
 			<metazone type="Azores">
 				<long>
-					<generic>Azor Adaları Saati</generic>
-					<standard>Azor Adaları Standart Saati</standard>
-					<daylight>Azor Adaları Yaz Saati</daylight>
+					<generic>Azorlar Saati</generic>
+					<standard>Azorlar Standart Saati</standard>
+					<daylight>Azorlar Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="Baku">
@@ -2503,7 +3580,7 @@
 			</metazone>
 			<metazone type="Brunei">
 				<long>
-					<standard>Bruney Sultanlığı Saati</standard>
+					<standard>Brunei Darü's-Selam Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Cape_Verde">
@@ -2513,9 +3590,14 @@
 					<daylight>Cape Verde Yaz Saati</daylight>
 				</long>
 			</metazone>
+			<metazone type="Casey">
+				<long>
+					<standard>Casey Saati</standard>
+				</long>
+			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<standard>Chamorro Standart Saati</standard>
+					<standard>Chamorro Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Changbai">
@@ -2546,7 +3628,7 @@
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
-					<generic>Choibalsan Saati</generic>
+					<generic>Çoybalsan Saati</generic>
 					<standard>Çoybalsan Standart Saati</standard>
 					<daylight>Çoybalsan Yaz Saati</daylight>
 				</long>
@@ -2594,7 +3676,7 @@
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<standard>Dumont-d'Urville Saati</standard>
+					<standard>Dumont-d’Urville Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Dushanbe">
@@ -2616,9 +3698,9 @@
 			</metazone>
 			<metazone type="Easter">
 				<long>
-					<generic>Easter Adası Saati</generic>
-					<standard>Easter Adası Standart Saati</standard>
-					<daylight>Easter Adası Yaz Saati</daylight>
+					<generic>Paskalya Adası Saati</generic>
+					<standard>Paskalya Adası Standart Saati</standard>
+					<daylight>Paskalya Adası Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="Ecuador">
@@ -2702,7 +3784,7 @@
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard>Greenwich Merkez Saati</standard>
+					<standard>Greenwich Ortalama Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Central">
@@ -2733,7 +3815,7 @@
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<standard>Körfez Standart Saati</standard>
+					<standard>Körfez Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Guyana">
@@ -2743,9 +3825,9 @@
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic>Hawaii Aleutian Saati</generic>
-					<standard>Hawaii-Aleutian Standart Saati</standard>
-					<daylight>Hawaii-Aleutian Yaz Saati</daylight>
+					<generic>Hawaii-Aleut Saati</generic>
+					<standard>Hawaii-Aleut Standart Saati</standard>
+					<daylight>Hawaii-Aleut Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -2758,13 +3840,13 @@
 			<metazone type="Hovd">
 				<long>
 					<generic>Hovd Saati</generic>
-					<standard>Kobdo Standart Saati</standard>
-					<daylight>Kobdo Yaz Saati</daylight>
+					<standard>Hovd Standart Saati</standard>
+					<daylight>Hovd Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>Hindistan Standart Saati</standard>
+					<standard>Hindistan Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -2774,7 +3856,7 @@
 			</metazone>
 			<metazone type="Indochina">
 				<long>
-					<standard>Çinhindi Saati</standard>
+					<standard>Hindiçin Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
@@ -2801,7 +3883,7 @@
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>
-					<generic>Irkutsk Saati</generic>
+					<generic>İrkutsk Saati</generic>
 					<standard>İrkutsk Standart Saati</standard>
 					<daylight>İrkutsk Yaz Saati</daylight>
 				</long>
@@ -2914,7 +3996,7 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<standard>Macquarie Saati</standard>
+					<standard>Macquarie Adası Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3018,7 +4100,7 @@
 			</metazone>
 			<metazone type="Norfolk">
 				<long>
-					<standard>Norfolk Adası Saati</standard>
+					<standard>Norfolk Adaları Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Noronha">
@@ -3126,9 +4208,9 @@
 			</metazone>
 			<metazone type="Sakhalin">
 				<long>
-					<generic>Sakhalin Saati</generic>
-					<standard>Sakhalin Standart Saati</standard>
-					<daylight>Sakhalin Yaz Saati</daylight>
+					<generic>Sahalin Saati</generic>
+					<standard>Sahalin Standart Saati</standard>
+					<daylight>Sahalin Yaz Saati</daylight>
 				</long>
 			</metazone>
 			<metazone type="Samara">
@@ -3147,12 +4229,12 @@
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<standard>Samoa Standart Saati</standard>
+					<standard>Samoa Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
 				<long>
-					<standard>Seyşel Adaları Saati</standard>
+					<standard>Seyşeller Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Shevchenko">
@@ -3164,7 +4246,7 @@
 			</metazone>
 			<metazone type="Singapore">
 				<long>
-					<standard>Singapur Standart Saati</standard>
+					<standard>Singapur Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
@@ -3239,7 +4321,7 @@
 			</metazone>
 			<metazone type="Truk">
 				<long>
-					<standard>Truk Saati</standard>
+					<standard>Chuuk Saati</standard>
 				</long>
 			</metazone>
 			<metazone type="Turkey">
@@ -3377,20 +4459,36 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="other">0.0 bin</pattern>
+					<pattern type="10000" count="other">00 bin</pattern>
+					<pattern type="100000" count="other">000 bin</pattern>
+					<pattern type="1000000" count="other">0.0 milyon</pattern>
+					<pattern type="10000000" count="other">00 milyon</pattern>
+					<pattern type="100000000" count="other">000 milyon</pattern>
+					<pattern type="1000000000" count="other">0.0 milyar</pattern>
+					<pattern type="10000000000" count="other">00 milyar</pattern>
+					<pattern type="100000000000" count="other">000 milyar</pattern>
+					<pattern type="1000000000000" count="other">0.0 trilyon</pattern>
+					<pattern type="10000000000000" count="other">00 trilyon</pattern>
+					<pattern type="100000000000000" count="other">000 trilyon</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0000</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 B</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 B</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0 Mn</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Mn</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Mn</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0 Mr</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 Mr</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 Mr</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 T</pattern>
+					<pattern type="1000" count="other">0000</pattern>
+					<pattern type="10000" count="other">00 B</pattern>
+					<pattern type="100000" count="other">000 B</pattern>
+					<pattern type="1000000" count="other">0.0 Mn</pattern>
+					<pattern type="10000000" count="other">00 Mn</pattern>
+					<pattern type="100000000" count="other">000 Mn</pattern>
+					<pattern type="1000000000" count="other">0.0 Mr</pattern>
+					<pattern type="10000000000" count="other">00 Mr</pattern>
+					<pattern type="100000000000" count="other">000 Mr</pattern>
+					<pattern type="1000000000000" count="other">0.0 T</pattern>
+					<pattern type="10000000000000" count="other">00 T</pattern>
+					<pattern type="100000000000000" count="other">000 T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3422,24 +4520,30 @@
 			</currency>
 			<currency type="AED">
 				<displayName>Birleşik Arap Emirlikleri Dirhemi</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Afganistan Afganisi (1927-2002)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afganistan Afganisi</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Arnavutluk Leki</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Ermenistan Dramı</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Hollanda Antilleri Guldeni</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Angola Kvanzası</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Angola Kvanzası (1977-1990)</displayName>
@@ -3457,34 +4561,41 @@
 				<displayName>Arjantin Pezosu (1983-1985)</displayName>
 			</currency>
 			<currency type="ARS">
-				<displayName>Arjantin Pezosu</displayName>
+				<displayName>Arjantin Pesosu</displayName>
+				<symbol>ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Avusturya Şilini</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>Avustralya Doları</displayName>
+				<symbol>AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Aruba Florini</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Azerbaycan Manatı (1993-2006)</displayName>
 			</currency>
 			<currency type="AZN">
 				<displayName>Azerbaycan Manatı</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Bosna Hersek Dinarı</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>Konvertibl Bosna Hersek Markı</displayName>
+				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbados Doları</displayName>
+				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Bangladeş Takası</displayName>
+				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belçika Frangı (konvertibl)</displayName>
@@ -3499,22 +4610,28 @@
 				<displayName>Bulgar Levası (Hard)</displayName>
 			</currency>
 			<currency type="BGN">
-				<displayName>Yeni Bulgar Levası</displayName>
+				<displayName>Bulgar Levası</displayName>
+				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahreyn Dinarı</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundi Frangı</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermuda Doları</displayName>
+				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Brunei Doları</displayName>
+				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Bolivya Bolivyanosu</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Bolivya Pezosu</displayName>
@@ -3533,6 +4650,7 @@
 			</currency>
 			<currency type="BRL">
 				<displayName>Brezilya Reali</displayName>
+				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>Yeni Brezilya Kruzadosu</displayName>
@@ -3542,36 +4660,44 @@
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahama Doları</displayName>
+				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Bhutan Ngultrumu</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>Burma Kyatı</displayName>
 			</currency>
 			<currency type="BWP">
 				<displayName>Botsvana Pulası</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Yeni Beyaz Rusya Rublesi (1994-1999)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>Beyaz Rusya Rublesi</displayName>
+				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Belize Doları</displayName>
+				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanada Doları</displayName>
+				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Kongo Frangı</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR Avrosu</displayName>
 			</currency>
 			<currency type="CHF">
 				<displayName>İsviçre Frangı</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR Frangı</displayName>
@@ -3580,19 +4706,23 @@
 				<displayName>Şili Unidades de Fomento</displayName>
 			</currency>
 			<currency type="CLP">
-				<displayName>Şili Pezosu</displayName>
+				<displayName>Şili Pesosu</displayName>
+				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Çin Yuanı</displayName>
+				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="COP">
-				<displayName>Kolombiya Pezosu</displayName>
+				<displayName>Kolombiya Pesosu</displayName>
+				<symbol>COP</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>Unidad de Valor Real</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>Kosta Rika Kolonu</displayName>
+				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Eski Sırbistan Dinarı</displayName>
@@ -3601,19 +4731,23 @@
 				<displayName>Çekoslavak Korunası (Hard)</displayName>
 			</currency>
 			<currency type="CUC">
-				<displayName>Konvertibl Küba Pezosu</displayName>
+				<displayName>Konvertibl Küba Pesosu</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
-				<displayName>Küba Pezosu</displayName>
+				<displayName>Küba Pesosu</displayName>
+				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Cape Verde Esküdosu</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Güney Kıbrıs Lirası</displayName>
 			</currency>
 			<currency type="CZK">
 				<displayName>Çek Cumhuriyeti Korunası</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Doğu Alman Markı</displayName>
@@ -3623,15 +4757,19 @@
 			</currency>
 			<currency type="DJF">
 				<displayName>Cibuti Frangı</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Danimarka Kronu</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
-				<displayName>Dominik Pezosu</displayName>
+				<displayName>Dominik Pesosu</displayName>
+				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Cezayir Dinarı</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Ekvador Sukresi</displayName>
@@ -3644,9 +4782,11 @@
 			</currency>
 			<currency type="EGP">
 				<displayName>Mısır Lirası</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritre Nakfası</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>İspanyol Pezetası (A hesabı)</displayName>
@@ -3659,45 +4799,55 @@
 			</currency>
 			<currency type="ETB">
 				<displayName>Etiyopya Birri</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Euro</displayName>
+				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Fin Markkası</displayName>
 			</currency>
 			<currency type="FJD">
 				<displayName>Fiji Doları</displayName>
+				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Falkland Adaları Lirası</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Fransız Frangı</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>İngiliz Sterlini</displayName>
+				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>Gürcistan Kupon Larisi</displayName>
 			</currency>
 			<currency type="GEL">
 				<displayName>Gürcistan Larisi</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Gana Sedisi (1979-2007)</displayName>
 			</currency>
 			<currency type="GHS">
 				<displayName>Gana Sedisi</displayName>
+				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Cebelitarık Lirası</displayName>
+				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Gambiya Dalasisi</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Gine Frangı</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Gine Sylisi</displayName>
@@ -3709,7 +4859,8 @@
 				<displayName>Yunan Drahmisi</displayName>
 			</currency>
 			<currency type="GTQ">
-				<displayName>Guatemala Ketzali</displayName>
+				<displayName>Guatemala Quetzalı</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Portekiz Ginesi Esküdosu</displayName>
@@ -3719,27 +4870,34 @@
 			</currency>
 			<currency type="GYD">
 				<displayName>Guyana Doları</displayName>
+				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Hong Kong Doları</displayName>
+				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Honduras Lempirası</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Hırvatistan Dinarı</displayName>
 			</currency>
 			<currency type="HRK">
 				<displayName>Hırvatistan Kunası</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haiti Gurdu</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Macar Forinti</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Endonezya Rupiahı</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>İrlanda Lirası</displayName>
@@ -3749,27 +4907,34 @@
 			</currency>
 			<currency type="ILS">
 				<displayName>Yeni İsrail Şekeli</displayName>
+				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Hindistan Rupisi</displayName>
+				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Irak Dinarı</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>İran Riyali</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>İzlanda Kronu</displayName>
+				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>İtalyan Lireti</displayName>
 			</currency>
 			<currency type="JMD">
 				<displayName>Jamaika Doları</displayName>
+				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Ürdün Dinarı</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Japon Yeni</displayName>
@@ -3777,48 +4942,63 @@
 			</currency>
 			<currency type="KES">
 				<displayName>Kenya Şilini</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
-				<displayName>Kırgız Somu</displayName>
+				<displayName>Kırgızistan Somu</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Kamboçya Rieli</displayName>
+				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Komorlar Frangı</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Kuzey Kore Wonu</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Güney Kore Wonu</displayName>
+				<symbol>₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuveyt Dinarı</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Cayman Adaları Doları</displayName>
+				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazakistan Tengesi</displayName>
+				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Laos Kipi</displayName>
+				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Lübnan Lirası</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Sri Lanka Rupisi</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Liberya Doları</displayName>
+				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesotho Lotisi</displayName>
+				<symbol>LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Litvanya Litası</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Litvanya Talonu</displayName>
@@ -3834,45 +5014,55 @@
 			</currency>
 			<currency type="LVL">
 				<displayName>Letonya Latı</displayName>
+				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Letonya Rublesi</displayName>
 			</currency>
 			<currency type="LYD">
 				<displayName>Libya Dinarı</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Fas Dirhemi</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Fas Frangı</displayName>
 			</currency>
 			<currency type="MDL">
 				<displayName>Moldova Leyi</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Madagaskar Ariarisi</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Madagaskar Frangı</displayName>
 			</currency>
 			<currency type="MKD">
 				<displayName>Makedonya Dinarı</displayName>
+				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>Mali Frangı</displayName>
 			</currency>
 			<currency type="MMK">
 				<displayName>Myanmar Kyatı</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
-				<displayName>Moğol Tugriki</displayName>
+				<displayName>Moğolistan Tugriki</displayName>
+				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
-				<displayName>Makao Patacası</displayName>
+				<displayName>Makao Patakası</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Moritanya Ouguiyası</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Malta Lirası</displayName>
@@ -3882,15 +5072,19 @@
 			</currency>
 			<currency type="MUR">
 				<displayName>Mauritius Rupisi</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
-				<displayName>Maldiv Adaları Rufiyaa</displayName>
+				<displayName>Maldiv Rufiyaası</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malavi Kvaçası</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Meksika Pesosu</displayName>
+				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>Gümüş Meksika Pezosu (1861-1992)</displayName>
@@ -3899,7 +5093,8 @@
 				<displayName>Meksika Unidad de Inversion (UDI)</displayName>
 			</currency>
 			<currency type="MYR">
-				<displayName>Malezya Ringiti</displayName>
+				<displayName>Malezya Ringgiti</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambik Esküdosu</displayName>
@@ -3909,57 +5104,71 @@
 			</currency>
 			<currency type="MZN">
 				<displayName>Mozambik Metikali</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibya Doları</displayName>
+				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nijerya Nairası</displayName>
+				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
-				<displayName>Nikaragua Kordobası</displayName>
+				<displayName>Nikaragua Kordobası (1988-1991)</displayName>
 			</currency>
 			<currency type="NIO">
-				<displayName>Nikaragua Kordobası (Oro)</displayName>
+				<displayName>Nikaragua Kordobası</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Hollanda Florini</displayName>
 			</currency>
 			<currency type="NOK">
 				<displayName>Norveç Kronu</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepal Rupisi</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Yeni Zelanda Doları</displayName>
+				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Umman Riyali</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Panama Balboası</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Peru İnti</displayName>
 			</currency>
 			<currency type="PEN">
-				<displayName>Yeni Peru Solu</displayName>
+				<displayName>Peru Nuevo Solü</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Peru Solu</displayName>
 			</currency>
 			<currency type="PGK">
 				<displayName>Papua Yeni Gine Kinası</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
-				<displayName>Filipinler Pezosu</displayName>
+				<displayName>Filipinler Pesosu</displayName>
+				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistan Rupisi</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Polonya Zlotisi</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Polonya Zlotisi (1950-1995)</displayName>
@@ -3969,9 +5178,11 @@
 			</currency>
 			<currency type="PYG">
 				<displayName>Paraguay Guaranisi</displayName>
+				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Katar Riyali</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>Rodezya Doları</displayName>
@@ -3981,45 +5192,56 @@
 			</currency>
 			<currency type="RON">
 				<displayName>Romen Leyi</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Sırp Dinarı</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Rus Rublesi</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rus Rublesi (1991-1998)</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ruanda Frangı</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Suudi Arabistan Riyali</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Solomon Adaları Doları</displayName>
+				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
-				<displayName>Seyşel Rupisi</displayName>
+				<displayName>Seyşeller Rupisi</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>Eski Sudan Dinarı</displayName>
 			</currency>
 			<currency type="SDG">
 				<displayName>Sudan Lirası</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>Eski Sudan Lirası</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>İsveç Kronu</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapur Doları</displayName>
+				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Saint Helena Lirası</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Slovenya Toları</displayName>
@@ -4029,18 +5251,26 @@
 			</currency>
 			<currency type="SLL">
 				<displayName>Sierra Leone Leonesi</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somali Şilini</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Surinam Doları</displayName>
+				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Surinam Guldeni</displayName>
 			</currency>
+			<currency type="SSP">
+				<displayName>Güney Sudan Lirası</displayName>
+				<symbol>SSP</symbol>
+			</currency>
 			<currency type="STD">
-				<displayName>Sao Tome ve Principe Dobrası</displayName>
+				<displayName>São Tomé ve Príncipe Dobrası</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Sovyet Rublesi</displayName>
@@ -4050,30 +5280,37 @@
 			</currency>
 			<currency type="SYP">
 				<displayName>Suriye Lirası</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Svaziland Lilangenisi</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Tayland Bahtı</displayName>
+				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>Tacikistan Rublesi</displayName>
 			</currency>
 			<currency type="TJS">
 				<displayName>Tacikistan Somonisi</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
-				<displayName>Türkmenistan Manatı</displayName>
+				<displayName>Türkmenistan Manatı (1993-2009)</displayName>
 			</currency>
 			<currency type="TMT">
-				<displayName>Yeni Türkmenistan Manatı</displayName>
+				<displayName>Türkmenistan Manatı</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Tunus Dinarı</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Tonga Paʻangası</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Timor Esküdosu</displayName>
@@ -4087,15 +5324,19 @@
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad ve Tobago Doları</displayName>
+				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Yeni Tayvan Doları</displayName>
+				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzanya Şilini</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrayna Grivnası</displayName>
+				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrayna Karbovanetz</displayName>
@@ -4105,6 +5346,7 @@
 			</currency>
 			<currency type="UGX">
 				<displayName>Uganda Şilini</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ABD Doları</displayName>
@@ -4123,28 +5365,35 @@
 				<displayName>Uruguay Pezosu (1975-1993)</displayName>
 			</currency>
 			<currency type="UYU">
-				<displayName>Uruguay Pezosu (Uruguayo)</displayName>
+				<displayName>Uruguay Pesosu</displayName>
+				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Özbekistan Somu</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
-				<displayName>Venezuela Bolivarı</displayName>
+				<displayName>Venezuela Bolivarı (1871-2008)</displayName>
 			</currency>
 			<currency type="VEF">
-				<displayName>Güçlü Venezuela Bolivarı</displayName>
+				<displayName>Venezuela Bolivarı</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vietnam Dongu</displayName>
+				<symbol>₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatu Vatusu</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
-				<displayName>Batı Samoa Talası</displayName>
+				<displayName>Samoa Talası</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA Frangı BEAC</displayName>
+				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>Gümüş</displayName>
@@ -4166,6 +5415,7 @@
 			</currency>
 			<currency type="XCD">
 				<displayName>Doğu Karayip Doları</displayName>
+				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>Özel Çekme Hakkı (SDR)</displayName>
@@ -4181,12 +5431,14 @@
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA Frangı BCEAO</displayName>
+				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>Paladyum</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP Frangı</displayName>
+				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>Platin</displayName>
@@ -4205,6 +5457,7 @@
 			</currency>
 			<currency type="YER">
 				<displayName>Yemen Riyali</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>Yugoslav Dinarı (Hard)</displayName>
@@ -4220,9 +5473,11 @@
 			</currency>
 			<currency type="ZAR">
 				<displayName>Güney Afrika Randı</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambiya Kvaçası</displayName>
+				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Yeni Zaire Zairesi</displayName>
@@ -4244,13 +5499,13 @@
 			<unitPattern count="other" alt="short">{0} gün</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">0 gün sonra</unitPattern>
-			<unitPattern count="1">1 gün sonra</unitPattern>
+			<unitPattern count="0">{0} gün sonra</unitPattern>
+			<unitPattern count="1">{0} gün sonra</unitPattern>
 			<unitPattern count="other">{0} gün sonra</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">0 gün önce</unitPattern>
-			<unitPattern count="1">1 gün önce</unitPattern>
+			<unitPattern count="0">{0} gün önce</unitPattern>
+			<unitPattern count="1">{0} gün önce</unitPattern>
 			<unitPattern count="other">{0} gün önce</unitPattern>
 		</unit>
 		<unit type="hour">
@@ -4258,13 +5513,13 @@
 			<unitPattern count="other" alt="short">{0} sa.</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">0 saat sonra</unitPattern>
-			<unitPattern count="1">1 saat sonra</unitPattern>
+			<unitPattern count="0">{0} saat sonra</unitPattern>
+			<unitPattern count="1">{0} saat sonra</unitPattern>
 			<unitPattern count="other">{0} saat sonra</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">0 saat önce</unitPattern>
-			<unitPattern count="1">1 saat önce</unitPattern>
+			<unitPattern count="0">{0} saat önce</unitPattern>
+			<unitPattern count="1">{0} saat önce</unitPattern>
 			<unitPattern count="other">{0} saat önce</unitPattern>
 		</unit>
 		<unit type="minute">
@@ -4272,13 +5527,13 @@
 			<unitPattern count="other" alt="short">{0} dk.</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">0 dakika sonra</unitPattern>
-			<unitPattern count="1">1 dakika sonra</unitPattern>
+			<unitPattern count="0">{0} dakika sonra</unitPattern>
+			<unitPattern count="1">{0} dakika sonra</unitPattern>
 			<unitPattern count="other">{0} dakika sonra</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">0 dakika önce</unitPattern>
-			<unitPattern count="1">1 dakika önce</unitPattern>
+			<unitPattern count="0">{0} dakika önce</unitPattern>
+			<unitPattern count="1">{0} dakika önce</unitPattern>
 			<unitPattern count="other">{0} dakika önce</unitPattern>
 		</unit>
 		<unit type="month">
@@ -4286,13 +5541,13 @@
 			<unitPattern count="other" alt="short">{0} ay</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">0 ay sonra</unitPattern>
-			<unitPattern count="1">1 ay sonra</unitPattern>
+			<unitPattern count="0">{0} ay sonra</unitPattern>
+			<unitPattern count="1">{0} ay sonra</unitPattern>
 			<unitPattern count="other">{0} ay sonra</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">0 ay önce</unitPattern>
-			<unitPattern count="1">1 ay önce</unitPattern>
+			<unitPattern count="0">{0} ay önce</unitPattern>
+			<unitPattern count="1">{0} ay önce</unitPattern>
 			<unitPattern count="other">{0} ay önce</unitPattern>
 		</unit>
 		<unit type="second">
@@ -4300,27 +5555,27 @@
 			<unitPattern count="other" alt="short">{0} sn.</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">0 saniye sonra</unitPattern>
-			<unitPattern count="1">1 saniye sonra</unitPattern>
+			<unitPattern count="0">{0} saniye sonra</unitPattern>
+			<unitPattern count="1">{0} saniye sonra</unitPattern>
 			<unitPattern count="other">{0} saniye sonra</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">0 saniye önce</unitPattern>
-			<unitPattern count="1">1 saniye önce</unitPattern>
+			<unitPattern count="0">{0} saniye önce</unitPattern>
+			<unitPattern count="1">{0} saniye önce</unitPattern>
 			<unitPattern count="other">{0} saniye önce</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="other">{0} hafta</unitPattern>
-			<unitPattern count="other" alt="short">{0} hafta</unitPattern>
+			<unitPattern count="other" alt="short">{0} hf.</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">0 hafta sonra</unitPattern>
-			<unitPattern count="1">1 hafta sonra</unitPattern>
+			<unitPattern count="0">{0} hafta sonra</unitPattern>
+			<unitPattern count="1">{0} hafta sonra</unitPattern>
 			<unitPattern count="other">{0} hafta sonra</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">0 hafta önce</unitPattern>
-			<unitPattern count="1">1 hafta önce</unitPattern>
+			<unitPattern count="0">{0} hafta önce</unitPattern>
+			<unitPattern count="1">{0} hafta önce</unitPattern>
 			<unitPattern count="other">{0} hafta önce</unitPattern>
 		</unit>
 		<unit type="year">
@@ -4328,13 +5583,13 @@
 			<unitPattern count="other" alt="short">{0} yıl</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">0 yıl sonra</unitPattern>
-			<unitPattern count="1">1 yıl sonra</unitPattern>
+			<unitPattern count="0">{0} yıl sonra</unitPattern>
+			<unitPattern count="1">{0} yıl sonra</unitPattern>
 			<unitPattern count="other">{0} yıl sonra</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">0 yıl önce</unitPattern>
-			<unitPattern count="1">1 yıl önce</unitPattern>
+			<unitPattern count="0">{0} yıl önce</unitPattern>
+			<unitPattern count="1">{0} yıl önce</unitPattern>
 			<unitPattern count="other">{0} yıl önce</unitPattern>
 		</unit>
 	</units>
@@ -4342,6 +5597,8 @@
 		<listPattern>
 			<listPatternPart type="2">{0} ve {1}</listPatternPart>
 			<listPatternPart type="end">{0} ve {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

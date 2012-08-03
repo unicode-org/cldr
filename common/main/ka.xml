@@ -120,7 +120,7 @@
 			<language type="pt_BR" draft="contributed">ბრაზილიური პორტუგალიური</language>
 			<language type="pt_PT">იბერიულ-პორტუგალიური</language>
 			<language type="ro">რუმინული</language>
-			<language type="ru">რუსული</language>
+			<language type="ru">ru</language>
 			<language type="sa" draft="contributed">სანსკრიტი</language>
 			<language type="sc">სარდინიული</language>
 			<language type="scn">სიცილიური</language>
@@ -537,6 +537,20 @@
 							<month type="11">ნოე</month>
 							<month type="12">დეკ</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">ი</month>
+							<month type="2">თ</month>
+							<month type="3">მ</month>
+							<month type="4">ა</month>
+							<month type="5">მ</month>
+							<month type="6">ი</month>
+							<month type="7">ი</month>
+							<month type="8">ა</month>
+							<month type="9">ს</month>
+							<month type="10">ო</month>
+							<month type="11">ნ</month>
+							<month type="12">დ</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">იანვარი</month>
 							<month type="2">თებერვალი</month>
@@ -558,10 +572,12 @@
 							<month type="2">თებ</month>
 							<month type="3">მარ</month>
 							<month type="4">აპრ</month>
+							<month type="5">მაი</month>
 							<month type="6">ივნ</month>
 							<month type="7">ივლ</month>
 							<month type="8">აგვ</month>
 							<month type="9">სექ</month>
+							<month type="10">ოქტ</month>
 							<month type="11">ნოე</month>
 							<month type="12">დეკ</month>
 						</monthWidth>
@@ -572,7 +588,7 @@
 							<month type="4">ა</month>
 							<month type="5">მ</month>
 							<month type="6">ი</month>
-							<month type="7" draft="provisional">ი</month>
+							<month type="7">ი</month>
 							<month type="8">ა</month>
 							<month type="9">ს</month>
 							<month type="10">ო</month>
@@ -580,14 +596,25 @@
 							<month type="12">დ</month>
 						</monthWidth>
 						<monthWidth type="wide">
+							<month type="1">იანვარი</month>
+							<month type="2">თებერვალი</month>
+							<month type="3">მარტი</month>
 							<month type="4">აპრილი</month>
+							<month type="5">მაისი</month>
+							<month type="6">ივნისი</month>
+							<month type="7">ივლის</month>
+							<month type="8">აგვისტო</month>
+							<month type="9">სექტემბერი</month>
+							<month type="10">ოქტომბერი</month>
+							<month type="11">ნოემბერი</month>
+							<month type="12">დეკემბერი</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="provisional">კვი</day>
+							<day type="sun">კვი</day>
 							<day type="mon">ორშ</day>
 							<day type="tue">სამ</day>
 							<day type="wed">ოთხ</day>
@@ -595,9 +622,18 @@
 							<day type="fri">პარ</day>
 							<day type="sat">შაბ</day>
 						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">კ</day>
+							<day type="mon">ო</day>
+							<day type="tue">ს</day>
+							<day type="wed">ო</day>
+							<day type="thu">ხ</day>
+							<day type="fri">პ</day>
+							<day type="sat">შ</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">კვირა</day>
-							<day type="mon" draft="provisional">ორშაბათი</day>
+							<day type="mon">ორშაბათი</day>
 							<day type="tue">სამშაბათი</day>
 							<day type="wed">ოთხშაბათი</day>
 							<day type="thu">ხუთშაბათი</day>
@@ -606,14 +642,32 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">კვი</day>
+							<day type="mon">ორშ</day>
+							<day type="tue">სამ</day>
+							<day type="wed">ოთხ</day>
+							<day type="thu">ხუთ</day>
+							<day type="fri">პარ</day>
+							<day type="sat">შაბ</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">კ</day>
-							<day type="mon" draft="provisional">ო</day>
+							<day type="mon">ო</day>
 							<day type="tue">ს</day>
-							<day type="wed" draft="provisional">ო</day>
+							<day type="wed">ო</day>
 							<day type="thu">ხ</day>
-							<day type="fri" draft="provisional">პ</day>
+							<day type="fri">პ</day>
 							<day type="sat">შ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">კვირა</day>
+							<day type="mon">ორშაბათი</day>
+							<day type="tue">სამშაბათი</day>
+							<day type="wed">ოთხშაბათი</day>
+							<day type="thu">ხუთშაბათი</day>
+							<day type="fri">პარასკევი</day>
+							<day type="sat">შაბათი</day>
 						</dayWidth>
 					</dayContext>
 				</days>

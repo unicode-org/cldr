@@ -11,6 +11,7 @@
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>, </localeSeparator>
+			<localeKeyTypePattern draft="unconfirmed">{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">afar</language>
@@ -57,6 +58,7 @@
 			<language type="ban">balinesisk</language>
 			<language type="bas">basa</language>
 			<language type="bat">baltisk språk</language>
+			<language type="bax" draft="unconfirmed">bamun</language>
 			<language type="be">kviterussisk</language>
 			<language type="bej">beja</language>
 			<language type="bem">bemba</language>
@@ -77,6 +79,7 @@
 			<language type="bra">braj</language>
 			<language type="brx">bodo</language>
 			<language type="bs">bosnisk</language>
+			<language type="bss" draft="unconfirmed">bakossi</language>
 			<language type="btk">batak</language>
 			<language type="bua">burjatisk</language>
 			<language type="bug">buginesisk</language>
@@ -215,6 +218,7 @@
 			<language type="hz">herero</language>
 			<language type="ia">interlingua</language>
 			<language type="iba">iban</language>
+			<language type="ibb" draft="unconfirmed">ibibio</language>
 			<language type="id">indonesisk</language>
 			<language type="ie">interlingue</language>
 			<language type="ig">ibo</language>
@@ -255,6 +259,7 @@
 			<language type="ki">kikuyu</language>
 			<language type="kj">kuanyama</language>
 			<language type="kk">kasakhisk</language>
+			<language type="kkj" draft="unconfirmed">kako</language>
 			<language type="kl">kalaallisut; grønlandsk</language>
 			<language type="km">khmer</language>
 			<language type="kmb">kimbundu</language>
@@ -546,6 +551,7 @@
 			<script type="Armn">armensk</script>
 			<script type="Avst">avestisk</script>
 			<script type="Bali">balinesisk</script>
+			<script type="Bamu" draft="unconfirmed">bamun</script>
 			<script type="Batk">batak</script>
 			<script type="Beng">bengali</script>
 			<script type="Blis">blissymbol</script>
@@ -574,6 +580,7 @@
 			<script type="Geor">georgisk</script>
 			<script type="Glag">glagolittisk</script>
 			<script type="Goth">gotisk</script>
+			<script type="Gran" draft="unconfirmed">gammaltamilsk</script>
 			<script type="Grek">gresk</script>
 			<script type="Gujr">gujarati</script>
 			<script type="Guru">gurmukhi</script>
@@ -607,6 +614,7 @@
 			<script type="Limb">lumbu</script>
 			<script type="Lina">lineær A</script>
 			<script type="Linb">lineær B</script>
+			<script type="Lisu" draft="unconfirmed">Fraser</script>
 			<script type="Lyci">lykisk</script>
 			<script type="Lydi">lydisk</script>
 			<script type="Mand">mandaisk</script>
@@ -637,6 +645,7 @@
 			<script type="Runr">runer</script>
 			<script type="Samr">samaritansk</script>
 			<script type="Sara">sarati</script>
+			<script type="Sarb" draft="unconfirmed">gammalsydarabisk</script>
 			<script type="Saur">saurashtra</script>
 			<script type="Sgnw">teiknskrift</script>
 			<script type="Shaw">shavisk</script>
@@ -659,6 +668,7 @@
 			<script type="Thaa">thaana</script>
 			<script type="Thai">thai</script>
 			<script type="Tibt">tibetansk</script>
+			<script type="Tirh" draft="unconfirmed">tirhuta</script>
 			<script type="Ugar">ugaritisk</script>
 			<script type="Vaii">vai</script>
 			<script type="Visp">synleg tale</script>
@@ -734,6 +744,7 @@
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunei Darussalam</territory>
 			<territory type="BO">Bolivia</territory>
+			<territory type="BQ" draft="unconfirmed">Karibisk Nederland</territory>
 			<territory type="BR">Brasil</territory>
 			<territory type="BS">Bahamas</territory>
 			<territory type="BT">Bhutan</territory>
@@ -760,6 +771,7 @@
 			<territory type="CR">Costa Rica</territory>
 			<territory type="CU">Cuba</territory>
 			<territory type="CV">Kapp Verde</territory>
+			<territory type="CW" draft="unconfirmed">Curaçao</territory>
 			<territory type="CX">Christmasøya</territory>
 			<territory type="CY">Kypros</territory>
 			<territory type="CZ">Tsjekkia</territory>
@@ -923,9 +935,10 @@
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalia</territory>
 			<territory type="SR">Surinam</territory>
-			<territory type="SS" draft="provisional">Sør-Sudan</territory>
+			<territory type="SS" draft="unconfirmed">Sør-Sudan</territory>
 			<territory type="ST">São Tomé og Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
+			<territory type="SX" draft="unconfirmed">Nederlandsk St. Martin</territory>
 			<territory type="SY">Syria</territory>
 			<territory type="SZ">Swaziland</territory>
 			<territory type="TA">Tristan da Cunha</territory>
@@ -1006,25 +1019,60 @@
 			<key type="numbers">tal</key>
 		</keys>
 		<types>
+			<type type="arab" key="numbers" draft="unconfirmed">hindu-arabiske siffer (vestlige)</type>
+			<type type="arabext" key="numbers" draft="unconfirmed">hindu-arabiske siffer (østlige)</type>
+			<type type="armn" key="numbers" draft="unconfirmed">armenske numeraler</type>
+			<type type="armnlow" key="numbers" draft="unconfirmed">armenske numeraler i små bogstaver</type>
+			<type type="beng" key="numbers" draft="unconfirmed">bengalske siffer</type>
 			<type type="big5han" key="collation">tradisjonell kinesisk sortering</type>
 			<type type="buddhist" key="calendar">buddhistisk kalender</type>
 			<type type="chinese" key="calendar">kinesisk kalender</type>
+			<type type="deva" key="numbers" draft="unconfirmed">devanagariske siffer</type>
 			<type type="ducet" key="collation">grunnleggjande Unicode-sorteringsrekkjefølgje</type>
+			<type type="ethi" key="numbers" draft="unconfirmed">etiopiske numeraler</type>
 			<type type="ethiopic" key="calendar">etiopisk kalender</type>
 			<type type="ethiopic-amete-alem" key="calendar">etiopisk amete-alem-kalender</type>
+			<type type="fullwide" key="numbers" draft="unconfirmed">vesterlandske siffer i fuld bredde</type>
 			<type type="gb2312han" key="collation">forenkla kinesisk sortering</type>
+			<type type="geor" key="numbers" draft="unconfirmed">georgiske numeraler</type>
 			<type type="gregorian" key="calendar">gregoriansk kalender</type>
+			<type type="grek" key="numbers" draft="unconfirmed">græske numeraler</type>
+			<type type="greklow" key="numbers" draft="unconfirmed">græske numeraler i små bogstaver</type>
+			<type type="gujr" key="numbers" draft="unconfirmed">gujaratiske siffer</type>
+			<type type="guru" key="numbers" draft="unconfirmed">gurmukhiske siffer</type>
+			<type type="hanidec" key="numbers" draft="unconfirmed">kinesiskt stavede siffer</type>
+			<type type="hans" key="numbers" draft="unconfirmed">forenklet stavede kinesiske numeraler</type>
+			<type type="hansfin" key="numbers" draft="unconfirmed">forenklet stavede kinesiske financielle numeraler</type>
+			<type type="hant" key="numbers" draft="unconfirmed">traditionelt stavede kinesiske numeraler</type>
+			<type type="hantfin" key="numbers" draft="unconfirmed">traditionelt stavede kinesiske financielle numeraler</type>
+			<type type="hebr" key="numbers" draft="unconfirmed">hebæiske numeraler</type>
 			<type type="hebrew" key="calendar">hebraisk kalender</type>
 			<type type="indian" key="calendar">indisk nasjonalkalender</type>
 			<type type="islamic" key="calendar">islamsk kalender</type>
 			<type type="islamic-civil" key="calendar">islamsk sivil kalender</type>
 			<type type="japanese" key="calendar">japansk kalender</type>
+			<type type="jpan" key="numbers" draft="unconfirmed">japanskt stavede numeraler</type>
+			<type type="jpanfin" key="numbers" draft="unconfirmed">japanskt stavede financielle numeraler</type>
+			<type type="khmr" key="numbers" draft="unconfirmed">kambodiske siffer</type>
+			<type type="knda" key="numbers" draft="unconfirmed">kannadiske siffer</type>
+			<type type="laoo" key="numbers" draft="unconfirmed">laotiske siffer</type>
+			<type type="latn" key="numbers" draft="unconfirmed">vesterlandske siffer</type>
+			<type type="mlym" key="numbers" draft="unconfirmed">malayalamiske siffer</type>
+			<type type="mymr" key="numbers" draft="unconfirmed">burmeske siffer</type>
+			<type type="orya" key="numbers" draft="unconfirmed">oryiske siffer</type>
 			<type type="persian" key="calendar">persisk kalender</type>
 			<type type="phonebook" key="collation">telefonkatalogsortering</type>
 			<type type="pinyin" key="collation">pinyin-sortering</type>
 			<type type="roc" key="calendar">kalender for Republikken Kina</type>
+			<type type="roman" key="numbers" draft="unconfirmed">romernumeraler</type>
+			<type type="romanlow" key="numbers" draft="unconfirmed">romernumeraler i små bogstaver</type>
 			<type type="search" key="collation">søksorteringsrekkjefølgje etter CLDR</type>
 			<type type="stroke" key="collation">streksortering</type>
+			<type type="taml" key="numbers" draft="unconfirmed">traditionelle tamilske numeraler</type>
+			<type type="tamldec" key="numbers" draft="unconfirmed">tamilske siffer</type>
+			<type type="telu" key="numbers" draft="unconfirmed">telugiske siffer</type>
+			<type type="thai" key="numbers" draft="unconfirmed">thailandske siffer</type>
+			<type type="tibt" key="numbers" draft="unconfirmed">tibetanske siffer</type>
 			<type type="traditional" key="collation">tradisjonell sortering</type>
 		</types>
 		<measurementSystemNames>
@@ -1255,7 +1303,7 @@
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Md">d.M.</dateFormatItem>
 						<dateFormatItem id="MEd">E d.M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
+						<dateFormatItem id="MMdd">d.M.</dateFormatItem>
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
@@ -1407,6 +1455,9 @@
 			<zone type="Etc/Unknown">
 				<exemplarCity>ukjend</exemplarCity>
 			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity draft="unconfirmed">Curaçao</exemplarCity>
+			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Sørpolen</exemplarCity>
 			</zone>
@@ -1419,8 +1470,14 @@
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity draft="unconfirmed">Kapp Verde</exemplarCity>
 			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity draft="unconfirmed">København</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanariøyane</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Faeroe">
+				<exemplarCity draft="unconfirmed">Færøyane</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity>Godthåb</exemplarCity>
@@ -1435,7 +1492,7 @@
 				<exemplarCity>Ulan Bator</exemplarCity>
 			</zone>
 			<zone type="Indian/Mauritius">
-				<exemplarCity draft="unconfirmed">Mauritania</exemplarCity>
+				<exemplarCity draft="unconfirmed">Mauritius</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="unconfirmed">Maldivane</exemplarCity>
@@ -1452,14 +1509,23 @@
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisboa</exemplarCity>
 			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity draft="unconfirmed">Réunion</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskva</exemplarCity>
+			</zone>
+			<zone type="Africa/Sao_Tome">
+				<exemplarCity draft="unconfirmed">São Tomé</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Center, Nord-Dakota</exemplarCity>
 			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Tasjkent</exemplarCity>
+			</zone>
+			<zone type="Asia/Saigon">
+				<exemplarCity draft="unconfirmed">Ho Chi Minh-byen</exemplarCity>
 			</zone>
 			<metazone type="Africa_Central">
 				<long>
@@ -1571,6 +1637,62 @@
 			<decimalFormatLength>
 				<decimalFormat>
 					<pattern>#,##0.###</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="unconfirmed">0.0 tusen</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0.0 tusen</pattern>
+					<pattern type="10000" count="one" draft="unconfirmed">00 tusen</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00 tusen</pattern>
+					<pattern type="100000" count="one" draft="unconfirmed">000 tusen</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000 tusen</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millioner</pattern>
+					<pattern type="10000000" count="one" draft="unconfirmed">00 million</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00 millioner</pattern>
+					<pattern type="100000000" count="one" draft="unconfirmed">000 million</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000 millioner</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliarder</pattern>
+					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliard</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliarder</pattern>
+					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliard</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliarder</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billioner</pattern>
+					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billion</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billioner</pattern>
+					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billion</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">000 billioner</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="unconfirmed">0.0 tn</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0.0 tn</pattern>
+					<pattern type="10000" count="one" draft="unconfirmed">00 tn</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00 tn</pattern>
+					<pattern type="100000" count="one" draft="unconfirmed">000 tn</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000 tn</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0.0 mn</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0.0 mn</pattern>
+					<pattern type="10000000" count="one" draft="unconfirmed">00 mn</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00 mn</pattern>
+					<pattern type="100000000" count="one" draft="unconfirmed">000 mn</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000 mn</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 md</pattern>
+					<pattern type="10000000000" count="one" draft="unconfirmed">00 md</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">00 md</pattern>
+					<pattern type="100000000000" count="one" draft="unconfirmed">000 md</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">000 md</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 bn</pattern>
+					<pattern type="10000000000000" count="one" draft="unconfirmed">00 bn</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">00 bn</pattern>
+					<pattern type="100000000000000" count="one" draft="unconfirmed">000 bn</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">000 bn</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -2848,7 +2970,9 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} døgn</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">{0} d</unitPattern>
 			<unitPattern count="other">{0} døgn</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">{0} d</unitPattern>
 		</unit>
 		<unit type="day-future">
 			<unitPattern count="one">om {0} dag</unitPattern>
@@ -2860,7 +2984,9 @@
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} time</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">{0} h</unitPattern>
 			<unitPattern count="other">{0} timar</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">{0} h</unitPattern>
 		</unit>
 		<unit type="hour-future">
 			<unitPattern count="one">om {0} time</unitPattern>
@@ -2872,7 +2998,9 @@
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minutt</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">{0} mi</unitPattern>
 			<unitPattern count="other">{0} minutt</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">{0} mi</unitPattern>
 		</unit>
 		<unit type="minute-future">
 			<unitPattern count="one">om {0} minutt</unitPattern>
@@ -2884,7 +3012,9 @@
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} månad</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">{0} må</unitPattern>
 			<unitPattern count="other">{0} månader</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">{0} må</unitPattern>
 		</unit>
 		<unit type="month-future">
 			<unitPattern count="one">om {0} månad</unitPattern>
@@ -2896,7 +3026,9 @@
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} sekund</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">{0} s</unitPattern>
 			<unitPattern count="other">{0} sekund</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">{0} s</unitPattern>
 		</unit>
 		<unit type="second-future">
 			<unitPattern count="one">om {0} sekund</unitPattern>
@@ -2908,7 +3040,9 @@
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} veke</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">{0} v</unitPattern>
 			<unitPattern count="other">{0} veker</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">{0} v</unitPattern>
 		</unit>
 		<unit type="week-future">
 			<unitPattern count="one">om {0} veke</unitPattern>
@@ -2920,7 +3054,9 @@
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} år</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">{0} år</unitPattern>
 			<unitPattern count="other">{0} år</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">{0} år</unitPattern>
 		</unit>
 		<unit type="year-future">
 			<unitPattern count="one">om {0} år</unitPattern>

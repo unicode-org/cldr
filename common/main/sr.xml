@@ -10,6 +10,7 @@
 		<localeDisplayPattern>
 			<localePattern draft="contributed">{0} ({1})</localePattern>
 			<localeSeparator>, </localeSeparator>
+			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">Афарски</language>
@@ -96,6 +97,7 @@
 			<language type="chp">Чипвијански</language>
 			<language type="chr">Чероки</language>
 			<language type="chy">Чејенски</language>
+			<language type="ckb" draft="contributed">сорани курдски</language>
 			<language type="cmc">Чамски језик</language>
 			<language type="co">Корзикански</language>
 			<language type="cop">Коптски</language>
@@ -297,6 +299,7 @@
 			<language type="mdf">Мокша</language>
 			<language type="mdr">Мандар</language>
 			<language type="men">Менде</language>
+			<language type="mfe" draft="contributed">морисјен</language>
 			<language type="mg">Малагасијски</language>
 			<language type="mga">Средњи ирски</language>
 			<language type="mh">Маршалски</language>
@@ -566,9 +569,9 @@
 			<script type="Hani">хан</script>
 			<script type="Hano">хануно</script>
 			<script type="Hans">поједностављено кинеско писмо</script>
-			<script type="Hans" alt="stand-alone" draft="contributed">поједностављени хан</script>
+			<script type="Hans" alt="stand-alone" draft="contributed">поједностављено хан писмо</script>
 			<script type="Hant">традиционално кинеско писмо</script>
-			<script type="Hant" alt="stand-alone" draft="contributed">традиционални хан</script>
+			<script type="Hant" alt="stand-alone" draft="contributed">традиционално хан писмо</script>
 			<script type="Hebr">хебрејско писмо</script>
 			<script type="Hira">Хирагана</script>
 			<script type="Hmng">пахав хмонг писмо</script>
@@ -721,6 +724,7 @@
 			<territory type="BM">Бермуда</territory>
 			<territory type="BN">Брунеј</territory>
 			<territory type="BO">Боливија</territory>
+			<territory type="BQ" draft="contributed">Карипска Холандија</territory>
 			<territory type="BR">Бразил</territory>
 			<territory type="BS">Бахами</territory>
 			<territory type="BT">Бутан</territory>
@@ -747,6 +751,7 @@
 			<territory type="CR">Костарика</territory>
 			<territory type="CU">Куба</territory>
 			<territory type="CV">Капе Верде</territory>
+			<territory type="CW" draft="contributed">Курасао</territory>
 			<territory type="CX">Божићна острва</territory>
 			<territory type="CY">Кипар</territory>
 			<territory type="CZ">Чешка</territory>
@@ -885,7 +890,7 @@
 			<territory type="PN">Питкерн</territory>
 			<territory type="PR">Порто Рико</territory>
 			<territory type="PS">Палестинске територије</territory>
-			<territory type="PT">Португалија</territory>
+			<territory type="PT">Португал</territory>
 			<territory type="PW">Палау</territory>
 			<territory type="PY">Парагвај</territory>
 			<territory type="QA">Катар</territory>
@@ -910,9 +915,10 @@
 			<territory type="SN">Сенегал</territory>
 			<territory type="SO">Сомалија</territory>
 			<territory type="SR">Суринам</territory>
-			<territory type="SS" draft="provisional">Јужни Судан</territory>
+			<territory type="SS" draft="contributed">Јужни Судан</territory>
 			<territory type="ST">Сао Томе и Принципе</territory>
 			<territory type="SV">Салвадор</territory>
+			<territory type="SX" draft="contributed">Свети Мартин</territory>
 			<territory type="SY">Сирија</territory>
 			<territory type="SZ">Свазиленд</territory>
 			<territory type="TA">Тристан да Куња</territory>
@@ -990,9 +996,20 @@
 		</variants>
 		<keys>
 			<key type="calendar">Календар</key>
+			<key type="colAlternate" draft="contributed">Сортирање уз игнорисање симбола</key>
+			<key type="colBackwards" draft="contributed">Сортирање према обрнутим акцентима</key>
+			<key type="colCaseFirst" draft="contributed">Ређање према малом/великом слову</key>
+			<key type="colCaseLevel" draft="contributed">Сортирање према малом/великом слову</key>
+			<key type="colHiraganaQuaternary" draft="contributed">Сортирање према кана симболима</key>
 			<key type="collation">Сортирање</key>
+			<key type="colNormalization" draft="contributed">Нормализовано сортирање</key>
+			<key type="colNumeric" draft="contributed">Нумеричко сортирање</key>
+			<key type="colStrength" draft="contributed">Сортирање према јачини</key>
 			<key type="currency">Валута</key>
 			<key type="numbers" draft="contributed">Бројеви</key>
+			<key type="timezone" draft="contributed">Временска зона</key>
+			<key type="va" draft="contributed">Варијанта локалитета</key>
+			<key type="variableTop" draft="contributed">Сортирај као симболе</key>
 			<key type="x" draft="contributed">Приватна употреба</key>
 		</keys>
 		<types>
@@ -1011,6 +1028,7 @@
 			<type type="ethi" key="numbers" draft="contributed">етиопски бројеви</type>
 			<type type="ethiopic" key="calendar" draft="contributed">етиопски календар</type>
 			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">етиопски амет алем календар</type>
+			<type type="finance" key="numbers" draft="contributed">Финансијски бројеви</type>
 			<type type="fullwide" key="numbers" draft="contributed">цифре пуне ширине</type>
 			<type type="gb2312han" key="collation">Поједностављено кинеско сортирање</type>
 			<type type="geor" key="numbers" draft="contributed">грузијски бројеви</type>
@@ -1026,6 +1044,7 @@
 			<type type="hantfin" key="numbers" draft="contributed">традиционални кинески финансијски бројеви</type>
 			<type type="hebr" key="numbers" draft="contributed">хебрејски бројеви</type>
 			<type type="hebrew" key="calendar">Хебрејски календар</type>
+			<type type="identical" key="colStrength" draft="contributed">Сортирај све</type>
 			<type type="indian" key="calendar">Индијски национални календар</type>
 			<type type="islamic" key="calendar">Исламски календар</type>
 			<type type="islamic-civil" key="calendar">Исламски цивилни календар</type>
@@ -1036,25 +1055,50 @@
 			<type type="knda" key="numbers" draft="contributed">канада цифре</type>
 			<type type="laoo" key="numbers" draft="contributed">лаошке цифре</type>
 			<type type="latn" key="numbers" draft="contributed">западне цифре</type>
+			<type type="lower" key="colCaseFirst" draft="contributed">Сортирај прво мала слова</type>
 			<type type="mlym" key="numbers" draft="contributed">малајалам цифре</type>
 			<type type="mong" key="numbers" draft="contributed">монголске цифре</type>
 			<type type="mymr" key="numbers" draft="contributed">мијанмарске цифре</type>
+			<type type="native" key="numbers" draft="contributed">Локалне цифре</type>
+			<type type="no" key="colBackwards" draft="contributed">Сортирај акценте нормално</type>
+			<type type="no" key="colCaseFirst" draft="contributed">Сортирај нормалан редослед великих и малих слова</type>
+			<type type="no" key="colCaseLevel" draft="contributed">Сортирај без обзира на велика и мала слова</type>
+			<type type="no" key="colHiraganaQuaternary" draft="contributed">Сортирај кана симболе одвојено</type>
+			<type type="no" key="colNormalization" draft="contributed">Сортирај без нормализације</type>
+			<type type="no" key="colNumeric" draft="contributed">Сортирај цифре појединачно</type>
+			<type type="non-ignorable" key="colAlternate" draft="contributed">Сортирај симболе</type>
 			<type type="orya" key="numbers" draft="contributed">орија цифре</type>
 			<type type="persian" key="calendar" draft="contributed">персијски календар</type>
 			<type type="phonebook" key="collation">Сортирање као телефонски именик</type>
+			<type type="phonetic" key="collation" draft="contributed">Фонетски редослед сортирања</type>
 			<type type="pinyin" key="collation">Пињин сортирање</type>
+			<type type="primary" key="colStrength" draft="contributed">Сортирај само основна слова</type>
+			<type type="quaternary" key="colStrength" draft="contributed">Сортирај акценте/мала и велика слова/ширину/кана симболе</type>
 			<type type="reformed" key="collation" draft="contributed">Реформисани редослед сортирања</type>
 			<type type="roc" key="calendar">Календар Републике Кине</type>
 			<type type="roman" key="numbers" draft="contributed">римски бројеви</type>
 			<type type="romanlow" key="numbers" draft="contributed">мали римски бројеви</type>
 			<type type="search" key="collation" draft="contributed">Опште намењена претрага</type>
+			<type type="searchjl" key="collation" draft="contributed">Претрага према хангул почетном сугласнику</type>
+			<type type="secondary" key="colStrength" draft="contributed">Сортирај акценте</type>
+			<type type="shifted" key="colAlternate" draft="contributed">Сортирање уз игнорисање симбола</type>
 			<type type="stroke" key="collation">Сортирање по броју црта</type>
 			<type type="taml" key="numbers" draft="contributed">тамилски бројеви</type>
+			<type type="tamldec" key="numbers" draft="contributed">тамилске цифре</type>
 			<type type="telu" key="numbers" draft="contributed">телугу цифре</type>
+			<type type="tertiary" key="colStrength" draft="contributed">Сортирај акценте/мала и велика слова/ширину</type>
 			<type type="thai" key="numbers" draft="contributed">тајске цифре</type>
 			<type type="tibt" key="numbers" draft="contributed">тибетанске цифре</type>
 			<type type="traditional" key="collation">Традиционално сортирање</type>
+			<type type="traditional" key="numbers" draft="contributed">Традиционални бројеви</type>
 			<type type="unihan" key="collation" draft="contributed">Редослед сортирања радикалним цртицама</type>
+			<type type="upper" key="colCaseFirst" draft="contributed">Сортирај прво велика слова</type>
+			<type type="vaii" key="numbers" draft="contributed">Ваи цифре</type>
+			<type type="yes" key="colBackwards" draft="contributed">Сортирај акценте обрнуто</type>
+			<type type="yes" key="colCaseLevel" draft="contributed">Сортирај мала и велика слова</type>
+			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Сортирај кана симболе другачије</type>
+			<type type="yes" key="colNormalization" draft="contributed">Сортирај Unicode нормализовано</type>
+			<type type="yes" key="colNumeric" draft="contributed">Сортирај цифре нумерички</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN" draft="contributed">БГН (BGN)</transformName>
@@ -1086,6 +1130,8 @@
 		<exemplarCharacters type="index" draft="contributed">[А Б В Г Д Ђ Е Ж З И Ј К Л Љ М Н Њ О П Р С Т Ћ У Ф Х Ц Ч Џ Ш]</exemplarCharacters>
 		<ellipsis type="final" draft="contributed">{0}...</ellipsis>
 		<ellipsis type="initial" draft="contributed">...{0}</ellipsis>
+		<ellipsis type="medial" draft="contributed">{0}…{1}</ellipsis>
+		<moreInformation draft="contributed">?</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
@@ -1161,6 +1207,20 @@
 							<month type="11">нов</month>
 							<month type="12">дец</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">ј</month>
+							<month type="2">ф</month>
+							<month type="3">м</month>
+							<month type="4">а</month>
+							<month type="5">м</month>
+							<month type="6">ј</month>
+							<month type="7">ј</month>
+							<month type="8">а</month>
+							<month type="9">с</month>
+							<month type="10">о</month>
+							<month type="11">н</month>
+							<month type="12">д</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">јануар</month>
 							<month type="2">фебруар</month>
@@ -1177,6 +1237,20 @@
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">јан</month>
+							<month type="2">феб</month>
+							<month type="3">мар</month>
+							<month type="4">апр</month>
+							<month type="5">мај</month>
+							<month type="6">јун</month>
+							<month type="7">јул</month>
+							<month type="8">авг</month>
+							<month type="9">сеп</month>
+							<month type="10">окт</month>
+							<month type="11">нов</month>
+							<month type="12">дец</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">ј</month>
 							<month type="2">ф</month>
@@ -1191,6 +1265,20 @@
 							<month type="11">н</month>
 							<month type="12">д</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">јануар</month>
+							<month type="2">фебруар</month>
+							<month type="3">март</month>
+							<month type="4">април</month>
+							<month type="5">мај</month>
+							<month type="6">јун</month>
+							<month type="7">јул</month>
+							<month type="8">август</month>
+							<month type="9">септембар</month>
+							<month type="10">октобар</month>
+							<month type="11">новембар</month>
+							<month type="12">децембар</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1204,6 +1292,24 @@
 							<day type="fri">пет</day>
 							<day type="sat">суб</day>
 						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">н</day>
+							<day type="mon">п</day>
+							<day type="tue">у</day>
+							<day type="wed">с</day>
+							<day type="thu">ч</day>
+							<day type="fri">п</day>
+							<day type="sat">с</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">нед</day>
+							<day type="mon" draft="contributed">пон</day>
+							<day type="tue" draft="contributed">уто</day>
+							<day type="wed" draft="contributed">сре</day>
+							<day type="thu" draft="contributed">чет</day>
+							<day type="fri" draft="contributed">пет</day>
+							<day type="sat" draft="contributed">суб</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">недеља</day>
 							<day type="mon">понедељак</day>
@@ -1215,6 +1321,15 @@
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">нед</day>
+							<day type="mon">пон</day>
+							<day type="tue">уто</day>
+							<day type="wed">сре</day>
+							<day type="thu">чет</day>
+							<day type="fri">пет</day>
+							<day type="sat">суб</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">н</day>
 							<day type="mon">п</day>
@@ -1223,6 +1338,24 @@
 							<day type="thu">ч</day>
 							<day type="fri">п</day>
 							<day type="sat">с</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">не</day>
+							<day type="mon" draft="contributed">по</day>
+							<day type="tue" draft="contributed">ут</day>
+							<day type="wed" draft="contributed">ср</day>
+							<day type="thu" draft="contributed">че</day>
+							<day type="fri" draft="contributed">пе</day>
+							<day type="sat" draft="contributed">су</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">недеља</day>
+							<day type="mon">понедељак</day>
+							<day type="tue">уторак</day>
+							<day type="wed">среда</day>
+							<day type="thu">четвртак</day>
+							<day type="fri">петак</day>
+							<day type="sat">субота</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1248,11 +1381,23 @@
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">К1</quarter>
+							<quarter type="2">К2</quarter>
+							<quarter type="3">К3</quarter>
+							<quarter type="4">К4</quarter>
+						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1" draft="contributed">1.</quarter>
 							<quarter type="2" draft="contributed">2.</quarter>
 							<quarter type="3" draft="contributed">3.</quarter>
 							<quarter type="4" draft="contributed">4.</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">Прво тромесечје</quarter>
+							<quarter type="2">Друго тромесечје</quarter>
+							<quarter type="3">Треће тромесечје</quarter>
+							<quarter type="4">Четврто тромесечје</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1323,10 +1468,31 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d.</dateFormatItem>
 						<dateFormatItem id="h">hh a</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
 						<dateFormatItem id="hm">hh.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
 						<dateFormatItem id="hms">hh.mm.ss a</dateFormatItem>
@@ -1486,11 +1652,13 @@
 					</field>
 					<field type="day">
 						<displayName>дан</displayName>
+						<relative type="-3" draft="contributed">Пре три дана</relative>
 						<relative type="-2">прекјуче</relative>
 						<relative type="-1">јуче</relative>
 						<relative type="0">данас</relative>
 						<relative type="1">сутра</relative>
 						<relative type="2">прекосутра</relative>
+						<relative type="3" draft="contributed">За три дана од данас</relative>
 					</field>
 					<field type="weekday">
 						<displayName>дан у недељи</displayName>
@@ -1915,14 +2083,99 @@
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat draft="contributed">Време у земљи: {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat draft="contributed">Време у земљи: {1} ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity draft="contributed">Лоуер Принсиз Квортер</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity draft="contributed">Бијула, Северна Дакота</exemplarCity>
 			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity draft="contributed">GMT+12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity draft="contributed">GMT-12</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity draft="contributed">GMT+11</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity draft="contributed">GMT-13</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity draft="contributed">GMT+10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity draft="contributed">GMT-14</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity draft="contributed">GMT+9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity draft="contributed">GMT+8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity draft="contributed">GMT+7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity draft="contributed">GMT+6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity draft="contributed">GMT+5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity draft="contributed">GMT+4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity draft="contributed">GMT+3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity draft="contributed">GMT+2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity draft="contributed">GMT+1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity draft="contributed">GMT</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Непознат или неважећи град</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity draft="contributed">GMT-1</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity draft="contributed">GMT-2</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity draft="contributed">GMT-3</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity draft="contributed">GMT-4</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity draft="contributed">GMT-5</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity draft="contributed">GMT-6</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity draft="contributed">GMT-7</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity draft="contributed">GMT-8</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity draft="contributed">GMT-9</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity draft="contributed">GMT-10</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity draft="contributed">GMT-11</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity draft="contributed">Андора</exemplarCity>
@@ -3136,7 +3389,7 @@
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
-					<standard draft="provisional">Авганистанско време</standard>
+					<standard draft="contributed">Авганистан</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Central">
@@ -3929,7 +4182,7 @@
 			</metazone>
 			<metazone type="Palau">
 				<long>
-					<standard draft="provisional">Палау време</standard>
+					<standard draft="contributed">Палау</standard>
 				</long>
 			</metazone>
 			<metazone type="Papua_New_Guinea">
@@ -4250,30 +4503,106 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="few" draft="contributed">0.0 хиљаде</pattern>
+					<pattern type="1000" count="many" draft="contributed">0.0 хиљада</pattern>
+					<pattern type="1000" count="one" draft="contributed">0.0 хиљада</pattern>
+					<pattern type="1000" count="other" draft="contributed">0.0 хиљада</pattern>
+					<pattern type="10000" count="few" draft="contributed">00 хиљаде</pattern>
+					<pattern type="10000" count="many" draft="contributed">00 хиљада</pattern>
+					<pattern type="10000" count="one" draft="contributed">00 хиљада</pattern>
+					<pattern type="10000" count="other" draft="contributed">00 хиљада</pattern>
+					<pattern type="100000" count="few" draft="contributed">000 хиљаде</pattern>
+					<pattern type="100000" count="many" draft="contributed">000 хиљада</pattern>
+					<pattern type="100000" count="one" draft="contributed">000 хиљада</pattern>
+					<pattern type="100000" count="other" draft="contributed">000 хиљада</pattern>
+					<pattern type="1000000" count="few" draft="contributed">0.0 милиона</pattern>
+					<pattern type="1000000" count="many" draft="contributed">0.0 милиона</pattern>
+					<pattern type="1000000" count="one" draft="contributed">0.0 милион</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0.0 милиона</pattern>
+					<pattern type="10000000" count="few" draft="contributed">00 милиона</pattern>
+					<pattern type="10000000" count="many" draft="contributed">00 милиона</pattern>
+					<pattern type="10000000" count="one" draft="contributed">00 милион</pattern>
+					<pattern type="10000000" count="other" draft="contributed">00 милиона</pattern>
+					<pattern type="100000000" count="few" draft="contributed">000 милиона</pattern>
+					<pattern type="100000000" count="many" draft="contributed">000 милиона</pattern>
+					<pattern type="100000000" count="one" draft="contributed">000 милион</pattern>
+					<pattern type="100000000" count="other" draft="contributed">000 милиона</pattern>
+					<pattern type="1000000000" count="few" draft="contributed">0.0 милијарде</pattern>
+					<pattern type="1000000000" count="many" draft="contributed">0.0 милијарди</pattern>
+					<pattern type="1000000000" count="one" draft="contributed">0.0 милијарда</pattern>
+					<pattern type="1000000000" count="other" draft="contributed">0.0 милијарди</pattern>
+					<pattern type="10000000000" count="few" draft="contributed">00 милијарде</pattern>
+					<pattern type="10000000000" count="many" draft="contributed">00 милијарди</pattern>
+					<pattern type="10000000000" count="one" draft="contributed">00 милијарда</pattern>
+					<pattern type="10000000000" count="other" draft="contributed">00 милијарди</pattern>
+					<pattern type="100000000000" count="few" draft="contributed">000 милијарде</pattern>
+					<pattern type="100000000000" count="many" draft="contributed">000 милијарди</pattern>
+					<pattern type="100000000000" count="one" draft="contributed">000 милијарда</pattern>
+					<pattern type="100000000000" count="other" draft="contributed">000 милијарди</pattern>
+					<pattern type="1000000000000" count="few" draft="contributed">0.0 трилиона</pattern>
+					<pattern type="1000000000000" count="many" draft="contributed">0.0 трилиона</pattern>
+					<pattern type="1000000000000" count="one" draft="contributed">0.0 трилион</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0.0 трилиона</pattern>
+					<pattern type="10000000000000" count="few" draft="contributed">00 трилиона</pattern>
+					<pattern type="10000000000000" count="many" draft="contributed">00 трилиона</pattern>
+					<pattern type="10000000000000" count="one" draft="contributed">00 трилион</pattern>
+					<pattern type="10000000000000" count="other" draft="contributed">00 трилиона</pattern>
+					<pattern type="100000000000000" count="few" draft="contributed">000 трилиона</pattern>
+					<pattern type="100000000000000" count="many" draft="contributed">000 трилиона</pattern>
+					<pattern type="100000000000000" count="one" draft="contributed">000 трилион</pattern>
+					<pattern type="100000000000000" count="other" draft="contributed">000 трилиона</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
+					<pattern type="1000" count="few" draft="contributed">0000</pattern>
+					<pattern type="1000" count="many" draft="contributed">0000</pattern>
 					<pattern type="1000" count="one" draft="contributed">0000</pattern>
 					<pattern type="1000" count="other" draft="contributed">0000</pattern>
+					<pattern type="10000" count="few" draft="contributed">00K</pattern>
+					<pattern type="10000" count="many" draft="contributed">00K</pattern>
 					<pattern type="10000" count="one" draft="contributed">00 хиљ</pattern>
 					<pattern type="10000" count="other" draft="contributed">00 хиљ</pattern>
+					<pattern type="100000" count="few" draft="contributed">000K</pattern>
+					<pattern type="100000" count="many" draft="contributed">000 хиљ</pattern>
 					<pattern type="100000" count="one" draft="contributed">000 хиљ</pattern>
 					<pattern type="100000" count="other" draft="contributed">000 хиљ</pattern>
+					<pattern type="1000000" count="few" draft="contributed">0.0 мил</pattern>
+					<pattern type="1000000" count="many" draft="contributed">0.0 мил</pattern>
 					<pattern type="1000000" count="one" draft="contributed">0.0 мил</pattern>
 					<pattern type="1000000" count="other" draft="contributed">0.0 мил</pattern>
+					<pattern type="10000000" count="few" draft="contributed">00 мил</pattern>
+					<pattern type="10000000" count="many" draft="contributed">00 мил</pattern>
 					<pattern type="10000000" count="one" draft="contributed">00 мил</pattern>
 					<pattern type="10000000" count="other" draft="contributed">00 мил</pattern>
+					<pattern type="100000000" count="few" draft="contributed">000 мил</pattern>
+					<pattern type="100000000" count="many" draft="contributed">000 мил</pattern>
 					<pattern type="100000000" count="one" draft="contributed">000 мил</pattern>
 					<pattern type="100000000" count="other" draft="contributed">000 мил</pattern>
+					<pattern type="1000000000" count="few" draft="contributed">0.0 млрд</pattern>
+					<pattern type="1000000000" count="many" draft="contributed">0.0 млрд</pattern>
 					<pattern type="1000000000" count="one" draft="contributed">0.0 млрд</pattern>
 					<pattern type="1000000000" count="other" draft="contributed">0.0 млрд</pattern>
+					<pattern type="10000000000" count="few" draft="contributed">00 млрд</pattern>
+					<pattern type="10000000000" count="many" draft="contributed">00 млрд</pattern>
 					<pattern type="10000000000" count="one" draft="contributed">00 млрд</pattern>
 					<pattern type="10000000000" count="other" draft="contributed">00 млрд</pattern>
+					<pattern type="100000000000" count="few" draft="contributed">000 млрд</pattern>
+					<pattern type="100000000000" count="many" draft="contributed">000 млрд</pattern>
 					<pattern type="100000000000" count="one" draft="contributed">000 млрд</pattern>
 					<pattern type="100000000000" count="other" draft="contributed">000 млрд</pattern>
+					<pattern type="1000000000000" count="few" draft="contributed">0.0 бил</pattern>
+					<pattern type="1000000000000" count="many" draft="contributed">0.0 бил</pattern>
 					<pattern type="1000000000000" count="one" draft="contributed">0.0 бил</pattern>
 					<pattern type="1000000000000" count="other" draft="contributed">0.0 бил</pattern>
+					<pattern type="10000000000000" count="few" draft="contributed">00 бил</pattern>
+					<pattern type="10000000000000" count="many" draft="contributed">00 бил</pattern>
 					<pattern type="10000000000000" count="one" draft="contributed">00 бил</pattern>
 					<pattern type="10000000000000" count="other" draft="contributed">00 бил</pattern>
+					<pattern type="100000000000000" count="few" draft="contributed">000 бил</pattern>
+					<pattern type="100000000000000" count="many" draft="contributed">000 бил</pattern>
 					<pattern type="100000000000000" count="one" draft="contributed">000 бил</pattern>
 					<pattern type="100000000000000" count="other" draft="contributed">000 бил</pattern>
 				</decimalFormat>
@@ -4318,6 +4647,7 @@
 				<displayName count="many">УАЕ дирама</displayName>
 				<displayName count="one">УАЕ дирам</displayName>
 				<displayName count="other">УАЕ дирама</displayName>
+				<symbol draft="unconfirmed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Авганистански авган (1927-2002)</displayName>
@@ -4332,6 +4662,7 @@
 				<displayName count="many">авганистанских авгана</displayName>
 				<displayName count="one">авганистански авган</displayName>
 				<displayName count="other">авганистански авгани</displayName>
+				<symbol draft="unconfirmed">AFN</symbol>
 			</currency>
 			<currency type="ALK">
 				<displayName count="few" draft="provisional">стара албанска лека</displayName>
@@ -5510,6 +5841,7 @@
 				<displayName count="many">малавијских квача</displayName>
 				<displayName count="one">малавијска квача</displayName>
 				<displayName count="other">малавијских квача</displayName>
+				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Мексички пезо</displayName>
@@ -5559,6 +5891,7 @@
 				<displayName count="many">мозамбијских метикала</displayName>
 				<displayName count="one">мозамбијски метикал</displayName>
 				<displayName count="other">мозамбијских метикала</displayName>
+				<symbol draft="contributed">MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>намбијски долар</displayName>
@@ -5863,6 +6196,9 @@
 				<displayName count="one">суринамски гилдер</displayName>
 				<displayName count="other">суринамских гилдера</displayName>
 			</currency>
+			<currency type="SSP">
+				<displayName draft="contributed">јужносуданска фунта</displayName>
+			</currency>
 			<currency type="STD">
 				<displayName>Сао Томе и Принципе добра</displayName>
 				<displayName count="few">сао томе и принципе добра</displayName>
@@ -6080,6 +6416,7 @@
 				<displayName count="many">венецуеланских боливара фуертес</displayName>
 				<displayName count="one">венецуелански боливар фуертес</displayName>
 				<displayName count="other">венецуеланских боливара фуертес</displayName>
+				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Вијетнамски донг</displayName>
@@ -6528,6 +6865,8 @@
 		<listPattern>
 			<listPatternPart type="2">{0} и {1}</listPatternPart>
 			<listPatternPart type="end">{0} и {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

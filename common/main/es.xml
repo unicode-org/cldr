@@ -10,6 +10,7 @@
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>,</localeSeparator>
+			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">afar</language>
@@ -22,6 +23,7 @@
 			<language type="af">afrikaans</language>
 			<language type="afa">lengua afroasiática</language>
 			<language type="afh">afrihili</language>
+			<language type="agq" draft="contributed">aghem</language>
 			<language type="ain">ainu</language>
 			<language type="ak">akan</language>
 			<language type="akk">acadio</language>
@@ -40,6 +42,7 @@
 			<language type="art">lengua artificial</language>
 			<language type="arw">arahuaco</language>
 			<language type="as">asamés</language>
+			<language type="asa" draft="contributed">asu</language>
 			<language type="ast">asturiano</language>
 			<language type="ath">lenguas atabascas</language>
 			<language type="aus">lenguas australianas</language>
@@ -47,6 +50,7 @@
 			<language type="awa">avadhi</language>
 			<language type="ay">aimara</language>
 			<language type="az">azerí</language>
+			<language type="az" alt="short" draft="contributed">azerí</language>
 			<language type="ba">bashkir</language>
 			<language type="bad">banda</language>
 			<language type="bai">lenguas bamileke</language>
@@ -54,16 +58,21 @@
 			<language type="ban">balinés</language>
 			<language type="bas">basa</language>
 			<language type="bat">lengua báltica</language>
+			<language type="bax" draft="contributed">bamun</language>
+			<language type="bbj" draft="contributed">ghomala</language>
 			<language type="be">bielorruso</language>
 			<language type="bej">beja</language>
 			<language type="bem">bemba</language>
 			<language type="ber">bereber</language>
+			<language type="bez" draft="contributed">bena</language>
+			<language type="bfd" draft="contributed">bafut</language>
 			<language type="bg">búlgaro</language>
 			<language type="bh">bihari</language>
 			<language type="bho">bhojpuri</language>
 			<language type="bi">bislama</language>
 			<language type="bik">bicol</language>
 			<language type="bin">bini</language>
+			<language type="bkm" draft="contributed">kom</language>
 			<language type="bla">siksika</language>
 			<language type="bm">bambara</language>
 			<language type="bn">bengalí</language>
@@ -71,20 +80,26 @@
 			<language type="bo">tibetano</language>
 			<language type="br">bretón</language>
 			<language type="bra">braj</language>
+			<language type="brx" draft="contributed">bodo</language>
 			<language type="bs">bosnio</language>
+			<language type="bss" draft="contributed">akoose</language>
 			<language type="btk">batak</language>
 			<language type="bua">buriat</language>
 			<language type="bug">buginés</language>
+			<language type="bum" draft="contributed">bulu</language>
 			<language type="byn">blin</language>
+			<language type="byv" draft="contributed">medumba</language>
 			<language type="ca">catalán</language>
 			<language type="cad">caddo</language>
 			<language type="cai">lengua india centroamericana</language>
 			<language type="car">caribe</language>
 			<language type="cau">lengua caucásica</language>
+			<language type="cay" draft="contributed">cayuga</language>
 			<language type="cch">atsam</language>
 			<language type="ce">checheno</language>
 			<language type="ceb">cebuano</language>
 			<language type="cel">lengua celta</language>
+			<language type="cgg" draft="contributed">chiga</language>
 			<language type="ch">chamorro</language>
 			<language type="chb">chibcha</language>
 			<language type="chg">chagatái</language>
@@ -95,6 +110,7 @@
 			<language type="chp">chipewyan</language>
 			<language type="chr">cherokee</language>
 			<language type="chy">cheyene</language>
+			<language type="ckb" draft="contributed">kurdo central</language>
 			<language type="cmc">lenguas chámicas</language>
 			<language type="co">corso</language>
 			<language type="cop">copto</language>
@@ -113,6 +129,7 @@
 			<language type="da">danés</language>
 			<language type="dak">dakota</language>
 			<language type="dar">dargva</language>
+			<language type="dav" draft="contributed">taita</language>
 			<language type="day">dayak</language>
 			<language type="de">alemán</language>
 			<language type="de_AT">alemán austríaco</language>
@@ -121,14 +138,18 @@
 			<language type="den">slave</language>
 			<language type="dgr">dogrib</language>
 			<language type="din">dinka</language>
+			<language type="dje" draft="contributed">zarma</language>
 			<language type="doi">dogri</language>
 			<language type="dra">lengua dravídica</language>
 			<language type="dsb">sorbio inferior</language>
 			<language type="dua">duala</language>
 			<language type="dum">neerlandés medieval</language>
 			<language type="dv">divehi</language>
+			<language type="dyo" draft="contributed">jola-fonyi</language>
 			<language type="dyu">diula</language>
 			<language type="dz">dzongkha</language>
+			<language type="dzg" draft="contributed">dazaga</language>
+			<language type="ebu" draft="contributed">embu</language>
 			<language type="ee">ewe</language>
 			<language type="efi">efik</language>
 			<language type="egy">egipcio antiguo</language>
@@ -186,6 +207,7 @@
 			<language type="grc">griego antiguo</language>
 			<language type="gsw">alemán suizo</language>
 			<language type="gu">gujarati</language>
+			<language type="guz" draft="contributed">gusii</language>
 			<language type="gv">gaélico manés</language>
 			<language type="gwi">kutchin</language>
 			<language type="ha">hausa</language>
@@ -207,6 +229,7 @@
 			<language type="hz">herero</language>
 			<language type="ia">interlingua</language>
 			<language type="iba">iban</language>
+			<language type="ibb" draft="contributed">ibibio</language>
 			<language type="id">indonesio</language>
 			<language type="ie">interlingue</language>
 			<language type="ig">igbo</language>
@@ -225,6 +248,7 @@
 			<language type="iu">inuktitut</language>
 			<language type="ja">japonés</language>
 			<language type="jbo">lojban</language>
+			<language type="jmc" draft="contributed">machame</language>
 			<language type="jpr">judeo-persa</language>
 			<language type="jrb">judeo-árabe</language>
 			<language type="jv">javanés</language>
@@ -237,16 +261,22 @@
 			<language type="kar">karen</language>
 			<language type="kaw">kawi</language>
 			<language type="kbd">kabardiano</language>
+			<language type="kbl" draft="contributed">kanembu</language>
 			<language type="kcg">tyap</language>
+			<language type="kde" draft="contributed">makonde</language>
+			<language type="kea" draft="contributed">criollo caboverdiano</language>
 			<language type="kfo">koro</language>
 			<language type="kg">kongo</language>
 			<language type="kha">khasi</language>
 			<language type="khi">lengua joisana</language>
 			<language type="kho">kotanés</language>
+			<language type="khq" draft="contributed">koyra chiini</language>
 			<language type="ki">kikuyu</language>
 			<language type="kj">kuanyama</language>
 			<language type="kk">kazajo</language>
+			<language type="kkj" draft="contributed">kako</language>
 			<language type="kl">groenlandés</language>
+			<language type="kln" draft="contributed">kalenyin</language>
 			<language type="km">jemer</language>
 			<language type="kmb">kimbundu</language>
 			<language type="kn">canarés</language>
@@ -260,6 +290,9 @@
 			<language type="kro">kru</language>
 			<language type="kru">kurukh</language>
 			<language type="ks">cachemiro</language>
+			<language type="ksb" draft="contributed">shambala</language>
+			<language type="ksf" draft="contributed">bafia</language>
+			<language type="ksh" draft="contributed">kölsch</language>
 			<language type="ku">kurdo</language>
 			<language type="kum">kumyk</language>
 			<language type="kut">kutenai</language>
@@ -268,6 +301,7 @@
 			<language type="ky">kirghiz</language>
 			<language type="la">latín</language>
 			<language type="lad">ladino</language>
+			<language type="lag" draft="contributed">langi</language>
 			<language type="lah">lahnda</language>
 			<language type="lam">lamba</language>
 			<language type="lb">luxemburgués</language>
@@ -285,19 +319,25 @@
 			<language type="lun">lunda</language>
 			<language type="luo">luo</language>
 			<language type="lus">lushai</language>
+			<language type="luy" draft="contributed">luyia</language>
 			<language type="lv">letón</language>
 			<language type="mad">madurés</language>
+			<language type="maf" draft="contributed">mafa</language>
 			<language type="mag">magahi</language>
 			<language type="mai">maithili</language>
 			<language type="mak">macasar</language>
 			<language type="man">mandingo</language>
 			<language type="map">lengua austronesia</language>
 			<language type="mas">masai</language>
+			<language type="mde" draft="contributed">maba</language>
 			<language type="mdf">moksha</language>
 			<language type="mdr">mandar</language>
 			<language type="men">mende</language>
+			<language type="mer" draft="contributed">meru</language>
+			<language type="mfe" draft="contributed">criollo mauriciano</language>
 			<language type="mg">malgache</language>
 			<language type="mga">irlandés medieval</language>
+			<language type="mgh" draft="contributed">makhuwa-meetto</language>
 			<language type="mh">marshalés</language>
 			<language type="mi">maorí</language>
 			<language type="mic">micmac</language>
@@ -316,18 +356,21 @@
 			<language type="mr">marathi</language>
 			<language type="ms">malayo</language>
 			<language type="mt">maltés</language>
+			<language type="mua" draft="contributed">mundang</language>
 			<language type="mul">lenguas múltiples</language>
 			<language type="mun">lenguas munda</language>
 			<language type="mus">creek</language>
 			<language type="mwl">mirandés</language>
 			<language type="mwr">marwari</language>
 			<language type="my">birmano</language>
+			<language type="mye" draft="contributed">myene</language>
 			<language type="myn">maya</language>
 			<language type="myv">erzya</language>
 			<language type="na">nauruano</language>
 			<language type="nah">náhuatl</language>
 			<language type="nai">lengua india norteamericana</language>
 			<language type="nap">napolitano</language>
+			<language type="naq" draft="contributed">nama</language>
 			<language type="nb">bokmal noruego</language>
 			<language type="nd">ndebele septentrional</language>
 			<language type="nds">bajo alemán</language>
@@ -339,7 +382,9 @@
 			<language type="niu">niueano</language>
 			<language type="nl">neerlandés</language>
 			<language type="nl_BE">flamenco</language>
+			<language type="nmg" draft="contributed">kwasio</language>
 			<language type="nn">nynorsk noruego</language>
+			<language type="nnh" draft="contributed">ngiemboon</language>
 			<language type="no">noruego</language>
 			<language type="nog">nogai</language>
 			<language type="non">nórdico antiguo</language>
@@ -347,6 +392,7 @@
 			<language type="nr">ndebele meridional</language>
 			<language type="nso">sotho septentrional</language>
 			<language type="nub">lenguas nubias</language>
+			<language type="nus" draft="contributed">nuer</language>
 			<language type="nv">navajo</language>
 			<language type="nwc">newari clásico</language>
 			<language type="ny">nyanja</language>
@@ -377,7 +423,8 @@
 			<language type="pon">pohnpeiano</language>
 			<language type="pra">lenguas prácritas</language>
 			<language type="pro">provenzal antiguo</language>
-			<language type="ps">pashto</language>
+			<language type="ps">pastún</language>
+			<language type="ps" alt="variant" draft="contributed">pastú</language>
 			<language type="pt">portugués</language>
 			<language type="pt_BR">portugués de Brasil</language>
 			<language type="pt_PT">portugués de Portugal</language>
@@ -389,31 +436,41 @@
 			<language type="rn">kiroundi</language>
 			<language type="ro">rumano</language>
 			<language type="roa">lengua romance</language>
+			<language type="rof" draft="contributed">rombo</language>
 			<language type="rom">romaní</language>
 			<language type="root">raíz</language>
 			<language type="ru">ruso</language>
 			<language type="rup">arrumano</language>
 			<language type="rw">kinyarwanda</language>
+			<language type="rwk" draft="contributed">rwa</language>
 			<language type="sa">sánscrito</language>
 			<language type="sad">sandawe</language>
 			<language type="sah">sakha</language>
 			<language type="sai">lengua india sudamericana</language>
 			<language type="sal">lenguas salish</language>
 			<language type="sam">arameo samaritano</language>
+			<language type="saq" draft="contributed">samburu</language>
 			<language type="sas">sasak</language>
 			<language type="sat">santali</language>
+			<language type="sba" draft="contributed">ngambay</language>
+			<language type="sbp" draft="contributed">sangu</language>
 			<language type="sc">sardo</language>
 			<language type="scn">siciliano</language>
 			<language type="sco">escocés</language>
 			<language type="sd">sindhi</language>
 			<language type="se">sami septentrional</language>
+			<language type="see" draft="contributed">seneca</language>
+			<language type="seh" draft="contributed">sena</language>
 			<language type="sel">selkup</language>
 			<language type="sem">lengua semítica</language>
+			<language type="ses" draft="contributed">koyraboro senni</language>
 			<language type="sg">sango</language>
 			<language type="sga">irlandés antiguo</language>
 			<language type="sgn">lenguajes de signos</language>
 			<language type="sh">serbocroata</language>
+			<language type="shi" draft="contributed">tashelhit</language>
 			<language type="shn">shan</language>
+			<language type="shu" draft="contributed">árabe chadiano</language>
 			<language type="si">cingalés</language>
 			<language type="sid">sidamo</language>
 			<language type="sio">lenguas sioux</language>
@@ -438,6 +495,7 @@
 			<language type="srr">serer</language>
 			<language type="ss">siswati</language>
 			<language type="ssa">lengua nilo-sahariana</language>
+			<language type="ssy" draft="contributed">saho</language>
 			<language type="st">sesotho meridional</language>
 			<language type="su">sundanés</language>
 			<language type="suk">sukuma</language>
@@ -446,12 +504,14 @@
 			<language type="sv">sueco</language>
 			<language type="sw">swahili</language>
 			<language type="swb">comorense</language>
+			<language type="swc" draft="contributed">swahili del Congo</language>
 			<language type="syc">siríaco clásico</language>
 			<language type="syr">siriaco</language>
 			<language type="ta">tamil</language>
 			<language type="tai">lengua tai</language>
 			<language type="te">telugu</language>
 			<language type="tem">temne</language>
+			<language type="teo" draft="contributed">teso</language>
 			<language type="ter">tereno</language>
 			<language type="tet">tetún</language>
 			<language type="tg">tayiko</language>
@@ -470,6 +530,7 @@
 			<language type="tog">tonga del Nyasa</language>
 			<language type="tpi">tok pisin</language>
 			<language type="tr">turco</language>
+			<language type="trv" draft="contributed">taroko</language>
 			<language type="ts">tsonga</language>
 			<language type="tsi">tsimshiano</language>
 			<language type="tt">tártaro</language>
@@ -478,8 +539,10 @@
 			<language type="tut">lengua altaica</language>
 			<language type="tvl">tuvaluano</language>
 			<language type="tw">twi</language>
+			<language type="twq" draft="contributed">tasawaq</language>
 			<language type="ty">tahitiano</language>
 			<language type="tyv">tuviniano</language>
+			<language type="tzm" draft="contributed">tamazight del Marruecos Central</language>
 			<language type="udm">udmurt</language>
 			<language type="ug">uigur</language>
 			<language type="ug" alt="variant" draft="contributed">uygur</language>
@@ -494,7 +557,9 @@
 			<language type="vi">vietnamita</language>
 			<language type="vo">volapük</language>
 			<language type="vot">vótico</language>
+			<language type="vun" draft="contributed">kivunyo</language>
 			<language type="wa">valón</language>
+			<language type="wae" draft="contributed">walser</language>
 			<language type="wak">lenguas wakasha</language>
 			<language type="wal">walamo</language>
 			<language type="war">waray</language>
@@ -503,8 +568,11 @@
 			<language type="wo">uolof</language>
 			<language type="xal">kalmyk</language>
 			<language type="xh">xhosa</language>
+			<language type="xog" draft="contributed">soga</language>
 			<language type="yao">yao</language>
 			<language type="yap">yapés</language>
+			<language type="yav" draft="contributed">yangben</language>
+			<language type="ybb" draft="contributed">yemba</language>
 			<language type="yi">yídish</language>
 			<language type="yo">yoruba</language>
 			<language type="ypk">lenguas yupik</language>
@@ -665,7 +733,7 @@
 			<territory type="034">Asia meridional</territory>
 			<territory type="035">Sudeste asiático</territory>
 			<territory type="039">Europa meridional</territory>
-			<territory type="053">Australia y Nueva Zelanda</territory>
+			<territory type="053">Australasia</territory>
 			<territory type="054">Melanesia</territory>
 			<territory type="057">Micronesia [057]</territory>
 			<territory type="061">Polinesia</territory>
@@ -708,6 +776,7 @@
 			<territory type="BM">Bermudas</territory>
 			<territory type="BN">Brunéi</territory>
 			<territory type="BO">Bolivia</territory>
+			<territory type="BQ">Caribe neerlandés</territory>
 			<territory type="BR">Brasil</territory>
 			<territory type="BS">Bahamas</territory>
 			<territory type="BT">Bután</territory>
@@ -734,6 +803,7 @@
 			<territory type="CR">Costa Rica</territory>
 			<territory type="CU">Cuba</territory>
 			<territory type="CV">Cabo Verde</territory>
+			<territory type="CW">Curazao</territory>
 			<territory type="CX">Isla Christmas</territory>
 			<territory type="CY">Chipre</territory>
 			<territory type="CZ">República Checa</territory>
@@ -898,9 +968,10 @@
 			<territory type="SN">Senegal</territory>
 			<territory type="SO">Somalia</territory>
 			<territory type="SR">Surinam</territory>
-			<territory type="SS" draft="provisional">Sudán del Sur</territory>
+			<territory type="SS">Sudán del Sur</territory>
 			<territory type="ST">Santo Tomé y Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
+			<territory type="SX">Sint Maarten</territory>
 			<territory type="SY">Siria</territory>
 			<territory type="SZ">Suazilandia</territory>
 			<territory type="TA">Tristán da Cunha</territory>
@@ -980,9 +1051,20 @@
 		</variants>
 		<keys>
 			<key type="calendar">calendario</key>
+			<key type="colAlternate" draft="contributed">Orden ignorando símbolos</key>
+			<key type="colBackwards" draft="contributed">Orden de acentos con inversión</key>
+			<key type="colCaseFirst" draft="contributed">Orden de mayúsculas/minúsculas</key>
+			<key type="colCaseLevel" draft="contributed">Orden con distinción entre mayúsculas y minúsculas</key>
+			<key type="colHiraganaQuaternary" draft="contributed">Orden de kana</key>
 			<key type="collation">intercalación</key>
+			<key type="colNormalization" draft="contributed">Orden con normalización</key>
+			<key type="colNumeric" draft="contributed">Orden numérico</key>
+			<key type="colStrength" draft="contributed">Intensidad de orden</key>
 			<key type="currency">moneda</key>
 			<key type="numbers">números</key>
+			<key type="timezone" draft="contributed">Zona horaria</key>
+			<key type="va" draft="contributed">Variante local</key>
+			<key type="variableTop" draft="contributed">Ordenar como símbolos</key>
 			<key type="x" draft="contributed">Uso privado</key>
 		</keys>
 		<types>
@@ -1001,6 +1083,7 @@
 			<type type="ethi" key="numbers">números en etíope</type>
 			<type type="ethiopic" key="calendar">calendario etíope</type>
 			<type type="ethiopic-amete-alem" key="calendar">calendario amete alem etíope</type>
+			<type type="finance" key="numbers" draft="contributed">Números financieros</type>
 			<type type="fullwide" key="numbers">dígitos de ancho completo</type>
 			<type type="gb2312han" key="collation">orden del chino simplificado - GB2312</type>
 			<type type="geor" key="numbers">números en georgiano</type>
@@ -1016,6 +1099,7 @@
 			<type type="hantfin" key="numbers">números financieros en chino tradicional</type>
 			<type type="hebr" key="numbers">números en hebreo</type>
 			<type type="hebrew" key="calendar">calendario hebreo</type>
+			<type type="identical" key="colStrength" draft="contributed">Ordenar todo</type>
 			<type type="indian" key="calendar">calendario nacional hindú</type>
 			<type type="islamic" key="calendar">calendario islámico</type>
 			<type type="islamic-civil" key="calendar">calendario civil islámico</type>
@@ -1026,29 +1110,56 @@
 			<type type="knda" key="numbers">dígitos en kannada</type>
 			<type type="laoo" key="numbers">dígitos en lao</type>
 			<type type="latn" key="numbers">dígitos occidentales</type>
+			<type type="lower" key="colCaseFirst" draft="contributed">Ordenar empezando por minúsculas</type>
 			<type type="mlym" key="numbers">dígitos en malayalam</type>
 			<type type="mong" key="numbers">dígitos en mongol</type>
 			<type type="mymr" key="numbers">dígitos en birmano</type>
+			<type type="native" key="numbers" draft="contributed">Dígitos nativos</type>
+			<type type="no" key="colBackwards" draft="contributed">Ordenar acentos normalmente</type>
+			<type type="no" key="colCaseFirst" draft="contributed">Ordenar siguiendo orden normal de mayúsculas y minúsculas</type>
+			<type type="no" key="colCaseLevel" draft="contributed">Ordenar sin distinguir entre mayúsculas y minúsculas</type>
+			<type type="no" key="colHiraganaQuaternary" draft="contributed">Ordenar caracteres kana por separado</type>
+			<type type="no" key="colNormalization" draft="contributed">Ordenar sin normalización</type>
+			<type type="no" key="colNumeric" draft="contributed">Ordenar dígitos individualmente</type>
+			<type type="non-ignorable" key="colAlternate" draft="contributed">Ordenar símbolos</type>
 			<type type="orya" key="numbers">dígitos en oriya</type>
 			<type type="persian" key="calendar">calendario persa</type>
 			<type type="phonebook" key="collation">orden de listín telefónico</type>
+			<type type="phonetic" key="collation" draft="contributed">Orden de clasificación fonético</type>
 			<type type="pinyin" key="collation">orden pinyin</type>
+			<type type="primary" key="colStrength" draft="contributed">Ordenar solo letras base</type>
+			<type type="quaternary" key="colStrength" draft="contributed">Ordenar acentos/mayúsculas y minúsculas/ancho/kana</type>
 			<type type="reformed" key="collation">orden reformado</type>
 			<type type="roc" key="calendar">calendario de la República de China</type>
 			<type type="roman" key="numbers">números romanos</type>
 			<type type="romanlow" key="numbers">números romanos en minúscula</type>
 			<type type="search" key="collation">búsqueda de uso general</type>
+			<type type="searchjl" key="collation" draft="contributed">Buscar por consonante inicial de hangul</type>
+			<type type="secondary" key="colStrength" draft="contributed">Ordenar acentos</type>
+			<type type="shifted" key="colAlternate" draft="contributed">Ordenar ignorando símbolos</type>
 			<type type="stroke" key="collation">orden de los trazos</type>
 			<type type="taml" key="numbers">números en tamil tradicional</type>
+			<type type="tamldec" key="numbers" draft="contributed">dígitos en tamil</type>
 			<type type="telu" key="numbers">dígitos en telugu</type>
+			<type type="tertiary" key="colStrength" draft="contributed">Ordenar acentos/mayúsculas y minúsculas/ancho</type>
 			<type type="thai" key="numbers">dígitos en tailandés</type>
 			<type type="tibt" key="numbers">dígitos en tibetano</type>
 			<type type="traditional" key="collation">orden tradicional</type>
+			<type type="traditional" key="numbers" draft="contributed">Números tradicionales</type>
 			<type type="unihan" key="collation">orden por radical-trazos</type>
+			<type type="upper" key="colCaseFirst" draft="contributed">Ordenar empezando por mayúsculas</type>
+			<type type="vaii" key="numbers" draft="contributed">Dígitos vai</type>
+			<type type="yes" key="colBackwards" draft="contributed">Ordenar acentos con inversión</type>
+			<type type="yes" key="colCaseLevel" draft="contributed">Ordenar distinguiendo entre mayúsculas y minúsculas</type>
+			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Ordenar diferenciando caracteres kana</type>
+			<type type="yes" key="colNormalization" draft="contributed">Ordenar con normalización Unicode</type>
+			<type type="yes" key="colNumeric" draft="contributed">Ordenar dígitos numéricamente</type>
 		</types>
 		<transformNames>
+			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Numérico</transformName>
 			<transformName type="Tone" draft="contributed">Tono</transformName>
+			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Acentos</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Ancho completo</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Ancho medio</transformName>
@@ -1095,6 +1206,7 @@
 		<exemplarCharacters type="currencySymbol">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ¡ ? ¿ . … ' ‘ ’ &quot; “ ” « » ( ) \[ \] § @ * / \\ \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<ellipsis type="final">{0}...</ellipsis>
 		<ellipsis type="initial">… {0}</ellipsis>
 		<ellipsis type="medial">{0}… {1}</ellipsis>
 		<moreInformation draft="contributed">[...]</moreInformation>
@@ -1231,7 +1343,18 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
+							<month type="1">ene</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">abr</month>
 							<month type="5" draft="contributed">mayo</month>
+							<month type="6">jun</month>
+							<month type="7">jul</month>
+							<month type="8">ago</month>
+							<month type="9">sep</month>
+							<month type="10">oct</month>
+							<month type="11">nov</month>
+							<month type="12">dic</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">E</month>
@@ -1260,6 +1383,15 @@
 							<day type="fri">vie</day>
 							<day type="sat">sáb</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">D</day>
+							<day type="mon" draft="contributed">L</day>
+							<day type="tue" draft="contributed">M</day>
+							<day type="wed" draft="contributed">X</day>
+							<day type="thu" draft="contributed">J</day>
+							<day type="fri" draft="contributed">V</day>
+							<day type="sat" draft="contributed">S</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">domingo</day>
 							<day type="mon">lunes</day>
@@ -1279,6 +1411,15 @@
 							<day type="thu">J</day>
 							<day type="fri">V</day>
 							<day type="sat">S</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">D</day>
+							<day type="mon" draft="contributed">L</day>
+							<day type="tue" draft="contributed">M</day>
+							<day type="wed" draft="contributed">X</day>
+							<day type="thu" draft="contributed">J</day>
+							<day type="fri" draft="contributed">V</day>
+							<day type="sat" draft="contributed">S</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1381,10 +1522,31 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern draft="contributed">{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="h">hh a</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
 						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
@@ -1393,7 +1555,7 @@
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMd">d/MM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="provisional">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMdd" draft="contributed">dd/MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMdd">dd-MMM</dateFormatItem>
@@ -1403,10 +1565,10 @@
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
-						<dateFormatItem id="yMEd">E d/M/y</dateFormatItem>
+						<dateFormatItem id="yMEd">EEE, d/M/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">EEE, d 'de' MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yQ">Q y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
@@ -1424,6 +1586,10 @@
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
 							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a" draft="contributed">hh–hh</greatestDifference>
+							<greatestDifference id="H" draft="contributed">HH–HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
@@ -1448,6 +1614,10 @@
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a" draft="provisional">HH–HH v</greatestDifference>
+							<greatestDifference id="H" draft="provisional">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
@@ -1479,7 +1649,7 @@
 							<greatestDifference id="y">M/yy – M/yy</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">M/d/yy – M/d/yy</greatestDifference>
+							<greatestDifference id="d">d/M/yy – d/M/yy</greatestDifference>
 							<greatestDifference id="M">d/M/yy – d/M/yy</greatestDifference>
 							<greatestDifference id="y">d/M/yy – d/M/yy</greatestDifference>
 						</intervalFormatItem>
@@ -1532,11 +1702,13 @@
 					</field>
 					<field type="day">
 						<displayName>día</displayName>
+						<relative type="-3" draft="contributed">Hace tres días</relative>
 						<relative type="-2">antes de ayer</relative>
 						<relative type="-1">ayer</relative>
 						<relative type="0">hoy</relative>
 						<relative type="1">mañana</relative>
 						<relative type="2">pasado mañana</relative>
+						<relative type="3" draft="contributed">Dentro de tres días</relative>
 					</field>
 					<field type="weekday">
 						<displayName>día de la semana</displayName>
@@ -1756,9 +1928,13 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat>Hora de {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat>Hora de {1} ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity draft="contributed">Lower Prince's Quarter</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity draft="contributed">Beulah, Dakota del Norte</exemplarCity>
 			</zone>
@@ -1883,7 +2059,7 @@
 				<exemplarCity>Hora de Canadá (Halifax)</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
-				<exemplarCity>St. John’s</exemplarCity>
+				<exemplarCity>Saint John</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zúrich</exemplarCity>
@@ -1955,6 +2131,9 @@
 				<exemplarCity>París</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
+				<long>
+					<daylight draft="contributed">Hora de verano británica</daylight>
+				</long>
 				<exemplarCity>Londres</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -1988,6 +2167,9 @@
 				<exemplarCity>Makasar</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
+				<long>
+					<daylight draft="contributed">Hora de verano irlandesa</daylight>
+				</long>
 				<exemplarCity>Dublín</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2437,9 +2619,9 @@
 			</metazone>
 			<metazone type="Azerbaijan">
 				<long>
-					<generic draft="contributed">Hora de Azerbaiyán</generic>
-					<standard draft="contributed">Hora estándar de Azerbaiyán</standard>
-					<daylight draft="contributed">Hora de verano de Azerbaiyán</daylight>
+					<generic>Hora de Azerbaiyán</generic>
+					<standard>Hora estándar de Azerbaiyán</standard>
+					<daylight>Hora de verano de Azerbaiyán</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azores">
@@ -2458,9 +2640,9 @@
 			</metazone>
 			<metazone type="Bangladesh">
 				<long>
-					<generic>Hora de Bangladesh</generic>
-					<standard>Hora estándar de Bangladesh</standard>
-					<daylight>Hora de verano de Bangladesh</daylight>
+					<generic>Hora de Bangladés</generic>
+					<standard>Hora estándar de Bangladés</standard>
+					<daylight>Hora de verano de Bangladés</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bering">
@@ -2494,6 +2676,11 @@
 					<daylight>Hora de verano de Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard>Hora de Brunéi</standard>
+				</long>
+			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<generic>Hora de Cabo Verde</generic>
@@ -2503,12 +2690,19 @@
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<standard draft="contributed">Hora estándar de Chamorro</standard>
+					<standard>Hora estándar de Chamorro</standard>
 				</long>
 			</metazone>
 			<metazone type="Changbai">
 				<long>
 					<standard draft="contributed">Hora de Changbai</standard>
+				</long>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<generic>Hora de Chatham</generic>
+					<standard>Hora estándar de Chatham</standard>
+					<daylight>Hora de verano de Chatham</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
@@ -2528,8 +2722,18 @@
 			<metazone type="Choibalsan">
 				<long>
 					<generic draft="contributed">Hora de Choibalsan</generic>
-					<standard draft="contributed">Hora estándar de Choibalsan</standard>
+					<standard>Hora estándar de Choibalsan</standard>
 					<daylight draft="contributed">Hora de verano de Choibalsan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Christmas">
+				<long>
+					<standard>Hora de la isla de Navidad</standard>
+				</long>
+			</metazone>
+			<metazone type="Cocos">
+				<long>
+					<standard>Hora de las islas Cocos</standard>
 				</long>
 			</metazone>
 			<metazone type="Colombia">
@@ -2537,6 +2741,13 @@
 					<generic>Hora de Colombia</generic>
 					<standard>Hora estándar de Colombia</standard>
 					<daylight>Hora de verano de Colombia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<generic>Hora de las islas Cook</generic>
+					<standard>Hora estándar de las islas Cook</standard>
+					<daylight>Hora de verano media de las islas Cook</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cuba">
@@ -2549,6 +2760,16 @@
 			<metazone type="Dacca">
 				<long>
 					<standard draft="contributed">Hora de Dacca</standard>
+				</long>
+			</metazone>
+			<metazone type="Davis">
+				<long>
+					<standard>Hora de Davis</standard>
+				</long>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
+					<standard>Hora de Dumont-d’Urville</standard>
 				</long>
 			</metazone>
 			<metazone type="Dushanbe">
@@ -2568,6 +2789,13 @@
 					<standard draft="contributed">Hora de Timor Oriental</standard>
 				</long>
 			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic>Hora de la isla de Pascua</generic>
+					<standard>Hora estándar de la isla de Pascua</standard>
+					<daylight>Hora de verano de la isla de Pascua</daylight>
+				</long>
+			</metazone>
 			<metazone type="Ecuador">
 				<long>
 					<standard>Hora de Ecuador</standard>
@@ -2575,28 +2803,47 @@
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic>Hora de Europa Central</generic>
-					<standard>Hora estándar de Europa Central</standard>
-					<daylight>Hora de verano de Europa Central</daylight>
+					<generic>Hora de Europa central</generic>
+					<standard>Hora estándar de Europa central</standard>
+					<daylight>Hora de verano de Europa central</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic>Hora de Europa del Este</generic>
-					<standard>Hora estándar de Europa del Este</standard>
-					<daylight>Hora de verano de Europa del Este</daylight>
+					<generic>Hora de Europa oriental</generic>
+					<standard>Hora estándar de Europa oriental</standard>
+					<daylight>Hora de verano de Europa oriental</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic>Hora de Europa Occidental</generic>
-					<standard>Hora estándar de Europa Occidental</standard>
-					<daylight>Hora de verano de Europa Occidental</daylight>
+					<generic>Hora de Europa occidental</generic>
+					<standard>Hora estándar de Europa occidental</standard>
+					<daylight>Hora de verano de Europa occidental</daylight>
+				</long>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic>Hora de las islas Malvinas</generic>
+					<standard>Hora estándar de las islas Malvinas</standard>
+					<daylight>Hora de verano de las islas Malvinas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
+					<generic>Hora de Fiyi</generic>
+					<standard>Hora estándar de Fiyi</standard>
+					<daylight>Hora de verano de Fiyi</daylight>
 				</long>
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
-					<standard draft="contributed">Hora de la Guayana Francesa</standard>
+					<standard>Hora de la Guayana Francesa</standard>
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard>Hora de las Tierras Australes y Antárticas Francesas</standard>
 				</long>
 			</metazone>
 			<metazone type="Frunze">
@@ -2611,6 +2858,11 @@
 					<standard>Hora de Galápagos</standard>
 				</long>
 			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard>Hora de Gambier</standard>
+				</long>
+			</metazone>
 			<metazone type="Georgia">
 				<long>
 					<generic>Hora de Georgia</generic>
@@ -2618,9 +2870,14 @@
 					<daylight>Hora de verano de Georgia</daylight>
 				</long>
 			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard>Hora de las islas Gilbert</standard>
+				</long>
+			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard>Hora media de Greenwich</standard>
+					<standard>Hora del meridiano de Greenwich</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Central">
@@ -2656,14 +2913,14 @@
 			</metazone>
 			<metazone type="Guyana">
 				<long>
-					<standard draft="contributed">Hora de la Guyana</standard>
+					<standard>Hora de Guyana</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
-					<generic>Hora de Hawái-Aleutianas</generic>
-					<standard>Hora estándar de Hawái-Aleutianas</standard>
-					<daylight>Hora de verano de Hawái-Aleutianas</daylight>
+					<generic>Hora de Hawái-Aleutiano</generic>
+					<standard>Hora estándar de Hawái-Aleutiano</standard>
+					<daylight>Hora de verano de Hawái-Aleutiano</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -2676,7 +2933,7 @@
 			<metazone type="Hovd">
 				<long>
 					<generic draft="contributed">Hora de Hovd</generic>
-					<standard draft="contributed">Hora estándar de Hovd</standard>
+					<standard>Hora estándar de Hovd</standard>
 					<daylight draft="contributed">Hora de verano de Hovd</daylight>
 				</long>
 			</metazone>
@@ -2708,6 +2965,13 @@
 			<metazone type="Indonesia_Western">
 				<long>
 					<standard>Hora de Indonesia occidental</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic>Hora de Irán</generic>
+					<standard>Hora estándar de Irán</standard>
+					<daylight>Hora de verano de Irán</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -2772,6 +3036,11 @@
 					<daylight>Hora de verano de Corea</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard>Hora de Kosrae</standard>
+				</long>
+			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic draft="contributed">Hora de Krasnoyarsk</generic>
@@ -2801,6 +3070,11 @@
 					<standard draft="contributed">Hora de Sri Lanka</standard>
 				</long>
 			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard>Hora de las Espóradas Ecuatoriales</standard>
+				</long>
+			</metazone>
 			<metazone type="Long_Shu">
 				<long>
 					<standard draft="contributed">Hora de Long-Shu</standard>
@@ -2822,7 +3096,7 @@
 			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<standard draft="contributed">Hora de Macquarie</standard>
+					<standard draft="contributed">Hora de la isla Macquarie</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -2842,9 +3116,31 @@
 					<standard draft="contributed">Hora de Malasia</standard>
 				</long>
 			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard draft="provisional">Hora de las islas Maldivas</standard>
+				</long>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard>Hora de las islas Marquesas</standard>
+				</long>
+			</metazone>
 			<metazone type="Marshall_Islands">
 				<long>
 					<standard draft="contributed">Hora de las Islas Marshall</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic>Hora de Mauricio</generic>
+					<standard>Hora estándar de Mauricio</standard>
+					<daylight>Hora de verano de Mauricio</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard>Hora de Mawson</standard>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
@@ -2866,9 +3162,21 @@
 					<standard draft="contributed">Hora de Myanmar</standard>
 				</long>
 			</metazone>
+			<metazone type="Nauru">
+				<long>
+					<standard>Hora de Nauru</standard>
+				</long>
+			</metazone>
 			<metazone type="Nepal">
 				<long>
-					<standard draft="contributed">Hora de Nepal</standard>
+					<standard>Hora de Nepal</standard>
+				</long>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
+					<generic>Hora de Nueva Caledonia</generic>
+					<standard>Hora estándar de Nueva Caledonia</standard>
+					<daylight>Hora de verano de Nueva Caledonia</daylight>
 				</long>
 			</metazone>
 			<metazone type="New_Zealand">
@@ -2885,10 +3193,20 @@
 					<daylight>Hora de verano de Terranova</daylight>
 				</long>
 			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard>Hora de Niue</standard>
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard>Hora de las islas Norfolk</standard>
+				</long>
+			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">Hora de Fernando de Noronha</generic>
-					<standard draft="contributed">Hora estándar de Fernando de Noronha</standard>
+					<generic>Hora de Fernando de Noronha</generic>
+					<standard>Hora estándar de Fernando de Noronha</standard>
 					<daylight draft="contributed">Hora de verano de Fernando de Noronha</daylight>
 				</long>
 			</metazone>
@@ -2900,7 +3218,7 @@
 			<metazone type="Novosibirsk">
 				<long>
 					<generic draft="contributed">Hora de Novosibirsk</generic>
-					<standard draft="contributed">Hora estándar de Novosibirsk</standard>
+					<standard>Hora estándar de Novosibirsk</standard>
 					<daylight draft="contributed">Hora de verano de Novosibirsk</daylight>
 				</long>
 			</metazone>
@@ -2916,6 +3234,16 @@
 					<generic draft="contributed">Hora de Pakistán</generic>
 					<standard draft="contributed">Hora estándar de Pakistán</standard>
 					<daylight draft="contributed">Hora de verano de Pakistán</daylight>
+				</long>
+			</metazone>
+			<metazone type="Palau">
+				<long>
+					<standard>Hora de Palaos</standard>
+				</long>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
+					<standard>Hora de Papúa Nueva Guinea</standard>
 				</long>
 			</metazone>
 			<metazone type="Paraguay">
@@ -2934,9 +3262,14 @@
 			</metazone>
 			<metazone type="Philippines">
 				<long>
-					<generic draft="contributed">Hora de Filipinas</generic>
-					<standard draft="contributed">Hora estándar de Filipinas</standard>
-					<daylight draft="contributed">Hora de verano de Filipinas</daylight>
+					<generic>Hora de Filipinas</generic>
+					<standard>Hora estándar de Filipinas</standard>
+					<daylight>Hora de verano de Filipinas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard>Hora de las islas Fénix</standard>
 				</long>
 			</metazone>
 			<metazone type="Pierre_Miquelon">
@@ -2946,11 +3279,31 @@
 					<daylight draft="contributed">Hora de verano de San Pedro y Miquelón</daylight>
 				</long>
 			</metazone>
+			<metazone type="Pitcairn">
+				<long>
+					<standard>Hora de Pitcairn</standard>
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard>Hora de Pohnpei</standard>
+				</long>
+			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
 					<generic draft="contributed">Hora de Qyzylorda</generic>
 					<standard draft="contributed">Hora estándar de Qyzylorda</standard>
 					<daylight draft="contributed">Hora de verano de Qyzylorda</daylight>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard draft="provisional">Hora de la Reunión</standard>
+				</long>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
+					<standard>Hora de Rothera</standard>
 				</long>
 			</metazone>
 			<metazone type="Sakhalin">
@@ -2979,11 +3332,26 @@
 					<standard draft="contributed">Hora estándar de Samoa</standard>
 				</long>
 			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard draft="provisional">Hora de las islas Seychelles</standard>
+				</long>
+			</metazone>
 			<metazone type="Shevchenko">
 				<long>
 					<generic draft="contributed">Hora de Shevchenko</generic>
 					<standard draft="contributed">Hora estándar de Shevchenko</standard>
 					<daylight draft="contributed">Hora de verano de Shevchenko</daylight>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard draft="provisional">Hora de Singapur</standard>
+				</long>
+			</metazone>
+			<metazone type="Solomon">
+				<long>
+					<standard>Hora de las islas Salomón</standard>
 				</long>
 			</metazone>
 			<metazone type="South_Georgia">
@@ -2993,7 +3361,7 @@
 			</metazone>
 			<metazone type="Suriname">
 				<long>
-					<standard draft="contributed">Hora de Surinam</standard>
+					<standard>Hora de Surinam</standard>
 				</long>
 			</metazone>
 			<metazone type="Sverdlovsk">
@@ -3001,6 +3369,23 @@
 					<generic draft="contributed">Hora de Sverdlovsk</generic>
 					<standard draft="contributed">Hora estándar de Sverdlovsk</standard>
 					<daylight draft="contributed">Hora de verano de Sverdlovsk</daylight>
+				</long>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard>Hora de Syowa</standard>
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard>Hora de Tahití</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>Hora de Taipei</generic>
+					<standard>Hora estándar de Taipei</standard>
+					<daylight>Hora de verano de Taipei</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -3022,6 +3407,23 @@
 					<daylight draft="contributed">Hora de verano de Tbilisi</daylight>
 				</long>
 			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard>Hora de Tokelau</standard>
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<generic>Hora de Tonga</generic>
+					<standard>Hora estándar de Tonga</standard>
+					<daylight>Hora de verano de Tonga</daylight>
+				</long>
+			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard>Hora de Chuuk</standard>
+				</long>
+			</metazone>
 			<metazone type="Turkey">
 				<long>
 					<generic>Hora de Turquía</generic>
@@ -3034,6 +3436,11 @@
 					<generic draft="contributed">Hora de Turkmenistán</generic>
 					<standard draft="contributed">Hora estándar de Turkmenistán</standard>
 					<daylight draft="contributed">Hora de verano de Turkmenistán</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
+					<standard>Hora de Tuvalu</standard>
 				</long>
 			</metazone>
 			<metazone type="Uralsk">
@@ -3062,6 +3469,13 @@
 					<daylight draft="contributed">Hora de verano de Uzbekistán</daylight>
 				</long>
 			</metazone>
+			<metazone type="Vanuatu">
+				<long>
+					<generic>Hora de Vanuatu</generic>
+					<standard>Hora estándar de Vanuatu</standard>
+					<daylight>Hora de verano de Vanuatu</daylight>
+				</long>
+			</metazone>
 			<metazone type="Venezuela">
 				<long>
 					<standard>Hora de Venezuela</standard>
@@ -3081,10 +3495,25 @@
 					<daylight>Hora de verano de Volgogrado</daylight>
 				</long>
 			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard>Hora de Vostok</standard>
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard>Hora de la isla Wake</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard>Hora de Wallis y Futuna</standard>
+				</long>
+			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic draft="contributed">Hora de Yakutsk</generic>
-					<standard draft="contributed">Hora estándar de Yakutsk</standard>
+					<standard>Hora estándar de Yakutsk</standard>
 					<daylight draft="contributed">Hora de verano de Yakutsk</daylight>
 				</long>
 			</metazone>
@@ -4222,6 +4651,11 @@
 			<currency type="SRG">
 				<displayName>florín surinamés</displayName>
 			</currency>
+			<currency type="SSP">
+				<displayName>libra sursudanesa</displayName>
+				<displayName count="one" draft="contributed">libra sursudanesa</displayName>
+				<displayName count="other" draft="contributed">libras sursudanesas</displayName>
+			</currency>
 			<currency type="STD">
 				<displayName>dobra de Santo Tomé y Príncipe</displayName>
 				<displayName count="one" draft="contributed">dobra de Santo Tomé y Príncipe</displayName>
@@ -4653,6 +5087,8 @@
 		<listPattern>
 			<listPatternPart type="2">{0} y {1}</listPatternPart>
 			<listPatternPart type="end">{0} y {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

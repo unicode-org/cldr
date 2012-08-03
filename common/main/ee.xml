@@ -7,8 +7,14 @@
 		<language type="ee"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">{0} ({1})</localePattern>
+			<localeSeparator draft="unconfirmed">, </localeSeparator>
+			<localeKeyTypePattern draft="unconfirmed">{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="ab">abkhaziagbe</language>
+			<language type="ady" draft="unconfirmed">adyghegbe</language>
 			<language type="af">afrikaangbe</language>
 			<language type="agq" draft="unconfirmed">aghemgbe</language>
 			<language type="ak">blugbe</language>
@@ -16,20 +22,35 @@
 			<language type="ar">arabiagbe</language>
 			<language type="as">assamegbe</language>
 			<language type="asa">asagbe</language>
+			<language type="ast" draft="unconfirmed">asturiagbe</language>
+			<language type="av" draft="unconfirmed">avariagbe</language>
 			<language type="ay">aymargbe</language>
 			<language type="az">azerbaijangbe</language>
+			<language type="ba" draft="unconfirmed">bashkigbe</language>
 			<language type="bas" draft="unconfirmed">basaagbe</language>
+			<language type="bax" draft="unconfirmed">bamugbe</language>
+			<language type="bbj" draft="unconfirmed">ghomalagbe</language>
 			<language type="be">belarusiagbe</language>
 			<language type="bem">bembagbe</language>
 			<language type="bez">benagbe</language>
+			<language type="bfd" draft="unconfirmed">bafutgbe</language>
 			<language type="bg">bulgariagbe</language>
+			<language type="bi" draft="unconfirmed">bislamagbe</language>
+			<language type="bkm" draft="unconfirmed">komgbe</language>
 			<language type="bm">bambaragbe</language>
 			<language type="bn">bengalgbe</language>
 			<language type="bo">tibetagbe</language>
 			<language type="br">bretongbe</language>
 			<language type="brx">bodogbe</language>
 			<language type="bs">bosniagbe</language>
+			<language type="bss" draft="unconfirmed">akoosiagbe</language>
+			<language type="bum" draft="unconfirmed">bulugbe</language>
+			<language type="byv" draft="unconfirmed">medumbagbe</language>
 			<language type="ca">katalagbe</language>
+			<language type="ceb" draft="unconfirmed">Sebuanogbe</language>
+			<language type="ch" draft="unconfirmed">kamorrogbe</language>
+			<language type="chk" draft="unconfirmed">tsukesegbe</language>
+			<language type="chm" draft="unconfirmed">tsetsniagbe</language>
 			<language type="cs">tsɛkgbe</language>
 			<language type="cy">walesgbe</language>
 			<language type="da">denmarkgbe</language>
@@ -58,14 +79,20 @@
 			<language type="eu">basqugbe</language>
 			<language type="ewo" draft="unconfirmed">ewondogbe</language>
 			<language type="fa">persiagbe</language>
+			<language type="fan" draft="unconfirmed">fangbe</language>
 			<language type="ff" draft="unconfirmed">fulagbe</language>
 			<language type="fi">finlanɖgbe</language>
 			<language type="fil">filipingbe</language>
 			<language type="fj">fidzigbe</language>
+			<language type="fo" draft="unconfirmed">faroegbe</language>
 			<language type="fr">fransegbe</language>
 			<language type="fr_CA">kanadatɔwo ƒe fransegbe</language>
 			<language type="fr_CH">swizerlanɖtɔwo ƒe fransegbe</language>
+			<language type="fy" draft="unconfirmed">ɣetoɖoƒe frisiagbe</language>
 			<language type="ga">irelanɖgbe</language>
+			<language type="gaa" draft="unconfirmed">gɛgbe</language>
+			<language type="gd" draft="unconfirmed">skɔtlanɖ gaeliagbe</language>
+			<language type="gil" draft="unconfirmed">gilbertgbe</language>
 			<language type="gl">galatagbe</language>
 			<language type="gn">guarangbe</language>
 			<language type="gsw">swizerlanɖtɔwo ƒe germaniagbe</language>
@@ -74,37 +101,59 @@
 			<language type="haw">hawaigbe</language>
 			<language type="he">hebrigbe</language>
 			<language type="hi">hindigbe</language>
+			<language type="hil" draft="unconfirmed">hiligenɔgbe</language>
+			<language type="ho" draft="unconfirmed">hiri motugbe</language>
 			<language type="hr">kroatiagbe</language>
 			<language type="ht">haitigbe</language>
 			<language type="hu">hungarigbe</language>
 			<language type="hy">armeniagbe</language>
+			<language type="ibb" draft="unconfirmed">ibibiogbe</language>
 			<language type="id">indonesiagbe</language>
 			<language type="ig">igbogbe</language>
+			<language type="ilo" draft="unconfirmed">ilikogbe</language>
+			<language type="inh" draft="unconfirmed">ingusigbe</language>
 			<language type="is">icelanɖgbe</language>
 			<language type="it">italiagbe</language>
 			<language type="ja">dzapangbe</language>
 			<language type="jv">dzavangbe</language>
 			<language type="ka">gɔgiagbe</language>
+			<language type="kbd" draft="unconfirmed">kabardiagbe</language>
 			<language type="kea">cape verdegbe</language>
+			<language type="kg" draft="unconfirmed">kongogbe</language>
+			<language type="kha" draft="unconfirmed">khasigbe</language>
+			<language type="kj" draft="unconfirmed">kunyamagbe</language>
 			<language type="kk">kazakhstangbe</language>
+			<language type="kkj" draft="unconfirmed">kakogbe</language>
+			<language type="kl" draft="unconfirmed">kalaalisugbe</language>
 			<language type="km">khmergbe</language>
 			<language type="kn">kannadagbe</language>
 			<language type="ko">koreagbe</language>
+			<language type="kok" draft="unconfirmed">konkaniagbe</language>
+			<language type="kos" draft="unconfirmed">kosraeagbe</language>
+			<language type="kr" draft="unconfirmed">kanuriagbe</language>
+			<language type="krc" draft="unconfirmed">karakay-bakargbe</language>
 			<language type="ks">kashmirgbe</language>
 			<language type="ksf" draft="unconfirmed">bafiagbe</language>
 			<language type="ku">kurdiagbe</language>
+			<language type="kum" draft="unconfirmed">kumikagbe</language>
 			<language type="ky">kirghistangbe</language>
 			<language type="la">latin</language>
 			<language type="lah">lahndagbe</language>
 			<language type="lb">laksembɔggbe</language>
+			<language type="lez" draft="unconfirmed">lezghiagbe</language>
 			<language type="ln">lingala</language>
 			<language type="lo">laogbe</language>
 			<language type="lt">lithuaniagbe</language>
 			<language type="lu" draft="unconfirmed">luba-katangagbe</language>
+			<language type="lua" draft="unconfirmed">luba-lulugbe</language>
 			<language type="luy">luyiagbe</language>
 			<language type="lv">latviagbe</language>
+			<language type="maf" draft="unconfirmed">mafagbe</language>
+			<language type="mai" draft="unconfirmed">maitiligbe</language>
+			<language type="mdf" draft="unconfirmed">moktsiagbe</language>
 			<language type="mg">malagasegbe</language>
 			<language type="mgh" draft="unconfirmed">makuwa-mitogbe</language>
+			<language type="mh" draft="unconfirmed">marshalgbe</language>
 			<language type="mi">maorgbe</language>
 			<language type="mk">makedoniagbe</language>
 			<language type="ml">malayagbe</language>
@@ -115,21 +164,31 @@
 			<language type="mua" draft="unconfirmed">mundangbe</language>
 			<language type="mul">gbegbɔgblɔ sɔgbɔwo</language>
 			<language type="my">burmagbe</language>
+			<language type="mye" draft="unconfirmed">myenegbe</language>
+			<language type="myv" draft="unconfirmed">erziyagbe</language>
+			<language type="na" draft="unconfirmed">naurugbe</language>
 			<language type="nb">nɔweigbe bokmål</language>
 			<language type="nd">dziehe ndebelegbe</language>
 			<language type="ne">nepalgbe</language>
+			<language type="niu" draft="unconfirmed">niuegbe</language>
 			<language type="nl">hɔlandgbe</language>
 			<language type="nl_BE">flemiagbe</language>
 			<language type="nmg" draft="unconfirmed">kwasiogbe</language>
 			<language type="nn">nɔweigbe ninɔsk</language>
+			<language type="nnh" draft="unconfirmed">ngiemboongbe</language>
 			<language type="no">nɔweigbe</language>
+			<language type="nr" draft="unconfirmed">anyiehe ndebelegbe</language>
 			<language type="nso">dziehe sothogbe</language>
 			<language type="nus" draft="unconfirmed">nuergbe</language>
 			<language type="ny">nyanjagbe</language>
 			<language type="or">oriyagbe</language>
 			<language type="os">ossetiagbe</language>
 			<language type="pa">pundzabgbe</language>
+			<language type="pag" draft="unconfirmed">pangsinagbe</language>
+			<language type="pap" draft="unconfirmed">papiamentogbe</language>
+			<language type="pau" draft="unconfirmed">paluagbe</language>
 			<language type="pl">polandgbe</language>
+			<language type="pon" draft="unconfirmed">ponpeiagbe</language>
 			<language type="ps">pashtogbe</language>
 			<language type="pt">pɔtugalgbe</language>
 			<language type="pt_BR">braziltɔwo ƒe portugalgbe</language>
@@ -144,6 +203,7 @@
 			<language type="rwk">rwagbe</language>
 			<language type="sa">sanskrigbe</language>
 			<language type="sah">sakagbe</language>
+			<language type="sat" draft="unconfirmed">santaligbe</language>
 			<language type="sbp" draft="unconfirmed">sangugbe</language>
 			<language type="sd">sindhgbe</language>
 			<language type="se">dziehe samigbe</language>
@@ -170,27 +230,37 @@
 			<language type="th">tailandgbe</language>
 			<language type="ti">tigrinyagbe</language>
 			<language type="tk">tɛkmengbe</language>
+			<language type="tkl" draft="unconfirmed">tokelaugbe</language>
 			<language type="tl">tagalogbe</language>
 			<language type="tn">tswanagbe</language>
 			<language type="to">tongagbe</language>
 			<language type="tpi">tok pisigbe</language>
 			<language type="tr">tɛkigbe</language>
 			<language type="ts">tsongagbe</language>
+			<language type="tt" draft="unconfirmed">tatargbe</language>
+			<language type="tvl" draft="unconfirmed">tuvalugbe</language>
 			<language type="twq" draft="unconfirmed">tasawakgbe</language>
 			<language type="ty">tahitigbe</language>
+			<language type="tyv" draft="unconfirmed">tuviniagbe</language>
+			<language type="udm" draft="unconfirmed">udmurtgbe</language>
 			<language type="ug">uighurgbe</language>
 			<language type="uk">ukraingbe</language>
 			<language type="und">gbegbɔgblɔ manya</language>
 			<language type="ur">urdugbe</language>
 			<language type="uz">uzbekistangbe</language>
+			<language type="vai" draft="unconfirmed">vaigbe</language>
 			<language type="ve">vendagbe</language>
 			<language type="vi">vietnamgbe</language>
 			<language type="wae">walsegbe</language>
+			<language type="war" draft="unconfirmed">waraygbe</language>
 			<language type="wo">wolofgbe</language>
 			<language type="xh">xhosagbe</language>
+			<language type="yap" draft="unconfirmed">yapesigbe</language>
 			<language type="yav" draft="unconfirmed">yangbengbe</language>
+			<language type="ybb" draft="unconfirmed">yembagbe</language>
 			<language type="yo">yorubagbe</language>
 			<language type="yue">cantongbe</language>
+			<language type="za" draft="unconfirmed">zhuangbe</language>
 			<language type="zh">kinagbe</language>
 			<language type="zh_Hans">tsainagbe</language>
 			<language type="zh_Hant">blema tsainagbe</language>
@@ -199,40 +269,139 @@
 		</languages>
 		<scripts>
 			<script type="Arab">arabiagbeŋɔŋlɔ</script>
+			<script type="Armi" draft="unconfirmed">aramia gbeŋɔŋlɔ</script>
 			<script type="Armn">armeniagbeŋɔŋlɔ</script>
+			<script type="Avst" draft="unconfirmed">avesta gbeŋɔŋlɔ</script>
+			<script type="Bali" draft="unconfirmed">balini gbeŋɔŋlɔ</script>
+			<script type="Bamu" draft="unconfirmed">bamum gbeŋɔŋlɔ</script>
+			<script type="Batk" draft="unconfirmed">batak gbeŋɔŋlɔ</script>
 			<script type="Beng">bengaligbeŋɔŋlɔ</script>
+			<script type="Blis" draft="unconfirmed">bliss ŋɔŋlɔdzesi</script>
 			<script type="Bopo">bopomfogbeŋɔŋlɔ</script>
+			<script type="Brah" draft="unconfirmed">brami gbeŋɔŋlɔ</script>
 			<script type="Brai">braillegbeŋɔŋlɔ</script>
+			<script type="Buhd" draft="unconfirmed">buhid gbeŋɔŋlɔ</script>
+			<script type="Cakm" draft="unconfirmed">tsakma gbeŋɔŋlɔ</script>
+			<script type="Cans" draft="unconfirmed">kanada wɔɖeka ƒe abɔridzin gbedodo</script>
+			<script type="Cari" draft="unconfirmed">karia gbeŋɔŋlɔ</script>
+			<script type="Cham" draft="unconfirmed">tsam gbeŋɔŋlɔ</script>
+			<script type="Cher" draft="unconfirmed">tseroke gbeŋɔŋlɔ</script>
+			<script type="Cirt" draft="unconfirmed">seif gbeŋɔŋlɔ</script>
+			<script type="Copt" draft="unconfirmed">koptia gbeŋɔŋlɔ</script>
+			<script type="Cprt" draft="unconfirmed">saipriot gbeŋɔŋlɔ</script>
 			<script type="Cyrl">syrilliagbeŋɔŋlɔ</script>
+			<script type="Cyrs" draft="unconfirmed">slavonia sirillia sɔleme gbeŋɔŋlɔ xoxotɔ</script>
 			<script type="Deva">devanagarigbeŋɔŋlɔ</script>
+			<script type="Dsrt" draft="unconfirmed">deseret gbeŋɔŋlɔ</script>
+			<script type="Egyd" draft="unconfirmed">egypte demotia gbeŋɔŋlɔ</script>
+			<script type="Egyh" draft="unconfirmed">egypte hieratia gbeŋɔŋlɔ</script>
+			<script type="Egyp" draft="unconfirmed">egypte hieroglif nuŋɔŋlɔ</script>
 			<script type="Ethi">ethiopiagbeŋɔŋlɔ</script>
+			<script type="Geok" draft="unconfirmed">dzɔdzia khutsiria gbeŋɔŋlɔ</script>
 			<script type="Geor">gɔgiagbeŋɔŋlɔ</script>
+			<script type="Glag" draft="unconfirmed">glagolitia gbeŋɔŋlɔ</script>
+			<script type="Goth" draft="unconfirmed">gothia gbeŋɔŋlɔ</script>
+			<script type="Gran" draft="unconfirmed">grantha gbeŋɔŋlɔ</script>
 			<script type="Grek">grisigbeŋɔŋlɔ</script>
 			<script type="Gujr">gudzaratigbeŋɔŋlɔ</script>
 			<script type="Guru">gurmukhigbeŋɔŋlɔ</script>
 			<script type="Hang">hangulgbeŋɔŋlɔ</script>
 			<script type="Hani">hangbeŋɔŋlɔ</script>
+			<script type="Hano" draft="unconfirmed">hanuno gbeŋɔŋlɔ</script>
 			<script type="Hans">tsainagbeŋɔŋlɔ</script>
 			<script type="Hant">blema tsainagbeŋɔŋlɔ</script>
 			<script type="Hebr">hebrigbeŋɔŋlɔ</script>
 			<script type="Hira">hiraganagbeŋɔŋlɔ</script>
+			<script type="Hmng" draft="unconfirmed">pahawh hmong gbeŋɔŋlɔ</script>
+			<script type="Hrkt" draft="unconfirmed">dzapan gbedodo tɔxee</script>
+			<script type="Hung" draft="unconfirmed">hungaria gbeŋɔŋlɔ xoxotɔ</script>
+			<script type="Inds" draft="unconfirmed">indus gbeŋɔŋlɔ</script>
+			<script type="Ital" draft="unconfirmed">aitalik xoxotɔ</script>
+			<script type="Java" draft="unconfirmed">dzavanese gbeŋɔŋlɔ</script>
 			<script type="Jpan">dzapangbeŋɔŋlɔ</script>
+			<script type="Kali" draft="unconfirmed">kayah li gbeŋɔŋlɔ</script>
 			<script type="Kana">katakanagbeŋɔŋlɔ</script>
+			<script type="Khar" draft="unconfirmed">kharoshthi gbeŋɔŋlɔ</script>
 			<script type="Khmr">khmergbeŋɔŋlɔ</script>
+			<script type="Khoj" draft="unconfirmed">khodziki gbeŋɔŋlɔ</script>
 			<script type="Knda">kannadagbeŋɔŋlɔ</script>
 			<script type="Kore">koreagbeŋɔŋlɔ</script>
+			<script type="Kthi" draft="unconfirmed">kaithi gbeŋɔŋlɔ</script>
+			<script type="Lana" draft="unconfirmed">lanna gbeŋɔŋlɔ</script>
 			<script type="Laoo">laogbeŋɔŋlɔ</script>
+			<script type="Latf" draft="unconfirmed">fraktur latin gbeŋɔŋlɔ</script>
+			<script type="Latg" draft="unconfirmed">gaelia latin gbeŋɔŋlɔ</script>
 			<script type="Latn">latingbeŋɔŋlɔ</script>
+			<script type="Lepc" draft="unconfirmed">leptsa gbeŋɔŋlɔ</script>
+			<script type="Limb" draft="unconfirmed">limbu gbeŋɔŋlɔ</script>
+			<script type="Lina" draft="unconfirmed">linia a gbeŋɔŋlɔ</script>
+			<script type="Linb" draft="unconfirmed">linea b gbeŋɔŋlɔ</script>
+			<script type="Lisu" draft="unconfirmed">fraser gbeŋɔŋlɔ</script>
+			<script type="Lyci" draft="unconfirmed">lisia gbeŋɔŋlɔ</script>
+			<script type="Lydi" draft="unconfirmed">lidia gbeŋɔŋlɔ</script>
+			<script type="Mand" draft="unconfirmed">mandae gbeŋɔŋlɔ</script>
+			<script type="Mani" draft="unconfirmed">manitsia gbeŋɔŋlɔ</script>
+			<script type="Maya" draft="unconfirmed">mayan hieroglif gbeŋɔŋlɔ</script>
+			<script type="Merc" draft="unconfirmed">meroitia atsyia gbeŋɔŋlɔ</script>
+			<script type="Mero" draft="unconfirmed">meroitia gbeŋɔŋlɔ</script>
 			<script type="Mlym">malayagbeŋɔŋlɔ</script>
 			<script type="Mong">mongoliagbeŋɔŋlɔ</script>
+			<script type="Moon" draft="unconfirmed">moon gbeŋɔŋlɔ</script>
+			<script type="Mtei" draft="unconfirmed">meitei mayek gbeŋɔŋlɔ</script>
 			<script type="Mymr">myanmargbeŋɔŋlɔ</script>
+			<script type="Nkgb" draft="unconfirmed">naxi geba gbeŋɔŋlɔ</script>
+			<script type="Nkoo" draft="unconfirmed">n'ko gbeŋɔŋlɔ</script>
+			<script type="Ogam" draft="unconfirmed">ogham gbeŋɔŋlɔ</script>
+			<script type="Olck" draft="unconfirmed">ol tsiki gbeŋɔŋlɔ</script>
+			<script type="Orkh" draft="unconfirmed">orkhon gbeŋɔŋlɔ</script>
 			<script type="Orya">oriyagbeŋɔŋlɔ</script>
+			<script type="Osma" draft="unconfirmed">osmaya gbeŋɔŋlɔ</script>
+			<script type="Perm" draft="unconfirmed">permia gbeŋɔŋlɔ xoxotɔ</script>
+			<script type="Phag" draft="unconfirmed">phags-pa gbeŋɔŋlɔ</script>
+			<script type="Phli" draft="unconfirmed">pahlavi gbeŋɔŋlɔ tɔxee</script>
+			<script type="Phlp" draft="unconfirmed">psamta pahlavi gbeŋɔŋlɔ</script>
+			<script type="Phlv" draft="unconfirmed">agbaleme pahlavi gbeŋɔŋlɔ</script>
+			<script type="Phnx" draft="unconfirmed">foenesia gbeŋɔŋlɔ</script>
+			<script type="Plrd" draft="unconfirmed">pollard gbegbɔgblɔ</script>
+			<script type="Prti" draft="unconfirmed">parthia gbeŋɔŋlɔ tɔxee</script>
+			<script type="Rjng" draft="unconfirmed">redza gbeŋɔŋlɔ</script>
+			<script type="Roro" draft="unconfirmed">rongorongo gbeŋɔŋlɔ</script>
+			<script type="Runr" draft="unconfirmed">runia gbeŋɔŋlɔ</script>
+			<script type="Samr" draft="unconfirmed">samaria gbeŋɔŋlɔ</script>
+			<script type="Sara" draft="unconfirmed">sarati gbeŋɔŋlɔ</script>
+			<script type="Sarb" draft="unconfirmed">anyiehe arabia gbeŋɔŋlɔ xoxotɔ</script>
+			<script type="Saur" draft="unconfirmed">saurashtra gbeŋɔŋlɔ</script>
+			<script type="Sgnw" draft="unconfirmed">atsyia nuŋɔŋlɔ</script>
+			<script type="Shaw" draft="unconfirmed">tsavia gbeŋɔŋlɔ</script>
 			<script type="Sinh">sinhalagbeŋɔŋlɔ</script>
+			<script type="Sund" draft="unconfirmed">sundana gbeŋɔŋlɔ</script>
+			<script type="Sylo" draft="unconfirmed">sailoti nagri gbeŋɔŋlɔ</script>
+			<script type="Syrc" draft="unconfirmed">siriak gbeŋɔŋlɔ</script>
+			<script type="Syre" draft="unconfirmed">estrangelo siria gbeŋɔŋlɔ</script>
+			<script type="Syrj" draft="unconfirmed">ɣetoɖoƒe siria gbeŋɔŋlɔ</script>
+			<script type="Syrn" draft="unconfirmed">ɣedzeƒe siria gbeŋɔŋlɔ</script>
+			<script type="Tagb" draft="unconfirmed">tagbanwa gbeŋɔŋlɔ</script>
+			<script type="Tale" draft="unconfirmed">tai le gbeŋɔŋlɔ</script>
+			<script type="Talu" draft="unconfirmed">tail lue gbeŋɔŋlɔ yeye</script>
 			<script type="Taml">tamilgbeŋɔŋlɔ</script>
+			<script type="Tavt" draft="unconfirmed">tai viet gbeŋɔŋlɔ</script>
 			<script type="Telu">telegugbeŋɔŋlɔ</script>
+			<script type="Teng" draft="unconfirmed">tengwar gbeŋɔŋlɔ</script>
+			<script type="Tfng" draft="unconfirmed">tifinagh gbeŋɔŋlɔ</script>
+			<script type="Tglg" draft="unconfirmed">tagalog gbeŋɔŋlɔ</script>
 			<script type="Thaa">thaanagbeŋɔŋlɔ</script>
 			<script type="Thai">taigbeŋɔŋlɔ</script>
 			<script type="Tibt">tibetgbeŋɔŋlɔ</script>
+			<script type="Tirh" draft="unconfirmed">tirhuta gbeŋɔŋlɔ</script>
+			<script type="Ugar" draft="unconfirmed">ugaritia gbeŋɔŋlɔ</script>
+			<script type="Vaii" draft="unconfirmed">vai gbeŋɔŋlɔ</script>
+			<script type="Visp" draft="unconfirmed">gbegbɔgblɔ si dzena</script>
+			<script type="Wara" draft="unconfirmed">varang kshiti gbeŋɔŋlɔ</script>
+			<script type="Xpeo" draft="unconfirmed">persia gbeŋɔŋlɔ xoxotɔ</script>
+			<script type="Xsux" draft="unconfirmed">sumero-akkadia kunei gbeŋɔŋlɔ</script>
+			<script type="Yiii" draft="unconfirmed">yi gbeŋɔŋlɔ</script>
+			<script type="Zinh" draft="unconfirmed">gbeŋɔŋlɔ si wo dzɔ va tu</script>
+			<script type="Zmth" draft="unconfirmed">akɔnta nuŋɔŋlɔ</script>
 			<script type="Zsym">ŋɔŋlɔdzesiwo</script>
 			<script type="Zxxx">gbemaŋlɔ</script>
 			<script type="Zyyy">gbeŋɔŋlɔ bɔbɔ</script>
@@ -300,6 +469,7 @@
 			<territory type="BM">Bermuda nutome</territory>
 			<territory type="BN">Brunei nutome</territory>
 			<territory type="BO">Bolivia nutome</territory>
+			<territory type="BQ" draft="unconfirmed">Karibbeatɔwo ƒe Nedalanɖs nutome</territory>
 			<territory type="BR">Brazil nutome</territory>
 			<territory type="BS">Bahamas nutome</territory>
 			<territory type="BT">Bhutan nutome</territory>
@@ -326,6 +496,7 @@
 			<territory type="CR">Kosta Rika nutome</territory>
 			<territory type="CU">Kuba nutome</territory>
 			<territory type="CV">Kape Verde nutome</territory>
+			<territory type="CW" draft="unconfirmed">Kurakao nutome</territory>
 			<territory type="CX">Kristmas ƒudomekpo nutome</territory>
 			<territory type="CY">Saiprus nutome</territory>
 			<territory type="CZ">Tsɛk repɔblik nutome</territory>
@@ -471,6 +642,7 @@
 			<territory type="QO">Outlaying Oceania nutome</territory>
 			<territory type="RE">Réunion nutome</territory>
 			<territory type="RO">Romania nutome</territory>
+			<territory type="RS" draft="unconfirmed">Serbia nutome</territory>
 			<territory type="RU">Russia nutome</territory>
 			<territory type="RW">Rwanda nutome</territory>
 			<territory type="SA">Saudi Arabia nutome</territory>
@@ -488,8 +660,10 @@
 			<territory type="SN">Senegal nutome</territory>
 			<territory type="SO">Somalia nutome</territory>
 			<territory type="SR">Suriname nutome</territory>
+			<territory type="SS" draft="unconfirmed">Anyiehe Sudan nutome</territory>
 			<territory type="ST">São Tomé kple Príncipe nutome</territory>
 			<territory type="SV">El Salvadɔ nutome</territory>
+			<territory type="SX" draft="unconfirmed">Sint Maarten nutome</territory>
 			<territory type="SY">Siria nutome</territory>
 			<territory type="SZ">Swaziland nutome</territory>
 			<territory type="TA">Tristan da Kunha nutome</territory>
@@ -547,13 +721,16 @@
 			<type type="arabext" key="numbers">india ƒe arabia digitwo dzi yiyi</type>
 			<type type="armn" key="numbers">armeniatɔwo ƒe numeralwo</type>
 			<type type="armnlow" key="numbers">armeniatɔwo ƒe numeral suetɔwo</type>
+			<type type="bali" key="numbers" draft="unconfirmed">balina digitwo</type>
 			<type type="beng" key="numbers">bengalitɔwo ƒe digitwo</type>
 			<type type="big5han" key="collation">blema chinatɔwo ƒe ɖoɖomɔ nu</type>
 			<type type="buddhist" key="calendar">buddha subɔlawo ƒe kalenda</type>
+			<type type="cham" key="numbers" draft="unconfirmed">tsam digitwo</type>
 			<type type="chinese" key="calendar">chinatɔwo ƒe kalenda</type>
 			<type type="coptic" key="calendar">coptia kalenda</type>
 			<type type="deva" key="numbers">devanagari digitwo</type>
 			<type type="dictionary" key="collation">nuɖoɖo ɖe nyagɔmeɖegbalẽ ƒe ɖoɖomɔ nu</type>
+			<type type="direct" key="collation" draft="unconfirmed">nuɖoɖo teeŋ</type>
 			<type type="ducet" key="collation">nuɖoɖo ɖe unicode ƒe ɖoɖo nu</type>
 			<type type="ethi" key="numbers">ethiopia numeralwo</type>
 			<type type="ethiopic" key="calendar">ethiopiatɔwo ƒe kalenda</type>
@@ -577,15 +754,25 @@
 			<type type="islamic" key="calendar">islam subɔlawo ƒe kalenda</type>
 			<type type="islamic-civil" key="calendar">islam subɔlawo ƒe sivil kalenda</type>
 			<type type="japanese" key="calendar">japantɔwo ƒe kalenda</type>
+			<type type="java" key="numbers" draft="unconfirmed">dzava digitwo</type>
 			<type type="jpan" key="numbers">japantɔwo ƒe numeralwo</type>
 			<type type="jpanfin" key="numbers">japantɔwo ƒe gadzikpɔnumeralwo</type>
+			<type type="kali" key="numbers" draft="unconfirmed">kali digitwo</type>
 			<type type="khmr" key="numbers">khmertɔwo ƒe nɔmbawo</type>
 			<type type="knda" key="numbers">kannadatɔwo ƒe digitwo</type>
+			<type type="lana" key="numbers" draft="unconfirmed">lana digitwo</type>
+			<type type="lanatham" key="numbers" draft="unconfirmed">lanatham digitwo</type>
 			<type type="laoo" key="numbers">laotɔwo ƒe digitwo</type>
 			<type type="latn" key="numbers">nɔmbawo le latingbe ƒe ɖoɖo nu</type>
+			<type type="lepc" key="numbers" draft="unconfirmed">leptsa digitwo</type>
+			<type type="limb" key="numbers" draft="unconfirmed">limbu digitwo</type>
 			<type type="mlym" key="numbers">malaya digitwo</type>
 			<type type="mong" key="numbers">mongolia digitwo</type>
+			<type type="mtei" key="numbers" draft="unconfirmed">meetei mayek digitwo</type>
 			<type type="mymr" key="numbers">myanmar digitwo</type>
+			<type type="mymrshan" key="numbers" draft="unconfirmed">myanmar shan digitwo</type>
+			<type type="nkoo" key="numbers" draft="unconfirmed">n'ko digitwo</type>
+			<type type="olck" key="numbers" draft="unconfirmed">ol tsiki digitwo</type>
 			<type type="orya" key="numbers">oriya digitwo</type>
 			<type type="persian" key="calendar">persiatɔwo ƒe kalenda</type>
 			<type type="phonebook" key="collation">fonegbalẽ me ɖoɖomɔ nu</type>
@@ -594,14 +781,20 @@
 			<type type="roc" key="calendar">china repɔbliktɔwo ƒe kalenda tso 1912</type>
 			<type type="roman" key="numbers">romatɔwo ƒe numeralwo</type>
 			<type type="romanlow" key="numbers">romatɔwo ƒe numeral suetɔwo</type>
+			<type type="saur" key="numbers" draft="unconfirmed">saurashtra digitwo</type>
 			<type type="search" key="collation">nudidi hena zazã gbadza</type>
+			<type type="searchjl" key="collation" draft="unconfirmed">nudidi le hangul ƒe ɖoɖo gbãtɔ nu</type>
 			<type type="stroke" key="collation">stroke ɖoɖomɔ nu</type>
+			<type type="sund" key="numbers" draft="unconfirmed">sundana digitwo</type>
+			<type type="talu" key="numbers" draft="unconfirmed">tai lue digit yeye wo</type>
 			<type type="taml" key="numbers">tamil numeralwo</type>
+			<type type="tamldec" key="numbers" draft="unconfirmed">tamil digitwo</type>
 			<type type="telu" key="numbers">telegu digitwo</type>
 			<type type="thai" key="numbers">thai digitwo</type>
 			<type type="tibt" key="numbers">tibet digitwo</type>
 			<type type="traditional" key="collation">blema ɖoɖomɔ nu</type>
 			<type type="unihan" key="collation">ɖoɖomɔnutɔxɛ manɔŋu stroke ƒe ɖoɖo nu</type>
+			<type type="vaii" key="numbers" draft="unconfirmed">vaii digitwo</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metric</measurementSystemName>
@@ -620,6 +813,9 @@
 		<exemplarCharacters type="currencySymbol" draft="unconfirmed">[a b c č d e f g h i j k l ł m n o º p q r s t ŧ u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B D Ɖ E Ɛ F Ƒ G Ɣ H X I K L M N Ŋ O Ɔ P R S T U V Ʋ W Y Z]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] \{\} § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<ellipsis type="final" draft="unconfirmed">{0}…</ellipsis>
+		<ellipsis type="initial" draft="unconfirmed">…{0}</ellipsis>
+		<ellipsis type="medial" draft="unconfirmed">{0}…{1}</ellipsis>
 		<moreInformation>...</moreInformation>
 	</characters>
 	<delimiters>
@@ -630,6 +826,253 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="buddhist">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">E, MMM d 'lia', y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMMM d 'lia', y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMM d 'lia' y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="h" draft="unconfirmed">a 'ga' h</dateFormatItem>
+						<dateFormatItem id="hm" draft="unconfirmed">a 'ga' h: 'aɖabaƒoƒo' mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">a 'ga' h: 'aɖabaƒoƒo' mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="unconfirmed">MMM d 'lia'</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E, MMM d 'lia'</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">'ga' mm:ss</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, MMM d 'lia' y G</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="chinese">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, U MMMM dd 'lia'</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">U MMMM d 'lia'</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">U MMM d 'lia'</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+			<calendar type="coptic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+							<month type="13" draft="unconfirmed">foa</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+							<month type="13" draft="unconfirmed">ƒoave</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+							<month type="13" draft="unconfirmed">foa</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+							<month type="13" draft="unconfirmed">ƒoave</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="ethiopic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+							<month type="13" draft="unconfirmed">ƒoave</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+							<month type="13" draft="unconfirmed">ƒoave</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+							<month type="13" draft="unconfirmed">ƒoa</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfie</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+							<month type="13" draft="unconfirmed">ƒoave</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
@@ -1073,11 +1516,13 @@
 					</field>
 					<field type="day">
 						<displayName>ŋkeke</displayName>
+						<relative type="-3" draft="unconfirmed">ŋkeke etɔ si va yi</relative>
 						<relative type="-2">nyitsɔ</relative>
 						<relative type="-1">etsɔ si va yi</relative>
 						<relative type="0">egbe</relative>
 						<relative type="1">etsɔ si gbɔna</relative>
 						<relative type="2">nyitsɔ si gbɔna</relative>
+						<relative type="3" draft="unconfirmed">ŋkeke etɔ si gbɔna</relative>
 					</field>
 					<field type="weekday">
 						<displayName>kɔsiɖa me ŋkeke</displayName>
@@ -1099,10 +1544,388 @@
 					</field>
 				</fields>
 			</calendar>
+			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="7" draft="unconfirmed" yeartype="leap">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+							<month type="13" draft="unconfirmed">ƒoave</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="7" draft="unconfirmed" yeartype="leap">siamlɔm</month>
+							<month type="8" draft="unconfirmed">dasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+							<month type="13" draft="unconfirmed">ƒoave</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="7" draft="unconfirmed" yeartype="leap">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+							<month type="13" draft="unconfirmed">foa</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="unconfirmed">1</month>
+							<month type="2" draft="unconfirmed">2</month>
+							<month type="3" draft="unconfirmed">3</month>
+							<month type="4" draft="unconfirmed">4</month>
+							<month type="5" draft="unconfirmed">5</month>
+							<month type="6" draft="unconfirmed">6</month>
+							<month type="7" draft="unconfirmed">7</month>
+							<month type="8" draft="unconfirmed">8</month>
+							<month type="9" draft="unconfirmed">9</month>
+							<month type="10" draft="unconfirmed">10</month>
+							<month type="11" draft="unconfirmed">11</month>
+							<month type="12" draft="unconfirmed">12</month>
+							<month type="13" draft="unconfirmed">13</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="7" draft="unconfirmed" yeartype="leap">siamlɔm</month>
+							<month type="8" draft="unconfirmed">dasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+							<month type="13" draft="unconfirmed">ƒoave</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="unconfirmed">ŋdi</era>
+					</eraAbbr>
+				</eras>
+			</calendar>
+			<calendar type="indian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="islamic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="japanese">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, MMMM dd 'lia', G y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMMM d 'lia', G y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMM d 'lia', G y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd-MM-GGGGG yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern draft="unconfirmed">{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern draft="unconfirmed">{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern draft="unconfirmed">{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern draft="unconfirmed">{0} {1}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="h" draft="unconfirmed">a 'ga' h</dateFormatItem>
+						<dateFormatItem id="hm" draft="unconfirmed">a 'ga' h:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">a 'ga' h:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E MMM d 'lia'</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">'aɖabaƒoƒo' mm:ss</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="persian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="unconfirmed">dzv</month>
+							<month type="2" draft="unconfirmed">dzd</month>
+							<month type="3" draft="unconfirmed">ted</month>
+							<month type="4" draft="unconfirmed">afɔ</month>
+							<month type="5" draft="unconfirmed">dam</month>
+							<month type="6" draft="unconfirmed">mas</month>
+							<month type="7" draft="unconfirmed">sia</month>
+							<month type="8" draft="unconfirmed">dea</month>
+							<month type="9" draft="unconfirmed">any</month>
+							<month type="10" draft="unconfirmed">kel</month>
+							<month type="11" draft="unconfirmed">ade</month>
+							<month type="12" draft="unconfirmed">dzm</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="unconfirmed">dzove</month>
+							<month type="2" draft="unconfirmed">dzodze</month>
+							<month type="3" draft="unconfirmed">tedoxe</month>
+							<month type="4" draft="unconfirmed">afɔfiẽ</month>
+							<month type="5" draft="unconfirmed">damɛ</month>
+							<month type="6" draft="unconfirmed">masa</month>
+							<month type="7" draft="unconfirmed">siamlɔm</month>
+							<month type="8" draft="unconfirmed">deasiamime</month>
+							<month type="9" draft="unconfirmed">anyɔnyɔ</month>
+							<month type="10" draft="unconfirmed">kele</month>
+							<month type="11" draft="unconfirmed">adeɛmekpɔxe</month>
+							<month type="12" draft="unconfirmed">dzome</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="roc">
+				<eras>
+					<eraAbbr>
+						<era type="0" draft="unconfirmed">hafi R.O.C.</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, MMMM dd 'lia', G y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMMM d 'lia', G y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">MMM d 'lia', G y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd-MM-GGGGG yyy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="h" draft="unconfirmed">a 'ga' h</dateFormatItem>
+						<dateFormatItem id="hm" draft="unconfirmed">a 'ga' h:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">a 'ga' h:mm:ss</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E MMM d 'lia'</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">'aɖabaƒoƒo' mm:ss</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 		</calendars>
 		<timeZoneNames>
+			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<regionFormat draft="contributed">{0} gaƒoƒo</regionFormat>
 			<fallbackRegionFormat>{1} gaƒoƒo ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity draft="unconfirmed">Lowa Prins Kɔta nutomegaƒoƒome</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, North Dakota nutomegaƒoƒome</exemplarCity>
 			</zone>
@@ -1463,6 +2286,9 @@
 			<zone type="Pacific/Easter">
 				<exemplarCity>Easter nutomegaƒoƒome</exemplarCity>
 			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity draft="unconfirmed">Santiago nutomegaƒoƒome</exemplarCity>
+			</zone>
 			<zone type="Africa/Douala">
 				<exemplarCity>Doula nutomegaƒoƒome</exemplarCity>
 			</zone>
@@ -1474,6 +2300,9 @@
 			</zone>
 			<zone type="Asia/Chongqing">
 				<exemplarCity>Tsongking nutomegaƒoƒome</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity draft="unconfirmed">Shanghai nutomegaƒoƒome</exemplarCity>
 			</zone>
 			<zone type="Asia/Harbin">
 				<exemplarCity>Harbin nutomegaƒoƒome</exemplarCity>
@@ -1520,6 +2349,9 @@
 			<zone type="Pacific/Galapagos">
 				<exemplarCity>Galapagos nutomegaƒoƒome</exemplarCity>
 			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity draft="unconfirmed">Guayakuil nutomegaƒoƒome</exemplarCity>
+			</zone>
 			<zone type="Europe/Tallinn">
 				<exemplarCity>Tallinn nutomegaƒoƒome</exemplarCity>
 			</zone>
@@ -1537,6 +2369,9 @@
 			</zone>
 			<zone type="Africa/Ceuta">
 				<exemplarCity>Keuta nutomegaƒoƒome</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="unconfirmed">Madrid nutomegaƒoƒome</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Addis Ababa nutomegaƒoƒome</exemplarCity>
@@ -1568,6 +2403,12 @@
 			<zone type="Africa/Libreville">
 				<exemplarCity>Libreville nutomegaƒoƒome</exemplarCity>
 			</zone>
+			<zone type="Europe/London">
+				<long>
+					<daylight draft="unconfirmed">Britain dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+				<exemplarCity draft="unconfirmed">London nutomegaƒoƒome</exemplarCity>
+			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity>Grenada nutomegaƒoƒome</exemplarCity>
 			</zone>
@@ -1588,6 +2429,9 @@
 			</zone>
 			<zone type="America/Thule">
 				<exemplarCity>Thule nutomegaƒoƒome</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="unconfirmed">Godthab nutomegaƒoƒome</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
 				<exemplarCity>Skɔsbisund nutomegaƒoƒome</exemplarCity>
@@ -1653,6 +2497,9 @@
 				<exemplarCity>Dzayapura nutomegaƒoƒome</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
+				<long>
+					<daylight draft="unconfirmed">Irelanɖ dzomeŋɔli gaƒoƒome</daylight>
+				</long>
 				<exemplarCity>Dublin nutomegaƒoƒome</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -1799,6 +2646,9 @@
 			<zone type="Europe/Skopje">
 				<exemplarCity>Skopie nutomegaƒoƒome</exemplarCity>
 			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="unconfirmed">Bamako nutomegaƒoƒome</exemplarCity>
+			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity>Rangoon nutomegaƒoƒome</exemplarCity>
 			</zone>
@@ -1861,6 +2711,9 @@
 			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Kankun nutomegaƒoƒome</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="unconfirmed">Kuala Lumpur nutomegaƒoƒome</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
 				<exemplarCity>Kutsing nutomegaƒoƒome</exemplarCity>
@@ -1948,6 +2801,9 @@
 			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity>Madeira nutomegaƒoƒome</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity draft="unconfirmed">Lisbon nutomegaƒoƒome</exemplarCity>
 			</zone>
 			<zone type="Pacific/Palau">
 				<exemplarCity>Palau nutomegaƒoƒome</exemplarCity>
@@ -2123,6 +2979,9 @@
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Uzhgorod nutomegaƒoƒome</exemplarCity>
 			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity draft="unconfirmed">Kiev nutmegaƒoƒome</exemplarCity>
+			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>Simferopol nutomegaƒoƒome</exemplarCity>
 			</zone>
@@ -2228,6 +3087,9 @@
 			<zone type="Asia/Samarkand">
 				<exemplarCity>Samarkand nutomegaƒoƒome</exemplarCity>
 			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity draft="unconfirmed">Tashkent nutomegaƒoƒome</exemplarCity>
+			</zone>
 			<zone type="Europe/Vatican">
 				<exemplarCity>Vatikan nutomegaƒoƒome</exemplarCity>
 			</zone>
@@ -2270,6 +3132,13 @@
 			<zone type="Africa/Harare">
 				<exemplarCity>Harare nutomegaƒoƒome</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<generic draft="unconfirmed">Eker gaƒoƒome</generic>
+					<standard draft="unconfirmed">Eker gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Eker dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Titina Afrika gaƒoƒome</standard>
@@ -2306,6 +3175,41 @@
 					<daylight>WAST</daylight>
 				</short>
 			</metazone>
+			<metazone type="Aktyubinsk">
+				<long>
+					<generic draft="unconfirmed">Aktyubinsk gaƒoƒome</generic>
+					<standard draft="unconfirmed">Aktyubinsk gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Aktyubinsk dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Alaska">
+				<long>
+					<generic draft="unconfirmed">Alaska gaƒoƒome</generic>
+					<standard draft="unconfirmed">Alaska gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Alaska ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Alaska_Hawaii">
+				<long>
+					<generic draft="unconfirmed">Alaska-Hawaii gaƒoƒome</generic>
+					<standard draft="unconfirmed">Alaska-Hawaii gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Alaska-Hawaii ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Almaty">
+				<long>
+					<generic draft="unconfirmed">Almati gaƒoƒome</generic>
+					<standard draft="unconfirmed">Almati gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Almati dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Amazon">
+				<long>
+					<generic draft="unconfirmed">Amazon gaƒoƒome</generic>
+					<standard draft="unconfirmed">Amazon gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Amazon dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
 			<metazone type="America_Central">
 				<long>
 					<generic>Titina Amerika gaƒoƒome</generic>
@@ -2334,11 +3238,622 @@
 					<daylight>Amerika Pasifik ŋkekeme gaƒoƒome</daylight>
 				</long>
 			</metazone>
+			<metazone type="Anadyr">
+				<long>
+					<generic draft="unconfirmed">Anadir gaƒoƒome</generic>
+					<standard draft="unconfirmed">Anadir gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Anadir ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aqtau">
+				<long>
+					<generic draft="unconfirmed">Aktau gaƒoƒome</generic>
+					<standard draft="unconfirmed">Aktau gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Aktau dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aqtobe">
+				<long>
+					<generic draft="unconfirmed">Aktobe gaƒoƒome</generic>
+					<standard draft="unconfirmed">Aktobe gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Akttobe gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic draft="unconfirmed">Arabia gaƒoƒome</generic>
+					<standard draft="unconfirmed">Arabia gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Arabia ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina">
+				<long>
+					<generic draft="unconfirmed">Argentina gaƒoƒome</generic>
+					<standard draft="unconfirmed">Argentina gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Argentina dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic draft="unconfirmed">Ɣetoɖoƒe Argentina gaƒoƒome</generic>
+					<standard draft="unconfirmed">Ɣetoɖoƒe Argentina gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Ɣetoɖoƒe Argentina dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic draft="unconfirmed">Armenia gaƒoƒome</generic>
+					<standard draft="unconfirmed">Armenia gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Armenia dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Ashkhabad">
+				<long>
+					<generic draft="unconfirmed">Ashkabad  gaƒoƒome</generic>
+					<standard draft="unconfirmed">Ashkabad gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Ashkabad dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
 			<metazone type="Atlantic">
 				<long>
 					<generic>Atlantic gaƒoƒome</generic>
 					<standard>Atlantic gaƒoƒoɖoanyime</standard>
 					<daylight>Atlantic ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<generic draft="unconfirmed">Azerbaidzan  gaƒoƒome</generic>
+					<standard draft="unconfirmed">Azerbaidzan gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Azerbaidzan dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic draft="unconfirmed">Azores gaƒoƒome</generic>
+					<standard draft="unconfirmed">Azores gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Azores dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Baku">
+				<long>
+					<generic draft="unconfirmed">Baku gaƒoƒome</generic>
+					<standard draft="unconfirmed">Baku gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Baku dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bering">
+				<long>
+					<generic draft="unconfirmed">Bering  gaƒoƒome</generic>
+					<standard draft="unconfirmed">Bering gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Bering ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard draft="unconfirmed">Bolivia gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Brasilia">
+				<long>
+					<generic draft="unconfirmed">Brasilia gaƒoƒome</generic>
+					<standard draft="unconfirmed">Brasilia gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Brasilia dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<generic draft="unconfirmed">Kep Verde gaƒoƒome</generic>
+					<standard draft="unconfirmed">Kep Verde gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Kep Verde dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Changbai">
+				<long>
+					<standard draft="unconfirmed">Tangbai gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic draft="unconfirmed">Tsile gaƒoƒo me</generic>
+					<standard draft="unconfirmed">Tsile gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Tsile dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic draft="unconfirmed">Tsaina gaƒoƒome</generic>
+					<standard draft="unconfirmed">Tsaina gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Tsaina ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Choibalsan">
+				<long>
+					<generic draft="unconfirmed">Tsoibalsan gaƒoƒome</generic>
+					<standard draft="unconfirmed">Tsoibalsan gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Tsoibalsan dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic draft="unconfirmed">Kolombia gaƒoƒome</generic>
+					<standard draft="unconfirmed">Kolombia gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Kolombia dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic draft="unconfirmed">Kuba gaƒoƒome</generic>
+					<standard draft="unconfirmed">Kuba gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Kuba ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Dushanbe">
+				<long>
+					<generic draft="unconfirmed">Dushanbe gaƒoƒome</generic>
+					<standard draft="unconfirmed">Dushanbe gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Dushanbe dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Dutch_Guiana">
+				<long>
+					<standard draft="unconfirmed">Dɔtsi Guiana gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic draft="unconfirmed">Easter Ƒudomekpodukɔ ƒe gaƒoƒome</generic>
+					<standard draft="unconfirmed">Easter Ƒudomekpodukɔ ƒe gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Easter Ƒudomekpodukɔ ƒe dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard draft="unconfirmed">Ikuedɔ dzomeŋɔli gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Europe_Central">
+				<long>
+					<generic draft="unconfirmed">Titina Yuropa gaƒoƒome</generic>
+					<standard draft="unconfirmed">Titina Yuropa gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Titina Yuropa dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<long>
+					<generic draft="unconfirmed">Ɣedzeƒe Yuropa gaƒoƒo me</generic>
+					<standard draft="unconfirmed">Ɣedzeƒe Yuropa gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Ɣedzeƒe Yuropa dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic draft="unconfirmed">Ɣetoɖoƒe Yuropa gaƒoƒome</generic>
+					<standard draft="unconfirmed">Ɣetoɖoƒe Yuropa gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Ɣetoɖoƒe Yuropa dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic draft="unconfirmed">Fɔlklanɖ Ƒudomekpodukɔ ƒe gaƒoƒome</generic>
+					<standard draft="unconfirmed">Fɔlklanɖ Ƒudomekpodukɔ ƒe gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Fɔlklanɖ Ƒudomekpodukɔ ƒe dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard draft="unconfirmed">Frentsi Guiana gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Frunze">
+				<long>
+					<generic draft="unconfirmed">Frunze gaƒoƒome</generic>
+					<standard draft="unconfirmed">Frunze gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Frunze dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard draft="unconfirmed">Galapagos gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<generic draft="unconfirmed">Dzɔdzia gaƒoƒome</generic>
+					<standard draft="unconfirmed">Dzɔdzia gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Dzɔdzia dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard draft="unconfirmed">Grinwish gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Central">
+				<long>
+					<generic draft="unconfirmed">Titina Grinlanɖ gaƒoƒome</generic>
+					<standard draft="unconfirmed">Titina Grinlanɖ gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Titina Grinlanɖ ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic draft="unconfirmed">Ɣedzeƒe Grinlanɖ gaƒoƒome</generic>
+					<standard draft="unconfirmed">Ɣedzeƒe Grinlanɖ gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Ɣedzeƒe Grinlanɖ dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic draft="unconfirmed">Ɣetoɖoƒe Grinlanɖ gaƒoƒome</generic>
+					<standard draft="unconfirmed">Ɣetoɖoƒe Grinlanɖ gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Ɣetoɖoƒe Grinlanɖ dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard draft="unconfirmed">Gulf gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard draft="unconfirmed">Gayana gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<long>
+					<generic draft="unconfirmed">Hawaii-Aleutia gaƒoƒome</generic>
+					<standard draft="unconfirmed">Hawaii-Aleutia gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Hawaii-Aleutia ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic draft="unconfirmed">Hɔng Kɔng gaƒoƒome</generic>
+					<standard draft="unconfirmed">Hɔng Kɔng gaƒoƒoɖoanyi me</standard>
+					<daylight draft="unconfirmed">Hɔng Kɔng dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Hovd">
+				<long>
+					<generic draft="unconfirmed">Hoved gaƒoƒome</generic>
+					<standard draft="unconfirmed">Hoved gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Hoved dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irkutsk">
+				<long>
+					<generic draft="unconfirmed">Irkusk gaƒoƒome</generic>
+					<standard draft="unconfirmed">Irkusk gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Irkusk dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic draft="unconfirmed">Israel  gaƒoƒome</generic>
+					<standard draft="unconfirmed">Israel gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Israel ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic draft="unconfirmed">Dzapan gaƒoƒome</generic>
+					<standard draft="unconfirmed">Dzapan gaƒoƒoɖanyime</standard>
+					<daylight draft="unconfirmed">Dzapan ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic draft="unconfirmed">Petropavlovsk-Kamtsatski  gaƒoƒome</generic>
+					<standard draft="unconfirmed">Petropavlovsk-Kamtsatski  gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Petropavlovsk-Kamtsatski  ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kashgar">
+				<long>
+					<standard draft="unconfirmed">Kashgar gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Eastern">
+				<long>
+					<standard draft="unconfirmed">Ɣedzeƒe Kazakstan gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan_Western">
+				<long>
+					<standard draft="unconfirmed">Ɣetoɖoƒe Kazakstan gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Kizilorda">
+				<long>
+					<generic draft="unconfirmed">Kizilɔda gaƒoƒome</generic>
+					<standard draft="unconfirmed">Kizilɔda gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Kizilɔda dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic draft="unconfirmed">Korea gaƒoƒome</generic>
+					<standard draft="unconfirmed">Korea gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Korea ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Krasnoyarsk">
+				<long>
+					<generic draft="unconfirmed">Krasnoyarsk gaƒoƒome</generic>
+					<standard draft="unconfirmed">Krasnoyarsk gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Krasnoyarsk dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kuybyshev">
+				<long>
+					<generic draft="unconfirmed">Kaibishev  gaƒoƒome</generic>
+					<standard draft="unconfirmed">Kaibishev  gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Kaibishev  ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard draft="unconfirmed">Kirgistan gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Long_Shu">
+				<long>
+					<standard draft="unconfirmed">Lɔng Tsu gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Macau">
+				<long>
+					<generic draft="unconfirmed">Makau gaƒoƒome</generic>
+					<standard draft="unconfirmed">Makau gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Makau ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Magadan">
+				<long>
+					<generic draft="unconfirmed">Magadan gaƒoƒome</generic>
+					<standard draft="unconfirmed">Magadan gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Magadan dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic draft="unconfirmed">Mɔritius gaƒoƒome</generic>
+					<standard draft="unconfirmed">Mɔritius gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Mɔritius dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mongolia">
+				<long>
+					<generic draft="unconfirmed">Ulan Batɔ gaƒoƒome</generic>
+					<standard draft="unconfirmed">Ulan Batɔ gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Ulan Batɔ dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Moscow">
+				<long>
+					<generic draft="unconfirmed">Mɔskowgaƒoƒome</generic>
+					<standard draft="unconfirmed">Mɔskow gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Mɔskow dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Newfoundland">
+				<long>
+					<generic draft="unconfirmed">Niufaunɖlanɖ gaƒoƒome</generic>
+					<standard draft="unconfirmed">Niufaunɖlanɖ gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Niufaunɖlanɖ ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Noronha">
+				<long>
+					<generic draft="unconfirmed">Fernando de Noronha gaƒoƒome</generic>
+					<standard draft="unconfirmed">Fernando de Noronha gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Fernando de Noronha dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Novosibirsk">
+				<long>
+					<generic draft="unconfirmed">Novosibirsk gaƒoƒome</generic>
+					<standard draft="unconfirmed">Novosibirsk gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Novosibirsk dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Omsk">
+				<long>
+					<generic draft="unconfirmed">Omsk gaƒoƒome</generic>
+					<standard draft="unconfirmed">Omsk gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Omsk dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<generic draft="unconfirmed">Paraguai gaƒoƒome</generic>
+					<standard draft="unconfirmed">Paraguai gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Paraguai dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic draft="unconfirmed">Peru gaƒoƒome</generic>
+					<standard draft="unconfirmed">Peru gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Peru dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic draft="unconfirmed">Pierre kple Mikuelon gaƒoƒome</generic>
+					<standard draft="unconfirmed">Pierre kple Mikuelon gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Pierre kple Mikuelon ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Qyzylorda">
+				<long>
+					<generic draft="unconfirmed">Kizilɔrda gaƒoƒome</generic>
+					<standard draft="unconfirmed">Kizilɔrda gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Kizilɔrda dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard draft="unconfirmed">Reunion gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Sakhalin">
+				<long>
+					<generic draft="unconfirmed">Sahalin gaƒoƒome</generic>
+					<standard draft="unconfirmed">Sakhalin gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Sahalin dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic draft="unconfirmed">Samara gaƒoƒome</generic>
+					<standard draft="unconfirmed">Samara gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Samara ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Samarkand">
+				<long>
+					<generic draft="unconfirmed">Samarkanɖ gaƒoƒome</generic>
+					<standard draft="unconfirmed">Samarkanɖ gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Samarkanɖ dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard draft="unconfirmed">Sɛtsels gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Shevchenko">
+				<long>
+					<generic draft="unconfirmed">Shevtsenko gaƒoƒome</generic>
+					<standard draft="unconfirmed">Shevtsenko gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Shevtsenko dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard draft="unconfirmed">Suriname gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Sverdlovsk">
+				<long>
+					<generic draft="unconfirmed">Sverdlovsk gaƒoƒome</generic>
+					<standard draft="unconfirmed">Sverdlovsk gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Sverdlovsk ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic draft="unconfirmed">Taipei gaƒoƒome</generic>
+					<standard draft="unconfirmed">Taipei gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Taipei ŋkekeme gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard draft="unconfirmed">Tadzikistan gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Tashkent">
+				<long>
+					<generic draft="unconfirmed">Tashkent gaƒoƒome</generic>
+					<standard draft="unconfirmed">Tashkent gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Tashkent dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tbilisi">
+				<long>
+					<generic draft="unconfirmed">Tbilisi gaƒoƒome</generic>
+					<standard draft="unconfirmed">Tbilisi gaƒoƒoɖonyime</standard>
+					<daylight draft="unconfirmed">Tbilisi dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic draft="unconfirmed">Tɛrki gaƒoƒome</generic>
+					<standard draft="unconfirmed">Tɛrki gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Tɛrki dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic draft="unconfirmed">Tɛkmenistan gaƒoƒome</generic>
+					<standard draft="unconfirmed">Tɛkmenistan gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Tɛkmenistan dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uralsk">
+				<long>
+					<generic draft="unconfirmed">Ural'sk gaƒoƒome</generic>
+					<standard draft="unconfirmed">Ural'sk gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Ural'sk dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<generic draft="unconfirmed">Uruguai gaƒoƒome</generic>
+					<standard draft="unconfirmed">Uruguai gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Uruguai dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard draft="unconfirmed">Urumki gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic draft="unconfirmed">Uzbekistan gaƒoƒome</generic>
+					<standard draft="unconfirmed">Uzbekistan gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Uzbekistan dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard draft="unconfirmed">Venezuela gaƒoƒome</standard>
+				</long>
+			</metazone>
+			<metazone type="Vladivostok">
+				<long>
+					<generic draft="unconfirmed">Vladivostok gaƒoƒome</generic>
+					<standard draft="unconfirmed">Vladivostok gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Vladivostok dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Volgograd">
+				<long>
+					<generic draft="unconfirmed">Vogograd gaƒoƒome</generic>
+					<standard draft="unconfirmed">Vogograd gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Vogograd dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yakutsk">
+				<long>
+					<generic draft="unconfirmed">Yakutsk gaƒoƒome</generic>
+					<standard draft="unconfirmed">Yakutsk gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Yakutsk dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yekaterinburg">
+				<long>
+					<generic draft="unconfirmed">Yekateringburg gaƒoƒome</generic>
+					<standard draft="unconfirmed">Yekateringburg gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Yekaterinburg dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yerevan">
+				<long>
+					<generic draft="unconfirmed">Yereva gaƒoƒome</generic>
+					<standard draft="unconfirmed">Yereva gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Yereva dzomeŋɔli gaƒoƒome</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yukon">
+				<long>
+					<generic draft="unconfirmed">Yukon gaƒoƒome</generic>
+					<standard draft="unconfirmed">Yukon gaƒoƒoɖoanyime</standard>
+					<daylight draft="unconfirmed">Yukon ŋkekeme gaƒoƒome</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -2347,6 +3862,136 @@
 		<symbols numberSystem="latn">
 			<nan>mnn</nan>
 		</symbols>
+		<decimalFormats numberSystem="arab">
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="unconfirmed">akpe 0.0</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">akpe 0.0</pattern>
+					<pattern type="10000" count="one" draft="unconfirmed">akpe 00</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">akpe 00</pattern>
+					<pattern type="100000" count="one" draft="unconfirmed">akpe 000</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">akpe 000</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">miliɔn 0.0</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">miliɔn 0.00</pattern>
+					<pattern type="10000000" count="one" draft="unconfirmed">miliɔn 00</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">miliɔn 00</pattern>
+					<pattern type="100000000" count="one" draft="unconfirmed">miliɔn 000</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">miliɔn 000</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">miliɔn 0000</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">miliɔn 0000</pattern>
+					<pattern type="10000000000" count="one" draft="unconfirmed">miliɔn 00000</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">miliɔn 00000</pattern>
+					<pattern type="100000000000" count="one" draft="unconfirmed">miliɔn 000000</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">miliɔn 000000</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">biliɔn 0.0</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">biliɔn 0.0</pattern>
+					<pattern type="10000000000000" count="one" draft="unconfirmed">biliɔn 00</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">biliɔn 00</pattern>
+					<pattern type="100000000000000" count="one" draft="unconfirmed">biliɔn 000</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">biliɔn 000</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="unconfirmed">0.0K</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0.0K</pattern>
+					<pattern type="10000" count="one" draft="unconfirmed">00K</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00K</pattern>
+					<pattern type="100000" count="one" draft="unconfirmed">00K</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">00K</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0.0M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0.0M</pattern>
+					<pattern type="10000000" count="one" draft="unconfirmed">0M</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">0M</pattern>
+					<pattern type="100000000" count="one" draft="unconfirmed">00M</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">00M</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0.000M</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0.000M</pattern>
+					<pattern type="10000000000" count="one" draft="unconfirmed">00000M</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">00000M</pattern>
+					<pattern type="100000000000" count="one" draft="unconfirmed">0000M</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">0000M</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0B</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0B</pattern>
+					<pattern type="10000000000000" count="one" draft="unconfirmed">0B</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">0B</pattern>
+					<pattern type="100000000000000" count="one" draft="unconfirmed">00B</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">00B</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="armn">
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="unconfirmed">akpe 0.0</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">akpe 0.0</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="unconfirmed">0.0K</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0.0K</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="armnlow">
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="unconfirmed">akpe 0.0</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">akpe 0.0</pattern>
+					<pattern type="10000" count="one" draft="unconfirmed">akpe 00</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">akpe 00</pattern>
+					<pattern type="100000" count="one" draft="unconfirmed">akpe 000</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">akpe 000</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">miliɔn 0.0</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">miliɔn 0.0</pattern>
+					<pattern type="10000000" count="one" draft="unconfirmed">miliɔn 00</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">miliɔn 00</pattern>
+					<pattern type="100000000" count="one" draft="unconfirmed">miliɔn 000</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">miliɔn 000</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">miliɔn 0000</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">miliɔn 0000</pattern>
+					<pattern type="10000000000" count="one" draft="unconfirmed">miliɔn 00000</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">miliɔn 00000</pattern>
+					<pattern type="100000000000" count="one" draft="unconfirmed">miliɔn 000000</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">miliɔn 000000</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">biliɔn 0.0</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">biliɔn 0.0</pattern>
+					<pattern type="10000000000000" count="one" draft="unconfirmed">biliɔn 00</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">biliɔn 00</pattern>
+					<pattern type="100000000000000" count="one" draft="unconfirmed">biliɔn 000</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">biliɔn 000</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one" draft="unconfirmed">0.0K</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0.0K</pattern>
+					<pattern type="10000" count="one" draft="unconfirmed">00K</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00K</pattern>
+					<pattern type="100000" count="one" draft="unconfirmed">000K</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000K</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0.0M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0.0M</pattern>
+					<pattern type="10000000" count="one" draft="unconfirmed">00M</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00M</pattern>
+					<pattern type="100000000" count="one" draft="unconfirmed">000M</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000M</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0000M</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0000M</pattern>
+					<pattern type="10000000000" count="one" draft="unconfirmed">00000M</pattern>
+					<pattern type="10000000000" count="other" draft="unconfirmed">00000M</pattern>
+					<pattern type="100000000000" count="one" draft="unconfirmed">000000M</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">000000M</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0B</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0B</pattern>
+					<pattern type="10000000000000" count="one" draft="unconfirmed">00B</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">00B</pattern>
+					<pattern type="100000000000000" count="one" draft="unconfirmed">000B</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">000B</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength type="short">
 				<decimalFormat>
@@ -2476,6 +4121,7 @@
 				<displayName>australiaga dollar</displayName>
 				<displayName count="one">ɔstraliaga dollar</displayName>
 				<displayName count="other">ɔstraliaga dollar</displayName>
+				<symbol draft="unconfirmed">AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>arubaga lorin</displayName>
@@ -2611,6 +4257,7 @@
 				<displayName>brazilga real</displayName>
 				<displayName count="one">braziliaga real</displayName>
 				<displayName count="other">braziliaga realwo</displayName>
+				<symbol draft="unconfirmed">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>brazilia cruzado xoxotɔ (1989-1990)</displayName>
@@ -2656,6 +4303,7 @@
 				<displayName>belarusiaga ruble</displayName>
 				<displayName count="one">belarusiaga ruble</displayName>
 				<displayName count="other">belarusiaga rublewo</displayName>
+				<symbol draft="unconfirmed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>belizega dollar</displayName>
@@ -2666,6 +4314,7 @@
 				<displayName>kanadaga dollar</displayName>
 				<displayName count="one">kanadaga dollar</displayName>
 				<displayName count="other">kanadaga dollarwo</displayName>
+				<symbol draft="unconfirmed">CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>kongoga franc</displayName>
@@ -2711,6 +4360,7 @@
 				<displayName>tsainaga yuan</displayName>
 				<displayName count="one">tsainaga yuan</displayName>
 				<displayName count="other">tsainaga yuanwo</displayName>
+				<symbol draft="unconfirmed">CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>kolombiaga peso</displayName>
@@ -2841,6 +4491,7 @@
 				<displayName>euro</displayName>
 				<displayName count="one">euro</displayName>
 				<displayName count="other">euro</displayName>
+				<symbol draft="unconfirmed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>finlandga markka</displayName>
@@ -2866,6 +4517,7 @@
 				<displayName>britainga pound sterling</displayName>
 				<displayName count="one">britainga pound sterling</displayName>
 				<displayName count="other">britainga pound sterling</displayName>
+				<symbol draft="unconfirmed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>dzɔdziaga kupon larit</displayName>
@@ -2942,6 +4594,7 @@
 				<displayName>hong kongga dollar</displayName>
 				<displayName count="one">hong kongga dollar</displayName>
 				<displayName count="other">hong kongga dollar</displayName>
+				<symbol draft="unconfirmed">HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>honduraga lempira</displayName>
@@ -2992,11 +4645,13 @@
 				<displayName>israelga yeyetɔ sheqel</displayName>
 				<displayName count="one">israelga yeyetɔ sheqel</displayName>
 				<displayName count="other">israelga yeyetɔ sheqel</displayName>
+				<symbol draft="unconfirmed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>indiaga rupee</displayName>
 				<displayName count="one">indiaga rupee</displayName>
 				<displayName count="other">indiaga rupee</displayName>
+				<symbol draft="unconfirmed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>irakga dinar</displayName>
@@ -3037,6 +4692,7 @@
 				<displayName>dzapanga yen</displayName>
 				<displayName count="one">dzapanga yen</displayName>
 				<displayName count="other">dzapanga yen</displayName>
+				<symbol draft="unconfirmed">JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>kenyaga shilling</displayName>
@@ -3077,6 +4733,7 @@
 				<displayName>anyiehe koreaga won</displayName>
 				<displayName count="one">anyiehe koreaga won</displayName>
 				<displayName count="other">anyiehe koreaga won</displayName>
+				<symbol draft="unconfirmed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>kuwaitga dinar</displayName>
@@ -3248,15 +4905,29 @@
 				<displayName count="one">maldiviaga rufiyaa</displayName>
 				<displayName count="other">maldiviaga rufiyaa</displayName>
 			</currency>
+			<currency type="MWK">
+				<displayName draft="unconfirmed">malawiga kwacha</displayName>
+				<displayName count="one" draft="unconfirmed">malawiga kwacha</displayName>
+				<displayName count="other" draft="unconfirmed">malawiga kwacha</displayName>
+			</currency>
 			<currency type="MXN">
 				<displayName>meksikoga peso</displayName>
 				<displayName count="one">meksikoga peso</displayName>
 				<displayName count="other">meksikoga peso</displayName>
+				<symbol draft="unconfirmed">MX$</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>malaysiaga ringit</displayName>
 				<displayName count="one">malaysiaga ringit</displayName>
 				<displayName count="other">malaysiaga ringit</displayName>
+			</currency>
+			<currency type="MZN">
+				<displayName draft="unconfirmed">mozambikga metikal</displayName>
+			</currency>
+			<currency type="NAD">
+				<displayName draft="unconfirmed">namibiaga dollar</displayName>
+				<displayName count="one" draft="unconfirmed">namibiaga dollar</displayName>
+				<displayName count="other" draft="unconfirmed">namibiaga dollar</displayName>
 			</currency>
 			<currency type="NGN">
 				<displayName>naidzeriaga naira</displayName>
@@ -3292,6 +4963,7 @@
 				<displayName>new zealanɖga dollar</displayName>
 				<displayName count="one">new zealanɖga dollar</displayName>
 				<displayName count="other">new zealanɖga dollar</displayName>
+				<symbol draft="unconfirmed">NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>omanga rial</displayName>
@@ -3468,6 +5140,11 @@
 				<displayName count="one">surinamega guilder</displayName>
 				<displayName count="other">surinamega guilder</displayName>
 			</currency>
+			<currency type="SSP">
+				<displayName draft="unconfirmed">anyiehe sudanga pound</displayName>
+				<displayName count="one" draft="unconfirmed">anyiehe sudanga pound</displayName>
+				<displayName count="other" draft="unconfirmed">anyiehe sudanga pound</displayName>
+			</currency>
 			<currency type="STD">
 				<displayName>são tomé kple príncipega dobra</displayName>
 				<displayName count="one">são tomé kple príncipega dobra</displayName>
@@ -3497,6 +5174,7 @@
 				<displayName>thaiga baht</displayName>
 				<displayName count="one">thaiga baht</displayName>
 				<displayName count="other">thaiga baht</displayName>
+				<symbol draft="unconfirmed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>tajikistanga ruble</displayName>
@@ -3552,6 +5230,7 @@
 				<displayName>taiwanga yeye dollar</displayName>
 				<displayName count="one">taiwanga yeye dollar</displayName>
 				<displayName count="other">taiwanga yeye dollar</displayName>
+				<symbol draft="unconfirmed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzaniatɔwofɛgadudu</displayName>
@@ -3582,6 +5261,7 @@
 				<displayName>us ga dollar</displayName>
 				<displayName count="one">us ga dollar</displayName>
 				<displayName count="other">us ga dollar</displayName>
+				<symbol draft="unconfirmed">US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>us ga dollar (ŋkeke si gbɔna tɔ)</displayName>
@@ -3627,6 +5307,7 @@
 				<displayName>vietnamga dong</displayName>
 				<displayName count="one">vietnamga dong</displayName>
 				<displayName count="other">vietnamga dong</displayName>
+				<symbol draft="unconfirmed">₫</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName>vietnamga dong (1978-1985)</displayName>
@@ -3682,6 +5363,7 @@
 				<displayName>ɣedzeƒe caribbeaga dollar</displayName>
 				<displayName count="one">ɣedzeƒe karibbeaga dollar</displayName>
 				<displayName count="other">ɣedzeƒe karibbeaga dollar</displayName>
+				<symbol draft="unconfirmed">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>gaɖuɖu ɖoɖo tɔxɛ</displayName>
@@ -3812,66 +5494,101 @@
 	</numbers>
 	<units>
 		<unit type="day">
+			<unitPattern count="one">ŋkeke {0} wo</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">ŋkeke {0}</unitPattern>
 			<unitPattern count="other">ŋkeke {0} wo</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">ŋkeke {0}</unitPattern>
 		</unit>
 		<unit type="day-future">
+			<unitPattern count="one">le ŋkeke {0} wo me</unitPattern>
 			<unitPattern count="other">le ŋkeke {0} wo me</unitPattern>
 		</unit>
 		<unit type="day-past">
+			<unitPattern count="one">ŋkeke {0} si wo va yi</unitPattern>
 			<unitPattern count="other">ŋkeke {0} si wo va yi</unitPattern>
 		</unit>
 		<unit type="hour">
+			<unitPattern count="one">gaƒoƒo {0} wo</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">gaƒoƒo {0}</unitPattern>
 			<unitPattern count="other">gaƒoƒo {0} wo</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">gaƒoƒo {0}</unitPattern>
 		</unit>
 		<unit type="hour-future">
+			<unitPattern count="one">le gaƒoƒo {0} wo me</unitPattern>
 			<unitPattern count="other">le gaƒoƒo {0} wo me</unitPattern>
 		</unit>
 		<unit type="hour-past">
+			<unitPattern count="one">gaƒoƒo {0} si wo va yi</unitPattern>
 			<unitPattern count="other">gaƒoƒo {0} si wo va yi</unitPattern>
 		</unit>
 		<unit type="minute">
+			<unitPattern count="one">aɖabaƒoƒo {0} wo</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">aɖabaƒoƒo {0}</unitPattern>
 			<unitPattern count="other">aɖabaƒoƒo {0} wo</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">aɖabaƒoƒo {0}</unitPattern>
 		</unit>
 		<unit type="minute-future">
+			<unitPattern count="one">le aɖabaƒoƒo {0} wo me</unitPattern>
 			<unitPattern count="other">le aɖabaƒoƒo {0} wo me</unitPattern>
 		</unit>
 		<unit type="minute-past">
+			<unitPattern count="one">aɖabaƒoƒo {0} si wo va yi</unitPattern>
 			<unitPattern count="other">aɖabaƒoƒo {0} si wo va yi</unitPattern>
 		</unit>
 		<unit type="month">
+			<unitPattern count="one">ɣleti {0} wo</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">ɣleti {0}</unitPattern>
 			<unitPattern count="other">ɣleti {0} wo</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">ɣleti {0}</unitPattern>
 		</unit>
 		<unit type="month-future">
+			<unitPattern count="one">le ɣleti {0} wo me</unitPattern>
 			<unitPattern count="other">le ɣleti {0} wo me</unitPattern>
 		</unit>
 		<unit type="month-past">
+			<unitPattern count="one">ɣleti {0} si wo va yi</unitPattern>
 			<unitPattern count="other">ɣleti {0} si wo va yi</unitPattern>
 		</unit>
 		<unit type="second">
+			<unitPattern count="one">sekend {0} wo</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">sekend {0}</unitPattern>
 			<unitPattern count="other">sekend {0} wo</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">sekend {0}</unitPattern>
 		</unit>
 		<unit type="second-future">
+			<unitPattern count="one">le sekend {0} wo me</unitPattern>
 			<unitPattern count="other">le sekend {0} wo me</unitPattern>
 		</unit>
 		<unit type="second-past">
+			<unitPattern count="one">sekend {0} si wo va yi</unitPattern>
 			<unitPattern count="other">sekend {0} si wo va yi</unitPattern>
 		</unit>
 		<unit type="week">
+			<unitPattern count="one">kɔsiɖa {0} wo</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">kɔsiɖa {0}</unitPattern>
 			<unitPattern count="other">kɔsiɖa {0} wo</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">kɔsiɖa {0}</unitPattern>
 		</unit>
 		<unit type="week-future">
+			<unitPattern count="one">le kɔsiɖa {0} wo me</unitPattern>
 			<unitPattern count="other">le kɔsiɖa {0} wo me</unitPattern>
 		</unit>
 		<unit type="week-past">
+			<unitPattern count="one">kɔsiɖa {0} si wo va yi</unitPattern>
 			<unitPattern count="other">kɔsiɖa {0} si wo va yi</unitPattern>
 		</unit>
 		<unit type="year">
+			<unitPattern count="one">ƒe {0} wo</unitPattern>
+			<unitPattern count="one" alt="short" draft="unconfirmed">ƒe {0}</unitPattern>
 			<unitPattern count="other">ƒe {0} wo</unitPattern>
+			<unitPattern count="other" alt="short" draft="unconfirmed">ƒe {0}</unitPattern>
 		</unit>
 		<unit type="year-future">
+			<unitPattern count="one">le ƒe {0} wo me</unitPattern>
 			<unitPattern count="other">le ƒe {0} wo me</unitPattern>
 		</unit>
 		<unit type="year-past">
+			<unitPattern count="one">ƒe {0} si wo va yi</unitPattern>
 			<unitPattern count="other">ƒe {0} si wo va yi</unitPattern>
 		</unit>
 	</units>
@@ -3879,6 +5596,8 @@
 		<listPattern>
 			<listPatternPart type="2">{0} kple {1}</listPatternPart>
 			<listPatternPart type="end">{0}, kple {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

@@ -62,7 +62,7 @@
 			<language type="fy">ហ្វ្រីស៊ានខាងលិច</language>
 			<language type="ga">អៀរឡង់</language>
 			<language type="gd">ភាសាហ្កែលិគ [gd]</language>
-			<language type="gl">ហ្គាលីស្យាន</language>
+			<language type="gl">ភាសាហ្កាលីស៉ី</language>
 			<language type="gn">ហ្គូរ៉ានី</language>
 			<language type="gsw">អាល្លឺម៉ង ស្វីស</language>
 			<language type="gu">ហ្កុយ៉ារាទី</language>
@@ -395,7 +395,7 @@
 			<territory type="MK">ម៉ាសេដន</territory>
 			<territory type="MK" alt="variant">ម៉ាសេដ្វាន</territory>
 			<territory type="ML">ម៉ាលី</territory>
-			<territory type="MM">ភូមា</territory>
+			<territory type="MM">មីយ៉ាន់ម៉ា</territory>
 			<territory type="MN">ម៉ុងហ្គោលី</territory>
 			<territory type="MO">ម៉ាកាវ</territory>
 			<territory type="MO" alt="short">ម៉ាកាវ</territory>
@@ -442,7 +442,7 @@
 			<territory type="RE">រ៉េអ៊ុយ៉ុង</territory>
 			<territory type="RO">រូម៉ានី</territory>
 			<territory type="RS">សើប</territory>
-			<territory type="RU">រូស្ស៊ី</territory>
+			<territory type="RU">រុស្ស៊ី</territory>
 			<territory type="RW">រវ៉ាន់ដា</territory>
 			<territory type="SA">អារ៉ាប៊ីសាអ៊ូឌីត</territory>
 			<territory type="SB">កោះ​ស៊ូឡូម៉ុង</territory>
@@ -554,7 +554,7 @@
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ម៉ែត្រ</measurementSystemName>
 			<measurementSystemName type="UK">ចក្រភព​អង់គ្លេស</measurementSystemName>
-			<measurementSystemName type="US">សហរដ្ឋអាមេរិក</measurementSystemName>
+			<measurementSystemName type="US" draft="provisional">ស.រ.អ</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">ភាសា ៖ {0}</codePattern>
@@ -1044,7 +1044,7 @@
 						<displayName>វិនាទី</displayName>
 					</field>
 					<field type="zone">
-						<displayName>តំបន់</displayName>
+						<displayName draft="provisional">តំបន់</displayName>
 					</field>
 				</fields>
 			</calendar>
@@ -2697,7 +2697,7 @@
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard>Greenwich Mean Time</standard>
+					<standard draft="provisional">Greenwich Mean Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">

@@ -8,6 +8,8 @@
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="en">yaman</language>
+			<language type="fr">numbu buy</language>
 			<language type="kkj">kakɔ</language>
 		</languages>
 		<territories>
@@ -31,13 +33,49 @@
 			 </regionInfo>
 		-->
 	</characters>
+	<delimiters>
+		<quotationStart>«</quotationStart>
+		<quotationEnd>»</quotationEnd>
+		<alternateQuotationStart>‹</alternateQuotationStart>
+		<alternateQuotationEnd>›</alternateQuotationEnd>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
+							<month type="1">pamba</month>
+							<month type="2">wanja</month>
 							<month type="11">Wanja</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">pamba</month>
+							<month type="2">wanja</month>
+							<month type="3">mbiyɔ mɛndoŋgɔ</month>
+							<month type="4">Nyɔlɔmbɔŋgɔ</month>
+							<month type="5">Mɔnɔ ŋgbanja</month>
+							<month type="6">Nyaŋgwɛ ŋgbanja</month>
+							<month type="7">kuŋgwɛ</month>
+							<month type="8">fɛ</month>
+							<month type="9">njapi</month>
+							<month type="10">nyukul</month>
+							<month type="12">ɓulɓusɛ</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="wide">
+							<month type="1">pamba</month>
+							<month type="2">wanja</month>
+							<month type="3">mbiyɔ mɛndoŋgɔ</month>
+							<month type="4">Nyɔlɔmbɔŋgɔ</month>
+							<month type="5">Mɔnɔ ŋgbanja</month>
+							<month type="6">Nyaŋgwɛ ŋgbanja</month>
+							<month type="7">kuŋgwɛ</month>
+							<month type="8">fɛ</month>
+							<month type="9">njapi</month>
+							<month type="10">nyukul</month>
+							<month type="12">ɓulɓusɛ</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -62,6 +100,15 @@
 							<day type="sat">ms</day>
 						</dayWidth>
 						<dayWidth type="short">
+							<day type="sun">sɔndi</day>
+							<day type="mon">lundi</day>
+							<day type="tue">mardi</day>
+							<day type="wed">mɛrkɛrɛdi</day>
+							<day type="thu">yedi</day>
+							<day type="fri">vaŋdɛrɛdi</day>
+							<day type="sat">mɔnɔ sɔndi</day>
+						</dayWidth>
+						<dayWidth type="wide">
 							<day type="sun">sɔndi</day>
 							<day type="mon">lundi</day>
 							<day type="tue">mardi</day>
@@ -145,6 +192,11 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -161,6 +213,13 @@
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 				</dateTimeFormats>
+				<fields>
+					<field type="day">
+						<relative type="-1">kwey</relative>
+						<relative type="0">muka</relative>
+						<relative type="1">nɛmɛnɔ</relative>
+					</field>
+				</fields>
 			</calendar>
 		</calendars>
 	</dates>
@@ -175,6 +234,7 @@
 		</symbols>
 		<currencies>
 			<currency type="XAF">
+				<displayName>Franc CFA</displayName>
 				<symbol>FCFA</symbol>
 			</currency>
 		</currencies>

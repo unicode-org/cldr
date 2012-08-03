@@ -7,6 +7,11 @@
 		<language type="el"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>,</localeSeparator>
+			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="aa">Αφάρ</language>
 			<language type="ab">Αμπχαζικά</language>
@@ -18,6 +23,7 @@
 			<language type="af">Αφρικάανς</language>
 			<language type="afa">Αφροασιατική γλώσσα</language>
 			<language type="afh">Αφριχίλι</language>
+			<language type="agq" draft="contributed">Αγκέμ</language>
 			<language type="ain">Αϊνού</language>
 			<language type="ak">Ακάν</language>
 			<language type="akk">Ακάντιαν</language>
@@ -43,7 +49,7 @@
 			<language type="av">Άβαρικ</language>
 			<language type="awa">Αγουαντί</language>
 			<language type="ay">Αϊμάρα</language>
-			<language type="az">Αζερμπαϊτζανικά</language>
+			<language type="az">Αζερικά</language>
 			<language type="az" alt="short" draft="contributed">Αζερικά</language>
 			<language type="ba">Μπασκίρ</language>
 			<language type="bad">Μπάντα</language>
@@ -52,17 +58,21 @@
 			<language type="ban">Μπαλινίζ</language>
 			<language type="bas">Μπάσα</language>
 			<language type="bat">Βαλτική γλώσσα</language>
+			<language type="bax" draft="contributed">Μπαμούν</language>
+			<language type="bbj" draft="contributed">Γκομάλα</language>
 			<language type="be">Λευκορωσικά</language>
 			<language type="bej">Μπέζα</language>
 			<language type="bem">Μπέμπα</language>
 			<language type="ber">Μπέρμπερ</language>
 			<language type="bez" draft="contributed">Μπένα</language>
+			<language type="bfd" draft="contributed">Μπαφούτ</language>
 			<language type="bg">Βουλγαρικά</language>
 			<language type="bh">Μπιχάρι</language>
 			<language type="bho">Μποζπούρι</language>
 			<language type="bi">Μπισλάμα</language>
 			<language type="bik">Μπικόλ</language>
 			<language type="bin">Μπίνι</language>
+			<language type="bkm" draft="contributed">Κομ</language>
 			<language type="bla">Σικσίκα</language>
 			<language type="bm">Μπαμπάρα</language>
 			<language type="bn">Μπενγκάλι</language>
@@ -72,19 +82,24 @@
 			<language type="bra">Μπρατζ</language>
 			<language type="brx" draft="contributed">Μπόντο</language>
 			<language type="bs">Βοσνιακά</language>
+			<language type="bss" draft="contributed">Ακόσι</language>
 			<language type="btk">Μπατάκ</language>
 			<language type="bua">Μπουριάτ</language>
 			<language type="bug">Μπουγκίζ</language>
+			<language type="bum" draft="contributed">Μπουλού</language>
 			<language type="byn">Μπλιν</language>
+			<language type="byv" draft="contributed">Μεντούμπα</language>
 			<language type="ca">Καταλανικά</language>
 			<language type="cad">Κάντο</language>
 			<language type="cai">Ινδιανική γλώσσα Κεντρικής Αμερικής</language>
 			<language type="car">Καρίμπ</language>
 			<language type="cau">Καυκάσια γλώσσα</language>
+			<language type="cay" draft="contributed">Καγιούγκα</language>
 			<language type="cch">Ατσάμ</language>
 			<language type="ce">Τσέτσνιαν</language>
 			<language type="ceb">Κεμπουάνο</language>
 			<language type="cel">Κελτική γλώσσα</language>
+			<language type="cgg" draft="contributed">Τσίγκα</language>
 			<language type="ch">Καμόρρο</language>
 			<language type="chb">Τσίμπτσα</language>
 			<language type="chg">Τσαγκατάι</language>
@@ -95,6 +110,7 @@
 			<language type="chp">Τσίπιουαν</language>
 			<language type="chr">Τσερόκι</language>
 			<language type="chy">Σεγιέν</language>
+			<language type="ckb" draft="provisional">Κουρδικά Sorani</language>
 			<language type="cmc">Χαμική γλώσσα</language>
 			<language type="co">Κορσικανικά</language>
 			<language type="cop">Κοπτικά</language>
@@ -113,6 +129,7 @@
 			<language type="da">Δανικά</language>
 			<language type="dak">Ντακότα</language>
 			<language type="dar">Ντάργκουα</language>
+			<language type="dav" draft="contributed">Τάιτα</language>
 			<language type="day">Νταγιάκ</language>
 			<language type="de">Γερμανικά</language>
 			<language type="de_AT">Γερμανικά Αυστρίας</language>
@@ -121,14 +138,17 @@
 			<language type="den">Σλαβικά</language>
 			<language type="dgr">Ντόγκριμπ</language>
 			<language type="din">Ντίνκα</language>
+			<language type="dje" draft="contributed">Ζάρμα</language>
 			<language type="doi">Ντόγκρι</language>
 			<language type="dra">Γλώσσα Ντραβίδιαν</language>
 			<language type="dsb">Γλώσσα Κάτω Λουσατίας</language>
 			<language type="dua">Ντουάλα</language>
 			<language type="dum">Μέσα Ολλανδικά</language>
 			<language type="dv">Ντιβέχι</language>
+			<language type="dyo" draft="contributed">Τζόλα-Φόνι</language>
 			<language type="dyu">Ντογιούλα</language>
 			<language type="dz">Ντζόνγκχα</language>
+			<language type="dzg" draft="contributed">Νταζάγκα</language>
 			<language type="ebu" draft="contributed">Έμπου</language>
 			<language type="ee">Γι</language>
 			<language type="efi">Εφίκ</language>
@@ -145,7 +165,7 @@
 			<language type="eo">Εσπεράντο</language>
 			<language type="es">Ισπανικά</language>
 			<language type="es_419">Ισπανικά Λατινικής Αμερικής</language>
-			<language type="es_ES">Ισπανικά Ιβηρικής</language>
+			<language type="es_ES">Ισπανικά Ευρώπης</language>
 			<language type="et">Εσθονικά</language>
 			<language type="eu">Βασκικά</language>
 			<language type="ewo">Εγουόντο</language>
@@ -187,6 +207,7 @@
 			<language type="grc">Αρχαία Ελληνικά</language>
 			<language type="gsw">Ελβετικά Γερμανικά</language>
 			<language type="gu">Γκουγιαράτι</language>
+			<language type="guz" draft="contributed">Γκούσι</language>
 			<language type="gv">Μανξ</language>
 			<language type="gwi">Γκουίτσιν</language>
 			<language type="ha">Χάουσα</language>
@@ -208,6 +229,7 @@
 			<language type="hz">Χερέρο</language>
 			<language type="ia">Ιντερλίνγκουα</language>
 			<language type="iba">Ιμπάν</language>
+			<language type="ibb" draft="contributed">Ιμπίμπιο</language>
 			<language type="id">Ινδονησιακά</language>
 			<language type="ie">Ιντερλίνγκουε</language>
 			<language type="ig">Ίγκμπο</language>
@@ -226,6 +248,7 @@
 			<language type="iu">Ινουκτιτούτ</language>
 			<language type="ja">Ιαπωνικά</language>
 			<language type="jbo">Λόζμπαν</language>
+			<language type="jmc" draft="contributed">Μάχαμε</language>
 			<language type="jpr">Ιουδαϊκά-Περσικά</language>
 			<language type="jrb">Ιουδαϊκά-Αραβικά</language>
 			<language type="jv">Ιαβανεζικά</language>
@@ -238,17 +261,22 @@
 			<language type="kar">Καρέν</language>
 			<language type="kaw">Κάουι</language>
 			<language type="kbd">Καμπαρντιανά</language>
+			<language type="kbl" draft="contributed">Κανέμπου</language>
 			<language type="kcg">Τουάπ</language>
+			<language type="kde" draft="contributed">Μακόντε</language>
 			<language type="kea" draft="contributed">Γλώσσα του Πράσινου Ακρωτηρίου</language>
 			<language type="kfo">Κόρο</language>
 			<language type="kg">Κονγκό</language>
 			<language type="kha">Κάσι</language>
 			<language type="khi">Γλώσσα Κοϊσάν</language>
 			<language type="kho">Κοτανικά</language>
+			<language type="khq" draft="contributed">Κόιρα Τσίνι</language>
 			<language type="ki">Κικούγιου</language>
 			<language type="kj">Κουανιγιάμα</language>
 			<language type="kk">Καζακικά</language>
+			<language type="kkj" draft="contributed">Κάκο</language>
 			<language type="kl">Καλααλισούτ</language>
+			<language type="kln" draft="contributed">Καλεντζίν</language>
 			<language type="km">Καμποτζιανά</language>
 			<language type="kmb">Κιμπούντου</language>
 			<language type="kn">Κανάντα</language>
@@ -262,6 +290,9 @@
 			<language type="kro">Κρου</language>
 			<language type="kru">Κουρούχ</language>
 			<language type="ks">Κασμίρι</language>
+			<language type="ksb" draft="contributed">Σάμπαλα</language>
+			<language type="ksf" draft="contributed">Μπάφια</language>
+			<language type="ksh" draft="contributed">Κολωνικά</language>
 			<language type="ku">Κουρδικά</language>
 			<language type="kum">Κουμγιούκ</language>
 			<language type="kut">Κουτενάι</language>
@@ -270,6 +301,7 @@
 			<language type="ky">Κυργιζικά</language>
 			<language type="la">Λατινικά</language>
 			<language type="lad">Λαδίνο</language>
+			<language type="lag" draft="contributed">Λάνγκι</language>
 			<language type="lah">Λάχδα</language>
 			<language type="lam">Λάμπα</language>
 			<language type="lb">Λουξεμβουργικά</language>
@@ -290,17 +322,22 @@
 			<language type="luy" draft="contributed">Λουχία</language>
 			<language type="lv">Λετονικά</language>
 			<language type="mad">Μαντουρίζ</language>
+			<language type="maf" draft="contributed">Μάφα</language>
 			<language type="mag">Μαγκάχι</language>
 			<language type="mai">Μαϊτχίλι</language>
 			<language type="mak">Μακαζάρ</language>
 			<language type="man">Μαντίνγκο</language>
 			<language type="map">Οστρονέζιαν</language>
 			<language type="mas">Μασάι</language>
+			<language type="mde" draft="contributed">Μάμπα</language>
 			<language type="mdf">Μόκσα</language>
 			<language type="mdr">Μανδάρ</language>
 			<language type="men">Μέντε</language>
+			<language type="mer" draft="contributed">Μερού</language>
+			<language type="mfe" draft="contributed">Μορίσιεν</language>
 			<language type="mg">Μαλαγάσι</language>
 			<language type="mga">Μέσα Ιρλανδικά</language>
+			<language type="mgh" draft="contributed">Μακούβα-Μέτο</language>
 			<language type="mh">Μάρσαλ</language>
 			<language type="mi">Μάορι</language>
 			<language type="mic">Μικμάκ</language>
@@ -319,18 +356,21 @@
 			<language type="mr">Μαράθι</language>
 			<language type="ms">Μαλάι</language>
 			<language type="mt">Μαλτεζικά</language>
+			<language type="mua" draft="contributed">Μουντάνγκ</language>
 			<language type="mul">Πολλαπλές γλώσσες</language>
 			<language type="mun">Γλώσσα Μούντα</language>
 			<language type="mus">Κρικ</language>
 			<language type="mwl">Μιραντεζικά</language>
 			<language type="mwr">Μαργουάρι</language>
 			<language type="my">Βιρμανικά</language>
+			<language type="mye" draft="contributed">Μιένε</language>
 			<language type="myn">Γλώσσα Μάγιαν</language>
 			<language type="myv">Έρζυα</language>
 			<language type="na">Ναούρου</language>
 			<language type="nah">Ναχουάτλ</language>
 			<language type="nai">Ινδιανική γλώσσα Βόρειας Αμερικής</language>
 			<language type="nap">Ναπολιτανικά</language>
+			<language type="naq" draft="contributed">Νάμα</language>
 			<language type="nb">Νορβηγικά Μποκμάλ</language>
 			<language type="nd">Ντεμπέλε Βορρά</language>
 			<language type="nds">Κάτω Γερμανικά</language>
@@ -342,7 +382,9 @@
 			<language type="niu">Νιούεαν</language>
 			<language type="nl">Ολλανδικά</language>
 			<language type="nl_BE">Φλαμανδικά</language>
+			<language type="nmg" draft="contributed">Κβάσιο</language>
 			<language type="nn">Νορβηγικά Νινόρσκ</language>
+			<language type="nnh" draft="contributed">Νγκιεμπούν</language>
 			<language type="no">Νορβηγικά</language>
 			<language type="nog">Νογκάι</language>
 			<language type="non">Παλαιά Νορβηγικά</language>
@@ -350,6 +392,7 @@
 			<language type="nr">Ντεμπέλε Νότου</language>
 			<language type="nso">Βόρεια Σόθο</language>
 			<language type="nub">Γλώσσα Νούμπιαν</language>
+			<language type="nus" draft="contributed">Νουέρ</language>
 			<language type="nv">Νάβαχο</language>
 			<language type="nwc">Κλασικά Νεουάρι</language>
 			<language type="ny">Νιάντζα</language>
@@ -384,12 +427,12 @@
 			<language type="ps" alt="variant" draft="contributed">Πάστο</language>
 			<language type="pt">Πορτογαλικά</language>
 			<language type="pt_BR">Πορτογαλικά Βραζιλίας</language>
-			<language type="pt_PT">Πορτογαλικά Ιβηρικής</language>
+			<language type="pt_PT">Πορτογαλικά Ευρώπης</language>
 			<language type="qu">Κετσούα</language>
 			<language type="raj">Ραζασθάνι</language>
 			<language type="rap">Ραπανούι</language>
 			<language type="rar">Ραροτονγκάν</language>
-			<language type="rm">Ρετο-Ρομανικά</language>
+			<language type="rm">Ρομανικά</language>
 			<language type="rn">Ρούντι</language>
 			<language type="ro">Ρουμανικά</language>
 			<language type="roa">Ρομανική γλώσσα</language>
@@ -406,20 +449,28 @@
 			<language type="sai">Ινδιανική γλώσσα Νότιας Αμερικής</language>
 			<language type="sal">Γλώσσα Σαλισάν</language>
 			<language type="sam">Σαμαρίτικα Αραμαϊκά</language>
+			<language type="saq" draft="contributed">Σαμπούρου</language>
 			<language type="sas">Σασάκ</language>
 			<language type="sat">Σαντάλι</language>
+			<language type="sba" draft="contributed">Νγκαμπέι</language>
+			<language type="sbp" draft="contributed">Σάνγκου</language>
 			<language type="sc">Σαρδινικά</language>
 			<language type="scn">Σικελιανά</language>
 			<language type="sco">Σκωτικά</language>
 			<language type="sd">Σίντι</language>
 			<language type="se">Βόρεια Σάμι</language>
+			<language type="see" draft="contributed">Σένεκα</language>
+			<language type="seh" draft="contributed">Σένα</language>
 			<language type="sel">Σελκούπ</language>
 			<language type="sem">Σημητική γλώσσα</language>
+			<language type="ses" draft="contributed">Κοϊραμπόρο Σένι</language>
 			<language type="sg">Σάνγκο</language>
 			<language type="sga">Παλαιά Ιρλανδικά</language>
 			<language type="sgn">Νοηματική γλώσσα</language>
 			<language type="sh">Σερβοκροατικά</language>
+			<language type="shi" draft="contributed">Τασελχίτ</language>
 			<language type="shn">Σαν</language>
+			<language type="shu" draft="contributed">Αραβικά του Τσαντ</language>
 			<language type="si">Σινχαλεζικά</language>
 			<language type="sid">Σιντάμο</language>
 			<language type="sio">Γλώσσα Σιουάν</language>
@@ -444,6 +495,7 @@
 			<language type="srr">Σερέρ</language>
 			<language type="ss">Σουάτι</language>
 			<language type="ssa">Νιλο-Σαχαριανή γλώσσα</language>
+			<language type="ssy" draft="contributed">Σάχο</language>
 			<language type="st">Νότια Σόθο</language>
 			<language type="su">Σουδανικά</language>
 			<language type="suk">Σουκούμα</language>
@@ -452,12 +504,14 @@
 			<language type="sv">Σουηδικά</language>
 			<language type="sw">Σουαχίλι</language>
 			<language type="swb">Κομόρρια</language>
+			<language type="swc" draft="contributed">Κονγκό Σουαχίλι</language>
 			<language type="syc">Κλασικά Συριακά</language>
 			<language type="syr">Συριακά</language>
 			<language type="ta">Ταμίλ</language>
 			<language type="tai">Ταϊλανδική γλώσσα</language>
 			<language type="te">Τελούγκου</language>
 			<language type="tem">Τίμνε</language>
+			<language type="teo" draft="contributed">Τέσο</language>
 			<language type="ter">Τερένο</language>
 			<language type="tet">Τέτουμ</language>
 			<language type="tg">Τατζίκ</language>
@@ -472,10 +526,11 @@
 			<language type="tli">Τλίνγκιτ</language>
 			<language type="tmh">Ταμασέκ</language>
 			<language type="tn">Τσιγουάνα</language>
-			<language type="to">Τόνγκα</language>
+			<language type="to">Τονγκάν</language>
 			<language type="tog">Νιάσα Τόνγκα</language>
 			<language type="tpi">Τοκ Πισίν</language>
 			<language type="tr">Τουρκικά</language>
+			<language type="trv" draft="contributed">Ταρόκο</language>
 			<language type="ts">Τσόνγκα</language>
 			<language type="tsi">Τσίμσιαν</language>
 			<language type="tt">Τατάρ</language>
@@ -484,15 +539,17 @@
 			<language type="tut">Αλταϊκή γλώσσα</language>
 			<language type="tvl">Τουβαλού</language>
 			<language type="tw">Τούι</language>
+			<language type="twq" draft="contributed">Τασαβάκ</language>
 			<language type="ty">Ταϊτιανά</language>
 			<language type="tyv">Τουβίνιαν</language>
+			<language type="tzm" draft="contributed">Ταμαζίτ Κεντρικού Μαρόκο</language>
 			<language type="udm">Ουντμούρτ</language>
 			<language type="ug">Ουιγουρικά</language>
 			<language type="ug" alt="variant" draft="contributed">Ουιγκούρ</language>
 			<language type="uga">Ουγκαρίτικ</language>
 			<language type="uk">Ουκρανικά</language>
 			<language type="umb">Ουμπούντου</language>
-			<language type="und">Άγνωστη ή ακατάλληλη γλώσσα</language>
+			<language type="und">Άγνωστη γλώσσα</language>
 			<language type="ur">Ουρντού</language>
 			<language type="uz">Ουζμπεκικά</language>
 			<language type="vai">Βάι</language>
@@ -500,6 +557,7 @@
 			<language type="vi">Βιετναμεζικά</language>
 			<language type="vo">Βόλαπικ</language>
 			<language type="vot">Βότικ</language>
+			<language type="vun" draft="contributed">Βούντζο</language>
 			<language type="wa">Γουαλούν</language>
 			<language type="wae" draft="contributed">Βάλσερ</language>
 			<language type="wak">Γλώσσα Γουακασάν</language>
@@ -510,8 +568,11 @@
 			<language type="wo">Γουόλοφ</language>
 			<language type="xal">Καλμίκ</language>
 			<language type="xh">Ζόσα</language>
+			<language type="xog" draft="contributed">Σόγκα</language>
 			<language type="yao">Γιάο</language>
 			<language type="yap">Γιαπίζ</language>
+			<language type="yav" draft="contributed">Γιανγκμπέν</language>
+			<language type="ybb" draft="contributed">Γιέμπα</language>
 			<language type="yi">Γίντις</language>
 			<language type="yo">Γιορούμπα</language>
 			<language type="ypk">Γλώσσα Γιούπικ</language>
@@ -531,7 +592,7 @@
 		</languages>
 		<scripts>
 			<script type="Arab">Αραβικό</script>
-			<script type="Arab" alt="variant">Περσικά-Αραβικά</script>
+			<script type="Arab" alt="variant">Περσικό-Αραβικό</script>
 			<script type="Armi">Αυτοκρατορικό Αραμαϊκό</script>
 			<script type="Armn">Αρμενικό</script>
 			<script type="Avst">Αβεστάν</script>
@@ -662,7 +723,7 @@
 			<script type="Zsym">Σύμβολα</script>
 			<script type="Zxxx">Άγραφο</script>
 			<script type="Zyyy">Κοινό</script>
-			<script type="Zzzz">Άγνωστη ή ακατάλληλη γραφή</script>
+			<script type="Zzzz">Άγνωστη γραφή</script>
 		</scripts>
 		<territories>
 			<territory type="001">Κόσμος</territory>
@@ -683,7 +744,7 @@
 			<territory type="034">Νότια Ασία</territory>
 			<territory type="035">Νοτιοανατολική Ασία</territory>
 			<territory type="039">Νότια Ευρώπη</territory>
-			<territory type="053">Αυστραλία και Νέα Ζηλανδία</territory>
+			<territory type="053">Αυστραλασία</territory>
 			<territory type="054">Μελανησία</territory>
 			<territory type="057">Περιοχή Μικρονησίας</territory>
 			<territory type="061">Πολυνησία</territory>
@@ -711,7 +772,7 @@
 			<territory type="AT">Αυστρία</territory>
 			<territory type="AU">Αυστραλία</territory>
 			<territory type="AW">Αρούμπα</territory>
-			<territory type="AX">Νήσοι Άλαντ</territory>
+			<territory type="AX">Νησιά Όλαντ</territory>
 			<territory type="AZ">Αζερμπαϊτζάν</territory>
 			<territory type="BA">Βοσνία - Ερζεγοβίνη</territory>
 			<territory type="BB">Μπαρμπάντος</territory>
@@ -726,6 +787,7 @@
 			<territory type="BM">Βερμούδες</territory>
 			<territory type="BN">Μπρουνέι</territory>
 			<territory type="BO">Βολιβία</territory>
+			<territory type="BQ">Ολλανδία Καραϊβικής</territory>
 			<territory type="BR">Βραζιλία</territory>
 			<territory type="BS">Μπαχάμες</territory>
 			<territory type="BT">Μπουτάν</territory>
@@ -734,12 +796,12 @@
 			<territory type="BY">Λευκορωσία</territory>
 			<territory type="BZ">Μπελίσε</territory>
 			<territory type="CA">Καναδάς</territory>
-			<territory type="CC">Νήσοι Κόκος</territory>
+			<territory type="CC">Νησιά Κόκος [Κίλινγκ]</territory>
 			<territory type="CD">Κονγκό - Κινσάσα</territory>
 			<territory type="CD" alt="variant">Κονγκό</territory>
 			<territory type="CF">Κεντροαφρικανική Δημοκρατία</territory>
 			<territory type="CG">Κονγκό - Μπραζαβίλ</territory>
-			<territory type="CG" alt="variant">Κόνγκο [Δημοκρατία του]</territory>
+			<territory type="CG" alt="variant">Κόνγκο [Δημοκρατία]</territory>
 			<territory type="CH">Ελβετία</territory>
 			<territory type="CI">Ακτή Ελεφαντοστού</territory>
 			<territory type="CI" alt="variant">Ακτή Ελεφαντοστού</territory>
@@ -752,6 +814,7 @@
 			<territory type="CR">Κόστα Ρίκα</territory>
 			<territory type="CU">Κούβα</territory>
 			<territory type="CV">Πράσινο Ακρωτήριο</territory>
+			<territory type="CW">Κουρασάο</territory>
 			<territory type="CX">Νήσος Χριστουγέννων</territory>
 			<territory type="CY">Κύπρος</territory>
 			<territory type="CZ">Τσεχία</territory>
@@ -774,7 +837,7 @@
 			<territory type="FI">Φινλανδία</territory>
 			<territory type="FJ">Φίτζι</territory>
 			<territory type="FK">Νήσοι Φώκλαντ</territory>
-			<territory type="FK" alt="variant">Νήσοι Φώκλαντ</territory>
+			<territory type="FK" alt="variant">Νήσοι Φώκλαντ (Νήσοι Μαλβίνας)</territory>
 			<territory type="FM">Μικρονησία</territory>
 			<territory type="FO">Νήσοι Φερόε</territory>
 			<territory type="FR">Γαλλία</territory>
@@ -846,13 +909,13 @@
 			<territory type="MC">Μονακό</territory>
 			<territory type="MD">Μολδαβία</territory>
 			<territory type="ME">Μαυροβούνιο</territory>
-			<territory type="MF">Άγιος Μαρτίνος</territory>
+			<territory type="MF">Άγιος Μαρτίνος (Γαλλικό τμήμα)</territory>
 			<territory type="MG">Μαδαγασκάρη</territory>
 			<territory type="MH">Νήσοι Μάρσαλ</territory>
 			<territory type="MK">ΠΓΔΜ</territory>
 			<territory type="MK" alt="variant">ΠΓΔΜ</territory>
 			<territory type="ML">Μάλι</territory>
-			<territory type="MM">Μιανμάρ</territory>
+			<territory type="MM">Μιανμάρ [Μπούρμα]</territory>
 			<territory type="MN">Μογγολία</territory>
 			<territory type="MO">Μακάο ΕΔΠ Κίνας</territory>
 			<territory type="MO" alt="short">Μακάο</territory>
@@ -888,7 +951,7 @@
 			<territory type="PK">Πακιστάν</territory>
 			<territory type="PL">Πολωνία</territory>
 			<territory type="PM">Σαιντ Πιέρ και Μικελόν</territory>
-			<territory type="PN">Πίτκερν</territory>
+			<territory type="PN">Νησιά Πίτκερν</territory>
 			<territory type="PR">Πουέρτο Ρίκο</territory>
 			<territory type="PS">Παλαιστινιακά Εδάφη</territory>
 			<territory type="PT">Πορτογαλία</territory>
@@ -896,7 +959,7 @@
 			<territory type="PY">Παραγουάη</territory>
 			<territory type="QA">Κατάρ</territory>
 			<territory type="QO">Περιφερειακή Ωκεανία</territory>
-			<territory type="RE">Ρεϋνιόν</territory>
+			<territory type="RE">Ρεϊνιόν</territory>
 			<territory type="RO">Ρουμανία</territory>
 			<territory type="RS">Σερβία</territory>
 			<territory type="RU">Ρωσία</territory>
@@ -909,16 +972,17 @@
 			<territory type="SG">Σιγκαπούρη</territory>
 			<territory type="SH">Αγία Ελένη</territory>
 			<territory type="SI">Σλοβενία</territory>
-			<territory type="SJ">Σβάλμπαρντ και Νήσοι Γιάν Μέϋεν</territory>
+			<territory type="SJ">Νησιά Σβάλμπαρντ και Γιαν Μάγεν</territory>
 			<territory type="SK">Σλοβακία</territory>
 			<territory type="SL">Σιέρα Λεόνε</territory>
 			<territory type="SM">Άγιος Μαρίνος</territory>
 			<territory type="SN">Σενεγάλη</territory>
 			<territory type="SO">Σομαλία</territory>
 			<territory type="SR">Σουρινάμ</territory>
-			<territory type="SS" draft="provisional">Νότιο Σουδάν</territory>
+			<territory type="SS">Νότιο Σουδάν</territory>
 			<territory type="ST">Σάο Τομέ και Πρίνσιπε</territory>
 			<territory type="SV">Ελ Σαλβαδόρ</territory>
+			<territory type="SX">Άγιος Μαρτίνος (Ολλανδικό τμήμα)</territory>
 			<territory type="SY">Συρία</territory>
 			<territory type="SZ">Ζουαζηλάνδη</territory>
 			<territory type="TA">Τριστάν ντα Κούνια</territory>
@@ -929,7 +993,7 @@
 			<territory type="TH">Ταϊλάνδη</territory>
 			<territory type="TJ">Τατζικιστάν</territory>
 			<territory type="TK">Τοκελάου</territory>
-			<territory type="TL">Ανατολικό Τιμόρ</territory>
+			<territory type="TL">Τιμόρ-Λέστε</territory>
 			<territory type="TL" alt="variant">Ανατολικό Τιμόρ</territory>
 			<territory type="TM">Τουρκμενιστάν</territory>
 			<territory type="TN">Τυνησία</territory>
@@ -952,14 +1016,14 @@
 			<territory type="VI">Αμερικανικές Παρθένοι Νήσοι</territory>
 			<territory type="VN">Βιετνάμ</territory>
 			<territory type="VU">Βανουάτου</territory>
-			<territory type="WF">Νήσοι Ουαλλίς και Φουτουνά</territory>
+			<territory type="WF">Ουόλις και Φουτούνα</territory>
 			<territory type="WS">Σαμόα</territory>
 			<territory type="YE">Υεμένη</territory>
 			<territory type="YT">Μαγιότ</territory>
 			<territory type="ZA">Νότια Αφρική</territory>
 			<territory type="ZM">Ζάμπια</territory>
 			<territory type="ZW">Ζιμπάμπουε</territory>
-			<territory type="ZZ">Άγνωστη ή μη έγκυρη περιοχή</territory>
+			<territory type="ZZ">Άγνωστη περιοχή</territory>
 		</territories>
 		<variants>
 			<variant type="1901">Παραδοσιακή γερμανική ορθογραφία</variant>
@@ -997,10 +1061,21 @@
 			<variant type="WADEGILE">Εκλατινισμένα Γουάντ-Γκιλς</variant>
 		</variants>
 		<keys>
-			<key type="calendar">ημερολόγιο</key>
-			<key type="collation">τακτοποίηση</key>
-			<key type="currency">νόμισμα</key>
+			<key type="calendar">Ημερολόγιο</key>
+			<key type="colAlternate" draft="contributed">Ταξινόμηση με αγνόηση συμβόλων</key>
+			<key type="colBackwards" draft="contributed">Ταξινόμηση με αντεστραμμένο τονισμό</key>
+			<key type="colCaseFirst" draft="contributed">Ταξινόμηση με κεφαλαίους/πεζούς χαρακτήρες</key>
+			<key type="colCaseLevel" draft="contributed">Ταξινόμηση με διάκριση χαρακτήρων</key>
+			<key type="colHiraganaQuaternary" draft="contributed">Ταξινόμηση Κάνα</key>
+			<key type="collation">Σειρά ταξινόμησης</key>
+			<key type="colNormalization" draft="contributed">Κανονικοποιημένη ταξινόμηση</key>
+			<key type="colNumeric" draft="contributed">Αριθμητική ταξινόμηση</key>
+			<key type="colStrength" draft="contributed">Ισχύς ταξινόμησης</key>
+			<key type="currency">Νόμισμα</key>
 			<key type="numbers" draft="contributed">Αριθμοί</key>
+			<key type="timezone" draft="contributed">Ζώνη ώρας</key>
+			<key type="va" draft="contributed">Παραλλαγή τοπικών ρυθμίσεων</key>
+			<key type="variableTop" draft="contributed">Ταξινόμηση ως σύμβολα</key>
 			<key type="x" draft="contributed">Προσωπική χρήση</key>
 		</keys>
 		<types>
@@ -1019,6 +1094,7 @@
 			<type type="ethi" key="numbers" draft="contributed">Αιθιοπικά αριθμητικά</type>
 			<type type="ethiopic" key="calendar" draft="contributed">Αιθιοπικό ημερολόγιο</type>
 			<type type="ethiopic-amete-alem" key="calendar" draft="contributed">Αιθιοπικό ημερολόγιο Άμετ Άλεμ</type>
+			<type type="finance" key="numbers" draft="contributed">Οικονομικά αριθμητικά</type>
 			<type type="fullwide" key="numbers" draft="contributed">Ψηφία πλήρους πλάτους</type>
 			<type type="gb2312han" key="collation">Σειρά ταξινόμησης Απλουστευμένων Κινεζικών - GB2312</type>
 			<type type="geor" key="numbers" draft="contributed">Γεωργιανά αριθμητικά</type>
@@ -1034,6 +1110,7 @@
 			<type type="hantfin" key="numbers" draft="contributed">Παραδοσιακά Κινεζικά οικονομικά αριθμητικά</type>
 			<type type="hebr" key="numbers" draft="contributed">Εβραϊκά αριθμητικά</type>
 			<type type="hebrew" key="calendar">Εβραϊκό ημερολόγιο</type>
+			<type type="identical" key="colStrength" draft="contributed">Ταξινόμηση όλων</type>
 			<type type="indian" key="calendar">Ινδικό εθνικό ημερολόγιο</type>
 			<type type="islamic" key="calendar">Ισλαμικό ημερολόγιο</type>
 			<type type="islamic-civil" key="calendar">Ισλαμικό αστικό ημερολόγιο</type>
@@ -1044,33 +1121,61 @@
 			<type type="knda" key="numbers" draft="contributed">Ψηφία Κανάντα</type>
 			<type type="laoo" key="numbers" draft="contributed">Λαοϊκά ψηφία</type>
 			<type type="latn" key="numbers">Ψηφία της Δύσης</type>
+			<type type="lower" key="colCaseFirst" draft="contributed">Ταξινόμηση πεζών χαρακτήρων πρώτα</type>
 			<type type="mlym" key="numbers" draft="contributed">Μαλαγιαλαμικά ψηφία</type>
 			<type type="mong" key="numbers" draft="contributed">Μογγολικά ψηφία</type>
 			<type type="mymr" key="numbers" draft="contributed">Ψηφία Μιανμάρ</type>
+			<type type="native" key="numbers" draft="contributed">Εγγενή ψηφία</type>
+			<type type="no" key="colBackwards" draft="contributed">Κανονικά ταξινόμηση τόνων</type>
+			<type type="no" key="colCaseFirst" draft="contributed">Κανονική ταξινόμηση χαρακτήρων</type>
+			<type type="no" key="colCaseLevel" draft="contributed">Ταξινόμηση με διάκριση χαρακτήρων</type>
+			<type type="no" key="colHiraganaQuaternary" draft="contributed">Ξεχωριστή ταξινόμηση χαρακτήρων Κάνα</type>
+			<type type="no" key="colNormalization" draft="contributed">Ταξινόμηση χωρίς κανονικοποίηση</type>
+			<type type="no" key="colNumeric" draft="contributed">Μεμονωμένη ταξινόμηση ψηφίων</type>
+			<type type="non-ignorable" key="colAlternate" draft="contributed">Ταξινόμηση συμβόλων</type>
 			<type type="orya" key="numbers" draft="contributed">Οριγικά ψηφία</type>
 			<type type="persian" key="calendar" draft="contributed">Περσικό ημερολόγιο</type>
 			<type type="phonebook" key="collation">Σειρά ταξινόμησης τηλεφωνικού καταλόγου</type>
+			<type type="phonetic" key="collation" draft="contributed">Φωνητική σειρά ταξινόμησης</type>
 			<type type="pinyin" key="collation">Σειρά ταξινόμησης Πινγίν</type>
+			<type type="primary" key="colStrength" draft="contributed">Ταξινόμηση μόνο βασικών χαρακτήρων</type>
+			<type type="quaternary" key="colStrength" draft="contributed">Ταξινόμηση τόνων/χαρακτήρων διάκρισης/χαρακτήρων μεγάλου μεγέθους/χαρακτήρων Κάνα</type>
 			<type type="reformed" key="collation" draft="contributed">Ανασχηματισμένη σειρά ταξινόμησης</type>
 			<type type="roc" key="calendar">Ημερολόγιο της Δημοκρατίας της Κίνας</type>
 			<type type="roman" key="numbers" draft="contributed">Λατινικοί αριθμοί</type>
 			<type type="romanlow" key="numbers" draft="contributed">Πεζοί λατινικοί αριθμοί</type>
 			<type type="search" key="collation">Αναζήτηση γενικού τύπου</type>
+			<type type="searchjl" key="collation" draft="contributed">Αναζήτηση κατά αρχικό σύμφωνο Χανγκούλ</type>
+			<type type="secondary" key="colStrength" draft="contributed">Ταξινόμηση τόνων</type>
+			<type type="shifted" key="colAlternate" draft="contributed">Ταξινόμηση με αγνόηση συμβόλων</type>
 			<type type="stroke" key="collation">Σειρά ταξινόμησης κινήσεων</type>
 			<type type="taml" key="numbers" draft="contributed">Ταμιλικά αριθμητικά</type>
+			<type type="tamldec" key="numbers" draft="contributed">Ταμιλικά ψηφία</type>
 			<type type="telu" key="numbers" draft="contributed">Τελουγκουϊκά Ψηφία</type>
+			<type type="tertiary" key="colStrength" draft="contributed">Ταξινόμηση τόνων/χαρακτήρων διάκρισης/χαρακτήρων μεγάλου μεγέθους</type>
 			<type type="thai" key="numbers" draft="contributed">Ταϊλανδικά ψηφία</type>
 			<type type="tibt" key="numbers" draft="contributed">Θιβετανικά ψηφία</type>
 			<type type="traditional" key="collation">Παραδοσιακή σειρά ταξινόμησης</type>
+			<type type="traditional" key="numbers" draft="contributed">Παραδοσιακά αριθμητικά</type>
 			<type type="unihan" key="collation" draft="contributed">Σειρά ταξινόμησης ριζικής αρίθμησης</type>
+			<type type="upper" key="colCaseFirst" draft="contributed">Ταξινόμηση κεφαλαίων χαρακτήρων πρώτα</type>
+			<type type="vaii" key="numbers" draft="contributed">Ψηφία Βάι</type>
+			<type type="yes" key="colBackwards" draft="contributed">Αντίστροφη ταξινόμηση τόνων</type>
+			<type type="yes" key="colCaseLevel" draft="contributed">Ταξινόμηση χαρακτήρων διάκρισης</type>
+			<type type="yes" key="colHiraganaQuaternary" draft="contributed">Διαφορετική ταξινόμηση Κάνα</type>
+			<type type="yes" key="colNormalization" draft="contributed">Κανονικοποιημένη ταξινόμηση Unicode</type>
+			<type type="yes" key="colNumeric" draft="contributed">Αριθμητική ταξινόμηση ψηφίων</type>
 		</types>
 		<transformNames>
+			<transformName type="BGN" draft="contributed">BGN</transformName>
 			<transformName type="Numeric" draft="contributed">Αριθμητικό</transformName>
 			<transformName type="Tone" draft="contributed">Τόνος</transformName>
+			<transformName type="UNGEGN" draft="contributed">UNGEGN</transformName>
 			<transformName type="x-Accents" draft="contributed">Σημεία τονισμού</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">Πλήρους πλάτους</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">Μισού πλάτους</transformName>
 			<transformName type="x-Jamo" draft="contributed">Τζάμο [Jamo]</transformName>
+			<transformName type="x-Pinyin" draft="contributed">Πινγίν</transformName>
 			<transformName type="x-Publishing" draft="contributed">Έκδοση</transformName>
 		</transformNames>
 		<measurementSystemNames>
@@ -1090,6 +1195,9 @@
 		<exemplarCharacters type="currencySymbol">[α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω]</exemplarCharacters>
 		<exemplarCharacters type="index">[Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! . … &quot; ( ) \[ \] § @ * / \\ \&amp;]</exemplarCharacters>
+		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="medial">{0}…{1}</ellipsis>
 		<moreInformation>;</moreInformation>
 		<stopwords>
 			<stopwordList type="collation" draft="provisional">οι το και η ο</stopwordList>
@@ -1200,7 +1308,7 @@
 							<month type="5" draft="contributed">Μάι</month>
 							<month type="6" draft="contributed">Ιούν</month>
 							<month type="7" draft="contributed">Ιούλ</month>
-							<month type="8" draft="contributed">Αυγ</month>
+							<month type="8">Αύγ</month>
 							<month type="9" draft="contributed">Σεπ</month>
 							<month type="10" draft="contributed">Οκτ</month>
 							<month type="11" draft="contributed">Νοέ</month>
@@ -1241,11 +1349,11 @@
 						<dayWidth type="abbreviated">
 							<day type="sun">Κυρ</day>
 							<day type="mon">Δευ</day>
-							<day type="tue">Τρι</day>
+							<day type="tue">Τρί</day>
 							<day type="wed">Τετ</day>
-							<day type="thu">Πεμ</day>
+							<day type="thu">Πέμ</day>
 							<day type="fri">Παρ</day>
-							<day type="sat">Σαβ</day>
+							<day type="sat">Σάβ</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun" draft="contributed">Κ</day>
@@ -1255,6 +1363,15 @@
 							<day type="thu" draft="contributed">Π</day>
 							<day type="fri" draft="contributed">Π</day>
 							<day type="sat" draft="contributed">Σ</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">Κυ</day>
+							<day type="mon" draft="contributed">Δε</day>
+							<day type="tue" draft="contributed">Τρ</day>
+							<day type="wed" draft="contributed">Τε</day>
+							<day type="thu" draft="contributed">Πε</day>
+							<day type="fri" draft="contributed">Πα</day>
+							<day type="sat" draft="contributed">Σα</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Κυριακή</day>
@@ -1284,6 +1401,15 @@
 							<day type="thu">Π</day>
 							<day type="fri">Π</day>
 							<day type="sat">Σ</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="contributed">Κυ</day>
+							<day type="mon" draft="contributed">Δε</day>
+							<day type="tue" draft="contributed">Τρ</day>
+							<day type="wed" draft="contributed">Τε</day>
+							<day type="thu" draft="contributed">Πε</day>
+							<day type="fri" draft="contributed">Πα</day>
+							<day type="sat" draft="contributed">Σα</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun" draft="contributed">Κυριακή</day>
@@ -1323,6 +1449,12 @@
 							<quarter type="2" draft="contributed">Τ2</quarter>
 							<quarter type="3" draft="contributed">Τ3</quarter>
 							<quarter type="4" draft="contributed">Τ4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1</quarter>
+							<quarter type="2" draft="contributed">2</quarter>
+							<quarter type="3" draft="contributed">3</quarter>
+							<quarter type="4" draft="contributed">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="contributed">1ο τρίμηνο</quarter>
@@ -1391,9 +1523,30 @@
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} - {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} - {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1} - {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1} - {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="HHmm">HH:mm</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
@@ -1439,19 +1592,37 @@
 							<greatestDifference id="a">h a - h a</greatestDifference>
 							<greatestDifference id="h">h-h a</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="a">HH–HH</greatestDifference>
+							<greatestDifference id="H">HH–HH</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a - h:mm a</greatestDifference>
 							<greatestDifference id="h">h:mm-h:mm a</greatestDifference>
 							<greatestDifference id="m">h:mm-h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="a">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a - h:mm a v</greatestDifference>
 							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
 							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a - h a v</greatestDifference>
 							<greatestDifference id="h">h-h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="a">HH–HH v</greatestDifference>
+							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M-M</greatestDifference>
@@ -1536,11 +1707,13 @@
 					</field>
 					<field type="day">
 						<displayName>Ημέρα</displayName>
+						<relative type="-3" draft="contributed">Τρεις ημέρες πριν</relative>
 						<relative type="-2">Προχτές</relative>
 						<relative type="-1">Χτες</relative>
 						<relative type="0">Σήμερα</relative>
 						<relative type="1">Αύριο</relative>
 						<relative type="2">Μεθαύριο</relative>
+						<relative type="3" draft="contributed">Τρεις ημέρες από σήμερα</relative>
 					</field>
 					<field type="weekday">
 						<displayName>Ημέρα εβδομάδας</displayName>
@@ -1668,11 +1841,99 @@
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
+			<regionFormat>Ώρα {0}</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
+			<fallbackRegionFormat>Ώρα {1} ({0})</fallbackRegionFormat>
+			<zone type="America/Lower_Princes">
+				<exemplarCity draft="contributed">[Lower Prince's Quarter]</exemplarCity>
+			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity draft="contributed">Μπέουλαχ, Βόρεια Ντακότα</exemplarCity>
 			</zone>
+			<zone type="Etc/GMT+12">
+				<exemplarCity draft="provisional">[GMT+12]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-12">
+				<exemplarCity draft="contributed">[GMT-12]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+11">
+				<exemplarCity draft="provisional">[GMT+11]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-13">
+				<exemplarCity draft="contributed">[GMT-13]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+10">
+				<exemplarCity draft="provisional">[GMT+10]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-14">
+				<exemplarCity draft="contributed">[GMT-14]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+9">
+				<exemplarCity draft="provisional">[GMT+9]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+8">
+				<exemplarCity draft="contributed">[GMT+8]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+7">
+				<exemplarCity draft="contributed">[GMT+7]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+6">
+				<exemplarCity draft="contributed">[GMT+6]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+5">
+				<exemplarCity draft="contributed">[GMT+5]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+4">
+				<exemplarCity draft="contributed">[GMT+4]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+3">
+				<exemplarCity draft="contributed">[GMT+3]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+2">
+				<exemplarCity draft="contributed">[GMT+2]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT+1">
+				<exemplarCity draft="contributed">[GMT+1]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT">
+				<exemplarCity draft="contributed">[GMT]</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
-				<exemplarCity>Άγνωστη</exemplarCity>
+				<exemplarCity>Άγνωστη πόλη</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-1">
+				<exemplarCity draft="contributed">[GMT-1]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-2">
+				<exemplarCity draft="contributed">[GMT-2]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-3">
+				<exemplarCity draft="contributed">[GMT-3]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-4">
+				<exemplarCity draft="contributed">[GMT-4]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-5">
+				<exemplarCity draft="contributed">[GMT-5]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-6">
+				<exemplarCity draft="contributed">[GMT-6]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-7">
+				<exemplarCity draft="contributed">[GMT-7]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-8">
+				<exemplarCity draft="contributed">[GMT-8]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-9">
+				<exemplarCity draft="contributed">[GMT-9]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-10">
+				<exemplarCity draft="contributed">[GMT-10]</exemplarCity>
+			</zone>
+			<zone type="Etc/GMT-11">
+				<exemplarCity draft="contributed">[GMT-11]</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity>Ανδόρα</exemplarCity>
@@ -1696,7 +1957,7 @@
 				<exemplarCity>Γερεβάν</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Κουρακάο</exemplarCity>
+				<exemplarCity>Κουρασάο</exemplarCity>
 			</zone>
 			<zone type="Africa/Luanda">
 				<exemplarCity draft="contributed">Λουάντα</exemplarCity>
@@ -1711,7 +1972,7 @@
 				<exemplarCity>Νότιος Πόλος</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
-				<exemplarCity>Σύοβα</exemplarCity>
+				<exemplarCity>Σίοβα</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Mawson">
 				<exemplarCity>Μόουσον</exemplarCity>
@@ -1726,7 +1987,7 @@
 				<exemplarCity>Κάσεϊ</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
-				<exemplarCity>Ντυμόντ Ντερβίλ</exemplarCity>
+				<exemplarCity>Ντιμόντ Ντερβίλ</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>Μακμέρντο</exemplarCity>
@@ -2128,7 +2389,7 @@
 				<exemplarCity>Στάνλεϋ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
-				<exemplarCity>Τρουκ</exemplarCity>
+				<exemplarCity>Τσουκ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
 				<exemplarCity>Πονάπε</exemplarCity>
@@ -2146,6 +2407,9 @@
 				<exemplarCity draft="contributed">Λιμπρεβίλ</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
+				<long>
+					<daylight draft="contributed">Θερινή ώρα Βρετανίας</daylight>
+				</long>
 				<exemplarCity>Λονδίνο</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2236,6 +2500,9 @@
 				<exemplarCity>Χαγιαπούρα</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
+				<long>
+					<daylight draft="contributed">Θερινή ώρα Ιρλανδίας</daylight>
+				</long>
 				<exemplarCity>Δουβλίνο</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2533,7 +2800,7 @@
 				<exemplarCity draft="contributed">Μικελόν</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
-				<exemplarCity>Πιτκέιρν</exemplarCity>
+				<exemplarCity>Πίτκερν</exemplarCity>
 			</zone>
 			<zone type="America/Puerto_Rico">
 				<exemplarCity draft="contributed">Πουέρτο Ρίκο</exemplarCity>
@@ -2560,7 +2827,7 @@
 				<exemplarCity draft="contributed">Κατάρ</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>Ρεϋνιόν</exemplarCity>
+				<exemplarCity>Ρεϊνιόν</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Βουκουρέστι</exemplarCity>
@@ -2662,7 +2929,7 @@
 				<exemplarCity draft="contributed">Παραμαρίμπο</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity>Σάο Τόμε</exemplarCity>
+				<exemplarCity>Σάο Τομέ</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>Σαλβαδόρ</exemplarCity>
@@ -2877,6 +3144,11 @@
 			<zone type="Africa/Harare">
 				<exemplarCity draft="contributed">Χαράρε</exemplarCity>
 			</zone>
+			<metazone type="Afghanistan">
+				<long>
+					<standard>Ώρα Αφγανιστάν</standard>
+				</long>
+			</metazone>
 			<metazone type="Africa_Central">
 				<long>
 					<standard>Ώρα Κεντρικής Αφρικής</standard>
@@ -2897,6 +3169,13 @@
 					<generic>Ώρα Δυτικής Αφρικής</generic>
 					<standard>Χειμερινή ώρα Δυτικής Αφρικής</standard>
 					<daylight>Θερινή ώρα Δυτικής Αφρικής</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aktyubinsk">
+				<long>
+					<generic draft="contributed">Ώρα Ακτιουμπίνσκ</generic>
+					<standard draft="contributed">Χειμερινή ώρα Ακτιουμπίνσκ</standard>
+					<daylight draft="contributed">Θερινή ώρα Ακτιουμπίνσκ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -2948,18 +3227,32 @@
 					<daylight draft="contributed">Θερινή ώρα Αναντίρ</daylight>
 				</long>
 			</metazone>
+			<metazone type="Arabian">
+				<long>
+					<generic>Αραβική ώρα</generic>
+					<standard>Αραβική χειμερινή ώρα</standard>
+					<daylight>Αραβική θερινή ώρα</daylight>
+				</long>
+			</metazone>
 			<metazone type="Argentina">
 				<long>
 					<generic draft="contributed">Ώρα Αργεντινής</generic>
-					<standard draft="contributed">Χειμερινή ώρα Αργεντινής</standard>
+					<standard>Χειμερινή ώρα Αργεντινής</standard>
 					<daylight draft="contributed">Θερινή ώρα Αργεντινής</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic draft="contributed">Δυτική ώρα Αργεντινής</generic>
-					<standard draft="contributed">Ώρα δυτικής Αργεντινής</standard>
-					<daylight draft="contributed">Δυτική θερινή ώρα Αργεντινής</daylight>
+					<generic>Ώρα Δυτικής Αργεντινής</generic>
+					<standard>Χειμερινή ώρα Δυτικής Αργεντινής</standard>
+					<daylight>Θερινή ώρα Δυτικής Αργεντινής</daylight>
+				</long>
+			</metazone>
+			<metazone type="Armenia">
+				<long>
+					<generic>Ώρα Αρμενίας</generic>
+					<standard>Χειμερινή ώρα Αρμενίας</standard>
+					<daylight>Θερινή ώρα Αρμενίας</daylight>
 				</long>
 			</metazone>
 			<metazone type="Atlantic">
@@ -2997,18 +3290,152 @@
 					<daylight>Θερινή ώρα Δυτικής Αυστραλίας</daylight>
 				</long>
 			</metazone>
+			<metazone type="Azerbaijan">
+				<long>
+					<generic>Ώρα Αζερμπαϊτζάν</generic>
+					<standard>Χειμερινή ώρα Αζερμπαϊτζάν</standard>
+					<daylight>Θερινή ώρα Αζερμπαϊτζάν</daylight>
+				</long>
+			</metazone>
+			<metazone type="Azores">
+				<long>
+					<generic>Ώρα Αζορών</generic>
+					<standard>Χειμερινή ώρα Αζορών</standard>
+					<daylight>Θερινή ώρα Αζορών</daylight>
+				</long>
+			</metazone>
+			<metazone type="Baku">
+				<long>
+					<generic draft="contributed">Ώρα Μπακού</generic>
+					<standard draft="contributed">Χειμερινή ώρα Μπακού</standard>
+					<daylight draft="contributed">Θερινή ώρα Μπακού</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bangladesh">
+				<long>
+					<generic>Ώρα Μπανγκλαντές</generic>
+					<standard>Χειμερινή ώρα Μπανγκλαντές</standard>
+					<daylight>Θερινή ώρα Μπανγκλαντές</daylight>
+				</long>
+			</metazone>
+			<metazone type="Bhutan">
+				<long>
+					<standard>Ώρα Μπουτάν</standard>
+				</long>
+			</metazone>
+			<metazone type="Bolivia">
+				<long>
+					<standard>Ώρα Βολιβίας</standard>
+				</long>
+			</metazone>
 			<metazone type="Brasilia">
 				<long>
 					<generic draft="contributed">Ώρα Μπραζίλια</generic>
-					<standard draft="contributed">Χειμερινή ώρα Μπραζίλια</standard>
+					<standard>Χειμερινή ώρα Μπραζίλια</standard>
 					<daylight draft="contributed">Θερινή ώρα Μπραζίλια</daylight>
+				</long>
+			</metazone>
+			<metazone type="Brunei">
+				<long>
+					<standard>Ώρα Μπρουνέι Νταρουσαλάμ</standard>
+				</long>
+			</metazone>
+			<metazone type="Cape_Verde">
+				<long>
+					<generic>Ώρα Πράσινου Ακρωτηρίου</generic>
+					<standard>Χειμερινή ώρα Πράσινου Ακρωτηρίου</standard>
+					<daylight>Θερινή ώρα Πράσινου Ακρωτηρίου</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chamorro">
+				<long>
+					<standard>Ώρα Τσαμόρο</standard>
+				</long>
+			</metazone>
+			<metazone type="Chatham">
+				<long>
+					<generic>Ώρα Τσάθαμ</generic>
+					<standard>Χειμερινή ώρα Τσάθαμ</standard>
+					<daylight>Θερινή ώρα Τσάθαμ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Chile">
+				<long>
+					<generic>Ώρα Χιλής</generic>
+					<standard>Χειμερινή ώρα Χιλής</standard>
+					<daylight>Θερινή ώρα Χιλής</daylight>
+				</long>
+			</metazone>
+			<metazone type="China">
+				<long>
+					<generic>Ώρα Κίνας</generic>
+					<standard>Χειμερινή ώρα Κίνας</standard>
+					<daylight>Θερινή ώρα Κίνας</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
 				<long>
-					<generic draft="contributed">Ώρα Τσοϊμπαλσάν</generic>
-					<standard draft="contributed">Χειμερινή ώρα Τσοϊμπαλσάν</standard>
+					<generic>Ώρα Τσοϊμπαλσάν</generic>
+					<standard>Χειμερινή ώρα Τσοϊμπαλσάν</standard>
 					<daylight draft="contributed">Θερινή ώρα Τσοϊμπαλσάν</daylight>
+				</long>
+			</metazone>
+			<metazone type="Christmas">
+				<long>
+					<standard>Ώρα Νησιού Χριστουγέννων</standard>
+				</long>
+			</metazone>
+			<metazone type="Cocos">
+				<long>
+					<standard>Ώρα Νησιών Κόκος</standard>
+				</long>
+			</metazone>
+			<metazone type="Colombia">
+				<long>
+					<generic>Ώρα Κολομβίας</generic>
+					<standard>Χειμερινή ώρα Κολομβίας</standard>
+					<daylight>Θερινή ώρα Κολομβίας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cook">
+				<long>
+					<generic>Ώρα Νησιών Κουκ</generic>
+					<standard>Χειμερινή ώρα Νησιών Κουκ</standard>
+					<daylight>Θερινή ώρα Νησιών Κουκ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Cuba">
+				<long>
+					<generic>Ώρα Κούβας</generic>
+					<standard>Χειμερινή ώρα Κούβας</standard>
+					<daylight>Θερινή ώρα Κούβας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Davis">
+				<long>
+					<standard>Ώρα Ντέιβις</standard>
+				</long>
+			</metazone>
+			<metazone type="DumontDUrville">
+				<long>
+					<standard>Ώρα Ντιμόντ Ντερβίλ</standard>
+				</long>
+			</metazone>
+			<metazone type="East_Timor">
+				<long>
+					<standard>Ώρα Ανατολικού Τιμόρ</standard>
+				</long>
+			</metazone>
+			<metazone type="Easter">
+				<long>
+					<generic>Ώρα Νησιού Πάσχα</generic>
+					<standard>Χειμερινή ώρα Νησιού Πάσχα</standard>
+					<daylight>Θερινή ώρα Νησιού Πάσχα</daylight>
+				</long>
+			</metazone>
+			<metazone type="Ecuador">
+				<long>
+					<standard>Ώρα Εκουαδόρ</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Central">
@@ -3047,6 +3474,86 @@
 					<daylight>WEST</daylight>
 				</short>
 			</metazone>
+			<metazone type="Falkland">
+				<long>
+					<generic>Ώρα Νησιών Φόλκλαντ</generic>
+					<standard>Χειμερινή ώρα Νησιών Φόλκλαντ</standard>
+					<daylight>Θερινή ώρα Νησιών Φόλκλαντ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Fiji">
+				<long>
+					<generic>Ώρα Φίτζι</generic>
+					<standard>Χειμερινή ώρα Φίτζι</standard>
+					<daylight>Θερινή ώρα Φίτζι</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard>Ώρα Γαλλικής Γουιάνας</standard>
+				</long>
+			</metazone>
+			<metazone type="French_Southern">
+				<long>
+					<standard>Ώρα Γαλλικού Νότου και Ανταρκτικής</standard>
+				</long>
+			</metazone>
+			<metazone type="Galapagos">
+				<long>
+					<standard>Ώρα Γκαλάπαγκος</standard>
+				</long>
+			</metazone>
+			<metazone type="Gambier">
+				<long>
+					<standard>Ώρα Γκάμπιερ</standard>
+				</long>
+			</metazone>
+			<metazone type="Georgia">
+				<long>
+					<generic>Ώρα Γεωργίας</generic>
+					<standard>Χειμερινή ώρα Γεωργίας</standard>
+					<daylight>Θερινή ώρα Γεωργίας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Gilbert_Islands">
+				<long>
+					<standard>Ώρα Νησιών Γκίλμπερτ</standard>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Μέση ώρα Γκρίνουιτς</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Eastern">
+				<long>
+					<generic>Ώρα Ανατολικής Γροιλανδίας</generic>
+					<standard>Χειμερινή ώρα Ανατολικής Γροιλανδίας</standard>
+					<daylight>Θερινή ώρα Ανατολικής Γροιλανδίας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Greenland_Western">
+				<long>
+					<generic>Ώρα Δυτικής Γροιλανδίας</generic>
+					<standard>Χειμερινή ώρα Δυτικής Γροιλανδίας</standard>
+					<daylight>Θερινή ώρα Δυτικής Γροιλανδίας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Guam">
+				<long>
+					<standard draft="contributed">Ώρα Γκουάμ</standard>
+				</long>
+			</metazone>
+			<metazone type="Gulf">
+				<long>
+					<standard>Ώρα Κόλπου</standard>
+				</long>
+			</metazone>
+			<metazone type="Guyana">
+				<long>
+					<standard>Ώρα Γουιάνας</standard>
+				</long>
+			</metazone>
 			<metazone type="Hawaii_Aleutian">
 				<long>
 					<generic draft="contributed">Ώρα Χαβάης-Αλεούτιων νήσων</generic>
@@ -3054,26 +3561,55 @@
 					<daylight draft="contributed">Θερινή ώρα Χαβάης-Αλεούτιων νήσων</daylight>
 				</long>
 			</metazone>
+			<metazone type="Hong_Kong">
+				<long>
+					<generic>Ώρα Χονγκ Κονγκ</generic>
+					<standard>Χειμερινή ώρα Χονγκ Κονγκ</standard>
+					<daylight>Θερινή ώρα Χονγκ Κονγκ</daylight>
+				</long>
+			</metazone>
 			<metazone type="Hovd">
 				<long>
-					<generic draft="contributed">Ώρα Χοβντ</generic>
-					<standard draft="contributed">Χειμερινή ώρα Χοβντ</standard>
+					<generic>Ώρα Χοβντ</generic>
+					<standard>Χειμερινή ώρα Χοβντ</standard>
 					<daylight draft="contributed">Θερινή ώρα Χοβντ</daylight>
+				</long>
+			</metazone>
+			<metazone type="India">
+				<long>
+					<standard>Ώρα Ινδίας</standard>
+				</long>
+			</metazone>
+			<metazone type="Indian_Ocean">
+				<long>
+					<standard>Ώρα Ινδικού Ωκεανού</standard>
+				</long>
+			</metazone>
+			<metazone type="Indochina">
+				<long>
+					<standard>Ώρα Ινδοκίνας</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Central">
 				<long>
-					<standard draft="contributed">Κεντρική ώρα Ινδονησίας</standard>
+					<standard draft="contributed">Ώρα: Κεντρική Ινδονησία</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Eastern">
 				<long>
-					<standard draft="contributed">Ανατολική ώρα Ινδονησίας</standard>
+					<standard draft="contributed">Ώρα: Ανατολική Ινδονησία</standard>
 				</long>
 			</metazone>
 			<metazone type="Indonesia_Western">
 				<long>
-					<standard draft="contributed">Δυτική ώρα Ινδονησίας</standard>
+					<standard draft="contributed">Ώρα: Δυτική Ινδονησία</standard>
+				</long>
+			</metazone>
+			<metazone type="Iran">
+				<long>
+					<generic>Ώρα Ιράν</generic>
+					<standard>Χειμερινή ώρα Ιράν</standard>
+					<daylight>Θερινή ώρα Ιράν</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -3081,6 +3617,20 @@
 					<generic draft="contributed">Ώρα Ιρκούτσκ</generic>
 					<standard draft="contributed">Χειμερινή ώρα Ιρκούτσκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Ιρκούτσκ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Israel">
+				<long>
+					<generic>Ώρα Ισραήλ</generic>
+					<standard>Χειμερινή ώρα Ισραήλ</standard>
+					<daylight>Θερινή ώρα Ισραήλ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Japan">
+				<long>
+					<generic>Ώρα Ιαπωνίας</generic>
+					<standard>Χειμερινή ώρα Ιαπωνίας</standard>
+					<daylight>Θερινή ώρα Ιαπωνίας</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
@@ -3100,11 +3650,38 @@
 					<standard draft="contributed">Ώρα δυτικού Καζακστάν</standard>
 				</long>
 			</metazone>
+			<metazone type="Korea">
+				<long>
+					<generic>Ώρα Κορέας</generic>
+					<standard>Χειμερινή ώρα Κορέας</standard>
+					<daylight>Θερινή ώρα Κορέας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kosrae">
+				<long>
+					<standard>Ώρα Κοσράης</standard>
+				</long>
+			</metazone>
 			<metazone type="Krasnoyarsk">
 				<long>
 					<generic draft="contributed">Ώρα Κρασνόγιαρσκ</generic>
 					<standard draft="contributed">Χειμερινή ώρα Κρασνόγιαρσκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Κρασνόγιαρσκ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kwajalein">
+				<long>
+					<standard draft="contributed">Ώρα Κουαχαλέιν</standard>
+				</long>
+			</metazone>
+			<metazone type="Kyrgystan">
+				<long>
+					<standard>Ώρα Κιργιστάν</standard>
+				</long>
+			</metazone>
+			<metazone type="Line_Islands">
+				<long>
+					<standard>Ώρα Νησιών Λάιν</standard>
 				</long>
 			</metazone>
 			<metazone type="Lord_Howe">
@@ -3114,9 +3691,16 @@
 					<daylight>Θερινή ώρα Λορντ Χάου</daylight>
 				</long>
 			</metazone>
+			<metazone type="Macau">
+				<long>
+					<generic draft="contributed">Ώρα Μακάο</generic>
+					<standard draft="contributed">Χειμερινή ώρα Μακάο</standard>
+					<daylight draft="contributed">Θερινή ώρα Μακάο</daylight>
+				</long>
+			</metazone>
 			<metazone type="Macquarie">
 				<long>
-					<standard draft="contributed">Ώρα Μακουάρι</standard>
+					<standard>Ώρα Νησιού Μακουάρι</standard>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3124,6 +3708,38 @@
 					<generic draft="contributed">Ώρα Μάγκανταν</generic>
 					<standard draft="contributed">Χειμερινή ώρα Μάγκανταν</standard>
 					<daylight draft="contributed">Θερινή ώρα Μαγκαντάν</daylight>
+				</long>
+			</metazone>
+			<metazone type="Malaysia">
+				<long>
+					<standard>Ώρα Μαλαισίας</standard>
+				</long>
+			</metazone>
+			<metazone type="Maldives">
+				<long>
+					<standard>Ώρα Μαλδίβων</standard>
+				</long>
+			</metazone>
+			<metazone type="Marquesas">
+				<long>
+					<standard>Ώρα Μαρκέσας</standard>
+				</long>
+			</metazone>
+			<metazone type="Marshall_Islands">
+				<long>
+					<standard>Ώρα Νησιών Μάρσαλ</standard>
+				</long>
+			</metazone>
+			<metazone type="Mauritius">
+				<long>
+					<generic>Ώρα Μαυρίκιου</generic>
+					<standard>Χειμερινή ώρα Μαυρίκιου</standard>
+					<daylight>Θερινή ώρα Μαυρίκιου</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mawson">
+				<long>
+					<standard>Ώρα Μόσον</standard>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
@@ -3140,6 +3756,35 @@
 					<daylight>Θερινή ώρα Μόσχας</daylight>
 				</long>
 			</metazone>
+			<metazone type="Myanmar">
+				<long>
+					<standard>Ώρα Μιανμάρ</standard>
+				</long>
+			</metazone>
+			<metazone type="Nauru">
+				<long>
+					<standard>Ώρα Ναούρου</standard>
+				</long>
+			</metazone>
+			<metazone type="Nepal">
+				<long>
+					<standard>Ώρα Νεπάλ</standard>
+				</long>
+			</metazone>
+			<metazone type="New_Caledonia">
+				<long>
+					<generic>Ώρα Νέας Καληδονίας</generic>
+					<standard>Χειμερινή ώρα Νέας Καληδονίας</standard>
+					<daylight>Θερινή ώρα Νέας Καληδονίας</daylight>
+				</long>
+			</metazone>
+			<metazone type="New_Zealand">
+				<long>
+					<generic>Ώρα Νέας Ζηλανδίας</generic>
+					<standard>Χειμερινή ώρα Νέας Ζηλανδίας</standard>
+					<daylight>Θερινή ώρα Νέας Ζηλανδίας</daylight>
+				</long>
+			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<generic draft="contributed">Ώρα Νέας Γης</generic>
@@ -3147,11 +3792,26 @@
 					<daylight draft="contributed">Θερινή ώρα Νέας Γης</daylight>
 				</long>
 			</metazone>
+			<metazone type="Niue">
+				<long>
+					<standard>Ώρα Νιούε</standard>
+				</long>
+			</metazone>
+			<metazone type="Norfolk">
+				<long>
+					<standard>Ώρα Νησιών Νόρφολκ</standard>
+				</long>
+			</metazone>
 			<metazone type="Noronha">
 				<long>
 					<generic draft="contributed">Ώρα Φερνάρντο ντε Νορόνια</generic>
-					<standard draft="contributed">Χειμερινή ώρα Φερνάρντο ντε Νορόνια</standard>
+					<standard>Χειμερινή ώρα Φερνάρντο ντε Νορόνια</standard>
 					<daylight draft="contributed">Θερινή ώρα Φερνάρντο ντε Νορόνια</daylight>
+				</long>
+			</metazone>
+			<metazone type="North_Mariana">
+				<long>
+					<standard draft="contributed">Ώρα Νησιών Βόρειες Μαριάνες</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -3168,6 +3828,76 @@
 					<daylight draft="contributed">Θερινή ώρα Ομσκ</daylight>
 				</long>
 			</metazone>
+			<metazone type="Pakistan">
+				<long>
+					<generic>Ώρα Πακιστάν</generic>
+					<standard>Χειμερινή ώρα Πακιστάν</standard>
+					<daylight>Θερινή ώρα Πακιστάν</daylight>
+				</long>
+			</metazone>
+			<metazone type="Palau">
+				<long>
+					<standard>Ώρα Παλάου</standard>
+				</long>
+			</metazone>
+			<metazone type="Papua_New_Guinea">
+				<long>
+					<standard>Ώρα Παπουά Νέα Γουινέα</standard>
+				</long>
+			</metazone>
+			<metazone type="Paraguay">
+				<long>
+					<generic>Ώρα Παραγουάης</generic>
+					<standard>Χειμερινή ώρα Παραγουάης</standard>
+					<daylight>Θερινή ώρα Παραγουάης</daylight>
+				</long>
+			</metazone>
+			<metazone type="Peru">
+				<long>
+					<generic>Ώρα Περού</generic>
+					<standard>Χειμερινή ώρα Περού</standard>
+					<daylight>Θερινή ώρα Περού</daylight>
+				</long>
+			</metazone>
+			<metazone type="Philippines">
+				<long>
+					<generic>Ώρα Φιλιππινών</generic>
+					<standard>Χειμερινή ώρα Φιλιππινών</standard>
+					<daylight>Θερινή ώρα Φιλιππινών</daylight>
+				</long>
+			</metazone>
+			<metazone type="Phoenix_Islands">
+				<long>
+					<standard>Ώρα Νησιών Φίνιξ</standard>
+				</long>
+			</metazone>
+			<metazone type="Pierre_Miquelon">
+				<long>
+					<generic>Ώρα Πιερ και Μικελόν</generic>
+					<standard>Χειμερινή ώρα Πιερ και Μικελόν</standard>
+					<daylight>Θερινή ώρα Πιερ και Μικελόν</daylight>
+				</long>
+			</metazone>
+			<metazone type="Pitcairn">
+				<long>
+					<standard>Ώρα Πίτκερν</standard>
+				</long>
+			</metazone>
+			<metazone type="Ponape">
+				<long>
+					<standard>Ώρα Πονάπε</standard>
+				</long>
+			</metazone>
+			<metazone type="Reunion">
+				<long>
+					<standard>Ώρα Ρεϊνιόν</standard>
+				</long>
+			</metazone>
+			<metazone type="Rothera">
+				<long>
+					<standard>Ώρα Ροθέρα</standard>
+				</long>
+			</metazone>
 			<metazone type="Sakhalin">
 				<long>
 					<generic draft="contributed">Ώρα Σαχαλίνης</generic>
@@ -3180,6 +3910,127 @@
 					<generic draft="contributed">Ώρα Σάμαρας</generic>
 					<standard draft="contributed">Χειμερινή ώρα Σάμαρας</standard>
 					<daylight draft="contributed">Θερινή ώρα Σαμάρας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Samoa">
+				<long>
+					<standard>Ώρα Σαμόα</standard>
+				</long>
+			</metazone>
+			<metazone type="Seychelles">
+				<long>
+					<standard>Ώρα Σεϋχελλών</standard>
+				</long>
+			</metazone>
+			<metazone type="Singapore">
+				<long>
+					<standard>Ώρα Σιγκαπούρης</standard>
+				</long>
+			</metazone>
+			<metazone type="Solomon">
+				<long>
+					<standard>Ώρα Νησιών Σολομώντα</standard>
+				</long>
+			</metazone>
+			<metazone type="South_Georgia">
+				<long>
+					<standard>Ώρα Νότιας Γεωργίας</standard>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard>Ώρα Σουρινάμ</standard>
+				</long>
+			</metazone>
+			<metazone type="Syowa">
+				<long>
+					<standard>Ώρα Σίοβα</standard>
+				</long>
+			</metazone>
+			<metazone type="Tahiti">
+				<long>
+					<standard>Ώρα Αϊτής</standard>
+				</long>
+			</metazone>
+			<metazone type="Taipei">
+				<long>
+					<generic>Ώρα Ταϊπέι</generic>
+					<standard>Χειμερινή ώρα Ταϊπέι</standard>
+					<daylight>Θερινή ώρα Ταϊπέι</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tajikistan">
+				<long>
+					<standard>Ώρα Τατζικιστάν</standard>
+				</long>
+			</metazone>
+			<metazone type="Tbilisi">
+				<long>
+					<generic draft="contributed">Ώρα Τυφλίδας</generic>
+					<standard draft="contributed">Χειμερινή ώρα Τυφλίδας</standard>
+					<daylight draft="contributed">Θερινή ώρα Τυφλίδας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tokelau">
+				<long>
+					<standard>Ώρα Τοκελάου</standard>
+				</long>
+			</metazone>
+			<metazone type="Tonga">
+				<long>
+					<generic>Ώρα Τόνγκα</generic>
+					<standard>Χειμερινή ώρα Τόνγκα</standard>
+					<daylight>Θερινή ώρα Τόνγκα</daylight>
+				</long>
+			</metazone>
+			<metazone type="Truk">
+				<long>
+					<standard>Ώρα Τσουκ</standard>
+				</long>
+			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic draft="contributed">Ώρα Τουρκίας</generic>
+					<standard draft="contributed">Χειμερινή ώρα Τουρκίας</standard>
+					<daylight draft="contributed">Θερινή ώρα Τουρκίας</daylight>
+				</long>
+			</metazone>
+			<metazone type="Turkmenistan">
+				<long>
+					<generic>Ώρα Τουρκμενιστάν</generic>
+					<standard>Χειμερινή ώρα Τουρκμενιστάν</standard>
+					<daylight>Θερινή ώρα Τουρκμενιστάν</daylight>
+				</long>
+			</metazone>
+			<metazone type="Tuvalu">
+				<long>
+					<standard>Ώρα Τουβαλού</standard>
+				</long>
+			</metazone>
+			<metazone type="Uruguay">
+				<long>
+					<generic>Ώρα Ουρουγουάης</generic>
+					<standard>Χειμερινή ώρα Ουρουγουάης</standard>
+					<daylight>Θερινή ώρα Ουρουγουάης</daylight>
+				</long>
+			</metazone>
+			<metazone type="Uzbekistan">
+				<long>
+					<generic>Ώρα Ουζμπεκιστάν</generic>
+					<standard>Χειμερινή ώρα Ουζμπεκιστάν</standard>
+					<daylight>Θερινή ώρα Ουζμπεκιστάν</daylight>
+				</long>
+			</metazone>
+			<metazone type="Vanuatu">
+				<long>
+					<generic>Ώρα Βανουάτου</generic>
+					<standard>Χειμερινή ώρα Βανουάτου</standard>
+					<daylight>Θερινή ώρα Βανουάτου</daylight>
+				</long>
+			</metazone>
+			<metazone type="Venezuela">
+				<long>
+					<standard>Ώρα Βενεζουέλας</standard>
 				</long>
 			</metazone>
 			<metazone type="Vladivostok">
@@ -3196,6 +4047,21 @@
 					<daylight>Θερινή ώρα Βόλγκογκραντ</daylight>
 				</long>
 			</metazone>
+			<metazone type="Vostok">
+				<long>
+					<standard>Ώρα Βόστοκ</standard>
+				</long>
+			</metazone>
+			<metazone type="Wake">
+				<long>
+					<standard>Ώρα Νησιού Γουέικ</standard>
+				</long>
+			</metazone>
+			<metazone type="Wallis">
+				<long>
+					<standard>Ώρα Ουόλις και Φουτούνα</standard>
+				</long>
+			</metazone>
 			<metazone type="Yakutsk">
 				<long>
 					<generic draft="contributed">Ώρα Γιακούτσκ</generic>
@@ -3208,6 +4074,13 @@
 					<generic draft="contributed">Ώρα Γεκατερίνμπουργκ</generic>
 					<standard draft="contributed">Χειμερινή ώρα Γεκατερίνμπουργκ</standard>
 					<daylight draft="contributed">Θερινή ώρα Γεκατερίνμπουργκ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Yerevan">
+				<long>
+					<generic draft="contributed">Ώρα Ερεβάν</generic>
+					<standard draft="contributed">Χειμερινή ώρα Ερεβάν</standard>
+					<daylight draft="contributed">Θερινή ώρα Ερεβάν</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -3236,10 +4109,38 @@
 					<pattern>#,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">0.0 χιλιάδες</pattern>
+					<pattern type="1000" count="other">0.0 χιλιάδες</pattern>
+					<pattern type="10000" count="one">00 χιλιάδες</pattern>
+					<pattern type="10000" count="other">00 χιλιάδες</pattern>
+					<pattern type="100000" count="one">000 χιλιάδες</pattern>
+					<pattern type="100000" count="other">000 χιλιάδες</pattern>
+					<pattern type="1000000" count="one">0.0 εκατομμύρια</pattern>
+					<pattern type="1000000" count="other">0.0 εκατομμύρια</pattern>
+					<pattern type="10000000" count="one">00 εκατομμύρια</pattern>
+					<pattern type="10000000" count="other">00 εκατομμύρια</pattern>
+					<pattern type="100000000" count="one">000 εκατομμύρια</pattern>
+					<pattern type="100000000" count="other">000 εκατομμύρια</pattern>
+					<pattern type="1000000000" count="one">0.0 δισεκατομμύρια</pattern>
+					<pattern type="1000000000" count="other">0.0 δισεκατομμύρια</pattern>
+					<pattern type="10000000000" count="one">00 δισεκατομμύρια</pattern>
+					<pattern type="10000000000" count="other">00 δισεκατομμύρια</pattern>
+					<pattern type="100000000000" count="one">000 δισεκατομμύρια</pattern>
+					<pattern type="100000000000" count="other">000 δισεκατομμύρια</pattern>
+					<pattern type="1000000000000" count="one">0.0 τρισεκατομμύρια</pattern>
+					<pattern type="1000000000000" count="other">0.0 τρισεκατομμύρια</pattern>
+					<pattern type="10000000000000" count="one">00 τρισεκατομμύρια</pattern>
+					<pattern type="10000000000000" count="other">00 τρισεκατομμύρια</pattern>
+					<pattern type="100000000000000" count="one">000 τρισεκατομμύρια</pattern>
+					<pattern type="100000000000000" count="other">000 τρισεκατομμύρια</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000" count="one" draft="contributed">0.0 χιλ'.'</pattern>
-					<pattern type="1000" count="other" draft="contributed">0.0 χιλ'.'</pattern>
+					<pattern type="1000" count="other" draft="contributed">0.0 χιλ'.'</pattern>
 					<pattern type="10000" count="one" draft="contributed">00 χιλ'.'</pattern>
 					<pattern type="10000" count="other" draft="contributed">00 χιλ'.'</pattern>
 					<pattern type="100000" count="one" draft="contributed">000 χιλ'.'</pattern>
@@ -3265,6 +4166,13 @@
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="provisional">[#E0]</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -3324,6 +4232,7 @@
 				<displayName>Κουάνζα Ανγκόλας</displayName>
 				<displayName count="one">κουάνζα Ανγκόλας</displayName>
 				<displayName count="other">κουάνζα Ανγκόλας</displayName>
+				<symbol draft="contributed">AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Κουάνζα Ανγκόλας (1977-1990)</displayName>
@@ -3376,8 +4285,9 @@
 			</currency>
 			<currency type="AZN">
 				<displayName>Μανάτ Αζερμπαϊτζάν</displayName>
-				<displayName count="one">μανάτ Αζερμπαϊτζαν</displayName>
-				<displayName count="other">μανάτ Αζερμπαϊτζαν</displayName>
+				<displayName count="one">μανάτ Αζερμπαϊτζάν</displayName>
+				<displayName count="other">μανάτ Αζερμπαϊτζάν</displayName>
+				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>Δηνάριο Βοσνίας-Ερζεγοβίνης</displayName>
@@ -3428,9 +4338,9 @@
 				<displayName count="other" draft="provisional">Σοσιαλιστικά λεβ Βουλγαρίας</displayName>
 			</currency>
 			<currency type="BGN">
-				<displayName>Νέο Λεβ Βουλγαρίας</displayName>
-				<displayName count="one">νέο λεβ Βουλγαρίας</displayName>
-				<displayName count="other">νέα λεβ Βουλγαρίας</displayName>
+				<displayName>Λεβ Βουλγαρίας</displayName>
+				<displayName count="one">λεβ Βουλγαρίας</displayName>
+				<displayName count="other">λεβ Βουλγαρίας</displayName>
 			</currency>
 			<currency type="BGO">
 				<displayName count="one" draft="provisional">Παλαιό λεβ Βουλγαρίας</displayName>
@@ -3445,6 +4355,7 @@
 				<displayName>Φράγκο Μπουρούντι</displayName>
 				<displayName count="one">φράγκο Μπουρούντι</displayName>
 				<displayName count="other">φράγκα Μπουρούντι</displayName>
+				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Δολάριο Βερμούδων</displayName>
@@ -3513,6 +4424,7 @@
 				<displayName>Δολάριο Μπαχάμες</displayName>
 				<displayName count="one">δολάριο Μπαχάμες</displayName>
 				<displayName count="other">δολάρια Μπαχάμες</displayName>
+				<symbol draft="contributed">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Νγκούλτρουμ Μπουτάν</displayName>
@@ -3553,6 +4465,7 @@
 				<displayName>Φράγκο Κονγκό</displayName>
 				<displayName count="one">φράγκο Κονγκό</displayName>
 				<displayName count="other">φράγκα Κονγκό</displayName>
+				<symbol draft="contributed">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>Ευρώ WIR</displayName>
@@ -3615,18 +4528,21 @@
 			</currency>
 			<currency type="CUC">
 				<displayName>Μετατρέψιμο πέσο Κούβας</displayName>
-				<displayName count="one">Μετατρέψιμο πέσο Κούβας</displayName>
-				<displayName count="other">Μετατρέψιμα πέσο Κούβας</displayName>
+				<displayName count="one">μετατρέψιμο πέσο Κούβας</displayName>
+				<displayName count="other">μετατρέψιμα πέσο Κούβας</displayName>
+				<symbol draft="contributed">CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Πέσο Κούβας</displayName>
 				<displayName count="one">πέσο Κούβας</displayName>
 				<displayName count="other">πέσο Κούβας</displayName>
+				<symbol draft="contributed">CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Εσκούδο Πράσινου Ακρωτηρίου</displayName>
 				<displayName count="one">εσκούδο Πράσινου Ακρωτηρίου</displayName>
 				<displayName count="other">εσκούδο Πράσινου Ακρωτηρίου</displayName>
+				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Λίρα Κύπρου</displayName>
@@ -3634,9 +4550,9 @@
 				<displayName count="other">λίρες Κύπρου</displayName>
 			</currency>
 			<currency type="CZK">
-				<displayName>Κορόνα Τσέχικης Δημοκρατίας</displayName>
-				<displayName count="one">κορόνα Τσέχικης Δημοκρατίας</displayName>
-				<displayName count="other">κορόνες Τσέχικης Δημοκρατίας</displayName>
+				<displayName>Κορόνα Τσεχίας</displayName>
+				<displayName count="one">κορόνα Τσεχίας</displayName>
+				<displayName count="other">κορόνες Τσεχίας</displayName>
 			</currency>
 			<currency type="DDM">
 				<displayName>Οστμάρκ Ανατολικής Γερμανίας</displayName>
@@ -3652,6 +4568,7 @@
 				<displayName>Φράγκο Τζιμπουτί</displayName>
 				<displayName count="one">φράγκο Τζιμπουτί</displayName>
 				<displayName count="other">φράγκα Τζιμπουτί</displayName>
+				<symbol draft="contributed">DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Κορόνα Δανίας</displayName>
@@ -3757,6 +4674,7 @@
 				<displayName>Σέντι Γκάνας</displayName>
 				<displayName count="one">σέντι Γκάνας</displayName>
 				<displayName count="other">σέντι Γκανά</displayName>
+				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Λίρα Γιβραλτάρ</displayName>
@@ -3767,11 +4685,13 @@
 				<displayName>Νταλάσι Γκάμπιας</displayName>
 				<displayName count="one">νταλάσι Γκάμπιας</displayName>
 				<displayName count="other">νταλάσι Γκάμπιας</displayName>
+				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Φράγκο Γουινέας</displayName>
 				<displayName count="one">φράγκο Γουινέας</displayName>
 				<displayName count="other">φράγκα Γουινέας</displayName>
+				<symbol draft="contributed">GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Συλί Γουινέας</displayName>
@@ -3980,6 +4900,7 @@
 				<displayName>Δολάριο Λιβερίας</displayName>
 				<displayName count="one">δολάριο Λιβερίας</displayName>
 				<displayName count="other">δολάρια Λιβερίας</displayName>
+				<symbol draft="contributed">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Λότι Λεσότο</displayName>
@@ -4088,6 +5009,7 @@
 				<displayName>Ουγκουίγκα Μαυριτανίας</displayName>
 				<displayName count="one">ουγκουίγκα Μαυριτανίας</displayName>
 				<displayName count="other">ουγκουίγκα Μαυριτανίας</displayName>
+				<symbol draft="contributed">MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Λιρέτα Μάλτας</displayName>
@@ -4105,9 +5027,9 @@
 				<displayName count="other">ρούπια Μαυρικίου</displayName>
 			</currency>
 			<currency type="MVR">
-				<displayName>Ρουφίγια Νήσων Μαλδίβων</displayName>
-				<displayName count="one">ρουφίγια Νήσων Μαλδίβων</displayName>
-				<displayName count="other">ρουφίγια Νήσων Μαλδίβων</displayName>
+				<displayName>Ρουφίγια Μαλδίβων</displayName>
+				<displayName count="one">ρουφίγια Μαλδίβων</displayName>
+				<displayName count="other">ρουφίγια Μαλδίβων</displayName>
 			</currency>
 			<currency type="MWK">
 				<displayName>Κουάτσα Μαλάουι</displayName>
@@ -4153,6 +5075,7 @@
 				<displayName>Νάιρα Νιγηρίας</displayName>
 				<displayName count="one">νάιρα Νιγηρίας</displayName>
 				<displayName count="other">νάιρα Νιγηρίας</displayName>
+				<symbol draft="contributed">NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Κόρδοβα Νικαράγουας</displayName>
@@ -4225,9 +5148,9 @@
 				<displayName count="other">ρούπια Πακιστάν</displayName>
 			</currency>
 			<currency type="PLN">
-				<displayName>Ζλότυ Πολωνίας</displayName>
-				<displayName count="one">ζλότυ Πολωνίας</displayName>
-				<displayName count="other">ζλότυ Πολωνίας</displayName>
+				<displayName>Ζλότι Πολωνίας</displayName>
+				<displayName count="one">ζλότι Πολωνίας</displayName>
+				<displayName count="other">ζλότι Πολωνίας</displayName>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Ζλότυ Πολωνίας (1950-1995)</displayName>
@@ -4328,6 +5251,7 @@
 				<displayName>Λίρα Αγίας Ελένης</displayName>
 				<displayName count="one">λίρα Αγίας Ελένης</displayName>
 				<displayName count="other">λίρες Αγίας Ελένης</displayName>
+				<symbol draft="contributed">SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Τόλαρ Σλοβενίας</displayName>
@@ -4343,6 +5267,7 @@
 				<displayName>Λεόνε Σιέρα Λεόνε</displayName>
 				<displayName count="one">λεόνε Σιέρα Λεόνε</displayName>
 				<displayName count="other">λεόνε Σιέρα Λεόνε</displayName>
+				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Σελίνι Σομαλίας</displayName>
@@ -4359,10 +5284,17 @@
 				<displayName count="one">γκίλντα Σουρινάμ</displayName>
 				<displayName count="other">γκίλντα Σουρινάμ</displayName>
 			</currency>
+			<currency type="SSP">
+				<displayName>Λίρα Νότιου Σουδάν</displayName>
+				<displayName count="one" draft="contributed">λίρα Νότιου Σουδάν</displayName>
+				<displayName count="other" draft="contributed">λίρες Νότιου Σουδάν</displayName>
+				<symbol draft="contributed">SSP</symbol>
+			</currency>
 			<currency type="STD">
 				<displayName>Ντόμπρα Σάο Τομέ και Πρίνσιπε</displayName>
 				<displayName count="one">ντόμπρα Σάο Τόμε και Πρίνσιπε</displayName>
 				<displayName count="other">ντόμπρα Σάο Τόμε και Πρίνσιπε</displayName>
+				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Σοβιετικό Ρούβλι</displayName>
@@ -4408,11 +5340,13 @@
 				<displayName>Νέο μανάτ Τουρκμενιστάν</displayName>
 				<displayName count="one">Νέο μανάτ Τουρκμενιστάν</displayName>
 				<displayName count="other">Νέα μανάτ Τουρκμενιστάν</displayName>
+				<symbol draft="contributed">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Δηνάριο Τυνησίας</displayName>
 				<displayName count="one">δηνάριο Τυνησίας</displayName>
 				<displayName count="other">δηνάρια Τυνησίας</displayName>
+				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Παάνγκα Τόνγκας</displayName>
@@ -4423,6 +5357,7 @@
 				<displayName>Εσκούδο Τιμόρ</displayName>
 				<displayName count="one">εσκούδο Τιμόρ</displayName>
 				<displayName count="other">εσκούδο Τιμόρ</displayName>
+				<symbol draft="contributed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>Παλιά Λίρα Τουρκίας</displayName>
@@ -4526,13 +5461,15 @@
 			</currency>
 			<currency type="WST">
 				<displayName>Ταλά Δυτικής Σαμόας</displayName>
-				<displayName count="one">Τάλα Σαμόας</displayName>
+				<displayName count="one">τάλα Σαμόας</displayName>
 				<displayName count="other">τάλα Σαμόας</displayName>
+				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Φράγκο Κεντρικής Αφρικής</displayName>
-				<displayName count="one">φράγκο BEAC CFA</displayName>
-				<displayName count="other">Φράγκα Κεντρικής Αφρικής</displayName>
+				<displayName count="one">φράγκο Κεντρικής Αφρικής</displayName>
+				<displayName count="other">φράγκα Κεντρικής Αφρικής</displayName>
+				<symbol draft="contributed">FCFA</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>Ευρωπαϊκή Σύνθετη Μονάδα</displayName>
@@ -4583,6 +5520,7 @@
 				<displayName>Φράγκο Δυτικής Αφρικής</displayName>
 				<displayName count="one">φράγκο BCEAO CFA</displayName>
 				<displayName count="other">φράγκα BCEAO CFA</displayName>
+				<symbol draft="contributed">CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Φράγκο CFP</displayName>
@@ -4594,9 +5532,9 @@
 				<displayName count="other" draft="provisional">Ταμείο RINET</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName>Άγνωστο ή μη έγκυρο νόμισμα</displayName>
-				<displayName count="one">άγνωστο/μη έγκυρο νόμισμα</displayName>
-				<displayName count="other">Άγνωστο ή μη έγκυρο νόμισμα</displayName>
+				<displayName>Άγνωστο νόμισμα</displayName>
+				<displayName count="one">(άγνωστο νόμισμα)</displayName>
+				<displayName count="other">(άγνωστο νόμισμα)</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>Δηνάριο Υεμένης</displayName>
@@ -4671,27 +5609,29 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="0" alt="short" draft="contributed">0 ημέρες</unitPattern>
-			<unitPattern count="1" alt="short" draft="contributed">1 ημέρα</unitPattern>
+			<unitPattern count="1" alt="short">{0} ημέρα</unitPattern>
 			<unitPattern count="one">{0} ημέρα</unitPattern>
+			<unitPattern count="one" alt="short">{0} ημέρα</unitPattern>
 			<unitPattern count="other">{0} ημέρες</unitPattern>
 			<unitPattern count="other" alt="short" draft="contributed">{0} ημέρες</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0" draft="contributed">Σε 0 ημέρες</unitPattern>
-			<unitPattern count="1" draft="contributed">Σε 1 ημέρα</unitPattern>
+			<unitPattern count="0">Σε {0} ημέρες</unitPattern>
+			<unitPattern count="1">Σε {0} ημέρα</unitPattern>
 			<unitPattern count="one" draft="contributed">Σε {0} ημέρα</unitPattern>
 			<unitPattern count="other">Σε {0} ημέρες</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0" draft="contributed">Πριν από 0 ημέρες</unitPattern>
-			<unitPattern count="1" draft="contributed">Πριν από 1 ημέρα</unitPattern>
+			<unitPattern count="0">Πριν από {0} ημέρες</unitPattern>
+			<unitPattern count="1">Πριν από {0} ημέρα</unitPattern>
 			<unitPattern count="one" draft="contributed">Πριν από {0} ημέρα</unitPattern>
 			<unitPattern count="other">Πριν από {0} ημέρες</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0" alt="short" draft="contributed">0 ώρες</unitPattern>
-			<unitPattern count="1" alt="short" draft="contributed">1 ώρα</unitPattern>
+			<unitPattern count="0" alt="short">{0} ώρες</unitPattern>
+			<unitPattern count="1" alt="short">{0} ώρα</unitPattern>
 			<unitPattern count="one">{0} ώρα</unitPattern>
+			<unitPattern count="one" alt="short">{0} ώρες</unitPattern>
 			<unitPattern count="other">{0} ώρες</unitPattern>
 			<unitPattern count="other" alt="short" draft="contributed">{0} ώρες</unitPattern>
 		</unit>
@@ -4711,6 +5651,7 @@
 			<unitPattern count="0" alt="short" draft="contributed">0 λεπτά</unitPattern>
 			<unitPattern count="1" alt="short" draft="contributed">1 λεπτό</unitPattern>
 			<unitPattern count="one">{0} λεπτό</unitPattern>
+			<unitPattern count="one" alt="short">{0} λεπτά</unitPattern>
 			<unitPattern count="other">{0} λεπτά</unitPattern>
 			<unitPattern count="other" alt="short" draft="contributed">{0} λεπτά</unitPattern>
 		</unit>
@@ -4730,6 +5671,7 @@
 			<unitPattern count="0" alt="short" draft="contributed">0 μήνες</unitPattern>
 			<unitPattern count="1" alt="short" draft="contributed">1 μήνας</unitPattern>
 			<unitPattern count="one">{0} μήνας</unitPattern>
+			<unitPattern count="one" alt="short">{0} μήνες</unitPattern>
 			<unitPattern count="other">{0} μήνες</unitPattern>
 			<unitPattern count="other" alt="short" draft="contributed">{0} μήνες</unitPattern>
 		</unit>
@@ -4749,6 +5691,7 @@
 			<unitPattern count="0" alt="short" draft="contributed">0 δευτερόλεπτα</unitPattern>
 			<unitPattern count="1" alt="short" draft="contributed">1 δευτερόλεπτο</unitPattern>
 			<unitPattern count="one">{0} δευτερόλεπτο</unitPattern>
+			<unitPattern count="one" alt="short">{0} δευτερόλεπτα</unitPattern>
 			<unitPattern count="other">{0} δευτερόλεπτα</unitPattern>
 			<unitPattern count="other" alt="short" draft="contributed">{0} δευτερόλεπτα</unitPattern>
 		</unit>
@@ -4768,6 +5711,7 @@
 			<unitPattern count="0" alt="short" draft="contributed">0 εβδομάδες</unitPattern>
 			<unitPattern count="1" alt="short" draft="contributed">1 εβδομάδα</unitPattern>
 			<unitPattern count="one">{0} εβδομάδα</unitPattern>
+			<unitPattern count="one" alt="short">{0} εβδομάδες</unitPattern>
 			<unitPattern count="other">{0} εβδομάδες</unitPattern>
 			<unitPattern count="other" alt="short" draft="contributed">{0} εβδομάδες</unitPattern>
 		</unit>
@@ -4787,6 +5731,7 @@
 			<unitPattern count="0" alt="short" draft="contributed">0 έτη</unitPattern>
 			<unitPattern count="1" alt="short" draft="contributed">1 έτος</unitPattern>
 			<unitPattern count="one">{0} έτος</unitPattern>
+			<unitPattern count="one" alt="short">{0} έτη</unitPattern>
 			<unitPattern count="other">{0} έτη</unitPattern>
 			<unitPattern count="other" alt="short" draft="contributed">{0} έτη</unitPattern>
 		</unit>
@@ -4807,6 +5752,8 @@
 		<listPattern>
 			<listPatternPart type="2">{0} και {1}</listPatternPart>
 			<listPatternPart type="end">{0} και {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

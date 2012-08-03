@@ -3598,34 +3598,6 @@
 					<pattern>#0.###;#0.###-</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0.0K</pattern>
-					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
-					<pattern type="10000" count="one" draft="contributed">00K</pattern>
-					<pattern type="10000" count="other" draft="contributed">00K</pattern>
-					<pattern type="100000" count="one" draft="contributed">000K</pattern>
-					<pattern type="100000" count="other" draft="contributed">000K</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0M</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00M</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000M</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0.0B</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0.0B</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00B</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000B</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000T</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -3635,6 +3607,42 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
+					<pattern type="1000" count="few">0.0 آلاف</pattern>
+					<pattern type="1000" count="many">0.0 ألف</pattern>
+					<pattern type="1000" count="one">0.0 ألف</pattern>
+					<pattern type="1000" count="other">0.0 ألف</pattern>
+					<pattern type="1000" count="two">0.0 ألف</pattern>
+					<pattern type="1000" count="zero">0.0 ألف</pattern>
+					<pattern type="10000" count="few">00 ألف</pattern>
+					<pattern type="10000" count="many">00 ألف</pattern>
+					<pattern type="10000" count="one">00 ألف</pattern>
+					<pattern type="10000" count="other">00 ألف</pattern>
+					<pattern type="10000" count="two">00 ألف</pattern>
+					<pattern type="10000" count="zero">00 ألف</pattern>
+					<pattern type="100000" count="few">000 ألف</pattern>
+					<pattern type="100000" count="many">000 ألف</pattern>
+					<pattern type="100000" count="one">000 ألف</pattern>
+					<pattern type="100000" count="other">000 ألف</pattern>
+					<pattern type="100000" count="two">000 ألف</pattern>
+					<pattern type="100000" count="zero">000 ألف</pattern>
+					<pattern type="1000000" count="few">0.0 ملايين</pattern>
+					<pattern type="1000000" count="many">0.0 مليون</pattern>
+					<pattern type="1000000" count="one">0.0 مليون</pattern>
+					<pattern type="1000000" count="other">0.0 مليون</pattern>
+					<pattern type="1000000" count="two">0.0 مليون</pattern>
+					<pattern type="1000000" count="zero">0.0 مليون</pattern>
+					<pattern type="10000000" count="few">00 ملايين</pattern>
+					<pattern type="10000000" count="many">00 مليون</pattern>
+					<pattern type="10000000" count="one">00 مليون</pattern>
+					<pattern type="10000000" count="other">00 مليون</pattern>
+					<pattern type="10000000" count="two">00 مليون</pattern>
+					<pattern type="10000000" count="zero">00 مليون</pattern>
+					<pattern type="100000000" count="few">000 مليون</pattern>
+					<pattern type="100000000" count="many">000 مليون</pattern>
+					<pattern type="100000000" count="one">000 مليون</pattern>
+					<pattern type="100000000" count="other">000 مليون</pattern>
+					<pattern type="100000000" count="two">000 مليون</pattern>
+					<pattern type="100000000" count="zero">000 مليون</pattern>
 					<pattern type="1000000000" count="few">0.0 بلايين</pattern>
 					<pattern type="1000000000" count="many">0.0 بليون</pattern>
 					<pattern type="1000000000" count="one">0.0 بليون</pattern>
@@ -3653,18 +3661,46 @@
 					<pattern type="100000000000" count="other">000 بليون</pattern>
 					<pattern type="100000000000" count="two">000 بليون</pattern>
 					<pattern type="100000000000" count="zero">000 بليون</pattern>
+					<pattern type="1000000000000" count="few">0.0 تريليونات</pattern>
+					<pattern type="1000000000000" count="many">0.0 تريليون</pattern>
+					<pattern type="1000000000000" count="one">0.0 تريليون</pattern>
+					<pattern type="1000000000000" count="other">0.0 تريليون</pattern>
+					<pattern type="1000000000000" count="two">0.0 تريليون</pattern>
+					<pattern type="1000000000000" count="zero">0.0 تريليون</pattern>
+					<pattern type="10000000000000" count="few">00 تريليون</pattern>
+					<pattern type="10000000000000" count="many">00 تريليون</pattern>
+					<pattern type="10000000000000" count="one">00 تريليون</pattern>
+					<pattern type="10000000000000" count="other">00 تريليون</pattern>
+					<pattern type="10000000000000" count="two">00 تريليون</pattern>
+					<pattern type="10000000000000" count="zero">00 تريليون</pattern>
+					<pattern type="100000000000000" count="few">000 تريليون</pattern>
+					<pattern type="100000000000000" count="many">000 تريليون</pattern>
+					<pattern type="100000000000000" count="one">000 تريليون</pattern>
+					<pattern type="100000000000000" count="other">000 تريليون</pattern>
 					<pattern type="100000000000000" count="two">000 تريليون</pattern>
+					<pattern type="100000000000000" count="zero">000 تريليون</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0.0K</pattern>
-					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="1000" count="few">0.0 آلاف</pattern>
+					<pattern type="1000" count="many">0.0 ألف</pattern>
+					<pattern type="1000" count="one">0.0 ألف</pattern>
+					<pattern type="1000" count="other">0.0 ألف</pattern>
 					<pattern type="1000" count="two">0.0 ألف</pattern>
-					<pattern type="10000" count="one" draft="contributed">00K</pattern>
-					<pattern type="10000" count="other" draft="contributed">00K</pattern>
-					<pattern type="100000" count="one" draft="contributed">000K</pattern>
-					<pattern type="100000" count="other" draft="contributed">000K</pattern>
+					<pattern type="1000" count="zero">0.0 ألف</pattern>
+					<pattern type="10000" count="few">00 ألف</pattern>
+					<pattern type="10000" count="many">00 ألف</pattern>
+					<pattern type="10000" count="one">00 ألف</pattern>
+					<pattern type="10000" count="other">00 ألف</pattern>
+					<pattern type="10000" count="two">00 ألف</pattern>
+					<pattern type="10000" count="zero">00 ألف</pattern>
+					<pattern type="100000" count="few">000 ألف</pattern>
+					<pattern type="100000" count="many">000 ألف</pattern>
+					<pattern type="100000" count="one">000 ألف</pattern>
+					<pattern type="100000" count="other">000 ألف</pattern>
+					<pattern type="100000" count="two">000 ألف</pattern>
+					<pattern type="100000" count="zero">000 ألف</pattern>
 					<pattern type="1000000" count="few">0.0 مليو</pattern>
 					<pattern type="1000000" count="many">0.0 مليو</pattern>
 					<pattern type="1000000" count="one">0.0 مليو</pattern>

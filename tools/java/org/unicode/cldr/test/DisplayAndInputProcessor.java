@@ -161,20 +161,13 @@ public class DisplayAndInputProcessor {
                 value = newvalue;
             }
 
-            // fix grouping separator if space
-            if (path.startsWith("//ldml/numbers/symbols/group")) {
-                if (value.equals(" ")) {
-                    value = "\u00A0";
-                }
-            }
-
             // all of our values should not have leading or trailing spaces, except insertBetween
             if (!path.contains("/insertBetween") && !path.contains("/localeSeparator")) {
                 value = value.trim();
             }
 
             // fix grouping separator if space
-            if (path.startsWith("//ldml/numbers/symbols")) {
+            if (path.startsWith("//ldml/numbers/symbols") && !path.contains("/alias")) {
                 if (value.isEmpty()) {
                     value = "\u00A0";
                 }
@@ -192,7 +185,9 @@ public class DisplayAndInputProcessor {
 
             NumericType numericType = NumericType.getNumericType(path);
             if (numericType != NumericType.NOT_NUMERIC) {
-                if (numericType != NumericType.CURRENCY) {
+                if (numericType == NumericType.CURRENCY) {
+                    value = value.replaceAll(" ", "\u00A0");
+                } else {
                     value = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
                             .replaceAll(" ([%\u00A4])", "\u00A0$1");
                     value = replace(NON_DECIMAL_PERIOD, value, "'.'");

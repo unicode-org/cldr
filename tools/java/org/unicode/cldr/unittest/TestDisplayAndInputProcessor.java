@@ -61,6 +61,13 @@ public class TestDisplayAndInputProcessor extends TestFmwk{
         String value = daip.processInput(xpath, "#,###,##0.###", null);
         assertEquals("Format not correctly canonicalized", "#,##0.###", value);
     }
+    
+    public void TestCurrencyFormatSpaces() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
+        String xpath = "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        String value = daip.processInput(xpath, "¤ #,##0.00", null); // breaking space
+        assertEquals("Breaking space not replaced", "¤ #,##0.00", value); // non-breaking space
+    }
 
     private void showCldrFile(final CLDRFile cldrFile) {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile);

@@ -4784,26 +4784,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0.0 mil</pattern>
-					<pattern type="1000" count="other">0.0 mil</pattern>
+					<pattern type="1000" count="one">0 mil</pattern>
+					<pattern type="1000" count="other">0 mil</pattern>
 					<pattern type="10000" count="one">00 mil</pattern>
 					<pattern type="10000" count="other">00 mil</pattern>
 					<pattern type="100000" count="one">000 mil</pattern>
 					<pattern type="100000" count="other">000 mil</pattern>
-					<pattern type="1000000" count="one">0.0 milhão</pattern>
-					<pattern type="1000000" count="other">0.0 milhões</pattern>
+					<pattern type="1000000" count="one">0 milhão</pattern>
+					<pattern type="1000000" count="other">0 milhões</pattern>
 					<pattern type="10000000" count="one">00 milhão</pattern>
 					<pattern type="10000000" count="other">00 milhões</pattern>
 					<pattern type="100000000" count="one">000 milhão</pattern>
 					<pattern type="100000000" count="other">000 milhões</pattern>
-					<pattern type="1000000000" count="one">0.0 bilhão</pattern>
-					<pattern type="1000000000" count="other">0.0 bilhões</pattern>
+					<pattern type="1000000000" count="one">0 bilhão</pattern>
+					<pattern type="1000000000" count="other">0 bilhões</pattern>
 					<pattern type="10000000000" count="one">00 bilhão</pattern>
 					<pattern type="10000000000" count="other">00 bilhões</pattern>
 					<pattern type="100000000000" count="one">000 bilhão</pattern>
 					<pattern type="100000000000" count="other">000 bilhões</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilhão</pattern>
-					<pattern type="1000000000000" count="other">0.0 trilhões</pattern>
+					<pattern type="1000000000000" count="one">0 trilhão</pattern>
+					<pattern type="1000000000000" count="other">0 trilhões</pattern>
 					<pattern type="10000000000000" count="one">00 trilhão</pattern>
 					<pattern type="10000000000000" count="other">00 trilhões</pattern>
 					<pattern type="100000000000000" count="one">000 trilhão</pattern>
@@ -4812,26 +4812,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">0.0 mil</pattern>
-					<pattern type="1000" count="other">0.0 mil</pattern>
+					<pattern type="1000" count="one">0 mil</pattern>
+					<pattern type="1000" count="other">0 mil</pattern>
 					<pattern type="10000" count="one">00 mil</pattern>
 					<pattern type="10000" count="other">00 mil</pattern>
 					<pattern type="100000" count="one">000 mil</pattern>
 					<pattern type="100000" count="other">000 mil</pattern>
-					<pattern type="1000000" count="one">0.0 mi</pattern>
-					<pattern type="1000000" count="other">0.0 mi</pattern>
+					<pattern type="1000000" count="one">0 mi</pattern>
+					<pattern type="1000000" count="other">0 mi</pattern>
 					<pattern type="10000000" count="one">00 mi</pattern>
 					<pattern type="10000000" count="other">00 mi</pattern>
 					<pattern type="100000000" count="one">000 mi</pattern>
 					<pattern type="100000000" count="other">000 mi</pattern>
-					<pattern type="1000000000" count="one">0.0 bi</pattern>
-					<pattern type="1000000000" count="other">0.0 bi</pattern>
+					<pattern type="1000000000" count="one">0 bi</pattern>
+					<pattern type="1000000000" count="other">0 bi</pattern>
 					<pattern type="10000000000" count="one">00 bi</pattern>
 					<pattern type="10000000000" count="other">00 bi</pattern>
 					<pattern type="100000000000" count="one">000 bi</pattern>
 					<pattern type="100000000000" count="other">000 bi</pattern>
-					<pattern type="1000000000000" count="one">0.0 tri</pattern>
-					<pattern type="1000000000000" count="other">0.0 tri</pattern>
+					<pattern type="1000000000000" count="one">0 tri</pattern>
+					<pattern type="1000000000000" count="other">0 tri</pattern>
 					<pattern type="10000000000000" count="one">00 tri</pattern>
 					<pattern type="10000000000000" count="other">00 tri</pattern>
 					<pattern type="100000000000000" count="one">000 tri</pattern>
@@ -6630,3 +6630,4 @@
 		</messages>
 	</posix>
 </ldml>
+

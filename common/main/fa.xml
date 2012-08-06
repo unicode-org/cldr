@@ -4296,32 +4296,32 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other">0.0 هزار</pattern>
+					<pattern type="1000" count="other">0 هزار</pattern>
 					<pattern type="10000" count="other">00 هزار</pattern>
 					<pattern type="100000" count="other">000 هزار</pattern>
-					<pattern type="1000000" count="other">0.0 میلیون</pattern>
+					<pattern type="1000000" count="other">0 میلیون</pattern>
 					<pattern type="10000000" count="other">00 میلیون</pattern>
 					<pattern type="100000000" count="other">000 میلیون</pattern>
-					<pattern type="1000000000" count="other">0.0 میلیارد</pattern>
+					<pattern type="1000000000" count="other">0 میلیارد</pattern>
 					<pattern type="10000000000" count="other">00 میلیارد</pattern>
 					<pattern type="100000000000" count="other">000 میلیارد</pattern>
-					<pattern type="1000000000000" count="other">0.0 هزار میلیارد</pattern>
+					<pattern type="1000000000000" count="other">0 هزار میلیارد</pattern>
 					<pattern type="10000000000000" count="other">00 هزار میلیارد</pattern>
 					<pattern type="100000000000000" count="other">000 هزار میلیارد</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other">0.0K</pattern>
+					<pattern type="1000" count="other">0K</pattern>
 					<pattern type="10000" count="other">00K</pattern>
 					<pattern type="100000" count="other">000K</pattern>
-					<pattern type="1000000" count="other">0.0M</pattern>
+					<pattern type="1000000" count="other">0M</pattern>
 					<pattern type="10000000" count="other">00M</pattern>
 					<pattern type="100000000" count="other">000M</pattern>
-					<pattern type="1000000000" count="other">0.0G</pattern>
+					<pattern type="1000000000" count="other">0G</pattern>
 					<pattern type="10000000000" count="other">00G</pattern>
 					<pattern type="100000000000" count="other">000G</pattern>
-					<pattern type="1000000000000" count="other">0.0T</pattern>
+					<pattern type="1000000000000" count="other">0T</pattern>
 					<pattern type="10000000000000" count="other">00T</pattern>
 					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
@@ -5118,3 +5118,4 @@
 		</messages>
 	</posix>
 </ldml>
+

@@ -2833,26 +2833,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0.0 thousand</pattern>
-					<pattern type="1000" count="other">0.0 thousand</pattern>
+					<pattern type="1000" count="one">0 thousand</pattern>
+					<pattern type="1000" count="other">0 thousand</pattern>
 					<pattern type="10000" count="one">00 thousand</pattern>
 					<pattern type="10000" count="other">00 thousand</pattern>
 					<pattern type="100000" count="one">000 thousand</pattern>
 					<pattern type="100000" count="other">000 thousand</pattern>
-					<pattern type="1000000" count="one">0.0 million</pattern>
-					<pattern type="1000000" count="other">0.0 million</pattern>
+					<pattern type="1000000" count="one">0 million</pattern>
+					<pattern type="1000000" count="other">0 million</pattern>
 					<pattern type="10000000" count="one">00 million</pattern>
 					<pattern type="10000000" count="other">00 million</pattern>
 					<pattern type="100000000" count="one">000 million</pattern>
 					<pattern type="100000000" count="other">000 million</pattern>
-					<pattern type="1000000000" count="one">0.0 billion</pattern>
-					<pattern type="1000000000" count="other">0.0 billion</pattern>
+					<pattern type="1000000000" count="one">0 billion</pattern>
+					<pattern type="1000000000" count="other">0 billion</pattern>
 					<pattern type="10000000000" count="one">00 billion</pattern>
 					<pattern type="10000000000" count="other">00 billion</pattern>
 					<pattern type="100000000000" count="one">000 billion</pattern>
 					<pattern type="100000000000" count="other">000 billion</pattern>
-					<pattern type="1000000000000" count="one">0.0 trillion</pattern>
-					<pattern type="1000000000000" count="other">0.0 trillion</pattern>
+					<pattern type="1000000000000" count="one">0 trillion</pattern>
+					<pattern type="1000000000000" count="other">0 trillion</pattern>
 					<pattern type="10000000000000" count="one">00 trillion</pattern>
 					<pattern type="10000000000000" count="other">00 trillion</pattern>
 					<pattern type="100000000000000" count="one">000 trillion</pattern>
@@ -2861,26 +2861,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">0.0k</pattern>
-					<pattern type="1000" count="other">0.0K</pattern>
+					<pattern type="1000" count="one">0k</pattern>
+					<pattern type="1000" count="other">0K</pattern>
 					<pattern type="10000" count="one">00k</pattern>
 					<pattern type="10000" count="other">00K</pattern>
 					<pattern type="100000" count="one">000k</pattern>
 					<pattern type="100000" count="other">000K</pattern>
-					<pattern type="1000000" count="one">0.0m</pattern>
-					<pattern type="1000000" count="other">0.0M</pattern>
+					<pattern type="1000000" count="one">0m</pattern>
+					<pattern type="1000000" count="other">0M</pattern>
 					<pattern type="10000000" count="one">00m</pattern>
 					<pattern type="10000000" count="other">00M</pattern>
 					<pattern type="100000000" count="one">000m</pattern>
 					<pattern type="100000000" count="other">000M</pattern>
-					<pattern type="1000000000" count="one">0.0bn</pattern>
-					<pattern type="1000000000" count="other">0.0B</pattern>
+					<pattern type="1000000000" count="one">0bn</pattern>
+					<pattern type="1000000000" count="other">0B</pattern>
 					<pattern type="10000000000" count="one">00bn</pattern>
 					<pattern type="10000000000" count="other">00B</pattern>
 					<pattern type="100000000000" count="one">000bn</pattern>
 					<pattern type="100000000000" count="other">000B</pattern>
-					<pattern type="1000000000000" count="one">0.0tn</pattern>
-					<pattern type="1000000000000" count="other">0.0T</pattern>
+					<pattern type="1000000000000" count="one">0tn</pattern>
+					<pattern type="1000000000000" count="other">0T</pattern>
 					<pattern type="10000000000000" count="one">00tn</pattern>
 					<pattern type="10000000000000" count="other">00T</pattern>
 					<pattern type="100000000000000" count="one">000tn</pattern>
@@ -3976,3 +3976,4 @@
 		</messages>
 	</posix>
 </ldml>
+

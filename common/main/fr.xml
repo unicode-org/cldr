@@ -1275,7 +1275,7 @@
 		<exemplarCharacters type="auxiliary">[á å ä ã ā ē í ì ī ñ ó ò ö ø ú ǔ]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ’ « » &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ’ &quot; “ ” « » ( ) \[ \] § @ * / \&amp; # † ‡]</exemplarCharacters>
 		<ellipsis type="final">{0}...</ellipsis>
 		<ellipsis type="initial">... {0}</ellipsis>
 		<ellipsis type="medial">{0}... {1}</ellipsis>
@@ -4855,26 +4855,26 @@
 		<decimalFormats numberSystem="arab">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -4883,26 +4883,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -4913,26 +4913,26 @@
 		<decimalFormats numberSystem="arabext">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -4941,26 +4941,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -4971,26 +4971,26 @@
 		<decimalFormats numberSystem="armn">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -4999,26 +4999,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5029,26 +5029,26 @@
 		<decimalFormats numberSystem="armnlow">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 millliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 millliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 billions</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 billions</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billiard</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billiards</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billiard</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billiards</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billiards</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billiards</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billiards</pattern>
@@ -5057,26 +5057,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Bn</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Bn</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bd</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bd</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bd</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bd</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bd</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bd</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bd</pattern>
@@ -5087,26 +5087,26 @@
 		<decimalFormats numberSystem="bali">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5115,26 +5115,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5145,26 +5145,26 @@
 		<decimalFormats numberSystem="beng">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5173,26 +5173,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5203,26 +5203,26 @@
 		<decimalFormats numberSystem="cham">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5231,26 +5231,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5261,26 +5261,26 @@
 		<decimalFormats numberSystem="deva">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5289,26 +5289,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5319,26 +5319,26 @@
 		<decimalFormats numberSystem="ethi">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5347,26 +5347,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5377,26 +5377,26 @@
 		<decimalFormats numberSystem="fullwide">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5405,26 +5405,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5435,26 +5435,26 @@
 		<decimalFormats numberSystem="geor">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5463,26 +5463,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5493,16 +5493,16 @@
 		<decimalFormats numberSystem="grek">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="greklow">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
@@ -5511,8 +5511,8 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
@@ -5523,26 +5523,26 @@
 		<decimalFormats numberSystem="gujr">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5551,26 +5551,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5581,26 +5581,26 @@
 		<decimalFormats numberSystem="guru">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5609,26 +5609,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5639,26 +5639,26 @@
 		<decimalFormats numberSystem="hanidec">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5667,26 +5667,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5697,34 +5697,34 @@
 		<decimalFormats numberSystem="hebr">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="java">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5733,26 +5733,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5763,42 +5763,42 @@
 		<decimalFormats numberSystem="jpan">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="jpanfin">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="kali">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5807,26 +5807,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5837,26 +5837,26 @@
 		<decimalFormats numberSystem="khmr">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5865,26 +5865,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5895,26 +5895,26 @@
 		<decimalFormats numberSystem="knda">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5923,26 +5923,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -5953,26 +5953,26 @@
 		<decimalFormats numberSystem="laoo">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -5981,26 +5981,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -6016,26 +6016,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0.0 millier</pattern>
-					<pattern type="1000" count="other">0.0 milliers</pattern>
+					<pattern type="1000" count="one">0 millier</pattern>
+					<pattern type="1000" count="other">0 milliers</pattern>
 					<pattern type="10000" count="one">00 mille</pattern>
 					<pattern type="10000" count="other">00 mille</pattern>
 					<pattern type="100000" count="one">000 mille</pattern>
 					<pattern type="100000" count="other">000 mille</pattern>
-					<pattern type="1000000" count="one">0.0 million</pattern>
-					<pattern type="1000000" count="other">0.0 millions</pattern>
+					<pattern type="1000000" count="one">0 million</pattern>
+					<pattern type="1000000" count="other">0 millions</pattern>
 					<pattern type="10000000" count="one">00 million</pattern>
 					<pattern type="10000000" count="other">00 millions</pattern>
 					<pattern type="100000000" count="one">000 million</pattern>
 					<pattern type="100000000" count="other">000 millions</pattern>
-					<pattern type="1000000000" count="one">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one">0 milliard</pattern>
+					<pattern type="1000000000" count="other">0 milliards</pattern>
 					<pattern type="10000000000" count="one">00 milliard</pattern>
 					<pattern type="10000000000" count="other">00 milliards</pattern>
 					<pattern type="100000000000" count="one">000 milliards</pattern>
 					<pattern type="100000000000" count="other">000 milliards</pattern>
-					<pattern type="1000000000000" count="one">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one">0 billion</pattern>
+					<pattern type="1000000000000" count="other">0 billions</pattern>
 					<pattern type="10000000000000" count="one">00 billions</pattern>
 					<pattern type="10000000000000" count="other">00 billions</pattern>
 					<pattern type="100000000000000" count="one">000 billions</pattern>
@@ -6044,26 +6044,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">0.0 K</pattern>
-					<pattern type="1000" count="other">0.0 K</pattern>
+					<pattern type="1000" count="one">0 K</pattern>
+					<pattern type="1000" count="other">0 K</pattern>
 					<pattern type="10000" count="one">00 K</pattern>
 					<pattern type="10000" count="other">00 K</pattern>
 					<pattern type="100000" count="one">000 K</pattern>
 					<pattern type="100000" count="other">000 K</pattern>
-					<pattern type="1000000" count="one">0.0 M</pattern>
-					<pattern type="1000000" count="other">0.0 M</pattern>
+					<pattern type="1000000" count="one">0 M</pattern>
+					<pattern type="1000000" count="other">0 M</pattern>
 					<pattern type="10000000" count="one">00 M</pattern>
 					<pattern type="10000000" count="other">00 M</pattern>
 					<pattern type="100000000" count="one">000 M</pattern>
 					<pattern type="100000000" count="other">000 M</pattern>
-					<pattern type="1000000000" count="one">0.0 Md</pattern>
-					<pattern type="1000000000" count="other">0.0 Md</pattern>
+					<pattern type="1000000000" count="one">0 Md</pattern>
+					<pattern type="1000000000" count="other">0 Md</pattern>
 					<pattern type="10000000000" count="one">00 Md</pattern>
 					<pattern type="10000000000" count="other">00 Md</pattern>
 					<pattern type="100000000000" count="one">000 Md</pattern>
 					<pattern type="100000000000" count="other">000 Md</pattern>
-					<pattern type="1000000000000" count="one">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one">0 Bn</pattern>
+					<pattern type="1000000000000" count="other">0 Bn</pattern>
 					<pattern type="10000000000000" count="one">00 Bn</pattern>
 					<pattern type="10000000000000" count="other">00 Bn</pattern>
 					<pattern type="100000000000000" count="one">000 Bn</pattern>
@@ -6074,80 +6074,80 @@
 		<decimalFormats numberSystem="lepc">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="limb">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="mlym">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="mong">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="mtei">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="mymr">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="mymrshan">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="nkoo">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="tibt">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
@@ -6156,34 +6156,34 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<decimalFormats numberSystem="vaii">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 millier</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 milliers</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 millier</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 milliers</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 mille</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 mille</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 mille</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 mille</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 million</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 millions</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 million</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 millions</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 millions</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 millions</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 millions</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 millions</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 milliard</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 milliards</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 milliard</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 milliards</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 milliards</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 milliards</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 milliards</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 billion</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 billions</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 billion</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 billions</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 billions</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 billions</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 billions</pattern>
@@ -6192,26 +6192,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="unconfirmed">0.0 k</pattern>
-					<pattern type="1000" count="other" draft="unconfirmed">0.0 k</pattern>
+					<pattern type="1000" count="one" draft="unconfirmed">0 k</pattern>
+					<pattern type="1000" count="other" draft="unconfirmed">0 k</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 k</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 k</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 k</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 k</pattern>
-					<pattern type="1000000" count="one" draft="unconfirmed">0.0 M</pattern>
-					<pattern type="1000000" count="other" draft="unconfirmed">0.0 M</pattern>
+					<pattern type="1000000" count="one" draft="unconfirmed">0 M</pattern>
+					<pattern type="1000000" count="other" draft="unconfirmed">0 M</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 M</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 M</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 M</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 M</pattern>
-					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Md</pattern>
-					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Md</pattern>
+					<pattern type="1000000000" count="one" draft="unconfirmed">0 Md</pattern>
+					<pattern type="1000000000" count="other" draft="unconfirmed">0 Md</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Md</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Md</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Md</pattern>
-					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bn</pattern>
-					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bn</pattern>
+					<pattern type="1000000000000" count="one" draft="unconfirmed">0 Bn</pattern>
+					<pattern type="1000000000000" count="other" draft="unconfirmed">0 Bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bn</pattern>
@@ -8053,3 +8053,4 @@
 		</messages>
 	</posix>
 </ldml>
+

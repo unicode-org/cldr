@@ -4486,7 +4486,7 @@
 			<exponential>اس</exponential>
 			<perMille>؉</perMille>
 			<infinity>∞</infinity>
-			<nan>ليس رقم</nan>
+			<nan>ليس رقم</nan>
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
@@ -4515,12 +4515,12 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 آلاف</pattern>
-					<pattern type="1000" count="many">0.0 ألف</pattern>
-					<pattern type="1000" count="one">0.0 ألف</pattern>
-					<pattern type="1000" count="other">0.0 ألف</pattern>
-					<pattern type="1000" count="two">0.0 ألف</pattern>
-					<pattern type="1000" count="zero">0.0 ألف</pattern>
+					<pattern type="1000" count="few">0 آلاف</pattern>
+					<pattern type="1000" count="many">0 ألف</pattern>
+					<pattern type="1000" count="one">0 ألف</pattern>
+					<pattern type="1000" count="other">0 ألف</pattern>
+					<pattern type="1000" count="two">0 ألف</pattern>
+					<pattern type="1000" count="zero">0 ألف</pattern>
 					<pattern type="10000" count="few">00 ألف</pattern>
 					<pattern type="10000" count="many">00 ألف</pattern>
 					<pattern type="10000" count="one">00 ألف</pattern>
@@ -4533,12 +4533,12 @@
 					<pattern type="100000" count="other">000 ألف</pattern>
 					<pattern type="100000" count="two">000 ألف</pattern>
 					<pattern type="100000" count="zero">000 ألف</pattern>
-					<pattern type="1000000" count="few">0.0 ملايين</pattern>
-					<pattern type="1000000" count="many">0.0 مليون</pattern>
-					<pattern type="1000000" count="one">0.0 مليون</pattern>
-					<pattern type="1000000" count="other">0.0 مليون</pattern>
-					<pattern type="1000000" count="two">0.0 مليون</pattern>
-					<pattern type="1000000" count="zero">0.0 مليون</pattern>
+					<pattern type="1000000" count="few">0 ملايين</pattern>
+					<pattern type="1000000" count="many">0 مليون</pattern>
+					<pattern type="1000000" count="one">0 مليون</pattern>
+					<pattern type="1000000" count="other">0 مليون</pattern>
+					<pattern type="1000000" count="two">0 مليون</pattern>
+					<pattern type="1000000" count="zero">0 مليون</pattern>
 					<pattern type="10000000" count="few">00 ملايين</pattern>
 					<pattern type="10000000" count="many">00 مليون</pattern>
 					<pattern type="10000000" count="one">00 مليون</pattern>
@@ -4551,12 +4551,12 @@
 					<pattern type="100000000" count="other">000 مليون</pattern>
 					<pattern type="100000000" count="two">000 مليون</pattern>
 					<pattern type="100000000" count="zero">000 مليون</pattern>
-					<pattern type="1000000000" count="few">0.0 بلايين</pattern>
-					<pattern type="1000000000" count="many">0.0 بليون</pattern>
-					<pattern type="1000000000" count="one">0.0 بليون</pattern>
-					<pattern type="1000000000" count="other">0.0 بليون</pattern>
-					<pattern type="1000000000" count="two">0.0 بليون</pattern>
-					<pattern type="1000000000" count="zero">0.0 بليون</pattern>
+					<pattern type="1000000000" count="few">0 بلايين</pattern>
+					<pattern type="1000000000" count="many">0 بليون</pattern>
+					<pattern type="1000000000" count="one">0 بليون</pattern>
+					<pattern type="1000000000" count="other">0 بليون</pattern>
+					<pattern type="1000000000" count="two">0 بليون</pattern>
+					<pattern type="1000000000" count="zero">0 بليون</pattern>
 					<pattern type="10000000000" count="few">00 بليون</pattern>
 					<pattern type="10000000000" count="many">00 بليون</pattern>
 					<pattern type="10000000000" count="one">00 بليون</pattern>
@@ -4569,12 +4569,12 @@
 					<pattern type="100000000000" count="other">000 بليون</pattern>
 					<pattern type="100000000000" count="two">000 بليون</pattern>
 					<pattern type="100000000000" count="zero">000 بليون</pattern>
-					<pattern type="1000000000000" count="few">0.0 تريليونات</pattern>
-					<pattern type="1000000000000" count="many">0.0 تريليون</pattern>
-					<pattern type="1000000000000" count="one">0.0 تريليون</pattern>
-					<pattern type="1000000000000" count="other">0.0 تريليون</pattern>
-					<pattern type="1000000000000" count="two">0.0 تريليون</pattern>
-					<pattern type="1000000000000" count="zero">0.0 تريليون</pattern>
+					<pattern type="1000000000000" count="few">0 تريليونات</pattern>
+					<pattern type="1000000000000" count="many">0 تريليون</pattern>
+					<pattern type="1000000000000" count="one">0 تريليون</pattern>
+					<pattern type="1000000000000" count="other">0 تريليون</pattern>
+					<pattern type="1000000000000" count="two">0 تريليون</pattern>
+					<pattern type="1000000000000" count="zero">0 تريليون</pattern>
 					<pattern type="10000000000000" count="few">00 تريليون</pattern>
 					<pattern type="10000000000000" count="many">00 تريليون</pattern>
 					<pattern type="10000000000000" count="one">00 تريليون</pattern>
@@ -4591,12 +4591,12 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 آلاف</pattern>
-					<pattern type="1000" count="many">0.0 ألف</pattern>
-					<pattern type="1000" count="one">0.0 ألف</pattern>
-					<pattern type="1000" count="other">0.0 ألف</pattern>
-					<pattern type="1000" count="two">0.0 ألف</pattern>
-					<pattern type="1000" count="zero">0.0 ألف</pattern>
+					<pattern type="1000" count="few">0 آلاف</pattern>
+					<pattern type="1000" count="many">0 ألف</pattern>
+					<pattern type="1000" count="one">0 ألف</pattern>
+					<pattern type="1000" count="other">0 ألف</pattern>
+					<pattern type="1000" count="two">0 ألف</pattern>
+					<pattern type="1000" count="zero">0 ألف</pattern>
 					<pattern type="10000" count="few">00 ألف</pattern>
 					<pattern type="10000" count="many">00 ألف</pattern>
 					<pattern type="10000" count="one">00 ألف</pattern>
@@ -4609,12 +4609,12 @@
 					<pattern type="100000" count="other">000 ألف</pattern>
 					<pattern type="100000" count="two">000 ألف</pattern>
 					<pattern type="100000" count="zero">000 ألف</pattern>
-					<pattern type="1000000" count="few">0.0 مليو</pattern>
-					<pattern type="1000000" count="many">0.0 مليو</pattern>
-					<pattern type="1000000" count="one">0.0 مليو</pattern>
-					<pattern type="1000000" count="other">0.0 مليو</pattern>
-					<pattern type="1000000" count="two">0.0 مليو</pattern>
-					<pattern type="1000000" count="zero">0.0 مليو</pattern>
+					<pattern type="1000000" count="few">0 مليو</pattern>
+					<pattern type="1000000" count="many">0 مليو</pattern>
+					<pattern type="1000000" count="one">0 مليو</pattern>
+					<pattern type="1000000" count="other">0 مليو</pattern>
+					<pattern type="1000000" count="two">0 مليو</pattern>
+					<pattern type="1000000" count="zero">0 مليو</pattern>
 					<pattern type="10000000" count="few">00 مليو</pattern>
 					<pattern type="10000000" count="many">00 مليو</pattern>
 					<pattern type="10000000" count="one">00 مليو</pattern>
@@ -4627,12 +4627,12 @@
 					<pattern type="100000000" count="other">000 مليو</pattern>
 					<pattern type="100000000" count="two">000 مليو</pattern>
 					<pattern type="100000000" count="zero">000 مليو</pattern>
-					<pattern type="1000000000" count="few">0.0 بليو</pattern>
-					<pattern type="1000000000" count="many">0.0 بليو</pattern>
-					<pattern type="1000000000" count="one">0.0 بليو</pattern>
-					<pattern type="1000000000" count="other">0.0 بليو</pattern>
-					<pattern type="1000000000" count="two">0.0 بليو</pattern>
-					<pattern type="1000000000" count="zero">0.0 بليو</pattern>
+					<pattern type="1000000000" count="few">0 بليو</pattern>
+					<pattern type="1000000000" count="many">0 بليو</pattern>
+					<pattern type="1000000000" count="one">0 بليو</pattern>
+					<pattern type="1000000000" count="other">0 بليو</pattern>
+					<pattern type="1000000000" count="two">0 بليو</pattern>
+					<pattern type="1000000000" count="zero">0 بليو</pattern>
 					<pattern type="10000000000" count="few">00 بليو</pattern>
 					<pattern type="10000000000" count="many">00 بليو</pattern>
 					<pattern type="10000000000" count="one">00 بليو</pattern>
@@ -4645,12 +4645,12 @@
 					<pattern type="100000000000" count="other">000 بليو</pattern>
 					<pattern type="100000000000" count="two">000 بليو</pattern>
 					<pattern type="100000000000" count="zero">000 بليو</pattern>
-					<pattern type="1000000000000" count="few">0.0 ترليو</pattern>
-					<pattern type="1000000000000" count="many">0.0 ترليو</pattern>
-					<pattern type="1000000000000" count="one">0.0 ترليو</pattern>
-					<pattern type="1000000000000" count="other">0.0 ترليو</pattern>
-					<pattern type="1000000000000" count="two">0.0 ترليو</pattern>
-					<pattern type="1000000000000" count="zero">0.0 ترليو</pattern>
+					<pattern type="1000000000000" count="few">0 ترليو</pattern>
+					<pattern type="1000000000000" count="many">0 ترليو</pattern>
+					<pattern type="1000000000000" count="one">0 ترليو</pattern>
+					<pattern type="1000000000000" count="other">0 ترليو</pattern>
+					<pattern type="1000000000000" count="two">0 ترليو</pattern>
+					<pattern type="1000000000000" count="zero">0 ترليو</pattern>
 					<pattern type="10000000000000" count="few">00 ترليو</pattern>
 					<pattern type="10000000000000" count="many">00 ترليو</pattern>
 					<pattern type="10000000000000" count="one">00 ترليو</pattern>
@@ -7039,3 +7039,4 @@
 		</messages>
 	</posix>
 </ldml>
+

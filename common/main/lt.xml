@@ -1194,7 +1194,7 @@
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a ą b c č d e ę ė f g h i į y j k l m n o p r s š t u ų ū v z ž]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[á à ã {ą\u0301} {ą\u0303} é è ẽ {ę\u0301} {ę\u0303} {ė\u0301} {ė\u0303} í {i\u0307\u0301} ì {i\u0307\u0300} ĩ {i\u0307\u0303} {į\u0301} {į\u0307\u0301} {į\u0303} {į\u0307\u0303} {j\u0303} {j\u0307\u0303} {l\u0303} {m\u0303} ñ ó ò õ {r\u0303} ú ù ũ {ų\u0301} {ų\u0303} {ū\u0301} {ū\u0303} q w x]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à ã {ą\u0301} {ą\u0303} é è ẽ {ę\u0301} {ę\u0303} {ė\u0301} {ė\u0303} {i\u0307\u0301}í {i\u0307\u0300}ì {i\u0307\u0303}ĩ {į\u0301}{į\u0307\u0301} {į\u0303}{į\u0307\u0303} {j\u0303}{j\u0307\u0303} {l\u0303} {m\u0303} ñ ó ò õ q {r\u0303} ú ù ũ {ų\u0301} {ų\u0303} {ū\u0301} {ū\u0303} w x]</exemplarCharacters>
 		<exemplarCharacters type="currencySymbol">[a ą b c č d e ę ė f g h i į y j k l m n o p r s š t u ų ū v z ž]</exemplarCharacters>
 		<exemplarCharacters type="index">[A Ą B C Č D E Ę Ė F G H I Į Y J K L M N O P R S Š T U Ų Ū V Z Ž]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
@@ -3907,36 +3907,36 @@
 		<decimalFormats numberSystem="arab">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -3947,36 +3947,36 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 K</pattern>
-					<pattern type="1000" count="one">0.0 K</pattern>
-					<pattern type="1000" count="other">0.0 K</pattern>
+					<pattern type="1000" count="few">0 K</pattern>
+					<pattern type="1000" count="one">0 K</pattern>
+					<pattern type="1000" count="other">0 K</pattern>
 					<pattern type="10000" count="few">00 K</pattern>
 					<pattern type="10000" count="one">00 K</pattern>
 					<pattern type="10000" count="other">00 K</pattern>
 					<pattern type="100000" count="few">000 K</pattern>
 					<pattern type="100000" count="one">000 K</pattern>
 					<pattern type="100000" count="other">000 K</pattern>
-					<pattern type="1000000" count="few">0.0 M</pattern>
-					<pattern type="1000000" count="one">0.0 M</pattern>
-					<pattern type="1000000" count="other">0.0 M</pattern>
+					<pattern type="1000000" count="few">0 M</pattern>
+					<pattern type="1000000" count="one">0 M</pattern>
+					<pattern type="1000000" count="other">0 M</pattern>
 					<pattern type="10000000" count="few">00 M</pattern>
 					<pattern type="10000000" count="one">00 M</pattern>
 					<pattern type="10000000" count="other">00 M</pattern>
 					<pattern type="100000000" count="few">000 M</pattern>
 					<pattern type="100000000" count="one">000 M</pattern>
 					<pattern type="100000000" count="other">000 M</pattern>
-					<pattern type="1000000000" count="few">0.0 G</pattern>
-					<pattern type="1000000000" count="one">0.0 G</pattern>
-					<pattern type="1000000000" count="other">0.0 G</pattern>
+					<pattern type="1000000000" count="few">0 G</pattern>
+					<pattern type="1000000000" count="one">0 G</pattern>
+					<pattern type="1000000000" count="other">0 G</pattern>
 					<pattern type="10000000000" count="few">00 G</pattern>
 					<pattern type="10000000000" count="one">00 G</pattern>
 					<pattern type="10000000000" count="other">00 G</pattern>
 					<pattern type="100000000000" count="few">000 G</pattern>
 					<pattern type="100000000000" count="one">000 G</pattern>
 					<pattern type="100000000000" count="other">000 G</pattern>
-					<pattern type="1000000000000" count="few">0.0 T</pattern>
-					<pattern type="1000000000000" count="one">0.0 T</pattern>
-					<pattern type="1000000000000" count="other">0.0 T</pattern>
+					<pattern type="1000000000000" count="few">0 T</pattern>
+					<pattern type="1000000000000" count="one">0 T</pattern>
+					<pattern type="1000000000000" count="other">0 T</pattern>
 					<pattern type="10000000000000" count="few">00 T</pattern>
 					<pattern type="10000000000000" count="one">00 T</pattern>
 					<pattern type="10000000000000" count="other">00 T</pattern>
@@ -3989,36 +3989,36 @@
 		<decimalFormats numberSystem="arabext">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4031,36 +4031,36 @@
 		<decimalFormats numberSystem="bali">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4073,36 +4073,36 @@
 		<decimalFormats numberSystem="beng">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4115,36 +4115,36 @@
 		<decimalFormats numberSystem="cham">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4157,36 +4157,36 @@
 		<decimalFormats numberSystem="deva">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4199,36 +4199,36 @@
 		<decimalFormats numberSystem="fullwide">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4241,36 +4241,36 @@
 		<decimalFormats numberSystem="gujr">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4283,36 +4283,36 @@
 		<decimalFormats numberSystem="guru">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4325,36 +4325,36 @@
 		<decimalFormats numberSystem="hanidec">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4367,36 +4367,36 @@
 		<decimalFormats numberSystem="java">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4409,36 +4409,36 @@
 		<decimalFormats numberSystem="kali">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4451,36 +4451,36 @@
 		<decimalFormats numberSystem="khmr">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4493,36 +4493,36 @@
 		<decimalFormats numberSystem="knda">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4535,36 +4535,36 @@
 		<decimalFormats numberSystem="lana">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4577,36 +4577,36 @@
 		<decimalFormats numberSystem="lanatham">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4619,36 +4619,36 @@
 		<decimalFormats numberSystem="laoo">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4666,36 +4666,36 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkstančių</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkstančių</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 milijonų</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 milijonų</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 milijardų</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 milijardų</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trilijonų</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trilijonų</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4706,36 +4706,36 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 K</pattern>
-					<pattern type="1000" count="one">0.0 K</pattern>
-					<pattern type="1000" count="other">0.0 K</pattern>
+					<pattern type="1000" count="few">0 K</pattern>
+					<pattern type="1000" count="one">0 K</pattern>
+					<pattern type="1000" count="other">0 K</pattern>
 					<pattern type="10000" count="few">00 K</pattern>
 					<pattern type="10000" count="one">00 K</pattern>
 					<pattern type="10000" count="other">00 K</pattern>
 					<pattern type="100000" count="few">000 K</pattern>
 					<pattern type="100000" count="one">000 K</pattern>
 					<pattern type="100000" count="other">000 K</pattern>
-					<pattern type="1000000" count="few">0.0 M</pattern>
-					<pattern type="1000000" count="one">0.0 M</pattern>
-					<pattern type="1000000" count="other">0.0 M</pattern>
+					<pattern type="1000000" count="few">0 M</pattern>
+					<pattern type="1000000" count="one">0 M</pattern>
+					<pattern type="1000000" count="other">0 M</pattern>
 					<pattern type="10000000" count="few">00 M</pattern>
 					<pattern type="10000000" count="one">00 M</pattern>
 					<pattern type="10000000" count="other">00 M</pattern>
 					<pattern type="100000000" count="few">000 M</pattern>
 					<pattern type="100000000" count="one">000 M</pattern>
 					<pattern type="100000000" count="other">000 M</pattern>
-					<pattern type="1000000000" count="few">0.0 G</pattern>
-					<pattern type="1000000000" count="one">0.0 G</pattern>
-					<pattern type="1000000000" count="other">0.0 G</pattern>
+					<pattern type="1000000000" count="few">0 G</pattern>
+					<pattern type="1000000000" count="one">0 G</pattern>
+					<pattern type="1000000000" count="other">0 G</pattern>
 					<pattern type="10000000000" count="few">00 G</pattern>
 					<pattern type="10000000000" count="one">00 G</pattern>
 					<pattern type="10000000000" count="other">00 G</pattern>
 					<pattern type="100000000000" count="few">000 G</pattern>
 					<pattern type="100000000000" count="one">000 G</pattern>
 					<pattern type="100000000000" count="other">000 G</pattern>
-					<pattern type="1000000000000" count="few">0.0 T</pattern>
-					<pattern type="1000000000000" count="one">0.0 T</pattern>
-					<pattern type="1000000000000" count="other">0.0 T</pattern>
+					<pattern type="1000000000000" count="few">0 T</pattern>
+					<pattern type="1000000000000" count="one">0 T</pattern>
+					<pattern type="1000000000000" count="other">0 T</pattern>
 					<pattern type="10000000000000" count="few">00 T</pattern>
 					<pattern type="10000000000000" count="one">00 T</pattern>
 					<pattern type="10000000000000" count="other">00 T</pattern>
@@ -4748,36 +4748,36 @@
 		<decimalFormats numberSystem="lepc">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4790,36 +4790,36 @@
 		<decimalFormats numberSystem="limb">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4832,36 +4832,36 @@
 		<decimalFormats numberSystem="mlym">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4874,36 +4874,36 @@
 		<decimalFormats numberSystem="mong">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0K</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0K</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4916,36 +4916,36 @@
 		<decimalFormats numberSystem="mtei">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -4958,36 +4958,36 @@
 		<decimalFormats numberSystem="mymr">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5000,36 +5000,36 @@
 		<decimalFormats numberSystem="mymrshan">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5042,36 +5042,36 @@
 		<decimalFormats numberSystem="nkoo">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5084,36 +5084,36 @@
 		<decimalFormats numberSystem="olck">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5126,36 +5126,36 @@
 		<decimalFormats numberSystem="orya">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5168,36 +5168,36 @@
 		<decimalFormats numberSystem="saur">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5210,36 +5210,36 @@
 		<decimalFormats numberSystem="sund">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5252,36 +5252,36 @@
 		<decimalFormats numberSystem="talu">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5294,36 +5294,36 @@
 		<decimalFormats numberSystem="tamldec">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5336,36 +5336,36 @@
 		<decimalFormats numberSystem="telu">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5378,36 +5378,36 @@
 		<decimalFormats numberSystem="thai">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5420,36 +5420,36 @@
 		<decimalFormats numberSystem="tibt">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -5462,36 +5462,36 @@
 		<decimalFormats numberSystem="vaii">
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few">0.0 tūkstančiai</pattern>
-					<pattern type="1000" count="one">0.0 tūkstantis</pattern>
-					<pattern type="1000" count="other">0.0 tūkst'.'</pattern>
+					<pattern type="1000" count="few">0 tūkstančiai</pattern>
+					<pattern type="1000" count="one">0 tūkstantis</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
 					<pattern type="10000" count="few">00 tūkstančiai</pattern>
 					<pattern type="10000" count="one">00 tūkstantis</pattern>
 					<pattern type="10000" count="other">00 tūkstančių</pattern>
 					<pattern type="100000" count="few">000 tūkstančiai</pattern>
 					<pattern type="100000" count="one">000 tūkstantis</pattern>
 					<pattern type="100000" count="other">000 tūkstančių</pattern>
-					<pattern type="1000000" count="few">0.0 milijonai</pattern>
-					<pattern type="1000000" count="one">0.0 milijonas</pattern>
-					<pattern type="1000000" count="other">0.0 mln'.'</pattern>
+					<pattern type="1000000" count="few">0 milijonai</pattern>
+					<pattern type="1000000" count="one">0 milijonas</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
 					<pattern type="10000000" count="few">00 milijonai</pattern>
 					<pattern type="10000000" count="one">00 milijonas</pattern>
 					<pattern type="10000000" count="other">00 milijonų</pattern>
 					<pattern type="100000000" count="few">000 milijonai</pattern>
 					<pattern type="100000000" count="one">000 milijonas</pattern>
 					<pattern type="100000000" count="other">000 milijonų</pattern>
-					<pattern type="1000000000" count="few">0.0 milijardai</pattern>
-					<pattern type="1000000000" count="one">0.0 milijardas</pattern>
-					<pattern type="1000000000" count="other">0.0 mlrd'.'</pattern>
+					<pattern type="1000000000" count="few">0 milijardai</pattern>
+					<pattern type="1000000000" count="one">0 milijardas</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
 					<pattern type="10000000000" count="few">00 milijardai</pattern>
 					<pattern type="10000000000" count="one">00 milijardas</pattern>
 					<pattern type="10000000000" count="other">00 milijardų</pattern>
 					<pattern type="100000000000" count="few">000 milijardai</pattern>
 					<pattern type="100000000000" count="one">000 milijardas</pattern>
 					<pattern type="100000000000" count="other">000 milijardų</pattern>
-					<pattern type="1000000000000" count="few">0.0 trilijonai</pattern>
-					<pattern type="1000000000000" count="one">0.0 trilijonas</pattern>
-					<pattern type="1000000000000" count="other">0.0 trln'.'</pattern>
+					<pattern type="1000000000000" count="few">0 trilijonai</pattern>
+					<pattern type="1000000000000" count="one">0 trilijonas</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
 					<pattern type="10000000000000" count="few">00 trilijonai</pattern>
 					<pattern type="10000000000000" count="one">00 trilijonas</pattern>
 					<pattern type="10000000000000" count="other">00 trilijonų</pattern>
@@ -7580,3 +7580,4 @@
 		</messages>
 	</posix>
 </ldml>
+

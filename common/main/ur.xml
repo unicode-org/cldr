@@ -3293,7 +3293,7 @@
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
-			<nan alt="arab" draft="unconfirmed">یہ عدد نہیں</nan>
+			<nan alt="arab" draft="unconfirmed">یہ عدد نہیں</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -3303,26 +3303,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0.0 ہزار</pattern>
-					<pattern type="1000" count="other">0.0 ہزار</pattern>
+					<pattern type="1000" count="one">0 ہزار</pattern>
+					<pattern type="1000" count="other">0 ہزار</pattern>
 					<pattern type="10000" count="one">00 ہزار</pattern>
 					<pattern type="10000" count="other">00 ہزار</pattern>
 					<pattern type="100000" count="one">000 ہزار</pattern>
 					<pattern type="100000" count="other">000 ہزار</pattern>
-					<pattern type="1000000" count="one">0.0 ملین</pattern>
-					<pattern type="1000000" count="other">0.0 ملین</pattern>
+					<pattern type="1000000" count="one">0 ملین</pattern>
+					<pattern type="1000000" count="other">0 ملین</pattern>
 					<pattern type="10000000" count="one">00 ملین</pattern>
 					<pattern type="10000000" count="other">00 ملین</pattern>
 					<pattern type="100000000" count="one">000 ملین</pattern>
 					<pattern type="100000000" count="other">000 ملین</pattern>
-					<pattern type="1000000000" count="one">0.0 بلین</pattern>
-					<pattern type="1000000000" count="other">0.0 بلین</pattern>
+					<pattern type="1000000000" count="one">0 بلین</pattern>
+					<pattern type="1000000000" count="other">0 بلین</pattern>
 					<pattern type="10000000000" count="one">00 بلین</pattern>
 					<pattern type="10000000000" count="other">00 بلین</pattern>
 					<pattern type="100000000000" count="one">000 بلین</pattern>
 					<pattern type="100000000000" count="other">000 بلین</pattern>
-					<pattern type="1000000000000" count="one">0.0 ٹریلین</pattern>
-					<pattern type="1000000000000" count="other">0.0 ٹریلین</pattern>
+					<pattern type="1000000000000" count="one">0 ٹریلین</pattern>
+					<pattern type="1000000000000" count="other">0 ٹریلین</pattern>
 					<pattern type="10000000000000" count="one">00 ٹریلین</pattern>
 					<pattern type="10000000000000" count="other">00 ٹریلین</pattern>
 					<pattern type="100000000000000" count="one">000 ٹریلین</pattern>
@@ -3331,26 +3331,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0.0K</pattern>
-					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="1000" count="one" draft="contributed">0K</pattern>
+					<pattern type="1000" count="other" draft="contributed">0K</pattern>
 					<pattern type="10000" count="one" draft="contributed">00K</pattern>
 					<pattern type="10000" count="other" draft="contributed">00K</pattern>
 					<pattern type="100000" count="one" draft="contributed">000K</pattern>
 					<pattern type="100000" count="other" draft="contributed">000K</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0.0M</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="1000000" count="one" draft="contributed">0M</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0M</pattern>
 					<pattern type="10000000" count="one" draft="contributed">00M</pattern>
 					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
 					<pattern type="100000000" count="one" draft="contributed">000M</pattern>
 					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="one">0.0B</pattern>
-					<pattern type="1000000000" count="other">0.0B</pattern>
+					<pattern type="1000000000" count="one">0B</pattern>
+					<pattern type="1000000000" count="other">0B</pattern>
 					<pattern type="10000000000" count="one">00B</pattern>
 					<pattern type="10000000000" count="other">00B</pattern>
 					<pattern type="100000000000" count="one">000B</pattern>
 					<pattern type="100000000000" count="other">000B</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="1000000000000" count="one" draft="contributed">0T</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0T</pattern>
 					<pattern type="10000000000000" count="one" draft="contributed">00T</pattern>
 					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
 					<pattern type="100000000000000" count="one" draft="contributed">000T</pattern>
@@ -4039,3 +4039,4 @@
 		</messages>
 	</posix>
 </ldml>
+

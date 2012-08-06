@@ -4085,26 +4085,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="one">0.0 Tausend</pattern>
-					<pattern type="1000" count="other">0.0 Tausend</pattern>
+					<pattern type="1000" count="one">0 Tausend</pattern>
+					<pattern type="1000" count="other">0 Tausend</pattern>
 					<pattern type="10000" count="one">00 Tausend</pattern>
 					<pattern type="10000" count="other">00 Tausend</pattern>
 					<pattern type="100000" count="one">000 Tausend</pattern>
 					<pattern type="100000" count="other">000 Tausend</pattern>
-					<pattern type="1000000" count="one">0.0 Million</pattern>
-					<pattern type="1000000" count="other">0.0 Millionen</pattern>
+					<pattern type="1000000" count="one">0 Million</pattern>
+					<pattern type="1000000" count="other">0 Millionen</pattern>
 					<pattern type="10000000" count="one">00 Millionen</pattern>
 					<pattern type="10000000" count="other">00 Millionen</pattern>
 					<pattern type="100000000" count="one">000 Millionen</pattern>
 					<pattern type="100000000" count="other">000 Millionen</pattern>
-					<pattern type="1000000000" count="one">0.0 Milliarde</pattern>
-					<pattern type="1000000000" count="other">0.0 Milliarden</pattern>
+					<pattern type="1000000000" count="one">0 Milliarde</pattern>
+					<pattern type="1000000000" count="other">0 Milliarden</pattern>
 					<pattern type="10000000000" count="one">00 Milliarden</pattern>
 					<pattern type="10000000000" count="other">00 Milliarden</pattern>
 					<pattern type="100000000000" count="one">000 Milliarden</pattern>
 					<pattern type="100000000000" count="other">000 Milliarden</pattern>
-					<pattern type="1000000000000" count="one">0.0 Billion</pattern>
-					<pattern type="1000000000000" count="other">0.0 Billionen</pattern>
+					<pattern type="1000000000000" count="one">0 Billion</pattern>
+					<pattern type="1000000000000" count="other">0 Billionen</pattern>
 					<pattern type="10000000000000" count="one">00 Billionen</pattern>
 					<pattern type="10000000000000" count="other">00 Billionen</pattern>
 					<pattern type="100000000000000" count="one">000 Billionen</pattern>
@@ -4113,26 +4113,26 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="provisional">0.0k</pattern>
-					<pattern type="1000" count="other" draft="provisional">0.0k</pattern>
+					<pattern type="1000" count="one" draft="provisional">0k</pattern>
+					<pattern type="1000" count="other" draft="provisional">0k</pattern>
 					<pattern type="10000" count="one" draft="contributed">00000</pattern>
 					<pattern type="10000" count="other" draft="contributed">00000</pattern>
 					<pattern type="100000" count="one" draft="contributed">000000</pattern>
 					<pattern type="100000" count="other" draft="contributed">000000</pattern>
-					<pattern type="1000000" count="one">0.0 Mio</pattern>
-					<pattern type="1000000" count="other">0.0 Mio</pattern>
+					<pattern type="1000000" count="one">0 Mio</pattern>
+					<pattern type="1000000" count="other">0 Mio</pattern>
 					<pattern type="10000000" count="one">00 Mio</pattern>
 					<pattern type="10000000" count="other">00 Mio</pattern>
 					<pattern type="100000000" count="one">000 Mio</pattern>
 					<pattern type="100000000" count="other">000 Mio</pattern>
-					<pattern type="1000000000" count="one">0.0 Mrd</pattern>
-					<pattern type="1000000000" count="other">0.0 Mrd</pattern>
+					<pattern type="1000000000" count="one">0 Mrd</pattern>
+					<pattern type="1000000000" count="other">0 Mrd</pattern>
 					<pattern type="10000000000" count="one">00 Mrd</pattern>
 					<pattern type="10000000000" count="other">00 Mrd</pattern>
 					<pattern type="100000000000" count="one">000 Mrd</pattern>
 					<pattern type="100000000000" count="other">000 Mrd</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0.0 Bio</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0 Bio</pattern>
+					<pattern type="1000000000000" count="one" draft="contributed">0 Bio</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0 Bio</pattern>
 					<pattern type="10000000000000" count="one" draft="contributed">00 Bio</pattern>
 					<pattern type="10000000000000" count="other" draft="contributed">00 Bio</pattern>
 					<pattern type="100000000000000" count="one" draft="contributed">000 Bio</pattern>
@@ -5829,3 +5829,4 @@
 		</messages>
 	</posix>
 </ldml>
+

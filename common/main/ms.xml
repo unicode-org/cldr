@@ -2426,32 +2426,32 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other">0.0 ribu</pattern>
+					<pattern type="1000" count="other">0 ribu</pattern>
 					<pattern type="10000" count="other">00 ribu</pattern>
 					<pattern type="100000" count="other">000 ribu</pattern>
-					<pattern type="1000000" count="other">0.0 juta</pattern>
+					<pattern type="1000000" count="other">0 juta</pattern>
 					<pattern type="10000000" count="other">00 juta</pattern>
 					<pattern type="100000000" count="other">000 juta</pattern>
-					<pattern type="1000000000" count="other">0.0 bilion</pattern>
+					<pattern type="1000000000" count="other">0 bilion</pattern>
 					<pattern type="10000000000" count="other">00 bilion</pattern>
 					<pattern type="100000000000" count="other">000 bilion</pattern>
-					<pattern type="1000000000000" count="other">0.0 trilion</pattern>
+					<pattern type="1000000000000" count="other">0 trilion</pattern>
 					<pattern type="10000000000000" count="other">00 trilion</pattern>
 					<pattern type="100000000000000" count="other">000 trilion</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0.0K</pattern>
+					<pattern type="1000" count="other" draft="contributed">0K</pattern>
 					<pattern type="10000" count="other" draft="contributed">00K</pattern>
 					<pattern type="100000" count="other" draft="contributed">000K</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0.0M</pattern>
+					<pattern type="1000000" count="other" draft="contributed">0M</pattern>
 					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
 					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="other">0.0B</pattern>
+					<pattern type="1000000000" count="other">0B</pattern>
 					<pattern type="10000000000" count="other">00B</pattern>
 					<pattern type="100000000000" count="other">000B</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0.0T</pattern>
+					<pattern type="1000000000000" count="other" draft="contributed">0T</pattern>
 					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
 					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
 				</decimalFormat>
@@ -3213,3 +3213,4 @@
 		</messages>
 	</posix>
 </ldml>
+

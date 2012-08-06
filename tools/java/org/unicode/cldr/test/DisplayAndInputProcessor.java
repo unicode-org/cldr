@@ -196,6 +196,9 @@ public class DisplayAndInputProcessor {
                     value = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
                             .replaceAll(" ([%\u00A4])", "\u00A0$1");
                     value = replace(NON_DECIMAL_PERIOD, value, "'.'");
+                    if (numericType == NumericType.DECIMAL_ABBREVIATED) {
+                        value = value.replaceAll("0\\.0+", "0");
+                    }
                 }
                 value = getCanonicalPattern(value, numericType, isPosix);
             }

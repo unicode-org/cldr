@@ -520,13 +520,13 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             Exception[] exceptionParameters = getExceptionParameters();
             if (exceptionParameters != null) {
                 for (Exception exception : exceptionParameters) {
-                    message += "; \t" + exception.getMessage(); //  + " \t(" + exception.getClass().getName() + ")";
+                    message += "; " + exception.getMessage(); //  + " \t(" + exception.getClass().getName() + ")";
                     //          for (StackTraceElement item : exception.getStackTrace()) {
                     //            message += "\n\t" + item;
                     //          }
                 }
             }
-            return message;
+            return message.replace('\t', ' ');
         }
         /**
          * @deprecated

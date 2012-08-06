@@ -326,7 +326,7 @@ public class ConsoleCheckCLDR {
             String localeID = (String) it.next();
             if (CLDRFile.isSupplementalName(localeID)) continue;
             if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
-                System.out.println("Skipping default content locale: " + localeID);
+                System.out.println("# Skipping default content locale: " + localeID);
                 continue;
             }
 
@@ -623,7 +623,7 @@ public class ConsoleCheckCLDR {
                     showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, null, fullPath, example, exampleContext);
                 }
             }
-            System.out.println("Elapsed time: " + timer);
+            System.out.println("# Elapsed time: " + timer);
             System.out.flush();
         }
 
@@ -1190,7 +1190,7 @@ public class ConsoleCheckCLDR {
     }
 
     private static void showSummary(CheckCLDR checkCldr, String localeID, Level level, String value) {
-        String line = getLocaleAndName(localeID) + "\tSummary\t" + level + "\t" + value;
+        String line = "# " + getLocaleAndName(localeID) + "\tSummary\t" + level + "\t" + value;
         System.out.println(line);
         //  if (generated_html != null) {
         //  line = TransliteratorUtilities.toHTML.transform(line);

@@ -363,7 +363,8 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         } else if ((curOption = options[NUMBERS_ONLY]).doesOccur) {
             showDeprecatedError(curOption.longName, override);
             new NumberingSystemsConverter(log, numberingSystemsFile, supplementalDir).convert(writer);
-        } else if (options[BCP47_KEY_TYPE].doesOccur) {
+        } else if ((curOption = options[BCP47_KEY_TYPE]).doesOccur) {
+            showDeprecatedError(curOption.longName, override);
             if (remainingArgc > 0) {
                 log.error("-k takes one argument, the bcp47 key/type data directory, no others.\n");
                 usage();

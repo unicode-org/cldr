@@ -50,10 +50,12 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      */
     enum Type {
         locales, 
+        dayPeriods,
         genderList, likelySubtags,
         metadata, metaZones,
         numberingSystems,
         plurals,
+        postalCodeData,
         supplementalData, 
         windowsZones,
         keyTypeData;

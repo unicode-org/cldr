@@ -90,3 +90,6 @@
 
 # genderList.txt
 //supplementalData/gender/personList[@type="(%W)"][@locales="(%W)"] ; /genderList/$2 ; values=$1
+
+# postalCodeData.xml
+//supplementalData/postalCodeData/postCodeRegex[@territoryId="(%W)"] ; /$1

@@ -49,24 +49,14 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      * The type of file to be converted.
      */
     enum Type {
-        locales(SuperType.locale),
-        genderList(SuperType.supplemental), likelySubtags(SuperType.supplemental),
-        metadata(SuperType.supplemental), metaZones(SuperType.supplemental),
-        numberingSystems(SuperType.supplemental), plurals(SuperType.supplemental),
-        supplementalData(SuperType.supplemental), 
-        windowsZones(SuperType.supplemental),
-        keyTypeData(SuperType.bcp47);
-        
-        private SuperType superType;
-        private Type(SuperType superType) {
-            this.superType = superType;
-        }
-
-        public SuperType getSuperType() { return superType; }
-    }
-
-    enum SuperType {
-        locale, supplemental, bcp47;
+        locales, 
+        genderList, likelySubtags,
+        metadata, metaZones,
+        numberingSystems,
+        plurals,
+        supplementalData, 
+        windowsZones,
+        keyTypeData;
     }
 
     private static final Options options = new Options(
@@ -161,8 +151,8 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         }
 
         // Process files.
-        switch (type.getSuperType()) {
-        case locale:
+        switch (type) {
+        case locales:
             // Generate locale data.
             SupplementalDataInfo supplementalDataInfo = null;
             Option option = options.get("supplementaldir");
@@ -198,14 +188,11 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             LocaleMapper mapper = new LocaleMapper(factory, specialFactory, supplementalDataInfo);
             processLocales(mapper, locales);
             break;
-        case supplemental:  // supplemental data
-            processSupplemental(type, options.get("cldrVersion").getValue());
-            break;
-        case bcp47:
+        case keyTypeData:
             processBcp47Data(type);
             break;
-        default:
-            throw new UnsupportedOperationException("ERROR: " + type + " not supported.");
+        default: // supplemental data
+            processSupplemental(type, options.get("cldrVersion").getValue());
         }
     }
 

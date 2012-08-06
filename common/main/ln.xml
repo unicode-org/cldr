@@ -672,34 +672,9 @@
 					<standard draft="unconfirmed">Ntángo ya Afríka ya Sidi</standard>
 				</long>
 			</metazone>
-			<metazone type="Africa_Western">
-				<long>
-					<generic draft="unconfirmed">Ntángo ya Kinsásá</generic>
-				</long>
-			</metazone>
-			<metazone type="Europe_Central">
-				<long>
-					<generic draft="unconfirmed">Ntángo ya Erópa ya Katikáti</generic>
-				</long>
-			</metazone>
-			<metazone type="Europe_Eastern">
-				<long>
-					<generic draft="unconfirmed">Ntángo ya Erópa ya Ɛ́sita</generic>
-				</long>
-			</metazone>
-			<metazone type="Europe_Western">
-				<long>
-					<generic draft="unconfirmed">Ntángo ya Erópa ya Wɛ́sita</generic>
-				</long>
-			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard draft="unconfirmed">Ntángo ya Londoni</standard>
-				</long>
-			</metazone>
-			<metazone type="Mauritius">
-				<long>
-					<generic draft="unconfirmed">Ntángo ya Morisi</generic>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -743,6 +718,7 @@
 			<currency type="ARS">
 				<displayName draft="unconfirmed">Peso y'Argentina</displayName>
 				<displayName count="one" draft="unconfirmed">Peso y'Argentina</displayName>
+				<displayName count="other" draft="unconfirmed">Peso y'Argentina</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>Dolarɛ ya Ositali</displayName>
@@ -779,6 +755,7 @@
 			<currency type="CLP">
 				<displayName draft="unconfirmed">Peso ya Shili</displayName>
 				<displayName count="one" draft="unconfirmed">Peso ya Shili</displayName>
+				<displayName count="other" draft="unconfirmed">Peso ya Shili</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>Yuanɛ Renminbi ya Sinɛ</displayName>
@@ -786,13 +763,12 @@
 			<currency type="COP">
 				<displayName draft="unconfirmed">Peso ya Kolombi</displayName>
 				<displayName count="one" draft="unconfirmed">Peso ya Kolombi</displayName>
+				<displayName count="other" draft="unconfirmed">Peso ya Kolombi</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName draft="unconfirmed">Colon ya Kosta Rika</displayName>
 				<displayName count="one" draft="unconfirmed">Colon ya Kosta Rika</displayName>
-			</currency>
-			<currency type="CUC">
-				<displayName count="one" draft="unconfirmed">Peso ya Kuba</displayName>
+				<displayName count="other" draft="unconfirmed">Colon ya Kosta Rika</displayName>
 			</currency>
 			<currency type="CUP">
 				<displayName draft="unconfirmed">Peso ya Kuba</displayName>
@@ -805,6 +781,7 @@
 			<currency type="CZK">
 				<displayName draft="unconfirmed">Motolé Sheki</displayName>
 				<displayName count="one" draft="unconfirmed">Motolé Sheki</displayName>
+				<displayName count="other" draft="unconfirmed">Motolé Sheki</displayName>
 			</currency>
 			<currency type="DJF">
 				<displayName>Falánga ya Dzibuti</displayName>
@@ -812,10 +789,12 @@
 			<currency type="DKK">
 				<displayName draft="unconfirmed">Motolé ya Danemark</displayName>
 				<displayName count="one" draft="unconfirmed">Motolé ya Danemark</displayName>
+				<displayName count="other" draft="unconfirmed">Motolé ya Danemark</displayName>
 			</currency>
 			<currency type="DOP">
 				<displayName draft="unconfirmed">Peso Dominikani</displayName>
 				<displayName count="one" draft="unconfirmed">Peso Dominikani</displayName>
+				<displayName count="other" draft="unconfirmed">Peso Dominikani</displayName>
 			</currency>
 			<currency type="DZD">
 				<displayName>Dinarɛ ya Alizeri</displayName>
@@ -843,6 +822,7 @@
 			<currency type="GHS">
 				<displayName draft="unconfirmed">Cedi</displayName>
 				<displayName count="one" draft="unconfirmed">Cedi</displayName>
+				<displayName count="other" draft="unconfirmed">Cedi</displayName>
 			</currency>
 			<currency type="GMD">
 				<displayName>Dalasi ya Gambi</displayName>
@@ -850,6 +830,7 @@
 			<currency type="GNF">
 				<displayName draft="unconfirmed">Falánga ya Gine</displayName>
 				<displayName count="one" draft="unconfirmed">Falánga ya Gine</displayName>
+				<displayName count="other" draft="unconfirmed">Falánga ya Gine</displayName>
 			</currency>
 			<currency type="GNS">
 				<displayName>Falánga ya Ginɛ</displayName>
@@ -857,6 +838,7 @@
 			<currency type="HTG">
 				<displayName draft="unconfirmed">Gurde</displayName>
 				<displayName count="one" draft="unconfirmed">Gurde</displayName>
+				<displayName count="other" draft="unconfirmed">Gurde</displayName>
 			</currency>
 			<currency type="INR">
 				<displayName>Rupi ya Índɛ</displayName>
@@ -865,6 +847,7 @@
 			<currency type="ISK">
 				<displayName draft="unconfirmed">Motolé ya Islandi</displayName>
 				<displayName count="one" draft="unconfirmed">Motolé ya Islandi</displayName>
+				<displayName count="other" draft="unconfirmed">Motolé ya Islandi</displayName>
 			</currency>
 			<currency type="JPY">
 				<displayName>Yeni ya Zapɔ</displayName>
@@ -884,10 +867,12 @@
 			<currency type="LTL">
 				<displayName draft="unconfirmed">Litas ya Litwani</displayName>
 				<displayName count="one" draft="unconfirmed">Litas ya Litwani</displayName>
+				<displayName count="other" draft="unconfirmed">Litas ya Litwani</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName draft="unconfirmed">Lats ya Letoni</displayName>
 				<displayName count="one" draft="unconfirmed">Lats ya Letoni</displayName>
+				<displayName count="other" draft="unconfirmed">Lats ya Letoni</displayName>
 			</currency>
 			<currency type="LYD">
 				<displayName>Dinarɛ ya Libí</displayName>
@@ -910,6 +895,7 @@
 			<currency type="MXN">
 				<displayName draft="unconfirmed">Peso ya Mexiko</displayName>
 				<displayName count="one" draft="unconfirmed">Peso ya Mexiko</displayName>
+				<displayName count="other" draft="unconfirmed">Peso ya Mexiko</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>Metikali ya Mozambiki</displayName>
@@ -923,18 +909,22 @@
 			<currency type="NOK">
 				<displayName draft="unconfirmed">Motolé ya Norvej</displayName>
 				<displayName count="one" draft="unconfirmed">Motolé ya Norvej</displayName>
+				<displayName count="other" draft="unconfirmed">Motolé ya Norvej</displayName>
 			</currency>
 			<currency type="PAB">
 				<displayName draft="unconfirmed">Balboa</displayName>
 				<displayName count="one" draft="unconfirmed">Balboa</displayName>
+				<displayName count="other" draft="unconfirmed">Balboa</displayName>
 			</currency>
 			<currency type="PEN">
 				<displayName draft="unconfirmed">Sol Sika</displayName>
 				<displayName count="one" draft="unconfirmed">Sol Sika</displayName>
+				<displayName count="other" draft="unconfirmed">Sol Sika</displayName>
 			</currency>
 			<currency type="PYG">
 				<displayName draft="unconfirmed">Guarani</displayName>
 				<displayName count="one" draft="unconfirmed">Guarani</displayName>
+				<displayName count="other" draft="unconfirmed">Guarani</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>Falánga ya Rwanda</displayName>
@@ -954,6 +944,7 @@
 			<currency type="SEK">
 				<displayName draft="unconfirmed">Motolé ya Swédi</displayName>
 				<displayName count="one" draft="unconfirmed">Motolé ya Swédi</displayName>
+				<displayName count="other" draft="unconfirmed">Motolé ya Swédi</displayName>
 			</currency>
 			<currency type="SHP">
 				<displayName>Paunɛ ya Sántu elena</displayName>

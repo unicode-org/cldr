@@ -378,18 +378,6 @@
 							<month type="12">желтоқсан</month>
 						</monthWidth>
 					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="1" draft="unconfirmed">қаң.</month>
-							<month type="2" draft="unconfirmed">ақп.</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">қаңтар</month>
-							<month type="2" draft="unconfirmed">Ақпан</month>
-							<month type="3">наурыз</month>
-							<month type="12" draft="unconfirmed">желтоқсан</month>
-						</monthWidth>
-					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
@@ -402,19 +390,6 @@
 							<day type="fri">жм.</day>
 							<day type="sat">сһ.</day>
 						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">1</day>
-							<day type="wed" draft="unconfirmed">4</day>
-							<day type="thu" draft="unconfirmed">5</day>
-							<day type="fri" draft="unconfirmed">6</day>
-							<day type="sat" draft="unconfirmed">7</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="unconfirmed">жс.</day>
-							<day type="tue" draft="unconfirmed">сс.</day>
-							<day type="wed" draft="unconfirmed">ср.</day>
-							<day type="sat" draft="unconfirmed">сн</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">жексені</day>
 							<day type="mon">дуйсенбі</day>
@@ -425,45 +400,19 @@
 							<day type="sat">сенбі</day>
 						</dayWidth>
 					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">жс.</day>
-							<day type="mon" draft="unconfirmed">дс.</day>
-							<day type="tue" draft="unconfirmed">сс.</day>
-							<day type="thu" draft="unconfirmed">бс.</day>
-							<day type="fri" draft="unconfirmed">жм.</day>
-							<day type="sat" draft="unconfirmed">сн.</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="mon" draft="unconfirmed">дс.</day>
-							<day type="tue" draft="unconfirmed">сс.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">жексенбі</day>
-							<day type="mon" draft="unconfirmed">дүйсенбі</day>
-							<day type="tue" draft="unconfirmed">сейсенбі</day>
-							<day type="wed" draft="unconfirmed">сәрсенбі</day>
-							<day type="fri" draft="unconfirmed">жұма</day>
-							<day type="sat" draft="unconfirmed">сенбі</day>
-						</dayWidth>
-					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">1-інші тоқсан</quarter>
+							<quarter type="2" draft="unconfirmed">2-інші тоқсан</quarter>
 							<quarter type="3" draft="unconfirmed">3-інші тоқсан</quarter>
 							<quarter type="4" draft="unconfirmed">4-інші тоқсан</quarter>
 						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="4" draft="unconfirmed">4</quarter>
-						</quarterWidth>
 						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">1-інші тоқсан</quarter>
+							<quarter type="2" draft="unconfirmed">2-інші тоқсан</quarter>
 							<quarter type="3" draft="unconfirmed">3-інші тоқсан</quarter>
-							<quarter type="4" draft="unconfirmed">4-інші тоқсан</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="wide">
 							<quarter type="4" draft="unconfirmed">4-інші тоқсан</quarter>
 						</quarterWidth>
 					</quarterContext>
@@ -2044,66 +1993,87 @@
 	</numbers>
 	<units>
 		<unit type="day">
+			<unitPattern count="one">{0} тәулік</unitPattern>
 			<unitPattern count="other">{0} тәулік</unitPattern>
 		</unit>
 		<unit type="day-future">
+			<unitPattern count="one">{0} күннен кейін</unitPattern>
 			<unitPattern count="other">{0} күннен кейін</unitPattern>
 		</unit>
 		<unit type="day-past">
+			<unitPattern count="one">{0} күн бұрын</unitPattern>
 			<unitPattern count="other">{0} күн бұрын</unitPattern>
 		</unit>
 		<unit type="hour">
+			<unitPattern count="one">{0} сағат</unitPattern>
 			<unitPattern count="other">{0} сағат</unitPattern>
 		</unit>
 		<unit type="hour-future">
+			<unitPattern count="one">{0} сағаттан кейін</unitPattern>
 			<unitPattern count="other">{0} сағаттан кейін</unitPattern>
 		</unit>
 		<unit type="hour-past">
+			<unitPattern count="one">{0} сағат бұрын</unitPattern>
 			<unitPattern count="other">{0} сағат бұрын</unitPattern>
 		</unit>
 		<unit type="minute">
+			<unitPattern count="one">{0} минут</unitPattern>
 			<unitPattern count="other">{0} минут</unitPattern>
 		</unit>
 		<unit type="minute-future">
+			<unitPattern count="one">{0} минуттан кейін</unitPattern>
 			<unitPattern count="other">{0} минуттан кейін</unitPattern>
 		</unit>
 		<unit type="minute-past">
+			<unitPattern count="one">{0} минут бұрын</unitPattern>
 			<unitPattern count="other">{0} минут бұрын</unitPattern>
 		</unit>
 		<unit type="month">
+			<unitPattern count="one">{0} ай</unitPattern>
 			<unitPattern count="other">{0} ай</unitPattern>
 		</unit>
 		<unit type="month-future">
+			<unitPattern count="one">{0} айдан кейін</unitPattern>
 			<unitPattern count="other">{0} айдан кейін</unitPattern>
 		</unit>
 		<unit type="month-past">
+			<unitPattern count="one">{0} ай бұрын</unitPattern>
 			<unitPattern count="other">{0} ай бұрын</unitPattern>
 		</unit>
 		<unit type="second">
+			<unitPattern count="one">{0} секунд</unitPattern>
 			<unitPattern count="other">{0} секунд</unitPattern>
 		</unit>
 		<unit type="second-future">
+			<unitPattern count="one">{0} секундтан кейін</unitPattern>
 			<unitPattern count="other">{0} секундтан кейін</unitPattern>
 		</unit>
 		<unit type="second-past">
+			<unitPattern count="one">{0} секунд бұрын</unitPattern>
 			<unitPattern count="other">{0} секунд бұрын</unitPattern>
 		</unit>
 		<unit type="week">
+			<unitPattern count="one">{0} апта</unitPattern>
 			<unitPattern count="other">{0} апта</unitPattern>
 		</unit>
 		<unit type="week-future">
+			<unitPattern count="one">{0} аптадан кейін</unitPattern>
 			<unitPattern count="other">{0} аптадан кейін</unitPattern>
 		</unit>
 		<unit type="week-past">
+			<unitPattern count="one">{0} апта бұрын</unitPattern>
 			<unitPattern count="other">{0} апта бұрын</unitPattern>
 		</unit>
 		<unit type="year">
+			<unitPattern count="one">{0} жыл</unitPattern>
 			<unitPattern count="other">{0} жыл</unitPattern>
 		</unit>
 		<unit type="year-future">
+			<unitPattern count="one">{0} жылдан кейін</unitPattern>
 			<unitPattern count="other">{0} жылдан кейін</unitPattern>
 		</unit>
 		<unit type="year-past">
+			<unitPattern count="one">{0} жыл бұрын</unitPattern>
 			<unitPattern count="other">{0} жыл бұрын</unitPattern>
 		</unit>
 	</units>

@@ -1257,43 +1257,21 @@
 			<calendar type="coptic">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="2" draft="contributed">Baba</month>
-							<month type="6" draft="contributed">Amshir</month>
-							<month type="7" draft="contributed">Baramhat</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="1" draft="contributed">1</month>
-							<month type="2" draft="contributed">2</month>
-							<month type="3" draft="contributed">3</month>
-							<month type="4" draft="contributed">4</month>
-							<month type="5" draft="contributed">5</month>
-							<month type="6" draft="contributed">6</month>
-							<month type="7" draft="contributed">7</month>
-							<month type="8" draft="contributed">8</month>
-							<month type="9" draft="contributed">9</month>
-							<month type="10" draft="contributed">10</month>
-							<month type="11" draft="contributed">11</month>
-							<month type="12" draft="contributed">12</month>
-							<month type="13" draft="contributed">13</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="3" draft="unconfirmed">Hathor</month>
-							<month type="12" draft="unconfirmed">Mesori</month>
-							<month type="13" draft="unconfirmed">El Nasii</month>
-						</monthWidth>
-					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="2" draft="contributed">Baba</month>
-							<month type="6" draft="contributed">Amshir</month>
-							<month type="7" draft="contributed">Baramhat</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="2" draft="contributed">Baba</month>
-							<month type="6" draft="contributed">Amshir</month>
-							<month type="7" draft="contributed">Baramhat</month>
-						</monthWidth>
+                                                <monthWidth type="wide">
+                                                        <month type="1" draft="unconfirmed">Tout</month>
+                                                        <month type="2" draft="unconfirmed">Baba</month>
+                                                        <month type="3" draft="unconfirmed">Hathor</month>
+                                                        <month type="4" draft="unconfirmed">Kiahk</month>
+                                                        <month type="5" draft="unconfirmed">Toba</month>
+                                                        <month type="6" draft="unconfirmed">Amshir</month>
+                                                        <month type="7" draft="unconfirmed">Baramhat</month>
+                                                        <month type="8" draft="unconfirmed">Baramouda</month>
+                                                        <month type="9" draft="unconfirmed">Bashans</month>
+                                                        <month type="10" draft="unconfirmed">Paona</month>
+                                                        <month type="11" draft="unconfirmed">Epep</month>
+                                                        <month type="12" draft="unconfirmed">Mesori</month>
+                                                        <month type="13" draft="unconfirmed">El Nasii</month>
+                                                </monthWidth>
 					</monthContext>
 				</months>
 			</calendar>
@@ -1302,14 +1280,18 @@
 					<monthContext type="format">
 						<monthWidth type="wide">
 							<month type="1" draft="unconfirmed">meskerem</month>
-							<month type="2" draft="unconfirmed">Taqemt</month>
-							<month type="3" draft="unconfirmed">hamle</month>
+							<month type="2" draft="unconfirmed">taqemt</month>
+							<month type="3" draft="unconfirmed">hedar</month>
 							<month type="4" draft="unconfirmed">tahsas</month>
+							<month type="5" draft="unconfirmed">ter</month>
 							<month type="6" draft="unconfirmed">yekatit</month>
 							<month type="7" draft="unconfirmed">megabit</month>
+							<month type="8" draft="unconfirmed">miazia</month>
+							<month type="9" draft="unconfirmed">genbot</month>
 							<month type="10" draft="unconfirmed">sene</month>
 							<month type="11" draft="unconfirmed">hamle</month>
 							<month type="12" draft="unconfirmed">nehase</month>
+							<month type="13" draft="unconfirmed">pagumen</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1804,17 +1786,31 @@
 							<month type="3" draft="contributed">Kislev</month>
 							<month type="4" draft="contributed">Tevet</month>
 							<month type="5" draft="contributed">Șevat</month>
+							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Iyar</month>
 							<month type="10" draft="contributed">Sivan</month>
 							<month type="11" draft="contributed">Tammuz</month>
+							<month type="12" draft="contributed">Av</month>
 							<month type="13" draft="contributed">Elul</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Tișrei</month>
 							<month type="2" draft="contributed">Heșvan</month>
+							<month type="3" draft="contributed">Kislev</month>
+							<month type="4" draft="contributed">Tevet</month>
 							<month type="5" draft="contributed">Șevat</month>
+							<month type="6" draft="contributed">Adar I</month>
+							<month type="7" draft="contributed">Adar</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
+							<month type="8" draft="contributed">Nisan</month>
+							<month type="9" draft="contributed">Iyar</month>
+							<month type="10" draft="contributed">Sivan</month>
+							<month type="11" draft="contributed">Tammuz</month>
+							<month type="12" draft="contributed">Av</month>
+							<month type="13" draft="contributed">Elul</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -1824,11 +1820,14 @@
 							<month type="3" draft="contributed">Kislev</month>
 							<month type="4" draft="contributed">Tevet</month>
 							<month type="5" draft="contributed">Șevat</month>
+							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Iyar</month>
 							<month type="10" draft="contributed">Sivan</month>
 							<month type="11" draft="contributed">Tammuz</month>
+							<month type="12" draft="contributed">Av</month>
 							<month type="13" draft="contributed">Elul</month>
 						</monthWidth>
 						<monthWidth type="wide">
@@ -1837,11 +1836,14 @@
 							<month type="3" draft="contributed">Kislev</month>
 							<month type="4" draft="contributed">Tevet</month>
 							<month type="5" draft="contributed">Șevat</month>
+							<month type="6" draft="contributed">Adar I</month>
 							<month type="7" draft="contributed">Adar</month>
+							<month type="7" yeartype="leap" draft="contributed">Adar II</month>
 							<month type="8" draft="contributed">Nisan</month>
 							<month type="9" draft="contributed">Iyar</month>
 							<month type="10" draft="contributed">Sivan</month>
 							<month type="11" draft="contributed">Tammuz</month>
+							<month type="12" draft="contributed">Av</month>
 							<month type="13" draft="contributed">Elul</month>
 						</monthWidth>
 					</monthContext>
@@ -3333,9 +3335,9 @@
 			</metazone>
 			<metazone type="Cook">
 				<long>
-					<generic draft="provisional">Ora din Insulele Cook</generic>
+					<generic>Ora din Insulele Cook</generic>
 					<standard>Ora standard din Insulele Cook</standard>
-					<daylight draft="provisional">Ora de vară din Insulele Cook</daylight>
+					<daylight>Ora de vară din Insulele Cook</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cuba">
@@ -4020,42 +4022,42 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="few" draft="provisional">0.0 mii</pattern>
+					<pattern type="1000" count="few">0.0 mii</pattern>
 					<pattern type="1000" count="one">0.0 mie</pattern>
-					<pattern type="1000" count="other" draft="provisional">0.0 de mii</pattern>
+					<pattern type="1000" count="other">0.0 mii</pattern>
 					<pattern type="10000" count="few">00 mii</pattern>
-					<pattern type="10000" count="one" draft="provisional">00 mie</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 de mii</pattern>
-					<pattern type="100000" count="few" draft="provisional">000 mii</pattern>
+					<pattern type="10000" count="one">00 mie</pattern>
+					<pattern type="10000" count="other">00 mii</pattern>
+					<pattern type="100000" count="few">000 mii</pattern>
 					<pattern type="100000" count="one">000 mie</pattern>
-					<pattern type="100000" count="other" draft="provisional">000 de mii</pattern>
+					<pattern type="100000" count="other">000 mii</pattern>
 					<pattern type="1000000" count="few">0.0 milioane</pattern>
 					<pattern type="1000000" count="one">0.0 milion</pattern>
-					<pattern type="1000000" count="other">0.0 de milioane</pattern>
+					<pattern type="1000000" count="other">0.0 milioane</pattern>
 					<pattern type="10000000" count="few">00 milioane</pattern>
 					<pattern type="10000000" count="one">00 milion</pattern>
-					<pattern type="10000000" count="other" draft="provisional">00 de milioane</pattern>
+					<pattern type="10000000" count="other">00 milioane</pattern>
 					<pattern type="100000000" count="few">000 milioane</pattern>
 					<pattern type="100000000" count="one">000 milion</pattern>
-					<pattern type="100000000" count="other" draft="provisional">000 de milioane</pattern>
+					<pattern type="100000000" count="other">000 milioane</pattern>
 					<pattern type="1000000000" count="few">0.0 miliarde</pattern>
 					<pattern type="1000000000" count="one">0.0 miliard</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">0.0 de miliarde</pattern>
+					<pattern type="1000000000" count="other">0.0 miliarde</pattern>
 					<pattern type="10000000000" count="few">00 miliarde</pattern>
 					<pattern type="10000000000" count="one">00 miliard</pattern>
-					<pattern type="10000000000" count="other" draft="provisional">00 de miliarde</pattern>
+					<pattern type="10000000000" count="other">00 miliarde</pattern>
 					<pattern type="100000000000" count="few">000 miliarde</pattern>
 					<pattern type="100000000000" count="one">000 miliard</pattern>
-					<pattern type="100000000000" count="other" draft="provisional">000 de miliarde</pattern>
+					<pattern type="100000000000" count="other">000 miliarde</pattern>
 					<pattern type="1000000000000" count="few">0.0 trilioane</pattern>
 					<pattern type="1000000000000" count="one">0.0 trilion</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0.0 de trilioane</pattern>
+					<pattern type="1000000000000" count="other">0.0 trilioane</pattern>
 					<pattern type="10000000000000" count="few">00 trilioane</pattern>
 					<pattern type="10000000000000" count="one">00 trilion</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">00 de trilioane</pattern>
+					<pattern type="10000000000000" count="other">00 trilioane</pattern>
 					<pattern type="100000000000000" count="few">000 trilioane</pattern>
 					<pattern type="100000000000000" count="one">000 trilion</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">000 de trilioane</pattern>
+					<pattern type="100000000000000" count="other">000 trilioane</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
@@ -4064,7 +4066,7 @@
 					<pattern type="1000" count="one" draft="contributed">0.0 K</pattern>
 					<pattern type="1000" count="other" draft="contributed">0.0 K</pattern>
 					<pattern type="10000" count="few" draft="contributed">00 K</pattern>
-					<pattern type="10000" count="one" draft="contributed">00 mii</pattern>
+					<pattern type="10000" count="one" draft="contributed">00 K</pattern>
 					<pattern type="10000" count="other" draft="contributed">00 K</pattern>
 					<pattern type="100000" count="few" draft="contributed">000 K</pattern>
 					<pattern type="100000" count="one" draft="contributed">000 K</pattern>
@@ -4127,6 +4129,7 @@
 			<currency type="ADP">
 				<displayName>pesetă andorrană</displayName>
 				<displayName count="few">pesete andorrane</displayName>
+				<displayName count="one">pesetă andorrană</displayName>
 				<displayName count="other">pesete andorrane</displayName>
 			</currency>
 			<currency type="AED">
@@ -4180,6 +4183,7 @@
 			<currency type="ATS">
 				<displayName>șiling austriac</displayName>
 				<displayName count="few">șilingi austrieci</displayName>
+				<displayName count="one">șiling austriac</displayName>
 				<displayName count="other">șilingi austrieci</displayName>
 			</currency>
 			<currency type="AUD">
@@ -4206,6 +4210,7 @@
 			<currency type="BAD">
 				<displayName>dinar Bosnia-Herțegovina (1992-1994)</displayName>
 				<displayName count="few">dinari Bosnia-Herțegovina</displayName>
+				<displayName count="one">dinar Bosnia-Herțegovina (1992-1994)</displayName>
 				<displayName count="other">dinari Bosnia-Herțegovina (1992-1994)</displayName>
 			</currency>
 			<currency type="BAM">
@@ -4229,16 +4234,19 @@
 			<currency type="BEC">
 				<displayName>franc belgian (convertibil)</displayName>
 				<displayName count="few">franci belgieni (convertibili)</displayName>
+				<displayName count="one">franc belgian (convertibil)</displayName>
 				<displayName count="other">franci belgieni (convertibili)</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>franc belgian</displayName>
 				<displayName count="few">franci belgieni</displayName>
+				<displayName count="one">franc belgian</displayName>
 				<displayName count="other">franci belgieni</displayName>
 			</currency>
 			<currency type="BEL">
 				<displayName>franc belgian (financiar)</displayName>
 				<displayName count="few">franci belgieni (financiari)</displayName>
+				<displayName count="one">franc belgian (financiar)</displayName>
 				<displayName count="other">franci belgieni (financiari)</displayName>
 			</currency>
 			<currency type="BGN">
@@ -4280,6 +4288,7 @@
 			<currency type="BOP">
 				<displayName>peso bolivian</displayName>
 				<displayName count="few">pesos bolivieni</displayName>
+				<displayName count="one">peso bolivian</displayName>
 				<displayName count="other">pesos bolivieni</displayName>
 			</currency>
 			<currency type="BOV">
@@ -4357,36 +4366,37 @@
 			<currency type="CNY">
 				<displayName>yuan renminbi chinezesc</displayName>
 				<displayName count="few">yuani renminbi chinezești</displayName>
-				<displayName count="one" draft="contributed">yuan renminbi chinezesc</displayName>
+				<displayName count="one">yuan renminbi chinezesc</displayName>
 				<displayName count="other">yuani renminbi chinezești</displayName>
 			</currency>
 			<currency type="COP">
 				<displayName>peso columbian</displayName>
 				<displayName count="few">pesos columbieni</displayName>
-				<displayName count="one" draft="contributed">peso columbian</displayName>
+				<displayName count="one">peso columbian</displayName>
 				<displayName count="other">pesos columbieni</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>colon costarican</displayName>
 				<displayName count="few">coloni costaricani</displayName>
-				<displayName count="one" draft="contributed">colon costarican</displayName>
+				<displayName count="one">colon costarican</displayName>
 				<displayName count="other">coloni costaricani</displayName>
 			</currency>
 			<currency type="CSD">
 				<displayName>dinar Serbia și Muntenegru (2002-2006)</displayName>
-				<displayName count="few">dinari vechi Serbia și Muntenegru</displayName>
+				<displayName count="few">dinari Serbia și Muntenegru (2002-2006)</displayName>
+				<displayName count="one">dinar Serbia și Muntenegru (2002-2006)</displayName>
 				<displayName count="other">dinari Serbia și Muntenegru (2002-2006)</displayName>
 			</currency>
 			<currency type="CUC">
 				<displayName>peso cubanez convertibil</displayName>
-				<displayName count="few" draft="contributed">pesos cubanezi convertibili</displayName>
-				<displayName count="one" draft="contributed">peso cubanez convertibil</displayName>
-				<displayName count="other" draft="contributed">pesos cubanezi convertibili</displayName>
+				<displayName count="few">pesos cubanezi convertibili</displayName>
+				<displayName count="one">peso cubanez convertibil</displayName>
+				<displayName count="other">pesos cubanezi convertibili</displayName>
 			</currency>
 			<currency type="CUP">
 				<displayName>peso cubanez</displayName>
 				<displayName count="few">pesos cubanezi</displayName>
-				<displayName count="one" draft="contributed">peso cubanez</displayName>
+				<displayName count="one">peso cubanez</displayName>
 				<displayName count="other">pesos cubanezi</displayName>
 			</currency>
 			<currency type="CVE">
@@ -4398,6 +4408,7 @@
 			<currency type="CYP">
 				<displayName>liră cipriotă</displayName>
 				<displayName count="few">lire cipriote</displayName>
+				<displayName count="one">liră cipriotă</displayName>
 				<displayName count="other">lire cipriote</displayName>
 			</currency>
 			<currency type="CZK">
@@ -4409,11 +4420,13 @@
 			<currency type="DDM">
 				<displayName>marcă est-germană</displayName>
 				<displayName count="few">mărci est-germane</displayName>
+				<displayName count="one">marcă est-germană</displayName>
 				<displayName count="other">mărci est-germane</displayName>
 			</currency>
 			<currency type="DEM">
 				<displayName>marcă germană</displayName>
 				<displayName count="few">mărci germane</displayName>
+				<displayName count="one">marcă germană</displayName>
 				<displayName count="other">mărci germane</displayName>
 			</currency>
 			<currency type="DJF">
@@ -4446,6 +4459,7 @@
 			<currency type="EEK">
 				<displayName>coroană estoniană</displayName>
 				<displayName count="few">coroane estoniene</displayName>
+				<displayName count="one">coroană estoniană</displayName>
 				<displayName count="other">coroane estoniene</displayName>
 			</currency>
 			<currency type="EGP">
@@ -4469,6 +4483,7 @@
 			<currency type="ESP">
 				<displayName>pesetă spaniolă</displayName>
 				<displayName count="few">pesete spaniole</displayName>
+				<displayName count="one">pesetă spaniolă</displayName>
 				<displayName count="other">pesete spaniole</displayName>
 			</currency>
 			<currency type="ETB">
@@ -4504,6 +4519,7 @@
 			<currency type="FRF">
 				<displayName>franc francez</displayName>
 				<displayName count="few">franci francezi</displayName>
+				<displayName count="one">franc francez</displayName>
 				<displayName count="other">franci francezi</displayName>
 			</currency>
 			<currency type="GBP">
@@ -4548,6 +4564,7 @@
 			<currency type="GRD">
 				<displayName>drahmă grecească</displayName>
 				<displayName count="few">drahme grecești</displayName>
+				<displayName count="one">drahmă grecească</displayName>
 				<displayName count="other">drahme grecești</displayName>
 			</currency>
 			<currency type="GTQ">
@@ -4559,6 +4576,7 @@
 			<currency type="GWP">
 				<displayName>peso Guineea-Bissau</displayName>
 				<displayName count="few">pesos Guineea-Bissau</displayName>
+				<displayName count="one">peso Guineea-Bissau</displayName>
 				<displayName count="other">pesos Guineea-Bissau</displayName>
 			</currency>
 			<currency type="GYD">
@@ -4582,6 +4600,7 @@
 			<currency type="HRD">
 				<displayName>dinar croat</displayName>
 				<displayName count="few">dinari croați</displayName>
+				<displayName count="one">dinar croat</displayName>
 				<displayName count="other">dinari croați</displayName>
 			</currency>
 			<currency type="HRK">
@@ -4611,11 +4630,13 @@
 			<currency type="IEP">
 				<displayName>liră irlandeză</displayName>
 				<displayName count="few">lire irlandeze</displayName>
+				<displayName count="one">liră irlandeză</displayName>
 				<displayName count="other">lire irlandeze</displayName>
 			</currency>
 			<currency type="ILP">
 				<displayName>liră israeliană</displayName>
 				<displayName count="few">lire israeliene</displayName>
+				<displayName count="one">liră israeliană</displayName>
 				<displayName count="other">lire israeliene</displayName>
 			</currency>
 			<currency type="ILS">
@@ -4651,6 +4672,7 @@
 			<currency type="ITL">
 				<displayName>liră italiană</displayName>
 				<displayName count="few">lire italiene</displayName>
+				<displayName count="one">liră italiană</displayName>
 				<displayName count="other">lire italiene</displayName>
 			</currency>
 			<currency type="JMD">
@@ -4761,16 +4783,19 @@
 			<currency type="LUC">
 				<displayName>franc convertibil luxemburghez</displayName>
 				<displayName count="few">franci convertibili luxemburghezi</displayName>
+				<displayName count="one">franc convertibil luxemburghez</displayName>
 				<displayName count="other">franci convertibili luxemburghezi</displayName>
 			</currency>
 			<currency type="LUF">
 				<displayName>franc luxemburghez</displayName>
 				<displayName count="few">franci luxemburghezi</displayName>
+				<displayName count="one">franc luxemburghez</displayName>
 				<displayName count="other">franci luxemburghezi</displayName>
 			</currency>
 			<currency type="LUL">
 				<displayName>franc financiar luxemburghez</displayName>
 				<displayName count="few">franci financiari luxemburghezi</displayName>
+				<displayName count="one">franc financiar luxemburghez</displayName>
 				<displayName count="other">franci financiari luxemburghezi</displayName>
 			</currency>
 			<currency type="LVL">
@@ -4782,6 +4807,7 @@
 			<currency type="LVR">
 				<displayName>rublă Letonia</displayName>
 				<displayName count="few">ruble Letonia</displayName>
+				<displayName count="one">rublă Letonia</displayName>
 				<displayName count="other">ruble Letonia</displayName>
 			</currency>
 			<currency type="LYD">
@@ -4799,6 +4825,7 @@
 			<currency type="MAF">
 				<displayName>franc marocan</displayName>
 				<displayName count="few">franci marocani</displayName>
+				<displayName count="one">franc marocan</displayName>
 				<displayName count="other">franci marocani</displayName>
 			</currency>
 			<currency type="MDL">
@@ -4816,6 +4843,7 @@
 			<currency type="MGF">
 				<displayName>franc Madagascar</displayName>
 				<displayName count="few">franci Madagascar</displayName>
+				<displayName count="one">franc Madagascar</displayName>
 				<displayName count="other">franci Madagascar</displayName>
 			</currency>
 			<currency type="MKD">
@@ -4827,6 +4855,7 @@
 			<currency type="MLF">
 				<displayName>franc Mali</displayName>
 				<displayName count="few">franci Mali</displayName>
+				<displayName count="one">franc Mali</displayName>
 				<displayName count="other">franci Mali</displayName>
 			</currency>
 			<currency type="MMK">
@@ -4856,6 +4885,7 @@
 			<currency type="MTL">
 				<displayName>liră malteză</displayName>
 				<displayName count="few">lire malteze</displayName>
+				<displayName count="one">liră malteză</displayName>
 				<displayName count="other">lire malteze</displayName>
 			</currency>
 			<currency type="MUR">
@@ -4885,6 +4915,7 @@
 			<currency type="MXP">
 				<displayName>peso mexican de argint (1861–1992)</displayName>
 				<displayName count="few">pesos mexicani de argint (1861–1992</displayName>
+				<displayName count="one">peso mexican de argint (1861–1992)</displayName>
 				<displayName count="other">pesos mexicani de argint (1861–1992)</displayName>
 			</currency>
 			<currency type="MYR">
@@ -4918,47 +4949,48 @@
 				<displayName count="other" draft="contributed">naire nigeriene</displayName>
 			</currency>
 			<currency type="NIC">
-				<displayName>cordoba Nicaragua</displayName>
+				<displayName>cordoba nicaraguană (1988-1991)</displayName>
 			</currency>
 			<currency type="NIO">
-				<displayName>cordoba oro nicaraguană</displayName>
-				<displayName count="few" draft="contributed">cordobe nicaraguane</displayName>
-				<displayName count="one" draft="contributed">cordoba nicaraguană</displayName>
-				<displayName count="other" draft="contributed">cordobe nicaraguane</displayName>
+				<displayName>cordoba nicaraguană</displayName>
+				<displayName count="few">cordobe nicaraguane</displayName>
+				<displayName count="one">cordoba nicaraguană</displayName>
+				<displayName count="other">cordobe nicaraguane</displayName>
 			</currency>
 			<currency type="NLG">
 				<displayName>gulden olandez</displayName>
 				<displayName count="few">guldeni olandezi</displayName>
+				<displayName count="one">gulden olandez</displayName>
 				<displayName count="other">guldeni olandezi</displayName>
 			</currency>
 			<currency type="NOK">
 				<displayName>coroană norvegiană</displayName>
 				<displayName count="few">coroane norvegiene</displayName>
-				<displayName count="one" draft="contributed">coroană norvegiană</displayName>
+				<displayName count="one">coroană norvegiană</displayName>
 				<displayName count="other">coroane norvegiene</displayName>
 			</currency>
 			<currency type="NPR">
 				<displayName>rupie nepaleză</displayName>
 				<displayName count="few">rupii nepaleze</displayName>
-				<displayName count="one" draft="contributed">rupie nepaleză</displayName>
+				<displayName count="one">rupie nepaleză</displayName>
 				<displayName count="other">rupii nepaleze</displayName>
 			</currency>
 			<currency type="NZD">
 				<displayName>dolar neozeelandez</displayName>
 				<displayName count="few">dolari neozeelandezi</displayName>
-				<displayName count="one" draft="contributed">dolar neozeelandez</displayName>
+				<displayName count="one">dolar neozeelandez</displayName>
 				<displayName count="other">dolari neozeelandezi</displayName>
 			</currency>
 			<currency type="OMR">
 				<displayName>riyal Oman</displayName>
 				<displayName count="few">riyali Oman</displayName>
-				<displayName count="one" draft="contributed">riyal Oman</displayName>
+				<displayName count="one">riyal Oman</displayName>
 				<displayName count="other">riyali Oman</displayName>
 			</currency>
 			<currency type="PAB">
 				<displayName>balboa panameză</displayName>
 				<displayName count="few">balboa panameze</displayName>
-				<displayName count="one" draft="contributed">balboa panameză</displayName>
+				<displayName count="one">balboa panameză</displayName>
 				<displayName count="other">balboa panameze</displayName>
 			</currency>
 			<currency type="PEI">
@@ -4967,13 +4999,14 @@
 			<currency type="PEN">
 				<displayName>sol nou peruvian</displayName>
 				<displayName count="few">soli noi Peru</displayName>
-				<displayName count="one" draft="contributed">sol nou Peru</displayName>
+				<displayName count="one">sol nou Peru</displayName>
 				<displayName count="other">soli noi Peru</displayName>
 			</currency>
 			<currency type="PES">
-				<displayName>sol peruvian</displayName>
-				<displayName count="few">soli Peru</displayName>
-				<displayName count="other">soli Peru</displayName>
+				<displayName>sol peruvian (1863-1965)</displayName>
+				<displayName count="few">soli Peru (1863-1965)</displayName>
+				<displayName count="one">sol peruvian (1863-1965)</displayName>
+				<displayName count="other">soli Peru (1863-1965)</displayName>
 			</currency>
 			<currency type="PGK">
 				<displayName>kina Papua-Noua Guinee</displayName>
@@ -4984,105 +5017,110 @@
 			<currency type="PHP">
 				<displayName>peso filipinez</displayName>
 				<displayName count="few">pesos filipinezi</displayName>
-				<displayName count="one" draft="contributed">peso filipinez</displayName>
+				<displayName count="one">peso filipinez</displayName>
 				<displayName count="other">pesos filipinezi</displayName>
 			</currency>
 			<currency type="PKR">
 				<displayName>rupie pakistaneză</displayName>
 				<displayName count="few">rupii pakistaneze</displayName>
-				<displayName count="one" draft="contributed">rupie pakistaneză</displayName>
+				<displayName count="one">rupie pakistaneză</displayName>
 				<displayName count="other">rupii pakistaneze</displayName>
 			</currency>
 			<currency type="PLN">
 				<displayName>zlot nou polonez</displayName>
 				<displayName count="few">zloți noi polonezi</displayName>
-				<displayName count="one" draft="contributed">zlot nou polonez</displayName>
+				<displayName count="one">zlot nou polonez</displayName>
 				<displayName count="other">zloți noi polonezi</displayName>
 			</currency>
 			<currency type="PLZ">
 				<displayName>zlot polonez (1950–1995)</displayName>
 				<displayName count="few">zloți polonezi (1950–1995)</displayName>
+				<displayName count="one">zlot polonez (1950–1995)</displayName>
 				<displayName count="other">zloți polonezi (1950–1995)</displayName>
 			</currency>
 			<currency type="PYG">
 				<displayName>guarani Paraguay</displayName>
-				<displayName count="few" draft="contributed">guarani Paraguay</displayName>
-				<displayName count="one" draft="contributed">guarani Paraguay</displayName>
-				<displayName count="other" draft="contributed">guarani Paraguay</displayName>
+				<displayName count="few">guarani Paraguay</displayName>
+				<displayName count="one">guarani Paraguay</displayName>
+				<displayName count="other">guarani Paraguay</displayName>
 			</currency>
 			<currency type="QAR">
 				<displayName>riyal Qatar</displayName>
 				<displayName count="few">riyali Qatar</displayName>
-				<displayName count="one" draft="contributed">ryal Qatar</displayName>
+				<displayName count="one">ryal Qatar</displayName>
 				<displayName count="other">riyali Qatar</displayName>
 			</currency>
 			<currency type="RHD">
 				<displayName>dolar rhodesian</displayName>
 				<displayName count="few">dolari rhodesieni</displayName>
+				<displayName count="one">dolar rhodesian</displayName>
 				<displayName count="other">dolari rhodesieni</displayName>
 			</currency>
 			<currency type="ROL">
-				<displayName>leu vechi</displayName>
-				<displayName count="few">lei vechi</displayName>
-				<displayName count="other">lei vechi</displayName>
+				<displayName>leu românesc (1952-2006)</displayName>
+				<displayName count="few">lei românești (1952-2006)</displayName>
+				<displayName count="one">leu românesc (1952-2006)</displayName>
+				<displayName count="other">lei românești (1952-2006)</displayName>
 			</currency>
 			<currency type="RON">
 				<displayName>leu românesc</displayName>
 				<displayName count="few">lei românești</displayName>
-				<displayName count="one" draft="contributed">leu românesc</displayName>
+				<displayName count="one">leu românesc</displayName>
 				<displayName count="other">lei românești</displayName>
 			</currency>
 			<currency type="RSD">
 				<displayName>dinar sârbesc</displayName>
 				<displayName count="few">dinari sârbești</displayName>
-				<displayName count="one" draft="contributed">dinar sârbesc</displayName>
+				<displayName count="one">dinar sârbesc</displayName>
 				<displayName count="other">dinari sârbești</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>rublă rusească</displayName>
 				<displayName count="few">ruble rusești</displayName>
-				<displayName count="one" draft="contributed">rublă rusească</displayName>
+				<displayName count="one">rublă rusească</displayName>
 				<displayName count="other">ruble rusești</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>franc Rwanda</displayName>
 				<displayName count="few">franci Rwanda</displayName>
-				<displayName count="one" draft="contributed">franc Rwanda</displayName>
+				<displayName count="one">franc Rwanda</displayName>
 				<displayName count="other">franci Rwanda</displayName>
 			</currency>
 			<currency type="SAR">
 				<displayName>riyal Arabia Saudită</displayName>
 				<displayName count="few">riyali Arabia Saudită</displayName>
-				<displayName count="one" draft="contributed">riyal Arabia Saudită</displayName>
+				<displayName count="one">riyal Arabia Saudită</displayName>
 				<displayName count="other">riyali Arabia Saudită</displayName>
 			</currency>
 			<currency type="SBD">
 				<displayName>dolar Insulele Solomon</displayName>
 				<displayName count="few">dolari Insulele Solomon</displayName>
-				<displayName count="one" draft="contributed">dolar Insulele Solomon</displayName>
+				<displayName count="one">dolar Insulele Solomon</displayName>
 				<displayName count="other">dolari Insulele Solomon</displayName>
 			</currency>
 			<currency type="SCR">
 				<displayName>rupie Seychelles</displayName>
 				<displayName count="few">rupii Seychelles</displayName>
-				<displayName count="one" draft="contributed">rupie Seychelles</displayName>
+				<displayName count="one">rupie Seychelles</displayName>
 				<displayName count="other">rupii Seychelles</displayName>
 			</currency>
 			<currency type="SDD">
 				<displayName>dinar sudanez</displayName>
 				<displayName count="few">dinari sudanezi</displayName>
+				<displayName count="one">dinar sudanez</displayName>
 				<displayName count="other">dinari sudanezi</displayName>
 			</currency>
 			<currency type="SDG">
 				<displayName>liră sudaneză</displayName>
-				<displayName count="few" draft="contributed">lire Sudan</displayName>
-				<displayName count="one" draft="contributed">liră Sudan</displayName>
-				<displayName count="other" draft="contributed">lire Sudan</displayName>
+				<displayName count="few">lire Sudan</displayName>
+				<displayName count="one">liră Sudan</displayName>
+				<displayName count="other">lire Sudan</displayName>
 			</currency>
 			<currency type="SDP">
 				<displayName>liră sudaneză (1957-1998)</displayName>
-				<displayName count="few">lire sudaneze</displayName>
-				<displayName count="other">lire sudaneze</displayName>
+				<displayName count="few">lire sudaneze (1957-1998)</displayName>
+				<displayName count="other">lire sudaneze (1957-1998)</displayName>
+				<displayName count="one">liră sudaneză (1957-1998)</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>coroană suedeză</displayName>
@@ -5099,44 +5137,47 @@
 			<currency type="SHP">
 				<displayName>liră Insula Sf. Elena</displayName>
 				<displayName count="few">lire Insula Sf. Elena</displayName>
-				<displayName count="one" draft="contributed">liră Insula Sf. Elena</displayName>
+				<displayName count="one">liră Insula Sf. Elena</displayName>
 				<displayName count="other">lire Insula Sf. Elena</displayName>
 			</currency>
 			<currency type="SIT">
 				<displayName>tolar sloven</displayName>
 				<displayName count="few">tolari sloveni</displayName>
+				<displayName count="one">tolar sloven</displayName>
 				<displayName count="other">tolari sloveni</displayName>
 			</currency>
 			<currency type="SKK">
 				<displayName>coroană slovacă</displayName>
 				<displayName count="few">coroane slovace</displayName>
+				<displayName count="one">coroană slovacă</displayName>
 				<displayName count="other">coroane slovace</displayName>
 			</currency>
 			<currency type="SLL">
 				<displayName>leone Sierra Leone</displayName>
 				<displayName count="few">leoni Sierra Leone</displayName>
-				<displayName count="one" draft="contributed">leone Sierra Leone</displayName>
+				<displayName count="one">leone Sierra Leone</displayName>
 				<displayName count="other">lei Sierra Leone</displayName>
 			</currency>
 			<currency type="SOS">
 				<displayName>șiling somalez</displayName>
 				<displayName count="few">șilingi somalezi</displayName>
-				<displayName count="one" draft="contributed">șiling somalez</displayName>
+				<displayName count="one">șiling somalez</displayName>
 				<displayName count="other">șilingi somalezi</displayName>
 			</currency>
 			<currency type="SRD">
 				<displayName>dolar Surinam</displayName>
 				<displayName count="few">dolari Surinam</displayName>
-				<displayName count="one" draft="contributed">dolar Surinam</displayName>
+				<displayName count="one">dolar Surinam</displayName>
 				<displayName count="other">dolari Surinam</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>gulden Surinam</displayName>
 				<displayName count="few">guldeni Surinam</displayName>
+				<displayName count="one">gulden Surinam</displayName>
 				<displayName count="other">guldeni Surinam</displayName>
 			</currency>
 			<currency type="SSP">
-				<displayName draft="provisional">liră sud-sudaneză</displayName>
+				<displayName>liră sud-sudaneză</displayName>
 				<displayName count="few" draft="contributed">lire sud-sudaneze</displayName>
 				<displayName count="one" draft="contributed">liră sud-sudaneză</displayName>
 				<displayName count="other" draft="contributed">lire sud-sudaneze</displayName>
@@ -5150,11 +5191,13 @@
 			<currency type="SUR">
 				<displayName>rublă sovietică</displayName>
 				<displayName count="few">ruble sovietice</displayName>
+				<displayName count="one">rublă sovietică</displayName>
 				<displayName count="other">ruble sovietice</displayName>
 			</currency>
 			<currency type="SVC">
 				<displayName>colon El Salvador</displayName>
 				<displayName count="few">coloni El Salvador</displayName>
+				<displayName count="one">colon El Salvador</displayName>
 				<displayName count="other">coloni El Salvador</displayName>
 			</currency>
 			<currency type="SYP">
@@ -5178,6 +5221,7 @@
 			<currency type="TJR">
 				<displayName>rublă Tadjikistan</displayName>
 				<displayName count="few">ruble Tadjikistan</displayName>
+				<displayName count="one">rublă Tadjikistan</displayName>
 				<displayName count="other">ruble Tadjikistan</displayName>
 			</currency>
 			<currency type="TJS">
@@ -5208,14 +5252,16 @@
 				<displayName count="other" draft="contributed">pa’anga tongane</displayName>
 			</currency>
 			<currency type="TRL">
-				<displayName>liră turcească</displayName>
-				<displayName count="other">lire turcești</displayName>
+				<displayName>liră turcească (1922-2005)</displayName>
+				<displayName count="few">liră turcească (1922-2005)</displayName>
+				<displayName count="one">liră turcească (1922-2005)</displayName>
+				<displayName count="other">lire turcești (1922-2005)</displayName>
 			</currency>
 			<currency type="TRY">
-				<displayName>liră turcească nouă</displayName>
-				<displayName count="few" draft="contributed">lire turcești noi</displayName>
-				<displayName count="one" draft="contributed">liră turcească nouă</displayName>
-				<displayName count="other">lire turcești noi</displayName>
+				<displayName>liră turcească</displayName>
+				<displayName count="few">lire turcești</displayName>
+				<displayName count="one">liră turcească</displayName>
+				<displayName count="other">lire turcești</displayName>
 				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
@@ -5245,11 +5291,13 @@
 			<currency type="UAK">
 				<displayName>carboavă ucraineană</displayName>
 				<displayName count="few">carboave ucrainiene</displayName>
+				<displayName count="one">carboavă ucraineană</displayName>
 				<displayName count="other">carboave ucrainiene</displayName>
 			</currency>
 			<currency type="UGS">
 				<displayName>șiling ugandez (1966–1987)</displayName>
 				<displayName count="few">șilingi ugandezi (1966–1987)</displayName>
+				<displayName count="one">șiling ugandez (1966–1987)</displayName>
 				<displayName count="other">șilingi ugandezi (1966–1987)</displayName>
 			</currency>
 			<currency type="UGX">
@@ -5268,16 +5316,19 @@
 			<currency type="USN">
 				<displayName>dolar american (ziua următoare)</displayName>
 				<displayName count="few">dolari americani (ziua următoare)</displayName>
+				<displayName count="one">dolar american (ziua următoare)</displayName>
 				<displayName count="other">dolari americani (ziua următoare)</displayName>
 			</currency>
 			<currency type="USS">
 				<displayName>dolar american (aceeași zi)</displayName>
 				<displayName count="few">dolari americani (aceeași zi)</displayName>
+				<displayName count="one">dolar american (aceeași zi)</displayName>
 				<displayName count="other">dolari americani (aceeași zi)</displayName>
 			</currency>
 			<currency type="UYP">
 				<displayName>peso Uruguay (1975–1993)</displayName>
 				<displayName count="few">pesos Uruguay (1975–1993)</displayName>
+				<displayName count="one">peso Uruguay (1975–1993)</displayName>
 				<displayName count="other">pesos Uruguay (1975–1993)</displayName>
 			</currency>
 			<currency type="UYU">
@@ -5293,15 +5344,16 @@
 				<displayName count="other" draft="contributed">sum Uzbekistan</displayName>
 			</currency>
 			<currency type="VEB">
-				<displayName>bolivar Venezuela</displayName>
-				<displayName count="few">bolivari Venezuela</displayName>
-				<displayName count="other">bolivari Venezuela</displayName>
+				<displayName>bolivar Venezuela (1871-2008)</displayName>
+				<displayName count="few">bolivari Venezuela (1871-2008)</displayName>
+				<displayName count="one">bolivar Venezuela (1871-2008)</displayName>
+				<displayName count="other">bolivari Venezuela (1871-2008)</displayName>
 			</currency>
 			<currency type="VEF">
-				<displayName>bolívar fuerte venezuelean</displayName>
-				<displayName count="few" draft="contributed">bolivari venezueleni</displayName>
-				<displayName count="one" draft="contributed">bolivar venezuelean</displayName>
-				<displayName count="other" draft="contributed">bolivari venezueleni</displayName>
+				<displayName>bolívar venezuelean</displayName>
+				<displayName count="few">bolivari venezueleni</displayName>
+				<displayName count="one">bolivar venezuelean</displayName>
+				<displayName count="other">bolivari venezueleni</displayName>
 				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
@@ -5361,6 +5413,7 @@
 			<currency type="XFO">
 				<displayName>franc francez de aur</displayName>
 				<displayName count="few">franci francezi de aur</displayName>
+				<displayName count="one">franc francez de aur</displayName>
 				<displayName count="other">franci francezi de aur</displayName>
 			</currency>
 			<currency type="XFU">
@@ -5390,33 +5443,37 @@
 			<currency type="XXX">
 				<displayName>monedă necunoscută</displayName>
 				<displayName count="few">monede necunoscute sau nevalide</displayName>
-				<displayName count="one" draft="contributed">monedă necunoscută sau nevalidă</displayName>
+				<displayName count="one">monedă necunoscută sau nevalidă</displayName>
 				<displayName count="other">monede necunoscute sau nevalide</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>dinar Yemen</displayName>
 				<displayName count="few">dinari Yemen</displayName>
+				<displayName count="one">dinar Yemen</displayName>
 				<displayName count="other">dinari Yemen</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>riyal Yemen</displayName>
 				<displayName count="few">riyali Yemen</displayName>
-				<displayName count="one" draft="contributed">riyal Yemen</displayName>
+				<displayName count="one">riyal Yemen</displayName>
 				<displayName count="other">riyali Yemen</displayName>
 			</currency>
 			<currency type="YUD">
 				<displayName>dinar iugoslav greu</displayName>
 				<displayName count="few">dinari iugoslavi grei</displayName>
+				<displayName count="one">dinar iugoslav greu</displayName>
 				<displayName count="other">dinari iugoslavi grei</displayName>
 			</currency>
 			<currency type="YUM">
 				<displayName>dinar iugoslav nou</displayName>
 				<displayName count="few">dinari iugoslavi noi</displayName>
+				<displayName count="one">dinar iugoslav nou</displayName>
 				<displayName count="other">dinari iugoslavi noi</displayName>
 			</currency>
 			<currency type="YUN">
 				<displayName>dinar iugoslav convertibil</displayName>
 				<displayName count="few">dinari iugoslavi convertibili</displayName>
+				<displayName count="one">dinar iugoslav convertibil</displayName>
 				<displayName count="other">dinari iugoslavi convertibili</displayName>
 			</currency>
 			<currency type="ZAL">
@@ -5437,15 +5494,20 @@
 			<currency type="ZRN">
 				<displayName>zair nou</displayName>
 				<displayName count="few">zairi noi</displayName>
+				<displayName count="one">zair nou</displayName>
 				<displayName count="other">zairi noi</displayName>
 			</currency>
 			<currency type="ZWD">
-				<displayName>dolar Zimbabwe</displayName>
-				<displayName count="few">dolari Zimbabwe</displayName>
-				<displayName count="other">dolari Zimbabwe</displayName>
+				<displayName>dolar Zimbabwe (1980-2008)</displayName>
+				<displayName count="few">dolari Zimbabwe (1980-2008)</displayName>
+				<displayName count="one">dolar Zimbabwe (1980-2008)</displayName>
+				<displayName count="other">dolari Zimbabwe (1980-2008)</displayName>
 			</currency>
 			<currency type="ZWL">
 				<displayName>dolar Zimbabwe (2009)</displayName>
+			</currency>
+			<currency type="ZWR">
+				<displayName>dolar Zimbabwe (2008)</displayName>
 			</currency>
 		</currencies>
 	</numbers>

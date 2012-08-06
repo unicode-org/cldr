@@ -2642,7 +2642,12 @@
 					<pattern draft="provisional">¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="few" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="many" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ARS">

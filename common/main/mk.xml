@@ -2924,7 +2924,7 @@
 					<pattern type="10000000" count="other">00 милиони</pattern>
 					<pattern type="100000000" count="one">000 милиони</pattern>
 					<pattern type="100000000" count="other">000 милиони</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">0.0 милијарди</pattern>
+					<pattern type="1000000000" count="one">0.0 милијарди</pattern>
 					<pattern type="1000000000" count="other">0.0 милијарди</pattern>
 					<pattern type="10000000000" count="one">00 милијарди</pattern>
 					<pattern type="10000000000" count="other">00 милијарди</pattern>
@@ -3093,12 +3093,6 @@
 			</currency>
 			<currency type="BND">
 				<displayName>Брунејски долар</displayName>
-			</currency>
-			<currency type="BOB">
-				<displayName>BOB</displayName>
-				<displayName count="one">BOB</displayName>
-				<displayName count="other">BOB</displayName>
-				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Бразилски реал</displayName>
@@ -3376,6 +3370,7 @@
 			<currency type="LRD">
 				<displayName>Либериски долар</displayName>
 				<displayName count="one">Либериски долар</displayName>
+				<displayName count="other">Либериски долари</displayName>
 				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
@@ -3552,13 +3547,15 @@
 				<displayName>Катарски риал</displayName>
 			</currency>
 			<currency type="ROL">
-				<displayName>Романска леа</displayName>
-				<displayName count="other">Романски леи</displayName>
+				<displayName>Романска леи (1952-2006)</displayName>
+				<displayName count="one">Романска леи (1952-2006)</displayName>
+				<displayName count="other">Романска леи (1952-2006)</displayName>
+				<symbol>ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Романска леи</displayName>
-				<displayName count="one">РОН</displayName>
-				<displayName count="other">РОН</displayName>
+				<displayName count="one">Романска леи</displayName>
+				<displayName count="other">Романска леи</displayName>
 				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
@@ -3582,6 +3579,7 @@
 			</currency>
 			<currency type="SCR">
 				<displayName>Сејшелска рупија</displayName>
+				<displayName count="one">Сејшелска рупија</displayName>
 				<displayName count="other">Сејшелски рупии</displayName>
 				<symbol>SCR</symbol>
 			</currency>
@@ -3621,6 +3619,7 @@
 			</currency>
 			<currency type="SOS">
 				<displayName>Сомалијски шилинг</displayName>
+				<displayName count="one">Сомалијски шилинзи</displayName>
 				<displayName count="other">Сомалијски шилинзи</displayName>
 				<symbol>SOS</symbol>
 			</currency>
@@ -3699,12 +3698,6 @@
 				<displayName count="one">Турска лира</displayName>
 				<displayName count="other">Турски лири</displayName>
 				<symbol>TRY</symbol>
-			</currency>
-			<currency type="TTD">
-				<displayName>TTD</displayName>
-				<displayName count="one">TTD</displayName>
-				<displayName count="other">TTD</displayName>
-				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Тајвански нов долар</displayName>

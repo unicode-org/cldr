@@ -2207,6 +2207,7 @@
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">Мухаррам</month>
 							<month type="2" draft="contributed">Сафар</month>
+							<month type="3" draft="contributed">Раби-уль-авваль</month>
 							<month type="4" draft="contributed">Раби-уль-ахир</month>
 							<month type="5" draft="contributed">Джумад-уль-авваль</month>
 							<month type="6" draft="contributed">Джумад-уль-ахир</month>
@@ -4230,9 +4231,9 @@
 			</metazone>
 			<metazone type="China">
 				<long>
-					<generic draft="provisional">Время Китая</generic>
-					<standard draft="contributed">Китайское стандартное время</standard>
-					<daylight draft="provisional">Китай, летнее время</daylight>
+					<generic>Китая Время</generic>
+					<standard>Китайское стандартное время</standard>
+					<daylight>Китай, летнее время</daylight>
 				</long>
 			</metazone>
 			<metazone type="Choibalsan">
@@ -4268,7 +4269,7 @@
 			</metazone>
 			<metazone type="Cuba">
 				<long>
-					<generic draft="provisional">Время Кубы</generic>
+					<generic>Кубы Время</generic>
 					<standard>Куба, стандартное время</standard>
 					<daylight>Куба, летнее время</daylight>
 				</long>
@@ -4400,7 +4401,7 @@
 			</metazone>
 			<metazone type="Greenland_Western">
 				<long>
-					<generic draft="provisional">Время Западной Гренландии</generic>
+					<generic>Время Западной Гренландии</generic>
 					<standard>Западная Гренландия, стандартное время</standard>
 					<daylight>Западная Гренландия, летнее время</daylight>
 				</long>
@@ -4769,7 +4770,7 @@
 			<metazone type="Pierre_Miquelon">
 				<long>
 					<generic>Сен-Пьер и Микелон</generic>
-					<standard draft="provisional">Сен-Пьер и Микелон, стандартное время</standard>
+					<standard>Сен-Пьер и Микелон, стандартное время</standard>
 					<daylight>Сен-Пьер и Микелон, летнее время</daylight>
 				</long>
 			</metazone>
@@ -5189,6 +5190,8 @@
 			<currency type="ADP">
 				<displayName>Андоррская песета</displayName>
 				<displayName count="few">андоррские песеты</displayName>
+				<displayName count="many">андоррская песета</displayName>
+				<displayName count="one">андоррская песета</displayName>
 				<displayName count="other">андоррских песет</displayName>
 			</currency>
 			<currency type="AED">
@@ -5239,6 +5242,7 @@
 			<currency type="AOK">
 				<displayName>Ангольская кванза (1977-1990)</displayName>
 				<displayName count="few">ангольские кванзы (1977-1991)</displayName>
+				<displayName count="many">ангольских кванз (1977-1991)</displayName>
 				<displayName count="one">ангольских кванз (1977-1991)</displayName>
 				<displayName count="other">ангольских кванз (1977-1991)</displayName>
 			</currency>
@@ -5248,6 +5252,7 @@
 			<currency type="AOR">
 				<displayName>Ангольская кванза реюстадо (1995-1999)</displayName>
 				<displayName count="few">ангольские кванзы реюстадо (1995-1999)</displayName>
+				<displayName count="many">ангольских кванз реюстадо (1995-1999)</displayName>
 				<displayName count="one">ангольских кванз реюстадо (1995-1999)</displayName>
 				<displayName count="other">ангольских кванз реюстадо (1995-1999)</displayName>
 			</currency>

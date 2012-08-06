@@ -2122,10 +2122,15 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">Muh.</month>
+							<month type="2" draft="contributed">Saf.</month>
+							<month type="3" draft="contributed">Rab. I</month>
+							<month type="4" draft="contributed">Rab. II</month>
 							<month type="5" draft="contributed">Dżu. I</month>
 							<month type="6" draft="contributed">Dżu. II</month>
 							<month type="7" draft="contributed">Ra.</month>
 							<month type="8" draft="contributed">Sza.</month>
+							<month type="9" draft="contributed">Ram.</month>
 							<month type="10" draft="contributed">Szaw.</month>
 							<month type="11" draft="contributed">Zu al-k.</month>
 							<month type="12" draft="contributed">Zu al-h.</month>
@@ -2145,12 +2150,15 @@
 							<month type="12" draft="contributed">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
+							<month type="1" draft="contributed">Muharram</month>
+							<month type="2" draft="contributed">Safar</month>
 							<month type="3" draft="contributed">Rabi I</month>
 							<month type="4" draft="contributed">Rabi II</month>
 							<month type="5" draft="contributed">Dżumada I</month>
 							<month type="6" draft="contributed">Dżumada II</month>
 							<month type="7" draft="contributed">Radżab</month>
 							<month type="8" draft="contributed">Szaban</month>
+							<month type="9" draft="contributed">Ramadan</month>
 							<month type="10" draft="contributed">Szawwal</month>
 							<month type="11" draft="contributed">Zu al-kada</month>
 							<month type="12" draft="contributed">Zu al-hidżdża</month>
@@ -2347,11 +2355,15 @@
 							<month type="1" draft="contributed">Farwardin</month>
 							<month type="2" draft="contributed">Ordibeheszt</month>
 							<month type="3" draft="contributed">Chordād</month>
+							<month type="4" draft="contributed">Tir</month>
 							<month type="5" draft="contributed">Mordād</month>
 							<month type="6" draft="contributed">Szahriwar</month>
+							<month type="7" draft="contributed">Mehr</month>
 							<month type="8" draft="contributed">Ābān</month>
 							<month type="9" draft="contributed">Āsar</month>
 							<month type="10" draft="contributed">Déi</month>
+							<month type="11" draft="contributed">Bahman</month>
+							<month type="12" draft="contributed">Esfand</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -4714,18 +4726,22 @@
 				<displayName>peseta andorska</displayName>
 				<displayName count="few">pesety andorskie</displayName>
 				<displayName count="many">peset andorskich</displayName>
+				<displayName count="one">peseta andorska</displayName>
+				<displayName count="other">peseta andorska</displayName>
 			</currency>
 			<currency type="AED">
 				<displayName>dirham arabski</displayName>
 				<displayName count="few">dirhamy arabskie</displayName>
 				<displayName count="many">dirhamów arabskich</displayName>
-				<displayName count="one" draft="contributed">dirham arabski</displayName>
-				<displayName count="other" draft="contributed">dirhama arabskiego</displayName>
+				<displayName count="one">dirham arabski</displayName>
+				<displayName count="other">dirhama arabskiego</displayName>
 			</currency>
 			<currency type="AFA">
 				<displayName>afgani (1927-2002)</displayName>
 				<displayName count="few">afgani (1927-2002)</displayName>
 				<displayName count="many">afgani (1927-2002)</displayName>
+				<displayName count="one">afgani (1927-2002)</displayName>
+				<displayName count="other">afgani (1927-2002)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>afgani</displayName>
@@ -4766,16 +4782,22 @@
 				<displayName>kwanza angolańska (1977-1990)</displayName>
 				<displayName count="few">kwanzy angolańskie (1977-1990)</displayName>
 				<displayName count="many">kwanz angolańskich (1977-1990)</displayName>
+				<displayName count="one">kwanza angolańska (1977-1990)</displayName>
+				<displayName count="other">kwanza angolańska (1977-1990)</displayName>
 			</currency>
 			<currency type="AON">
 				<displayName>nowa kwanza angolańska (1990-2000)</displayName>
 				<displayName count="few">nowe kwanzy angolańskie (1990-2000)</displayName>
 				<displayName count="many">nowych kwanz angolańskich (1990-2000)</displayName>
+				<displayName count="one">nowa kwanza angolańska (1990-2000)</displayName>
+				<displayName count="other">nowa kwanza angolańska (1990-2000)</displayName>
 			</currency>
 			<currency type="AOR">
 				<displayName>kwanza angolańska Reajustado (1995-1999)</displayName>
 				<displayName count="few">kwanzy angolańskie Reajustado (1995-1999)</displayName>
 				<displayName count="many">kwanz angolańskich Reajustado (1995-1999)</displayName>
+				<displayName count="one">kwanza angolańska Reajustado (1995-1999)</displayName>
+				<displayName count="other">kwanza angolańska Reajustado (1995-1999)</displayName>
 			</currency>
 			<currency type="ARA">
 				<displayName>austral argentyński</displayName>
@@ -4848,9 +4870,10 @@
 			</currency>
 			<currency type="BEC">
 				<displayName>frank belgijski (zamienny)</displayName>
-				<displayName count="few" draft="provisional">franki belgijskie (wymienialne)</displayName>
-				<displayName count="many" draft="provisional">franków belgijskich (wymienialnych)</displayName>
-				<displayName count="one" draft="provisional">frank belgijski (wymienialny)</displayName>
+				<displayName count="few">franki belgijskie (wymienialne)</displayName>
+				<displayName count="many">franków belgijskich (wymienialnych)</displayName>
+				<displayName count="one">frank belgijski (wymienialny)</displayName>
+				<displayName count="other">frank belgijski (zamienny)</displayName>
 			</currency>
 			<currency type="BEF">
 				<displayName>frank belgijski</displayName>
@@ -5039,6 +5062,7 @@
 				<displayName count="few">korony czechosłowackie</displayName>
 				<displayName count="many">koron czechosłowackich</displayName>
 				<displayName count="one">korona czechosłowacka</displayName>
+				<displayName count="other">korona czechosłowacka</displayName>
 			</currency>
 			<currency type="CUC">
 				<displayName>peso kubańskie wymienialne</displayName>
@@ -5079,6 +5103,7 @@
 				<displayName count="few">marki niemieckie</displayName>
 				<displayName count="many">marek niemieckich</displayName>
 				<displayName count="one">marka niemiecka</displayName>
+				<displayName count="other">marka niemiecka</displayName>
 			</currency>
 			<currency type="DJF">
 				<displayName>frank Dżibuti</displayName>
@@ -5116,6 +5141,7 @@
 				<displayName count="few">korony estońskie</displayName>
 				<displayName count="many">koron estońskich</displayName>
 				<displayName count="one">korona estońska</displayName>
+				<displayName count="other">korona estońska</displayName>
 			</currency>
 			<currency type="EGP">
 				<displayName>funt egipski</displayName>
@@ -5136,9 +5162,10 @@
 			</currency>
 			<currency type="ESB">
 				<displayName>peseta hiszpańska (konto wymienne)</displayName>
-				<displayName count="few" draft="provisional">pesety hiszpańskie (konto wymienialne)</displayName>
-				<displayName count="many" draft="provisional">peset hiszpańskich (konto wymienialne)</displayName>
-				<displayName count="one" draft="provisional">peseta hiszpańska (konto wymienialne)</displayName>
+				<displayName count="few">pesety hiszpańskie (konto wymienialne)</displayName>
+				<displayName count="many">peset hiszpańskich (konto wymienialne)</displayName>
+				<displayName count="one">peseta hiszpańska (konto wymienialne)</displayName>
+				<displayName count="other">peseta hiszpańska (konto wymienne)</displayName>
 			</currency>
 			<currency type="ESP">
 				<displayName>peseta hiszpańska</displayName>
@@ -5179,6 +5206,7 @@
 				<displayName count="few">franki francuskie</displayName>
 				<displayName count="many">franków francuskich</displayName>
 				<displayName count="one">frank francuski</displayName>
+				<displayName count="other">frank francuski </displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>funt szterling</displayName>
@@ -5503,6 +5531,7 @@
 				<displayName count="few">franki marokańskie</displayName>
 				<displayName count="many">franków marokańskich</displayName>
 				<displayName count="one">frank marokański</displayName>
+				<displayName count="other">frank marokański</displayName>
 			</currency>
 			<currency type="MDL">
 				<displayName>lej mołdawski</displayName>
@@ -5841,12 +5870,14 @@
 				<displayName count="few">tolary słoweńskie</displayName>
 				<displayName count="many">tolarów słoweńskich</displayName>
 				<displayName count="one">tolar słoweński</displayName>
+				<displayName count="other">tolar słoweński</displayName>
 			</currency>
 			<currency type="SKK">
 				<displayName>korona słowacka</displayName>
 				<displayName count="few">korony słowackie</displayName>
 				<displayName count="many">koron słowackich</displayName>
 				<displayName count="one">korona słowacka</displayName>
+				<displayName count="other">korona słowacka</displayName>
 			</currency>
 			<currency type="SLL">
 				<displayName>leone Sierra Leone</displayName>
@@ -5891,6 +5922,7 @@
 				<displayName count="few">ruble radzieckie</displayName>
 				<displayName count="many">rubli radzieckich</displayName>
 				<displayName count="one">rubel radziecki</displayName>
+				<displayName count="other">rubel radziecki</displayName>
 			</currency>
 			<currency type="SVC">
 				<displayName>colon salwadorski</displayName>
@@ -6004,6 +6036,7 @@
 				<displayName count="few">karbowańce ukraińskie</displayName>
 				<displayName count="many">karbowańców ukraińskich</displayName>
 				<displayName count="one">karbowaniec ukraiński</displayName>
+				<displayName count="other">karbowaniec ukraiński</displayName>
 			</currency>
 			<currency type="UGS">
 				<displayName>szyling ugandyjski (1966-1987)</displayName>
@@ -6184,10 +6217,13 @@
 				<displayName>zair zairski</displayName>
 			</currency>
 			<currency type="ZWD">
-				<displayName>dolar Zimbabwe</displayName>
+				<displayName>dolar Zimbabwe (1980-2008)</displayName>
 			</currency>
 			<currency type="ZWL">
 				<displayName>dolar Zimbabwe (2009)</displayName>
+			</currency>
+			<currency type="ZWR">
+				<displayName>dolar Zimbabwe (2008)</displayName>
 			</currency>
 		</currencies>
 	</numbers>

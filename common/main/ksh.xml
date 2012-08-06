@@ -704,6 +704,7 @@
 							<month type="2" draft="unconfirmed">Fäb.</month>
 							<month type="3" draft="unconfirmed">Mäz.</month>
 							<month type="4" draft="unconfirmed">Apr.</month>
+							<month type="5" draft="unconfirmed">Mäi</month>
 							<month type="6" draft="unconfirmed">Jun.</month>
 							<month type="7" draft="unconfirmed">Jul.</month>
 							<month type="8" draft="unconfirmed">Ouj.</month>
@@ -1401,56 +1402,80 @@
 				<decimalFormat>
 					<pattern type="1000" count="one" draft="unconfirmed">0.0 tausend</pattern>
 					<pattern type="1000" count="other" draft="unconfirmed">0.0 tausend</pattern>
+					<pattern type="1000" count="zero" draft="unconfirmed">0.0 tausend</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 tausend</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 tausend</pattern>
+					<pattern type="10000" count="zero" draft="unconfirmed">00 tausend</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 tausend</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 tausend</pattern>
+					<pattern type="100000" count="zero" draft="unconfirmed">000 tausend</pattern>
 					<pattern type="1000000" count="one" draft="unconfirmed">0.0 Million</pattern>
 					<pattern type="1000000" count="other" draft="unconfirmed">0.0 Millionen</pattern>
+					<pattern type="1000000" count="zero" draft="unconfirmed">0.0 Millionen</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 Million</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 Millionen</pattern>
+					<pattern type="10000000" count="zero" draft="unconfirmed">00 Millionen</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 Million</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 Millionen</pattern>
+					<pattern type="100000000" count="zero" draft="unconfirmed">000 Millionen</pattern>
 					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Milliarde</pattern>
 					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Milliarden</pattern>
+					<pattern type="1000000000" count="zero" draft="unconfirmed">0.0 Milliarden</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Milliarde</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Milliarden</pattern>
+					<pattern type="10000000000" count="zero" draft="unconfirmed">00 Milliarden</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Milliarde</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Milliarden</pattern>
+					<pattern type="100000000000" count="zero" draft="unconfirmed">000 Milliarden</pattern>
 					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Billion</pattern>
 					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Billionen</pattern>
+					<pattern type="1000000000000" count="zero" draft="unconfirmed">0.0 Billionen</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Billion</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Billionen</pattern>
+					<pattern type="10000000000000" count="zero" draft="unconfirmed">00 Billionen</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Billion</pattern>
 					<pattern type="100000000000000" count="other" draft="unconfirmed">000 Billionen</pattern>
+					<pattern type="100000000000000" count="zero" draft="unconfirmed">000 Billionen</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
 					<pattern type="1000" count="one" draft="unconfirmed">0.0 tsd</pattern>
 					<pattern type="1000" count="other" draft="unconfirmed">0.0 tsd</pattern>
+					<pattern type="1000" count="zero" draft="unconfirmed">0.0 tsd</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 tsd</pattern>
 					<pattern type="10000" count="other" draft="unconfirmed">00 tsd</pattern>
+					<pattern type="10000" count="zero" draft="unconfirmed">00 tsd</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 tsd</pattern>
 					<pattern type="100000" count="other" draft="unconfirmed">000 tsd</pattern>
+					<pattern type="100000" count="zero" draft="unconfirmed">000 tsd</pattern>
 					<pattern type="1000000" count="one" draft="unconfirmed">0.0 Mio</pattern>
 					<pattern type="1000000" count="other" draft="unconfirmed">0.0 Mio</pattern>
+					<pattern type="1000000" count="zero" draft="unconfirmed">0.0 Mio</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 Mio</pattern>
 					<pattern type="10000000" count="other" draft="unconfirmed">00 Mio</pattern>
+					<pattern type="10000000" count="zero" draft="unconfirmed">00 Mio</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 Mio</pattern>
 					<pattern type="100000000" count="other" draft="unconfirmed">000 Mio</pattern>
+					<pattern type="100000000" count="zero" draft="unconfirmed">000 Mio</pattern>
 					<pattern type="1000000000" count="one" draft="unconfirmed">0.0 Mrd</pattern>
 					<pattern type="1000000000" count="other" draft="unconfirmed">0.0 Mrd</pattern>
+					<pattern type="1000000000" count="zero" draft="unconfirmed">0.0 Mrd</pattern>
 					<pattern type="10000000000" count="one" draft="unconfirmed">00 Mrd</pattern>
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 Mrd</pattern>
+					<pattern type="10000000000" count="zero" draft="unconfirmed">00 Mrd</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 Mrd</pattern>
 					<pattern type="100000000000" count="other" draft="unconfirmed">000 Mrd</pattern>
+					<pattern type="100000000000" count="zero" draft="unconfirmed">000 Mrd</pattern>
 					<pattern type="1000000000000" count="one" draft="unconfirmed">0.0 Bio</pattern>
 					<pattern type="1000000000000" count="other" draft="unconfirmed">0.0 Bio</pattern>
+					<pattern type="1000000000000" count="zero" draft="unconfirmed">0.0 Bio</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 Bio</pattern>
 					<pattern type="10000000000000" count="other" draft="unconfirmed">00 Bio</pattern>
+					<pattern type="10000000000000" count="zero" draft="unconfirmed">00 Bio</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 Bio</pattern>
 					<pattern type="100000000000000" count="other" draft="unconfirmed">000 Bio</pattern>
+					<pattern type="100000000000000" count="zero" draft="unconfirmed">000 Bio</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -1474,7 +1499,9 @@
 					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -1496,8 +1523,10 @@
 				<displayName draft="unconfirmed">angjolaanesche Kwansa</displayName>
 			</currency>
 			<currency type="ARS">
-				<displayName draft="unconfirmed">ajentiinesche Peeso</displayName>
+				<displayName>ajentiinesche Peeso</displayName>
 				<displayName count="one">ajentiinesche Peesos</displayName>
+				<displayName count="other">ajentiinesche Peesos</displayName>
+				<displayName count="zero">ajentiinesche Peesos</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName draft="unconfirmed">austraalesche Dollaa</displayName>
@@ -1542,7 +1571,8 @@
 				<displayName count="zero">Brunei-Dollaaa</displayName>
 			</currency>
 			<currency type="BOB">
-				<displayName draft="unconfirmed">Bollivijano</displayName>
+				<displayName>Bollivijano</displayName>
+				<displayName count="one">Bollivijano</displayName>
 				<displayName count="other">Bollivijano</displayName>
 				<displayName count="zero">Bollivijano</displayName>
 			</currency>
@@ -1580,16 +1610,19 @@
 				<displayName draft="unconfirmed">schweijzer Fränkli</displayName>
 			</currency>
 			<currency type="CLP">
-				<displayName draft="unconfirmed">schileenesche Peeso</displayName>
+				<displayName>schileenesche Peeso</displayName>
 				<displayName count="one">schileenesche Peesos</displayName>
 				<displayName count="other">schileenesche Peesos</displayName>
+				<displayName count="zero">schileenesche Peesos</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName draft="unconfirmed">schineesesche Yuan Renminbi</displayName>
 			</currency>
 			<currency type="COP">
-				<displayName draft="unconfirmed">kolumbesche Peso</displayName>
+				<displayName>kolumbesche Peso</displayName>
 				<displayName count="one">kolumbesche Pesos</displayName>
+				<displayName count="other">kolumbesche Pesos</displayName>
+				<displayName count="zero">kolumbesche Pesos</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName draft="unconfirmed">koßtarikaanesche Colón</displayName>
@@ -1598,27 +1631,37 @@
 				<displayName count="zero">Kaßtarikaanesche Colón</displayName>
 			</currency>
 			<currency type="CUC">
-				<displayName draft="unconfirmed">ömtuuschbaa kubaanesche Pesos</displayName>
+				<displayName>ömtuuschbaa kubaanesche Pesos</displayName>
 				<displayName count="one">ömtuuschbaa kubaanesche Pesos</displayName>
+				<displayName count="other">ömtuuschbaa kubaanesche Pesos</displayName>
+				<displayName count="zero">ömtuuschbaa kubaanesche Pesos</displayName>
 			</currency>
 			<currency type="CUP">
-				<displayName draft="unconfirmed">kubaanesche Peesos</displayName>
+				<displayName>kubaanesche Peesos</displayName>
 				<displayName count="one">kubaanesche Peesos</displayName>
+				<displayName count="other">kubaanesche Peesos</displayName>
+				<displayName count="zero">kubaanesche Peesos</displayName>
 			</currency>
 			<currency type="CVE">
-				<displayName draft="unconfirmed">kapverdesche Eskuudos</displayName>
+				<displayName>kapverdesche Eskuudos</displayName>
 				<displayName count="one">kapverdesche Eskuudos</displayName>
+				<displayName count="other">kapverdesche Eskuudos</displayName>
+				<displayName count="zero">kapverdesche Eskuudos</displayName>
 			</currency>
 			<currency type="CZK">
-				<displayName draft="unconfirmed">tschäschesche Kruhne</displayName>
+				<displayName>tschäschesche Kruhne</displayName>
 				<displayName count="one">tschäschesche Kruhne</displayName>
+				<displayName count="other">tschäschesche Kruhne</displayName>
+				<displayName count="zero">tschäschesche Kruhne</displayName>
 			</currency>
 			<currency type="DJF">
 				<displayName draft="unconfirmed">Frang uß Dschibuti</displayName>
 			</currency>
 			<currency type="DKK">
-				<displayName draft="unconfirmed">dänesche Kruhne</displayName>
+				<displayName>dänesche Kruhne</displayName>
 				<displayName count="one">dänesche Kruhne</displayName>
+				<displayName count="other">dänesche Kruhne</displayName>
+				<displayName count="zero">dänesche Kruhne</displayName>
 			</currency>
 			<currency type="DOP">
 				<displayName draft="unconfirmed">dommenikaanesche Peesos</displayName>
@@ -1712,8 +1755,10 @@
 				<displayName draft="unconfirmed">persesche Rial</displayName>
 			</currency>
 			<currency type="ISK">
-				<displayName draft="unconfirmed">ißländesche Kruhne</displayName>
+				<displayName>ißländesche Kruhne</displayName>
 				<displayName count="one">ißländesche Kruhne</displayName>
+				<displayName count="other">ißländesche Kruhne</displayName>
+				<displayName count="zero">ißländesche Kruhne</displayName>
 			</currency>
 			<currency type="JMD">
 				<displayName draft="unconfirmed">jamaikaanesche Dollaa</displayName>
@@ -1725,8 +1770,10 @@
 				<displayName draft="unconfirmed">japaanesche Jen</displayName>
 			</currency>
 			<currency type="KES">
-				<displayName draft="unconfirmed">Kenjaanesche Schillinge</displayName>
+				<displayName>Kenjaanesche Schillinge</displayName>
 				<displayName count="one">Kenjaanesche Schillinge</displayName>
+				<displayName count="other">Kenjaanesche Schillinge</displayName>
+				<displayName count="zero">Kenjaanesche Schillinge</displayName>
 			</currency>
 			<currency type="KGS">
 				<displayName draft="unconfirmed">kirjiisesche Som</displayName>
@@ -1816,8 +1863,10 @@
 				<displayName draft="unconfirmed">malaawesche Kwache</displayName>
 			</currency>
 			<currency type="MXN">
-				<displayName draft="unconfirmed">mexekaanesche Peeso</displayName>
+				<displayName>mexekaanesche Peeso</displayName>
+				<displayName count="one">mexekaanesche Peeso</displayName>
 				<displayName count="other">mexekaanesche Peeso</displayName>
+				<displayName count="zero">mexekaanesche Peeso</displayName>
 			</currency>
 			<currency type="MYR">
 				<displayName draft="unconfirmed">malaisesche Ringgit</displayName>
@@ -1835,14 +1884,16 @@
 				<displayName draft="unconfirmed">nijerijaanesche Naira</displayName>
 			</currency>
 			<currency type="NIO">
-				<displayName draft="unconfirmed">nikarajowaanesche Córdoba</displayName>
+				<displayName>nikarajaanesche Córdoba</displayName>
 				<displayName count="one">nikarajaanesche Córdoba</displayName>
 				<displayName count="other">nikarajaanesche Córdoba</displayName>
 				<displayName count="zero">nikarajaanesche Córdoba</displayName>
 			</currency>
 			<currency type="NOK">
-				<displayName draft="unconfirmed">norrweejesche Kruhne</displayName>
+				<displayName>norrweejesche Kruhne</displayName>
 				<displayName count="one">norrweejesche Kruhne</displayName>
+				<displayName count="other">norrweejesche Kruhne</displayName>
+				<displayName count="zero">norrweejesche Kruhne</displayName>
 			</currency>
 			<currency type="NPR">
 				<displayName draft="unconfirmed">nepaleesesche Ruupije</displayName>
@@ -1854,8 +1905,10 @@
 				<displayName draft="unconfirmed">ommaanesche Rijal</displayName>
 			</currency>
 			<currency type="PAB">
-				<displayName draft="unconfirmed">pannameesesche Balboa</displayName>
+				<displayName>pannameesesche Balboa</displayName>
+				<displayName count="one">pannameesesche Balboa</displayName>
 				<displayName count="other">pannameesesche Balboa</displayName>
+				<displayName count="zero">pannameesesche Balboa</displayName>
 			</currency>
 			<currency type="PEN">
 				<displayName draft="unconfirmed">perruaanesche Nuevo Sol</displayName>
@@ -1864,15 +1917,19 @@
 				<displayName draft="unconfirmed">papua neujinejaanesche Kina</displayName>
 			</currency>
 			<currency type="PHP">
-				<displayName draft="unconfirmed">fillipiinesche Pesos</displayName>
+				<displayName>fillipiinesche Pesos</displayName>
 				<displayName count="one">fillipiinesche Pesos</displayName>
+				<displayName count="other">fillipiinesche Pesos</displayName>
+				<displayName count="zero">fillipiinesche Pesos</displayName>
 			</currency>
 			<currency type="PKR">
 				<displayName draft="unconfirmed">pakestaanesche Ruupije</displayName>
 			</currency>
 			<currency type="PLN">
-				<displayName draft="unconfirmed">polnesche Złoty</displayName>
+				<displayName>polnesche Złoty</displayName>
+				<displayName count="one">polnesche Złoty</displayName>
 				<displayName count="other">polnesche Złoty</displayName>
+				<displayName count="zero">polnesche Złoty</displayName>
 			</currency>
 			<currency type="PYG">
 				<displayName draft="unconfirmed">parajuaanesche Juarani</displayName>
@@ -1908,8 +1965,10 @@
 				<displayName draft="unconfirmed">sudaneesesche Pongk</displayName>
 			</currency>
 			<currency type="SEK">
-				<displayName draft="unconfirmed">schweedesche Kruhne</displayName>
+				<displayName>schweedesche Kruhne</displayName>
 				<displayName count="one">schweedesche Kruhne</displayName>
+				<displayName count="other">schweedesche Kruhne</displayName>
+				<displayName count="zero">schweedesche Kruhne</displayName>
 			</currency>
 			<currency type="SGD">
 				<displayName draft="unconfirmed">singjapurejaanesche Dollaa</displayName>
@@ -1924,8 +1983,10 @@
 				<displayName draft="unconfirmed">ẞjärra-lejoneesesche Leone</displayName>
 			</currency>
 			<currency type="SOS">
-				<displayName draft="unconfirmed">somaalesche Schillenge</displayName>
+				<displayName>somaalesche Schillenge</displayName>
 				<displayName count="one">somaalesche Schillenge</displayName>
+				<displayName count="other">somaalesche Schillenge</displayName>
+				<displayName count="zero">somaalesche Schillenge</displayName>
 			</currency>
 			<currency type="SRD">
 				<displayName draft="unconfirmed">sürinameesesche Dollaa</displayName>
@@ -1937,8 +1998,10 @@
 				<displayName count="zero" draft="unconfirmed">södsudaneesesche Pongk</displayName>
 			</currency>
 			<currency type="STD">
-				<displayName draft="unconfirmed">Dobra vun São Tomé un Príncipe</displayName>
+				<displayName>Dobra vun São Tomé un Príncipe</displayName>
 				<displayName count="one">Dobra vun São Tomé un Príncipe</displayName>
+				<displayName count="other">Dobra vun São Tomé un Príncipe</displayName>
+				<displayName count="zero">Dobra vun São Tomé un Príncipe</displayName>
 			</currency>
 			<currency type="SVC">
 				<displayName draft="unconfirmed">asalvadorejaanesche Cosan</displayName>
@@ -1959,8 +2022,10 @@
 				<displayName draft="unconfirmed">turkmeneßtaanesche Manat (1993-2009)</displayName>
 			</currency>
 			<currency type="TMT">
-				<displayName draft="unconfirmed">turkmeneßtaanesche Manat</displayName>
+				<displayName>turkmeneßtaanesche Manat</displayName>
+				<displayName count="one">turkmeneßtaanesche Manat</displayName>
 				<displayName count="other">turkmeneßtaanesche Manat</displayName>
+				<displayName count="zero">turkmeneßtaanesche Manat</displayName>
 			</currency>
 			<currency type="TND">
 				<displayName draft="unconfirmed">tuneesesche Denaa</displayName>
@@ -1981,21 +2046,26 @@
 				<displayName draft="unconfirmed">neu taiwaneesesche Dollaa</displayName>
 			</currency>
 			<currency type="TZS">
-				<displayName draft="unconfirmed">tansaanesche Schillenge</displayName>
+				<displayName>tansaanesche Schillenge</displayName>
 				<displayName count="one">tansaanesche Schillenge</displayName>
+				<displayName count="other">tansaanesche Schillenge</displayName>
+				<displayName count="zero">tansaanesche Schillenge</displayName>
 			</currency>
 			<currency type="UAH">
 				<displayName draft="unconfirmed">ukraijnesche Hryvnia</displayName>
 			</currency>
 			<currency type="UGX">
-				<displayName draft="unconfirmed">ujandesche Schillenge</displayName>
+				<displayName>ujandesche Schillenge</displayName>
 				<displayName count="one">ujandesche Schillenge</displayName>
+				<displayName count="other">ujandesche Schillenge</displayName>
+				<displayName count="zero">ujandesche Schillenge</displayName>
 			</currency>
 			<currency type="USD">
 				<displayName draft="unconfirmed">ammärrikaanesche Dollaa</displayName>
 			</currency>
 			<currency type="UYU">
-				<displayName draft="unconfirmed">urrujuwaische Peeso</displayName>
+				<displayName>urrujuwaische Peeso</displayName>
+				<displayName count="one">urrujuwaische Peeso</displayName>
 				<displayName count="other">urrujuwaische Peeso</displayName>
 				<displayName count="zero">urrujuwaische Peeso</displayName>
 			</currency>
@@ -2069,25 +2139,39 @@
 	</numbers>
 	<units>
 		<unit type="day">
+			<unitPattern count="one" draft="unconfirmed">{0} Dääsch</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} Dääsch</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} Dääsch</unitPattern>
 		</unit>
 		<unit type="hour">
+			<unitPattern count="one" draft="unconfirmed">{0} Schtunde</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} Schtunde</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} Schtunde</unitPattern>
 		</unit>
 		<unit type="minute">
+			<unitPattern count="one" draft="unconfirmed">{0} Menutte</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} Menutte</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} Menutte</unitPattern>
 		</unit>
 		<unit type="month">
+			<unitPattern count="one" draft="unconfirmed">{0} Mohnde</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} Mohnde</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} Mohnde</unitPattern>
 		</unit>
 		<unit type="second">
+			<unitPattern count="one" draft="unconfirmed">{0} Sekunde</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} Sekunde</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} Sekunde</unitPattern>
 		</unit>
 		<unit type="week">
+			<unitPattern count="one" draft="unconfirmed">{0} Woche</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} Woche</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} Woche</unitPattern>
 		</unit>
 		<unit type="year">
+			<unitPattern count="one" draft="unconfirmed">{0} Johre</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} Johre</unitPattern>
+			<unitPattern count="zero" draft="unconfirmed">{0} Johre</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>

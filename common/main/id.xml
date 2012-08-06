@@ -4685,7 +4685,7 @@
 				<long>
 					<generic>Waktu Kuba</generic>
 					<standard>Waktu Standar Kuba</standard>
-					<daylight draft="provisional">Waktu Musim Panas Kuba</daylight>
+					<daylight>Waktu Musim Panas Kuba</daylight>
 				</long>
 			</metazone>
 			<metazone type="Dacca">
@@ -4717,7 +4717,7 @@
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
-					<standard draft="provisional">Waktu Timor Leste</standard>
+					<standard>Waktu Timor Leste</standard>
 				</long>
 			</metazone>
 			<metazone type="Easter">
@@ -4839,7 +4839,7 @@
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<standard draft="provisional">Waktu Gulf</standard>
+					<standard>Waktu Gulf</standard>
 				</long>
 			</metazone>
 			<metazone type="Guyana">
@@ -4870,7 +4870,7 @@
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard draft="provisional">Waktu India</standard>
+					<standard>Waktu India</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -4911,7 +4911,7 @@
 				<long>
 					<generic>Waktu Iran</generic>
 					<standard>Waktu Standar Iran</standard>
-					<daylight draft="provisional">Waktu Musim Panas Iran</daylight>
+					<daylight>Waktu Musim Panas Iran</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -4925,14 +4925,14 @@
 				<long>
 					<generic>Waktu Israel</generic>
 					<standard>Waktu Standar Israel</standard>
-					<daylight draft="provisional">Waktu Musim Panas Israel</daylight>
+					<daylight>Waktu Musim Panas Israel</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
 					<generic>Waktu Jepang</generic>
 					<standard>Waktu Standar Jepang</standard>
-					<daylight draft="provisional">Waktu Musim Panas Jepang</daylight>
+					<daylight>Waktu Musim Panas Jepang</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kamchatka">
@@ -4973,7 +4973,7 @@
 				<long>
 					<generic>Waktu Korea</generic>
 					<standard>Waktu Standar Korea</standard>
-					<daylight draft="provisional">Waktu Musim Panas Korea</daylight>
+					<daylight>Waktu Musim Panas Korea</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -5002,7 +5002,7 @@
 			</metazone>
 			<metazone type="Kyrgystan">
 				<long>
-					<standard draft="provisional">Waktu Kirghizia</standard>
+					<standard>Waktu Kirghizia</standard>
 				</long>
 			</metazone>
 			<metazone type="Lanka">
@@ -5216,7 +5216,7 @@
 				<long>
 					<generic>Waktu Pierre dan Miquelon</generic>
 					<standard>Waktu Standar Pierre dan Miquelon</standard>
-					<daylight draft="provisional">Waktu Musim Panas Pierre dan Miquelon</daylight>
+					<daylight>Waktu Musim Panas Pierre dan Miquelon</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
@@ -5269,7 +5269,7 @@
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<standard draft="provisional">Waktu Samoa</standard>
+					<standard>Waktu Samoa</standard>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5325,7 +5325,7 @@
 				<long>
 					<generic>Waktu Taipei</generic>
 					<standard>Waktu Standar Taipei</standard>
-					<daylight draft="provisional">Waktu Musim Panas Taipei</daylight>
+					<daylight>Waktu Musim Panas Taipei</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -5442,7 +5442,7 @@
 			</metazone>
 			<metazone type="Wake">
 				<long>
-					<standard draft="provisional">Waktu Kepulauan Wake</standard>
+					<standard>Waktu Kepulauan Wake</standard>
 				</long>
 			</metazone>
 			<metazone type="Wallis">
@@ -6079,16 +6079,16 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="provisional">0.0 ribu</pattern>
+					<pattern type="1000" count="other">0.0 ribu</pattern>
 					<pattern type="10000" count="other">00 ribu</pattern>
 					<pattern type="100000" count="other">000 ribu</pattern>
-					<pattern type="1000000" count="other" draft="provisional">0.0 jt</pattern>
+					<pattern type="1000000" count="other">0.0 juta</pattern>
 					<pattern type="10000000" count="other">00 juta</pattern>
 					<pattern type="100000000" count="other">000 juta</pattern>
-					<pattern type="1000000000" count="other" draft="provisional">0.0 M</pattern>
+					<pattern type="1000000000" count="other">0.0 miliar</pattern>
 					<pattern type="10000000000" count="other">00 miliar</pattern>
 					<pattern type="100000000000" count="other">000 miliar</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0.0 T</pattern>
+					<pattern type="1000000000000" count="other">0.0 triliun</pattern>
 					<pattern type="10000000000000" count="other">00 triliun</pattern>
 					<pattern type="100000000000000" count="other">000 triliun</pattern>
 				</decimalFormat>

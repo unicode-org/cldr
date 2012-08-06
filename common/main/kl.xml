@@ -898,27 +898,31 @@
 					<pattern>¤#,##0.00;¤-#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="unconfirmed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="DKK">
-				<displayName draft="unconfirmed">danmarkimut koruuni</displayName>
-				<displayName count="other">danskinut koruuni</displayName>
+				<displayName draft="unconfirmed">dannskinut koruuni</displayName>
+				<displayName count="one" draft="unconfirmed">danskinut koruuni</displayName>
+				<displayName count="other" draft="unconfirmed">danskinut koruuni</displayName>
 				<symbol>kr</symbol>
 			</currency>
 			<currency type="EUR">
-				<displayName draft="unconfirmed">euro</displayName>
+				<displayName>euro</displayName>
 				<displayName count="one">euro</displayName>
 				<displayName count="other">euro</displayName>
-				<symbol draft="unconfirmed">€</symbol>
+				<symbol>€</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName draft="unconfirmed">norskit koruuni</displayName>
+				<displayName count="one" draft="unconfirmed">norskit koruuni</displayName>
 				<displayName count="other" draft="unconfirmed">norskit koruuni</displayName>
 				<symbol draft="unconfirmed">Nkr</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName draft="unconfirmed">svenskit koruuni</displayName>
+				<displayName count="one" draft="unconfirmed">svenskit koruuni</displayName>
 				<displayName count="other" draft="unconfirmed">svenskit koruuni</displayName>
 				<symbol draft="unconfirmed">Skr</symbol>
 			</currency>
@@ -927,31 +931,31 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} ulloq unnuarlu</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} ulloq unnuarlu</unitPattern>
+			<unitPattern count="other">{0} ulloq unnuarlu</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} nalunaaquttap-akunnera</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} nalunaaquttap-akunnera</unitPattern>
+			<unitPattern count="other">{0} nalunaaquttap-akunnera</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} minutsi</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} minutsi</unitPattern>
+			<unitPattern count="other">{0} minutsi</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} qaammat</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} qaammat</unitPattern>
+			<unitPattern count="other">{0} qaammat</unitPattern>
 		</unit>
 		<unit type="second">
 			<unitPattern count="one">{0} sekundi</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} sekundi</unitPattern>
+			<unitPattern count="other">{0} sekundi</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} sapaatip-akunnera</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} sapaatip-akunnera</unitPattern>
+			<unitPattern count="other">{0} sapaatip-akunnera</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} ukioq</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} ukioq</unitPattern>
+			<unitPattern count="other">{0} ukioq</unitPattern>
 		</unit>
 	</units>
 	<listPatterns>

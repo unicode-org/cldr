@@ -95,39 +95,50 @@
 			утро < 12:00 ≤ ден = 12:00 = обяд < 15:00 ≤ ранен следобяд < 18:00 ≤
 			късен следобяд < 20:00 ≤ вечер < 22:00 ≤ късна вечер < 24:00 ≤ нощ
 		-->
-        <dayPeriodRules locales="id">
-            <dayPeriodRule type="night" from="00:00" before="3:00" />
-            <dayPeriodRule type="earlyMorning" from="3:00" before="5:00" />
-            <dayPeriodRule type="morning" from="5:00" before="10:00" />
-            <dayPeriodRule type="midDay" from="10:00" before="15:00" />
-            <dayPeriodRule type="afternoon" from="15:00" before="18:00" />
-            <dayPeriodRule type="night" from="18:00" before="24:00" />
-        </dayPeriodRules>
+		<dayPeriodRules locales="id">
+			<dayPeriodRule type="night" from="00:00" before="3:00" />
+			<dayPeriodRule type="earlyMorning" from="3:00" before="5:00" />
+			<dayPeriodRule type="morning" from="5:00" before="10:00" />
+			<dayPeriodRule type="midDay" from="10:00" before="15:00" />
+			<dayPeriodRule type="afternoon" from="15:00" before="18:00" />
+			<dayPeriodRule type="night" from="18:00" before="24:00" />
+		</dayPeriodRules>
 		<!--
 			id #2475
 			03:00 ≤ earlyMorning < 05:00 ≤ morning < 10:00 ≤ earlyafternoon ≤
 			15:00 < lateAfternoon < 18:00 ≤ night < 03:00
 		-->
-        <dayPeriodRules locales="uk">
-            <dayPeriodRule type="night" from="00:00" before="3:00" />
-            <dayPeriodRule type="morning" from="3:00" before="12:00" />
-            <dayPeriodRule type="afternoon" from="12:00" before="17:00" />
-            <dayPeriodRule type="evening" from="17:00" before="24:00" />
-        </dayPeriodRules>
-        		<!-- uk # 2479
-		    00:00 ≤ night
+		<dayPeriodRules locales="uk">
+			<dayPeriodRule type="night" from="00:00" before="3:00" />
+			<dayPeriodRule type="morning" from="3:00" before="12:00" />
+			<dayPeriodRule type="afternoon" from="12:00" before="17:00" />
+			<dayPeriodRule type="evening" from="17:00" before="24:00" />
+		</dayPeriodRules>
+		<!--
+			uk # 2479
+			00:00 ≤ night
 			< 3:00 ≤ morning
 			< 12:00 ≤ afternoon
 			< 17:00 ≤ evening
-			< 24:00 -->
+			< 24:00
+		-->
 		<dayPeriodRules locales="ee">
-				<dayPeriodRule type="night" from="00:00" before="03:00"/><!-- zã -->
-				<dayPeriodRule type="earlyMorning" from="03:00" before="06:00"/><!-- fɔŋli -->
-				<dayPeriodRule type="morning" from="06:00" before="12:00"/><!-- ŋdi -->
-				<dayPeriodRule type="earlyAfternoon" from="12:00" before="15:00"/><!-- ŋdɔ -->
-				<dayPeriodRule type="afternoon" from="15:00" before="18:00"/><!-- ɣetrɔ -->
-				<dayPeriodRule type="evening" from="18:00" before="21:00"/><!-- fiẽ -->
-				<dayPeriodRule type="night" from="21:00" before="24:00"/><!-- zã -->
+			<dayPeriodRule type="night" from="00:00" before="03:00"/><!-- zã -->
+			<dayPeriodRule type="earlyMorning" from="03:00" before="06:00"/><!-- fɔŋli -->
+			<dayPeriodRule type="morning" from="06:00" before="12:00"/><!-- ŋdi -->
+			<dayPeriodRule type="earlyAfternoon" from="12:00" before="15:00"/><!-- ŋdɔ -->
+			<dayPeriodRule type="afternoon" from="15:00" before="18:00"/><!-- ɣetrɔ -->
+			<dayPeriodRule type="evening" from="18:00" before="21:00"/><!-- fiẽ -->
+			<dayPeriodRule type="night" from="21:00" before="24:00"/><!-- zã -->
+		</dayPeriodRules>
+		<dayPeriodRules locales="fa">
+			<dayPeriodRule type="weeHours" from="00:00" before="01:00" /><!-- نیمه‌شب -->
+			<dayPeriodRule type="earlyMorning" from="01:00" before="06:00" /><!-- بامداد -->
+			<dayPeriodRule type="morning" from="06:00" before="12:00" /><!-- صبح -->
+			<dayPeriodRule type="noon" at="12:00" /><!-- ظهر -->
+			<dayPeriodRule type="midDay" after="12:00" before="16:00" /><!-- بعدازظهر -->
+			<dayPeriodRule type="afternoon" from="16:00" before="19:00" /><!-- عصر -->
+			<dayPeriodRule type="night" from="19:00" before="24:00" /><!-- شب -->
 		</dayPeriodRules>
 	</dayPeriodRuleSet>
 </supplementalData>

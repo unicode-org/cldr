@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision: 7509 $"/>
+		<generation date="$Date: 2012-08-07 14:55:00 -0700 (Tue, 07 Aug 2012) $"/>
+		<language type="vo"/> 
+	</identity>
+	<collations>
+		<collation type="standard">
+            <rules>
+				<reset>A</reset>
+					<p>ä</p>
+					<t>Ä</t>
+				<reset>O</reset>
+					<p>ö</p>
+					<t>Ö</t>
+				<reset>U</reset>
+					<p>ü</p>
+					<t>Ü</t>
+			</rules>
+		</collation>
+	</collations>
+</ldml>

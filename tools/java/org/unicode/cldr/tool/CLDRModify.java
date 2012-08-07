@@ -1622,6 +1622,41 @@ public class CLDRModify {
             }
         });
 
+        // This should only be applied to specific locales, and the results checked manually afterward.
+        // It will only create ranges using the same digits as in root, not script-specific digits.
+        // Any pre-existing year ranges should use the range marker from the intervalFormats "y" item.
+        // This make several assumptions and is somewhat *FRAGILE*.
+        fixList.add('j', "add year ranges from root to Japanese calendar eras",  new CLDRFilter() {
+            private CLDRFile rootFile;
+
+            public void handleStart() {
+                rootFile = factory.make("root", false);
+            }
+
+            public void handlePath(String xpath) {
+                // Skip paths we don't care about
+                if (xpath.indexOf("/calendar[@type=\"japanese\"]/eras/era") < 0) return;
+                // Get root name for the era, check it
+                String rootEraValue = rootFile.getStringValue(xpath);
+                int rootEraIndex = rootEraValue.indexOf(" (");
+                if (rootEraIndex < 0) return; // this era does not have a year range in root, no need to add one in this locale
+                // Get range marker from intervalFormat range for y
+                String yearIntervalFormat = cldrFileToFilter.getStringValue("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"y\"]/greatestDifference[@id=\"y\"]");
+                if (yearIntervalFormat == null) return; // oops, no intervalFormat data for y
+                String rangeMarker = yearIntervalFormat.replaceAll("[.y\u5E74\uB144]", ""); // *FRAGILE* strip out everything except the range-indicating part
+                // Get current locale name for this era, check it
+                String eraValue = cldrFileToFilter.getStringValue(xpath);
+                if (eraValue.indexOf('(') >= 0 && eraValue.indexOf(rangeMarker) >= 0) return; // this eraValue already has a year range that uses the appropriate rangeMarker
+                // Now update the root year range it with the rangeMarker for this locale, and append it to this locale's name
+                String rootYearRange = rootEraValue.substring(rootEraIndex);
+                String appendYearRange = rootYearRange.replaceAll("[\u002D\u2013]", rangeMarker);
+                String newEraValue = eraValue.concat(appendYearRange);
+                String fullpath = cldrFileToFilter.getFullXPath(xpath);
+                replace(xpath, fullpath, newEraValue);
+                //System.out.println("CLDRModify fj: rootEraValue: \"" + rootEraValue + "\", eraValue: \"" + eraValue + "\", rangeMarker: \"" + rangeMarker + "\"");
+            }
+        });
+
         fixList.add('r', "fix references and standards", new CLDRFilter() {
             int currentRef = 500;
             Map<String,TreeMap<String,String>> locale_oldref_newref = new TreeMap<String,TreeMap<String,String>>();

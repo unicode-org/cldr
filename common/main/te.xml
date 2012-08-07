@@ -1139,8 +1139,8 @@
 						<monthWidth type="narrow">
 							<month type="1">జ</month>
 							<month type="2">ఫి</month>
-							<month type="3" draft="provisional">మా</month>
-							<month type="4" draft="provisional">ఏ</month>
+							<month type="3">మా</month>
+							<month type="4">ఏ</month>
 							<month type="5">మే</month>
 							<month type="6">జూ</month>
 							<month type="7">జు</month>
@@ -1613,13 +1613,6 @@
 			<calendar type="indian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="abbreviated">
-							<month type="3" draft="unconfirmed">జ్యేష్ఠం</month>
-							<month type="7" draft="unconfirmed">ఆశ్వయుజం</month>
-							<month type="8" draft="unconfirmed">కార్తీకం</month>
-							<month type="9" draft="unconfirmed">మార్గశిరం</month>
-							<month type="10" draft="unconfirmed">పుష్యం</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="unconfirmed">చైత్రం</month>
 							<month type="2" draft="unconfirmed">వైశాఖం</month>
@@ -1635,38 +1628,12 @@
 							<month type="12" draft="unconfirmed">ఫల్గుణం</month>
 						</monthWidth>
 					</monthContext>
-					<monthContext type="stand-alone">
-						<monthWidth type="abbreviated">
-							<month type="3" draft="unconfirmed">జ్యేష్ఠం</month>
-							<month type="7" draft="unconfirmed">ఆశ్వయుజం</month>
-							<month type="8" draft="unconfirmed">కార్తీకం</month>
-							<month type="9" draft="unconfirmed">మార్గశిరం</month>
-							<month type="10" draft="unconfirmed">పుష్యం</month>
-						</monthWidth>
-						<monthWidth type="wide">
-							<month type="3" draft="unconfirmed">జ్యేష్ఠం</month>
-							<month type="7" draft="unconfirmed">ఆశ్వయుజం</month>
-							<month type="8" draft="unconfirmed">కార్తీకం</month>
-							<month type="9" draft="unconfirmed">మార్గశిరం</month>
-							<month type="10" draft="unconfirmed">పుష్యం</month>
-						</monthWidth>
-					</monthContext>
 				</months>
 				<eras>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">శక</era>
 					</eraAbbr>
 				</eras>
-			</calendar>
-			<calendar type="islamic">
-				<months>
-					<monthContext type="format">
-						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">మొహర్రం</month>
-							<month type="9" draft="unconfirmed">రంజాన్</month>
-						</monthWidth>
-					</monthContext>
-				</months>
 			</calendar>
 		</calendars>
 		<timeZoneNames>

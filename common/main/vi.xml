@@ -1651,21 +1651,21 @@
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">CN</day>
-							<day type="mon" draft="contributed">T2</day>
-							<day type="tue" draft="contributed">T3</day>
-							<day type="wed" draft="contributed">T4</day>
-							<day type="thu" draft="contributed">T5</day>
-							<day type="fri" draft="contributed">T6</day>
-							<day type="sat" draft="contributed">T7</day>
+							<day type="mon">T2</day>
+							<day type="tue">T3</day>
+							<day type="wed">T4</day>
+							<day type="thu">T5</day>
+							<day type="fri">T6</day>
+							<day type="sat">T7</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">CN</day>
-							<day type="mon" draft="provisional">T2</day>
-							<day type="tue" draft="provisional">T3</day>
-							<day type="wed" draft="provisional">T4</day>
-							<day type="thu" draft="provisional">T5</day>
-							<day type="fri" draft="provisional">T6</day>
-							<day type="sat" draft="provisional">T7</day>
+							<day type="mon">T2</day>
+							<day type="tue">T3</day>
+							<day type="wed">T4</day>
+							<day type="thu">T5</day>
+							<day type="fri">T6</day>
+							<day type="sat">T7</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Chủ nhật</day>
@@ -1689,12 +1689,12 @@
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">CN</day>
-							<day type="mon" draft="provisional">T2</day>
-							<day type="tue" draft="provisional">T3</day>
-							<day type="wed" draft="provisional">T4</day>
-							<day type="thu" draft="provisional">T5</day>
-							<day type="fri" draft="provisional">T6</day>
-							<day type="sat" draft="provisional">T7</day>
+							<day type="mon">T2</day>
+							<day type="tue">T3</day>
+							<day type="wed">T4</day>
+							<day type="thu">T5</day>
+							<day type="fri">T6</day>
+							<day type="sat">T7</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Chủ nhật</day>
@@ -4641,7 +4641,7 @@
 				<long>
 					<generic>Giờ Đài Bắc</generic>
 					<standard>Giờ Chuẩn Đài Bắc</standard>
-					<daylight draft="provisional">Giờ ban ngày Đài Bắc</daylight>
+					<daylight>Giờ Mùa Hè Đài Bắc</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -4809,425 +4809,6 @@
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
 		</symbols>
-		<decimalFormats numberSystem="arab">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 nghìn</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 nghìn tỷ</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 nghìn tỷ</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 nghìn tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 NT</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="arabext">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="bali">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 nghìn</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 nghìn tỷ</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 nghìn tỷ</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 nghìn tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 NT</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="beng">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 nghìn</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 nghìn tỷ</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 nghìn tỷ</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 nghìn tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 NT</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="cham">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 nghìn</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 nghìn tỷ</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 nghìn tỷ</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 nghìn tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 NT</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="deva">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="fullwide">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="gujr">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="guru">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="hanidec">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 nghìn</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 nghìn</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 nghìn</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 nghìn tỷ</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 nghìn tỷ</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 nghìn tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0 NT</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="java">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="kali">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="khmr">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 Tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 Tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="knda">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000000" count="other" draft="contributed">0 triệu</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 triệu</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 tỷ</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 tỷ</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 Tr</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0 T</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00 T</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000 T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00 NT</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="laoo">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="1000000" count="other" draft="contributed">0 tỷ</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00 triệu</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0 N</pattern>
-					<pattern type="10000" count="other" draft="contributed">00 N</pattern>
-					<pattern type="100000" count="other" draft="contributed">000 N</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0 Tr</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -5237,17 +4818,17 @@
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="other">0 nghìn</pattern>
-					<pattern type="10000" count="other" draft="provisional">00 ngàn</pattern>
-					<pattern type="100000" count="other" draft="provisional">000 ngàn</pattern>
+					<pattern type="10000" count="other">00 nghìn</pattern>
+					<pattern type="100000" count="other">000 nghìn</pattern>
 					<pattern type="1000000" count="other">0 triệu</pattern>
 					<pattern type="10000000" count="other">00 triệu</pattern>
 					<pattern type="100000000" count="other">000 triệu</pattern>
 					<pattern type="1000000000" count="other">0 tỷ</pattern>
 					<pattern type="10000000000" count="other">00 tỷ</pattern>
 					<pattern type="100000000000" count="other">000 tỷ</pattern>
-					<pattern type="1000000000000" count="other" draft="provisional">0 ngàn tỷ</pattern>
-					<pattern type="10000000000000" count="other" draft="provisional">00 ngàn tỷ</pattern>
-					<pattern type="100000000000000" count="other" draft="provisional">000 ngàn tỷ</pattern>
+					<pattern type="1000000000000" count="other">0 nghìn tỷ</pattern>
+					<pattern type="10000000000000" count="other">00 nghìn tỷ</pattern>
+					<pattern type="100000000000000" count="other">000 nghìn tỷ</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
@@ -5261,21 +4842,9 @@
 					<pattern type="1000000000" count="other">0 T</pattern>
 					<pattern type="10000000000" count="other">00 T</pattern>
 					<pattern type="100000000000" count="other">000 T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0T</pattern>
+					<pattern type="1000000000000" count="other">0 NT</pattern>
 					<pattern type="10000000000000" count="other">00 NT</pattern>
 					<pattern type="100000000000000" count="other">000 NT</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="nkoo">
-			<decimalFormatLength type="long">
-				<decimalFormat>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="100000000" count="other" draft="contributed">000 Tr</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

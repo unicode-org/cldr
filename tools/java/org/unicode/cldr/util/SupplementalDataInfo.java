@@ -2267,7 +2267,14 @@ public class SupplementalDataInfo {
         boolean includesEnd = to != null;
         int start = parseTime(includesStart ? from : after);
         int end = parseTime(includesEnd ? to : before);
-        dayPeriodBuilder.add(dayPeriod, start, includesStart, end, includesEnd);
+        // Check if any periods contain 0, e.g. 1700 - 300
+        if (start > end) {
+            System.out.println("start " + start + " end " + end);
+            dayPeriodBuilder.add(dayPeriod, start, includesStart, parseTime("24:00"), includesEnd);
+            dayPeriodBuilder.add(dayPeriod, parseTime("0:00"), includesStart, end, includesEnd);
+        } else {
+            dayPeriodBuilder.add(dayPeriod, start, includesStart, end, includesEnd);
+        }
     }
 
     static Pattern PARSE_TIME = Pattern.compile("(\\d\\d?):(\\d\\d)");

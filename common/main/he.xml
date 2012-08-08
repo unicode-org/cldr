@@ -1586,7 +1586,7 @@
 							<month type="9" draft="contributed">אי</month>
 							<month type="10" draft="contributed">סי</month>
 							<month type="11" draft="contributed">תמ</month>
-							<month type="12">אב</month>
+							<month type="12" draft="contributed">אב</month>
 							<month type="13" draft="contributed">אל</month>
 						</monthWidth>
 						<monthWidth type="wide">
@@ -1636,7 +1636,7 @@
 							<month type="9" draft="contributed">אי</month>
 							<month type="10" draft="contributed">סי</month>
 							<month type="11" draft="contributed">תמ</month>
-							<month type="12">אב</month>
+							<month type="12" draft="contributed">אב</month>
 							<month type="13" draft="contributed">אל</month>
 						</monthWidth>
 						<monthWidth type="wide">
@@ -3278,7 +3278,7 @@
 			<metazone type="America_Eastern">
 				<long>
 					<generic>שעון החוף המזרחי</generic>
-					<standard draft="contributed">שעון רגיל של החוף המזרחי</standard>
+					<standard>שעון רגיל של החוף המזרחי</standard>
 					<daylight>שעון קיץ מזרח ארה״ב</daylight>
 				</long>
 			</metazone>
@@ -4264,8 +4264,10 @@
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="two" draft="contributed">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">

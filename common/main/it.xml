@@ -1286,7 +1286,7 @@
 							<month type="12">dic</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">G</month>
+							<month type="1" draft="contributed">G</month>
 							<month type="2" draft="contributed">F</month>
 							<month type="3" draft="contributed">M</month>
 							<month type="4" draft="contributed">A</month>
@@ -1316,7 +1316,7 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">gen</month>
+							<month type="1" draft="contributed">gen</month>
 							<month type="2" draft="contributed">feb</month>
 							<month type="3" draft="contributed">mar</month>
 							<month type="4" draft="contributed">apr</month>
@@ -1442,7 +1442,7 @@
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">T1</quarter>
+							<quarter type="1">T1</quarter>
 							<quarter type="2">T2</quarter>
 							<quarter type="3">T3</quarter>
 							<quarter type="4">T4</quarter>
@@ -2410,7 +2410,7 @@
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic draft="contributed">Ora dell'Amazzonia</generic>
+					<generic>Ora dell'Amazzonia</generic>
 					<standard>Ora standard dell'Amazzonia</standard>
 					<daylight>Ora legale dell'Amazzonia</daylight>
 				</long>
@@ -2459,15 +2459,15 @@
 			</metazone>
 			<metazone type="Argentina">
 				<long>
-					<generic draft="contributed">Ora dell'Argentina</generic>
-					<standard draft="contributed">Ora standard dell'Argentina</standard>
-					<daylight draft="contributed">Ora legale dell'Argentina</daylight>
+					<generic>Ora dell'Argentina</generic>
+					<standard>Ora standard dell'Argentina</standard>
+					<daylight>Ora legale dell'Argentina</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>Ora dell'Argentina occidentale</generic>
-					<standard draft="contributed">Ora standard dell'Argentina occidentale</standard>
+					<standard>Ora standard dell'Argentina occidentale</standard>
 					<daylight>Ora legale dell'Argentina occidentale</daylight>
 				</long>
 			</metazone>
@@ -2944,8 +2944,8 @@
 			<metazone type="Mongolia">
 				<long>
 					<generic>Ora di Ulan Bator</generic>
-					<standard draft="contributed">Ora standard di Ulan Bator</standard>
-					<daylight draft="contributed">Ora legale di Ulan Bator</daylight>
+					<standard>Ora standard di Ulan Bator</standard>
+					<daylight>Ora legale di Ulan Bator</daylight>
 				</long>
 			</metazone>
 			<metazone type="Moscow">
@@ -3004,8 +3004,8 @@
 			<metazone type="Noronha">
 				<long>
 					<generic>Ora di Fernando de Noronha</generic>
-					<standard draft="contributed">Ora standard di Fernando de Noronha</standard>
-					<daylight draft="contributed">Ora legale di Fernando de Noronha</daylight>
+					<standard>Ora standard di Fernando de Noronha</standard>
+					<daylight>Ora legale di Fernando de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -4534,12 +4534,12 @@
 		</unit>
 		<unit type="day-future">
 			<unitPattern count="0" draft="contributed">tra 0 giorni</unitPattern>
-			<unitPattern count="one" draft="contributed">tra {0} giorno</unitPattern>
+			<unitPattern count="one">tra {0} giorno</unitPattern>
 			<unitPattern count="other">tra {0} giorni</unitPattern>
 		</unit>
 		<unit type="day-past">
 			<unitPattern count="0" draft="contributed">0 giorni fa</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} giorno fa</unitPattern>
+			<unitPattern count="one">{0} giorno fa</unitPattern>
 			<unitPattern count="other">{0} giorni fa</unitPattern>
 		</unit>
 		<unit type="hour">
@@ -4550,12 +4550,12 @@
 		</unit>
 		<unit type="hour-future">
 			<unitPattern count="0" draft="contributed">tra 0 ore</unitPattern>
-			<unitPattern count="one" draft="contributed">tra {0} ora</unitPattern>
+			<unitPattern count="one">tra {0} ora</unitPattern>
 			<unitPattern count="other">tra {0} ore</unitPattern>
 		</unit>
 		<unit type="hour-past">
 			<unitPattern count="0" draft="contributed">0 ore fa</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} ora fa</unitPattern>
+			<unitPattern count="one">{0} ora fa</unitPattern>
 			<unitPattern count="other">{0} ore fa</unitPattern>
 		</unit>
 		<unit type="minute">
@@ -4566,12 +4566,12 @@
 		</unit>
 		<unit type="minute-future">
 			<unitPattern count="0" draft="contributed">tra 0 minuti</unitPattern>
-			<unitPattern count="one" draft="contributed">tra {0} minuto</unitPattern>
+			<unitPattern count="one">tra {0} minuto</unitPattern>
 			<unitPattern count="other">tra {0} minuti</unitPattern>
 		</unit>
 		<unit type="minute-past">
 			<unitPattern count="0" draft="contributed">0 minuti fa</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} minuto fa</unitPattern>
+			<unitPattern count="one">{0} minuto fa</unitPattern>
 			<unitPattern count="other">{0} minuti fa</unitPattern>
 		</unit>
 		<unit type="month">
@@ -4582,12 +4582,12 @@
 		</unit>
 		<unit type="month-future">
 			<unitPattern count="0" draft="contributed">tra 0 mesi</unitPattern>
-			<unitPattern count="one" draft="contributed">tra {0} mese</unitPattern>
+			<unitPattern count="one">tra {0} mese</unitPattern>
 			<unitPattern count="other">tra {0} mesi</unitPattern>
 		</unit>
 		<unit type="month-past">
 			<unitPattern count="0" draft="contributed">0 mesi fa</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} mese fa</unitPattern>
+			<unitPattern count="one">{0} mese fa</unitPattern>
 			<unitPattern count="other">{0} mesi fa</unitPattern>
 		</unit>
 		<unit type="second">
@@ -4598,12 +4598,12 @@
 		</unit>
 		<unit type="second-future">
 			<unitPattern count="0" draft="contributed">tra 0 secondi</unitPattern>
-			<unitPattern count="one" draft="contributed">tra {0} secondo</unitPattern>
+			<unitPattern count="one">tra {0} secondo</unitPattern>
 			<unitPattern count="other">tra {0} secondi</unitPattern>
 		</unit>
 		<unit type="second-past">
 			<unitPattern count="0" draft="contributed">0 secondi fa</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} secondo fa</unitPattern>
+			<unitPattern count="one">{0} secondo fa</unitPattern>
 			<unitPattern count="other">{0} secondi fa</unitPattern>
 		</unit>
 		<unit type="week">
@@ -4614,12 +4614,12 @@
 		</unit>
 		<unit type="week-future">
 			<unitPattern count="0" draft="contributed">tra 0 settimane</unitPattern>
-			<unitPattern count="one" draft="contributed">tra {0} settimana</unitPattern>
+			<unitPattern count="one">tra {0} settimana</unitPattern>
 			<unitPattern count="other">tra {0} settimane</unitPattern>
 		</unit>
 		<unit type="week-past">
 			<unitPattern count="0" draft="contributed">0 settimane fa</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} settimana fa</unitPattern>
+			<unitPattern count="one">{0} settimana fa</unitPattern>
 			<unitPattern count="other">{0} settimane fa</unitPattern>
 		</unit>
 		<unit type="year">
@@ -4630,12 +4630,12 @@
 		</unit>
 		<unit type="year-future">
 			<unitPattern count="0" draft="contributed">tra 0 anni</unitPattern>
-			<unitPattern count="one" draft="contributed">tra {0} anno</unitPattern>
+			<unitPattern count="one">tra {0} anno</unitPattern>
 			<unitPattern count="other">tra {0} anni</unitPattern>
 		</unit>
 		<unit type="year-past">
 			<unitPattern count="0" draft="contributed">0 anni fa</unitPattern>
-			<unitPattern count="one" draft="contributed">{0} anno fa</unitPattern>
+			<unitPattern count="one">{0} anno fa</unitPattern>
 			<unitPattern count="other">{0} anni fa</unitPattern>
 		</unit>
 	</units>

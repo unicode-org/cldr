@@ -1309,6 +1309,7 @@
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
+						<dateFormatItem id="EEEEd">d日EEEE</dateFormatItem>
 						<dateFormatItem id="GGGGyMd">GGGGy年M月d日</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
 						<dateFormatItem id="h">aK時</dateFormatItem>
@@ -1324,12 +1325,14 @@
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">GGGGy年</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">GGGGy年M月</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">GGGGy年M/d(E)</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">GGGGy年M月</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="contributed">GGGGy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd" draft="contributed">GGGGy年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yQ" draft="contributed">GGGGy QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">GGGGy第Q四半期</dateFormatItem>
 						<dateFormatItem id="yyyy">GGGGy年</dateFormatItem>
@@ -1339,6 +1342,7 @@
 						<dateFormatItem id="yyyyMMM">GGGGy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">GGGGy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">GGGGy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEEEEd">GGGGy年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yyyyQ">Gy/Q</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -1539,18 +1543,22 @@
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
+						<dateFormatItem id="EEEEd">d日EEEE</dateFormatItem>
 						<dateFormatItem id="M">MMM</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
 						<dateFormatItem id="MMMd">MMMd日</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMMd日(E)</dateFormatItem>
+						<dateFormatItem id="MMMEEEEd">MMMd日EEEE</dateFormatItem>
 						<dateFormatItem id="y">U年</dateFormatItem>
 						<dateFormatItem id="yM">U年M月</dateFormatItem>
 						<dateFormatItem id="yMd">U年M月d日</dateFormatItem>
 						<dateFormatItem id="yMEd">U年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yMEEEEd">U年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yMMM">U年MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">U年MMMd日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">U年MMMd日(E)</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd">U年MMMd日EEEE</dateFormatItem>
 						<dateFormatItem id="yQ">U/Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">UQQQ</dateFormatItem>
 					</availableFormats>
@@ -2067,6 +2075,7 @@
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
+						<dateFormatItem id="EEEEd">d日EEEE</dateFormatItem>
 						<dateFormatItem id="GGGGyMd">GGGGy年M月d日</dateFormatItem>
 						<dateFormatItem id="h">aK時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
@@ -2081,6 +2090,7 @@
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y年</dateFormatItem>
 						<dateFormatItem id="yM">y/M</dateFormatItem>
@@ -2089,6 +2099,7 @@
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd">y年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yQ">y/Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">yQQQ</dateFormatItem>
 						<dateFormatItem id="yyMMM">y年M月</dateFormatItem>
@@ -3079,6 +3090,7 @@
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
+						<dateFormatItem id="EEEEd">d日EEEE</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
 						<dateFormatItem id="h">aK時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
@@ -3101,6 +3113,7 @@
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yyyyQ">Gy/Q</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
 					</availableFormats>
@@ -3237,6 +3250,7 @@
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
+						<dateFormatItem id="EEEEd">d日EEEE</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
 						<dateFormatItem id="h">aK時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
@@ -3250,6 +3264,7 @@
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
@@ -3259,6 +3274,7 @@
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yyyyQ">Gy/Q</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
 					</availableFormats>

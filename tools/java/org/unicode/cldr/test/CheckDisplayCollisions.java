@@ -208,7 +208,35 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     return this;
                 }}
 
-            CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.displayCollision)
+            // Check to see if we're colliding between standard and generic within the same metazone.
+            // If so, then it should be a warning instead of an error, since such collisions are acceptable
+            // as long as the context ( generic/recurring vs. specific time ) is known.  
+            // ( JCE: 8/7/2012 )
+            
+            String thisErrorType = CheckStatus.errorType;
+            
+            if (path.contains("timeZoneNames") && collidingTypes.size() == 1) {
+                PathHeader pathHeader = pathHeaderFactory.fromPath(path);
+                String thisZone = pathHeader.getHeader();
+                String thisZoneType = pathHeader.getCode();
+                String collisionString = collidingTypes.toString();
+                collisionString = collisionString.substring(1,collisionString.length()-1); // Strip off []
+                int delimiter_index = collisionString.indexOf(':');
+                String collidingZone = collisionString.substring(0,delimiter_index);
+                String collidingZoneType = collisionString.substring(delimiter_index+2);
+                if (thisZone.equals(collidingZone)) {
+                    Set<String> collidingZoneTypes = new TreeSet<String>();
+                    collidingZoneTypes.add(thisZoneType);
+                    collidingZoneTypes.add(collidingZoneType);
+                    if (collidingZoneTypes.size() == 2 && 
+                        collidingZoneTypes.contains("standard-short") &&
+                        collidingZoneTypes.contains("generic-short")) {
+                        thisErrorType = CheckStatus.warningType;
+                    }
+                }
+
+            }
+            CheckStatus item = new CheckStatus().setCause(this).setMainType(thisErrorType).setSubtype(Subtype.displayCollision)
                 .setCheckOnSubmit(false)
                 .setMessage(message, new Object[]{collidingTypes.toString()});
             result.add(item);

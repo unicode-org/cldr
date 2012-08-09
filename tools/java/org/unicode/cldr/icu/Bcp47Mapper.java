@@ -1,17 +1,11 @@
 package org.unicode.cldr.icu;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.unicode.cldr.util.XMLFileReader;
 import org.xml.sax.Attributes;
-import org.xml.sax.ContentHandler;
-import org.xml.sax.InputSource;
-import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
 
 /**
  * A mapper that converts BCP 47 data from CLDR to the ICU data structure.
@@ -59,7 +53,7 @@ public class Bcp47Mapper {
     /**
      * XML parser for BCP47 data.
      */
-    private class KeywordHandler implements ContentHandler {
+    private class KeywordHandler extends MapperUtils.EmptyHandler {
         private String typeAliasPrefix;
         private String typeMapPrefix;
         private IcuData icuData;
@@ -75,9 +69,6 @@ public class Bcp47Mapper {
             this.icuData = icuData;
             this.keyMap = keyMap;
         }
-
-        @Override
-        public void characters(char[] ch, int start, int length) throws SAXException {}
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attr) throws SAXException {
@@ -110,33 +101,5 @@ public class Bcp47Mapper {
             }
             return str;
         }
-
-        @Override
-        public void endElement(String uri, String localName, String qName) throws SAXException {}
-
-        @Override
-        public void startPrefixMapping(String arg0, String arg1) throws SAXException {}
-
-        @Override
-        public void endPrefixMapping(String arg0) throws SAXException {}
-
-        @Override
-        public void ignorableWhitespace(char[] arg0, int arg1, int arg2) throws SAXException {}
-
-        @Override
-        public void processingInstruction(String arg0, String arg1) throws SAXException {}
-
-        @Override
-        public void setDocumentLocator(Locator arg0) {}
-
-        @Override
-        public void skippedEntity(String arg0) throws SAXException {}
-
-        @Override
-        public void startDocument() throws SAXException {}
-
-        @Override
-        public void endDocument() throws SAXException {}
     }
-
 }

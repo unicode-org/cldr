@@ -1,20 +1,14 @@
 package org.unicode.cldr.icu;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.xml.sax.Attributes;
-import org.xml.sax.ContentHandler;
-import org.xml.sax.InputSource;
-import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
-import org.xml.sax.XMLReader;
 
 import com.ibm.icu.impl.Row.R2;
 
@@ -59,7 +53,7 @@ public class PluralsMapper {
         MapperUtils.parseFile(inputFile, handler);
     }
 
-    private class PluralsHandler implements ContentHandler {
+    private class PluralsHandler extends MapperUtils.EmptyHandler {
         private StringBuffer currentText;
         private String currentCount;
         private String[] currentLocales;
@@ -119,29 +113,5 @@ public class PluralsMapper {
                 currentText.setLength(0);
             }
         }
-
-        @Override
-        public void startPrefixMapping(String arg0, String arg1) throws SAXException {}
-
-        @Override
-        public void endPrefixMapping(String arg0) throws SAXException {}
-
-        @Override
-        public void ignorableWhitespace(char[] arg0, int arg1, int arg2) throws SAXException {}
-
-        @Override
-        public void processingInstruction(String arg0, String arg1) throws SAXException {}
-
-        @Override
-        public void setDocumentLocator(Locator arg0) {}
-
-        @Override
-        public void skippedEntity(String arg0) throws SAXException {}
-
-        @Override
-        public void startDocument() throws SAXException {}
-
-        @Override
-        public void endDocument() throws SAXException {}
     }
 }

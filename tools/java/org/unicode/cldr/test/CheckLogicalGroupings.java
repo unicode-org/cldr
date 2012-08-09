@@ -14,7 +14,10 @@ import org.unicode.cldr.util.XPathParts;
 
 public class CheckLogicalGroupings extends CheckCLDR {
     
-    static final DraftStatus MIMIMUM_DRAFT_STATUS = DraftStatus.contributed;
+    // Change MINIMUM_DRAFT_STATUS to DraftStatus.contributed if you only care about
+    // contributed or higher.  This can help to reduce the error count when you have a lot of new data.
+
+    static final DraftStatus MIMIMUM_DRAFT_STATUS = DraftStatus.approved;
     
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*LogicalGroupings.*

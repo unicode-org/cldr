@@ -1318,7 +1318,7 @@
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">jan</month>
+							<month type="1" draft="contributed">jan</month>
 							<month type="2" draft="contributed">feb</month>
 							<month type="3" draft="contributed">mar</month>
 							<month type="4" draft="contributed">apr</month>
@@ -1376,7 +1376,7 @@
 							<day type="sun" draft="contributed">S</day>
 							<day type="mon" draft="contributed">M</day>
 							<day type="tue" draft="contributed">T</day>
-							<day type="wed">O</day>
+							<day type="wed" draft="contributed">O</day>
 							<day type="thu" draft="contributed">T</day>
 							<day type="fri" draft="contributed">F</day>
 							<day type="sat" draft="contributed">L</day>
@@ -4164,17 +4164,17 @@
 			<currency type="ADP">
 				<displayName>andorranske pesetas</displayName>
 				<displayName count="one">andorransk pesetas</displayName>
-				<displayName count="other" draft="contributed">andorranske pesetas</displayName>
+				<displayName count="other">andorranske pesetas</displayName>
 			</currency>
 			<currency type="AED">
 				<displayName>UAE dirham</displayName>
-				<displayName count="one" draft="contributed">UAE dirham</displayName>
-				<displayName count="other" draft="contributed">UAE dirham</displayName>
+				<displayName count="one">UAE dirham</displayName>
+				<displayName count="other">UAE dirham</displayName>
 			</currency>
 			<currency type="AFA">
 				<displayName>afgansk afghani (1927-2002)</displayName>
-				<displayName count="one" draft="contributed">afghansk afghani (AFA)</displayName>
-				<displayName count="other" draft="contributed">afghanske afghani (AFA)</displayName>
+				<displayName count="one">afghansk afghani (1927-2002)</displayName>
+				<displayName count="other">afghanske afghani (1927-2002)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>afgansk afgani</displayName>
@@ -4229,7 +4229,7 @@
 			<currency type="ARS">
 				<displayName>argentinske pesos</displayName>
 				<displayName count="one">argentinsk pesos</displayName>
-				<displayName count="other" draft="contributed">argentinske peso</displayName>
+				<displayName count="other">argentinske peso</displayName>
 			</currency>
 			<currency type="ATS">
 				<displayName>østerrikske shilling</displayName>
@@ -4239,7 +4239,7 @@
 			<currency type="AUD">
 				<displayName>australske dollar</displayName>
 				<displayName count="one">australsk dollar</displayName>
-				<displayName count="other" draft="contributed">australske dollar</displayName>
+				<displayName count="other">australske dollar</displayName>
 			</currency>
 			<currency type="AWG">
 				<displayName>arubiske gylden</displayName>
@@ -4255,7 +4255,7 @@
 			<currency type="AZN">
 				<displayName>aserbajdsjanske manat</displayName>
 				<displayName count="one">aserbajdsjansk manat</displayName>
-				<displayName count="other" draft="contributed">aserbajdsjanske manat</displayName>
+				<displayName count="other">aserbajdsjanske manat</displayName>
 			</currency>
 			<currency type="BAD">
 				<displayName>bosnisk-hercegovinske dinarer</displayName>
@@ -4265,17 +4265,17 @@
 			<currency type="BAM">
 				<displayName>bosnisk-hercegovinske mark (konvertible)</displayName>
 				<displayName count="one">bosnisk-hercegovinsk mark (konvertibel)</displayName>
-				<displayName count="other" draft="contributed">bosnisk-hercegovinske konvertible mark</displayName>
+				<displayName count="other">bosnisk-hercegovinske konvertible mark</displayName>
 			</currency>
 			<currency type="BBD">
 				<displayName>barbadiske dollar</displayName>
 				<displayName count="one">barbadisk dollar</displayName>
-				<displayName count="other" draft="contributed">barbadiske dollar</displayName>
+				<displayName count="other">barbadiske dollar</displayName>
 			</currency>
 			<currency type="BDT">
 				<displayName>bangladeshiske taka</displayName>
 				<displayName count="one">bangladeshisk taka</displayName>
-				<displayName count="other" draft="contributed">bangladeshiske taka</displayName>
+				<displayName count="other">bangladeshiske taka</displayName>
 			</currency>
 			<currency type="BEC">
 				<displayName>belgiske franc (konvertible)</displayName>
@@ -4306,12 +4306,12 @@
 			<currency type="BHD">
 				<displayName>bahrainske dinarer</displayName>
 				<displayName count="one">bahrainsk dinar</displayName>
-				<displayName count="other" draft="contributed">bahrainske dinarer</displayName>
+				<displayName count="other">bahrainske dinarer</displayName>
 			</currency>
 			<currency type="BIF">
 				<displayName>burundiske franc</displayName>
 				<displayName count="one">burundisk franc</displayName>
-				<displayName count="other" draft="contributed">burundiske franc</displayName>
+				<displayName count="other">burundiske franc</displayName>
 			</currency>
 			<currency type="BMD">
 				<displayName>bermudiske dollar</displayName>
@@ -4321,12 +4321,12 @@
 			<currency type="BND">
 				<displayName>bruneiske dollar</displayName>
 				<displayName count="one">bruneisk dollar</displayName>
-				<displayName count="other" draft="contributed">bruneiske dollar</displayName>
+				<displayName count="other">bruneiske dollar</displayName>
 			</currency>
 			<currency type="BOB">
 				<displayName>bolivianske boliviano</displayName>
-				<displayName count="one" draft="contributed">boliviansk boliviano</displayName>
-				<displayName count="other" draft="contributed">bolivianske boliviano</displayName>
+				<displayName count="one">boliviansk boliviano</displayName>
+				<displayName count="other">bolivianske boliviano</displayName>
 			</currency>
 			<currency type="BOP">
 				<displayName>bolivianske pesos</displayName>
@@ -4369,12 +4369,12 @@
 			<currency type="BSD">
 				<displayName>bahamske dollar</displayName>
 				<displayName count="one">bahamsk dollar</displayName>
-				<displayName count="other" draft="contributed">bahamske dollar</displayName>
+				<displayName count="other">bahamske dollar</displayName>
 			</currency>
 			<currency type="BTN">
 				<displayName>bhutanske ngultrum</displayName>
 				<displayName count="one">bhutansk ngultrum</displayName>
-				<displayName count="other" draft="contributed">bhutanske ngultrum</displayName>
+				<displayName count="other">bhutanske ngultrum</displayName>
 			</currency>
 			<currency type="BUK">
 				<displayName>burmesiske kyat</displayName>
@@ -4384,7 +4384,7 @@
 			<currency type="BWP">
 				<displayName>botswanske pula</displayName>
 				<displayName count="one">botswansk pula</displayName>
-				<displayName count="other" draft="contributed">botswanske pula</displayName>
+				<displayName count="other">botswanske pula</displayName>
 			</currency>
 			<currency type="BYB">
 				<displayName>hviterussiske nye rubler (1994-1999)</displayName>
@@ -4394,7 +4394,7 @@
 			<currency type="BYR">
 				<displayName>hviterussiske rubler</displayName>
 				<displayName count="one">hviterussisk rubel</displayName>
-				<displayName count="other" draft="contributed">hviterussiske rubler</displayName>
+				<displayName count="other">hviterussiske rubler</displayName>
 			</currency>
 			<currency type="BZD">
 				<displayName>beliziske dollar</displayName>
@@ -4409,7 +4409,7 @@
 			<currency type="CDF">
 				<displayName>kongolesiske franc (congolais)</displayName>
 				<displayName count="one">kongolesisk franc (congolais)</displayName>
-				<displayName count="other" draft="contributed">kongolesiske franc</displayName>
+				<displayName count="other">kongolesiske franc</displayName>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR euro</displayName>
@@ -4431,17 +4431,17 @@
 			<currency type="CLP">
 				<displayName>chilenske pesos</displayName>
 				<displayName count="one">chilensk pesos</displayName>
-				<displayName count="other" draft="contributed">chilenske pesos</displayName>
+				<displayName count="other">chilenske pesos</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>kinesiske yuan</displayName>
-				<displayName count="one">kinesisk yuan renminbi</displayName>
-				<displayName count="other" draft="contributed">kinesiske yuan</displayName>
+				<displayName count="one">kinesisk yuan</displayName>
+				<displayName count="other">kinesiske yuan</displayName>
 			</currency>
 			<currency type="COP">
 				<displayName>colombianske pesos</displayName>
 				<displayName count="one">colombiansk pesos</displayName>
-				<displayName count="other" draft="contributed">colombianske pesos</displayName>
+				<displayName count="other">colombianske pesos</displayName>
 			</currency>
 			<currency type="COU">
 				<displayName>unidad de valor real</displayName>
@@ -4451,7 +4451,7 @@
 			<currency type="CRC">
 				<displayName>costaricanske colón</displayName>
 				<displayName count="one">costaricansk colon</displayName>
-				<displayName count="other" draft="contributed">costaricanske colon</displayName>
+				<displayName count="other">costaricanske colon</displayName>
 			</currency>
 			<currency type="CSD">
 				<displayName>gamle serbiske dinarer</displayName>
@@ -4465,13 +4465,13 @@
 			</currency>
 			<currency type="CUC">
 				<displayName>kubansk konvertibel peso</displayName>
-				<displayName count="one" draft="contributed">kubansk peso (konvertibel)</displayName>
+				<displayName count="one">kubansk peso (konvertibel)</displayName>
 				<displayName count="other">kubanske konvertible peso</displayName>
 			</currency>
 			<currency type="CUP">
 				<displayName>kubanske pesos</displayName>
 				<displayName count="one">kubansk pesos</displayName>
-				<displayName count="other" draft="contributed">kubanske pesos</displayName>
+				<displayName count="other">kubanske pesos</displayName>
 			</currency>
 			<currency type="CVE">
 				<displayName>kappverdiske escudo</displayName>
@@ -4486,7 +4486,7 @@
 			<currency type="CZK">
 				<displayName>tsjekkiske koruna</displayName>
 				<displayName count="one">tsjekkisk koruna</displayName>
-				<displayName count="other" draft="contributed">tsjekkiske kroner</displayName>
+				<displayName count="other">tsjekkiske kroner</displayName>
 			</currency>
 			<currency type="DDM">
 				<displayName>østtyske ostmark</displayName>
@@ -4501,7 +4501,7 @@
 			<currency type="DJF">
 				<displayName>djiboutiske franc</displayName>
 				<displayName count="one">djiboutisk franc</displayName>
-				<displayName count="other" draft="contributed">djiboutiske franc</displayName>
+				<displayName count="other">djiboutiske franc</displayName>
 			</currency>
 			<currency type="DKK">
 				<displayName>danske kroner</displayName>
@@ -4532,17 +4532,17 @@
 			<currency type="EEK">
 				<displayName>estiske kroon</displayName>
 				<displayName count="one">estisk kroon</displayName>
-				<displayName count="other" draft="contributed">estiske kroner</displayName>
+				<displayName count="other">estiske kroner</displayName>
 			</currency>
 			<currency type="EGP">
 				<displayName>egyptiske pund</displayName>
 				<displayName count="one">egyptisk pund</displayName>
-				<displayName count="other" draft="contributed">egyptiske pund</displayName>
+				<displayName count="other">egyptiske pund</displayName>
 			</currency>
 			<currency type="ERN">
 				<displayName>eritreiske nakfa</displayName>
 				<displayName count="one">eritreisk nakfa</displayName>
-				<displayName count="other" draft="contributed">eritreiske nakfa</displayName>
+				<displayName count="other">eritreiske nakfa</displayName>
 			</currency>
 			<currency type="ESA">
 				<displayName>spanske peseta (A-konto)</displayName>
@@ -4562,7 +4562,7 @@
 			<currency type="ETB">
 				<displayName>etiopiske birr</displayName>
 				<displayName count="one">etiopisk birr</displayName>
-				<displayName count="other" draft="contributed">etiopiske birr</displayName>
+				<displayName count="other">etiopiske birr</displayName>
 			</currency>
 			<currency type="EUR">
 				<displayName>euro</displayName>
@@ -4578,7 +4578,7 @@
 			<currency type="FJD">
 				<displayName>fijianske dollar</displayName>
 				<displayName count="one">fijiansk dollar</displayName>
-				<displayName count="other" draft="contributed">fijianske dollar</displayName>
+				<displayName count="other">fijianske dollar</displayName>
 			</currency>
 			<currency type="FKP">
 				<displayName>Falkland-pund</displayName>
@@ -4604,7 +4604,7 @@
 			<currency type="GEL">
 				<displayName>georgiske lari</displayName>
 				<displayName count="one">georgisk lari</displayName>
-				<displayName count="other" draft="contributed">georgiske lari</displayName>
+				<displayName count="other">georgiske lari</displayName>
 			</currency>
 			<currency type="GHC">
 				<displayName>ghanesisk cedi (1979-2007)</displayName>
@@ -4686,22 +4686,22 @@
 			<currency type="HRK">
 				<displayName>kroatiske kuna</displayName>
 				<displayName count="one">kroatisk kuna</displayName>
-				<displayName count="other" draft="contributed">kroatiske kuna</displayName>
+				<displayName count="other">kroatiske kuna</displayName>
 			</currency>
 			<currency type="HTG">
 				<displayName>haitiske gourde</displayName>
 				<displayName count="one">haitisk gourde</displayName>
-				<displayName count="other" draft="contributed">haitiske gourde</displayName>
+				<displayName count="other">haitiske gourde</displayName>
 			</currency>
 			<currency type="HUF">
 				<displayName>ungarske forinter</displayName>
 				<displayName count="one">ungarsk forint</displayName>
-				<displayName count="other" draft="contributed">ungarske forinter</displayName>
+				<displayName count="other">ungarske forinter</displayName>
 			</currency>
 			<currency type="IDR">
 				<displayName>indonesiske rupier</displayName>
 				<displayName count="one">indonesisk rupi</displayName>
-				<displayName count="other" draft="contributed">indonesiske rupier</displayName>
+				<displayName count="other">indonesiske rupier</displayName>
 			</currency>
 			<currency type="IEP">
 				<displayName>irske pund</displayName>
@@ -4721,22 +4721,22 @@
 			<currency type="ILS">
 				<displayName>israelske nye shekler</displayName>
 				<displayName count="one">israelsk ny shekel</displayName>
-				<displayName count="other" draft="contributed">israelske nye shekler</displayName>
+				<displayName count="other">israelske nye shekler</displayName>
 			</currency>
 			<currency type="INR">
 				<displayName>indiske rupier</displayName>
 				<displayName count="one">indisk rupi</displayName>
-				<displayName count="other" draft="contributed">indiske rupier</displayName>
+				<displayName count="other">indiske rupier</displayName>
 			</currency>
 			<currency type="IQD">
 				<displayName>irakske dinarer</displayName>
 				<displayName count="one">iraksk dinar</displayName>
-				<displayName count="other" draft="contributed">irakske dinarer</displayName>
+				<displayName count="other">irakske dinarer</displayName>
 			</currency>
 			<currency type="IRR">
 				<displayName>iranske rialer</displayName>
 				<displayName count="one">iransk rial</displayName>
-				<displayName count="other" draft="contributed">iranske rialer</displayName>
+				<displayName count="other">iranske rialer</displayName>
 			</currency>
 			<currency type="ISJ">
 				<displayName>gammel islandsk krone</displayName>
@@ -4757,82 +4757,82 @@
 			<currency type="JMD">
 				<displayName>jamaikanske dollar</displayName>
 				<displayName count="one">jamaikansk dollar</displayName>
-				<displayName count="other" draft="contributed">jamaikanske dollar</displayName>
+				<displayName count="other">jamaikanske dollar</displayName>
 			</currency>
 			<currency type="JOD">
 				<displayName>jordanske dinarer</displayName>
 				<displayName count="one">jordansk dinar</displayName>
-				<displayName count="other" draft="contributed">jordanske dinarer</displayName>
+				<displayName count="other">jordanske dinarer</displayName>
 			</currency>
 			<currency type="JPY">
 				<displayName>japanske yen</displayName>
 				<displayName count="one">japansk yen</displayName>
-				<displayName count="other" draft="contributed">japanske yen</displayName>
+				<displayName count="other">japanske yen</displayName>
 			</currency>
 			<currency type="KES">
 				<displayName>kenyanske shilling</displayName>
 				<displayName count="one">kenyansk shilling</displayName>
-				<displayName count="other" draft="contributed">kenyanske shilling</displayName>
+				<displayName count="other">kenyanske shilling</displayName>
 			</currency>
 			<currency type="KGS">
 				<displayName>kirgisiske som</displayName>
 				<displayName count="one">kirgisisk som</displayName>
-				<displayName count="other" draft="contributed">kirgisiske som</displayName>
+				<displayName count="other">kirgisiske som</displayName>
 			</currency>
 			<currency type="KHR">
 				<displayName>kambodsjanske riel</displayName>
 				<displayName count="one">kambodsjansk riel</displayName>
-				<displayName count="other" draft="contributed">kambodsjanske riel</displayName>
+				<displayName count="other">kambodsjanske riel</displayName>
 			</currency>
 			<currency type="KMF">
 				<displayName>komoriske franc</displayName>
 				<displayName count="one">komorisk franc</displayName>
-				<displayName count="other" draft="contributed">komoriske franc</displayName>
+				<displayName count="other">komoriske franc</displayName>
 			</currency>
 			<currency type="KPW">
 				<displayName>nordkoreanske won</displayName>
 				<displayName count="one">nordkoreansk won</displayName>
-				<displayName count="other" draft="contributed">nordkoreanske won</displayName>
+				<displayName count="other">nordkoreanske won</displayName>
 			</currency>
 			<currency type="KRW">
 				<displayName>sørkoreanske won</displayName>
 				<displayName count="one">sørkoreansk won</displayName>
-				<displayName count="other" draft="contributed">sørkoreanske won</displayName>
+				<displayName count="other">sørkoreanske won</displayName>
 			</currency>
 			<currency type="KWD">
 				<displayName>kuwaitiske dinarer</displayName>
 				<displayName count="one">kuwaitisk dinar</displayName>
-				<displayName count="other" draft="contributed">kuwaitiske dinarer</displayName>
+				<displayName count="other">kuwaitiske dinarer</displayName>
 			</currency>
 			<currency type="KYD">
 				<displayName>caymanske dollar</displayName>
 				<displayName count="one">caymansk dollar</displayName>
-				<displayName count="other" draft="contributed">caymanske dollar</displayName>
+				<displayName count="other">caymanske dollar</displayName>
 			</currency>
 			<currency type="KZT">
 				<displayName>kasakhstanske tenge</displayName>
 				<displayName count="one">kasakhstansk tenge</displayName>
-				<displayName count="other" draft="contributed">kasakhstanske tenge</displayName>
+				<displayName count="other">kasakhstanske tenge</displayName>
 			</currency>
 			<currency type="LAK">
 				<displayName>laotiske kip</displayName>
 				<displayName count="one">laotisk kip</displayName>
-				<displayName count="other" draft="contributed">laotiske kip</displayName>
+				<displayName count="other">laotiske kip</displayName>
 			</currency>
 			<currency type="LBP">
 				<displayName>libanesiske pund</displayName>
 				<displayName count="one">libanesisk pund</displayName>
-				<displayName count="other" draft="contributed">libanesiske pund</displayName>
+				<displayName count="other">libanesiske pund</displayName>
 			</currency>
 			<currency type="LKR">
 				<displayName>srilankiske rupier</displayName>
 				<displayName count="one">srilankisk rupi</displayName>
-				<displayName count="other" draft="contributed">srilankiske rupier</displayName>
+				<displayName count="other">srilankiske rupier</displayName>
 			</currency>
 			<currency type="LRD">
 				<displayName>liberiske dollar</displayName>
 				<displayName count="one">liberisk dollar</displayName>
-				<displayName count="other" draft="contributed">liberiske dollar</displayName>
+				<displayName count="other">liberiske dollar</displayName>
 			</currency>
 			<currency type="LSL">
 				<displayName>lesothiske loti</displayName>
@@ -4879,12 +4879,12 @@
 			<currency type="LYD">
 				<displayName>libyske dinarer</displayName>
 				<displayName count="one">libysk dinar</displayName>
-				<displayName count="other" draft="contributed">libyske dinarer</displayName>
+				<displayName count="other">libyske dinarer</displayName>
 			</currency>
 			<currency type="MAD">
 				<displayName>marokkanske dirham</displayName>
 				<displayName count="one">marokkansk dirham</displayName>
-				<displayName count="other" draft="contributed">marokkanske dirham</displayName>
+				<displayName count="other">marokkanske dirham</displayName>
 			</currency>
 			<currency type="MAF">
 				<displayName>marokkanske franc</displayName>
@@ -4894,12 +4894,12 @@
 			<currency type="MDL">
 				<displayName>moldovske leu</displayName>
 				<displayName count="one">moldovsk leu</displayName>
-				<displayName count="other" draft="contributed">moldovske leu</displayName>
+				<displayName count="other">moldovske leu</displayName>
 			</currency>
 			<currency type="MGA">
 				<displayName>madagassiske ariary</displayName>
 				<displayName count="one">madagassisk ariary</displayName>
-				<displayName count="other" draft="contributed">madagassiske ariary</displayName>
+				<displayName count="other">madagassiske ariary</displayName>
 			</currency>
 			<currency type="MGF">
 				<displayName>madagassiske franc</displayName>
@@ -4909,7 +4909,7 @@
 			<currency type="MKD">
 				<displayName>makedonske denarer</displayName>
 				<displayName count="one">makedonsk denar</displayName>
-				<displayName count="other" draft="contributed">makedonske denarer</displayName>
+				<displayName count="other">makedonske denarer</displayName>
 			</currency>
 			<currency type="MLF">
 				<displayName>maliske franc</displayName>
@@ -4919,22 +4919,22 @@
 			<currency type="MMK">
 				<displayName>myanmarske kyat</displayName>
 				<displayName count="one">myanmarsk kyat</displayName>
-				<displayName count="other" draft="contributed">myanmarske kyat</displayName>
+				<displayName count="other">myanmarske kyat</displayName>
 			</currency>
 			<currency type="MNT">
 				<displayName>mongolske tugrik</displayName>
 				<displayName count="one">mongolsk tugrik</displayName>
-				<displayName count="other" draft="contributed">mongolske tugrik</displayName>
+				<displayName count="other">mongolske tugrik</displayName>
 			</currency>
 			<currency type="MOP">
 				<displayName>makaoske pataca</displayName>
 				<displayName count="one">makaosk pataca</displayName>
-				<displayName count="other" draft="contributed">makaoske pataca</displayName>
+				<displayName count="other">makaoske pataca</displayName>
 			</currency>
 			<currency type="MRO">
 				<displayName>mauritanske ouguiya</displayName>
 				<displayName count="one">mauritansk ouguiya</displayName>
-				<displayName count="other" draft="contributed">mauritanske ouguiya</displayName>
+				<displayName count="other">mauritanske ouguiya</displayName>
 			</currency>
 			<currency type="MTL">
 				<displayName>maltesiske lira</displayName>
@@ -4949,17 +4949,17 @@
 			<currency type="MUR">
 				<displayName>mauritiske rupier</displayName>
 				<displayName count="one">mauritisk rupi</displayName>
-				<displayName count="other" draft="contributed">mauritiske rupier</displayName>
+				<displayName count="other">mauritiske rupier</displayName>
 			</currency>
 			<currency type="MVR">
 				<displayName>maldiviske rufiyaa</displayName>
 				<displayName count="one">maldivisk rufiyaa</displayName>
-				<displayName count="other" draft="contributed">maldiviske rufiyaa</displayName>
+				<displayName count="other">maldiviske rufiyaa</displayName>
 			</currency>
 			<currency type="MWK">
 				<displayName>malawiske kwacha</displayName>
 				<displayName count="one">malawisk kwacha</displayName>
-				<displayName count="other" draft="contributed">malawiske kwacha</displayName>
+				<displayName count="other">malawiske kwacha</displayName>
 			</currency>
 			<currency type="MXN">
 				<displayName>meksikanske pesos</displayName>
@@ -5000,17 +5000,17 @@
 			<currency type="NAD">
 				<displayName>namibiske dollar</displayName>
 				<displayName count="one">namibisk dollar</displayName>
-				<displayName count="other" draft="contributed">namibiske dollar</displayName>
+				<displayName count="other">namibiske dollar</displayName>
 			</currency>
 			<currency type="NGN">
 				<displayName>nigerianske naira</displayName>
 				<displayName count="one">nigeriansk naira</displayName>
-				<displayName count="other" draft="contributed">nigerianske naira</displayName>
+				<displayName count="other">nigerianske naira</displayName>
 			</currency>
 			<currency type="NIC">
 				<displayName>nicaraguanske cordoba (1988–1991)</displayName>
-				<displayName count="one">nicaraguansk cordoba</displayName>
-				<displayName count="other" draft="contributed">nicaraguanske cordoba (1988–1991)</displayName>
+				<displayName count="one">nicaraguansk cordoba (1988-1991)</displayName>
+				<displayName count="other">nicaraguanske cordoba (1988–1991)</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName>nicaraguanske córdoba</displayName>
@@ -5067,7 +5067,7 @@
 			<currency type="PGK">
 				<displayName>papuanske kina</displayName>
 				<displayName count="one">papuansk kina</displayName>
-				<displayName count="other" draft="contributed">papuanske kina</displayName>
+				<displayName count="other">papuanske kina</displayName>
 			</currency>
 			<currency type="PHP">
 				<displayName>filippinske pesos</displayName>
@@ -5128,7 +5128,7 @@
 			<currency type="RUB">
 				<displayName>russiske rubler</displayName>
 				<displayName count="one">russisk rubel</displayName>
-				<displayName count="other" draft="contributed">russiske rubler</displayName>
+				<displayName count="other">russiske rubler</displayName>
 			</currency>
 			<currency type="RUR">
 				<displayName>russiske rubler (1991-1998)</displayName>
@@ -5148,7 +5148,7 @@
 			<currency type="SBD">
 				<displayName>salomonske dollar</displayName>
 				<displayName count="one">salomonsk dollar</displayName>
-				<displayName count="other" draft="contributed">salomonske dollar</displayName>
+				<displayName count="other">salomonske dollar</displayName>
 			</currency>
 			<currency type="SCR">
 				<displayName>seychelliske rupier</displayName>
@@ -5163,7 +5163,7 @@
 			<currency type="SDG">
 				<displayName>sudanske pund</displayName>
 				<displayName count="one">sudansk pund</displayName>
-				<displayName count="other" draft="contributed">sudanske pund</displayName>
+				<displayName count="other">sudanske pund</displayName>
 			</currency>
 			<currency type="SDP">
 				<displayName>sudanesiske pund</displayName>
@@ -5209,7 +5209,7 @@
 			<currency type="SRD">
 				<displayName>surinamske dollar</displayName>
 				<displayName count="one">surinamsk dollar</displayName>
-				<displayName count="other" draft="contributed">surinamske dollar</displayName>
+				<displayName count="other">surinamske dollar</displayName>
 			</currency>
 			<currency type="SRG">
 				<displayName>surinamske gylden</displayName>
@@ -5240,7 +5240,7 @@
 			<currency type="SYP">
 				<displayName>syriske pund</displayName>
 				<displayName count="one">syrisk pund</displayName>
-				<displayName count="other" draft="contributed">syriske pund</displayName>
+				<displayName count="other">syriske pund</displayName>
 			</currency>
 			<currency type="SZL">
 				<displayName>swazilandske lilangeni</displayName>
@@ -5250,7 +5250,7 @@
 			<currency type="THB">
 				<displayName>thailandske baht</displayName>
 				<displayName count="one">thailandsk baht</displayName>
-				<displayName count="other" draft="contributed">thailandske baht</displayName>
+				<displayName count="other">thailandske baht</displayName>
 			</currency>
 			<currency type="TJR">
 				<displayName>tadsjikiske rubler</displayName>
@@ -5260,7 +5260,7 @@
 			<currency type="TJS">
 				<displayName>tadsjikiske somoni</displayName>
 				<displayName count="one">tadsjikisk somoni</displayName>
-				<displayName count="other" draft="contributed">tadsjikiske somoni</displayName>
+				<displayName count="other">tadsjikiske somoni</displayName>
 			</currency>
 			<currency type="TMM">
 				<displayName>turkmenske manat</displayName>
@@ -5275,13 +5275,13 @@
 			<currency type="TND">
 				<displayName>tunisiske dinarer</displayName>
 				<displayName count="one">tunisisk dinar</displayName>
-				<displayName count="other" draft="contributed">tunisiske dinarer</displayName>
+				<displayName count="other">tunisiske dinarer</displayName>
 				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>tonganske paʻanga</displayName>
 				<displayName count="one">tongansk paʻanga</displayName>
-				<displayName count="other" draft="contributed">tonganske paʻanga</displayName>
+				<displayName count="other">tonganske paʻanga</displayName>
 			</currency>
 			<currency type="TPE">
 				<displayName>timoresiske escudo</displayName>
@@ -5301,12 +5301,12 @@
 			<currency type="TTD">
 				<displayName>trinidadiske dollar</displayName>
 				<displayName count="one">trinidadisk dollar</displayName>
-				<displayName count="other" draft="contributed">trinidadiske dollar</displayName>
+				<displayName count="other">trinidadiske dollar</displayName>
 			</currency>
 			<currency type="TWD">
 				<displayName>taiwanske nye dollar</displayName>
 				<displayName count="one">taiwansk ny dollar</displayName>
-				<displayName count="other" draft="contributed">taiwanske nye dollar</displayName>
+				<displayName count="other">taiwanske nye dollar</displayName>
 			</currency>
 			<currency type="TZS">
 				<displayName>tanzanianske shilling</displayName>
@@ -5316,7 +5316,7 @@
 			<currency type="UAH">
 				<displayName>ukrainske hryvnia</displayName>
 				<displayName count="one">ukrainsk hryvnia</displayName>
-				<displayName count="other" draft="contributed">ukrainske hryvnia</displayName>
+				<displayName count="other">ukrainske hryvnia</displayName>
 			</currency>
 			<currency type="UAK">
 				<displayName>ukrainske karbovanetz</displayName>
@@ -5491,7 +5491,7 @@
 			<currency type="YER">
 				<displayName>jemenittiske rialer</displayName>
 				<displayName count="one">jemenittisk rial</displayName>
-				<displayName count="other" draft="contributed">jemenittiske rialer</displayName>
+				<displayName count="other">jemenittiske rialer</displayName>
 			</currency>
 			<currency type="YUD">
 				<displayName>jugoslaviske dinarer (hard)</displayName>
@@ -5522,7 +5522,7 @@
 			<currency type="ZMK">
 				<displayName>zambiske kwacha</displayName>
 				<displayName count="one">zambisk kwacha</displayName>
-				<displayName count="other" draft="contributed">zambiske kwacha</displayName>
+				<displayName count="other">zambiske kwacha</displayName>
 			</currency>
 			<currency type="ZRN">
 				<displayName>zairiske nye zaire</displayName>

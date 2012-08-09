@@ -138,7 +138,7 @@ public class CheckWidths extends CheckCLDR {
 
         // Narrow items
 
-        .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod)", new Limit[] {
+        .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)", new Limit[] {
             new Limit(1.5 * EM, 2.25 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
             })
         // \"(?!am|pm)[^\"]+\"\\

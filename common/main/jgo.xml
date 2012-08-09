@@ -122,14 +122,6 @@
 		<exemplarCharacters type="auxiliary">[e o q r x]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D Ɛ F G H I J K L M N Ŋ Ɔ  P {Pf} S {Sh} T {Ts} U Ʉ {Ʉ̈} V W Ẅ Y Z Ꞌ]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[, . : ; ? ! ‹ › « » -]</exemplarCharacters>
-		<!-- <plurals>
-			 <pluralRule count="one">n is 1</pluralRule>
-			 </plurals>
-			 <regionInfo>
-			 <region type="default">Cameroon</region>
-			 <region type="other">(none)</region>
-			 </regionInfo>
-		-->
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
@@ -382,11 +374,7 @@
 				</dateTimeFormats>
 				<fields>
 					<field type="day">
-						<relative type="-2">ɑ́ptɑ zɔ́n</relative>
-						<relative type="-1">zɔ́n</relative>
 						<relative type="0">lɔꞋɔ</relative>
-						<relative type="1">zɔ́n</relative>
-						<relative type="2">ɑ́ptɑ zɔ́n</relative>
 					</field>
 				</fields>
 			</calendar>
@@ -466,54 +454,71 @@
 	</numbers>
 	<units>
 		<unit type="day">
+			<unitPattern count="one">{0} lɛ́Ꞌ</unitPattern>
 			<unitPattern count="other">{0} lɛ́Ꞌ</unitPattern>
 		</unit>
 		<unit type="day-future">
+			<unitPattern count="one">Nǔu lɛ́Ꞌ {0}</unitPattern>
 			<unitPattern count="other">Nǔu lɛ́Ꞌ {0}</unitPattern>
 		</unit>
 		<unit type="day-past">
+			<unitPattern count="one">Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}</unitPattern>
 			<unitPattern count="other">Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}</unitPattern>
 		</unit>
 		<unit type="hour">
+			<unitPattern count="one">{0} háwa</unitPattern>
 			<unitPattern count="other">{0} háwa</unitPattern>
 		</unit>
 		<unit type="hour-future">
+			<unitPattern count="one">nǔu háwa {0}</unitPattern>
 			<unitPattern count="other">nǔu háwa {0}</unitPattern>
 		</unit>
 		<unit type="hour-past">
+			<unitPattern count="one">ɛ́ gɛ mɔ́ {0} háwa</unitPattern>
 			<unitPattern count="other">ɛ́ gɛ mɔ́ {0} háwa</unitPattern>
 		</unit>
 		<unit type="minute">
+			<unitPattern count="one">{0} minút</unitPattern>
 			<unitPattern count="other">{0} minút</unitPattern>
 		</unit>
 		<unit type="minute-future">
+			<unitPattern count="one">nǔu {0} minút</unitPattern>
 			<unitPattern count="other">nǔu {0} minút</unitPattern>
 		</unit>
 		<unit type="minute-past">
+			<unitPattern count="one">ɛ́ gɛ́ mɔ́ minút {0}</unitPattern>
 			<unitPattern count="other">ɛ́ gɛ́ mɔ́ minút {0}</unitPattern>
 		</unit>
 		<unit type="month">
+			<unitPattern count="one">pɛsaŋ {0}</unitPattern>
 			<unitPattern count="other">pɛsaŋ {0}</unitPattern>
 		</unit>
 		<unit type="month-future">
+			<unitPattern count="one">Nǔu {0} saŋ</unitPattern>
 			<unitPattern count="other">Nǔu {0} saŋ</unitPattern>
 		</unit>
 		<unit type="month-past">
+			<unitPattern count="one">ɛ́ gɛ́ mɔ́ pɛsaŋ {0}</unitPattern>
 			<unitPattern count="other">ɛ́ gɛ́ mɔ́ pɛsaŋ {0}</unitPattern>
 		</unit>
 		<unit type="week-future">
+			<unitPattern count="one">Nǔu ŋgap-mbi {0}</unitPattern>
 			<unitPattern count="other">Nǔu ŋgap-mbi {0}</unitPattern>
 		</unit>
 		<unit type="week-past">
+			<unitPattern count="one">Ɛ́ gɛ́ mɔ {0} ŋgap-mbi</unitPattern>
 			<unitPattern count="other">Ɛ́ gɛ́ mɔ {0} ŋgap-mbi</unitPattern>
 		</unit>
 		<unit type="year">
+			<unitPattern count="one">ŋguꞋ {0}</unitPattern>
 			<unitPattern count="other">ŋguꞋ {0}</unitPattern>
 		</unit>
 		<unit type="year-future">
+			<unitPattern count="one">Nǔu ŋguꞋ {0}</unitPattern>
 			<unitPattern count="other">Nǔu ŋguꞋ {0}</unitPattern>
 		</unit>
 		<unit type="year-past">
+			<unitPattern count="one">Ɛ́gɛ́ mɔ́ ŋguꞋ {0}</unitPattern>
 			<unitPattern count="other">Ɛ́gɛ́ mɔ́ ŋguꞋ {0}</unitPattern>
 		</unit>
 	</units>

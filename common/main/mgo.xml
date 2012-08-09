@@ -37,14 +37,6 @@
 		<exemplarCharacters type="auxiliary">[c h l q v x]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B CH D E Ə F G GH I J K M N Ŋ O Ɔ  P R S T U W Y Z ʼ]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[, ; \: ! ? . ' ‘ ’ &quot; “ ”]</exemplarCharacters>
-		<!-- <plurals>
-			 <pluralRule count="one">n is 1</pluralRule>
-			 </plurals>
-			 <regionInfo>
-			 <region type="default">Cameroon</region>
-			 <region type="other">none</region>
-			 </regionInfo>
-		-->
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -421,48 +413,63 @@
 	</numbers>
 	<units>
 		<unit type="day">
+			<unitPattern count="one">{0} d</unitPattern>
 			<unitPattern count="other">{0} d</unitPattern>
 		</unit>
 		<unit type="day-future">
+			<unitPattern count="one">+{0} d</unitPattern>
 			<unitPattern count="other">+{0} d</unitPattern>
 		</unit>
 		<unit type="day-past">
+			<unitPattern count="one">-{0} d</unitPattern>
 			<unitPattern count="other">-{0} d</unitPattern>
 		</unit>
 		<unit type="hour">
+			<unitPattern count="one">{0} h</unitPattern>
 			<unitPattern count="other">{0} h</unitPattern>
 		</unit>
 		<unit type="hour-future">
+			<unitPattern count="one">+{0} h</unitPattern>
 			<unitPattern count="other">+{0} h</unitPattern>
 		</unit>
 		<unit type="hour-past">
+			<unitPattern count="one">-{0} h</unitPattern>
 			<unitPattern count="other">-{0} h</unitPattern>
 		</unit>
 		<unit type="minute">
+			<unitPattern count="one">{0} min</unitPattern>
 			<unitPattern count="other">{0} min</unitPattern>
 		</unit>
 		<unit type="minute-future">
+			<unitPattern count="one">+{0} min</unitPattern>
 			<unitPattern count="other">+{0} min</unitPattern>
 		</unit>
 		<unit type="minute-past">
+			<unitPattern count="one">-{0} min</unitPattern>
 			<unitPattern count="other">-{0} min</unitPattern>
 		</unit>
 		<unit type="month">
+			<unitPattern count="one">{0} m</unitPattern>
 			<unitPattern count="other">{0} m</unitPattern>
 		</unit>
 		<unit type="month-future">
+			<unitPattern count="one">+{0} m</unitPattern>
 			<unitPattern count="other">+{0} m</unitPattern>
 		</unit>
 		<unit type="month-past">
+			<unitPattern count="one">-{0} m</unitPattern>
 			<unitPattern count="other">-{0} m</unitPattern>
 		</unit>
 		<unit type="second">
+			<unitPattern count="one">{0} s</unitPattern>
 			<unitPattern count="other">{0} s</unitPattern>
 		</unit>
 		<unit type="second-future">
+			<unitPattern count="one">+{0} s</unitPattern>
 			<unitPattern count="other">+{0} s</unitPattern>
 		</unit>
 		<unit type="second-past">
+			<unitPattern count="one">-{0} s</unitPattern>
 			<unitPattern count="other">-{0} s</unitPattern>
 		</unit>
 	</units>

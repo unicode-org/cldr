@@ -330,6 +330,12 @@ public class ConsoleCheckCLDR {
                 continue;
             }
 
+            // We don't really need to check the POSIX locale, as it is a special purpose locale
+            if (localeID.indexOf("POSIX") >= 0) {
+                System.out.println("# Skipping POSIX locale: " + localeID);
+                continue;
+            }
+
             boolean isLanguageLocale = localeID.equals(localeIDParser.set(localeID).getLanguageScript());
             options.clear();
 

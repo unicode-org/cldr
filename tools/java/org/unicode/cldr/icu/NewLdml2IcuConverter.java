@@ -211,6 +211,9 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         if (type == Type.plurals) {
             PluralsMapper mapper = new PluralsMapper(sourceDir);
             icuData = mapper.fillFromCldr();
+        } else if (type == Type.dayPeriods) {
+            DayPeriodsMapper mapper = new DayPeriodsMapper(sourceDir);
+            icuData = mapper.fillFromCldr();
         } else {
             SupplementalMapper mapper = new SupplementalMapper(sourceDir, cldrVersion);
             icuData = mapper.fillFromCldr(type.toString());

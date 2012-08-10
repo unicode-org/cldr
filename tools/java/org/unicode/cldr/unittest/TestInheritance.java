@@ -16,16 +16,19 @@ import org.unicode.cldr.tool.GenerateMaximalLocales;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.test.util.UnicodeTransform.Type;
 
 public class TestInheritance extends TestFmwk {
 
@@ -93,10 +96,10 @@ public class TestInheritance extends TestFmwk {
             String defaultContent = parent2default.get(base);
             Set<String> likely = base2likely.get(base);
             if (likely == null) {
-                errln("Missing likely subtags for: " + base);
+                errln("Missing likely subtags for: " + base + "  " + suggestLikelySubtagFor(base));
             }
             if (defaultContent == null) {
-                errln("Missing default content for: " + base);
+                errln("Missing default content for: " + base + "  " + suggestLikelySubtagFor(base));
                 continue;
             }
             Set<String> scripts = base2scripts.get(base);
@@ -131,6 +134,46 @@ public class TestInheritance extends TestFmwk {
         }
         // make sure that each locale has a base in available
         // TODO
+    }
+
+    /**
+     * Suggest a likely subtag
+     * @param base
+     * @return
+     */
+    static String suggestLikelySubtagFor(String base) {
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+        
+        CLDRLocale loc = CLDRLocale.getInstance(base);
+        
+        if(!loc.getLanguage().equals(base)) {
+            return " (no suggestion- not a simple language locale)"; // no suggestion unless just a language locale.
+        }
+        Set<BasicLanguageData> basicData = sdi.getBasicLanguageData(base);
+        
+        for(BasicLanguageData bld : basicData) {
+            if(bld.getType()==org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type.primary) {
+                Set<String> scripts = bld.getScripts();
+                Set<String> territories = bld.getTerritories();
+                
+                if(scripts.size()==1) {
+                    if(territories.size()==1) {
+                        return createSuggestion(loc, CLDRLocale.getInstance(base+"_"+scripts.iterator().next()+"_"+territories.iterator().next()));
+                    }
+                }
+                return "(no suggestion - multiple scripts or territories)";
+            }
+        }
+        return("(no suggestion- no data)");
+    }
+
+    /**
+     * Format and return a suggested likelysubtag
+     */
+    private static String createSuggestion(CLDRLocale loc, CLDRLocale toLoc) {
+        return " Suggest this to likelySubtags.xml:        <likelySubtag from=\""+loc+"\" to=\""+toLoc+"\"/>\n" + 
+                   "        <!--{ "+loc.getDisplayName()+"; ?; ? } => { "+loc.getDisplayName()+"; "+toLoc.toULocale().getDisplayScript()+"; "+toLoc.toULocale().getDisplayCountry()+" }-->";
+
     }
 
     public void TestLanguageTagCanonicalizer() {
@@ -258,7 +301,7 @@ public class TestInheritance extends TestFmwk {
 
             String maximized = maximize(likelySubtags, canonicalizedLocale);
             if (maximized == null) {
-                errln("Missing likely subtags for:\t" + locale);
+                errln("Missing likely subtags for:\t" + locale + "  " + suggestLikelySubtagFor(locale));
                 continue;
             }
             String maximizedScript = ltp.set(maximized).getScript();

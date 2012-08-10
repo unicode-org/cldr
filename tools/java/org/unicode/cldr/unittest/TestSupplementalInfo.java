@@ -63,7 +63,7 @@ public class TestSupplementalInfo extends TestFmwk {
                     }
                     Map<String, String> data = codeData.getValue();
                     if (data.containsKey("Deprecated")) {
-                        errln("Missing deprecated code:\t" + code + "\t" + data);
+                        errln("supplementalMetadata.xml: alias is missing <languageAlias type=\""+code+"\" ... /> " + "\t" + data);
                     }
                 }
             }

@@ -1056,6 +1056,10 @@ public class Misc {
 			corrections.put(COUNTRY_CORRECTIONS[i], COUNTRY_CORRECTIONS[i+1]);
 		}
 	}
+	
+	public static final Map<String,String> getCorrections() {
+	    return corrections;
+	}
 
 	//static PrintWriter log;
 	

@@ -10,10 +10,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.Misc;
+
 import com.ibm.icu.dev.test.util.Relation;
 
 public class IsoCurrencyParser {
-  static Map<String,String> iso4217CountryToCountryCode = new TreeMap();
+  private static final String CURRENCYCODESLIST_TXT = "currencycodeslist.txt";
+static Map<String,String> iso4217CountryToCountryCode = new TreeMap();
   static Set<String> exceptionList = new LinkedHashSet<String>();
   static {
     StandardCodes sc = StandardCodes.make();
@@ -21,8 +24,13 @@ public class IsoCurrencyParser {
     for (String country : countries) {
       String name = sc.getData("territory", country);
       iso4217CountryToCountryCode.put(name.toUpperCase(Locale.ENGLISH), country);
+      String exception = Misc.getCorrections().get(name); // we already have a list of exceptions - use it.
+      if(exception!=null) {
+          iso4217CountryToCountryCode.put(exception.toUpperCase(Locale.ENGLISH), country);
+          //System.err.println("Put " + exception + " / " + exception.toUpperCase(Locale.ENGLISH) + " = " + country);
+      }
     }
-    // add bogus names
+    // add bogus names which are used in currencycodeslist.txt, but aren't in lstreg.txt under territories.
     String[][] extras = {
         {"BOSNIA & HERZEGOVINA", "BA"},
         {"CONGO, THE DEMOCRATIC REPUBLIC OF", "CD"},
@@ -42,6 +50,7 @@ public class IsoCurrencyParser {
         {"VIRGIN ISLANDS (U.S.)", "VI"},
         {"MOLDOVA, REPUBLIC OF", "MD"},
         {"SAINT-BARTHÉLEMY", "EU"},
+        {"SAINT MARTIN", "MF"}, // not in lstreg.txt, in language-subtag-registry as "Saint Martin (French Part)"
         {"ZZ", "ZZ"},
         {"IRAN, ISLAMIC REPUBLIC OF", "IR"},
         {"KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF", "KP"},
@@ -78,7 +87,7 @@ public class IsoCurrencyParser {
       }
       String name = iso4217CountryToCountryCode.get(iso4217Country);
       if (name != null) return name;
-      exceptionList.add(String.format("\t\t{\"%s\", \"XXX\"}, // fix XXX and add to extras" + CldrUtility.LINE_SEPARATOR, iso4217Country));
+      exceptionList.add(String.format("\t\t{\"%s\", \"XXX\"}, // fix XXX and add to extras in " + StackTracker.currentElement(0).getFileName()  + CldrUtility.LINE_SEPARATOR, iso4217Country));
       return "???" + iso4217Country;
     }
 
@@ -159,7 +168,7 @@ public class IsoCurrencyParser {
     String lastCountry = "";
     String line;
     String version = null;
-    BufferedReader in = CldrUtility.getUTF8Data("currencycodeslist.txt");
+    BufferedReader in = CldrUtility.getUTF8Data(CURRENCYCODESLIST_TXT);
     while (true) {
       line = in.readLine();
       if (line == null) break;

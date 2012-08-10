@@ -2202,13 +2202,6 @@
 					<pattern>#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
-		</decimalFormats>
-		<decimalFormats numberSystem="tibt">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="other">སྟོང་ཕྲག 0</pattern>
@@ -2233,21 +2226,7 @@
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
-		<scientificFormats numberSystem="tibt">
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>#E+00</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<percentFormats numberSystem="latn">
-			<percentFormatLength>
-				<percentFormat>
-					<pattern>#,##,##0 %</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
-		<percentFormats numberSystem="tibt">
 			<percentFormatLength>
 				<percentFormat>
 					<pattern>#,##,##0 %</pattern>
@@ -2261,13 +2240,6 @@
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
-		</currencyFormats>
-		<currencyFormats numberSystem="tibt">
-			<currencyFormatLength>
-				<currencyFormat>
-					<pattern>¤#,##,##0.00</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">

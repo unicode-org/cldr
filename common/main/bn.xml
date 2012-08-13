@@ -385,11 +385,11 @@
 			<language type="pt">পর্তুগীজ</language>
 			<language type="pt_BR">ব্রাজিলীয় পর্তুগীজ</language>
 			<language type="pt_PT">আইবেরিয়ান পর্তুগিজ</language>
-			<language type="qu">কেচুয়া</language>
+			<language type="qu">কুয়েচা</language>
 			<language type="raj">রাজস্থানী</language>
 			<language type="rap">রাপানুই</language>
 			<language type="rar">রারোটোংগান</language>
-			<language type="rm">রেটো-রোমানীয়</language>
+			<language type="rm">রোমান্স</language>
 			<language type="rn">রুন্দি</language>
 			<language type="ro">রোমানীয়</language>
 			<language type="roa">রোমান ভাষা</language>
@@ -538,7 +538,7 @@
 			<script type="Blis">ব্লিসপ্রতীক</script>
 			<script type="Bopo">বোপোমোফো</script>
 			<script type="Brah">ব্রাহ্মী</script>
-			<script type="Brai" draft="contributed">ব্রাইলে</script>
+			<script type="Brai">ব্রেইল</script>
 			<script type="Bugi" draft="contributed">বুগি</script>
 			<script type="Buhd">বুহিড</script>
 			<script type="Cakm">চাকমা</script>
@@ -738,7 +738,7 @@
 			<territory type="CF">মধ্য আফ্রিকান প্রজাতন্ত্র</territory>
 			<territory type="CG">কঙ্গো</territory>
 			<territory type="CG" alt="variant" draft="contributed">কঙ্গো [প্রজাতন্ত্র]</territory>
-			<territory type="CH">সুইজর্লণ্ড</territory>
+			<territory type="CH">সুইজারল্যান্ড</territory>
 			<territory type="CI">আইভরি কোস্ট</territory>
 			<territory type="CI" alt="variant" draft="contributed">আভরি কোস্ট</territory>
 			<territory type="CK">কুক দ্বীপপুঞ্জ</territory>
@@ -770,7 +770,7 @@
 			<territory type="ES">স্পেন</territory>
 			<territory type="ET">ইফিওপিয়া</territory>
 			<territory type="EU">ইউরোপীয় ইউনিয়ন</territory>
-			<territory type="FI">ফিন্ল্যাণ্ড</territory>
+			<territory type="FI">ফিনল্যান্ড</territory>
 			<territory type="FJ">ফিজি</territory>
 			<territory type="FK">ফকল্যান্ড দ্বীপপুঞ্জ</territory>
 			<territory type="FK" alt="variant" draft="contributed">ফকল্যান্ড আইল্যান্ড [ ইসল্যাস মাসভেনিস]</territory>
@@ -778,7 +778,7 @@
 			<territory type="FO">ফ্যারও দ্বীপপুঞ্জ</territory>
 			<territory type="FR">ফ্রান্স</territory>
 			<territory type="GA">গ্যাবন</territory>
-			<territory type="GB">গ্রেটবৃটেন</territory>
+			<territory type="GB">যুক্তরাজ্য</territory>
 			<territory type="GD" draft="contributed">গ্রেনাডা</territory>
 			<territory type="GE">জর্জিয়া</territory>
 			<territory type="GF">ফরাসী গায়ানা</territory>
@@ -807,7 +807,7 @@
 			<territory type="ID">ইন্দোনেশিয়া</territory>
 			<territory type="IE">আয়ার্লণ্ড</territory>
 			<territory type="IL">ইস্রায়েল</territory>
-			<territory type="IM" draft="contributed">ম্যানদ্বীপ</territory>
+			<territory type="IM">আইল অফ ম্যান</territory>
 			<territory type="IN">ভারত</territory>
 			<territory type="IO">ব্রিটিশ ভারত মহাসাগরীয় অঞ্চল</territory>
 			<territory type="IQ">ইরাক</territory>
@@ -871,7 +871,7 @@
 			<territory type="NF">নিরফোক দ্বীপ</territory>
 			<territory type="NG">নাইজেরিয়া</territory>
 			<territory type="NI">নিকারাগুয়া</territory>
-			<territory type="NL">হলণ্ড</territory>
+			<territory type="NL">নেদারল্যান্ডস</territory>
 			<territory type="NO">নরওয়ে</territory>
 			<territory type="NP">নেপাল</territory>
 			<territory type="NR">নাউরু</territory>
@@ -1053,7 +1053,8 @@
 			<type type="secondary" key="colStrength" draft="contributed">স্বরাঘাত বাছাই করুন</type>
 			<type type="shifted" key="colAlternate" draft="contributed">উপেক্ষা প্রতীক বাছাই করুন</type>
 			<type type="stroke" key="collation" draft="contributed">আবর্তিত সজ্জাক্রম</type>
-			<type type="taml" key="numbers" draft="contributed">তামিল সংখ্যা</type>
+			<type type="taml" key="numbers" draft="contributed">ঐতিহ্যবাহী তামিল সংখ্যা</type>
+			<type type="tamldec" key="numbers" draft="contributed">তামিল সংখ্যা</type>
 			<type type="telu" key="numbers" draft="contributed">তেলুগু সংখ্যা</type>
 			<type type="tertiary" key="colStrength" draft="contributed">স্বরাঘাত/কেস/প্রস্থ বাছাই করুন</type>
 			<type type="thai" key="numbers" draft="contributed">থাই সংখ্যা</type>
@@ -2927,9 +2928,9 @@
 			</metazone>
 			<metazone type="Alaska">
 				<long>
-					<generic draft="contributed">আলাস্কার সময়</generic>
-					<standard draft="contributed">অ্যালাসকা মানক সময়</standard>
-					<daylight draft="contributed">আলাসকা দিবালোক সময়</daylight>
+					<generic draft="contributed">আলাস্কা সময়</generic>
+					<standard draft="contributed">আলাস্কা মানক সময়</standard>
+					<daylight draft="contributed">আলাস্কা দিবালোক সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Alaska_Hawaii">
@@ -4251,7 +4252,7 @@
 				<displayName>বেলিজ ডলার</displayName>
 			</currency>
 			<currency type="CAD">
-				<displayName>কম্বোডিয়ান ডলার</displayName>
+				<displayName>কানাডিয়ান ডলার</displayName>
 			</currency>
 			<currency type="CDF">
 				<displayName>কঙ্গো ফ্র্যাঙ্ক কঙ্গোলাইস</displayName>

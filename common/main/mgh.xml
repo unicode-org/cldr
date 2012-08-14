@@ -282,8 +282,14 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<am>wichishu</am>
-				<pm>mchochil'l</pm>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">wichishu</dayPeriod>
+							<dayPeriod type="pm">mchochil'l</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">Hinapiya yesu</era>
@@ -417,3 +423,4 @@
 		</messages>
 	</posix>
 </ldml>
+

@@ -273,7 +273,7 @@
 			<language type="kk">kazaština</language>
 			<language type="kkj">kako</language>
 			<language type="kl">grónština</language>
-			<language type="km">kambodžština</language>
+			<language type="km">khmérština</language>
 			<language type="kmb">kimbundština</language>
 			<language type="kn">kannadština</language>
 			<language type="ko">korejština</language>
@@ -534,7 +534,6 @@
 			<language type="tzm" draft="contributed">tamazight (Střední Maroko)</language>
 			<language type="udm">udmurtština</language>
 			<language type="ug">ujgurština</language>
-			<language type="ug" alt="variant">uighurština</language>
 			<language type="uga">ugaritština</language>
 			<language type="uk">ukrajinština</language>
 			<language type="umb" draft="provisional">umbundu</language>
@@ -2632,7 +2631,7 @@
 				<exemplarCity>Ulánbátar</exemplarCity>
 			</zone>
 			<zone type="Asia/Choibalsan">
-				<exemplarCity draft="contributed">Choibalsan</exemplarCity>
+				<exemplarCity>Čojbalsan</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="contributed">Macao</exemplarCity>
@@ -2644,7 +2643,7 @@
 				<exemplarCity>Martinik</exemplarCity>
 			</zone>
 			<zone type="Africa/Nouakchott">
-				<exemplarCity draft="contributed">Nouakchott</exemplarCity>
+				<exemplarCity>Nuakšott</exemplarCity>
 			</zone>
 			<zone type="America/Montserrat">
 				<exemplarCity draft="contributed">Montserrat</exemplarCity>
@@ -3315,9 +3314,9 @@
 			</metazone>
 			<metazone type="Baku">
 				<long>
-					<generic draft="contributed">Baku – čas</generic>
-					<standard draft="contributed">Baku – standardní čas</standard>
-					<daylight draft="contributed">Baku – letní čas</daylight>
+					<generic>Bakuský čas</generic>
+					<standard>Bakuský standardní čas</standard>
+					<daylight>Bakuský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Bangladesh">
@@ -3353,9 +3352,9 @@
 			</metazone>
 			<metazone type="Brasilia">
 				<long>
-					<generic draft="contributed">Brasilia čas</generic>
-					<standard draft="contributed">Brasilia standardní čas</standard>
-					<daylight draft="contributed">Brasilia letní čas</daylight>
+					<generic>Brasilijský čas</generic>
+					<standard>Brasilijský standardní čas</standard>
+					<daylight>Brasilijský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -3382,7 +3381,7 @@
 			</metazone>
 			<metazone type="Changbai">
 				<long>
-					<standard draft="contributed">Changbaiský čas</standard>
+					<standard>Čchangpejský čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Chatham">
@@ -3446,7 +3445,7 @@
 			</metazone>
 			<metazone type="Dacca">
 				<long>
-					<standard draft="contributed">Dacca – čas</standard>
+					<standard>Dhácký čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Davis">
@@ -3461,9 +3460,9 @@
 			</metazone>
 			<metazone type="Dushanbe">
 				<long>
-					<generic draft="contributed">Dušanbejský čas</generic>
-					<standard draft="contributed">Dušanbejský standardní čas</standard>
-					<daylight draft="contributed">Dušanbejský letní čas</daylight>
+					<generic draft="contributed">Dušanbský čas</generic>
+					<standard draft="contributed">Dušanbský standardní čas</standard>
+					<daylight draft="contributed">Dušanbský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Dutch_Guiana">
@@ -3530,14 +3529,14 @@
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard draft="provisional">Francouzská jižní teritoria a Antarktida – čas</standard>
+					<standard>Čas Francouzských jižních a antarktických území</standard>
 				</long>
 			</metazone>
 			<metazone type="Frunze">
 				<long>
-					<generic draft="contributed">Frunzejský čas</generic>
-					<standard draft="contributed">Frunzejský standardní čas</standard>
-					<daylight draft="contributed">Frunzejský letní čas</daylight>
+					<generic draft="contributed">Frunzský čas</generic>
+					<standard draft="contributed">Frunzský standardní čas</standard>
+					<daylight draft="contributed">Frunzský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Galapagos">
@@ -3684,14 +3683,14 @@
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic draft="contributed">Kamčatský čas</generic>
-					<standard draft="contributed">Petropavlovsk-kamčatský standardní čas</standard>
-					<daylight draft="contributed">Petropavlovsk-kamčatský letní čas</daylight>
+					<generic draft="contributed">Petropavlovsko-kamčatský čas</generic>
+					<standard draft="contributed">Petropavlovsko-kamčatský standardní čas</standard>
+					<daylight draft="contributed">Petropavlovsko-kamčatský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Karachi">
 				<long>
-					<standard draft="contributed">Karáčí – čas</standard>
+					<standard>Karáčský čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Kashgar">
@@ -3707,13 +3706,6 @@
 			<metazone type="Kazakhstan_Western">
 				<long>
 					<standard>Západokazachstánský čas</standard>
-				</long>
-			</metazone>
-			<metazone type="Kizilorda">
-				<long>
-					<generic draft="contributed">Kizilordský čas</generic>
-					<standard draft="contributed">Kizilordský standardní čas</standard>
-					<daylight draft="contributed">Kizilordský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Korea">
@@ -3764,9 +3756,9 @@
 			</metazone>
 			<metazone type="Lord_Howe">
 				<long>
-					<generic draft="contributed">Čas na Ostrově lorda Howa</generic>
-					<standard draft="contributed">Standardní čas na Ostrově lorda Howa</standard>
-					<daylight draft="contributed">Letní čas na Ostrově lorda Howa</daylight>
+					<generic draft="contributed">Čas na ostrova lorda Howa</generic>
+					<standard draft="contributed">Standardní čas na ostrova lorda Howa</standard>
+					<daylight draft="contributed">Letní čas ostrova lorda Howa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macau">
@@ -3887,9 +3879,9 @@
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic draft="contributed">Čas na ostrově Fernando de Noronha</generic>
-					<standard draft="contributed">Standardní čas na ostrově Fernando de Noronha</standard>
-					<daylight draft="contributed">Letní čas na ostrově Fernando de Noronha</daylight>
+					<generic>Čas souostroví Fernando de Noronha</generic>
+					<standard>Standardní čas souostroví Fernando de Noronha</standard>
+					<daylight>Letní čas souostroví Fernando de Noronha</daylight>
 				</long>
 			</metazone>
 			<metazone type="North_Mariana">

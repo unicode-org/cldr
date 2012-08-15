@@ -404,6 +404,7 @@
                 search searchjl standard stroke
                 traditional
                 unihan
+                zhuyin
             </variable>
             <variable id="$date" type="regex">200[0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
             <variable id="$double" type="regex">[0-9]+(\.[0-9]+)?</variable>
@@ -507,7 +508,7 @@
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colStrength currency numbers x</attributeValues>
-            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow bali beng big5han buddhist cham chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese java jpan jpanfin kali knda khmr lana lanatham laoo latn lepc limb lower mlym mong mtei mymr mymrshan native nkoo no non-ignorable olck orya persian phonebook phonetic pinyin primary quarternary quaternary roc roman romanlow saur sund search searchjl secondary shifted stroke talu taml tamldec telu tertiary thai tibt traditional upper vaii yes</attributeValues>
+            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow bali beng big5han buddhist cham chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese java jpan jpanfin kali knda khmr lana lanatham laoo latn lepc limb lower mlym mong mtei mymr mymrshan native nkoo no non-ignorable olck orya persian phonebook phonetic pinyin primary quarternary quaternary roc roman romanlow saur sund search searchjl secondary shifted stroke talu taml tamldec telu tertiary thai tibt traditional upper vaii yes zhuyin</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>

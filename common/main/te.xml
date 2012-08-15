@@ -4640,7 +4640,7 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} రోజు</unitPattern>
-			<unitPattern count="one" alt="short">1 రోజు</unitPattern>
+			<unitPattern count="one" alt="short">{0} రోజు</unitPattern>
 			<unitPattern count="other">{0} days</unitPattern>
 			<unitPattern count="other" alt="short">{0} days</unitPattern>
 		</unit>
@@ -4649,91 +4649,91 @@
 			<unitPattern count="other">{0} రోజుల్లో</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="one">1 రోజు క్రితం</unitPattern>
+			<unitPattern count="one">{0} రోజు క్రితం</unitPattern>
 			<unitPattern count="other">{0} రోజుల క్రితం</unitPattern>
 		</unit>
 		<unit type="hour">
 			<unitPattern count="one">{0} గంట</unitPattern>
-			<unitPattern count="one" alt="short">1 గంట</unitPattern>
+			<unitPattern count="one" alt="short">{0} గంట</unitPattern>
 			<unitPattern count="other">{0} గంటలు</unitPattern>
 			<unitPattern count="other" alt="short">{0} గంటలు</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="one">1 గంటలో</unitPattern>
+			<unitPattern count="one">{0} గంటలో</unitPattern>
 			<unitPattern count="other">{0} గంటల్లో</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="one">1 గంట క్రితం</unitPattern>
+			<unitPattern count="one">{0} గంట క్రితం</unitPattern>
 			<unitPattern count="other">{0} గంటల క్రితం</unitPattern>
 		</unit>
 		<unit type="minute">
 			<unitPattern count="one">{0} నిమిషం</unitPattern>
-			<unitPattern count="one" alt="short">1 నిమిషం</unitPattern>
+			<unitPattern count="one" alt="short">{0} నిమిషం</unitPattern>
 			<unitPattern count="other">{0} నిమిషాలు</unitPattern>
 			<unitPattern count="other" alt="short">{0} నిమిషాలు</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="one">1 నిమిషంలో</unitPattern>
+			<unitPattern count="one">{0} నిమిషంలో</unitPattern>
 			<unitPattern count="other">{0} నిమిషాల్లో</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="one">1 నిమిషం క్రితం</unitPattern>
+			<unitPattern count="one">{0} నిమిషం క్రితం</unitPattern>
 			<unitPattern count="other">{0} నిమిషాల క్రితం</unitPattern>
 		</unit>
 		<unit type="month">
 			<unitPattern count="one">{0} నెల</unitPattern>
-			<unitPattern count="one" alt="short">1 నెల</unitPattern>
+			<unitPattern count="one" alt="short">{0} నెల</unitPattern>
 			<unitPattern count="other">{0} నెలలు</unitPattern>
 			<unitPattern count="other" alt="short">{0} నెలలు</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="one">1 నెలలో</unitPattern>
+			<unitPattern count="one">{0} నెలలో</unitPattern>
 			<unitPattern count="other">{0} నెలల్లో</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="one">1 నెల క్రితం</unitPattern>
+			<unitPattern count="one">{0} నెల క్రితం</unitPattern>
 			<unitPattern count="other">{0} నెలల క్రితం</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="one" draft="unconfirmed">{0} క్షణం</unitPattern>
-			<unitPattern count="one" alt="short">1 సెకను</unitPattern>
+			<unitPattern count="one">{0} సెకను</unitPattern>
+			<unitPattern count="one" alt="short">{0} సెకను</unitPattern>
 			<unitPattern count="other">{0} సెకన్లు</unitPattern>
 			<unitPattern count="other" alt="short">{0} సెకన్లు</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="one">1 సెకన్‌లో</unitPattern>
+			<unitPattern count="one">{0} సెకన్‌లో</unitPattern>
 			<unitPattern count="other">{0} సెకన్లలో</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="one">1 సెకను క్రితం</unitPattern>
+			<unitPattern count="one">{0} సెకను క్రితం</unitPattern>
 			<unitPattern count="other">{0} సెకన్ల క్రితం</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="one">{0} వారం</unitPattern>
-			<unitPattern count="one" alt="short">1 వా</unitPattern>
+			<unitPattern count="one" alt="short">{0} వా</unitPattern>
 			<unitPattern count="other">{0} weeks</unitPattern>
 			<unitPattern count="other" alt="short">{0} వారాలు</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="one">1 వారంలో</unitPattern>
+			<unitPattern count="one">{0} వారంలో</unitPattern>
 			<unitPattern count="other">{0} వారాల్లో</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="one">1 వారం క్రితం</unitPattern>
+			<unitPattern count="one">{0} వారం క్రితం</unitPattern>
 			<unitPattern count="other">{0} వారాల క్రితం</unitPattern>
 		</unit>
 		<unit type="year">
 			<unitPattern count="one">{0} సంవత్సరం</unitPattern>
-			<unitPattern count="one" alt="short">1 సంవత్సరం</unitPattern>
+			<unitPattern count="one" alt="short">{0} సంవత్సరం</unitPattern>
 			<unitPattern count="other">{0} సంవత్సరాలు</unitPattern>
 			<unitPattern count="other" alt="short">{0} సంవత్సరాలు</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="one">1 సంవత్సరంలో</unitPattern>
+			<unitPattern count="one">{0} సంవత్సరంలో</unitPattern>
 			<unitPattern count="other">{0} సంవత్సరాల్లో</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="one">1 సంవత్సరం క్రితం</unitPattern>
+			<unitPattern count="one">{0} సంవత్సరం క్రితం</unitPattern>
 			<unitPattern count="other">{0} సంవత్సరాల క్రితం</unitPattern>
 		</unit>
 	</units>

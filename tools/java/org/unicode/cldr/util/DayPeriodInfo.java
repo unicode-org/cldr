@@ -90,21 +90,19 @@ public class DayPeriodInfo {
   public DayPeriodInfo.DayPeriod getDayPeriod(int millisInDay) {
     if (millisInDay < 0) {
       throw new IllegalArgumentException("millisInDay too small");
+    } else if (millisInDay > 24*60*60*1000) {
+        throw new IllegalArgumentException("millisInDay too big");
     }
     for (int i = 1; i < starts.length; ++i) {
       int start = starts[i];
       if (start == millisInDay && includesStart[i]) {
         return periods[i];
       }
-      if (start < millisInDay) {
+      if (start > millisInDay) {
         return periods[i-1];
       }
     }
-    if (millisInDay < 24*60*60*1000) {
-      return periods[periods.length - 1];
-    } else {
-      throw new IllegalArgumentException("millisInDay too big");
-    }
+    return periods[periods.length - 1];
   }
   
   /**

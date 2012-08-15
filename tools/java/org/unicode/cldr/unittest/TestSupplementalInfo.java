@@ -454,7 +454,7 @@ public class TestSupplementalInfo extends TestFmwk {
             count += dayPeriod.getPeriodCount();
         }
         assertTrue("At least some day periods exist", count > 5);
-        CLDRFile file = testInfo.getCldrFactory().make("de", true);
+        CLDRFile file = testInfo.getCldrFactory().make("pl", true);
 
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(file.getSupplementalDirectory());
         DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(file.getLocaleID());
@@ -464,6 +464,18 @@ public class TestSupplementalInfo extends TestFmwk {
         for (DayPeriodInfo.DayPeriod dayPeriod : items) {
             logln(prefix + dayPeriod + "\"]");
         }
+
+        // Check that day periods are recognized.
+        assertEquals("night", DayPeriodInfo.DayPeriod.night,
+            dayPeriods.getDayPeriod(0));
+        assertEquals("earlyMorning", DayPeriodInfo.DayPeriod.earlyMorning,
+            dayPeriods.getDayPeriod(3 * 60 * 60 * 1000));
+        assertEquals("noon", DayPeriodInfo.DayPeriod.noon,
+            dayPeriods.getDayPeriod(12 * 60 * 60 * 1000));
+        assertEquals("evening", DayPeriodInfo.DayPeriod.evening,
+            dayPeriods.getDayPeriod((16 * 60 + 5) * 60 * 1000));
+        assertEquals("11pm = night ", DayPeriodInfo.DayPeriod.night,
+            dayPeriods.getDayPeriod(23 * 60 * 60 * 1000));
     }
 
 }

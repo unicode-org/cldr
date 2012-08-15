@@ -4068,8 +4068,6 @@
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -4552,129 +4550,101 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0">0 दिवस</unitPattern>
-			<unitPattern count="0" alt="short">0 दिवस</unitPattern>
-			<unitPattern count="1">1 दिवस</unitPattern>
-			<unitPattern count="1" alt="short">1 दिवस</unitPattern>
+			<unitPattern count="one">1 दिवस</unitPattern>
+			<unitPattern count="one" alt="short">1 दिवस</unitPattern>
 			<unitPattern count="other">{0} दिवस</unitPattern>
 			<unitPattern count="other" alt="short">{0} दिवस</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">0 दिवसांत</unitPattern>
-			<unitPattern count="1">1 दिवसात</unitPattern>
+			<unitPattern count="one">1 दिवसात</unitPattern>
 			<unitPattern count="other">{0} दिवसांत</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">0 दिवसांपूर्वी</unitPattern>
-			<unitPattern count="1">1 दिवसापूर्वी</unitPattern>
+			<unitPattern count="one">1 दिवसापूर्वी</unitPattern>
 			<unitPattern count="other">{0} दिवसांपूर्वी</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0">0 तास</unitPattern>
-			<unitPattern count="0" alt="short">0 तास</unitPattern>
-			<unitPattern count="1">1 तास</unitPattern>
-			<unitPattern count="1" alt="short">1 तास</unitPattern>
+			<unitPattern count="one">1 तास</unitPattern>
+			<unitPattern count="one" alt="short">1 तास</unitPattern>
 			<unitPattern count="other">{0} तास</unitPattern>
 			<unitPattern count="other" alt="short">{0} तास</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">0 तासांत</unitPattern>
-			<unitPattern count="1">1 तासात</unitPattern>
+			<unitPattern count="one">1 तासात</unitPattern>
 			<unitPattern count="other">{0} तासांत</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">0 तासांपूर्वी</unitPattern>
-			<unitPattern count="1">1 तासापूर्वी</unitPattern>
+			<unitPattern count="one">1 तासापूर्वी</unitPattern>
 			<unitPattern count="other">{0} तासांपूर्वी</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0">0 मिनिटे</unitPattern>
-			<unitPattern count="0" alt="short">0 मि</unitPattern>
-			<unitPattern count="1">1 मिनिट</unitPattern>
-			<unitPattern count="1" alt="short">1 मि</unitPattern>
+			<unitPattern count="one">1 मिनिट</unitPattern>
+			<unitPattern count="one" alt="short">1 मि</unitPattern>
 			<unitPattern count="other">{0} मिनिटे</unitPattern>
 			<unitPattern count="other" alt="short">{0} मि</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">0 मिनिटांत</unitPattern>
-			<unitPattern count="1">1 मिनिटात</unitPattern>
+			<unitPattern count="one">1 मिनिटात</unitPattern>
 			<unitPattern count="other">{0} मिनिटांत</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">0 मिनिटांपूर्वी</unitPattern>
-			<unitPattern count="1">1 मिनिटापूर्वी</unitPattern>
+			<unitPattern count="one">1 मिनिटापूर्वी</unitPattern>
 			<unitPattern count="other">{0} मिनिटांपूर्वी</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0">0 महिने</unitPattern>
-			<unitPattern count="0" alt="short">0 महिने</unitPattern>
-			<unitPattern count="1">1 महिना</unitPattern>
-			<unitPattern count="1" alt="short">1 महिना</unitPattern>
+			<unitPattern count="one">1 महिना</unitPattern>
+			<unitPattern count="one" alt="short">1 महिना</unitPattern>
 			<unitPattern count="other">{0} महिने</unitPattern>
 			<unitPattern count="other" alt="short">{0} महिने</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">0 महिन्यांत</unitPattern>
-			<unitPattern count="1">1 महिन्यात</unitPattern>
+			<unitPattern count="one">1 महिन्यात</unitPattern>
 			<unitPattern count="other">{0} महिन्यांत</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">0 महिन्यांपूर्वी</unitPattern>
-			<unitPattern count="1">1 महिन्यापूर्वी</unitPattern>
+			<unitPattern count="one">1 महिन्यापूर्वी</unitPattern>
 			<unitPattern count="other">{0} महिन्यांपूर्वी</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0">0 सेकंद</unitPattern>
-			<unitPattern count="0" alt="short">0 से</unitPattern>
-			<unitPattern count="1">1 सेकंद</unitPattern>
-			<unitPattern count="1" alt="short">1 सेकंद</unitPattern>
+			<unitPattern count="one">1 सेकंद</unitPattern>
+			<unitPattern count="one" alt="short">1 सेकंद</unitPattern>
 			<unitPattern count="other">{0} सेकंद</unitPattern>
 			<unitPattern count="other" alt="short">{0} से</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">0 सेकंदांत</unitPattern>
-			<unitPattern count="1">1 सेकंदात</unitPattern>
+			<unitPattern count="one">1 सेकंदात</unitPattern>
 			<unitPattern count="other">{0} सेकंदांत</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">0 सेकंदांपूर्वी</unitPattern>
-			<unitPattern count="1">1 सेकंदापूर्वी</unitPattern>
+			<unitPattern count="one">1 सेकंदापूर्वी</unitPattern>
 			<unitPattern count="other">{0} सेकंदांपूर्वी</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0">0 आठवडे</unitPattern>
-			<unitPattern count="0" alt="short">0 आठवडे</unitPattern>
-			<unitPattern count="1">1 आठवडा</unitPattern>
-			<unitPattern count="1" alt="short">1 आ</unitPattern>
+			<unitPattern count="one">1 आठवडा</unitPattern>
+			<unitPattern count="one" alt="short">1 आ</unitPattern>
 			<unitPattern count="other">{0} आठवडे</unitPattern>
 			<unitPattern count="other" alt="short">{0} आ</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">0 आठवड्यांत</unitPattern>
-			<unitPattern count="1">1 आठवड्यात</unitPattern>
+			<unitPattern count="one">1 आठवड्यात</unitPattern>
 			<unitPattern count="other">{0} आठवड्यांत</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">0 आठवड्यांपूर्वी</unitPattern>
-			<unitPattern count="1">1 आठवड्या पूर्वी</unitPattern>
+			<unitPattern count="one">1 आठवड्या पूर्वी</unitPattern>
 			<unitPattern count="other">{0} आठवड्यांपूर्वी</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0">0 वर्षे</unitPattern>
-			<unitPattern count="0" alt="short">0 वर्षे</unitPattern>
-			<unitPattern count="1">1 वर्ष</unitPattern>
-			<unitPattern count="1" alt="short">1 वर्ष</unitPattern>
+			<unitPattern count="one">1 वर्ष</unitPattern>
+			<unitPattern count="one" alt="short">1 वर्ष</unitPattern>
 			<unitPattern count="other">{0} वर्षे</unitPattern>
 			<unitPattern count="other" alt="short">{0} वर्षे</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">10 वर्षांमध्ये</unitPattern>
-			<unitPattern count="1">1 वर्षात</unitPattern>
+			<unitPattern count="one">1 वर्षात</unitPattern>
 			<unitPattern count="other">{0} वर्षांमध्ये</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">0 वर्षांपूर्वी</unitPattern>
-			<unitPattern count="1">1 वर्षापूर्वी</unitPattern>
+			<unitPattern count="one">1 वर्षापूर्वी</unitPattern>
 			<unitPattern count="other">{0} वर्षांपूर्वी</unitPattern>
 		</unit>
 	</units>

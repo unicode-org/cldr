@@ -2886,8 +2886,6 @@
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
@@ -3771,16 +3769,12 @@
 			<unitPattern count="two" alt="short">{0} d</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0" draft="contributed">Čez 0 dni</unitPattern>
-			<unitPattern count="1" draft="contributed">Čez 1 dan</unitPattern>
 			<unitPattern count="few" draft="contributed">Čez {0} dni</unitPattern>
 			<unitPattern count="one" draft="contributed">Čez {0} dan</unitPattern>
 			<unitPattern count="other" draft="contributed">Čez {0} dni</unitPattern>
 			<unitPattern count="two" draft="contributed">Čez {0} dni</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0" draft="contributed">Pred 0 dnevi</unitPattern>
-			<unitPattern count="1" draft="contributed">Pred 1 dnevom</unitPattern>
 			<unitPattern count="few" draft="contributed">Pred {0} dnevi</unitPattern>
 			<unitPattern count="one" draft="contributed">Pred {0} dnevom</unitPattern>
 			<unitPattern count="other" draft="contributed">Pred {0} dnevi</unitPattern>
@@ -3797,16 +3791,12 @@
 			<unitPattern count="two" alt="short">{0} h</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0" draft="contributed">Čez 0 h</unitPattern>
-			<unitPattern count="1" draft="contributed">Čez 1 h</unitPattern>
 			<unitPattern count="few" draft="contributed">Čez {0} h</unitPattern>
 			<unitPattern count="one" draft="contributed">Čez {0} h</unitPattern>
 			<unitPattern count="other" draft="contributed">Čez {0} h</unitPattern>
 			<unitPattern count="two" draft="contributed">Čez {0} h</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0" draft="contributed">Pred 0 h</unitPattern>
-			<unitPattern count="1" draft="contributed">Pred 1 h</unitPattern>
 			<unitPattern count="few" draft="contributed">Pred {0} h</unitPattern>
 			<unitPattern count="one" draft="contributed">Pred {0} h</unitPattern>
 			<unitPattern count="other" draft="contributed">Pred {0} h</unitPattern>
@@ -3823,16 +3813,12 @@
 			<unitPattern count="two" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0" draft="contributed">Čez 0 min.</unitPattern>
-			<unitPattern count="1" draft="contributed">Čez 1 min.</unitPattern>
 			<unitPattern count="few" draft="contributed">Čez {0} min.</unitPattern>
 			<unitPattern count="one" draft="contributed">Čez {0} min.</unitPattern>
 			<unitPattern count="other" draft="contributed">Čez {0} min.</unitPattern>
 			<unitPattern count="two" draft="contributed">Čez {0} min.</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0" draft="contributed">Pred 0 min.</unitPattern>
-			<unitPattern count="1" draft="contributed">Pred 1 min.</unitPattern>
 			<unitPattern count="few" draft="contributed">Pred {0} min.</unitPattern>
 			<unitPattern count="one" draft="contributed">Pred {0} min.</unitPattern>
 			<unitPattern count="other" draft="contributed">Pred {0} min.</unitPattern>
@@ -3849,16 +3835,12 @@
 			<unitPattern count="two" alt="short">{0} m</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0" draft="contributed">Čez 0 mesecev</unitPattern>
-			<unitPattern count="1" draft="contributed">Čez 1 mesec</unitPattern>
 			<unitPattern count="few" draft="contributed">Čez {0} mesece</unitPattern>
 			<unitPattern count="one" draft="contributed">Čez {0} mesec</unitPattern>
 			<unitPattern count="other" draft="contributed">Čez {0} mesecev</unitPattern>
 			<unitPattern count="two" draft="contributed">Čez {0} meseca</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0" draft="contributed">Pred 0 meseci</unitPattern>
-			<unitPattern count="1" draft="contributed">Pred 1 mesecem</unitPattern>
 			<unitPattern count="few" draft="contributed">Pred {0} meseci</unitPattern>
 			<unitPattern count="one" draft="contributed">Pred {0} mesecem</unitPattern>
 			<unitPattern count="other" draft="contributed">Pred {0} meseci</unitPattern>
@@ -3875,16 +3857,12 @@
 			<unitPattern count="two" alt="short">{0} s</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0" draft="contributed">Čez 0 sekund</unitPattern>
-			<unitPattern count="1" draft="contributed">Čez 1 sekundo</unitPattern>
 			<unitPattern count="few" draft="contributed">Čez {0} sekunde</unitPattern>
 			<unitPattern count="one" draft="contributed">Čez {0} sekundo</unitPattern>
 			<unitPattern count="other" draft="contributed">Čez {0} sekundi</unitPattern>
 			<unitPattern count="two" draft="contributed">Čez {0} sekundi</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0" draft="contributed">Pred 0 sekundami</unitPattern>
-			<unitPattern count="1" draft="contributed">Pred 1 sekundo</unitPattern>
 			<unitPattern count="few" draft="contributed">Pred {0} sekundami</unitPattern>
 			<unitPattern count="one" draft="contributed">Pred {0} sekundo</unitPattern>
 			<unitPattern count="other" draft="contributed">Pred {0} sekundami</unitPattern>
@@ -3901,16 +3879,12 @@
 			<unitPattern count="two" alt="short">{0} t</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0" draft="contributed">Čez 0 tednov</unitPattern>
-			<unitPattern count="1" draft="contributed">Čez 1 teden</unitPattern>
 			<unitPattern count="few" draft="contributed">Čez {0} tedne</unitPattern>
 			<unitPattern count="one" draft="contributed">Čez {0} teden</unitPattern>
 			<unitPattern count="other" draft="contributed">Čez {0} tednov</unitPattern>
 			<unitPattern count="two" draft="contributed">Čez {0} tedna</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0" draft="contributed">Pred 0 tedni</unitPattern>
-			<unitPattern count="1" draft="contributed">Pred 1 tednom</unitPattern>
 			<unitPattern count="few" draft="contributed">Pred {0} tedni</unitPattern>
 			<unitPattern count="one" draft="contributed">Pred {0} tednom</unitPattern>
 			<unitPattern count="other" draft="contributed">Pred {0} tedni</unitPattern>
@@ -3927,16 +3901,12 @@
 			<unitPattern count="two" alt="short">{0} l</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0" draft="contributed">Čez 0 let</unitPattern>
-			<unitPattern count="1" draft="contributed">Čez 1 leto</unitPattern>
 			<unitPattern count="few" draft="contributed">Čez {0} leta</unitPattern>
 			<unitPattern count="one" draft="contributed">Čez {0} leto</unitPattern>
 			<unitPattern count="other" draft="contributed">Čez {0} let</unitPattern>
 			<unitPattern count="two" draft="contributed">Čez {0} leti</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0" draft="contributed">Pred 0 leti</unitPattern>
-			<unitPattern count="1" draft="contributed">Pred 1 letom</unitPattern>
 			<unitPattern count="few" draft="contributed">Pred {0} leti</unitPattern>
 			<unitPattern count="one" draft="contributed">Pred {0} letom</unitPattern>
 			<unitPattern count="other" draft="contributed">Pred {0} leti</unitPattern>

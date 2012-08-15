@@ -2167,8 +2167,6 @@
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -2681,134 +2679,101 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0" alt="short">0 dae</unitPattern>
-			<unitPattern count="1" alt="short">1 dag</unitPattern>
 			<unitPattern count="one">{0} dag</unitPattern>
+			<unitPattern count="one" alt="short">1 dag</unitPattern>
 			<unitPattern count="other">{0} dae</unitPattern>
 			<unitPattern count="other" alt="short">{0} dae</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">In 0 dae</unitPattern>
-			<unitPattern count="1">In 1 dag</unitPattern>
+			<unitPattern count="one">In 1 dag</unitPattern>
 			<unitPattern count="other">In {0} dae</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">0 dae gelede</unitPattern>
-			<unitPattern count="1">1 dag gelede</unitPattern>
+			<unitPattern count="one">1 dag gelede</unitPattern>
 			<unitPattern count="other">{0} dae gelede</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0">0 uur</unitPattern>
-			<unitPattern count="0" alt="short">0 uur</unitPattern>
-			<unitPattern count="1">1 uur</unitPattern>
-			<unitPattern count="1" alt="short">1 uur</unitPattern>
 			<unitPattern count="one">{0} uur</unitPattern>
+			<unitPattern count="one" alt="short">1 uur</unitPattern>
 			<unitPattern count="other">{0} uur</unitPattern>
 			<unitPattern count="other" alt="short">{0} uur</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">In 0 uur</unitPattern>
-			<unitPattern count="1">In 1 uur</unitPattern>
+			<unitPattern count="one">In 1 uur</unitPattern>
 			<unitPattern count="other">In {0} uur</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">0 uur gelede</unitPattern>
-			<unitPattern count="1">1 uur gelede</unitPattern>
+			<unitPattern count="one">1 uur gelede</unitPattern>
 			<unitPattern count="other">{0} uur gelede</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0">0 minute</unitPattern>
-			<unitPattern count="0" alt="short">0 min</unitPattern>
-			<unitPattern count="1">1 minuut</unitPattern>
-			<unitPattern count="1" alt="short">1 min</unitPattern>
 			<unitPattern count="one">{0} minuut</unitPattern>
+			<unitPattern count="one" alt="short">1 min</unitPattern>
 			<unitPattern count="other">{0} minute</unitPattern>
 			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">In 0 minute</unitPattern>
-			<unitPattern count="1">In 1 minuut</unitPattern>
+			<unitPattern count="one">In 1 minuut</unitPattern>
 			<unitPattern count="other">In {0} minute</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">0 minute gelede</unitPattern>
-			<unitPattern count="1">1 minuut gelede</unitPattern>
+			<unitPattern count="one">1 minuut gelede</unitPattern>
 			<unitPattern count="other">{0} minute gelede</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0">0 maande</unitPattern>
-			<unitPattern count="0" alt="short">0 mnde</unitPattern>
-			<unitPattern count="1">1 maand</unitPattern>
-			<unitPattern count="1" alt="short">1 mnd</unitPattern>
 			<unitPattern count="one">{0} maand</unitPattern>
+			<unitPattern count="one" alt="short">1 mnd</unitPattern>
 			<unitPattern count="other">{0} maande</unitPattern>
 			<unitPattern count="other" alt="short">{0} mnde</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">In 0 maande</unitPattern>
-			<unitPattern count="1">In 1 maand</unitPattern>
+			<unitPattern count="one">In 1 maand</unitPattern>
 			<unitPattern count="other">In {0} maande</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">0 maande gelede</unitPattern>
-			<unitPattern count="1">1 maand gelede</unitPattern>
+			<unitPattern count="one">1 maand gelede</unitPattern>
 			<unitPattern count="other">{0} maande gelede</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0">0 sekondes</unitPattern>
-			<unitPattern count="0" alt="short">0 sek</unitPattern>
-			<unitPattern count="1">1 sekonde</unitPattern>
-			<unitPattern count="1" alt="short">1 sek</unitPattern>
 			<unitPattern count="one">{0} sekonde</unitPattern>
+			<unitPattern count="one" alt="short">1 sek</unitPattern>
 			<unitPattern count="other">{0} sekondes</unitPattern>
 			<unitPattern count="other" alt="short">{0} sek</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">In 0 sekondes</unitPattern>
-			<unitPattern count="1">In 1 sekond</unitPattern>
+			<unitPattern count="one">In 1 sekond</unitPattern>
 			<unitPattern count="other">In {0} sekondes</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">0 sekondes gelede</unitPattern>
-			<unitPattern count="1">1 sekonde gelede</unitPattern>
+			<unitPattern count="one">1 sekonde gelede</unitPattern>
 			<unitPattern count="other">{0} sekondes gelede</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0">0 weke</unitPattern>
-			<unitPattern count="0" alt="short">0 weke</unitPattern>
-			<unitPattern count="1">1 week</unitPattern>
-			<unitPattern count="1" alt="short">1 week</unitPattern>
 			<unitPattern count="one">{0} week</unitPattern>
+			<unitPattern count="one" alt="short">1 week</unitPattern>
 			<unitPattern count="other">{0} weke</unitPattern>
 			<unitPattern count="other" alt="short">{0} weke</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">In 0 weke</unitPattern>
-			<unitPattern count="1">In 1 week</unitPattern>
+			<unitPattern count="one">In 1 week</unitPattern>
 			<unitPattern count="other">In {0} weke</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">0 weke gelede</unitPattern>
-			<unitPattern count="1">1 week gelede</unitPattern>
+			<unitPattern count="one">1 week gelede</unitPattern>
 			<unitPattern count="other">{0} weke gelede</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0">0 jaar</unitPattern>
-			<unitPattern count="0" alt="short">0 jr</unitPattern>
-			<unitPattern count="1">1 jaar</unitPattern>
-			<unitPattern count="1" alt="short">1 jr</unitPattern>
 			<unitPattern count="one">{0} jaar</unitPattern>
+			<unitPattern count="one" alt="short">1 jr</unitPattern>
 			<unitPattern count="other">{0} jaar</unitPattern>
 			<unitPattern count="other" alt="short">{0} jr</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">In 0 jaar</unitPattern>
-			<unitPattern count="1">In 1 jaar</unitPattern>
+			<unitPattern count="one">In 1 jaar</unitPattern>
 			<unitPattern count="other">In {0} jaar</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">0 jaar gelede</unitPattern>
-			<unitPattern count="1">1 jaar gelede</unitPattern>
+			<unitPattern count="one">1 jaar gelede</unitPattern>
 			<unitPattern count="other">{0} jaar gelede</unitPattern>
 		</unit>
 	</units>

@@ -2772,122 +2772,101 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0" alt="short">0 egun</unitPattern>
-			<unitPattern count="1" alt="short">1 egun</unitPattern>
 			<unitPattern count="one">{0} eguna</unitPattern>
+			<unitPattern count="one" alt="short">1 egun</unitPattern>
 			<unitPattern count="other">{0} egun</unitPattern>
 			<unitPattern count="other" alt="short">{0} egun</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">0 egun barru</unitPattern>
-			<unitPattern count="1">1 egun barru</unitPattern>
+			<unitPattern count="one">1 egun barru</unitPattern>
 			<unitPattern count="other">{0} egun barru</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">Duela 0 egun</unitPattern>
-			<unitPattern count="1">Duela 1 egun</unitPattern>
+			<unitPattern count="one">Duela 1 egun</unitPattern>
 			<unitPattern count="other">Duela {0} egun</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="1" alt="short">1 ordu</unitPattern>
 			<unitPattern count="one">{0} ordua</unitPattern>
+			<unitPattern count="one" alt="short">1 ordu</unitPattern>
 			<unitPattern count="other">{0} h</unitPattern>
 			<unitPattern count="other" alt="short">{0} ordu</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">0 ordu barru</unitPattern>
-			<unitPattern count="1">1 ordu barru</unitPattern>
+			<unitPattern count="one">1 ordu barru</unitPattern>
 			<unitPattern count="other">{0} ordu barru</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">Duela 0 ordu</unitPattern>
-			<unitPattern count="1">Duela ordubete</unitPattern>
+			<unitPattern count="one">Duela ordubete</unitPattern>
 			<unitPattern count="other">Duela {0} ordu</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="1" alt="short">1 minutu</unitPattern>
 			<unitPattern count="one">{0} minutu</unitPattern>
+			<unitPattern count="one" alt="short">1 minutu</unitPattern>
 			<unitPattern count="other">{0} minutu</unitPattern>
 			<unitPattern count="other" alt="short">{0} minutu</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">0 minutu barru</unitPattern>
-			<unitPattern count="1">1 minutu barru</unitPattern>
+			<unitPattern count="one">1 minutu barru</unitPattern>
 			<unitPattern count="other">{0} minutu barru</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">Duela 0 minutu</unitPattern>
-			<unitPattern count="1">Duela 1 minutu</unitPattern>
+			<unitPattern count="one">Duela 1 minutu</unitPattern>
 			<unitPattern count="other">Duela {0} minutu</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0">0 hilabete</unitPattern>
-			<unitPattern count="0" alt="short">0 hilabete</unitPattern>
-			<unitPattern count="1">1 hilabete</unitPattern>
-			<unitPattern count="1" alt="short">1 hilabete</unitPattern>
 			<unitPattern count="one">{0} hilea</unitPattern>
+			<unitPattern count="one" alt="short">1 hilabete</unitPattern>
 			<unitPattern count="other">{0} hilabete</unitPattern>
 			<unitPattern count="other" alt="short">{0} hilabete</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">0 hilabete barru</unitPattern>
-			<unitPattern count="1">1 hilabete barru</unitPattern>
+			<unitPattern count="one">1 hilabete barru</unitPattern>
 			<unitPattern count="other">{0} hilabete barru</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">Duela 0 hilabete</unitPattern>
-			<unitPattern count="1">Duela 1 hilabete</unitPattern>
+			<unitPattern count="one">Duela 1 hilabete</unitPattern>
 			<unitPattern count="other">Duela {0} hilabete</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0" alt="short">0 seg.</unitPattern>
-			<unitPattern count="1" alt="short">1 seg.</unitPattern>
 			<unitPattern count="one">{0} segundo</unitPattern>
+			<unitPattern count="one" alt="short">1 seg.</unitPattern>
 			<unitPattern count="other">{0} s</unitPattern>
 			<unitPattern count="other" alt="short">{0} seg.</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">0 segundo barru</unitPattern>
-			<unitPattern count="1">1 segundo barru</unitPattern>
+			<unitPattern count="one">1 segundo barru</unitPattern>
 			<unitPattern count="other">{0} segundo barru</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">Duela 0 segundo</unitPattern>
-			<unitPattern count="1">Duela 1 segundo</unitPattern>
+			<unitPattern count="one">Duela 1 segundo</unitPattern>
 			<unitPattern count="other">Duela {0} segundo</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0" alt="short">0 aste</unitPattern>
-			<unitPattern count="1" alt="short">1 aste</unitPattern>
 			<unitPattern count="one">{0} aste</unitPattern>
+			<unitPattern count="one" alt="short">1 aste</unitPattern>
 			<unitPattern count="other">{0} aste</unitPattern>
 			<unitPattern count="other" alt="short">{0} aste</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">0 aste barru</unitPattern>
-			<unitPattern count="1">1 aste barru</unitPattern>
+			<unitPattern count="one">1 aste barru</unitPattern>
 			<unitPattern count="other">{0} aste barru</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">Duela 0 aste</unitPattern>
-			<unitPattern count="1">Duela 1 aste</unitPattern>
+			<unitPattern count="one">Duela 1 aste</unitPattern>
 			<unitPattern count="other">Duela {0} aste</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0" alt="short">0 urte</unitPattern>
-			<unitPattern count="1" alt="short">1 urte</unitPattern>
 			<unitPattern count="one">{0} urtea</unitPattern>
+			<unitPattern count="one" alt="short">1 urte</unitPattern>
 			<unitPattern count="other">{0} urte</unitPattern>
 			<unitPattern count="other" alt="short">{0} urte</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">0 urte barru</unitPattern>
-			<unitPattern count="1">1 urte barru</unitPattern>
+			<unitPattern count="one">1 urte barru</unitPattern>
 			<unitPattern count="other">{0} urte barru</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">Duela 0 urte</unitPattern>
-			<unitPattern count="1">Duela 1 urte</unitPattern>
+			<unitPattern count="one">Duela 1 urte</unitPattern>
 			<unitPattern count="other">Duela {0} urte</unitPattern>
 		</unit>
 	</units>

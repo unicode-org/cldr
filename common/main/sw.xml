@@ -2165,8 +2165,6 @@
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -2666,132 +2664,101 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0">siku 0</unitPattern>
-			<unitPattern count="0" alt="short">siku 0</unitPattern>
-			<unitPattern count="1">siku 1</unitPattern>
-			<unitPattern count="1" alt="short">siku 1</unitPattern>
+			<unitPattern count="one">siku 1</unitPattern>
+			<unitPattern count="one" alt="short">siku 1</unitPattern>
 			<unitPattern count="other">siku {0}</unitPattern>
 			<unitPattern count="other" alt="short">siku {0}</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">Baada ya siku 0</unitPattern>
-			<unitPattern count="1">Baada ya siku 1</unitPattern>
+			<unitPattern count="one">Baada ya siku 1</unitPattern>
 			<unitPattern count="other">Baada ya siku {0}</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">Siku 0 zilizopita</unitPattern>
-			<unitPattern count="1">siku 1 iliyopita</unitPattern>
 			<unitPattern count="one">Siku {0} zilizopita</unitPattern>
 			<unitPattern count="other">Siku {0} zilizopita</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0">Masaa 0</unitPattern>
-			<unitPattern count="0" alt="short">Masaa 0</unitPattern>
-			<unitPattern count="1">saa 1</unitPattern>
-			<unitPattern count="1" alt="short">Saa 1</unitPattern>
 			<unitPattern count="one">masaa {0}</unitPattern>
+			<unitPattern count="one" alt="short">Saa 1</unitPattern>
 			<unitPattern count="other">masaa {0}</unitPattern>
 			<unitPattern count="other" alt="short">Masaa {0}</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">Baada ya masaa 0</unitPattern>
-			<unitPattern count="1">Baada ya saa 1</unitPattern>
+			<unitPattern count="one">Baada ya saa 1</unitPattern>
 			<unitPattern count="other">Baada ya masaa {0}</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">Masaa 0 yaliyopita</unitPattern>
-			<unitPattern count="1">Saa moja lililopita</unitPattern>
+			<unitPattern count="one">Saa moja lililopita</unitPattern>
 			<unitPattern count="other">Masaa {0} yaliyopita</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0">dakika 0</unitPattern>
-			<unitPattern count="0" alt="short">Dakika 0</unitPattern>
-			<unitPattern count="1">dakika 1</unitPattern>
-			<unitPattern count="1" alt="short">Dakika 1</unitPattern>
+			<unitPattern count="one">dakika 1</unitPattern>
+			<unitPattern count="one" alt="short">Dakika 1</unitPattern>
 			<unitPattern count="other">dakika {0}</unitPattern>
 			<unitPattern count="other" alt="short">Dakika {0}</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">Baada ya dakika 0</unitPattern>
-			<unitPattern count="1">Baada ya dakika 1</unitPattern>
+			<unitPattern count="one">Baada ya dakika 1</unitPattern>
 			<unitPattern count="other">Baada ya dakika {0}</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">Dakika 0 zilizopita</unitPattern>
-			<unitPattern count="1">dakina 1 iliyopita</unitPattern>
+			<unitPattern count="one">dakina 1 iliyopita</unitPattern>
 			<unitPattern count="other">Dakika {0} zilizopita</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0">miezi 0</unitPattern>
-			<unitPattern count="0" alt="short">miezi 0</unitPattern>
-			<unitPattern count="1">mwezi 1</unitPattern>
-			<unitPattern count="1" alt="short">mwezi 1</unitPattern>
+			<unitPattern count="one">mwezi 1</unitPattern>
+			<unitPattern count="one" alt="short">mwezi 1</unitPattern>
 			<unitPattern count="other">miezi {0}</unitPattern>
 			<unitPattern count="other" alt="short">miezi {0}</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">Baada ya miezi 0</unitPattern>
-			<unitPattern count="1">Baada ya mwezi 1</unitPattern>
+			<unitPattern count="one">Baada ya mwezi 1</unitPattern>
 			<unitPattern count="other">Baada ya miezi {0}</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">Miezi 0 iliyopita</unitPattern>
-			<unitPattern count="1">Mwezi 1 uliopita</unitPattern>
 			<unitPattern count="one">Miezi {0} iliyopita</unitPattern>
 			<unitPattern count="other">Miezi {0} iliyopita</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0">Sekunde 0</unitPattern>
-			<unitPattern count="0" alt="short">sekunde 0</unitPattern>
-			<unitPattern count="1">Sekunde 1</unitPattern>
-			<unitPattern count="1" alt="short">sekunde 1</unitPattern>
+			<unitPattern count="one">Sekunde 1</unitPattern>
+			<unitPattern count="one" alt="short">sekunde 1</unitPattern>
 			<unitPattern count="other">sekunde {0}</unitPattern>
 			<unitPattern count="other" alt="short">sekunde {0}</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">Baada ya sekunde 0</unitPattern>
-			<unitPattern count="1">Baada ya sekunde 1</unitPattern>
+			<unitPattern count="one">Baada ya sekunde 1</unitPattern>
 			<unitPattern count="other">Baada ya sekunde {0}</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">Sekunde 0 zilizopita</unitPattern>
-			<unitPattern count="1">Sekunde moja iliyopita</unitPattern>
+			<unitPattern count="one">Sekunde moja iliyopita</unitPattern>
 			<unitPattern count="other">Sekunde {0} zilizopita</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0">wiki 0</unitPattern>
-			<unitPattern count="0" alt="short">wiki 0</unitPattern>
-			<unitPattern count="1">wiki 1</unitPattern>
-			<unitPattern count="1" alt="short">wiki 1</unitPattern>
+			<unitPattern count="one">wiki 1</unitPattern>
+			<unitPattern count="one" alt="short">wiki 1</unitPattern>
 			<unitPattern count="other">wiki {0}</unitPattern>
 			<unitPattern count="other" alt="short">wiki {0}</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">Baada ya wiki 0</unitPattern>
-			<unitPattern count="1">Baada ya wiki 1</unitPattern>
+			<unitPattern count="one">Baada ya wiki 1</unitPattern>
 			<unitPattern count="other">Baada ya wiki {0}</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">Wiki 0 zilizopita</unitPattern>
-			<unitPattern count="1">Wiki 1 iliyopita</unitPattern>
+			<unitPattern count="one">Wiki 1 iliyopita</unitPattern>
 			<unitPattern count="other">Wiki {0} zilizopita</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0">miaka 0</unitPattern>
-			<unitPattern count="0" alt="short">miaka 0</unitPattern>
-			<unitPattern count="1">mwaka 1</unitPattern>
-			<unitPattern count="1" alt="short">Mwaka 1</unitPattern>
+			<unitPattern count="one">mwaka 1</unitPattern>
+			<unitPattern count="one" alt="short">Mwaka 1</unitPattern>
 			<unitPattern count="other">miaka {0}</unitPattern>
 			<unitPattern count="other" alt="short">miaka {0}</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">Baada ya miaka 0</unitPattern>
-			<unitPattern count="1">Baada ya mwaka 1</unitPattern>
+			<unitPattern count="one">Baada ya mwaka 1</unitPattern>
 			<unitPattern count="other">Baada ya miaka {0}</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">Miaka 0 iliyopita</unitPattern>
-			<unitPattern count="1">Mwaka 1 uliopita</unitPattern>
+			<unitPattern count="one">Mwaka 1 uliopita</unitPattern>
 			<unitPattern count="other">Miaka {0} iliyopita</unitPattern>
 		</unit>
 	</units>

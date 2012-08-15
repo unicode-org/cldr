@@ -2019,28 +2019,16 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="0">0 inkulungwane</pattern>
-					<pattern type="1000" count="1">0 inkulungwane</pattern>
 					<pattern type="1000" count="one">0 inkulungwane</pattern>
 					<pattern type="1000" count="other">0 inkulungwane</pattern>
-					<pattern type="10000" count="0">00 inkulungwane</pattern>
-					<pattern type="10000" count="1">00 inkulungwane</pattern>
 					<pattern type="10000" count="one">00 inkulungwane</pattern>
 					<pattern type="10000" count="other">00 inkulungwane</pattern>
-					<pattern type="100000" count="0">000 inkulungwane</pattern>
-					<pattern type="100000" count="1">000 inkulungwane</pattern>
 					<pattern type="100000" count="one">000 inkulungwane</pattern>
 					<pattern type="100000" count="other">000 inkulungwane</pattern>
-					<pattern type="1000000" count="0">0 isigidi</pattern>
-					<pattern type="1000000" count="1">0 isigidi</pattern>
 					<pattern type="1000000" count="one">0 isigidi</pattern>
 					<pattern type="1000000" count="other">0 isigidi</pattern>
-					<pattern type="10000000" count="0">00 isigidi</pattern>
-					<pattern type="10000000" count="1">00 isigidi</pattern>
 					<pattern type="10000000" count="one">00 isigidi</pattern>
 					<pattern type="10000000" count="other">00 isigidi</pattern>
-					<pattern type="100000000" count="0">000 isigidi</pattern>
-					<pattern type="100000000" count="1">000 isigidi</pattern>
 					<pattern type="100000000" count="one">000 isigidi</pattern>
 					<pattern type="100000000" count="other">000 isigidi</pattern>
 					<pattern type="1000000000" count="one">0 isigidi sezigidi</pattern>
@@ -2049,15 +2037,10 @@
 					<pattern type="10000000000" count="other">00 isigidi sezigidi</pattern>
 					<pattern type="100000000000" count="one">000 isigidi sezigidi</pattern>
 					<pattern type="100000000000" count="other">000 isigidi sezigidi</pattern>
-					<pattern type="1000000000000" count="1">0 isigidintathu</pattern>
 					<pattern type="1000000000000" count="one">0 isigidintathu</pattern>
 					<pattern type="1000000000000" count="other">0 isigidintathu</pattern>
-					<pattern type="10000000000000" count="0">00 isigidintathu</pattern>
-					<pattern type="10000000000000" count="1">00 isigidintathu</pattern>
 					<pattern type="10000000000000" count="one">00 isigidintathu</pattern>
 					<pattern type="10000000000000" count="other">00 isigidintathu</pattern>
-					<pattern type="100000000000000" count="0">000 isigidintathu</pattern>
-					<pattern type="100000000000000" count="1">000 isigidintathu</pattern>
 					<pattern type="100000000000000" count="one">000 isigidintathu</pattern>
 					<pattern type="100000000000000" count="other">000 isigidintathu</pattern>
 				</decimalFormat>
@@ -2066,24 +2049,14 @@
 				<decimalFormat>
 					<pattern type="1000" count="one">0K</pattern>
 					<pattern type="1000" count="other">0K</pattern>
-					<pattern type="10000" count="0">00K</pattern>
-					<pattern type="10000" count="1">00K</pattern>
 					<pattern type="10000" count="one">00K</pattern>
 					<pattern type="10000" count="other">00K</pattern>
-					<pattern type="100000" count="0">000K</pattern>
-					<pattern type="100000" count="1">000K</pattern>
 					<pattern type="100000" count="one">000K</pattern>
 					<pattern type="100000" count="other">000K</pattern>
-					<pattern type="1000000" count="0">0M</pattern>
-					<pattern type="1000000" count="1">0M</pattern>
 					<pattern type="1000000" count="one">0M</pattern>
 					<pattern type="1000000" count="other">0M</pattern>
-					<pattern type="10000000" count="0">00M</pattern>
-					<pattern type="10000000" count="1">00M</pattern>
 					<pattern type="10000000" count="one">00M</pattern>
 					<pattern type="10000000" count="other">00M</pattern>
-					<pattern type="100000000" count="0">000M</pattern>
-					<pattern type="100000000" count="1">000M</pattern>
 					<pattern type="100000000" count="one">000M</pattern>
 					<pattern type="100000000" count="other">000M</pattern>
 					<pattern type="1000000000" count="one">0B</pattern>
@@ -2092,16 +2065,10 @@
 					<pattern type="10000000000" count="other">00B</pattern>
 					<pattern type="100000000000" count="one">000B</pattern>
 					<pattern type="100000000000" count="other">000B</pattern>
-					<pattern type="1000000000000" count="0">0T</pattern>
-					<pattern type="1000000000000" count="1">0T</pattern>
 					<pattern type="1000000000000" count="one">0T</pattern>
 					<pattern type="1000000000000" count="other">0T</pattern>
-					<pattern type="10000000000000" count="0">00T</pattern>
-					<pattern type="10000000000000" count="1">00T</pattern>
 					<pattern type="10000000000000" count="one">00T</pattern>
 					<pattern type="10000000000000" count="other">00T</pattern>
-					<pattern type="100000000000000" count="0">000T</pattern>
-					<pattern type="100000000000000" count="1">000T</pattern>
 					<pattern type="100000000000000" count="one">000T</pattern>
 					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
@@ -2127,8 +2094,6 @@
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -2612,129 +2577,101 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0">Izinsuku ezingu-0</unitPattern>
-			<unitPattern count="0" alt="short">Izinsuku ezingu-0</unitPattern>
-			<unitPattern count="1">usuku olungu-1</unitPattern>
-			<unitPattern count="1" alt="short">usuku olungu-1</unitPattern>
+			<unitPattern count="one">usuku olungu-1</unitPattern>
+			<unitPattern count="one" alt="short">usuku olungu-1</unitPattern>
 			<unitPattern count="other">{0} izinsuku</unitPattern>
 			<unitPattern count="other" alt="short">{0} izinsuku</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">Ezinsukwini ezingu-0</unitPattern>
-			<unitPattern count="1">Osukwini olungu-1</unitPattern>
+			<unitPattern count="one">Osukwini olungu-1</unitPattern>
 			<unitPattern count="other">Ezinsukwini ezingu-{0}</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">ezinsukwini ezingu-0 ezedlule.</unitPattern>
-			<unitPattern count="1">osukwini olungu-1 olwedlule</unitPattern>
+			<unitPattern count="one">osukwini olungu-1 olwedlule</unitPattern>
 			<unitPattern count="other">ezinsukwini ezingu-{0} ezedlule.</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0">0 amahora</unitPattern>
-			<unitPattern count="0" alt="short">0 amahora</unitPattern>
-			<unitPattern count="1">ihora elingu-1</unitPattern>
-			<unitPattern count="1" alt="short">ihora elingu-1</unitPattern>
+			<unitPattern count="one">ihora elingu-1</unitPattern>
+			<unitPattern count="one" alt="short">ihora elingu-1</unitPattern>
 			<unitPattern count="other">{0} amahora</unitPattern>
 			<unitPattern count="other" alt="short">{0} amahora</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">Emahoreni angu-0</unitPattern>
-			<unitPattern count="1">Ehoreni elingu-1</unitPattern>
+			<unitPattern count="one">Ehoreni elingu-1</unitPattern>
 			<unitPattern count="other">Emahoreni angu-{0}</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">emahoreni angu-0 adlule</unitPattern>
-			<unitPattern count="1">ehoreni eligu-1 eledluli</unitPattern>
+			<unitPattern count="one">ehoreni eligu-1 eledluli</unitPattern>
 			<unitPattern count="other">emahoreni angu-{0} edlule</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0">amaminithi angu-0</unitPattern>
-			<unitPattern count="0" alt="short">0 amaminithi</unitPattern>
-			<unitPattern count="1">iminithi elingu-1</unitPattern>
-			<unitPattern count="1" alt="short">iminithi elingu-1</unitPattern>
+			<unitPattern count="one">iminithi elingu-1</unitPattern>
+			<unitPattern count="one" alt="short">iminithi elingu-1</unitPattern>
 			<unitPattern count="other">{0} amaminithi</unitPattern>
 			<unitPattern count="other" alt="short">{0} amaminithi</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">Emaminithini angu-0</unitPattern>
-			<unitPattern count="1">Kumunithi engu-1</unitPattern>
+			<unitPattern count="one">Kumunithi engu-1</unitPattern>
 			<unitPattern count="other">Emaminithini angu-{0}</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">amaminithi angu-0 adlule.</unitPattern>
-			<unitPattern count="1">eminithini elingu-1 eledlule</unitPattern>
+			<unitPattern count="one">eminithini elingu-1 eledlule</unitPattern>
 			<unitPattern count="other">amaminithi angu-{0} adlule</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0">izinyanga ezingu-0</unitPattern>
-			<unitPattern count="0" alt="short">0 izinyanga</unitPattern>
-			<unitPattern count="1">inyana engu-1</unitPattern>
-			<unitPattern count="1" alt="short">inyanga engu-1</unitPattern>
+			<unitPattern count="one">inyana engu-1</unitPattern>
+			<unitPattern count="one" alt="short">inyanga engu-1</unitPattern>
 			<unitPattern count="other">{0} izinyanga</unitPattern>
 			<unitPattern count="other" alt="short">{0} izinyanga</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">Ezinyangeni ezingu-0</unitPattern>
-			<unitPattern count="1">Enyangeni engu-1</unitPattern>
+			<unitPattern count="one">Enyangeni engu-1</unitPattern>
 			<unitPattern count="other">Ezinyangeni ezingu-{0}</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">izinyanga ezingu-0 ezedlule</unitPattern>
-			<unitPattern count="1">enyangeni engu-1 eyedlule</unitPattern>
+			<unitPattern count="one">enyangeni engu-1 eyedlule</unitPattern>
 			<unitPattern count="other">ezinyangeni ezingu-{0} ezedlule</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0">0 amasekhondi</unitPattern>
-			<unitPattern count="0" alt="short">0 amasekhondi</unitPattern>
-			<unitPattern count="1">isekhondi elingu-1</unitPattern>
-			<unitPattern count="1" alt="short">isekhondi elingu-1</unitPattern>
+			<unitPattern count="one">isekhondi elingu-1</unitPattern>
+			<unitPattern count="one" alt="short">isekhondi elingu-1</unitPattern>
 			<unitPattern count="other">{0} amasekhondi</unitPattern>
 			<unitPattern count="other" alt="short">{0} amasekhondi</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">Emasekhondini angu-0</unitPattern>
-			<unitPattern count="1">Kusekhondi elingu-1</unitPattern>
+			<unitPattern count="one">Kusekhondi elingu-1</unitPattern>
 			<unitPattern count="other">Kumasekhondi angu-{0}</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">amasekhondi angu-0 adlule</unitPattern>
-			<unitPattern count="1">isekhondi elingu-1 eledlule</unitPattern>
+			<unitPattern count="one">isekhondi elingu-1 eledlule</unitPattern>
 			<unitPattern count="other">amasekhondi angu-{0} adlule</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0">0 amaviki</unitPattern>
-			<unitPattern count="0" alt="short">0 amaviki</unitPattern>
-			<unitPattern count="1">iviki elingu-1</unitPattern>
-			<unitPattern count="1" alt="short">iviki elingu-1</unitPattern>
+			<unitPattern count="one">iviki elingu-1</unitPattern>
+			<unitPattern count="one" alt="short">iviki elingu-1</unitPattern>
 			<unitPattern count="other">{0} amaviki</unitPattern>
 			<unitPattern count="other" alt="short">{0} amaviki</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">Emavikini angu-0</unitPattern>
-			<unitPattern count="1">Evikini elingu-1</unitPattern>
+			<unitPattern count="one">Evikini elingu-1</unitPattern>
 			<unitPattern count="other">Emavikini angu-{0}</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">emavikini angu-0 adlule</unitPattern>
-			<unitPattern count="1">evikini elingu-1 eledlule</unitPattern>
+			<unitPattern count="one">evikini elingu-1 eledlule</unitPattern>
 			<unitPattern count="other">amaviki angu-{0} adlule</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0">0 iminyaka</unitPattern>
-			<unitPattern count="0" alt="short">0 iminyaka</unitPattern>
-			<unitPattern count="1">unyaka ongu-1</unitPattern>
-			<unitPattern count="1" alt="short">unyaka ongu-1</unitPattern>
+			<unitPattern count="one">unyaka ongu-1</unitPattern>
+			<unitPattern count="one" alt="short">unyaka ongu-1</unitPattern>
 			<unitPattern count="other">{0} iminyaka</unitPattern>
 			<unitPattern count="other" alt="short">{0} iminyaka</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">Eminyakeni engu-0</unitPattern>
-			<unitPattern count="1">Onyakeni ongu-1</unitPattern>
+			<unitPattern count="one">Onyakeni ongu-1</unitPattern>
 			<unitPattern count="other">Eminyakeni engu-{0}</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">eminyakeni engu-0 edlule</unitPattern>
-			<unitPattern count="1">enyakeni ongu-1 owedlule</unitPattern>
+			<unitPattern count="one">enyakeni ongu-1 owedlule</unitPattern>
 			<unitPattern count="other">iminyaka engu-{0} eyedlule</unitPattern>
 		</unit>
 	</units>

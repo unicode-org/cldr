@@ -4622,8 +4622,6 @@
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
@@ -5769,16 +5767,12 @@
 			<unitPattern count="other" alt="short">{0} дня</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0" draft="contributed">Через 0 днів</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 день</unitPattern>
 			<unitPattern count="few" draft="contributed">Через {0} дні</unitPattern>
 			<unitPattern count="many" draft="contributed">Через {0} днів</unitPattern>
 			<unitPattern count="one" draft="contributed">Через {0} день</unitPattern>
 			<unitPattern count="other" draft="contributed">Через {0} дня</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0" draft="contributed">0 днів тому</unitPattern>
-			<unitPattern count="1" draft="contributed">1 день тому</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} дні тому</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} днів тому</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} день тому</unitPattern>
@@ -5795,16 +5789,12 @@
 			<unitPattern count="other" alt="short">{0} год.</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0" draft="contributed">Через 0 годин</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 годину</unitPattern>
 			<unitPattern count="few" draft="contributed">Через {0} години</unitPattern>
 			<unitPattern count="many" draft="contributed">Через {0} годин</unitPattern>
 			<unitPattern count="one" draft="contributed">Через {0} годину</unitPattern>
 			<unitPattern count="other" draft="contributed">Через {0} години</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0" draft="contributed">0 годин тому</unitPattern>
-			<unitPattern count="1" draft="contributed">1 годину тому</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} години тому</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} годин тому</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} годину тому</unitPattern>
@@ -5821,16 +5811,12 @@
 			<unitPattern count="other" alt="short">{0} хв.</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0" draft="contributed">Через 0 хвилин</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 хвилину</unitPattern>
 			<unitPattern count="few" draft="contributed">Через {0} хвилини</unitPattern>
 			<unitPattern count="many" draft="contributed">Через {0} хвилин</unitPattern>
 			<unitPattern count="one" draft="contributed">Через {0} хвилину</unitPattern>
 			<unitPattern count="other" draft="contributed">Через {0} хвилини</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0" draft="contributed">0 хвилин тому</unitPattern>
-			<unitPattern count="1" draft="contributed">1 хвилину тому</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} хвилини тому</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} хвилин тому</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} хвилину тому</unitPattern>
@@ -5847,16 +5833,12 @@
 			<unitPattern count="other" alt="short">{0} міс.</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0" draft="contributed">Через 0 місяців</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 місяць</unitPattern>
 			<unitPattern count="few" draft="contributed">Через {0} місяці</unitPattern>
 			<unitPattern count="many" draft="contributed">Через {0} місяців</unitPattern>
 			<unitPattern count="one" draft="contributed">Через {0} місяць</unitPattern>
 			<unitPattern count="other" draft="contributed">Через {0} місяця</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0" draft="contributed">0 місяців тому</unitPattern>
-			<unitPattern count="1" draft="contributed">1 місяць тому</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} місяці тому</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} місяців тому</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} місяць тому</unitPattern>
@@ -5873,16 +5855,12 @@
 			<unitPattern count="other" alt="short">{0} сек.</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0" draft="contributed">Через 0 секунд</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 секунду</unitPattern>
 			<unitPattern count="few" draft="contributed">Через {0} секунди</unitPattern>
 			<unitPattern count="many" draft="contributed">Через {0} секунд</unitPattern>
 			<unitPattern count="one" draft="contributed">Через {0} секунду</unitPattern>
 			<unitPattern count="other" draft="contributed">Через {0} секунди</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0" draft="contributed">0 секунд тому</unitPattern>
-			<unitPattern count="1" draft="contributed">1 секунду тому</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} секунди тому</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} секунд тому</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} секунду тому</unitPattern>
@@ -5899,16 +5877,12 @@
 			<unitPattern count="other" alt="short">{0} тиж.</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0" draft="contributed">Через 0 тижнів</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 тиждень</unitPattern>
 			<unitPattern count="few" draft="contributed">Через {0} тижні</unitPattern>
 			<unitPattern count="many" draft="contributed">Через {0} тижнів</unitPattern>
 			<unitPattern count="one" draft="contributed">Через {0} тиждень</unitPattern>
 			<unitPattern count="other" draft="contributed">Через {0} тижня</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0" draft="contributed">0 тижнів тому</unitPattern>
-			<unitPattern count="1" draft="contributed">1 тиждень тому</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} тижні тому</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} тижнів тому</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} тиждень тому</unitPattern>
@@ -5925,16 +5899,12 @@
 			<unitPattern count="other" alt="short">{0} р.</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0" draft="contributed">Через 0 років</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 рік</unitPattern>
 			<unitPattern count="few" draft="contributed">Через {0} роки</unitPattern>
 			<unitPattern count="many" draft="contributed">Через {0} років</unitPattern>
 			<unitPattern count="one" draft="contributed">Через {0} рік</unitPattern>
 			<unitPattern count="other" draft="contributed">Через {0} року</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0" draft="contributed">0 років тому</unitPattern>
-			<unitPattern count="1" draft="contributed">1 рік тому</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} роки тому</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} років тому</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} рік тому</unitPattern>

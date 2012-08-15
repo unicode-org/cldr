@@ -5550,8 +5550,6 @@
 					<pattern>¤#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
@@ -6718,13 +6716,9 @@
 			<unitPattern count="other" alt="short">{0} hr</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">Dalam 0 hari</unitPattern>
-			<unitPattern count="1">Dalam 1 hari</unitPattern>
 			<unitPattern count="other">Dalam {0} hari</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">0 hari yang lalu</unitPattern>
-			<unitPattern count="1">1 hari yang lalu</unitPattern>
 			<unitPattern count="other">{0} hari yang lalu</unitPattern>
 		</unit>
 		<unit type="hour">
@@ -6732,13 +6726,9 @@
 			<unitPattern count="other" alt="short">{0} jam</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">Dalam 0 jam</unitPattern>
-			<unitPattern count="1">Dalam 1 jam</unitPattern>
 			<unitPattern count="other">Dalam {0} jam</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">0 jam yang lalu</unitPattern>
-			<unitPattern count="1">1 jam yang lalu</unitPattern>
 			<unitPattern count="other">{0} jam yang lalu</unitPattern>
 		</unit>
 		<unit type="minute">
@@ -6746,13 +6736,9 @@
 			<unitPattern count="other" alt="short">{0} mnt</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">Dalam 0 menit</unitPattern>
-			<unitPattern count="1">Dalam 1 menit</unitPattern>
 			<unitPattern count="other">Dalam {0} menit</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">0 menit yang lalu</unitPattern>
-			<unitPattern count="1">1 menit yang lalu</unitPattern>
 			<unitPattern count="other">{0} menit yang lalu</unitPattern>
 		</unit>
 		<unit type="month">
@@ -6760,13 +6746,9 @@
 			<unitPattern count="other" alt="short">{0} bln</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">Dalam 0 bulan</unitPattern>
-			<unitPattern count="1">Dalam 1 bulan</unitPattern>
 			<unitPattern count="other">Dalam {0} bulan</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">0 bulan yang lalu</unitPattern>
-			<unitPattern count="1">1 bulan yang lalu</unitPattern>
 			<unitPattern count="other">{0} bulan yang lalu</unitPattern>
 		</unit>
 		<unit type="second">
@@ -6774,13 +6756,9 @@
 			<unitPattern count="other" alt="short">{0} dtk</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">Dalam 0 detik</unitPattern>
-			<unitPattern count="1">Dalam 1 detik</unitPattern>
 			<unitPattern count="other">Dalam {0} detik</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">0 detik yang lalu</unitPattern>
-			<unitPattern count="1">1 detik yang lalu</unitPattern>
 			<unitPattern count="other">{0} detik yang lalu</unitPattern>
 		</unit>
 		<unit type="week">
@@ -6788,13 +6766,9 @@
 			<unitPattern count="other" alt="short">{0} mggu</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">Dalam 0 minggu</unitPattern>
-			<unitPattern count="1">Dalam 1 minggu</unitPattern>
 			<unitPattern count="other">Dalam {0} minggu</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">0 minggu yang lalu</unitPattern>
-			<unitPattern count="1">1 minggu yang lalu</unitPattern>
 			<unitPattern count="other">{0} minggu yang lalu</unitPattern>
 		</unit>
 		<unit type="year">
@@ -6802,13 +6776,9 @@
 			<unitPattern count="other" alt="short">{0} thn</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">Dalam 0 tahun</unitPattern>
-			<unitPattern count="1">Dalam 1 tahun</unitPattern>
 			<unitPattern count="other">Dalam {0} tahun</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">0 tahun yang lalu</unitPattern>
-			<unitPattern count="1">1 tahun yang lalu</unitPattern>
 			<unitPattern count="other">{0} tahun yang lalu</unitPattern>
 		</unit>
 	</units>

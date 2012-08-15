@@ -4027,8 +4027,6 @@
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
@@ -4510,129 +4508,73 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0">0 ದಿನಗಳು</unitPattern>
-			<unitPattern count="0" alt="short">0 ದಿನ</unitPattern>
-			<unitPattern count="1">1 ದಿನ</unitPattern>
-			<unitPattern count="1" alt="short">1 ದಿನ</unitPattern>
 			<unitPattern count="other">{0} ದಿನಗಳು</unitPattern>
 			<unitPattern count="other" alt="short">{0} ದಿನ</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">೦ ದಿನಗಳಲ್ಲಿ</unitPattern>
-			<unitPattern count="1">1 ದಿನದಲ್ಲಿ</unitPattern>
 			<unitPattern count="other">{0} ದಿನಗಳಲ್ಲಿ</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">೦ ದಿನಗಳ ಹಿಂದೆ</unitPattern>
-			<unitPattern count="1">1 ದಿನದ ಹಿಂದೆ</unitPattern>
 			<unitPattern count="other">{0} ದಿನಗಳ ಹಿಂದೆ</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0">0 ಗಂಟೆಗಳು</unitPattern>
-			<unitPattern count="0" alt="short">೦ ಗಂ.</unitPattern>
-			<unitPattern count="1">1 ಗಂಟೆ</unitPattern>
-			<unitPattern count="1" alt="short">1 ಗಂ.</unitPattern>
 			<unitPattern count="other">{0} ಗಂಟೆಗಳು</unitPattern>
 			<unitPattern count="other" alt="short">{0} ಗಂ.</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">೦ ಗಂಟೆಗಳಲ್ಲಿ</unitPattern>
-			<unitPattern count="1">1 ಗಂಟೆಯಲ್ಲಿ</unitPattern>
 			<unitPattern count="other">{0} ಗಂಟೆಗಳಲ್ಲಿ</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">೦ ಗಂಟೆಗಳ ಹಿಂದೆ</unitPattern>
-			<unitPattern count="1">1 ಗಂಟೆಗಳ ಹಿಂದೆ</unitPattern>
 			<unitPattern count="other">{0} ಗಂಟೆಗಳ ಹಿಂದೆ</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0">0 ನಿಮಿಷಗಳು</unitPattern>
-			<unitPattern count="0" alt="short">0 ನಿಮಿ</unitPattern>
-			<unitPattern count="1">1 ನಿಮಿಷ</unitPattern>
-			<unitPattern count="1" alt="short">1 ನಿಮಿ</unitPattern>
 			<unitPattern count="other">{0} ನಿಮಿಷಗಳು</unitPattern>
 			<unitPattern count="other" alt="short">{0} ನಿಮಿ</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">೦ ನಿಮಿಷಗಳಲ್ಲಿ</unitPattern>
-			<unitPattern count="1">1 ನಿಮಿಷದಲ್ಲಿ</unitPattern>
 			<unitPattern count="other">{0} ನಿಮಿಷಗಳಲ್ಲಿ</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">0 ನಿಮಿಷಗಳ ಹಿಂದೆ</unitPattern>
-			<unitPattern count="1">1 ನಿಮಿಷದ ಹಿಂದೆ</unitPattern>
 			<unitPattern count="other">{0} ನಿಮಿಷಗಳ ಹಿಂದೆ</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0">0 ತಿಂಗಳುಗಳು</unitPattern>
-			<unitPattern count="0" alt="short">೦ ತಿಂ.</unitPattern>
-			<unitPattern count="1">1 ತಿಂಗಳು</unitPattern>
-			<unitPattern count="1" alt="short">1 ತಿಂ.</unitPattern>
 			<unitPattern count="other">{0} ತಿಂಗಳುಗಳು</unitPattern>
 			<unitPattern count="other" alt="short">{0} ತಿಂ.</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">೦ ತಿಂಗಳಿನಲ್ಲಿ</unitPattern>
-			<unitPattern count="1">1 ತಿಂಗಳಿನಲ್ಲಿ</unitPattern>
 			<unitPattern count="other">{0} ತಿಂಗಳುಗಳಲ್ಲಿ</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">೦ ತಿಂಗಳುಗಳ ಹಿಂದೆ</unitPattern>
-			<unitPattern count="1">1 ತಿಂಗಳ ಹಿಂದೆ</unitPattern>
 			<unitPattern count="other">{0} ತಿಂಗಳುಗಳ ಹಿಂದೆ</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0">೦ ಸೆಕೆಂಡುಗಳು</unitPattern>
-			<unitPattern count="0" alt="short">೦ ಸೆಕೆಂ</unitPattern>
-			<unitPattern count="1">1 ಸೆಕೆಂಡ್</unitPattern>
-			<unitPattern count="1" alt="short">1 ಸೆಕೆಂ</unitPattern>
 			<unitPattern count="other">{0} ಸೆಕೆಂಡುಗಳು</unitPattern>
 			<unitPattern count="other" alt="short">{0} ಸೆಕೆಂ</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">೦ ಸೆಕೆಂಡ್‌‌ಗಳಲ್ಲಿ</unitPattern>
-			<unitPattern count="1">1 ಸೆಕೆಂಡ್‌ನಲ್ಲಿ</unitPattern>
 			<unitPattern count="other">{0} ಸೆಕೆಂಡ್‌ಗಳಲ್ಲಿ</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">೦ ಸೆಕೆಂಡುಗಳ ಹಿಂದೆ</unitPattern>
-			<unitPattern count="1">1 ಸೆಕೆಂಡ್ ಹಿಂದೆ</unitPattern>
 			<unitPattern count="other">{0} ಸೆಕೆಂಡುಗಳ ಹಿಂದೆ</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0">0 ವಾರಗಳು</unitPattern>
-			<unitPattern count="0" alt="short">೦ ವಾರಗಳು</unitPattern>
-			<unitPattern count="1">1 ವಾರ</unitPattern>
-			<unitPattern count="1" alt="short">1 ವಾರ</unitPattern>
 			<unitPattern count="other">{0} ವಾರಗಳು</unitPattern>
 			<unitPattern count="other" alt="short">{0} ವಾರಗಳು</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">೦ ವಾರಗಳಲ್ಲಿ</unitPattern>
-			<unitPattern count="1">1 ವಾರದಲ್ಲಿ</unitPattern>
 			<unitPattern count="other">{0} ವಾರಗಳಲ್ಲಿ</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">೦ ವಾರಗಳ ಹಿಂದೆ</unitPattern>
-			<unitPattern count="1">1 ವಾರದ ಹಿಂದೆ</unitPattern>
 			<unitPattern count="other">{0} ವಾರಗಳ ಹಿಂದೆ</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0">೦ ವರ್ಷಗಳು</unitPattern>
-			<unitPattern count="0" alt="short">೦ ವರ್ಷಗಳು</unitPattern>
-			<unitPattern count="1">1 ವರ್ಷ</unitPattern>
-			<unitPattern count="1" alt="short">1 ವರ್ಷಗಳು</unitPattern>
 			<unitPattern count="other">{0} ವರ್ಷಗಳು</unitPattern>
 			<unitPattern count="other" alt="short">{0} ವರ್ಷಗಳು</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">೦ ವರ್ಷಗಳಲ್ಲಿ</unitPattern>
-			<unitPattern count="1">1 ವರ್ಷದಲ್ಲಿ</unitPattern>
 			<unitPattern count="other">{0} ವರ್ಷಗಳಲ್ಲಿ</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">೦ ವರ್ಷಗಳ ಹಿಂದೆ</unitPattern>
-			<unitPattern count="1">1 ವರ್ಷದ ಹಿಂದೆ</unitPattern>
 			<unitPattern count="other">{0} ವರ್ಷಗಳ ಹಿಂದೆ</unitPattern>
 		</unit>
 	</units>

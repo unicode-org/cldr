@@ -2809,8 +2809,6 @@
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
@@ -3528,131 +3526,101 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0" alt="short">0 dagar</unitPattern>
-			<unitPattern count="1" alt="short">Einn dagur</unitPattern>
 			<unitPattern count="one">{0} dagur</unitPattern>
 			<unitPattern count="one" alt="short">{0} dagar</unitPattern>
 			<unitPattern count="other">{0} dagar</unitPattern>
 			<unitPattern count="other" alt="short">{0} dagar</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">Eftir 0 daga</unitPattern>
-			<unitPattern count="1">Eftir einn dag</unitPattern>
 			<unitPattern count="one">Eftir {0} daga</unitPattern>
 			<unitPattern count="other">Eftir {0} daga</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">Fyrir 0 dögum síðan</unitPattern>
-			<unitPattern count="1">Fyrir einum degi síðan</unitPattern>
 			<unitPattern count="one">Fyrir {0} dögum síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} dögum síðan</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0" alt="short">0 klst.</unitPattern>
-			<unitPattern count="1" alt="short">1 klst.</unitPattern>
 			<unitPattern count="one">{0} klukkustund</unitPattern>
+			<unitPattern count="one" alt="short">1 klst.</unitPattern>
 			<unitPattern count="other">{0} klukkustundir</unitPattern>
 			<unitPattern count="other" alt="short">{0} klst.</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">Eftir 0 klukkustundir</unitPattern>
-			<unitPattern count="1">Eftir eina klukkustund</unitPattern>
 			<unitPattern count="one">Eftir {0} klukkustundir</unitPattern>
 			<unitPattern count="other">Eftir {0} klukkustundir</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">Fyrir 0 klukkustundum síðan</unitPattern>
-			<unitPattern count="1">Fyrir einni klukkustund síðan</unitPattern>
 			<unitPattern count="one">Fyrir {0} klukkustundum síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} klukkustundum síðan</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0" alt="short">0 mín.</unitPattern>
-			<unitPattern count="1" alt="short">1 mín.</unitPattern>
 			<unitPattern count="one">{0} mínúta</unitPattern>
+			<unitPattern count="one" alt="short">1 mín.</unitPattern>
 			<unitPattern count="other">{0} mínútur</unitPattern>
 			<unitPattern count="other" alt="short">{0} mín.</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">Eftir 0 mínútur</unitPattern>
-			<unitPattern count="1">Eftir eina mínútu</unitPattern>
 			<unitPattern count="one">Eftir {0} mínútu</unitPattern>
 			<unitPattern count="other">Eftir {0} mínútur</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">Fyrir 0 mínútum síðan</unitPattern>
-			<unitPattern count="1">Fyrir einni mínútu síðan</unitPattern>
 			<unitPattern count="one">Fyrir {0} mínútum síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} mínútum síðan</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0" alt="short">0 mán.</unitPattern>
-			<unitPattern count="1" alt="short">1 mán.</unitPattern>
 			<unitPattern count="one">{0} mánuður</unitPattern>
+			<unitPattern count="one" alt="short">1 mán.</unitPattern>
 			<unitPattern count="other">{0} mánuðum</unitPattern>
 			<unitPattern count="other" alt="short">{0} mán.</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">Eftir 0 mánuði</unitPattern>
-			<unitPattern count="1">Eftir einn mánuð</unitPattern>
+			<unitPattern count="one">Eftir einn mánuð</unitPattern>
 			<unitPattern count="other">Eftir {0} mánuði</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">Fyrir 0 mánuðum síðan</unitPattern>
-			<unitPattern count="1">Fyrir einum mánuði síðan</unitPattern>
+			<unitPattern count="one">Fyrir einum mánuði síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} mánuðum síðan</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0" alt="short">0 sek.</unitPattern>
-			<unitPattern count="1" alt="short">1 sek.</unitPattern>
 			<unitPattern count="one">{0} sekúnda</unitPattern>
+			<unitPattern count="one" alt="short">1 sek.</unitPattern>
 			<unitPattern count="other">{0} sekúndur</unitPattern>
 			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">Eftir 0 sekúndur</unitPattern>
-			<unitPattern count="1">Eftir eina sekúndu</unitPattern>
+			<unitPattern count="one">Eftir eina sekúndu</unitPattern>
 			<unitPattern count="other">Eftir {0} sekúndur</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">Fyrir 0 sekúndum síðan</unitPattern>
-			<unitPattern count="1">Fyrir einni sekúndu síðan</unitPattern>
+			<unitPattern count="one">Fyrir einni sekúndu síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} sekúndum síðan</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0" alt="short">0 vikur</unitPattern>
-			<unitPattern count="1" alt="short">1 vika</unitPattern>
 			<unitPattern count="one">{0} vika</unitPattern>
+			<unitPattern count="one" alt="short">1 vika</unitPattern>
 			<unitPattern count="other">{0} vikur</unitPattern>
 			<unitPattern count="other" alt="short">{0} vikur</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">Eftir 0 vikur</unitPattern>
-			<unitPattern count="1">Eftir eina viku</unitPattern>
 			<unitPattern count="one">Eftir {0} vikur</unitPattern>
 			<unitPattern count="other">Eftir {0} vikur</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">Fyrir 0 vikum síðan</unitPattern>
-			<unitPattern count="1">Fyrir einni viku síðan</unitPattern>
+			<unitPattern count="one">Fyrir einni viku síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} vikum síðan</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0" alt="short">0 ár</unitPattern>
-			<unitPattern count="1" alt="short">1 ár</unitPattern>
 			<unitPattern count="one">{0} ár</unitPattern>
 			<unitPattern count="one" alt="short">{0} ár</unitPattern>
 			<unitPattern count="other">{0} ár</unitPattern>
 			<unitPattern count="other" alt="short">{0} ár</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">Eftir 0 ár</unitPattern>
-			<unitPattern count="1">Eftir eitt ár</unitPattern>
+			<unitPattern count="one">Eftir eitt ár</unitPattern>
 			<unitPattern count="other">Eftir {0} ár</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">Fyrir 0 árum síðan</unitPattern>
-			<unitPattern count="1">Fyrir einu ári síðan</unitPattern>
+			<unitPattern count="one">Fyrir einu ári síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} árum síðan</unitPattern>
 		</unit>
 	</units>

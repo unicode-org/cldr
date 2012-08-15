@@ -1177,11 +1177,11 @@
 			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
 			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
 		</contextTransformUsage>
-		<contextTransformUsage type="era-name">
+		<contextTransformUsage type="era-abbr">
 			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
 			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
 		</contextTransformUsage>
-		<contextTransformUsage type="era-abbr">
+		<contextTransformUsage type="era-name">
 			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
 			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
 		</contextTransformUsage>
@@ -5197,8 +5197,6 @@
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="1" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="few" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="many" draft="contributed">{0} {1}</unitPattern>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
@@ -6692,16 +6690,12 @@
 			<unitPattern count="other" alt="short">{0} дн.</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0" draft="contributed">Через 0 дней</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 день</unitPattern>
 			<unitPattern count="few">Через {0} дня</unitPattern>
 			<unitPattern count="many">Через {0} дней</unitPattern>
 			<unitPattern count="one">Через {0} день</unitPattern>
 			<unitPattern count="other">Через {0} дня</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0" draft="contributed">0 дней назад</unitPattern>
-			<unitPattern count="1" draft="contributed">1 день назад</unitPattern>
 			<unitPattern count="few">{0} дня назад</unitPattern>
 			<unitPattern count="many">{0} дней назад</unitPattern>
 			<unitPattern count="one">{0} день назад</unitPattern>
@@ -6718,16 +6712,12 @@
 			<unitPattern count="other" alt="short">{0} ч.</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0" draft="contributed">Через 0 часов</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 час</unitPattern>
 			<unitPattern count="few">Через {0} часа</unitPattern>
 			<unitPattern count="many">Через {0} часов</unitPattern>
 			<unitPattern count="one">Через {0} час</unitPattern>
 			<unitPattern count="other">Через {0} часа</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0" draft="contributed">0 часов назад</unitPattern>
-			<unitPattern count="1" draft="contributed">1 час назад</unitPattern>
 			<unitPattern count="few">{0} часа назад</unitPattern>
 			<unitPattern count="many">{0} часов назад</unitPattern>
 			<unitPattern count="one">{0} час назад</unitPattern>
@@ -6744,16 +6734,12 @@
 			<unitPattern count="other" alt="short">{0} мин.</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0" draft="contributed">Через 0 минут</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 минуту</unitPattern>
 			<unitPattern count="few">Через {0} минуты</unitPattern>
 			<unitPattern count="many">Через {0} минут</unitPattern>
 			<unitPattern count="one">Через {0} минуту</unitPattern>
 			<unitPattern count="other">Через {0} минуты</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0" draft="contributed">0 минут назад</unitPattern>
-			<unitPattern count="1" draft="contributed">1 минуту назад</unitPattern>
 			<unitPattern count="few">{0} минуты назад</unitPattern>
 			<unitPattern count="many">{0} минут назад</unitPattern>
 			<unitPattern count="one">{0} минуту назад</unitPattern>
@@ -6770,16 +6756,12 @@
 			<unitPattern count="other" alt="short">{0} мес.</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0" draft="contributed">Через 0 месяцев</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 месяц</unitPattern>
 			<unitPattern count="few">Через {0} месяца</unitPattern>
 			<unitPattern count="many">Через {0} месяцев</unitPattern>
 			<unitPattern count="one">Через {0} месяц</unitPattern>
 			<unitPattern count="other">Через {0} месяца</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0" draft="contributed">0 месяцев назад</unitPattern>
-			<unitPattern count="1" draft="contributed">1 месяц назад</unitPattern>
 			<unitPattern count="few">{0} месяца назад</unitPattern>
 			<unitPattern count="many">{0} месяцев назад</unitPattern>
 			<unitPattern count="one">{0} месяц назад</unitPattern>
@@ -6796,16 +6778,12 @@
 			<unitPattern count="other" alt="short">{0} сек.</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0" draft="contributed">Через 0 секунд</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 секунду</unitPattern>
 			<unitPattern count="few">Через {0} секунды</unitPattern>
 			<unitPattern count="many">Через {0} секунд</unitPattern>
 			<unitPattern count="one">Через {0} секунду</unitPattern>
 			<unitPattern count="other">Через {0} секунды</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0" draft="contributed">0 секунд назад</unitPattern>
-			<unitPattern count="1" draft="contributed">1 секунду назад</unitPattern>
 			<unitPattern count="few">{0} секунды назад</unitPattern>
 			<unitPattern count="many">{0} секунд назад</unitPattern>
 			<unitPattern count="one">{0} секунду назад</unitPattern>
@@ -6822,16 +6800,12 @@
 			<unitPattern count="other" alt="short">{0} нед.</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0" draft="contributed">Через 0 недель</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 неделю</unitPattern>
 			<unitPattern count="few">Через {0} недели</unitPattern>
 			<unitPattern count="many">Через {0} недель</unitPattern>
 			<unitPattern count="one">Через {0} неделю</unitPattern>
 			<unitPattern count="other">Через {0} недели</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0" draft="contributed">0 недель назад</unitPattern>
-			<unitPattern count="1" draft="contributed">1 неделю назад</unitPattern>
 			<unitPattern count="few">{0} недели назад</unitPattern>
 			<unitPattern count="many">{0} недель назад</unitPattern>
 			<unitPattern count="one">{0} неделю назад</unitPattern>
@@ -6848,16 +6822,12 @@
 			<unitPattern count="other" alt="short">{0} г.</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0" draft="contributed">Через 0 лет</unitPattern>
-			<unitPattern count="1" draft="contributed">Через 1 год</unitPattern>
 			<unitPattern count="few">Через {0} года</unitPattern>
 			<unitPattern count="many">Через {0} лет</unitPattern>
 			<unitPattern count="one">Через {0} год</unitPattern>
 			<unitPattern count="other">Через {0} года</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0" draft="contributed">0 лет назад</unitPattern>
-			<unitPattern count="1" draft="contributed">1 год назад</unitPattern>
 			<unitPattern count="few">{0} года назад</unitPattern>
 			<unitPattern count="many">{0} лет назад</unitPattern>
 			<unitPattern count="one">{0} год назад</unitPattern>

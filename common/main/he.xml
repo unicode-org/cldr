@@ -4954,8 +4954,6 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0" alt="short">{0} ימים</unitPattern>
-			<unitPattern count="1" alt="short">{0} יום</unitPattern>
 			<unitPattern count="many">{0} ימים</unitPattern>
 			<unitPattern count="many" alt="short">{0} ימים</unitPattern>
 			<unitPattern count="one">‏{0} יום</unitPattern>
@@ -4978,8 +4976,6 @@
 			<unitPattern count="two">לפני {0} ימים</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0" alt="short">{0} שעות</unitPattern>
-			<unitPattern count="1" alt="short">{0} שעה</unitPattern>
 			<unitPattern count="many">{0} שעות</unitPattern>
 			<unitPattern count="many" alt="short">{0} שעות</unitPattern>
 			<unitPattern count="one">{0} שעה</unitPattern>
@@ -5002,11 +4998,10 @@
 			<unitPattern count="two">לפני {0} שעות</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0" alt="short">{0} דק׳</unitPattern>
-			<unitPattern count="1" alt="short">{0} דק׳</unitPattern>
 			<unitPattern count="many">{0} דקות</unitPattern>
 			<unitPattern count="many" alt="short">{0} דק׳</unitPattern>
 			<unitPattern count="one">{0} דקה</unitPattern>
+			<unitPattern count="one" alt="short">{0} דק׳</unitPattern>
 			<unitPattern count="other">{0} דקות</unitPattern>
 			<unitPattern count="other" alt="short">{0} דק׳</unitPattern>
 			<unitPattern count="two">{0} דקות</unitPattern>
@@ -5025,11 +5020,10 @@
 			<unitPattern count="two">לפני {0} דקות</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0" alt="short">{0} חודשים</unitPattern>
-			<unitPattern count="1" alt="short">{0} חודש</unitPattern>
 			<unitPattern count="many">{0} חודשים</unitPattern>
 			<unitPattern count="many" alt="short">{0} חודשים</unitPattern>
 			<unitPattern count="one">{0} חודש</unitPattern>
+			<unitPattern count="one" alt="short">{0} חודש</unitPattern>
 			<unitPattern count="other">{0} חודשים</unitPattern>
 			<unitPattern count="other" alt="short">{0} חודשים</unitPattern>
 			<unitPattern count="two">{0} חודשים</unitPattern>
@@ -5048,11 +5042,10 @@
 			<unitPattern count="two">לפני {0} חודשים</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0" alt="short">{0} שנ׳</unitPattern>
-			<unitPattern count="1" alt="short">{0} שנ׳</unitPattern>
 			<unitPattern count="many">‏{0} שניות</unitPattern>
 			<unitPattern count="many" alt="short">{0} שנ׳</unitPattern>
 			<unitPattern count="one">{0} שניה</unitPattern>
+			<unitPattern count="one" alt="short">{0} שנ׳</unitPattern>
 			<unitPattern count="other">{0} שניות</unitPattern>
 			<unitPattern count="other" alt="short">{0} שניות</unitPattern>
 			<unitPattern count="two">{0} שניות</unitPattern>
@@ -5071,11 +5064,10 @@
 			<unitPattern count="two">לפני {0} שניות</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0" alt="short">{0} שבועות</unitPattern>
-			<unitPattern count="1" alt="short">{0} שבוע</unitPattern>
 			<unitPattern count="many">{0} שבועות</unitPattern>
 			<unitPattern count="many" alt="short">{0} שבועות</unitPattern>
 			<unitPattern count="one">{0} שבוע</unitPattern>
+			<unitPattern count="one" alt="short">{0} שבוע</unitPattern>
 			<unitPattern count="other">{0} שבועות</unitPattern>
 			<unitPattern count="other" alt="short">{0} שבועות</unitPattern>
 			<unitPattern count="two">{0} שבועות</unitPattern>
@@ -5094,11 +5086,10 @@
 			<unitPattern count="two">לפני {0} שבועות</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0" alt="short">{0} שנים</unitPattern>
-			<unitPattern count="1" alt="short">{0} שנה</unitPattern>
 			<unitPattern count="many">{0} שנים</unitPattern>
 			<unitPattern count="many" alt="short">{0} שנים</unitPattern>
 			<unitPattern count="one">{0} שנה</unitPattern>
+			<unitPattern count="one" alt="short">{0} שנה</unitPattern>
 			<unitPattern count="other">{0} שנים</unitPattern>
 			<unitPattern count="other" alt="short">{0} שנים</unitPattern>
 			<unitPattern count="two">{0} שנים</unitPattern>

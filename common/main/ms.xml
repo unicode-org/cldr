@@ -2475,8 +2475,6 @@
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="0">{0} {1}</unitPattern>
-			<unitPattern count="1">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
@@ -3070,129 +3068,73 @@
 	</numbers>
 	<units>
 		<unit type="day">
-			<unitPattern count="0">0 hari</unitPattern>
-			<unitPattern count="0" alt="short">0 hari</unitPattern>
-			<unitPattern count="1">1 hari</unitPattern>
-			<unitPattern count="1" alt="short">1 hari</unitPattern>
 			<unitPattern count="other">{0} hari</unitPattern>
 			<unitPattern count="other" alt="short">{0} hari</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="0">Dalam 0 hari</unitPattern>
-			<unitPattern count="1">Dalam 1 hari</unitPattern>
 			<unitPattern count="other">Dalam {0} hari</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="0">0 hari lalu</unitPattern>
-			<unitPattern count="1">1 hari lalu</unitPattern>
 			<unitPattern count="other">{0} hari lalu</unitPattern>
 		</unit>
 		<unit type="hour">
-			<unitPattern count="0">0 jam</unitPattern>
-			<unitPattern count="0" alt="short">0 jam</unitPattern>
-			<unitPattern count="1">1 jam</unitPattern>
-			<unitPattern count="1" alt="short">1 jam</unitPattern>
 			<unitPattern count="other">{0} jam</unitPattern>
 			<unitPattern count="other" alt="short">{0} jam</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="0">Dalam 0 jam</unitPattern>
-			<unitPattern count="1">Dalam 1 jam</unitPattern>
 			<unitPattern count="other">Dalam {0} jam</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="0">0 jam lalu</unitPattern>
-			<unitPattern count="1">1 jam lalu</unitPattern>
 			<unitPattern count="other">{0} jam lalu</unitPattern>
 		</unit>
 		<unit type="minute">
-			<unitPattern count="0">0 minit</unitPattern>
-			<unitPattern count="0" alt="short">0 min</unitPattern>
-			<unitPattern count="1">1 minit</unitPattern>
-			<unitPattern count="1" alt="short">1 min</unitPattern>
 			<unitPattern count="other">{0} minit</unitPattern>
 			<unitPattern count="other" alt="short">{0} min</unitPattern>
 		</unit>
 		<unit type="minute-future">
-			<unitPattern count="0">Dalam 0 minit</unitPattern>
-			<unitPattern count="1">Dalam 1 minit</unitPattern>
 			<unitPattern count="other">Dalam {0} minit</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="0">0 minit lalu</unitPattern>
-			<unitPattern count="1">1 minit lalu</unitPattern>
 			<unitPattern count="other">{0} minit lalu</unitPattern>
 		</unit>
 		<unit type="month">
-			<unitPattern count="0">0 bulan</unitPattern>
-			<unitPattern count="0" alt="short">0 bulan</unitPattern>
-			<unitPattern count="1">1 bulan</unitPattern>
-			<unitPattern count="1" alt="short">1 bulan</unitPattern>
 			<unitPattern count="other">{0} bulan</unitPattern>
 			<unitPattern count="other" alt="short">{0} bulan</unitPattern>
 		</unit>
 		<unit type="month-future">
-			<unitPattern count="0">Dalam 0 bulan</unitPattern>
-			<unitPattern count="1">Dalam 1 Bulan</unitPattern>
 			<unitPattern count="other">Dalam {0} bulan</unitPattern>
 		</unit>
 		<unit type="month-past">
-			<unitPattern count="0">0 bulan lalu</unitPattern>
-			<unitPattern count="1">1 bulan lalu</unitPattern>
 			<unitPattern count="other">{0} bulan lalu</unitPattern>
 		</unit>
 		<unit type="second">
-			<unitPattern count="0">0 saat</unitPattern>
-			<unitPattern count="0" alt="short">0 saat</unitPattern>
-			<unitPattern count="1">1 saat</unitPattern>
-			<unitPattern count="1" alt="short">1 saat</unitPattern>
 			<unitPattern count="other">{0} saat</unitPattern>
 			<unitPattern count="other" alt="short">{0} saat</unitPattern>
 		</unit>
 		<unit type="second-future">
-			<unitPattern count="0">Dalam 0 saat</unitPattern>
-			<unitPattern count="1">Dalam 1 saat</unitPattern>
 			<unitPattern count="other">Dalam {0} saat</unitPattern>
 		</unit>
 		<unit type="second-past">
-			<unitPattern count="0">0 saat lalu</unitPattern>
-			<unitPattern count="1">1 saat lalu</unitPattern>
 			<unitPattern count="other">{0} saat lalu</unitPattern>
 		</unit>
 		<unit type="week">
-			<unitPattern count="0">0 minggu</unitPattern>
-			<unitPattern count="0" alt="short">0 minggu</unitPattern>
-			<unitPattern count="1">1 minggu</unitPattern>
-			<unitPattern count="1" alt="short">1 minggu</unitPattern>
 			<unitPattern count="other">{0} minggu</unitPattern>
 			<unitPattern count="other" alt="short">{0} minggu</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="0">Dalam 0 minggu</unitPattern>
-			<unitPattern count="1">Dalam 1 minggu</unitPattern>
 			<unitPattern count="other">Dalam {0} minggu</unitPattern>
 		</unit>
 		<unit type="week-past">
-			<unitPattern count="0">0 minggu lalu</unitPattern>
-			<unitPattern count="1">1 minggu lalu</unitPattern>
 			<unitPattern count="other">{0} minggu lalu</unitPattern>
 		</unit>
 		<unit type="year">
-			<unitPattern count="0">0 tahun</unitPattern>
-			<unitPattern count="0" alt="short">0 thn</unitPattern>
-			<unitPattern count="1">1 tahun</unitPattern>
-			<unitPattern count="1" alt="short">1 thn</unitPattern>
 			<unitPattern count="other">{0} tahun</unitPattern>
 			<unitPattern count="other" alt="short">{0} thn</unitPattern>
 		</unit>
 		<unit type="year-future">
-			<unitPattern count="0">Dalam 0 tahun</unitPattern>
-			<unitPattern count="1">Dalam 1 tahun</unitPattern>
 			<unitPattern count="other">Dalam {0} tahun</unitPattern>
 		</unit>
 		<unit type="year-past">
-			<unitPattern count="0">0 tahun lalu</unitPattern>
-			<unitPattern count="1">1 tahun lalu</unitPattern>
 			<unitPattern count="other">{0} tahun lalu</unitPattern>
 		</unit>
 	</units>

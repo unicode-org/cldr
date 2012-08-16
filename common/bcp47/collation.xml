@@ -21,6 +21,7 @@
             <type name="stroke" description="Pinyin ordering for Latin, stroke order for CJK characters (used in Chinese)"/>
             <type name="trad" alias="traditional" description="Traditional style ordering (such as in Spanish)"/>
             <type name="unihan" description="Pinyin ordering for Latin, Unihan radical-stroke ordering for CJK characters (used in Chinese)"/>
+            <type name="zhuyin" description="Pinyin ordering for Latin, zhuyin order for Bopomofo and CJK characters (used in Chinese)" since="22"/>
         </key>
 
         <key name="ka" alias="colAlternate" description="Collation parameter key for alternate handling">

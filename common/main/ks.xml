@@ -971,8 +971,8 @@
 		<orientation characters="right-to-left"/>
 	</layout>
 	<characters>
-		<exemplarCharacters>[ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ہ ے ا آ ٲ ۄ ۍ ﺀ ﺃ ﺅ وٗ ی  ِ ٖ ُ ٗ ٛ ٚ ٕ ۭ ٔ ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[{ٮ۪} ھ ٮ ں]</exemplarCharacters>
+		<exemplarCharacters>[\u06ED \u064F \u0650 \u0654 \u0656 \u0657 \u065A \u065B ﺀ آ ﺃ ٲ ﺅ ا ب پ ت ث ٹ ج چ ح خ د ذ ڈ ر ز ڑ ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ہ و ۄ ی ۍ ے]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ٮ{ٮ\u06EA} ں ھ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -3503,7 +3503,7 @@
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤ #,##,##0.00</pattern>
+					<pattern>¤ #,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -4294,3 +4294,4 @@
 		</messages>
 	</posix>
 </ldml>
+

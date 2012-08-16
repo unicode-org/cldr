@@ -1148,7 +1148,8 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             { "tibt", "numbers" },
             { "traditional", "collation" },
             { "unihan", "collation" },
-            { "vaii", "numbers" }};
+            { "vaii", "numbers" },
+            { "zhuyin", "collation" }};
         static Set<String> numberSystems = new LinkedHashSet<String>();
         static {
             for (String[] i : ResolvingSource.typeDisplayNames) {

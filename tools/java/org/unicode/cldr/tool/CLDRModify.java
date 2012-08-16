@@ -1084,8 +1084,9 @@ public class CLDRModify {
                 String oldValue = cldrFileToFilter.getStringValue(newPath);
                 String value = cldrFileToFilter.getStringValue(xpath);
                 if (oldValue != null) {
+                    String fixed = oldValue.replace("{0}", countValue);
                     if (value.equals(oldValue)
-                        || value.equals(oldValue.replace("{0}", countValue))) {
+                        || value.equals(fixed)) {
                         remove(fullpath, "Superfluous given: "
                             + count + "→«" + oldValue + "»"); 
                     } else {

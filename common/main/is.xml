@@ -3523,16 +3523,16 @@
 	<units>
 		<unit type="day">
 			<unitPattern count="one">{0} dagur</unitPattern>
-			<unitPattern count="one" alt="short">{0} dagar</unitPattern>
+			<unitPattern count="one" alt="short">{0} dagur</unitPattern>
 			<unitPattern count="other">{0} dagar</unitPattern>
 			<unitPattern count="other" alt="short">{0} dagar</unitPattern>
 		</unit>
 		<unit type="day-future">
-			<unitPattern count="one">Eftir {0} daga</unitPattern>
+			<unitPattern count="one">Eftir {0} dag</unitPattern>
 			<unitPattern count="other">Eftir {0} daga</unitPattern>
 		</unit>
 		<unit type="day-past">
-			<unitPattern count="one">Fyrir {0} dögum síðan</unitPattern>
+			<unitPattern count="one">Fyrir {0} degi síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} dögum síðan</unitPattern>
 		</unit>
 		<unit type="hour">
@@ -3542,11 +3542,11 @@
 			<unitPattern count="other" alt="short">{0} klst.</unitPattern>
 		</unit>
 		<unit type="hour-future">
-			<unitPattern count="one">Eftir {0} klukkustundir</unitPattern>
+			<unitPattern count="one">Eftir {0} klukkustund</unitPattern>
 			<unitPattern count="other">Eftir {0} klukkustundir</unitPattern>
 		</unit>
 		<unit type="hour-past">
-			<unitPattern count="one">Fyrir {0} klukkustundum síðan</unitPattern>
+			<unitPattern count="one">Fyrir {0} klukkustund síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} klukkustundum síðan</unitPattern>
 		</unit>
 		<unit type="minute">
@@ -3560,7 +3560,7 @@
 			<unitPattern count="other">Eftir {0} mínútur</unitPattern>
 		</unit>
 		<unit type="minute-past">
-			<unitPattern count="one">Fyrir {0} mínútum síðan</unitPattern>
+			<unitPattern count="one">Fyrir {0} mínútu síðan</unitPattern>
 			<unitPattern count="other">Fyrir {0} mínútum síðan</unitPattern>
 		</unit>
 		<unit type="month">
@@ -3598,7 +3598,7 @@
 			<unitPattern count="other" alt="short">{0} vikur</unitPattern>
 		</unit>
 		<unit type="week-future">
-			<unitPattern count="one">Eftir {0} vikur</unitPattern>
+			<unitPattern count="one">Eftir {0} viku</unitPattern>
 			<unitPattern count="other">Eftir {0} vikur</unitPattern>
 		</unit>
 		<unit type="week-past">

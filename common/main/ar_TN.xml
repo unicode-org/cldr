@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -38,7 +38,6 @@
 							<month type="9" draft="contributed">س</month>
 							<month type="10" draft="contributed">أ</month>
 							<month type="11" draft="contributed">ن</month>
-							<month type="12" draft="contributed">د</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">جانفي</month>
@@ -142,22 +141,9 @@
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>latn</defaultNumberingSystem>
-		<otherNumberingSystems>
-			<native>arab</native>
-		</otherNumberingSystems>
-		<symbols numberSystem="arab">
-			<decimal>٫</decimal>
-			<group>٬</group>
-			<percentSign>٪</percentSign>
-			<plusSign>+</plusSign>
-			<perMille>؉</perMille>
-		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
-			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<perMille>‰</perMille>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>

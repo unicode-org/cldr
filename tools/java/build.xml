@@ -133,6 +133,12 @@
                     target="1.6"
 	            debug="on" deprecation="off"
 	            encoding="UTF-8"/>
+        <!-- copy data files into classes.. -->
+        <mkdir dir="${build.dir}/org/unicode/cldr/icu"/>
+        <copy todir="${build.dir}/org/unicode/cldr/icu">
+            <fileset dir="${src.dir}/org/unicode/cldr/icu" 
+                excludes="**/CVS/**/* **/**/*.java"/>
+        </copy>
 	</target>
     <target name="test" depends="init,util,tool" description="build tests">
         <javac includeantruntime="false" includes="org/unicode/cldr/test/**/*.java org/unicode/cldr/unittest/**/*.java"

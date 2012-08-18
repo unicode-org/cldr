@@ -89,7 +89,7 @@ public class IcuTextWriter {
                 } else {
                     out.append(Utility.repeat(TAB, i));
                 }
-                out.append("}\n");
+                out.println("}");
             }
             for (int i = common + 1; i < labels.length; ++i) {
                 final String pad = Utility.repeat(TAB, i);
@@ -100,7 +100,7 @@ public class IcuTextWriter {
                 }
                 out.append('{');
                 if (i != labels.length - 1) {
-                    out.append('\n');
+                    out.println();
                 }
             }
             boolean quote = !IcuData.isIntRbPath(path);
@@ -116,9 +116,9 @@ public class IcuTextWriter {
             } else {
                 out.append(Utility.repeat(TAB, i));
             }
-            out.append("}\n");
+            out.println("}");
         }
-        out.append("}\n");
+        out.println("}");
         out.close();
     }
 
@@ -144,24 +144,24 @@ public class IcuTextWriter {
                 } else {
                     // Value too long to fit in one line, so wrap.
                     final String pad = Utility.repeat(TAB, numTabs);
-                    out.append('\n');
+                    out.println();
                     int end;
                     for (int i = 0; i < value.length(); i = end) {
                         end = goodBreak(value, i + maxWidth);
                         String part = value.substring(i, end);
                         out.append(pad);
-                        appendQuoted(part, quote, out).append('\n');
+                        appendQuoted(part, quote, out).println();
                     }
                 }
             } else {
                 // Only one array for the rbPath, so don't add an extra set of braces.
                 final String pad = Utility.repeat(TAB, numTabs);
-                out.append('\n');
+                out.println();
                 appendArray(pad, firstArray, quote, out);
             }
         } else {
             final String pad = Utility.repeat(TAB, numTabs);
-            out.append('\n');
+            out.println();
             for (String[] valueArray : values) {
                 if (valueArray.length == 1) {
                     // Single-value array: print normally.
@@ -169,9 +169,9 @@ public class IcuTextWriter {
                 } else {
                     // Enclose this array in braces to separate it from other
                     // values.
-                    out.append(pad).append("{\n");
+                    out.append(pad).println("{");
                     appendArray(pad + TAB, valueArray, quote, out);
-                    out.append(pad).append("}\n");
+                    out.append(pad).println("}");
                 }
             }
         }
@@ -193,7 +193,7 @@ public class IcuTextWriter {
     private static PrintWriter appendArray(String padding, String[] valueArray, boolean quote, PrintWriter out) {
         for (String value : valueArray) {
             out.append(padding);
-            appendQuoted(quoteInside(value), quote, out).append(",\n");
+            appendQuoted(quoteInside(value), quote, out).println(",");
         }
         return out;
     }

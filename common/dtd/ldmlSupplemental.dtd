@@ -377,6 +377,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST numberingSystem radix NMTOKEN #IMPLIED >
 <!ATTLIST numberingSystem digits CDATA #IMPLIED >
 <!ATTLIST numberingSystem rules CDATA #IMPLIED >
+<!ATTLIST numberingSystem draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
 
 <!ELEMENT references ( reference* ) >
 <!ELEMENT reference ( #PCDATA ) >

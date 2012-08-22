@@ -1920,7 +1920,7 @@ root</pre>
 	[<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>], 
 	which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages 
   in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.</p>
-	<p>There are five sets altogether: main, auxiliary,  punctuation, currency, and index. The <i>main</i> set should contain the minimal set required for users of the language, while the <i>auxiliary</i> exemplar set is designed 
+	<p>There are <span class="changed">four </span>sets altogether: main, auxiliary, punctuation, <span class="removed">currency, </span>and index. The <i>main</i> set should contain the minimal set required for users of the language, while the <i>auxiliary</i> exemplar set is designed 
 	to encompass additional characters: those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on. 
 	Major style guidelines are good references for the auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary 
 	exemplar characters; just not in the main exemplar set. Thus  English has the following:</p>
@@ -1936,7 +1936,7 @@ root</pre>
 	sometimes seen in words like &quot;résumé&quot; or &quot;naïve&quot;, because it is acceptable in common practice to spell those words without the accents. The exemplar character 
 	set for fr (French), on the other hand, must contain those characters: [a-z é è ù ç à â ê î ô û æ œ ë ï ÿ]. The main set typically includes those letters commonly 
 &quot;alphabet&quot;.</p>
-	<p>The <i>currency</i> set is for characters that are neither in the main nor auxiliary set, but do occur in currency symbols (typically international currency symbols in a non-Latin-script language).</p>
+	<p><span class="removed">The <i>currency</i> set is for characters that are neither in the main nor auxiliary set, but do occur in currency symbols (typically international currency symbols in a non-Latin-script language).</span></p>
 	<p>The <em>punctuation</em> set consists of common punctuation characters that are used with the language (corresponding to main and auxiliary). Symbols may also be included where they are common in plain text, such as ©. It does not include characters with narrow technical usage, such as dictionary punctuation/symbols or copy-edit symbols. For example, English would have something like the following:</p>
   <p align="center">- ‐ – — </p>
   <p align="center">, ; : ! ? .  … </p>
@@ -2122,7 +2122,7 @@ The index Separator can used to separate the index characters if they occur in f
 	<p>This element contains multiple &lt;calendar&gt; elements, each of which specifies the fields used for formatting and parsing dates and times according to the given 
 	calendar. The month and quarter names are identified numerically, starting at 1. The day (of the week) names are identified with short strings, since there 
 	is no universally-accepted numeric designation.</p>
-	<p><b>Note: </b>The default attribute in the calendars element is deprecated.  The default calendar type for a locale is specified by
+	<p><b>Note: </b><span class="changed">Use of a default element for calendars</span> is deprecated. The default calendar type for a locale is specified by
 	<i>C.15 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>.</p>
 	<p>Many calendars will only differ from the Gregorian Calendar in the year and era values. For example, the Japanese calendar will have many more eras (one 
 	for each Emperor), and the years will be numbered within that era. All calendar data inherits from the Gregorian calendar in the same locale data (if not present 
@@ -4748,9 +4748,9 @@ text data in the rule. For example, the following are all disallowed:</p>
 	<li>titlecase</li>
 	</ul>
     <h3>5.21 <a name="Alias_Elements">Alias Elements</a></h3>
-      <p class="element2"><b><span class="dtd">&lt;!ELEMENT alias (special*) &gt;<br>
+      <p class="element2"><span class="dtd">&lt;!ELEMENT alias (special*) &gt;<br>
       &lt;!ATTLIST alias source NMTOKEN #REQUIRED &gt;<br>
-      &lt;!ATTLIST alias path CDATA #IMPLIED&gt;</span></b></p>
+      &lt;!ATTLIST alias path CDATA #IMPLIED&gt;</span></p>
       <p>The contents of any element in root can be replaced by an alias,
       which points to the path where the data can be found.</p>
       <p>Aliases will only ever appear in root with the form //ldml/.../alias[@source=&quot;locale&quot;][@path=&quot;...&quot;].</p>
@@ -8849,11 +8849,11 @@ decimal?, group?, special*)) &gt;</pre>
 &lt;/alias&gt;</pre>
 	<h3>P.2 Supplemental Deprecated Information</h3>
 	<pre class="dtd">&lt;!ELEMENT deprecated ( deprecatedItems* ) &gt;
-&lt;!ATTLIST deprecated draft ( true | false ) #IMPLIED &gt;
+&lt;!ATTLIST deprecated draft <span class="changed">( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;</span>
 
 &lt;!ELEMENT deprecatedItems EMPTY &gt;
-&lt;!ATTLIST deprecatedItems draft ( true | false ) #IMPLIED &gt;
-&lt;!ATTLIST deprecatedItems type ( standard | supplemental | ldml <br>    | supplementalData | ldmlBCP47 ) #IMPLIED &gt;
+&lt;!ATTLIST deprecatedItems draft <span class="changed">( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;</span>
+&lt;!ATTLIST deprecatedItems type ( standard | supplemental | ldml | supplementalData | ldmlBCP47 ) #IMPLIED &gt;<span class="changed"> &lt;!-- standard | supplemental are deprecated --&gt;</span>
 &lt;!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED &gt;
 &lt;!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED &gt;
 &lt;!ATTLIST deprecatedItems values CDATA #IMPLIED &gt;</pre>
@@ -9388,6 +9388,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Modified the table in <em>Section 5.14.3, <a href="#Setting_Options">Setting Options</a></em> to include information from UCA, and to add clarifications.</li>
     <li class="changed">Added 6-letter patterns for short weekday names to the <em><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></em>.
     [ticket <a href="http://unicode.org/cldr/trac/ticket/4571">#4571</a>]</li>
+    <li class="changed">Updated deprecated status. [ticket <a href="http://unicode.org/cldr/trac/ticket/5229">#5229</a>]</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

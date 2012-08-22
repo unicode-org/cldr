@@ -47,7 +47,7 @@
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="-x">負→→;</rbnfrule>
-                <rbnfrule value="x.x">←%spellout-cardinal←點→%%spellout-fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←←點→→→;</rbnfrule>
                 <rbnfrule value="0">〇;</rbnfrule>
                 <rbnfrule value="1">一;</rbnfrule>
                 <rbnfrule value="2">二;</rbnfrule>
@@ -68,32 +68,7 @@
                 <rbnfrule value="10000000000000000">←%spellout-cardinal←京[→%%cardinal13→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-fraction" access="private">
-                <rbnfrule value="10">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000000000">←0←;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-fraction-digits" access="private">
-                <rbnfrule value="0">〇;</rbnfrule>
-                <rbnfrule value="1">一;</rbnfrule>
-                <rbnfrule value="2">二;</rbnfrule>
-                <rbnfrule value="3">三;</rbnfrule>
-                <rbnfrule value="4">四;</rbnfrule>
-                <rbnfrule value="5">五;</rbnfrule>
-                <rbnfrule value="6">六;</rbnfrule>
-                <rbnfrule value="7">七;</rbnfrule>
-                <rbnfrule value="8">八;</rbnfrule>
-                <rbnfrule value="9">九;</rbnfrule>
-                <rbnfrule value="10">←←→→;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-financial">
+               <ruleset type="spellout-cardinal-financial">
                 <rbnfrule value="-x">負→→;</rbnfrule>
                 <rbnfrule value="x.x">←←點→→→;</rbnfrule>
                 <rbnfrule value="0">零;</rbnfrule>
@@ -153,7 +128,7 @@
             </ruleset>
             <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">負→→;</rbnfrule>
-                <rbnfrule value="x.x">←←點→%%spellout-fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←←點→→→;</rbnfrule>
                 <rbnfrule value="0">零;</rbnfrule>
                 <rbnfrule value="1">一;</rbnfrule>
                 <rbnfrule value="2">二;</rbnfrule>
@@ -164,7 +139,8 @@
                 <rbnfrule value="7">七;</rbnfrule>
                 <rbnfrule value="8">八;</rbnfrule>
                 <rbnfrule value="9">九;</rbnfrule>
-                <rbnfrule value="10">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="10">十[→→];</rbnfrule>
+                <rbnfrule value="20">←←十[→→];</rbnfrule>
                 <rbnfrule value="100">←←百[→%%cardinal2→];</rbnfrule>
                 <rbnfrule value="1000">←←千[→%%cardinal3→];</rbnfrule>
                 <rbnfrule value="10000">←←萬[→%%cardinal4→];</rbnfrule>
@@ -174,36 +150,36 @@
                 <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal2" access="private">
-                <rbnfrule value="1">零=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="10">一=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="20">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1">零=%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="10">一=%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="20">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal3" access="private">
-                <rbnfrule value="1">零=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10">零一=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="20">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="100">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal4" access="private">
-                <rbnfrule value="1">零=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10">零一=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="20">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="1000">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal5" access="private">
-                <rbnfrule value="1">零=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10">零一=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="20">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10000">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal8" access="private">
-                <rbnfrule value="1">零=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10">零一=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="20">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10000000">=%spellout-cardinal=;</rbnfrule>
             </ruleset>
             <ruleset type="cardinal13" access="private">
-                <rbnfrule value="1">零=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="10">零一=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="20">零=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="1000000000000">=%spellout-cardinal=;</rbnfrule>

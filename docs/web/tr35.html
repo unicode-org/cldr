@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012<span class="changed">-07-23</span></td>
+			<td>2012<span class="changed">-08-22</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -6484,13 +6484,13 @@ range         = value'..'value</pre>
 			all the date-related fields.</td>
 		</tr>
 		<tr>
-			<th rowspan="11" style="vertical-align: top; text-align: left">week<br>
+			<th rowspan="14" style="vertical-align: top; text-align: left">week<br>
 			day</th>
-			<td rowspan="3" style="text-align: center; vertical-align: top">E</td>
+			<td rowspan="4" style="text-align: center; vertical-align: top">E</td>
 			<td style="text-align: center; vertical-align: top">1..3</td>
 			<td style="vertical-align: top; text-align: left">Tues</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left">Day of week - Use one through three letters for the short day, or four for the full name, 
-			or five for the narrow name.</td>
+			<td rowspan="4" style="vertical-align: top; text-align: left">Day of week - Use one through three letters for the short day, <span class="removed">or </span>four for the full name, 
+			<span class="removed">or </span>five for the narrow name<span class="changed">, or six for the short name</span>.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">4</td>
@@ -6501,10 +6501,14 @@ range         = value'..'value</pre>
 			<td style="vertical-align: top; text-align: left">T</td>
 		</tr>
 		<tr>
-			<td rowspan="4" style="text-align: center; vertical-align: top">e</td>
+			<td style="text-align: center; vertical-align: top"><span class="changed">6</span></td>
+			<td style="vertical-align: top; text-align: left"><span class="changed">Tu</span></td>
+		</tr>
+		<tr>
+			<td rowspan="5" style="text-align: center; vertical-align: top">e</td>
 			<td style="text-align: center; vertical-align: top">1..2</td>
 			<td style="vertical-align: top; text-align: left">2</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left">Local day of week. Same as E except adds a numeric value that will depend on the local 
+			<td rowspan="5" style="vertical-align: top; text-align: left">Local day of week. Same as E except adds a numeric value that will depend on the local 
 			starting day of the week, using one or two letters. For this example, Monday is the first day of the week.</td>
 		</tr>
 		<tr>
@@ -6520,11 +6524,15 @@ range         = value'..'value</pre>
 			<td style="vertical-align: top; text-align: left">T</td>
 		</tr>
 		<tr>
-			<td rowspan="4" style="text-align: center; vertical-align: top">c</td>
+			<td style="text-align: center; vertical-align: top"><span class="changed">6</span></td>
+			<td style="vertical-align: top; text-align: left"><span class="changed">Tu</span></td>
+		</tr>
+		<tr>
+			<td rowspan="5" style="text-align: center; vertical-align: top">c</td>
 			<td style="text-align: center; vertical-align: top">1</td>
 			<td style="vertical-align: top; text-align: left">2</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> local day of week - Use one letter for the local numeric value (same 
-			as &#39;e&#39;), three for the short day, or four for the full name, or five for the narrow name. </td>
+			<td rowspan="5" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> local day of week - Use one letter for the local numeric value (same 
+			as &#39;e&#39;), three for the short day, <span class="removed">or </span>four for the full name, <span class="removed">or </span>five for the narrow name<span class="changed">, or six for the short name</span>. </td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">3</td>
@@ -6537,6 +6545,10 @@ range         = value'..'value</pre>
 		<tr>
 			<td style="text-align: center; vertical-align: top">5</td>
 			<td style="vertical-align: top; text-align: left">T</td>
+		</tr>
+		<tr>
+			<td style="text-align: center; vertical-align: top"><span class="changed">6</span></td>
+			<td style="vertical-align: top; text-align: left"><span class="changed">Tu</span></td>
 		</tr>
 		<tr>
 			<th>period</th>
@@ -9372,8 +9384,10 @@ decimal?, group?, special*)) &gt;</pre>
   <h3 class="changed">Revision 26</h3>
   <ul>
     <li class="changed">Proposed update for Version 22.</li>
-	  <li class="changed">Added new section <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</li>
+	<li class="changed">Added new section <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</li>
     <li class="changed">Modified the table in <em>Section 5.14.3, <a href="#Setting_Options">Setting Options</a></em> to include information from UCA, and to add clarifications.</li>
+    <li class="changed">Added 6-letter patterns for short weekday names to the <em><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></em>.
+    [ticket <a href="http://unicode.org/cldr/trac/ticket/4571">#4571</a>]</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

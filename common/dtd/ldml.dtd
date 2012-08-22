@@ -248,7 +248,7 @@ $Date$
 <!ATTLIST characters draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT exemplarCharacters ( #PCDATA | cp )* >
-<!ATTLIST exemplarCharacters type ( auxiliary | standard | punctuation | currencySymbol | index ) #IMPLIED >
+<!ATTLIST exemplarCharacters type ( auxiliary | standard | punctuation | currencySymbol | index ) #IMPLIED > <!-- currencySymbol is deprecated. -->
 <!ATTLIST exemplarCharacters draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST exemplarCharacters standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST exemplarCharacters references CDATA #IMPLIED >
@@ -414,7 +414,7 @@ $Date$
 <!ATTLIST dateRangePattern alt NMTOKENS #IMPLIED >
 <!ATTLIST dateRangePattern validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT calendars (alias | (default*, calendar*, special*)) >
+<!ELEMENT calendars (alias | (default*, calendar*, special*)) > <!-- use of a default element for calendars is deprecated, use calendarPreferenceData instead -->
 <!ATTLIST calendars draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
 
@@ -612,13 +612,13 @@ $Date$
 <!ATTLIST dayPeriod draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST dayPeriod references CDATA #IMPLIED > 
 
-<!ELEMENT am ( #PCDATA ) >
+<!ELEMENT am ( #PCDATA ) > <!-- deprecated, use dayPeriods -->
 <!ATTLIST am draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST am references CDATA #IMPLIED >
 <!ATTLIST am alt NMTOKENS #IMPLIED >
 <!ATTLIST am validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT pm ( #PCDATA ) >
+<!ELEMENT pm ( #PCDATA ) > <!-- deprecated, use dayPeriods -->
 <!ATTLIST pm draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST pm references CDATA #IMPLIED >
 <!ATTLIST pm alt NMTOKENS #IMPLIED >

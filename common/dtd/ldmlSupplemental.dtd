@@ -457,12 +457,12 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT timezoneData ( mapTimezones*, zoneFormatting* ) >
 
-<!ELEMENT zoneFormatting ( zoneItem* ) >
+<!ELEMENT zoneFormatting ( zoneItem* ) > <!-- deprecated. -->
 <!ATTLIST zoneFormatting multizone NMTOKENS #REQUIRED >
 <!ATTLIST zoneFormatting tzidVersion CDATA #IMPLIED >
 <!ATTLIST zoneFormatting references CDATA #IMPLIED >
 
-<!ELEMENT zoneItem EMPTY >
+<!ELEMENT zoneItem EMPTY > <!-- deprecated. -->
 <!ATTLIST zoneItem type CDATA #REQUIRED >
 <!ATTLIST zoneItem territory NMTOKEN #REQUIRED >
 <!ATTLIST zoneItem aliases CDATA #IMPLIED >

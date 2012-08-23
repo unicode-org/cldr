@@ -4182,7 +4182,9 @@ text data in the rule. For example, the following are all disallowed:</p>
 <p class="changed">Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
 <p class="changed">When either the <strong>case level</strong> or <strong>case first</strong> parameters are set, the following describes the derivation of the modified collation elements. It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics  more closely.</p>
 <h5 class="changed"><strong>Untailored Characters</strong></h5>
-<p><span class="changed">For untailored character (and strings), the case value for each collation element is computed from the DUCET tertiary weight. This is used to modify the collation element.</span></p>
+<p><span class="changed">For untailored characters and strings, that is, for mappings in the root collation,
+the case value for each collation element is computed from the tertiary weight listed in allkeys_CLDR.txt.
+This is used to modify the collation element.</span></p>
 <ol>
   <li class="changed">If the character is U+FFFE (lowest-weight), set case value = LOWEST. </li>
   <li class="changed">Otherwise, look up a  case value for the tertiary weight x of each collation element:
@@ -4267,7 +4269,9 @@ text data in the rule. For example, the following are all disallowed:</p>
 
 <p class="changed">Note the special case weights when s = 0. They ensure the construction of well-formed case and tertiay weights. For details, see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</p>
 <h5 class="changed">Tailored Strings</h5>
-<p class="changed">Tailored characters or strings have case values computed from their UCD properties. A known limitation of the tailoring is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;.</p>
+<p class="changed">Characters and strings that are tailored (e.g., via LDML/XML collation syntax or basic collation syntax)
+have case values computed from their UCD properties.
+A known limitation of the tailoring is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;.</p>
 <ol class="changed">
   <li>Form a set of case values by looking  up a case value for each character x in the NFKD mapping of the source string, based on UCD properties:
 <ol>

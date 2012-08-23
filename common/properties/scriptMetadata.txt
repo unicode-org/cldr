@@ -1,0 +1,159 @@
+# ScriptMetadata.txt
+#
+# This file provides general information about scripts that may be useful to implementations processing text.
+# The information is the best currently available, and may change between versions of CLDR.
+# 
+# Format:
+#	The data is not in XML; instead it uses the semicolon-delimited format from the Unicode Character Database (UCD).
+#	This is so that parsers of the UCD can more easily be adapted to read the data. 
+#	Additional fields may be added in future versions; parsers may be designed to ignore those fields until they are revised.
+#
+# Field - Description
+#
+# 0 - Script Identifier
+# 1 - Web Rank:
+#		The approximate rank of this script from a large sample of the web, 
+#		in terms of the number of characters found in that script.
+#		Below 32 the ranking is not statistically significant.
+# 2 - Sample Character:
+#		A sample character for use in "Last Resort" style fonts.
+#		See http://unicode.org/policies/lastresortfont_eula.html
+# 3 - Origin country:
+#		The approximate area where the script originated, expressed as a BCP47 region code.
+# 4 - Density:
+#		The approximate information density of characters in this script, based on comparison of bilingual texts.
+# 5 - ID Usage:
+#		The usage for IDs (tables 4-7) according to UAX #31.
+#		For a description of values, see
+#		http://unicode.org/reports/tr31/#Table_Candidate_Characters_for_Exclusion_from_Identifiers
+# 6 - RTL:
+#		YES if the script is RTL
+#		Derived from whether the script contains RTL letters according to the Bidi_Class property
+# 7 - LB letters:
+#		YES if the major languages using the script allow linebreaks between letters (excluding hyphenation). 
+#		Derived from LB property.
+# 8 - Shaping Required:
+#		YES if shaping is required for the major languages using that script for NFC text.
+#			This includes not only ligation (and Indic conjuncts), Indic vowel splitting/reordering, and 
+#			Arabic-style contextual shaping, but also cases where NSM placement is required, like Thai.
+#		MIN if NSM placement is sufficient, not the more complex shaping.
+#			The NSM placement may only be necessary for some major languages using the script.
+# 9 - Input Method Engine Required:
+#		YES if the major languages using the script require IMEs.
+#		In particular, users (of languages for that script) would be accustomed to using IMEs (such as Japanese)
+#		and typical commercial products for those languages would need IME support in order to be competitive.
+# 10- Cased
+#		YES if in modern (or most recent) usage case distinctions are customary.
+#
+# Note: For the most likely language for each script, see 
+#		http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/likely_subtags.html
+#
+Zyyy; 1; 0040; ZZ; -1; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN
+Latn; 2; 004C; IT; 1; RECOMMENDED; NO; NO; MIN; NO; YES
+Hani; 3; 5B57; CN; 3; RECOMMENDED; NO; YES; NO; YES; NO
+Hans; 3; 5B57; CN; 3; RECOMMENDED; NO; YES; NO; YES; NO
+Hant; 3; 5B57; CN; 3; RECOMMENDED; NO; YES; NO; YES; NO
+Cyrl; 4; 042F; BG; 1; RECOMMENDED; NO; NO; MIN; NO; YES
+Hira; 5; 304B; JP; 2; RECOMMENDED; NO; YES; NO; NO; NO
+Jpan; 5; 304B; JP; 2; RECOMMENDED; NO; YES; NO; NO; NO
+Kana; 6; 30AB; JP; 2; RECOMMENDED; NO; YES; NO; NO; NO
+Thai; 7; 0E17; TH; 1; RECOMMENDED; NO; YES; MIN; NO; NO
+Arab; 8; 0628; SA; 1; RECOMMENDED; YES; NO; YES; NO; NO
+Hang; 9; AC00; KR; 3; RECOMMENDED; NO; NO; MIN; YES; NO
+Kore; 9; AC00; KR; 3; RECOMMENDED; NO; NO; MIN; YES; NO
+Deva; 10; 0905; IN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Grek; 11; 03A9; GR; 1; RECOMMENDED; NO; NO; NO; NO; YES
+Hebr; 12; 05D0; IL; 1; RECOMMENDED; YES; NO; NO; NO; NO
+Taml; 13; 0B95; IN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Knda; 14; 0C95; IN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Geor; 15; 10D3; GE; 1; RECOMMENDED; NO; NO; NO; NO; NO
+Mlym; 16; 0D15; IN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Telu; 17; 0C15; IN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Armn; 18; 0531; AM; 1; RECOMMENDED; NO; NO; NO; NO; YES
+Mymr; 19; 1000; MM; 1; RECOMMENDED; NO; YES; YES; NO; NO
+Gujr; 20; 0A95; IN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Beng; 21; 0995; BD; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Guru; 22; 0A15; IN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Laoo; 23; 0EA5; LA; 1; RECOMMENDED; NO; YES; YES; NO; NO
+Zinh; 24; 25CC,0308; ZZ; -1; UNKNOWN; UNKNOWN; UNKNOWN; MIN; UNKNOWN; UNKNOWN
+Khmr; 25; 1780; KH; 1; RECOMMENDED; NO; YES; YES; NO; NO
+Tibt; 27; 0F40; CN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Sinh; 28; 0D85; LK; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Ethi; 29; 12A0; ET; 2; RECOMMENDED; NO; NO; MIN; YES; NO
+Thaa; 30; 078C; MV; 1; RECOMMENDED; YES; NO; YES; NO; NO
+Orya; 31; 0B15; IN; 1; RECOMMENDED; NO; NO; YES; NO; NO
+Zzzz; 32; FFFD; ZZ; -1; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN
+Cans; 33; 14C0; CA; 2; ASPIRATIONAL; NO; NO; NO; YES; NO
+Syrc; 34; 0710; 145; 1; LIMITED_USE; YES; NO; YES; NO; NO
+Bopo; 35; 3105; CN; 2; RECOMMENDED; NO; YES; NO; NO; NO
+Nkoo; 36; 07CA; 002; 1; LIMITED_USE; YES; NO; YES; NO; NO
+Cher; 37; 13C4; 019; 2; LIMITED_USE; NO; NO; NO; NO; NO
+Yiii; 38; A288; 030; 3; ASPIRATIONAL; NO; YES; NO; YES; NO
+Samr; 39; 0800; 145; 1; EXCLUSION; YES; NO; MIN; NO; NO
+Copt; 40; 03E2; 002; 1; EXCLUSION; NO; NO; MIN; NO; YES
+Mong; 41; 1826; 143; 1; ASPIRATIONAL; NO; NO; YES; NO; NO
+Glag; 42; 2C00; 150; 1; EXCLUSION; NO; NO; NO; NO; YES
+Vaii; 43; A549; 002; 2; LIMITED_USE; NO; NO; NO; YES; NO
+Bali; 44; 1B05; 035; 1; LIMITED_USE; NO; YES; YES; NO; NO
+Tfng; 45; 2D30; 002; 1; ASPIRATIONAL; NO; NO; NO; NO; NO
+Bamu; 46; A6A0; 002; 1; LIMITED_USE; NO; NO; MIN; YES; NO
+Batk; 47; 1BC0; 035; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Cham; 48; AA00; 035; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Java; 49; A984; 035; 1; LIMITED_USE; NO; YES; YES; NO; NO
+Kali; 50; A90A; 035; 1; LIMITED_USE; NO; NO; MIN; NO; NO
+Lepc; 51; 1C00; 034; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Limb; 52; 1900; 034; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Lisu; 53; A4D0; 030; 1; LIMITED_USE; NO; NO; NO; YES; NO
+Mand; 54; 0840; 145; 1; LIMITED_USE; YES; NO; YES; NO; NO
+Mtei; 55; ABC0; 034; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Talu; 56; 1980; 035; 1; LIMITED_USE; NO; YES; YES; NO; NO
+Olck; 57; 1C5A; 034; 1; LIMITED_USE; NO; NO; NO; NO; NO
+Saur; 58; A882; 034; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Sund; 59; 1B83; 035; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Sylo; 60; A800; 034; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Tale; 61; 1950; 035; 1; LIMITED_USE; NO; YES; NO; NO; NO
+Lana; 62; 1A20; 035; 1; LIMITED_USE; NO; YES; YES; NO; NO
+Tavt; 63; AA80; 035; 1; LIMITED_USE; NO; YES; YES; NO; NO
+Avst; 64; 10B00; 145; 1; EXCLUSION; YES; NO; YES; NO; NO
+Brah; 65; 11005; 034; 1; EXCLUSION; NO; NO; YES; NO; NO
+Bugi; 66; 1A00; 035; 1; EXCLUSION; NO; NO; MIN; NO; NO
+Buhd; 67; 1743; 035; 1; EXCLUSION; NO; NO; YES; NO; NO
+Cari; 68; 102A0; 145; 1; EXCLUSION; NO; NO; NO; NO; NO
+Xsux; 69; 12000; 145; 3; EXCLUSION; NO; NO; NO; YES; NO
+Cprt; 70; 10800; 150; 1; EXCLUSION; YES; NO; NO; NO; NO
+Dsrt; 71; 10414; 019; 1; EXCLUSION; NO; NO; NO; NO; YES
+Egyp; 72; 13153; 002; 3; EXCLUSION; NO; NO; YES; YES; NO
+Goth; 73; 10330; 150; 1; EXCLUSION; NO; NO; NO; NO; NO
+Hano; 74; 1723; 035; 1; EXCLUSION; NO; NO; YES; NO; NO
+Armi; 75; 10840; 145; 1; EXCLUSION; YES; NO; NO; NO; NO
+Phli; 76; 10B60; 145; 1; EXCLUSION; YES; NO; NO; NO; NO
+Prti; 77; 10B40; 145; 1; EXCLUSION; YES; NO; NO; NO; NO
+Kthi; 78; 11083; 034; 1; EXCLUSION; NO; NO; MIN; NO; NO
+Khar; 79; 10A00; 034; 1; EXCLUSION; YES; NO; YES; NO; NO
+Linb; 80; 10000; 150; 1; EXCLUSION; NO; NO; NO; YES; NO
+Lyci; 81; 10280; 145; 1; EXCLUSION; NO; NO; NO; NO; NO
+Lydi; 82; 10920; 145; 1; EXCLUSION; YES; NO; NO; NO; NO
+Ogam; 83; 168F; 150; 1; EXCLUSION; NO; NO; NO; NO; NO
+Ital; 84; 10300; 150; 1; EXCLUSION; NO; NO; NO; NO; NO
+Xpeo; 85; 103A0; 145; 1; EXCLUSION; NO; NO; NO; NO; NO
+Sarb; 86; 10A60; 145; 1; EXCLUSION; YES; NO; NO; NO; NO
+Orkh; 87; 10C00; 143; 1; EXCLUSION; YES; NO; NO; NO; NO
+Osma; 88; 10480; 002; 1; EXCLUSION; NO; NO; NO; NO; NO
+Phag; 89; A840; 143; 1; EXCLUSION; NO; NO; YES; NO; NO
+Phnx; 90; 10900; 145; 1; EXCLUSION; YES; NO; NO; NO; NO
+Rjng; 91; A930; 035; 1; EXCLUSION; NO; NO; YES; NO; NO
+Runr; 92; 16A0; 150; 1; EXCLUSION; NO; NO; NO; NO; NO
+Shaw; 93; 10450; 150; 1; EXCLUSION; NO; NO; NO; NO; NO
+Tglg; 94; 1703; 035; 1; EXCLUSION; NO; NO; MIN; NO; NO
+Tagb; 95; 1763; 035; 1; EXCLUSION; NO; NO; NO; NO; NO
+Ugar; 96; 10380; 145; 1; EXCLUSION; NO; NO; NO; NO; NO
+Cakm; 97; 11103; 034; 1; LIMITED_USE; NO; NO; YES; NO; NO
+Merc; 98; 109A0; 002; 1; EXCLUSION; YES; NO; NO; NO; NO
+Mero; 99; 10980; 002; 1; EXCLUSION; YES; NO; NO; NO; NO
+Plrd; 100; 16F00; 030; 1; ASPIRATIONAL; NO; NO; YES; NO; NO
+Shrd; 101; 11183; 034; 1; EXCLUSION; NO; NO; YES; NO; NO
+Sora; 102; 110D0; 034; 1; EXCLUSION; NO; NO; NO; NO; NO
+Takr; 103; 11680; 034; 1; EXCLUSION; NO; NO; YES; NO; NO
+Brai; 104; 2800; FR; -1; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN; UNKNOWN
+
+# EOF

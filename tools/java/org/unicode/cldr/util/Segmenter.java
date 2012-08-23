@@ -38,6 +38,9 @@ import com.ibm.icu.util.ULocale;
  * Ordered list of rules, with variables resolved before building. Use Builder to make.
  */
 public class Segmenter {
+    public static final int REGEX_FLAGS = Pattern.COMMENTS | Pattern.MULTILINE | Pattern.DOTALL;
+    public static final Pattern IDENTIFIER_PATTERN = Pattern.compile("[$][\\p{Alnum}_]+", REGEX_FLAGS);
+
     /**
      * If not null, masks off the character properties so the UnicodeSets are easier to use when debugging.
      */
@@ -49,7 +52,6 @@ public class Segmenter {
 
     private static final boolean JDK4HACK = false;
 
-    public static final int REGEX_FLAGS = Pattern.COMMENTS | Pattern.MULTILINE | Pattern.DOTALL;
     private UnicodeMap samples = new UnicodeMap();
 
     static public interface CodePointShower {
@@ -380,7 +382,7 @@ public class Segmenter {
         }
 
         private transient Matcher whiteSpace = Pattern.compile("\\s+", REGEX_FLAGS).matcher("");
-        private transient Matcher identifierMatcher = Pattern.compile("[$]\\p{Alpha}\\p{Alnum}*_?", REGEX_FLAGS).matcher("");
+        private transient Matcher identifierMatcher = IDENTIFIER_PATTERN.matcher("");
         private transient Matcher brokenIdentifierMatcher = Pattern.compile("[^$\\p{Alpha}]\\p{Alnum}", REGEX_FLAGS).matcher("");
         private Map<String,String> originalVariables = new TreeMap<String,String>();
 
@@ -411,7 +413,8 @@ public class Segmenter {
             rawVariables.add("<variable id=\"" + name + "\">" 
                     + TransliteratorUtilities.toXML.transliterate(value) + "</variable>");
             if (!identifierMatcher.reset(name).matches()) {
-                throw new IllegalArgumentException("Variable name must be $id: '" + name + "'");
+                String show = RegexUtilities.showMismatch(identifierMatcher, name);
+                throw new IllegalArgumentException("Variable name must be $id: '" + name + "' — " + show);
             }
             value = replaceVariables(value);
             if (!name.endsWith("_")) {
@@ -561,7 +564,8 @@ public class Segmenter {
                     position = result.indexOf('$', position);
                     if (position < 0) break;
                     for (Iterator it = variables.keySet().iterator(); it.hasNext();) {
-                        String name = (String)it.next();
+                        String name = (String)it.next();                        
+                        
                         if (result.regionMatches(position, name, 0, name.length())) {
                             String value = (String)variables.get(name);
                             result = result.substring(0,position) + value + result.substring(position + name.length());
@@ -687,16 +691,15 @@ public class Segmenter {
             "$T=\\p{Grapheme_Cluster_Break=T}",
             "$LV=\\p{Grapheme_Cluster_Break=LV}",
             "$LVT=\\p{Grapheme_Cluster_Break=LVT}",
-            "$Joiner=\\p{Grapheme_Cluster_Break=Joiner}",
-            "$RegionalIndicator=\\p{Grapheme_Cluster_Break=Regional_Indicator}",
+            "$Regional_Indicator=\\p{Grapheme_Cluster_Break=Regional_Indicator}",
             "3) $CR  	\u00D7  	$LF",
             "4) ( $Control | $CR | $LF ) 	\u00F7",
             "5) \u00F7 	( $Control | $CR | $LF )",
             "6) $L 	\u00D7 	( $L | $V | $LV | $LVT )",
             "7) ( $LV | $V ) 	\u00D7 	( $V | $T )",
             "8) ( $LVT | $T)    \u00D7  $T",
-            "8.1) $RegionalIndicator \u00D7 $RegionalIndicator",
-            "9) \u00D7 	($Extend | $Joiner)",
+            "8.1) $Regional_Indicator \u00D7 $Regional_Indicator",
+            "9) \u00D7 	$Extend",
             "9.1) \u00D7 	$SpacingMark",
             "9.2) $Prepend  \u00D7"
         },{
@@ -982,8 +985,7 @@ public class Segmenter {
             "$MidNumLet=\\p{Word_Break=MidNumLet}",
             "$Numeric=\\p{Word_Break=Numeric}",
             "$ExtendNumLet=\\p{Word_Break=ExtendNumLet}",
-            "$Joiner=\\p{Word_Break=Joiner}",
-            "$RegionalIndicator=\\p{Word_Break=Regional_Indicator}",
+            "$Regional_Indicator=\\p{Word_Break=Regional_Indicator}",
 
             "# WARNING: For Rule 4: Fixes for GC, Format",
             //"# Subtract Format from Control, since we don't want to break before/after",
@@ -1000,8 +1002,7 @@ public class Segmenter {
             "$MidNumLet=($MidNumLet $FE*)",
             "$Numeric=($Numeric $FE*)",
             "$ExtendNumLet=($ExtendNumLet $FE*)",
-            "$Joiner=($Joiner $FE*)",
-            "$RegionalIndicator=($RegionalIndicator $FE*)",
+            "$Regional_Indicator=($Regional_Indicator $FE*)",
             //"# Do not break within CRLF",
             "3) $CR  	\u00D7  	$LF",
             "3.1) ($Newline | $CR | $LF)	\u00F7",
@@ -1015,7 +1016,7 @@ public class Segmenter {
             "# WARNING: Implemented as don't break before format (except after linebreaks),",
             "# AND add format and extend in all variables definitions that appear after this point!",
             //"4) \u00D7 [$Format $Extend]", 
-            "4) $NotBreak_ \u00D7 [$Format $Extend $Joiner]", 
+            "4) $NotBreak_ \u00D7 [$Format $Extend]", 
             "# Vanilla rules",
             "5)$ALetter  	\u00D7  	$ALetter",
             "6)$ALetter 	\u00D7 	($MidLetter | $MidNumLet) $ALetter",
@@ -1028,7 +1029,7 @@ public class Segmenter {
             "13)$Katakana 	\u00D7 	$Katakana",
             "13.1)($ALetter | $Numeric | $Katakana | $ExtendNumLet) 	\u00D7 	$ExtendNumLet",
             "13.2)$ExtendNumLet 	\u00D7 	($ALetter | $Numeric | $Katakana)",
-            "13.3) $RegionalIndicator \u00D7 $RegionalIndicator",
+            "13.3) $Regional_Indicator \u00D7 $Regional_Indicator",
             //"#15.1,100)$ALetter \u00F7",
             //"#15.1,100)$Numeric \u00F7",
             //"#15.1,100)$Katakana \u00F7",

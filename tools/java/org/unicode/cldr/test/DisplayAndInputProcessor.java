@@ -45,6 +45,7 @@ public class DisplayAndInputProcessor {
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern.compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
     private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");
+    private static final Pattern WHITESPACE_TO_NORMALIZE = Pattern.compile("\\s+"); // whitespace string, i.e. [ \t\n\r]+
 
     private Collator col;
 
@@ -160,6 +161,10 @@ public class DisplayAndInputProcessor {
                 if(DEBUG_DAIP) System.out.println("DAIP: Normalized Malayalam '"+value+"' to '"+newvalue+"'");
                 value = newvalue;
             }
+
+            // turn all whitespace sequences (including tab and newline, but *not* no-break space)
+            // into a single space.
+            value = WHITESPACE_TO_NORMALIZE.matcher(value).replaceAll(" "); 
 
             // all of our values should not have leading or trailing spaces, except insertBetween
             if (!path.contains("/insertBetween") && !path.contains("/localeSeparator")) {

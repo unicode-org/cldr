@@ -216,9 +216,9 @@
             <ruleset type="spellout-ordinal-native">
                 <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
                 <rbnfrule value="-x">마이너스 →→;</rbnfrule>
-                <rbnfrule value="0">=%%spellout-ordinal-native=째;</rbnfrule>
+                <rbnfrule value="0">=%%spellout-ordinal-native-priv=째;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-ordinal-native" access="private">
+            <ruleset type="spellout-ordinal-native-priv" access="private">
                 <rbnfrule value="0">영;</rbnfrule>
                 <rbnfrule value="1">첫;</rbnfrule>
                 <rbnfrule value="2">둘;</rbnfrule>

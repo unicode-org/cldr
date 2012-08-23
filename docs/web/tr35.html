@@ -43,7 +43,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td>22<span class="changed"> (draft 1)</span></td>
+			<td>22<span class="changed"> (draft 2)</span></td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -1997,7 +1997,7 @@ root</pre>
 	combinations should be included. Wherever there is not a precomposed character (for 
 	example, single codepoint) for a given combination, that must be included within 
 	braces. For example, to include sequences from the <a href="http://unicode.org/standard/where/">Where is my Character?</a> page on the Unicode site, one would 
-	write: [{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}], but for French one would just write [a-z é è ù ...]. When in doubt use braces, since it does no harm to included 
+	write: [{ch} {tʰ} {x̣} {ƛ̓} {ą́} {i̇́} {ト゚}], but for French one would just write [a-z é è ù ...]. When in doubt use braces, since it does no harm to include 
   them around single code points: for example, [a-z {é} {è} {ù} ...].</p>
 	<p>If the letter &#39;z&#39; were only ever used in the combination &#39;tz&#39;, then we might have [a-y {tz}] in the main set. (The language would probably have plain &#39;z&#39; 
 	in the auxiliary set, for use in foreign words.) If combining characters can be used productively in combination with a large number of others (such as say 
@@ -3391,7 +3391,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<td><code>backwards = &quot;<span style="color: blue">on</span>&quot;<br>
 			  <br>
 		    [backwards 2]</code></td>
-			<td>Sets the comparison for the second level to be <strong>backwards</strong> (&quot;French&quot;), as described in
+			<td>Sets the comparison for the second level to be <strong>backwards</strong> <span class="removed">(&quot;French&quot;)</span>, as described in
 			[<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
 		<tr>

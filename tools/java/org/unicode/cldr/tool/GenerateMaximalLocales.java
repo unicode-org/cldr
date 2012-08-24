@@ -3,13 +3,18 @@ package org.unicode.cldr.tool;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.BitSet;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.tool.GenerateMaximalLocales.Override;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
@@ -48,7 +53,9 @@ import com.ibm.icu.util.ULocale;
 @SuppressWarnings("unchecked")
 public class GenerateMaximalLocales {
 
-  private static final boolean SHOW_ADD = CldrUtility.getProperty("GenerateMaximalLocalesDebug", false);
+  private static final String DEBUG_ADD_KEY = "und_Latn_ZA";
+
+private static final boolean SHOW_ADD = CldrUtility.getProperty("GenerateMaximalLocalesDebug", false);
   enum OutputStyle {PLAINTEXT, C, C_ALT, XML};
 
   private static OutputStyle OUTPUT_STYLE = OutputStyle.valueOf(CldrUtility.getProperty("OutputStyle", "XML", "XML").toUpperCase());
@@ -116,7 +123,7 @@ public class GenerateMaximalLocales {
             CldrUtility.LINE_SEPARATOR + "*/"
     );
 
-    printMap(toMaximized);
+    printLikelySubtags(toMaximized);
 
     //  if (OUTPUT_STYLE != OutputStyle.XML) {
     //  printMap("const MapToMinimalSubtags default_subtags[]", toMinimized, null);
@@ -586,7 +593,46 @@ public class GenerateMaximalLocales {
           {"wae", "wae_Latn_CH"},
           {"yav", "yav_Latn_CM"},
           {"zh_Hani", "zh_Hans_CN"},
-  });
+          {"und_Bopo", "zh_Bopo_TW"},
+          {"und_Copt", "cop_Copt_EG"},
+          {"und_Dsrt", "en_Dsrt_US"},
+          {"und_Latn", "en_Latn_US"},
+          {"az", "az_Latn_AZ"},
+          {"az_Arab", "az_Arab_IR"},
+          {"az_IR", "az_Arab_IR"},
+          {"ckb", "ckb_Arab_IQ"},
+          {"ckb_Arab", "ckb_Arab_IQ"},
+          {"ckb_IQ", "ckb_Arab_IQ"},
+          {"ckb_IR", "ckb_Arab_IR"},
+          {"es", "es_Latn_ES"},
+          {"gsw", "gsw_Latn_CH"},
+          {"ku", "ku_Latn_TR"},
+          {"ku_Arab", "ku_Arab_IQ"},
+          {"ku_Latn", "ku_Latn_TR"},
+          {"ku_SY", "ku_Latn_SY"},
+          {"ku_TR", "ku_Latn_TR"},
+          {"nds", "nds_Latn_DE"},
+          {"oc", "oc_Latn_FR"},
+          {"pap", "pap_Latn_AN"},
+          {"shi", "shi_Tfng_MA"},
+          {"sid", "sid_Latn_ET"},
+          {"und_Arab_PK", "ur_Arab_PK"},
+          {"und_LR", "en_Latn_LR"},
+          {"kaj", "kaj_Latn_NG"},
+          {"kv", "kv_Cyrl_RU"},
+          {"und_AN", "pap_Latn_AN"},
+          {"und_Arab_PK", "ur_Arab_PK"},
+          {"und_LR", "en_Latn_LR"},
+          {"und_SS", "en_Latn_SS"},
+          {"yi", "yi_Hebr_IL"},
+          {"eo", "eo_Latn_001"},
+          {"vo", "vo_Latn_001"},
+          {"ia", "ia_Latn_001"},      
+          {"jgo", "jgo_Latn_CM"},
+          {"kkj", "kkj_Latn_CM"},
+          {"mgo", "mgo_Latn_CM"},
+          {"nnh", "nnh_Latn_CM"},
+          });
 
   //  private static final Map<String,String> LANGUAGE_SEGMENT_OVERRIDES = Utility.asMap(new String[][]{
   //          {"es_Latn_ES", "1e10"},
@@ -675,45 +721,45 @@ public class GenerateMaximalLocales {
       R3<Double, String, String> value = maxData.languages.getAll(language).iterator().next();
       final Comparable script = value.get1();
       final Comparable region = value.get2();
-      add(language, language + "_" + script + "_" + region, toMaximized, "L->SR");
+      add(language, language + "_" + script + "_" + region, toMaximized, "L->SR", Override.REPLACE_EXISTING);
     }
     for (String language : maxData.languagesToScripts.keySet()) {
       String script = maxData.languagesToScripts.get(language).getKeysetSortedByCount(true).iterator().next();
-      add(language, language + "_" + script, toMaximized, "L->S");
+      add(language, language + "_" + script, toMaximized, "L->S", Override.REPLACE_EXISTING);
     }
     for (String language : maxData.languagesToRegions.keySet()) {
       String region = maxData.languagesToRegions.get(language).getKeysetSortedByCount(true).iterator().next();
-      add(language, language + "_" + region, toMaximized, "L->R");
+      add(language, language + "_" + region, toMaximized, "L->R", Override.REPLACE_EXISTING);
     }
 
     for (String script : maxData.scripts.keySet()) {
        R3<Double, String, String> value = maxData.scripts.getAll(script).iterator().next();
       final Comparable language = value.get1();
       final Comparable region = value.get2();
-      add("und_" + script, language + "_" + script + "_" + region, toMaximized, "S->LR");
+      add("und_" + script, language + "_" + script + "_" + region, toMaximized, "S->LR", Override.REPLACE_EXISTING);
     }
     for (String script : maxData.scriptsToLanguages.keySet()) {
       String language = maxData.scriptsToLanguages.get(script).getKeysetSortedByCount(true).iterator().next();
-      add("und_" + script, language + "_" + script, toMaximized, "S->L");
+      add("und_" + script, language + "_" + script, toMaximized, "S->L", Override.REPLACE_EXISTING);
     }
     for (String script : maxData.scriptsToRegions.keySet()) {
       String region = maxData.scriptsToRegions.get(script).getKeysetSortedByCount(true).iterator().next();
-      add("und_" + script, "und_" + script + "_" + region, toMaximized, "S->R");
+      add("und_" + script, "und_" + script + "_" + region, toMaximized, "S->R", Override.REPLACE_EXISTING);
     }
 
     for (String region : maxData.regions.keySet()) {
        R3<Double, String, String> value = maxData.regions.getAll(region).iterator().next();
       final Comparable language = value.get1();
       final Comparable script = value.get2();
-      add("und_" + region, language + "_" + script + "_" + region, toMaximized, "R->LS");
+      add("und_" + region, language + "_" + script + "_" + region, toMaximized, "R->LS", Override.REPLACE_EXISTING);
     }
     for (String region : maxData.regionsToLanguages.keySet()) {
       String language = maxData.regionsToLanguages.get(region).getKeysetSortedByCount(true).iterator().next();
-      add("und_" + region, language + "_" + region, toMaximized, "R->L");
+      add("und_" + region, language + "_" + region, toMaximized, "R->L", Override.REPLACE_EXISTING);
     }
     for (String region : maxData.regionsToScripts.keySet()) {
       String script = maxData.regionsToScripts.get(region).getKeysetSortedByCount(true).iterator().next();
-      add("und_" + region, "und_" + script + "_" + region, toMaximized, "R->S");
+      add("und_" + region, "und_" + script + "_" + region, toMaximized, "R->S", Override.REPLACE_EXISTING);
     }
 
     for (R2<String, String> languageScript : maxData.languageScripts.keySet()) {
@@ -721,7 +767,7 @@ public class GenerateMaximalLocales {
       final Comparable language = languageScript.get0();
       final Comparable script = languageScript.get1();
       final Comparable region = value.get1();
-      add(language + "_" + script, language + "_" + script + "_" + region, toMaximized, "LS->R");
+      add(language + "_" + script, language + "_" + script + "_" + region, toMaximized, "LS->R", Override.REPLACE_EXISTING);
     }
 
     for (R2<String, String> scriptRegion : maxData.scriptRegions.keySet()) {
@@ -729,7 +775,7 @@ public class GenerateMaximalLocales {
       final Comparable script = scriptRegion.get0();
       final Comparable region = scriptRegion.get1();
       final Comparable language = value.get1();
-      add("und_" + script + "_" + region, language + "_" + script + "_" + region, toMaximized, "SR->L");
+      add("und_" + script + "_" + region, language + "_" + script + "_" + region, toMaximized, "SR->L", Override.REPLACE_EXISTING);
     }
 
     for (R2<String, String> languageRegion : maxData.languageRegions.keySet()) {
@@ -737,12 +783,22 @@ public class GenerateMaximalLocales {
       final Comparable language = languageRegion.get0();
       final Comparable region = languageRegion.get1();
       final Comparable script = value.get1();
-      add(language + "_" + region, language + "_" + script + "_" + region, toMaximized, "LR->S");
+      add(language + "_" + region, language + "_" + script + "_" + region, toMaximized, "LR->S", Override.REPLACE_EXISTING);
+    }
+    
+    // get the script info from metadata as fallback
+    
+    TreeSet<String> sorted = new TreeSet<String>(ScriptMetadata.getScripts());
+    for (String script : sorted) {
+        Info i = ScriptMetadata.getInfo(script);
+        String likelyLanguage = i.likelyLanguage;
+        String originCountry = i.originCountry;
+        add("und_" + script, likelyLanguage + "_" + script + "_" + originCountry, toMaximized, "S->LR", Override.KEEP_EXISTING);
     }
 
     // add overrides
     for (String key : LANGUAGE_OVERRIDES.keySet()) {
-      add(key, LANGUAGE_OVERRIDES.get(key), toMaximized, "OVERRIDE");
+      add(key, LANGUAGE_OVERRIDES.get(key), toMaximized, "OVERRIDE", Override.REPLACE_EXISTING);
     }
   }
 
@@ -885,16 +941,25 @@ public class GenerateMaximalLocales {
   //    }
   //  }
 
-  private static void add(String key, String value, Map<String, String> toAdd, String kind) {
-    if (key.equals("und_Latn_ZA")) {
-      System.out.println("*debug*");
-    }
-    String oldValue = toAdd.get(key);
-    if (oldValue != null && value.equals(oldValue)) {
-      if (SHOW_ADD) System.out.println("Replacing:\t" + key + "\t=>\t" + oldValue);
-    }
-    toAdd.put(key, value);
-    if (SHOW_ADD) System.out.println("Adding:\t" + key + "\t=>\t" + value + "\t\t" + kind);
+  enum Override {KEEP_EXISTING, REPLACE_EXISTING}
+  
+  private static void add(String key, String value, Map<String, String> toAdd, String kind, Override override) {
+      if (key.equals(DEBUG_ADD_KEY)) {
+          System.out.println("*debug*");
+      }
+      String oldValue = toAdd.get(key);
+      if (oldValue == null) {
+          if (SHOW_ADD) {
+              System.out.println("Adding:\t" + key + "\t=>\t" + value + "\t\t" + kind);
+          }
+      } else if (override == Override.KEEP_EXISTING || value.equals(oldValue)) {
+          return;
+      } else {
+          if (SHOW_ADD) {
+              System.out.println("Replacing:\t" + key + "\t=>\t" + oldValue);
+          }
+      }
+      toAdd.put(key, value);
   }
 
   //  private static void addCountries(Map<String, String> toMaximized) {
@@ -1082,7 +1147,7 @@ public class GenerateMaximalLocales {
     },{
    */
 
-  private static void printMap(Map<String, String> fluffup) throws IOException {
+  private static void printLikelySubtags(Map<String, String> fluffup) throws IOException {
     PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, 
             "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
     String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
@@ -1270,7 +1335,7 @@ public class GenerateMaximalLocales {
           }
         }
         String script = parser.set(locale).getScript();
-        if (locale.equals("und_Latn_ZA")) {
+        if (locale.equals(DEBUG_ADD_KEY)) {
           System.out.println("*debug*");
         }
         if (script.length() != 0) {

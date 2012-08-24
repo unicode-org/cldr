@@ -140,10 +140,11 @@ public class ScriptMetadata {
 
             final String likelyLanguageRaw = Column.LIKELY_LANGUAGE.getItem(items);
             String language = LanguageCodeConverter.getCodeForName(likelyLanguageRaw);
-            if (language == null) {
+            if (language == null && !likelyLanguageRaw.equals("n/a")) {
                 errors.add("Can't map " + likelyLanguageRaw + " to language");
+                LanguageCodeConverter.getCodeForName(likelyLanguageRaw); // for debugging
             }
-            likelyLanguage = country == null ? "und" : country;
+            likelyLanguage = language == null ? "und" : language;
         }
         //        public Trinary parseTrinary(Column title, String[] items) {
         //            return Trinary.valueOf(fix(title.getItem(items)).toUpperCase(Locale.ENGLISH));
@@ -153,16 +154,16 @@ public class ScriptMetadata {
         }
         public String toString() {
             return rank 
-                + "\t" + sampleChar
-                + "\t" + getName("territory", originCountry) + "\t(" + originCountry + ")"
-                + "\t" + getName("language", likelyLanguage) + "\t(" + likelyLanguage + ")"
-                + "\t" + idUsage
-                + "\t" + rtl
-                + "\t" + lbLetters
-                + "\t" + shapingReq
-                + "\t" + ime
-                + "\t" + hasCase
-                + "\t" + density
+                + "\tSample: " + sampleChar
+                + "\tCountry: " + getName("territory", originCountry) + " (" + originCountry + ")"
+                + "\tLanguage: " + getName("language", likelyLanguage) + " (" + likelyLanguage + ")"
+                + "\tId: " + idUsage
+                + "\tRtl: " + rtl
+                + "\tLb: " + lbLetters
+                + "\tShape: " + shapingReq
+                + "\tIme: " + ime
+                + "\tCase: " + hasCase
+                + "\tDensity: " + density
                 ;
         }
         public Object getName(String type, String code) {

@@ -83,10 +83,22 @@ public class LanguageCodeConverter {
         Set<String> validCodes = new HashSet<String>();
 
         for (Entry<String, Map<String, String>> codeInfo : languages.entrySet()) {
-            final String code = codeInfo.getKey();
-            if (languageAliases.containsKey(code)) {
-                continue;
+            String code = codeInfo.getKey();
+            R2<List<String>, String> replacement = languageAliases.get(code);
+            // Returns "sh" -> <{"sr_Latn"}, reason>
+            if (replacement != null) {
+                List<String> replacements = replacement.get0();
+                if (replacements.size() != 1) {
+                    continue;
+                }
+                code = replacements.get(0);
+                if (code.contains("_")) {
+                    continue;
+                }
             }
+//            if (languageAliases.containsKey(code)) {
+//                continue;
+//            }
             final Map<String, String> info = codeInfo.getValue();
             String deprecated = info.get("Deprecated");
             if (deprecated != null) {

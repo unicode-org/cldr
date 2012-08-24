@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.icu.DeprecatedConverter.MakefileInfo;
@@ -25,7 +24,7 @@ class ICUMakefileWriter {
 
     String generatedAliasText = nameSetToList(info.generatedAliasFiles);
     String aliasFilesText = nameSetToList(info.aliasFromFiles);
-    String ctdFilesText = createFileList(info.ctdFiles);
+    String dictFilesText = createFileList(info.dictFiles);
     String brkFilesText = createFileList(info.brkFiles);
     String emptyFilesText = info.emptyFromFiles.isEmpty() ? null : nameSetToList(info.emptyFromFiles);
     String inFilesText = nameSetToList(info.fromFiles);
@@ -78,9 +77,9 @@ class ICUMakefileWriter {
       ps.println();
       ps.println();
 
-      if (ctdFilesText != null) {
-        ps.println("# List of compact trie dictionary files (ctd).");
-        ps.println("BRK_CTD_SOURCE = " + ctdFilesText);
+      if (dictFilesText != null) {
+        ps.println("# List of dictionary files (dict).");
+        ps.println("BRK_DICT_SOURCE = " + dictFilesText);
         ps.println();
         ps.println();
       }
@@ -117,12 +116,12 @@ class ICUMakefileWriter {
 
   private static final String LINESEP = System.getProperty("line.separator");
 
-  private static String createFileList(List<String> list) {
-    if (list == null || list.isEmpty()) {
+  private static String createFileList(Set<String> dictFiles) {
+    if (dictFiles == null || dictFiles.isEmpty()) {
       return null;
     }
     StringBuilder sb = new StringBuilder();
-    for (String string : list) {
+    for (String string : dictFiles) {
       sb.append(" ").append(string);
     }
     return sb.toString();

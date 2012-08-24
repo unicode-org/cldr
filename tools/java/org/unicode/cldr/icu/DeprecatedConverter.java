@@ -75,9 +75,9 @@ public class DeprecatedConverter {
     // ex: th_TH_TRADITIONAL.xml -> File
     Set<String> generatedAliasFiles = new TreeSet<String>();
 
-    List<String> ctdFiles = new ArrayList<String>();
+    Set<String> dictFiles = new TreeSet<String>();
 
-    List<String> brkFiles = new ArrayList<String>();
+    Set<String> brkFiles = new TreeSet<String>();
   }
 
   static class PostProcessResult {
@@ -130,8 +130,8 @@ public class DeprecatedConverter {
     // (7) Warn about any files still in maybeValidAlias
     warnUnusedAliases(maybeValidAlias);
 
-    // (8) get brkIterator brk and compact trie files
-    getBrkCtdFiles(mfi.brkFiles, mfi.ctdFiles);
+    // (8) get brkIterator brk and dict files
+    getBrkDictFiles(mfi.brkFiles, mfi.dictFiles);
 
     // (9) Write the generated resources
     writeResources(writer, generated);
@@ -425,8 +425,8 @@ public class DeprecatedConverter {
     }
   }
 
-  // read all xml files in depDir and create ctd file list and brk file list
-  private void getBrkCtdFiles(List<String> brkFiles, List<String> ctdFiles) {
+  // read all xml files in depDir and create dict file list and brk file list
+  private void getBrkDictFiles(Set<String> brkFiles, Set<String> dictFiles) {
     if (!"brkitr".equals(depDir.getName())) {
       return;
     }
@@ -439,7 +439,7 @@ public class DeprecatedConverter {
 
     File[] files = depDir.listFiles(xmlFilter);
 
-    // Open each file and create the list of files for brk and ctd
+    // Open each file and create the list of files for brk and dict
     for (File file : files) {
       String fileName = file.getName();
       String filePath = file.getAbsolutePath();
@@ -508,7 +508,7 @@ public class DeprecatedConverter {
             if (cnName.equals(ICU_DICTIONARY)) {
               String val = LDMLUtilities.getAttributeValue(cn, ICU_DEPENDENCY);
               if (val != null) {
-                ctdFiles.add(val.substring(0, val.indexOf('.')) + ".txt");
+                dictFiles.add(val.substring(0, val.indexOf('.')) + ".txt");
               }
             } else {
               log.error("Encountered unknown <" + name + "> subelement: " + cnName);

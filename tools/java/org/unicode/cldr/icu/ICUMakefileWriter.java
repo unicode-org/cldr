@@ -79,14 +79,14 @@ class ICUMakefileWriter {
 
       if (dictFilesText != null) {
         ps.println("# List of dictionary files (dict).");
-        ps.println("BRK_DICT_SOURCE = " + dictFilesText);
+        ps.println("BRK_DICT_SOURCE =" + dictFilesText);
         ps.println();
         ps.println();
       }
 
       if (brkFilesText != null) {
         ps.println("# List of break iterator files (brk).");
-        ps.println("BRK_SOURCE = " + brkFilesText);
+        ps.println("BRK_SOURCE =" + brkFilesText);
         ps.println();
         ps.println();
       }

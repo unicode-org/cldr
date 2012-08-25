@@ -8,9 +8,10 @@
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
-            <ruleset type="lenient-parse" access="private">
-                <rbnfrule value="0">&amp;[last primary ignorable ] ←← ' ' ←← ',' ←← '-' ←← '­';</rbnfrule>
-            </ruleset>
+            <!-- Temporarily disabling lenient parsing for en until ICU #9503 is fixed -->
+            <!-- <ruleset type="lenient-parse" access="private"> -->
+            <!--     <rbnfrule value="0">&amp;[last primary ignorable ] ←← ' ' ←← ',' ←← '-' ←← '­';</rbnfrule> -->
+            <!-- </ruleset> -->
             <ruleset type="2d-year" access="private">
                 <rbnfrule value="0">hundred;</rbnfrule>
                 <rbnfrule value="1">oh-=%spellout-numbering=;</rbnfrule>

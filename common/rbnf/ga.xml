@@ -15,7 +15,7 @@
                 <rbnfrule value="0">agus =%spellout-numbering=;</rbnfrule>
                 <rbnfrule value="10">=%%spellout-numbering-no-a=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-numbering-year">
+            <ruleset type="spellout-numbering-year" allowsParsing="false">
                 <rbnfrule value="-x">míneas →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
@@ -39,7 +39,7 @@
                 <rbnfrule value="13">→→=%%spellout-cardinal-postfixpart=;</rbnfrule>
                 <rbnfrule value="20">=%spellout-numbering=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-numbering">
+            <ruleset type="spellout-numbering" allowsParsing="false">
                 <rbnfrule value="-x">míneas →→;</rbnfrule>
                 <rbnfrule value="x.x">←← pointe →→;</rbnfrule>
                 <rbnfrule value="0">a náid;</rbnfrule>
@@ -83,7 +83,7 @@
                 <rbnfrule value="12">dó=%%spellout-cardinal-postfixparth=;</rbnfrule>
                 <rbnfrule value="13">=%%spellout-cardinal-prefixpart==%%spellout-cardinal-postfixpart=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal">
+            <ruleset type="spellout-cardinal" allowsParsing="false">
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-prefixpart" access="private">

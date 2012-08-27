@@ -5736,18 +5736,18 @@
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0K</pattern>
-					<pattern type="10000" count="other" draft="contributed">00K</pattern>
-					<pattern type="100000" count="other" draft="contributed">000K</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0M</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0B</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+					<pattern type="1000" count="other">0千</pattern>
+					<pattern type="10000" count="other">0万</pattern>
+					<pattern type="100000" count="other">00万</pattern>
+					<pattern type="1000000" count="other">000万</pattern>
+					<pattern type="10000000" count="other">0,000万</pattern>
+					<pattern type="100000000" count="other">0億</pattern>
+					<pattern type="1000000000" count="other">00億</pattern>
+					<pattern type="10000000000" count="other">000億</pattern>
+					<pattern type="100000000000" count="other">0,000億</pattern>
+					<pattern type="1000000000000" count="other">0兆</pattern>
+					<pattern type="10000000000000" count="other">00兆</pattern>
+					<pattern type="100000000000000" count="other">000兆</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

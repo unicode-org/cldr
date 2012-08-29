@@ -13,9 +13,9 @@ import java.io.StringWriter;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
+import org.unicode.cldr.util.SimpleFactory;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.util.ULocale;

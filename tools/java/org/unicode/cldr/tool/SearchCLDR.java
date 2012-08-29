@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -17,7 +16,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PrettyPath;
 
 public class SearchCLDR {
     //  private static final int

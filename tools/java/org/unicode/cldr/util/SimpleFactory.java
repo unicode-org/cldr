@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Map;
 import java.util.Set;

@@ -31,9 +31,6 @@ import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.PathHeader.Factory.PathHeaderTransform;
-import org.unicode.cldr.util.PathHeader.Factory.RawData;
-import org.unicode.cldr.util.VettingViewer.Choice;
 import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.test.util.BagFormatter;
@@ -47,7 +44,6 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**

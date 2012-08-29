@@ -1,14 +1,18 @@
 package org.unicode.cldr.tool;
 
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.util.ULocale;
-import org.unicode.cldr.util.*;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeSet;
+
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SupplementalDataInfo;
+
+import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.util.ULocale;
 public class DumpCoverage {
 
 /**

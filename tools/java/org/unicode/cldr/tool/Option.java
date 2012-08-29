@@ -1,14 +1,11 @@
 package org.unicode.cldr.tool;
 
-import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-
-import org.unicode.cldr.tool.ShowKeyboards.MyOptions;
 
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.

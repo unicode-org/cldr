@@ -3,12 +3,10 @@ package org.unicode.cldr.unittest;
 import java.util.EnumSet;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.test.TestFmwk;

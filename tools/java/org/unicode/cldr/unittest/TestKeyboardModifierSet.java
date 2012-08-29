@@ -2,12 +2,12 @@
 
 package org.unicode.cldr.unittest;
 
+import java.util.EnumSet;
+
 import org.unicode.cldr.draft.KeyboardModifierSet;
 import org.unicode.cldr.draft.KeyboardModifierSet.Modifier;
 
 import com.ibm.icu.dev.test.TestFmwk;
-
-import java.util.EnumSet;
 
 /**
  * @author rwainman@google.com (Raymond Wainman)

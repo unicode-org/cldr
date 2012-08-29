@@ -13,7 +13,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Set;
@@ -21,8 +20,6 @@ import java.util.TreeSet;
 
 import javax.swing.JApplet;
 
-import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.util.BagFormatter;

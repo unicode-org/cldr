@@ -11,8 +11,6 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
-import com.ibm.icu.impl.IllegalIcuArgumentException;
-
 /**
    * A factory is the normal method to produce a set of CLDRFiles from a directory of XML files.
    * See SimpleFactory for a concrete subclass.

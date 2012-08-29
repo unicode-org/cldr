@@ -3,16 +3,15 @@
  */
 package org.unicode.cldr.test;
 
+import java.lang.ref.Reference;
+import java.lang.ref.SoftReference;
 import java.util.Map;
 import java.util.TreeMap;
-import org.unicode.cldr.test.TestCache.TestResultBundle;
+
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.XMLSource;
-
-import java.lang.ref.Reference;
-import java.lang.ref.SoftReference;
 
 /**
  * @author srl

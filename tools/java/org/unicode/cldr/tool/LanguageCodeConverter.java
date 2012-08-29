@@ -19,7 +19,6 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;

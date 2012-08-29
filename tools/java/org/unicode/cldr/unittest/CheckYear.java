@@ -2,19 +2,17 @@ package org.unicode.cldr.unittest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.BitSet;
 import java.util.Date;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.CheckYear.Category;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;

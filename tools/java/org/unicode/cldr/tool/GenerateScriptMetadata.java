@@ -1,7 +1,6 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeSet;

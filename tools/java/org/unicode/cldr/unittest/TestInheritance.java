@@ -28,7 +28,6 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.dev.test.util.UnicodeTransform.Type;
 
 public class TestInheritance extends TestFmwk {
 

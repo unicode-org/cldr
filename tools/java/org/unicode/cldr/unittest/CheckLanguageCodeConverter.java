@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.Map.Entry;
 
 import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.tool.LikelySubtags;

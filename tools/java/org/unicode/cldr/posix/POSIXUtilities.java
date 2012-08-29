@@ -9,9 +9,9 @@
 package org.unicode.cldr.posix;
 
 import java.text.StringCharacterIterator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 

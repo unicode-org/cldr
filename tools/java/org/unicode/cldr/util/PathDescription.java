@@ -12,11 +12,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.MessageFormat;
 
 public class PathDescription {

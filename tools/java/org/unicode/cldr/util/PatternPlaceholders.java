@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 import org.unicode.cldr.tool.GenerateXMB;
 import org.unicode.cldr.util.RegexLookup.Merger;
 
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.Transform;
 
 public class PatternPlaceholders {

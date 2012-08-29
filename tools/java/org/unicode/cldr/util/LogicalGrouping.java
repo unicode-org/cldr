@@ -3,8 +3,8 @@ package org.unicode.cldr.util;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.TreeSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.PluralRulesUtil.KeywordStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;

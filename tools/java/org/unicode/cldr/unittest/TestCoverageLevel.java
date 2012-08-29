@@ -3,7 +3,6 @@ package org.unicode.cldr.unittest;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +15,6 @@ import java.util.TreeSet;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.unittest.TestCoverageLevel.LanguageStatus;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Counter2;
@@ -38,8 +36,8 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.NumberFormat.CompactStyle;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
 public class TestCoverageLevel extends TestFmwk {

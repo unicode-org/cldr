@@ -2,17 +2,13 @@ package org.unicode.cldr.draft;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.KeyboardModifierSet.Modifier;
 import org.unicode.cldr.util.SetComparator;
-
-import com.ibm.icu.dev.test.util.CollectionUtilities;
 
 /**
  * A class which represents a particular modifier combination (or combinations

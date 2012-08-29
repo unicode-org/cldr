@@ -10,8 +10,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 
-import com.ibm.icu.text.ChineseDateFormat;
-import com.ibm.icu.text.ChineseDateFormatSymbols;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.DecimalFormat;

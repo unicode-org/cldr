@@ -1,12 +1,9 @@
 package org.unicode.cldr.unittest;
 
-import java.util.BitSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 

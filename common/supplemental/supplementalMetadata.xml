@@ -188,7 +188,7 @@
                 UAH UAK UGS UGX USD USN USS UYI UYP UYU UZS
                 VEB VEF VND VNN VUV
                 WST
-                XAF XAG XAU XBA XBB XBC XBD XCD XDR XEU XFO XFU XOF XPD XPF XPT XRE XSU XTS XUA XXX
+                XAF XAG XAU XBA XBB XBC XBD XCD XDR XEU XFO XFU XOF XPD XPF XPT XRE XTS XXX
                 YDD YER YUD YUM YUN YUR
                 ZAL ZAR ZMK ZRN ZRZ ZWD ZWL ZWR
             </variable>
@@ -412,8 +412,8 @@
             <variable id="$locale" type="locale"/>
             <variable id="$numberSystem" type="choice">
                 arab arabext armn armnlow
-                bali beng
-                cham
+                bali beng brah
+                cakm cham
                 deva
                 ethi
                 finance fullwide
@@ -424,10 +424,10 @@
                 lana lanatham laoo latn lepc limb
                 mlym mong mtei mymr mymrshan
                 native nkoo
-                olck orya
+                olck orya osma
                 roman romanlow
-                saur sund
-                talu taml tamldec telu thai tibt traditio traditional
+                saur shrd sora sund
+                takr talu taml tamldec telu thai tibt traditio traditional
                 vaii
             </variable>
             <variable id="$reference" type="regex">([R|S]|RP)[0-9]+</variable>
@@ -506,7 +506,7 @@
             <attributeValues elements="territory" attributes="type">$territory</attributeValues>
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colStrength currency numbers x</attributeValues>
-            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow bali beng big5han buddhist cham chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese java jpan jpanfin kali knda khmr lana lanatham laoo latn lepc limb lower mlym mong mtei mymr mymrshan native nkoo no non-ignorable olck orya persian phonebook phonetic pinyin primary quarternary quaternary roc roman romanlow saur sund search searchjl secondary shifted stroke talu taml tamldec telu tertiary thai tibt traditional upper vaii yes zhuyin</attributeValues>
+            <attributeValues elements="type" attributes="type" type="choice">x dictionary reformed unihan hanidec arab arabext arabic armn armnlow bali beng big5han brah buddhist cakm cham chinese coptic deva direct ducet ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil japanese java jpan jpanfin kali khmr knda lana lanatham laoo latn lepc limb lower mlym mong mtei mymr mymrshan native nkoo no non-ignorable olck orya osma persian phonebook phonetic pinyin primary quarternary quaternary roc roman romanlow saur shrd sora sund search searchjl secondary shifted stroke takr talu taml tamldec telu tertiary thai tibt traditional upper vaii yes zhuyin</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>

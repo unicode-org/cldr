@@ -54,19 +54,9 @@
                 <rbnfrule value="2000000000000000">←%%spellout-numbering-m← بليار[ و →%spellout-numbering→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-prefixpart" allowsParsing="false">
-                <rbnfrule value="0">=%spellout-cardinal-feminine= ;</rbnfrule>
-                <rbnfrule value="1">;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-feminine= ;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-feminine-postfixpart" allowsParsing="false">
-                <rbnfrule value="0">;</rbnfrule>
-                <rbnfrule value="1">=%spellout-cardinal-feminine=;</rbnfrule>
-                <rbnfrule value="3">;</rbnfrule>
-            </ruleset>
             <ruleset type="spellout-cardinal-feminine">
                 <rbnfrule value="-x">ناقص →→;</rbnfrule>
-                <rbnfrule value="x.x">←← فاصل →%%zz-fraction-feminine→;</rbnfrule>
+                <rbnfrule value="x.x">←← فاصل →→;</rbnfrule>
                 <rbnfrule value="0">صفر;</rbnfrule>
                 <rbnfrule value="1">واحدة;</rbnfrule>
                 <rbnfrule value="2">إثنتان;</rbnfrule>
@@ -146,19 +136,9 @@
                 <rbnfrule value="2000000000000000">←%%spellout-numbering-m← بليار[ و →%%spellout-numbering-m→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-prefixpart" allowsParsing="false">
-                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="1">;</rbnfrule>
-                <rbnfrule value="3">=%spellout-cardinal-masculine=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-cardinal-masculine-postfixpart" allowsParsing="false">
-                <rbnfrule value="0">;</rbnfrule>
-                <rbnfrule value="1">=%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="3">;</rbnfrule>
-            </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">ناقص →→;</rbnfrule>
-                <rbnfrule value="x.x">←%%spellout-numbering-m← فاصل →%%zz-fraction-masculine→ ;</rbnfrule>
+                <rbnfrule value="x.x">←%%spellout-numbering-m← فاصل →%%spellout-numbering-m→ ;</rbnfrule>
                 <rbnfrule value="0">صفر;</rbnfrule>
                 <rbnfrule value="1">واحد;</rbnfrule>
                 <rbnfrule value="2">إثنان;</rbnfrule>
@@ -197,30 +177,6 @@
                 <rbnfrule value="1000000000000000">بليار[ و →%%spellout-numbering-m→];</rbnfrule>
                 <rbnfrule value="2000000000000000">←%%spellout-numbering-m← بليار[ و →%%spellout-numbering-m→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="zz-fraction-feminine" access="private">
-                <rbnfrule value="10">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="100">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="1000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="10000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="100000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="10000000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="100000000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-numbering←←;</rbnfrule>
-                <rbnfrule value="10000000000">←#,##0←←;</rbnfrule>
-            </ruleset>
-            <ruleset type="zz-fraction-masculine" access="private">
-                <rbnfrule value="10">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="100">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="1000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="10000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="100000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="1000000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="10000000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="100000000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="1000000000">←%%spellout-numbering-m←←;</rbnfrule>
-                <rbnfrule value="10000000000">←#,##0←←;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">

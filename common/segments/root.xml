@@ -7,7 +7,6 @@
 		<language type="root"/>
 	</identity>
 	<segmentations>
-
 		<segmentation type="GraphemeClusterBreak">
 			<variables>
 				<variable id="$CR">\p{Grapheme_Cluster_Break=CR}</variable>
@@ -21,6 +20,7 @@
 				<variable id="$T">\p{Grapheme_Cluster_Break=T}</variable>
 				<variable id="$LV">\p{Grapheme_Cluster_Break=LV}</variable>
 				<variable id="$LVT">\p{Grapheme_Cluster_Break=LVT}</variable>
+				<variable id="$Regional_Indicator">\p{Grapheme_Cluster_Break=Regional_Indicator}</variable>
 			</variables>
 			<segmentRules>
 				<rule id="3"> $CR × $LF </rule>
@@ -29,12 +29,12 @@
 				<rule id="6"> $L × ( $L | $V | $LV | $LVT ) </rule>
 				<rule id="7"> ( $LV | $V ) × ( $V | $T ) </rule>
 				<rule id="8"> ( $LVT | $T) × $T </rule>
+				<rule id="8.1"> $Regional_Indicator × $Regional_Indicator </rule>
 				<rule id="9"> × $Extend </rule>
 				<rule id="9.1"> × $SpacingMark </rule>
 				<!-- <rule id="9.2"> $Prepend × </rule> # TODO: Restore if the Prepend set becomes non-empty again -->
 			</segmentRules>
 		</segmentation>
-
 		<segmentation type="LineBreak">
 			<variables>
 				<!-- Variables -->
@@ -45,16 +45,15 @@
 				<variable id="$BB">\p{Line_Break=Break_Before}</variable>
 				<variable id="$BK">\p{Line_Break=Mandatory_Break}</variable>
 				<variable id="$CB">\p{Line_Break=Contingent_Break}</variable>
-				<variable id="$CJ">\p{Line_Break=Conditional_Japanese_Starter}</variable>
 				<variable id="$CL">\p{Line_Break=Close_Punctuation}</variable>
+				<variable id="$CP">\p{Line_Break=CP}</variable>
 				<variable id="$CM">\p{Line_Break=Combining_Mark}</variable>
-				<variable id="$CP">\p{Line_Break=Close Parenthesis}</variable>
 				<variable id="$CR">\p{Line_Break=Carriage_Return}</variable>
 				<variable id="$EX">\p{Line_Break=Exclamation}</variable>
 				<variable id="$GL">\p{Line_Break=Glue}</variable>
 				<variable id="$H2">\p{Line_Break=H2}</variable>
 				<variable id="$H3">\p{Line_Break=H3}</variable>
-				<variable id="$HL">\p{Line_Break=Hebrew_Letter}</variable>
+				<variable id="$HL">\p{Line_Break=HL}</variable>
 				<variable id="$HY">\p{Line_Break=Hyphen}</variable>
 				<variable id="$ID">\p{Line_Break=Ideographic}</variable>
 				<variable id="$IN">\p{Line_Break=Inseparable}</variable>
@@ -64,7 +63,7 @@
 				<variable id="$JV">\p{Line_Break=JV}</variable>
 				<variable id="$LF">\p{Line_Break=Line_Feed}</variable>
 				<variable id="$NL">\p{Line_Break=Next_Line}</variable>
-				<variable id="$NS">[[\p{Line_Break=Nonstarter}] [$CJ]]</variable>
+				<variable id="$NS">\p{Line_Break=Nonstarter}</variable>
 				<variable id="$NU">\p{Line_Break=Numeric}</variable>
 				<variable id="$OP">\p{Line_Break=Open_Punctuation}</variable>
 				<variable id="$PO">\p{Line_Break=Postfix_Numeric}</variable>
@@ -77,10 +76,13 @@
 				<variable id="$WJ">\p{Line_Break=Word_Joiner}</variable>
 				<variable id="$XX">\p{Line_Break=Unknown}</variable>
 				<variable id="$ZW">\p{Line_Break=ZWSpace}</variable>
+				<variable id="$CJ">\p{Line_Break=Conditional_Japanese_Starter}</variable>
+				<variable id="$RI">\p{Line_Break=Regional_Indicator}</variable>
 				<!-- LB 1  Assign a line breaking class to each code point of the input. -->
 				<!-- Resolve AI, CB, SA, SG, and XX into other line breaking classes depending on criteria outside the scope of this algorithm. -->
 				<!-- NOTE: CB is ok to fall through, but must handle others here. -->
 				<variable id="$AL">[$AI $AL $XX $SA $SG]</variable>
+				<variable id="$NS">[$NS $CJ]</variable>
 				<!-- WARNING: Fixes for Rule 9 -->
 				<!-- Treat X CM* as if it were X. -->
 				<!-- Where X is any line break class except SP, BK, CR, LF, NL or ZW. -->
@@ -97,6 +99,7 @@
 				<variable id="$BB">($BB $X)</variable>
 				<variable id="$CB">($CB $X)</variable>
 				<variable id="$CL">($CL $X)</variable>
+				<variable id="$CP">($CP $X)</variable>
 				<variable id="$CM">($CM $X)</variable>
 				<variable id="$CM">($CM $X)</variable>
 				<variable id="$GL">($GL $X)</variable>
@@ -121,11 +124,11 @@
 				<variable id="$SY">($SY $X)</variable>
 				<variable id="$WJ">($WJ $X)</variable>
 				<variable id="$XX">($XX $X)</variable>
+				<variable id="$RI">($RI $X)</variable>
 				<!-- OUT OF ORDER ON PURPOSE -->
 				<!-- LB 10  Treat any remaining combining mark as AL. -->
 				<variable id="$AL">($AL | ^ $CM | (?&lt;=$Spec1_) $CM)</variable>
 			</variables>
-
 			<segmentRules>
 				<!-- LB 4  Always break after hard line breaks (but never between CR and LF). -->
 				<rule id="4"> $BK ÷ </rule>
@@ -139,7 +142,7 @@
 				<!-- LB 7  Do not break before spaces or zero-width space. -->
 				<rule id="7.01"> × $SP </rule>
 				<rule id="7.02"> × $ZW </rule>
-				<!-- LB 8  Break after zero-width space. -->
+				<!-- LB 8  Break before any character following a zero-width space, even if one or more spaces intervene. -->
 				<rule id="8"> $ZW $SP* ÷ </rule>
 				<!-- LB 9  Do not break a combining character sequence; treat it as if it has the LB class of the base character -->
 				<!-- in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.) -->
@@ -156,9 +159,9 @@
 				<!-- LB 13  Do not break before ‘]’ or ‘!’ or ‘;’ or ‘/’, even after spaces. -->
 				<!-- Using customization 7. -->
 				<rule id="13.01"> × $EX </rule>
-				<rule id="13.02"> $Spec4_ × ($CL | $IS | $SY) </rule>
-				<rule id="13.03"> $Spec4_ $CM+ × ($CL | $IS | $SY) </rule>
-				<rule id="13.04"> ^ $CM+ × ($CL | $IS | $SY) </rule>
+				<rule id="13.02"> $Spec4_ × ($CL | $CP | $IS | $SY) </rule>
+				<rule id="13.03"> $Spec4_ $CM+ × ($CL | $CP | $IS | $SY) </rule>
+				<rule id="13.04"> ^ $CM+ × ($CL | $CP | $IS | $SY) </rule>
 				<!-- LB 14  Do not break after ‘[’, even after spaces. -->
 				<rule id="14"> $OP $SP* × </rule>
 				<!-- LB 15  Do not break within ‘"[’, even with intervening spaces. -->
@@ -175,14 +178,13 @@
 				<!-- LB 20  Break before and after unresolved CB. -->
 				<rule id="20.01"> ÷ $CB </rule>
 				<rule id="20.02"> $CB ÷ </rule>
-				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, 
-                                            small kana and other non-starters, or after acute accents. -->
+				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents. -->
 				<rule id="21.01"> × $BA </rule>
 				<rule id="21.02"> × $HY </rule>
 				<rule id="21.03"> × $NS </rule>
 				<rule id="21.04"> $BB × </rule>
-				<!-- LB 21a  Do not break after Hebrew + Hyphen. -->
-				<rule id="21a.01"> $HL ($HY | $BA) × </rule>
+				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents. -->
+				<rule id="21.1"> $HL ($HY | $BA) × </rule>
 				<!-- LB 22  Do not break between two ellipses, or between letters or numbers and ellipsis. -->
 				<rule id="22.01"> ($AL | $HL) × $IN </rule>
 				<rule id="22.02"> $ID × $IN </rule>
@@ -197,10 +199,9 @@
 				<rule id="24.02"> $PR × ($AL | $HL) </rule>
 				<rule id="24.03"> $PO × ($AL | $HL) </rule>
 				<!-- Using customization 7 -->
-				<!-- LB 25  Do not break between the following pairs of classes. -->
-				<!-- LB 25-alternative: ( PR | PO) ? ( OP | HY ) ? NU (NU | SY | IS) * (CL | CP) ? ( PR | PO) ? -->
-				<!-- Insert × every place it could go. However, make sure that at least one thing is concrete, 
-                                     otherwise would cause $NU to not break before or after -->
+				<!-- LB 18  Do not break between the following pairs of classes. -->
+				<!-- LB 18-alternative: $PR? ( $OP | $HY )? $NU ($NU | $SY | $IS)* ($CL | $CP)? $PO? -->
+				<!-- Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after -->
 				<rule id="25.01"> ($PR | $PO) × ( $OP | $HY )? $NU </rule>
 				<rule id="25.02"> ( $OP | $HY ) × $NU </rule>
 				<rule id="25.03"> $NU × ($NU | $SY | $IS) </rule>
@@ -218,12 +219,13 @@
 				<rule id="28"> ($AL | $HL) × ($AL | $HL) </rule>
 				<!-- LB 29  Do not break between numeric punctuation and alphabetics ("e.g."). -->
 				<rule id="29"> $IS × ($AL | $HL) </rule>
-				<!-- LB 30  Do not break between letters, numbers, or ordinary symbols and opening or closing parentheses. -->
+				<!-- LB 30  Do not break between letters, numbers or ordinary symbols and opening or closing punctuation. -->
 				<rule id="30.01"> ($AL | $HL | $NU) × $OP </rule>
 				<rule id="30.02"> $CP × ($AL | $HL | $NU) </rule>
+				<!-- LB 30a  Do not break between Regional Indicators. -->
+				<rule id="30.11"> $RI × $RI </rule>
 			</segmentRules>
 		</segmentation>
-
 		<segmentation type="SentenceBreak">
 			<variables>
 				<variable id="$CR">\p{Sentence_Break=CR}</variable>
@@ -281,7 +283,6 @@
 				<rule id="12"> × $Any </rule>
 			</segmentRules>
 		</segmentation>
-
 		<segmentation type="WordBreak">
 			<variables>
 				<variable id="$CR">\p{Word_Break=CR}</variable>
@@ -297,6 +298,7 @@
 				<variable id="$MidNumLet">\p{Word_Break=MidNumLet}</variable>
 				<variable id="$Numeric">\p{Word_Break=Numeric}</variable>
 				<variable id="$ExtendNumLet">\p{Word_Break=ExtendNumLet}</variable>
+				<variable id="$Regional_Indicator">\p{Word_Break=Regional_Indicator}</variable>
 				<!-- WARNING: For Rule 4: Fixes for GC, Format -->
 				<!-- Add format and extend to everything -->
 				<variable id="$FE">[$Format $Extend]</variable>
@@ -308,11 +310,12 @@
 				<variable id="$MidNumLet">($MidNumLet $FE*)</variable>
 				<variable id="$Numeric">($Numeric $FE*)</variable>
 				<variable id="$ExtendNumLet">($ExtendNumLet $FE*)</variable>
+				<variable id="$Regional_Indicator">($Regional_Indicator $FE*)</variable>
 			</variables>
 			<segmentRules>
 				<rule id="3"> $CR × $LF </rule>
 				<rule id="3.1"> ($Newline | $CR | $LF) ÷ </rule>
-				<rule id="3.11"> ÷ ($Newline | $CR | $LF) </rule>
+				<rule id="3.2"> ÷ ($Newline | $CR | $LF) </rule>
 				<!-- Ignore Format and Extend characters, except when they appear at the beginning of a region of text. -->
 				<!-- (See Section 6.2 Grapheme Cluster and Format Rules.) -->
 				<!-- WARNING: Implemented as don't break before format (except after linebreaks), -->
@@ -330,6 +333,7 @@
 				<rule id="13"> $Katakana × $Katakana </rule>
 				<rule id="13.1"> ($ALetter | $Numeric | $Katakana | $ExtendNumLet) × $ExtendNumLet </rule>
 				<rule id="13.2"> $ExtendNumLet × ($ALetter | $Numeric | $Katakana) </rule>
+				<rule id="13.3"> $Regional_Indicator × $Regional_Indicator </rule>
 			</segmentRules>
 		</segmentation>
 	</segmentations>

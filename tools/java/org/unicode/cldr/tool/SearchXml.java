@@ -14,10 +14,12 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 
 import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.impl.UnicodeRegex;
 import com.ibm.icu.util.ULocale;
 
 public class SearchXml {
@@ -48,6 +50,7 @@ public class SearchXml {
 
     private static String valuePattern;
     private static File comparisonDirectory;
+    private static boolean recursive;
 
     private static Counter<String> kountRegexMatches;
     private static final Set<String> ERRORS = new LinkedHashSet<String>();
@@ -64,6 +67,7 @@ public class SearchXml {
     .add("unique", null, null, "only unique lines")
     .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
     .add("Verbose", null, null, "verbose output")
+    .add("recursive", null, null, "recurse directories")
     ;
 
     public static void main(String[] args) throws IOException {
@@ -102,6 +106,9 @@ public class SearchXml {
 
         countOnly = myOptions.get("count").doesOccur();
         kountRegexMatches = myOptions.get("kount").doesOccur() ? new Counter<String>() : null;
+        
+        recursive = myOptions.get("recursive").doesOccur();
+
 
         //        showFiles = myOptions.get("showFiles").doesOccur();
         //        showValues = myOptions.get("showValues").doesOccur();
@@ -157,7 +164,7 @@ public class SearchXml {
             exclude.value = true;
             property = property.substring(1);
         }
-        return Pattern.compile(property).matcher("");
+        return UnicodeRegex.compile(property).matcher("");
     }
 
     private static void processDirectory(File src) throws IOException {
@@ -172,10 +179,10 @@ public class SearchXml {
                 );
         }
         for (File file : src.listFiles()) {
-            //            if (file.isDirectory()) {
-            //                processDirectory(file);
-            //                continue;
-            //            }
+            if (recursive && file.isDirectory()) {
+                processDirectory(file);
+                continue;
+            }
             if (file.length() == 0) {
                 continue;
             }
@@ -210,7 +217,7 @@ public class SearchXml {
                 other = getXmlFileAsRelation(comparisonDirectory, fileName);
             }
 
-            checkFiles(fileName, source, other);
+            checkFiles(recursive ? file.getParent() : null, fileName, source, other);
             System.out.flush();
         }
         for (String error : ERRORS) {
@@ -244,10 +251,11 @@ public class SearchXml {
 
     /**
      * @author markdavis
+     * @param fileName 
      * @param canonicalFile 
      *
      */
-    private static void checkFiles(String fileName, Relation<String, String> source, Relation<String, String> other) {
+    private static void checkFiles(String filePath, String fileName, Relation<String, String> source, Relation<String, String> other) {
         CoverageLevel2 level = null;
         String firstMessage;
         String file;
@@ -347,7 +355,9 @@ public class SearchXml {
                             ? group(value, valueMatcher) + "\t" + group(path, pathMatcher) 
                                 : value + "\t" + path;
                             if (!unique) {
-                                System.out.println(file + "\t" + data);
+                                System.out.println(
+                                    (recursive ? filePath + "\t" : "")
+                                    + file + "\t" + data);
                             } else {
                                 uniqueData.add(data,1);
                             }

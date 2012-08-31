@@ -70,8 +70,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class ShowLanguages {
-    public static final String CHART_DISPLAY_VERSION = "22\u03B2"; // "1.8\u03B2"; // \u03B2 is beta - β, \u03b1 is alpha - α
-    private static final String CHART_TARGET_DIR = CldrUtility.CHART_DIRECTORY + "/supplemental/";
+    public static final String CHART_TARGET_DIR = CldrUtility.CHART_DIRECTORY + "/supplemental/";
 
     private static final boolean SHOW_NATIVE = true;
 
@@ -595,7 +594,7 @@ public class ShowLanguages {
         public void close() throws IOException {
             out.write("</div>");
             PrintWriter pw2 = BagFormatter.openUTF8Writer(CHART_TARGET_DIR, filename);
-            String[] replacements = { "%header%", "", "%title%", title, "%version%", CHART_DISPLAY_VERSION, "%date%", CldrUtility.isoFormat(new Date()), "%body%", out.toString() };
+            String[] replacements = { "%header%", "", "%title%", title, "%version%", CldrUtility.CHART_DISPLAY_VERSION, "%date%", CldrUtility.isoFormat(new Date()), "%body%", out.toString() };
             final String templateFileName = "../../tool/chart-template.html";
             FileUtilities.appendBufferedReader(CldrUtility.getUTF8Data(templateFileName), pw2, replacements);
             pw2.close();
@@ -1307,6 +1306,9 @@ public class ShowLanguages {
             String alias2 = getAlias("sh_YU");
 
             for (String locale : locales) {
+                if (locale.equals("*")) {
+                    locale = "und";
+                }
                 String alias = getAlias(locale);
                 if (!alias.equals(locale)) {
                     System.out.println("Should use canonical form: " + locale + " => " + alias);

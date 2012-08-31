@@ -97,7 +97,7 @@ public class GenerateSidewaysView {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
         UOption.SOURCEDIR().setDefault(CldrUtility.MAIN_DIRECTORY),
-        UOption.DESTDIR().setDefault(CldrUtility.CHART_DIRECTORY + "../beta-charts/by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
+        UOption.DESTDIR().setDefault(CldrUtility.CHART_DIRECTORY + "by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
         UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
@@ -686,7 +686,7 @@ public class GenerateSidewaysView {
 
 
         ShowData.getChartTemplate("By-Type Chart: " + main,
-                ShowLanguages.CHART_DISPLAY_VERSION, 
+                CldrUtility.CHART_DISPLAY_VERSION, 
                 "",
                 //"<link rel='stylesheet' type='text/css' href='by_type.css'>" +
                 //    "<style type='text/css'>" + Utility.LINE_SEPARATOR +

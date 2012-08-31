@@ -140,7 +140,11 @@ public class CldrUtility {
    * Only the default, if no other directory is specified.
    */
   public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
-  public static final String CHART_DIRECTORY = getPath(TMP_DIRECTORY,  "beta-charts/");
+  
+  public static final boolean BETA = false;
+  public static final String CHART_DISPLAY_VERSION = "22" + (BETA ? "\u03B2" : "");
+  public static final String CHART_DIRECTORY = getPath(TMP_DIRECTORY, BETA ? "beta-charts/" : "charts/");
+  
   public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY,  "test/");
 
 

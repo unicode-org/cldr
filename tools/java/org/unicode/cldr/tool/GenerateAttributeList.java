@@ -200,7 +200,7 @@ public class GenerateAttributeList {
     pw.println("</head><body>");
     pw.println("<p>Date: $" +
     "Date$</p>");
-    pw.println("<p>Version: " + ShowLanguages.CHART_DISPLAY_VERSION + "</p>");
+    pw.println("<p>Version: " + CldrUtility.CHART_DISPLAY_VERSION + "</p>");
     pw.println("<table>");
     pw.println("<tr><th>Element</th><th>Attribute</th><th>Actual Attribute Values</th><th>Other DTD Attribute Values</th></tr>");
 

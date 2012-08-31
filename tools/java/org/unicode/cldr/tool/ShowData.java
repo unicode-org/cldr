@@ -182,7 +182,7 @@ public class ShowData {
 
         getChartTemplate(
                 "Locale Data Summary for " + getName(locale),
-                ShowLanguages.CHART_DISPLAY_VERSION,
+                CldrUtility.CHART_DISPLAY_VERSION,
                 // "<style type='text/css'>" + Utility.LINE_SEPARATOR +
                 // "h1 {margin-bottom:1em}" + Utility.LINE_SEPARATOR +
                 // ".e {background-color: #EEEEEE}" + Utility.LINE_SEPARATOR +
@@ -594,7 +594,7 @@ public class ShowData {
   static public void getChartTemplate(String title, String version,
           String header, String[] headerAndFooter) throws IOException {
     if (version == null) {
-      version = ShowLanguages.CHART_DISPLAY_VERSION;
+      version = CldrUtility.CHART_DISPLAY_VERSION;
     }
     VariableReplacer langTag = new VariableReplacer()
     .add("%title%", title)

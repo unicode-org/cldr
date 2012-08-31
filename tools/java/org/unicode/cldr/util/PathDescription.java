@@ -174,7 +174,7 @@ public class PathDescription {
             String englishRegionName = english.getName(CLDRFile.TERRITORY_NAME, regionCode);
             description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), new Object[]{englishRegionName});
         } else if (description != MISSING_DESCRIPTION){
-            description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), pathArguments.value);
+            description = MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), (Object [])pathArguments.value);
         }
 
         return description;

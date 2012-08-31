@@ -661,7 +661,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         public String getPlainText(Map postArguments) {
             getArguments(postArguments);
             return MessageFormat.format("<\"\u200E{0}\u200E\", \"{1}\"> \u2192 \"\u200E{2}\u200E\" \u2192 \"{3}\"",
-                new String[] {currentPattern, currentInput, currentFormatted, currentReparsed});
+                (Object[]) new String[] {currentPattern, currentInput, currentFormatted, currentReparsed});
         }
 
         /**

@@ -26,7 +26,7 @@ public class EnumLookup<T extends Enum<?>> {
         EnumLookup<T> result = new EnumLookup<T>();
         try {
             result.transform = t = t == null ? CLEAN : t;
-            Method m = className.getMethod("values", null);
+            Method m = className.getMethod("values",(Class<?>[])null);
             T[] values = (T[]) m.invoke(null);
             for (T value : values) {
                 result.map.put(t.transform(value.name()), value);

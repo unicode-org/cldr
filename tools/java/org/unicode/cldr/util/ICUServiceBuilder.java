@@ -268,7 +268,7 @@ public class ICUServiceBuilder {
       String p0 = getDateTimePattern(calendar, "time", DateFormatNames[timeIndex]);
       String p1 = getDateTimePattern(calendar, "date", DateFormatNames[dateIndex]);
       String datetimePat = getDateTimePattern(calendar, "dateTime", DateFormatNames[dateIndex]);
-      pattern = MessageFormat.format(datetimePat, new String[]{p0, p1});
+      pattern = MessageFormat.format(datetimePat, (Object []) new String[]{p0, p1});
     }
     return pattern;
   }

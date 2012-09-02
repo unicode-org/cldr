@@ -157,7 +157,8 @@ public class GenerateAttributeList {
       //xmlReader.setProperty("http://xml.org/sax/properties/declaration-handler", me);
       xmlReader.parse(is);
     } catch (Exception e) {
-      e.printStackTrace();
+        System.err.println("Failure in " + file);
+        e.printStackTrace();
     } finally {
       fis.close();
     }
@@ -191,7 +192,12 @@ public class GenerateAttributeList {
       valueSets[1] = new TreeSet();
       attribute_valueSet.put(attribute, valueSets);
     }
-    valueSets[dtd ? 1 : 0].add(attributeValue);	
+    try {
+        valueSets[dtd ? 1 : 0].add(attributeValue);	
+    } catch (Exception e) {
+        throw new IllegalArgumentException("Error with " + element 
+            + ", " + attribute + ", " + attributeValue + ", " + dtd, e);
+    }
   }
 
   void show(PrintWriter pw) {

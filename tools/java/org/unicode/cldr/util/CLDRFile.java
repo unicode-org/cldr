@@ -2090,7 +2090,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   static MapComparator dayValueOrder = (MapComparator) new MapComparator().add(new String[] {
           "sun", "mon", "tue", "wed", "thu", "fri", "sat"}).freeze();
   static MapComparator widthOrder = (MapComparator) new MapComparator().add(new String[] {
-          "abbreviated", "narrow", "short", "wide"}).freeze();
+          "abbreviated", "narrow", "short", "wide", "all"}).freeze();
   static MapComparator lengthOrder = (MapComparator) new MapComparator().add(new String[] {
           "full", "long", "medium", "short"}).freeze();
   static MapComparator dateFieldOrder = (MapComparator) new MapComparator().add(new String[] {

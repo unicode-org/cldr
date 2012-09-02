@@ -97,8 +97,8 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
       return aa.compareTo(bb);
     }
     if (errorOnMissing) throw new IllegalArgumentException("Missing Map Comparator value(s): " 
-            + (aa == null ? a : "") + "\t"
-            + (bb == null ? b : "")
+            + a.toString() + "(" + aa + "),\t"
+            + b.toString() + "(" + bb + "),\t"
     );
     // must handle halfway case, otherwise we are not transitive!!!
     if (aa == null && bb != null) {

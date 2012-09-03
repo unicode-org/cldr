@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012<span class="changed">-08-22</span></td>
+			<td>2012<span class="changed">-09-03</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -2162,12 +2162,21 @@ The index Separator can used to separate the index characters if they occur in f
 	&lt;!ELEMENT eraNarrow ( alias | (era*, special*) ) &gt;<br>
 	</p>
 	<p>Month, day, and quarter names may vary along two axes: the width and the context. The context is either <i>format</i> (the default), the form used within 
-	a date format string (such as &quot;Saturday, November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in calendar headers. The width 
-	can be <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i>. The format values must be distinct for the wide and abbreviated widths.
+	a date format string (such as &quot;Saturday, November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in calendar headers.
+	The width can be <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i><span class="changed">; for days only, the width can also be <i>short,</i>
+	which is ideally between the abbreviated and narrow widths, but must be no longer than abbreviated and no shorter than narrow (if short day names are not
+	explicitly specified, abbreviated day names are used instead). Note that for &lt;monthPattern&gt;, described in the next section:</span></p>
+	<ul>
+	<li class="changed">There is an additional context type <i>numeric</i></li>
+	<li class="changed">When the context type is numeric, the width has a special type <i>all</i></li>
+	</ul>
+	<p>The format values must be distinct for the wide<span class="changed">,</span> abbreviated<span class="changed">, and short</span> widths.
 	However, values for the narrow width in either format or stand-alone contexts, as well as  values for other widths in stand-alone contexts, need not be distinct;
-	they might only be distinguished by context. For example, &quot;S&quot; may be used both for Saturday and for Sunday. The stand-alone context is typically 
+	they might only be distinguished by context. For example, &quot;S&quot; may be used both for Saturday and for Sunday.
+	The <span class="removed">stand-alone context </span><span class="changed">narrow width </span>is typically 
 	used in calendar headers; it must be the shortest possible width, no more than one character (or grapheme cluster, or exemplar set element)
-	in stand-alone values, and the shortest possible widths (in terms of grapheme clusters) in format values.</p>
+	in stand-alone values, and the shortest possible widths (in terms of grapheme clusters) in format values.
+	<span class="changed">The short width (if present) is often the shortest unambiguous form.</span></p>
 	<p>Era names should be distinct within each of the widths, including narrow; there is less disambiguating information
 	for them, and they are more likely to be used in a format that requires parsing.</p>
 	<p>The most important distinction to make between format and stand-alone forms is a grammatical distinction, for languages that require it.
@@ -9397,6 +9406,10 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Added 6-letter patterns for short weekday names to the <em><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></em>.
     [ticket <a href="http://unicode.org/cldr/trac/ticket/4571">#4571</a>]</li>
     <li class="changed">Updated deprecated status. [ticket <a href="http://unicode.org/cldr/trac/ticket/5229">#5229</a>]</li>
+    <li class="changed">In <em>Section 5.9.1, <a href="#Calendar_Elements">Calendar Elements</a>,</em> under
+    <b><a href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></b>,
+    mentioned the new day width <i>short</i> and the new &lt;monthPattern&gt; context <i>numeric</i> and width <i>all.</i>
+    [ticket <a href="http://unicode.org/cldr/trac/ticket/5268">#5268</a>]</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

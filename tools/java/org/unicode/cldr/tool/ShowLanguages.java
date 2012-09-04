@@ -229,7 +229,8 @@ public class ShowLanguages {
         for (String language : languages) {
             Set<BasicLanguageData> basicLanguageData = supplementalDataInfo.getBasicLanguageData(language);
             for (BasicLanguageData basicData : basicLanguageData) {
-                String secondary = basicData.getType() == BasicLanguageData.Type.primary ? "\u00A0" : "N";
+                String secondary = isOfficial(language) // basicData.getType() == BasicLanguageData.Type.primary
+                    ? "\u00A0" : "N";
                 for (String script : basicData.getScripts()) {
                     addLanguageScriptCells(tablePrinter, tablePrinter2, language, script, secondary);
                     remainingScripts.remove(script);
@@ -252,6 +253,46 @@ public class ShowLanguages {
         pw1.println(tablePrinter2.toTable());
         pw1.close();
 
+    }
+
+    static final Map<String,OfficialStatus> languageToBestStatus = new HashMap<String,OfficialStatus>();
+    static {
+        for (String language : supplementalDataInfo.getLanguagesForTerritoriesPopulationData()) {
+            Set<String> territories = supplementalDataInfo.getTerritoriesForPopulationData(language);
+            if (territories == null) {
+                continue;
+            }
+            int underbar = language.indexOf('_');
+            String base = underbar < 0 ? null : language.substring(0, underbar);
+
+            for (String territory : territories) {
+                PopulationData data = supplementalDataInfo.getLanguageAndTerritoryPopulationData(language, territory);
+                OfficialStatus status = data.getOfficialStatus();
+                OfficialStatus old;
+                old = languageToBestStatus.get(language);
+                if (old == null || status.compareTo(old) > 0) {
+                    languageToBestStatus.put(language, status);
+                }
+                if (base != null) {
+                    old = languageToBestStatus.get(base);
+                    if (old == null || status.compareTo(old) > 0) {
+                        languageToBestStatus.put(base, status);
+                    }
+                }
+            }
+        }
+    }
+    
+    private static boolean isOfficial(String language) {
+        OfficialStatus status = languageToBestStatus.get(language);
+        if (status != null && status.isMajor()) {
+            return true;
+        }
+        int underbar = language.indexOf('_');
+        if (underbar < 0) {
+            return false;
+        }
+        return isOfficial(language.substring(0, underbar));
     }
 
     private static Set<String> getLanguagesToShow() {
@@ -524,7 +565,7 @@ public class ShowLanguages {
                 scriptName = "¿"+script+"?";
                 System.err.println("No English Language Name for:" + script);
             }
-            String scriptModern = StandardCodes.isScriptModern(script) ? "" : script.equals("Zzzz")  ? "?" : "N";
+            String scriptModern = StandardCodes.isScriptModern(script) ? "" : script.equals("Zzzz")  ? "n/a" : "N";
             Scope s = Iso639Data.getScope(language);
             Type t = Iso639Data.getType(language);
             //  if ((s == Scope.Individual || s == Scope.Macrolanguage || s == Scope.Collection) && t == Type.Living) {

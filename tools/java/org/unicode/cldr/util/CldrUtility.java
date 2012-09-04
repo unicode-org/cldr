@@ -144,6 +144,7 @@ public class CldrUtility {
   public static final boolean BETA = false;
   public static final String CHART_DISPLAY_VERSION = "22" + (BETA ? "\u03B2" : "");
   public static final String CHART_DIRECTORY = getPath(TMP_DIRECTORY, BETA ? "beta-charts/" : "charts/");
+  public static final String LOG_DIRECTORY = getPath(TMP_DIRECTORY, "logs/");
   
   public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY,  "test/");
 

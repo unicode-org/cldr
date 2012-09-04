@@ -230,10 +230,14 @@ public final class FileUtilities {
             throw new IllegalArgumentException(e); // wrap darn'd checked exception
         }
     }
-
+    
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory) {
+        copyFile(class1, sourceFile, targetDirectory, sourceFile);
+    }
+
+    public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName) {
         try {
-            PrintWriter out = BagFormatter.openUTF8Writer(targetDirectory, sourceFile);
+            PrintWriter out = BagFormatter.openUTF8Writer(targetDirectory, newName);
             FileUtilities.appendFile(class1, sourceFile, out);
             out.close();
         } catch (IOException e) {

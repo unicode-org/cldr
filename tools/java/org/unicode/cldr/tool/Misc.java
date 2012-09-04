@@ -167,7 +167,7 @@ public class Misc {
 			}
 			
 			if (options[INFO].doesOccur) {
-				PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY, "attributesAndValues.html");
+				PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.TMP_DIRECTORY + "logs/", "attributesAndValues.html");
 				new GenerateAttributeList(cldrFactory).show(pw);
 				pw.close();
 			}

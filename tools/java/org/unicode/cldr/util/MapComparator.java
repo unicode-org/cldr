@@ -23,7 +23,7 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ULocale;
 
-public class MapComparator<K> implements Comparator<K>, Freezable {
+public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<K>> {
   private RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
   {
     uca.setNumericCollation(true);
@@ -78,7 +78,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
     }
     return this;
   }
-  public MapComparator<K> add(K[] data) {
+  public MapComparator<K> add(K... data) {
     for (int i = 0; i < data.length; ++i) {
       add(data[i]);
     }
@@ -173,7 +173,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
   /* (non-Javadoc)
    * @see com.ibm.icu.dev.test.util.Freezeble
    */
-  public Object freeze() {
+  public MapComparator<K> freeze() {
     locked = true;	
     return this;
   }
@@ -181,7 +181,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable {
    * @see com.ibm.icu.dev.test.util.Freezeble
    */
   @SuppressWarnings("unchecked")
-  public Object cloneAsThawed() {
+  public MapComparator<K> cloneAsThawed() {
     try {
       MapComparator<K> result = (MapComparator<K>) super.clone();
       result.locked = false;

@@ -43,7 +43,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td>22<span class="changed"> (draft 2)</span></td>
+			<td>22<span class="changed"> (draft 3)</span></td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -8197,7 +8197,7 @@ decimal?, group?, special*)) &gt;</pre>
 	</table>
 	<p>Levels 40 through 80 are based on the  definitions and specifications listed in <strong>M.1-M.4</strong>.
     However, these principles have been refined, and do not completely reflect the data that is actually used for coverage determination, which is in the <strong>coverageLevels.xml</strong> file. For a view of the trunk version of this file, see <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/coverageLevels.xml">coverageLevels.xml</a>. </p>
-	<p class="dtd">&lt;!ELEMENT coverageLevels ( coverageLevel* ) &gt;<br>
+	<p class="dtd">&lt;!ELEMENT coverageLevels ( <span class="changed">coverageVariable*, </span>coverageLevel* ) &gt;<br>
     &lt;!ELEMENT coverageLevel EMPTY &gt;<br>
     &lt;!ATTLIST coverageLevel inLanguage CDATA #IMPLIED &gt;<br>
     &lt;!ATTLIST coverageLevel inScript CDATA #IMPLIED &gt;<br>
@@ -8209,7 +8209,26 @@ decimal?, group?, special*)) &gt;</pre>
     inLanguage=&quot;(de|fi)&quot; <br>    match=&quot;localeDisplayNames/types/type[@type='phonebook'][@key='collation']&quot;/&gt;</pre>
     <p>The coverageLevel elements are read in order, and the first match results in a coverage level value. The element matches based on the <span class="attribute">inLanguage</span>, <span class="attribute">inScript</span>, <span class="attribute">inTerritory</span>, and <span class="attribute">match</span> attribute values, which are regular expressions. For example, in the above example, a match occurs if the language is de or fi, and if the path is a locale display name for collation=phonebook.</p>
     <p>The <span class="attribute">match</span> attribute value logically has &quot;//ldml/&quot; prefixed before it is applied. In addition, the &quot;[@&quot; is automatically quoted. Otherwise standard Perl/Java style regular expression syntax is used.</p>
-<h3>M.1 Definitions</h3>
+	<p class="dtd">
+	&lt;!ELEMENT coverageVariable EMPTY &gt;<br>
+	&lt;!ATTLIST coverageVariable key CDATA #REQUIRED &gt;<br>
+	&lt;!ATTLIST coverageVariable value CDATA #REQUIRED &gt;</p>
+	<p><span class="changed">
+	The coverageVariable element allows us to create variables for certain regular expressions that are used
+	frequently in the coverageLevel definitions above.  Each coverage varible must contain a key / value pair 
+	of attributes, which can then be used to be substituted into a coverageLevel definition above.</span>
+	</p>
+    <p><span class="changed">
+	For example, here is an example coverageLevel line using coverageVariable substitution.</span></p>
+
+    <pre><span class="changed">&lt;coverageVariable key=&quot;%dayTypes&quot; value=&quot;(sun|mon|tue|wed|thu|fri|sat)&quot;&gt;<br>
+&lt;coverageVariable key=&quot;%wideAbbr&quot; value=&quot(wide|abbreviated)&quot;&gt;<br>
+&lt;coverageLevel value="20" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='%wideAbbr']/day[@type='%dayTypes']&quot;/&gt;</span></pre>
+    <p><span class="changed">In this example, the coverge variables %dayTypes and %wideAbbr are used to substitute their respective
+	values into the match expression.  This allows us to reuse the same variable for other coverageLevel matches
+	that use the same regular expression fragment.</span></p>
+	
+	<h3>M.1 Definitions</h3>
 	<ul>
 		<li><i>Target-Language</i> is the language under consideration. </li>
 		<li><i>Target-Territories</i> is the list of territories found by looking up <i>Target-Language</i> in the &lt;languageData&gt; elements in
@@ -9987,6 +10006,7 @@ decimal?, group?, special*)) &gt;</pre>
     <b><a href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></b>,
     mentioned the new day width <i>short</i> and the new &lt;monthPattern&gt; context <i>numeric</i> and width <i>all.</i>
     [ticket <a href="http://unicode.org/cldr/trac/ticket/5268">#5268</a>]</li>
+    <li class="changed">Added descriptions of coverageVariable in Appendix M. [ticket <a href="http://unicode.org/cldr/trac/ticket/5269">#5269</a>]</li>
     <li class="changed">Added Appendix R, for property data.</li>
     <li class="changed">Added Appendix S, for Keyboards.</li>
   </ul>

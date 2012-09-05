@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012<span class="changed">-09-04</span></td>
+			<td>2012<span class="changed">-09-05</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -3646,8 +3646,8 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		</tr>
 		<tr>
 			<td><code>=&nbsp; </code></td>
-			<td><code>&amp; x<br>
-			= y&nbsp; </code></td>
+			<td><code>&amp; <span class="changed">v</span><br>
+			= <span class="changed">w</span>&nbsp; </code></td>
 			<td><code>&lt;i&gt;</code></td>
 			<td><code>&lt;reset&gt;<span style="color: blue">v</span>&lt;reset&gt;<br>
 			&lt;i&gt;<span style="color: blue">w</span>&lt;/i&gt;</code></td>
@@ -9149,9 +9149,9 @@ decimal?, group?, special*)) &gt;</pre>
   <p class="changed">Key: A key on a physical keyboard.</p>
   <p class="changed">Modifier: A key that is held to change the behavior of a keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but is not limited to: Ctrl, Alt, Option, Command and Caps Lock.</p>
   <p class="changed">Key code: The integer code sent to the application on pressing a key.</p>
-  <p class="changed">ISO position: The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):<img src="images/keyPositions.png"></p>
+  <p class="changed">ISO position: The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):<img src="images/keyPositions.png" alt="keyboard layout example showing ISO key numbering"></p>
   <p class="changed">One may also extend the notion of the ISO layout to support keys that don't map directly to the diagram above (such as the Android device - see diagram). Per the ISO standard, the space bar is mapped to "A03", so the period and comma keys are mapped to "A02" and "A04" respectively based on their relative position to the space bar. Also note that the "E" row does not exist on the Android keyboard.</p>
-  <p class="changed"><img src="images/androidKeyboard.png"></p>
+  <p class="changed"><img src="images/androidKeyboard.png" alt="keyboard layout example showing extension of ISO key numbering"></p>
   <p class="changed">If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",...</p>
   <p class="changed">Hardware map: A mapping between key codes and ISO layout positions.</p>
   <p class="changed">Base character: The character emitted by a particular key when no modifiers are active. In ISO terms, this is group 1, level 1.</p>
@@ -9489,23 +9489,21 @@ decimal?, group?, special*)) &gt;</pre>
   <ol>
     <li class="changed">For a given platform, every map[@iso] value must be in the hardwareMap if there is one (_keycodes.xml)</li>
     <li class="changed">Every map[@base] value must also be in base[@base] value</li>
-    <li class="changed">No keyMap[@modifiers] value can overlap with another keyMap[@modifiers] value. </li>
+    <li class="changed">No keyMap[@modifiers] value can overlap with another keyMap[@modifiers] value.
     <ul>
-      <li class="changed">eg you can't have "RAlt Ctrl" in one keyMap, and "Alt Shift" in another (because Alt = RAltLAlt).</li>
-    </ul>
-    <li><span class="changed">Every sequence of characters in a transform[@from] value must be a concatenation of two or more map[@to] values.
-      </span>
+      <li>eg you can't have "RAlt Ctrl" in one keyMap, and "Alt Shift" in another (because Alt = RAltLAlt).</li>
+    </ul></li>
+    <li class="changed">Every sequence of characters in a transform[@from] value must be a concatenation of two or more map[@to] values.
       <ul>
-        <li class="changed">eg with &lt;transform from="xyz" to="q"&gt; there must be some map values to get there, such as &lt;map... to="xy"&gt; &amp; &lt;map... to="z"&gt;</li>
-      </ul>
-    </li>
+        <li>eg with &lt;transform from="xyz" to="q"&gt; there must be some map values to get there, such as &lt;map... to="xy"&gt; &amp; &lt;map... to="z"&gt;</li>
+      </ul></li>
     <li class="changed">There must be either 0 or 1 of (keyMap[@fallback] or baseMap[@fallback]) attributes</li>
     <li class="changed">If the base and chars values for modifiers="" are all identical, and there are no longpresses, that keyMap must not appear (??) </li>
     <li class="changed">There will never be overlaps among modifier values.</li>
-    <li class="changed">A modifier set will never have ? (optional) on all values </li>
+    <li class="changed">A modifier set will never have ? (optional) on all values
     <ul>
-      <li class="changed">eg, you'll never have RCtrl?Caps?LShift?</li>
-    </ul>
+      <li>eg, you'll never have RCtrl?Caps?LShift?</li>
+    </ul></li>
     <li class="changed">Every base[@base] value must be unique.</li>
     <li class="changed">A modifier attribute value will aways be minimal, observing the following simplification rules. <br>
     </li>
@@ -9691,7 +9689,6 @@ decimal?, group?, special*)) &gt;</pre>
     </tbody>
   </table>
   <span class="changed">
-</div>
   </span>
 <p>&nbsp;</p>
 <hr>
@@ -10006,6 +10003,7 @@ decimal?, group?, special*)) &gt;</pre>
     <b><a href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></b>,
     mentioned the new day width <i>short</i> and the new &lt;monthPattern&gt; context <i>numeric</i> and width <i>all.</i>
     [ticket <a href="http://unicode.org/cldr/trac/ticket/5268">#5268</a>]</li>
+    <li class="changed">Fixed last example in table <b>Specifying Collation Ordering</b>. [ticket <a href="http://unicode.org/cldr/trac/ticket/3108">#3108</a>]</li>
     <li class="changed">Added descriptions of coverageVariable in Appendix M. [ticket <a href="http://unicode.org/cldr/trac/ticket/5269">#5269</a>]</li>
     <li class="changed">Added Appendix R, for property data.</li>
     <li class="changed">Added Appendix S, for Keyboards.</li>

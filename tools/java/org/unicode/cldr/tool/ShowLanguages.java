@@ -29,6 +29,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -319,7 +321,7 @@ public class ShowLanguages {
     private static void printScriptLanguageTerritory(LanguageInfo linfo, PrintWriter pw) throws IOException {
         PrintWriter pw1;
         TablePrinter tablePrinter2 = new TablePrinter()
-        .addColumn("Icon", "class='source'", null, "class='source'", true).setSpanRows(true)
+        .addColumn("Sample Char", "class='source'", null, "class='source sample'", true).setSpanRows(true)
         .addColumn("Script", "class='source'", null, "class='source'", true).setSpanRows(true).setSortPriority(0).setBreakSpans(true)
         .addColumn("Code", "class='source'", "<a name=\"{0}\">{0}</a>", "class='source'", true).setSpanRows(true)
         .addColumn("T", "class='target'", null, "class='target'", true).setSortPriority(1)
@@ -514,9 +516,9 @@ public class ShowLanguages {
         //  }
         String languageModern = oldLanguage.contains(t) ? "O" : language.equals("und") ? "?" : "";
 
-
+        Info scriptMetatdata = ScriptMetadata.getInfo(script);
         tablePrinter2.addRow()
-        .addCell("<img src='http://www.unicode.org/reports/tr36/images/" + getGifName(script) + ".gif' alt='X' width='24' height='24'>")
+        .addCell(scriptMetatdata.sampleChar)
         .addCell(scriptName)
         .addCell(script)
         .addCell(isLanguageTranslated)

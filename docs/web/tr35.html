@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012<span class="changed">-09-03</span></td>
+			<td>2012<span class="changed">-09-04</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -244,11 +244,13 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		<li>Appendix O: <a href="#Lenient_Parsing">Lenient Parsing</a></li>
 		<li>Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a></li>
 		<li>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></li>
+		<li class="changed">Appendix R: <a href="#Property_Data">Property Data</a></li>
+		<li class="changed">Appendix S: <a href="#Keyboards">Keyboards</a></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em"><a href="#References">References</a></li>
 		<li><a href="#Acknowledgments">Acknowledgments</a></li>
 		<li><a href="#Modifications">Modifications</a></li>
 	</ul>
-  <h2>1. <a name="Introduction">Introduction</a></h2>
+<h2>1. <a name="Introduction">Introduction</a></h2>
 	<p>Not long ago, computer systems were like separate worlds, isolated from one another. The internet and related events have changed all that. A single system 
 	can be built of many different components, hardware and software, all needing to work together. Many different technologies have been important in bridging 
 	the gaps; in the internationalization arena, Unicode has provided a lingua franca for communicating textual data. 
@@ -9100,7 +9102,7 @@ decimal?, group?, special*)) &gt;</pre>
   <h2 class="changed"><a name="Property_Data"></a>Appendix R. Property Data</h2>
   <p><span class="changed">Some data in CLDR does not use an XML format, but rather a semicolon-delimited format derived from that of the Unicode Character Database. That is because the data is more likely to be parsed by implementations that already parse UCD data. Those files are present in the common/properties directory.</span>  
   <p><span class="changed">Each file has a header that explains the format and usage of the data.</span>  
-  <h2 class="changed"><a name="h.heeivjifokk0"></a>Appendix S. Keyboards</h2>
+  <h2 class="changed"><a name="Keyboards"></a>Appendix S. Keyboards</h2>
   <p class="changed">The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.</p>
   <p class="changed">For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a &quot;W&quot; on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text (&quot;W&quot;) to the text that would have resulted from typing a key on an azerty keyboard, by transforming &quot;W&quot; to &quot;Z&quot;. Such transforms are in fact performed in existing web applications.</p>
   <p class="changed">The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p>

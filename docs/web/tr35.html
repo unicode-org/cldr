@@ -5562,7 +5562,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	(i.e. that plural form) applies to a given numeric value <em>n</em>, where n can be expressed as a decimal fraction. Conditions have the following syntax:</p>
 	<pre>condition     = and_condition ('or' and_condition)*
 and_condition = relation ('and' relation)*
-relation      = is_relation | in_relation | within_relation | 'n' &lt;EOL&gt;
+relation      = is_relation | in_relation | within_relation<span class="removed"> | 'n' &lt;EOL&gt;</span>
 is_relation   = expr 'is' ('not')? value
 in_relation   = expr ('not')? 'in' range_list<br>within_relation = expr ('not')? 'within' range_list
 expr          = 'n' ('mod' value)?
@@ -5571,16 +5571,14 @@ value         = digit+
 digit         = 0|1|2|3|4|5|6|7|8|9
 range         = value'..'value</pre>
 	<ul>
-	<li>Whitespace (defined as Unicode Pattern_White_Space) can occur between or around any of the above tokens.</li>
-	<li>Rules should be mutually exclusive; for a given numeric value, only one rule should apply (i.e. the condition should only be
-	true for one of the pluralRule elements.</li>
-	<li>The difference between 'in' and 'within' is that 'in' only includes integers in the specified range,
-	while 'within' includes all values.</li>
-	<li>'mod' (modulus) is a remainder operation as defined in Java; for example, the result of "4.3 mod 3" is 1.3.</li>
-	<li>Each plural rule must be written to be self-contained, and not depend on the ordering.</li>
-	<li>In the syntax, 'and' binds more tightly than 'or'. So (X or Y and Z) is interpreted as (X or (Y and Z))</li>
-	<li>To detect an integer in a rule, use &quot;n mod 1 is 0&quot;. Conversely, for a fraction use: &quot;n mod 1 is not 0&quot;.</li>
-	<li>The in and within relations can take comma-separated lists, such as: <strong>n in 3,5,7..15</strong></li>
+	<li>Whitespace (defined as Unicode <a href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>) can occur between or around any of the above tokens.</li>
+	<li>In the syntax, <strong>and</strong> binds more tightly than <strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted as <strong>(X or (Y and Z))</strong>.</li>
+    <li>Each plural rule must be written to be self-contained, and not depend on the ordering. <span class="changed">Thus r</span>ules <span class="changed">must</span> be mutually exclusive; for a given numeric value, only one rule <span class="changed">can</span> apply (i.e. the condition <span class="changed">can</span> only be
+      true for one of the pluralRule elements.</li>
+	<li>The <strong>in</strong> and <strong>within</strong> relations can take comma-separated lists, such as: <strong>n in 3,5,7..15</strong>. The difference between <strong>in</strong> and <strong>within</strong> is that <strong>in</strong> only includes integers in the specified range,
+	while <strong>within </strong>includes all values.</li>
+	<li><strong>mod</strong> (modulus) is a remainder operation as defined in Java; for example, <span class="changed">where <strong>n</strong> = 4.3 the result of <strong>n mod 3</strong></span> is 1.3.</li>
+	<li>To detect an integer in a rule, use <strong>n mod 1 is 0</strong>. Conversely, for a fraction use: <strong>n mod 1 is not 0</strong>.</li>
 	</ul>
 <p>Examples:</p>
 	<table border>
@@ -10011,7 +10009,8 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Added Appendix R, for property data.</li>
     <li class="changed">Added Appendix S, for Keyboards.</li>
     <li class="changed">Updated reference to [Olson]</li>
-    <li class="changed">Added clarification for removal of deprecated codes to Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a></li>
+    <li class="changed">Added clarification for removal of deprecated codes to Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>.</li>
+    <li class="changed">Disallowed isolated &quot;n&quot; in plural rules in C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>. Reworded some of the syntax notes for clarity.</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

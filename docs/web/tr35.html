@@ -718,9 +718,9 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	<p>The following chart contains a set  of key values that are  currently available, with a description or sampling of type values.  Each category is associated with an XML file in the bcp47 directory. For the complete
 	list of valid keys and types defined for Unicode locale extensions, see
 	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
-  <p>
+  <p class="changed">The BCP47 form is the canonical form, and recommended. Other aliases are included for  backwards compatibility.<p>
 
-  <table>
+<table>
 		<caption><a name="Key_Type_Definitions">Key/Type Definitions</a></caption>
 		<tr>
 			<th>category</th>
@@ -9048,15 +9048,24 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<dt><b>alias</b> (Not applicable to &lt;attribute&gt;)</dt>
 		<dd>
-			<p>The key or type name used by Unicode locale extension with
-			the old <a href="#Old_Locale_Extension_Syntax">"@key=type" syntax</a>.
-			When this attribute is available, <i>name</i> above should not
-			be used with the old syntax.</p>
-
-			<p>The attribute value for type may contain multiple names delimited by
-			ASCII space characters.  In this case, the first name is the preferred
-			value. Other values might have been used in previous versions.</p>
+			<p><span class="changed">The BCP47 form is the canonical form, and recommended. Other aliases are included only for  backwards compatibility.</span></p>
 		</dd>
+		<dd class="changed"><em>Example:</em></dd>
+		<dd>&nbsp;</dd>
+		<dd>
+		  <p class="changed">&lt;type name="phonebk" <strong>alias="phonebook"</strong> description="Phonebook style ordering (such as in German)"/&gt;<br>
+		  </p>
+		  <span class="changed">The preferred term, and the only one to be used in BCP47, is the name: in this example, &quot;phonebk&quot;.<br>
+      </span></dd>
+		<dt>&nbsp;</dt>
+		<dd>
+		  <p><span class="changed">The alias is a</span> key or type name used by Unicode locale extensions with
+		    the old <a href="#Old_Locale_Extension_Syntax">"@key=type" syntax</a>.
+		    <span class="removed">When this attribute is available, <i>name</i> above should not
+		    be used with the old syntax. </span>The attribute value for type may contain multiple names delimited by
+		    ASCII space characters. <span class="changed">Of those aliases, </span>the first name is the preferred
+		    value. <span class="removed">Other values might have been used in previous versions.</span></p>
+</dd>
 
 		<dt><b>description</b></dt>
 		<dd>
@@ -10027,6 +10036,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Added clarification for removal of deprecated codes to Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>.</li>
     <li class="changed">Disallowed isolated &quot;n&quot; in plural rules in C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>. Reworded some of the syntax notes for clarity.</li>
     <li class="changed">Moved collation Key/Type information to <em>Section 5.14.3 <a href="http://unicode.org/reports/tr35/#Setting_Options">Setting Options</a></em>.</li>
+    <li class="changed">Clarified that the BCP47 key/value identifiers are the canonical (and preferred) identifiers.</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

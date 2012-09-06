@@ -677,7 +677,7 @@ public class GenerateSidewaysView {
             }
             out.append("<a href='" + getFileName2(pathHeader) + ".html'>" + subName + "</a>");
             if (subName.equals("Characters")) {
-                out.append(" | <a href='misc.exemplarCharacters.html'>Exemplars</a>");
+                out.append(" | <a href='misc.exemplarCharacters.html'>Main Exemplars</a>");
             }
             continue;
         }

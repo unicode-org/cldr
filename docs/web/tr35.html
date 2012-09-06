@@ -7991,7 +7991,7 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
 	<blockquote>
 		<pre>&lt;deprecatedItems attributes=&quot;draft&quot; values=&quot;true false&quot;/&gt; </pre>
 	</blockquote>
-	<p>&nbsp;Similarly, the following means that the <i>type</i> attribute is deprecated, but only for the listed elements:</p>
+	<p>Similarly, the following means that the <i>type</i> attribute is deprecated, but only for the listed elements:</p>
 	<blockquote>
 		<pre>&lt;deprecatedItems elements=&quot;abbreviationFallback default ... preferenceOrdering&quot; attributes=&quot;type&quot;/&gt; </pre>
 	</blockquote>
@@ -8917,7 +8917,8 @@ decimal?, group?, special*)) &gt;</pre>
 		</tr>
 	</table>
 	<p>In each case, multiple items are space-delimited.</p>
-	<h3>P.3 <a name="Default_Content">Default Content</a></h3>
+	<p class="changed">Where particular values are deprecated (such as territory codes like SU for Soviet Union), the names for such codes may be removed from the common/main translated data after some period of time. However, typically supplemental information for deprecated codes is retained, such as containment, likely subtags, older currency codes usage, etc. The English name may also be retained, for debugging purposes.</p>
+<h3>P.3 <a name="Default_Content">Default Content</a></h3>
 	<pre class="dtd">&lt;!ELEMENT defaultContent EMPTY &gt;
 &lt;!ATTLIST defaultContent locales NMTOKENS #IMPLIED &gt;</pre>
 	<p>In CLDR, locales without territory information (or where needed, 
@@ -10010,6 +10011,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Added Appendix R, for property data.</li>
     <li class="changed">Added Appendix S, for Keyboards.</li>
     <li class="changed">Updated reference to [Olson]</li>
+    <li class="changed">Added clarification for removal of deprecated codes to Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a></li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

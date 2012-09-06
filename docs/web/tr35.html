@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012<span class="changed">-09-05</span></td>
+			<td>2012<span class="changed">-09-06</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -5075,7 +5075,7 @@ A known limitation of the tailoring is that where the source string is a contrac
 	&lt;!ATTLIST group type NMTOKEN #REQUIRED &gt;<br>
 	&lt;!ATTLIST group contains NMTOKENS #IMPLIED &gt;<br>	
 	&lt;!ATTLIST group grouping ( true | false ) #IMPLIED &gt;<br>
-	&lt;!ATTLIST group status ( deprecated ) #IMPLIED &gt;</p>
+	&lt;!ATTLIST group status ( deprecated<span class="changed">, grouping</span> ) #IMPLIED &gt;</p>
 <p>The following data provides information that shows groupings of countries (regions). The data is based on the <a href="#UNM49">UNM49</a>]. There is one special code, QO, which is used for outlying areas that are typically uninhabited. The territory containment forms a tree with the following levels:</p>
 <p align="center">World</p>
     <p align="center">Continent</p>
@@ -5098,7 +5098,10 @@ A known limitation of the tailoring is that where the source string is a contrac
     <p>These are marked with the attribute <span class="attribute">grouping</span>=&quot;<span class="attributeValue">true</span>&quot;.</p>
     <p>When groupings have been deprecated but kept around for backwards compatibility, they are marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">deprecated</span>&quot;, like this:</p>
     <pre>&lt;group type=&quot;029&quot; contains=&quot;AN&quot; status=&quot;deprecated&quot;/&gt; &lt;!--Caribbean --&gt;</pre>
-<h3>C.3 <a name="Supplemental_Language_Data">Supplemental Language Data</a></h3>
+    <p><span class="changed">When the containment relationship itself is a grouping, it is marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">grouping</span>&quot;, like this:</span></p>
+    <pre><span class="changed">&lt;group type=&quot;150&quot; contains=&quot;EU&quot; status=&quot;grouping&quot;/&gt; &lt;!--Europe --&gt;</span></pre>
+	<p><span class="changed">That is, the type value isn’t a grouping, but if you filter out groupings you can drop this containment. In the example above, EU is a grouping, and contained in 150.</span></p>
+	<h3>C.3 <a name="Supplemental_Language_Data">Supplemental Language Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT languageData ( language* ) &gt;<br>
 	&lt;!ELEMENT language EMPTY &gt;<br>
 	&lt;!ATTLIST language type NMTOKEN #REQUIRED &gt;<br>
@@ -10005,6 +10008,7 @@ decimal?, group?, special*)) &gt;</pre>
     [ticket <a href="http://unicode.org/cldr/trac/ticket/5268">#5268</a>]</li>
     <li class="changed">Fixed last example in table <b>Specifying Collation Ordering</b>. [ticket <a href="http://unicode.org/cldr/trac/ticket/3108">#3108</a>]</li>
     <li class="changed">Added descriptions of coverageVariable in Appendix M. [ticket <a href="http://unicode.org/cldr/trac/ticket/5269">#5269</a>]</li>
+    <li class="changed">Documented the attribute value status=&quot;grouping&quot; in Appendix C.2. [ticket <a href="http://unicode.org/cldr/trac/ticket/5270">#5270</a>]</li>
     <li class="changed">Added Appendix R, for property data.</li>
     <li class="changed">Added Appendix S, for Keyboards.</li>
   </ul>

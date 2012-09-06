@@ -182,7 +182,7 @@ public class GenerateSidewaysView {
             String main = getFileName2(path);
             if (!main.equals(oldMain)) {
                 oldMain = main;
-                out = start(out, main, headerString);
+                out = start(out, main, headerString, path.getSection()  + ":" + path.getPage());
                 oldHeader = "";
             }
             String key = path.getCode();
@@ -272,7 +272,7 @@ public class GenerateSidewaysView {
 
     private static PrintWriter showExemplars2(PrintWriter out, String headerString, String filename, String variant) throws IOException {
         finish(out);
-        out = start(out,filename, headerString);
+        out = start(out,filename, headerString, "Exemplars");
         out.println("<table>");
         PathHeader cleanPath = fixPath("//ldml/characters/exemplarCharacters" + variant, null);
         Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
@@ -644,11 +644,12 @@ public class GenerateSidewaysView {
     private static Transliterator toHTML;
 
     /**
+     * @param path2 
      * 
      */
-    private static PrintWriter start(PrintWriter out, String main, String headerString) throws IOException {
+    private static PrintWriter start(PrintWriter out, String main, String headerString, String title) throws IOException {
         finish(out);
-        out = writeHeader(main);
+        out = writeHeader(main, title);
         out.println(headerString);
         out.println("</p></blockquote><table class='table'>");
         return out;
@@ -675,17 +676,22 @@ public class GenerateSidewaysView {
                 continue; // identical, skip
             }
             out.append("<a href='" + getFileName2(pathHeader) + ".html'>" + subName + "</a>");
+            if (subName.equals("Characters")) {
+                out.append(" | <a href='misc.exemplarCharacters.html'>Exemplars</a>");
+            }
             continue;
         }
+        //<a href="patterns.labels.html">Labels</a>
+        // file:///Users/markdavis/Documents/indigo/cldr-tmp/charts/by_type/misc.exemplarCharacters.html
         return out.append("</p>").toString();
     }
 
-    private static PrintWriter writeHeader(String main) throws IOException {
+    private static PrintWriter writeHeader(String main, String title) throws IOException {
         PrintWriter out;
         out = BagFormatter.openUTF8Writer(options[DESTDIR].value, main + ".html");
 
 
-        ShowData.getChartTemplate("By-Type Chart: " + main,
+        ShowData.getChartTemplate("By-Type Chart: " + title,
                 CldrUtility.CHART_DISPLAY_VERSION, 
                 "",
                 //"<link rel='stylesheet' type='text/css' href='by_type.css'>" +

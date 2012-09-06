@@ -5113,9 +5113,9 @@ A known limitation of the tailoring is that where the source string is a contrac
     <p>These are marked with the attribute <span class="attribute">grouping</span>=&quot;<span class="attributeValue">true</span>&quot;.</p>
     <p>When groupings have been deprecated but kept around for backwards compatibility, they are marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">deprecated</span>&quot;, like this:</p>
     <pre>&lt;group type=&quot;029&quot; contains=&quot;AN&quot; status=&quot;deprecated&quot;/&gt; &lt;!--Caribbean --&gt;</pre>
-    <p><span class="changed">When the containment relationship itself is a grouping, it is marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">grouping</span>&quot;, like this:</span></p>
-    <pre><span class="changed">&lt;group type=&quot;150&quot; contains=&quot;EU&quot; status=&quot;grouping&quot;/&gt; &lt;!--Europe --&gt;</span></pre>
-	<p><span class="changed">That is, the type value isn’t a grouping, but if you filter out groupings you can drop this containment. In the example above, EU is a grouping, and contained in 150.</span></p>
+    <p class="changed">When the containment relationship itself is a grouping, it is marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">grouping</span>&quot;, like this:</p>
+    <pre class="changed">&lt;group type=&quot;150&quot; contains=&quot;EU&quot; status=&quot;grouping&quot;/&gt; &lt;!--Europe --&gt;</pre>
+	<p class="changed">That is, the type value isn’t a grouping, but if you filter out groupings you can drop this containment. In the example above, EU is a grouping, and contained in 150.</p>
 	<h3>C.3 <a name="Supplemental_Language_Data">Supplemental Language Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT languageData ( language* ) &gt;<br>
 	&lt;!ELEMENT language EMPTY &gt;<br>
@@ -5724,8 +5724,10 @@ range         = value'..'value</pre>
 	<pre>&lt;numberingSystem id=&quot;geor&quot; type=&quot;algorithmic&quot; rules=&quot;georgian&quot;/&gt;
 &lt;!-- An algorithmic system - Georgian numerals , rules found in NumberingSystemRules --&gt;</pre>
 	<pre>&lt;numberingSystem id=&quot;hant&quot; type=&quot;algorithmic&quot; rules=&quot;zh_Hant/SpelloutRules/spellout-cardinal&quot;/&gt;
-&lt;!-- An algorithmic system. Traditional Chinese Numerals --&gt; </pre>
-	<h3>C.14 <a name="Postal_Code_Validation">Postal Code Validation</a></h3>
+&lt;!-- An algorithmic system. Traditional Chinese Numerals --&gt; 
+</pre>
+  <span class="changed">For general information about the numbering system data, including the BCP47 identifiers, see <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a>.</em></span>
+<h3>C.14 <a name="Postal_Code_Validation">Postal Code Validation</a></h3>
 	<p class="dtd">&lt;!ELEMENT postalCodeData (postCodeRegex*) &gt;<br>
 	&lt;!ELEMENT postCodeRegex (#PCDATA) &gt;<br>
 	&lt;!ATTLIST postCodeRegex territoryId NMTOKEN #REQUIRED&gt;<br></p>
@@ -8234,15 +8236,15 @@ decimal?, group?, special*)) &gt;</pre>
 	frequently in the coverageLevel definitions above.  Each coverage varible must contain a key / value pair 
 	of attributes, which can then be used to be substituted into a coverageLevel definition above.</span>
 	</p>
-    <p><span class="changed">
-	For example, here is an example coverageLevel line using coverageVariable substitution.</span></p>
+    <p class="changed">
+	For example, here is an example coverageLevel line using coverageVariable substitution.</p>
 
-    <pre><span class="changed">&lt;coverageVariable key=&quot;%dayTypes&quot; value=&quot;(sun|mon|tue|wed|thu|fri|sat)&quot;&gt;<br>
+    <pre class="changed">&lt;coverageVariable key=&quot;%dayTypes&quot; value=&quot;(sun|mon|tue|wed|thu|fri|sat)&quot;&gt;<br>
 &lt;coverageVariable key=&quot;%wideAbbr&quot; value=&quot(wide|abbreviated)&quot;&gt;<br>
-&lt;coverageLevel value="20" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='%wideAbbr']/day[@type='%dayTypes']&quot;/&gt;</span></pre>
-    <p><span class="changed">In this example, the coverge variables %dayTypes and %wideAbbr are used to substitute their respective
+&lt;coverageLevel value="20" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='%wideAbbr']/day[@type='%dayTypes']&quot;/&gt;</pre>
+    <p class="changed">In this example, the coverge variables %dayTypes and %wideAbbr are used to substitute their respective
 	values into the match expression.  This allows us to reuse the same variable for other coverageLevel matches
-	that use the same regular expression fragment.</span></p>
+	that use the same regular expression fragment.</p>
 	
 	<h3>M.1 Definitions</h3>
 	<ul>
@@ -9048,7 +9050,7 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<dt><b>alias</b> (Not applicable to &lt;attribute&gt;)</dt>
 		<dd>
-			<p><span class="changed">The BCP47 form is the canonical form, and recommended. Other aliases are included only for  backwards compatibility.</span></p>
+			<p class="changed">The BCP47 form is the canonical form, and recommended. Other aliases are included only for  backwards compatibility.</p>
 		</dd>
 		<dd class="changed"><em>Example:</em></dd>
 		<dd>&nbsp;</dd>
@@ -9112,8 +9114,25 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>type "aumqi" is valid for key "tz", supported by CLDR 1.8.1
 		or later versions.</li>
 	</ul>
-
-	<h3>Q.2 Transformed Content Data File</h3>
+	<h4 class="changed"><a name="Numbering System Data">Q.1.1 Numbering System Data</a><br>
+	</h4>
+	<p class="changed">LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/bcp47/number.xml">bcp47/number.xml</a>.<br>
+  </p>
+	<p class="changed">Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.<br>
+  </p>
+	<p class="changed">LDML makes certain stability guarantees on this data: <br>
+  </p>
+	<ol>
+	  <li class="changed">Like other BCP47 identifiers, once a numeric identifier is added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>, it will never be removed from either of those files.</li>
+	  <li><span class="changed">If an identifier has type="numeric" in numberingSystems.xml, then
+	    </span>
+	    <ol>
+	      <li class="changed">It is a decimal, positional numbering system with an attribute digits=X, where X is a string with the 10 digits in order used by the numbering system.</li>
+	      <li class="changed">The values of the type and digits will never change.</li>
+        </ol>
+      </li>
+  </ol>
+<h3>Q.2 Transformed Content Data File</h3>
 	<p>In the transformed content 't' data file, the name attribute in a &lt;key&gt; element
 	defines a valid field separator subtag. The name attribute in an enclosed &lt;type&gt; element defines a valid
 	field subtag for the field separator subtag. For example:
@@ -10037,6 +10056,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Disallowed isolated &quot;n&quot; in plural rules in C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>. Reworded some of the syntax notes for clarity.</li>
     <li class="changed">Moved collation Key/Type information to <em>Section 5.14.3 <a href="http://unicode.org/reports/tr35/#Setting_Options">Setting Options</a></em>.</li>
     <li class="changed">Clarified that the BCP47 key/value identifiers are the canonical (and preferred) identifiers.</li>
+    <li class="changed">Added <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a></em>.</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

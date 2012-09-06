@@ -87,7 +87,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
   static Pattern FIRST_ELEMENT = Pattern.compile("//([^/\\[]*)");
   
-  public enum DtdType {ldml, supplementalData, ldmlBCP47;
+  public enum DtdType {ldml, supplementalData, ldmlBCP47, keyboard, platform;
   public static DtdType fromPath(String elementOrPath) {
     Matcher m = FIRST_ELEMENT.matcher(elementOrPath);
     m.lookingAt();

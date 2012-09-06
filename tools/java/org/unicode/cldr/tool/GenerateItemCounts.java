@@ -51,9 +51,10 @@ public class GenerateItemCounts {
         //      "cldr-1.7.2",
         //      "cldr-1.8.1",
         //     "cldr-archive/cldr-1.9.1",
-        "cldr-archive/cldr-2.0.0",
-        "cldr-archive/cldr-2.0.1",
+        //  "cldr-archive/cldr-2.0.0",
+        //  "cldr-archive/cldr-2.0.1",
         "cldr-archive/cldr-21.0",
+        "cldr-archive/cldr-22.0",
         //      "cldr/common"
     };
 
@@ -154,7 +155,7 @@ public class GenerateItemCounts {
 
     private static void doSummary() throws IOException {
         Map<String,R4<Counter<String>,Counter<String>,Counter<String>,Counter<String>>> key_release_count = new TreeMap();
-        Matcher countryLocale = Pattern.compile("([a-z]{2,3})(_[A-Z][a-z]{3})?(_[A-Z]{2})(_.*)?").matcher("");
+        Matcher countryLocale = Pattern.compile("([a-z]{2,3})(?:[_-]([A-Z][a-z]{3}))?([_-][a-zA-Z0-9]{1,8})*").matcher("");
         List<String> releases = new ArrayList<String>();
         Pattern releaseNumber = Pattern.compile("count_.*-(\\d+(\\.\\d+)*)\\.txt");
         //int releaseCount = 1;
@@ -190,7 +191,7 @@ public class GenerateItemCounts {
                     String key = names[1];
                     if (countryLocale.reset(key).matches()) {
                         String script = countryLocale.group(2);
-                        String newKey = countryLocale.group(1) + (script == null ? "" : script);
+                        String newKey = countryLocale.group(1) + (script == null ? "" : "_" + script);
                         //System.out.println(key + " => " + newKey);
                         key = newKey;
                     }

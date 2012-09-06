@@ -760,7 +760,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td rowspan="20"><p>Collation</p>
+			<td rowspan="11"><p>Collation</p>
 		    <p><em>bcp47/collation.xml</em></p></td>
 			<td rowspan="10">"co"<br>(collation)</td>
 			<td rowspan="10">Collation type</td>
@@ -824,74 +824,11 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		<tr>
 			<td colspan="2">…</td>
 		</tr>
+<tr>
+  <td colspan="4" class="changed"><i>For information on each collation setting parameter, from <strong>ka</strong> to <strong>vt</strong>,
+<a href="#Setting_Options">Setting Options</a></i></td></tr>
+		
 
-		<tr>
-			<td>"ka"<br>(colAlternate)</td>
-			<td>Alternate handling</td>
-			<td>"noignore"<br>(non-ignorable)<br><br>
-			"shifted"</td>
-			<td rowspan="10"><i>For information on each collation setting parameter,
-			see: 5.14.1 <a href="#Collation_Element">&lt;collation&gt;</a></i></td>
-		</tr>
-
-		<tr>
-			<td>"kb"<br>(colBackwards)</td>
-			<td>Backward second level weight</td>
-			<td rowspan="5">"true"<br>(yes)<br><br>
-			"false"<br>(no)</td>
-		</tr>
-
-		<tr>
-			<td>"kc"<br>(colCaseLevel)</td>
-			<td>Case level</td>
-		</tr>
-
-		<tr>
-			<td>"kn"<br>(colNumeric)</td>
-			<td>Numeric</td>
-		</tr>
-
-		<tr>
-			<td>"kh"<br>(colHiraganaQuaternary)</td>
-			<td>Hiragana quaternary</td>
-		</tr>
-
-		<tr>
-			<td>"kk"<br>(colNormalization)</td>
-			<td>Normalization</td>
-		</tr>
-
-		<tr>
-			<td>"kf"<br>(colCaseFirst)</td>
-			<td>Case first</td>
-			<td>"upper"<br><br>
-			"lower"<br><br>
-			"false"<br>(no)</td>
-		</tr>
-		<tr>
-		  <td>&quot;kr&quot;<br>(colReorder)</td>
-		  <td>Collation reordering</td>
-		  <td>reorder_code<br>
-	      (-reorder_code)*</td>
-      </tr>
-
-		<tr>
-			<td>"ks"<br>(colStrength)</td>
-			<td>Collation strength</td>
-			<td>"level1"<br>(primary)<br><br>
-			"level2"<br>(secondary)<br><br>
-			"level3"<br>(tertiary)<br><br>
-			"level4"<br>(quaternary)<br><br>
-			"identic"<br>(identical)</td>
-		</tr>
-
-		<tr>
-			<td>"vt"<br>(variableTop)</td>
-			<td>Variable top</td>
-			<td><i>Hexadecimal digits representing Unicode code point(s).
-			See Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
-			Keys and Types</a> for the details.</i></td>
-		</tr>
 
 		<tr>
 			<td><p>Currency</p>
@@ -3366,115 +3303,177 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<p>If the attribute is not present, the <span class="changed">CLDR</span> default (or the default for the locale, if there is one) is used. That  default is listed in <span class="changed">bold</span> italics. <span class="changed">Where there is a UCA default that is different, it is listed in bold with (<strong>UCA default</strong>). </span>Note that the default value for a locale may be different than the default value for the attribute, so the defaults here are <em>not</em> defaults for the corresponding keywords. </p>
 <p>The Example cells include an LDML example followed by the same example in basic syntax.</p>
 	<table>
-    <caption><a name="Collation_Settings">Collation Settings</a></caption>
+    <caption>Collation Settings<a name="Collation_Settings">Collation Settings</a></caption>
 		<tr>
+		  <th class="changed">BCP47 Key</th>
 			<th>Attribute</th>
+			<th class="changed">BCP47 Value</th>
 			<th>Options</th>
 			<th>Example&nbsp; </th>
 			<th>Description</th>
 		</tr>
 		<tr>
-			<td><font color="#000000">strength</font></td>
-			<td>primary (1)<br>
-			secondary (2)<br>
-			<em><strong>tertiary (3)</strong></em><strong><br>
-			</strong>quaternary (4)<br>
-			identical (5)</td>
-			<td><code>strength = &quot;<span style="color: blue">primary</span>&quot;<br>
+		  <td rowspan="5" class="changed">ks</td>
+			<td rowspan="5"><font color="#000000">strength</font></td>
+			<td class="changed">level1</td>
+			<td>primary (1)<br></td>
+			<td rowspan="5"><code>strength = &quot;<span style="color: blue">primary</span>&quot;<br>
 			  <br>
 		    [strength 1]</code></td>
-			<td>Sets the default strength for comparison, as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].<em> Note that strength setting of greater than <span class="changed">4</span> may have the same effect as <strong>identical</strong>, depending on the locale and implementation.</em></td>
+			<td rowspan="5">Sets the default strength for comparison, as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].<em> Note that strength setting of greater than <span class="changed">4</span> may have the same effect as <strong>identical</strong>, depending on the locale and implementation.</em></td>
 		</tr>
 		<tr>
-			<td>alternate</td>
-			<td><i><strong>non-ignorable</strong></i><strong><br>
-	    shifted (UCA default)</strong><br>
-	    <i>blanked</i></td>
-			<td><code>alternate = &quot;<span style="color: blue">non-ignorable</span>&quot;<br>
+		  <td class="changed">level2</td>
+		  <td>secondary (2)</td>
+	  </tr>
+		<tr>
+		  <td class="changed">level3</td>
+		  <td><em><strong>tertiary (3)</strong></em></td>
+	  </tr>
+		<tr>
+		  <td class="changed">level4</td>
+		  <td>quaternary (4)</td>
+	  </tr>
+		<tr>
+		  <td class="changed">level5</td>
+		  <td>identical (5)</td>
+	  </tr>
+		<tr>
+		  <td rowspan="3" class="changed">ka</td>
+			<td rowspan="3">alternate</td>
+			<td class="changed">noignore</td>
+			<td><i><strong>non-ignorable</strong></i><br></td>
+			<td rowspan="3"><code>alternate = &quot;<span style="color: blue">non-ignorable</span>&quot;<br>
 		    <br>
 		    [alternate non-ignorable]</code></td>
-			<td>Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <em>The default for <span class="changed">LDML</span> is different than it is in the UCA. <span class="changed">In LDML, the default for alternate handling is <strong>non-ignorable</strong>, while in UCA it is <strong>shifted</strong>. In addition, in LDML only </span>whitespace and punctuation are <span class="changed">variable.</span></em></td>
+			<td rowspan="3">Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <em>The default for <span class="changed">LDML</span> is different than it is in the UCA. <span class="changed">In LDML, the default for alternate handling is <strong>non-ignorable</strong>, while in UCA it is <strong>shifted</strong>. In addition, in LDML only </span>whitespace and punctuation are <span class="changed">variable.</span></em></td>
 		</tr>
 		<tr>
-			<td>backwards</td>
-			<td>on<br>
-			<i><strong>off</strong></i></td>
-			<td><code>backwards = &quot;<span style="color: blue">on</span>&quot;<br>
+		  <td class="changed">shifted</td>
+		  <td><strong>shifted (UCA default)</strong></td>
+	  </tr>
+		<tr>
+		  <td class="changed"><em>n/a</em></td>
+		  <td><i>blanked</i></td>
+	  </tr>
+		<tr>
+		  <td rowspan="2" class="changed">kb</td>
+			<td rowspan="2">backwards</td>
+			<td class="changed">true</td>
+			<td>on</td>
+			<td rowspan="2"><code>backwards = &quot;<span style="color: blue">on</span>&quot;<br>
 			  <br>
 		    [backwards 2]</code></td>
-			<td>Sets the comparison for the second level to be <strong>backwards</strong> <span class="removed">(&quot;French&quot;)</span>, as described in
+			<td rowspan="2">Sets the comparison for the second level to be <strong>backwards</strong> <span class="removed">(&quot;French&quot;)</span>, as described in
 			[<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
 		<tr>
-			<td>normalization</td>
-			<td><strong>on (UCA default)</strong><br>
-		    <em><strong>off</strong></em></td>
-			<td><code>normalization = &quot;<span style="color: blue">off</span>&quot;<br>
+		  <td class="changed">false</td>
+		  <td><i><strong>off</strong></i></td>
+	  </tr>
+		<tr>
+		  <td rowspan="2" class="changed">kk</td>
+			<td rowspan="2">normalization</td>
+			<td class="changed">true</td>
+			<td><strong>on (UCA default)</strong></td>
+			<td rowspan="2"><code>normalization = &quot;<span style="color: blue">off</span>&quot;<br>
 <br>
 [normalization off]			</code></td>
-			<td>If <strong>on</strong>, then the normal [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm is used.
+			<td rowspan="2">If <strong>on</strong>, then the normal [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm is used.
 			If <strong>off</strong>, then all strings that are in [<a href="#FCD">FCD</a>] will sort correctly, but 
 			others will not necessarily sort correctly. So should only be set <strong>off</strong> if the the strings to be compared are in FCD. <em>Note that the default for <span class="changed">CLDR locales may be</span> different than  in the UCA. The rules for particular locales have it set to <strong>on</strong>: those locales whose exemplar characters (in forms commonly interchanged) would be affected by normalization.</em></td>
 		</tr>
 		<tr>
-			<td>caseLevel</td>
-			<td>on<br>
-		    <em><strong>off</strong></em></td>
-			<td><code>caseLevel = &quot;<span style="color: blue">off</span>&quot;<br>
+		  <td class="changed">false</td>
+		  <td><i><strong>off</strong></i></td>
+	  </tr>
+		<tr>
+		  <td rowspan="2" class="changed">kc</td>
+			<td rowspan="2">caseLevel</td>
+			<td class="changed">true</td>
+			<td>on</td>
+			<td rowspan="2"><code>caseLevel = &quot;<span style="color: blue">off</span>&quot;<br>
 			  <br>
 			  [caseLevel on]<br>
             </code></td>
-			<td>If set to <strong>on</strong><i>,</i> a level consisting only of case characteristics will be inserted in front of tertiary level<span class="changed">, as a &quot;Level 2.5&quot;</span>. To ignore accents but take case 
+			<td rowspan="2">If set to <strong>on</strong><i>,</i> a level consisting only of case characteristics will be inserted in front of tertiary level<span class="changed">, as a &quot;Level 2.5&quot;</span>. To ignore accents but take case 
 			into account, set strength to <strong>primary</strong> and case level to <strong>on</strong>. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</span></td>
 		</tr>
 		<tr>
-			<td>caseFirst</td>
-			<td>upper<br>
-			lower<br>
-			<em><strong>off</strong></em></td>
-			<td><code>caseFirst = &quot;<span style="color: blue">off</span>&quot;<br>
+		  <td class="changed">false</td>
+		  <td><i><strong>off</strong></i></td>
+	  </tr>
+		<tr>
+		  <td rowspan="3" class="changed">kf</td>
+			<td rowspan="3">caseFirst</td>
+			<td class="changed">upper</td>
+			<td>upper</td>
+			<td rowspan="3"><code>caseFirst = &quot;<span style="color: blue">off</span>&quot;<br>
 			  <br>
 		    [caseFirst off]</code></td>
-			<td>If set to <strong>upper</strong>, causes upper case to sort before lower case. If set to <strong>lower</strong>, causes lower case to sort before upper case. Useful for 
+			<td rowspan="3">If set to <strong>upper</strong>, causes upper case to sort before lower case. If set to <strong>lower</strong>, causes lower case to sort before upper case. Useful for 
 			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</span></td>
 		</tr>
 		<tr>
-			<td>hiraganaQuaternary</td>
-			<td>on<br>
-		    <em><strong>off</strong></em></td>
-			<td><code>		    hiragana­Quaternary = &quot;<span style="color: blue">on</span>&quot;			<br>
+		  <td class="changed">lower</td>
+		  <td>lower</td>
+	  </tr>
+		<tr>
+		  <td class="changed">false</td>
+		  <td><i><strong>off</strong></i></td>
+	  </tr>
+		<tr>
+		  <td rowspan="2" class="changed">kh</td>
+			<td rowspan="2">hiraganaQuaternary</td>
+			<td class="changed">true</td>
+			<td>on</td>
+			<td rowspan="2"><code>		    hiragana­Quaternary = &quot;<span style="color: blue">on</span>&quot;			<br>
 			  <br>
 		    [hiraganaQ on]			</code></td>
-			<td>Controls special treatment of Hiragana code points on quaternary level. If turned <strong>on</strong>, Hiragana codepoints will get lower values than all 
+			<td rowspan="2">Controls special treatment of Hiragana code points on quaternary level. If turned <strong>on</strong>, Hiragana codepoints will get lower values than all 
 			the other non-variable code points <span class="changed">in <strong>shifted</strong>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters.</span> The strength must be greater or equal than quaternary <span class="changed">if this attribute is to have any effect</span>.</td>
 		</tr>
 		<tr>
-			<td>numeric</td>
-			<td>on<br>
-		    <em><strong>off</strong></em></td>
-			<td><code>numeric = &quot;<span style="color: blue">on</span>&quot;<br>
+		  <td class="changed">false</td>
+		  <td><i><strong>off</strong></i></td>
+	  </tr>
+		<tr>
+		  <td rowspan="2" class="changed">kn</td>
+			<td rowspan="2">numeric</td>
+			<td class="changed">true</td>
+			<td>on</td>
+			<td rowspan="2"><code>numeric = &quot;<span style="color: blue">on</span>&quot;<br>
 			  <br>
 		    [numeric on]</code></td>
-			<td>If set to <strong>on</strong>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
+			<td rowspan="2">If set to <strong>on</strong>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
 			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.<span class="changed"> The first primary value is  set to immediately after the primary value of &quot;0&quot;. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a12&quot; &lt; &quot;a2&quot; &lt; &quot;aa&quot;. In a tailored table, the &quot;0&quot; may have a different primary weight.</span></td>
 		</tr>
 		<tr>
+		  <td class="changed">false</td>
+		  <td><i><strong>off</strong></i></td>
+	  </tr>
+		<tr>
+		  <td class="changed">vt</td>
 			<td>variableTop</td>
+			<td class="changed"><i> See Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
+			Keys and Types</a>.</i></td>
 			<td>uXXuYYYY<br>
 		      <br>
 		    (the default is set to the highest punctuation, thus including spaces and punctuation, but not symbols)</td>
 			<td><code>variableTop = &quot;<span style="color: blue">uXXuYYYY</span>&quot;<br>
 			  <br>
 		    &amp; \u00XX\uYYYY &lt; [variable top]</code></td>
-			<td>The parameter value is an encoded Unicode string, with code points in hex, leading zeros removed, and &#39;u&#39; inserted between successive elements. Note that this is <em>not</em> the syntax used in the corresponding Key/Type definition for vt, which is described in <i> Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
-			Keys and Types</a>.</i> 			  <p>
+			<td><p>The Option value is an encoded Unicode string, with code points in hex, leading zeros removed, and &#39;u&#39; inserted between successive elements. </p>
+			  <p><span class="changed">The BCP47 value</span> is described in <i> Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
+			    Keys and Types</a>.</i> </p>			  <p>
 		  Sets the  string value for the variable top. All the code points with primary strengths less than <span class="changed">or equal to </span>that string will be considered variable, and thus 
 			affected by the alternate handling. Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but not in CLDR. See below for more information.</p>
-			</td>
+		  </td>
 		</tr>
 		<tr class="changed">
+		  <td class="changed">kr</td>
 		  <td>reorder</td>
-		  <td>a sequence of one or more reorder codes</td>
+		  <td colspan="2" class="changed">a sequence of one or more reorder codes: <strong>space, punct, symbol, currency, digit</strong>, or any BCP47 script ID</td>
 		  <td><code>reorder = &quot;Grek digit&quot;<br>
 	      <br>
 	      [reorder Grek  digit]</code></td>
@@ -3482,27 +3481,43 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	      For the precise meaning and usage of the reorder codes, see <em>Section 5.14.12, <a href="#Script_Reordering">Collation Reordering</a>.</em></td>
 	  </tr>
 		<tr>
-			<td>match-boundaries:</td>
-			<td nowrap><em><strong>none</strong></em><br>
-			whole-character<br>
-			whole-word</td>
-			<td><code>match-boundaries = &quot;<span style="color: blue">whole-word</span>&quot;</code><br>
+		  <td rowspan="3" class="changed"><em>n/a</em></td>
+			<td rowspan="3">match-boundaries:</td>
+			<td nowrap class="changed"><em>n/a</em></td>
+			<td nowrap><em><strong>none</strong></em><br></td>
+			<td rowspan="3"><code>match-boundaries = &quot;<span style="color: blue">whole-word</span>&quot;</code><br>
 			  <br>
 		    n/a<br></td>
-			<td><span class="changed">Defined by  <em>Section 8, </em></span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+			<td rowspan="3"><span class="changed">Defined by  <em>Section 8, </em></span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
 		<tr>
-			<td>match-style</td>
-			<td><em><strong>minimal</strong></em><br>
-			medial<br>
-			maximal</td>
-			<td><code>match-style = &quot;<span style="color: blue">medial</span>&quot;</code><br>
+		  <td nowrap class="changed"><em>n/a</em></td>
+		  <td nowrap>whole-character</td>
+	  </tr>
+		<tr>
+		  <td nowrap class="changed"><em>n/a</em></td>
+		  <td nowrap>whole-word</td>
+	  </tr>
+		<tr>
+		  <td rowspan="3" class="changed"><em>n/a</em></td>
+			<td rowspan="3">match-style</td>
+			<td class="changed"><em>n/a</em></td>
+			<td><em><strong>minimal</strong></em><br></td>
+			<td rowspan="3"><code>match-style = &quot;<span style="color: blue">medial</span>&quot;</code><br>
 			  <br>
 		    n/a</td>
-			<td><span class="changed">Defined by <em>Section 8,</em> </span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+			<td rowspan="3"><span class="changed">Defined by <em>Section 8,</em> </span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
+		<tr>
+		  <td class="changed"><em>n/a</em></td>
+		  <td>medial</td>
+	  </tr>
+		<tr>
+		  <td class="changed"><em>n/a</em></td>
+		  <td>maximal</td>
+	  </tr>
   </table>
-  <p>Variable Top bears more explanation. Users may want to include more or fewer characters as Variable. For example, someone could want to restrict the Variable characters to just include space marks. In that case, variableTop would be set to U+1680 (see <a href="http://unicode.org/charts/collation/chart_Variable.html">UCA Variable chart</a>). Alternatively, someone could want more of the Common characters in them, and include characters up to (but not including '0'), by setting variableTop to be U+20B<span class="changed">A (in Unicode 6.2; </span>see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).</p>
+  <p><strong>Variable Top (vt) </strong>bears more explanation. Users may want to include more or fewer characters as Variable. For example, someone could want to restrict the Variable characters to just include space marks. In that case, variableTop would be set to U+1680 (see <a href="http://unicode.org/charts/collation/chart_Variable.html">UCA Variable chart</a>). Alternatively, someone could want more of the Common characters in them, and include characters up to (but not including '0'), by setting variableTop to be U+20B<span class="changed">A (in Unicode 6.2; </span>see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).</p>
   <p>The effect of these settings is to customize to ignore different sets of characters when comparing strings. For example, the locale identifier "de-u-ka-shifted-vt-0024" is requesting  settings appropriate for German, including German sorting conventions, and that '$' and characters sorting below it are ignored in sorting.
   </p>
   <h4>5.14.4 <a name="Rules">Collation Rule Syntax</a></h4>
@@ -10011,6 +10026,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Updated reference to [Olson]</li>
     <li class="changed">Added clarification for removal of deprecated codes to Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>.</li>
     <li class="changed">Disallowed isolated &quot;n&quot; in plural rules in C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>. Reworded some of the syntax notes for clarity.</li>
+    <li class="changed">Moved collation Key/Type information to <em>Section 5.14.3 <a href="http://unicode.org/reports/tr35/#Setting_Options">Setting Options</a></em>.</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

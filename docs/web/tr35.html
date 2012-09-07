@@ -3335,7 +3335,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		  <td>quaternary (4)</td>
 	  </tr>
 		<tr>
-		  <td class="changed">level5</td>
+		  <td class="changed">identic</td>
 		  <td>identical (5)</td>
 	  </tr>
 		<tr>
@@ -3446,7 +3446,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 		    [numeric on]</code></td>
 			<td rowspan="2">If set to <strong>on</strong>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
-			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.<span class="changed"> The first primary value is  set to immediately after the primary value of &quot;0&quot;. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a12&quot; &lt; &quot;a2&quot; &lt; &quot;aa&quot;. In a tailored table, the &quot;0&quot; may have a different primary weight.</span></td>
+			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.<span class="changed"> The computed primary weights are all at the start of the <strong>digit</strong> reordering group. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a2&quot; &lt; &quot;a12&quot; &lt; &quot;a⓪&quot; &lt; &quot;aa&quot;.</span></td>
 		</tr>
 		<tr>
 		  <td class="changed">false</td>
@@ -4192,7 +4192,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 </table>
 <p class="changed">The default  reordering groups are defined by the FractionalUCA.txt file, based on the primary weights of associated collation elements. The [top_byte] table contains a mapping from the first (top) byte of  primary weights  to the associated reordering group. For example:</p>
 <blockquote>
-  <p class="changed">U+02D0 MODIFIER LETTER TRIANGULAR COLON has a fractional UCA collation weight of [<strong>0E</strong> 0B, 05, 05]. In the [topbyte] table, the line [top_byte	0E	SYMBOL] indicates that <strong>0E</strong> maps to <strong>SYMBOL</strong>.</p>
+  <p class="changed">U+02D0 MODIFIER LETTER TRIANGULAR COLON has a fractional UCA collation weight of [<strong>0E</strong> 0B, 05, 05]. In the [top_byte] table, the line [top_byte	0E	SYMBOL] indicates that <strong>0E</strong> maps to <strong>SYMBOL</strong>.</p>
 </blockquote>
 <p class="changed">There are some special cases:</p>
 <ul>

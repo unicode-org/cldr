@@ -16,6 +16,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
@@ -33,6 +34,7 @@ import com.ibm.icu.dev.test.util.BagFormatter;
 import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
+import com.ibm.icu.util.ULocale;
 
 public class GenerateItemCounts {
     private static final boolean SKIP_ORDERING = true;
@@ -61,23 +63,41 @@ public class GenerateItemCounts {
     static boolean doChanges = true;
     static Relation<String,String> path2value = new Relation(new TreeMap<String,String>(), TreeSet.class);
 
-    public static void main(String[] args) throws IOException {
-        Pattern dirPattern = null;
-        for (String arg : args) {
-            if (arg.equals("summary")) {
-                doSummary();
-                return;
-                //      } else if (arg.equals("changes")) {
-                //        doChanges = true;
-            } else {
-                dirPattern = Pattern.compile(arg);
-            }
+
+    final static Options myOptions = new Options();
+    enum MyOptions {
+        directory(".*", ".*", "directory/file matcher: does a find in the name, which is of the form dir/file"),
+        summary("(?i)(true|false)", "false", "if present, summarizes data already collected. Run once with, once without."),
+        verbose("(?i)(true|false)", "false", "debugging messages"),
+        ;
+        // boilerplate
+        final Option option;
+        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
+            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
         }
+    }
+
+    static Matcher DIR_FILE_MATCHER;
+    static boolean VERBOSE;
+    public static void main(String[] args) throws IOException {
+        myOptions.parse(MyOptions.directory, args, true);
+
+        DIR_FILE_MATCHER = Pattern.compile(MyOptions.directory.option.getValue()).matcher("");
+        VERBOSE = "true".equalsIgnoreCase(MyOptions.verbose.option.getValue());
+
+        if (MyOptions.summary.option.doesOccur()) {
+            doSummary();
+            return;
+            //      } else if (arg.equals("changes")) {
+            //        doChanges = true;
+        } else {
+        }
+        //Pattern dirPattern = dirPattern = Pattern.compile(arg);
         GenerateItemCounts main = new GenerateItemCounts();
         try {
             Relation<String,String> oldPath2value = null;
             for (String dir : DIRECTORIES) {
-                if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
+                //if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
                 String fulldir = new File(CldrUtility.BASE_DIRECTORY + "../" + dir).getCanonicalPath();
                 String fileKey = dir.replace("/", "_");
                 PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "count_" + fileKey + ".txt");
@@ -140,9 +160,9 @@ public class GenerateItemCounts {
                 newCount.add(prefix, set2minus1.size());
                 deletedCount.add(prefix, set1minus2.size());
                 changes2.println(prefix + "\tChanged:\t" + set1minus2
-                        + "\t" 
-                        + set2minus1
-                        + "\t" + localPath);
+                    + "\t" 
+                    + set2minus1
+                    + "\t" + localPath);
             }
         }
         union = Builder.with(new TreeSet<String>()).addAll(newCount.keySet()).addAll(deletedCount.keySet()).get();
@@ -153,7 +173,7 @@ public class GenerateItemCounts {
         summary.println("#Total:\t" + total);
     }
 
-    private static void doSummary() throws IOException {
+    public static void doSummary() throws IOException {
         Map<String,R4<Counter<String>,Counter<String>,Counter<String>,Counter<String>>> key_release_count = new TreeMap();
         Matcher countryLocale = Pattern.compile("([a-z]{2,3})(?:[_-]([A-Z][a-z]{3}))?([_-][a-zA-Z0-9]{1,8})*").matcher("");
         List<String> releases = new ArrayList<String>();
@@ -182,18 +202,27 @@ public class GenerateItemCounts {
                 String[] parts = line.split("\t");
                 try {
                     String file = parts[0];
+                    if (!DIR_FILE_MATCHER.reset(file).find()) {
+                        if (VERBOSE) {
+                            System.out.println("Skipping: " + RegexUtilities.showMismatch(DIR_FILE_MATCHER, file));
+                        }
+                        continue;
+                    } else if (VERBOSE) {
+                        System.out.println("Including: " + file);
+                    }
+
                     long valueCount = Long.parseLong(parts[1]);
                     long valueLen = Long.parseLong(parts[2]);
                     long attrCount = Long.parseLong(parts[3]);
                     long attrLen = Long.parseLong(parts[4]);
                     if (valueCount + attrCount == 0) continue;
                     String[] names = file.split("/");
-                    String key = names[1];
+                    String key = names[names.length-1];
                     if (countryLocale.reset(key).matches()) {
                         String script = countryLocale.group(2);
                         String newKey = countryLocale.group(1) + (script == null ? "" : "_" + script);
                         //System.out.println(key + " => " + newKey);
-                        key = newKey;
+                        key = newKey + "—" + ULocale.getDisplayName(newKey, "en");
                     }
                     release_keys.put(releaseNum, key);
                     R4<Counter<String>,Counter<String>,Counter<String>,Counter<String>> release_count = key_release_count.get(key);
@@ -211,7 +240,8 @@ public class GenerateItemCounts {
             }
             in.close();
         }
-        PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "summary.txt");
+        PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "summary" + (MyOptions.directory.option.doesOccur() ? "-filtered" : "") +
+        		".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
@@ -234,12 +264,12 @@ public class GenerateItemCounts {
 
     static final Set<String> ATTRIBUTES_TO_SKIP = Builder.with(new HashSet<String>()).addAll("version", "references", "standard", "draft").freeze();
     static final Pattern skipPath = Pattern.compile("" +
-            "\\[\\@alt=\"[^\"]*proposed" +
-            "|^//" +
-            "(ldml(\\[[^/]*)?/identity" +
-            "|(ldmlBCP47|supplementalData)(\\[[^/]*)?/(generation|version)" +
-            ")"
-    );
+        "\\[\\@alt=\"[^\"]*proposed" +
+        "|^//" +
+        "(ldml(\\[[^/]*)?/identity" +
+        "|(ldmlBCP47|supplementalData)(\\[[^/]*)?/(generation|version)" +
+        ")"
+        );
 
     static class MyHandler extends SimpleHandler {
         XPathParts parts = new XPathParts();
@@ -282,7 +312,7 @@ public class GenerateItemCounts {
                     String element = parts.getElement(i);
                     for (String attribute : attributes) {
                         if (ATTRIBUTES_TO_SKIP.contains(attribute)
-                                || CLDRFile.isDistinguishing(element, attribute)) {
+                            || CLDRFile.isDistinguishing(element, attribute)) {
                             continue;
                         }
                         String attrValue = parts.getAttributeValue(i, attribute);
@@ -306,16 +336,16 @@ public class GenerateItemCounts {
             for (int i = 0; i < parts.size(); ++i) {
                 String element = parts.getElement(i);
                 if (!SKIP_ORDERING) {
-                if (CLDRFile.isOrdered(element, type)) {
-                    parts.addAttribute("_q", String.valueOf(orderedCount++));
-                }
+                    if (CLDRFile.isOrdered(element, type)) {
+                        parts.addAttribute("_q", String.valueOf(orderedCount++));
+                    }
                 }
             }
             return prefix + CLDRFile.getDistinguishingXPath(parts.toString(), null, false);
         }
     }
 
-    public MyHandler check(String systemID, String name) {
+    private MyHandler check(String systemID, String name) {
         MyHandler myHandler = new MyHandler(name);
         try {
             XMLFileReader reader = new XMLFileReader().setHandler(myHandler);
@@ -381,10 +411,14 @@ public class GenerateItemCounts {
             if (file.isDirectory()) {
                 summarizeFiles(summary, file, level+1);
             } else if (!filename.startsWith("#") && filename.endsWith(".xml")) {
-                System.out.print(".");
-                System.out.flush();
-                String name = directory.getName() + "/" + file.getName();
+                String name = new File(directory.getParent()).getName() + "/" + directory.getName() + "/" + file.getName();
                 name = name.substring(0,name.length()-4); // strip .xml
+                if (VERBOSE) {
+                    System.out.println(name);
+                } else {
+                    System.out.print(".");
+                    System.out.flush();
+                }
                 MyHandler handler = check(file.toString(), name);
                 summary.println(name + "\t" + handler.valueCount + "\t" + handler.valueLen + "\t" + handler.attributeCount + "\t" + handler.attributeLen);
             }

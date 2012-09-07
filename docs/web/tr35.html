@@ -3037,7 +3037,15 @@ language may not be in common usage in a particular territory.</p>
     &lt;/currencyFormat&gt;
   &lt;/currencyFormatLength&gt;
 &lt;/currencyFormats&gt;</pre>
-	<h4>5.10.2 <a name="Currencies">Currencies</a></h4>
+
+  <span class="changed">A pattern type attribute is used for <em>compact number formats</em>, such as the following:
+  </span>
+  <pre>
+<span class="changed">&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		...<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>		...<br>	&lt;/decimalFormat&gt;</span></pre>
+<p class="changed">To format a number N, the greatest type less than or equal to N is used, with the appropriate  plural category. N is divided by the type, after removing the number of zeros in the pattern, less 1. APIs supporting this format should provide control over the number of significant or fraction digits.</p>
+<p class="changed">Thus N=12345 matches <code>&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>. N is divided by 1000 (obtained from10000 after removing &quot;00&quot; and restoring one &quot;0&quot;. The result is formatted according to the normal decimal pattern. With no fractional digits, that yields &quot;12 K&quot;.</p>
+<p class="changed">The short format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits). </p>
+<h4>5.10.2 <a name="Currencies">Currencies</a></h4>
 	<p class="dtd">
 	&lt;!ELEMENT currencies (alias | (default?, currency*, special*)) &gt;<br>
 	&lt;!ELEMENT currency (alias | (((pattern+, displayName*, symbol*) | (displayName+, symbol*, pattern*) | (symbol+, pattern*))?,

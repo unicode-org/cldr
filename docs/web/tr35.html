@@ -8981,17 +8981,20 @@ decimal?, group?, special*)) &gt;</pre>
 &lt;!ATTLIST key alias NMTOKEN #IMPLIED&gt;
 &lt;!ATTLIST key description CDATA #IMPLIED&gt;
 &lt;!ATTLIST key since CDATA #IMPLIED&gt;
+<span class="changed">&lt;!ATTLIST key deprecated ( true | false ) "false"&gt;</span>
 
 &lt;!ELEMENT type EMPTY&gt;
 &lt;!ATTLIST type name NMTOKEN #REQUIRED&gt;
 &lt;!ATTLIST type alias CDATA #IMPLIED&gt;
 &lt;!ATTLIST type description CDATA #IMPLIED&gt;
 &lt;!ATTLIST type since CDATA #IMPLIED&gt;
+<span class="changed">&lt;!ATTLIST type deprecated ( true | false ) "false"&gt;</span>
 
 &lt;!ELEMENT attribute EMPTY&gt;
 &lt;!ATTLIST attribute name NMTOKEN #REQUIRED&gt;
 &lt;!ATTLIST attribute description CDATA #IMPLIED&gt;
-&lt;!ATTLIST attribute since CDATA #IMPLIED&gt;</pre>
+&lt;!ATTLIST attribute since CDATA #IMPLIED&gt;
+<span class="changed">&lt;!ATTLIST attribute deprecated ( true | false ) "false"&gt;</span></pre>
 
 	<p>The extension attribute in &lt;key&gt; element specifies the BCP 47 language tag extension type. The default value of
 	the extension attribute is "u" (Unicode locale extension). The &lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.</p>
@@ -9087,6 +9090,13 @@ decimal?, group?, special*)) &gt;</pre>
 			The version of CLDR in which this key or type was introduced.
 			Absence of this attribute value implies the key or type was available
 			in CLDR 1.7.2.
+		</dd>
+
+		<dt><span class="changed"><b>deprecated</b></span></dt>
+		<dd>
+			<p class="changed">The deprecation status of the key, type or attribute element. The value
+			"true" indicates the element is deprecated and no longer used in the version of CLDR. The
+			default value is "false".</p>
 		</dd>
 	</dl>
 	<p>For example,
@@ -10065,6 +10075,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Moved collation Key/Type information to <em>Section 5.14.3 <a href="http://unicode.org/reports/tr35/#Setting_Options">Setting Options</a></em>.</li>
     <li class="changed">Clarified that the BCP47 key/value identifiers are the canonical (and preferred) identifiers.</li>
     <li class="changed">Added <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a></em>.</li>
+    <li class="changed">Added description of deprecated="true" in Appendix Q.</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

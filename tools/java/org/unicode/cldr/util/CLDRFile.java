@@ -1163,6 +1163,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       || elementName.equals("group") && attribute.equals("status")
       || elementName.equals("plurals") && attribute.equals("type")
       ;
+    case keyboard:
+    case platform:
+        return false;
     }
     //  if (result != matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true)) {
     //  matches(distinguishingAttributeMap, new String[]{elementName, attribute}, true);

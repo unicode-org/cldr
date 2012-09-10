@@ -38,12 +38,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	</tr>
 </table>
 <div class="body">
-	<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+	<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 	<h1 style="text-align: center">Unicode Locale Data Markup Language (LDML)</h1>
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td>22<span class="changed"> (draft 3)</span></td>
+			<td>22</td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -52,17 +52,17 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012<span class="changed">-09-06</span></td>
+			<td>2012-09-10</td>
 		</tr>
 		<tr>
 			<td>This Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/proposed.html" class="changed">http://unicode.org/reports/tr35/tr35-26.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-27.html">http://unicode.org/reports/tr35/tr35-27.html</a></td>
 		</tr>
 		<tr>
 			<td>Previous Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-25.html" class="changed">http://unicode.org/reports/tr35/tr35-25.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-25.html">http://unicode.org/reports/tr35/tr35-25.html</a></td>
 		</tr>
 		<tr>
 			<td>Latest Version</td>
@@ -93,7 +93,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Revision</td>
-			<td><a href="#Modifications" class="changed">26</a></td>
+			<td><a href="#Modifications">27</a></td>
 		</tr>
 	</table>
 	<h3><i>Summary</i></h3>
@@ -102,19 +102,19 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	
 	<h3><i>Status</i></h3>
 
-	   <!-- NOT YET APPROVED -->
+	   <!-- NOT YET APPROVED
 	  <p><i class="changed">This is a<b><font color="#ff3333"> draft </font></b>document which 
       may be updated, replaced, or superseded by other documents at any time. 
       Publication does not imply endorsement by the Unicode Consortium. This is 
       not a stable document; it is inappropriate to cite this document as other 
       than a work in progress.</i></p>
-      <!-- END NOT YET APPROVED -->
-	  <!-- APPROVED
+      END NOT YET APPROVED -->
+	  <!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 	<blockquote>
 		<p><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</i></p>
@@ -244,8 +244,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		<li>Appendix O: <a href="#Lenient_Parsing">Lenient Parsing</a></li>
 		<li>Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a></li>
 		<li>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></li>
-		<li class="changed">Appendix R: <a href="#Property_Data">Property Data</a></li>
-		<li class="changed">Appendix S: <a href="#Keyboards">Keyboards</a></li>
+		<li>Appendix R: <a href="#Property_Data">Property Data</a></li>
+		<li>Appendix S: <a href="#Keyboards">Keyboards</a></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em"><a href="#References">References</a></li>
 		<li><a href="#Acknowledgments">Acknowledgments</a></li>
 		<li><a href="#Modifications">Modifications</a></li>
@@ -718,7 +718,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	<p>The following chart contains a set  of key values that are  currently available, with a description or sampling of type values.  Each category is associated with an XML file in the bcp47 directory. For the complete
 	list of valid keys and types defined for Unicode locale extensions, see
 	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
-  <p class="changed">The BCP47 form is the canonical form, and recommended. Other aliases are included for  backwards compatibility.<p>
+  <p>The BCP47 form is the canonical form, and recommended. Other aliases are included for  backwards compatibility.<p>
 
 <table>
 		<caption><a name="Key_Type_Definitions">Key/Type Definitions</a></caption>
@@ -825,7 +825,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			<td colspan="2">…</td>
 		</tr>
 <tr>
-  <td colspan="4" class="changed"><i>For information on each collation setting parameter, from <strong>ka</strong> to <strong>vt</strong>,
+  <td colspan="4"><i>For information on each collation setting parameter, from <strong>ka</strong> to <strong>vt</strong>,
 <a href="#Setting_Options">Setting Options</a></i></td></tr>
 		
 
@@ -1859,7 +1859,7 @@ root</pre>
 	[<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>], 
 	which also includes syllabaries and ideographs.) It is not a complete set of letters used for a language, nor should it be considered to apply to multiple languages 
   in a particular country. Punctuation and other symbols should not be included in the main and auxiliary sets. In particular, format characters like CGJ are not included.</p>
-	<p>There are <span class="changed">four </span>sets altogether: main, auxiliary, punctuation, <span class="removed">currency, </span>and index. The <i>main</i> set should contain the minimal set required for users of the language, while the <i>auxiliary</i> exemplar set is designed 
+	<p>There are four sets altogether: main, auxiliary, punctuation, and index. The <i>main</i> set should contain the minimal set required for users of the language, while the <i>auxiliary</i> exemplar set is designed 
 	to encompass additional characters: those non-native or historical characters that would customarily occur in common publications, dictionaries, and so on. 
 	Major style guidelines are good references for the auxiliary set. So, for example, if Irish newspapers and magazines would commonly have Danish names using å, for example, then it would be appropriate to include å in the auxiliary 
 	exemplar characters; just not in the main exemplar set. Thus  English has the following:</p>
@@ -1875,7 +1875,6 @@ root</pre>
 	sometimes seen in words like &quot;résumé&quot; or &quot;naïve&quot;, because it is acceptable in common practice to spell those words without the accents. The exemplar character 
 	set for fr (French), on the other hand, must contain those characters: [a-z é è ù ç à â ê î ô û æ œ ë ï ÿ]. The main set typically includes those letters commonly 
 &quot;alphabet&quot;.</p>
-	<p class="removed">The <i>currency</i> set is for characters that are neither in the main nor auxiliary set, but do occur in currency symbols (typically international currency symbols in a non-Latin-script language).</p>
 	<p>The <em>punctuation</em> set consists of common punctuation characters that are used with the language (corresponding to main and auxiliary). Symbols may also be included where they are common in plain text, such as ©. It does not include characters with narrow technical usage, such as dictionary punctuation/symbols or copy-edit symbols. For example, English would have something like the following:</p>
   <p align="center">- ‐ – — </p>
   <p align="center">, ; : ! ? .  … </p>
@@ -1983,7 +1982,7 @@ root</pre>
 		[<a href="http://www.unicode.org/reports/tr41/#UTS22">UTS22</a>]), they 
 		are sufficient for this purpose.</p>
   </blockquote>
-<h4>5.6.<span>4</span> <a name="IndexLabels"></a>Index Labels</h4>
+<h4>5.6.4 <a name="IndexLabels"></a>Index Labels</h4>
   <p class="dtd">&lt;!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) &gt;</p>
   <p class="dtd">&lt;!ELEMENT indexSeparator ( #PCDATA ) &gt;</p>
   <p class="dtd">&lt;!ELEMENT compressedIndexSeparator ( #PCDATA ) &gt;<br>
@@ -2061,7 +2060,7 @@ The index Separator can used to separate the index characters if they occur in f
 	<p>This element contains multiple &lt;calendar&gt; elements, each of which specifies the fields used for formatting and parsing dates and times according to the given 
 	calendar. The month and quarter names are identified numerically, starting at 1. The day (of the week) names are identified with short strings, since there 
 	is no universally-accepted numeric designation.</p>
-	<p><b>Note: </b><span class="changed">Use of a default element for calendars</span> is deprecated. The default calendar type for a locale is specified by
+	<p><b>Note: </b>Use of a default element for calendars is deprecated. The default calendar type for a locale is specified by
 	<i>C.15 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>.</p>
 	<p>Many calendars will only differ from the Gregorian Calendar in the year and era values. For example, the Japanese calendar will have many more eras (one 
 	for each Emperor), and the years will be numbered within that era. All calendar data inherits from the Gregorian calendar in the same locale data (if not present 
@@ -2102,20 +2101,20 @@ The index Separator can used to separate the index characters if they occur in f
 	</p>
 	<p>Month, day, and quarter names may vary along two axes: the width and the context. The context is either <i>format</i> (the default), the form used within 
 	a date format string (such as &quot;Saturday, November 12<sup>th</sup>&quot;, or <i>stand-alone</i>, the form used independently, such as in calendar headers.
-	The width can be <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i><span class="changed">; for days only, the width can also be <i>short,</i>
+	The width can be <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i>; for days only, the width can also be <i>short,</i>
 	which is ideally between the abbreviated and narrow widths, but must be no longer than abbreviated and no shorter than narrow (if short day names are not
-	explicitly specified, abbreviated day names are used instead). Note that for &lt;monthPattern&gt;, described in the next section:</span></p>
+	explicitly specified, abbreviated day names are used instead). Note that for &lt;monthPattern&gt;, described in the next section:</p>
 	<ul>
-	<li class="changed">There is an additional context type <i>numeric</i></li>
-	<li class="changed">When the context type is numeric, the width has a special type <i>all</i></li>
+	<li>There is an additional context type <i>numeric</i></li>
+	<li>When the context type is numeric, the width has a special type <i>all</i></li>
 	</ul>
-	<p>The format values must be distinct for the wide<span class="changed">,</span> abbreviated<span class="changed">, and short</span> widths.
+	<p>The format values must be distinct for the wide, abbreviated, and short widths.
 	However, values for the narrow width in either format or stand-alone contexts, as well as  values for other widths in stand-alone contexts, need not be distinct;
 	they might only be distinguished by context. For example, &quot;S&quot; may be used both for Saturday and for Sunday.
-	The <span class="removed">stand-alone context </span><span class="changed">narrow width </span>is typically 
+	The narrow width is typically 
 	used in calendar headers; it must be the shortest possible width, no more than one character (or grapheme cluster, or exemplar set element)
 	in stand-alone values, and the shortest possible widths (in terms of grapheme clusters) in format values.
-	<span class="changed">The short width (if present) is often the shortest unambiguous form.</span></p>
+	The short width (if present) is often the shortest unambiguous form.</p>
 	<p>Era names should be distinct within each of the widths, including narrow; there is less disambiguating information
 	for them, and they are more likely to be used in a format that requires parsing.</p>
 	<p>The most important distinction to make between format and stand-alone forms is a grammatical distinction, for languages that require it.
@@ -3038,13 +3037,12 @@ language may not be in common usage in a particular territory.</p>
   &lt;/currencyFormatLength&gt;
 &lt;/currencyFormats&gt;</pre>
 
-  <span class="changed">A pattern type attribute is used for <em>compact number formats</em>, such as the following:
-  </span>
+    A pattern type attribute is used for <em>compact number formats</em>, such as the following:
   <pre>
-<span class="changed">&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		...<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>		...<br>	&lt;/decimalFormat&gt;</span></pre>
-<p class="changed">To format a number N, the greatest type less than or equal to N is used, with the appropriate  plural category. N is divided by the type, after removing the number of zeros in the pattern, less 1. APIs supporting this format should provide control over the number of significant or fraction digits.</p>
-<p class="changed">Thus N=12345 matches <code>&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>. N is divided by 1000 (obtained from10000 after removing &quot;00&quot; and restoring one &quot;0&quot;. The result is formatted according to the normal decimal pattern. With no fractional digits, that yields &quot;12 K&quot;.</p>
-<p class="changed">The short format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits). </p>
+&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;ecimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		...<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>				...<br>		&lt;/decimalFormat&gt;</pre>
+<p>To format a number N, the greatest type less than or equal to N is used, with the appropriate  plural category. N is divided by the type, after removing the number of zeros in the pattern, less 1. APIs supporting this format should provide control over the number of significant or fraction digits.</p>
+<p>Thus N=12345 matches <code>&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>. N is divided by 1000 (obtained from10000 after removing &quot;00&quot; and restoring one &quot;0&quot;. The result is formatted according to the normal decimal pattern. With no fractional digits, that yields &quot;12 K&quot;.</p>
+<p>The short format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits). </p>
 <h4>5.10.2 <a name="Currencies">Currencies</a></h4>
 	<p class="dtd">
 	&lt;!ELEMENT currencies (alias | (default?, currency*, special*)) &gt;<br>
@@ -3259,7 +3257,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	of the root order. The root order is based on the UCA default table defined in <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. (For a chart view of the UCA, see
 	Collation Chart [<a href="#UCAChart">UCAChart</a>].) </p>
   <blockquote>
-      <p>There were major changes in CLDR 1.9 <span class='changed'>and beyond</span>, including use of the modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong><span class='changed'> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFF and U+FFFE have special tailorings as well.</span></p>
+      <p>There were major changes in CLDR 1.9 and beyond, including use of the modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFF and U+FFFE have special tailorings as well.</p>
 <p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</p>
   <p>As of CLDR 2.0, special index markers have been added to the CJK collations for stroke, pinyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
       <p>&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>
@@ -3308,162 +3306,163 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	in <a href="#Orderings">Orderings</a>.</p>
 <h4>5.14.3 <a name="Setting_Options">Setting Options</a></h4>
 	<p>In XML syntax, these are attributes of &lt;settings&gt;. For example, &lt;setting strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary weights. In basic syntax, these are of the form [<em>keyword</em> <em>value</em>].</p>
-	<p>If the attribute is not present, the <span class="changed">CLDR</span> default (or the default for the locale, if there is one) is used. That  default is listed in <span class="changed">bold</span> italics. <span class="changed">Where there is a UCA default that is different, it is listed in bold with (<strong>UCA default</strong>). </span>Note that the default value for a locale may be different than the default value for the attribute, so the defaults here are <em>not</em> defaults for the corresponding keywords. </p>
+	<p>If the attribute is not present, the CLDR default (or the default for the locale, if there is one) is used. That  default is listed in bold italics. Where there is a UCA default that is different, it is listed in bold with (<strong>UCA default</strong>). Note that the default value for a locale may be different than the default value for the attribute, so the defaults here are <em>not</em> defaults for the corresponding keywords. </p>
 <p>The Example cells include an LDML example followed by the same example in basic syntax.</p>
 	<table>
     <caption><a name="Collation_Settings">Collation Settings</a></caption>
 		<tr>
-		  <th class="changed">BCP47 Key</th>
+		  <th>BCP47 Key</th>
 			<th>Attribute</th>
-			<th class="changed">BCP47 Value</th>
+			<th>BCP47 Value</th>
 			<th>Options</th>
 			<th>Example&nbsp; </th>
 			<th>Description</th>
 		</tr>
 		<tr>
-		  <td rowspan="5" class="changed">ks</td>
+		  <td rowspan="5">ks</td>
 			<td rowspan="5"><font color="#000000">strength</font></td>
-			<td class="changed">level1</td>
+			<td>level1</td>
 			<td>primary (1)<br></td>
 			<td rowspan="5"><code>strength = &quot;<span style="color: blue">primary</span>&quot;<br>
 			  <br>
 		    [strength 1]</code></td>
-			<td rowspan="5">Sets the default strength for comparison, as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].<em> Note that strength setting of greater than <span class="changed">4</span> may have the same effect as <strong>identical</strong>, depending on the locale and implementation.</em></td>
+			<td rowspan="5">Sets the default strength for comparison, as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].<em> Note that strength setting of greater than 4 may have the same effect as <strong>identical</strong>, depending on the locale and implementation.</em></td>
 		</tr>
 		<tr>
-		  <td class="changed">level2</td>
+		  <td>level2</td>
 		  <td>secondary (2)</td>
 	  </tr>
 		<tr>
-		  <td class="changed">level3</td>
+		  <td>level3</td>
 		  <td><em><strong>tertiary (3)</strong></em></td>
 	  </tr>
 		<tr>
-		  <td class="changed">level4</td>
+		  <td>level4</td>
 		  <td>quaternary (4)</td>
 	  </tr>
 		<tr>
-		  <td class="changed">identic</td>
+		  <td>identic</td>
 		  <td>identical (5)</td>
 	  </tr>
 		<tr>
-		  <td rowspan="3" class="changed">ka</td>
+		  <td rowspan="3">ka</td>
 			<td rowspan="3">alternate</td>
-			<td class="changed">noignore</td>
+			<td>noignore</td>
 			<td><i><strong>non-ignorable</strong></i><br></td>
 			<td rowspan="3"><code>alternate = &quot;<span style="color: blue">non-ignorable</span>&quot;<br>
 		    <br>
 		    [alternate non-ignorable]</code></td>
-			<td rowspan="3">Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <em>The default for <span class="changed">LDML</span> is different than it is in the UCA. <span class="changed">In LDML, the default for alternate handling is <strong>non-ignorable</strong>, while in UCA it is <strong>shifted</strong>. In addition, in LDML only </span>whitespace and punctuation are <span class="changed">variable.</span></em></td>
+			<td rowspan="3">Sets alternate handling for variable weights, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], where &quot;shifted&quot; causes certain characters to be ignored in comparison. <em>The default for LDML is different than it is in the UCA.
+			In LDML, the default for alternate handling is <strong>non-ignorable</strong>, while in UCA it is <strong>shifted</strong>. In addition, in LDML only whitespace and punctuation are variable.</em></td>
 		</tr>
 		<tr>
-		  <td class="changed">shifted</td>
+		  <td>shifted</td>
 		  <td><strong>shifted (UCA default)</strong></td>
 	  </tr>
 		<tr>
-		  <td class="changed"><em>n/a</em></td>
+		  <td><em>n/a</em></td>
 		  <td><i>blanked</i></td>
 	  </tr>
 		<tr>
-		  <td rowspan="2" class="changed">kb</td>
+		  <td rowspan="2">kb</td>
 			<td rowspan="2">backwards</td>
-			<td class="changed">true</td>
+			<td>true</td>
 			<td>on</td>
 			<td rowspan="2"><code>backwards = &quot;<span style="color: blue">on</span>&quot;<br>
 			  <br>
 		    [backwards 2]</code></td>
-			<td rowspan="2">Sets the comparison for the second level to be <strong>backwards</strong> <span class="removed">(&quot;French&quot;)</span>, as described in
+			<td rowspan="2">Sets the comparison for the second level to be <strong>backwards</strong>, as described in
 			[<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
 		<tr>
-		  <td class="changed">false</td>
+		  <td>false</td>
 		  <td><i><strong>off</strong></i></td>
 	  </tr>
 		<tr>
-		  <td rowspan="2" class="changed">kk</td>
+		  <td rowspan="2">kk</td>
 			<td rowspan="2">normalization</td>
-			<td class="changed">true</td>
+			<td>true</td>
 			<td><strong>on (UCA default)</strong></td>
 			<td rowspan="2"><code>normalization = &quot;<span style="color: blue">off</span>&quot;<br>
 <br>
 [normalization off]			</code></td>
 			<td rowspan="2">If <strong>on</strong>, then the normal [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm is used.
 			If <strong>off</strong>, then all strings that are in [<a href="#FCD">FCD</a>] will sort correctly, but 
-			others will not necessarily sort correctly. So should only be set <strong>off</strong> if the the strings to be compared are in FCD. <em>Note that the default for <span class="changed">CLDR locales may be</span> different than  in the UCA. The rules for particular locales have it set to <strong>on</strong>: those locales whose exemplar characters (in forms commonly interchanged) would be affected by normalization.</em></td>
+			others will not necessarily sort correctly. So should only be set <strong>off</strong> if the the strings to be compared are in FCD. <em>Note that the default for CLDR locales may be different than  in the UCA. The rules for particular locales have it set to <strong>on</strong>: those locales whose exemplar characters (in forms commonly interchanged) would be affected by normalization.</em></td>
 		</tr>
 		<tr>
-		  <td class="changed">false</td>
+		  <td>false</td>
 		  <td><i><strong>off</strong></i></td>
 	  </tr>
 		<tr>
-		  <td rowspan="2" class="changed">kc</td>
+		  <td rowspan="2">kc</td>
 			<td rowspan="2">caseLevel</td>
-			<td class="changed">true</td>
+			<td>true</td>
 			<td>on</td>
 			<td rowspan="2"><code>caseLevel = &quot;<span style="color: blue">off</span>&quot;<br>
 			  <br>
 			  [caseLevel on]<br>
             </code></td>
-			<td rowspan="2">If set to <strong>on</strong><i>,</i> a level consisting only of case characteristics will be inserted in front of tertiary level<span class="changed">, as a &quot;Level 2.5&quot;</span>. To ignore accents but take case 
-			into account, set strength to <strong>primary</strong> and case level to <strong>on</strong>. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</span></td>
+			<td rowspan="2">If set to <strong>on</strong><i>,</i> a level consisting only of case characteristics will be inserted in front of tertiary level, as a &quot;Level 2.5&quot;. To ignore accents but take case 
+			into account, set strength to <strong>primary</strong> and case level to <strong>on</strong>. For details, see <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</td>
 		</tr>
 		<tr>
-		  <td class="changed">false</td>
+		  <td>false</td>
 		  <td><i><strong>off</strong></i></td>
 	  </tr>
 		<tr>
-		  <td rowspan="3" class="changed">kf</td>
+		  <td rowspan="3">kf</td>
 			<td rowspan="3">caseFirst</td>
-			<td class="changed">upper</td>
+			<td>upper</td>
 			<td>upper</td>
 			<td rowspan="3"><code>caseFirst = &quot;<span style="color: blue">off</span>&quot;<br>
 			  <br>
 		    [caseFirst off]</code></td>
 			<td rowspan="3">If set to <strong>upper</strong>, causes upper case to sort before lower case. If set to <strong>lower</strong>, causes lower case to sort before upper case. Useful for 
-			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. <span class="changed">For details, see <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</span></td>
+			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. For details, see <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</td>
 		</tr>
 		<tr>
-		  <td class="changed">lower</td>
+		  <td>lower</td>
 		  <td>lower</td>
 	  </tr>
 		<tr>
-		  <td class="changed">false</td>
+		  <td>false</td>
 		  <td><i><strong>off</strong></i></td>
 	  </tr>
 		<tr>
-		  <td rowspan="2" class="changed">kh</td>
+		  <td rowspan="2">kh</td>
 			<td rowspan="2">hiraganaQuaternary</td>
-			<td class="changed">true</td>
+			<td>true</td>
 			<td>on</td>
 			<td rowspan="2"><code>		    hiragana­Quaternary = &quot;<span style="color: blue">on</span>&quot;			<br>
 			  <br>
 		    [hiraganaQ on]			</code></td>
 			<td rowspan="2">Controls special treatment of Hiragana code points on quaternary level. If turned <strong>on</strong>, Hiragana codepoints will get lower values than all 
-			the other non-variable code points <span class="changed">in <strong>shifted</strong>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters.</span> The strength must be greater or equal than quaternary <span class="changed">if this attribute is to have any effect</span>.</td>
+			the other non-variable code points in <strong>shifted</strong>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters. The strength must be greater or equal than quaternary if this attribute is to have any effect.</td>
 		</tr>
 		<tr>
-		  <td class="changed">false</td>
+		  <td>false</td>
 		  <td><i><strong>off</strong></i></td>
 	  </tr>
 		<tr>
-		  <td rowspan="2" class="changed">kn</td>
+		  <td rowspan="2">kn</td>
 			<td rowspan="2">numeric</td>
-			<td class="changed">true</td>
+			<td>true</td>
 			<td>on</td>
 			<td rowspan="2"><code>numeric = &quot;<span style="color: blue">on</span>&quot;<br>
 			  <br>
 		    [numeric on]</code></td>
 			<td rowspan="2">If set to <strong>on</strong>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
-			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;.<span class="changed"> The computed primary weights are all at the start of the <strong>digit</strong> reordering group. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a2&quot; &lt; &quot;a12&quot; &lt; &quot;a⓪&quot; &lt; &quot;aa&quot;.</span></td>
+			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;. The computed primary weights are all at the start of the <strong>digit</strong> reordering group. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a2&quot; &lt; &quot;a12&quot; &lt; &quot;a⓪&quot; &lt; &quot;aa&quot;.</td>
 		</tr>
 		<tr>
-		  <td class="changed">false</td>
+		  <td>false</td>
 		  <td><i><strong>off</strong></i></td>
 	  </tr>
 		<tr>
-		  <td class="changed">vt</td>
+		  <td>vt</td>
 			<td>variableTop</td>
-			<td class="changed"><i> See Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
+			<td><i> See Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
 			Keys and Types</a>.</i></td>
 			<td>uXXuYYYY<br>
 		      <br>
@@ -3472,16 +3471,16 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			  <br>
 		    &amp; \u00XX\uYYYY &lt; [variable top]</code></td>
 			<td><p>The Option value is an encoded Unicode string, with code points in hex, leading zeros removed, and &#39;u&#39; inserted between successive elements. </p>
-			  <p><span class="changed">The BCP47 value</span> is described in <i> Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
+			  <p>The BCP47 value is described in <i> Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
 			    Keys and Types</a>.</i> </p>			  <p>
-		  Sets the  string value for the variable top. All the code points with primary strengths less than <span class="changed">or equal to </span>that string will be considered variable, and thus 
+		  Sets the  string value for the variable top. All the code points with primary strengths less than or equal to that string will be considered variable, and thus 
 			affected by the alternate handling. Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but not in CLDR. See below for more information.</p>
 		  </td>
 		</tr>
-		<tr class="changed">
-		  <td class="changed">kr</td>
+		<tr>
+		  <td>kr</td>
 		  <td>reorder</td>
-		  <td colspan="2" class="changed">a sequence of one or more reorder codes: <strong>space, punct, symbol, currency, digit</strong>, or any BCP47 script ID</td>
+		  <td colspan="2">a sequence of one or more reorder codes: <strong>space, punct, symbol, currency, digit</strong>, or any BCP47 script ID</td>
 		  <td><code>reorder = &quot;Grek digit&quot;<br>
 	      <br>
 	      [reorder Grek  digit]</code></td>
@@ -3489,43 +3488,43 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	      For the precise meaning and usage of the reorder codes, see <em>Section 5.14.12, <a href="#Script_Reordering">Collation Reordering</a>.</em></td>
 	  </tr>
 		<tr>
-		  <td rowspan="3" class="changed"><em>n/a</em></td>
+		  <td rowspan="3"><em>n/a</em></td>
 			<td rowspan="3">match-boundaries:</td>
-			<td nowrap class="changed"><em>n/a</em></td>
+			<td nowrap><em>n/a</em></td>
 			<td nowrap><em><strong>none</strong></em><br></td>
 			<td rowspan="3"><code>match-boundaries = &quot;<span style="color: blue">whole-word</span>&quot;</code><br>
 			  <br>
 		    n/a<br></td>
-			<td rowspan="3"><span class="changed">Defined by  <em>Section 8, </em></span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+			<td rowspan="3">Defined by  <em>Section 8, Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
 		<tr>
-		  <td nowrap class="changed"><em>n/a</em></td>
+		  <td nowrap><em>n/a</em></td>
 		  <td nowrap>whole-character</td>
 	  </tr>
 		<tr>
-		  <td nowrap class="changed"><em>n/a</em></td>
+		  <td nowrap><em>n/a</em></td>
 		  <td nowrap>whole-word</td>
 	  </tr>
 		<tr>
-		  <td rowspan="3" class="changed"><em>n/a</em></td>
+		  <td rowspan="3"><em>n/a</em></td>
 			<td rowspan="3">match-style</td>
-			<td class="changed"><em>n/a</em></td>
+			<td><em>n/a</em></td>
 			<td><em><strong>minimal</strong></em><br></td>
 			<td rowspan="3"><code>match-style = &quot;<span style="color: blue">medial</span>&quot;</code><br>
 			  <br>
 		    n/a</td>
-			<td rowspan="3"><span class="changed">Defined by <em>Section 8,</em> </span><em>Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
+			<td rowspan="3">Defined by <em>Section 8, Searching and Matching</em> of [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</td>
 		</tr>
 		<tr>
-		  <td class="changed"><em>n/a</em></td>
+		  <td><em>n/a</em></td>
 		  <td>medial</td>
 	  </tr>
 		<tr>
-		  <td class="changed"><em>n/a</em></td>
+		  <td><em>n/a</em></td>
 		  <td>maximal</td>
 	  </tr>
   </table>
-  <p><strong>Variable Top (vt) </strong>bears more explanation. Users may want to include more or fewer characters as Variable. For example, someone could want to restrict the Variable characters to just include space marks. In that case, variableTop would be set to U+1680 (see <a href="http://unicode.org/charts/collation/chart_Variable.html">UCA Variable chart</a>). Alternatively, someone could want more of the Common characters in them, and include characters up to (but not including '0'), by setting variableTop to be U+20B<span class="changed">A (in Unicode 6.2; </span>see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).</p>
+  <p><strong>Variable Top (vt) </strong>bears more explanation. Users may want to include more or fewer characters as Variable. For example, someone could want to restrict the Variable characters to just include space marks. In that case, variableTop would be set to U+1680 (see <a href="http://unicode.org/charts/collation/chart_Variable.html">UCA Variable chart</a>). Alternatively, someone could want more of the Common characters in them, and include characters up to (but not including '0'), by setting variableTop to be U+20BA (in Unicode 6.2; see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).</p>
   <p>The effect of these settings is to customize to ignore different sets of characters when comparing strings. For example, the locale identifier "de-u-ka-shifted-vt-0024" is requesting  settings appropriate for German, including German sorting conventions, and that '$' and characters sorting below it are ignored in sorting.
   </p>
   <h4>5.14.4 <a name="Rules">Collation Rule Syntax</a></h4>
@@ -3669,8 +3668,8 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		</tr>
 		<tr>
 			<td><code>=&nbsp; </code></td>
-			<td><code>&amp; <span class="changed">v</span><br>
-			= <span class="changed">w</span>&nbsp; </code></td>
+			<td><code>&amp; v<br>
+			= w&nbsp; </code></td>
 			<td><code>&lt;i&gt;</code></td>
 			<td><code>&lt;reset&gt;<span style="color: blue">v</span>&lt;reset&gt;<br>
 			&lt;i&gt;<span style="color: blue">w</span>&lt;/i&gt;</code></td>
@@ -4198,47 +4197,47 @@ text data in the rule. For example, the following are all disallowed:</p>
     </tr>
   </tbody>
 </table>
-<p class="changed">The default  reordering groups are defined by the FractionalUCA.txt file, based on the primary weights of associated collation elements. The [top_byte] table contains a mapping from the first (top) byte of  primary weights  to the associated reordering group. For example:</p>
+<p>The default  reordering groups are defined by the FractionalUCA.txt file, based on the primary weights of associated collation elements. The [top_byte] table contains a mapping from the first (top) byte of  primary weights  to the associated reordering group. For example:</p>
 <blockquote>
-  <p class="changed">U+02D0 MODIFIER LETTER TRIANGULAR COLON has a fractional UCA collation weight of [<strong>0E</strong> 0B, 05, 05]. In the [top_byte] table, the line [top_byte	0E	SYMBOL] indicates that <strong>0E</strong> maps to <strong>SYMBOL</strong>.</p>
+  <p>U+02D0 MODIFIER LETTER TRIANGULAR COLON has a fractional UCA collation weight of [<strong>0E</strong> 0B, 05, 05]. In the [top_byte] table, the line [top_byte	0E	SYMBOL] indicates that <strong>0E</strong> maps to <strong>SYMBOL</strong>.</p>
 </blockquote>
-<p class="changed">There are some special cases:</p>
+<p>There are some special cases:</p>
 <ul>
-  <li class="changed">The TRAILING group, the FIELD-SEPARATOR (associated with U+FFFE), and collation elements with only zero primary weights are not reordered. </li>
-  <li class="changed">The IMPLICIT group is currently treated as if it were part of <strong>Hani</strong>. </li>
-  <li class="changed">The TERMINATOR, LEVEL-SEPARATOR,  and SPECIAL groups are never associated with characters. </li>
+  <li>The TRAILING group, the FIELD-SEPARATOR (associated with U+FFFE), and collation elements with only zero primary weights are not reordered. </li>
+  <li>The IMPLICIT group is currently treated as if it were part of <strong>Hani</strong>. </li>
+  <li>The TERMINATOR, LEVEL-SEPARATOR,  and SPECIAL groups are never associated with characters. </li>
 </ul>
-<p><span class="changed">The default reordering groups   follow the allkeys_CLDR.txt ordering; they also may be tailored by implementations to different values. </span>For more information on <span class="changed">FractionalUCA.txt and allkeys_CLDR.txt</span>, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
-<p class="changed"> The DUCET ordering is slightly different from the allkeys_CLDR ordering. The reordering groups for the DUCET are not specified here. However, most reordering groups would start with the same characters as in FractionalUCA.txt.</p>
-<h4 class="changed"><a name="Case_Parameters"></a>5.14.13 Case Parameters</h4>
-<p class="changed">The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
-<p class="changed">The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>
-<p class="changed">Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
-<p class="changed">When either the <strong>case level</strong> or <strong>case first</strong> parameters are set, the following describes the derivation of the modified collation elements. It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics  more closely.</p>
-<h5 class="changed"><strong>Untailored Characters</strong></h5>
-<p class="changed">For untailored characters and strings, that is, for mappings in the root collation,
+<p>The default reordering groups follow the allkeys_CLDR.txt ordering; they also may be tailored by implementations to different values. For more information on FractionalUCA.txt and allkeys_CLDR.txt, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
+<p> The DUCET ordering is slightly different from the allkeys_CLDR ordering. The reordering groups for the DUCET are not specified here. However, most reordering groups would start with the same characters as in FractionalUCA.txt.</p>
+<h4><a name="Case_Parameters"></a>5.14.13 Case Parameters</h4>
+<p>The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
+<p>The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>
+<p>Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
+<p>When either the <strong>case level</strong> or <strong>case first</strong> parameters are set, the following describes the derivation of the modified collation elements. It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics  more closely.</p>
+<h5><strong>Untailored Characters</strong></h5>
+<p>For untailored characters and strings, that is, for mappings in the root collation,
 the case value for each collation element is computed from the tertiary weight listed in allkeys_CLDR.txt.
 This is used to modify the collation element.</p>
 <ol>
-  <li class="changed">If the character is U+FFFE (lowest-weight), set case value = LOWEST. </li>
-  <li class="changed">Otherwise, look up a  case value for the tertiary weight x of each collation element:
+  <li>If the character is U+FFFE (lowest-weight), set case value = LOWEST. </li>
+  <li>Otherwise, look up a  case value for the tertiary weight x of each collation element:
     <ol>
-      <li class="changed">UPPER if x ∈  {08-0C, 0E, 11, 12, 1D}</li>
-      <li class="changed">UNCASED otherwise</li>
+      <li>UPPER if x ∈  {08-0C, 0E, 11, 12, 1D}</li>
+      <li>UNCASED otherwise</li>
       </ol>
   </li>
 </ol>
-<h5 class="changed"><strong>Compute Modified Collation Elements</strong></h5>
-<p class="changed">From a computed case value, set a weight <strong>c</strong> according to the following.</p>
+<h5><strong>Compute Modified Collation Elements</strong></h5>
+<p>From a computed case value, set a weight <strong>c</strong> according to the following.</p>
 <ol>
-  <li class="changed">If the value is LOWEST, set <strong>c</strong> = 1</li>
-  <li class="changed">Otherwise if <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong> = UPPER ? <strong>2</strong> : MIXED ? 3 : <strong>4</strong></li>
-  <li class="changed">Otherwise set <strong>c</strong> = UPPER ? <strong>4</strong> : MIXED ? 3 : <strong>2</strong></li>
+  <li>If the value is LOWEST, set <strong>c</strong> = 1</li>
+  <li>Otherwise if <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong> = UPPER ? <strong>2</strong> : MIXED ? 3 : <strong>4</strong></li>
+  <li>Otherwise set <strong>c</strong> = UPPER ? <strong>4</strong> : MIXED ? 3 : <strong>2</strong></li>
 </ol>
-<p class="changed">Compute a new collation element according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y. The fourth level (if it exists) is unaffected.</p>
+<p>Compute a new collation element according to the following table. The notation <em>xt</em> means that the values are numerically combined into a single level, such that xt &lt; yu whenever x &lt; y. The fourth level (if it exists) is unaffected.</p>
 
   <div align="center">
-    <table class="changed">
+    <table>
       <tbody>
         <tr>
           <th>Case Level</th>
@@ -4301,45 +4300,45 @@ This is used to modify the collation element.</p>
 
 
 
-<p class="changed">Note the special case weights when s = 0. They ensure the construction of well-formed case and tertiay weights. For details, see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</p>
-<h5 class="changed">Tailored Strings</h5>
-<p class="changed">Characters and strings that are tailored (e.g., via LDML/XML collation syntax or basic collation syntax)
+<p>Note the special case weights when s = 0. They ensure the construction of well-formed case and tertiay weights. For details, see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</p>
+<h5>Tailored Strings</h5>
+<p>Characters and strings that are tailored (e.g., via LDML/XML collation syntax or basic collation syntax)
 have case values computed from their UCD properties.
 A known limitation of the tailoring is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;.</p>
-<ol class="changed">
+<ol>
   <li>Form a set of case values by looking  up a case value for each character x in the NFKD mapping of the source string, based on UCD properties:
 <ol>
-  <li class="changed">UNCASED if x ∈ <a href="#UncasedExceptions">UncasedExceptions</a></li>
-  <li class="changed">LOWER if x ∈ <strong>Lowercase</strong> or x ∈ <strong>Changes_When_Uppercased</strong> or x ∈ <a href="#LowerExceptions">LowerExceptions</a></li>
-  <li class="changed">UPPER if x ∈ <strong>Uppercase</strong> or x ∈ <strong>Changes_When_Lowercased</strong> or x ∈ <a href="#UpperExceptions">UpperExceptions</a></li>
-  <li class="changed">MIXED if x ∈ <strong>gc=Lt</strong> or both (a) and (b)</li>
-  <li class="changed">UNCASED otherwise</li>
+  <li>UNCASED if x ∈ <a href="#UncasedExceptions">UncasedExceptions</a></li>
+  <li>LOWER if x ∈ <strong>Lowercase</strong> or x ∈ <strong>Changes_When_Uppercased</strong> or x ∈ <a href="#LowerExceptions">LowerExceptions</a></li>
+  <li>UPPER if x ∈ <strong>Uppercase</strong> or x ∈ <strong>Changes_When_Lowercased</strong> or x ∈ <a href="#UpperExceptions">UpperExceptions</a></li>
+  <li>MIXED if x ∈ <strong>gc=Lt</strong> or both (a) and (b)</li>
+  <li>UNCASED otherwise</li>
   </ol>
 
-  <li class="changed">Compute a single case value from this set, by first removing UNCASED, then setting:
+  <li>Compute a single case value from this set, by first removing UNCASED, then setting:
     <ol>
-      <li class="changed">MIXED if not all elements are identical, otherwise</li>
-      <li class="changed">UPPER if the set contains UPPER, otherwise</li>
-      <li class="changed">LOWER</li>
+      <li>MIXED if not all elements are identical, otherwise</li>
+      <li>UPPER if the set contains UPPER, otherwise</li>
+      <li>LOWER</li>
     </ol>
   </li>
-  <li class="changed">Apply that case-value to the first collation element in the tailoring, according to &quot;<strong>Compute Modified Collation Elements</strong>&quot;. The case values and weights in an expansion are unaffected.</li>
+  <li>Apply that case-value to the first collation element in the tailoring, according to &quot;<strong>Compute Modified Collation Elements</strong>&quot;. The case values and weights in an expansion are unaffected.</li>
 </ol>
-<p class="changed"><strong><a name="UncasedExceptions"></a>UncasedExceptions:</strong> is  the set of letter modifiers</p>
+<p><strong><a name="UncasedExceptions"></a>UncasedExceptions:</strong> is  the set of letter modifiers</p>
 <ul>
-  <li class="changed">[:General_Category=Lm:]</li>
+  <li>[:General_Category=Lm:]</li>
 </ul>
-<p class="changed"><strong><a name="LowerExceptions"></a>LowerExceptions:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
+<p><strong><a name="LowerExceptions"></a>LowerExceptions:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
 <ul>
-  <li class="changed">[ぁァ ぃィ ぅゥ ぇェ ぉォ ゕヵ ㇰ ゖヶ ㇱ ㇲ っッ ㇳ-ㇺ ゃャ ゅュ ょョ ㇻ-ㇿ ゎヮ]</li>
-  <li class="changed">[℩]</li>
+  <li>[ぁァ ぃィ ぅゥ ぇェ ぉォ ゕヵ ㇰ ゖヶ ㇱ ㇲ っッ ㇳ-ㇺ ゃャ ゅュ ょョ ㇻ-ㇿ ゎヮ]</li>
+  <li>[℩]</li>
 </ul>
-<p class="changed"><strong><a name="UpperExceptions"></a>UpperExceptions:</strong> is  the set of non-small letters where script=Hiragana or Katakana, minus the iteration mark, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
+<p><strong><a name="UpperExceptions"></a>UpperExceptions:</strong> is  the set of non-small letters where script=Hiragana or Katakana, minus the iteration mark, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
 <ul>
-  <li class="changed">[あいうえお-ぢつ-もやゆよ-ろわ-ゔアイウエオ-ヂツ-モヤユヨ-ロワ-ヴヷ-ヺ 𛀀𛀁]</li>
-  <li class="changed">[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>
+  <li>[あいうえお-ぢつ-もやゆよ-ろわ-ゔアイウエオ-ヂツ-モヤユヨ-ロワ-ヴヷ-ヺ 𛀀𛀁]</li>
+  <li>[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>
 </ul>
-<h3>5.15 <span><a name="Segmentations">Segmentations</a></span></h3>
+<h3>5.15 <a name="Segmentations">Segmentations</a></h3>
 	<p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] 
   notation, but adapted to be machine-readable. It uses a list of variables (representing character classes) and a list of rules. Each must have an id attribute.</p>
 	<p>The rules in <i>root</i> implement the segmentations found in [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] and [<a href="http://www.unicode.org/reports/tr41/#UAX14">UAX14</a>],
@@ -5098,7 +5097,7 @@ A known limitation of the tailoring is that where the source string is a contrac
 	&lt;!ATTLIST group type NMTOKEN #REQUIRED &gt;<br>
 	&lt;!ATTLIST group contains NMTOKENS #IMPLIED &gt;<br>	
 	&lt;!ATTLIST group grouping ( true | false ) #IMPLIED &gt;<br>
-	&lt;!ATTLIST group status ( deprecated<span class="changed">, grouping</span> ) #IMPLIED &gt;</p>
+	&lt;!ATTLIST group status ( deprecated, grouping ) #IMPLIED &gt;</p>
 <p>The following data provides information that shows groupings of countries (regions). The data is based on the <a href="#UNM49">UNM49</a>]. There is one special code, QO, which is used for outlying areas that are typically uninhabited. The territory containment forms a tree with the following levels:</p>
 <p align="center">World</p>
     <p align="center">Continent</p>
@@ -5121,9 +5120,9 @@ A known limitation of the tailoring is that where the source string is a contrac
     <p>These are marked with the attribute <span class="attribute">grouping</span>=&quot;<span class="attributeValue">true</span>&quot;.</p>
     <p>When groupings have been deprecated but kept around for backwards compatibility, they are marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">deprecated</span>&quot;, like this:</p>
     <pre>&lt;group type=&quot;029&quot; contains=&quot;AN&quot; status=&quot;deprecated&quot;/&gt; &lt;!--Caribbean --&gt;</pre>
-    <p class="changed">When the containment relationship itself is a grouping, it is marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">grouping</span>&quot;, like this:</p>
-    <pre class="changed">&lt;group type=&quot;150&quot; contains=&quot;EU&quot; status=&quot;grouping&quot;/&gt; &lt;!--Europe --&gt;</pre>
-	<p class="changed">That is, the type value isn’t a grouping, but if you filter out groupings you can drop this containment. In the example above, EU is a grouping, and contained in 150.</p>
+    <p>When the containment relationship itself is a grouping, it is marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">grouping</span>&quot;, like this:</p>
+    <pre>&lt;group type=&quot;150&quot; contains=&quot;EU&quot; status=&quot;grouping&quot;/&gt; &lt;!--Europe --&gt;</pre>
+	<p>That is, the type value isn’t a grouping, but if you filter out groupings you can drop this containment. In the example above, EU is a grouping, and contained in 150.</p>
 	<h3>C.3 <a name="Supplemental_Language_Data">Supplemental Language Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT languageData ( language* ) &gt;<br>
 	&lt;!ELEMENT language EMPTY &gt;<br>
@@ -5421,7 +5420,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<p>Conversely, given a locale, it is useful to find out which fields 
 	(language, script, or region) may be superfluous, in the sense that they contain the likely 
 	tags. For example, &quot;en_Latn&quot; can be simplified down 
-	to &quot;en&quot; since &quot;Latn&quot; is the likely script for &quot;en&quot;; &quot;ja_<span class="removed">Japn</span><span class="changed">Jpan</span>_JP&quot; 
+	to &quot;en&quot; since &quot;Latn&quot; is the likely script for &quot;en&quot;; &quot;ja_Jpan_JP&quot; 
 	can be simplified down to &quot;ja&quot;.</p>
 	<p>The <i>likelySubtag</i> supplemental data provides default information for 
 	computing these values. This data is based on the default content data, the population data, and 
@@ -5585,7 +5584,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	(i.e. that plural form) applies to a given numeric value <em>n</em>, where n can be expressed as a decimal fraction. Conditions have the following syntax:</p>
 	<pre>condition     = and_condition ('or' and_condition)*
 and_condition = relation ('and' relation)*
-relation      = is_relation | in_relation | within_relation<span class="removed"> | 'n' &lt;EOL&gt;</span>
+relation      = is_relation | in_relation | within_relation
 is_relation   = expr 'is' ('not')? value
 in_relation   = expr ('not')? 'in' range_list<br>within_relation = expr ('not')? 'within' range_list
 expr          = 'n' ('mod' value)?
@@ -5596,11 +5595,11 @@ range         = value'..'value</pre>
 	<ul>
 	<li>Whitespace (defined as Unicode <a href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>) can occur between or around any of the above tokens.</li>
 	<li>In the syntax, <strong>and</strong> binds more tightly than <strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted as <strong>(X or (Y and Z))</strong>.</li>
-    <li>Each plural rule must be written to be self-contained, and not depend on the ordering. <span class="changed">Thus r</span>ules <span class="changed">must</span> be mutually exclusive; for a given numeric value, only one rule <span class="changed">can</span> apply (i.e. the condition <span class="changed">can</span> only be
+    <li>Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e. the condition can only be
       true for one of the pluralRule elements.</li>
 	<li>The <strong>in</strong> and <strong>within</strong> relations can take comma-separated lists, such as: <strong>n in 3,5,7..15</strong>. The difference between <strong>in</strong> and <strong>within</strong> is that <strong>in</strong> only includes integers in the specified range,
 	while <strong>within </strong>includes all values.</li>
-	<li><strong>mod</strong> (modulus) is a remainder operation as defined in Java; for example, <span class="changed">where <strong>n</strong> = 4.3 the result of <strong>n mod 3</strong></span> is 1.3.</li>
+	<li><strong>mod</strong> (modulus) is a remainder operation as defined in Java; for example, where <strong>n</strong> = 4.3 the result of <strong>n mod 3</strong> is 1.3.</li>
 	<li>To detect an integer in a rule, use <strong>n mod 1 is 0</strong>. Conversely, for a fraction use: <strong>n mod 1 is not 0</strong>.</li>
 	</ul>
 <p>Examples:</p>
@@ -5734,7 +5733,7 @@ range         = value'..'value</pre>
 	<pre>&lt;numberingSystem id=&quot;hant&quot; type=&quot;algorithmic&quot; rules=&quot;zh_Hant/SpelloutRules/spellout-cardinal&quot;/&gt;
 &lt;!-- An algorithmic system. Traditional Chinese Numerals --&gt; 
 </pre>
-  <span class="changed">For general information about the numbering system data, including the BCP47 identifiers, see <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a>.</em></span>
+  For general information about the numbering system data, including the BCP47 identifiers, see <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a>.</em>
 <h3>C.14 <a name="Postal_Code_Validation">Postal Code Validation</a></h3>
 	<p class="dtd">&lt;!ELEMENT postalCodeData (postCodeRegex*) &gt;<br>
 	&lt;!ELEMENT postCodeRegex (#PCDATA) &gt;<br>
@@ -6442,7 +6441,7 @@ range         = value'..'value</pre>
 			<td rowspan="4" style="text-align: center; vertical-align: top">M</td>
 			<td style="text-align: center; vertical-align: top">1..2</td>
 			<td style="vertical-align: top; text-align: left">09</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left">Month - Use one or two for the numerical month, three for the abbreviation, or four for 
+			<td rowspan="4" style="vertical-align: top; text-align: left">Month - Use one or two for the numerical month, three for the abbreviation, four for 
 			the full name, or five for the narrow name.</td>
 		</tr>
 		<tr>
@@ -6530,8 +6529,8 @@ range         = value'..'value</pre>
 			<td rowspan="4" style="text-align: center; vertical-align: top">E</td>
 			<td style="text-align: center; vertical-align: top">1..3</td>
 			<td style="vertical-align: top; text-align: left">Tues</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left">Day of week - Use one through three letters for the short day, <span class="removed">or </span>four for the full name, 
-			<span class="removed">or </span>five for the narrow name<span class="changed">, or six for the short name</span>.</td>
+			<td rowspan="4" style="vertical-align: top; text-align: left">Day of week - Use one through three letters for the short day, or four for the full name, 
+			five for the narrow name, or six for the short name.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">4</td>
@@ -6542,8 +6541,8 @@ range         = value'..'value</pre>
 			<td style="vertical-align: top; text-align: left">T</td>
 		</tr>
 		<tr>
-			<td class="changed" style="text-align: center; vertical-align: top">6</td>
-			<td class="changed" style="vertical-align: top; text-align: left">Tu</td>
+			<td style="text-align: center; vertical-align: top">6</td>
+			<td style="vertical-align: top; text-align: left">Tu</td>
 		</tr>
 		<tr>
 			<td rowspan="5" style="text-align: center; vertical-align: top">e</td>
@@ -6565,15 +6564,15 @@ range         = value'..'value</pre>
 			<td style="vertical-align: top; text-align: left">T</td>
 		</tr>
 		<tr>
-			<td class="changed" style="text-align: center; vertical-align: top">6</td>
-			<td class="changed" style="vertical-align: top; text-align: left">Tu</td>
+			<td style="text-align: center; vertical-align: top">6</td>
+			<td style="vertical-align: top; text-align: left">Tu</td>
 		</tr>
 		<tr>
 			<td rowspan="5" style="text-align: center; vertical-align: top">c</td>
 			<td style="text-align: center; vertical-align: top">1</td>
 			<td style="vertical-align: top; text-align: left">2</td>
 			<td rowspan="5" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> local day of week - Use one letter for the local numeric value (same 
-			as &#39;e&#39;), three for the short day, <span class="removed">or </span>four for the full name, <span class="removed">or </span>five for the narrow name<span class="changed">, or six for the short name</span>. </td>
+			as &#39;e&#39;), three for the short day, four for the full name, five for the narrow name, or six for the short name. </td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">3</td>
@@ -6588,8 +6587,8 @@ range         = value'..'value</pre>
 			<td style="vertical-align: top; text-align: left">T</td>
 		</tr>
 		<tr>
-			<td class="changed" style="text-align: center; vertical-align: top">6</td>
-			<td class="changed" style="vertical-align: top; text-align: left">Tu</td>
+			<td style="text-align: center; vertical-align: top">6</td>
+			<td style="vertical-align: top; text-align: left">Tu</td>
 		</tr>
 		<tr>
 			<th>period</th>
@@ -8223,7 +8222,7 @@ decimal?, group?, special*)) &gt;</pre>
 	</table>
 	<p>Levels 40 through 80 are based on the  definitions and specifications listed in <strong>M.1-M.4</strong>.
     However, these principles have been refined, and do not completely reflect the data that is actually used for coverage determination, which is in the <strong>coverageLevels.xml</strong> file. For a view of the trunk version of this file, see <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/coverageLevels.xml">coverageLevels.xml</a>. </p>
-	<p class="dtd">&lt;!ELEMENT coverageLevels ( <span class="changed">coverageVariable*, </span>coverageLevel* ) &gt;<br>
+	<p class="dtd">&lt;!ELEMENT coverageLevels ( coverageVariable*, coverageLevel* ) &gt;<br>
     &lt;!ELEMENT coverageLevel EMPTY &gt;<br>
     &lt;!ATTLIST coverageLevel inLanguage CDATA #IMPLIED &gt;<br>
     &lt;!ATTLIST coverageLevel inScript CDATA #IMPLIED &gt;<br>
@@ -8239,18 +8238,18 @@ decimal?, group?, special*)) &gt;</pre>
 	&lt;!ELEMENT coverageVariable EMPTY &gt;<br>
 	&lt;!ATTLIST coverageVariable key CDATA #REQUIRED &gt;<br>
 	&lt;!ATTLIST coverageVariable value CDATA #REQUIRED &gt;</p>
-	<p><span class="changed">
+	<p>
 	The coverageVariable element allows us to create variables for certain regular expressions that are used
 	frequently in the coverageLevel definitions above.  Each coverage varible must contain a key / value pair 
-	of attributes, which can then be used to be substituted into a coverageLevel definition above.</span>
+	of attributes, which can then be used to be substituted into a coverageLevel definition above.
 	</p>
-    <p class="changed">
+    <p>
 	For example, here is an example coverageLevel line using coverageVariable substitution.</p>
 
-    <pre class="changed">&lt;coverageVariable key=&quot;%dayTypes&quot; value=&quot;(sun|mon|tue|wed|thu|fri|sat)&quot;&gt;<br>
-&lt;coverageVariable key=&quot;%wideAbbr&quot; value=&quot(wide|abbreviated)&quot;&gt;<br>
+    <pre>&lt;coverageVariable key=&quot;%dayTypes&quot; value=&quot;(sun|mon|tue|wed|thu|fri|sat)&quot;&gt;<br>
+&lt;coverageVariable key=&quot;%wideAbbr&quot; value=&quot;(wide|abbreviated)&quot;&gt;<br>
 &lt;coverageLevel value="20" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='%wideAbbr']/day[@type='%dayTypes']&quot;/&gt;</pre>
-    <p class="changed">In this example, the coverge variables %dayTypes and %wideAbbr are used to substitute their respective
+    <p>In this example, the coverge variables %dayTypes and %wideAbbr are used to substitute their respective
 	values into the match expression.  This allows us to reuse the same variable for other coverageLevel matches
 	that use the same regular expression fragment.</p>
 	
@@ -8328,7 +8327,7 @@ decimal?, group?, special*)) &gt;</pre>
 		</li>
 		<li>numbers: symbols, decimalFormats, scientificFormats, percentFormats, currencyFormats for each number system in <em>Number-System-List</em>.</li>
 		<li>currencies: displayNames and symbol for all currencies in <i>Currency-List</i>, for all plural forms</li>
-		<li>transforms: (moderate and above) <span>transliteration between Latin and each other script in </span><i>Target-Scripts.</i></li>
+		<li>transforms: (moderate and above) transliteration between Latin and each other script in <i>Target-Scripts.</i></li>
 	</ol>
 	<h3>M.3 Default Values</h3>
 	<p>Items should <i>only</i> be included if they are not the same as the default, which is:</p>
@@ -8909,11 +8908,11 @@ decimal?, group?, special*)) &gt;</pre>
 &lt;/alias&gt;</pre>
 	<h3>P.2 Supplemental Deprecated Information</h3>
 	<pre class="dtd">&lt;!ELEMENT deprecated ( deprecatedItems* ) &gt;
-&lt;!ATTLIST deprecated draft <span class="changed">( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;</span>
+&lt;!ATTLIST deprecated draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;
 
 &lt;!ELEMENT deprecatedItems EMPTY &gt;
-&lt;!ATTLIST deprecatedItems draft <span class="changed">( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;</span>
-&lt;!ATTLIST deprecatedItems type ( standard | supplemental | ldml | supplementalData | ldmlBCP47 ) #IMPLIED &gt;<span class="changed"> &lt;!-- standard | supplemental are deprecated --&gt;</span>
+&lt;!ATTLIST deprecatedItems draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;
+&lt;!ATTLIST deprecatedItems type ( standard | supplemental | ldml | supplementalData | ldmlBCP47 ) #IMPLIED &gt; &lt;!-- standard | supplemental are deprecated --&gt;
 &lt;!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED &gt;
 &lt;!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED &gt;
 &lt;!ATTLIST deprecatedItems values CDATA #IMPLIED &gt;</pre>
@@ -8940,7 +8939,7 @@ decimal?, group?, special*)) &gt;</pre>
 		</tr>
 	</table>
 	<p>In each case, multiple items are space-delimited.</p>
-	<p class="changed">Where particular values are deprecated (such as territory codes like SU for Soviet Union), the names for such codes may be removed from the common/main translated data after some period of time. However, typically supplemental information for deprecated codes is retained, such as containment, likely subtags, older currency codes usage, etc. The English name may also be retained, for debugging purposes.</p>
+	<p>Where particular values are deprecated (such as territory codes like SU for Soviet Union), the names for such codes may be removed from the common/main translated data after some period of time. However, typically supplemental information for deprecated codes is retained, such as containment, likely subtags, older currency codes usage, etc. The English name may also be retained, for debugging purposes.</p>
 <h3>P.3 <a name="Default_Content">Default Content</a></h3>
 	<pre class="dtd">&lt;!ELEMENT defaultContent EMPTY &gt;
 &lt;!ATTLIST defaultContent locales NMTOKENS #IMPLIED &gt;</pre>
@@ -8981,20 +8980,20 @@ decimal?, group?, special*)) &gt;</pre>
 &lt;!ATTLIST key alias NMTOKEN #IMPLIED&gt;
 &lt;!ATTLIST key description CDATA #IMPLIED&gt;
 &lt;!ATTLIST key since CDATA #IMPLIED&gt;
-<span class="changed">&lt;!ATTLIST key deprecated ( true | false ) "false"&gt;</span>
+&lt;!ATTLIST key deprecated ( true | false ) "false"&gt;
 
 &lt;!ELEMENT type EMPTY&gt;
 &lt;!ATTLIST type name NMTOKEN #REQUIRED&gt;
 &lt;!ATTLIST type alias CDATA #IMPLIED&gt;
 &lt;!ATTLIST type description CDATA #IMPLIED&gt;
 &lt;!ATTLIST type since CDATA #IMPLIED&gt;
-<span class="changed">&lt;!ATTLIST type deprecated ( true | false ) "false"&gt;</span>
+&lt;!ATTLIST type deprecated ( true | false ) "false"&gt;
 
 &lt;!ELEMENT attribute EMPTY&gt;
 &lt;!ATTLIST attribute name NMTOKEN #REQUIRED&gt;
 &lt;!ATTLIST attribute description CDATA #IMPLIED&gt;
 &lt;!ATTLIST attribute since CDATA #IMPLIED&gt;
-<span class="changed">&lt;!ATTLIST attribute deprecated ( true | false ) "false"&gt;</span></pre>
+&lt;!ATTLIST attribute deprecated ( true | false ) "false"&gt;</pre>
 
 	<p>The extension attribute in &lt;key&gt; element specifies the BCP 47 language tag extension type. The default value of
 	the extension attribute is "u" (Unicode locale extension). The &lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.</p>
@@ -9061,23 +9060,22 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<dt><b>alias</b> (Not applicable to &lt;attribute&gt;)</dt>
 		<dd>
-			<p class="changed">The BCP47 form is the canonical form, and recommended. Other aliases are included only for  backwards compatibility.</p>
+			<p>The BCP47 form is the canonical form, and recommended. Other aliases are included only for  backwards compatibility.</p>
 		</dd>
-		<dd class="changed"><em>Example:</em></dd>
+		<dd><em>Example:</em></dd>
 		<dd>&nbsp;</dd>
 		<dd>
-		  <p class="changed">&lt;type name="phonebk" <strong>alias="phonebook"</strong> description="Phonebook style ordering (such as in German)"/&gt;<br>
+		  <p>&lt;type name="phonebk" <strong>alias="phonebook"</strong> description="Phonebook style ordering (such as in German)"/&gt;<br>
 		  </p>
-		  <span class="changed">The preferred term, and the only one to be used in BCP47, is the name: in this example, &quot;phonebk&quot;.<br>
-      </span></dd>
+		  The preferred term, and the only one to be used in BCP47, is the name: in this example, &quot;phonebk&quot;.<br>
+	</dd>
 		<dt>&nbsp;</dt>
 		<dd>
-		  <p><span class="changed">The alias is a</span> key or type name used by Unicode locale extensions with
+		  <p>The alias is a key or type name used by Unicode locale extensions with
 		    the old <a href="#Old_Locale_Extension_Syntax">"@key=type" syntax</a>.
-		    <span class="removed">When this attribute is available, <i>name</i> above should not
-		    be used with the old syntax. </span>The attribute value for type may contain multiple names delimited by
-		    ASCII space characters. <span class="changed">Of those aliases, </span>the first name is the preferred
-		    value. <span class="removed">Other values might have been used in previous versions.</span></p>
+		    The attribute value for type may contain multiple names delimited by
+		    ASCII space characters. Of those aliases, the first name is the preferred
+		    value.</p>
 </dd>
 
 		<dt><b>description</b></dt>
@@ -9092,9 +9090,9 @@ decimal?, group?, special*)) &gt;</pre>
 			in CLDR 1.7.2.
 		</dd>
 
-		<dt><span class="changed"><b>deprecated</b></span></dt>
+		<dt><b>deprecated</b></dt>
 		<dd>
-			<p class="changed">The deprecation status of the key, type or attribute element. The value
+			<p>The deprecation status of the key, type or attribute element. The value
 			"true" indicates the element is deprecated and no longer used in the version of CLDR. The
 			default value is "false".</p>
 		</dd>
@@ -9132,21 +9130,20 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>type "aumqi" is valid for key "tz", supported by CLDR 1.8.1
 		or later versions.</li>
 	</ul>
-	<h4 class="changed"><a name="Numbering System Data">Q.1.1 Numbering System Data</a><br>
+	<h4><a name="Numbering System Data">Q.1.1 Numbering System Data</a><br>
 	</h4>
-	<p class="changed">LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/bcp47/number.xml">bcp47/number.xml</a>.<br>
+	<p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/bcp47/number.xml">bcp47/number.xml</a>.<br>
   </p>
-	<p class="changed">Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.<br>
+	<p>Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.<br>
   </p>
-	<p class="changed">LDML makes certain stability guarantees on this data: <br>
+	<p>LDML makes certain stability guarantees on this data: <br>
   </p>
 	<ol>
-	  <li class="changed">Like other BCP47 identifiers, once a numeric identifier is added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>, it will never be removed from either of those files.</li>
-	  <li><span class="changed">If an identifier has type="numeric" in numberingSystems.xml, then
-	    </span>
+	  <li>Like other BCP47 identifiers, once a numeric identifier is added to <strong>bcp47/number.xml</strong> or <strong>numberingSystems.xml</strong>, it will never be removed from either of those files.</li>
+	  <li>If an identifier has type="numeric" in numberingSystems.xml, then
 	    <ol>
-	      <li class="changed">It is a decimal, positional numbering system with an attribute digits=X, where X is a string with the 10 digits in order used by the numbering system.</li>
-	      <li class="changed">The values of the type and digits will never change.</li>
+	      <li>It is a decimal, positional numbering system with an attribute digits=X, where X is a string with the 10 digits in order used by the numbering system.</li>
+	      <li>The values of the type and digits will never change.</li>
         </ol>
       </li>
   </ol>
@@ -9181,578 +9178,567 @@ decimal?, group?, special*)) &gt;</pre>
 	  <dd>Alternative name, not limited in number of characters.         Aliases are intended for       compatibility, not  to provide all possible       alternate names or            designations.  <em>(Optional)</em></dd>
   </dl>
   <p>For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].</p>
-  <h2 class="changed"><a name="Property_Data"></a>Appendix R. Property Data</h2>
-  <p><span class="changed">Some data in CLDR does not use an XML format, but rather a semicolon-delimited format derived from that of the Unicode Character Database. That is because the data is more likely to be parsed by implementations that already parse UCD data. Those files are present in the common/properties directory.</span>  
-  <p><span class="changed">Each file has a header that explains the format and usage of the data.</span>  
-  <h2 class="changed"><a name="Keyboards"></a>Appendix S. Keyboards</h2>
-  <p class="changed">The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.</p>
-  <p class="changed">For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a &quot;W&quot; on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text (&quot;W&quot;) to the text that would have resulted from typing a key on an azerty keyboard, by transforming &quot;W&quot; to &quot;Z&quot;. Such transforms are in fact performed in existing web applications.</p>
-  <p class="changed">The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p>
-  <p class="changed">To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the Mac OSX operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.</p>
-  <pre class="changed">&lt;keyboard locale=&quot;en-t-k0-osx&quot;&gt;<br>	&lt;version platform=&quot;10.4&quot; number=&quot;$Revision$&quot; /&gt;<br>	&lt;generation date=&quot;$Date$&quot; /&gt;<br>	&lt;names&gt;<br>		&lt;name value=&quot;U.S.&quot; /&gt;<br>	&lt;/names&gt;<br>	&lt;keyMap&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;1&quot; /&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;q&quot; /&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;w&quot; /&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;e&quot; longPress=&quot;é è ê ë&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;keyMap modifiers=&quot;caps&quot;&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;1&quot; /&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;Q&quot; /&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;W&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;keyMap modifiers=&quot;opt&quot;&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;¡&quot; /&gt; &lt;!-- key=1 --&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;œ&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;∑&quot; /&gt; &lt;!-- key=W --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;` &quot; to=&quot;`&quot; /&gt;<br>		&lt;transform from=&quot;`a&quot; to=&quot;à&quot; /&gt;<br>		&lt;transform from=&quot;`A&quot; to=&quot;À&quot; /&gt;<br>		&lt;transform from=&quot;´ &quot; to=&quot;´&quot; /&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;˜ &quot; to=&quot;˜&quot; /&gt;<br>		&lt;transform from=&quot;˜a&quot; to=&quot;ã&quot; /&gt;<br>		&lt;transform from=&quot;˜A&quot; to=&quot;Ã&quot; /&gt;<br>		…<br>	&lt;/transforms&gt;<br>&lt;/keyboard&gt;</pre>
-  <p class="changed">And its associated platform file (which includes the hardware mapping):</p>
-  <pre class="changed">&lt;platform id=&quot;osx&quot;&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;0&quot; iso=&quot;C01&quot; /&gt;<br>		&lt;map keycode=&quot;1&quot; iso=&quot;C02&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;B01&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;B02&quot; /&gt;<br>		&lt;map keycode=&quot;12&quot; iso=&quot;D01&quot; /&gt;<br>		&lt;map keycode=&quot;13&quot; iso=&quot;D02&quot; /&gt;<br>		&lt;map keycode=&quot;18&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;50&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
-  <h3 class="changed"><a name="h.xxxtbgp1b271"></a>Goals and Nongoals</h3>
-  <p class="changed">Some goals of this format are:</p>
+  <h2><a name="Property_Data"></a>Appendix R. Property Data</h2>
+  <p>Some data in CLDR does not use an XML format, but rather a semicolon-delimited format derived from that of the Unicode Character Database. That is because the data is more likely to be parsed by implementations that already parse UCD data. Those files are present in the common/properties directory.
+  <p>Each file has a header that explains the format and usage of the data.
+  <h2><a name="Keyboards"></a>Appendix S. Keyboards</h2>
+  <p>The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.</p>
+  <p>For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a &quot;W&quot; on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text (&quot;W&quot;) to the text that would have resulted from typing a key on an azerty keyboard, by transforming &quot;W&quot; to &quot;Z&quot;. Such transforms are in fact performed in existing web applications.</p>
+  <p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p>
+  <p>To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the Mac OSX operating system (with an inserted long-press example). For more complete examples, and information collected about keyboards, see keyboard data in XML.</p>
+  <pre>&lt;keyboard locale=&quot;en-t-k0-osx&quot;&gt;<br>	&lt;version platform=&quot;10.4&quot; number=&quot;$Revision$&quot; /&gt;<br>	&lt;generation date=&quot;$Date$&quot; /&gt;<br>	&lt;names&gt;<br>		&lt;name value=&quot;U.S.&quot; /&gt;<br>	&lt;/names&gt;<br>	&lt;keyMap&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;1&quot; /&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;q&quot; /&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;w&quot; /&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;e&quot; longPress=&quot;é è ê ë&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;keyMap modifiers=&quot;caps&quot;&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;1&quot; /&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;Q&quot; /&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;W&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;keyMap modifiers=&quot;opt&quot;&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;¡&quot; /&gt; &lt;!-- key=1 --&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;œ&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;∑&quot; /&gt; &lt;!-- key=W --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;` &quot; to=&quot;`&quot; /&gt;<br>		&lt;transform from=&quot;`a&quot; to=&quot;à&quot; /&gt;<br>		&lt;transform from=&quot;`A&quot; to=&quot;À&quot; /&gt;<br>		&lt;transform from=&quot;´ &quot; to=&quot;´&quot; /&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;˜ &quot; to=&quot;˜&quot; /&gt;<br>		&lt;transform from=&quot;˜a&quot; to=&quot;ã&quot; /&gt;<br>		&lt;transform from=&quot;˜A&quot; to=&quot;Ã&quot; /&gt;<br>		…<br>	&lt;/transforms&gt;<br>&lt;/keyboard&gt;</pre>
+  <p>And its associated platform file (which includes the hardware mapping):</p>
+  <pre>&lt;platform id=&quot;osx&quot;&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;0&quot; iso=&quot;C01&quot; /&gt;<br>		&lt;map keycode=&quot;1&quot; iso=&quot;C02&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;B01&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;B02&quot; /&gt;<br>		&lt;map keycode=&quot;12&quot; iso=&quot;D01&quot; /&gt;<br>		&lt;map keycode=&quot;13&quot; iso=&quot;D02&quot; /&gt;<br>		&lt;map keycode=&quot;18&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;50&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
+  <h3><a name="h.xxxtbgp1b271"></a>Goals and Nongoals</h3>
+  <p>Some goals of this format are:</p>
   <ol class="c6" start="1">
-    <li class="changed">Make the XML as readable as possible.</li>
-    <li class="changed">Represent faithfully keyboard data from major platforms: it should be possible to create a functionally-equivalent data file (such that given any input, it can produce the same output).</li>
-    <li class="changed">Make as much commonality in the data across platforms as possible to make comparison easy.</li>
+    <li>Make the XML as readable as possible.</li>
+    <li>Represent faithfully keyboard data from major platforms: it should be possible to create a functionally-equivalent data file (such that given any input, it can produce the same output).</li>
+    <li>Make as much commonality in the data across platforms as possible to make comparison easy.</li>
   </ol>
-  <p class="changed">Some non-goals (outside the scope of the format) currently are:</p>
+  <p>Some non-goals (outside the scope of the format) currently are:</p>
   <ol class="c6" start="1">
-    <li class="changed">Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this proposal.</li>
-    <li class="changed">Advanced IME features, handwriting recognition, etc. </li>
-    <li class="changed">Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence.</li>
-    <li class="changed">More sophisticated transforms, such as for Indic character rearrangement. It is anticipated that these would be added to a future version, after working out a reasonable representation.</li>
+    <li>Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this proposal.</li>
+    <li>Advanced IME features, handwriting recognition, etc. </li>
+    <li>Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence.</li>
+    <li>More sophisticated transforms, such as for Indic character rearrangement. It is anticipated that these would be added to a future version, after working out a reasonable representation.</li>
   </ol>
-  <p class="changed">Note: During development, it was considered whether RAlt (=AltGr) with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to identify them.</p>
-  <h3 class="changed"><a name="h.7hlsjjbddihi"></a>Definitions</h3>
-  <p class="changed">Keyboard: The physical keyboard.</p>
-  <p class="changed">Key: A key on a physical keyboard.</p>
-  <p class="changed">Modifier: A key that is held to change the behavior of a keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but is not limited to: Ctrl, Alt, Option, Command and Caps Lock.</p>
-  <p class="changed">Key code: The integer code sent to the application on pressing a key.</p>
-  <p class="changed">ISO position: The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):<img src="images/keyPositions.png" alt="keyboard layout example showing ISO key numbering"></p>
-  <p class="changed">One may also extend the notion of the ISO layout to support keys that don't map directly to the diagram above (such as the Android device - see diagram). Per the ISO standard, the space bar is mapped to "A03", so the period and comma keys are mapped to "A02" and "A04" respectively based on their relative position to the space bar. Also note that the "E" row does not exist on the Android keyboard.</p>
-  <p class="changed"><img src="images/androidKeyboard.png" alt="keyboard layout example showing extension of ISO key numbering"></p>
-  <p class="changed">If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",...</p>
-  <p class="changed">Hardware map: A mapping between key codes and ISO layout positions.</p>
-  <p class="changed">Base character: The character emitted by a particular key when no modifiers are active. In ISO terms, this is group 1, level 1.</p>
-  <p class="changed">Base map: A mapping from the ISO positions to the base characters. There is only  one base map per layout. The characters on this map can be output by not using any modifier keys.</p>
-  <p class="changed">Key map: The basic mapping between ISO positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.</p>
-  <p class="changed">Transform:  A transform is simply a combination of key presses that gets transformed into one (or more) final characters. For example, in most latin keyboards hitting the "^" dead-key followed by the "e" key produces "ê".</p>
-  <p class="changed">Layout: A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and one or more transforms.</p>
-  <h3 class="changed"><a name="h.ynr05okoawy7"></a>File and Directory Structure</h3>
-  <p class="changed">Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or Chromeos. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:</p>
+  <p>Note: During development, it was considered whether RAlt (=AltGr) with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to identify them.</p>
+  <h3><a name="h.7hlsjjbddihi"></a>Definitions</h3>
+  <p>Keyboard: The physical keyboard.</p>
+  <p>Key: A key on a physical keyboard.</p>
+  <p>Modifier: A key that is held to change the behavior of a keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but is not limited to: Ctrl, Alt, Option, Command and Caps Lock.</p>
+  <p>Key code: The integer code sent to the application on pressing a key.</p>
+  <p>ISO position: The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):<img src="images/keyPositions.png" alt="keyboard layout example showing ISO key numbering"></p>
+  <p>One may also extend the notion of the ISO layout to support keys that don't map directly to the diagram above (such as the Android device - see diagram). Per the ISO standard, the space bar is mapped to "A03", so the period and comma keys are mapped to "A02" and "A04" respectively based on their relative position to the space bar. Also note that the "E" row does not exist on the Android keyboard.</p>
+  <p><img src="images/androidKeyboard.png" alt="keyboard layout example showing extension of ISO key numbering"></p>
+  <p>If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",...</p>
+  <p>Hardware map: A mapping between key codes and ISO layout positions.</p>
+  <p>Base character: The character emitted by a particular key when no modifiers are active. In ISO terms, this is group 1, level 1.</p>
+  <p>Base map: A mapping from the ISO positions to the base characters. There is only  one base map per layout. The characters on this map can be output by not using any modifier keys.</p>
+  <p>Key map: The basic mapping between ISO positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.</p>
+  <p>Transform:  A transform is simply a combination of key presses that gets transformed into one (or more) final characters. For example, in most latin keyboards hitting the "^" dead-key followed by the "e" key produces "ê".</p>
+  <p>Layout: A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and one or more transforms.</p>
+  <h3><a name="h.ynr05okoawy7"></a>File and Directory Structure</h3>
+  <p>Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or Chromeos. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:</p>
   <ol class="c6" start="1">
-    <li class="changed">A single platform file (see XML structure for Platform file), this file includes a mapping of hardware key codes to the ISO layout positions. This file is also open to expansion for any configuration elements that are valid across the whole platform and that are not layout specific. This file is simply called _platform.xml.</li>
-    <li class="changed">Multiple layout files named by their locale identifiers. (eg. lt-t-k0-chromeos.xml or ne-t-k0-windows.xml). </li>
+    <li>A single platform file (see XML structure for Platform file), this file includes a mapping of hardware key codes to the ISO layout positions. This file is also open to expansion for any configuration elements that are valid across the whole platform and that are not layout specific. This file is simply called _platform.xml.</li>
+    <li>Multiple layout files named by their locale identifiers. (eg. lt-t-k0-chromeos.xml or ne-t-k0-windows.xml). </li>
   </ol>
-  <h3 class="changed"><a name="h.2j9ik9pyxaj3"></a>Element Hierarchy - Layout File</h3>
-  <h4 class="changed"><a name="h.sruyix9aide7"></a>Element: keyboard</h4>
-  <p class="changed">This is the top level element. All other elements defined below are under this element.</p>
-  <p class="changed">Syntax</p>
-  <p class="changed">&lt;keyboard locale=&quot;{locale ID}&quot;&gt;</p>
-  <p class="changed">{definition of the layout as described by the elements defined below}</p>
-  <p class="changed">&lt;/keyboard&gt;</p>
-  <p class="changed">Attribute: locale (required)</p>
-  <p class="changed">This mandatory attribute represents the locale of the keyboard using Unicode locale identifiers (see <a class="c21" href="http://unicode.org/reports/tr35/">LDML</a>) - for example &#39;el&#39; for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: 'und-Deva'. For details, see <a class="c21" href="#h.hhnadq5b972d">Appendix B: Keyboard IDs</a>.</p>
-  <p class="changed">Examples (for illustrative purposes only, not indicative of the real data)</p>
-  <pre class="changed">&lt;keyboard locale=&quot;ka-t-k0-qwerty-windows&quot;&gt;
+  <h3><a name="h.2j9ik9pyxaj3"></a>Element Hierarchy - Layout File</h3>
+  <h4><a name="h.sruyix9aide7"></a>Element: keyboard</h4>
+  <p>This is the top level element. All other elements defined below are under this element.</p>
+  <p>Syntax</p>
+  <p>&lt;keyboard locale=&quot;{locale ID}&quot;&gt;</p>
+  <p>{definition of the layout as described by the elements defined below}</p>
+  <p>&lt;/keyboard&gt;</p>
+  <p>Attribute: locale (required)</p>
+  <p>This mandatory attribute represents the locale of the keyboard using Unicode locale identifiers (see <a class="c21" href="http://unicode.org/reports/tr35/">LDML</a>) - for example &#39;el&#39; for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: 'und-Deva'. For details, see <a class="c21" href="#h.hhnadq5b972d">Appendix B: Keyboard IDs</a>.</p>
+  <p>Examples (for illustrative purposes only, not indicative of the real data)</p>
+  <pre>&lt;keyboard locale=&quot;ka-t-k0-qwerty-windows&quot;&gt;
   …
 &lt;/keyboard&gt;
 &lt;keyboard locale=&quot;fr-CH-t-k0-android&quot;&gt;
   …
 &lt;/keyboard&gt;</pre>
   <hr>
-  <h4 class="changed"><a name="h.b4jsjmpai4c6"></a>Element: version</h4>
-  <p class="changed">Element used to keep track of the source data version.<br>
+  <h4><a name="h.b4jsjmpai4c6"></a>Element: version</h4>
+  <p>Element used to keep track of the source data version.<br>
     <br>
     Syntax</p>
-  <p class="changed">&lt;version platform=&quot;..&quot; revision=&quot;..&quot;&gt;<br>
+  <p>&lt;version platform=&quot;..&quot; revision=&quot;..&quot;&gt;<br>
   </p>
-  <p class="changed">Attribute: platform (required)</p>
-  <p class="changed">The platform source version. Specifies what version of the platform the data is from. For example, data from Mac OSX 10.4 would be specified as platform=&quot;10.4&quot;. For platforms that have unstable version numbers which change frequently (like Linux),  this field is set to an integer representing the iteration of the data starting with "1". This number would only increase if there were any significant changes in the keyboard data.</p>
-  <p class="changed">Attribute: number (required)</p>
-  <p class="changed">The data revision version.</p>
-  <p class="changed">Attribute: cldrVersion (fixed by DTD)</p>
-  <p class="changed">The CLDR specification version that is associated with this data file. This value is fixed and is inherited from the DTD file and therefore does not show up directly in the XML file.</p>
-  <p class="changed">Example</p>
-  <p class="changed">&lt;keyboard locale=&quot;..-osx&quot;&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;version platform=&quot;10.4&quot; number=&quot;1&quot;/&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;/keyboard&gt;</p>
+  <p>Attribute: platform (required)</p>
+  <p>The platform source version. Specifies what version of the platform the data is from. For example, data from Mac OSX 10.4 would be specified as platform=&quot;10.4&quot;. For platforms that have unstable version numbers which change frequently (like Linux),  this field is set to an integer representing the iteration of the data starting with "1". This number would only increase if there were any significant changes in the keyboard data.</p>
+  <p>Attribute: number (required)</p>
+  <p>The data revision version.</p>
+  <p>Attribute: cldrVersion (fixed by DTD)</p>
+  <p>The CLDR specification version that is associated with this data file. This value is fixed and is inherited from the DTD file and therefore does not show up directly in the XML file.</p>
+  <p>Example</p>
+  <p>&lt;keyboard locale=&quot;..-osx&quot;&gt;</p>
+  <p>…</p>
+  <p>&lt;version platform=&quot;10.4&quot; number=&quot;1&quot;/&gt;</p>
+  <p>…</p>
+  <p>&lt;/keyboard&gt;</p>
   <hr>
-  <h4 class="changed"><a name="h.7f8ggi139dw"></a>Element: generation</h4>
-  <p class="changed">Element used to keep track of the generation date of the data.<br>
+  <h4><a name="h.7f8ggi139dw"></a>Element: generation</h4>
+  <p>Element used to keep track of the generation date of the data.<br>
     <br>
     Syntax</p>
-  <p class="changed">&lt;generation date=&quot;..&quot;&gt;<br>
+  <p>&lt;generation date=&quot;..&quot;&gt;<br>
   </p>
-  <p class="changed">Attribute: date (required)</p>
-  <p class="changed">The date the data was generated.</p>
-  <p class="changed">Example</p>
-  <p class="changed">&lt;keyboard locale=&quot;..&quot;&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;generation date=&quot;$Date$&quot;/&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;/keyboard&gt;</p>
+  <p>Attribute: date (required)</p>
+  <p>The date the data was generated.</p>
+  <p>Example</p>
+  <p>&lt;keyboard locale=&quot;..&quot;&gt;</p>
+  <p>…</p>
+  <p>&lt;generation date=&quot;$Date$&quot;/&gt;</p>
+  <p>…</p>
+  <p>&lt;/keyboard&gt;</p>
   <hr>
-  <h4 class="changed"><a name="h.9xhsjp796088"></a>Element: names</h4>
-  <p class="changed">Element used to store any names given to the layout by the platform.<br>
+  <h4><a name="h.9xhsjp796088"></a>Element: names</h4>
+  <p>Element used to store any names given to the layout by the platform.<br>
     <br>
     Syntax</p>
-  <p class="changed">&lt;names&gt;</p>
-  <p class="changed">{set of name elements}</p>
-  <p class="changed">&lt;/names&gt;<br>
+  <p>&lt;names&gt;</p>
+  <p>{set of name elements}</p>
+  <p>&lt;/names&gt;<br>
   </p>
-  <h4 class="changed"><a name="h.r8yh7ccvu0s1"></a>Element: name</h4>
-  <p class="changed">A single name given to the layout by the platform.<br>
+  <h4><a name="h.r8yh7ccvu0s1"></a>Element: name</h4>
+  <p>A single name given to the layout by the platform.<br>
     <br>
     Syntax</p>
-  <p class="changed">&lt;name value=&quot;..&quot;&gt;<br>
+  <p>&lt;name value=&quot;..&quot;&gt;<br>
   </p>
-  <p class="changed">Attribute: value (required)</p>
-  <p class="changed">The name of the layout.</p>
-  <p class="changed">Example</p>
-  <p class="changed">&lt;keyboard locale=&quot;bg-t-k0-windows-phonetic-trad&quot;&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;names&gt;</p>
-  <p class="c1 c15"> <span class="changed">&lt;name value=&quot;Bulgarian (Phonetic Traditional)&quot;/&gt;</span></p>
-  <p class="changed">&lt;/names&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;/keyboard&gt;</p>
+  <p>Attribute: value (required)</p>
+  <p>The name of the layout.</p>
+  <p>Example</p>
+  <p>&lt;keyboard locale=&quot;bg-t-k0-windows-phonetic-trad&quot;&gt;</p>
+  <p>…</p>
+  <p>&lt;names&gt;</p>
+  <p class="c1 c15"> &lt;name value=&quot;Bulgarian (Phonetic Traditional)&quot;/&gt;</p>
+  <p>&lt;/names&gt;</p>
+  <p>…</p>
+  <p>&lt;/keyboard&gt;</p>
   <hr>
-  <h4 class="changed"><a name="h.u3clywhcix8q"></a>Element: settings</h4>
-  <p class="changed">An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for transformFailures the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).<br>
+  <h4><a name="h.u3clywhcix8q"></a>Element: settings</h4>
+  <p>An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for transformFailures the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).<br>
     <br>
     Syntax</p>
-  <p class="changed">&lt;settings [fallback=&quot;omit&quot;] [transformFailure=&quot;omit&quot;] [transformPartial=&quot;hide&quot;]&gt;<br>
+  <p>&lt;settings [fallback=&quot;omit&quot;] [transformFailure=&quot;omit&quot;] [transformPartial=&quot;hide&quot;]&gt;<br>
   </p>
-  <p class="changed">Attribute: fallback=&quot;omit&quot; (optional)</p>
-  <p class="changed">The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fallback to the base map when the modifier key combination goes unmatched. </p>
-  <p class="changed">If this attribute is present, it must have a value of omit.</p>
-  <p class="changed">Attribute: transformFailure=&quot;omit&quot; (optional)</p>
-  <p class="changed">This attribute describes the behavior of a transform when it is escaped (see the transform element in the Layout file for more information). A transform is escaped when it can no longer continue due to the entry of an invalid key. For example, suppose the following set of transforms are valid:</p>
+  <p>Attribute: fallback=&quot;omit&quot; (optional)</p>
+  <p>The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fallback to the base map when the modifier key combination goes unmatched. </p>
+  <p>If this attribute is present, it must have a value of omit.</p>
+  <p>Attribute: transformFailure=&quot;omit&quot; (optional)</p>
+  <p>This attribute describes the behavior of a transform when it is escaped (see the transform element in the Layout file for more information). A transform is escaped when it can no longer continue due to the entry of an invalid key. For example, suppose the following set of transforms are valid:</p>
   <blockquote>
-    <p class="changed">^e →  ê</p>
-    <p class="changed">^a →  â</p>
+    <p>^e →  ê</p>
+    <p>^a →  â</p>
   </blockquote>
-  <p class="changed">Suppose a user now enters the "^" key then "^" is now stored in a buffer and may or may not be shown to the user (see the partial attribute).</p>
-  <p class="changed">If a user now enters d, then the transform has failed and there are two options for output.</p>
-  <p class="changed">1. default behavior - "^d"</p>
-  <p class="changed">2. omit - "" (nothing and the buffer is cleared)</p>
-  <p class="changed">The default behavior (when this attribute is not present) is to emit the contents of the buffer upon failure of a transform. </p>
-  <p class="changed">If this attribute is present, it must have a value of omit.</p>
-  <p class="changed">Attribute: transformPartial=&quot;hide&quot; (optional)</p>
-  <p class="changed">This attribute describes the behavior the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms). </p>
-  <p class="changed">By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the Mac OSX platform).</p>
-  <p class="changed">If this attribute is present, it must have a value of hide.</p>
-  <p class="changed">Example</p>
-  <p class="changed">&lt;keyboard locale=&quot;bg-t-k0-windows-phonetic-trad&quot;&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;settings fallback=&quot;omit&quot; transformPartial=&quot;hide&quot;&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;/keyboard&gt;</p>
-  <p class="changed">Indicates that:</p>
+  <p>Suppose a user now enters the "^" key then "^" is now stored in a buffer and may or may not be shown to the user (see the partial attribute).</p>
+  <p>If a user now enters d, then the transform has failed and there are two options for output.</p>
+  <p>1. default behavior - "^d"</p>
+  <p>2. omit - "" (nothing and the buffer is cleared)</p>
+  <p>The default behavior (when this attribute is not present) is to emit the contents of the buffer upon failure of a transform. </p>
+  <p>If this attribute is present, it must have a value of omit.</p>
+  <p>Attribute: transformPartial=&quot;hide&quot; (optional)</p>
+  <p>This attribute describes the behavior the system while in a transform. When this attribute is present then don't show the values of the buffer as the user is typing a transform (this behavior can be seen on Windows or Linux platforms). </p>
+  <p>By default (when this attribute is not present), show the values of the buffer as the user is typing a transform (this behavior can be seen on the Mac OSX platform).</p>
+  <p>If this attribute is present, it must have a value of hide.</p>
+  <p>Example</p>
+  <p>&lt;keyboard locale=&quot;bg-t-k0-windows-phonetic-trad&quot;&gt;</p>
+  <p>…</p>
+  <p>&lt;settings fallback=&quot;omit&quot; transformPartial=&quot;hide&quot;&gt;</p>
+  <p>…</p>
+  <p>&lt;/keyboard&gt;</p>
+  <p>Indicates that:</p>
   <ol class="c33" start="1">
-    <li class="changed">When a modifier combination goes unmatched, do not output anything when a key is pressed.</li>
-    <li class="changed">If a transform is escaped, output the contents of the buffer.</li>
-    <li class="changed">During a transform, hide the contents of the buffer as the user is typing.</li>
+    <li>When a modifier combination goes unmatched, do not output anything when a key is pressed.</li>
+    <li>If a transform is escaped, output the contents of the buffer.</li>
+    <li>During a transform, hide the contents of the buffer as the user is typing.</li>
   </ol>
   <hr>
-  <h4 class="changed"><a name="h.ltiprywkdyom"></a>Element: keyMap</h4>
-  <p class="changed">This element defines the group of mappings for all the keys that use the same set of modifier keys. It contains one or more map elements.</p>
-  <p class="changed">Syntax</p>
-  <p class="changed">&lt;keyMap [modifiers=&quot;{Set of Modifier Combinations}&quot;]&gt;</p>
-  <p class="changed">{a set of map elements}</p>
-  <p class="changed">&lt;/keyMap&gt;</p>
-  <p class="changed">Attribute: modifiers (optional)</p>
-  <p class="changed">A set of modifier combinations that cause this key map to be "active". Each combination is separated by a space. The interpretation is that there is a match if any of the combinations match, that is, they are ORed. Therefore, the order of the combinations within this attribute does not matter.<br>
+  <h4><a name="h.ltiprywkdyom"></a>Element: keyMap</h4>
+  <p>This element defines the group of mappings for all the keys that use the same set of modifier keys. It contains one or more map elements.</p>
+  <p>Syntax</p>
+  <p>&lt;keyMap [modifiers=&quot;{Set of Modifier Combinations}&quot;]&gt;</p>
+  <p>{a set of map elements}</p>
+  <p>&lt;/keyMap&gt;</p>
+  <p>Attribute: modifiers (optional)</p>
+  <p>A set of modifier combinations that cause this key map to be "active". Each combination is separated by a space. The interpretation is that there is a match if any of the combinations match, that is, they are ORed. Therefore, the order of the combinations within this attribute does not matter.<br>
     <br>
     A combination is simply a concatenation of words to represent the simultaneous activation of one or more modifier keys. The order of the modifier keys within a combination does not matter, although don't care cases are generally added to the end of the string for readability (see next paragraph). For example:       "cmd+caps" represents the Caps Lock and Command modifier key combination. Some keys have right or left variant keys, specified by a 'R' or 'L' suffix. For example: "ctrlR+caps" would represent the Right-Control  and Caps Lock combination. For simplicity, the presence of a modifier without a 'R' or 'L' suffix means that either its left or right variants are valid. So "ctrl+caps" represents the same as "ctrlL+ctrlR?+caps ctrlL?+ctrlR+caps"</p>
-  <p class="changed">A modifier key may be further specified to be in a "don't care" state using the '?' suffix. The "don't care" state simply means that the preceding modifier key may be either ON or OFF. For example "ctrl+shift?" could be expanded into "ctrl ctrl+shift".</p>
-  <p class="changed">Within a combination, the presence of a modifier WITHOUT the '?' suffix indicates this key MUST be on. The converse is also true, the absence of a modifier key means it MUST be off for the combination to be active.</p>
-  <p class="changed">Here is an exhaustive list of all possible modifier keys:</p>
-  <p class="changed">Possible Modifier Keys</p>
-  <span class="changed"><a href="#" name="8b1ec3bbee449ca6885da31c2a85aec84d779a38"></a>
-  </span>
+  <p>A modifier key may be further specified to be in a "don't care" state using the '?' suffix. The "don't care" state simply means that the preceding modifier key may be either ON or OFF. For example "ctrl+shift?" could be expanded into "ctrl ctrl+shift".</p>
+  <p>Within a combination, the presence of a modifier WITHOUT the '?' suffix indicates this key MUST be on. The converse is also true, the absence of a modifier key means it MUST be off for the combination to be active.</p>
+  <p>Here is an exhaustive list of all possible modifier keys:</p>
+  <p>Possible Modifier Keys</p>
+  <a href="#" name="8b1ec3bbee449ca6885da31c2a85aec84d779a38"></a>
   <table cellpadding="0" cellspacing="0" border='1'>
     <tbody>
       <tr>
-        <td><p class="changed">Modifier Keys</p></td>
+        <td><p>Modifier Keys</p></td>
         <td>&nbsp;</td>
-        <td><p class="changed">Comments</p></td>
+        <td><p>Comments</p></td>
       </tr>
       <tr>
-        <td><p class="changed">altL</p></td>
-        <td><p class="changed">altR</p></td>
-        <td><p class="changed">xAlty → xAltR+AltL? xAltR?AltLy</p></td>
+        <td><p>altL</p></td>
+        <td><p>altR</p></td>
+        <td><p>xAlty → xAltR+AltL? xAltR?AltLy</p></td>
       </tr>
       <tr>
-        <td><p class="changed">ctrlL</p></td>
-        <td><p class="changed">ctrlR</p></td>
-        <td><p class="changed">ditto for Ctrl</p></td>
+        <td><p>ctrlL</p></td>
+        <td><p>ctrlR</p></td>
+        <td><p>ditto for Ctrl</p></td>
       </tr>
       <tr>
-        <td><p class="changed">shiftL</p></td>
-        <td><p class="changed">shiftR</p></td>
-        <td><p class="changed">ditto for Shift</p></td>
+        <td><p>shiftL</p></td>
+        <td><p>shiftR</p></td>
+        <td><p>ditto for Shift</p></td>
       </tr>
       <tr>
-        <td><p class="changed">optL</p></td>
-        <td><p class="changed">optR</p></td>
-        <td><p class="changed">ditto for Opt</p></td>
+        <td><p>optL</p></td>
+        <td><p>optR</p></td>
+        <td><p>ditto for Opt</p></td>
       </tr>
       <tr>
-        <td><p class="changed">caps</p></td>
+        <td><p>caps</p></td>
         <td>&nbsp;</td>
-        <td><p class="changed">Caps Lock</p></td>
+        <td><p>Caps Lock</p></td>
       </tr>
       <tr>
-        <td><p class="changed">cmd</p></td>
+        <td><p>cmd</p></td>
         <td>&nbsp;</td>
-        <td><p class="changed">Command on the Mac</p></td>
+        <td><p>Command on the Mac</p></td>
       </tr>
     </tbody>
   </table>
-  <p class="changed">All sets of modifier combinations within a layout are disjoint with no-overlap existing between the key maps. That is, for every possible modifier combination, there is at most a single match within the layout file. There are thus never  multiple matches. If no exact match is available, the match falls back to the base map unless the fallback=&quot;omit&quot; attribute in the settings element is set, in which case there would be no output at all.</p>
-  <p class="changed">To illustrate, the following example produces an invalid layout because pressing the "Ctrl" modifier key produces an indeterminate result:</p>
-  <p class="changed">&lt;keyMap modifiers=&quot;ctrl+shift?&quot;&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;/keyMap&gt;</p>
-  <p class="changed">&lt;keyMap modifiers=&quot;ctrl&quot;&gt;</p>
-  <p class="changed">…</p>
-  <p class="changed">&lt;/keyMap&gt;</p>
-  <p class="changed">Modifier Examples:</p>
-  <p class="changed">&lt;keyMap modifiers=&quot;cmd?+opt+caps?+shift&quot; /&gt;</p>
-  <p class="changed">Caps-Lock may be ON or OFF, Option must be ON, Shift must be ON and Command may be ON or OFF.</p>
-  <p class="changed">&lt;keyMap modifiers=&quot;shift caps&quot; fallback=&quot;true&quot; /&gt;</p>
-  <p class="changed">Caps-Lock must be ON OR Shift must be ON. Is also the fallback key map.</p>
-  <p class="changed">If the modifiers attribute is not present on a keyMap then that particular key map is the base map.</p>
-  <h4 class="changed"><a name="h.61qsvkl2kbzt"></a>Element: map</h4>
-  <p class="changed">This element defines a mapping between the base character and the output for a particular set of active modifier keys. This element must have the keyMap element as its parent.</p>
-  <p class="changed">If a map element for a particular ISO layout position has not been defined then if this key is pressed, no output is produced.</p>
-  <p class="changed">Syntax</p>
-  <pre class="changed">&lt;map
+  <p>All sets of modifier combinations within a layout are disjoint with no-overlap existing between the key maps. That is, for every possible modifier combination, there is at most a single match within the layout file. There are thus never  multiple matches. If no exact match is available, the match falls back to the base map unless the fallback=&quot;omit&quot; attribute in the settings element is set, in which case there would be no output at all.</p>
+  <p>To illustrate, the following example produces an invalid layout because pressing the "Ctrl" modifier key produces an indeterminate result:</p>
+  <p>&lt;keyMap modifiers=&quot;ctrl+shift?&quot;&gt;</p>
+  <p>…</p>
+  <p>&lt;/keyMap&gt;</p>
+  <p>&lt;keyMap modifiers=&quot;ctrl&quot;&gt;</p>
+  <p>…</p>
+  <p>&lt;/keyMap&gt;</p>
+  <p>Modifier Examples:</p>
+  <p>&lt;keyMap modifiers=&quot;cmd?+opt+caps?+shift&quot; /&gt;</p>
+  <p>Caps-Lock may be ON or OFF, Option must be ON, Shift must be ON and Command may be ON or OFF.</p>
+  <p>&lt;keyMap modifiers=&quot;shift caps&quot; fallback=&quot;true&quot; /&gt;</p>
+  <p>Caps-Lock must be ON OR Shift must be ON. Is also the fallback key map.</p>
+  <p>If the modifiers attribute is not present on a keyMap then that particular key map is the base map.</p>
+  <h4><a name="h.61qsvkl2kbzt"></a>Element: map</h4>
+  <p>This element defines a mapping between the base character and the output for a particular set of active modifier keys. This element must have the keyMap element as its parent.</p>
+  <p>If a map element for a particular ISO layout position has not been defined then if this key is pressed, no output is produced.</p>
+  <p>Syntax</p>
+  <pre>&lt;map
  iso=&quot;{the iso position}&quot;
  to=&quot;{the output}&quot;
  [longPress=&quot;{long press keys}&quot;]
  [transform=&quot;no&quot;]
 /&gt;&lt;!-- {Comment to improve readability (if needed)} --&gt;</pre>
-  <p class="changed">Attribute: iso (exactly one of base and iso is required)</p>
-  <p class="changed">The iso attribute represents the ISO layout position of the key (see the definition at the beginning of the document for more information).</p>
-  <p class="changed">Attribute: to (required)</p>
-  <p class="changed">The to attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the \u{...} notation.</p>
-  <p class="changed">Attribute: longPress (optional)</p>
-  <p class="changed">The longPress attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the \u{...} notation.</p>
-  <p class="changed">Attribute: transform=&quot;no&quot; (optional)</p>
-  <p class="changed">The transform attribute is used to define a key that never participates in a transform but its output shows up as part of a transform. This attribute is necessary because two different keys could output the same characters (with different keys or modifier combinations) but only one of them is intended to be a dead-key and participate in a transform. This attribute value must be no if it is present.</p>
-  <p class="changed">For example, suppose there are  the following keys, their output and one transform:</p>
+  <p>Attribute: iso (exactly one of base and iso is required)</p>
+  <p>The iso attribute represents the ISO layout position of the key (see the definition at the beginning of the document for more information).</p>
+  <p>Attribute: to (required)</p>
+  <p>The to attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the \u{...} notation.</p>
+  <p>Attribute: longPress (optional)</p>
+  <p>The longPress attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the \u{...} notation.</p>
+  <p>Attribute: transform=&quot;no&quot; (optional)</p>
+  <p>The transform attribute is used to define a key that never participates in a transform but its output shows up as part of a transform. This attribute is necessary because two different keys could output the same characters (with different keys or modifier combinations) but only one of them is intended to be a dead-key and participate in a transform. This attribute value must be no if it is present.</p>
+  <p>For example, suppose there are  the following keys, their output and one transform:</p>
   <blockquote>
-    <p class="changed">E00 outputs `</p>
-    <p class="changed">Option+E00 outputs ` (the dead-version which participates in transforms).</p>
-    <p class="changed">`e → è</p>
+    <p>E00 outputs `</p>
+    <p>Option+E00 outputs ` (the dead-version which participates in transforms).</p>
+    <p>`e → è</p>
   </blockquote>
-  <p class="changed">Then  the first key must be tagged with transform=&quot;no&quot; to indicate that it should never participate in a transform.</p>
-  <p class="changed">Comment: US key equivalent, base key, escaped output and escaped longpress</p>
-  <p class="changed">In the generated files, a comment is included to help the readability of the document. This comment simply shows the English key equivalent (with prefix key=), the base character (base=), the escaped output (to=) and escaped long-press keys (long=). These comments have been inserted strategically in places to improve readability. Not all comments include include all components since some of them may be obvious.</p>
-  <p class="changed">Examples</p>
-  <pre class="changed">&lt;keyboard locale=&quot;fr-BE-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers=&quot;shift&quot;&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;A&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;Z&quot; /&gt; &lt;!-- key=W --&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;E&quot; /&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;R&quot; /&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;T&quot; /&gt;<br>		&lt;map iso=&quot;D06&quot; to=&quot;Y&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;ps-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers='altR+caps? ctrl+alt+caps?'&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;\u{200e}&quot; /&gt; &lt;!-- key=R base=ق --&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;\u{200f}&quot; /&gt; &lt;!-- key=T base=ف --&gt;<br>		&lt;map iso=&quot;D08&quot; to=&quot;\u{670}&quot; /&gt; &lt;!-- key=I base=ه to= ٰ --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;</pre>
+  <p>Then  the first key must be tagged with transform=&quot;no&quot; to indicate that it should never participate in a transform.</p>
+  <p>Comment: US key equivalent, base key, escaped output and escaped longpress</p>
+  <p>In the generated files, a comment is included to help the readability of the document. This comment simply shows the English key equivalent (with prefix key=), the base character (base=), the escaped output (to=) and escaped long-press keys (long=). These comments have been inserted strategically in places to improve readability. Not all comments include include all components since some of them may be obvious.</p>
+  <p>Examples</p>
+  <pre>&lt;keyboard locale=&quot;fr-BE-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers=&quot;shift&quot;&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;A&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;Z&quot; /&gt; &lt;!-- key=W --&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;E&quot; /&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;R&quot; /&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;T&quot; /&gt;<br>		&lt;map iso=&quot;D06&quot; to=&quot;Y&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;ps-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers='altR+caps? ctrl+alt+caps?'&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;\u{200e}&quot; /&gt; &lt;!-- key=R base=ق --&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;\u{200f}&quot; /&gt; &lt;!-- key=T base=ف --&gt;<br>		&lt;map iso=&quot;D08&quot; to=&quot;\u{670}&quot; /&gt; &lt;!-- key=I base=ه to= ٰ --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;</pre>
   <hr>
-  <h4 class="changed"><a name="h.t1j84mfa57u"></a>Element: transforms</h4>
-  <p class="changed">This element defines a group of one or more transform elements associated with this keyboard layout. This is used to support dead-keys using a straightforward structure that works for all the keyboards tested, and that results in readable source data.</p>
-  <p class="changed">There can be multiple &lt;transforms&gt; elements; at this point the "simple" one is defined.</p>
-  <p class="changed">Syntax</p>
-  <p class="changed">&lt;transforms type=&quot;...&quot;&gt;</p>
-  <p class="changed">{a set of transform elements}</p>
-  <p class="changed">&lt;/transforms&gt;</p>
-  <p class="changed">Attribute: type (required)</p>
-  <p class="changed">The value is "simple" for the transforms listed below. People have legitimate needs for more complex transforms, and  more sophisticated types of transforms may be added over time. (Doing the more sophisticated transforms would take much more time, since it would require a thorough survey of the major keyboard mechanisms that use them, development of  a unified mechanism that handles all the requirements, and coding to ensure sure programmatically mapping those mechanisms into the standard is possible, and so on.)</p>
-  <h4 class="changed"><a name="h.etpzaqlm92ur"></a>Element: transform</h4>
-  <p class="changed">This element must have the transforms element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is simply a combination of key presses that gets transformed into one (or more) final characters. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".</p>
-  <p class="changed">Syntax</p>
-  <p class="changed">&lt;transform from="{combination of characters}" to="{output}"&gt;</p>
-  <p class="changed">Attribute: from (required)</p>
-  <p class="changed">This is the combination of keys that must be pressed in order to activate this transform. Each character in this series of characters must match a character that is located in some chars attribute in the document.</p>
-  <p class="changed">For example, suppose there are the following transforms:</p>
+  <h4><a name="h.t1j84mfa57u"></a>Element: transforms</h4>
+  <p>This element defines a group of one or more transform elements associated with this keyboard layout. This is used to support dead-keys using a straightforward structure that works for all the keyboards tested, and that results in readable source data.</p>
+  <p>There can be multiple &lt;transforms&gt; elements; at this point the "simple" one is defined.</p>
+  <p>Syntax</p>
+  <p>&lt;transforms type=&quot;...&quot;&gt;</p>
+  <p>{a set of transform elements}</p>
+  <p>&lt;/transforms&gt;</p>
+  <p>Attribute: type (required)</p>
+  <p>The value is "simple" for the transforms listed below. People have legitimate needs for more complex transforms, and  more sophisticated types of transforms may be added over time. (Doing the more sophisticated transforms would take much more time, since it would require a thorough survey of the major keyboard mechanisms that use them, development of  a unified mechanism that handles all the requirements, and coding to ensure sure programmatically mapping those mechanisms into the standard is possible, and so on.)</p>
+  <h4><a name="h.etpzaqlm92ur"></a>Element: transform</h4>
+  <p>This element must have the transforms element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is simply a combination of key presses that gets transformed into one (or more) final characters. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".</p>
+  <p>Syntax</p>
+  <p>&lt;transform from="{combination of characters}" to="{output}"&gt;</p>
+  <p>Attribute: from (required)</p>
+  <p>This is the combination of keys that must be pressed in order to activate this transform. Each character in this series of characters must match a character that is located in some chars attribute in the document.</p>
+  <p>For example, suppose there are the following transforms:</p>
   <blockquote>
-    <p class="changed">^e → ê</p>
-    <p class="changed">^a → â</p>
-    <p class="changed">^o → ô</p>
+    <p>^e → ê</p>
+    <p>^a → â</p>
+    <p>^o → ô</p>
   </blockquote>
-  <p class="changed">If the user types a key that produces "^", the keyboard enters a dead state. When the user then types a key that produces an "e", the transform is invoked, and "ê" is output. Suppose a user presses keys producing "^" then "u". In this case, there is no match for the "^u", and the "^" is output if the failure attribute in the <a class="c21" href="#h.et83jmgvzy0z">transform</a> element is set to emit. If there is no transform starting with "u", then it is also output (again only if failure is set to emit) and the mechanism leaves the "dead" state.</p>
-  <p class="changed">The UI may show an initial sequence of matching characters with a special format, as is done with dead-keys on the Mac, and modify them as the transform completes. This behavior is specified in the partial attribute in the <a class="c21" href="#h.et83jmgvzy0z">transform</a> element.</p>
-  <p class="changed">Most transforms in practice have only a couple of characters. But for completeness,  the behavior is defined on all strings:</p>
+  <p>If the user types a key that produces "^", the keyboard enters a dead state. When the user then types a key that produces an "e", the transform is invoked, and "ê" is output. Suppose a user presses keys producing "^" then "u". In this case, there is no match for the "^u", and the "^" is output if the failure attribute in the <a class="c21" href="#h.et83jmgvzy0z">transform</a> element is set to emit. If there is no transform starting with "u", then it is also output (again only if failure is set to emit) and the mechanism leaves the "dead" state.</p>
+  <p>The UI may show an initial sequence of matching characters with a special format, as is done with dead-keys on the Mac, and modify them as the transform completes. This behavior is specified in the partial attribute in the <a class="c21" href="#h.et83jmgvzy0z">transform</a> element.</p>
+  <p>Most transforms in practice have only a couple of characters. But for completeness,  the behavior is defined on all strings:</p>
   <ol class="c6" start="1">
-    <li class="changed">If there could be a longer match if the user were to type additional keys, go into a 'dead' state.</li>
-    <li class="changed">If there could not be a longer match,  find the longest actual match, emit the transformed text (if failure is set to emit), and start processing again with the remainder.</li>
-    <li class="changed">If there is no possible match, output the first character, and start processing again with the remainder.</li>
+    <li>If there could be a longer match if the user were to type additional keys, go into a 'dead' state.</li>
+    <li>If there could not be a longer match,  find the longest actual match, emit the transformed text (if failure is set to emit), and start processing again with the remainder.</li>
+    <li>If there is no possible match, output the first character, and start processing again with the remainder.</li>
   </ol>
-  <p class="changed">Suppose that there is the following transforms:</p>
+  <p>Suppose that there is the following transforms:</p>
   <blockquote>
-    <p class="changed">ab → x</p>
-    <p class="changed">abc → y</p>
-    <p class="changed">abef → z</p>
-    <p class="changed">bc → m</p>
-    <p class="changed">beq → n</p>
+    <p>ab → x</p>
+    <p>abc → y</p>
+    <p>abef → z</p>
+    <p>bc → m</p>
+    <p>beq → n</p>
   </blockquote>
-  <p class="changed">Here's what happens when the user types various sequence characters:</p>
-  <span class="changed"><a href="#" name="fca62f59bd6384b352d5ba68365328051046819a"></a><a href="#" name="1"></a>
-  </span>
+  <p>Here's what happens when the user types various sequence characters:</p>
+  <a href="#" name="fca62f59bd6384b352d5ba68365328051046819a"></a><a href="#" name="1"></a>
   <table cellpadding="0" cellspacing="0" border='1'>
     <tbody>
       <tr>
-        <td><p class="changed">Input characters</p></td>
-        <td><p class="changed">Result</p></td>
-        <td><p class="changed">Comments</p></td>
+        <td><p>Input characters</p></td>
+        <td><p>Result</p></td>
+        <td><p>Comments</p></td>
       </tr>
       <tr>
-        <td><p class="changed">ab</p></td>
+        <td><p>ab</p></td>
         <td>&nbsp;</td>
-        <td><p class="changed">No output, since there is a longer transform with this as prefix.</p></td>
+        <td><p>No output, since there is a longer transform with this as prefix.</p></td>
       </tr>
       <tr>
-        <td><p class="changed">abc</p></td>
-        <td><p class="changed">y</p></td>
-        <td><p class="changed">Complete transform match.</p></td>
+        <td><p>abc</p></td>
+        <td><p>y</p></td>
+        <td><p>Complete transform match.</p></td>
       </tr>
       <tr>
-        <td><p class="changed">abd</p></td>
-        <td><p class="changed">xd</p></td>
-        <td><p class="changed">The longest match is "ab", so that is converted and output. The 'd' follows, since it is not the start of any transform.</p></td>
+        <td><p>abd</p></td>
+        <td><p>xd</p></td>
+        <td><p>The longest match is "ab", so that is converted and output. The 'd' follows, since it is not the start of any transform.</p></td>
       </tr>
       <tr>
-        <td><p class="changed">abeq</p></td>
-        <td><p class="changed">xeq</p></td>
-        <td><p class="changed">"ab" wins over "beq", since it comes first. That is, there is no longer possible match starting with 'a'.</p></td>
+        <td><p>abeq</p></td>
+        <td><p>xeq</p></td>
+        <td><p>"ab" wins over "beq", since it comes first. That is, there is no longer possible match starting with 'a'.</p></td>
       </tr>
       <tr>
-        <td><p class="changed">bc</p></td>
-        <td><p class="changed">m</p></td>
+        <td><p>bc</p></td>
+        <td><p>m</p></td>
         <td>&nbsp;</td>
       </tr>
     </tbody>
   </table>
-  <p class="changed">Control characters, combining marks and whitespace in this attribute are escaped using the \u{...} notation.</p>
-  <p class="changed">Attribute: to (required)</p>
-  <p class="changed">This attribute represents the characters that are output from the transform. This may be more than one, so you could have &lt;transform from=&quot;´A&quot; to=&quot;Fred&quot;/&gt;</p>
-  <p class="changed">Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the \u{...} notation.</p>
-  <p class="changed">Examples</p>
-  <pre class="changed">&lt;keyboard locale=&quot;fr-CA-t-k0-CSA-osx&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;´e&quot; to=&quot;é&quot; /&gt;<br>		&lt;transform from=&quot;´E&quot; to=&quot;É&quot; /&gt;<br>		&lt;transform from=&quot;´i&quot; to=&quot;í&quot; /&gt;<br>		&lt;transform from=&quot;´I&quot; to=&quot;Í&quot; /&gt;<br>		&lt;transform from=&quot;´o&quot; to=&quot;ó&quot; /&gt;<br>		&lt;transform from=&quot;´O&quot; to=&quot;Ó&quot; /&gt;<br>		&lt;transform from=&quot;´u&quot; to=&quot;ú&quot; /&gt;<br>		&lt;transform from=&quot;´U&quot; to=&quot;Ú&quot; /&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;nl-BE-t-k0-chromeos&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;\u{30c}a&quot; to=&quot;ǎ&quot; /&gt; &lt;!-- ̌a → ǎ --&gt;<br>		&lt;transform from=&quot;\u{30c}A&quot; to=&quot;Ǎ&quot; /&gt; &lt;!-- ̌A → Ǎ --&gt;<br>		&lt;transform from=&quot;\u{30a}a&quot; to=&quot;å&quot; /&gt; &lt;!-- ̊a → å --&gt;<br>		&lt;transform from=&quot;\u{30a}A&quot; to=&quot;Å&quot; /&gt; &lt;!-- ̊A → Å --&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;</pre>
-  <h3 class="changed"><a name="h.ft617f4atxzt"></a>Element Hierarchy - Platform File</h3>
-  <p class="changed">There is a separate XML structure for platform-specific configuration elements. The most notable component is a mapping between the hardware key codes to the ISO layout positions for that platform.</p>
-  <h4 class="changed"><a name="h.hxymazil4tg5"></a>Element: platform</h4>
-  <p class="changed">This is the top level element. This element contains a set of elements defined below. A document shall only contain a single instance of this element.</p>
-  <p class="changed">Syntax</p>
-  <p class="changed">&lt;platform&gt;</p>
-  <p class="changed">{platform-specific elements}</p>
-  <p class="changed">&lt;/platform&gt;</p>
-  <h4 class="changed"><a name="h.4nf3mu1oilzs"></a>Element: hardwareMap</h4>
-  <p class="changed">This element must have a platform element as its parent. This element contains a set of map elements defined below. A document shall only contain a single instance of this element.</p>
-  <p class="changed">Syntax</p>
-  <pre class="changed">&lt;platform&gt;
+  <p>Control characters, combining marks and whitespace in this attribute are escaped using the \u{...} notation.</p>
+  <p>Attribute: to (required)</p>
+  <p>This attribute represents the characters that are output from the transform. This may be more than one, so you could have &lt;transform from=&quot;´A&quot; to=&quot;Fred&quot;/&gt;</p>
+  <p>Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the \u{...} notation.</p>
+  <p>Examples</p>
+  <pre>&lt;keyboard locale=&quot;fr-CA-t-k0-CSA-osx&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;´e&quot; to=&quot;é&quot; /&gt;<br>		&lt;transform from=&quot;´E&quot; to=&quot;É&quot; /&gt;<br>		&lt;transform from=&quot;´i&quot; to=&quot;í&quot; /&gt;<br>		&lt;transform from=&quot;´I&quot; to=&quot;Í&quot; /&gt;<br>		&lt;transform from=&quot;´o&quot; to=&quot;ó&quot; /&gt;<br>		&lt;transform from=&quot;´O&quot; to=&quot;Ó&quot; /&gt;<br>		&lt;transform from=&quot;´u&quot; to=&quot;ú&quot; /&gt;<br>		&lt;transform from=&quot;´U&quot; to=&quot;Ú&quot; /&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;nl-BE-t-k0-chromeos&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;\u{30c}a&quot; to=&quot;ǎ&quot; /&gt; &lt;!-- ̌a → ǎ --&gt;<br>		&lt;transform from=&quot;\u{30c}A&quot; to=&quot;Ǎ&quot; /&gt; &lt;!-- ̌A → Ǎ --&gt;<br>		&lt;transform from=&quot;\u{30a}a&quot; to=&quot;å&quot; /&gt; &lt;!-- ̊a → å --&gt;<br>		&lt;transform from=&quot;\u{30a}A&quot; to=&quot;Å&quot; /&gt; &lt;!-- ̊A → Å --&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;</pre>
+  <h3><a name="h.ft617f4atxzt"></a>Element Hierarchy - Platform File</h3>
+  <p>There is a separate XML structure for platform-specific configuration elements. The most notable component is a mapping between the hardware key codes to the ISO layout positions for that platform.</p>
+  <h4><a name="h.hxymazil4tg5"></a>Element: platform</h4>
+  <p>This is the top level element. This element contains a set of elements defined below. A document shall only contain a single instance of this element.</p>
+  <p>Syntax</p>
+  <p>&lt;platform&gt;</p>
+  <p>{platform-specific elements}</p>
+  <p>&lt;/platform&gt;</p>
+  <h4><a name="h.4nf3mu1oilzs"></a>Element: hardwareMap</h4>
+  <p>This element must have a platform element as its parent. This element contains a set of map elements defined below. A document shall only contain a single instance of this element.</p>
+  <p>Syntax</p>
+  <pre>&lt;platform&gt;
     &lt;hardwareMap&gt;
         {a set of map elements}
     &lt;/hardwareMap&gt;
 &lt;/platform&gt;</pre>
-  <h4 class="changed"><a name="h.fvtmmsj9lpyg"></a>Element: map</h4>
-  <p class="changed">This element must have a hardwareMap element as its parent. This element maps between a hardware keycode and the corresponding ISO layout position of the key.</p>
-  <p class="changed">Syntax</p>
-  <p class="changed">&lt;map keycode=&quot;{hardware keycode}&quot; iso=&quot;{ISO layout position}&quot;/&gt;</p>
-  <p class="changed">Attribute: keycode (required)</p>
-  <p class="changed">The hardware key code value of the key. This value is an integer which is provided by the keyboard driver.</p>
-  <p class="changed">Attribute: iso (required)</p>
-  <p class="changed">The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. (See the definition at the beginning of the document for a diagram).</p>
-  <p class="changed">Examples</p>
-  <pre class="changed">&lt;platform&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;2&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;3&quot; iso=&quot;E02&quot; /&gt;<br>		&lt;map keycode=&quot;4&quot; iso=&quot;E03&quot; /&gt;<br>		&lt;map keycode=&quot;5&quot; iso=&quot;E04&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;E05&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;E06&quot; /&gt;<br>		&lt;map keycode=&quot;41&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
-  <h3 class="changed"><a name="h.qaxsi4r9pqlb"></a>Invariants</h3>
-  <p class="changed">Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.</p>
+  <h4><a name="h.fvtmmsj9lpyg"></a>Element: map</h4>
+  <p>This element must have a hardwareMap element as its parent. This element maps between a hardware keycode and the corresponding ISO layout position of the key.</p>
+  <p>Syntax</p>
+  <p>&lt;map keycode=&quot;{hardware keycode}&quot; iso=&quot;{ISO layout position}&quot;/&gt;</p>
+  <p>Attribute: keycode (required)</p>
+  <p>The hardware key code value of the key. This value is an integer which is provided by the keyboard driver.</p>
+  <p>Attribute: iso (required)</p>
+  <p>The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. (See the definition at the beginning of the document for a diagram).</p>
+  <p>Examples</p>
+  <pre>&lt;platform&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;2&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;3&quot; iso=&quot;E02&quot; /&gt;<br>		&lt;map keycode=&quot;4&quot; iso=&quot;E03&quot; /&gt;<br>		&lt;map keycode=&quot;5&quot; iso=&quot;E04&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;E05&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;E06&quot; /&gt;<br>		&lt;map keycode=&quot;41&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
+  <h3><a name="h.qaxsi4r9pqlb"></a>Invariants</h3>
+  <p>Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.</p>
   <ol>
-    <li class="changed">For a given platform, every map[@iso] value must be in the hardwareMap if there is one (_keycodes.xml)</li>
-    <li class="changed">Every map[@base] value must also be in base[@base] value</li>
-    <li class="changed">No keyMap[@modifiers] value can overlap with another keyMap[@modifiers] value.
+    <li>For a given platform, every map[@iso] value must be in the hardwareMap if there is one (_keycodes.xml)</li>
+    <li>Every map[@base] value must also be in base[@base] value</li>
+    <li>No keyMap[@modifiers] value can overlap with another keyMap[@modifiers] value.
     <ul>
       <li>eg you can't have "RAlt Ctrl" in one keyMap, and "Alt Shift" in another (because Alt = RAltLAlt).</li>
     </ul></li>
-    <li class="changed">Every sequence of characters in a transform[@from] value must be a concatenation of two or more map[@to] values.
+    <li>Every sequence of characters in a transform[@from] value must be a concatenation of two or more map[@to] values.
       <ul>
         <li>eg with &lt;transform from="xyz" to="q"&gt; there must be some map values to get there, such as &lt;map... to="xy"&gt; &amp; &lt;map... to="z"&gt;</li>
       </ul></li>
-    <li class="changed">There must be either 0 or 1 of (keyMap[@fallback] or baseMap[@fallback]) attributes</li>
-    <li class="changed">If the base and chars values for modifiers="" are all identical, and there are no longpresses, that keyMap must not appear (??) </li>
-    <li class="changed">There will never be overlaps among modifier values.</li>
-    <li class="changed">A modifier set will never have ? (optional) on all values
+    <li>There must be either 0 or 1 of (keyMap[@fallback] or baseMap[@fallback]) attributes</li>
+    <li>If the base and chars values for modifiers="" are all identical, and there are no longpresses, that keyMap must not appear (??) </li>
+    <li>There will never be overlaps among modifier values.</li>
+    <li>A modifier set will never have ? (optional) on all values
     <ul>
       <li>eg, you'll never have RCtrl?Caps?LShift?</li>
     </ul></li>
-    <li class="changed">Every base[@base] value must be unique.</li>
-    <li class="changed">A modifier attribute value will aways be minimal, observing the following simplification rules. <br>
+    <li>Every base[@base] value must be unique.</li>
+    <li>A modifier attribute value will aways be minimal, observing the following simplification rules. <br>
     </li>
   </ol>
-  <span class="changed"><a href="#" name="36921d3c5b4df192519d285c6885f00f05f229b1"></a><a href="#" name="2"></a>
-  </span>
+  <a href="#" name="36921d3c5b4df192519d285c6885f00f05f229b1"></a><a href="#" name="2"></a>
   <table cellpadding="0" cellspacing="0" border='1'>
     <tbody>
       <tr>
-        <td><p class="changed">Notation</p></td>
-        <td><p class="changed">Notes</p></td>
+        <td><p>Notation</p></td>
+        <td><p>Notes</p></td>
       </tr>
       <tr>
-        <td><p class="changed">Lower case character (eg. <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=x" alt=""> )</p></td>
-        <td><p class="changed">Interpreted as any combination of modifiers.<br>
+        <td><p>Lower case character (eg. <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=x" alt=""> )</p></td>
+        <td><p>Interpreted as any combination of modifiers.<br>
           (eg. <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=x" alt=""> = CtrlShiftOption)</p></td>
       </tr>
       <tr>
-        <td><p class="changed">Upper-case character (eg. <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=Y" alt="">)</p></td>
-        <td><p class="changed">Interpreted as a single modifier key (which may or may not have a L and R variant)<br>
+        <td><p>Upper-case character (eg. <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=Y" alt="">)</p></td>
+        <td><p>Interpreted as a single modifier key (which may or may not have a L and R variant)<br>
           (eg. <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=Y" alt=""> = Ctrl, <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=RY" alt=""> = RCtrl, etc..)</p></td>
       </tr>
       <tr>
-        <td><p class="changed">Y? ⇔ Y ∨ ∅</p>
-        <p class="changed">Y ⇔ LY ∨ RY ∨ LYRY</p></td>
-        <td><p class="changed">Eg. Opt? ⇔ ROpt ∨ LOpt ∨ ROptLOpt <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=%5Cvee%7B%7D" alt=""> ∅<br>
+        <td><p>Y? ⇔ Y ∨ ∅</p>
+        <p>Y ⇔ LY ∨ RY ∨ LYRY</p></td>
+        <td><p>Eg. Opt? ⇔ ROpt ∨ LOpt ∨ ROptLOpt <img src="https://www.google.com/chart?cht=tx&amp;chf=bg,s,FFFFFF00&amp;chco=000000&amp;chl=%5Cvee%7B%7D" alt=""> ∅<br>
           Eg. Opt ⇔ ROpt ∨ LOpt ∨ ROptLOpt</p></td>
       </tr>
     </tbody>
   </table>
-  <span class="changed"><a href="#" name="f787c344c7e71f3dd42182389f165423444fc82e"></a><a href="#" name="3"></a>
-  </span>
+  <a href="#" name="f787c344c7e71f3dd42182389f165423444fc82e"></a><a href="#" name="3"></a>
   <table cellpadding="0" cellspacing="0" border='1'>
     <tbody>
       <tr>
-        <td><p class="changed">Axiom</p></td>
-        <td><p class="changed">Example</p></td>
+        <td><p>Axiom</p></td>
+        <td><p>Example</p></td>
       </tr>
       <tr>
-        <td><p class="changed">xY ∨ x ⇒ xY?</p></td>
-        <td><p class="changed">OptCtrlShift OptCtrl     →     OptCtrlShift?</p></td>
+        <td><p>xY ∨ x ⇒ xY?</p></td>
+        <td><p>OptCtrlShift OptCtrl     →     OptCtrlShift?</p></td>
       </tr>
       <tr>
-        <td><p class="changed">xRY ∨ xY? ⇒ xY?</p>
-          <p class="changed">xLY ∨ xY? ⇒ xY?</p></td>
-        <td><p class="changed">OptCtrlRShift   OptCtrlShift?   →   OptCtrlShift?</p></td>
+        <td><p>xRY ∨ xY? ⇒ xY?</p>
+          <p>xLY ∨ xY? ⇒ xY?</p></td>
+        <td><p>OptCtrlRShift   OptCtrlShift?   →   OptCtrlShift?</p></td>
       </tr>
       <tr>
-        <td><p class="changed">xRY? ∨ xY ⇒ xY?</p>
-        <p class="changed">xLY? ∨ xY ⇒ xY?</p></td>
-        <td><p class="changed">OptCtrlRShift?   OptCtrlShift   →   OptCtrlShift?</p></td>
+        <td><p>xRY? ∨ xY ⇒ xY?</p>
+        <p>xLY? ∨ xY ⇒ xY?</p></td>
+        <td><p>OptCtrlRShift?   OptCtrlShift   →   OptCtrlShift?</p></td>
       </tr>
       <tr>
-        <td><p class="changed">xRY? ∨ xY? ⇒ xY?</p>
-        <p class="changed">xLY? ∨ xY? ⇒ xY?</p></td>
-        <td><p class="changed">OptCtrlRShift?   OptCtrlShift?   →   OptCtrlShift?</p></td>
+        <td><p>xRY? ∨ xY? ⇒ xY?</p>
+        <p>xLY? ∨ xY? ⇒ xY?</p></td>
+        <td><p>OptCtrlRShift?   OptCtrlShift?   →   OptCtrlShift?</p></td>
       </tr>
       <tr>
-        <td><p class="changed">xRY ∨ xY ⇒ xY</p>
-        <p class="changed">xLY ∨ xY ⇒ xY</p></td>
-        <td><p class="changed">OptCtrlRShift     OptCtrlShift    →   OptCtrlShift?</p></td>
+        <td><p>xRY ∨ xY ⇒ xY</p>
+        <p>xLY ∨ xY ⇒ xY</p></td>
+        <td><p>OptCtrlRShift     OptCtrlShift    →   OptCtrlShift?</p></td>
       </tr>
       <tr>
-        <td><p class="changed">LY?RY?</p></td>
-        <td><p class="changed">OptRCtrl?LCtrl?   →   OptCtrl?</p></td>
+        <td><p>LY?RY?</p></td>
+        <td><p>OptRCtrl?LCtrl?   →   OptCtrl?</p></td>
       </tr>
       <tr>
-        <td><p class="changed">xLY? ⋁ xLY ⇒ xLY?</p></td>
+        <td><p>xLY? ⋁ xLY ⇒ xLY?</p></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td><p class="changed">xY? ⋁ xY ⇒ xY?</p></td>
+        <td><p>xY? ⋁ xY ⇒ xY?</p></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td><p class="changed">xY? ⋁ x ⇒ xY?</p></td>
+        <td><p>xY? ⋁ x ⇒ xY?</p></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td><p class="changed">xLY? ⋁ x ⇒ xLY?</p></td>
+        <td><p>xLY? ⋁ x ⇒ xLY?</p></td>
         <td>&nbsp;</td>
       </tr>
       <tr>
-        <td><p class="changed">xLY ⋁ x ⇒ xLY?</p></td>
+        <td><p>xLY ⋁ x ⇒ xLY?</p></td>
         <td>&nbsp;</td>
       </tr>
     </tbody>
   </table>
-  <h3 class="changed"><a name="h.h73yo68ng3yt"></a>Data Sources</h3>
-  <p class="changed">Here is a list of the data sources used to generate the initial key map layouts:</p>
-  <span class="changed"><a href="#" name="1b7579681ad9ba663dabddf150c38f7b134abd87"></a><a href="#" name="4"></a>
-  </span>
+  <h3><a name="h.h73yo68ng3yt"></a>Data Sources</h3>
+  <p>Here is a list of the data sources used to generate the initial key map layouts:</p>
+  <a href="#" name="1b7579681ad9ba663dabddf150c38f7b134abd87"></a><a href="#" name="4"></a>
   <table cellpadding="0" cellspacing="0" border='1'>
     <tbody>
       <tr>
-        <td><p class="changed">Platform</p></td>
-        <td><p class="changed">Source</p></td>
-        <td><p class="changed">Notes</p></td>
+        <td><p>Platform</p></td>
+        <td><p>Source</p></td>
+        <td><p>Notes</p></td>
       </tr>
       <tr>
-        <td><p class="changed">Android</p></td>
-        <td><p class="changed">Android 4.0 - Ice Cream Sandwich<br>
+        <td><p>Android</p></td>
+        <td><p>Android 4.0 - Ice Cream Sandwich<br>
           (<a class="c21" href="http://source.android.com/source/downloading.html">http://source.android.com/source/downloading.html</a>)</p></td>
-        <td><p class="changed">Parsed layout files located in packages/inputmethods/LatinIME/java/res</p></td>
+        <td><p>Parsed layout files located in packages/inputmethods/LatinIME/java/res</p></td>
       </tr>
       <tr>
-        <td><p class="changed">ChromeOS</p></td>
-        <td><p class="changed">XKB (<a class="c21" href="http://www.x.org/wiki/XKB">http://www.x.org/wiki/XKB</a>)</p></td>
-        <td><p class="changed">The ChromeOS represents a very small subset of the keyboards available from XKB.</p></td>
+        <td><p>ChromeOS</p></td>
+        <td><p>XKB (<a class="c21" href="http://www.x.org/wiki/XKB">http://www.x.org/wiki/XKB</a>)</p></td>
+        <td><p>The ChromeOS represents a very small subset of the keyboards available from XKB.</p></td>
       </tr>
       <tr>
-        <td><p class="changed">Mac OSX</p></td>
-        <td><p class="changed">Ukelele bundled System Keyboards (<a class="c21" href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=ukelele">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=ukelele</a>)</p></td>
-        <td><p class="changed">These layouts date from Mac OSX 10.4 and are therefore a bit outdated</p></td>
+        <td><p>Mac OSX</p></td>
+        <td><p>Ukelele bundled System Keyboards (<a class="c21" href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=ukelele">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=ukelele</a>)</p></td>
+        <td><p>These layouts date from Mac OSX 10.4 and are therefore a bit outdated</p></td>
       </tr>
       <tr>
-        <td><p class="changed">Windows</p></td>
-        <td><p class="changed">Generated .klc files from the Microsoft Keyboard Layout Creator (<a class="c21" href="http://msdn.microsoft.com/en-us/goglobal/bb964665">http://msdn.microsoft.com/en-us/goglobal/bb964665</a>)</p></td>
-        <td><p class="changed">For interactive layouts, see also <a class="c21" href="http://msdn.microsoft.com/en-us/goglobal/bb964651">http://msdn.microsoft.com/en-us/goglobal/bb964651</a> </p></td>
+        <td><p>Windows</p></td>
+        <td><p>Generated .klc files from the Microsoft Keyboard Layout Creator (<a class="c21" href="http://msdn.microsoft.com/en-us/goglobal/bb964665">http://msdn.microsoft.com/en-us/goglobal/bb964665</a>)</p></td>
+        <td><p>For interactive layouts, see also <a class="c21" href="http://msdn.microsoft.com/en-us/goglobal/bb964651">http://msdn.microsoft.com/en-us/goglobal/bb964651</a> </p></td>
       </tr>
     </tbody>
   </table>
-  <h3 class="changed"><a name="h.faibksj0e0th"></a>Keyboard IDs</h3>
-  <p class="changed">There is a set of subtags that help identify the keyboards. Each of these are used after the "t-k0" subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.</p>
-  <h4 class="changed"><a name="h.u4u5q8l84oue"></a>Principles for Keyboard Ids</h4>
-  <p class="changed">The following are the design principles for the ids.</p>
+  <h3><a name="h.faibksj0e0th"></a>Keyboard IDs</h3>
+  <p>There is a set of subtags that help identify the keyboards. Each of these are used after the "t-k0" subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.</p>
+  <h4><a name="h.u4u5q8l84oue"></a>Principles for Keyboard Ids</h4>
+  <p>The following are the design principles for the ids.</p>
   <ol>
-    <li><span class="changed">BCP47 compliant.
-      </span>
+    <li>BCP47 compliant.
       <ol>
-        <li class="changed">Eg, "en-t-k0-extended".</li>
+        <li>Eg, "en-t-k0-extended".</li>
       </ol>
     </li>
-    <li><span class="changed">Use the minimal language id based on likelySubtags.
-      </span>
+    <li>Use the minimal language id based on likelySubtags.
       <ol>
-        <li class="changed">Eg, instead of en-US-t-k0-xxx, use en-t-k0-xxx. Because there is  &lt;likelySubtag from=&quot;en&quot; to=&quot;en_Latn_US&quot;/&gt;, en-US → en.</li>
-        <li class="changed">The data is in <a class="c21" href="http://unicode.org/repos/cldr/trunk/common/supplemental/likelySubtags.xml">http://unicode.org/repos/cldr/trunk/common/supplemental/likelySubtags.xml</a></li>
+        <li>Eg, instead of en-US-t-k0-xxx, use en-t-k0-xxx. Because there is  &lt;likelySubtag from=&quot;en&quot; to=&quot;en_Latn_US&quot;/&gt;, en-US → en.</li>
+        <li>The data is in <a class="c21" href="http://unicode.org/repos/cldr/trunk/common/supplemental/likelySubtags.xml">http://unicode.org/repos/cldr/trunk/common/supplemental/likelySubtags.xml</a></li>
       </ol>
     </li>
-    <li class="changed">The platform goes first, if it exists. If a keyboard on the platform changes over time, both are dated, eg bg-t-k0-chromeos-2011. When selecting, if there is no date, it means the latest one.</li>
-    <li class="changed">Keyboards are only tagged that differ from the "standard for each platform". That is, for each language on a platform, there will be a keyboard with no subtags other than the platform.Subtags with a common semantics across platforms are used, such as '-extended', -phonetic, -qwerty, -qwertz, -azerty, … </li>
-    <li class="changed">In order to get to 8 letters,  abbreviations are reused that are already in <a class="c21" href="http://unicode.org/repos/cldr/trunk/common/bcp47/">bcp47</a> -u/-t extensions and in <a class="c21" href="http://www.iana.org/assignments/language-subtag-registry">language-subtag-registry</a> variants, eg for Traditional use "-trad" or "-traditio" (both exist in <a class="c21" href="http://unicode.org/repos/cldr/trunk/common/bcp47/">bcp47</a>).</li>
-    <li><span class="changed">Multiple languages cannot be indicated, so  the predominant target is used.
-      </span>
+    <li>The platform goes first, if it exists. If a keyboard on the platform changes over time, both are dated, eg bg-t-k0-chromeos-2011. When selecting, if there is no date, it means the latest one.</li>
+    <li>Keyboards are only tagged that differ from the "standard for each platform". That is, for each language on a platform, there will be a keyboard with no subtags other than the platform.Subtags with a common semantics across platforms are used, such as '-extended', -phonetic, -qwerty, -qwertz, -azerty, … </li>
+    <li>In order to get to 8 letters,  abbreviations are reused that are already in <a class="c21" href="http://unicode.org/repos/cldr/trunk/common/bcp47/">bcp47</a> -u/-t extensions and in <a class="c21" href="http://www.iana.org/assignments/language-subtag-registry">language-subtag-registry</a> variants, eg for Traditional use "-trad" or "-traditio" (both exist in <a class="c21" href="http://unicode.org/repos/cldr/trunk/common/bcp47/">bcp47</a>).</li>
+    <li>Multiple languages cannot be indicated, so  the predominant target is used.
       <ol>
-        <li class="changed">For Finnish + Sami, use fi-t-k0-smi or extended-smi</li>
+        <li>For Finnish + Sami, use fi-t-k0-smi or extended-smi</li>
       </ol>
     </li>
-    <li class="changed">In some cases, there are multiple subtags, like en-US-t-k0-chromeos-intl-altgr.xml</li>
-    <li class="changed">Otherwise, platform names are used as a guide.</li>
+    <li>In some cases, there are multiple subtags, like en-US-t-k0-chromeos-intl-altgr.xml</li>
+    <li>Otherwise, platform names are used as a guide.</li>
   </ol>
-  <h3 class="changed"><a name="h.kin1zbr7jheu"></a>Platform Behaviors in Edge Cases</h3>
-  <span class="changed"><a href="#" name="62090d7c911e9a41563a4bcb776cec50b2ff9e1a"></a><a href="#" name="5"></a>
-  </span>
+  <h3><a name="h.kin1zbr7jheu"></a>Platform Behaviors in Edge Cases</h3>
+  <a href="#" name="62090d7c911e9a41563a4bcb776cec50b2ff9e1a"></a><a href="#" name="5"></a>
   <table cellpadding="0" cellspacing="0" border="1">
     <tbody>
       <tr>
-        <td><p class="changed">Platform</p></td>
-        <td><p class="changed">No modifier combination match is available</p></td>
-        <td><p class="changed">No map match is available for key position</p></td>
-        <td><p class="changed">Transform fails (ie. if ^d is pressed when that transform does not exist)</p></td>
+        <td><p>Platform</p></td>
+        <td><p>No modifier combination match is available</p></td>
+        <td><p>No map match is available for key position</p></td>
+        <td><p>Transform fails (ie. if ^d is pressed when that transform does not exist)</p></td>
       </tr>
       <tr>
-        <td><p class="changed">ChromeOS</p></td>
-        <td><p class="changed">Fall back to base</p></td>
-        <td><p class="changed">Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation side).<br>
+        <td><p>ChromeOS</p></td>
+        <td><p>Fall back to base</p></td>
+        <td><p>Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation side).<br>
           In the spec: No output</p></td>
-        <td><p class="changed">No output at all</p></td>
+        <td><p>No output at all</p></td>
       </tr>
       <tr>
-        <td><p class="changed">Mac OSX</p></td>
-        <td><p class="changed">Fall back to base (unless combination is some sort of keyboard shortcut, eg. cmd-c)</p></td>
-        <td><p class="changed">No output</p></td>
-        <td><p class="changed">Both keys are output separately</p></td>
+        <td><p>Mac OSX</p></td>
+        <td><p>Fall back to base (unless combination is some sort of keyboard shortcut, eg. cmd-c)</p></td>
+        <td><p>No output</p></td>
+        <td><p>Both keys are output separately</p></td>
       </tr>
       <tr>
-        <td><p class="changed">Windows</p></td>
-        <td><p class="changed">No output</p></td>
-        <td><p class="changed">No output</p></td>
-        <td><p class="changed">Both keys are output separately</p></td>
+        <td><p>Windows</p></td>
+        <td><p>No output</p></td>
+        <td><p>No output</p></td>
+        <td><p>Both keys are output separately</p></td>
       </tr>
     </tbody>
   </table>
-  <span class="changed">
-  </span>
 <p>&nbsp;</p>
 <hr>
 	<h2><a name="References">References</a></h2>
@@ -9807,10 +9793,10 @@ decimal?, group?, special*)) &gt;</pre>
 		<tr>
 			<td class="noborder" width="148">[<a name="Olson">Olson</a>]</td>
 			<td class="noborder" width="730">The <i>TZ</i>ID Database (aka Olson timezone database)<br>
-			  <span class="changed">Time zone and daylight savings information.<br>
+			  Time zone and daylight savings information.<br>
 			  <a href="ftp://www.iana.org/time-zones">ftp://www.iana.org/time-zones</a><br>
 			For archived data, see <br>
-			<a href="ftp://ftp.iana.org/tz/releases/">ftp://ftp.iana.org/tz/releases/</a></span></td>
+			<a href="ftp://ftp.iana.org/tz/releases/">ftp://ftp.iana.org/tz/releases/</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="Reports">Reports</a>]</td>
@@ -10042,7 +10028,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>David Bertoni for his contributions to the conversion tools.</li>
 		<li>Mike Tardif for reviewing this specification and for coordinating and vetting data submissions.</li>
 		<li>Peter Edberg for work on this specification, telephone code data, plurals, monthPatterns and cyclicNameSets.</li>
-		<li class="changed"><span class="c1 c16">Raymond Wainman</span> and Cibu Johny
+		<li><span class="c1 c16">Raymond Wainman</span> and Cibu Johny
           for their work on keyboards.
 		</li>
 	</ul>
@@ -10052,30 +10038,30 @@ decimal?, group?, special*)) &gt;</pre>
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
 	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>
 
-  <h3 class="changed">Revision 26</h3>
+  <h3>Revision 26</h3>
   <ul>
-    <li class="changed">Proposed update for Version 22.</li>
-	<li class="changed">Added new section <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</li>
-    <li class="changed">Modified the table in <em>Section 5.14.3, <a href="#Setting_Options">Setting Options</a></em> to include information from UCA, and to add clarifications.</li>
-    <li class="changed">Added 6-letter patterns for short weekday names to the <em><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></em>.
+    <li>Proposed update for Version 22.</li>
+	<li>Added new section <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</li>
+    <li>Modified the table in <em>Section 5.14.3, <a href="#Setting_Options">Setting Options</a></em> to include information from UCA, and to add clarifications.</li>
+    <li>Added 6-letter patterns for short weekday names to the <em><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></em>.
     [ticket <a href="http://unicode.org/cldr/trac/ticket/4571">#4571</a>]</li>
-    <li class="changed">Updated deprecated status. [ticket <a href="http://unicode.org/cldr/trac/ticket/5229">#5229</a>]</li>
-    <li class="changed">In <em>Section 5.9.1, <a href="#Calendar_Elements">Calendar Elements</a>,</em> under
+    <li>Updated deprecated status. [ticket <a href="http://unicode.org/cldr/trac/ticket/5229">#5229</a>]</li>
+    <li>In <em>Section 5.9.1, <a href="#Calendar_Elements">Calendar Elements</a>,</em> under
     <b><a href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></b>,
     mentioned the new day width <i>short</i> and the new &lt;monthPattern&gt; context <i>numeric</i> and width <i>all.</i>
     [ticket <a href="http://unicode.org/cldr/trac/ticket/5268">#5268</a>]</li>
-    <li class="changed">Fixed last example in table <b>Specifying Collation Ordering</b>. [ticket <a href="http://unicode.org/cldr/trac/ticket/3108">#3108</a>]</li>
-    <li class="changed">Added descriptions of coverageVariable in Appendix M. [ticket <a href="http://unicode.org/cldr/trac/ticket/5269">#5269</a>]</li>
-    <li class="changed">Documented the attribute value status=&quot;grouping&quot; in Appendix C.2. [ticket <a href="http://unicode.org/cldr/trac/ticket/5270">#5270</a>]</li>
-    <li class="changed">Added Appendix R, for property data.</li>
-    <li class="changed">Added Appendix S, for Keyboards.</li>
-    <li class="changed">Updated reference to [Olson]</li>
-    <li class="changed">Added clarification for removal of deprecated codes to Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>.</li>
-    <li class="changed">Disallowed isolated &quot;n&quot; in plural rules in C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>. Reworded some of the syntax notes for clarity.</li>
-    <li class="changed">Moved collation Key/Type information to <em>Section 5.14.3 <a href="http://unicode.org/reports/tr35/#Setting_Options">Setting Options</a></em>.</li>
-    <li class="changed">Clarified that the BCP47 key/value identifiers are the canonical (and preferred) identifiers.</li>
-    <li class="changed">Added <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a></em>.</li>
-    <li class="changed">Added description of deprecated="true" in Appendix Q.</li>
+    <li>Fixed last example in table <b>Specifying Collation Ordering</b>. [ticket <a href="http://unicode.org/cldr/trac/ticket/3108">#3108</a>]</li>
+    <li>Added descriptions of coverageVariable in Appendix M. [ticket <a href="http://unicode.org/cldr/trac/ticket/5269">#5269</a>]</li>
+    <li>Documented the attribute value status=&quot;grouping&quot; in Appendix C.2. [ticket <a href="http://unicode.org/cldr/trac/ticket/5270">#5270</a>]</li>
+    <li>Added Appendix R, for property data.</li>
+    <li>Added Appendix S, for Keyboards.</li>
+    <li>Updated reference to [Olson]</li>
+    <li>Added clarification for removal of deprecated codes to Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>.</li>
+    <li>Disallowed isolated &quot;n&quot; in plural rules in C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>. Reworded some of the syntax notes for clarity.</li>
+    <li>Moved collation Key/Type information to <em>Section 5.14.3 <a href="http://unicode.org/reports/tr35/#Setting_Options">Setting Options</a></em>.</li>
+    <li>Clarified that the BCP47 key/value identifiers are the canonical (and preferred) identifiers.</li>
+    <li>Added <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a></em>.</li>
+    <li>Added description of deprecated="true" in Appendix Q.</li>
   </ul>
 <h3>Revision 25</h3>
 	<ul>

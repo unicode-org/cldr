@@ -864,7 +864,7 @@ public class OutputFileManager {
         	Timestamp theDate = null;
             if(haveVbv||DBUtils.hasTable(conn,STFactory.CLDR_VBV)) {
                 if(haveVbv==false) {
-                    SurveyLog.debug("OutputFileManager: have "+STFactory.CLDR_VBV+", commencing  output file updates ( use CLDR_NOOUTPUT=true in cldr.properties to suppress )");
+                    SurveyLog.debug("OutputFileManager: have "+STFactory.CLDR_VBV+", commencing  output file updates ( use CLDR_NOOUTPUT=true in cldr.properties to suppress  -  CLDR_NOOUTPUT current value = " + CldrUtility.getProperty("CLDR_NOOUTPUT",false));
                 }
                 haveVbv=true;
             	Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from cldr_votevalue where locale=?", loc);
@@ -941,6 +941,8 @@ public class OutputFileManager {
             return true;
         }
         void addUpdateTasks() {
+            if(CldrUtility.getProperty("CLDR_NOOUTPUT", false)) return;
+            
             System.err.println("addPeriodicTask... updater");
             final ScheduledFuture<?> myTask = SurveyMain.addPeriodicTask(new Runnable()
             {

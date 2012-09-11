@@ -9233,7 +9233,8 @@ decimal?, group?, special*)) &gt;</pre>
   <p>{definition of the layout as described by the elements defined below}</p>
   <p>&lt;/keyboard&gt;</p>
   <p>Attribute: locale (required)</p>
-  <p>This mandatory attribute represents the locale of the keyboard using Unicode locale identifiers (see <a class="c21" href="http://unicode.org/reports/tr35/">LDML</a>) - for example &#39;el&#39; for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: 'und-Deva'. For details, see <a class="c21" href="#h.hhnadq5b972d">Appendix B: Keyboard IDs</a>.</p>
+  <p>This mandatory attribute represents the locale of the keyboard using Unicode locale identifiers (see <a class="c21" href="http://unicode.org/reports/tr35/">LDML</a>) - for example &#39;el&#39; for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: 'und-Deva'. For details, see <a class="c21" href="#h.faibksj0e0th">Keyboard IDs</a>
+.</p>
   <p>Examples (for illustrative purposes only, not indicative of the real data)</p>
   <pre>&lt;keyboard locale=&quot;ka-t-k0-qwerty-windows&quot;&gt;
   …
@@ -9458,8 +9459,8 @@ decimal?, group?, special*)) &gt;</pre>
     <p>^a → â</p>
     <p>^o → ô</p>
   </blockquote>
-  <p>If the user types a key that produces "^", the keyboard enters a dead state. When the user then types a key that produces an "e", the transform is invoked, and "ê" is output. Suppose a user presses keys producing "^" then "u". In this case, there is no match for the "^u", and the "^" is output if the failure attribute in the <a class="c21" href="#h.et83jmgvzy0z">transform</a> element is set to emit. If there is no transform starting with "u", then it is also output (again only if failure is set to emit) and the mechanism leaves the "dead" state.</p>
-  <p>The UI may show an initial sequence of matching characters with a special format, as is done with dead-keys on the Mac, and modify them as the transform completes. This behavior is specified in the partial attribute in the <a class="c21" href="#h.et83jmgvzy0z">transform</a> element.</p>
+  <p>If the user types a key that produces "^", the keyboard enters a dead state. When the user then types a key that produces an "e", the transform is invoked, and "ê" is output. Suppose a user presses keys producing "^" then "u". In this case, there is no match for the "^u", and the "^" is output if the failure attribute in the transform element is set to emit. If there is no transform starting with "u", then it is also output (again only if failure is set to emit) and the mechanism leaves the "dead" state.</p>
+  <p>The UI may show an initial sequence of matching characters with a special format, as is done with dead-keys on the Mac, and modify them as the transform completes. This behavior is specified in the partial attribute in the transform element.</p>
   <p>Most transforms in practice have only a couple of characters. But for completeness,  the behavior is defined on all strings:</p>
   <ol class="c6" start="1">
     <li>If there could be a longer match if the user were to type additional keys, go into a 'dead' state.</li>

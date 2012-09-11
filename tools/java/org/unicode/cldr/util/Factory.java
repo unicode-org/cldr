@@ -9,13 +9,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
 /**
    * A factory is the normal method to produce a set of CLDRFiles from a directory of XML files.
    * See SimpleFactory for a concrete subclass.
    */
-  public abstract class Factory {
+  public abstract class Factory implements SublocaleProvider {
 
     private File supplementalDirectory = null;
 
@@ -238,4 +239,37 @@ import org.unicode.cldr.util.XMLSource.ResolvingSource;
         return Factory.make(getSupplementalDirectory().getPath(), ".*").make("supplementalMetadata", false);
       }
     }
+
+    /**
+     * These factory implementations don't do any caching.
+     */
+    public Set<CLDRLocale> subLocalesOf(CLDRLocale forLocale) {
+        return calculateSubLocalesOf(forLocale, getAvailableCLDRLocales());
+    }
+
+    /**
+     * Helper function.
+     * @return
+     */
+    public Set<CLDRLocale> getAvailableCLDRLocales() {
+        return CLDRLocale.getInstance(getAvailable());
+    }
+    /**
+     * Helper function. Does not cache.
+     * @param locale
+     * @param available
+     * @return
+     */
+    public Set<CLDRLocale> calculateSubLocalesOf(CLDRLocale locale, Set<CLDRLocale> available) {
+        Set<CLDRLocale> sub = new TreeSet<CLDRLocale>();
+        for(CLDRLocale l : available) {
+            if(l.getParent() == locale) {
+                sub.add(l);
+            }
+        }
+        return sub;
+    }
+
+
+
   }

@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -24,6 +23,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
@@ -38,6 +38,7 @@ import com.ibm.icu.dev.test.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 
 public class GenerateItemCounts {
     private static final boolean SKIP_ORDERING = true;
@@ -45,21 +46,21 @@ public class GenerateItemCounts {
     private Map<String,List<StackTraceElement>> cantRead = new TreeMap<String,List<StackTraceElement>>();
 
     private static String[] DIRECTORIES = {
-        // MUST be in reverse order
-        "cldr-archive/cldr-22.0",
+        // MUST be oldest first!
         "cldr-archive/cldr-21.0",
+        "cldr-archive/cldr-22.0",
     };
 
     static boolean doChanges = true;
     static Relation<String,String> path2value = new Relation(new TreeMap<String,String>(), TreeSet.class);
-
+    static final AttributeTypes ATTRIBUTE_TYPES = new AttributeTypes();
 
     final static Options myOptions = new Options();
     enum MyOptions {
-        directory(".*", ".*", "directory/file matcher: does a find in the name, which is of the form dir/file"),
         summary(null, null, "if present, summarizes data already collected. Run once with, once without."),
-        verbose(null, null, "debugging messages"),
-        rawfilter(".*", ".*", "filter the raw files"),
+        directory(".*", ".*", "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
+        verbose(null, null, "verbose debugging messages"),
+        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"),
         ;
         // boilerplate
         final Option option;
@@ -108,6 +109,7 @@ public class GenerateItemCounts {
                 summary.close();
                 changes.close();
             }
+            ATTRIBUTE_TYPES.showStarred();
         } finally {
             if (main.cantRead.size() != 0) {
                 System.out.println("Couldn't read:\t");
@@ -118,6 +120,51 @@ public class GenerateItemCounts {
             System.out.println("DONE");
         }
     }
+
+    static class AttributeTypes {
+        Relation<String,String> elementPathToAttributes = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        final PathStarrer PATH_STARRER = new PathStarrer().setSubstitutionPattern("*");
+        final Set<String> STARRED_PATHS = new TreeSet<String>();
+        XPathParts parts = new XPathParts();
+        StringBuilder elementPath = new StringBuilder();
+
+        public void add(String path) {
+            parts.set(path);
+            elementPath.setLength(0);
+            DtdType type = CLDRFile.DtdType.valueOf(parts.getElement(0));
+            for (int i = 0; i < parts.size(); ++i) {
+                String element = parts.getElement(i);
+                elementPath.append('/').append(element);
+                elementPathToAttributes.putAll(elementPath.toString().intern(), parts.getAttributeKeys(i));
+            }
+        }
+
+        public void showStarred() throws IOException {
+            PrintWriter starred = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "starred" + ".txt");
+
+            for (Entry<String, Set<String>> entry : elementPathToAttributes.keyValuesSet()) {
+                Set<String> attributes = entry.getValue();
+                if (attributes.size() == 0) {
+                    continue;
+                }
+                String path = entry.getKey();
+                String[] elements = path.split("/");
+                DtdType type = CLDRFile.DtdType.valueOf(elements[1]);
+                String finalElement = elements[elements.length - 1];
+                starred.print(path);
+                for (String attribute : attributes) {
+                    if (CLDRFile.isDistinguishing(type, finalElement, attribute)) {
+                        starred.print("[@" + attribute + "='disting.']");
+                    } else {
+                        starred.print("[@" + attribute + "='DATA']");
+                    }
+                }
+                starred.println();
+            }
+            starred.close();
+        }
+    }
+
 
     static Pattern prefix = Pattern.compile("([^/]+/[^/]+)(.*)");
 
@@ -181,8 +228,11 @@ public class GenerateItemCounts {
         Relation<String,String> localesToPaths = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
         Set<String> writtenLanguages = new TreeSet();
         Set<String> countries = new TreeSet();
-        boolean firstPass = true;
-        for (File subdir : new File(OUT_DIRECTORY).listFiles()) {
+
+        File[] listFiles = new File(OUT_DIRECTORY).listFiles();
+        // find the most recent version
+        VersionInfo mostRecentVersion = VersionInfo.getInstance(0);
+        for (File subdir : listFiles) {
             final String name = subdir.getName();
             final Matcher releaseMatcher = releaseNumber.matcher(name);
             if (!releaseMatcher.matches()) {
@@ -192,6 +242,24 @@ public class GenerateItemCounts {
                 continue;
             }
             String releaseNum = releaseMatcher.group(1); // "1." + releaseCount++;
+            VersionInfo vi = VersionInfo.getInstance(releaseNum);
+            if (vi.compareTo(mostRecentVersion) > 0) {
+                mostRecentVersion = vi;
+            }
+        }
+
+        for (File subdir : listFiles) {
+            final String name = subdir.getName();
+            final Matcher releaseMatcher = releaseNumber.matcher(name);
+            if (!releaseMatcher.matches()) {
+                if (name.startsWith("count_")) {
+                    throw new IllegalArgumentException("Bad match " + RegexUtilities.showMismatch(releaseMatcher, name));
+                }
+                continue;
+            }
+            String releaseNum = releaseMatcher.group(1); // "1." + releaseCount++;
+            VersionInfo vi = VersionInfo.getInstance(releaseNum);
+            boolean captureData = vi.equals(mostRecentVersion);
             releases.add(releaseNum);
             BufferedReader in = BagFormatter.openUTF8Reader("", subdir.getCanonicalPath());
             while (true) {
@@ -226,7 +294,7 @@ public class GenerateItemCounts {
                         String country = countryLocale.group(3);
                         String writtenLang = lang + (script == null ? "" : "_" + script);
                         String locale = writtenLang + (country == null ? "" : "_" + country);
-                        if (firstPass) {
+                        if (captureData) {
                             localesToPaths.put(locale, path);
                             writtenLanguages.add(writtenLang);
                             if (country != null) {
@@ -252,10 +320,9 @@ public class GenerateItemCounts {
                 }
             }
             in.close();
-            firstPass = false;
         }
         PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, (MyOptions.directory.option.doesOccur() ? "filtered-" : "") +"summary" + 
-        		".txt");
+            ".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
@@ -305,6 +372,7 @@ public class GenerateItemCounts {
         int orderedCount;
         DtdType type;
 
+
         MyHandler(String prefix) {
             this.prefix = prefix;
         }
@@ -314,6 +382,8 @@ public class GenerateItemCounts {
                 parts.set(path);
                 type = DtdType.valueOf(parts.getElement(0));
             }
+
+            ATTRIBUTE_TYPES.add(path);
 
             if (skipPathMatcher.reset(path).find()) {
                 return;
@@ -343,14 +413,14 @@ public class GenerateItemCounts {
                             || CLDRFile.isDistinguishing(type, element, attribute)) {
                             continue;
                         }
-                        String attrValue = parts.getAttributeValue(i, attribute);
-                        String[] valueParts = attrValue.split("\\s");
-                        for (String valuePart : valueParts) {
-                            attributeCount++;
-                            attributeLen += valuePart.length();
-                            if (doChanges) {
-                                path2value.put(pathKey, valuePart);
-                            }
+                        String valuePart = parts.getAttributeValue(i, attribute);
+                        //                        String[] valueParts = attrValue.split("\\s");
+                        //                        for (String valuePart : valueParts) {
+                        attributeCount++;
+                        attributeLen += valuePart.length();
+                        if (doChanges) {
+                            path2value.put(pathKey, valuePart);
+                            //                            }
                         }
                     }
                 }

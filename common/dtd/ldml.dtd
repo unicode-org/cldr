@@ -1265,6 +1265,7 @@ $Date$
 <!ATTLIST collation references CDATA #IMPLIED >
 <!ATTLIST collation alt NMTOKENS #IMPLIED >
 <!ATTLIST collation validSubLocales CDATA #IMPLIED >
+<!ATTLIST collation visibility ( internal | external ) "external" > 
 
 <!ELEMENT base (alias|special) >
 
@@ -1278,7 +1279,6 @@ $Date$
 <!ATTLIST settings hiraganaQuarternary  ( on | off ) #IMPLIED >
 <!ATTLIST settings hiraganaQuaternary   ( on | off ) #IMPLIED >
 <!ATTLIST settings numeric              ( on | off ) #IMPLIED >
-<!ATTLIST settings private              ( true | false ) #IMPLIED >
 <!ATTLIST settings variableTop          CDATA #IMPLIED >
 <!ATTLIST settings reorder              NMTOKENS #IMPLIED >
 

@@ -58,6 +58,11 @@ public class CheckChildren extends FactoryCheckCLDR {
 	public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
 	    if (cldrFileToCheck == null) return this;
         if(cldrFileToCheck.getLocaleID().equals("root")) return this; // Root's children can override.
+        if(CLDRFile.GEN_VERSION.startsWith("22.")) {
+            if(cldrFileToCheck.getLocaleID().equals("pt_PT")) {
+                return this; // disable this test for 22, see ticket:XXXX
+            }
+        }
 	    // Skip if the phase is not final testing
 	    if (Phase.FINAL_TESTING == getPhase()) {
 	        setSkipTest(false); // ok

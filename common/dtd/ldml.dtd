@@ -266,12 +266,12 @@ $Date$
 <!ATTLIST moreInformation references CDATA #IMPLIED >
 <!ATTLIST moreInformation alt NMTOKENS #IMPLIED >
 
-<!ELEMENT stopwords ( stopwordList* ) >
-<!ELEMENT stopwordList ( #PCDATA ) >
-<!ATTLIST stopwordList type NMTOKEN #REQUIRED >
-<!ATTLIST stopwordList draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
-<!ATTLIST stopwordList references CDATA #IMPLIED >
-<!ATTLIST stopwordList alt NMTOKENS #IMPLIED >
+<!ELEMENT stopwords ( stopwordList* ) > <!-- stopwords are deprecated. -->
+<!ELEMENT stopwordList ( #PCDATA ) > <!-- stopwords are deprecated. -->
+<!ATTLIST stopwordList type NMTOKEN #REQUIRED > <!-- stopwords are deprecated. -->
+<!ATTLIST stopwordList draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > <!-- stopwords are deprecated. -->
+<!ATTLIST stopwordList references CDATA #IMPLIED > <!-- stopwords are deprecated. -->
+<!ATTLIST stopwordList alt NMTOKENS #IMPLIED > <!-- stopwords are deprecated. -->
 
 
 <!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) >

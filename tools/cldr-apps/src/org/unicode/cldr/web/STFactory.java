@@ -56,7 +56,7 @@ import org.unicode.cldr.util.LruMap;
  * @author srl
  *
  */
-public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, SublocaleProvider, UserRegistry.UserChangedListener {
+public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.User>, UserRegistry.UserChangedListener {
 	/**
 	 * If true: run EVERY xpath through the resolver.
 	 */
@@ -1073,12 +1073,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     
     private Map<CLDRLocale,Set<CLDRLocale>> subLocaleMap = new HashMap<CLDRLocale,Set<CLDRLocale>>();
     Set<CLDRLocale> allLocales = null;
-    private Set<CLDRLocale> getAvailableCLDRLocales() {
-        if(allLocales==null) {
-            allLocales =  CLDRLocale.getInstance(getAvailable());
-        }
-        return allLocales;
-    }
+
+    /**
+     * Cache..
+     */
     public Set<CLDRLocale> subLocalesOf(CLDRLocale forLocale) {
         Set<CLDRLocale> result = subLocaleMap.get(forLocale);
         if(result==null) {
@@ -1087,15 +1085,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
         return result;
     }
-
-    private Set<CLDRLocale> calculateSubLocalesOf(CLDRLocale locale, Set<CLDRLocale> available) {
-        Set<CLDRLocale> sub = new TreeSet<CLDRLocale>();
-        for(CLDRLocale l : available) {
-            if(l.getParent() == locale) {
-                sub.add(l);
-            }
+    /**
+     * Cache..
+     */
+    public Set<CLDRLocale> getAvailableCLDRLocales() {
+        if(allLocales==null) {
+            allLocales =  CLDRLocale.getInstance(getAvailable());
         }
-        return sub;
+        return allLocales;
     }
 
 

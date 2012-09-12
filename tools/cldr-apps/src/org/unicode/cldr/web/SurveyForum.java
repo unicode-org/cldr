@@ -311,7 +311,7 @@ public class SurveyForum {
 			if(sessionMessage != null) {
 				ctx.println(sessionMessage+"<hr>");
 			}
-			ctx.println("<hr><strong>You do not have access to this forum. If you believe this to be in error, contact your CLDR TC member, and/or the person who set up your account.</strong><p>");
+			ctx.println("<hr><strong>You do not have access to this forum. <!-- canModify = " + canModify + " -->  If you believe this to be in error, contact your CLDR TC member, and/or the person who set up your account.</strong><p>");
 			sm.printFooter(ctx);
 			return;
 		}

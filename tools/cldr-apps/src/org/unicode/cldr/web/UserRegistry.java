@@ -1432,7 +1432,7 @@ public class UserRegistry {
         if((u.locales == null) && userIsExpert(u)) return null; // empty = ALL
         if(false|| userIsExactlyManager(u)) return null; // manager can edit all
         String localeArray[] = tokenizeLocale(u.locales);
-        if(userCanModifyLocale(localeArray,locale)) {
+        if(localeMatchesLocaleList(localeArray,locale)) {
             return null;
         } else {
             return ModifyDenial.DENY_LOCALE_LIST;

@@ -2,6 +2,7 @@ package org.unicode.cldr.draft;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +32,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
 
+import com.ibm.icu.dev.test.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -143,7 +146,7 @@ class GeneratePickerData {
     static String outputDirectory;
     static String unicodeDataDirectory;
     static Renamer renamer;
-    static PrintWriter renamingLog;
+    private static PrintWriter renamingLog;
 
     public static void main(String[] args) throws Exception {
         // System.out.println(ScriptCategories.ARCHAIC);
@@ -176,6 +179,8 @@ class GeneratePickerData {
                 + ScriptCategories.parseUnicodeSet("[:z:]").equals(ScriptCategories.parseUnicodeSet("[:whitespace:]")));
 
         buildMainTable();
+        addEmojiCharacters();
+        addManualCorrections("ManualChanges.txt");
         String categoryData = CATEGORYTABLE.toString(true, outputDirectory);
         writeMainFile(outputDirectory, categoryData);
         // writeMainFile(outputDirectory, categoryData);
@@ -464,7 +469,6 @@ class GeneratePickerData {
                 .next();) {
                 String block = UCharacter.getStringPropertyValue(UProperty.BLOCK, it.codepoint,
                     UProperty.NameChoice.LONG).toString();
-
                 CATEGORYTABLE.add("Symbol", true, block + "@" + valueAlias, buttonComparator, Separation.AUTOMATIC,
                     it.codepoint, it.codepoint);
             }
@@ -800,7 +804,7 @@ class GeneratePickerData {
             Map<String, GeneratePickerData.USet> sub = addMainCategory(category);
             GeneratePickerData.USet oldValue = sub.get(subcategory);
             if (oldValue != null) {
-                oldValue.strings.removeAll(addAllToCollection(values, new HashSet<String>()));
+                System.out.println(oldValue.strings.removeAll(addAllToCollection(values, new HashSet<String>())));
             }
         }
 
@@ -1513,6 +1517,11 @@ class GeneratePickerData {
                 this.source = source;
                 this.target = target;
             }
+            
+            @Override
+            public String toString() {
+                return "source:"+source+" target:"+target;
+            }
         }
 
         Map<Matcher, MatchData> renameTable = new LinkedHashMap<Matcher, MatchData>();
@@ -1613,7 +1622,6 @@ class GeneratePickerData {
             final SimplePair originals = new SimplePair(maincategory, subcategory);
             SimplePair cached = renameCache.get(originals);
             if (cached != null) return cached;
-
             maincategory = maincategory.replace('_', ' ');
             subcategory = subcategory.replace('_', ' ');
 
@@ -1676,6 +1684,63 @@ class GeneratePickerData {
         }
         return output;
     }
+    
+    private static void addManualCorrections(String fileName) throws IOException {
+        InputStream stream = GeneratePickerData.class.getResourceAsStream(fileName);
+        BufferedReader in = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
+        while (true) {
+            String line = in.readLine();
+            if (line == null) break;
+            line = line.trim();
+            if (line.length() == 0 || line.startsWith("#")) {
+                continue;
+            }
+            String components[] = line.split(";");
+            if(components.length != 4) {
+                throw new IOException("Invalid line: <"+line+"> - Expecting 4 ';' separated components");
+            }
+            UnicodeSet set = new UnicodeSet(components[3]);
+            String subCategory = components[1];
+            if(components[1].equals("Historic")) {
+                subCategory = ARCHAIC_MARKER;
+            } else if(components[1].equals("Compatibility")) {
+                subCategory = COMPAT_MARKER;
+            }
+            
+            if(components[2].equals("Add")) {
+                CATEGORYTABLE.add(components[0], false, subCategory, buttonComparator, Separation.ALL_ORDINARY, set);
+            }
+            else if(components[2].equals("Remove")) {
+                CATEGORYTABLE.removeAll(components[0], subCategory, set);
+            } else {
+                throw new IOException("Invalid operation: <"+components[2]+"> - Expecting one of {Add,Remove}");
+            }
+        }
+    }
+    
+    private static void addEmojiCharacters() throws IOException {
+        File emojiSources = new File(unicodeDataDirectory + "/EmojiSources-6.2.0d1.txt"); // Needs fixing for release vs non-released directory
+        FileInputStream fis = new FileInputStream(emojiSources);
+        BufferedReader in = new BufferedReader(new InputStreamReader(fis, "UTF-8"));
+        UnicodeSet emojiCharacters = new UnicodeSet();
+        while (true) {
+            String line = in.readLine();
+            if (line == null) break;
+            line = line.trim();
+            if (line.length() == 0 || line.startsWith("#")) {
+                continue;
+            }
+            String[] components = line.split(";");
+            String[] codepoints = components[0].split(" ");
+            // No support yet for multi-codepoint characters so we skip them
+            if(codepoints.length > 1) {
+                continue;
+            }
+            int codepoint = Integer.valueOf(codepoints[0], 16);
+            emojiCharacters.add(codepoint);
+        }
+        CATEGORYTABLE.add("Symbol", false, "Emoji", buttonComparator, Separation.ALL_ORDINARY, emojiCharacters);
+    }
 
     public static <U extends Collection<String>> U removeAllFromCollection(UnicodeSet input, U output) {
         for (UnicodeSetIterator it = new UnicodeSetIterator(input); it.next();) {
@@ -1683,7 +1748,7 @@ class GeneratePickerData {
         }
         return output;
     }
-
+    
     private static int utf8Length(Collection<String> set) {
         int len = 0;
         for (String s : set) {

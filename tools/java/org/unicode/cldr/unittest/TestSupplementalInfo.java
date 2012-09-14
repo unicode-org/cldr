@@ -113,7 +113,8 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestTerritoryContainment() {
-        Relation<String, String> map = testInfo.getSupplementalDataInfo().getTerritoryToContained();
+        Relation<String, String> map = testInfo.getSupplementalDataInfo().getTerritoryToContained(false);
+        Relation<String, String> mapCore = testInfo.getSupplementalDataInfo().getContainmentCore();
         Set<String> mapItems = new LinkedHashSet<String>();
         // get all the items
         for (String item : map.keySet()) {
@@ -124,6 +125,7 @@ public class TestSupplementalInfo extends TestFmwk {
 
         // verify that all regions are covered
         Set<String> bcp47Regions = new LinkedHashSet<String>(bcp47RegionData.keySet());
+        bcp47Regions.remove("ZZ"); // We don't care about ZZ since it is the unknown region...
         for (Iterator<String> it = bcp47Regions.iterator(); it.hasNext();) {
             String region = it.next();
             Map<String, String> data = bcp47RegionData.get(region);
@@ -137,11 +139,11 @@ public class TestSupplementalInfo extends TestFmwk {
         }
 
         if (!mapItems.equals(bcp47Regions)) {
-            errlnDiff("containment items - bcp47 regions: ", mapItems, bcp47Regions);
-            errlnDiff("bcp47 regions - containment items: ", bcp47Regions, mapItems);
+            errlnDiff("containment items not in bcp47 regions: ", mapItems, bcp47Regions);
+            errlnDiff("bcp47 regions not in containment items: ", bcp47Regions, mapItems);
         }
 
-        // verify that everything can be reached downwards from 001.
+        // verify that everything in the containment core can be reached downwards from 001.
 
         Map<String, Integer> from001 = getRecursiveContainment("001", map, new LinkedHashMap<String,Integer>(), 1);
         from001.put("001", 0);
@@ -150,8 +152,16 @@ public class TestSupplementalInfo extends TestFmwk {
             logln(Utility.repeat("\t", from001.get(region)) + "\t" + region 
                     + "\t" + getRegionName(region));
         }
+        
+        // Populate mapItems with the core containment
+        mapItems.clear();
+        for (String item : mapCore.keySet()) {
+            mapItems.add(item);
+            mapItems.addAll(mapCore.getAll(item));
+        }
+
         if (!mapItems.equals(keySet)) {
-            errlnDiff("all - from001: ", mapItems, keySet);
+            errlnDiff("containment core items that can't be reached from 001: ", mapItems, keySet);
         }
     }
 
@@ -286,7 +296,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 }
             } else {
                 if (languagesForBase.size() == 1) {
-                    errln("Cannot only one script for language:\t" + languagesForBase);
+                    errln("Cannot have only one script for language:\t" + languagesForBase);
                 }
 
             }

@@ -744,6 +744,7 @@ public class SupplementalDataInfo {
 
     private Relation<String, String> containment = new Relation(new LinkedHashMap(), LinkedHashSet.class);
     private Relation<String, String> containmentCore = new Relation(new LinkedHashMap(), LinkedHashSet.class);
+    private Relation<String, String> containmentNonDeprecated = new Relation(new LinkedHashMap(), LinkedHashSet.class);
 
     private Map<String, CurrencyNumberInfo> currencyToCurrencyNumberInfo = new TreeMap();
 
@@ -925,6 +926,7 @@ public class SupplementalDataInfo {
 
         containment.freeze();
         containmentCore.freeze();
+        containmentNonDeprecated.freeze();
         
         languageToBasicLanguageData.freeze();
         for (String language : languageToTerritories2.keySet()) {
@@ -1621,8 +1623,11 @@ public class SupplementalDataInfo {
             containment.putAll(container, contained);
             String deprecatedAttribute = parts.getAttributeValue(-1, "status");
             String grouping = parts.getAttributeValue(-1, "grouping");
-            if (deprecatedAttribute == null && grouping == null) {
-                containmentCore.putAll(container, contained);
+            if (deprecatedAttribute == null) {
+                containmentNonDeprecated.putAll(container, contained);
+                if ( grouping == null) {
+                    containmentCore.putAll(container, contained);
+                }
             }
         }
 
@@ -1762,7 +1767,11 @@ public class SupplementalDataInfo {
     }
 
     public Relation<String, String> getTerritoryToContained() {
-        return containment;
+        return getTerritoryToContained(true);
+    }
+
+    public Relation<String, String> getTerritoryToContained(boolean allowDeprecated) {
+        return allowDeprecated ? containment : containmentNonDeprecated;
     }
 
     public Set<String> getSkippedElements() {

@@ -17,6 +17,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckConsistentCasing;
 import org.unicode.cldr.test.CheckForExemplars;
+import org.unicode.cldr.test.CheckNames;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -265,5 +266,22 @@ public class TestCheckCLDR extends TestFmwk {
                 } catch (RuntimeException e) {} // skip if not parseable as set
             }
         }
+    }
+
+    public void TestCheckNames() {
+        TestInfo info = TestInfo.getInstance();
+        CheckCLDR c = new CheckNames();
+        Map<String, String> options = new LinkedHashMap();
+        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+        final CLDRFile english = info.getEnglish();
+        c.setCldrFileToCheck(english, options, possibleErrors);
+        String xpath = "//ldml/localeDisplayNames/languages/language[@type=\"mga\"]";
+        c.check(xpath, xpath, "Middle Irish (900-1200) ", options, possibleErrors);
+        assertEquals("There should be an error", 1, possibleErrors.size());
+
+        possibleErrors.clear();
+        xpath = "//ldml/localeDisplayNames/currencies/currency[@type=\"afa\"]/name";
+        c.check(xpath, xpath, "Afghan Afghani (1927-2002)", options, possibleErrors);
+        assertEquals("Currencies are allowed to have dates", 0, possibleErrors.size());
     }
 }

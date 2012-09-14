@@ -338,6 +338,7 @@ abstract public class CheckCLDR {
         .add(new CheckDisplayCollisions(factory))
         .add(new CheckExemplars(factory))
         .add(new CheckForExemplars(factory))
+        .add(new CheckNames())
         .add(new CheckNumbers(factory))
         // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
         .add(new CheckMetazones())
@@ -468,6 +469,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus,
             valueTooWide,
             valueTooNarrow,
+            nameContainsYear,
             patternCannotContainDigits, patternContainsInvalidCharacters;
         public String toString() {
             return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

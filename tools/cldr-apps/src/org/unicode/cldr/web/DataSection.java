@@ -2288,9 +2288,9 @@ public class DataSection implements JSONString {
 	            throw new InternalError("?!! ourSrc hsa no supplemental dir!");
 	        }
 	        String workingCoverageLevel = section.getPtype();
-	        com.ibm.icu.dev.test.util.ElapsedTimer cet = null;
+	        com.ibm.icu.dev.util.ElapsedTimer cet = null;
 	        if (showLoading&&SHOW_TIME) {
-	            cet = new com.ibm.icu.dev.test.util.ElapsedTimer();
+	            cet = new com.ibm.icu.dev.util.ElapsedTimer();
 	            System.err.println("Begin populate of " + locale + " // " + prefix + ":" + workingCoverageLevel + " - is:"
 	                    + ourSrc.getClass().getName());
 	        }

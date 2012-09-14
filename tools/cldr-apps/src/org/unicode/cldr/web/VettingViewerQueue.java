@@ -21,7 +21,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.web.UserRegistry.User;
 
-import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.DurationFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;

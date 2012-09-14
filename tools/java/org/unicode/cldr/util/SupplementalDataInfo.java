@@ -30,7 +30,7 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.PluralRulesUtil.KeywordStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;

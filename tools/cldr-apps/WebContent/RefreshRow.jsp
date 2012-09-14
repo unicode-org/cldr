@@ -1,4 +1,4 @@
-<%@page import="com.ibm.icu.dev.test.util.ElapsedTimer"%>
+<%@page import="com.ibm.icu.dev.util.ElapsedTimer"%>
 <%@page import="org.unicode.cldr.web.*"%><%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.json.*"%><%--  Copyright (C) 2012 IBM and Others. All Rights Reserved  --%><%WebContext ctx = new WebContext(request, response);
 	ElapsedTimer et = new ElapsedTimer();

@@ -26,7 +26,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StackTracker;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 
 /**
  * @author srl

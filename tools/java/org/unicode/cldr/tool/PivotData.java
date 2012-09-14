@@ -19,7 +19,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 
 public class PivotData {
   public static final boolean DEBUG = true;

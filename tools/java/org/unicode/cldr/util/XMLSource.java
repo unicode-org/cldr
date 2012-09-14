@@ -539,12 +539,12 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
      */
     public Iterator<String> iterator(String prefix) {
         if (prefix == null || prefix.length() ==0) return iterator();
-        return new com.ibm.icu.dev.test.util.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
+        return new com.ibm.icu.dev.util.CollectionUtilities.PrefixIterator().set(iterator(), prefix);
     }
 
     public Iterator<String> iterator(Matcher pathFilter) {
         if (pathFilter == null) return iterator();
-        return new com.ibm.icu.dev.test.util.CollectionUtilities.RegexIterator().set(iterator(), pathFilter);
+        return new com.ibm.icu.dev.util.CollectionUtilities.RegexIterator().set(iterator(), pathFilter);
     }
 
     /**

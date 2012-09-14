@@ -9,7 +9,7 @@ import org.unicode.cldr.draft.StateMachine.StateAction;
 import org.unicode.cldr.draft.StateMachine.StateObjectBuilder;
 import org.unicode.cldr.draft.StateMachine.StateObjectBuilderFactory;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;

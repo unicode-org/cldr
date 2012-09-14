@@ -25,7 +25,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Utility;
 
 public class TestSupplementalData {

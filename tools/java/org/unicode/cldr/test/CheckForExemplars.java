@@ -24,7 +24,7 @@ import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.XMLSource;
 
-import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;

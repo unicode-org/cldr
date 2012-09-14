@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.unicode.cldr.draft.FileUtilities;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 
 /**

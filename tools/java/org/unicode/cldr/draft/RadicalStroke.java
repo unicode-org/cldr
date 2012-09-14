@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
 
-import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.text.UnicodeSet;
 
 public class RadicalStroke {

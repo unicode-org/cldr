@@ -21,8 +21,8 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.ArrayComparator;
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.ArrayComparator;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;

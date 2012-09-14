@@ -21,8 +21,8 @@ import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StringId;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.CollectionUtilities;
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.dev.util.Relation;
 
 public class TestExamples extends TestFmwk {
     static String DEBUG = "ALK";

@@ -23,8 +23,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.Relation;
-import com.ibm.icu.dev.test.util.XEquivalenceMap;
+import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.dev.util.XEquivalenceMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.util.TimeZone;

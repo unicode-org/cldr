@@ -13,7 +13,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Level;
 
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.Relation;
 
 public class ShowCoverageLevels {
     private static TestInfo testInfo = TestInfo.getInstance();

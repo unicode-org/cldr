@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.util.XPathParts.Comments;
 
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.Relation;
 
 public class SimpleXMLSource extends XMLSource {
     private Map<String,String> xpath_value = CldrUtility.newConcurrentHashMap();

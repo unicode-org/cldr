@@ -37,7 +37,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VariantFolder;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;

@@ -31,8 +31,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.PrettyPrinter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.util.PrettyPrinter;
+import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;

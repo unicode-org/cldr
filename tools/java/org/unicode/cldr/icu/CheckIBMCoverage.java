@@ -314,7 +314,7 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         covLevel.setFile(file, options, null, result );
         CLDRFile resolved = coverage.getResolvedCldrFileToCheck();
         Set<String> paths = new TreeSet<String>(CLDRFile.ldmlComparator);
-        com.ibm.icu.dev.test.util.CollectionUtilities.addAll(resolved.iterator(), paths);
+        com.ibm.icu.dev.util.CollectionUtilities.addAll(resolved.iterator(), paths);
         int ret = 0;
         if(level!=null){
             coverage.setRequiredLevel(level);

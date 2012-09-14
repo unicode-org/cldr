@@ -105,9 +105,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.ElapsedTimer;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -545,7 +545,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 freeMem(pages, xpages);
             }
         }
-        com.ibm.icu.dev.test.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.test.util.ElapsedTimer();
+        com.ibm.icu.dev.util.ElapsedTimer reqTimer = new com.ibm.icu.dev.util.ElapsedTimer();
 
         /**
          * Busted: unrecoverable error, do not attempt to go on.
@@ -947,7 +947,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             try {
                 int i, j;
 
-                com.ibm.icu.dev.test.util.ElapsedTimer et = new com.ibm.icu.dev.test.util.ElapsedTimer();
+                com.ibm.icu.dev.util.ElapsedTimer et = new com.ibm.icu.dev.util.ElapsedTimer();
 
                 // if(ctx.field("isUser").length()>0) {
                 // conn = getU_DBConnection();
@@ -1321,7 +1321,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private void loadAllLocales(WebContext ctx, SurveyTask surveyTask) {
         CLDRLocale[] locales = getLocales();
         int nrInFiles = locales.length;
-        com.ibm.icu.dev.test.util.ElapsedTimer allTime = new com.ibm.icu.dev.test.util.ElapsedTimer("Time to load all: {0}");
+        com.ibm.icu.dev.util.ElapsedTimer allTime = new com.ibm.icu.dev.util.ElapsedTimer("Time to load all: {0}");
         SurveyLog.logger.info("Loading all..");
         // Connection connx = null;
         int ti = 0;

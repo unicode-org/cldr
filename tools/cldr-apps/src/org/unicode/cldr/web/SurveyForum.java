@@ -36,7 +36,7 @@ import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.WebContext.LoadingShow;
 
-import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.ULocale;

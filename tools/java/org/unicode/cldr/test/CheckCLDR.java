@@ -33,8 +33,8 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.VoteResolver;
 
-import com.ibm.icu.dev.test.util.ElapsedTimer;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
 

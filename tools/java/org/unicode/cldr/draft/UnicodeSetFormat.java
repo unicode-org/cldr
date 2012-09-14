@@ -9,7 +9,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.PatternFixer.Target;
 
-import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;

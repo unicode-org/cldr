@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.StandardCodes;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 
 public class GetDescriptions {
   

@@ -29,8 +29,8 @@ import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.XPathTable;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.ElapsedTimer;
 
 public class TestSTFactory extends TestFmwk {
 	

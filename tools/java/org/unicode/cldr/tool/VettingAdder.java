@@ -27,8 +27,8 @@ import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.ArrayComparator;
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.ArrayComparator;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.text.Transform;
 
 /**

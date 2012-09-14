@@ -12,7 +12,7 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.Relation;
 
 public class GenerateLanguageData {
   //static StandardCodes sc = StandardCodes.make();

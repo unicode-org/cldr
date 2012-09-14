@@ -17,7 +17,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.CoverageLevelInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageVariableInfo;
 import org.unicode.cldr.util.Timer;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.ULocale;
 
 public class CoverageLevel2 {

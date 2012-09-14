@@ -36,7 +36,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
-import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;

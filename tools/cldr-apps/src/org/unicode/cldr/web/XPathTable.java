@@ -30,7 +30,7 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.util.ElapsedTimer;
 
 /**
  * This class maps between full and partial xpaths, and the small integers which are actually stored in the database.

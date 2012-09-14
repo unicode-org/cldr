@@ -10,7 +10,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.UnicodeSetBuilder.MyActions;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.UnicodeSet;
 
 public class StateMachineTest {

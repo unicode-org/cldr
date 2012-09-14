@@ -15,7 +15,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.tool.Option.Options;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.UCharacterProperty;

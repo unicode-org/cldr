@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 
 public class SpreadSheet {
   static boolean DEBUG = CldrUtility.getProperty("SpreadSheetDebug", false);

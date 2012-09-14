@@ -121,7 +121,7 @@ PreparedStatement nukeData = null, moveVote=null, moveData=null, nukeVote=null;
 <hr/>
 <h2>Special Fixup</h2>
 
-Loaded <%= dataHits.length %> data items and <%= vetHits.length %> votes in <%= com.ibm.icu.dev.test.util.ElapsedTimer.elapsedTime(n) %>
+Loaded <%= dataHits.length %> data items and <%= vetHits.length %> votes in <%= com.ibm.icu.dev.util.ElapsedTimer.elapsedTime(n) %>
 <br>
 
 <%

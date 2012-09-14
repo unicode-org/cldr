@@ -18,7 +18,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.dev.test.util.XEquivalenceClass;
+import com.ibm.icu.dev.util.XEquivalenceClass;
 
 public class ZoneParser {
   static final boolean DEBUG = false;

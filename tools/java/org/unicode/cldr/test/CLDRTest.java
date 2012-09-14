@@ -34,7 +34,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;

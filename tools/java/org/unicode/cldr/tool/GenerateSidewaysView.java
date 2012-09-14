@@ -37,10 +37,10 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.SAXException;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
-import com.ibm.icu.dev.test.util.UnicodeMap;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;

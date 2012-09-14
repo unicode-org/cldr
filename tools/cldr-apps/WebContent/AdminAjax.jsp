@@ -1,4 +1,4 @@
-<%@page import="com.ibm.icu.dev.test.util.ElapsedTimer"%><%@page
+<%@page import="com.ibm.icu.dev.util.ElapsedTimer"%><%@page
 	import="org.unicode.cldr.web.*,java.util.Map,java.util.Set,java.util.Comparator,java.util.TreeMap,java.util.TreeSet"%><%@ page
 	language="java" contentType="application/json; charset=UTF-8"
 	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.json.*"%><%--  Copyright (C) 2012 IBM and Others. All Rights Reserved 

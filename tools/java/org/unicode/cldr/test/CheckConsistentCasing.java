@@ -18,7 +18,7 @@ import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.CollectionUtilities;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.ULocale;

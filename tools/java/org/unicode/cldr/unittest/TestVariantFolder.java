@@ -6,8 +6,8 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.VariantFolder;
 
-import com.ibm.icu.dev.test.util.XEquivalenceClass;
-import com.ibm.icu.dev.test.util.XEquivalenceClass.SetMaker;
+import com.ibm.icu.dev.util.XEquivalenceClass;
+import com.ibm.icu.dev.util.XEquivalenceClass.SetMaker;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.CanonicalIterator;
 import com.ibm.icu.text.Normalizer;

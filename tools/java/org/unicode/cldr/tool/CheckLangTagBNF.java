@@ -18,9 +18,9 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 
-import com.ibm.icu.dev.test.util.BNF;
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.Quoter;
+import com.ibm.icu.dev.util.BNF;
+import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.Quoter;
 import com.ibm.icu.util.ULocale;
 
 /**

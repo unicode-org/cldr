@@ -18,7 +18,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.With.SimpleIterator;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 
 public final class FileUtilities {
 
@@ -225,7 +225,7 @@ public final class FileUtilities {
 
     public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList, PrintWriter out) {
         try {
-            com.ibm.icu.dev.test.util.FileUtilities.appendBufferedReader(openFile(class1, filename, charset), out, replacementList); // closes file
+            com.ibm.icu.dev.util.FileUtilities.appendBufferedReader(openFile(class1, filename, charset), out, replacementList); // closes file
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // wrap darn'd checked exception
         }

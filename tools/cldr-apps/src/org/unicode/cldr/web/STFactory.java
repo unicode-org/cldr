@@ -47,7 +47,7 @@ import org.unicode.cldr.web.STFactory.DataBackedSource;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
 
-import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.util.ElapsedTimer;
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 import org.unicode.cldr.util.LruMap;

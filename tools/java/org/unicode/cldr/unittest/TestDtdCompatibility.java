@@ -13,7 +13,7 @@ import org.unicode.cldr.util.DiscreteComparator.Ordering;
 import org.unicode.cldr.util.ElementAttributeInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.Relation;
 
 /**
  * Tests basic compatibility between versions of CLDR. You need to set the property -DoldCommon=<whatever> for this to work.

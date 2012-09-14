@@ -34,7 +34,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 
-import com.ibm.icu.dev.test.util.TransliteratorUtilities;
+import com.ibm.icu.dev.util.TransliteratorUtilities;
 
 public class GenerateAttributeList {
   XPathParts parts = new XPathParts(null, null);

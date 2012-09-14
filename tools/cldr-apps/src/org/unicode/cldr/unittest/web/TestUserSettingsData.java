@@ -10,7 +10,7 @@ import org.unicode.cldr.web.UserSettingsData;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.util.ElapsedTimer;
 
 public class TestUserSettingsData extends TestFmwk {
     

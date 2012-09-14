@@ -8,7 +8,7 @@ import java.util.Locale;
 import org.unicode.cldr.util.CLDRTransforms;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.Transliterator;
 
 public class TestTransforms extends TestFmwk {

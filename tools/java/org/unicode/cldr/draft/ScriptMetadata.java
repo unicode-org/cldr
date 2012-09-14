@@ -13,7 +13,7 @@ import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.util.StandardCodes;
 
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.lang.UScript;
 
 public class ScriptMetadata {

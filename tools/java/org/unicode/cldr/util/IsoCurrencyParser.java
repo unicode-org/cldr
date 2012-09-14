@@ -12,7 +12,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.tool.Misc;
 
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.Relation;
 
 public class IsoCurrencyParser {
   private static final String CURRENCYCODESLIST_TXT = "currencycodeslist.txt";

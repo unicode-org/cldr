@@ -13,8 +13,8 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.PrettyPrinter;
+import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.text.AlphabeticIndex;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;

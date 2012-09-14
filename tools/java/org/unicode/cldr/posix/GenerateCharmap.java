@@ -20,7 +20,7 @@ import java.util.ListIterator;
 
 import org.unicode.cldr.icu.SimpleConverter;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.UnicodeSet;

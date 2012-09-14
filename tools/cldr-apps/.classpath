@@ -20,12 +20,12 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="/cldr-tools/libs/icu4j.jar">
+	<classpathentry exported="true" kind="lib" path="/cldr-tools/libs/icu4j.jar" sourcepath="/cldr-tools/libs/icu4j-src.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="lib" path="/cldr-tools/libs/utilities.jar">
+	<classpathentry exported="true" kind="lib" path="/cldr-tools/libs/utilities.jar" sourcepath="/cldr-tools/libs/utilities-src.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>

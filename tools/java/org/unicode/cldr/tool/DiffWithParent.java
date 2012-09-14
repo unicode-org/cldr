@@ -17,7 +17,7 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 
 public class DiffWithParent {
   private static Matcher fileMatcher;

@@ -19,8 +19,8 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.OlsonTimeZone;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DecimalFormat;

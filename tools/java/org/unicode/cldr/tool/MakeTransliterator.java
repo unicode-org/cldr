@@ -16,8 +16,8 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
-import com.ibm.icu.dev.test.util.Relation;
+import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;

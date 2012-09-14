@@ -8,7 +8,7 @@ import java.util.TreeMap;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.test.util.UnicodeMap;
+import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UScript;

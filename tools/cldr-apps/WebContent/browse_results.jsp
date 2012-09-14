@@ -1,4 +1,4 @@
-<%@page import="com.ibm.icu.dev.test.util.ElapsedTimer"%>
+<%@page import="com.ibm.icu.dev.util.ElapsedTimer"%>
 <%@page import="org.unicode.cldr.web.SurveyMain"%><%@page 
         import="org.unicode.cldr.web.WebContext, java.util.List"%><%@ page 
         language="java" contentType="text/html; charset=UTF-8"  

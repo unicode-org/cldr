@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.ibm.icu.dev.test.util.ElapsedTimer;
+import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.NumberFormat;
 
 /**

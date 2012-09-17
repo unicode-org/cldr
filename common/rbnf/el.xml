@@ -13,7 +13,7 @@
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
-                <rbnfrule value="0">=%spellout-cardinal-neutre=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-neuter=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">μείον →→;</rbnfrule>
@@ -51,14 +51,14 @@
                 <rbnfrule value="900">εννιακόσιοι[ →→];</rbnfrule>
                 <rbnfrule value="1000">χίλιοι[ →→];</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-feminine← χίλιάδες[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-neutre← εκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-neutre← εκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-neutre← δισεκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-neutre← δισεκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-neutre← τρισεκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-neutre← τρισεκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-neuter← εκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-neuter← εκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-neuter← δισεκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-neuter← τρισεκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμύρια[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
@@ -97,17 +97,17 @@
                 <rbnfrule value="900">εννιακόσιες[ →→];</rbnfrule>
                 <rbnfrule value="1000">χίλιες[ →→];</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-feminine← χίλιάδες[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-neutre← εκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-neutre← εκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-neutre← δισεκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-neutre← δισεκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-neutre← τρισεκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-neutre← τρισεκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-neuter← εκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-neuter← εκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-neuter← δισεκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-neuter← τρισεκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμύρια[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-neutre">
+            <ruleset type="spellout-cardinal-neuter">
                 <rbnfrule value="-x">μείον →→;</rbnfrule>
                 <rbnfrule value="x.x">←← κόμμα →→;</rbnfrule>
                 <rbnfrule value="0">μηδέν;</rbnfrule>
@@ -143,14 +143,14 @@
                 <rbnfrule value="900">εννιακόσια[ →→];</rbnfrule>
                 <rbnfrule value="1000">χίλια[ →→];</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-feminine← χίλιάδες[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-neutre← εκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-neutre← εκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-neutre← δισεκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-neutre← δισεκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-neutre← τρισεκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-neutre← τρισεκατομμύρια[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμύριο[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-neuter← εκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%spellout-cardinal-neuter← εκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%spellout-cardinal-neuter← δισεκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%spellout-cardinal-neuter← τρισεκατομμύρια[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμύριο[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμύρια[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine">
@@ -197,11 +197,11 @@
                 <rbnfrule value="8000">οκτάκις χιλιοστός[ →→];</rbnfrule>
                 <rbnfrule value="9000">εννεάκις χιλιοστός[ →→];</rbnfrule>
                 <rbnfrule value="10000" radix="1000">δεκάκις χιλιοστός[ →→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-neutre← χιλιοστός[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-neutre← εκατομμυριοστός [ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-neutre← δισεκατομμυριοστός[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-neutre← τρισεκατομμυριοστός[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμυριοστός[ →→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-neuter← χιλιοστός[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-neuter← εκατομμυριοστός [ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμυριοστός[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμυριοστός[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμυριοστός[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
@@ -248,14 +248,14 @@
                 <rbnfrule value="8000">οκτάκις χιλιοστή[ →→];</rbnfrule>
                 <rbnfrule value="9000">εννεάκις χιλιοστή[ →→];</rbnfrule>
                 <rbnfrule value="10000" radix="1000">δεκάκις χιλιοστή[ →→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-neutre← χιλιοστή[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-neutre← εκατομμυριοστή [ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-neutre← δισεκατομμυριοστή[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-neutre← τρισεκατομμυριοστή[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμυριοστή[ →→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-neuter← χιλιοστή[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-neuter← εκατομμυριοστή [ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμυριοστή[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμυριοστή[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμυριοστή[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-ordinal-neutre">
+            <ruleset type="spellout-ordinal-neuter">
                 <rbnfrule value="-x">μείον →→;</rbnfrule>
                 <rbnfrule value="0">μηδενικό;</rbnfrule>
                 <rbnfrule value="1">πρώτο;</rbnfrule>
@@ -298,11 +298,11 @@
                 <rbnfrule value="8000">οκτάκις χιλιοστό[ →→];</rbnfrule>
                 <rbnfrule value="9000">εννεάκις χιλιοστό[ →→];</rbnfrule>
                 <rbnfrule value="10000" radix="1000">δεκάκις χιλιοστό[ →→];</rbnfrule>
-                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-neutre← χιλιοστό[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-neutre← εκατομμυριοστό [ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-neutre← δισεκατομμυριοστό[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-neutre← τρισεκατομμυριοστό[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-neutre← τετράκις εκατομμυριοστό[ →→];</rbnfrule>
+                <rbnfrule value="11000" radix="1000">←%spellout-cardinal-neuter← χιλιοστό[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-neuter← εκατομμυριοστό [ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμυριοστό[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμυριοστό[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμυριοστό[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
             </ruleset>
         </rulesetGrouping>

@@ -92,7 +92,7 @@
                 <rbnfrule value="100">←%spellout-numbering←­hundra[­→→];</rbnfrule>
                 <rbnfrule value="1000">ERROR;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-neutre">
+            <ruleset type="spellout-cardinal-neuter">
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
@@ -115,7 +115,7 @@
                 <rbnfrule value="70">sjuttio[­→→];</rbnfrule>
                 <rbnfrule value="80">åttio[­→→];</rbnfrule>
                 <rbnfrule value="90">nittio[­→→];</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-neutre←­hundra[­→→];</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-neuter←­hundra[­→→];</rbnfrule>
                 <rbnfrule value="1000">ettusen[ →→];</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-reale←­tusen[ →→];</rbnfrule>
                 <rbnfrule value="1000000">en miljon[ →→];</rbnfrule>
@@ -128,7 +128,7 @@
                 <rbnfrule value="2000000000000000">←%spellout-cardinal-reale← biljarder[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-ordinal-neutre">
+            <ruleset type="spellout-ordinal-neuter">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">nollte;</rbnfrule>
@@ -187,7 +187,7 @@
                 <rbnfrule value="10">tionde;</rbnfrule>
                 <rbnfrule value="11">elfte;</rbnfrule>
                 <rbnfrule value="12">tolfte;</rbnfrule>
-                <rbnfrule value="13">=%spellout-cardinal-neutre=de;</rbnfrule>
+                <rbnfrule value="13">=%spellout-cardinal-neuter=de;</rbnfrule>
                 <rbnfrule value="20">tjugo→%%ord-masc-nde→;</rbnfrule>
                 <rbnfrule value="30">trettio→%%ord-masc-nde→;</rbnfrule>
                 <rbnfrule value="40">fyrtio→%%ord-masc-nde→;</rbnfrule>
@@ -225,14 +225,14 @@
                 <rbnfrule value="1">er =%spellout-ordinal-masculine=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
-                <rbnfrule value="0">=%spellout-ordinal-neutre=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-neuter=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-reale">
-                <rbnfrule value="0">=%spellout-ordinal-neutre=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-neuter=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal-neutre">
+            <ruleset type="digits-ordinal-neuter">
                 <rbnfrule value="0">=%digits-ordinal-feminine=;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-masculine">

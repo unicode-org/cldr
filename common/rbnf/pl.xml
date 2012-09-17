@@ -63,14 +63,14 @@
                 <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← biliardów[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-neutre">
+            <ruleset type="spellout-cardinal-neuter">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
                 <rbnfrule value="x.x">←← przecinek →%%spellout-fraction→;</rbnfrule>
                 <rbnfrule value="0">zero;</rbnfrule>
                 <rbnfrule value="1">jedno;</rbnfrule>
-                <rbnfrule value="2">=%%spellout-cardinal-neutre-priv=;</rbnfrule>
+                <rbnfrule value="2">=%%spellout-cardinal-neuter-priv=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-neutre-priv" access="private">
+            <ruleset type="spellout-cardinal-neuter-priv" access="private">
                 <rbnfrule value="1">jeden;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine=;</rbnfrule>
                 <rbnfrule value="20">dwadzieścia[ →→];</rbnfrule>

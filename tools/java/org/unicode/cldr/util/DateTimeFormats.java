@@ -586,7 +586,7 @@ public class DateTimeFormats {
         CLDRFile englishFile = englishFactory.make("en", true);
         String dateString = CldrUtility.isoFormat(new Date());
 
-        Factory factory = Factory.make(CldrUtility.TMP2_DIRECTORY + "vxml/common/main/", LOCALES);
+        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, LOCALES);
         System.out.println("Total locales: " + factory.getAvailableLanguages().size());
         DateTimeFormats english = new DateTimeFormats().set(englishFile, "gregorian");
         PrintWriter index = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "dates/", "index.html");

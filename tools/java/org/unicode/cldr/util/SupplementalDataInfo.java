@@ -2488,19 +2488,19 @@ public class SupplementalDataInfo {
             countToStringExample = Collections.unmodifiableMap(countToStringExampleRaw);
             exampleToCount = Collections.unmodifiableMap(exampleToCountRaw);
             Set<String> temp = new LinkedHashSet<String>();
-            String keyword = pluralRules.select(0.0d);
-            double value = pluralRules.getUniqueKeywordValue(keyword);
-            if (value == pluralRules.NO_UNIQUE_VALUE) {
-                temp.add("0");
-            }
-            keyword = pluralRules.select(1.0d);
-            value = pluralRules.getUniqueKeywordValue(keyword);
-            if (value == pluralRules.NO_UNIQUE_VALUE) {
-                temp.add("1");
-            }
+//            String keyword = pluralRules.select(0.0d);
+//            double value = pluralRules.getUniqueKeywordValue(keyword);
+//            if (value == pluralRules.NO_UNIQUE_VALUE) {
+//                temp.add("0");
+//            }
+//            keyword = pluralRules.select(1.0d);
+//            value = pluralRules.getUniqueKeywordValue(keyword);
+//            if (value == pluralRules.NO_UNIQUE_VALUE) {
+//                temp.add("1");
+//            }
             Set<String> keywords = pluralRules.getKeywords();
             for (Count count : Count.values()) {
-                keyword = count.toString();
+                String keyword = count.toString();
                 if (keywords.contains(keyword)) {
                     temp.add(keyword);
                 }

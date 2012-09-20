@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.FieldPosition;
 import java.text.ParsePosition;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Locale;
@@ -12,6 +13,7 @@ import java.util.Map;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.CurrencyAmount;
 import com.ibm.icu.util.ULocale;
@@ -55,8 +57,8 @@ public class CompactDecimalFormat extends DecimalFormat {
     }
 
     static final int MINIMUM_ARRAY_LENGTH = 15;
-    final String[] prefix;
-    final String[] suffix;
+    final Map<String, String[]> prefixes;
+    final Map<String, String[]> suffixes;
     final long[] divisor;
     static final int 
     POSITIVE_PREFIX = 0,
@@ -64,54 +66,55 @@ public class CompactDecimalFormat extends DecimalFormat {
     AFFIX_SIZE = 2;
     final String[] currencyAffixes;
     final CurrencySymbolDisplay currencySymbolDisplay;
+    final PluralRules pluralRules;
 
-    /**
-     * Create a CompactDecimalFormat appropriate for a locale (Mockup for what would be in NumberFormat). The result may be affected by the number system in the locale, such as ar-u-nu-latn.
-     * @param locale
-     */
-    public static final NumberFormat NumberFormat_getCompactDecimalInstance(ULocale locale, Style style) {
-        return new CompactDecimalFormat(locale, style);
-    }
+//    /**
+//     * Create a CompactDecimalFormat appropriate for a locale (Mockup for what would be in NumberFormat). The result may be affected by the number system in the locale, such as ar-u-nu-latn.
+//     * @param locale
+//     */
+//    public static final NumberFormat NumberFormat_getCompactDecimalInstance(ULocale locale, Style style) {
+//        return new CompactDecimalFormat(locale, style);
+//    }
 
-    /**
-     * Create a CompactDecimalFormat appropriate for a locale (Mockup for what would be in NumberFormat). The result may be affected by the number system in the locale, such as ar-u-nu-latn.
-     * @param locale
-     */
-    public static final NumberFormat NumberFormat_getCompactDecimalInstance(Locale locale, Style style) {
-        return new CompactDecimalFormat(locale, style);
-    }
+//    /**
+//     * Create a CompactDecimalFormat appropriate for a locale (Mockup for what would be in NumberFormat). The result may be affected by the number system in the locale, such as ar-u-nu-latn.
+//     * @param locale
+//     */
+//    public static final NumberFormat NumberFormat_getCompactDecimalInstance(Locale locale, Style style) {
+//        return new CompactDecimalFormat(locale, style);
+//    }
 
-    /**
-     * Create a CompactDecimalFormat appropriate for a locale. The result may be affected by the number system in the locale, such as ar-u-nu-latn.
-     * @param locale
-     */
-    public CompactDecimalFormat(ULocale locale, Style style) {
-        DecimalFormat format = (DecimalFormat) NumberFormat.getInstance(locale);
-        Data data;
-        while (true) {
-            data = localeToData.get(locale);
-            if (data != null) {
-                break;
-            }
-            locale = locale.equals(zhTW) ? ULocale.TRADITIONAL_CHINESE : locale.getFallback();
-        }
-        this.prefix = data.prefixes;
-        this.suffix = data.suffixes;
-        this.divisor = data.divisors;
-        applyPattern(format.toPattern());
-        setDecimalFormatSymbols(format.getDecimalFormatSymbols());
-        setMaximumSignificantDigits(2); // default significant digits
-        setSignificantDigitsUsed(true);
-        setGroupingUsed(false);
+//    /**
+//     * Create a CompactDecimalFormat appropriate for a locale. The result may be affected by the number system in the locale, such as ar-u-nu-latn.
+//     * @param locale
+//     */
+//    public CompactDecimalFormat(ULocale locale, Style style) {
+//        DecimalFormat format = (DecimalFormat) NumberFormat.getInstance(locale);
+//        Data data;
+//        while (true) {
+//            data = localeToData.get(locale);
+//            if (data != null) {
+//                break;
+//            }
+//            locale = locale.equals(zhTW) ? ULocale.TRADITIONAL_CHINESE : locale.getFallback();
+//        }
+//        this.prefix = data.prefixes;
+//        this.suffix = data.suffixes;
+//        this.divisor = data.divisors;
+//        applyPattern(format.toPattern());
+//        setDecimalFormatSymbols(format.getDecimalFormatSymbols());
+//        setMaximumSignificantDigits(2); // default significant digits
+//        setSignificantDigitsUsed(true);
+//        setGroupingUsed(false);
+//
+//        DecimalFormat currencyFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
+//        currencyAffixes = new String[AFFIX_SIZE];
+//        currencyAffixes[CompactDecimalFormat.POSITIVE_PREFIX] = currencyFormat.getPositivePrefix();
+//        currencyAffixes[CompactDecimalFormat.POSITIVE_SUFFIX] = currencyFormat.getPositiveSuffix();
+//        // TODO fix to get right symbol for the count
+//        currencySymbolDisplay = new IcuCurrencySymbolDisplay(locale);
+//    }
 
-        DecimalFormat currencyFormat = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
-        currencyAffixes = new String[AFFIX_SIZE];
-        currencyAffixes[CompactDecimalFormat.POSITIVE_PREFIX] = currencyFormat.getPositivePrefix();
-        currencyAffixes[CompactDecimalFormat.POSITIVE_SUFFIX] = currencyFormat.getPositiveSuffix();
-        // TODO fix to get right symbol for the count
-        currencySymbolDisplay = new IcuCurrencySymbolDisplay(locale);
-    }
-    
     static class IcuCurrencySymbolDisplay implements CurrencySymbolDisplay {
         final ULocale locale;
         public IcuCurrencySymbolDisplay(ULocale locale) {
@@ -120,20 +123,20 @@ public class CompactDecimalFormat extends DecimalFormat {
         @Override
         public String getName(Currency currency, int count) {
             return count > 1 
-            ? currency.getCurrencyCode() 
+                ? currency.getCurrencyCode() 
                     : currency.getSymbol(locale);
         }
     };
 
-    private static ULocale zhTW = new ULocale("zh_TW");
+    // private static ULocale zhTW = new ULocale("zh_TW");
 
-    /**
-     * Create a CompactDecimalFormat appropriate for a locale. The result may be affected by the number system in the locale, such as ar-u-nu-latn.
-     * @param locale
-     */
-    public CompactDecimalFormat(Locale locale, Style style) {
-        this(ULocale.forLocale(locale), style);
-    }
+//    /**
+//     * Create a CompactDecimalFormat appropriate for a locale. The result may be affected by the number system in the locale, such as ar-u-nu-latn.
+//     * @param locale
+//     */
+//    public CompactDecimalFormat(Locale locale, Style style) {
+//        this(ULocale.forLocale(locale), style);
+//    }
 
     /** Create a short number "from scratch". Intended for internal use.
      * The prefix, suffix, and divisor arrays are parallel, and provide the information for each power of 10.
@@ -148,15 +151,19 @@ public class CompactDecimalFormat extends DecimalFormat {
      * If null on input, then any errors found will be added to that collection instead of throwing exceptions.
      * @internal
      */
-    public CompactDecimalFormat(String pattern, DecimalFormatSymbols formatSymbols, String[] prefix, String[] suffix, long[] divisor, 
-            Collection<String> debugCreationErrors, Style style,
-            String[] currencyAffixes, CurrencySymbolDisplay currencySymbolDisplay) {
-        if (prefix.length < MINIMUM_ARRAY_LENGTH) {
-            recordError(debugCreationErrors, "Must have at least " + MINIMUM_ARRAY_LENGTH + " prefix items.");
-        }
-        if (prefix.length != suffix.length || prefix.length != divisor.length) {
-            recordError(debugCreationErrors, "Prefix, suffix, and divisor arrays must have the same length.");
-        }
+    public CompactDecimalFormat(String pattern, DecimalFormatSymbols formatSymbols, Map<String, String[]> prefixesInput, Map<String, String[]> suffixesInput, long[] divisor, 
+        Collection<String> debugCreationErrors, Style style,
+        String[] currencyAffixes, CurrencySymbolDisplay currencySymbolDisplay, PluralRules pluralRules) {
+        this.pluralRules = pluralRules;
+        for (String key : prefixesInput.keySet()) {
+            String[] prefix = prefixesInput.get(key);
+            String[] suffix = prefixesInput.get(key);
+            if (prefix.length < MINIMUM_ARRAY_LENGTH) {
+                recordError(debugCreationErrors, "Must have at least " + MINIMUM_ARRAY_LENGTH + " prefix items.");
+            }
+            if (prefix.length != suffix.length || prefix.length != divisor.length) {
+                recordError(debugCreationErrors, "Prefix, suffix, and divisor arrays must have the same length.");
+            }
         long oldDivisor = 0;
         Map<String, Integer> seen = new HashMap<String, Integer>();        
         for (int i = 0; i < prefix.length; ++i) {
@@ -175,23 +182,25 @@ public class CompactDecimalFormat extends DecimalFormat {
             }
 
             // we can't have two different indexes with the same display
-            String key = prefix[i] + "\uFFFF" + suffix[i] + "\uFFFF" + (i - log);
-            Integer old = seen.get(key);
+            String key2 = prefix[i] + "\uFFFF" + suffix[i] + "\uFFFF" + (i - log);
+            Integer old = seen.get(key2);
             if (old != null) {
                 recordError(debugCreationErrors, "Collision between values for " + i + " and " + old + " for [prefix/suffix/index-log(divisor)" + key.replace('\uFFFF', ';')); 
             } else {
-                seen.put(key, i);
+                seen.put(key2, i);
             }
             if (divisor[i] < oldDivisor) {
                 recordError(debugCreationErrors, "Bad divisor, the divisor for 10E" + i + "(" + divisor[i] +
-                        ") is less than the divisor for the divisor for 10E" + (i-1) + "(" + oldDivisor + 
-                ")"); 
+                    ") is less than the divisor for the divisor for 10E" + (i-1) + "(" + oldDivisor + 
+                    ")"); 
             }
             oldDivisor = divisor[i];
         }
+        }
 
-        this.prefix = prefix.clone();
-        this.suffix = suffix.clone();
+        // HACK; should clone
+        this.prefixes = prefixesInput;
+        this.suffixes = suffixesInput;
         this.divisor = divisor.clone();
         applyPattern(pattern);
         setDecimalFormatSymbols(formatSymbols);
@@ -203,37 +212,48 @@ public class CompactDecimalFormat extends DecimalFormat {
     }
 
     @Override
-    public StringBuffer format(double number, StringBuffer toAppendTo, FieldPosition pos) {
-        if (number < 0.0d) {
+    public StringBuffer format(double numberInput, StringBuffer toAppendTo, FieldPosition pos) {
+        double number;
+        if (numberInput < 0.0d) {
             throw new UnsupportedOperationException("CompactDecimalFormat doesn't handle negative numbers yet.");
         }
-        int integerCount = (int) Math.log10(number);
-        int base = integerCount > 14 ? 14 : integerCount;
-        number = number / divisor[base];
-        setPositivePrefix(prefix[base]);
-        setPositiveSuffix(suffix[base]);
-        setCurrency(null);
-        return super.format(number, toAppendTo, pos);
-    }
-
-    @Override
-    public StringBuffer format(CurrencyAmount currencyAmount, StringBuffer toAppendTo, FieldPosition pos) {
-        double number = currencyAmount.getNumber().doubleValue();
-        if (number < 0.0d) {
-            throw new UnsupportedOperationException("CompactDecimalFormat doesn't handle negative numbers yet.");
+        
+        try {
+            int integerCount = numberInput <= 0.0d ? 0 : (int) Math.log10(numberInput);
+            int base = integerCount > 14 ? 14 : integerCount;
+            number = numberInput / divisor[base];
+            setCurrency(null);
+            String key = pluralRules.select(number);
+            String prefixString = prefixes.get(key)[base];
+            String suffixString = suffixes.get(key)[base];
+            int check = prefixString.length() + suffixString.length();
+            toAppendTo.append(prefixString);
+            super.format(number, toAppendTo, pos);
+            return toAppendTo.append(suffixString);
+        } catch (Exception e) {
+            toAppendTo.append("ERROR:");
+            return super.format(numberInput, toAppendTo, pos);
         }
-        int integerCount = (int) Math.log10(number);
-        int base = integerCount > 14 ? 14 : integerCount;
-        number = number / divisor[base];
-
-        final Currency currency = currencyAmount.getCurrency();
-        // TODO sometimes the affixes depend on the currency, so this needs to be fixed for that
-        setPositivePrefix(replaceCurrencySymbol(currencyAffixes[POSITIVE_PREFIX], currency) + prefix[base]);
-        setPositiveSuffix(suffix[base] + replaceCurrencySymbol(currencyAffixes[POSITIVE_SUFFIX], currency));
-        setCurrency(currency);
-        setMaximumFractionDigits(0); // reset to no fractions
-        return super.format(number, toAppendTo, pos);
     }
+
+//    @Override
+//    public StringBuffer format(CurrencyAmount currencyAmount, StringBuffer toAppendTo, FieldPosition pos) {
+//        double number = currencyAmount.getNumber().doubleValue();
+//        if (number < 0.0d) {
+//            throw new UnsupportedOperationException("CompactDecimalFormat doesn't handle negative numbers yet.");
+//        }
+//        int integerCount = (int) Math.log10(number);
+//        int base = integerCount > 14 ? 14 : integerCount;
+//        number = number / divisor[base];
+//
+//        final Currency currency = currencyAmount.getCurrency();
+//        // TODO sometimes the affixes depend on the currency, so this needs to be fixed for that
+//        setPositivePrefix(replaceCurrencySymbol(currencyAffixes[POSITIVE_PREFIX], currency) + prefix[base]);
+//        setPositiveSuffix(suffix[base] + replaceCurrencySymbol(currencyAffixes[POSITIVE_SUFFIX], currency));
+//        setCurrency(currency);
+//        setMaximumFractionDigits(0); // reset to no fractions
+//        return super.format(number, toAppendTo, pos);
+//    }
 
     /** Duplicate what is in Decimal Format (but which is inaccessible). Doesn't handle quoted currency signs correctly.
      * 

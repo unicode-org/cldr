@@ -42,7 +42,7 @@ public class RadicalStroke {
       Matcher iiCore = IICORE.matcher("");
       radStrokesToRadToRemainingStrokes = new TreeMap<Integer, Map<String,Map<Integer,UnicodeSet>>>();
       remainder = ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(GeneratePickerData.SKIP);
-      String dataDir = CldrUtility.getProperty("DATA_DIR", CldrUtility.BASE_DIRECTORY + "../DATA/UCD/5.2.0-Update/Unihan/");
+      String dataDir = CldrUtility.UCD_DIRECTORY + "/Unihan/";
 
       String unihanFile = GeneratePickerData.unicodeDataDirectory + "Unihan.txt";
       BufferedReader in = new BufferedReader(
@@ -64,7 +64,10 @@ public class RadicalStroke {
               throw new IllegalArgumentException("Bad line: " + line);
             }
             String radical = radDataMatcher.group(1);
-            int radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
+            Integer radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
+            if (radicalChar == null) {
+                throw new IllegalArgumentException("No radical value for <" + radical + ">");
+            }
             charToRadical.put(cp,radicalChar);
             int radicalStrokes = ScriptCategories.RADICAL_CHAR2STROKES.get(radicalChar);
             int remainingStrokes = Integer.parseInt(radDataMatcher.group(2));

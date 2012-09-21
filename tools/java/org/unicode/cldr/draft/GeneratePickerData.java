@@ -30,6 +30,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
+import org.unicode.cldr.tool.Option;
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -146,24 +149,30 @@ class GeneratePickerData {
     static Renamer renamer;
     private static PrintWriter renamingLog;
 
+    final static Options myOptions = new Options();
+    enum MyOptions {
+        output(".*", CldrUtility.GEN_DIRECTORY + "picker/", "output data directory"),
+        unicodedata(null, CldrUtility.UCD_DIRECTORY, "Unicode Data directory"),
+        verbose(null, null, "verbose debugging messages"),
+        korean(null, null, "generate korean hangul defectives instead"),
+        ;
+        // boilerplate
+        final Option option;
+        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
+            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
+        }
+    }
+
     public static void main(String[] args) throws Exception {
         // System.out.println(ScriptCategories.ARCHAIC);
+        myOptions.parse(MyOptions.unicodedata, args, true);
 
-        if (args.length < 1) {
-            throw new IllegalArgumentException("First argument must be output directory, or 'g' for Hangul defectives");
-        }
-        if (args[0].equals("g")) {
+        if (MyOptions.korean.option.doesOccur()) {
             generateHangulDefectives();
             return;
         }
-        outputDirectory = new File(args[0]).getCanonicalPath() + File.separator + "picker" + File.separator;
-        System.out.println("Output Directory: " + outputDirectory);
-
-        if (args.length < 2) {
-            throw new IllegalArgumentException("Second argument must be Unicode data directory");
-        }
-        unicodeDataDirectory = new File(args[1]).getCanonicalPath() + File.separator;
-        System.out.println("Unicode Data Directory: " + unicodeDataDirectory);
+        outputDirectory = new File(MyOptions.output.option.getValue()).getCanonicalPath() + File.separator;
+        unicodeDataDirectory = new File(MyOptions.unicodedata.option.getValue()).getCanonicalPath() + File.separator;
 
         renamingLog = getFileWriter(outputDirectory, "renamingLog.txt");
 

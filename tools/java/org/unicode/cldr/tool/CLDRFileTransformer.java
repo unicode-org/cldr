@@ -10,7 +10,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
-import com.ibm.icu.dev.test.util.BagFormatter;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 

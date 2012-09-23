@@ -1266,12 +1266,12 @@
 						<dateFormatItem id="yMMMd" draft="contributed">d. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d. MMM y.</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y.</dateFormatItem>
-						<dateFormatItem id="yQ">y Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMdd">dd.MM.yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d. MMM yy.</dateFormatItem>
-						<dateFormatItem id="yyQ">Q yy</dateFormatItem>
+						<dateFormatItem id="yyQQQ">QQQ yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyy">y.</dateFormatItem>
 						<dateFormatItem id="yyyyMM">yyyy-MM</dateFormatItem>
@@ -1425,7 +1425,7 @@
 							<month type="5" draft="provisional">Ševat</month>
 							<month type="6" draft="provisional">Adar I</month>
 							<month type="7" draft="provisional">Adar</month>
-							<month type="7" draft="provisional" yeartype="leap">Adar II</month>
+							<month type="7" yeartype="leap" draft="provisional">Adar II</month>
 							<month type="8" draft="provisional">Nisan</month>
 							<month type="9" draft="provisional">Ijar</month>
 							<month type="10" draft="provisional">Sivan</month>

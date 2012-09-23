@@ -1332,11 +1332,11 @@
 						<dateFormatItem id="yMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yQ">Gy年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQ">Gy年QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">Gy年QQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">Gy年QQQQ</dateFormatItem>
 						<dateFormatItem id="yyMM">Gyy/MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">Gyy年M月</dateFormatItem>
-						<dateFormatItem id="yyQ">Gyy年第Q季度</dateFormatItem>
+						<dateFormatItem id="yyQQQ">Gyy年第QQQ季度</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 					</availableFormats>
@@ -1536,8 +1536,8 @@
 						<dateFormatItem id="yMMM">U年MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">U年MMMd日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">U年MMMd日E</dateFormatItem>
-						<dateFormatItem id="yQ">U年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQ">U年QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">U年QQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">U年QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}至{1}</intervalFormatFallback>
@@ -2096,11 +2096,11 @@
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日E</dateFormatItem>
-						<dateFormatItem id="yQ">y年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">y年QQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
 						<dateFormatItem id="yyMM" draft="contributed">yy-MM</dateFormatItem>
 						<dateFormatItem id="yyMMM">yy年M月</dateFormatItem>
-						<dateFormatItem id="yyQ">yy年第Q季度</dateFormatItem>
+						<dateFormatItem id="yyQQQ">yy年第QQQ季度</dateFormatItem>
 						<dateFormatItem id="yyyy">y年</dateFormatItem>
 						<dateFormatItem id="yyyyM">y年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM" draft="contributed">y年M月</dateFormatItem>
@@ -2265,7 +2265,7 @@
 							<month type="5" draft="contributed">細罷特月</month>
 							<month type="6" draft="contributed">亞達月 I</month>
 							<month type="7" draft="contributed">亞達月</month>
-							<month type="7" draft="contributed" yeartype="leap">亞達月 II</month>
+							<month type="7" yeartype="leap" draft="contributed">亞達月 II</month>
 							<month type="8" draft="contributed">尼散月</month>
 							<month type="9" draft="contributed">以珥月</month>
 							<month type="10" draft="contributed">西彎月</month>
@@ -2281,7 +2281,7 @@
 							<month type="5" draft="contributed">細罷特月</month>
 							<month type="6" draft="contributed">亞達月 I</month>
 							<month type="7" draft="contributed">亞達月</month>
-							<month type="7" draft="contributed" yeartype="leap">亞達月 II</month>
+							<month type="7" yeartype="leap" draft="contributed">亞達月 II</month>
 							<month type="8" draft="contributed">尼散月</month>
 							<month type="9" draft="contributed">以珥月</month>
 							<month type="10" draft="contributed">西彎月</month>
@@ -2299,7 +2299,7 @@
 							<month type="5" draft="contributed">細罷特月</month>
 							<month type="6" draft="contributed">亞達月 I</month>
 							<month type="7" draft="contributed">亞達月</month>
-							<month type="7" draft="contributed" yeartype="leap">亞達月 II</month>
+							<month type="7" yeartype="leap" draft="contributed">亞達月 II</month>
 							<month type="8" draft="contributed">尼散月</month>
 							<month type="9" draft="contributed">以珥月</month>
 							<month type="10" draft="contributed">西彎月</month>
@@ -2315,7 +2315,7 @@
 							<month type="5" draft="contributed">細罷特月</month>
 							<month type="6" draft="contributed">亞達月 I</month>
 							<month type="7" draft="contributed">亞達月</month>
-							<month type="7" draft="contributed" yeartype="leap">亞達月 II</month>
+							<month type="7" yeartype="leap" draft="contributed">亞達月 II</month>
 							<month type="8" draft="contributed">尼散月</month>
 							<month type="9" draft="contributed">以珥月</month>
 							<month type="10" draft="contributed">西彎月</month>
@@ -2575,15 +2575,15 @@
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日E</dateFormatItem>
-						<dateFormatItem id="yQ">y年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">y年QQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yyyyQ">Gy年QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -2899,7 +2899,7 @@
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yyyyQ">Gy年QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -3056,7 +3056,7 @@
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">Gy QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">Gy QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

@@ -1771,9 +1771,9 @@
 						<dateFormatItem id="yMMM">y. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">y. MMM d.</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y. MMM d., E</dateFormatItem>
-						<dateFormatItem id="yQ">y. Q</dateFormatItem>
 						<dateFormatItem id="yQQQ">y. QQQ</dateFormatItem>
-						<dateFormatItem id="yyQ">yy/Q</dateFormatItem>
+						<dateFormatItem id="yQQQQ">y. QQQQ</dateFormatItem>
+						<dateFormatItem id="yyQQQ">yy/QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyMM">yyyy.MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">y. MMMM</dateFormatItem>
 					</availableFormats>
@@ -1934,7 +1934,7 @@
 							<month type="5" draft="contributed">Svát</month>
 							<month type="6" draft="contributed">Ádár I</month>
 							<month type="7" draft="contributed">Ádár</month>
-							<month type="7" draft="contributed" yeartype="leap">Ádár II</month>
+							<month type="7" yeartype="leap" draft="contributed">Ádár II</month>
 							<month type="8" draft="contributed">Niszán</month>
 							<month type="9" draft="contributed">Ijár</month>
 							<month type="10" draft="contributed">Sziván</month>
@@ -1968,7 +1968,7 @@
 							<month type="5" draft="contributed">Svát</month>
 							<month type="6" draft="contributed">Ádár risón</month>
 							<month type="7" draft="contributed">Ádár</month>
-							<month type="7" draft="contributed" yeartype="leap">Ádár II</month>
+							<month type="7" yeartype="leap" draft="contributed">Ádár II</month>
 							<month type="8" draft="contributed">Niszán</month>
 							<month type="9" draft="contributed">Ijár</month>
 							<month type="10" draft="contributed">Sziván</month>
@@ -1984,7 +1984,7 @@
 							<month type="5" draft="contributed">Svát</month>
 							<month type="6" draft="contributed">Ádár risón</month>
 							<month type="7" draft="contributed">Ádár</month>
-							<month type="7" draft="contributed" yeartype="leap">Ádár II</month>
+							<month type="7" yeartype="leap" draft="contributed">Ádár II</month>
 							<month type="8" draft="contributed">Niszán</month>
 							<month type="9" draft="contributed">Ijár</month>
 							<month type="10" draft="contributed">Sziván</month>
@@ -2176,8 +2176,8 @@
 						<dateFormatItem id="yMEd" draft="contributed">yyyy.MM.dd., E</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">y MMM</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="contributed">y. MMM d., E</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">y Q</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ" draft="contributed">y QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

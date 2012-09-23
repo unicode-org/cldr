@@ -1349,13 +1349,13 @@
 						<dateFormatItem id="yMEd">E d/M/y G</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d MMM y G</dateFormatItem>
-						<dateFormatItem id="yQ">'T'Q y G</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yQQQ">'T'QQQ y G</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ y G</dateFormatItem>
 						<dateFormatItem id="yyMM">MM/y G</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyMMMEd">E d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyQ">'T'Q y G</dateFormatItem>
+						<dateFormatItem id="yyQQQ">'T'QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyQQQQ">QQQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
 					</availableFormats>
@@ -1432,8 +1432,8 @@
 						<dateFormatItem id="yMMM">MMM U</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM U</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d MMM U</dateFormatItem>
-						<dateFormatItem id="yQ">'T'Q U</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ U</dateFormatItem>
+						<dateFormatItem id="yQQQ">'T'QQQ U</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ U</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1916,13 +1916,13 @@
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
-						<dateFormatItem id="yQ">'T'Q y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQ">'T'QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d MMM yy</dateFormatItem>
 						<dateFormatItem id="yyMMMEd">E d MMM yy</dateFormatItem>
-						<dateFormatItem id="yyQ">'T'Q yy</dateFormatItem>
+						<dateFormatItem id="yyQQQ">'T'QQQ yy</dateFormatItem>
 						<dateFormatItem id="yyQQQQ">QQQQ yy</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y</dateFormatItem>
 					</availableFormats>
@@ -2083,7 +2083,7 @@
 							<month type="5" draft="unconfirmed">sché.</month>
 							<month type="6" draft="unconfirmed">ad.I</month>
 							<month type="7" draft="unconfirmed">adar</month>
-							<month type="7" draft="unconfirmed" yeartype="leap">ad.II</month>
+							<month type="7" yeartype="leap" draft="unconfirmed">ad.II</month>
 							<month type="8" draft="unconfirmed">nis.</month>
 							<month type="9" draft="unconfirmed">iyar</month>
 							<month type="10" draft="unconfirmed">siv.</month>
@@ -2117,7 +2117,7 @@
 							<month type="5" draft="unconfirmed">S</month>
 							<month type="6" draft="unconfirmed">A</month>
 							<month type="7" draft="unconfirmed">A</month>
-							<month type="7" draft="unconfirmed" yeartype="leap">A</month>
+							<month type="7" yeartype="leap" draft="unconfirmed">A</month>
 							<month type="8" draft="unconfirmed">N</month>
 							<month type="9" draft="unconfirmed">I</month>
 							<month type="10" draft="unconfirmed">S</month>
@@ -2333,13 +2333,13 @@
 						<dateFormatItem id="yMEd">E d/M/yyyy</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
-						<dateFormatItem id="yQ">'T'Q y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQ">'T'QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yyMM">MM/y G</dateFormatItem>
 						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyMMMEd">E d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyQ">'T'Q y G</dateFormatItem>
+						<dateFormatItem id="yyQQQ">'T'QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyQQQQ">QQQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y G</dateFormatItem>
@@ -2349,8 +2349,8 @@
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyQ">'T'Q y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">'T'QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -2402,7 +2402,7 @@
 						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyMMMEd">E d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyQ">'T'Q y G</dateFormatItem>
+						<dateFormatItem id="yyQQQ">'T'QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyQQQQ">QQQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
@@ -2412,8 +2412,8 @@
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyQ">'T'Q y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">'T'QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -2471,7 +2471,7 @@
 						<dateFormatItem id="yyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyMMMEd">E d MMM y G</dateFormatItem>
-						<dateFormatItem id="yyQ">'T'Q y G</dateFormatItem>
+						<dateFormatItem id="yyQQQ">'T'QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyQQQQ">QQQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
@@ -2481,8 +2481,8 @@
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyQ">'T'Q y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">'T'QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

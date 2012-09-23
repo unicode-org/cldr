@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -407,10 +407,9 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-						<dateFormatItem id="yQ">QQQ 'de' y G</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyQ">QQQ 'de' yy G</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQQ 'de' y G</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ 'de' y G</dateFormatItem>
+						<dateFormatItem id="yyQQQ">QQQQ 'de' yy G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -607,13 +606,13 @@
 						<dateFormatItem id="yMMMM">MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMMd">d 'de' MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yMMMMEd">E, d 'de' MMMM 'de' y</dateFormatItem>
-						<dateFormatItem id="yQ">QQQ 'de' yyyy</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ 'de' y</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQQ 'de' yyyy</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ 'de' y</dateFormatItem>
 						<dateFormatItem id="yyMM">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMM">MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMMd">d/MM/yy</dateFormatItem>
 						<dateFormatItem id="yyMMMEd">E, d/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyQ">QQQ 'de' yy</dateFormatItem>
+						<dateFormatItem id="yyQQQ">QQQQ 'de' yy</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM/yyyy</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">MMM 'de' y</dateFormatItem>
 					</availableFormats>
@@ -729,10 +728,9 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-						<dateFormatItem id="yQ">QQQ 'de' y G</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyQ">QQQ 'de' yy G</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQQ 'de' y G</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ 'de' y G</dateFormatItem>
+						<dateFormatItem id="yyQQQ">QQQQ 'de' yy G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -757,10 +755,9 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-						<dateFormatItem id="yQ">QQQ 'de' y G</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyQ">QQQ 'de' yy G</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQQ 'de' y G</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ 'de' y G</dateFormatItem>
+						<dateFormatItem id="yyQQQ">QQQQ 'de' yy G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -774,10 +771,9 @@
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-						<dateFormatItem id="yQ">QQQ 'de' y G</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ 'de' y G</dateFormatItem>
-						<dateFormatItem id="yyQ">QQQ 'de' yy G</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQQ 'de' y G</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ 'de' y G</dateFormatItem>
+						<dateFormatItem id="yyQQQ">QQQQ 'de' yy G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -2628,3 +2624,10 @@
 		</unit>
 	</units>
 </ldml>
+<!-- Comments without bases
+
+per cldrbug 2835, added from gregorian and adjusted for G	 - was on: //ldml/dates/calendars/calendar[@type="roc"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yQ"]
+per cldrbug 2835, added from gregorian and adjusted for G	 - was on: //ldml/dates/calendars/calendar[@type="japanese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yQ"]
+per cldrbug 2835, added from gregorian and adjusted for G	 - was on: //ldml/dates/calendars/calendar[@type="buddhist"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yQ"]
+per cldrbug 2835, added from gregorian and adjusted for G	 - was on: //ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yQ"] -->
+

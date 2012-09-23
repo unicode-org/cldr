@@ -1324,8 +1324,8 @@
 						<dateFormatItem id="yMMM" draft="contributed">GGGGy年M月</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="contributed">GGGGy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd" draft="contributed">GGGGy年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yQ" draft="contributed">GGGGy QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">GGGGy第Q四半期</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="contributed">GGGGy QQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ" draft="contributed">GGGGy第QQQ四半期</dateFormatItem>
 						<dateFormatItem id="yyyy">GGGGy年</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
@@ -1334,7 +1334,7 @@
 						<dateFormatItem id="yyyyMMMd">GGGGy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">GGGGy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">GGGGy年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQ">Gy/Q</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1550,8 +1550,8 @@
 						<dateFormatItem id="yMMMd">U年MMMd日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">U年MMMd日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">U年MMMd日EEEE</dateFormatItem>
-						<dateFormatItem id="yQ">U/Q</dateFormatItem>
-						<dateFormatItem id="yQQQ">UQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">U/QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">UQQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}～{1}</intervalFormatFallback>
@@ -2091,10 +2091,10 @@
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yQ">y/Q</dateFormatItem>
-						<dateFormatItem id="yQQQ">yQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">y/QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">yQQQQ</dateFormatItem>
 						<dateFormatItem id="yyMMM">y年M月</dateFormatItem>
-						<dateFormatItem id="yyQ">yy/Q</dateFormatItem>
+						<dateFormatItem id="yyQQQ">yy/QQQ</dateFormatItem>
 						<dateFormatItem id="yyyy">y年</dateFormatItem>
 						<dateFormatItem id="yyyyMM">yyyy/MM</dateFormatItem>
 					</availableFormats>
@@ -2258,7 +2258,7 @@
 							<month type="5" draft="contributed">シバット</month>
 							<month type="6" draft="contributed">アダル I</month>
 							<month type="7" draft="contributed">アダル</month>
-							<month type="7" draft="contributed" yeartype="leap">アダル II</month>
+							<month type="7" yeartype="leap" draft="contributed">アダル II</month>
 							<month type="8" draft="contributed">ニサン</month>
 							<month type="9" draft="contributed">イヤル</month>
 							<month type="10" draft="contributed">シバン</month>
@@ -2274,7 +2274,7 @@
 							<month type="5" draft="contributed">5</month>
 							<month type="6" draft="contributed">6</month>
 							<month type="7" draft="contributed">7</month>
-							<month type="7" draft="contributed" yeartype="leap">7</month>
+							<month type="7" yeartype="leap" draft="contributed">7</month>
 							<month type="8" draft="contributed">8</month>
 							<month type="9" draft="contributed">9</month>
 							<month type="10" draft="contributed">10</month>
@@ -2290,7 +2290,7 @@
 							<month type="5" draft="contributed">シバット</month>
 							<month type="6" draft="contributed">アダル I</month>
 							<month type="7" draft="contributed">アダル</month>
-							<month type="7" draft="contributed" yeartype="leap">アダル II</month>
+							<month type="7" yeartype="leap" draft="contributed">アダル II</month>
 							<month type="8" draft="contributed">ニサン</month>
 							<month type="9" draft="contributed">イヤル</month>
 							<month type="10" draft="contributed">シバン</month>
@@ -2308,7 +2308,7 @@
 							<month type="5" draft="contributed">シバット</month>
 							<month type="6" draft="contributed">アダル I</month>
 							<month type="7" draft="contributed">アダル</month>
-							<month type="7" draft="contributed" yeartype="leap">アダル II</month>
+							<month type="7" yeartype="leap" draft="contributed">アダル II</month>
 							<month type="8" draft="contributed">ニサン</month>
 							<month type="9" draft="contributed">イヤル</month>
 							<month type="10" draft="contributed">シバン</month>
@@ -2340,7 +2340,7 @@
 							<month type="5" draft="contributed">シバット</month>
 							<month type="6" draft="contributed">アダル I</month>
 							<month type="7" draft="contributed">アダル</month>
-							<month type="7" draft="contributed" yeartype="leap">アダル II</month>
+							<month type="7" yeartype="leap" draft="contributed">アダル II</month>
 							<month type="8" draft="contributed">ニサン</month>
 							<month type="9" draft="contributed">イヤル</month>
 							<month type="10" draft="contributed">シバン</month>
@@ -3099,8 +3099,8 @@
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQ">Gy/Q</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">Gy/QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -3260,8 +3260,8 @@
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQ">Gy/Q</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">Gy/QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

@@ -1059,7 +1059,7 @@ public class CLDRModify {
         fixList.add('a', "Fix 0/1", new CLDRFilter() {
             final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
             PluralInfo info;
-            
+
             @Override
             public void handleStart() {
                 info = SupplementalDataInfo.getInstance().getPlurals(super.localeID);
@@ -1710,36 +1710,42 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('q', "fix am/pm", new CLDRFilter() {
+        fixList.add('q', "fix Q/QQQ", new CLDRFilter() {
 
             @Override
             public void handlePath(String xpath) {
-                if (!xpath.contains("/calendar")) return;
-                if (!xpath.contains("/am") && !xpath.contains("/pm")) return;
+                if (!xpath.contains("/availableFormats/dateFormatItem")) {
+                    return;
+                }
                 String fullpath = cldrFileToFilter.getFullXPath(xpath);
                 parts.set(fullpath);
-                String lastElement = parts.getElement(-1);
-                if (!lastElement.equals("am") && !lastElement.equals("pm")) {
+                String id = parts.getAttributeValue(-1, "id");
+                if (!id.contains("Q")) {
                     return;
                 }
                 String value = cldrFileToFilter.getStringValue(xpath);
-
-
-                Map<String, String> oldAttributes = parts.getAttributes(-1);
-                parts.trimLast();
-                parts.addElement("dayPeriods");
-                parts.addElement("dayPeriodContext");
-                parts.addAttribute("type", "format");
-                parts.addElement("dayPeriodWidth");
-                parts.addAttribute("type", "wide");
-                parts.addElement("dayPeriod");
-                parts.addAttribute("type", lastElement);
-                for (String attribute : oldAttributes.keySet()) {
-                    parts.addAttribute(attribute, oldAttributes.get(attribute));
+                try {
+                    String newId = fixQ(id);
+                    String newValue = fixQ(value);
+                    parts.setAttribute(-1, "id", newId);
+                    String newPath = parts.toString();
+                    replace(fullpath, newPath, newValue);
+                } catch (Exception e) {
+                    throw new IllegalArgumentException(value + "\t" + fullpath);
                 }
+            }
 
-                String newPath = parts.toString();
-                replace(fullpath, newPath, value);
+            private String fixQ(String id) {
+                if (id.contains("QQQQ")) {
+                    return id;
+                } else if (id.contains("QQQ")) {
+                    return id.replace("QQQ", "QQQQ");
+                } else if (id.contains("QQ")) {
+                    // fall through to error
+                } else if (id.contains("Q")) {
+                    return id.replace("Q", "QQQ");
+                }
+                throw new IllegalArgumentException("Unexpected number of Q's");
             }
         });
 

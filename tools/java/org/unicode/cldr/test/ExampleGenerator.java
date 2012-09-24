@@ -707,7 +707,12 @@ public class ExampleGenerator {
             String timezone = parts.getAttributeValue(3, "type");
             String countryCode = supplementalDataInfo.getZone_territory(timezone);
             if (countryCode == null) {
-                return result; // fail, skip
+                if (value == null) {
+                    result = timezone.substring(timezone.lastIndexOf('/')+1).replace('_',' ');
+                } else {
+                    result = value;
+                }
+                return result;
             }
             if (countryCode.equals("001")) {
                 // GMT code, so format.
@@ -738,8 +743,10 @@ public class ExampleGenerator {
                 String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
                 result = format(timeFormat, result);
             }
+        } else if (parts.contains("zone")) { // {0} Time
+            result = value;
         } else if (parts.contains("regionFormat")) { // {0} Time
-            result = addExampleResult(format(value, setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP"))), result);
+            result = format(value, setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP")));
             result = addExampleResult(format(value, setBackground(cldrFile.getWinningValue(EXEMPLAR_CITY_LOS_ANGELES))), result);
         } else if (parts.contains("fallbackFormat")) { // {1} ({0})
             if (value == null) {
@@ -771,9 +778,9 @@ public class ExampleGenerator {
                     String regionFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat");
                     String fallbackFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat");
                     String exemplarCity = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\""+timezone+"\"]/exemplarCity");
-                    if ( exemplarCity == null )
+                    if ( exemplarCity == null ) {
                         exemplarCity = timezone.substring(timezone.lastIndexOf('/')+1).replace('_',' ');
-
+                    }
                     String countryName = cldrFile.getWinningValue("//ldml/localeDisplayNames/territories/territory[@type=\""+countryCode+"\"]");
                     boolean singleZone = singleCountryZones.contains(timezone) || !(supplementalDataInfo.getMultizones().contains(countryCode));
 

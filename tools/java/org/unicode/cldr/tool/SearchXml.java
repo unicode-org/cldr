@@ -14,6 +14,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 
@@ -52,7 +53,10 @@ public class SearchXml {
     private static boolean recursive;
 
     private static Counter<String> kountRegexMatches;
+    private static Counter<String> starCounter;
     private static final Set<String> ERRORS = new LinkedHashSet<String>();
+    private static final PathStarrer pathStarrer = new PathStarrer();
+    
 
     final static Options myOptions = new Options()
     .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
@@ -67,6 +71,7 @@ public class SearchXml {
     .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
     .add("Verbose", null, null, "verbose output")
     .add("recursive", null, null, "recurse directories")
+    .add("Star", null, null, "get statistics on starred paths")
     ;
 
     public static void main(String[] args) throws IOException {
@@ -92,6 +97,10 @@ public class SearchXml {
 
         valueMatcher = getMatcher(myOptions.get("value").getValue(), exclude);
         valueExclude = exclude.value;
+        
+        if (myOptions.get("Star").doesOccur()) {
+            starCounter = new Counter<String>();
+        }
 
         if (pathMatcher != null && valueMatcher != null) {
             valuePattern = valueMatcher.pattern().toString();
@@ -149,6 +158,11 @@ public class SearchXml {
             }
         }
 
+        if (starCounter != null) {
+            for (String path : starCounter.getKeysetSortedByCount(false)) {
+                System.out.println(starCounter.get(path) + "\t" + path);
+            }
+        }
         double deltaTime = System.currentTimeMillis() - startTime;
         System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
         System.out.println("Instances found: " + total);
@@ -343,6 +357,9 @@ public class SearchXml {
                         kountRegexMatches.add(pathMatcher.group(1), 1);
                     }
 
+                    if (starCounter != null) {
+                        starCounter.add(pathStarrer.set(path), 1);
+                    }
                     ++total;
 
                     if (firstMessage != null) {

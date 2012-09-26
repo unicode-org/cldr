@@ -6827,7 +6827,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             progress.update("Load XPT");
             System.err.println("XPT ready with " + xpt.statistics());
-            xpt.getByXpath("//foo/bar/baz");
             xpt.loadXPaths(getDiskFactory().makeSource(BASELINE_ID)); // grind
                                                                       // over
                                                                       // baseline

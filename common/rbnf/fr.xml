@@ -31,6 +31,13 @@
                 <rbnfrule value="0">s;</rbnfrule>
                 <rbnfrule value="1">-=%spellout-cardinal-masculine=;</rbnfrule>
             </ruleset>
+            <ruleset type="spellout-leading" access="private">
+                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
+                <rbnfrule value="80" radix="20">quatre-vingt[-→→];</rbnfrule>
+                <rbnfrule value="100">cent[-→→];</rbnfrule>
+                <rbnfrule value="200">←←-cent[-→→];</rbnfrule>
+                <rbnfrule value="1000">=%spellout-cardinal-masculine=;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">moins →→;</rbnfrule>
                 <rbnfrule value="x.x">←← virgule →→;</rbnfrule>
@@ -59,17 +66,17 @@
                 <rbnfrule value="60" radix="20">soixante[-→%%et-un→];</rbnfrule>
                 <rbnfrule value="80" radix="20">quatre-vingt→%%cents-m→;</rbnfrule>
                 <rbnfrule value="100">cent[-→→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%cents-m→;</rbnfrule>
+                <rbnfrule value="200">←←-cent→%%cents-m→;</rbnfrule>
                 <rbnfrule value="1000">mille[-→→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine←-mille[-→→];</rbnfrule>
+                <rbnfrule value="2000">←%%spellout-leading←-mille[-→→];</rbnfrule>
                 <rbnfrule value="1000000">un million[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← millions[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%%spellout-leading← millions[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">un milliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← milliards[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%%spellout-leading← milliards[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">un billion[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billions[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%%spellout-leading← billions[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">un billiard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billiards[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%%spellout-leading← billiards[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="et-une" access="private">
@@ -97,15 +104,15 @@
                 <rbnfrule value="100">cent[-→→];</rbnfrule>
                 <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%cents-f→;</rbnfrule>
                 <rbnfrule value="1000">mille[-→→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine←-mille[-→→];</rbnfrule>
+                <rbnfrule value="2000">←%%spellout-leading←-mille[-→→];</rbnfrule>
                 <rbnfrule value="1000000">un million[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← millions[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←%%spellout-leading← millions[ →→];</rbnfrule>
                 <rbnfrule value="1000000000">un milliard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← milliards[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←%%spellout-leading← milliards[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">un billion[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billions[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%%spellout-leading← billions[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">un billiard[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billiards[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000000">←%%spellout-leading← billiards[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="et-unieme" access="private">
@@ -116,11 +123,11 @@
             </ruleset>
             <ruleset type="cents-o" access="private">
                 <rbnfrule value="0">ième;</rbnfrule>
-                <rbnfrule value="1">-=%%spellout-ordinal=;</rbnfrule>
+                <rbnfrule value="1">-=%%et-unieme=;</rbnfrule>
             </ruleset>
             <ruleset type="mille-o" access="private">
                 <rbnfrule value="0">ième;</rbnfrule>
-                <rbnfrule value="1">e-=%%spellout-ordinal=;</rbnfrule>
+                <rbnfrule value="1">e-=%%et-unieme=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal" access="private">
                 <rbnfrule value="1">unième;</rbnfrule>
@@ -154,15 +161,15 @@
                 <rbnfrule value="100">cent→%%cents-o→;</rbnfrule>
                 <rbnfrule value="200">←%spellout-cardinal-masculine←-cent→%%cents-o→;</rbnfrule>
                 <rbnfrule value="1000">mill→%%mille-o→;</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine←-mill→%%mille-o→;</rbnfrule>
-                <rbnfrule value="2001">←%spellout-cardinal-masculine←-million→%%cents-o→;</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine←-milliard-→%%cents-o→;</rbnfrule>
-                <rbnfrule value="1000000001">←%spellout-cardinal-masculine←-milliard→%%cents-o→;</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine←-billion-→%%cents-o→;</rbnfrule>
-                <rbnfrule value="1000000000001">←%spellout-cardinal-masculine←-billion→%%cents-o→;</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine←-billiard-→%%cents-o→;</rbnfrule>
-                <rbnfrule value="1000000000000001">←%spellout-cardinal-masculine←-billiard→%%cents-o→;</rbnfrule>
+                <rbnfrule value="2000">←%%spellout-leading←-mill→%%mille-o→;</rbnfrule>
+                <rbnfrule value="1000000">←%%spellout-leading←-million→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000">←%%spellout-leading←-milliard→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000000">←%%spellout-leading←-billion→%%cents-o→;</rbnfrule>
+                <rbnfrule value="1000000000000000">←%%spellout-leading←-billiard→%%cents-o→;</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-plural">
+                <rbnfrule value="0">=%spellout-ordinal-masculine=s;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine">
                 <rbnfrule value="-x">moins →→;</rbnfrule>
@@ -170,6 +177,9 @@
                 <rbnfrule value="0">zéroième;</rbnfrule>
                 <rbnfrule value="1">premier;</rbnfrule>
                 <rbnfrule value="2">=%%spellout-ordinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-plural">
+                <rbnfrule value="0">=%spellout-ordinal-feminine=s;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">moins →→;</rbnfrule>

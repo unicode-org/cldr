@@ -3962,6 +3962,12 @@ XXX Code for transations where no currency is involved
               <era type="0" start="622"/>
           </eras>
         </calendar>
+        <calendar type="dangi">
+          <calendarSystem type="lunisolar"/>
+          <eras>
+              <era type="0" start="-2332"/> <!-- 'sequential' year -->
+          </eras>
+        </calendar>
         <calendar type="ethiopic"/>
         <calendar type="indian">
           <eras>
@@ -3987,6 +3993,7 @@ XXX Code for transations where no currency is involved
         <calendarPreference territories="IL" ordering="gregorian hebrew islamic islamic-civil"/>
         <calendarPreference territories="IN" ordering="gregorian indian"/>
         <calendarPreference territories="JP" ordering="gregorian japanese"/>
+        <calendarPreference territories="KR" ordering="gregorian dangi"/>
         <calendarPreference territories="TH" ordering="buddhist gregorian"/>
         <calendarPreference territories="TW" ordering="gregorian roc chinese"/>
     </calendarPreferenceData>

@@ -131,6 +131,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Buddhist(SectionId.Calendars),
         Chinese(SectionId.Calendars),
         Coptic(SectionId.Calendars),
+        Dangi(SectionId.Calendars),
         Ethiopic(SectionId.Calendars),
         Ethiopic_Amete_Alem(SectionId.Calendars,"Ethiopic-Amete-Alem"),
         Hebrew(SectionId.Calendars),

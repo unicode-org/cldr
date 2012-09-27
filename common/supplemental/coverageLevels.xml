@@ -201,6 +201,8 @@
 		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/eras/era(Abbr|Narrow)/era[@type='[0-9]++']"/>
 		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
+		<coverageLevel inTerritory="KR" value="40" match="dates/calendars/calendar[@type='dangi']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
+		<coverageLevel inTerritory="KR" value="40" match="dates/calendars/calendar[@type='dangi']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="%persianCalendarTerritories" value="40" match="dates/calendars/calendar[@type='persian']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel inTerritory="%persianCalendarTerritories" value="40" match="dates/calendars/calendar[@type='persian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="TW" value="40" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
@@ -256,11 +258,11 @@
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
         	<coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
         	<coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='[^']++']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|chinese|islamic|japanese|roc)']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
+        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|chinese|dangi|islamic|japanese|roc)']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
         	<coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
         	<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|islamic|japanese|roc)']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|coptic|ethiopic|hebrew|indian|islamic|persian)']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='chinese']/cyclicNameSets/cyclicNameSet[@type='(dayParts|years|zodiacs)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='[^']++']"/>
+        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
+        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/cyclicNameSets/cyclicNameSet[@type='(dayParts|years|zodiacs)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='[^']++']"/>
         	<coverageLevel value="100" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='7'][@yeartype='leap']"/>
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='%language100']([@alt='%shortVariant'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='%script100']"/>

@@ -604,6 +604,35 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/dateTimeFormats"/>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="dangi">
+				<months>
+					<alias source="locale" path="../../calendar[@type='chinese']/months"/>
+				</months>
+				<monthPatterns>
+					<alias source="locale" path="../../calendar[@type='chinese']/monthPatterns"/>
+				</monthPatterns>
+				<days>
+					<alias source="locale" path="../../calendar[@type='chinese']/days"/>
+				</days>
+				<quarters>
+					<alias source="locale" path="../../calendar[@type='chinese']/quarters"/>
+				</quarters>
+				<dayPeriods>
+					<alias source="locale" path="../../calendar[@type='chinese']/dayPeriods"/>
+				</dayPeriods>
+				<cyclicNameSets>
+					<alias source="locale" path="../../calendar[@type='chinese']/cyclicNameSets"/>
+				</cyclicNameSets>
+				<dateFormats>
+					<alias source="locale" path="../../calendar[@type='chinese']/dateFormats"/>
+				</dateFormats>
+				<timeFormats>
+					<alias source="locale" path="../../calendar[@type='chinese']/timeFormats"/>
+				</timeFormats>
+				<dateTimeFormats>
+					<alias source="locale" path="../../calendar[@type='chinese']/dateTimeFormats"/>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="ethiopic">
 				<months>
 					<default choice="format"/>

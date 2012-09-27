@@ -34,7 +34,7 @@ public class SimpleFactory extends Factory {
     private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
     private SimpleFactory() {}
 
-    protected DraftStatus getMinimalDraftStatus() {
+    public DraftStatus getMinimalDraftStatus() {
         return minimalDraftStatus;
     }
 

@@ -145,7 +145,7 @@ import org.unicode.cldr.util.XMLSource.ResolvingSource;
         return new ResolvingSource(sourceList);
     }
     
-    protected abstract DraftStatus getMinimalDraftStatus();
+    public abstract DraftStatus getMinimalDraftStatus();
 
     /**
      * Convenience static

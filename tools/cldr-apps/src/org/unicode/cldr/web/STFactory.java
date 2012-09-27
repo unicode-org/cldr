@@ -1046,7 +1046,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @see org.unicode.cldr.util.Factory#getMinimalDraftStatus()
      */
     @Override
-    protected DraftStatus getMinimalDraftStatus() {
+    public DraftStatus getMinimalDraftStatus() {
         return DraftStatus.unconfirmed;
     }
 

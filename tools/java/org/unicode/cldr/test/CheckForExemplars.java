@@ -66,6 +66,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     static final UnicodeSet END_PAREN = new UnicodeSet("[)\\]］）]").freeze();
     static final UnicodeSet ALL_CURRENCY_SYMBOLS = new UnicodeSet("[[:Sc:]]").freeze();
     static final UnicodeSet NUMBERS = new UnicodeSet("[[:N:]]").freeze();
+    static final UnicodeSet DISALLOWED_HOUR_FORMAT = new UnicodeSet("[[:letter:]]").remove('H').remove('m').freeze();
 
     private UnicodeSet exemplars;
     private UnicodeSet exemplarsPlusAscii;
@@ -306,7 +307,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             if (path.endsWith("/hourFormat")) {
                 UnicodeSet disallowed = new UnicodeSet().addAll(value)
-                    .retainAll(new UnicodeSet("[[:letter:]]")).remove('H').remove('m');
+                    .retainAll(DISALLOWED_HOUR_FORMAT);
                 if (!disallowed.isEmpty()) {
                     addMissingMessage(disallowed, CheckStatus.errorType, 
                         Subtype.patternContainsInvalidCharacters,

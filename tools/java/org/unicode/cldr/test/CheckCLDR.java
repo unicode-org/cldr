@@ -807,7 +807,6 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
                         item.handleCheck(path, fullPath, value, options, result);
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
                     addError(result, item, e);
                     return this;
                 }
@@ -860,7 +859,6 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
                         }
                     }
                 } catch (RuntimeException e) {
-                    e.printStackTrace();
                     addError(possibleErrors, item, e);
                     if(SHOW_TIMES) System.out.println("ERR: " + testTime + " - " + e.toString());
                 }

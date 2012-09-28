@@ -1081,6 +1081,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             { "cham", "numbers" },
             { "chinese", "calendar" },
             { "coptic", "calendar" },
+            { "dangi", "calendar" },
             { "deva", "numbers" },
             { "dictionary", "collation" },
             { "direct", "collation" },

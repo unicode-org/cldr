@@ -21,7 +21,7 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/alias[@source="locale"][@path="../calendar[@type='(%A)']"]   ; /calendar/$1lo ; values=/LOCALE/calendar/$2
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/alias[@source="locale"][@path="../../calendar[@type='(%A)']/dayPeriods"] ; /calendar/$1/AmPmMarkers:alias ; values=/LOCALE/calendar/$2/AmPmMarkers
-//ldml/dates/calendars/calendar[@type="(%A)"]/(eras|quarters)/alias[@source="locale"][@path="../../%W[@type='(%A)']/%W"] ; /calendar/$1/$2:alias ; values=/LOCALE/calendar/$3/$2
+//ldml/dates/calendars/calendar[@type="(%A)"]/(eras|quarters|cyclicNameSets|monthPatterns)/alias[@source="locale"][@path="../../%W[@type='(%A)']/%W"] ; /calendar/$1/$2:alias ; values=/LOCALE/calendar/$3/$2
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNarrow/alias[@source="locale"][@path="../eraAbbr"] ; /calendar/$1/eras/narrow:alias ; values=/LOCALE/calendar/$1/eras/abbreviated
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNames/alias[@source="locale"][@path="../eraAbbr"] ; /calendar/$1/eras/wide:alias ; values=/LOCALE/calendar/$1/eras/abbreviated
@@ -64,7 +64,7 @@
 
 # Dates
 
-//ldml/dates/calendars/calendar[@type="chinese"]/cyclicNameSets/cyclicNameSet[@type="(%A)"]/cyclicNameContext[@type="(%A)"]/cyclicNameWidth[@type="(%A)"]/cyclicName[@type="(%A)"] ; /calendar/chinese/cyclicNameSets/$1/$2/$3 ;
+//ldml/dates/calendars/calendar[@type="(%A)"]/cyclicNameSets/cyclicNameSet[@type="(%A)"]/cyclicNameContext[@type="(%A)"]/cyclicNameWidth[@type="(%A)"]/cyclicName[@type="(%A)"] ; /calendar/$1/cyclicNameSets/$2/$3/$4 ;
 # This is a weird edge case. When the number attribute is present in the xpath,
 # its value needs to be grouped together with the xpath value in its own special
 # array, which is treated like just another value in /DateTimePatterns.

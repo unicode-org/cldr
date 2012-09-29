@@ -12,6 +12,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.CompactDecimalFormat;
 import org.unicode.cldr.test.CompactDecimalFormat.Style;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
@@ -35,6 +36,11 @@ public class VerifyCompactNumbers {
 
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Set<String> defaultContentLocales = sdi.getDefaultContentLocales();
+        NumberFormat enf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
+        enf.setGroupingUsed(false);
+        Set<String> debugCreationErrors = new LinkedHashSet<String>();
+        Set<String> errors = new LinkedHashSet<String>();
+
         for (String locale : factory2.getAvailableLanguages()) {
             if (defaultContentLocales.contains(locale)) {
                 continue;
@@ -43,23 +49,28 @@ public class VerifyCompactNumbers {
             if (Level.MODERN.compareTo(level) > 0) {
                 continue;
             }
-            
+            // TODO: fix to ignore locales with no data.
+            if (locale.equals("ne") || locale.equals("cy")) {
+                continue;
+            }
             ULocale locale2 = new ULocale(locale);
             NumberFormat nf = NumberFormat.getIntegerInstance(locale2);
             nf.setMaximumFractionDigits(0);
-            CLDRFile cldrFile = factory2.make(locale, true);
+            CLDRFile cldrFile = factory2.make(locale, true, DraftStatus.contributed);
             PluralInfo pluralInfo = sdi.getPlurals(locale);
             Set<Double> samples = new TreeSet<Double>();
             for (Entry<Count, List<Double>> entry : pluralInfo.getCountToExamplesMap().entrySet()) {
                 samples.add(entry.getValue().get(0));
             }
             String[] debugOriginals = null;
-            Set<String> debugCreationErrors = new LinkedHashSet<String>();
             CompactDecimalFormat cdf = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors, debugOriginals, Style.SHORT, locale2);
+            captureErrors(debugCreationErrors, errors, locale, "short");
             CompactDecimalFormat cdfs = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors, debugOriginals, Style.LONG, locale2);
+            captureErrors(debugCreationErrors, errors, locale, "long");
+
             // one path for group-3, one for group-4
             int factor = USES_GROUPS_OF_4.contains(locale) ? 10000 : 1000;
-            
+
             Set<Double> samples2 = new TreeSet<Double>();
             for (int i = 10; i < factor; i *= 10) {
                 for (Double sample : samples) {
@@ -71,33 +82,37 @@ public class VerifyCompactNumbers {
             System.out.println("———\t" + englishCldrFile.getName(locale) + "\t———");
 
             String column12 = (locale  + "\t" +  englishCldrFile.getName(locale));
+            System.out.print(column12 + "\tNumeric\tCompact-Short\tCompact-Long\tFixed Numeric\tFixed Compact-Short\tFixed Compact-Long\n");
+
             try {
-            for (long i = factor; i <= 100000000000000L; i *= factor) {
-                System.out.print(column12 + "\tNumeric");
-                for (Double sample : samples) {
-                    double source = i * sample;
-                    System.out.print("\t__" + nf.format(source));
+                // we print the __ so that it can be imported into a spreadsheet without problems.
+                for (long i = factor; i <= 100000000000000L; i *= factor) {
+                    for (Double sample : samples) {
+                        double source = i * sample;
+                        System.out.print(locale + "\t__" + enf.format(source));
+                        System.out.print("\t__" + nf.format(source));
+                        String formatted = cdf.format(source);
+                        System.out.print("\t__" + formatted);
+                        formatted = cdfs.format(source);
+                        System.out.println("\t__" + formatted);
+                    }
+                    System.out.println();
                 }
-                System.out.println();
-                System.out.print(column12 + "\tCompact-Short");
-                for (Double sample : samples) {
-                    double source = i * sample;
-                    String formatted = cdf.format(source);
-                    System.out.print("\t__" + formatted);
-                }
-                System.out.println();
-                System.out.print(column12 + "\tCompact-Long");
-                for (Double sample : samples) {
-                    double source = i * sample;
-                    String formatted = cdfs.format(source);
-                    System.out.print("\t__" + formatted);
-                }
-                System.out.println("\n");
-            }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
+        for (String s : errors) {
+            System.out.println(s);
+        }
+    }
 
+    private static void captureErrors(Set<String> debugCreationErrors, Set<String> errors, String locale, String length) {
+        if (debugCreationErrors.size() != 0) {
+            for (String s : debugCreationErrors) {
+                errors.add(locale + "\t" + length + "\t" + s);
+            }
+            debugCreationErrors.clear();
+        }
     }
 }

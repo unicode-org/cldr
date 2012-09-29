@@ -56,6 +56,10 @@ public class BuildIcuCompactDecimalFormat {
             if (path.endsWith("/alias")) {
                 continue;
             }
+//            String sourceLocale = resolvedCldrFile.getSourceLocaleID(path, null);
+//            if ("root".equals(sourceLocale)) {
+//                continue;
+//            }
             //            if (!path.contains("decimalFormatLength")) {
             //                continue;
             //            }

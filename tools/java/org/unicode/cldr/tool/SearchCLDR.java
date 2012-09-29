@@ -16,6 +16,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.StandardCodes;
 
 public class SearchCLDR {
     //  private static final int
@@ -60,6 +61,7 @@ public class SearchCLDR {
     .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
     .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
     .add("count", null, null, "only count items")
+    .add("organization", ".*", null, "show level for organization")
     .add("z-showPath", null, null, "show paths")
     .add("resolved", null, null, "use resolved locales")
     .add("q-showParent", null, null, "show parent value")
@@ -71,6 +73,8 @@ public class SearchCLDR {
     private static Matcher pathMatcher;
     private static boolean countOnly;
     private static boolean showPath;
+
+    private static String organization;
 
     public static void main(String[] args) {
         myOptions.parse(args, true);
@@ -96,6 +100,7 @@ public class SearchCLDR {
         boolean resolved = myOptions.get("resolved").doesOccur();
 
         showPath = myOptions.get("z-showPath").doesOccur();
+        organization = myOptions.get("organization").getValue();
 
         boolean showParent = myOptions.get("q-showParent").doesOccur();
 
@@ -119,11 +124,15 @@ public class SearchCLDR {
             }
             System.out.println();
         }
+        
 
         for (String locale : locales) {
-            CLDRFile file = (CLDRFile) cldrFactory.make(locale, resolved);
-            Counter<Level> levelCounter = new Counter<Level>();
+            Level organizationLevel = organization == null ? null 
+                : StandardCodes.make().getLocaleCoverageLevel(organization, locale);
 
+            CLDRFile file = (CLDRFile) cldrFactory.make(locale, resolved);
+
+            Counter<Level> levelCounter = new Counter<Level>();
             CLDRFile parent = null;
             boolean headerShown = false;
 
@@ -165,7 +174,7 @@ public class SearchCLDR {
                     continue;
                 }
                 if (!headerShown) {
-                    showLine(showPath, showParent, showEnglish, resolved, locale, "Path", "Full-Path", "Value", "ShortPath", "Parent-Value", "English-Value", "Source Locale\tSource Path");
+                    showLine(showPath, showParent, showEnglish, resolved, locale, "Path", "Full-Path", "Value", "ShortPath", "Parent-Value", "English-Value", "Source Locale\tSource Path", "Org-Level");
                     headerShown = true;
                 }
                 if (showParent && parent == null) {
@@ -178,13 +187,12 @@ public class SearchCLDR {
                 final String resolvedSource = !resolved ? null 
                         : file.getSourceLocaleID(path, status) 
                         + (path.equals(status.pathWhereFound) ? "" : "\t" + status);
-                showLine(
-                        showPath, showParent, showEnglish, resolved, locale, 
+                showLine(showPath, showParent, showEnglish, resolved, locale, 
                         path, fullPath, value, 
                         cleanShort, 
                         parent == null ? null : parent.getStringValue(path), 
                                 english == null ? null : english.getStringValue(path), 
-                                        resolvedSource
+                                        resolvedSource, organizationLevel == null ? null : organizationLevel.toString()
                 );
             }
             if (countOnly) {
@@ -201,13 +209,14 @@ public class SearchCLDR {
 
     private static void showLine(boolean showPath, boolean showParent, boolean showEnglish,
             boolean resolved, String locale, String path, String fullPath, String value, 
-            String shortPath, String parentValue, String englishValue, String resolvedSource) {
-        System.out.println(locale + "\t{" + value + "}" 
-                + (showParent ? "\t{" + parentValue + "}" : "")
-                + (showEnglish ? "\t{" + englishValue + "}" : "")
+            String shortPath, String parentValue, String englishValue, String resolvedSource, String organizationLevel) {
+        System.out.println(locale + "\t⟪" + value + "⟫" 
+                + (showParent ? "\t⟪" + parentValue + "⟪" : "")
+                + (showEnglish ? "\t⟪" + englishValue + "⟪" : "")
                 + "\t" + shortPath
                 + (showPath ?"\t" + fullPath : "")
                 + (resolved ? "\t" + resolvedSource : "")
+                + (organizationLevel != null ? "\t" + organizationLevel : "")
         );
     }
 

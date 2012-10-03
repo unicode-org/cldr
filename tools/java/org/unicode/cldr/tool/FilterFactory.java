@@ -3,24 +3,29 @@ package org.unicode.cldr.tool;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.util.ULocale;
 
+/**
+ * Factory for filtering CLDRFiles by organization.
+ * Organization coverage data is in org/unicode/cldr/util/data/Locales.txt.
+ * @author jchye
+ *
+ */
 public class FilterFactory extends Factory {
-    private static final Pattern SPECIAL_ALT_PATHS = Pattern.compile(
-        "//ldml/localeDisplayNames/territories/territory\\[@type=\"(?:HK|MO|MK)\"](\\[@alt=\"(short|variant)\"])?");
+    private static final String[] SPECIAL_ALT_PATHS = {
+        "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]",
+        "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]",
+        "//ldml/localeDisplayNames/territories/territory[@type=\"MK\"][@alt=\"variant\"]"
+    };
 
     private Factory rawFactory;
     private String organization;
@@ -53,35 +58,45 @@ public class FilterFactory extends Factory {
         if (resolved) {
             return new CLDRFile(makeResolvingSource(localeID, minimalDraftStatus));
         } else {
-            return new CLDRFile(filterCldrFile(localeID, minimalDraftStatus));
+            return filterCldrFile(localeID, minimalDraftStatus);
         }
     }
 
-    private XMLSource filterCldrFile(String localeID, DraftStatus minimalDraftStatus) {
-        XMLSource filteredSource = new SimpleXMLSource(localeID);
-        int minLevel = StandardCodes.make()
-            .getLocaleCoverageLevel(organization, localeID)
-            .getLevel();
-        ULocale locale = new ULocale(localeID);
-        CLDRFile rawFile = rawFactory.make(localeID, false, minimalDraftStatus);
-        for (String xpath : rawFile) {
-            String fullPath = rawFile.getFullXPath(xpath);
-            int level = supplementalData.getCoverageValue(xpath, locale);
-            if (level > minLevel) continue;
-            // For certain alternate values, use them as the main values.
-            String value = rawFile.getStringValue(xpath);
-            Matcher matcher = SPECIAL_ALT_PATHS.matcher(fullPath);
-            if (matcher.matches()) {
-                // Don't override any prefilled alt values with the non-alt value.
-                if (matcher.groupCount() == 0 && filteredSource.hasValueAtDPath(xpath)) {
-                    continue;
-                }
-                // Strip the alt attribute from the end.
-                fullPath = fullPath.substring(0, fullPath.lastIndexOf('['));
+    /**
+     * @return a filtered CLDRFile.
+     */
+    private CLDRFile filterCldrFile(String localeID, DraftStatus minimalDraftStatus) {
+        CLDRFile rawFile = rawFactory.make(localeID, false, minimalDraftStatus).cloneAsThawed();
+        // For certain alternate values, use them as the main values.
+        for (String altPath : SPECIAL_ALT_PATHS) {
+            String altValue = rawFile.getStringValue(altPath);
+            if (altValue != null) {
+                String mainPath = altPath.substring(0, altPath.lastIndexOf('['));
+                rawFile.add(mainPath, altValue);
+                rawFile.remove(altPath);
             }
-            filteredSource.putValueAtPath(fullPath, value);
         }
-        return filteredSource;
+        filterCoverage(rawFile);
+        return rawFile;
+    }
+
+    /**
+     * Filters a CLDRFile according to the specified organization's coverage level.
+     * @param rawFile
+     */
+    private void filterCoverage(CLDRFile rawFile) {
+        if (organization == null) return;
+
+        int minLevel = StandardCodes.make()
+            .getLocaleCoverageLevel(organization, rawFile.getLocaleID())
+            .getLevel();
+        ULocale locale = new ULocale(rawFile.getLocaleID());
+        for (String xpath : rawFile) {
+            int level = supplementalData.getCoverageValue(xpath, locale);
+            if (level > minLevel) {
+                rawFile.remove(xpath);
+            }
+        }
     }
 
     @Override

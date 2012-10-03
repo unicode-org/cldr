@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
+import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -72,7 +73,9 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
         .add("keeptogether", 'k', null, null, "Write locale data to one file instead of splitting into separate directories. For debugging")
         .add("type", 't', "\\w+", null, "The type of file to be generated")
-        .add("cldrVersion", 'c', ".*", "21.0", "The version of the CLDR data, used purely for supplementalData output.");
+        .add("cldrVersion", 'c', ".*", "21.0", "The version of the CLDR data, used purely for supplementalData output.")
+        .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
+        .add("organization", 'o', ".*", null, "The organization to filter the data for");
 
     private static final String LOCALES_DIR = "locales";
 
@@ -187,7 +190,9 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
                 throw new IllegalArgumentException("No files specified!");
             }
 
-            LocaleMapper mapper = new LocaleMapper(factory, specialFactory, supplementalDataInfo);
+            String organization = options.get("organization").getValue();
+            LocaleMapper mapper = new LocaleMapper(factory, specialFactory,
+                supplementalDataInfo, options.get("filter").doesOccur(), organization);
             processLocales(mapper, locales);
             break;
         case keyTypeData:

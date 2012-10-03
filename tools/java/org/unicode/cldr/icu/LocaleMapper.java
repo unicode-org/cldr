@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.ant.CLDRConverterTool.Alias;
+import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility.Output;
@@ -43,7 +44,10 @@ public class LocaleMapper extends LdmlMapper {
             "/calendar/(\\w++)/DateTimePatterns");
 
     private SupplementalDataInfo supplementalDataInfo;
-    private Factory factory;
+    // We may use different factories for resolved or unresolved CLDRFiles depending
+    // on whether filtering is required.
+    private Factory unresolvedFactory;
+    private Factory resolvedFactory;
     private Factory specialFactory;
 
     private Set<String> deprecatedTerritories;
@@ -114,10 +118,27 @@ public class LocaleMapper extends LdmlMapper {
         return -1;
     }
 
+    /**
+     * LocaleMapper constructor.
+     * @param factory the factory containing the CLDR data to be converted
+     * @param specialFactory a factory containing any additional CLDR data
+     * @param supplementalDataInfo SupplementalDataInfo object
+     * @param filter true if alt path filtering should be performed
+     * @param organization the organization to filter the data by
+     *     (null if coverage filtering is not needed)
+     */
     public LocaleMapper(Factory factory, Factory specialFactory,
-            SupplementalDataInfo supplementalDataInfo) {
+            SupplementalDataInfo supplementalDataInfo, boolean filter,
+            String organization) {
         super("ldml2icu_locale.txt");
-        this.factory = factory;
+        unresolvedFactory = resolvedFactory = factory;
+        // If filtering is required, filter all unresolved CLDRFiles for use in
+        // fillFromCldr(). We don't filter the resolved CLDRFiles because
+        // some rbPaths (e.g. /calendar/x/DateTimePatterns) have a fixed number
+        // of values that must always be present regardless of filtering.
+        if (filter || organization != null) {
+          unresolvedFactory = new FilterFactory(factory, organization);
+        }
         this.specialFactory = specialFactory;
         this.supplementalDataInfo = supplementalDataInfo;
     }
@@ -126,7 +147,7 @@ public class LocaleMapper extends LdmlMapper {
      * @return the set of locales available for processing by this mapper
      */
     public Set<String> getAvailable() {
-        return factory.getAvailable();
+        return unresolvedFactory.getAvailable();
     }
 
     /**
@@ -158,11 +179,11 @@ public class LocaleMapper extends LdmlMapper {
      */
     public IcuData fillFromCLDR(String locale) {
         Set<String> deprecatedTerritories = getDeprecatedTerritories();
-        CLDRFile resolvedCldr = factory.make(locale, true);
+        CLDRFile resolvedCldr = resolvedFactory.make(locale, true);
         RegexLookup<RegexResult> pathConverter = getPathConverter(resolvedCldr);
 
         // First pass through the unresolved CLDRFile to get all icu paths.
-        CLDRFile cldr = factory.make(locale, false);
+        CLDRFile cldr = unresolvedFactory.make(locale, false);
         Map<String,CldrArray> pathValueMap = new HashMap<String,CldrArray>();
         Set<String> validRbPaths = new HashSet<String>();
         for (String xpath : cldr) {
@@ -190,7 +211,10 @@ public class LocaleMapper extends LdmlMapper {
         
         // Get all values from the resolved CLDRFile.
         for (String xpath : resolvedCldr) {
-            addMatchesForPath(xpath, resolvedCldr, validRbPaths, pathConverter, pathValueMap);
+            // Since the unresolved CLDRFile may have been modified, use it
+            // to add values instead of the resolved CLDRFile if possible.
+            CLDRFile fileToUse = cldr.getStringValue(xpath) == null ? resolvedCldr : cldr;
+            addMatchesForPath(xpath, fileToUse, validRbPaths, pathConverter, pathValueMap);
         }
 
         // Add fallback paths if necessary.
@@ -250,7 +274,7 @@ public class LocaleMapper extends LdmlMapper {
         String from = alias.from;
         String to = alias.to;
         String xpath = alias.xpath;
-        if (!factory.getAvailable().contains(to)) {
+        if (!getAvailable().contains(to)) {
             System.err.println(to + " doesn't exist, skipping alias " + from);
             return null;
         }

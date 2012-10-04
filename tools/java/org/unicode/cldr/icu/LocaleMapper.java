@@ -123,12 +123,12 @@ public class LocaleMapper extends LdmlMapper {
      * @param factory the factory containing the CLDR data to be converted
      * @param specialFactory a factory containing any additional CLDR data
      * @param supplementalDataInfo SupplementalDataInfo object
-     * @param filter true if alt path filtering should be performed
+     * @param useAltValues true if alt path filtering should be performed
      * @param organization the organization to filter the data by
      *     (null if coverage filtering is not needed)
      */
     public LocaleMapper(Factory factory, Factory specialFactory,
-            SupplementalDataInfo supplementalDataInfo, boolean filter,
+            SupplementalDataInfo supplementalDataInfo, boolean useAltValues,
             String organization) {
         super("ldml2icu_locale.txt");
         unresolvedFactory = resolvedFactory = factory;
@@ -136,8 +136,8 @@ public class LocaleMapper extends LdmlMapper {
         // fillFromCldr(). We don't filter the resolved CLDRFiles because
         // some rbPaths (e.g. /calendar/x/DateTimePatterns) have a fixed number
         // of values that must always be present regardless of filtering.
-        if (filter || organization != null) {
-          unresolvedFactory = new FilterFactory(factory, organization);
+        if (useAltValues || organization != null) {
+          unresolvedFactory = new FilterFactory(factory, organization, useAltValues);
         }
         this.specialFactory = specialFactory;
         this.supplementalDataInfo = supplementalDataInfo;

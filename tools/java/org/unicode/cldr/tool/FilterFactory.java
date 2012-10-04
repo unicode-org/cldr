@@ -30,17 +30,20 @@ public class FilterFactory extends Factory {
     private Factory rawFactory;
     private String organization;
     private SupplementalDataInfo supplementalData;
+    private boolean useAltValues;
 
     /**
      * Creates a new Factory for filtering CLDRFiles.
      * @param rawFactory the factory to be filtered
      * @param organization the organization that the filtering is catered towards
+     * @param useAltValues true if certain alt values should be used to replace the main values
      */
-    public FilterFactory(Factory rawFactory, String organization) {
+    public FilterFactory(Factory rawFactory, String organization, boolean useAltValues) {
         this.rawFactory = rawFactory;
         this.organization = organization;
         supplementalData = SupplementalDataInfo.getInstance();
         setSupplementalDirectory(rawFactory.getSupplementalDirectory());
+        this.useAltValues = useAltValues;
     }
 
     @Override
@@ -67,6 +70,19 @@ public class FilterFactory extends Factory {
      */
     private CLDRFile filterCldrFile(String localeID, DraftStatus minimalDraftStatus) {
         CLDRFile rawFile = rawFactory.make(localeID, false, minimalDraftStatus).cloneAsThawed();
+
+        filterAltValues(rawFile);
+        filterCoverage(rawFile);
+        return rawFile;
+    }
+
+    /**
+     * Replaces the value for certain XPaths with their alternate value.
+     * @param rawFile
+     */
+    private void filterAltValues(CLDRFile rawFile) {
+        if (!useAltValues) return;
+
         // For certain alternate values, use them as the main values.
         for (String altPath : SPECIAL_ALT_PATHS) {
             String altValue = rawFile.getStringValue(altPath);
@@ -76,8 +92,6 @@ public class FilterFactory extends Factory {
                 rawFile.remove(altPath);
             }
         }
-        filterCoverage(rawFile);
-        return rawFile;
     }
 
     /**
@@ -117,7 +131,7 @@ public class FilterFactory extends Factory {
     public static void main(String[] args) throws Exception {
         Factory rawFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         // TODO: generalize this for other organizations.
-        Factory filterFactory = new FilterFactory(rawFactory, "google");
+        Factory filterFactory = new FilterFactory(rawFactory, "google", true);
         String outputDir = CldrUtility.GEN_DIRECTORY + "/filter";
         for (String locale : rawFactory.getAvailable()) {
             PrintWriter out = BagFormatter.openUTF8Writer(outputDir, locale + ".xml");

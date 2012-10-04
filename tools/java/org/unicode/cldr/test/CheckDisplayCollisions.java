@@ -136,7 +136,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             Matcher currentAttributesToIgnore = attributesToIgnore;
 
             if (myPrefix.equals(DECIMAL_FORMAT_PREFIX)) {
-                if (!path.contains("[@count=")) {
+                if (!path.contains("[@count=") || "0".equals(value)) {
                     return this;
                 }
                 XPathParts parts = new XPathParts().set(path);

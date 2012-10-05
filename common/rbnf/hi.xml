@@ -128,7 +128,7 @@
             </ruleset>
             <ruleset type="spellout-ordinal-masculine">
                 <rbnfrule value="-x">ऋण →→;</rbnfrule>
-                <rbnfrule value="x.x">←← दशमलव →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">शून्यवाँ;</rbnfrule>
                 <rbnfrule value="1">पहला;</rbnfrule>
                 <rbnfrule value="2">दूसरा;</rbnfrule>
@@ -140,7 +140,7 @@
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">ऋण →→;</rbnfrule>
-                <rbnfrule value="x.x">←← दशमलव →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">शून्यवी;</rbnfrule>
                 <rbnfrule value="1">पहली;</rbnfrule>
                 <rbnfrule value="2">दूसरी;</rbnfrule>

@@ -12,6 +12,8 @@ import java.util.TreeSet;
 import org.unicode.cldr.test.BuildIcuCompactDecimalFormat;
 import org.unicode.cldr.test.CompactDecimalFormat;
 import org.unicode.cldr.test.CompactDecimalFormat.Style;
+import org.unicode.cldr.tool.Option;
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -20,6 +22,19 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
 
 public class VerifyCompactNumbers {
+    
+    final static Options myOptions = new Options();
+    enum MyOptions {
+        organization(".*", "Google", "organization"),
+        filter(".*", ".*", "locale filter (regex)"),
+        ;
+        // boilerplate
+        final Option option;
+        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
+            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
+        }
+    }
+
     // later, look at DateTimeFormats to set up as an HTML table
 
     private static final Set<String> USES_GROUPS_OF_4 = new HashSet<String>(Arrays.asList("ko", "ja", "zh", "zh_Hant"));
@@ -30,8 +45,12 @@ public class VerifyCompactNumbers {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        String organization = args.length > 0 ? args[0] : "Google";
-        Factory factory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        myOptions.parse(MyOptions.organization, args, true);
+        
+        String organization = MyOptions.organization.option.getValue();
+        String filter = MyOptions.filter.option.getValue();
+        
+        Factory factory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
 
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
@@ -53,6 +72,9 @@ public class VerifyCompactNumbers {
             if (locale.equals("ne") || locale.equals("cy")) {
                 continue;
             }
+            // one path for group-3, one for group-4
+            int factor = USES_GROUPS_OF_4.contains(locale) ? 10000 : 1000;
+            
             ULocale locale2 = new ULocale(locale);
             NumberFormat nf = NumberFormat.getIntegerInstance(locale2);
             nf.setMaximumFractionDigits(0);
@@ -67,9 +89,6 @@ public class VerifyCompactNumbers {
             captureErrors(debugCreationErrors, errors, locale, "short");
             CompactDecimalFormat cdfs = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors, debugOriginals, Style.LONG, locale2);
             captureErrors(debugCreationErrors, errors, locale, "long");
-
-            // one path for group-3, one for group-4
-            int factor = USES_GROUPS_OF_4.contains(locale) ? 10000 : 1000;
 
             Set<Double> samples2 = new TreeSet<Double>();
             for (int i = 10; i < factor; i *= 10) {
@@ -89,6 +108,9 @@ public class VerifyCompactNumbers {
                 for (long i = factor; i <= 100000000000000L; i *= factor) {
                     for (Double sample : samples) {
                         double source = i * sample;
+                        if (false && source == 22000000 && locale.equals("cs")) {
+                            System.out.println("**");
+                        }
                         System.out.print(locale + "\t__" + enf.format(source));
                         System.out.print("\t__" + nf.format(source));
                         String formatted = cdf.format(source);

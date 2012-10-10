@@ -525,22 +525,17 @@ public class ZoneParser {
     return TZIDComparator;
   }
 
-  private static List errorData = Arrays.asList(new Object[] {
+  private static List<Object> errorData = Arrays.asList(new Object[] {
       new Double(Double.MIN_VALUE), new Double(Double.MIN_VALUE), "" });
 
-  private Comparator TZIDComparator = new Comparator() {
-    Map data = getZoneData();
+  private Comparator<String> TZIDComparator = new Comparator<String>() {
+    Map<String,List<Object>> data = getZoneData();
 
-    public int compare(Object o1, Object o2) {
-      String s1 = (String) o1;
-      String s2 = (String) o2;
-      // String ss1 = s1.substring(0,s1.indexOf('/'));
-      // String ss2 = s2.substring(0,s2.indexOf('/'));
-      // if (!ss1.equals(ss2)) return regionalCompare.compare(ss1, ss2);
-      List data1 = (List) data.get(s1);
+    public int compare(String s1, String s2) {
+      List<Object> data1 = data.get(s1);
       if (data1 == null)
         data1 = errorData;
-      List data2 = (List) data.get(s2);
+      List<Object> data2 = data.get(s2);
       if (data2 == null)
         data2 = errorData;
 

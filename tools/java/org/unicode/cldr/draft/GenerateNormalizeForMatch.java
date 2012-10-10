@@ -631,13 +631,13 @@ public class GenerateNormalizeForMatch {
   private static String quote(String input) {
     String source = input;
     if (FISHY.containsSome(source)) {
-      if (false && source.length() > 20) {
-        System.out.println("?debug?");
-      }
+//      if (false && source.length() > 20) {
+//        System.out.println("?debug?");
+//      }
       source = toHTMLControl.transform(source);
-      if (false) {
-        System.out.println(input + "=>" + source);
-      }
+//      if (false) {
+//        System.out.println(input + "=>" + source);
+//      }
       System.out.flush();
     }
     if (BIDI.containsSome(source)) {

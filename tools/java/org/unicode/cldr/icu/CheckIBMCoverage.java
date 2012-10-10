@@ -156,7 +156,7 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
         fw.write("\t\t\t\t<th>Minimum Coverage(BASIC)</td>\n");
         fw.write("\t\t\t\t<th>Minimum Coverage(ICU)</td>\n");
         fw.write("\t\t\t</tr>\n");
-        int bp =0, bf=0, mp=0, mf=0, gp=0, gf=0;
+        int bp =0, bf=0, mp=0, mf=0;
         
         for(Iterator<String> iter = getLocalesMap().keySet().iterator(); iter.hasNext(); ){
             String fileName = iter.next();
@@ -199,28 +199,22 @@ public class CheckIBMCoverage  extends CLDRConverterTool {
             if(level.equals(Level.POSIX)){
                 if(posix==0){
                     fw.write("\t\t\t\t<td><img src=\"blue_check.gif\" border=\"0\" ALT=\"Pass\"></td>\n");
-                    gp++;
                 }else{
                     fw.write("\t\t\t\t<td><a href=\""+glf+"\"><img src=\"red_x.gif\" border=\"0\" ALT=\"Fail\"></a></td>\n");
-                    gf++;
                 }
             }else if(level.equals(Level.BASIC)){
                 if(basic==0){
                     fw.write("\t\t\t\t<td><img src=\"blue_check.gif\" border=\"0\" ALT=\"Pass\"></td>\n");
-                    gp++;
                 }else{
                     fw.write("\t\t\t\t<td><a href=\""+glf+"\"><img src=\"red_x.gif\" border=\"0\" ALT=\"Fail\"></a></td>\n");
-                    gf++;
                 }
             }else{
                 int out = processFile(locale, destDir+File.separator+glf, level, group, true);
                 
                 if(out==0){
                     fw.write("\t\t\t\t<td><img src=\"blue_check.gif\" border=\"0\" ALT=\"Pass\"></td>\n");
-                    gp++;
                 }else{
                     fw.write("\t\t\t\t<td><a href=\""+glf+"\"><img src=\"red_x.gif\" border=\"0\" ALT=\"Fail\"></a></td>\n");
-                    gf++;
                 }
             }
             fw.write("\t\t\t</tr>\n");

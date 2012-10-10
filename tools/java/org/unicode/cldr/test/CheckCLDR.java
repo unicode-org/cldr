@@ -569,7 +569,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
                 return null;
             }
 
-            List<Exception> errors = new ArrayList();
+            List<Exception> errors = new ArrayList<Exception>();
             for (Object o : parameters) {
                 if (o instanceof Exception) {
                     errors.add((Exception)o);
@@ -607,14 +607,14 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     }
 
     public static abstract class SimpleDemo {
-        Map internalPostArguments = new HashMap();
+        Map<String,String> internalPostArguments = new HashMap<String,String>();
 
         /**
          * @param postArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
          * <br>The first time this is called, the Map should be empty.
          * @return true if the map has been changed
          */ 
-        public abstract String getHTML(Map postArguments) throws Exception;
+        public abstract String getHTML(Map<String,String> postArguments) throws Exception;
 
         /**
          * Only here for compatibiltiy. Use the other getHTML instead
@@ -629,7 +629,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
          * @param postArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
          * @return true if the map has been changed
          */ 
-        public final boolean processPost(Map postArguments) {
+        public final boolean processPost(Map<String,String> postArguments) {
             internalPostArguments.clear();
             internalPostArguments.putAll(postArguments);
             return true;
@@ -649,9 +649,9 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
 
         protected abstract String getPattern();
         protected abstract String getSampleInput(); 
-        protected abstract void getArguments(Map postArguments);
+        protected abstract void getArguments(Map<String,String> postArguments);
 
-        public String getHTML(Map postArguments) throws Exception {
+        public String getHTML(Map<String,String> postArguments) throws Exception {
             getArguments(postArguments);
             StringBuffer htmlMessage = new StringBuffer();
             FormatDemo.appendTitle(htmlMessage);
@@ -660,7 +660,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             return htmlMessage.toString();
         }
 
-        public String getPlainText(Map postArguments) {
+        public String getPlainText(Map<String,String> postArguments) {
             getArguments(postArguments);
             return MessageFormat.format("<\"\u200E{0}\u200E\", \"{1}\"> \u2192 \"\u200E{2}\u200E\" \u2192 \"{3}\"",
                 (Object[]) new String[] {currentPattern, currentInput, currentFormatted, currentReparsed});
@@ -742,13 +742,13 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
      * call getDemo() to get the demo, then call getHTML() to get the initial
      * HTML.
      */ 
-    public final CheckCLDR getExamples(String path, String fullPath, String value, Map options, List result) {
+    public final CheckCLDR getExamples(String path, String fullPath, String value, Map<String,String> options, List<CheckStatus> result) {
         result.clear();
         return handleGetExamples(path, fullPath, value, options, result);		
     }
 
 
-    protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map options2, List result) {
+    protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String,String> options2, List<CheckStatus> result) {
         return this; // NOOP unless overridden
     }
 
@@ -776,7 +776,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
      */
     static class CompoundCheckCLDR extends CheckCLDR {
         private Matcher filter;
-        private List checkList = new ArrayList();
+        private List<CheckCLDR> checkList = new ArrayList<CheckCLDR>();
         private List<CheckCLDR> filteredCheckList = new ArrayList<CheckCLDR>();
 
         public CompoundCheckCLDR add(CheckCLDR item) {
@@ -794,8 +794,8 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
             result.clear();
-            for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
-                CheckCLDR item = (CheckCLDR) it.next();
+            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext(); ) {
+                CheckCLDR item =  it.next();
                 // skip proposed items in final testing.
                 if (Phase.FINAL_TESTING == item.getPhase()) {
                     if (path.contains("proposed") && path.contains("[@alt=")) {
@@ -814,10 +814,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             return this;
         }
 
-        protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map options, List result) {
+        protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String,String> options, List<CheckStatus> result) {
             result.clear();
-            for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
-                CheckCLDR item = (CheckCLDR) it.next();
+            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext(); ) {
+                CheckCLDR item = it.next();
                 try {
                     item.handleGetExamples(path, fullPath, value, options, result);
                 } catch (Exception e) {
@@ -845,7 +845,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             super.setCldrFileToCheck(cldrFileToCheck,options,possibleErrors);
             possibleErrors.clear();
 
-            for (Iterator it = filteredCheckList.iterator(); it.hasNext(); ) {
+            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext(); ) {
                 CheckCLDR item = (CheckCLDR) it.next();
                 if(SHOW_TIMES) testTime = new ElapsedTimer("Test setup time for " + item.getClass().toString() + ": {0}");
                 try {
@@ -873,8 +873,8 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         public CompoundCheckCLDR setFilter(Matcher filter) {
             this.filter = filter;
             filteredCheckList.clear();
-            for (Iterator it = checkList.iterator(); it.hasNext(); ) {
-                CheckCLDR item = (CheckCLDR) it.next();
+            for (Iterator<CheckCLDR> it = checkList.iterator(); it.hasNext(); ) {
+                CheckCLDR item = it.next();
                 if (filter == null || filter.reset(item.getClass().getName()).matches()) {
                     filteredCheckList.add(item);
                     item.setCldrFileToCheck(getCldrFileToCheck(), null, null);

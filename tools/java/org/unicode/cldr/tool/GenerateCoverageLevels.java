@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -13,6 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.Builder.CBuilder;
@@ -24,7 +24,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -46,7 +46,7 @@ public class GenerateCoverageLevels {
   private static final String RBNF_DIRECTORY = CldrUtility.COMMON_DIRECTORY + "/rbnf/";//CldrUtility.SUPPLEMENTAL_DIRECTORY; //CldrUtility.MAIN_DIRECTORY;
   private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/coverage/"; //CldrUtility.MAIN_DIRECTORY;
   private static final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
-  private static final Comparator attributeComparator = CLDRFile.getAttributeComparator();
+  private static final Comparator<String> attributeComparator = CLDRFile.getAttributeComparator();
   private static final CLDRFile english = cldrFactory.make("en", true);
   private static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(english.getSupplementalDirectory());
   private static Set<String> defaultContents = supplementalData.getDefaultContentLocales();
@@ -64,7 +64,7 @@ public class GenerateCoverageLevels {
   private static final Level RBNF_LEVEL = Level.MODERATE;
 
   static {
-    coverageLevel.setFile(english, new TreeMap(), null, new ArrayList());
+    coverageLevel.setFile(english, new TreeMap<String,String>(), null, new ArrayList<CheckCLDR.CheckStatus>());
   }
   static int totalCount = 0;
 
@@ -126,7 +126,6 @@ public class GenerateCoverageLevels {
     R5<Level, Inheritance, Integer, String, TreeMap<String, Relation<String, String>>> results = store.add(next);
     if (results != null) {
       Level lastLevel = results.get0();
-      Inheritance lastInheritance = results.get1();
       int count = results.get2();
       String path = results.get3();
       totalCount += count;
@@ -143,8 +142,6 @@ public class GenerateCoverageLevels {
                 + "\t" + lastLevel
                 + "\t" + count 
                 + "\t" + totalCount 
-                //+ "\t" + lastInheritance + 
-                //"\t" + cldrFile.getStringValue(path) + 
                 + "\t" + path + resultString);
       } catch (RuntimeException e) {
         throw e;
@@ -230,7 +227,8 @@ public class GenerateCoverageLevels {
           String element = lastParts.getElement(i);
           Relation<String, String> old = differences.get(element);
           if (old == null) {
-            differences.put(element, old = new Relation(new TreeMap(attributeComparator), TreeSet.class));
+            old = new Relation(new TreeMap(attributeComparator), TreeSet.class);
+            differences.put(element, old);
           }
           Set<String> union = Builder.with(new TreeSet<String>()).addAll(lastAttrs.keySet()).addAll(nextAttrs.keySet()).get();
           for (String key : union) {
@@ -256,21 +254,15 @@ public class GenerateCoverageLevels {
   }
 
   private static void summarizeCoverage(PrintWriter summary, PrintWriter samples2, PrintWriter counts) {
-    final String subdirectory = new File(MAIN_DIRECTORY).getName();
     final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
     final Factory collationFactory = Factory.make(COLLATION_DIRECTORY, FILES);
     final Factory rbnfFactory = Factory.make(RBNF_DIRECTORY, FILES);
-
-    final XPathParts oldParts = new XPathParts();
-    final XPathParts parts = new XPathParts();
-
 
     //    CLDRFile sd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_NAME, CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
     //    CLDRFile smd = CLDRFile.make(CLDRFile.SUPPLEMENTAL_METADATA, CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
     //
     //    CoverageLevel.init(sd, smd);
 
-    LanguageTagParser ltp = new LanguageTagParser();
     NumberFormat percent = NumberFormat.getPercentInstance();
     NumberFormat decimal = NumberFormat.getInstance();
     decimal.setGroupingUsed(true);
@@ -282,7 +274,7 @@ public class GenerateCoverageLevels {
     // get list of locales
     LocaleLevelData mapLevelData = new LocaleLevelData();
     TreeSet<String> mainAvailableSource = new TreeSet<String>(cldrFactory.getAvailable());
-    TreeSet<String> mainAvailable = new TreeSet();
+    TreeSet<String> mainAvailable = new TreeSet<String>();
     for (String locale : mainAvailableSource) {
       if (localeFilter.skipLocale(locale)) continue;
       mainAvailable.add(locale);
@@ -304,8 +296,7 @@ public class GenerateCoverageLevels {
     }
     
     System.out.println("gathering plural data");
-    PluralInfo rootPlurals = supplementalData.getPlurals("root");
-    localesFound = new TreeSet(supplementalData.getPluralLocales());
+    localesFound = new TreeSet<String>(supplementalData.getPluralLocales(PluralType.cardinal));
     markData("Plurals", localesFound, mapLevelData, mainAvailable, PLURALS_LEVEL, PLURALS_WEIGHT, Row.of("//supplementalData/plurals", "UCA"));
 
     System.out.println("gathering collation data");
@@ -467,7 +458,6 @@ public class GenerateCoverageLevels {
       String validSubLocales = parts.getAttributeValue(1, "validSubLocales");
       if (validSubLocales != null) {
         String[] sublocales = validSubLocales.split("\\s+");
-        LanguageTagParser ltp = new LanguageTagParser();
         for (String sublocale : sublocales) {
           if (localeFilter.skipLocale(locale)) continue;
           localesFound.add(sublocale);

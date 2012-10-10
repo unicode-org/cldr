@@ -17,6 +17,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -45,25 +46,23 @@ public class GenerateG2xG2 {
 		english = cldrFactory.make("en", true);
 		root = cldrFactory.make("root", true);
 		StandardCodes sc = StandardCodes.make();
-		Map type_code_value = sc.getLocaleTypes();
-		Set sourceSet = new TreeSet();
-		Set targetLanguageSet = new TreeSet();
+		Map<String, Map<String, Level>> type_code_value = sc.getLocaleTypes();
+		Set<String> sourceSet = new TreeSet<String>();
+		Set<String> targetLanguageSet = new TreeSet<String>();
 		targetLanguageSet.add("no");
 		addPriority("G2","nn");
 		addPriority("G2","no");
 		targetLanguageSet.add("nn");
-		Set targetScriptSet = new TreeSet();
-		Set targetRegionSet = new TreeSet();
-		Set targetTZSet = new TreeSet();
-		Set targetCurrencySet = new TreeSet();
-		for (Iterator it = type_code_value.keySet().iterator(); it.hasNext();) {
-			Object type = it.next();
-			Map code_value = (Map) type_code_value.get(type);
+		Set<String> targetScriptSet = new TreeSet<String>();
+		Set<String> targetRegionSet = new TreeSet<String>();
+		Set<String> targetTZSet = new TreeSet<String>();
+		Set<String> targetCurrencySet = new TreeSet<String>();
+		for (String type : type_code_value.keySet()) {
+			Map<String,Level> code_value = type_code_value.get(type);
 			if (!type.equals("IBM")) continue;
-			for (Iterator it2 = code_value.keySet().iterator(); it2.hasNext();) {
-				String locale = (String)it2.next();
+			for (String locale : code_value.keySet()) {
 				if (locale.equals("no")) continue;
-				String priority = (String) code_value.get(locale);
+				String priority = code_value.get(locale).toString();
 				ULocale ulocale = new ULocale(locale);
 				String language = ulocale.getLanguage();
 				String script = ulocale.getScript();
@@ -85,13 +84,12 @@ public class GenerateG2xG2 {
 			}
 		}
 		// set the priorities for territories
-		Map worldBankInfo = sc.getWorldBankInfo();
-		Set euCodes = new HashSet(Arrays.asList(new String[]{"AT","BE","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IT","LV","LT","LU","MT","NL","PL","PT","SI","ES","SE","GB"}));
-		for (Iterator it = worldBankInfo.keySet().iterator(); it.hasNext();) {
-			String countryCode = (String) it.next();
+		Map<String,List<String>> worldBankInfo = sc.getWorldBankInfo();
+		Set<String> euCodes = new HashSet<String>(Arrays.asList(new String[]{"AT","BE","CY","CZ","DK","EE","FI","FR","DE","GR","HU","IT","LV","LT","LU","MT","NL","PL","PT","SI","ES","SE","GB"}));
+		for (String countryCode : worldBankInfo.keySet()) {
 			if (priorityMap.get(countryCode) == null) continue; // only use ones we already have: defaults G4
-			List values = (List) worldBankInfo.get(countryCode);
-			double gdp = Double.parseDouble((String) values.get(1));
+			List<String> values = worldBankInfo.get(countryCode);
+			double gdp = Double.parseDouble(values.get(1));
 			if (gdp >= 1E+13) addPriority("G0", countryCode);
 			else if (gdp >= 1E+12) addPriority("G1", countryCode);
 			else if (gdp >= 1E+11) addPriority("G2", countryCode);
@@ -120,7 +118,7 @@ public class GenerateG2xG2 {
 			}
 		}
 		// print out missing translations.
-		PrintWriter pw = BagFormatter.openUTF8Writer("c:/", "G2xG2.txt");
+		PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "G2xG2.txt");
 		// show priorities
 		Comparator comp = new UTF16.StringComparator();
 		Set priority_set = new TreeSet(new ArrayComparator(new Comparator[]{comp, comp, comp}));
@@ -188,10 +186,10 @@ public class GenerateG2xG2 {
 
 	private static boolean showLocales(int choice) throws Exception {
 		ULocale desiredDisplayLocale = ULocale.ENGLISH;
-		Set testSet = new TreeSet();
+		Set<String> testSet = new TreeSet<String>();
 		StandardCodes sc = StandardCodes.make();		
 		{
-			Collection countries = sc.getGoodAvailableCodes("territory");
+			Set<String> countries = sc.getGoodAvailableCodes("territory");
 			Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 			english = cldrFactory.make("en", true);
 			for (Iterator it = countries.iterator(); it.hasNext();) {
@@ -221,12 +219,11 @@ public class GenerateG2xG2 {
 		} else {
 			boolean USE_3066bis = choice == 2;
 			// produce random list of RFC3066 language tags
-			Set grandfathered = sc.getAvailableCodes("grandfathered");
-			List language_subtags = new ArrayList(sc.getGoodAvailableCodes("language"));
-			List script_subtags = new ArrayList(sc.getGoodAvailableCodes("script"));
-			List region_subtags =  new ArrayList(sc.getGoodAvailableCodes("territory"));
-			for (Iterator it = grandfathered.iterator(); it.hasNext();) {
-				String possibility = (String)it.next();
+			Set<String> grandfathered = sc.getAvailableCodes("grandfathered");
+			List<String> language_subtags = new ArrayList<String>(sc.getGoodAvailableCodes("language"));
+			List<String> script_subtags = new ArrayList<String>(sc.getGoodAvailableCodes("script"));
+			List<String> region_subtags =  new ArrayList<String>(sc.getGoodAvailableCodes("territory"));
+			for (String possibility : grandfathered) {
 				System.out.println(possibility);
 				if (new ULocale(possibility).getScript().length() != 0) {
 					System.out.println("\tAdding");
@@ -347,16 +344,15 @@ private static void showExample(RuleBasedCollator col) {
 		}
 		return result == null ? item : result;
 	}
-	static Map territory_currency = null;
+	static Map<String,List<String>> territory_currency = null;
 	
-	private static Collection getCurrency(String territory) {
+	private static List<String> getCurrency(String territory) {
 		if (territory_currency == null) {
-			territory_currency = new TreeMap();
+			territory_currency = new TreeMap<String,List<String>>();
 			Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 			CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 			XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
-			for (Iterator it = supp.iterator(); it.hasNext();) {
-				String path = (String) it.next();
+			for (String path : supp) {
 				if (path.indexOf("/currencyData") >= 0) {
 					//<region iso3166="AR">
 					//	<currency iso4217="ARS" from="1992-01-01"/>
@@ -368,14 +364,14 @@ private static void showExample(RuleBasedCollator col) {
 						String iso4217 = (String) attributes.get("iso4217");
 						String to = (String) attributes.get("to");
 						if (to != null) continue;
-						Collection info = (Collection) territory_currency.get(iso3166);
-						if (info == null) territory_currency.put(iso3166, info = new ArrayList());
+						List<String> info = territory_currency.get(iso3166);
+						if (info == null) territory_currency.put(iso3166, info = new ArrayList<String>());
 						info.add(iso4217);
 						//System.out.println(iso3166 + " => " + iso4217);
 					}
 				}			
 			}
 		}
-		return (Collection)territory_currency.get(territory); 
+		return territory_currency.get(territory); 
 	}
 }

@@ -50,14 +50,10 @@ import com.ibm.icu.util.ULocale;
 public class Misc {
     public static void main(String[] args) throws IOException {
         showDefaultContent("bn", "sw", "mr", "ta", "ms", "am", "af", "zu", "et", "is", "ur", "te", "gu", "kn", "ml", "gl", "eu");
-        if (true) return;
         showSortKey();
         showNumberSamples();
         showDateSamples();
-        if(true) return;
         showExemplarSize();
-        if (true)
-            return;
 
         doNFC();
         showPlurals();
@@ -93,8 +89,6 @@ public class Misc {
             }
             System.out.println(locale + "\t" + CollectionUtilities.join(scripts, " "));
         }
-        if (true)
-            return;
 
         StringTransform unicode = Transliterator.getInstance("hex/unicode");
         UnicodeSet exclude = new UnicodeSet("[:bidimirrored:]");
@@ -148,7 +142,7 @@ public class Misc {
     private static void showSortKey() {
         String[] tests = "a ä A ぁ あ ァ ｧ ア ｱ ㋐".split(" ");
         RuleBasedCollator c = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-        c.setStrength(c.QUATERNARY);
+        c.setStrength(RuleBasedCollator.QUATERNARY);
         c.setCaseLevel(true);
         c.setHiraganaQuaternary(true);
         for (String test : tests) {

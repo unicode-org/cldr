@@ -36,15 +36,15 @@ public class LocaleIDParser {
 		return language;
 	}
 	
-	public static Set getLanguageScript(Collection in) {
+	public static Set<String> getLanguageScript(Collection<String> in) {
 		return getLanguageScript(in, null);
 	}
 
-	public static Set getLanguageScript(Collection in, Set output) {
-		if (output == null) output = new TreeSet();
+	public static Set<String> getLanguageScript(Collection<String> in, Set<String> output) {
+		if (output == null) output = new TreeSet<String>();
 		LocaleIDParser lparser = new LocaleIDParser();
-		for (Iterator it = in.iterator(); it.hasNext();) {
-			output.add(lparser.set((String)it.next()).getLanguageScript());
+		for (Iterator<String> it = in.iterator(); it.hasNext();) {
+			output.add(lparser.set(it.next()).getLanguageScript());
 		}
 		return output;
 	}
@@ -139,7 +139,7 @@ public class LocaleIDParser {
 			region = pieces[i++];
 			if (i >= pieces.length) return this;
 		}
-		List al = new ArrayList();
+		List<String> al = new ArrayList<String>();
 		while (i < pieces.length && pieces[i].length() > 0) {
 			al.add(pieces[i++]);
 		}

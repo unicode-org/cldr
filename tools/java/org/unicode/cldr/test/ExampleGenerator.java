@@ -121,7 +121,7 @@ public class ExampleGenerator {
     private CoverageLevel2 coverageLevel;
     Matcher URLMatcher = URL_PATTERN.matcher("");
 
-    private Map<String, String> cache = new HashMap();
+    private Map<String, String> cache = new HashMap<String, String>();
 
     private static final String NONE = "\uFFFF";
 
@@ -220,7 +220,7 @@ public class ExampleGenerator {
             if(listValue==null) {
                 System.err.println("Failure: in "+cldrFile.getLocaleID()+" examplegenerator- "+singleCountriesPath+"  has a bad list attribute.");
             } else {
-                singleCountryZones = new HashSet(Arrays.asList(listValue.trim().split("\\s+")));
+                singleCountryZones = new HashSet<String>(Arrays.asList(listValue.trim().split("\\s+")));
             }
         }
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
@@ -1141,8 +1141,8 @@ public class ExampleGenerator {
         // lazy initialization
 
         if (pathDescription == null) {
-            Map<String, List<Set<String>>> starredPaths = new HashMap();
-            Map<String, String> extras = new HashMap();
+            Map<String, List<Set<String>>> starredPaths = new HashMap<String, List<Set<String>>>();
+            Map<String, String> extras = new HashMap<String, String>();
 
             this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths, PathDescription.ErrorHandling.CONTINUE);
 
@@ -1204,9 +1204,9 @@ public class ExampleGenerator {
 
         private static final Matcher HEADER_HTML = Pattern.compile("<h[0-9]>(.*)</h[0-9]>").matcher("");
 
-        List<Matcher> keys = new ArrayList();
+        List<Matcher> keys = new ArrayList<Matcher>();
 
-        List<String> values = new ArrayList();
+        List<String> values = new ArrayList<String>();
 
         enum Status {
             BASE, BEFORE_CELL, IN_CELL, IN_INSIDE_TABLE
@@ -1232,8 +1232,6 @@ public class ExampleGenerator {
             BufferedReader in;
             try {
                 in = CldrUtility.getUTF8Data(filename);
-                Status status = Status.BASE;
-                int count = 0;
                 int tableCount = 0;
 
                 boolean inContent = false;
@@ -1287,15 +1285,6 @@ public class ExampleGenerator {
                 in.close();
             } catch (IOException e) {
                 System.err.println("Can't initialize help text");
-            }
-        }
-
-        private void appendLine(String line) {
-            if (line.length() != 0) {
-                if (currentColumn[column].length() > 0) {
-                    currentColumn[column].append(" ");
-                }
-                currentColumn[column].append(line);
             }
         }
 

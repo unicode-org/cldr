@@ -14,6 +14,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -36,7 +37,6 @@ import com.ibm.icu.impl.Differ;
 import com.ibm.icu.text.UTF16;
 
 public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
-  private static final Pattern FIRST_LETTER_CHANGE = Pattern.compile("(\\S)\\S*");
   static final boolean SHOW_PROGRESS = CldrUtility.getProperty("verbose",false);
   static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
   private static final boolean DEBUG = false;
@@ -85,7 +85,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
           fis.close();
 
           me.recordingAttributeElements = false;
-          filename = CldrUtility.SUPPLEMENTAL_DIRECTORY
+          filename = CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY
           + "/supplementalData.xml";
           File file2 = new File(filename);
           System.out.println("Opening " + file2.getCanonicalFile());
@@ -95,7 +95,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
           is.setSystemId(file.getCanonicalPath() + "/../");
           xmlReader.parse(is);
           fis.close();
-          me.attributeList = Collections.unmodifiableList(new ArrayList(me.attributeSet));
+          me.attributeList = Collections.unmodifiableList(new ArrayList<String>(me.attributeSet));
           me.checkData();
           me.orderingList = Collections.unmodifiableList(me.orderingList);
 
@@ -112,7 +112,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
   public void writeAttributeElements() {
     System.out.println(CldrUtility.LINE_SEPARATOR + "======== Start Attributes to Elements (unblocked) " + CldrUtility.LINE_SEPARATOR);
     for (String attribute : attributeToElements.keySet()) {
-      Set<String> filtered = new TreeSet();
+      Set<String> filtered = new TreeSet<String>();
       for (String element : attributeToElements.getAll(attribute)) {
         if (!isBlocked(element)) {
           filtered.add(element);
@@ -158,8 +158,8 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
   private boolean isAncestorOf(String possibleAncestor, String possibleDescendent) {
     if (ancestorToDescendant == null) {
-      ancestorToDescendant = new Relation(new TreeMap(), TreeSet.class);
-      buildPairwiseRelations(new ArrayList(), "ldml");     
+      ancestorToDescendant = new Relation(new TreeMap<String,String>(), TreeSet.class);
+      buildPairwiseRelations(new ArrayList<String>(), "ldml");     
     }
     Set<String> possibleDescendents = ancestorToDescendant.getAll(possibleAncestor);
     if (possibleDescendents == null) return false;
@@ -187,7 +187,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
   Set elementOrderings = new LinkedHashSet(); // set of orderings
 
-  Set allDefinedElements = new LinkedHashSet();
+  Set<String> allDefinedElements = new LinkedHashSet<String>();
 
   boolean showReason = false;
 
@@ -200,14 +200,14 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     log = new PrintWriter(System.out);
   }
 
-  private List orderingList = new ArrayList();
+  private List<String> orderingList = new ArrayList<String>();
 
   public void checkData() {
     // verify that the ordering is the consistent for all child elements
     // do this by building an ordering from the lists.
     // The first item has no greater item in any set. So find an item that is
     // only first
-    MergeLists<String> mergeLists = new MergeLists<String>(new TreeSet(new UTF16.StringComparator(true, false, 0)))
+    MergeLists<String> mergeLists = new MergeLists<String>(new TreeSet<String>(new UTF16.StringComparator(true, false, 0)))
     .add(Arrays.asList("ldml"))
     .addAll(elementOrderings); // 
     List<String> result = mergeLists.merge();
@@ -234,7 +234,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         if (orderingList.contains(first)) {
           throw new IllegalArgumentException("Already present: " + first);
         }
-        orderingList.add(first);
+        orderingList.add(first.toString());
       } else {
         showReason = true;
         getFirst();
@@ -242,7 +242,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
           log.println();
         if (SHOW_PROGRESS)
           log.println("Failed ordering. So far:");
-        for (Iterator it = orderingList.iterator(); it.hasNext();)
+        for (Iterator<String> it = orderingList.iterator(); it.hasNext();)
           if (SHOW_PROGRESS)
             log.print("\t" + it.next());
         if (SHOW_PROGRESS)
@@ -260,7 +260,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     System.out.println("Old code in CLDRFile:\n" + orderingList);
     //System.out.println("New code2: " + CldrUtility.breakLines(CldrUtility.join(result, " "), sep, FIRST_LETTER_CHANGE.matcher(""), 80));
 
-    Set missing = new TreeSet(allDefinedElements);
+    Set<String> missing = new TreeSet<String>(allDefinedElements);
     missing.removeAll(orderingList);
     orderingList.addAll(missing);
 
@@ -488,12 +488,12 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
   // return true;
   // }
 
-  static final Set ELEMENT_SKIP_LIST = new HashSet(Arrays.asList(new String[] {
+  static final Set<String> ELEMENT_SKIP_LIST = new HashSet<String>(Arrays.asList(new String[] {
           "collation", "base", "settings", "suppress_contractions", "optimize",
           "rules", "reset", "context", "p", "pc", "s", "sc", "t", "tc",
           "i", "ic", "extend", "x" }));
 
-  static final Set SUBELEMENT_SKIP_LIST = new HashSet(Arrays
+  static final Set<String> SUBELEMENT_SKIP_LIST = new HashSet<String>(Arrays
           .asList(new String[] { "PCDATA", "EMPTY", "ANY" }));
 
   // refine later; right now, doesn't handle multiple elements well.
@@ -509,7 +509,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
       log.println("Element\t" + name + "\t" + model);
     }
     String[] list = model.split("[^-_A-Z0-9a-z]+");
-    List mc = new ArrayList();
+    List<String> mc = new ArrayList<String>();
     /*
      * if (name.equals("currency")) { mc.add("alias"); mc.add("symbol");
      * mc.add("pattern"); }
@@ -538,7 +538,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
       }
     }
     if (recordingAttributeElements) {
-      Set children = new TreeSet(mc);
+      Set<String> children = new TreeSet<String>(mc);
       children.remove("alias");
       children.remove("special");
       children.remove("cp");
@@ -560,18 +560,18 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     // if (SHOW_PROGRESS) log.println();
   }
 
-  Set skipCommon = new LinkedHashSet(Arrays.asList(new String[] {"validSubLocales", 
+  Set<String> skipCommon = new LinkedHashSet<String>(Arrays.asList(new String[] {"validSubLocales", 
           "standard", "references",
           "alt", "draft",
   }));
 
-  Set attributeSet = new TreeSet();
+  Set<String> attributeSet = new TreeSet<String>();
   {
     attributeSet.add("_q");
   }
-  List attributeList;
+  List<String> attributeList;
 
-  TreeMap attribEquiv = new TreeMap();
+  Map<String,Set<String>> attribEquiv = new TreeMap<String,Set<String>>();
 
   Relation<String, String> attributeToElements = new Relation(new TreeMap(),
           TreeSet.class);
@@ -587,9 +587,9 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
             + "\t" + mode + "\t" + value);
     if (!skipCommon.contains(aName)) {
       attributeSet.add(aName);
-      Set l = (Set) attribEquiv.get(eName);
+      Set<String> l = attribEquiv.get(eName);
       if (l == null)
-        attribEquiv.put(eName, l = new TreeSet());
+        attribEquiv.put(eName, l = new TreeSet<String>());
       l.add(aName);
     }
     if (recordingAttributeElements) {

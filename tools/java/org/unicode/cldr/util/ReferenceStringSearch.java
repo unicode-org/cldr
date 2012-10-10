@@ -164,7 +164,7 @@ public class ReferenceStringSearch {
   
   public ReferenceStringSearch setKey(String key) {
     this.key = key;
-    ArrayList keyBufferList = new ArrayList();
+    ArrayList<Integer> keyBufferList = new ArrayList<Integer>();
     CollationElementIterator2 keyIterator = new CollationElementIterator2(collator).setText(key);
     while (true) {
       int collationElement = keyIterator.nextProcessed();
@@ -172,16 +172,10 @@ public class ReferenceStringSearch {
         break;
       }
       // store the primary, plus the index before and after.
-      keyBufferList.add((Integer) collationElement);
+      keyBufferList.add(collationElement);
     }
     keyBuffer = getIntBuffer(keyBufferList);
     return this;
-  }
-  
-  
-  private void nextTargetBufferElement() {
-    // TODO Auto-generated method stub
-    
   }
   
   public int getNativeOffset() {
@@ -487,10 +481,10 @@ public class ReferenceStringSearch {
    * @param keyBufferList
    * @return
    */
-   private int[] getIntBuffer(List keyBufferList) {
+   private int[] getIntBuffer(ArrayList<Integer> keyBufferList) {
     int[] buffer = new int[keyBufferList.size()];
     for (int i = 0; i < keyBufferList.size(); ++i) {
-      buffer[i] = ((Integer) keyBufferList.get(i)).intValue();
+      buffer[i] = keyBufferList.get(i).intValue();
     }
     return buffer;
   }

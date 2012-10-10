@@ -1,6 +1,6 @@
 /*
  **********************************************************************
- * Copyright (c) 2002-2004, International Business Machines
+ * Copyright (c) 2002-2012, International Business Machines
  * Corporation and others.  All Rights Reserved.
  **********************************************************************
  * Author: Mark Davis
@@ -33,7 +33,6 @@ import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.ICUResourceBundle;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
@@ -60,19 +59,14 @@ public class ExtractICUData {
 		System.out.println("Done");
 	}
 	
-	private static void convertFile(String file) {
-    // TODO Auto-generated method stub
-    
-  }
-
-  static Set skipLines = new HashSet(Arrays.asList(new String[]{
+  static Set<String> skipLines = new HashSet<String>(Arrays.asList(new String[]{
 			"#--------------------------------------------------------------------",
 			"# Copyright (c) 1999-2005, International Business Machines",
 			"# Copyright (c) 1999-2004, International Business Machines",
 			"# Corporation and others. All Rights Reserved.",
 			"#--------------------------------------------------------------------"
 	}));
-	static Set skipFiles = new HashSet(Arrays.asList(new String[]{
+	static Set<String> skipFiles = new HashSet<String>(Arrays.asList(new String[]{
 			//"Any_Accents",
 			"el",
 			"en",
@@ -87,9 +81,9 @@ public class ExtractICUData {
 		File translitSource = new File("C:\\cvsdata\\icu\\icu\\source\\data\\translit\\");
 		System.out.println("Source: " + translitSource.getCanonicalPath());
 		File[] fileArray = translitSource.listFiles();
-		List list = new ArrayList(Arrays.asList(fileArray));
+		List<Object> list = new ArrayList<Object>(Arrays.asList(fileArray));
 		
-		List extras = Arrays.asList(new String[]{
+		List<String> extras = Arrays.asList(new String[]{
 				"Arabic_Latin.txt", 
 				"CanadianAboriginal_Latin.txt", 
 				"Cyrillic_Latin.txt", 
@@ -101,8 +95,7 @@ public class ExtractICUData {
 		list.addAll(extras);
 		
 		String[] attributesOut = new String[1];
-		for (int i = 0; i < list.size(); ++i) {
-			Object file = list.get(i);
+		for (Object file : list) {
 			String fileName = (file instanceof File) ? ((File)file).getName() : (String)file;
 			if (file instanceof File && extras.contains(fileName)) {
 				System.out.println("Skipping old version: " + fileName);
@@ -121,7 +114,6 @@ public class ExtractICUData {
 			
 			BufferedReader input;
 			if (file instanceof File) {
-				//if (true) continue;
 				input = BagFormatter.openUTF8Reader(((File)file).getParent() + File.separator, fileName);
 			} else {
 				input = CldrUtility.getUTF8Data(fileName);
@@ -355,19 +347,16 @@ public class ExtractICUData {
 	static Matcher privateFiles = Pattern.compile(".*(Spacedhan|InterIndic|ThaiLogical|ThaiSemi).*").matcher("");
 	static Matcher allowNames = Pattern.compile("(Fullwidth|Halfwidth|NumericPinyin|Publishing)").matcher("");
 	
-	static Set collectedNames = new TreeSet();
+	static Set<String> collectedNames = new TreeSet<String>();
 	
 	private static String fixTransIDPart(String name) {
 		if (name == null) return name;
-		int code = UScript.getCodeFromName(name);
-		if (code < 0) {
-			collectedNames.add(name);
-//			if (!privateFiles.reset(name).matches() && !allowNames.reset(name).matches()) {
-//			System.out.println("\tCan't convert: " + name);
-//			}
-//			return "x_" + name;
-		}
-		
+        try {
+          UCharacter.getPropertyValueEnum(UProperty.SCRIPT, name);
+        } catch (IllegalArgumentException e) {
+            collectedNames.add(name);
+        }
+    		
 		if (name.equals("Tone")) return "Pinyin";
 		if (name.equals("Digit")) return "NumericPinyin";
 		if (name.equals("Jamo")) return "ConjoiningJamo";
@@ -383,14 +372,14 @@ public class ExtractICUData {
 		};
 		Collator col = Collator.getInstance(ULocale.ROOT);
 		((RuleBasedCollator)col).setNumericCollation(true);
-		Map alpha = new TreeMap(col);
+		Map<String,Set<String>> alpha = new TreeMap<String,Set<String>>(col);
 		
 		for (int range = 0; range < ranges.length; ++range) {
 			for (int propIndex = ranges[range][0]; propIndex < ranges[range][1]; ++propIndex) {
 				String propName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.LONG);
 				String shortPropName = UCharacter.getPropertyName(propIndex, UProperty.NameChoice.SHORT);
 				propName = getName(propIndex, propName, shortPropName);
-				Set valueOrder = new TreeSet(col);
+				Set<String> valueOrder = new TreeSet<String>(col);
 				alpha.put(propName, valueOrder);
 				switch (range) {
 				case 0: valueOrder.add("[binary]"); break;
@@ -411,13 +400,13 @@ public class ExtractICUData {
 		}
 		PrintStream out = System.out;
 		
-		for (Iterator it = alpha.keySet().iterator(); it.hasNext();) {
-			String propName = (String) it.next();
-			Set values = (Set) alpha.get(propName);
+		for (Iterator<String> it = alpha.keySet().iterator(); it.hasNext();) {
+			String propName = it.next();
+			Set<String> values = alpha.get(propName);
 			out.println("<tr><td>" + propName + "</td>");
 			out.println("<td><table>");
-			for (Iterator it2 = values.iterator(); it2.hasNext();) {
-				String propValue = (String) it2.next();
+			for (Iterator<String> it2 = values.iterator(); it2.hasNext();) {
+				String propValue = it2.next();
 				System.out.println("<tr><td>" + propValue + "</td></tr>");
 			}
 			out.println("</table></td></tr>");

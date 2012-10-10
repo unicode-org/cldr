@@ -200,7 +200,7 @@ public class MatchStrings {
     return -1;
   }
 
-  List<Info> current = new ArrayList();
+  List<Info> current = new ArrayList<Info>();
   /**
    * Fix the IPA in a string
    * 

@@ -151,7 +151,7 @@ public class CheckWidths extends CheckCLDR {
             })
             ;
 
-    Set<Limit> found = new LinkedHashSet();
+    Set<Limit> found = new LinkedHashSet<Limit>();
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (value == null) {

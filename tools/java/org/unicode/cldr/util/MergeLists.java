@@ -62,7 +62,7 @@ public class MergeLists<T> {
     while (orderedWorkingSet.size() != 0) {
       getFirsts(first);
       if (first.size() == 0) {
-          Map<T,Collection<T>> reasons = new LinkedHashMap();
+          Map<T,Collection<T>> reasons = new LinkedHashMap<T,Collection<T>>();
           getFirsts(first, reasons);
           throw new IllegalArgumentException("Inconsistent requested ordering: cannot merge if we have [...A...B...] and [...B...A...]: " + reasons);
       }

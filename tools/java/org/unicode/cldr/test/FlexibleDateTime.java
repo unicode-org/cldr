@@ -26,13 +26,11 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Test class for trying different approaches to flexible date/time.
@@ -137,33 +135,32 @@ public class FlexibleDateTime {
 //        System.out.println("done");
 //        log.close();
 //	}
-
-	private static Collection getDateFormats(Factory mainCLDRFactory, String targetLocale) {
-		List result = new ArrayList();
-		XPathParts parts = new XPathParts(null, null);
-        CLDRFile currentFile = null;
-        String oldTargetLocale = targetLocale;
-        // do fallback
-        do {
-			try {
-				currentFile = mainCLDRFactory.make(targetLocale, true);
-			} catch (RuntimeException e) {
-				targetLocale = LocaleIDParser.getParent(targetLocale);
-				if (targetLocale == null) {
-					throw (IllegalArgumentException) new IllegalArgumentException("Couldn't open " + oldTargetLocale).initCause(e);
-				}
-				log.println("FALLING BACK TO " + targetLocale + " from " + oldTargetLocale);
-			}
-        } while (currentFile == null);
-        for (Iterator it = currentFile.iterator(); it.hasNext(); ) {
-        	String path = (String) it.next();
-        	if (!isGregorianPattern(path, parts)) continue;
-        	String value = currentFile.getWinningValue(path);
-        	result.add(value);
-        	//log.println("adding " + path + "\t" + value);
-        }
-        return result;
-	}
+//
+//	private static Collection<String> getDateFormats(Factory mainCLDRFactory, String targetLocale) {
+//		List<String> result = new ArrayList<String>();
+//		XPathParts parts = new XPathParts(null, null);
+//      CLDRFile currentFile = null;
+//      String oldTargetLocale = targetLocale;
+//     // do fallback
+//        do {
+//			try {
+//				currentFile = mainCLDRFactory.make(targetLocale, true);
+//			} catch (RuntimeException e) {
+//				targetLocale = LocaleIDParser.getParent(targetLocale);
+//				if (targetLocale == null) {
+//					throw (IllegalArgumentException) new IllegalArgumentException("Couldn't open " + oldTargetLocale).initCause(e);
+//				}
+//				log.println("FALLING BACK TO " + targetLocale + " from " + oldTargetLocale);
+//			}
+//        } while (currentFile == null);
+//        for (String path : currentFile ) {
+//        	if (!isGregorianPattern(path, parts)) continue;
+//    	    String value = currentFile.getWinningValue(path);
+//   	    result.add(value);
+//      	//log.println("adding " + path + "\t" + value);
+// }
+//        return result;
+//	}
 	
 	public static boolean isGregorianPattern(String path, XPathParts parts) {
     	if (path.indexOf("Formats") < 0) return false; // quick exclude
@@ -175,32 +172,32 @@ public class FlexibleDateTime {
 
 	static class LocaleIDFixer {
 		LocaleIDParser lip = new LocaleIDParser();
-	    static final Set mainLocales = new HashSet(Arrays.asList(new String[]
+	    static final Set<String> mainLocales = new HashSet<String>(Arrays.asList(new String[]
 	    {"ar_EG", "bn_IN", "de_DE", "en_US", "es_ES", "fr_FR", "it_IT", "nl_NL", "pt_BR", "sv_SE", "zh_TW"}));
 	    DeprecatedCodeFixer dcf = new DeprecatedCodeFixer();
 	
-		Map fixLocales(Collection available, Map result) {
+		Map<String,String> fixLocales(Collection<String> available, Map<String,String> result) {
 			// find the multi-country locales
-			Map language_locales = new HashMap();
-			for (Iterator it = available.iterator(); it.hasNext();) {
-				String locale = (String) it.next();
+			Map<String,Set<String>> language_locales = new HashMap<String,Set<String>>();
+			for (String locale : available) {
 				String fixedLocale = dcf.fixLocale(locale);
 				result.put(locale, fixedLocale);
 				String language = lip.set(fixedLocale).getLanguageScript();
-				Set locales = (Set) language_locales.get(language);
-				if (locales == null) language_locales.put(language, locales = new HashSet());
+				Set<String> locales = language_locales.get(language);
+				if (locales == null) {
+				    language_locales.put(language, locales = new HashSet<String>());
+				}
 				locales.add(locale);
 			}
 			// if a language has a single locale, use it
 			// otherwise use main
-			for (Iterator it = language_locales.keySet().iterator(); it.hasNext();) {
-				String language = (String) it.next();
-				Set locales = (Set) language_locales.get(language);
+			for (String language : language_locales.keySet()) {
+				Set<String> locales = language_locales.get(language);
 				if (locales.size() == 1) {
 					result.put(locales.iterator().next(), language);
 					continue;
 				}
-				Set intersect = new HashSet(mainLocales);
+				Set<String> intersect = new HashSet<String>(mainLocales);
 				intersect.retainAll(locales);
 				if (intersect.size() == 1) {
 					// the intersection is the parent, so overwrite it
@@ -218,14 +215,14 @@ public class FlexibleDateTime {
 	}
 	
 	static class DeprecatedCodeFixer {
-	    Map languageAlias = new HashMap();
-	    Map territoryAlias = new HashMap();
+	    Map<String,String> languageAlias = new HashMap<String,String>();
+	    Map<String,String> territoryAlias = new HashMap<String,String>();
 	    {
 	    	Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 	    	CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
 	    	XPathParts parts = new XPathParts(null, null);
-	    	for (Iterator it = supp.iterator("//supplementalData/metadata/alias/"); it.hasNext();) {
-	    		String path = (String) it.next();
+	    	for (Iterator<String> it = supp.iterator("//supplementalData/metadata/alias/"); it.hasNext();) {
+	    		String path = it.next();
 	    		//System.out.println(path);
 	    		//if (!path.startsWith("//supplementalData/metadata/alias/")) continue;
 	    		parts.set(supp.getFullXPath(path));
@@ -245,7 +242,6 @@ public class FlexibleDateTime {
 	    LocaleIDParser lip = new LocaleIDParser();
 	    
 	    String fixLocale(String locale) {
-	    	String oldLocale = locale;
 	    	lip.set(locale);
 	    	String territory = lip.getRegion();
 	    	String replacement = (String) territoryAlias.get(territory);
@@ -253,15 +249,14 @@ public class FlexibleDateTime {
 	    		lip.setRegion(replacement);
 	    	}
 	    	locale = lip.toString();
-	    	for (Iterator it = languageAlias.keySet().iterator(); it.hasNext();) {
-	    		String old = (String) it.next();
+	    	for (String old : languageAlias.keySet()) {
 	    		if (!locale.startsWith(old)) continue;
 	    		if (locale.length() == old.length()) {
-	    			locale = (String) languageAlias.get(old);
+	    			locale = languageAlias.get(old);
 	    			break;
 	    		}
 	    		else if (locale.charAt(old.length())=='_') {
-	    			locale = (String) languageAlias.get(old) + locale.substring(old.length());
+	    			locale = languageAlias.get(old) + locale.substring(old.length());
 	    			break;
 	    		}
 	    	}
@@ -270,67 +265,60 @@ public class FlexibleDateTime {
 	    }
 	}
 
-	private static void test(String[] args) {
-		// get the locale to use, with default
-        String filter = "en_US";
-        if (args.length > 0)
-            filter = args[0];
-        
-        Factory cldrFactory = Factory.make(CldrUtility.BASE_DIRECTORY
-                + "open_office/main/", filter);
-        for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();) {
-            String locale = (String) it.next();
-            ULocale ulocale = new ULocale(locale);
-            System.out.println(ulocale.getDisplayName(ULocale.ENGLISH) + " (" + locale + ")");
-            
-            SimpleDateFormat df = (SimpleDateFormat) DateFormat
-            .getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT,
-                    ulocale);
-            
-            Collection list = getOOData(cldrFactory, locale);
-            
-            
-            String[] testData = { "YwE", // year, week of year, weekday
-                    "yD", // year, day of year
-                    "yMFE", // year, month, nth day of week in month
-                    "eG", "dMMy", "kh", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
-                    "MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
-                    "GEEEEyyyyMMddHHmmss",
-                    "GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
-                    };
-            DateTimePatternGenerator fdt = DateTimePatternGenerator.getEmptyInstance();
-            add(fdt, list);
-            Date now = new Date(99, 11, 23, 1, 2, 3);
-            System.out.println("Sample Input: " + now);
-            for (int i = 0; i < testData.length; ++i) {
-                System.out.print("Input request: \t" + testData[i]);
-                System.out.print(SEPARATOR + "Fields: \t" + fdt.getFields(testData[i]));
-                String dfpattern;
-                try {
-                    dfpattern = fdt.getBestPattern(testData[i]);
-                } catch (Exception e) {
-                    System.out.println(SEPARATOR + e.getMessage());
-                    continue;
-                }
-                System.out.print(SEPARATOR + "Localized Pattern: \t" + dfpattern);
-                df.applyPattern(dfpattern);
-                System.out.println(SEPARATOR + "Sample Results: \t?" + df.format(now) + "?");
-            }
-        }
-	}
+//	private static void test(String[] args) {
+//		// get the locale to use, with default
+//        String filter = "en_US";
+//        if (args.length > 0)
+//            filter = args[0];
+//        
+//        Factory cldrFactory = Factory.make(CldrUtility.BASE_DIRECTORY
+//                + "open_office/main/", filter);
+//        for (String locale : cldrFactory.getAvailable()) {
+//            ULocale ulocale = new ULocale(locale);
+//            System.out.println(ulocale.getDisplayName(ULocale.ENGLISH) + " (" + locale + ")");
+//            
+//            SimpleDateFormat df = (SimpleDateFormat) DateFormat
+//            .getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT,
+//                    ulocale);
+//            
+//            Collection list = getOOData(cldrFactory, locale);
+//            
+//            
+//            String[] testData = { "YwE", // year, week of year, weekday
+//                    "yD", // year, day of year
+//                    "yMFE", // year, month, nth day of week in month
+//                    "eG", "dMMy", "kh", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
+//                    "MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
+//                    "GEEEEyyyyMMddHHmmss",
+//                    "GuuuuMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
+//                    };
+//            DateTimePatternGenerator fdt = DateTimePatternGenerator.getEmptyInstance();
+//            add(fdt, list);
+//            Date now = new Date(99, 11, 23, 1, 2, 3);
+//            System.out.println("Sample Input: " + now);
+//            for (int i = 0; i < testData.length; ++i) {
+//                System.out.print("Input request: \t" + testData[i]);
+//                System.out.print(SEPARATOR + "Fields: \t" + fdt.getFields(testData[i]));
+//                String dfpattern;
+//                try {
+//                    dfpattern = fdt.getBestPattern(testData[i]);
+//                } catch (Exception e) {
+//                    System.out.println(SEPARATOR + e.getMessage());
+//                    continue;
+//                }
+//                System.out.print(SEPARATOR + "Localized Pattern: \t" + dfpattern);
+//                df.applyPattern(dfpattern);
+//                System.out.println(SEPARATOR + "Sample Results: \t?" + df.format(now) + "?");
+//            }
+//        }
+//	}
     
     
-    public static void add(DateTimePatternGenerator generator, Collection list) {
-        for (Iterator it = list.iterator(); it.hasNext();) {
-            generator.addPattern((String)it.next(), false, null);
+    public static void add(DateTimePatternGenerator generator, Collection<String> list) {
+        for (Iterator<String> it = list.iterator(); it.hasNext();) {
+            generator.addPattern(it.next(), false, null);
         }
     }
-    
-   
-    
-    
-    
-    
     
     // =================
     
@@ -342,7 +330,7 @@ public class FlexibleDateTime {
             source = source.replace('"', '\''); // fix quoting convention
             StringBuffer buffer = new StringBuffer();
             fp.set(source);
-            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+            for (Iterator<Object> it = fp.getItems().iterator(); it.hasNext();) {
                 Object item = it.next();
                 if (item instanceof VariableField) {
                     buffer.append(handleOODate(item.toString(), locale));
@@ -404,7 +392,7 @@ public class FlexibleDateTime {
             }
             StringBuffer buffer = new StringBuffer();
             fp.set(source);
-            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
+            for (Iterator<Object> it = fp.getItems().iterator(); it.hasNext();) {
                 Object item = it.next();
                 if (item instanceof VariableField) {
                     buffer.append(handleOOTime(item.toString(), locale, isAM >= 0));
@@ -431,43 +419,19 @@ public class FlexibleDateTime {
             }
             return string;
         }
-        private String convertToRule(String string) {
-            fp.set(string);
-            StringBuffer buffer = new StringBuffer();
-            Set additions = new HashSet();
-            for (Iterator it = fp.getItems().iterator(); it.hasNext();) {
-                Object item = it.next();
-                if (item instanceof VariableField) {
-                    String s = item.toString();
-                    if (s.startsWith("a")) {
-                        buffer.append(s);
-                    } else {
-                        buffer.append('{' + s + '}');
-                    }
-                } else {
-                    buffer.append(item);
-                }
-            }
-            for (Iterator it = additions.iterator(); it.hasNext();) {
-                buffer.insert(0,it.next());
-            }
-            return buffer.toString();
-        }
     }
     static Date TEST_DATE = new Date(104,8,13,23,58,59);
     
-    static Comparator VariableFieldComparator = new Comparator() {
-        public int compare(Object o1, Object o2) {
-            Collection a = (Collection)o1;
-            Collection b = (Collection)o2;
+    static Comparator<Collection<String>> VariableFieldComparator = new Comparator<Collection<String>>() {
+        public int compare(Collection<String> a, Collection<String> b) {
             if (a.size() != b.size()) {
                 if (a.size() < b.size()) return 1;
                 return -1;
             }
-            Iterator itb = b.iterator();
-            for (Iterator ita = a.iterator(); ita.hasNext();) {
-                String aa = (String) ita.next();
-                String bb = (String) itb.next();
+            Iterator<String> itb = b.iterator();
+            for (Iterator<String> ita = a.iterator(); ita.hasNext();) {
+                String aa = ita.next();
+                String bb = itb.next();
                 int result = -aa.compareTo(bb);
                 if (result != 0) return result;
             }
@@ -477,15 +441,14 @@ public class FlexibleDateTime {
     
     public static UnicodeSet allowedDateTimeCharacters = new UnicodeSet("[A a c D d E e F G g h H K k L m M q Q s S u v W w Y y z Z]");
     
-    static Collection getOOData(Factory cldrFactory, String locale) {
-        List result = new ArrayList();
+    static Collection<String> getOOData(Factory cldrFactory, String locale) {
+        List<String> result = new ArrayList<String>();
         XPathParts parts = new XPathParts(null, null);
         OOConverter ooConverter = new OOConverter();
         {
             if (SHOW_OO) System.out.println();
             CLDRFile item = cldrFactory.make(locale, false);
-            for (Iterator it2 = item.iterator(); it2.hasNext();) {
-                String xpath = (String) it2.next();
+            for (String xpath : item ) {
             	if (!isGregorianPattern(xpath, parts)) continue;
                 boolean isDate = parts.getElement(4).equals("dateFormats");
                 boolean isTime = parts.getElement(4).equals("timeFormats");
@@ -522,12 +485,5 @@ public class FlexibleDateTime {
             }
             return result;
         }
-    }
-    
-    private static Object putNoReplace(Map m, Object key, Object value) {
-        Object current = m.get(key);
-        if (current != null) return current;
-        m.put(key, value);
-        return null;
     }
 }

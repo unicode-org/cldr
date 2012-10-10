@@ -14,11 +14,12 @@ public class EnumLookup<T extends Enum<?>> {
     public static <T extends Enum<?>> EnumLookup<T> of(Class<T> className) {
         return of(className, null, null);
     }
+    @SuppressWarnings("unchecked")
     public static <T extends Enum<?>> EnumLookup<T> of(Class<T> className, Transform<String,String> t, String from, T to, Object... extras) {
         Map<String,T> newExtras = new HashMap<String,T>();
         newExtras.put(from, to);
         for (int i = 0; i < extras.length; i += 2) {
-            newExtras.put((String)extras[i], (T)extras[i+1]);
+            newExtras.put(extras[i].toString(), (T)extras[i+1]);
         }
         return of(className, t, newExtras);
     }
@@ -27,6 +28,7 @@ public class EnumLookup<T extends Enum<?>> {
         try {
             result.transform = t = t == null ? CLEAN : t;
             Method m = className.getMethod("values",(Class<?>[])null);
+            @SuppressWarnings("unchecked")
             T[] values = (T[]) m.invoke(null);
             for (T value : values) {
                 result.map.put(t.transform(value.name()), value);

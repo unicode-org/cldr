@@ -73,8 +73,7 @@ public class POSIX_LCCollate {
         String path = "//ldml/collations/collation[@type=\""+collationType+"\"]/settings";
         Set<String> settingsPaths = new TreeSet<String>(CLDRFile.ldmlComparator);
         settingsPaths = collrules.getPaths(path, null, settingsPaths);
-        for ( Iterator<String> it = settingsPaths.iterator(); it.hasNext();) {
-            String settingPath = it.next();
+        for ( String settingPath : settingsPaths) {
             settings += POSIXUtilities.CollationSettingString(collrules,settingPath);           
         }
 
@@ -161,9 +160,9 @@ public class POSIX_LCCollate {
       out.println();
       out.println("* assignment of characters to weights");
       out.println();
-      for (Iterator<String> it = allItems.iterator(); it.hasNext();) {
-         String currentChar = it.next();
-         out.println(showLine(col, currentChar));
+      for (Object o : allItems ) {
+          String currentChar = (String) o;
+          out.println(showLine(col, currentChar));
       }
       out.print("UNDEFINED");
       for ( int i = longest_char - 9 ; i > 0 ; i-- )
@@ -179,9 +178,9 @@ public class POSIX_LCCollate {
 	private void writeDefinitions(PrintWriter out) {
         //collating-element <A-A> from "<U0041><U0041>"
         StringBuffer buffer = new StringBuffer();
-        for (Iterator<String> it = contractions.iterator(); it.hasNext();) {
+        for (Object o : contractions) {
             buffer.setLength(0);
-            String s = it.next();
+            String s = (String) o;
             buffer.append("collating-element ")
                   .append(POSIXUtilities.POSIXContraction(s))
                   .append(" from \"")
@@ -191,31 +190,6 @@ public class POSIX_LCCollate {
         }        
     }
     
-    private class IntList {
-    	private BitSet stuff = new BitSet();
-        private int leastItem = Integer.MAX_VALUE;
-        void add(int item) {
-            stuff.set(item);
-            if (item < leastItem) leastItem = item;
-        }
-        void remove(int item) {
-            stuff.clear(item);
-            if (item == leastItem) {
-            	// search for new least
-                for (int i = item+1; i < stuff.size(); ++i) {
-                	if (stuff.get(i)) {
-                		leastItem = i;
-                        return;
-                    }
-                }
-                leastItem = Integer.MAX_VALUE; // failed, now empty
-            }
-        }
-        int getLeast() {
-        	return leastItem;
-        }
-    }
-
     Set<Weights> nonUniqueWeights = new HashSet<Weights>();
     Set<Weights> allWeights = new HashSet<Weights>();
     Map<String, Weights> stringToWeights = new HashMap<String, Weights>();
@@ -225,8 +199,8 @@ public class POSIX_LCCollate {
         BitSet needToWrite = new BitSet();
         needToWrite.set(1); // special weight for uniqueness
         //int maxSeen = 0;
-        for (Iterator<String> it1 = allItems.iterator(); it1.hasNext();) {
-            String string = it1.next();
+        for (Object o : allItems) {
+            String string = (String) o;
             Weights w = new Weights(col.getCollationElementIterator(string));
             w.primaries.setBits(needToWrite);
             w.secondaries.setBits(needToWrite);
@@ -383,41 +357,4 @@ public class POSIX_LCCollate {
             return result;
         }
     }
-    
-    private String getID(String s, boolean isSingleID) {
-        //Object defined = definedID.get(s);
-        //if (defined != null) return (String) defined;
-        //if (defined != null) return (String) defined;
-        
-        StringBuffer result = new StringBuffer();
-        if (!UTF16.hasMoreCodePointsThan(s, 1)) {
-        	// single code point
-            appendID(UTF16.charAt(s,0), result, false);
-        } else if (isSingleID) {
-            result.append('<');
-            int cp;
-            for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
-                cp = UTF16.charAt(s, i);
-                if (i != 0) result.append('-');
-                appendID(cp, result, true);
-            }
-            result.append('>');            
-        } else {
-            result.append('"');
-            int cp;
-            for (int i = 0; i < s.length(); i += UTF16.getCharCount(cp)) {
-                cp = UTF16.charAt(s, i);
-                appendID(cp, result, false);
-            }
-            result.append('"');
-        }
-        return result.toString();
-    }
-
-	private StringBuffer appendID(int cp, StringBuffer result, boolean nakedID) {
-        if (!nakedID) result.append('<');
-		result.append('U').append(Utility.hex(cp,4));
-        if (!nakedID) result.append('>');
-        return result;
-	}
 }

@@ -53,7 +53,7 @@ public class RandomStringGenerator {
 		shortMap = (shortNameMap == null ? longNameMap 
 				: !addGCStuff ? shortNameMap 
 						: shortNameMap.composeWith(extendedMap, MyComposer));
-		List values = new ArrayList(map.getAvailableValues());
+		List<String> values = new ArrayList<String>(map.getAvailableValues());
 		sets = new UnicodeSet[values.size()];
 		for (int i = 0; i < sets.length; ++i) {
 			sets[i] = map.keySet(values.get(i));

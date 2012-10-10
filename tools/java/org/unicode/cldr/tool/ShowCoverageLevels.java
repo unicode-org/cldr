@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
@@ -27,8 +27,8 @@ public class ShowCoverageLevels {
         //pathMatcher = Pattern.compile(getProperty("XMLPATH", ".*")).matcher("");
 
         double startTime = System.currentTimeMillis();
-        Map options = new TreeMap();
-        List possibleErrors = new ArrayList();
+        Map<String,String> options = new TreeMap<String,String>();
+        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
         Relation<Level, String> values = new Relation(new EnumMap<Level, String>(Level.class), TreeSet.class);
         int oldSize = 0;
 
@@ -68,10 +68,6 @@ public class ShowCoverageLevels {
     }
 
     private static int keyValuePairCount(Relation<Level, String> values) {
-        int total = 0;
-        for (Entry<Level, String> entry : values.entrySet()) {
-            total++;
-        }
-        return total;
+        return values.entrySet().size();
     }
 }

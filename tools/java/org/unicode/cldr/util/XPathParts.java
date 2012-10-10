@@ -29,7 +29,7 @@ public class XPathParts {
   private static final boolean DEBUGGING = false;
   private List<Element> elements = new ArrayList();
   Comparator attributeComparator;
-  Map suppressionMap;
+  Map<String,Map<String,String>> suppressionMap;
 
   static Map<String,XPathParts> cache = new HashMap();
 
@@ -37,7 +37,7 @@ public class XPathParts {
     this(null,null);
   }
 
-  public XPathParts(Comparator attributeComparator, Map suppressionMap) {
+  public XPathParts(Comparator attributeComparator, Map<String,Map<String,String>> suppressionMap) {
     if (attributeComparator == null) attributeComparator = CLDRFile.getAttributeComparator();
     this.attributeComparator = attributeComparator;
     this.suppressionMap = suppressionMap;
@@ -690,7 +690,7 @@ public class XPathParts {
     }
 
     private boolean skipAttribute(String element, String attribute, String value) {
-      Map attribute_value = (Map) suppressionMap.get(element);
+      Map<String,String> attribute_value = suppressionMap.get(element);
       boolean skip = false;
       if (attribute_value != null) {
         Object suppressValue = attribute_value.get(attribute);

@@ -1,6 +1,6 @@
 /*
  *******************************************************************************
- * Copyright (C) 2004-2011, International Business Machines Corporation and    *
+ * Copyright (C) 2004-2012, International Business Machines Corporation and    *
  * others. All Rights Reserved.                                                *
  *******************************************************************************
  *
@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -68,7 +71,7 @@ public class LDMLUtilities {
     }
     private static Document getFullyResolvedLDML(String sourceDir, String locale, 
             boolean ignoreRoot, boolean ignoreUnavailable, 
-            boolean ignoreIfNoneAvailable, boolean ignoreDraft, HashMap stack){
+            boolean ignoreIfNoneAvailable, boolean ignoreDraft, Map<String,String> stack){
         Document full =null;
         if(stack != null){
             //For guarding against cicular references
@@ -351,8 +354,8 @@ public class LDMLUtilities {
         }
         
         if(xpath!=null){
-            StringBuffer fullPathBuffer = new StringBuffer(fullPath);
-            StringBuffer resolved = XPathTokenizer.relativeToAbsolute(xpath, fullPathBuffer);
+            StringBuilder fullPathBuffer = new StringBuilder(fullPath);
+            StringBuilder resolved = XPathTokenizer.relativeToAbsolute(xpath, fullPathBuffer);
             // TODO: make sure that fullPath is not corrupted!  How?         
             //XPathAPI.eval(context, fullPath.toString());
 
@@ -783,7 +786,7 @@ public class LDMLUtilities {
         StringBuffer xp1 = new StringBuffer();
         StringBuffer xp2 = new StringBuffer();
         int l1=xp1.length(), l2=xp2.length();
-        HashMap map = new HashMap();
+        Map<String,Object> map = new HashMap<String,Object>();
         if(n2==null|| n2.length==0){
             Node[] na = new Node[n1.length];
             for(int i=0;i<n1.length;i++){
@@ -817,7 +820,7 @@ public class LDMLUtilities {
      * @param thisLocale
      */
     // TODO guard against circular aliases
-    public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale,boolean ignoreDraft, HashMap stack){
+    public static Document resolveAliases(Document fullyResolvedDoc, String sourceDir, String thisLocale,boolean ignoreDraft, Map<String,String> stack){
        Node[] array = getNodeArray(fullyResolvedDoc, LDMLConstants.ALIAS);
        
        // resolve all the aliases by iterating over
@@ -848,10 +851,9 @@ public class LDMLUtilities {
                continue;
            */           
            //initialize the stack for every alias!
-           stack = new HashMap();
+           stack = new HashMap<String,String>();
            if(node==null){
                System.err.println("list.item("+i+") returned null!. The list reports it's length as: "+array.length);
-               //System.exit(-1);
                continue;
            }
            parent = node.getParentNode();
@@ -1269,7 +1271,7 @@ public class LDMLUtilities {
         NodeList list = parent.getChildNodes();
         int length = list.getLength();
         
-        ArrayList al = new ArrayList();
+        List<Node> al = new ArrayList<Node>();
         for(int i=0; i<length; i++){
             Node item  = list.item(i);
             if(item.getNodeType()!=Node.ELEMENT_NODE){
@@ -1333,19 +1335,6 @@ public class LDMLUtilities {
             return true;
         }
         return false;
-    }
-
-    private static final Node getNonAltNode(NodeList list /*, StringBuffer xpath*/){
-        // A nonalt node is one which .. does not have alternate
-        // attribute set
-        Node node =null;
-        for(int i =0; i<list.getLength(); i++){
-            node = list.item(i);
-            if(/*!isDraft(node, xpath)&& */!isAlternate(node)){
-                return node;
-            }
-        }
-        return null;
     }
     
     private static final Node getNonAltNodeIfPossible(NodeList list)
@@ -1649,12 +1638,6 @@ public class LDMLUtilities {
      * @param n
      * @return
      */
-    private static boolean isTextNode(Node n) {
-      if (n == null)
-        return false;
-      short nodeType = n.getNodeType();
-      return nodeType == Node.CDATA_SECTION_NODE || nodeType == Node.TEXT_NODE;
-    }   
     public static Node getAttributeNode(Node sNode, String attribName){
         NamedNodeMap attrs = sNode.getAttributes();
         if(attrs!=null){
@@ -1728,8 +1711,6 @@ public class LDMLUtilities {
                     continue;
                 }
                 if(sib.getNodeName().equals(LDMLConstants.ALIAS)){
-                    String source = LDMLUtilities.getAttributeValue(sib, LDMLConstants.SOURCE);
-                    //String fn = filename.substring(0,filename.lastIndexOf(File.separator)+1)+source+".xml";
                     resolveAliases(doc,filename.substring(0,filename.lastIndexOf(File.separator)+1),locale, false, null);
                 }
             }
@@ -1963,28 +1944,6 @@ public class LDMLUtilities {
         
         //out.close();
     } // printDOMTree(Node, PrintWriter)
-    
-    private static String escapeForXML(String string){
-        int len = string.length();
-        StringBuffer ret = new StringBuffer(len);
-        for(int i =0 ; i<len; i++){
-           char ch = string.charAt(i);
-           switch(ch){
-               case '<':
-                   ret.append("&lt;");
-                   break;
-               case '>':
-                   ret.append("&gt;");
-                   break;
-               case '&':
-                   ret.append("&amp;");
-                   break;
-               default :
-                   ret.append(ch);
-           }
-        }
-        return ret.toString();
-    }
     
     // Utility functions, HTML and such.
     public static String CVSBASE="http://www.unicode.org/cldr/trac/browser/trunk";
@@ -2293,7 +2252,7 @@ public class LDMLUtilities {
                     public String	getPrefix(String namespaceURI)  {
                         return null;
                     }
-                    public java.util.Iterator	getPrefixes(String namespaceURI)  {
+                    public Iterator<Object>	getPrefixes(String namespaceURI)  {
                         return null;
                     }
                 });

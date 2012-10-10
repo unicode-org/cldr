@@ -77,7 +77,7 @@ public class CLDRConfig {
     public SupplementalDataInfo getSupplementalDataInfo() {
         synchronized(this) {
             if (supplementalDataInfo == null) {
-                supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+                supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
             }
         }
         return supplementalDataInfo;

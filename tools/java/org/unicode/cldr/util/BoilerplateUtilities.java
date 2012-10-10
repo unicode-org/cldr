@@ -26,7 +26,8 @@ public final class BoilerplateUtilities {
     return result.toString();
   }
   
-  public static int compareToHelper(Object a, Object b, int depth) {
+  @SuppressWarnings("unchecked")
+public static int compareToHelper(Object a, Object b, int depth) {
     if (a == null) {
       return b == null ? 0 : -1;
     } else if (b == null) {

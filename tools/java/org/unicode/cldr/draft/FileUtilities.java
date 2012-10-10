@@ -76,7 +76,7 @@ public final class FileUtilities {
         public void handleComment(String line, int commentCharPosition) {
         }
 
-        public FileProcessor process(Class classLocation, String fileName) {
+        public FileProcessor process(Class<?> classLocation, String fileName) {
             try {
                 BufferedReader in = FileUtilities.openFile(classLocation, fileName);
                 return process(in, fileName);
@@ -245,7 +245,7 @@ public final class FileUtilities {
         }
     }
 
-    public static String getRelativeFileName(Class class1, String filename) {
+    public static String getRelativeFileName(Class<?> class1, String filename) {
         URL resource = class1.getResource(filename);
         String resourceString = resource.toString();
         if (resourceString.startsWith("file:")) {

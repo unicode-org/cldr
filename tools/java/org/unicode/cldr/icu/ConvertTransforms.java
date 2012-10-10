@@ -129,9 +129,7 @@ public class ConvertTransforms extends CLDRConverterTool{
     	
     	RBTIDs.appendContents(aliasTemp);
  
-    	for(Iterator<String> idIterator = ids.iterator(); idIterator.hasNext();)
-    	{
-    		String id = (String) idIterator.next();
+    	for (String id : ids) {
     		if(id.equals("All"))
     		{
     			continue;
@@ -170,7 +168,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 	public void writeTransforms(String inputDirectory, String matchingPattern, String outputDirectory) throws IOException {
 		System.out.println(new File(inputDirectory).getCanonicalPath());
 		Factory cldrFactory = Factory.make(inputDirectory, matchingPattern);
-		Set ids = cldrFactory.getAvailable();
+		Set<String> ids = cldrFactory.getAvailable();
 		PrintWriter index = BagFormatter.openUTF8Writer(outputDirectory, "root.txt");
 		doHeader(index, "//", "root.txt");
 		try {
@@ -181,8 +179,7 @@ public class ConvertTransforms extends CLDRConverterTool{
 			//addAlias(index, "Latin", "Jamo", "", "Latin", "ConjoiningJamo", "");
             addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
             addAlias(index, "Digit", "Tone", "", "NumericPinyin", "Pinyin", "");
-			for (Iterator idIterator = ids.iterator(); idIterator.hasNext();) {
-				String id = (String) idIterator.next();
+			for ( String id : ids ) {
 				if (id.equals("All")) continue;
 				try {
 					convertFile(cldrFactory, id, outputDirectory, index);
@@ -257,10 +254,10 @@ public class ConvertTransforms extends CLDRConverterTool{
 		
 		boolean first = true;
 		
-		for (Iterator it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) 
+		for (Iterator<String> it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) 
 		{
 			//TODO make it so this doesn't need to create a new file 
-			String path = (String) it.next();
+			String path = it.next();
 			String value = cldrFile.getStringValue(path);
 			if (first) 
 			{
@@ -333,8 +330,8 @@ public class ConvertTransforms extends CLDRConverterTool{
 		String filename = null;
 		CLDRFile cldrFile = cldrFactory.make(id, false);
 		boolean first = true;
-		for (Iterator it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
-			String path = (String) it.next();
+		for (Iterator<String> it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+			String path = it.next();
 			if (path.indexOf("/version") >= 0 || path.indexOf("/generation") >= 0) {
                             continue;
                         }
@@ -426,16 +423,16 @@ public class ConvertTransforms extends CLDRConverterTool{
 	{
 		ICUResourceWriter.ResourceTable top;
 		parts.set(path);
-		Map attributes = parts.findAttributes("transform");
+		Map<String,String> attributes = parts.findAttributes("transform");
 		if (attributes == null)
 		{
 			return null; // error, not a transform file
 		}
-		String source = (String) attributes.get("source");
-		String target = (String) attributes.get("target");
-		String variant = (String) attributes.get("variant");
-		String direction = (String) attributes.get("direction");
-		String visibility = (String) attributes.get("visibility");
+		String source = attributes.get("source");
+		String target = attributes.get("target");
+		String variant = attributes.get("variant");
+		String direction = attributes.get("direction");
+		String visibility = attributes.get("visibility");
 		String status = "internal".equals(visibility) ? "internal" : "file";
 
 		fileCount++;
@@ -497,16 +494,16 @@ public class ConvertTransforms extends CLDRConverterTool{
 	
 	private String addIndexInfo(PrintWriter index, String path, String transID) {
 		parts.set(path);
-		Map attributes = parts.findAttributes("transform");
+		Map<String,String> attributes = parts.findAttributes("transform");
 		if (attributes == null) return null; // error, not a transform file
-		String source = (String) attributes.get("source");
-		String target = (String) attributes.get("target");
-		String variant = (String) attributes.get("variant");
-		String direction = (String) attributes.get("direction");
+		String source = attributes.get("source");
+		String target = attributes.get("target");
+		String variant = attributes.get("variant");
+		String direction = attributes.get("direction");
 		// HACK
 		//if (transID.indexOf("InterIndic") >= 0) direction = "forward";
 		// END HACK
-		String visibility = (String) attributes.get("visibility");
+		String visibility = attributes.get("visibility");
 		
 		String status = "internal".equals(visibility) ? "internal" : "file";
 
@@ -638,7 +635,7 @@ public class ConvertTransforms extends CLDRConverterTool{
     	        Set ids = cldrFactory.getAvailable();
     	        Set<String> files = new TreeSet<String>();
     	        for (Iterator idIterator = ids.iterator(); idIterator.hasNext();) {
-    	            String id = (String) idIterator.next();
+    	            String id = idIterator.next();
     	            if (id.equals("All")) continue;
     	            String filename = null;
     	            CLDRFile cldrFile = cldrFactory.make(id, false);
@@ -650,7 +647,7 @@ public class ConvertTransforms extends CLDRConverterTool{
   	            }
     	            boolean first = true;
     	            for (Iterator it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
-    	                String path = (String) it.next();
+    	                String path = it.next();
     	                String value = cldrFile.getStringValue(path);
     	                if (first) {
     	                    filename = addIndexInfo(null, path, id);

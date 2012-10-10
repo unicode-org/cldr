@@ -27,7 +27,7 @@ public class StateMachineTest {
     // icu4c-trunk/source/common/rbbirpt.txt
     // "icu4c-trunk/source/i18n/regexcst.txt"
 
-    List<String[]> testLines = new ArrayList();
+    List<String[]> testLines = new ArrayList<String[]>();
     while (true) {
       String line = in.readLine();
       if (line == null)
@@ -50,8 +50,8 @@ public class StateMachineTest {
     }
     MyActions[] valuesUsed = UnicodeSetBuilder.MyActions.values();
     Set<String> possibleActions = new TreeSet<String>();
-    Set<String> actionsUsed = new TreeSet();
-    Set<String> errors = new TreeSet();
+    Set<String> actionsUsed = new TreeSet<String>();
+    Set<String> errors = new TreeSet<String>();
     for (MyActions valueUsed : valuesUsed) {
       final String string = valueUsed.toString();
       actionsUsed.add(string);
@@ -65,7 +65,7 @@ public class StateMachineTest {
     }
     
     System.out.println("Errors: " + errors);
-    Set<String> temp = new TreeSet();
+    Set<String> temp = new TreeSet<String>();
     temp.addAll(possibleActions);
     temp.removeAll(actionsUsed);
     System.out.println("Unused Actions: " + temp);
@@ -150,11 +150,10 @@ public class StateMachineTest {
     if (!SHOW_IF_ERROR) {
       return;
     }
-    UnicodeSet result;
     boolean oldShow = SHOW_MACHINE;
     StateMachine.SHOW_STATE_TRANSITIONS = SHOW_MACHINE = true;
     try {
-      result = machine.parse(testLine, parsePosition);
+      machine.parse(testLine, parsePosition);
     } catch (Exception e) {
     }
     StateMachine.SHOW_STATE_TRANSITIONS = SHOW_MACHINE = oldShow;

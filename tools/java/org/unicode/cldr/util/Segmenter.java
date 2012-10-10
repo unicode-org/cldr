@@ -50,9 +50,7 @@ public class Segmenter {
     private static final String DEBUG_AT_STRING = "\u0009\u0308\u00A0"; // null to turn off
     private static final String DEBUG_AT_RULE_CONTAINING = "$Spec3_"; // null to turn off
 
-    private static final boolean JDK4HACK = false;
-
-    private UnicodeMap samples = new UnicodeMap();
+    private UnicodeMap<Object> samples = new UnicodeMap<Object>();
 
     static public interface CodePointShower {
         String show(int codePoint);
@@ -264,10 +262,8 @@ public class Segmenter {
     /**
      * Sort the longest strings first. Used for variable lists.
      */
-    static Comparator LONGEST_STRING_FIRST = new Comparator() {
-        public int compare(Object arg0, Object arg1) {
-            String s0 = arg0.toString();
-            String s1 = arg1.toString();
+    static Comparator<String> LONGEST_STRING_FIRST = new Comparator<String>() {
+        public int compare(String s0, String s1) {
             int len0 = s0.length();
             int len1 = s1.length();
             if (len0 < len1) return 1; // longest first
@@ -284,11 +280,11 @@ public class Segmenter {
     public static class Builder {
         private UnicodeProperty.Factory propFactory;
         private XSymbolTable symbolTable;
-        private List rawVariables = new ArrayList();
-        private Map xmlRules = new TreeMap();
-        private Map htmlRules = new TreeMap();
-        private List lastComments = new ArrayList();
-        private UnicodeMap samples = new UnicodeMap();
+        private List<String> rawVariables = new ArrayList<String>();
+        private Map<Double,String> xmlRules = new TreeMap<Double,String>();
+        private Map<Double,String> htmlRules = new TreeMap<Double,String>();
+        private List<String> lastComments = new ArrayList<String>();
+        private UnicodeMap<Object> samples = new UnicodeMap<Object>();
 
         public Builder(UnicodeProperty.Factory factory) {
             propFactory = factory;
@@ -301,7 +297,6 @@ public class Segmenter {
         // copied to make independent of ICU4J internals
         private class MyXSymbolTable extends UnicodeSet.XSymbolTable {
             public boolean applyPropertyAlias(String propertyName, String propertyValue, UnicodeSet result) {
-                if (false) System.out.println(propertyName + "=" + propertyValue);
                 UnicodeProperty prop = propFactory.getProperty(propertyName);
                 if (prop == null) return false;
                 result.clear();
@@ -324,13 +319,13 @@ public class Segmenter {
             }
             result.append(indent + "\t</variables>").append(Utility.LINE_SEPARATOR);
             result.append(indent + "\t<segmentRules>").append(Utility.LINE_SEPARATOR);
-            for (Iterator it = xmlRules.keySet().iterator(); it.hasNext();) {
-                Object key = it.next();
+            for (Iterator<Double> it = xmlRules.keySet().iterator(); it.hasNext();) {
+                Double key = it.next();
                 result.append(indent + "\t\t").append(xmlRules.get(key)).append(Utility.LINE_SEPARATOR);
             }
             result.append(indent + "\t</segmentRules>").append(Utility.LINE_SEPARATOR);
-            for (int i = 0; i < lastComments.size(); ++i) {
-                result.append(indent + "\t").append(lastComments.get(i)).append(Utility.LINE_SEPARATOR);
+            for (String comment : lastComments) {
+                result.append(indent + "\t").append(comment).append(Utility.LINE_SEPARATOR);
             }
             result.append(indent + "</segmentation>").append(Utility.LINE_SEPARATOR);
             return result.toString();
@@ -383,7 +378,6 @@ public class Segmenter {
 
         private transient Matcher whiteSpace = Pattern.compile("\\s+", REGEX_FLAGS).matcher("");
         private transient Matcher identifierMatcher = IDENTIFIER_PATTERN.matcher("");
-        private transient Matcher brokenIdentifierMatcher = Pattern.compile("[^$\\p{Alpha}]\\p{Alnum}", REGEX_FLAGS).matcher("");
         private Map<String,String> originalVariables = new TreeMap<String,String>();
 
         /**
@@ -393,7 +387,7 @@ public class Segmenter {
          * @return
          */
 
-        static class MyComposer extends UnicodeMap.Composer {
+        static class MyComposer extends UnicodeMap.Composer<Object> {
             public Object compose(int codePoint, String string, Object a, Object b) {
                 if (a == null) return b;
                 if (b == null) return a;
@@ -456,7 +450,7 @@ public class Segmenter {
             return this;
         }
 
-        public static UnicodeMap composeWith(UnicodeMap target, UnicodeSet set, Object value, Composer composer) {
+        public static UnicodeMap<Object> composeWith(UnicodeMap<Object> target, UnicodeSet set, Object value, Composer<Object> composer) {
             for (UnicodeSetIterator it = new UnicodeSetIterator(set); it.next();) {
                 int i = it.codepoint;
                 Object v1 = target.getValue(i);
@@ -466,24 +460,6 @@ public class Segmenter {
             return target;
         }
 
-        private void findRegexProblem(String value) {
-            UnicodeSet us = new UnicodeSet(value);
-            // progressively get larger and larger set
-            String parsing = null;
-            try {
-                for (int i = 0; i < us.size(); ++i) {
-                    UnicodeSet temp = new UnicodeSet(us).retain(0, us.charAt(i));
-                    parsing = getInsertablePattern(temp);
-                    Pattern.compile(parsing, REGEX_FLAGS).matcher("");
-                }
-            } catch (PatternSyntaxException e) {
-                // Format: Unclosed character class near index 927
-                int index = e.getIndex();
-                throw (RuntimeException)new IllegalArgumentException("Can't parse: " + parsing.substring(0,index)
-                        + "<<<>>>" + parsing.substring(index))
-                .initCause(e);
-            }
-        }
         /**
          * Add a numbered rule, already broken into the parts before and after.
          * @param order
@@ -522,7 +498,7 @@ public class Segmenter {
             xmlRules.put(order, "<rule id=\"" + Segmenter.nf.format(order) + "\""
                     //+ (flagItems.reset(line).find() ? " normative=\"true\"" : "")
                     + "> " + TransliteratorUtilities.toXML.transliterate(line) + " </rule>");
-            if (true && after.contains("[^$OLetter")) {
+            if (after.contains("[^$OLetter")) {
                 System.out.println("!@#$31 Debug");
             }
             rules.put(order, new Segmenter.Rule(replaceVariables(before), breaks, replaceVariables(after), line));
@@ -535,8 +511,7 @@ public class Segmenter {
          */
         public Segmenter make() {
             Segmenter result = new Segmenter();
-            for (Iterator it = rules.keySet().iterator(); it.hasNext();) {
-                Double key = (Double)it.next();
+            for (Double key : rules.keySet()) {
                 result.add(key.doubleValue(), (Segmenter.Rule)rules.get(key));
             }
             result.samples = samples;
@@ -544,8 +519,8 @@ public class Segmenter {
         }
 
         // ============== internals ===================
-        private Map variables = new TreeMap(LONGEST_STRING_FIRST); // sorted by length, longest first, to make substitution easy
-        private Map rules = new TreeMap();
+        private Map<String,String> variables = new TreeMap<String,String>(LONGEST_STRING_FIRST); // sorted by length, longest first, to make substitution easy
+        private Map<Double,Rule> rules = new TreeMap<Double,Rule>();
 
         /**
          * A workhorse. Replaces all variable references: anything of the form $id.
@@ -563,11 +538,9 @@ public class Segmenter {
                 while (true) {
                     position = result.indexOf('$', position);
                     if (position < 0) break;
-                    for (Iterator it = variables.keySet().iterator(); it.hasNext();) {
-                        String name = (String)it.next();                        
-                        
+                    for (String name : variables.keySet()) {                     
                         if (result.regionMatches(position, name, 0, name.length())) {
-                            String value = (String)variables.get(name);
+                            String value = variables.get(name);
                             result = result.substring(0,position) + value + result.substring(position + name.length());
                             position += value.length(); // don't allow overlap
                             continue main;
@@ -609,7 +582,6 @@ public class Segmenter {
                     temp = temp2;
                 }
             }
-            if (JDK4HACK) temp.remove(0x10000,0x10FFFF); // TODO Fix with Hack
 
             String result = toPattern(temp, JavaRegexShower);
             // double check the pattern!!
@@ -650,15 +622,14 @@ public class Segmenter {
             return result.toString();
         }
 
-        public Map getVariables() {
+        public Map<String,String> getVariables() {
             return Collections.unmodifiableMap(variables);
         }
 
-        public List getRules() {
-            List result = new ArrayList();
-            for (Iterator it = htmlRules.keySet().iterator(); it.hasNext();) {
-                Object key = it.next();
-                result.add(key + ")\t" + htmlRules.get(key));
+        public List<String> getRules() {
+            List<String> result = new ArrayList<String>();
+            for (Double key : htmlRules.keySet()) {
+                result.add(key.toString() + ")\t" + htmlRules.get(key));
             }
             return result;
         }
@@ -670,10 +641,10 @@ public class Segmenter {
 
     //============== Internals ================
 
-    private List rules = new ArrayList(1);
-    private List orders = new ArrayList(1);
+    private List<Rule> rules = new ArrayList<Rule>(1);
+    private List<Double> orders = new ArrayList<Double>(1);
     private double breakRule;
-    public UnicodeMap getSamples() {
+    public UnicodeMap<Object> getSamples() {
         return samples;
     }
 

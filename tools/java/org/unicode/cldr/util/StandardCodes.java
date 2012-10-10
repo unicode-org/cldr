@@ -50,9 +50,7 @@ public class StandardCodes {
 
     private Map country_modernCurrency = new TreeMap();
 
-    private Map goodCodes = new TreeMap();
-
-    private String date;
+    private Map<String,Set<String>> goodCodes = new TreeMap<String,Set<String>>();
 
     private static final boolean DEBUG = false;
 
@@ -503,21 +501,20 @@ public class StandardCodes {
                     }
                     if (line.length() == 0)
                         continue;
-                    List pieces = (List) CldrUtility.splitList(line, '|', true,
-                            new ArrayList());
-                    String type = (String) pieces.get(0);
+                    List<String> pieces = CldrUtility.splitList(line, '|', true,
+                            new ArrayList<String>());
+                    String type = pieces.get(0);
                     pieces.remove(0);
                     if (type.equals("region"))
                         type = "territory";
 
-                    String code = (String) pieces.get(0);
+                    String code = pieces.get(0);
                     pieces.remove(0);
                     if (type.equals("date")) {
-                        date = code;
                         continue;
                     }
 
-                    String oldName = (String) pieces.get(0);
+                    String oldName = pieces.get(0);
                     int pos = oldName.indexOf(';');
                     if (pos >= 0) {
                         oldName = oldName.substring(0, pos).trim();
@@ -594,19 +591,17 @@ public class StandardCodes {
         Map<String, Map<String, Map<String, String>>> languageRegistry = getLStreg();
         //languageRegistry = CldrUtility.protectCollection(languageRegistry);
 
-        for (Iterator it = languageRegistry.keySet().iterator(); it.hasNext();) {
-            String type = (String) it.next();
+        for (String type : languageRegistry.keySet()) {
             String type2 = type.equals("region") ? "territory" : type;
-            Map m = (Map) languageRegistry.get(type);
-            for (Iterator it2 = m.keySet().iterator(); it2.hasNext();) {
-                String code = (String) it2.next();
-                Map mm = (Map) m.get(code);
-                List data = new ArrayList(0);
+            Map<String,Map<String,String>> m = languageRegistry.get(type);
+            for (String code : m.keySet()) {
+                Map<String,String> mm = m.get(code);
+                List<String> data = new ArrayList<String>(0);
                 data.add(mm.get("Description"));
                 data.add(mm.get("Added"));
-                String pref = (String) mm.get("Preferred-Value");
+                String pref = mm.get("Preferred-Value");
                 if (pref == null) {
-                    pref = (String) mm.get("Deprecated");
+                    pref = mm.get("Deprecated");
                     if (pref == null)
                         pref = "";
                     else
@@ -664,26 +659,26 @@ public class StandardCodes {
      * @param string3
      */
     private void add(String string, String string2, String string3) {
-        List l = new ArrayList();
+        List<String> l = new ArrayList<String>();
         l.add(string3);
         add(string, string2, l);
     }
 
-    private void add(String type, String code, List otherData) {
+    private void add(String type, String code, List<String> otherData) {
         // hack
         if (type.equals("script")) {
             if (code.equals("Qaai")) {
-                otherData = new ArrayList(otherData);
+                otherData = new ArrayList<String>(otherData);
                 otherData.set(0, "Inherited");
             } else if (code.equals("Zyyy")) {
-                otherData = new ArrayList(otherData);
+                otherData = new ArrayList<String>(otherData);
                 otherData.set(0, "Common");
             }
         }
 
         // assume name is the first item
 
-        String name = (String) otherData.get(0);
+        String name = otherData.get(0);
 
         // add to main list
         Map code_data = (Map) type_code_data.get(type);
@@ -691,7 +686,7 @@ public class StandardCodes {
             code_data = new TreeMap();
             type_code_data.put(type, code_data);
         }
-        List lastData = (List) code_data.get(code);
+        List<String> lastData = (List) code_data.get(code);
         if (lastData != null) {
             lastData.addAll(otherData);
         } else {
@@ -723,14 +718,13 @@ public class StandardCodes {
 
     private Map WorldBankInfo;
 
-    public Map getWorldBankInfo() {
+    public Map<String,List<String>> getWorldBankInfo() {
         if (WorldBankInfo == null) {
-            List temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "WorldBankInfo.txt", false);
+            List<String> temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "WorldBankInfo.txt", false);
             WorldBankInfo = new HashMap();
-            for (Iterator it = temp.iterator(); it.hasNext();) {
-                String line = (String) it.next();
-                List row = CldrUtility.splitList(line, ';', true);
-                String key = (String) row.get(0);
+            for (String line : temp) {
+                List<String> row = CldrUtility.splitList(line, ';', true);
+                String key = row.get(0);
                 row.remove(0);
                 WorldBankInfo.put(key, row);
             }
@@ -752,9 +746,9 @@ public class StandardCodes {
     }
 
     // produces a list of the 'clean' lines
-    private List fillFromCommaFile(String dir, String filename, boolean trim) {
+    private List<String> fillFromCommaFile(String dir, String filename, boolean trim) {
         try {
-            List result = new ArrayList();
+            List<String> result = new ArrayList<String>();
             String line;
             BufferedReader lstreg = BagFormatter.openUTF8Reader(dir, filename);
             while (true) {

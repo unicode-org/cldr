@@ -162,12 +162,11 @@ public class CoverageLevel {
   /**
    * Used by the coverage & survey tools.
    * @param file file to be set
-   * @param options optional parameters
    * @param cause TODO
    * @param possibleErrors if there are errors or warnings, those are added (as CheckStatus objects) to this list.
    * @return 
    */
-  public CoverageLevel setFile(CLDRFile file, Map options, CheckCLDR cause, List<CheckStatus> possibleErrors) {
+  public CoverageLevel setFile(CLDRFile file, Map<String,String> options, CheckCLDR cause, List<CheckStatus> possibleErrors) {
     synchronized (sync) {
       if (!initialized) {
         CLDRFile supplementalMetadata = factory.getSupplementalMetadata();
@@ -198,7 +197,7 @@ public class CoverageLevel {
     if (auxexemplars != null) exemplars.addAll(auxexemplars);
     exemplarsContainA_Z = exemplars.contains('A','Z');
     
-    setFile(file.getLocaleID(), exemplarsContainA_Z, options, cause, possibleErrors);
+    setFile(file.getLocaleID(),  exemplarsContainA_Z, options, cause, possibleErrors);
     return this;
   }
   
@@ -227,11 +226,10 @@ public class CoverageLevel {
    * before calling this.
    * @param localeID the localeID for the file
    * @param exemplarsContainA_Z true if the union of the exemplar sets contains A-Z
-   * @param options optional parameters
    * @param cause TODO
    * @param possibleErrors if there are errors or warnings, those are added (as CheckStatus objects) to this list.
    */
-  public void setFile(String localeID, boolean exemplarsContainA_Z, Map options, CheckCLDR cause, List possibleErrors) {
+  public void setFile(String localeID, boolean exemplarsContainA_Z, Map<String,String> options, CheckCLDR cause, List possibleErrors) {
     this.exemplarsContainA_Z = exemplarsContainA_Z;
     
     parser.set(localeID);

@@ -40,7 +40,6 @@ public class FrequencyData {
             "([[:di:][:whitespace:][:co:]\"'']) > &any-hex/unicode($1) ;" +
             "", Transliterator.FORWARD);
 
-    private int total;
     //  private Counter<String> langNfcNo = new Counter<String>();
     //  private Counter<String> langNfcMaybe = new Counter<String>();
     //  private Counter<String> langTotal = new Counter<String>();
@@ -115,7 +114,6 @@ navboost, pagerank, language, encoding, url
             //        langUpper.add(lang, count);
             //      }
             //      langTotal.add(lang, count);
-            total += count;
             frequencies.add(code, count);
         }
         in.close();
@@ -531,7 +529,6 @@ navboost, pagerank, language, encoding, url
 
 
     public long getTotal() {
-        // TODO Auto-generated method stub
         return frequencies.getTotal();
     }
 }

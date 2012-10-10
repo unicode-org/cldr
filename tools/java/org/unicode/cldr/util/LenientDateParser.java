@@ -82,11 +82,11 @@ public  class LenientDateParser {
   private static final UnicodeSet IGNORABLE = (UnicodeSet) new UnicodeSet("[,[:whitespace:]]").freeze();
   private static final EnumSet<Type> dateTypes = EnumSet.of(Type.DAY, Type.MONTH, Type.YEAR, Type.WEEKDAY, Type.ERA);
   private static final EnumSet<Type> timeTypes = EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND, Type.AMPM, Type.TIMEZONE);
-  private static final EnumSet<Type> integerDateTypes = EnumSet.of(Type.DAY, Type.MONTH, Type.YEAR);
   private static final EnumSet<Type> integerTimeTypes = EnumSet.of(Type.HOUR, Type.MINUTE, Type.SECOND);
 
   static final int thisYear = new Date().getYear();
   static final Date june15 = new Date(thisYear, 5,15,0,0,0);
+  
   static final Date january15 = new Date(thisYear, 0,15,0,0,0);
 
   public class Parser {
@@ -276,14 +276,9 @@ public  class LenientDateParser {
       
       // TODO look at the separators
       // now get the integers
-      Set<Type> ordering = new LinkedHashSet();
-      if (false && haveSoFar.firstType == Type.HOUR) {
-        ordering.addAll(integerTimeTypes);
-        ordering.addAll(haveStringMonth ? dateOrdering.yd : dateOrdering.ymd);
-      } else {
-        ordering.addAll(haveStringMonth ? dateOrdering.yd : dateOrdering.ymd);       
-        ordering.addAll(integerTimeTypes);
-      }
+      Set<Type> ordering = new LinkedHashSet<Type>();
+      ordering.addAll(haveStringMonth ? dateOrdering.yd : dateOrdering.ymd);       
+      ordering.addAll(integerTimeTypes);
 
       main:
       for (Token token : tokens) {
@@ -313,7 +308,7 @@ public  class LenientDateParser {
         int value = token.getIntValue();
         switch (token.getType()) {
           case ERA:
-            calendar.set(calendar.ERA, value);
+            calendar.set(Calendar.ERA, value);
             break;
         case YEAR: 
             if (value < 100) {
@@ -322,25 +317,25 @@ public  class LenientDateParser {
                 value += 100;
               }
             }
-            calendar.set(calendar.YEAR, value);
+            calendar.set(Calendar.YEAR, value);
             break;
         case DAY:
-          calendar.set(calendar.DAY_OF_MONTH, value);
+          calendar.set(Calendar.DAY_OF_MONTH, value);
           break;
         case MONTH: 
-          calendar.set(calendar.MONTH, value - 1);
+          calendar.set(Calendar.MONTH, value - 1);
           break;
         case HOUR: 
-          calendar.set(calendar.HOUR, value);
+          calendar.set(Calendar.HOUR, value);
           break;
         case MINUTE: 
-          calendar.set(calendar.MINUTE, value);
+          calendar.set(Calendar.MINUTE, value);
           break;
         case SECOND: 
-          calendar.set(calendar.SECOND, value);
+          calendar.set(Calendar.SECOND, value);
           break;
         case AMPM: 
-          calendar.set(calendar.AM_PM, value);
+          calendar.set(Calendar.AM_PM, value);
           break;
         case TIMEZONE: 
           calendar.setTimeZone(getTimeZone(ZONE_INT_MAP.get(value)));
@@ -689,9 +684,6 @@ public  class LenientDateParser {
     for (String zoneFormat : zoneFormats) {
       zoneFormatList.add(new SimpleDateFormat(zoneFormat, locale));
     }
-    ParsePosition pos = new ParsePosition(0);
-    TimeZone unknownZone = new SimpleTimeZone(-31415, "Etc/Unknown");
-    
     final BestTimeZone bestTimeZone = new BestTimeZone(locale);
     Relation<String, String> stringToZones = new  Relation(new TreeMap(), TreeSet.class, bestTimeZone);
     
@@ -1082,7 +1074,7 @@ public  class LenientDateParser {
     }
     formatParser.set(pattern);
     List list = formatParser.getItems();
-    List<Type> temp = new ArrayList();
+    List<Type> temp = new ArrayList<Type>();
     for (int i = 0; i <  list.size(); ++i) {
       Object item = list.get(i);
       if (item instanceof String) {

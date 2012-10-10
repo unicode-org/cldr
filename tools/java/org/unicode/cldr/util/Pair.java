@@ -12,21 +12,21 @@ package org.unicode.cldr.util;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 
-public final class Pair<T extends Comparable, U extends Comparable> implements java.lang.Comparable, Cloneable, Freezable {
+public final class Pair<T extends Comparable<?>, U extends Comparable<?>> implements java.lang.Comparable<Object>, Cloneable, Freezable<Object> {
   
   private T first;
   private U second;
   private boolean frozen;
   
-  public static <T extends Comparable, U extends Comparable> Pair<T,U> of(T arg0, U arg1) {
+  public static <T extends Comparable<?>, U extends Comparable<?>> Pair<T,U> of(T arg0, U arg1) {
     return new Pair<T,U>(arg0, arg1);
   }
   
-  public static <T extends Comparable, U extends Comparable> Pair<T,U> ofFrozen(T arg0, U arg1) {
+  public static <T extends Comparable<?>, U extends Comparable<?>> Pair<T,U> ofFrozen(T arg0, U arg1) {
     return of(arg0, arg1).freeze();
   }
   
-  public Pair setFirst(T first) {
+  public Pair<T,U> setFirst(T first) {
     if (frozen) {
       throw new UnsupportedOperationException("Attempt to modify frozen object");
     }
@@ -38,7 +38,7 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
     return first;
   }
   
-  public Pair setSecond(U second) {
+  public Pair<T, U> setSecond(U second) {
     if (frozen) {
       throw new UnsupportedOperationException("Attempt to modify frozen object");
     }
@@ -50,7 +50,7 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
     return second;
   }
   
-  public Pair set(Pair<T, U> name) {
+  public Pair<T, U> set(Pair<T, U> name) {
     setFirst(name.getFirst());
     setSecond(name.getSecond());
     return this;
@@ -70,7 +70,7 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
   
   public boolean equals(Object other) {
     try {
-      Pair that = (Pair)other;
+      Pair<?, ?> that = (Pair<?, ?>)other;
       return Utility.objectEquals(first, that.first) && Utility.objectEquals(second, that.second);
     } catch (Exception e) {
       return false;
@@ -109,7 +109,7 @@ public final class Pair<T extends Comparable, U extends Comparable> implements j
   
   public Object cloneAsThawed() {
     try {
-      Pair result = (Pair) super.clone();
+      Pair<?, ?> result = (Pair<?, ?>) super.clone();
       result.frozen = false;
       return result;
     } catch (CloneNotSupportedException e) {

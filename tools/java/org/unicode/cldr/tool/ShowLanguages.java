@@ -100,9 +100,9 @@ public class ShowLanguages {
     /**
      * 
      */
-    private static List anchors = new ArrayList();
+    private static List<String> anchors = new ArrayList<String>();
 
-    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
     private static void printLanguageData(Factory cldrFactory, String filename) throws IOException {
         LanguageInfo linfo = new LanguageInfo(cldrFactory);
@@ -122,7 +122,7 @@ public class ShowLanguages {
 
         //linfo.printDeprecatedItems(pw);
         linfo.printCurrency(pw);
-        PrintWriter pw1;
+
         //  PrintWriter pw1 = new PrintWriter(new FormattedFileWriter(pw, "Languages and Territories", null));
         //  pw1.println("<tr><th>Language \u2192 Territories");
         //  pw1.println("</th><th>Territory \u2192 Language");
@@ -164,8 +164,7 @@ public class ShowLanguages {
         pw.close();
 
         String contents = "<ul>";
-        for (Iterator it = anchors.iterator(); it.hasNext();) {
-            String item = (String) it.next();
+        for (String item : anchors ) {
             contents += "<li>" + item + "</li>";
         }
         contents += "</ul>";
@@ -196,7 +195,7 @@ public class ShowLanguages {
         .addColumn("P", "class='target' title='primary'", null, "class='target'", true).setSortPriority(3);
 
         // get the codes so we can show the remainder
-        Set<String> remainingScripts = new TreeSet(getScriptsToShow()); // StandardCodes.MODERN_SCRIPTS);
+        Set<String> remainingScripts = new TreeSet<String>(getScriptsToShow()); // StandardCodes.MODERN_SCRIPTS);
         UnicodeSet temp = new UnicodeSet();
         for (String script : getScriptsToShow()) {
             temp.clear();
@@ -218,7 +217,7 @@ public class ShowLanguages {
         remainingScripts.remove("Zyyy");
 
 
-        Set<String> remainingLanguages = new TreeSet(getLanguagesToShow());
+        Set<String> remainingLanguages = new TreeSet<String>(getLanguagesToShow());
         for (String language : getLanguagesToShow()) {
             Scope s = Iso639Data.getScope(language);
             Type t = Iso639Data.getType(language);
@@ -335,8 +334,8 @@ public class ShowLanguages {
         ;
 
         // get the codes so we can show the remainder
-        Set<String> remainingScripts = new TreeSet(getScriptsToShow()); 
-        Set<String> remainingTerritories = new TreeSet(sc.getGoodAvailableCodes("territory"));
+        Set<String> remainingScripts = new TreeSet<String>(getScriptsToShow()); 
+        Set<String> remainingTerritories = new TreeSet<String>(sc.getGoodAvailableCodes("territory"));
         UnicodeSet temp = new UnicodeSet();
         for (String script : getScriptsToShow()) {
             temp.clear();
@@ -366,8 +365,6 @@ public class ShowLanguages {
                 remainingLanguages.remove(language);
             }
         }
-
-        Set<String> fullLanguages = supplementalDataInfo.getLanguages();
 
         Set<String> languages = supplementalDataInfo.getBasicLanguageDataLanguages();
         for (String language : languages) {
@@ -661,7 +658,7 @@ public class ShowLanguages {
 
         Map language_territories = new TreeMap();
 
-        List deprecatedItems = new ArrayList();
+        List<Map<String,String>> deprecatedItems = new ArrayList<Map<String,String>>();
 
         Map territory_languages;
 
@@ -784,10 +781,10 @@ public class ShowLanguages {
                 }
 
                 if (path.indexOf("/languageData") >= 0) {
-                    Map attributes = parts.findAttributes("language");
-                    String language = (String) attributes.get("type");
-                    String alt = (String) attributes.get("alt");
-                    addTokens(language, (String) attributes.get("scripts"), " ", language_scripts);
+                    Map<String,String> attributes = parts.findAttributes("language");
+                    String language = attributes.get("type");
+                    String alt = attributes.get("alt");
+                    addTokens(language, attributes.get("scripts"), " ", language_scripts);
                     // mark the territories
                     if (alt == null)
                         ; // nothing
@@ -805,7 +802,7 @@ public class ShowLanguages {
                     continue;
                 }
                 if (path.indexOf("/calendarData") >= 0) {
-                    Map attributes = parts.findAttributes("calendar");
+                    Map<String,String> attributes = parts.findAttributes("calendar");
                     if(attributes ==null ) {
                         System.err.println("Err: on path " + fullPath +" , no attributes on 'calendar'. Probably, this tool is out of date.");
                     } else {
@@ -822,7 +819,7 @@ public class ShowLanguages {
                 }
                 if (path.indexOf("/weekData") >= 0 || path.indexOf("measurementData") >= 0) {
                     String element = parts.getElement(parts.size() - 1);
-                    Map attributes = parts.getAttributes(parts.size() - 1);
+                    Map<String,String> attributes = parts.getAttributes(parts.size() - 1);
                     // later, make this a table
                     String key = "count";
                     String display = "Days in week (min)";
@@ -850,7 +847,7 @@ public class ShowLanguages {
                 if (path.indexOf("/territoryInfo") >= 0) {
                     Map<String,String> attributes = parts.getAttributes(2);
                     String type = (String) attributes.get("type");
-                    String name = english.getName(english.TERRITORY_NAME, type);
+                    String name = english.getName(CLDRFile.TERRITORY_NAME, type);
                     Map languageData = (Map) territoryLanguageData.get(name);
                     if (languageData == null) territoryLanguageData.put(name, languageData = new TreeMap());
                     languageData.put("code", attributes.get("type"));

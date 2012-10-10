@@ -17,7 +17,7 @@ import com.ibm.icu.text.NumberFormat;
 
 public class GenerateLanguageData {
 
-    SupplementalDataInfo info = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+    SupplementalDataInfo info = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
     Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
 
     CLDRFile english = cldrFactory.make("en", true);
@@ -31,10 +31,10 @@ public class GenerateLanguageData {
     }
 
     private void run() {
-        Counter2<String> langToPopulation = new Counter2();
-        Counter2<String> langToGDP = new Counter2();
+        Counter2<String> langToPopulation = new Counter2<String>();
+//      Counter2<String> langToGDP = new Counter2<String>();
         LanguageTagParser ltp = new LanguageTagParser();
-        Map<String,String> languageNameToCode = new TreeMap();
+        Map<String,String> languageNameToCode = new TreeMap<String,String>();
         for (String languageCode :  info.getLanguages()) {
             languageNameToCode.put(english.getName(languageCode), languageCode);
         }
@@ -52,7 +52,7 @@ public class GenerateLanguageData {
             if (territories == null) continue;
             for (String territory : territories) {
                 PopulationData terrData = info.getPopulationDataForTerritory(territory);
-                String territoryName = english.getName(english.TERRITORY_NAME, territory);
+                String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territory);
 
                 PopulationData data = info.getLanguageAndTerritoryPopulationData(languageCode, territory);
                 double literatePopulationLangRegion = data.getLiteratePopulation();
@@ -77,14 +77,13 @@ public class GenerateLanguageData {
 //                }
             }
         }
-        if (false) for (String language :langToPopulation.keySet()) {
-            System.out.println(
-                    english.getName(language) 
-                    + "\t" + language 
-                  
-                    + "\t" + langToPopulation.getCount(language)
-                    + "\t" + langToGDP.getCount(language)
-                    );
-        }
+//        for (String language :langToPopulation.keySet()) {
+//            System.out.println(
+//                    english.getName(language) 
+//                    + "\t" + language 
+//                    + "\t" + langToPopulation.getCount(language)
+//                    + "\t" + langToGDP.getCount(language)
+//                    );
+//        }
     }
 }

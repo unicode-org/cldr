@@ -265,7 +265,7 @@ public class CldrUtility {
         String line2 = "";
         int skip = 0;
 
-        for (int lineCount = 0; ; ++lineCount) {
+        while (true) {
           if ((skip & LineComparer.SKIP_FIRST) == 0) line1 = br1.readLine();
           if ((skip & LineComparer.SKIP_SECOND) == 0) line2 = br2.readLine();
           if (line1 == null && line2 == null) return true;
@@ -500,7 +500,7 @@ public class CldrUtility {
   /** Appends two strings, inserting separator if either is empty. Modifies first map
    */
   public static Map<Object, String> joinWithSeparation(Map<Object, String> a, String separator, Map b) {
-    for (Iterator it = b.keySet().iterator(); it.hasNext();) {
+    for (Iterator<Object> it = b.keySet().iterator(); it.hasNext();) {
       Object key = it.next();
       String bvalue = (String) b.get(key);
       String avalue = a.get(key);

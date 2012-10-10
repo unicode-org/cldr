@@ -114,7 +114,7 @@ public final class Builder {
 
         public CBuilder<E,U> addAll(Iterable<? extends E> c) {
             if (equalAction == EqualAction.REPLACE && c instanceof Collection<?>) {
-                collection.addAll((Collection<E>)c);
+                collection.addAll((Collection<? extends E>)c);
             } else {
                 for (E item : c) {
                     add(item);

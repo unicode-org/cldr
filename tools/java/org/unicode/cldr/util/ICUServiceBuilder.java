@@ -45,10 +45,10 @@ public class ICUServiceBuilder {
     return iso.parse(date);
   }
   
-  private Map<String, SimpleDateFormat> cacheDateFormats = new HashMap();
-  private Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap();
-  private Map<String, NumberFormat> cacheNumberFormats = new HashMap();
-  private Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap();
+  private Map<String, SimpleDateFormat> cacheDateFormats = new HashMap<String, SimpleDateFormat>();
+  private Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap<String, DateFormatSymbols>();
+  private Map<String, NumberFormat> cacheNumberFormats = new HashMap<String, NumberFormat>();
+  private Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap<String, DecimalFormatSymbols>();
   private SupplementalDataInfo supplementalData;
  
 //private Factory cldrFactory;
@@ -92,12 +92,6 @@ public class ICUServiceBuilder {
     String key = cldrFile.getLocaleID() + "," + calendar + "," + dateIndex + "," + timeIndex;
     SimpleDateFormat result = (SimpleDateFormat) cacheDateFormats.get(key);
     if (result != null) return (SimpleDateFormat) result.clone();
-    if (false && dateIndex == 2 && timeIndex == 0) {
-      System.out.println("");
-    }
-    
-    //Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale.toString(), false, false, false);
-    //Node dates = LDMLUtilities.getNode(doc, "//ldml/dates/calendars/calendar[@type=\"gregorian\"]");
     
     String pattern = getPattern(calendar, dateIndex, timeIndex);
     
@@ -309,10 +303,8 @@ public class ICUServiceBuilder {
   
   static final Matcher gregorianMonthsMatcher = Pattern.compile(".*gregorian.*months.*").matcher("");
   
-  private List getArray(String prefix, int firstIndex, String[] itemNames, String postfix, int minimumSize) {
-    //int length = isMonth ? 12 : 7;
-    //String[] result = new String[length];
-    ArrayList result = new ArrayList();
+  private List<String> getArray(String prefix, int firstIndex, String[] itemNames, String postfix, int minimumSize) {
+    List<String> result = new ArrayList<String>();
     String lastType;
     for (int i = firstIndex; ; ++i) {
       lastType = itemNames != null && i < itemNames.length ? itemNames[i] : String.valueOf(i);

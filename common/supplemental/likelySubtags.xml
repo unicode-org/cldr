@@ -584,14 +584,12 @@
 		<!--{ ?; Arabic; India } => { Urdu; Arabic; India }-->
 		<likelySubtag from="und_Arab_NG" to="ha_Arab_NG"/>
 		<!--{ ?; Arabic; Nigeria } => { Hausa; Arabic; Nigeria }-->
-		<likelySubtag from="und_Arab_PK" to="ur_Arab_PK"/>
-		<!--{ ?; Arabic; Pakistan } => { Urdu; Arabic; Pakistan }-->
-		<likelySubtag from="und_Armi" to="arc_Armi_145"/>
-		<!--{ ?; Imperial Aramaic; ? } => { Aramaic; Imperial Aramaic; Western Asia }-->
+		<likelySubtag from="und_Armi" to="arc_Armi_IR"/>
+		<!--{ ?; Imperial Aramaic; ? } => { Aramaic; Imperial Aramaic; Iran }-->
 		<likelySubtag from="und_Armn" to="hy_Armn_AM"/>
 		<!--{ ?; Armenian; ? } => { Armenian; Armenian; Armenia }-->
-		<likelySubtag from="und_Avst" to="ae_Avst_145"/>
-		<!--{ ?; Avestan; ? } => { Avestan; Avestan; Western Asia }-->
+		<likelySubtag from="und_Avst" to="ae_Avst_IR"/>
+		<!--{ ?; Avestan; ? } => { Avestan; Avestan; Iran }-->
 		<likelySubtag from="und_BA" to="bs_Latn_BA"/>
 		<!--{ ?; ?; Bosnia and Herzegovina } => { Bosnian; Latin; Bosnia and Herzegovina }-->
 		<likelySubtag from="und_BD" to="bn_Beng_BD"/>
@@ -620,24 +618,24 @@
 		<!--{ ?; ?; Bhutan } => { Dzongkha; Tibetan; Bhutan }-->
 		<likelySubtag from="und_BY" to="be_Cyrl_BY"/>
 		<!--{ ?; ?; Belarus } => { Belarusian; Cyrillic; Belarus }-->
-		<likelySubtag from="und_Bali" to="ban_Bali_035"/>
-		<!--{ ?; Balinese; ? } => { Balinese; Balinese; South-Eastern Asia }-->
-		<likelySubtag from="und_Bamu" to="bax_Bamu_002"/>
-		<!--{ ?; Bamum; ? } => { Bamun; Bamum; Africa }-->
-		<likelySubtag from="und_Batk" to="bbc_Batk_035"/>
-		<!--{ ?; Batak; ? } => { Batak Toba; Batak; South-Eastern Asia }-->
+		<likelySubtag from="und_Bali" to="ban_Bali_ID"/>
+		<!--{ ?; Balinese; ? } => { Balinese; Balinese; Indonesia }-->
+		<likelySubtag from="und_Bamu" to="bax_Bamu_CM"/>
+		<!--{ ?; Bamum; ? } => { Bamun; Bamum; Cameroon }-->
+		<likelySubtag from="und_Batk" to="bbc_Batk_ID"/>
+		<!--{ ?; Batak; ? } => { Batak Toba; Batak; Indonesia }-->
 		<likelySubtag from="und_Beng" to="bn_Beng_BD"/>
 		<!--{ ?; Bengali; ? } => { Bengali; Bengali; Bangladesh }-->
 		<likelySubtag from="und_Bopo" to="zh_Bopo_TW"/>
 		<!--{ ?; Bopomofo; ? } => { Chinese; Bopomofo; Taiwan }-->
-		<likelySubtag from="und_Brah" to="pra_Brah_034"/>
-		<!--{ ?; Brahmi; ? } => { Prakrit Language; Brahmi; Southern Asia }-->
+		<likelySubtag from="und_Brah" to="pra_Brah_IN"/>
+		<!--{ ?; Brahmi; ? } => { Prakrit Language; Brahmi; India }-->
 		<likelySubtag from="und_Brai" to="und_Brai_FR"/>
 		<!--{ ?; Braille; ? } => { ?; Braille; France }-->
-		<likelySubtag from="und_Bugi" to="bug_Bugi_035"/>
-		<!--{ ?; Buginese; ? } => { Buginese; Buginese; South-Eastern Asia }-->
-		<likelySubtag from="und_Buhd" to="bku_Buhd_035"/>
-		<!--{ ?; Buhid; ? } => { Buhid; Buhid; South-Eastern Asia }-->
+		<likelySubtag from="und_Bugi" to="bug_Bugi_ID"/>
+		<!--{ ?; Buginese; ? } => { Buginese; Buginese; Indonesia }-->
+		<likelySubtag from="und_Buhd" to="bku_Buhd_PH"/>
+		<!--{ ?; Buhid; ? } => { Buhid; Buhid; Philippines }-->
 		<likelySubtag from="und_CD" to="sw_Latn_CD"/>
 		<!--{ ?; ?; Congo - Kinshasa } => { Swahili; Latin; Congo - Kinshasa }-->
 		<likelySubtag from="und_CF" to="fr_Latn_CF"/>
@@ -668,20 +666,20 @@
 		<!--{ ?; ?; Cyprus } => { Greek; Greek; Cyprus }-->
 		<likelySubtag from="und_CZ" to="cs_Latn_CZ"/>
 		<!--{ ?; ?; Czech Republic } => { Czech; Latin; Czech Republic }-->
-		<likelySubtag from="und_Cakm" to="ccp_Cakm_034"/>
-		<!--{ ?; Chakma; ? } => { Chakma; Chakma; Southern Asia }-->
+		<likelySubtag from="und_Cakm" to="ccp_Cakm_BD"/>
+		<!--{ ?; Chakma; ? } => { Chakma; Chakma; Bangladesh }-->
 		<likelySubtag from="und_Cans" to="cr_Cans_CA"/>
 		<!--{ ?; Unified Canadian Aboriginal Syllabics; ? } => { Cree; Unified Canadian Aboriginal Syllabics; Canada }-->
-		<likelySubtag from="und_Cari" to="xcr_Cari_145"/>
-		<!--{ ?; Carian; ? } => { Carian; Carian; Western Asia }-->
-		<likelySubtag from="und_Cham" to="cjm_Cham_035"/>
-		<!--{ ?; Cham; ? } => { Eastern Cham; Cham; South-Eastern Asia }-->
+		<likelySubtag from="und_Cari" to="xcr_Cari_TR"/>
+		<!--{ ?; Carian; ? } => { Carian; Carian; Turkey }-->
+		<likelySubtag from="und_Cham" to="cjm_Cham_VN"/>
+		<!--{ ?; Cham; ? } => { Eastern Cham; Cham; Vietnam }-->
 		<likelySubtag from="und_Cher" to="chr_Cher_US"/>
 		<!--{ ?; Cherokee; ? } => { Cherokee; Cherokee; United States }-->
 		<likelySubtag from="und_Copt" to="cop_Copt_EG"/>
 		<!--{ ?; Coptic; ? } => { Coptic; Coptic; Egypt }-->
-		<likelySubtag from="und_Cprt" to="grc_Cprt_150"/>
-		<!--{ ?; Cypriot; ? } => { Ancient Greek; Cypriot; Europe }-->
+		<likelySubtag from="und_Cprt" to="grc_Cprt_CY"/>
+		<!--{ ?; Cypriot; ? } => { Ancient Greek; Cypriot; Cyprus }-->
 		<likelySubtag from="und_Cyrl" to="ru_Cyrl_RU"/>
 		<!--{ ?; Cyrillic; ? } => { Russian; Cyrillic; Russia }-->
 		<likelySubtag from="und_Cyrl_BA" to="sr_Cyrl_BA"/>
@@ -714,8 +712,8 @@
 		<!--{ ?; ?; Eritrea } => { Tigrinya; Ethiopic; Eritrea }-->
 		<likelySubtag from="und_ES" to="es_Latn_ES"/>
 		<!--{ ?; ?; Spain } => { Spanish; Latin; Spain }-->
-		<likelySubtag from="und_Egyp" to="egy_Egyp_002"/>
-		<!--{ ?; Egyptian hieroglyphs; ? } => { Ancient Egyptian; Egyptian hieroglyphs; Africa }-->
+		<likelySubtag from="und_Egyp" to="egy_Egyp_EG"/>
+		<!--{ ?; Egyptian hieroglyphs; ? } => { Ancient Egyptian; Egyptian hieroglyphs; Egypt }-->
 		<likelySubtag from="und_Ethi" to="am_Ethi_ET"/>
 		<!--{ ?; Ethiopic; ? } => { Amharic; Ethiopic; Ethiopia }-->
 		<likelySubtag from="und_FI" to="fi_Latn_FI"/>
@@ -750,10 +748,10 @@
 		<!--{ ?; ?; Guinea-Bissau } => { Portuguese; Latin; Guinea-Bissau }-->
 		<likelySubtag from="und_Geor" to="ka_Geor_GE"/>
 		<!--{ ?; Georgian; ? } => { Georgian; Georgian; Georgia }-->
-		<likelySubtag from="und_Glag" to="cu_Glag_150"/>
-		<!--{ ?; Glagolitic; ? } => { Church Slavic; Glagolitic; Europe }-->
-		<likelySubtag from="und_Goth" to="got_Goth_150"/>
-		<!--{ ?; Gothic; ? } => { Gothic; Gothic; Europe }-->
+		<likelySubtag from="und_Glag" to="cu_Glag_BG"/>
+		<!--{ ?; Glagolitic; ? } => { Church Slavic; Glagolitic; Bulgaria }-->
+		<likelySubtag from="und_Goth" to="got_Goth_UA"/>
+		<!--{ ?; Gothic; ? } => { Gothic; Gothic; Ukraine }-->
 		<likelySubtag from="und_Grek" to="el_Grek_GR"/>
 		<!--{ ?; Greek; ? } => { Greek; Greek; Greece }-->
 		<likelySubtag from="und_Gujr" to="gu_Gujr_IN"/>
@@ -774,8 +772,8 @@
 		<!--{ ?; Hangul; ? } => { Korean; Hangul; South Korea }-->
 		<likelySubtag from="und_Hani" to="zh_Hans_CN"/>
 		<!--{ ?; Han; ? } => { Chinese; Simplified; China }-->
-		<likelySubtag from="und_Hano" to="hnn_Hano_035"/>
-		<!--{ ?; Hanunoo; ? } => { Hanunoo; Hanunoo; South-Eastern Asia }-->
+		<likelySubtag from="und_Hano" to="hnn_Hano_PH"/>
+		<!--{ ?; Hanunoo; ? } => { Hanunoo; Hanunoo; Philippines }-->
 		<likelySubtag from="und_Hans" to="zh_Hans_CN"/>
 		<!--{ ?; Simplified; ? } => { Chinese; Simplified; China }-->
 		<likelySubtag from="und_Hant" to="zh_Hant_TW"/>
@@ -800,14 +798,14 @@
 		<!--{ ?; ?; Iceland } => { Icelandic; Latin; Iceland }-->
 		<likelySubtag from="und_IT" to="it_Latn_IT"/>
 		<!--{ ?; ?; Italy } => { Italian; Latin; Italy }-->
-		<likelySubtag from="und_Ital" to="ett_Ital_150"/>
-		<!--{ ?; Old Italic; ? } => { Etruscan; Old Italic; Europe }-->
+		<likelySubtag from="und_Ital" to="ett_Ital_IT"/>
+		<!--{ ?; Old Italic; ? } => { Etruscan; Old Italic; Italy }-->
 		<likelySubtag from="und_JO" to="ar_Arab_JO"/>
 		<!--{ ?; ?; Jordan } => { Arabic; Arabic; Jordan }-->
 		<likelySubtag from="und_JP" to="ja_Jpan_JP"/>
 		<!--{ ?; ?; Japan } => { Japanese; Japanese; Japan }-->
-		<likelySubtag from="und_Java" to="jv_Java_035"/>
-		<!--{ ?; Javanese; ? } => { Javanese; Javanese; South-Eastern Asia }-->
+		<likelySubtag from="und_Java" to="jv_Java_ID"/>
+		<!--{ ?; Javanese; ? } => { Javanese; Javanese; Indonesia }-->
 		<likelySubtag from="und_Jpan" to="ja_Jpan_JP"/>
 		<!--{ ?; Japanese; ? } => { Japanese; Japanese; Japan }-->
 		<likelySubtag from="und_KG" to="ky_Cyrl_KG"/>
@@ -824,20 +822,20 @@
 		<!--{ ?; ?; Kuwait } => { Arabic; Arabic; Kuwait }-->
 		<likelySubtag from="und_KZ" to="ru_Cyrl_KZ"/>
 		<!--{ ?; ?; Kazakhstan } => { Russian; Cyrillic; Kazakhstan }-->
-		<likelySubtag from="und_Kali" to="eky_Kali_035"/>
-		<!--{ ?; Kayah Li; ? } => { Eastern Kayah; Kayah Li; South-Eastern Asia }-->
+		<likelySubtag from="und_Kali" to="eky_Kali_MM"/>
+		<!--{ ?; Kayah Li; ? } => { Eastern Kayah; Kayah Li; Myanmar [Burma] }-->
 		<likelySubtag from="und_Kana" to="ja_Kana_JP"/>
 		<!--{ ?; Katakana; ? } => { Japanese; Katakana; Japan }-->
-		<likelySubtag from="und_Khar" to="pra_Khar_034"/>
-		<!--{ ?; Kharoshthi; ? } => { Prakrit Language; Kharoshthi; Southern Asia }-->
+		<likelySubtag from="und_Khar" to="pra_Khar_PK"/>
+		<!--{ ?; Kharoshthi; ? } => { Prakrit Language; Kharoshthi; Pakistan }-->
 		<likelySubtag from="und_Khmr" to="km_Khmr_KH"/>
 		<!--{ ?; Khmer; ? } => { Khmer; Khmer; Cambodia }-->
 		<likelySubtag from="und_Knda" to="kn_Knda_IN"/>
 		<!--{ ?; Kannada; ? } => { Kannada; Kannada; India }-->
 		<likelySubtag from="und_Kore" to="ko_Kore_KR"/>
 		<!--{ ?; Korean; ? } => { Korean; Korean; South Korea }-->
-		<likelySubtag from="und_Kthi" to="bh_Kthi_034"/>
-		<!--{ ?; Kaithi; ? } => { Bihari; Kaithi; Southern Asia }-->
+		<likelySubtag from="und_Kthi" to="bh_Kthi_IN"/>
+		<!--{ ?; Kaithi; ? } => { Bihari; Kaithi; India }-->
 		<likelySubtag from="und_LA" to="lo_Laoo_LA"/>
 		<!--{ ?; ?; Laos } => { Lao; Lao; Laos }-->
 		<likelySubtag from="und_LB" to="ar_Arab_LB"/>
@@ -856,8 +854,8 @@
 		<!--{ ?; ?; Latvia } => { Latvian; Latin; Latvia }-->
 		<likelySubtag from="und_LY" to="ar_Arab_LY"/>
 		<!--{ ?; ?; Libya } => { Arabic; Arabic; Libya }-->
-		<likelySubtag from="und_Lana" to="nod_Lana_035"/>
-		<!--{ ?; Lanna; ? } => { Northern Thai; Lanna; South-Eastern Asia }-->
+		<likelySubtag from="und_Lana" to="nod_Lana_TH"/>
+		<!--{ ?; Lanna; ? } => { Northern Thai; Lanna; Thailand }-->
 		<likelySubtag from="und_Laoo" to="lo_Laoo_LA"/>
 		<!--{ ?; Lao; ? } => { Lao; Lao; Laos }-->
 		<likelySubtag from="und_Latn_CN" to="za_Latn_CN"/>
@@ -880,18 +878,18 @@
 		<!--{ ?; Latin; Syria } => { French; Latin; Syria }-->
 		<likelySubtag from="und_Latn_TN" to="fr_Latn_TN"/>
 		<!--{ ?; Latin; Tunisia } => { French; Latin; Tunisia }-->
-		<likelySubtag from="und_Lepc" to="lep_Lepc_034"/>
-		<!--{ ?; Lepcha; ? } => { Lepcha; Lepcha; Southern Asia }-->
-		<likelySubtag from="und_Limb" to="lif_Limb_034"/>
-		<!--{ ?; Limbu; ? } => { Limbu; Limbu; Southern Asia }-->
-		<likelySubtag from="und_Linb" to="grc_Linb_150"/>
-		<!--{ ?; Linear B; ? } => { Ancient Greek; Linear B; Europe }-->
-		<likelySubtag from="und_Lisu" to="lis_Lisu_030"/>
-		<!--{ ?; Fraser; ? } => { Lisu; Fraser; Eastern Asia }-->
-		<likelySubtag from="und_Lyci" to="xlc_Lyci_145"/>
-		<!--{ ?; Lycian; ? } => { Lycian; Lycian; Western Asia }-->
-		<likelySubtag from="und_Lydi" to="xld_Lydi_145"/>
-		<!--{ ?; Lydian; ? } => { Lydian; Lydian; Western Asia }-->
+		<likelySubtag from="und_Lepc" to="lep_Lepc_IN"/>
+		<!--{ ?; Lepcha; ? } => { Lepcha; Lepcha; India }-->
+		<likelySubtag from="und_Limb" to="lif_Limb_IN"/>
+		<!--{ ?; Limbu; ? } => { Limbu; Limbu; India }-->
+		<likelySubtag from="und_Linb" to="grc_Linb_GR"/>
+		<!--{ ?; Linear B; ? } => { Ancient Greek; Linear B; Greece }-->
+		<likelySubtag from="und_Lisu" to="lis_Lisu_CN"/>
+		<!--{ ?; Fraser; ? } => { Lisu; Fraser; China }-->
+		<likelySubtag from="und_Lyci" to="xlc_Lyci_TR"/>
+		<!--{ ?; Lycian; ? } => { Lycian; Lycian; Turkey }-->
+		<likelySubtag from="und_Lydi" to="xld_Lydi_TR"/>
+		<!--{ ?; Lydian; ? } => { Lydian; Lydian; Turkey }-->
 		<likelySubtag from="und_MA" to="ar_Arab_MA"/>
 		<!--{ ?; ?; Morocco } => { Arabic; Arabic; Morocco }-->
 		<likelySubtag from="und_MC" to="fr_Latn_MC"/>
@@ -930,18 +928,18 @@
 		<!--{ ?; ?; Malaysia } => { Malay; Latin; Malaysia }-->
 		<likelySubtag from="und_MZ" to="pt_Latn_MZ"/>
 		<!--{ ?; ?; Mozambique } => { Portuguese; Latin; Mozambique }-->
-		<likelySubtag from="und_Mand" to="myz_Mand_145"/>
-		<!--{ ?; Mandaean; ? } => { Classical Mandaic; Mandaean; Western Asia }-->
-		<likelySubtag from="und_Merc" to="xmr_Merc_002"/>
-		<!--{ ?; Meroitic Cursive; ? } => { Meroitic; Meroitic Cursive; Africa }-->
-		<likelySubtag from="und_Mero" to="xmr_Mero_002"/>
-		<!--{ ?; Meroitic; ? } => { Meroitic; Meroitic; Africa }-->
+		<likelySubtag from="und_Mand" to="myz_Mand_IR"/>
+		<!--{ ?; Mandaean; ? } => { Classical Mandaic; Mandaean; Iran }-->
+		<likelySubtag from="und_Merc" to="xmr_Merc_SD"/>
+		<!--{ ?; Meroitic Cursive; ? } => { Meroitic; Meroitic Cursive; Sudan }-->
+		<likelySubtag from="und_Mero" to="xmr_Mero_SD"/>
+		<!--{ ?; Meroitic; ? } => { Meroitic; Meroitic; Sudan }-->
 		<likelySubtag from="und_Mlym" to="ml_Mlym_IN"/>
 		<!--{ ?; Malayalam; ? } => { Malayalam; Malayalam; India }-->
 		<likelySubtag from="und_Mong" to="mn_Mong_CN"/>
 		<!--{ ?; Mongolian; ? } => { Mongolian; Mongolian; China }-->
-		<likelySubtag from="und_Mtei" to="mni_Mtei_034"/>
-		<!--{ ?; Meitei Mayek; ? } => { Manipuri; Meitei Mayek; Southern Asia }-->
+		<likelySubtag from="und_Mtei" to="mni_Mtei_IN"/>
+		<!--{ ?; Meitei Mayek; ? } => { Manipuri; Meitei Mayek; India }-->
 		<likelySubtag from="und_Mymr" to="my_Mymr_MM"/>
 		<!--{ ?; Myanmar; ? } => { Burmese; Myanmar; Myanmar [Burma] }-->
 		<likelySubtag from="und_NA" to="kj_Latn_NA"/>
@@ -958,20 +956,20 @@
 		<!--{ ?; ?; Norway } => { Norwegian Bokmål; Latin; Norway }-->
 		<likelySubtag from="und_NP" to="ne_Deva_NP"/>
 		<!--{ ?; ?; Nepal } => { Nepali; Devanagari; Nepal }-->
-		<likelySubtag from="und_Nkoo" to="man_Nkoo_002"/>
-		<!--{ ?; N’Ko; ? } => { Mandingo; N’Ko; Africa }-->
+		<likelySubtag from="und_Nkoo" to="man_Nkoo_GN"/>
+		<!--{ ?; N’Ko; ? } => { Mandingo; N’Ko; Guinea }-->
 		<likelySubtag from="und_OM" to="ar_Arab_OM"/>
 		<!--{ ?; ?; Oman } => { Arabic; Arabic; Oman }-->
-		<likelySubtag from="und_Ogam" to="sga_Ogam_150"/>
-		<!--{ ?; Ogham; ? } => { Old Irish; Ogham; Europe }-->
-		<likelySubtag from="und_Olck" to="sat_Olck_034"/>
-		<!--{ ?; Ol Chiki; ? } => { Santali; Ol Chiki; Southern Asia }-->
-		<likelySubtag from="und_Orkh" to="otk_Orkh_143"/>
-		<!--{ ?; Orkhon; ? } => { Old Turkish; Orkhon; Central Asia }-->
+		<likelySubtag from="und_Ogam" to="sga_Ogam_IE"/>
+		<!--{ ?; Ogham; ? } => { Old Irish; Ogham; Ireland }-->
+		<likelySubtag from="und_Olck" to="sat_Olck_IN"/>
+		<!--{ ?; Ol Chiki; ? } => { Santali; Ol Chiki; India }-->
+		<likelySubtag from="und_Orkh" to="otk_Orkh_MN"/>
+		<!--{ ?; Orkhon; ? } => { Old Turkish; Orkhon; Mongolia }-->
 		<likelySubtag from="und_Orya" to="or_Orya_IN"/>
 		<!--{ ?; Oriya; ? } => { Oriya; Oriya; India }-->
-		<likelySubtag from="und_Osma" to="so_Osma_002"/>
-		<!--{ ?; Osmanya; ? } => { Somali; Osmanya; Africa }-->
+		<likelySubtag from="und_Osma" to="so_Osma_SO"/>
+		<!--{ ?; Osmanya; ? } => { Somali; Osmanya; Somalia }-->
 		<likelySubtag from="und_PA" to="es_Latn_PA"/>
 		<!--{ ?; ?; Panama } => { Spanish; Latin; Panama }-->
 		<likelySubtag from="und_PE" to="es_Latn_PE"/>
@@ -998,16 +996,16 @@
 		<!--{ ?; ?; Palau } => { Palauan; Latin; Palau }-->
 		<likelySubtag from="und_PY" to="gn_Latn_PY"/>
 		<!--{ ?; ?; Paraguay } => { Guarani; Latin; Paraguay }-->
-		<likelySubtag from="und_Phag" to="lzh_Phag_143"/>
-		<!--{ ?; Phags-pa; ? } => { Literary Chinese; Phags-pa; Central Asia }-->
-		<likelySubtag from="und_Phli" to="pal_Phli_145"/>
-		<!--{ ?; Inscriptional Pahlavi; ? } => { Pahlavi; Inscriptional Pahlavi; Western Asia }-->
-		<likelySubtag from="und_Phnx" to="phn_Phnx_145"/>
-		<!--{ ?; Phoenician; ? } => { Phoenician; Phoenician; Western Asia }-->
-		<likelySubtag from="und_Plrd" to="hmd_Plrd_030"/>
-		<!--{ ?; Pollard Phonetic; ? } => { Large Flowery Miao; Pollard Phonetic; Eastern Asia }-->
-		<likelySubtag from="und_Prti" to="xpr_Prti_145"/>
-		<!--{ ?; Inscriptional Parthian; ? } => { Parthian; Inscriptional Parthian; Western Asia }-->
+		<likelySubtag from="und_Phag" to="lzh_Phag_CN"/>
+		<!--{ ?; Phags-pa; ? } => { Literary Chinese; Phags-pa; China }-->
+		<likelySubtag from="und_Phli" to="pal_Phli_IR"/>
+		<!--{ ?; Inscriptional Pahlavi; ? } => { Pahlavi; Inscriptional Pahlavi; Iran }-->
+		<likelySubtag from="und_Phnx" to="phn_Phnx_LB"/>
+		<!--{ ?; Phoenician; ? } => { Phoenician; Phoenician; Lebanon }-->
+		<likelySubtag from="und_Plrd" to="hmd_Plrd_CN"/>
+		<!--{ ?; Pollard Phonetic; ? } => { Large Flowery Miao; Pollard Phonetic; China }-->
+		<likelySubtag from="und_Prti" to="xpr_Prti_IR"/>
+		<!--{ ?; Inscriptional Parthian; ? } => { Parthian; Inscriptional Parthian; Iran }-->
 		<likelySubtag from="und_QA" to="ar_Arab_QA"/>
 		<!--{ ?; ?; Qatar } => { Arabic; Arabic; Qatar }-->
 		<likelySubtag from="und_RE" to="fr_Latn_RE"/>
@@ -1020,10 +1018,10 @@
 		<!--{ ?; ?; Russia } => { Russian; Cyrillic; Russia }-->
 		<likelySubtag from="und_RW" to="rw_Latn_RW"/>
 		<!--{ ?; ?; Rwanda } => { Kinyarwanda; Latin; Rwanda }-->
-		<likelySubtag from="und_Rjng" to="rej_Rjng_035"/>
-		<!--{ ?; Rejang; ? } => { Rejang; Rejang; South-Eastern Asia }-->
-		<likelySubtag from="und_Runr" to="non_Runr_150"/>
-		<!--{ ?; Runic; ? } => { Old Norse; Runic; Europe }-->
+		<likelySubtag from="und_Rjng" to="rej_Rjng_ID"/>
+		<!--{ ?; Rejang; ? } => { Rejang; Rejang; Indonesia }-->
+		<likelySubtag from="und_Runr" to="non_Runr_SE"/>
+		<!--{ ?; Runic; ? } => { Old Norse; Runic; Sweden }-->
 		<likelySubtag from="und_SA" to="ar_Arab_SA"/>
 		<!--{ ?; ?; Saudi Arabia } => { Arabic; Arabic; Saudi Arabia }-->
 		<likelySubtag from="und_SC" to="fr_Latn_SC"/>
@@ -1052,26 +1050,26 @@
 		<!--{ ?; ?; El Salvador } => { Spanish; Latin; El Salvador }-->
 		<likelySubtag from="und_SY" to="ar_Arab_SY"/>
 		<!--{ ?; ?; Syria } => { Arabic; Arabic; Syria }-->
-		<likelySubtag from="und_Samr" to="smp_Samr_145"/>
-		<!--{ ?; Samaritan; ? } => { Samaritan; Samaritan; Western Asia }-->
-		<likelySubtag from="und_Sarb" to="xsa_Sarb_145"/>
-		<!--{ ?; Old South Arabian; ? } => { Sabaean; Old South Arabian; Western Asia }-->
-		<likelySubtag from="und_Saur" to="saz_Saur_034"/>
-		<!--{ ?; Saurashtra; ? } => { Saurashtra; Saurashtra; Southern Asia }-->
-		<likelySubtag from="und_Shaw" to="en_Shaw_150"/>
-		<!--{ ?; Shavian; ? } => { English; Shavian; Europe }-->
-		<likelySubtag from="und_Shrd" to="sa_Shrd_034"/>
-		<!--{ ?; Sharada; ? } => { Sanskrit; Sharada; Southern Asia }-->
+		<likelySubtag from="und_Samr" to="smp_Samr_IL"/>
+		<!--{ ?; Samaritan; ? } => { Samaritan; Samaritan; Israel }-->
+		<likelySubtag from="und_Sarb" to="xsa_Sarb_YE"/>
+		<!--{ ?; Old South Arabian; ? } => { Sabaean; Old South Arabian; Yemen }-->
+		<likelySubtag from="und_Saur" to="saz_Saur_IN"/>
+		<!--{ ?; Saurashtra; ? } => { Saurashtra; Saurashtra; India }-->
+		<likelySubtag from="und_Shaw" to="en_Shaw_GB"/>
+		<!--{ ?; Shavian; ? } => { English; Shavian; United Kingdom }-->
+		<likelySubtag from="und_Shrd" to="sa_Shrd_IN"/>
+		<!--{ ?; Sharada; ? } => { Sanskrit; Sharada; India }-->
 		<likelySubtag from="und_Sinh" to="si_Sinh_LK"/>
 		<!--{ ?; Sinhala; ? } => { Sinhala; Sinhala; Sri Lanka }-->
-		<likelySubtag from="und_Sora" to="srb_Sora_034"/>
-		<!--{ ?; Sora Sompeng; ? } => { Sora; Sora Sompeng; Southern Asia }-->
-		<likelySubtag from="und_Sund" to="su_Sund_035"/>
-		<!--{ ?; Sundanese; ? } => { Sundanese; Sundanese; South-Eastern Asia }-->
-		<likelySubtag from="und_Sylo" to="syl_Sylo_034"/>
-		<!--{ ?; Syloti Nagri; ? } => { Sylheti; Syloti Nagri; Southern Asia }-->
-		<likelySubtag from="und_Syrc" to="syr_Syrc_145"/>
-		<!--{ ?; Syriac; ? } => { Syriac; Syriac; Western Asia }-->
+		<likelySubtag from="und_Sora" to="srb_Sora_IN"/>
+		<!--{ ?; Sora Sompeng; ? } => { Sora; Sora Sompeng; India }-->
+		<likelySubtag from="und_Sund" to="su_Sund_ID"/>
+		<!--{ ?; Sundanese; ? } => { Sundanese; Sundanese; Indonesia }-->
+		<likelySubtag from="und_Sylo" to="syl_Sylo_BD"/>
+		<!--{ ?; Syloti Nagri; ? } => { Sylheti; Syloti Nagri; Bangladesh }-->
+		<likelySubtag from="und_Syrc" to="syr_Syrc_SY"/>
+		<!--{ ?; Syriac; ? } => { Syriac; Syriac; Syria }-->
 		<likelySubtag from="und_TD" to="fr_Latn_TD"/>
 		<!--{ ?; ?; Chad } => { French; Latin; Chad }-->
 		<likelySubtag from="und_TG" to="fr_Latn_TG"/>
@@ -1098,24 +1096,24 @@
 		<!--{ ?; ?; Taiwan } => { Chinese; Traditional; Taiwan }-->
 		<likelySubtag from="und_TZ" to="sw_Latn_TZ"/>
 		<!--{ ?; ?; Tanzania } => { Swahili; Latin; Tanzania }-->
-		<likelySubtag from="und_Tagb" to="tbw_Tagb_035"/>
-		<!--{ ?; Tagbanwa; ? } => { Tagbanwa; Tagbanwa; South-Eastern Asia }-->
-		<likelySubtag from="und_Takr" to="doi_Takr_034"/>
-		<!--{ ?; Takri; ? } => { Dogri; Takri; Southern Asia }-->
-		<likelySubtag from="und_Tale" to="tdd_Tale_035"/>
-		<!--{ ?; Tai Le; ? } => { Tai Nüa; Tai Le; South-Eastern Asia }-->
-		<likelySubtag from="und_Talu" to="khb_Talu_035"/>
-		<!--{ ?; New Tai Lue; ? } => { Lü; New Tai Lue; South-Eastern Asia }-->
+		<likelySubtag from="und_Tagb" to="tbw_Tagb_PH"/>
+		<!--{ ?; Tagbanwa; ? } => { Tagbanwa; Tagbanwa; Philippines }-->
+		<likelySubtag from="und_Takr" to="doi_Takr_IN"/>
+		<!--{ ?; Takri; ? } => { Dogri; Takri; India }-->
+		<likelySubtag from="und_Tale" to="tdd_Tale_CN"/>
+		<!--{ ?; Tai Le; ? } => { Tai Nüa; Tai Le; China }-->
+		<likelySubtag from="und_Talu" to="khb_Talu_CN"/>
+		<!--{ ?; New Tai Lue; ? } => { Lü; New Tai Lue; China }-->
 		<likelySubtag from="und_Taml" to="ta_Taml_IN"/>
 		<!--{ ?; Tamil; ? } => { Tamil; Tamil; India }-->
-		<likelySubtag from="und_Tavt" to="blt_Tavt_035"/>
-		<!--{ ?; Tai Viet; ? } => { Tai Dam; Tai Viet; South-Eastern Asia }-->
+		<likelySubtag from="und_Tavt" to="blt_Tavt_VN"/>
+		<!--{ ?; Tai Viet; ? } => { Tai Dam; Tai Viet; Vietnam }-->
 		<likelySubtag from="und_Telu" to="te_Telu_IN"/>
 		<!--{ ?; Telugu; ? } => { Telugu; Telugu; India }-->
-		<likelySubtag from="und_Tfng" to="shi_Tfng_002"/>
-		<!--{ ?; Tifinagh; ? } => { Tachelhit; Tifinagh; Africa }-->
-		<likelySubtag from="und_Tglg" to="fil_Tglg_035"/>
-		<!--{ ?; Tagalog; ? } => { Filipino; Tagalog; South-Eastern Asia }-->
+		<likelySubtag from="und_Tfng" to="shi_Tfng_TN"/>
+		<!--{ ?; Tifinagh; ? } => { Tachelhit; Tifinagh; Tunisia }-->
+		<likelySubtag from="und_Tglg" to="fil_Tglg_PH"/>
+		<!--{ ?; Tagalog; ? } => { Filipino; Tagalog; Philippines }-->
 		<likelySubtag from="und_Thaa" to="dv_Thaa_MV"/>
 		<!--{ ?; Thaana; ? } => { Divehi; Thaana; Maldives }-->
 		<likelySubtag from="und_Thai" to="th_Thai_TH"/>
@@ -1130,8 +1128,8 @@
 		<!--{ ?; ?; Uruguay } => { Spanish; Latin; Uruguay }-->
 		<likelySubtag from="und_UZ" to="uz_Cyrl_UZ"/>
 		<!--{ ?; ?; Uzbekistan } => { Uzbek; Cyrillic; Uzbekistan }-->
-		<likelySubtag from="und_Ugar" to="uga_Ugar_145"/>
-		<!--{ ?; Ugaritic; ? } => { Ugaritic; Ugaritic; Western Asia }-->
+		<likelySubtag from="und_Ugar" to="uga_Ugar_SY"/>
+		<!--{ ?; Ugaritic; ? } => { Ugaritic; Ugaritic; Syria }-->
 		<likelySubtag from="und_VA" to="la_Latn_VA"/>
 		<!--{ ?; ?; Vatican City } => { Latin; Latin; Vatican City }-->
 		<likelySubtag from="und_VE" to="es_Latn_VE"/>
@@ -1146,10 +1144,10 @@
 		<!--{ ?; ?; Wallis and Futuna } => { French; Latin; Wallis and Futuna }-->
 		<likelySubtag from="und_WS" to="sm_Latn_WS"/>
 		<!--{ ?; ?; Samoa } => { Samoan; Latin; Samoa }-->
-		<likelySubtag from="und_Xpeo" to="peo_Xpeo_145"/>
-		<!--{ ?; Old Persian; ? } => { Old Persian; Old Persian; Western Asia }-->
-		<likelySubtag from="und_Xsux" to="akk_Xsux_145"/>
-		<!--{ ?; Sumero-Akkadian Cuneiform; ? } => { Akkadian; Sumero-Akkadian Cuneiform; Western Asia }-->
+		<likelySubtag from="und_Xpeo" to="peo_Xpeo_IR"/>
+		<!--{ ?; Old Persian; ? } => { Old Persian; Old Persian; Iran }-->
+		<likelySubtag from="und_Xsux" to="akk_Xsux_IQ"/>
+		<!--{ ?; Sumero-Akkadian Cuneiform; ? } => { Akkadian; Sumero-Akkadian Cuneiform; Iraq }-->
 		<likelySubtag from="und_YE" to="ar_Arab_YE"/>
 		<!--{ ?; ?; Yemen } => { Arabic; Arabic; Yemen }-->
 		<likelySubtag from="und_YT" to="fr_Latn_YT"/>

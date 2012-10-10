@@ -2100,6 +2100,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
   static MapComparator<String> dateFieldOrder = new MapComparator<String>().add(
           "era", "year", "month", "week", "day", "weekday", "dayperiod",
           "hour", "minute", "second", "zone").freeze();
+  static MapComparator<String> countValueOrder = new MapComparator<String>().add(
+      "zero", "one", "two", "few", "many", "other").freeze();
   static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
   static Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<String>(Arrays
@@ -2186,6 +2188,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
       else if (element.equals("day")) comp = dayValueOrder;
       else if (element.equals("field")) comp = dateFieldOrder;
       else if (element.equals("zone")) comp = zoneOrder;
+    } else if (attribute.equals("count")) {
+        comp = countValueOrder;
     }
     return comp;
   }		

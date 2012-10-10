@@ -6,7 +6,7 @@
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="07dc0000" typeVersion="2012a">
+		<mapTimezones otherVersion="7dc0101" typeVersion="2012f">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -341,6 +341,10 @@
 			<mapZone other="Syria Standard Time" territory="001" type="Asia/Damascus"/>
 			<mapZone other="Syria Standard Time" territory="SY" type="Asia/Damascus"/>
 
+			<!-- (UTC+02:00) E. Europe -->
+			<mapZone other="E. Europe Standard Time" territory="001" type="Asia/Nicosia"/>
+			<mapZone other="E. Europe Standard Time" territory="CY" type="Asia/Nicosia"/>
+
 			<!-- (UTC+02:00) Harare, Pretoria -->
 			<mapZone other="South Africa Standard Time" territory="001" type="Africa/Johannesburg"/>
 			<mapZone other="South Africa Standard Time" territory="BI" type="Africa/Bujumbura"/>
@@ -374,10 +378,6 @@
 			<!-- (UTC+02:00) Jerusalem -->
 			<mapZone other="Israel Standard Time" territory="001" type="Asia/Jerusalem"/>
 			<mapZone other="Israel Standard Time" territory="IL" type="Asia/Jerusalem"/>
-
-			<!-- (UTC+02:00) Nicosia -->
-			<mapZone other="E. Europe Standard Time" territory="001" type="Asia/Nicosia"/>
-			<mapZone other="E. Europe Standard Time" territory="CY" type="Asia/Nicosia"/>
 
 			<!-- (UTC+03:00) Baghdad -->
 			<mapZone other="Arabic Standard Time" territory="001" type="Asia/Baghdad"/>
@@ -635,6 +635,7 @@
 			<!-- (UTC+13:00) Nuku'alofa -->
 			<mapZone other="Tonga Standard Time" territory="001" type="Pacific/Tongatapu"/>
 			<mapZone other="Tonga Standard Time" territory="KI" type="Pacific/Enderbury"/>
+			<mapZone other="Tonga Standard Time" territory="TK" type="Pacific/Fakaofo"/>
 			<mapZone other="Tonga Standard Time" territory="TO" type="Pacific/Tongatapu"/>
 			<mapZone other="Tonga Standard Time" territory="ZZ" type="Etc/GMT-13"/>
 

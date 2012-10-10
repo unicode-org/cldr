@@ -45,7 +45,8 @@ public class DisplayAndInputProcessor {
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern.compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
     private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");
-    private static final Pattern WHITESPACE_TO_NORMALIZE = Pattern.compile("\\s+"); // whitespace string, i.e. [ \t\n\r]+
+    private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = Pattern.compile("\\s+"); // string of whitespace not including NBSP, i.e. [ \t\n\r]+
+    private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = Pattern.compile("[\\s\\u00A0]+"); // string of whitespace including NBSP, i.e. [ \u00A0\t\n\r]+
 
     private Collator col;
 
@@ -162,9 +163,34 @@ public class DisplayAndInputProcessor {
                 value = newvalue;
             }
 
-            // turn all whitespace sequences (including tab and newline, but *not* no-break space)
-            // into a single space.
-            value = WHITESPACE_TO_NORMALIZE.matcher(value).replaceAll(" "); 
+            // turn all whitespace sequences (including tab and newline, and NBSP for certain paths)
+            // into a single space or a single NBSP depending on path.
+            if (    (path.contains("/dateFormatLength") && path.contains("/pattern")) ||
+                    path.contains("/availableFormats/dateFormatItem") ||
+                    path.startsWith("//ldml/dates/timeZoneNames/fallbackRegionFormat") ||
+					(path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
+					path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
+					path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||
+					path.startsWith("//ldml/localeDisplayNames/languages/language") ||
+					path.startsWith("//ldml/localeDisplayNames/territories/territory") ||
+					path.startsWith("//ldml/localeDisplayNames/types/type") ||
+					(path.startsWith("//ldml/numbers/currencies/currency") && path.contains("/displayName")) ||
+					(path.contains("/decimalFormatLength[@type=\"long\"]") && path.contains("/pattern")) ||
+					path.startsWith("//ldml/posix/messages") ||
+					(path.startsWith("//ldml/units/uni") && path.contains("/unitPattern ")) ) {
+            	value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+            } else if (
+            		(path.contains("/currencies/currency") && (path.contains("/group") || path.contains("/pattern"))) ||
+					(path.contains("/currencyFormatLength") && path.contains("/pattern")) ||
+ 					(path.contains("/currencySpacing") && path.contains("/insertBetween")) ||
+ 					(path.contains("/decimalFormatLength") && path.contains("/pattern")) || // i.e. the non-long ones
+ 					(path.contains("/percentFormatLength") && path.contains("/pattern")) ||
+            		(path.startsWith("//ldml/numbers/symbols") && (path.contains("/group") || path.contains("/nan"))) ) {
+            	value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u00A0");  // replace with NBSP
+            } else {
+                // in this case don't normalize away NBSP
+                value = WHITESPACE_NO_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+            }
 
             // all of our values should not have leading or trailing spaces, except insertBetween
             if (!path.contains("/insertBetween") && !path.contains("/localeSeparator")) {

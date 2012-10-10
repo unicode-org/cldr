@@ -216,7 +216,7 @@ public class ScriptMetadata {
             return true;
         }
         @Override
-        public MyFileReader process(Class classLocation, String fileName) {
+        public MyFileReader process(Class<?> classLocation, String fileName) {
             super.process(classLocation, fileName);
             return this;
         }

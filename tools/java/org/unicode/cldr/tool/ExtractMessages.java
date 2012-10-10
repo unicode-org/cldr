@@ -320,7 +320,7 @@ class ExtractMessages {
   
   enum CasingAction {NONE, FORCE_TITLE, FORCE_LOWER}
 
-  static class DataHandler implements Comparable {
+  static class DataHandler implements Comparable<Object> {
     // mostly stable
     private Matcher matcher;
     private Type type;

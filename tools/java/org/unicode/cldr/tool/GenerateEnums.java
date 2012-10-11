@@ -889,7 +889,9 @@ public class GenerateEnums {
     if (name != null)
       return name;
     name = english.getName(CLDRFile.TERRITORY_NAME, codeName);
-    return name;
+    if (name != null)
+        return name;
+    return codeName;
   }
 
   private String getRFC3066Name(String codeName) {

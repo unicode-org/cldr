@@ -397,7 +397,7 @@ public class GenerateEnums {
       String region = (String) it.next();
       String englishName = getEnglishName(region);
       if (englishName == null) {
-        englishName = getEnglishName(region); // for debugging\
+        englishName = "NULL"; // for debugging\
       }
       String rfcName = getRFC3066Name(region);
       if (!englishName.equals(rfcName)) {

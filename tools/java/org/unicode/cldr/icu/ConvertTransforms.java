@@ -101,35 +101,47 @@ public class ConvertTransforms extends CLDRConverterTool{
     
     public ICUResourceWriter.Resource buildResourceTree(Factory cldrFactory, String outputDir, Hashtable<String, String> ruleStringsHash)
     {
-    	ICUResourceWriter.ResourceAlias aliasTemp;
-    	
-    	Set<String> ids = cldrFactory.getAvailable();
-    	
-    	//start the root table
-    	ICUResourceWriter.Resource top = new ICUResourceWriter.ResourceTable();
-       	top.name = "root";
-    	top.isTop = true;
-    	top.hasKey = true;
-    	
-       	ICUResourceWriter.ResourceTable RBTIDs = new ICUResourceWriter.ResourceTable();
-       	RBTIDs.name = "RuleBasedTransliteratorIDs";
-       	RBTIDs.hasKey = true;
-       	
-    	top.appendContents(RBTIDs);
-    	
-    	aliasTemp = new ICUResourceWriter.ResourceAlias();
-    	aliasTemp.name = getName("Tone", "Digit", ""); 
-    	aliasTemp.val = getName("Pinyin", "NumericPinyin", "");
-    	
-    	RBTIDs.appendContents(aliasTemp);
-    	
-    	aliasTemp = new ICUResourceWriter.ResourceAlias();
-    	aliasTemp.name = getName("Digit", "Tone", ""); 
-    	aliasTemp.val = getName("NumericPinyin", "Pinyin", "");
-    	
-    	RBTIDs.appendContents(aliasTemp);
+        ICUResourceWriter.ResourceAlias aliasTemp;
+
+        Set<String> ids = cldrFactory.getAvailable();
+
+        //start the root table
+        ICUResourceWriter.Resource top = new ICUResourceWriter.ResourceTable();
+        top.name = "root";
+        top.isTop = true;
+        top.hasKey = true;
+
+        ICUResourceWriter.ResourceTable RBTIDs = new ICUResourceWriter.ResourceTable();
+        RBTIDs.name = "RuleBasedTransliteratorIDs";
+        RBTIDs.hasKey = true;
+
+        top.appendContents(RBTIDs);
+
+        aliasTemp = new ICUResourceWriter.ResourceAlias();
+        aliasTemp.name = getName("Tone", "Digit", ""); 
+        aliasTemp.val = getName("Pinyin", "NumericPinyin", "");
+
+        RBTIDs.appendContents(aliasTemp);
+
+        aliasTemp = new ICUResourceWriter.ResourceAlias();
+        aliasTemp.name = getName("Digit", "Tone", ""); 
+        aliasTemp.val = getName("NumericPinyin", "Pinyin", "");
+
+        RBTIDs.appendContents(aliasTemp);
+
+        aliasTemp = new ICUResourceWriter.ResourceAlias();
+        aliasTemp.name = getName("Hans", "Hant", ""); 
+        aliasTemp.val = getName("Simplified", "Traditional", "");
+
+        RBTIDs.appendContents(aliasTemp);
+
+        aliasTemp = new ICUResourceWriter.ResourceAlias();
+        aliasTemp.name = getName("Hant", "Hans", ""); 
+        aliasTemp.val = getName("Traditional", "Simplified", "");
+
+        RBTIDs.appendContents(aliasTemp);
  
-    	for (String id : ids) {
+    for (String id : ids) {
     		if(id.equals("All"))
     		{
     			continue;
@@ -179,6 +191,8 @@ public class ConvertTransforms extends CLDRConverterTool{
 			//addAlias(index, "Latin", "Jamo", "", "Latin", "ConjoiningJamo", "");
             addAlias(index, "Tone", "Digit", "", "Pinyin", "NumericPinyin", "");
             addAlias(index, "Digit", "Tone", "", "NumericPinyin", "Pinyin", "");
+            addAlias(index, "Hans", "Hant", "", "Simplified", "Traditional", "");
+            addAlias(index, "Hant", "Hans", "", "Traditional", "Simplified", "");
 			for ( String id : ids ) {
 				if (id.equals("All")) continue;
 				try {

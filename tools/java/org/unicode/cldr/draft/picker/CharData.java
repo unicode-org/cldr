@@ -1,4 +1,4 @@
-package org.unicode.cldr.draft;
+package org.unicode.cldr.draft.picker;
 // $Date: 2012-09-13 21:31:43 -0700 (Thu, 13 Sep 2012) $
 public class CharData {
 static String[][] CHARACTERS_TO_NAME = {

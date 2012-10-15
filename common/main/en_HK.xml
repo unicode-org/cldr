@@ -35,7 +35,6 @@
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
-						<dateFormatItem id="yM">M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d/M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM, y G</dateFormatItem>
@@ -104,10 +103,6 @@
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">E, d/M – E, d/M</greatestDifference>
 							<greatestDifference id="M">E, d/M – E, d/M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d–d MMM</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, d MMM – E, d MMM</greatestDifference>

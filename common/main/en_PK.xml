@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -100,9 +100,6 @@
 							<greatestDifference id="d" draft="unconfirmed">E, MMM d - E, MMM d</greatestDifference>
 							<greatestDifference id="M" draft="unconfirmed">E, MMM d - E, MMM d</greatestDifference>
 						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
-						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="unconfirmed">M/yy - M/yy</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">M/yy - M/yy</greatestDifference>
@@ -196,4 +193,3 @@
 		</currencies>
 	</numbers>
 </ldml>
-

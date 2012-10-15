@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -31,7 +31,6 @@
 			<language type="en_GB" draft="contributed">ব্রিটিশ ইংরেজী</language>
 			<language type="fr_CA" draft="contributed">ক্যানাডিয়ান ফরাসী</language>
 			<language type="map" draft="contributed">অস্ট্রোনেসিয়ান</language>
-			<language type="qu" draft="contributed">কেচুয়া</language>
 			<language type="rm" draft="contributed">রেটো-রোমানীয়</language>
 			<language type="rup" draft="contributed">আরমেনিয়ান</language>
 			<language type="tut" draft="contributed">আলটাইক</language>
@@ -247,11 +246,4 @@
 			</currency>
 		</currencies>
 	</numbers>
-	<units>
-		<unit type="second-past">
-			<unitPattern count="one" draft="contributed">{0} সেকেন্ড পূর্বে</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} সেকেন্ড পূর্বে</unitPattern>
-		</unit>
-	</units>
 </ldml>
-

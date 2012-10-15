@@ -91,8 +91,6 @@
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<delimiters>
-		<quotationStart>«</quotationStart>
-		<quotationEnd>»</quotationEnd>
 		<alternateQuotationStart>‹</alternateQuotationStart>
 		<alternateQuotationEnd>›</alternateQuotationEnd>
 	</delimiters>
@@ -258,9 +256,6 @@
 			<zone type="America/Cayman">
 				<exemplarCity draft="contributed">Îles Caïmans</exemplarCity>
 			</zone>
-			<zone type="Pacific/Norfolk">
-				<exemplarCity draft="contributed">Norfolk</exemplarCity>
-			</zone>
 			<zone type="Pacific/Pitcairn">
 				<exemplarCity draft="contributed">Île Pitcairn</exemplarCity>
 			</zone>
@@ -399,10 +394,6 @@
 		<unit type="hour-past">
 			<unitPattern count="one" draft="contributed">Il y a {0} heure</unitPattern>
 			<unitPattern count="other" draft="contributed">Il y a {0} heures</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one" alt="short" draft="contributed">{0} min</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} min</unitPattern>
 		</unit>
 		<unit type="minute-future">
 			<unitPattern count="one" draft="contributed">Dans {0} minute</unitPattern>

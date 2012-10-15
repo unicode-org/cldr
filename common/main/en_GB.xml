@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -811,36 +811,6 @@
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<decimalFormats numberSystem="latn">
-			<decimalFormatLength type="short">
-				<decimalFormat>
-					<pattern type="1000" count="one">0k</pattern>
-					<pattern type="1000" count="other">0K</pattern>
-					<pattern type="10000" count="one">00k</pattern>
-					<pattern type="10000" count="other">00K</pattern>
-					<pattern type="100000" count="one">000k</pattern>
-					<pattern type="100000" count="other">000K</pattern>
-					<pattern type="1000000" count="one">0m</pattern>
-					<pattern type="1000000" count="other">0M</pattern>
-					<pattern type="10000000" count="one">00m</pattern>
-					<pattern type="10000000" count="other">00M</pattern>
-					<pattern type="100000000" count="one">000m</pattern>
-					<pattern type="100000000" count="other">000M</pattern>
-					<pattern type="1000000000" count="one">0bn</pattern>
-					<pattern type="1000000000" count="other">0B</pattern>
-					<pattern type="10000000000" count="one">00bn</pattern>
-					<pattern type="10000000000" count="other">00B</pattern>
-					<pattern type="100000000000" count="one">000bn</pattern>
-					<pattern type="100000000000" count="other">000B</pattern>
-					<pattern type="1000000000000" count="one">0tn</pattern>
-					<pattern type="1000000000000" count="other">0T</pattern>
-					<pattern type="10000000000000" count="one">00tn</pattern>
-					<pattern type="10000000000000" count="other">00T</pattern>
-					<pattern type="100000000000000" count="one">000tn</pattern>
-					<pattern type="100000000000000" count="other">000T</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
@@ -850,15 +820,9 @@
 		</currencyFormats>
 		<currencies>
 			<currency type="AUD">
-				<displayName>Australian Dollar</displayName>
-				<displayName count="one">Australian dollar</displayName>
-				<displayName count="other">Australian dollars</displayName>
 				<symbol>AU$</symbol>
 			</currency>
 			<currency type="BRL">
-				<displayName>Brazilian Real</displayName>
-				<displayName count="one">Brazilian real</displayName>
-				<displayName count="other">Brazilian reals</displayName>
 				<symbol>R$</symbol>
 			</currency>
 			<currency type="BYR">
@@ -867,15 +831,9 @@
 				<displayName count="other">Belarusian roubles</displayName>
 			</currency>
 			<currency type="CAD">
-				<displayName>Canadian Dollar</displayName>
-				<displayName count="one">Canadian dollar</displayName>
-				<displayName count="other">Canadian dollars</displayName>
 				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CNY">
-				<displayName>Chinese Yuan</displayName>
-				<displayName count="one">Chinese yuan</displayName>
-				<displayName count="other">Chinese yuan</displayName>
 				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="EUR">
@@ -891,9 +849,6 @@
 				<symbol>£</symbol>
 			</currency>
 			<currency type="HKD">
-				<displayName>Hong Kong Dollar</displayName>
-				<displayName count="one">Hong Kong dollar</displayName>
-				<displayName count="other">Hong Kong dollars</displayName>
 				<symbol>HK$</symbol>
 			</currency>
 			<currency type="ILS">
@@ -903,15 +858,9 @@
 				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
-				<displayName>Indian Rupee</displayName>
-				<displayName count="one">Indian rupee</displayName>
-				<displayName count="other">Indian rupees</displayName>
 				<symbol>₹</symbol>
 			</currency>
 			<currency type="KRW">
-				<displayName>South Korean Won</displayName>
-				<displayName count="one">South Korean won</displayName>
-				<displayName count="other">South Korean won</displayName>
 				<symbol>₩</symbol>
 			</currency>
 			<currency type="MGA">
@@ -925,15 +874,9 @@
 				<displayName count="other">Malawian kwachas</displayName>
 			</currency>
 			<currency type="MXN">
-				<displayName>Mexican Peso</displayName>
-				<displayName count="one">Mexican peso</displayName>
-				<displayName count="other">Mexican pesos</displayName>
 				<symbol>MX$</symbol>
 			</currency>
 			<currency type="NZD">
-				<displayName>New Zealand Dollar</displayName>
-				<displayName count="one">New Zealand dollar</displayName>
-				<displayName count="other">New Zealand dollars</displayName>
 				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="RUB">
@@ -947,15 +890,9 @@
 				<displayName count="other">Seychelles rupees</displayName>
 			</currency>
 			<currency type="THB">
-				<displayName>Thai Baht</displayName>
-				<displayName count="one">Thai baht</displayName>
-				<displayName count="other">Thai baht</displayName>
 				<symbol>฿</symbol>
 			</currency>
 			<currency type="TWD">
-				<displayName>New Taiwan Dollar</displayName>
-				<displayName count="one">New Taiwan dollar</displayName>
-				<displayName count="other">New Taiwan dollars</displayName>
 				<symbol>NT$</symbol>
 			</currency>
 			<currency type="UZS">
@@ -964,9 +901,6 @@
 				<displayName count="other">Uzbekistani som</displayName>
 			</currency>
 			<currency type="VND">
-				<displayName>Vietnamese Dong</displayName>
-				<displayName count="one">Vietnamese dong</displayName>
-				<displayName count="other">Vietnamese dong</displayName>
 				<symbol>₫</symbol>
 			</currency>
 			<currency type="XAF">
@@ -976,9 +910,6 @@
 				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XCD">
-				<displayName>East Caribbean Dollar</displayName>
-				<displayName count="one">East Caribbean dollar</displayName>
-				<displayName count="other">East Caribbean dollars</displayName>
 				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XOF">
@@ -988,9 +919,6 @@
 				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
-				<displayName>CFP Franc</displayName>
-				<displayName count="one">CFP franc</displayName>
-				<displayName count="other">CFP francs</displayName>
 				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XXX">
@@ -1009,4 +937,3 @@
 		</listPattern>
 	</listPatterns>
 </ldml>
-

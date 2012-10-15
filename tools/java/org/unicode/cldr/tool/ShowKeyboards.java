@@ -119,6 +119,9 @@ public class ShowKeyboards {
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
         IdInfo idInfo = new IdInfo();
         for (String platformId : Keyboard.getPlatformIDs()) {
+            if (platformId.equals("und")) {
+                continue;
+            }
             Platform p = Keyboard.getPlatform(platformId);
             //            System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
@@ -198,6 +201,9 @@ public class ShowKeyboards {
         Map<String,String> localeIndex = new TreeMap();
 
         for (String platformId : Keyboard.getPlatformIDs()) {
+            if (platformId.equals("und")) {
+                continue;
+            }
             Platform p = Keyboard.getPlatform(platformId);
             //            System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {

@@ -20,6 +20,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
@@ -104,6 +105,9 @@ public class ShowData {
         return;
       }
 
+      FileUtilities.copyFile(ShowData.class, "summary-index.css", options[DESTDIR].value, "index.css");
+      FileUtilities.copyFile(ShowData.class, "summary-index.html", options[DESTDIR].value, "index.html");
+      
       CldrUtility.registerExtraTransliterators();
 
       //      Factory collationFactory = Factory

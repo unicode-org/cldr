@@ -24,6 +24,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -155,6 +156,9 @@ public class GenerateSidewaysView {
         english = cldrFactory.make("en", true);
         pathHeaderFactory = PathHeader.getFactory(english);
 
+        FileUtilities.copyFile(GenerateSidewaysView.class, "bytype-index.css", options[DESTDIR].value, "index.css");
+        FileUtilities.copyFile(GenerateSidewaysView.class, "bytype-index.html", options[DESTDIR].value, "index.html");
+        
         // now get the info
 
         loadInformation(cldrFactory);
@@ -178,6 +182,7 @@ public class GenerateSidewaysView {
         //UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
 
         String oldHeader = "";
+        
         for (PathHeader path : path_value_locales.keySet()) {       	
             String main = getFileName2(path);
             if (!main.equals(oldMain)) {

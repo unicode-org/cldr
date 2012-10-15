@@ -128,6 +128,7 @@ public class CldrUtility {
   public static final String COLLATION_DIRECTORY = getPath(COMMON_DIRECTORY,"collation/");
   public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN", getPath(CldrUtility.COMMON_DIRECTORY,  "main"));
   public static final String TMP_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR", getPath(BASE_DIRECTORY , "../cldr-tmp/"))); 
+  public static final String AUX_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR", getPath(BASE_DIRECTORY , "../cldr-aux/"))); 
   public static final String TMP2_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR", getPath(BASE_DIRECTORY , "../cldr-tmp2/"))); 
   // external data
   public static final String EXTERNAL_DIRECTORY = getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../"); 
@@ -145,8 +146,8 @@ public class CldrUtility {
   public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY , "supplemental/");
   
   public static final boolean BETA = false;
-  public static final String CHART_DISPLAY_VERSION = "22" + (BETA ? "\u03B2" : "");
-  public static final String CHART_DIRECTORY = getPath(TMP_DIRECTORY, BETA ? "beta-charts/" : "charts/");
+  public static final String CHART_DISPLAY_VERSION = "22.1";
+  public static final String CHART_DIRECTORY = getPath(AUX_DIRECTORY + "charts/", CHART_DISPLAY_VERSION);
   public static final String LOG_DIRECTORY = getPath(TMP_DIRECTORY, "logs/");
   
   public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY,  "test/");

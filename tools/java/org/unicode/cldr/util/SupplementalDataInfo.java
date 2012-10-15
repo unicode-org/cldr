@@ -2656,6 +2656,22 @@ public class SupplementalDataInfo {
     public Set<MetaZoneRange> getMetaZoneRanges(String zone) {
         return zoneToMetaZoneRanges.get(zone);
     }
+    
+    /**
+     * Return the metazone containing this zone at this date
+     * @param zone
+     * @param date
+     * @return
+     */
+    public MetaZoneRange getMetaZoneRange(String zone, long date) {
+        Set<MetaZoneRange> metazoneRanges = zoneToMetaZoneRanges.get(zone);
+        for (MetaZoneRange metazoneRange : metazoneRanges) {
+            if (metazoneRange.dateRange.getFrom() <= date && date < metazoneRange.dateRange.getTo()) {
+                return metazoneRange;
+            }
+        }
+        return null;
+    }
 
     public Map<String, Map<String, Relation<String, String>>> getDeprecationInfo() {
         return deprecated;

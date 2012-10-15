@@ -1016,46 +1016,79 @@ public class StandardCodes {
             .asList("Hans Hant Jpan Hrkt Kore Arab Armn Bali Beng Bopo Cans Cham Cher Cyrl Deva Ethi Geor Grek Gujr Guru Hani Hang Hebr Hira Knda Kana Kali Khmr Laoo Latn Lepc Limb Mlym Mong Mymr Talu Nkoo Olck Orya Saur Sinh Tale Taml Telu Thaa Thai Tibt Tfng Vaii Yiii".split("\\s+"))));
     // updated to http://www.unicode.org/reports/tr31/tr31-9.html#Specific_Character_Adjustments
 
+    /**
+     * @deprecated
+     */
     public Map getZone_rules() {
         return zoneParser.getZone_rules();
     }
 
+    /**
+     * @deprecated
+     */
     public Map getZoneData() {
         return zoneParser.getZoneData();
     }
     
+    /**
+     * @deprecated
+     */
     public Set<String> getCanonicalTimeZones() {
         return zoneParser.getZoneData().keySet();
     }
 
+    /**
+     * @deprecated
+     */
     public Map getCountryToZoneSet() {
         return zoneParser.getCountryToZoneSet();
     }
 
+    /**
+     * @deprecated
+     */
     public List getDeprecatedZoneIDs() {
         return zoneParser.getDeprecatedZoneIDs();
     }
 
+    /**
+     * @deprecated
+     */
     public Comparator getTZIDComparator() {
         return zoneParser.getTZIDComparator();
     }
 
+    /**
+     * @deprecated
+     */
     public Map getZoneLinkNew_OldSet() {
         return zoneParser.getZoneLinkNew_OldSet();
     }
 
+    /**
+     * @deprecated
+     */
     public Map getZoneLinkold_new() {
         return zoneParser.getZoneLinkold_new();
     }
 
+    /**
+     * @deprecated
+     */
     public Map getZoneRuleID_rules() {
         return zoneParser.getZoneRuleID_rules();
     }
 
+    /**
+     * @deprecated
+     */
     public Map getZoneToCounty() {
         return zoneParser.getZoneToCounty();
     }
 
+    /**
+     * @deprecated
+     */
     public String getZoneVersion() {
         return zoneParser.getVersion();
     }

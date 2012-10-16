@@ -33,6 +33,7 @@ import org.unicode.cldr.util.VerifyZones.ZoneFormats.Type;
 
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.Replaceable;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UFormat;
 import com.ibm.icu.util.BasicTimeZone;
@@ -71,7 +72,7 @@ public class TimezoneFormatter extends UFormat  {
             return this == SHORT ? "short" : this == LONG ? "long" : "other";
         }
     }
-
+    
     public enum Format {
         VVVV(Type.GENERIC, Location.LOCATION, Length.OTHER), 
         vvvv(Type.GENERIC, Location.NON_LOCATION, Length.LONG), 
@@ -703,4 +704,27 @@ public class TimezoneFormatter extends UFormat  {
         // TODO Auto-generated method stub
         return null;
     }
+
+ // The following are just for compatibility, until some fixes are made.
+
+    public static final List<String> LENGTH = Arrays.asList(Length.SHORT.toString(), Length.LONG.toString());
+    public static final int LENGTH_LIMIT = LENGTH.size();
+    public static final int TYPE_LIMIT = Type.values().length;
+
+    public String getFormattedZone(String zoneId, String pattern, boolean daylight, int offset, boolean b) {
+        return getFormattedZone(zoneId, pattern, new Date().getTime());
+    }
+
+    public String getFormattedZone(String zoneId, int length, int type, int offset, boolean b) {
+// HACK
+        return getFormattedZone(zoneId, Location.LOCATION, Type.values()[type], Length.values()[length], 
+            new Date().getTime());
+    }
+
+    public String getFormattedZone(String zoneId, String pattern, long time, boolean b) {
+        return getFormattedZone(zoneId, pattern, time);
+    }
+
+// end compat
+
 }

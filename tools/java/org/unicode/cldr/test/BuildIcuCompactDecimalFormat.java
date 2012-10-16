@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 
 import org.unicode.cldr.test.CompactDecimalFormat.Style;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -22,9 +23,14 @@ import com.ibm.icu.util.ULocale;
 
 public class BuildIcuCompactDecimalFormat {
     static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+    
+    public enum CurrencyStyle {PLAIN, CURRENCY}
 
-    /** JUST FOR DEVELOPMENT */
-    public static final CompactDecimalFormat build(CLDRFile resolvedCldrFile, Set<String> debugCreationErrors, String[] debugOriginals, Style style, ULocale locale) {
+    /** JUST FOR DEVELOPMENT 
+     * @param currencyStyle TODO*/
+    public static final CompactDecimalFormat build(CLDRFile resolvedCldrFile, 
+        Set<String> debugCreationErrors, String[] debugOriginals, 
+        Style style, ULocale locale, CurrencyStyle currencyStyle) {
         Map<String, String[]> prefixes = new HashMap();
         Map<String, String[]> suffixes = new HashMap();
         //String[] prefix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
@@ -107,7 +113,16 @@ public class BuildIcuCompactDecimalFormat {
             int zeroCount = patternMatcher.end(2) - patternMatcher.start(2) - 1;
             divisor[typeZeroCount] = (long) Math.pow(10.0, typeZeroCount - zeroCount);
         }
-        DecimalFormat format = (DecimalFormat) NumberFormat.getInstance(new ULocale(resolvedCldrFile.getLocaleID()));
+//        DecimalFormat format = (DecimalFormat) (currencyStyle == CurrencyStyle.PLAIN 
+//            ? NumberFormat.getInstance(new ULocale(resolvedCldrFile.getLocaleID()))
+//                : NumberFormat.getCurrencyInstance(new ULocale(resolvedCldrFile.getLocaleID())));
+        
+        ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(resolvedCldrFile);
+        DecimalFormat format = currencyStyle == CurrencyStyle.PLAIN 
+            ? builder.getNumberFormat(1) // 1 = decimal
+            : builder.getCurrencyFormat("EUR")
+                ;
+
 
         //DecimalFormat currencyFormat = new ICUServiceBuilder().setCldrFile(resolvedCldrFile).getCurrencyFormat("USD");
         //        for (String s : With.in(resolvedCldrFile.iterator("//ldml/numbers/currencyFormats/"))) {
@@ -115,24 +130,32 @@ public class BuildIcuCompactDecimalFormat {
         //        }
         //DecimalFormat currencyFormat = new DecimalFormat(pattern);
         // do this by hand, because the DecimalFormat pattern parser does too much.
-        String pattern = resolvedCldrFile.getWinningValue("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
-        String[] currencyAffixes = new String[CompactDecimalFormat.AFFIX_SIZE];
-        String[] patterns = pattern.split(";");
-        final Matcher matcher = CompactDecimalFormatTest.CURRENCY_PATTERN.matcher(patterns[0]);
-        if (!matcher.matches()) {
-            throw new IllegalArgumentException("Can't match currency pattern");
-        }
-        currencyAffixes[CompactDecimalFormat.POSITIVE_PREFIX] = matcher.group(1);
-        currencyAffixes[CompactDecimalFormat.POSITIVE_SUFFIX] = matcher.group(2);
-
+//        String pattern = resolvedCldrFile.getWinningValue("//ldml/numbers/currencyFormats/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"" +
+//        		"standard" +
+//        		"\"]");
+//        String[] currencyAffixes = new String[CompactDecimalFormat.AFFIX_SIZE];
+//        String[] patterns = pattern.split(";");
+//        final Matcher matcher = CompactDecimalFormatTest.CURRENCY_PATTERN.matcher(patterns[0]);
+//        if (!matcher.matches()) {
+//            throw new IllegalArgumentException("Can't match currency pattern");
+//        }
+//        currencyAffixes[CompactDecimalFormat.POSITIVE_PREFIX] = matcher.group(1);
+//        currencyAffixes[CompactDecimalFormat.POSITIVE_SUFFIX] = matcher.group(2);
+//
         if (false) {
             for (Entry<String, String[]> keyList : suffixes.entrySet()) {
                 System.out.println("*\t" + keyList.getKey() + "\t" + Arrays.asList(keyList.getValue()));
             }
         }
+        
+        String[] currencyAffixes = null;
 
         // TODO fix to get right symbol for the count
-        return new CompactDecimalFormat(format.toPattern(), format.getDecimalFormatSymbols(), prefixes, suffixes, divisor, debugCreationErrors, style, 
+        String pattern = format.toPattern();
+//        if (style == Style.LONG) {
+//            pattern = pattern.replace("¤", "¤¤¤");
+//        }
+        return new CompactDecimalFormat(pattern, format.getDecimalFormatSymbols(), prefixes, suffixes, divisor, debugCreationErrors, style, 
             currencyAffixes, new CompactDecimalFormatTest.MyCurrencySymbolDisplay(resolvedCldrFile), pluralInfo.getPluralRules());
     }
 

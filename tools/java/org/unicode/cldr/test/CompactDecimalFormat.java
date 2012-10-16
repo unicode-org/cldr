@@ -64,7 +64,7 @@ public class CompactDecimalFormat extends DecimalFormat {
     POSITIVE_PREFIX = 0,
     POSITIVE_SUFFIX = 1,
     AFFIX_SIZE = 2;
-    final String[] currencyAffixes;
+    //final String[] currencyAffixes;
     final CurrencySymbolDisplay currencySymbolDisplay;
     final PluralRules pluralRules;
 
@@ -154,6 +154,7 @@ public class CompactDecimalFormat extends DecimalFormat {
     public CompactDecimalFormat(String pattern, DecimalFormatSymbols formatSymbols, Map<String, String[]> prefixesInput, Map<String, String[]> suffixesInput, long[] divisor, 
         Collection<String> debugCreationErrors, Style style,
         String[] currencyAffixes, CurrencySymbolDisplay currencySymbolDisplay, PluralRules pluralRules) {
+        super(pattern, formatSymbols);
         this.pluralRules = pluralRules;
         for (String key : prefixesInput.keySet()) {
             String[] prefix = prefixesInput.get(key);
@@ -205,12 +206,12 @@ public class CompactDecimalFormat extends DecimalFormat {
         this.prefixes = prefixesInput;
         this.suffixes = suffixesInput;
         this.divisor = divisor.clone();
-        applyPattern(pattern);
-        setDecimalFormatSymbols(formatSymbols);
+//        applyPattern(pattern);
+//        setDecimalFormatSymbols(formatSymbols);
         setMaximumSignificantDigits(2); // default significant digits
         setSignificantDigitsUsed(true);
         setGroupingUsed(false);
-        this.currencyAffixes = currencyAffixes.clone();
+//        this.currencyAffixes = currencyAffixes.clone();
         this.currencySymbolDisplay = currencySymbolDisplay;
     }
 
@@ -233,8 +234,22 @@ public class CompactDecimalFormat extends DecimalFormat {
             String suffixString = suffixes.get(key)[base];
             check = prefixString.length() + suffixString.length();
             toAppendTo.append(prefixString);
+            
             super.format(number, toAppendTo, pos);
-            return toAppendTo.append(suffixString);
+            
+            // decide where to put suffixString
+            StringBuffer temp = new StringBuffer();
+            FieldPosition pos2 = new FieldPosition(Field.FRACTION);
+            super.format(number, temp, pos2);
+            int fractionEndIndex = pos2.getEndIndex();
+            int offsetFromEnd = temp.length() - fractionEndIndex;
+            if (offsetFromEnd == 0) {
+                toAppendTo.append(suffixString);
+            } else {
+                toAppendTo.insert(toAppendTo.length() - offsetFromEnd, suffixString);
+            }
+            
+            return toAppendTo;
         } catch (Exception e) {
             toAppendTo.append("ERROR:");
             return super.format(numberInput, toAppendTo, pos);

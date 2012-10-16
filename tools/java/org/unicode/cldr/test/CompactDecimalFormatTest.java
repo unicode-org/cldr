@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.test.CompactDecimalFormat.CurrencySymbolDisplay;
 import org.unicode.cldr.test.CompactDecimalFormat.Style;
 import org.unicode.cldr.tool.Option.Options;
@@ -137,7 +138,7 @@ public class CompactDecimalFormatTest {
             String[] debugOriginals = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
             CompactDecimalFormat snf;
             try {
-                snf = BuildIcuCompactDecimalFormat.build(file, errors, debugOriginals, Style.SHORT, new ULocale(locale));
+                snf = BuildIcuCompactDecimalFormat.build(file, errors, debugOriginals, Style.SHORT, new ULocale(locale), CurrencyStyle.PLAIN);
             } catch (Exception e) {
                 errors.add("Can't construct: " + e.getMessage());
                 continue;

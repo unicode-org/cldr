@@ -91,6 +91,8 @@ public class ShowKeyboards {
         keyboardChartDir = MyOptions.targetDirectory.option.getValue();
         keyboardChartLayoutsDir = keyboardChartDir + "/layouts/";
 
+        FileUtilities.copyFile(ShowKeyboards.class, "keyboards-index.html", keyboardChartDir, "index.html");
+
         Matcher idMatcher = Pattern.compile(idPattern).matcher("");
         try {
             Log.setLog(CldrUtility.LOG_DIRECTORY + "keyboard-log.txt");

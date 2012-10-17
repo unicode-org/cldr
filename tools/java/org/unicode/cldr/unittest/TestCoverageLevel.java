@@ -35,8 +35,8 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
+import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.NumberFormat.CompactStyle;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
@@ -316,7 +316,7 @@ public class TestCoverageLevel extends TestFmwk {
         }
     }
     
-    static CompactDecimalFormat cdf = NumberFormat.getCompactDecimalInstance(ULocale.ENGLISH, CompactStyle.SHORT);
+    static CompactDecimalFormat cdf = CompactDecimalFormat.getInstance(ULocale.ENGLISH, CompactStyle.SHORT);
     
     static String isBigLanguage(String lang) {
         Set<LanguageStatus> status = languageStatus.get(lang);

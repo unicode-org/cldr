@@ -9,11 +9,12 @@ import org.xml.sax.SAXException;
 
 /**
  * A mapper that converts BCP 47 data from CLDR to the ICU data structure.
+ * 
  * @author jchye
  */
 public class Bcp47Mapper {
     private static final String[] KEYTYPE_FILES = {
-            "calendar", "collation", "currency", "number"
+        "calendar", "collation", "currency", "number"
     };
     private String sourceDir;
 
@@ -42,7 +43,7 @@ public class Bcp47Mapper {
         // Add aliases for timezone data.
         keyTypeData.add("/typeAlias/timezone:alias", "/ICUDATA/timezoneTypes/typeAlias/timezone");
         keyTypeData.add("/typeMap/timezone:alias", "/ICUDATA/timezoneTypes/typeMap/timezone");
-        return new IcuData[] {timezoneData, keyTypeData};
+        return new IcuData[] { timezoneData, keyTypeData };
     }
 
     private void fillFromFile(String filename, IcuData icuData, Map<String, String> keyMap) {
@@ -61,9 +62,12 @@ public class Bcp47Mapper {
 
         /**
          * KeywordHandler constructor.
-         * @param icuData the IcuData object to store the parsed data
-         * @param keyMap a mapping of keys to their aliases. These values will
-         *      not be added to icuData by the handler
+         * 
+         * @param icuData
+         *            the IcuData object to store the parsed data
+         * @param keyMap
+         *            a mapping of keys to their aliases. These values will
+         *            not be added to icuData by the handler
          */
         public KeywordHandler(IcuData icuData, Map<String, String> keyMap) {
             this.icuData = icuData;
@@ -74,7 +78,7 @@ public class Bcp47Mapper {
         public void startElement(String uri, String localName, String qName, Attributes attr) throws SAXException {
             // Format of BCP47 file:
             // <key name="tz" alias="timezone" description="Time zone key">
-            //   <type name="adalv" alias="Europe/Andorra" description="Andorra"/>
+            // <type name="adalv" alias="Europe/Andorra" description="Andorra"/>
             // ...
             if (qName.equals("key")) {
                 String keyAlias = attr.getValue("alias").toLowerCase();

@@ -28,9 +28,9 @@ public class TestDateOrder extends TestFmwk {
         source.putValueAtPath(mediumDate, "dd-MMM-y");
         String shortDate = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat/pattern";
         source.putValueAtPath(shortDate, "dd/MM/yy");
-        String availableFormat =  "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]";
+        String availableFormat = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]";
         source.putValueAtPath(availableFormat, "M/d/y");
-        String intervalFormat =  "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMd\"]/greatestDifference[@id=\"y\"]";
+        String intervalFormat = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMd\"]/greatestDifference[@id=\"y\"]";
         source.putValueAtPath(intervalFormat, "d/M/y – d/M/y");
         CLDRFile cldrFile = new CLDRFile(source);
         DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
@@ -38,9 +38,10 @@ public class TestDateOrder extends TestFmwk {
         assertNull("There should be no conflicts", order.get(fullDate));
         Collection<String> values = order.get(availableFormat).values();
         assertEquals("There should only one conflict", 1, values.size());
-        
+
         values = order.get(intervalFormat).values();
-        assertTrue("There should be a conflict between the interval format and available format", values.contains(availableFormat));
+        assertTrue("There should be a conflict between the interval format and available format",
+            values.contains(availableFormat));
 
         source.putValueAtPath(fullDate, "EEEE, y MMMM dd");
         order = DateOrder.getOrderingInfo(cldrFile, cldrFile, fp);

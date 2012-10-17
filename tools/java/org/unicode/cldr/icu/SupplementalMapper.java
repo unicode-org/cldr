@@ -33,8 +33,8 @@ import com.ibm.icu.util.TimeZone;
  */
 public class SupplementalMapper extends LdmlMapper {
     private static final Map<String, String> enumMap = Builder.with(new HashMap<String, String>())
-            .put("sun", "1").put("mon", "2").put("tues", "3").put("wed", "4")
-            .put("thu", "5").put("fri", "6").put("sat", "7").get();
+        .put("sun", "1").put("mon", "2").put("tues", "3").put("wed", "4")
+        .put("thu", "5").put("fri", "6").put("sat", "7").get();
     private static final Pattern DATE_PATH = Pattern.compile("/CurrencyMap/.*/(from|to):intvector");
     private static final Pattern NUMBERING_SYSTEMS_DESC = Pattern.compile("/numberingSystems/\\w++/desc");
     private static final NumberFormat numberFormat = NumberFormat.getInstance();
@@ -52,7 +52,7 @@ public class SupplementalMapper extends LdmlMapper {
     private static Comparator<String> supplementalComparator = new Comparator<String>() {
         private final Pattern FROM_ATTRIBUTE = Pattern.compile("\\[@from=\"([^\"]++)\"]");
         private final Pattern WEEKDATA = Pattern.compile(
-                "//supplementalData/weekData/(minDays|firstDay|weekendStart|weekendEnd).*");
+            "//supplementalData/weekData/(minDays|firstDay|weekendStart|weekendEnd).*");
 
         @Override
         public int compare(String arg0, String arg1) {
@@ -89,9 +89,12 @@ public class SupplementalMapper extends LdmlMapper {
 
     /**
      * SupplementalMapper constructor.
-     * @param inputDir the directory that the input files are in
-     * @param cldrVersion the version of CLDR for output purposes. Only used
-     * in supplementalData conversion.
+     * 
+     * @param inputDir
+     *            the directory that the input files are in
+     * @param cldrVersion
+     *            the version of CLDR for output purposes. Only used
+     *            in supplementalData conversion.
      */
     public SupplementalMapper(String inputDir, String cldrVersion) {
         super("ldml2icu_supplemental.txt");
@@ -101,14 +104,16 @@ public class SupplementalMapper extends LdmlMapper {
 
     /**
      * Loads an IcuData object of the specified type.
-     * @param outputName the type of data to be converted
+     * 
+     * @param outputName
+     *            the type of data to be converted
      * @return an IcuData object
      */
     public IcuData fillFromCldr(String outputName) {
-        Map<String,CldrArray> pathValueMap = new HashMap<String, CldrArray>();
+        Map<String, CldrArray> pathValueMap = new HashMap<String, CldrArray>();
         String category = outputName;
         if (outputName.equals("supplementalData")) {
-            String[] categories = {"supplementalData", "telephoneCodeData", "languageInfo"};
+            String[] categories = { "supplementalData", "telephoneCodeData", "languageInfo" };
             for (String cat : categories) {
                 loadValues(cat, pathValueMap);
             }
@@ -131,14 +136,16 @@ public class SupplementalMapper extends LdmlMapper {
 
     /**
      * Loads values for the specified category from CLDR.
+     * 
      * @param category
-     * @param pathValueMap the output map
+     * @param pathValueMap
+     *            the output map
      */
-    private void loadValues(String category, Map<String,CldrArray> pathValueMap) {
+    private void loadValues(String category, Map<String, CldrArray> pathValueMap) {
         String inputFile = category + ".xml";
         XMLSource source = new LinkedXMLSource();
         CLDRFile cldrFile = CLDRFile.loadFromFile(new File(inputDir, inputFile),
-                category, DraftStatus.contributed, source);
+            category, DraftStatus.contributed, source);
         RegexLookup<RegexResult> pathConverter = getPathConverter();
         fifoCounter = 0; // Helps to keep unsorted rb paths in order.
         for (String xpath : cldrFile) {
@@ -178,27 +185,33 @@ public class SupplementalMapper extends LdmlMapper {
 
     /**
      * Processes values to be added to the ICU data structure
-     * @param xpath the CLDR path that the values came from
-     * @param rbPath the rbPath that the values belong to
-     * @param values the values
-     * @param groupKey the key that the values should be grouped by
-     * @param pathValueMap the output map
+     * 
+     * @param xpath
+     *            the CLDR path that the values came from
+     * @param rbPath
+     *            the rbPath that the values belong to
+     * @param values
+     *            the values
+     * @param groupKey
+     *            the key that the values should be grouped by
+     * @param pathValueMap
+     *            the output map
      */
     private void processValues(String xpath, String rbPath, List<String> values,
-            String groupKey, Map<String,CldrArray> pathValueMap) {
+        String groupKey, Map<String, CldrArray> pathValueMap) {
         List<String> processedValues = new ArrayList<String>();
         // The fifo counter needs to be formatted with leading zeros for sorting.
         if (rbPath.contains("<FIFO>")) {
             rbPath = rbPath.replace("<FIFO>", '<' + numberFormat.format(fifoCounter) + '>');
         }
         if (NUMBERING_SYSTEMS_DESC.matcher(rbPath).matches()
-                && xpath.contains("algorithmic")) {
+            && xpath.contains("algorithmic")) {
             // Hack to insert % into numberingSystems descriptions.
             String value = values.get(0);
             int percentPos = value.lastIndexOf('/') + 1;
             value = value.substring(0, percentPos) + '%' + value.substring(percentPos);
             processedValues.add(value);
-        } else if (isDatePath(rbPath)){
+        } else if (isDatePath(rbPath)) {
             String[] dateValues = getSeconds(values.get(0));
             processedValues.add(dateValues[0]);
             processedValues.add(dateValues[1]);
@@ -218,6 +231,7 @@ public class SupplementalMapper extends LdmlMapper {
 
     /**
      * Converts a date string to a pair of millisecond values.
+     * 
      * @param dateStr
      * @return
      */
@@ -227,13 +241,13 @@ public class SupplementalMapper extends LdmlMapper {
             return null;
         }
 
-        int top =(int)((millis & 0xFFFFFFFF00000000L)>>>32); // top
-        int bottom = (int)((millis & 0x00000000FFFFFFFFL)); // bottom
-        String[] result = { top + "", bottom + ""};
+        int top = (int) ((millis & 0xFFFFFFFF00000000L) >>> 32); // top
+        int bottom = (int) ((millis & 0x00000000FFFFFFFFL)); // bottom
+        String[] result = { top + "", bottom + "" };
 
         if (NewLdml2IcuConverter.DEBUG) {
             long bot = 0xffffffffL & bottom;
-            long full = ((long)(top) << 32);
+            long full = ((long) (top) << 32);
             full += bot;
             if (full != millis) {
                 System.err.println("Error when converting " + millis + ": " +
@@ -259,7 +273,7 @@ public class SupplementalMapper extends LdmlMapper {
                 }
                 return format.parse(dateStr).getTime();
             }
-        } catch(ParseException ex) {
+        } catch (ParseException ex) {
             System.err.println("Could not parse date: " + dateStr);
         }
         return -1;
@@ -267,18 +281,19 @@ public class SupplementalMapper extends LdmlMapper {
 
     /**
      * Counts the number of hyphens in a string.
+     * 
      * @param str
      * @return
      */
     private static int countHyphens(String str) {
         int lastPos = 0;
         int numHyphens = 0;
-        while ((lastPos = str.indexOf('-', lastPos + 1))  > -1) {
+        while ((lastPos = str.indexOf('-', lastPos + 1)) > -1) {
             numHyphens++;
         }
         return numHyphens;
     }
-    
+
     /**
      * Iterating through this XMLSource will return the xpaths in the order
      * that they were parsed from the XML file.
@@ -299,6 +314,7 @@ public class SupplementalMapper extends LdmlMapper {
             locked = true;
             return this;
         }
+
         @Override
         public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
             xpath_fullXPath.put(distinguishingXPath, fullxpath);
@@ -318,6 +334,7 @@ public class SupplementalMapper extends LdmlMapper {
         public String getValueAtDPath(String path) {
             return xpath_value.get(path);
         }
+
         @Override
         public String getFullPathAtDPath(String xpath) {
             String result = (String) xpath_fullXPath.get(xpath);
@@ -325,10 +342,12 @@ public class SupplementalMapper extends LdmlMapper {
             if (xpath_value.get(xpath) != null) return xpath; // we don't store duplicates
             return null;
         }
+
         @Override
         public Comments getXpathComments() {
             return comments;
         }
+
         @Override
         public void setXpathComments(Comments comments) {
             this.comments = comments;

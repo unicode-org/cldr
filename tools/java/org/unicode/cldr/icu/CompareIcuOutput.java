@@ -26,16 +26,17 @@ import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Compares the contents of ICU data output while ignoring comments.
+ * 
  * @author markdavis, jchye
- *
+ * 
  */
 public class CompareIcuOutput {
     private static final boolean DEBUG = false;
 
     private static final Options options = new Options(
         "Usage: RBChecker [OPTIONS] DIR1 DIR2 FILE_REGEX\n" +
-        "This program is used to compare the RB text files in two different directories.\n" +
-        "  Example: org.unicode.cldr.icu.RBChecker olddatadir newdatadir .*")
+            "This program is used to compare the RB text files in two different directories.\n" +
+            "  Example: org.unicode.cldr.icu.RBChecker olddatadir newdatadir .*")
         .add("sort", 's', null, null, "Sort values for comparison");
 
     private static final Comparator<String[]> comparator = new Comparator<String[]>() {
@@ -60,9 +61,10 @@ public class CompareIcuOutput {
         compareTextFiles(dir1, dir2, regex);
         System.out.println("Total time taken: " + (System.currentTimeMillis() - totaltime));
     }
-    
+
     /**
      * Parses and compares two ICU textfiles.
+     * 
      * @param dir1
      * @param dir2
      * @param regex
@@ -74,7 +76,7 @@ public class CompareIcuOutput {
         String[] filenames = localeDir.list();
         int same = 0, different = 0;
         for (String filename : filenames) {
-            if (!filename.matches(regex +"\\.txt")) continue;
+            if (!filename.matches(regex + "\\.txt")) continue;
             String locale = filename.substring(0, filename.length() - 4);
             try {
                 IcuData oldData = loadDataFromTextfiles(dir1, locale);
@@ -101,13 +103,14 @@ public class CompareIcuOutput {
         if (new File(filename).exists()) {
             parseRB(filename, icuData, comments);
         } else {
-            throw new FileNotFoundException(filename +" does not exist.");
+            throw new FileNotFoundException(filename + " does not exist.");
         }
         return icuData;
     }
 
     /**
      * Computes lists of all differences between two sets of IcuData.
+     * 
      * @param oldData
      * @param newData
      */
@@ -149,14 +152,14 @@ public class CompareIcuOutput {
         }
         return hasDifferences;
     }
-    
+
     private static void printAllInSet(IcuData icuData, Set<String> paths, StringBuffer buffer) {
         for (String path : paths) {
             buffer.append("\t" + path + " = ");
             printValues(icuData.get(path), buffer);
         }
     }
-    
+
     private static void printValues(List<String[]> values, StringBuffer buffer) {
         // Enclose both numbers and strings in quotes for simplicity.
         for (String[] array : values) {
@@ -173,7 +176,7 @@ public class CompareIcuOutput {
         }
         buffer.append('\n');
     }
-    
+
     /**
      * @param oldValues
      * @param newValues
@@ -182,7 +185,7 @@ public class CompareIcuOutput {
     private static boolean valuesDiffer(List<String[]> oldValues, List<String[]> newValues) {
         if (oldValues.size() != newValues.size()) return true;
         boolean differ = false;
-        for (int i=0; i < oldValues.size(); i++) {
+        for (int i = 0; i < oldValues.size(); i++) {
             String[] oldArray = oldValues.get(i);
             String[] newArray = newValues.get(i);
             if (oldArray.length != newArray.length) {
@@ -199,7 +202,6 @@ public class CompareIcuOutput {
         return differ;
     }
 
-
     /**
      * Parse an ICU resource bundle into key,value items
      * 
@@ -207,14 +209,15 @@ public class CompareIcuOutput {
      * @param output
      * @param comments
      */
-    static void parseRB(String filename, IcuData icuData, List<R2<MyTokenizer.Type, String>> comments) throws IOException {
+    static void parseRB(String filename, IcuData icuData, List<R2<MyTokenizer.Type, String>> comments)
+        throws IOException {
         BufferedReader in = null;
         File file = new File(filename);
         String coreFile = file.getName();
         if (!coreFile.endsWith(".txt")) {
             throw new IllegalArgumentException("missing .txt in: " + filename);
         }
-        coreFile = coreFile.substring(0, coreFile.length()-4);
+        coreFile = coreFile.substring(0, coreFile.length() - 4);
         // redo this later on to use fixed PatternTokenizer
         in = BagFormatter.openUTF8Reader("", filename);
         MyTokenizer tokenIterator = new MyTokenizer(in);
@@ -267,18 +270,18 @@ public class CompareIcuOutput {
                 break;
             case OPEN_BRACE:
                 // Check for array-type values.
-                if(lastToken == MyTokenizer.Type.COMMA) {
-                   arrayValues = new ArrayList<String>();
+                if (lastToken == MyTokenizer.Type.COMMA) {
+                    arrayValues = new ArrayList<String>();
                 } else {
                     oldPaths.add(path);
                     indices.add(0);
                     if (lastToken == MyTokenizer.Type.OPEN_BRACE || lastToken == MyTokenizer.Type.CLOSE_BRACE) {
-                       int currentIndexPos = indices.size() - 2;
-                       int currentIndex = indices.get(currentIndexPos);
-                       lastLabel = "<" + currentIndex + ">";
-                       indices.set(currentIndexPos, currentIndex + 1);
+                        int currentIndexPos = indices.size() - 2;
+                        int currentIndex = indices.get(currentIndexPos);
+                        lastLabel = "<" + currentIndex + ">";
+                        indices.set(currentIndexPos, currentIndex + 1);
                     } else if (lastLabel.contains(":") && !lastLabel.contains(":int") && !lastLabel.contains(":alias")
-                            || path.endsWith("/relative")) {
+                        || path.endsWith("/relative")) {
                         lastLabel = '"' + lastLabel + '"';
                     }
                     path += "/" + lastLabel;
@@ -290,7 +293,7 @@ public class CompareIcuOutput {
                     addPath(path, lastLabel, icuData);
                     lastLabel = null;
                 }
-                
+
                 if (arrayValues == null) {
                     path = oldPaths.remove(oldPaths.size() - 1);
                     indices.remove(indices.size() - 1);
@@ -305,7 +308,7 @@ public class CompareIcuOutput {
                 break;
             case COMMA:
                 if (lastToken != MyTokenizer.Type.QUOTED && lastToken != MyTokenizer.Type.ID) {
-                    throw new IllegalArgumentException(filename + ", "+ path +": Commas can only occur after values ");
+                    throw new IllegalArgumentException(filename + ", " + path + ": Commas can only occur after values ");
                 } else if (lastLabel == null) {
                     throw new IllegalArgumentException(filename + ": Label missing!");
                 }
@@ -317,16 +320,17 @@ public class CompareIcuOutput {
                 lastLabel = null;
                 break;
             default:
-                throw new IllegalArgumentException("Illegal type in " + filename + ": " + nextToken + "\t" + tokenText + "\t" + Utility.hex(tokenText));
+                throw new IllegalArgumentException("Illegal type in " + filename + ": " + nextToken + "\t" + tokenText
+                    + "\t" + Utility.hex(tokenText));
             }
             lastToken = nextToken;
         }
     }
-    
+
     private static void addPath(String path, String value, IcuData icuData) {
-        addPath(path, new String[]{value}, icuData);
+        addPath(path, new String[] { value }, icuData);
     }
-    
+
     private static void addPath(String path, String[] values, IcuData icuData) {
         path = path.substring(path.indexOf('/', 1));
         icuData.add(path, values);
@@ -335,11 +339,14 @@ public class CompareIcuOutput {
     /**
      * Reads in tokens from an ICU data file reader.
      * Replace by updated PatternTokenizer someday
+     * 
      * @author markdavis
-     *
+     * 
      */
     static class MyTokenizer {
-        enum Type {DONE, ID, QUOTED, OPEN_BRACE, CLOSE_BRACE, COMMA, LINE_COMMENT, BLOCK_COMMENT, BROKEN_QUOTE, BROKEN_BLOCK_COMMENT, UNKNOWN}
+        enum Type {
+            DONE, ID, QUOTED, OPEN_BRACE, CLOSE_BRACE, COMMA, LINE_COMMENT, BLOCK_COMMENT, BROKEN_QUOTE, BROKEN_BLOCK_COMMENT, UNKNOWN
+        }
 
         private final UForwardCharacterIterator source;
         private final UnicodeSet spaceCharacters = new UnicodeSet("[\\u0000\\uFEFF[:pattern_whitespace:]]");
@@ -358,7 +365,7 @@ public class CompareIcuOutput {
         public Type next(StringBuffer tokenText) {
             int cp = getCodePoint();
             // Skip all spaces not in quotes.
-            while(cp >= 0 && spaceCharacters.contains(cp)) {
+            while (cp >= 0 && spaceCharacters.contains(cp)) {
                 cp = getCodePoint();
             }
 
@@ -414,7 +421,8 @@ public class CompareIcuOutput {
                     }
                     tokenText.appendCodePoint(cp);
                     cp = getCodePoint();
-                };
+                }
+                ;
                 return Type.QUOTED;
             }
             if (cp == '{') {
@@ -448,6 +456,7 @@ public class CompareIcuOutput {
             }
             return source.nextCodePoint();
         }
+
         void pushCodePoint(int codepoint) {
             if (bufferedChar >= 0) {
                 throw new IllegalArgumentException("Cannot push twice");
@@ -467,7 +476,9 @@ public class CompareIcuOutput {
             this.reader = reader;
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see com.ibm.icu.text.UForwardCharacterIterator#next()
          */
         public int next() {
@@ -483,16 +494,18 @@ public class CompareIcuOutput {
             }
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see com.ibm.icu.text.UForwardCharacterIterator#nextCodePoint()
          */
-        public int nextCodePoint(){
+        public int nextCodePoint() {
             int ch1 = next();
-            if(UTF16.isLeadSurrogate((char)ch1)){
+            if (UTF16.isLeadSurrogate((char) ch1)) {
                 int bufferedChar = next();
-                if(UTF16.isTrailSurrogate((char)bufferedChar)){
-                    return UCharacterProperty.getRawSupplementary((char)ch1,
-                            (char)bufferedChar);
+                if (UTF16.isTrailSurrogate((char) bufferedChar)) {
+                    return UCharacterProperty.getRawSupplementary((char) ch1,
+                        (char) bufferedChar);
                 }
             }
             return ch1;

@@ -28,13 +28,14 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     static LinkedHashSet<String> elementOrder = new LinkedHashSet<String>();
     static LinkedHashSet<String> attributeOrder = new LinkedHashSet<String>();
     static LinkedHashSet<String> serialElements = new LinkedHashSet<String>();
-    static Map<String,Map<String,MatcherPattern>> element_attribute_validity = new HashMap<String,Map<String,MatcherPattern>>();
-    static Map<String,MatcherPattern> common_attribute_validity = new HashMap<String,MatcherPattern>();
-    static Map<String,MatcherPattern> variables = new HashMap<String,MatcherPattern>();
-    //    static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above -- to do later.
+    static Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, MatcherPattern>>();
+    static Map<String, MatcherPattern> common_attribute_validity = new HashMap<String, MatcherPattern>();
+    static Map<String, MatcherPattern> variables = new HashMap<String, MatcherPattern>();
+    // static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above
+    // -- to do later.
     static boolean initialized = false;
     static LocaleMatcher localeMatcher;
-    static Map<String,Map<String,String>> code_type_replacement = new TreeMap<String,Map<String,String>>();
+    static Map<String, Map<String, String>> code_type_replacement = new TreeMap<String, Map<String, String>>();
     SupplementalDataInfo supplementalData;
 
     boolean isEnglish;
@@ -47,11 +48,12 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         super(factory);
     }
 
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+        List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (fullPath.indexOf('[') < 0) return this; // skip paths with no attributes
         String locale = getCldrFileToCheck().getSourceLocaleID(path, null);
-        
+
         // skip paths that are not in the immediate locale
         if (!getCldrFileToCheck().getLocaleID().equals(locale)) {
             return this;
@@ -59,10 +61,10 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         parts.set(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
             if (parts.getAttributeCount(i) == 0) continue;
-            Map<String,String> attributes = parts.getAttributes(i);
+            Map<String, String> attributes = parts.getAttributes(i);
             String element = parts.getElement(i);
 
-            Map<String,MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+            Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
             for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
                 String attribute = it.next();
                 String attributeValue = attributes.get(attribute);
@@ -70,9 +72,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                 check(common_attribute_validity, attribute, attributeValue, result);
                 // then for the specific element
                 check(attribute_validity, attribute, attributeValue, result);
-                
+
                 // now for plurals
-                
+
                 if (attribute.equals("count")) {
                     if (DIGITS.containsAll(attributeValue)) {
                         // ok, keep going
@@ -80,9 +82,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                         final Count countValue = PluralInfo.Count.valueOf(attributeValue);
                         if (!pluralInfo.getCountToExamplesMap().keySet().contains(countValue)) {
                             result.add(new CheckStatus()
-                            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
-                            .setMessage("Illegal plural value {0}; must be one of: {1}", 
-                                    new Object[]{countValue, pluralInfo.getCountToExamplesMap().keySet()}));          
+                                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
+                                .setMessage("Illegal plural value {0}; must be one of: {1}",
+                                    new Object[] { countValue, pluralInfo.getCountToExamplesMap().keySet() }));
                         }
                     }
                 }
@@ -90,7 +92,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
         return this;
     }
-    private void check(Map<String,MatcherPattern> attribute_validity, String attribute, String attributeValue, List<CheckStatus> result) {
+
+    private void check(Map<String, MatcherPattern> attribute_validity, String attribute, String attributeValue,
+        List<CheckStatus> result) {
         if (attribute_validity == null) return; // no test
         MatcherPattern matcherPattern = attribute_validity.get(attribute);
         if (matcherPattern == null) return; // no test
@@ -101,40 +105,45 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             if (isEnglish) return; // don't flag English
             if (replacement.length() == 0) {
                 result.add(new CheckStatus()
-                .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttribute)
-                .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.", 
-                        new Object[]{attribute, attributeValue}));
+                    .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttribute)
+                    .setMessage("Deprecated Attribute Value {0}={1}. Consider removing.",
+                        new Object[] { attribute, attributeValue }));
             } else {
-                result.add(new CheckStatus()
-                .setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.deprecatedAttributeWithReplacement)
-                .setMessage("Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.", 
-                        new Object[]{attribute, attributeValue, replacement}));
+                result
+                    .add(new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.deprecatedAttributeWithReplacement)
+                        .setMessage(
+                            "Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.",
+                            new Object[] { attribute, attributeValue, replacement }));
             }
         } else {
             result.add(new CheckStatus()
-            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
-            .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}", 
-                    new Object[]{attribute, attributeValue, matcherPattern.pattern}));
+                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.unexpectedAttributeValue)
+                .setMessage("Unexpected Attribute Value {0}={1}: expected: {2}",
+                    new Object[] { attribute, attributeValue, matcherPattern.pattern }));
         }
     }
 
     /**
      * Returns replacement, or null if there is none. "" if the code is deprecated, but without a replacement.
      * Input is of the form $language
+     * 
      * @return
      */
     String getReplacement(String value, String attributeValue) {
-        Map<String,String> type_replacement = code_type_replacement.get(value);
+        Map<String, String> type_replacement = code_type_replacement.get(value);
         if (type_replacement == null) {
             return null;
         }
         return type_replacement.get(attributeValue);
     }
 
-
     LocaleIDParser localeIDParser = new LocaleIDParser();
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String,String> options, List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+        List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (Phase.FINAL_TESTING == getPhase()) {
             setSkipTest(false); // ok
@@ -144,7 +153,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
 
         supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
-        pluralInfo = supplementalData.getPlurals(PluralType.cardinal,cldrFileToCheck.getLocaleID());
+        pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {
@@ -157,9 +166,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
         if (!localeMatcher.matches(cldrFileToCheck.getLocaleID())) {
             possibleErrors.add(new CheckStatus()
-            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidLocale)
-            .setMessage("Invalid Locale {0}", 
-                    new Object[]{cldrFileToCheck.getLocaleID()}));
+                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.invalidLocale)
+                .setMessage("Invalid Locale {0}",
+                    new Object[] { cldrFileToCheck.getLocaleID() }));
 
         }
         return this;
@@ -184,23 +193,23 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             } else if (lastElement.equals("attributes")) {
                 // skip for now
             } else if (lastElement.equals("variable")) {
-                //            	String oldValue = value;
-                //            	value = variableReplacer.replace(value);
-                //            	if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
-                Map<String,String> attributes = parts.getAttributes(-1);
+                // String oldValue = value;
+                // value = variableReplacer.replace(value);
+                // if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
+                Map<String, String> attributes = parts.getAttributes(-1);
                 MatcherPattern mp = getMatcherPattern(value, attributes, path);
                 if (mp != null) {
                     String id = attributes.get("id");
                     variables.put(id, mp);
-                    //                    variableReplacer.add(id, value);
+                    // variableReplacer.add(id, value);
                 }
             } else if (lastElement.equals("attributeValues")) {
                 try {
-                    Map<String,String> attributes = parts.getAttributes(-1);
+                    Map<String, String> attributes = parts.getAttributes(-1);
 
                     MatcherPattern mp = getMatcherPattern(value, attributes, path);
                     if (mp == null) {
-                        //System.out.println("Failed to make matcher for: " + value + "\t" + path);
+                        // System.out.println("Failed to make matcher for: " + value + "\t" + path);
                         continue;
                     }
                     String[] attributeList = (attributes.get("attributes")).trim().split("\\s+");
@@ -212,17 +221,17 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                         for (int i = 0; i < elementList.length; ++i) {
                             String element = elementList[i];
                             // System.out.println("\t" + element);
-                            Map<String,MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+                            Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
                             if (attribute_validity == null)
                                 element_attribute_validity.put(element,
-                                        attribute_validity = new TreeMap<String,MatcherPattern>());
+                                    attribute_validity = new TreeMap<String, MatcherPattern>());
                             addAttributes(attributeList, attribute_validity, mp);
                         }
                     }
 
                 } catch (RuntimeException e) {
                     System.err
-                    .println("Problem with: " + path + ", \t" + value);
+                        .println("Problem with: " + path + ", \t" + value);
                     e.printStackTrace();
                 }
             } else if (lastElement.equals("version")) {
@@ -230,12 +239,12 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             } else if (lastElement.equals("generation")) {
                 // skip for now
             } else if (lastElement.endsWith("Alias")) {
-                String code = "$" + lastElement.substring(0,lastElement.length()-5);
-                Map<String,String> type_replacement = code_type_replacement.get(code);
+                String code = "$" + lastElement.substring(0, lastElement.length() - 5);
+                Map<String, String> type_replacement = code_type_replacement.get(code);
                 if (type_replacement == null) {
-                    code_type_replacement.put(code, type_replacement = new TreeMap<String,String>());
+                    code_type_replacement.put(code, type_replacement = new TreeMap<String, String>());
                 }
-                Map<String,String> attributes = parts.getAttributes(-1);
+                Map<String, String> attributes = parts.getAttributes(-1);
                 String type = attributes.get("type");
                 String replacement = attributes.get("replacement");
                 if (replacement == null) {
@@ -245,24 +254,24 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             } else if (lastElement.equals("territoryAlias")) {
                 // skip for now
             } else if (lastElement.equals("deprecatedItems")) {
-                // skip for now 
+                // skip for now
             } else if (lastElement.endsWith("Coverage")) {
-                // skip for now 
+                // skip for now
             } else if (lastElement.endsWith("skipDefaultLocale")) {
-                // skip for now 
+                // skip for now
             } else if (lastElement.endsWith("defaultContent")) {
-                // skip for now 
+                // skip for now
             } else if (lastElement.endsWith("distinguishingItems")) {
-                // skip for now 
+                // skip for now
             } else if (lastElement.endsWith("blockingItems")) {
-                // skip for now 
+                // skip for now
             } else {
                 System.out.println("Unknown final element: " + path);
             }
-        }        
+        }
     }
 
-    private MatcherPattern getMatcherPattern(String value, Map<String,String> attributes, String path) {
+    private MatcherPattern getMatcherPattern(String value, Map<String, String> attributes, String path) {
         String typeAttribute = attributes.get("type");
         MatcherPattern result = variables.get(value);
         if (result != null) {
@@ -281,23 +290,25 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         result.pattern = value;
         result.value = value;
         if ("choice".equals(typeAttribute)
-                || "given".equals(attributes.get("order"))) {
-            result.matcher = new CollectionMatcher().set(new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
+            || "given".equals(attributes.get("order"))) {
+            result.matcher = new CollectionMatcher()
+                .set(new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
         } else if ("regex".equals(typeAttribute)) {
-            result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace	
+            result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
         } else if ("locale".equals(typeAttribute)) {
             result.matcher = LocaleMatcher.make();
         } else if ("notDoneYet".equals(typeAttribute) || "notDoneYet".equals(value)) {
             result.matcher = new RegexMatcher().set(".*", Pattern.COMMENTS);
         } else {
-            System.out.println("unknown type; value: <" + value + ">,\t" + typeAttribute + ",\t" + attributes + ",\t" + path);
+            System.out.println("unknown type; value: <" + value + ">,\t" + typeAttribute + ",\t" + attributes + ",\t"
+                + path);
             return null;
         }
         return result;
     }
 
-    private void addAttributes(String[] attributes, Map<String,MatcherPattern> attribute_validity, MatcherPattern mp) {
-        for (String attribute : attributes ) {
+    private void addAttributes(String[] attributes, Map<String, MatcherPattern> attribute_validity, MatcherPattern mp) {
+        for (String attribute : attributes) {
             MatcherPattern old = attribute_validity.get(attribute);
             if (old != null) {
                 mp.matcher = new OrMatcher().set(old.matcher, mp.matcher);
@@ -311,53 +322,67 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         public String value;
         ObjectMatcher<String> matcher;
         String pattern;
+
         public String toString() {
             return matcher.getClass().getName() + "\t" + pattern;
         }
     }
+
     public static class RegexMatcher implements ObjectMatcher<String> {
         private java.util.regex.Matcher matcher;
+
         public ObjectMatcher<String> set(String pattern) {
             matcher = Pattern.compile(pattern).matcher("");
             return this;
         }
+
         public ObjectMatcher<String> set(String pattern, int flags) {
             matcher = Pattern.compile(pattern, flags).matcher("");
             return this;
         }
+
         public boolean matches(String value) {
             matcher.reset(value.toString());
             return matcher.matches();
         }
     }
+
     public static class CollectionMatcher implements ObjectMatcher<String> {
         private Collection<String> collection;
+
         public ObjectMatcher<String> set(Collection<String> collection) {
             this.collection = collection;
             return this;
         }
+
         public boolean matches(String value) {
             return collection.contains(value);
         }
     }
+
     public static class OrMatcher implements ObjectMatcher<String> {
         private ObjectMatcher<String> a;
         private ObjectMatcher<String> b;
+
         public ObjectMatcher<String> set(ObjectMatcher<String> a, ObjectMatcher<String> b) {
             this.a = a;
             this.b = b;
             return this;
         }
+
         public boolean matches(String value) {
             return a.matches(value) || b.matches(value);
         }
     }
+
     public static class ListMatcher implements ObjectMatcher<String> {
         private ObjectMatcher<String> other;
+
         public ObjectMatcher<String> set(ObjectMatcher<String> other) {
             this.other = other;
             return this;
         }
+
         public boolean matches(String value) {
             String[] values = value.trim().split("\\s+");
             if (values.length == 1 && values[0].length() == 0) return true;
@@ -369,6 +394,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             return true;
         }
     }
+
     public static class LocaleMatcher implements ObjectMatcher<String> {
         ObjectMatcher<String> grandfathered = variables.get("$grandfathered").matcher;
         ObjectMatcher<String> language = variables.get("$language").matcher;
@@ -378,7 +404,9 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         LocaleIDParser lip = new LocaleIDParser();
         static LocaleMatcher singleton = null;
         static Object sync = new Object();
-        private LocaleMatcher(boolean b){}
+
+        private LocaleMatcher(boolean b) {
+        }
 
         public static LocaleMatcher make() {
             synchronized (sync) {
@@ -391,7 +419,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
 
         public boolean matches(String value) {
             if (grandfathered.matches(value)) return true;
-            lip.set((String)value);
+            lip.set((String) value);
             String field = lip.getLanguage();
             if (!language.matches(field)) return false;
             field = lip.getScript();

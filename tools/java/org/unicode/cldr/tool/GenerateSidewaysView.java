@@ -62,14 +62,15 @@ import com.ibm.icu.util.ULocale;
  * same element chain, and thus presents a "sideways" view of the data, in files called
  * by_type/X.html, where X is a type. X may be the concatenation of more than more than
  * one element, where the file would otherwise be too large.
+ * 
  * @author medavis
  */
 /*
- Notes:
- http://xml.apache.org/xerces2-j/faq-grammars.html#faq-3
- http://developers.sun.com/dev/coolstuff/xml/readme.html
- http://lists.xml.org/archives/xml-dev/200007/msg00284.html
- http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
+ * Notes:
+ * http://xml.apache.org/xerces2-j/faq-grammars.html#faq-3
+ * http://developers.sun.com/dev/coolstuff/xml/readme.html
+ * http://lists.xml.org/archives/xml-dev/200007/msg00284.html
+ * http://java.sun.com/j2se/1.4.2/docs/api/org/xml/sax/DTDHandler.html
  */
 public class GenerateSidewaysView {
     // debug flags
@@ -82,17 +83,17 @@ public class GenerateSidewaysView {
     static final boolean FIX_ZONE_ALIASES = true;
 
     private static final int
-    HELP1 = 0,
-    HELP2 = 1,
-    SOURCEDIR = 2,
-    DESTDIR = 3,
-    MATCH = 4,
-    SKIP = 5,
-    TZADIR = 6,
-    NONVALIDATING = 7,
-    SHOW_DTD = 8,
-    TRANSLIT = 9,
-    PATH = 10;
+        HELP1 = 0,
+        HELP2 = 1,
+        SOURCEDIR = 2,
+        DESTDIR = 3,
+        MATCH = 4,
+        SKIP = 5,
+        TZADIR = 6,
+        NONVALIDATING = 7,
+        SHOW_DTD = 8,
+        TRANSLIT = 9,
+        PATH = 10;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -101,7 +102,8 @@ public class GenerateSidewaysView {
         UOption.DESTDIR().setDefault(CldrUtility.CHART_DIRECTORY + "by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
-        UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault("C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
+        UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(
+            "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
         UOption.create("nonvalidating", 'n', UOption.NO_ARG),
         UOption.create("dtd", 'w', UOption.NO_ARG),
         UOption.create("transliterate", 'y', UOption.NO_ARG),
@@ -109,7 +111,7 @@ public class GenerateSidewaysView {
     };
 
     private static final Matcher altProposedMatcher = CLDRFile.ALT_PROPOSED_PATTERN.matcher("");
-    //private static final UnicodeSet ALL_CHARS = new UnicodeSet(0, 0x10FFFF);
+    // private static final UnicodeSet ALL_CHARS = new UnicodeSet(0, 0x10FFFF);
     protected static final UnicodeSet COMBINING = (UnicodeSet) new UnicodeSet("[[:m:]]").freeze();
 
     static int getFirstScript(UnicodeSet exemplars) {
@@ -128,10 +130,10 @@ public class GenerateSidewaysView {
         RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         UCA2.setNumericCollation(true);
         UCA2.setStrength(Collator.IDENTICAL);
-        UCA = new com.ibm.icu.impl.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
+        UCA = new com.ibm.icu.impl.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0));
     }
 
-    private static Map<PathHeader,Map<String,Set<String>>> path_value_locales = new TreeMap<PathHeader,Map<String,Set<String>>>();
+    private static Map<PathHeader, Map<String, Set<String>>> path_value_locales = new TreeMap<PathHeader, Map<String, Set<String>>>();
     private static XPathParts parts = new XPathParts(null, null);
     private static long startTime = System.currentTimeMillis();
 
@@ -142,8 +144,8 @@ public class GenerateSidewaysView {
     }
 
     private static CLDRFile english;
-    //private static  DataShower dataShower = new DataShower();
-    private static  Matcher pathMatcher;
+    // private static DataShower dataShower = new DataShower();
+    private static Matcher pathMatcher;
 
     public static void main(String[] args) throws SAXException, IOException {
         startTime = System.currentTimeMillis();
@@ -158,7 +160,7 @@ public class GenerateSidewaysView {
 
         FileUtilities.copyFile(GenerateSidewaysView.class, "bytype-index.css", options[DESTDIR].value, "index.css");
         FileUtilities.copyFile(GenerateSidewaysView.class, "bytype-index.html", options[DESTDIR].value, "index.html");
-        
+
         // now get the info
 
         loadInformation(cldrFactory);
@@ -166,35 +168,35 @@ public class GenerateSidewaysView {
         PrintWriter out = null;
 
         System.out.println("Getting types " + path_value_locales.size());
-        //        Set<String> types = new TreeSet<String>();
-        //        for (PathHeader path : path_value_locales.keySet()) {       	
-        //            String main = getFileName2(path);
-        //            if (!main.equals(oldMain)) {
-        //                oldMain = main;
-        //                types.add(main);
-        //            }
-        //        }
+        // Set<String> types = new TreeSet<String>();
+        // for (PathHeader path : path_value_locales.keySet()) {
+        // String main = getFileName2(path);
+        // if (!main.equals(oldMain)) {
+        // oldMain = main;
+        // types.add(main);
+        // }
+        // }
         String headerString = getHeader(path_value_locales.keySet());
 
         System.out.println("Printing files in " + new File(options[DESTDIR].value).getAbsolutePath());
-        //Transliterator toLatin = Transliterator.getInstance("any-latin");
+        // Transliterator toLatin = Transliterator.getInstance("any-latin");
         toHTML = TransliteratorUtilities.toHTML;
-        //UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
+        // UnicodeSet BIDI_R = new UnicodeSet("[[:Bidi_Class=R:][:Bidi_Class=AL:]]");
 
         String oldHeader = "";
-        
-        for (PathHeader path : path_value_locales.keySet()) {       	
+
+        for (PathHeader path : path_value_locales.keySet()) {
             String main = getFileName2(path);
             if (!main.equals(oldMain)) {
                 oldMain = main;
-                out = start(out, main, headerString, path.getSection()  + ":" + path.getPage());
+                out = start(out, main, headerString, path.getSection() + ":" + path.getPage());
                 oldHeader = "";
             }
             String key = path.getCode();
             String anchor = toHTML.transliterate(key);
 
             String originalPath = path.getOriginalPath(); // prettyPath.getOriginal(path);
-            String englishValue = english.getStringValue (originalPath);
+            String englishValue = english.getStringValue(originalPath);
             if (englishValue != null) {
                 englishValue = "English: ‹" + englishValue + "›";
             } else {
@@ -207,28 +209,28 @@ public class GenerateSidewaysView {
                 out.println("<tr><th colSpan='2' class='pathHeader'><a " +
                     "name=\"" + htmlHeader + "\"" +
                     "href=\"#" + htmlHeader + "\"" +
-                				">" + htmlHeader.replace("_", " ") + "</a></th><tr>");
+                    ">" + htmlHeader.replace("_", " ") + "</a></th><tr>");
                 oldHeader = header;
             }
             String anchorId = Long.toHexString(StringId.getId(path.getOriginalPath()));
             out.println("<tr>" +
-                    "<th class='path'><a " +
-                    "name=\"" + anchorId + "\"" +
-                    "href=\"#" + anchorId + "\"" +
-                    		">Code: ‹" + anchor + "›</a></th>" +
-                    "<th class='path'>" + toHTML.transliterate(englishValue) + "</a></th>" +
-            "<tr>");
-            Map<String, Set<String>> value_locales =  path_value_locales.get(path);
+                "<th class='path'><a " +
+                "name=\"" + anchorId + "\"" +
+                "href=\"#" + anchorId + "\"" +
+                ">Code: ‹" + anchor + "›</a></th>" +
+                "<th class='path'>" + toHTML.transliterate(englishValue) + "</a></th>" +
+                "<tr>");
+            Map<String, Set<String>> value_locales = path_value_locales.get(path);
             for (String value : value_locales.keySet()) {
-                //        String outValue = toHTML.transliterate(value);
-                //        String transValue = value;
-                //        try {
-                //          transValue = toLatin.transliterate(value);
-                //        } catch (RuntimeException e) {
-                //        }
-                //        if (!transValue.equals(value)) {
-                //          outValue = "<span title='" + toHTML.transliterate(transValue) + "'>" + outValue + "</span>";
-                //        }
+                // String outValue = toHTML.transliterate(value);
+                // String transValue = value;
+                // try {
+                // transValue = toLatin.transliterate(value);
+                // } catch (RuntimeException e) {
+                // }
+                // if (!transValue.equals(value)) {
+                // outValue = "<span title='" + toHTML.transliterate(transValue) + "'>" + outValue + "</span>";
+                // }
                 String valueClass = " class='value'";
                 if (DataShower.getBidiStyle(value).length() != 0) {
                     valueClass = " class='rtl_value'";
@@ -238,13 +240,15 @@ public class GenerateSidewaysView {
                 boolean first = true;
                 boolean containsRoot = locales.contains("root");
                 for (String locale : locales) {
-                    if (first) first = false;
-                    else out.print(" ");
+                    if (first)
+                        first = false;
+                    else
+                        out.print(" ");
                     if (locale.endsWith("*")) {
-                        locale = locale.substring(0,locale.length()-1);
+                        locale = locale.substring(0, locale.length() - 1);
                         out.print("<i>\u00B7" + locale + "\u00B7</i>");
                     } else if (!containsRoot) {
-                        out.print("\u00B7" + locale + "\u00B7");         
+                        out.print("\u00B7" + locale + "\u00B7");
                     }
                 }
                 if (containsRoot) {
@@ -256,36 +260,37 @@ public class GenerateSidewaysView {
         out = showExemplars(out, headerString);
         finish(out);
         System.out.println("Done in " + new RuleBasedNumberFormat(new ULocale("en"), RuleBasedNumberFormat.DURATION)
-        .format((System.currentTimeMillis()-startTime)/1000.0));
+            .format((System.currentTimeMillis() - startTime) / 1000.0));
     }
 
-    //  static Comparator UCA;
-    //  static {
-    //    RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-    //    UCA2.setNumericCollation(true);
-    //    UCA2.setStrength(UCA2.IDENTICAL);
-    //    UCA = new CollectionUtilities.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
-    //  }
+    // static Comparator UCA;
+    // static {
+    // RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    // UCA2.setNumericCollation(true);
+    // UCA2.setStrength(UCA2.IDENTICAL);
+    // UCA = new CollectionUtilities.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0) );
+    // }
 
     private static PrintWriter showExemplars(PrintWriter out, String headerString) throws IOException {
         showExemplars2(out, headerString, "misc.exemplarCharacters", "");
-        //showExemplars2(out, types, "misc.exemplarCharacters-index", "[@type=\"index\"]");
-        //showExemplars2(out, types, "misc.exemplarCharacters-auxiliary", "[@type=\"auxiliary\"]");
-        //showExemplars2(out, types, "misc.exemplarCharacters-currencySymbol", "[@type=\"currencySymbol\"]");
+        // showExemplars2(out, types, "misc.exemplarCharacters-index", "[@type=\"index\"]");
+        // showExemplars2(out, types, "misc.exemplarCharacters-auxiliary", "[@type=\"auxiliary\"]");
+        // showExemplars2(out, types, "misc.exemplarCharacters-currencySymbol", "[@type=\"currencySymbol\"]");
         return out;
     }
 
-    private static PrintWriter showExemplars2(PrintWriter out, String headerString, String filename, String variant) throws IOException {
+    private static PrintWriter showExemplars2(PrintWriter out, String headerString, String filename, String variant)
+        throws IOException {
         finish(out);
-        out = start(out,filename, headerString, "Exemplars");
+        out = start(out, filename, headerString, "Exemplars");
         out.println("<table>");
         PathHeader cleanPath = fixPath("//ldml/characters/exemplarCharacters" + variant, null);
         Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
 
         // TODO change logic so that aux characters and currencySymbol characters work well.
 
-        Map<String,UnicodeMap<Set<String>>> script_UnicodeMap = new TreeMap<String,UnicodeMap<Set<String>>>();
-        //UnicodeMap mapping = new UnicodeMap();
+        Map<String, UnicodeMap<Set<String>>> script_UnicodeMap = new TreeMap<String, UnicodeMap<Set<String>>>();
+        // UnicodeMap mapping = new UnicodeMap();
         UnicodeSet stuffToSkip = new UnicodeSet("[:Han:]");
 
         // get the locale information
@@ -316,7 +321,8 @@ public class GenerateSidewaysView {
     }
 
     private static void writeCharToLocaleMapping(PrintWriter out, String script, UnicodeMap<Set<String>> mapping) {
-        BreakIterator charBreaks = BreakIterator.getCharacterInstance(ULocale.ROOT); // TODO, make default language for script
+        BreakIterator charBreaks = BreakIterator.getCharacterInstance(ULocale.ROOT); // TODO, make default language for
+                                                                                     // script
         System.out.println("@@Exemplars for\t" + script + "\t" + mapping.keySet());
         if (script.equals("Hangul") || script.equals("Common")) {
             return; // skip these
@@ -346,12 +352,13 @@ public class GenerateSidewaysView {
 
         for (String locale : allLocales) {
             out.println("<tr>");
-            out.println("<th class='head'>" + cleanLocale(locale, false) + "</th><td class='head nowrap left'>" + cleanLocale(locale, true) + "</td>");
+            out.println("<th class='head'>" + cleanLocale(locale, false) + "</th><td class='head nowrap left'>"
+                + cleanLocale(locale, true) + "</td>");
             for (String item : allChars) {
-                //String exemplarsWithoutBrackets = displayExemplars(item);
+                // String exemplarsWithoutBrackets = displayExemplars(item);
                 if (mapping.get(item).contains(locale)) {
                     out.println("<td class='cell'" +
-                            ">" + displayCharacter(item) + "</td>");
+                        ">" + displayCharacter(item) + "</td>");
                 } else {
                     out.println("<td class='empty'>\u00a0</td>");
                 }
@@ -360,7 +367,7 @@ public class GenerateSidewaysView {
             StringBuilder strings = new StringBuilder();
             int lastLineStart = 0;
             for (String item : allStrings) {
-                //String exemplarsWithoutBrackets = displayExemplars(item);
+                // String exemplarsWithoutBrackets = displayExemplars(item);
                 if (mapping.get(item).contains(locale)) {
                     int str_len = strings.length();
                     if (str_len != 0) {
@@ -377,9 +384,11 @@ public class GenerateSidewaysView {
             if (strings.length() == 0) {
                 out.println("<td class='empty'>\u00a0</td>");
             } else {
-                out.println("<td class='cell nowrap'>" + displayCharacter(strings.toString()).replace("\n", "<br>") + "</td>");
+                out.println("<td class='cell nowrap'>" + displayCharacter(strings.toString()).replace("\n", "<br>")
+                    + "</td>");
             }
-            out.println("<th class='head'>" + cleanLocale(locale, false) + "</th><td class='head nowrap left'>" + cleanLocale(locale, true) + "</td>");
+            out.println("<th class='head'>" + cleanLocale(locale, false) + "</th><td class='head nowrap left'>"
+                + cleanLocale(locale, true) + "</td>");
 
             out.println("</tr>");
         }
@@ -388,11 +397,10 @@ public class GenerateSidewaysView {
     }
 
     private static String characterTitle(String item) {
-        return ("title='U+" + 
-                toHTML.transform(
-                        Utility.hex(item, 4, ", U+", true, new StringBuilder())
-                        + " " + UCharacter.getName(item, ", ")) +
-        "'");
+        return ("title='U+" +
+            toHTML.transform(
+                Utility.hex(item, 4, ", U+", true, new StringBuilder())
+                    + " " + UCharacter.getName(item, ", ")) + "'");
     }
 
     private static void exemplarHeader(PrintWriter out, Set<String> allChars) {
@@ -430,7 +438,7 @@ public class GenerateSidewaysView {
         }
         boolean draft = item.endsWith("*");
         if (draft) {
-            item = item.substring(0,item.length()-1);
+            item = item.substring(0, item.length() - 1);
         }
         cleanLocaleParser.set(item);
         item = cleanLocaleParser.toString(allButScripts);
@@ -446,65 +454,65 @@ public class GenerateSidewaysView {
         return item;
     }
 
-    //    private static void showExemplarRow(PrintWriter out, Set<String> allLocales, UnicodeSet lastChars, Set locales) {
-    //        String exemplarsWithoutBrackets = displayExemplars(lastChars);
-    //        out.println("<tr><th class='head'>" + exemplarsWithoutBrackets + "</th>");
-    //        for (String item : allLocales) {
-    //            String cleanItem;
-    //            if (locales.contains(item)) {
-    //                cleanItem = "<th class='value'>" + cleanLocale(item, false) + "</th>";
-    //            } else {
-    //                cleanItem = "<td class='value'>\u00a0</td>";
-    //            }
-    //            out.println(cleanItem);
-    //        }
-    //        out.println("</tr>");
-    //    }
+    // private static void showExemplarRow(PrintWriter out, Set<String> allLocales, UnicodeSet lastChars, Set locales) {
+    // String exemplarsWithoutBrackets = displayExemplars(lastChars);
+    // out.println("<tr><th class='head'>" + exemplarsWithoutBrackets + "</th>");
+    // for (String item : allLocales) {
+    // String cleanItem;
+    // if (locales.contains(item)) {
+    // cleanItem = "<th class='value'>" + cleanLocale(item, false) + "</th>";
+    // } else {
+    // cleanItem = "<td class='value'>\u00a0</td>";
+    // }
+    // out.println(cleanItem);
+    // }
+    // out.println("</tr>");
+    // }
 
-    //    private static final StringTransform MyTransform = new StringTransform() {
+    // private static final StringTransform MyTransform = new StringTransform() {
     //
-    //        public String transform(String source) {
-    //            StringBuilder builder = new StringBuilder();
-    //            int cp = 0;
-    //            builder.append("<span title='");
-    //            String prefix = "";
-    //            for (int i = 0; i < source.length(); i += UTF16.getCharCount(cp)) {
-    //                cp = UTF16.charAt(source, i);
-    //                if (i == 0) {
-    //                    if (COMBINING.contains(cp)) {
-    //                        prefix = "\u25CC";
-    //                    }
-    //                } else {
-    //                    builder.append(" + ");
-    //                }
-    //                builder.append("U+").append(com.ibm.icu.impl.Utility.hex(cp,4)).append(' ').append(UCharacter.getExtendedName(cp));
-    //            }
-    //            builder.append("'>").append(prefix).append(source).append("</span>");
-    //            return builder.toString();
-    //        }
+    // public String transform(String source) {
+    // StringBuilder builder = new StringBuilder();
+    // int cp = 0;
+    // builder.append("<span title='");
+    // String prefix = "";
+    // for (int i = 0; i < source.length(); i += UTF16.getCharCount(cp)) {
+    // cp = UTF16.charAt(source, i);
+    // if (i == 0) {
+    // if (COMBINING.contains(cp)) {
+    // prefix = "\u25CC";
+    // }
+    // } else {
+    // builder.append(" + ");
+    // }
+    // builder.append("U+").append(com.ibm.icu.impl.Utility.hex(cp,4)).append(' ').append(UCharacter.getExtendedName(cp));
+    // }
+    // builder.append("'>").append(prefix).append(source).append("</span>");
+    // return builder.toString();
+    // }
     //
-    //    };
+    // };
 
-    //    private static String displayExemplars(UnicodeSet lastChars) {
-    //        String exemplarsWithoutBrackets = new PrettyPrinter()
-    //        .setOrdering(UCA != null ? UCA : Collator.getInstance(ULocale.ROOT))
-    //        .setSpaceComparator(UCA != null ? UCA : Collator.getInstance(ULocale.ROOT)
-    //                .setStrength2(Collator.PRIMARY))
-    //                .setCompressRanges(true)
-    //                .setToQuote(ALL_CHARS)
-    //                .setQuoter(MyTransform)
-    //                .format(lastChars);
-    //        exemplarsWithoutBrackets = exemplarsWithoutBrackets.substring(1, exemplarsWithoutBrackets.length() - 1);
-    //        return exemplarsWithoutBrackets;
-    //    }
+    // private static String displayExemplars(UnicodeSet lastChars) {
+    // String exemplarsWithoutBrackets = new PrettyPrinter()
+    // .setOrdering(UCA != null ? UCA : Collator.getInstance(ULocale.ROOT))
+    // .setSpaceComparator(UCA != null ? UCA : Collator.getInstance(ULocale.ROOT)
+    // .setStrength2(Collator.PRIMARY))
+    // .setCompressRanges(true)
+    // .setToQuote(ALL_CHARS)
+    // .setQuoter(MyTransform)
+    // .format(lastChars);
+    // exemplarsWithoutBrackets = exemplarsWithoutBrackets.substring(1, exemplarsWithoutBrackets.length() - 1);
+    // return exemplarsWithoutBrackets;
+    // }
 
-    //  private static boolean isNextCharacter(String last, String value) {
-    //    if (UTF16.hasMoreCodePointsThan(last, 1)) return false;
-    //    if (UTF16.hasMoreCodePointsThan(value, 1)) return false;
-    //    int lastChar = UTF16.charAt(last,0);
-    //    int valueChar = UTF16.charAt(value,0);
-    //    return lastChar + 1 == valueChar;
-    //  }
+    // private static boolean isNextCharacter(String last, String value) {
+    // if (UTF16.hasMoreCodePointsThan(last, 1)) return false;
+    // if (UTF16.hasMoreCodePointsThan(value, 1)) return false;
+    // int lastChar = UTF16.charAt(last,0);
+    // int valueChar = UTF16.charAt(value,0);
+    // return lastChar + 1 == valueChar;
+    // }
 
     static UnicodeMap.Composer<Set<String>> setComposer = new UnicodeMap.Composer<Set<String>>() {
         public Set<String> compose(int codepoint, String string, Set<String> a, Set<String> b) {
@@ -522,7 +530,7 @@ public class GenerateSidewaysView {
 
     private static void loadInformation(Factory cldrFactory) {
         Set<String> alllocales = cldrFactory.getAvailable();
-        String[] postFix = new String[]{""};
+        String[] postFix = new String[] { "" };
         // gather all information
         // TODO tweek for value-laden attributes
         for (String localeID : alllocales) {
@@ -550,7 +558,7 @@ public class GenerateSidewaysView {
                 PathHeader cleanPath = fixPath(path, postFix);
                 final SurveyToolStatus surveyToolStatus = cleanPath.getSurveyToolStatus();
                 if (surveyToolStatus == SurveyToolStatus.DEPRECATED || surveyToolStatus == SurveyToolStatus.HIDE) {
-                    //System.out.println("Skipping " + path);
+                    // System.out.println("Skipping " + path);
                     continue;
                 }
                 String fullPath = cldrFile.getFullXPath(path);
@@ -559,12 +567,13 @@ public class GenerateSidewaysView {
                     continue;
                 }
                 if (fullPath.indexOf("[@draft=\"unconfirmed\"]") >= 0
-                        || fullPath.indexOf("[@draft=\"provisional\"]") >= 0) {
+                    || fullPath.indexOf("[@draft=\"provisional\"]") >= 0) {
                     postFix[0] = "*";
                 }
                 Map<String, Set<String>> value_locales = path_value_locales.get(cleanPath);
-                if (value_locales == null ) {
-                    path_value_locales.put(cleanPath, value_locales = new TreeMap<String, Set<String>>(standardCollation));
+                if (value_locales == null) {
+                    path_value_locales.put(cleanPath, value_locales = new TreeMap<String, Set<String>>(
+                        standardCollation));
                 }
                 Set<String> locales = value_locales.get(value);
                 if (locales == null) {
@@ -587,12 +596,12 @@ public class GenerateSidewaysView {
             if (localePrefix != null) localePrefix[0] = "*";
             path = removeAttributes(path, skipSet);
         }
-        //if (usePrettyPath) path = prettyPath.getPrettyPath(path);
+        // if (usePrettyPath) path = prettyPath.getPrettyPath(path);
         return pathHeaderFactory.fromPath(path);
     }
 
     private static String removeAttributes(String xpath, Set<String> skipAttributes) {
-        XPathParts parts = new XPathParts(null,null).set(xpath);
+        XPathParts parts = new XPathParts(null, null).set(xpath);
         removeAttributes(parts, skipAttributes);
         return parts.toString();
     }
@@ -602,7 +611,7 @@ public class GenerateSidewaysView {
      */
     private static void removeAttributes(XPathParts parts, Set<String> skipAttributes) {
         for (int i = 0; i < parts.size(); ++i) {
-            //String element = parts.getElement(i);
+            // String element = parts.getElement(i);
             Map<String, String> attributes = parts.getAttributes(i);
             for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
                 String attribute = (String) it.next();
@@ -626,7 +635,7 @@ public class GenerateSidewaysView {
         }
         cldrFile.getSourceLocaleID(path, status);
         if (!path.equals(status.pathWhereFound)) {
-            //value = "[" + prettyPath.getPrettyPath(status.pathWhereFound, false) + "]";
+            // value = "[" + prettyPath.getPrettyPath(status.pathWhereFound, false) + "]";
             value = null;
             return value;
         }
@@ -634,7 +643,7 @@ public class GenerateSidewaysView {
             parts.set(fullPath);
             removeAttributes(parts, skipSet);
             int limit = parts.size();
-            value = parts.toString(limit-1, limit);
+            value = parts.toString(limit - 1, limit);
             return value;
         }
         return value;
@@ -649,10 +658,11 @@ public class GenerateSidewaysView {
     private static Transliterator toHTML;
 
     /**
-     * @param path2 
+     * @param path2
      * 
      */
-    private static PrintWriter start(PrintWriter out, String main, String headerString, String title) throws IOException {
+    private static PrintWriter start(PrintWriter out, String main, String headerString, String title)
+        throws IOException {
         finish(out);
         out = writeHeader(main, title);
         out.println(headerString);
@@ -674,7 +684,7 @@ public class GenerateSidewaysView {
                 out.append("<b>" + mainName + "</b>: ");
                 lastMain = mainName;
                 lastSub = subName;
-            } else if (!subName.equals(lastSub)){
+            } else if (!subName.equals(lastSub)) {
                 out.append(" | ");
                 lastSub = subName;
             } else {
@@ -686,7 +696,7 @@ public class GenerateSidewaysView {
             }
             continue;
         }
-        //<a href="patterns.labels.html">Labels</a>
+        // <a href="patterns.labels.html">Labels</a>
         // file:///Users/markdavis/Documents/indigo/cldr-tmp/charts/by_type/misc.exemplarCharacters.html
         return out.append("</p>").toString();
     }
@@ -695,15 +705,14 @@ public class GenerateSidewaysView {
         PrintWriter out;
         out = BagFormatter.openUTF8Writer(options[DESTDIR].value, main + ".html");
 
-
         ShowData.getChartTemplate("By-Type Chart: " + title,
-                CldrUtility.CHART_DISPLAY_VERSION, 
-                "",
-                //"<link rel='stylesheet' type='text/css' href='by_type.css'>" +
-                //    "<style type='text/css'>" + Utility.LINE_SEPARATOR +
-                //    "h1 {margin-bottom:1em}" + Utility.LINE_SEPARATOR +
-                //    "</style>" + Utility.LINE_SEPARATOR,
-                headerAndFooter);
+            CldrUtility.CHART_DISPLAY_VERSION,
+            "",
+            // "<link rel='stylesheet' type='text/css' href='by_type.css'>" +
+            // "<style type='text/css'>" + Utility.LINE_SEPARATOR +
+            // "h1 {margin-bottom:1em}" + Utility.LINE_SEPARATOR +
+            // "</style>" + Utility.LINE_SEPARATOR,
+            headerAndFooter);
         out.println(headerAndFooter[0]);
         out.println("<blockquote><p>");
         return out;

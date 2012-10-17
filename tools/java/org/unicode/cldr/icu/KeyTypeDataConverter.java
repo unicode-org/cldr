@@ -27,7 +27,6 @@ public class KeyTypeDataConverter {
     private static final String SOURCE_INFO = "common/bcp47/*.xml";
     private static final String EXTERNAL_TYPES_SUFFIX = "Types";
 
-
     private static final boolean DEBUG = false;
 
     public KeyTypeDataConverter(ICULog log, String bcp47Dir, String[] externalTypeKeys) {
@@ -143,9 +142,9 @@ public class KeyTypeDataConverter {
         if (files == null) {
             String canonicalPath;
             try {
-              canonicalPath = dir.getCanonicalPath();
+                canonicalPath = dir.getCanonicalPath();
             } catch (IOException e) {
-              canonicalPath = e.getMessage();
+                canonicalPath = e.getMessage();
             }
             log.error("BCP47 files are missing " + canonicalPath);
             System.exit(-1);
@@ -159,8 +158,8 @@ public class KeyTypeDataConverter {
                 Document doc = LDMLUtilities.parse(filePath, false);
                 documents.add(doc);
             } catch (Throwable se) {
-              log.error("Parsing: " + fileName + " " + se.toString(), se);
-              System.exit(1);
+                log.error("Parsing: " + fileName + " " + se.toString(), se);
+                System.exit(1);
             }
         }
         return documents;
@@ -196,7 +195,8 @@ public class KeyTypeDataConverter {
         }
     }
 
-    private static void addTypeMaps(Map<String, Map<String, String>> typeMaps, Map<String, Map<String, String>> typeAliases, Document root) {
+    private static void addTypeMaps(Map<String, Map<String, String>> typeMaps,
+        Map<String, Map<String, String>> typeAliases, Document root) {
         for (Node node = root.getFirstChild(); node != null; node = node.getNextSibling()) {
             if (node.getNodeType() != Node.ELEMENT_NODE) {
                 continue;
@@ -279,8 +279,8 @@ public class KeyTypeDataConverter {
                 for (String extKey : externalTypeKeys) {
                     if (extKey.equals(itemKey)) {
                         aliasName = "/ICUDATA/" + itemKey + EXTERNAL_TYPES_SUFFIX
-                                    + "/" + LDMLBCP47Constants.TYPEMAP
-                                    + "/" + itemKey;
+                            + "/" + LDMLBCP47Constants.TYPEMAP
+                            + "/" + itemKey;
                         break;
                     }
                 }
@@ -333,7 +333,7 @@ public class KeyTypeDataConverter {
         typeAliasRes.name = LDMLBCP47Constants.TYPEALIAS;
 
         Resource cur = null;
-        for (Entry<String, Map<String, String>> aliasesForKeyItem: typeAliases.entrySet()) {
+        for (Entry<String, Map<String, String>> aliasesForKeyItem : typeAliases.entrySet()) {
             String itemKey = aliasesForKeyItem.getKey();
             if (key != null && !itemKey.equals(key)) {
                 // skip this key
@@ -345,8 +345,8 @@ public class KeyTypeDataConverter {
                 for (String extKey : externalTypeKeys) {
                     if (extKey.equals(itemKey)) {
                         aliasName = "/ICUDATA/" + itemKey + EXTERNAL_TYPES_SUFFIX
-                                    + "/" + LDMLBCP47Constants.TYPEALIAS
-                                    + "/" + itemKey;
+                            + "/" + LDMLBCP47Constants.TYPEALIAS
+                            + "/" + itemKey;
                         break;
                     }
                 }

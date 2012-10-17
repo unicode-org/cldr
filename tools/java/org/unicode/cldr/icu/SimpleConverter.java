@@ -1,11 +1,11 @@
 /*
-**********************************************************************
-* Copyright (c) 2002-2004, International Business Machines
-* Corporation and others.  All Rights Reserved.
-**********************************************************************
-* Author: Mark Davis
-**********************************************************************
-*/
+ **********************************************************************
+ * Copyright (c) 2002-2004, International Business Machines
+ * Corporation and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: Mark Davis
+ **********************************************************************
+ */
 package org.unicode.cldr.icu;
 
 import java.nio.ByteBuffer;
@@ -20,7 +20,6 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ByteArrayWrapper;
 
-
 /**
  * WARNING, DON'T USE.
  * This is very draft. Don't use outside of GenerateSidewaysView, for now.
@@ -28,14 +27,15 @@ import com.ibm.icu.util.ByteArrayWrapper;
 public class SimpleConverter {
     public SimpleConverter(Charset cs) {
         ce = cs
-           .newEncoder()
-           .onMalformedInput(CodingErrorAction.REPORT)
-           .onUnmappableCharacter(CodingErrorAction.REPORT);
+            .newEncoder()
+            .onMalformedInput(CodingErrorAction.REPORT)
+            .onUnmappableCharacter(CodingErrorAction.REPORT);
         cd = cs
-           .newDecoder()
-           .onMalformedInput(CodingErrorAction.REPORT)
-           .onUnmappableCharacter(CodingErrorAction.REPORT);
+            .newDecoder()
+            .onMalformedInput(CodingErrorAction.REPORT)
+            .onUnmappableCharacter(CodingErrorAction.REPORT);
     }
+
     public char[] cb = new char[100];
     public CharBuffer charBuffer = CharBuffer.wrap(cb);
     public byte[] bb = new byte[100];
@@ -55,7 +55,7 @@ public class SimpleConverter {
                     ByteArrayWrapper ab = encode(2);
                     if (ab == null) continue;
                     String backMap = decode(ab.size);
-                    if (backMap.length() != 2 || UTF16.charAt(backMap,0) != i) continue;
+                    if (backMap.length() != 2 || UTF16.charAt(backMap, 0) != i) continue;
                     result.add(i);
                 }
                 continue;
@@ -93,6 +93,6 @@ public class SimpleConverter {
         CoderResult result = cd.decode(byteBuffer, charBuffer, true);
         if (result.isError()) return null;
         charBuffer.flip();
-        return String.valueOf(cb,0,charBuffer.limit());
+        return String.valueOf(cb, 0, charBuffer.limit());
     }
 }

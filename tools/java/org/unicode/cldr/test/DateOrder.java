@@ -28,26 +28,31 @@ public class DateOrder implements Comparable<DateOrder> {
         etype1 = a;
         etype2 = b;
     }
+
     @Override
     public boolean equals(Object obj) {
-        DateOrder that = (DateOrder)obj;
+        DateOrder that = (DateOrder) obj;
         return that.etype1 == etype1 && that.etype2 == etype2;
     }
+
     @Override
     public int hashCode() {
-        return etype1*37 + etype2;
+        return etype1 * 37 + etype2;
     }
+
     @Override
     public String toString() {
         return "<" + toString2(etype1) + "," + toString2(etype2) + ">";
     }
+
     private String toString2(int etype) {
         char lead;
-        switch (etype>>1) {
+        switch (etype >> 1) {
 
         }
-        return (VariableField.getCanonicalCode(etype>>1)) + ((etype&1) == 0 ? "" : "ⁿ");
+        return (VariableField.getCanonicalCode(etype >> 1)) + ((etype & 1) == 0 ? "" : "ⁿ");
     }
+
     @Override
     public int compareTo(DateOrder that) {
         int diff;
@@ -57,11 +62,12 @@ public class DateOrder implements Comparable<DateOrder> {
         return etype2 - that.etype2;
     }
 
-    public static Map<String, Map<DateOrder, String>> getOrderingInfo(CLDRFile plain, CLDRFile resolved, DateTimePatternGenerator.FormatParser fp) {
-        Map<String, Map<DateOrder,String>> pathsWithConflictingOrder2sample = new HashMap<String, Map<DateOrder,String>>();
+    public static Map<String, Map<DateOrder, String>> getOrderingInfo(CLDRFile plain, CLDRFile resolved,
+        DateTimePatternGenerator.FormatParser fp) {
+        Map<String, Map<DateOrder, String>> pathsWithConflictingOrder2sample = new HashMap<String, Map<DateOrder, String>>();
         Status status = new Status();
         try {
-            Map<String,Map<DateOrder, Set<String>>> type2order2set = new HashMap<String,Map<DateOrder, Set<String>>>();
+            Map<String, Map<DateOrder, Set<String>>> type2order2set = new HashMap<String, Map<DateOrder, Set<String>>>();
             Matcher typeMatcher = Pattern.compile("\\[@type=\"([^\"]*)\"]").matcher("");
             int[] soFar = new int[50];
             int lenSoFar = 0;
@@ -87,7 +93,7 @@ public class DateOrder implements Comparable<DateOrder> {
                     for (Object item : fp.set(value).getItems()) {
                         if (item instanceof VariableField) {
                             VariableField variable = (VariableField) item;
-                            int eType = variable.getType()*2 + (variable.isNumeric() ? 1 : 0);
+                            int eType = variable.getType() * 2 + (variable.isNumeric() ? 1 : 0);
                             if (isInterval && find(eType, soFar, lenSoFar)) {
                                 lenSoFar = 0; // restart the clock
                                 soFar[lenSoFar++] = eType;
@@ -139,7 +145,8 @@ public class DateOrder implements Comparable<DateOrder> {
                         String path2 = entry2.getValue();
                         String locale2 = resolved.getSourceLocaleID(path2, status);
                         String value2 = resolved.getStringValue(path2);
-                        System.out.println(order2 + "\t" + value1 + "\t" + value2 + "\t" + locale1 + "\t" + locale2 + "\t" + path1 + "\t" + path2);
+                        System.out.println(order2 + "\t" + value1 + "\t" + value2 + "\t" + locale1 + "\t" + locale2
+                            + "\t" + path1 + "\t" + path2);
                     }
                 }
             }
@@ -151,13 +158,17 @@ public class DateOrder implements Comparable<DateOrder> {
 
     /**
      * Add paths with a conflicting date order to the specified map.
+     * 
      * @param cldrFile
      * @param order
-     * @param paths the set of paths to add conflicting paths for
-     * @param conflictingPaths the set of conflicting paths
+     * @param paths
+     *            the set of paths to add conflicting paths for
+     * @param conflictingPaths
+     *            the set of conflicting paths
      * @param pathsWithConflictingOrder2sample
      */
-    private static void addConflictingPaths(CLDRFile cldrFile, DateOrder order, Set<String> paths, Set<String> conflictingPaths, Map<String, Map<DateOrder,String>> pathsWithConflictingOrder2sample) {
+    private static void addConflictingPaths(CLDRFile cldrFile, DateOrder order, Set<String> paths,
+        Set<String> conflictingPaths, Map<String, Map<DateOrder, String>> pathsWithConflictingOrder2sample) {
         for (String first : paths) {
             FormatType firstType = FormatType.getType(first);
             for (String otherPath : conflictingPaths) {
@@ -182,8 +193,8 @@ public class DateOrder implements Comparable<DateOrder> {
     }
 
     private static void addItem(CLDRFile plain, String path, DateOrder sample,
-                String conflictingPath, Map<String,
-                Map<DateOrder, String>> pathsWithConflictingOrder2sample) {
+        String conflictingPath, Map<String,
+        Map<DateOrder, String>> pathsWithConflictingOrder2sample) {
         String value = plain.getStringValue(path);
         if (value == null) {
             return;
@@ -208,7 +219,7 @@ public class DateOrder implements Comparable<DateOrder> {
         private FormatType(int importance) {
             this.importance = importance;
         }
-        
+
         /**
          * @param path
          * @return the format type of the specified path

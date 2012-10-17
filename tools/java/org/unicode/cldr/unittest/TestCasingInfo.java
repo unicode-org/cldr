@@ -8,7 +8,7 @@ public class TestCasingInfo extends TestFmwk {
     public static void main(String[] args) {
         new TestCasingInfo().run(args);
     }
-    
+
     public void TestGetLocaleCasing() {
         CasingInfo casingInfo = new CasingInfo();
         assertNull("Casing info shouldn't exist for imaginary locale",

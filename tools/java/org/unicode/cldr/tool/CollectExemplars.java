@@ -27,12 +27,11 @@ public class CollectExemplars {
         }
         System.out.println("Added\t" + target.toPattern(false));
         UnicodeSet toRemove = new UnicodeSet();
-        main:
-        for (String s : target) {
+        main: for (String s : target) {
             int len = s.codePointCount(0, s.length());
             if (len > 1) {
                 int cp;
-                for (int i = 0; i < s.length(); i+=Character.charCount(cp)) {
+                for (int i = 0; i < s.length(); i += Character.charCount(cp)) {
                     cp = s.codePointAt(0);
                     if (!target.contains(cp)) {
                         continue main;
@@ -59,7 +58,7 @@ public class CollectExemplars {
     }
 
     private static void add(String title, ULocale locale, UnicodeSet mainExemplars,
-            UnicodeSet target) {
+        UnicodeSet target) {
         if (!target.containsAll(mainExemplars)) {
             UnicodeSet diff = new UnicodeSet(mainExemplars).removeAll(target);
             System.out.println(locale + "\t" + title + "\tadding\t" + diff.toPattern(false));

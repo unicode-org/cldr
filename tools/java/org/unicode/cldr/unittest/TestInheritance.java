@@ -37,7 +37,6 @@ public class TestInheritance extends TestFmwk {
 
     private static Matcher pathMatcher = Pattern.compile(CldrUtility.getProperty("XPATH", ".*")).matcher("");
 
-
     public static void main(String[] args) throws IOException {
         new TestInheritance().run(args);
     }
@@ -48,25 +47,25 @@ public class TestInheritance extends TestFmwk {
         LikelySubtags likelySubtags = new LikelySubtags();
         Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Factory factory2 = Factory.make(CldrUtility.BASE_DIRECTORY + "seed/", ".*");
-        Set<String> available = Builder.with(new TreeSet<String>()).addAll(factory.getAvailable()).addAll(factory2.getAvailable()).freeze();
+        Set<String> available = Builder.with(new TreeSet<String>()).addAll(factory.getAvailable())
+            .addAll(factory2.getAvailable()).freeze();
         LanguageTagParser ltp = new LanguageTagParser();
         // find multiscript locales
-        Relation<String,String> base2scripts = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        Relation<String,String> base2likely = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        Map<String,String> parent2default = new TreeMap<String,String>();
-        Relation<String,String> base2locales = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-
+        Relation<String, String> base2scripts = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> base2likely = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Map<String, String> parent2default = new TreeMap<String, String>();
+        Relation<String, String> base2locales = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
         // get multiscript
         for (String localeID : available) {
             String script = ltp.set(localeID).getScript();
             final String base = ltp.getLanguage();
             if (!available.contains(base)) {
-                errln("Missing base locale for: " + localeID);                
+                errln("Missing base locale for: " + localeID);
             }
             base2locales.put(base, localeID);
             if (!script.isEmpty() && !base.equals("en")) { // HACK for en
-                base2scripts.put(base,script);
+                base2scripts.put(base, script);
             }
         }
 
@@ -76,7 +75,7 @@ public class TestInheritance extends TestFmwk {
             String max = entry.getValue();
             base2likely.put(ltp.set(localeID).getLanguage(), localeID);
             if (!defaultContents.contains(max)) {
-                errln("Max likely subtag not default contents: " + max);                
+                errln("Max likely subtag not default contents: " + max);
             }
         }
 
@@ -85,9 +84,11 @@ public class TestInheritance extends TestFmwk {
             parent2default.put(LocaleIDParser.getSimpleParent(localeID), localeID);
         }
 
-        Set<String> skip = Builder.with(new HashSet<String>()).addAll("in", "iw", "mo", "no", "root", "sh", "tl").freeze();
-        
-        // for each base we have to have, if multiscript, we have default contents for base+script, base+script+region; otherwise base+region.
+        Set<String> skip = Builder.with(new HashSet<String>()).addAll("in", "iw", "mo", "no", "root", "sh", "tl")
+            .freeze();
+
+        // for each base we have to have, if multiscript, we have default contents for base+script, base+script+region;
+        // otherwise base+region.
         for (String base : base2locales.keySet()) {
             if (skip.contains(base)) {
                 continue;
@@ -137,50 +138,56 @@ public class TestInheritance extends TestFmwk {
 
     /**
      * Suggest a likely subtag
+     * 
      * @param base
      * @return
      */
     static String suggestLikelySubtagFor(String base) {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        
+
         CLDRLocale loc = CLDRLocale.getInstance(base);
-        
-        if(!loc.getLanguage().equals(base)) {
+
+        if (!loc.getLanguage().equals(base)) {
             return " (no suggestion- not a simple language locale)"; // no suggestion unless just a language locale.
         }
         Set<BasicLanguageData> basicData = sdi.getBasicLanguageData(base);
-        
-        for(BasicLanguageData bld : basicData) {
-            if(bld.getType()==org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type.primary) {
+
+        for (BasicLanguageData bld : basicData) {
+            if (bld.getType() == org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type.primary) {
                 Set<String> scripts = bld.getScripts();
                 Set<String> territories = bld.getTerritories();
-                
-                if(scripts.size()==1) {
-                    if(territories.size()==1) {
-                        return createSuggestion(loc, CLDRLocale.getInstance(base+"_"+scripts.iterator().next()+"_"+territories.iterator().next()));
+
+                if (scripts.size() == 1) {
+                    if (territories.size() == 1) {
+                        return createSuggestion(
+                            loc,
+                            CLDRLocale.getInstance(base + "_" + scripts.iterator().next() + "_"
+                                + territories.iterator().next()));
                     }
                 }
                 return "(no suggestion - multiple scripts or territories)";
             }
         }
-        return("(no suggestion- no data)");
+        return ("(no suggestion- no data)");
     }
 
     /**
      * Format and return a suggested likelysubtag
      */
     private static String createSuggestion(CLDRLocale loc, CLDRLocale toLoc) {
-        return " Suggest this to likelySubtags.xml:        <likelySubtag from=\""+loc+"\" to=\""+toLoc+"\"/>\n" + 
-                   "        <!--{ "+loc.getDisplayName()+"; ?; ? } => { "+loc.getDisplayName()+"; "+toLoc.toULocale().getDisplayScript()+"; "+toLoc.toULocale().getDisplayCountry()+" }-->";
+        return " Suggest this to likelySubtags.xml:        <likelySubtag from=\"" + loc + "\" to=\"" + toLoc + "\"/>\n"
+            +
+            "        <!--{ " + loc.getDisplayName() + "; ?; ? } => { " + loc.getDisplayName() + "; "
+            + toLoc.toULocale().getDisplayScript() + "; " + toLoc.toULocale().getDisplayCountry() + " }-->";
 
     }
 
     public void TestLanguageTagCanonicalizer() {
         String[][] tests = {
-                {"eng-840", "en_US"},
-                {"sh_ba", "sr_Latn_BA"},
-                {"iw-arab-010", "he_Arab_AQ"},       
-                {"en-POLYTONI-WHATEVER-ANYTHING-AALAND", "en_AX_ANYTHING_POLYTON_WHATEVER"},       
+            { "eng-840", "en_US" },
+            { "sh_ba", "sr_Latn_BA" },
+            { "iw-arab-010", "he_Arab_AQ" },
+            { "en-POLYTONI-WHATEVER-ANYTHING-AALAND", "en_AX_ANYTHING_POLYTON_WHATEVER" },
         };
         LanguageTagCanonicalizer canon = new LanguageTagCanonicalizer();
         for (String[] inputExpected : tests) {
@@ -192,7 +199,7 @@ public class TestInheritance extends TestFmwk {
         Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcher);
         boolean haveErrors = false;
         for (String locale : factory.getAvailable()) {
-            CLDRFile cldrFileToCheck = factory.make(locale,true);
+            CLDRFile cldrFileToCheck = factory.make(locale, true);
             int errors = 0;
             for (String path : cldrFileToCheck) {
                 if (!pathMatcher.reset(path).find()) {
@@ -238,7 +245,7 @@ public class TestInheritance extends TestFmwk {
 
         // get the top level aliases, and verify that they are consistent with
         // maximization
-        Map<String,String> topLevelAliases = new TreeMap<String,String>();
+        Map<String, String> topLevelAliases = new TreeMap<String, String>();
         Set<String> crossScriptSet = new TreeSet<String>();
         Set<String> aliasPaths = new TreeSet<String>();
         Set<String> locales = factory.getAvailable();
@@ -261,11 +268,11 @@ public class TestInheritance extends TestFmwk {
             String aliasLocale = locale;
             String explicitAlias = null;
             String aliasPathNew = null;
-            CLDRFile cldrFileToCheck = factory.make(locale,false);
+            CLDRFile cldrFileToCheck = factory.make(locale, false);
             aliasPaths.clear();
             // examples:
-            //  in:    <alias source="id" path="//ldml"/>
-            //  ar_IR: <alias source="az_Arab_IR" path="//ldml"/>
+            // in: <alias source="id" path="//ldml"/>
+            // ar_IR: <alias source="az_Arab_IR" path="//ldml"/>
 
             cldrFileToCheck.getPaths("//ldml/alias", null, aliasPaths);
             if (aliasPaths.size() != 0) {
@@ -314,36 +321,36 @@ public class TestInheritance extends TestFmwk {
                 crossScriptSet.add(ltp.set(locale).getLanguageScript());
             }
 
-            // Finally, put together the expected alias for comparison. 
+            // Finally, put together the expected alias for comparison.
             // It is the "best" alias, in that the default-content locales are skipped in favor of their parents
 
-            String expectedAlias = 
-                !baseScript.equals(maximizedScript) ? minimized : 
-                    !locale.equals(canonicalizedLocale) ? canonicalizedLocale : 
-                        //                        needScripts.contains(base) ? ltp.getLanguageScript() : 
+            String expectedAlias =
+                !baseScript.equals(maximizedScript) ? minimized :
+                    !locale.equals(canonicalizedLocale) ? canonicalizedLocale :
+                        // needScripts.contains(base) ? ltp.getLanguageScript() :
                         locale;
 
             if (!equals(aliasLocale, expectedAlias)) {
                 String aliasMaximized = maximize(likelySubtags, aliasLocale);
                 String expectedMaximized = maximize(likelySubtags, expectedAlias);
                 if (!equals(aliasMaximized, expectedMaximized)) {
-                    errln("For locale:\t" + locale 
-                            + ",\tbase-script:\t" + baseScript
-                            + ",\texpected alias Locale != actual alias Locale:\t"
-                            + expectedAlias + ", " + aliasLocale);
+                    errln("For locale:\t" + locale
+                        + ",\tbase-script:\t" + baseScript
+                        + ",\texpected alias Locale != actual alias Locale:\t"
+                        + expectedAlias + ", " + aliasLocale);
                 } else if (explicitAlias == null) {
                     // skip, we don't care in this case
                     // but we emit warnings if the other conditions are true. The aliasing could be simpler.
                 } else if (equals(expectedAlias, locale)) {
-                    logln("Warning; alias could be omitted. For locale:\t" + locale 
-                            + ",\tbase-script:\t" + baseScript
-                            + ",\texpected alias Locale != actual alias Locale:\t"
-                            + expectedAlias + ", " + aliasLocale);                   
+                    logln("Warning; alias could be omitted. For locale:\t" + locale
+                        + ",\tbase-script:\t" + baseScript
+                        + ",\texpected alias Locale != actual alias Locale:\t"
+                        + expectedAlias + ", " + aliasLocale);
                 } else {
-                    logln("Warning; alias could be minimized. For locale:\t" + locale 
-                            + ",\tbase-script:\t" + baseScript
-                            + ",\texpected alias Locale != actual alias Locale:\t"
-                            + expectedAlias + ", " + aliasLocale);
+                    logln("Warning; alias could be minimized. For locale:\t" + locale
+                        + ",\tbase-script:\t" + baseScript
+                        + ",\texpected alias Locale != actual alias Locale:\t"
+                        + expectedAlias + ", " + aliasLocale);
                 }
             }
         }
@@ -351,9 +358,11 @@ public class TestInheritance extends TestFmwk {
         // check the LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES value and make sure it matches what is in the files in main/
 
         if (!topLevelAliases.equals(LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES) && locales.equals(allLocales)) {
-            StringBuilder result = new StringBuilder("LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES doesn't match actual files! Change to:\n");
+            StringBuilder result = new StringBuilder(
+                "LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES doesn't match actual files! Change to:\n");
             for (Entry<String, String> entry : topLevelAliases.entrySet()) {
-                result.append("\t.put(\"").append(entry.getKey()).append("\", \"").append(entry.getValue()).append("\")\n");
+                result.append("\t.put(\"").append(entry.getKey()).append("\", \"").append(entry.getValue())
+                    .append("\")\n");
             }
             errln(result.toString());
         } else {
@@ -363,10 +372,8 @@ public class TestInheritance extends TestFmwk {
         // verify that they are the same as what we would get if we were to maximize
         // all the locales and check against default_contents
 
-
-
         for (String locale : defaultContents) {
-            CLDRFile cldrFileToCheck = factory.make(locale,false);
+            CLDRFile cldrFileToCheck = factory.make(locale, false);
             if (cldrFileToCheck == null) {
                 logln("No file for:\t" + locale);
                 continue;
@@ -459,10 +466,13 @@ public class TestInheritance extends TestFmwk {
         if (string == null) {
             return false;
         }
-        switch(string.length()) {
-        case 1: return codePoint == string.charAt(0);
-        case 2: return codePoint >= 0x10000 && codePoint == Character.codePointAt(string, 0);
-        default: return false;
+        switch (string.length()) {
+        case 1:
+            return codePoint == string.charAt(0);
+        case 2:
+            return codePoint >= 0x10000 && codePoint == Character.codePointAt(string, 0);
+        default:
+            return false;
         }
     }
 
@@ -474,8 +484,8 @@ public class TestInheritance extends TestFmwk {
     // TODO move this into central utilities
     public static boolean equals(Object a, Object b) {
         return a == b ? true
-                : a == null || b == null ? false
-                        : a.equals(b);
+            : a == null || b == null ? false
+                : a.equals(b);
     }
 
 }

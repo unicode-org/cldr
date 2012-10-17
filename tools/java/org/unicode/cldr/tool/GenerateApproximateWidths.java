@@ -31,17 +31,17 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 
 public class GenerateApproximateWidths extends JApplet implements Runnable {
-    private static final long        serialVersionUID = 1L;
-    private static final boolean     DEBUG = false;
+    private static final long serialVersionUID = 1L;
+    private static final boolean DEBUG = false;
 
-    private static final int         IMAGE_HEIGHT     = 360;
-    private static final int         IMAGE_WIDTH      = 640;
-    private static final BasicStroke BASIC_STROKE     = new BasicStroke(0.5f);
-    private static final Font        FONT             = new Font("TimesNewRoman", 0, 100);
-    private static final Font        FONT101          = new Font("TimesNewRoman", 0, 101);
+    private static final int IMAGE_HEIGHT = 360;
+    private static final int IMAGE_WIDTH = 640;
+    private static final BasicStroke BASIC_STROKE = new BasicStroke(0.5f);
+    private static final Font FONT = new Font("TimesNewRoman", 0, 100);
+    private static final Font FONT101 = new Font("TimesNewRoman", 0, 101);
 
-    private BufferedImage            bimg;
-    private String                   string           = "𝛛";
+    private BufferedImage bimg;
+    private String string = "𝛛";
 
     public void paint(Graphics g) {
         Dimension d = getSize();
@@ -61,25 +61,27 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.setStroke(BASIC_STROKE);
 
-        drawString(g, FONT, string, 0.25f, w, 0.5f, h);   // draw the 1st size character on the left
-        drawString(g, FONT101, string, 0.75, w, 0.5f, h);  // draw the 2st size character on the right
+        drawString(g, FONT, string, 0.25f, w, 0.5f, h); // draw the 1st size character on the left
+        drawString(g, FONT101, string, 0.75, w, 0.5f, h); // draw the 2st size character on the right
         showWidths(g);
         g.dispose();
     }
 
     private void showWidths(Graphics2D g) {
         try {
-            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
+            PrintWriter out = BagFormatter
+                .openUTF8Writer(CldrUtility.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
             // TODO Auto-generated method stub
             UnicodeMap<Integer> map = new UnicodeMap<Integer>();
             Widths widths = new Widths(g, new Font("Serif", 0, 100), new Font("SansSerif", 0, 100));
-            
+
             UnicodeSet CHECK = new UnicodeSet("[[:^c:][:cc:][:cf:]]");
             int defaultWidth = widths.getMetrics(0xFFFD);
 
             // corrections
             CHECK.removeAll(addCorrections(map, "[:Cn:]", defaultWidth));
-            CHECK.removeAll(addCorrections(map, "[\\u0000-\\u0008\\u000E-\\u001F\\u007F-\\u0084\\u0086-\\u009F]", defaultWidth)); 
+            CHECK.removeAll(addCorrections(map, "[\\u0000-\\u0008\\u000E-\\u001F\\u007F-\\u0084\\u0086-\\u009F]",
+                defaultWidth));
 
             int cjkWidth = widths.getMetrics(0x4E00);
             CHECK.removeAll(addCorrections(map, "[:ideographic:]", cjkWidth));
@@ -114,9 +116,10 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
                 for (UnicodeSetIterator foo = new UnicodeSetIterator(uset); foo.nextRange();) {
                     if (foo.codepoint != foo.codepointEnd) {
                         out.println(Utility.hex(foo.codepoint) + ".." + Utility.hex(foo.codepointEnd) + "; "
-                            + integer + "; # " + UCharacter.getExtendedName(foo.codepoint) + ".." + UCharacter.getExtendedName(foo.codepointEnd));
+                            + integer + "; # " + UCharacter.getExtendedName(foo.codepoint) + ".."
+                            + UCharacter.getExtendedName(foo.codepointEnd));
                     } else {
-                        out.println(Utility.hex(foo.codepoint) + "; " 
+                        out.println(Utility.hex(foo.codepoint) + "; "
                             + integer + "; # " + UCharacter.getExtendedName(foo.codepoint));
                     }
                 }
@@ -159,7 +162,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
                 }
             }
         }
-        
+
         public Widths(Graphics2D g2, Font... fonts) {
             g = g2;
             metrics = new FontMetrics[fonts.length];
@@ -191,25 +194,25 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
                 totalWidth += width;
             }
             int result = (int) (totalWidth / metrics.length / 10.0d + 0.499999d);
-//            if (result == 0 && totalWidth != 0.0d) {
-//                result = 1;
-//                adjusted.add(cp);
-//            }
+            // if (result == 0 && totalWidth != 0.0d) {
+            // result = 1;
+            // adjusted.add(cp);
+            // }
             if (result > 31 || result < -2) { // just to catch odd results
                 throw new IllegalArgumentException("Value too large " + result);
             }
-            return result; 
+            return result;
         }
 
         private double getTotalWidth(FontMetrics fontMetrics) {
             Rectangle2D rect1 = fontMetrics.getStringBounds(buffer, 0, bufferLen, g);
             return rect1.getWidth();
-            //            Rectangle2D rect2 = metrics2.getStringBounds(buffer, 0, bufferLen, g);
-            //            double rwidth2 = rect2.getWidth();
-            //            if (DEBUG && rwidth1 != rwidth2) {
-            //                System.out.println(Utility.hex(cp) + ", " + rwidth1 + ", " + rwidth2);
-            //            }
-            //            return (rwidth1 + rwidth2) / (2.0d * bufferLen);
+            // Rectangle2D rect2 = metrics2.getStringBounds(buffer, 0, bufferLen, g);
+            // double rwidth2 = rect2.getWidth();
+            // if (DEBUG && rwidth1 != rwidth2) {
+            // System.out.println(Utility.hex(cp) + ", " + rwidth1 + ", " + rwidth2);
+            // }
+            // return (rwidth1 + rwidth2) / (2.0d * bufferLen);
         }
 
         private void fillBuffer(int cp) {
@@ -218,13 +221,13 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
                 baseChar = getBase(cp);
                 if (baseChar != -1) {
                     buffer[0] = (char) baseChar;
-                    buffer[1] = (char)cp;
+                    buffer[1] = (char) cp;
                     bufferLen = 2;
                     return;
                 }
             }
             if (cp < 0x10000) {
-                buffer[0] = buffer[1] = buffer[2] = (char)cp;
+                buffer[0] = buffer[1] = buffer[2] = (char) cp;
                 bufferLen = 3;
             } else {
                 char[] temp = UCharacter.toChars(cp);
@@ -264,9 +267,11 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
             }
+
             public void windowDeiconified(WindowEvent e) {
                 demo.start();
             }
+
             public void windowIconified(WindowEvent e) {
                 demo.stop();
             }

@@ -76,22 +76,22 @@ public class GenerateCldrTests {
     PrintWriter out;
 
     private static final int HELP1 = 0, HELP2 = 1, SOURCEDIR = 2, DESTDIR = 3,
-            LOGDIR = 4, MATCH = 5, NOT_RESOLVED = 6, LANGUAGES = 7, TZADIR = 8,
-            SHOW = 9;
+        LOGDIR = 4, MATCH = 5, NOT_RESOLVED = 6, LANGUAGES = 7, TZADIR = 8,
+        SHOW = 9;
 
     private static final UOption[] options = {
-            UOption.HELP_H(),
-            UOption.HELP_QUESTION_MARK(),
-            UOption.SOURCEDIR().setDefault(CldrUtility.COMMON_DIRECTORY),
-            UOption.DESTDIR().setDefault(CldrUtility.GEN_DIRECTORY + "/test/"),
-            UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(CldrUtility.GEN_DIRECTORY),
-            UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
-            UOption.create("notresolved", 'n', UOption.NO_ARG),
-            UOption.create("languages", 'g', UOption.NO_ARG),
-            UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(
+        UOption.HELP_H(),
+        UOption.HELP_QUESTION_MARK(),
+        UOption.SOURCEDIR().setDefault(CldrUtility.COMMON_DIRECTORY),
+        UOption.DESTDIR().setDefault(CldrUtility.GEN_DIRECTORY + "/test/"),
+        UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(CldrUtility.GEN_DIRECTORY),
+        UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
+        UOption.create("notresolved", 'n', UOption.NO_ARG),
+        UOption.create("languages", 'g', UOption.NO_ARG),
+        UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(
             CldrUtility.UTIL_DATA_DIR),
-                // "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
-            UOption.create("show", 's', UOption.NO_ARG), };
+        // "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
+        UOption.create("show", 's', UOption.NO_ARG), };
 
     private static final String VERSION = CLDRFile.GEN_VERSION;
 
@@ -100,14 +100,14 @@ public class GenerateCldrTests {
     static String logDir = null, destDir = null;
 
     public static boolean hasLocalizedLanguageFor(String locale,
-            String otherLocale) {
+        String otherLocale) {
         String lang = new LanguageTagParser().set(otherLocale).getLanguage();
         String localizedVersion = english.getName(locale);
         return !lang.equals(localizedVersion);
     }
 
     public static boolean hasLocalizedCountryFor(String locale,
-            String otherLocale) {
+        String otherLocale) {
         String country = new LanguageTagParser().set(otherLocale).getRegion();
         if (country.equals(""))
             return true;
@@ -118,14 +118,14 @@ public class GenerateCldrTests {
     public static void main(String[] args) throws Exception {
         double deltaTime = System.currentTimeMillis();
         UOption.parseArgs(args, options);
-        Log.setLog(options[LOGDIR].value , "log.txt");
+        Log.setLog(options[LOGDIR].value, "log.txt");
         // log = BagFormatter.openUTF8Writer(options[LOGDIR].value, "log.txt");
         try {
             if (options[LANGUAGES].doesOccur) {
                 GenerateStatistics.generateSize(
-                        options[GenerateCldrTests.SOURCEDIR].value + "main/",
-                        options[GenerateCldrTests.LOGDIR].value, options[TZADIR].value,
-                        options[MATCH].value, true);
+                    options[GenerateCldrTests.SOURCEDIR].value + "main/",
+                    options[GenerateCldrTests.LOGDIR].value, options[TZADIR].value,
+                    options[MATCH].value, true);
                 return;
             }
             // compareAvailable();
@@ -209,7 +209,7 @@ public class GenerateCldrTests {
         String lang;
         try {
             lang = ltp.set(locale).getLanguageScript();
-            //lang = locale.getLanguage();
+            // lang = locale.getLanguage();
             if (lang.length() == 0 || lang.equals("root"))
                 return; // skip root
         } catch (RuntimeException e) {
@@ -238,11 +238,11 @@ public class GenerateCldrTests {
     // TreeSet(ULocaleComparator));
     Set<String> allLocales = new TreeSet<String>(); // ULocaleComparator
 
-    //Map localesToRules = new HashMap();
+    // Map localesToRules = new HashMap();
 
-    //Relation rulesToLocales = new Relation(new TreeMap(ULocaleComparator),TreeSet.class);
+    // Relation rulesToLocales = new Relation(new TreeMap(ULocaleComparator),TreeSet.class);
 
-    Relation<String,String> parentToLocales = new Relation(new TreeMap<String,Set<String>>(),TreeSet.class);
+    Relation<String, String> parentToLocales = new Relation(new TreeMap<String, Set<String>>(), TreeSet.class);
 
     /*
      * void getLocaleList() { collationLocales = new TreeSet(ULocaleComparator);
@@ -274,46 +274,46 @@ public class GenerateCldrTests {
     ICUServiceBuilder icuServiceBuilder;
 
     private static CLDRFile english;
-    
-//    static Transform<String,ULocale> TO_LOCALE = new Transform<String,ULocale>(){
-//      public ULocale transform(String source) {
-//        return new ULocale(source);
-//      }
-//    };
+
+    // static Transform<String,ULocale> TO_LOCALE = new Transform<String,ULocale>(){
+    // public ULocale transform(String source) {
+    // return new ULocale(source);
+    // }
+    // };
 
     void generate(String pat) throws Exception {
         mainCldrFactory = Factory.make(options[SOURCEDIR].value + "main"
-                + File.separator, pat);
+            + File.separator, pat);
         english = mainCldrFactory.make("en", true);
         Factory collationCldrFactory = Factory.make(options[SOURCEDIR].value
-                + "collation" + File.separator, pat);
+            + "collation" + File.separator, pat);
         Factory supplementalCldrFactory = Factory.make(options[SOURCEDIR].value
-                + "supplemental" + File.separator, ".*");
+            + "supplemental" + File.separator, ".*");
 
-//        allLocales = Builder.with(allLocales)
-//        .addAll(mainCldrFactory.getAvailable(), TO_LOCALE)
-//        .addAll(collationCldrFactory.getAvailable(), TO_LOCALE)
-//        .freeze();
+        // allLocales = Builder.with(allLocales)
+        // .addAll(mainCldrFactory.getAvailable(), TO_LOCALE)
+        // .addAll(collationCldrFactory.getAvailable(), TO_LOCALE)
+        // .freeze();
         allLocales.addAll(mainCldrFactory.getAvailable());
         if (!allLocales.containsAll(collationCldrFactory.getAvailable())) {
-          System.err.println("Collation locale that is not in main!\t" 
-                  + Builder.with(new TreeSet<String>(collationCldrFactory.getAvailable())).removeAll(allLocales).get());
+            System.err.println("Collation locale that is not in main!\t"
+                + Builder.with(new TreeSet<String>(collationCldrFactory.getAvailable())).removeAll(allLocales).get());
         }
         allLocales.addAll(collationCldrFactory.getAvailable());
         allLocales = Collections.unmodifiableSet(allLocales);
 
         cldrCollations = new GenerateCldrCollationTests(options[SOURCEDIR].value
-                + "collation" + File.separator, pat, allLocales);
+            + "collation" + File.separator, pat, allLocales);
         if (options[SHOW].doesOccur)
             cldrCollations.show();
 
         for (Iterator<String> it = cldrCollations.getAvailableSet().iterator(); it
-                .hasNext();) {
+            .hasNext();) {
             collationLocales.add(it.next());
         }
         if (!allLocales.containsAll(collationLocales)) {
-          System.err.println("Collation locale that is not in main!\t" 
-                  + Builder.with(new TreeSet<String>(collationLocales)).removeAll(allLocales).get());
+            System.err.println("Collation locale that is not in main!\t"
+                + Builder.with(new TreeSet<String>(collationLocales)).removeAll(allLocales).get());
         }
         collationLocales = allLocales;
 
@@ -341,19 +341,19 @@ public class GenerateCldrTests {
     }
 
     private void generate2(String locale) throws Exception {
-      System.out.println("Main Generation:\t" + locale);
+        System.out.println("Main Generation:\t" + locale);
         out = BagFormatter.openUTF8Writer(options[DESTDIR].value, locale + ".xml");
         out.println("<?xml version='1.0' encoding='UTF-8' ?>");
         out.println(
-                        // "<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>"
-                // +
-                "<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>");
+            // "<!DOCTYPE cldrTest SYSTEM 'http://www.unicode.org/cldr/dtd/1.5/cldrTest.dtd'>"
+            // +
+            "<!DOCTYPE cldrTest SYSTEM '../common/dtd/cldrTest.dtd'>");
         out.println("<!-- For information, see readme.html -->");
         out.println(" <cldrTest version='" + VERSION +
-                "' base='" + locale + "'>");
+            "' base='" + locale + "'>");
         CLDRFile localeFile = mainCldrFactory.make(locale, true);
         out.println(" <!-- "
-                + TransliteratorUtilities.toXML.transliterate(english.getName(locale)
+            + TransliteratorUtilities.toXML.transliterate(english.getName(locale)
                 + " [" + localeFile.getName(locale)) + "] -->");
         generateItems(locale, allLocales, NumberShower);
         generateItems(locale, allLocales, DateShower);
@@ -362,8 +362,8 @@ public class GenerateCldrTests {
         out.println(" </cldrTest>");
         out.close();
         CldrUtility.generateBat(options[SOURCEDIR].value + "test" + File.separator,
-                locale + ".xml", options[DESTDIR].value, locale + ".xml",
-                new CldrUtility.SimpleLineComparator(0));
+            locale + ".xml", options[DESTDIR].value, locale + ".xml",
+            new CldrUtility.SimpleLineComparator(0));
     }
 
     /*
@@ -420,17 +420,17 @@ public class GenerateCldrTests {
      * Work-around
      */
     public UnicodeSet getExemplarSet(String locale, int options,
-            DraftStatus minimalDraftStatus) {
+        DraftStatus minimalDraftStatus) {
         String n = locale.toString();
         int pos = n.indexOf('@');
         if (pos >= 0)
             locale = n.substring(0, pos);
         CLDRFile cldrFile = mainCldrFactory.make(locale.toString(), true,
-                minimalDraftStatus);
+            minimalDraftStatus);
         String v = cldrFile.getStringValue("//ldml/characters/exemplarCharacters");
         UnicodeSet result = new UnicodeSet(v);
         v = cldrFile
-                .getStringValue("//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]");
+            .getStringValue("//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]");
         if (v != null) {
             result.addAll(new UnicodeSet(v));
         }
@@ -533,12 +533,12 @@ public class GenerateCldrTests {
                     Object value = settings.get(key);
                     if (!value.equals(oldSettings.get(key))) {
                         out.print(" " + key + "='"
-                                + TransliteratorUtilities.toXML.transliterate(value.toString())
-                                + "'");
+                            + TransliteratorUtilities.toXML.transliterate(value.toString())
+                            + "'");
                     }
                 }
                 out.println(">" + TransliteratorUtilities.toXML.transliterate(result)
-                        + "</result>");
+                    + "</result>");
                 oldSettings = settings;
             }
         }
@@ -586,7 +586,7 @@ public class GenerateCldrTests {
     }
 
     private void generateItems(String locale, Collection<String> onlyLocales,
-            DataShower generator) throws Exception {
+        DataShower generator) throws Exception {
         Set<String> sublocales = new TreeSet(); // ULocaleComparator
         sublocales.add(locale);
         sublocales.addAll(parentToLocales.getAll(locale));
@@ -633,24 +633,24 @@ public class GenerateCldrTests {
                 String loc = it.next();
                 out.print(loc);
                 comment.append(english.getName(loc) + " ["
-                     + getNativeName(loc) + "]");
+                    + getNativeName(loc) + "]");
             }
             out.print("'");
         }
         out.println(">");
         out.println("<!-- "
-                + TransliteratorUtilities.toXML.transliterate(comment.toString())
-                + " -->");
+            + TransliteratorUtilities.toXML.transliterate(comment.toString())
+            + " -->");
     }
 
     private String getNativeName(String loc) {
-      int atPos = loc.indexOf('@');
-      String keywords = "";
-      if (atPos >= 0) {
-        keywords = loc.substring(atPos+1);
-        loc = loc.substring(0,atPos);
-      }
-      return mainCldrFactory.make(loc, true).getName(loc) + "@" + keywords;
+        int atPos = loc.indexOf('@');
+        String keywords = "";
+        if (atPos >= 0) {
+            keywords = loc.substring(atPos + 1);
+            loc = loc.substring(0, atPos);
+        }
+        return mainCldrFactory.make(loc, true).getName(loc) + "@" + keywords;
     }
 
     DataShower ZoneFieldShower = new DataShower() {
@@ -659,9 +659,9 @@ public class GenerateCldrTests {
         // Set zones = new
         // TreeSet(sc.getAvailableCodes("tzid"));
         List zones = Arrays.asList(new String[] { "America/Los_Angeles",
-                "America/Argentina/Buenos_Aires", "America/Buenos_Aires",
-                "America/Havana", "Australia/ACT", "Australia/Sydney", "Europe/London",
-                "Europe/Moscow", "Etc/GMT+3" });
+            "America/Argentina/Buenos_Aires", "America/Buenos_Aires",
+            "America/Havana", "Australia/ACT", "Australia/Sydney", "Europe/London",
+            "Europe/Moscow", "Etc/GMT+3" });
 
         String[] perZoneSamples = { "Z", "ZZZZ", "z", "zzzz", "v", "vvvv", "V", "VVVV" };
 
@@ -669,7 +669,7 @@ public class GenerateCldrTests {
 
         public ResultsPrinter show(String first, DraftStatus minimalDraftStatus) {
             TimezoneFormatter tzf = new TimezoneFormatter(mainCldrFactory, first
-                    .toString(), minimalDraftStatus);
+                .toString(), minimalDraftStatus);
             ResultsPrinter rp = new ResultsPrinter();
             if (!METAZONES_WORK) {
                 return rp;
@@ -684,9 +684,9 @@ public class GenerateCldrTests {
                     String date = dates[j];
                     Date datetime;
                     try {
-                      datetime = ICUServiceBuilder.isoDateParse(date);
+                        datetime = ICUServiceBuilder.isoDateParse(date);
                     } catch (ParseException e1) {
-                      throw new IllegalArgumentException(e1);
+                        throw new IllegalArgumentException(e1);
                     }
                     rp.set("date", dates[j]);
                     for (int i = 0; i < perZoneSamples.length; ++i) {
@@ -710,7 +710,7 @@ public class GenerateCldrTests {
                             rp.setResult(formatted);
                         } catch (RuntimeException e) {
                             throw (IllegalArgumentException) new IllegalArgumentException(
-                                    "Failure in " + first).initCause(e);
+                                "Failure in " + first).initCause(e);
                         }
                     }
                 }
@@ -730,21 +730,21 @@ public class GenerateCldrTests {
     DataShower DateShower = new DataShower() {
         public ResultsPrinter show(String locale, DraftStatus minimalDraftStatus) {
             String[] samples = { "1900-01-31T00:00:00Z", "1909-02-28T00:00:01Z",
-                    "1918-03-26T00:59:59Z", "1932-04-24T01:00:00Z",
-                    "1945-05-20T01:00:01Z", "1952-06-18T11:59:59Z",
-                    "1973-07-16T12:00:00Z", "1999-08-14T12:00:01Z",
-                    "2000-09-12T22:59:59Z", "2001-10-08T23:00:00Z",
-                    "2004-11-04T23:00:01Z", "2010-12-01T23:59:59Z", };
+                "1918-03-26T00:59:59Z", "1932-04-24T01:00:00Z",
+                "1945-05-20T01:00:01Z", "1952-06-18T11:59:59Z",
+                "1973-07-16T12:00:00Z", "1999-08-14T12:00:01Z",
+                "2000-09-12T22:59:59Z", "2001-10-08T23:00:00Z",
+                "2004-11-04T23:00:01Z", "2010-12-01T23:59:59Z", };
             CLDRFile cldrFile = mainCldrFactory.make(locale.toString(), true,
-                    minimalDraftStatus);
+                minimalDraftStatus);
             icuServiceBuilder.setCldrFile(cldrFile);
             ResultsPrinter rp = new ResultsPrinter();
             for (int j = 0; j < samples.length; ++j) {
                 Date datetime;
                 try {
-                  datetime = ICUServiceBuilder.isoDateParse(samples[j]);
+                    datetime = ICUServiceBuilder.isoDateParse(samples[j]);
                 } catch (ParseException e) {
-                  throw new IllegalArgumentException(e);
+                    throw new IllegalArgumentException(e);
                 }
                 rp.set("input", ICUServiceBuilder.isoDateFormat(datetime));
                 for (int i = 0; i < ICUServiceBuilder.LIMIT_DATE_FORMAT_INDEX; ++i) {
@@ -760,9 +760,9 @@ public class GenerateCldrTests {
                         rp.set("timeType", icuServiceBuilder.getDateNames(k));
                         if (false && i == 2 && k == 0) {
                             System.out.println("debug: date "
-                                    + icuServiceBuilder.getDateNames(i) + ", time "
-                                    + icuServiceBuilder.getDateNames(k) + " = "
-                                    + df.format(datetime));
+                                + icuServiceBuilder.getDateNames(i) + ", time "
+                                + icuServiceBuilder.getDateNames(k) + " = "
+                                + df.format(datetime));
                         }
                         rp.setResult(df.format(datetime));
                     }
@@ -779,12 +779,12 @@ public class GenerateCldrTests {
     DataShower NumberShower = new DataShower() {
         public ResultsPrinter show(String locale, DraftStatus minimalDraftStatus) {
             CLDRFile cldrFile = mainCldrFactory.make(locale.toString(), true,
-                    minimalDraftStatus);
+                minimalDraftStatus);
             icuServiceBuilder.setCldrFile(cldrFile);
 
             double[] samples = { 0, 0.01, -0.01, 1, -1, 123.456, -123.456, 123456.78,
-                    -123456.78, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY,
-                    Double.NaN };
+                -123456.78, Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY,
+                Double.NaN };
             ResultsPrinter rp = new ResultsPrinter();
             for (int j = 0; j < samples.length; ++j) {
                 double sample = samples[j];
@@ -851,7 +851,7 @@ public class GenerateCldrTests {
             // System.out.println(tailored.toPattern(true));
 
             UnicodeSet exemplars = getExemplarSet(locale, UnicodeSet.CASE,
-                    minimalDraftStatus);
+                minimalDraftStatus);
             // add all the exemplars
 
             exemplars = createCaseClosure(exemplars);
@@ -866,9 +866,9 @@ public class GenerateCldrTests {
                 // new
                 // BagFormatter();
                 Log.logln("In Tailored, but not Exemplar; Locale: " + locale + "\t"
-                        + english.getName(locale));
+                    + english.getName(locale));
                 Log.logln(new UnicodeSet(tailored).removeAll(exemplars)
-                        .toPattern(false));
+                    .toPattern(false));
                 // bf.(log,"tailored",
                 // tailored,
                 // "exemplars",
@@ -921,7 +921,7 @@ public class GenerateCldrTests {
      * bag); out.println("  </collation>"); }};
      */
     static final UnicodeSet SKIP_COLLATION_SET = new UnicodeSet(
-            "[[:script=han:][:script=hangul:]-[\u4e00-\u4eff \u9f00-\u9fff \uac00-\uacff \ud700-\ud7ff]]");
+        "[[:script=han:][:script=hangul:]-[\u4e00-\u4eff \u9f00-\u9fff \uac00-\uacff \ud700-\ud7ff]]");
 
     /**
      * @param col
@@ -929,7 +929,7 @@ public class GenerateCldrTests {
      * @param bag
      */
     private ResultsPrinter doCollationResult(Collator col, UnicodeSet tailored,
-            SortedBag bag) {
+        SortedBag bag) {
         for (UnicodeSetIterator usi = new UnicodeSetIterator(tailored); usi.next();) {
             String s = usi.getString();
             bag.add('x' + s);
@@ -957,7 +957,7 @@ public class GenerateCldrTests {
                 needEquals = true;
             }
             tempResult.append(TransliteratorUtilities.toXML.transliterate(s)).append(
-                    CldrUtility.LINE_SEPARATOR);
+                CldrUtility.LINE_SEPARATOR);
         }
         ResultsPrinter result = new ResultsPrinter();
         result.setResult(tempResult.toString());
@@ -994,7 +994,7 @@ public class GenerateCldrTests {
         StringBuffer xpathFragment = new StringBuffer();
         StringBuffer xpath = new StringBuffer();
         for (; node.getNodeType() != Node.DOCUMENT_NODE; node = node
-                .getParentNode()) {
+            .getParentNode()) {
             xpathFragment.setLength(0);
             xpathFragment.append('/').append(node.getNodeName());
             NamedNodeMap attributes = node.getAttributes();
@@ -1002,7 +1002,7 @@ public class GenerateCldrTests {
                 for (int i = 0; i < attributes.getLength(); ++i) {
                     Node attribute = attributes.item(i);
                     xpathFragment.append("[@").append(attribute.getNodeName())
-                            .append('=').append(attribute.getNodeValue()).append(']');
+                        .append('=').append(attribute.getNodeValue()).append(']');
                 }
             }
             xpath.insert(0, xpathFragment);
@@ -1014,9 +1014,9 @@ public class GenerateCldrTests {
     public static String replace(String source, String pattern, String replacement) {
         // dumb code for now
         for (int pos = source.indexOf(pattern, 0); pos >= 0; pos = source.indexOf(
-                pattern, pos + 1)) {
+            pattern, pos + 1)) {
             source = source.substring(0, pos) + replacement
-                    + source.substring(pos + pattern.length());
+                + source.substring(pos + pattern.length());
         }
         return source;
     }
@@ -1142,7 +1142,7 @@ public class GenerateCldrTests {
     }
 
     public static UnicodeSet createClosure(String source, int position,
-            CloseCodePoint closer) {
+        CloseCodePoint closer) {
         UnicodeSet result = new UnicodeSet();
         // if at end, return empty set
         if (position >= source.length())

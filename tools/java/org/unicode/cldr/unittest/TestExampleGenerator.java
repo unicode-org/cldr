@@ -26,16 +26,17 @@ public class TestExampleGenerator extends TestFmwk {
         showCldrFile(info.getCldrFactory().make("fr", true));
     }
 
-    public void Test4897 () {
+    public void Test4897() {
         final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(),
+            CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         for (String xpath : With.in(nativeCldrFile.iterator("//ldml/dates/timeZoneNames", CLDRFile.ldmlComparator))) {
             String value = nativeCldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
             if (actual == null) {
                 if (!xpath.contains("singleCountries") && !xpath.contains("gmtZeroFormat")) {
                     errln("Null value for " + value + "\t" + xpath);
-                    // for debugging 
+                    // for debugging
                     exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
                 }
             } else {
@@ -46,23 +47,27 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void Test4528() {
         String[][] testPairs = {
-            {"//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"other\"]", 
+            { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"other\"]",
                 "<div class='cldr_example'><span class='cldr_substituted'>2,00 </span>dollari delle Bermuda</div>" +
                     "<div class='cldr_example'><span class='cldr_substituted'>1,20 </span>dollari delle Bermuda</div>" +
                     "<div class='cldr_example'><span class='cldr_substituted'>2,07 </span>dollari delle Bermuda</div>"
             },
-            {"//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"other\"]", 
-                "<div class='cldr_example'><span class='cldr_substituted'>2,00</span> <span class='cldr_substituted'>dollari statunitensi</span></div>" +
-                    "<div class='cldr_example'><span class='cldr_substituted'>1,20</span> <span class='cldr_substituted'>dollari statunitensi</span></div>" +
+            {
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"other\"]",
+                "<div class='cldr_example'><span class='cldr_substituted'>2,00</span> <span class='cldr_substituted'>dollari statunitensi</span></div>"
+                    +
+                    "<div class='cldr_example'><span class='cldr_substituted'>1,20</span> <span class='cldr_substituted'>dollari statunitensi</span></div>"
+                    +
                     "<div class='cldr_example'><span class='cldr_substituted'>2,07</span> <span class='cldr_substituted'>dollari statunitensi</span></div>"
             },
-            {"//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol", 
+            { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol",
                 "<div class='cldr_example'>BMD<span class='cldr_substituted'> 12.345,68</span></div>"
             },
         };
 
         final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(),
+            CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         for (String[] testPair : testPairs) {
             String xpath = testPair[0];
             String expected = testPair[1];
@@ -74,15 +79,18 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void Test4607() {
         String[][] testPairs = {
-            {"//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]",
+            {
+                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]",
                 "<div class='cldr_example'><span class='cldr_substituted'>12</span> thousand</div>"
             },
-            {"//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            {
+                "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                 "<div class='cldr_example'><span class='cldr_substituted'>12</span>%</div>"
             }
         };
         final CLDRFile nativeCldrFile = info.getEnglish();
-        ExampleGenerator exampleGenerator = new ExampleGenerator(info.getEnglish(), info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(info.getEnglish(), info.getEnglish(),
+            CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         for (String[] testPair : testPairs) {
             String xpath = testPair[0];
             String expected = testPair[1];
@@ -92,10 +100,13 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
 
-
     private void showCldrFile(final CLDRFile cldrFile) {
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-        checkPathValue(exampleGenerator, "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]", "EEEE d MMMMl y'x'G");
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(),
+            CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        checkPathValue(
+            exampleGenerator,
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]",
+            "EEEE d MMMMl y'x'G");
 
         for (String xpath : cldrFile.fullIterable()) {
             String value = cldrFile.getStringValue(xpath);
@@ -116,7 +127,7 @@ public class TestExampleGenerator extends TestFmwk {
                     if (text == null) continue;
                     if (text.contains("Exception")) {
                         errln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text);
-                    } else if (!alreadySeen.contains(text)){
+                    } else if (!alreadySeen.contains(text)) {
                         if (text.contains("n/a")) {
                             if (text.contains("&lt;")) {
                                 errln("Text not quoted correctly:" + "\t" + zoomed + "\t" + text + "\t" + xpath);

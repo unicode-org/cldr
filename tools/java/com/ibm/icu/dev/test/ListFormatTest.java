@@ -7,62 +7,61 @@ public class ListFormatTest extends TestFmwk {
     public static void main(String[] args) {
         new ListFormatTest().run(args);
     }
-    
+
     String[] HardcodedTestData = {
-            "",
-            "A",
-            "A and B",
-            "A; B, and C",
-            "A; B, C, and D",
-            "A; B, C, D, and E"
+        "",
+        "A",
+        "A and B",
+        "A; B, and C",
+        "A; B, C, and D",
+        "A; B, C, D, and E"
     };
 
     public void TestBasic() {
         ListFormat formatter = new ListFormat("{0} and {1}", "{0}; {1}", "{0}, {1}", "{0}, and {1}");
         checkData(formatter, HardcodedTestData);
     }
-    
+
     String[] EnglishTestData = {
-            "",
-            "A",
-            "A and B",
-            "A, B, and C",
-            "A, B, C, and D",
-            "A, B, C, D, and E"
+        "",
+        "A",
+        "A and B",
+        "A, B, and C",
+        "A, B, C, and D",
+        "A, B, C, D, and E"
     };
-    
+
     public void TestEnglish() {
         checkData(ListFormat.getInstance(ULocale.ENGLISH), EnglishTestData);
         checkData(ListFormat.getInstance(ULocale.US), EnglishTestData);
     }
-    
+
     String[] JapaneseTestData = {
-            "",
-            "A",
-            "A、B",
-            "A、B、C",
-            "A、B、C、D",
-            "A、B、C、D、E"
+        "",
+        "A",
+        "A、B",
+        "A、B、C",
+        "A、B、C、D",
+        "A、B、C、D、E"
     };
 
     public void TestJapanese() {
         checkData(ListFormat.getInstance(ULocale.JAPANESE), JapaneseTestData);
     }
-    
+
     String[] RootTestData = {
-            "",
-            "A",
-            "A, B",
-            "A, B, C",
-            "A, B, C, D",
-            "A, B, C, D, E"
+        "",
+        "A",
+        "A, B",
+        "A, B, C",
+        "A, B, C, D",
+        "A, B, C, D, E"
     };
 
     public void TestSpecial() {
         checkData(ListFormat.getInstance(ULocale.ROOT), RootTestData);
         checkData(ListFormat.getInstance(new ULocale("xxx")), RootTestData);
     }
-
 
     public void checkData(ListFormat listFormat, String[] strings) {
         assertEquals("0", strings[0], listFormat.format());

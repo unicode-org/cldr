@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.
+ * 
  * @author markdavis
  */
 public class Option {
@@ -20,11 +21,12 @@ public class Option {
     private final Enum<?> optionEnumValue;
     private boolean doesOccur;
     private String value;
-    //private boolean implicitValue;
+
+    // private boolean implicitValue;
 
     public void clear() {
         doesOccur = false;
-        //implicitValue = false;
+        // implicitValue = false;
         value = null;
     }
 
@@ -44,18 +46,20 @@ public class Option {
         return value;
     }
 
-    //    public boolean getUsingImplicitValue() {
-    //        return false;
-    //    }
+    // public boolean getUsingImplicitValue() {
+    // return false;
+    // }
 
     public boolean doesOccur() {
         return doesOccur;
     }
 
-    private Option(Enum<?> enumOption, String tag, Character flag, Pattern argumentPattern, String defaultArgument, String helpString) {
+    private Option(Enum<?> enumOption, String tag, Character flag, Pattern argumentPattern, String defaultArgument,
+        String helpString) {
         if (defaultArgument != null && argumentPattern != null) {
             if (!argumentPattern.matcher(defaultArgument).matches()) {
-                throw new IllegalArgumentException("Default argument doesn't match pattern: " + defaultArgument + ", " + argumentPattern);
+                throw new IllegalArgumentException("Default argument doesn't match pattern: " + defaultArgument + ", "
+                    + argumentPattern);
             }
         }
         this.match = argumentPattern;
@@ -67,11 +71,13 @@ public class Option {
     }
 
     public String toString() {
-        return "-" + flag + " (" + tag + ") \t" 
-        + (match == null ? "no-arg" : match.pattern()) + " \t" + helpString;
+        return "-" + flag + " (" + tag + ") \t"
+            + (match == null ? "no-arg" : match.pattern()) + " \t" + helpString;
     }
 
-    enum MatchResult {noValueError, noValue, valueError, value}
+    enum MatchResult {
+        noValueError, noValue, valueError, value
+    }
 
     public MatchResult matches(String inputValue) {
         if (doesOccur) {
@@ -89,7 +95,8 @@ public class Option {
             this.value = inputValue;
             return MatchResult.value;
         } else {
-            System.err.println("The flag '" + tag + "' has the parameter '" + inputValue + "', which must match " + match.pattern());
+            System.err.println("The flag '" + tag + "' has the parameter '" + inputValue + "', which must match "
+                + match.pattern());
             return MatchResult.valueError;
         }
     }
@@ -126,32 +133,36 @@ public class Option {
             return add(string, string.charAt(0), argumentPattern, defaultArgument, helpText);
         }
 
-        public Option add(Enum<?> optionEnumValue, String argumentPattern,String defaultArgument, String helpText) {
-            add(optionEnumValue, optionEnumValue.name(), optionEnumValue.name().charAt(0), argumentPattern, defaultArgument, helpText);
+        public Option add(Enum<?> optionEnumValue, String argumentPattern, String defaultArgument, String helpText) {
+            add(optionEnumValue, optionEnumValue.name(), optionEnumValue.name().charAt(0), argumentPattern,
+                defaultArgument, helpText);
             return get(optionEnumValue.name());
             // TODO cleanup
         }
-        
-        public Options add(String string, Character flag, String argumentPattern, String defaultArgument, String helpText) {
+
+        public Options add(String string, Character flag, String argumentPattern, String defaultArgument,
+            String helpText) {
             return add(null, string, flag, argumentPattern, defaultArgument, helpText);
         }
 
-        public Options add(Enum<?> optionEnumValue, String string, Character flag, String argumentPattern, String defaultArgument, String helpText) {
+        public Options add(Enum<?> optionEnumValue, String string, Character flag, String argumentPattern,
+            String defaultArgument, String helpText) {
             if (stringToValues.containsKey(string)) {
                 throw new IllegalArgumentException("Duplicate tag <" + string + "> with " + stringToValues.get(string));
             }
             if (charToValues.containsKey(flag)) {
-                throw new IllegalArgumentException("Duplicate tag <" + string + ", " + flag + "> with " + charToValues.get(flag));
+                throw new IllegalArgumentException("Duplicate tag <" + string + ", " + flag + "> with "
+                    + charToValues.get(flag));
             }
-            Option option = new Option(optionEnumValue, string, flag, 
-                            argumentPattern == null ? null : Pattern.compile(argumentPattern, Pattern.COMMENTS), 
-                                    defaultArgument, helpText);
+            Option option = new Option(optionEnumValue, string, flag,
+                argumentPattern == null ? null : Pattern.compile(argumentPattern, Pattern.COMMENTS),
+                defaultArgument, helpText);
             stringToValues.put(string, option);
             enumToValues.put(optionEnumValue, option);
             charToValues.put(flag, option);
             return this;
         }
-        
+
         public Set<String> parse(Enum<?> enumOption, String[] args, boolean showArguments) {
             return parse(args, showArguments);
         }
@@ -190,7 +201,7 @@ public class Option {
                 }
                 boolean tookExtraArgument = false;
                 if (value == null) {
-                    value = i < args.length - 1 ? args[i+1] : null;
+                    value = i < args.length - 1 ? args[i + 1] : null;
                     if (value != null && value.startsWith("-")) {
                         value = null;
                     }
@@ -216,17 +227,17 @@ public class Option {
             for (Option option : stringToValues.values()) {
                 if (!option.doesOccur && option.defaultArgument != null) {
                     option.value = option.defaultArgument;
-                    //option.implicitValue = true;
+                    // option.implicitValue = true;
                 }
             }
 
             if (errorCount > 0) {
                 System.err.println("Invalid Option - Choices are:");
                 System.err.println(getHelp());
-                System.exit(1);            
+                System.exit(1);
             } else if (needHelp) {
                 System.err.println(getHelp());
-                System.exit(1);            
+                System.exit(1);
             } else if (showArguments) {
                 for (Option option : stringToValues.values()) {
                     if (!option.doesOccur && option.value == null) {
@@ -275,12 +286,11 @@ public class Option {
     }
 
     final static Options myOptions = new Options()
-    .add("file", ".*", "Filter the information based on file name, using a regex argument")
-    .add("path", ".*", "default-path", "Filter the information based on path name, using a regex argument")
-    .add("content", ".*", "Filter the information based on content name, using a regex argument")
-    .add("gorp", null, null, "Gorp")
-    .add("regex", "a*", null, "Gorp")
-    ;
+        .add("file", ".*", "Filter the information based on file name, using a regex argument")
+        .add("path", ".*", "default-path", "Filter the information based on path name, using a regex argument")
+        .add("content", ".*", "Filter the information based on content name, using a regex argument")
+        .add("gorp", null, null, "Gorp")
+        .add("regex", "a*", null, "Gorp");
 
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -289,7 +299,8 @@ public class Option {
         myOptions.parse(args, true);
 
         for (Option option : myOptions) {
-            System.out.println(option.getTag() + "\t" + option.doesOccur() + "\t" + option.getValue() + "\t" + option.getHelpString());
+            System.out.println(option.getTag() + "\t" + option.doesOccur() + "\t" + option.getValue() + "\t"
+                + option.getHelpString());
         }
         Option option = myOptions.get("file");
         System.out.println("\n" + option.doesOccur() + "\t" + option.getValue() + "\t" + option);

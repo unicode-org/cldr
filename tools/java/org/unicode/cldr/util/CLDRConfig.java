@@ -1,6 +1,5 @@
 package org.unicode.cldr.util;
 
-
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -14,34 +13,39 @@ import com.ibm.icu.text.RuleBasedCollator;
 
 public class CLDRConfig {
     private static CLDRConfig INSTANCE = null;
-    public static final String SUBCLASS = CLDRConfig.class.getName()+"Impl";
-    public enum Environment { 
-            LOCAL,  //< == unknown.
-            SMOKETEST,  // staging area
-             PRODUCTION // production server!
+    public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
+
+    public enum Environment {
+        LOCAL, // < == unknown.
+        SMOKETEST, // staging area
+        PRODUCTION // production server!
     };
 
     public static CLDRConfig getInstance() {
-      synchronized (CLDRConfig.class) {
-        if (INSTANCE == null) {
-            try {
-                //System.err.println("Attempting to new up a " + SUBCLASS);
-                INSTANCE = (CLDRConfig)(Class.forName(SUBCLASS).newInstance());
-                System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - " + INSTANCE.getClass().getName());
-            } catch(Throwable t) {
-                //t.printStackTrace();
-                //System.err.println("Could not use "+SUBCLASS + " - " + t.toString() + " - falling back to parent");
+        synchronized (CLDRConfig.class) {
+            if (INSTANCE == null) {
+                try {
+                    // System.err.println("Attempting to new up a " + SUBCLASS);
+                    INSTANCE = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
+                    System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
+                        + INSTANCE.getClass().getName());
+                } catch (Throwable t) {
+                    // t.printStackTrace();
+                    // System.err.println("Could not use "+SUBCLASS + " - " + t.toString() +
+                    // " - falling back to parent");
+                }
+            }
+            if (INSTANCE == null) {
+                INSTANCE = new CLDRConfig();
+                CldrUtility.checkValidDirectory(INSTANCE.getProperty("CLDR_DIR"),
+                    "You have to set -DCLDR_DIR=<validdirectory>");
             }
         }
-        if(INSTANCE == null) {
-          INSTANCE = new CLDRConfig();
-          CldrUtility.checkValidDirectory(INSTANCE.getProperty("CLDR_DIR"), "You have to set -DCLDR_DIR=<validdirectory>");
-        }
-      }
-      return INSTANCE;
+        return INSTANCE;
     }
 
-    protected CLDRConfig() {}
+    protected CLDRConfig() {
+    }
 
     private SupplementalDataInfo supplementalDataInfo;
     private StandardCodes sc;
@@ -50,7 +54,7 @@ public class CLDRConfig {
     private CLDRFile root;
     private RuleBasedCollator col;
     private Phase phase = Phase.SUBMISSION; // default
-    
+
     private TestLog testLog = null;
 
     // base level
@@ -66,7 +70,7 @@ public class CLDRConfig {
     }
 
     protected void logln(String msg) {
-        if(testLog!=null) {
+        if (testLog != null) {
             testLog.logln(msg);
         } else {
             System.out.println(msg);
@@ -75,47 +79,52 @@ public class CLDRConfig {
     }
 
     public SupplementalDataInfo getSupplementalDataInfo() {
-        synchronized(this) {
+        synchronized (this) {
             if (supplementalDataInfo == null) {
                 supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
             }
         }
         return supplementalDataInfo;
     }
+
     public StandardCodes getStandardCodes() {
-        synchronized(this) {
+        synchronized (this) {
             if (sc == null) {
                 sc = StandardCodes.make();
             }
         }
         return sc;
     }
+
     public Factory getCldrFactory() {
-        synchronized(this) {
+        synchronized (this) {
             if (cldrFactory == null) {
                 cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
             }
         }
         return cldrFactory;
     }
+
     public CLDRFile getEnglish() {
-        synchronized(this) {
+        synchronized (this) {
             if (english == null) {
                 english = getCldrFactory().make("en", true);
             }
         }
         return english;
     }
+
     public CLDRFile getRoot() {
-        synchronized(this) {
+        synchronized (this) {
             if (root == null) {
                 root = getCldrFactory().make("root", true);
             }
         }
         return root;
     }
+
     public Collator getCollator() {
-        synchronized(this) {
+        synchronized (this) {
             if (col == null) {
                 col = (RuleBasedCollator) Collator.getInstance();
                 col.setNumericCollation(true);
@@ -127,27 +136,27 @@ public class CLDRConfig {
     public Phase getPhase() {
         return phase;
     }
-    
+
     public String getProperty(String key, String d) {
         String result = getProperty(key);
-        if(result==null) return d;
+        if (result == null) return d;
         return result;
     }
-    
+
     private Set<String> shown = new HashSet<String>();
 
     public String getProperty(String key) {
         String result = System.getProperty(key);
         if (result == null) {
-          result = System.getProperty(key.toUpperCase(Locale.ENGLISH));
+            result = System.getProperty(key.toUpperCase(Locale.ENGLISH));
         }
         if (result == null) {
-          result = System.getProperty(key.toLowerCase(Locale.ENGLISH));
+            result = System.getProperty(key.toLowerCase(Locale.ENGLISH));
         }
         if (result == null) {
-          result = System.getenv(key);
+            result = System.getenv(key);
         }
-        if(!shown.contains(key)) {
+        if (!shown.contains(key)) {
             logln("-D" + key + "=" + result);
             shown.add(key);
         }
@@ -155,14 +164,14 @@ public class CLDRConfig {
     }
 
     private Environment curEnvironment = null;
-    
+
     public Environment getEnvironment() {
-        if(curEnvironment==null) {
+        if (curEnvironment == null) {
             String envString = getProperty("CLDR_ENVIRONMENT");
-            if(envString!=null) {
+            if (envString != null) {
                 curEnvironment = Environment.valueOf(envString.trim());
             }
-            if(curEnvironment==null) {
+            if (curEnvironment == null) {
                 curEnvironment = Environment.LOCAL;
             }
         }

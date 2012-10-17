@@ -1,15 +1,15 @@
 /**
-*******************************************************************************
-* Copyright (C) 1996-2001, International Business Machines Corporation and    *
-* others. All Rights Reserved.                                                *
-*******************************************************************************
-*
-* $Source$
-* $Date$
-* $Revision$
-*
-*******************************************************************************
-*/
+ *******************************************************************************
+ * Copyright (C) 1996-2001, International Business Machines Corporation and    *
+ * others. All Rights Reserved.                                                *
+ *******************************************************************************
+ *
+ * $Source$
+ * $Date$
+ * $Revision$
+ *
+ *******************************************************************************
+ */
 
 package org.unicode.cldr.util;
 
@@ -18,16 +18,16 @@ import java.io.Writer;
 
 final public class DualWriter extends Writer {
 
-    private boolean autoflush ;
+    private boolean autoflush;
     private Writer a;
     private Writer b;
 
-    public DualWriter (Writer a, Writer b) {
+    public DualWriter(Writer a, Writer b) {
         this.a = a;
         this.b = b;
     }
 
-    public DualWriter (Writer a, Writer b, boolean autoFlush) {
+    public DualWriter(Writer a, Writer b, boolean autoFlush) {
         this.a = a;
         this.b = b;
         autoflush = autoFlush;
@@ -42,8 +42,8 @@ final public class DualWriter extends Writer {
     }
 
     public void write(char cbuf[],
-                        int off,
-                        int len) throws IOException {
+        int off,
+        int len) throws IOException {
         a.write(cbuf, off, len);
         b.write(cbuf, off, len);
         if (autoflush) flush();

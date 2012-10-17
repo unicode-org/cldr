@@ -18,13 +18,19 @@ import com.ibm.icu.text.Transform;
  * Convenience class for building collections and maps. Allows them to be built by chaining, making it simpler to
  * set as parameters and fields. Also supplies some operations that are missing on the JDK maps and collections,
  * and provides finer control for what happens with equal elements.
- * <p>You start with Builder.with(...) and end with either .get() or .freeze(). With .freeze, the result is unmodifiable (but its objects may be). Examples:
+ * <p>
+ * You start with Builder.with(...) and end with either .get() or .freeze(). With .freeze, the result is unmodifiable
+ * (but its objects may be). Examples:
  * <ul>
- * <li>Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(anIterator).addAll(aCollection).addAll(item1, item2, item3).get();</li>
+ * <li>Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(anIterator).addAll(aCollection).addAll(item1,
+ * item2, item3).get();</li>
  * <li>Map<String, Integer> map = Builder.with(new TreeMap<String, Integer>()).put("one",2).putAll(otherMap).freeze();
  * </ul>
- *
- * <p>The builder allows some options that the normal collections don't have, with the EqualAction. If none it specified, then it behaves like Java collections.
+ * 
+ * <p>
+ * The builder allows some options that the normal collections don't have, with the EqualAction. If none it specified,
+ * then it behaves like Java collections.
+ * 
  * <pre>
  * Operations: A is current contents, B is new collection, x indicates the results
  * A-B   A&B    B-A   Name
@@ -35,44 +41,46 @@ import com.ibm.icu.text.Transform;
  * x      x           <no operation>
  *        x      x    clear().addAll(B)
  * x             x    xor(B)
- * x      x      x    addAll(B)          
+ * x      x      x    addAll(B)
  * </pre>
+ * 
  * @author markdavis
  */
 public final class Builder {
     enum EqualAction {
         /**
-         * If you try to add an item that is already there, or change the mapping, do whatever the source collation or map does.
+         * If you try to add an item that is already there, or change the mapping, do whatever the source collation or
+         * map does.
          */
-        NATIVE, 
+        NATIVE,
         /**
          * If you try to add an item that is already there, or change the mapping, take the new item.
          */
-        REPLACE, 
+        REPLACE,
         /**
          * If you try to add an item that is already there, or change the mapping, retain the old one.
          */
-        RETAIN, 
+        RETAIN,
         /**
          * If you try to add an item that is already there, or change the mapping, throw an exception.
          */
         THROW
     }
 
-    public static <E, C extends Collection<E>> CBuilder<E,C> with(C collection, EqualAction ea) {
-        return new CBuilder<E,C>(collection, ea);
+    public static <E, C extends Collection<E>> CBuilder<E, C> with(C collection, EqualAction ea) {
+        return new CBuilder<E, C>(collection, ea);
     }
 
-    public static <E, C extends Collection<E>> CBuilder<E,C> with(C collection) {
-        return new CBuilder<E,C>(collection, EqualAction.NATIVE);
+    public static <E, C extends Collection<E>> CBuilder<E, C> with(C collection) {
+        return new CBuilder<E, C>(collection, EqualAction.NATIVE);
     }
 
-    public static <K, V, M extends Map<K,V>> MBuilder<K,V,M> with(M map, EqualAction ea) {
-        return new MBuilder<K,V,M>(map, ea);
+    public static <K, V, M extends Map<K, V>> MBuilder<K, V, M> with(M map, EqualAction ea) {
+        return new MBuilder<K, V, M>(map, ea);
     }
 
-    public static <K, V, M extends Map<K,V>> MBuilder<K,V,M> with(M map) {
-        return new MBuilder<K,V,M>(map, EqualAction.NATIVE);
+    public static <K, V, M extends Map<K, V>> MBuilder<K, V, M> with(M map) {
+        return new MBuilder<K, V, M>(map, EqualAction.NATIVE);
     }
 
     // ===== Collections ======
@@ -81,6 +89,7 @@ public final class Builder {
         public EqualAction getEqualAction() {
             return equalAction;
         }
+
         public CBuilder<E, U> setEqualAction(EqualAction equalAction) {
             this.equalAction = equalAction;
             return this;
@@ -91,19 +100,19 @@ public final class Builder {
             return this;
         }
 
-        public CBuilder<E,U> add(E e) {
+        public CBuilder<E, U> add(E e) {
             switch (equalAction) {
-            case NATIVE: 
+            case NATIVE:
                 break;
-            case REPLACE: 
+            case REPLACE:
                 collection.remove(e);
                 break;
-            case RETAIN: 
+            case RETAIN:
                 if (collection.contains(e)) {
                     return this;
                 }
                 break;
-            case THROW: 
+            case THROW:
                 if (collection.contains(e)) {
                     throw new IllegalArgumentException("Map already contains " + e);
                 }
@@ -112,9 +121,9 @@ public final class Builder {
             return this;
         }
 
-        public CBuilder<E,U> addAll(Iterable<? extends E> c) {
+        public CBuilder<E, U> addAll(Iterable<? extends E> c) {
             if (equalAction == EqualAction.REPLACE && c instanceof Collection<?>) {
-                collection.addAll((Collection<? extends E>)c);
+                collection.addAll((Collection<? extends E>) c);
             } else {
                 for (E item : c) {
                     add(item);
@@ -137,7 +146,7 @@ public final class Builder {
             return this;
         }
 
-        public <T> CBuilder<E,U> addAll(Transform<T, E> transform, Iterable<? extends T> c) {
+        public <T> CBuilder<E, U> addAll(Transform<T, E> transform, Iterable<? extends T> c) {
             return addAll(Transformer.iterator(transform, c));
         }
 
@@ -154,52 +163,52 @@ public final class Builder {
             return this;
         }
 
-        public CBuilder<E,U> removeAll(Collection<? extends E> c) {
+        public CBuilder<E, U> removeAll(Collection<? extends E> c) {
             collection.removeAll(c);
             return this;
         }
 
-        public CBuilder<E,U> removeAll(Transform<E, Boolean> predicate) {
+        public CBuilder<E, U> removeAll(Transform<E, Boolean> predicate) {
             collection.removeAll(getMatchingItems(predicate, collection, new HashSet<E>()));
             return this;
         }
 
-        public CBuilder<E,U> removeAll(E... items) {
+        public CBuilder<E, U> removeAll(E... items) {
             for (E item : items) {
                 collection.remove(item);
             }
             return this;
         }
 
-        public CBuilder<E,U> removeAll(Iterator<E> items) {
+        public CBuilder<E, U> removeAll(Iterator<E> items) {
             while (items.hasNext()) {
                 collection.remove(items.next());
             }
             return this;
         }
 
-        public CBuilder<E,U> retainAll(Collection<? extends E> c) {
+        public CBuilder<E, U> retainAll(Collection<? extends E> c) {
             collection.retainAll(c);
             return this;
         }
 
-        public CBuilder<E,U> retainAll(E... items) {
+        public CBuilder<E, U> retainAll(E... items) {
             collection.retainAll(Arrays.asList(items));
             return this;
         }
 
-        public CBuilder<E,U> retainAll(Iterator<E> items) {
+        public CBuilder<E, U> retainAll(Iterator<E> items) {
             HashSet<E> temp = Builder.with(new HashSet<E>()).addAll(items).get();
             collection.retainAll(temp);
             return this;
         }
 
-        public CBuilder<E,U> retainAll(Transform<E, Boolean> predicate) {
+        public CBuilder<E, U> retainAll(Transform<E, Boolean> predicate) {
             collection.retainAll(getMatchingItems(predicate, collection, new HashSet<E>()));
             return this;
         }
 
-        public CBuilder<E,U> xor(Collection<? extends E> c) {
+        public CBuilder<E, U> xor(Collection<? extends E> c) {
             for (E item : c) {
                 boolean changed = collection.remove(item);
                 if (!changed) {
@@ -209,16 +218,16 @@ public final class Builder {
             return this;
         }
 
-        public CBuilder<E,U> xor(E... items) {
+        public CBuilder<E, U> xor(E... items) {
             return xor(Arrays.asList(items));
         }
 
-        public CBuilder<E,U> xor(Iterator<E> items) {
+        public CBuilder<E, U> xor(Iterator<E> items) {
             HashSet<E> temp = Builder.with(new HashSet<E>()).addAll(items).get();
             return xor(temp);
         }
 
-        public CBuilder<E,U> keepNew(Collection<? extends E> c) {
+        public CBuilder<E, U> keepNew(Collection<? extends E> c) {
             HashSet<E> extras = new HashSet<E>(c);
             extras.removeAll(collection);
             collection.clear();
@@ -226,16 +235,16 @@ public final class Builder {
             return this;
         }
 
-        public CBuilder<E,U> keepNew(E... items) {
+        public CBuilder<E, U> keepNew(E... items) {
             return keepNew(Arrays.asList(items));
         }
 
-        public CBuilder<E,U> keepNew(Iterator<E> items) {
+        public CBuilder<E, U> keepNew(Iterator<E> items) {
             HashSet<E> temp = Builder.with(new HashSet<E>()).addAll(items).get();
             return keepNew(temp);
         }
 
-        public CBuilder<E,U> filter(Transform<E,Boolean> filter) {
+        public CBuilder<E, U> filter(Transform<E, Boolean> filter) {
             HashSet<E> temp = new HashSet<E>();
             for (E item : collection) {
                 if (filter.transform(item) == Boolean.FALSE) {
@@ -256,13 +265,13 @@ public final class Builder {
         public U freeze() {
             U temp;
             if (collection instanceof SortedSet) {
-                temp = (U)Collections.unmodifiableSortedSet((SortedSet<E>) collection);
+                temp = (U) Collections.unmodifiableSortedSet((SortedSet<E>) collection);
             } else if (collection instanceof Set) {
-                temp = (U)Collections.unmodifiableSet((Set<E>) collection);
+                temp = (U) Collections.unmodifiableSet((Set<E>) collection);
             } else if (collection instanceof List) {
-                temp = (U)Collections.unmodifiableList((List<E>) collection);
+                temp = (U) Collections.unmodifiableList((List<E>) collection);
             } else {
-                temp = (U)Collections.unmodifiableCollection(collection);
+                temp = (U) Collections.unmodifiableCollection(collection);
             }
             collection = null;
             return temp;
@@ -278,17 +287,19 @@ public final class Builder {
             this.collection = set2;
             equalAction = ea;
         }
+
         private U collection;
         private EqualAction equalAction;
     }
 
     // ===== Maps ======
 
-    public static final class MBuilder<K, V, M extends Map<K,V>> {
+    public static final class MBuilder<K, V, M extends Map<K, V>> {
 
         public EqualAction getEqualAction() {
             return equalAction;
         }
+
         public MBuilder<K, V, M> setEqualAction(EqualAction equalAction) {
             this.equalAction = equalAction;
             return this;
@@ -298,19 +309,20 @@ public final class Builder {
             map.clear();
             return this;
         }
+
         public MBuilder<K, V, M> put(K key, V value) {
             switch (equalAction) {
-            case NATIVE: 
+            case NATIVE:
                 break;
-            case REPLACE: 
+            case REPLACE:
                 map.remove(key);
                 break;
-            case RETAIN: 
+            case RETAIN:
                 if (map.containsKey(key)) {
                     return this;
                 }
                 break;
-            case THROW: 
+            case THROW:
                 if (map.containsKey(key)) {
                     throw new IllegalArgumentException("Map already contains " + key);
                 }
@@ -388,6 +400,7 @@ public final class Builder {
             map.keySet().removeAll(keys);
             return this;
         }
+
         public MBuilder<K, V, M> removeAll(K... keys) {
             return removeAll(Arrays.asList(keys));
         }
@@ -406,11 +419,12 @@ public final class Builder {
             map.keySet().retainAll(keys);
             return this;
         }
+
         public MBuilder<K, V, M> retainAll(K... keys) {
             return retainAll(Arrays.asList(keys));
         }
 
-        public <N extends Map<K,V>> MBuilder<K, V, M> xor(N c) {
+        public <N extends Map<K, V>> MBuilder<K, V, M> xor(N c) {
             for (K item : c.keySet()) {
                 if (map.containsKey(item)) {
                     map.remove(item);
@@ -421,7 +435,7 @@ public final class Builder {
             return this;
         }
 
-        public <N extends Map<K,V>> MBuilder<K, V, M> keepNew(N c) {
+        public <N extends Map<K, V>> MBuilder<K, V, M> keepNew(N c) {
             HashSet<K> extras = new HashSet<K>(c.keySet());
             extras.removeAll(map.keySet());
             map.clear();
@@ -440,10 +454,10 @@ public final class Builder {
         @SuppressWarnings("unchecked")
         public M freeze() {
             M temp;
-            if (map instanceof SortedMap<?,?>) {
-                temp = (M)Collections.unmodifiableSortedMap((SortedMap<K,V>) map);
+            if (map instanceof SortedMap<?, ?>) {
+                temp = (M) Collections.unmodifiableSortedMap((SortedMap<K, V>) map);
             } else {
-                temp = (M)Collections.unmodifiableMap((Map<K,V>) map);
+                temp = (M) Collections.unmodifiableMap((Map<K, V>) map);
             }
             map = null;
             return temp;
@@ -465,7 +479,8 @@ public final class Builder {
         }
     }
 
-    public static <E> Collection<E> getMatchingItems(Transform<E, Boolean> predicate, Collection<E> collection, Collection<E> matchingItems) {
+    public static <E> Collection<E> getMatchingItems(Transform<E, Boolean> predicate, Collection<E> collection,
+        Collection<E> matchingItems) {
         for (E item : collection) {
             if (predicate.transform(item)) {
                 matchingItems.add(item);

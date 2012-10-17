@@ -18,16 +18,19 @@ public class CompareHanTransliterators {
         XMLFileReader reader = new XMLFileReader();
         MyContentHandler handler = new MyContentHandler();
         reader.setHandler(handler);
-        reader.read("/Users/markdavis/Documents/workspace/cldr/common/transforms/Han-Latin.xml", XMLFileReader.CONTENT_HANDLER, false);
+        reader.read("/Users/markdavis/Documents/workspace/cldr/common/transforms/Han-Latin.xml",
+            XMLFileReader.CONTENT_HANDLER, false);
         UnicodeMap<String> trunk = handler.map;
-        
+
         handler.map = new UnicodeMap<String>();
 
-        reader.read("/Users/markdavis/Documents/workspace/cldr-1.8.1/common/transforms/Han-Latin.xml", XMLFileReader.CONTENT_HANDLER, false);
+        reader.read("/Users/markdavis/Documents/workspace/cldr-1.8.1/common/transforms/Han-Latin.xml",
+            XMLFileReader.CONTENT_HANDLER, false);
         UnicodeMap<String> old = handler.map;
-        
+
         UnicodeSet merged = new UnicodeSet(trunk.keySet()).addAll(old.keySet());
-        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.GEN_DIRECTORY, "han-transliterator-diff.txt");
+        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.GEN_DIRECTORY,
+            "han-transliterator-diff.txt");
         for (String s : merged) {
             String oldValue = old.get(s);
             if (oldValue == null) {
@@ -40,22 +43,22 @@ public class CompareHanTransliterators {
         }
         out.close();
     }
-    
+
     public static class MyContentHandler extends SimpleHandler {
         UnicodeMap<String> map = new UnicodeMap<String>();
-        
+
         public void handlePathValue(String path, String value) {
             if (!path.contains("tRule")) return;
             int pos = value.indexOf('→');
             if (pos < 0) return;
-            String source = value.substring(0,pos).trim();
-            String target = value.substring(pos+1).trim();
+            String source = value.substring(0, pos).trim();
+            String target = value.substring(pos + 1).trim();
             if (UnicodeSet.resemblesPattern(source, 0)) {
-                map.putAll(new UnicodeSet(source), target);  
+                map.putAll(new UnicodeSet(source), target);
             } else if (UCharacter.codePointCount(source, 0, source.length()) == 1) {
-                map.put(source, target); 
+                map.put(source, target);
             } else {
-                throw new IllegalArgumentException(); // unexpected                
+                throw new IllegalArgumentException(); // unexpected
             }
         }
     }

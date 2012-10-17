@@ -11,6 +11,7 @@ import com.ibm.icu.impl.Row.R2;
 
 public class TestBCP47 extends TestFmwk {
     static TestAll.TestInfo testInfo = TestAll.TestInfo.getInstance();
+
     public static void main(String[] args) {
         new TestBCP47().run(args);
     }
@@ -18,24 +19,25 @@ public class TestBCP47 extends TestFmwk {
     public void TestEnglishKeyTranslations() {
         checkEnglishTranslations(true);
     }
-    
+
     public void TestEnglishTypeTranslations() {
         checkEnglishTranslations(false);
     }
 
     public void checkEnglishTranslations(boolean keysVsTypes) {
-        //        for (Iterator it = testInfo.getEnglish().iterator("//ldml/localeDisplayNames/types"); it.hasNext();) {
-        //            System.out.println(it.next());
-        //        }
+        // for (Iterator it = testInfo.getEnglish().iterator("//ldml/localeDisplayNames/types"); it.hasNext();) {
+        // System.out.println(it.next());
+        // }
         Relation<String, String> bcp47key_types = testInfo.getSupplementalDataInfo().getBcp47Keys();
-        Relation<R2<String, String>, String> bcp47keyType_aliases = testInfo.getSupplementalDataInfo().getBcp47Aliases();
+        Relation<R2<String, String>, String> bcp47keyType_aliases = testInfo.getSupplementalDataInfo()
+            .getBcp47Aliases();
 
         Set<String> keys = new LinkedHashSet<String>();
         Set<String> types = new LinkedHashSet<String>();
 
         for (String key : bcp47key_types.keySet()) {
 
-            setToItems(keys, key, bcp47keyType_aliases.get(Row.of(key,"")));
+            setToItems(keys, key, bcp47keyType_aliases.get(Row.of(key, "")));
             String keyTranslation = getKeyTranslation(keys);
             if (keyTranslation == null) {
                 if (keysVsTypes) errln("Translation for " + key + ":\t" + keyTranslation);
@@ -45,7 +47,7 @@ public class TestBCP47 extends TestFmwk {
             }
             if (!keysVsTypes) {
                 for (String subtype : bcp47key_types.get(key)) {
-                    setToItems(types, subtype, bcp47keyType_aliases.get(Row.of(key,subtype)));
+                    setToItems(types, subtype, bcp47keyType_aliases.get(Row.of(key, subtype)));
                     String typeTranslation = getTypeTranslation(keys, types);
                     if (typeTranslation == null) {
                         if (key.equals("cu") || key.equals("vt")) {
@@ -97,7 +99,8 @@ public class TestBCP47 extends TestFmwk {
     }
 
     private String getTypeTranslation(String key, String type) {
-        return testInfo.getEnglish().getStringValue("//ldml/localeDisplayNames/types/type[@type=\"" + type + "\"][@key=\"" + key + "\"]");
+        return testInfo.getEnglish().getStringValue(
+            "//ldml/localeDisplayNames/types/type[@type=\"" + type + "\"][@key=\"" + key + "\"]");
     }
 
 }

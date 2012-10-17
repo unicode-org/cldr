@@ -26,7 +26,7 @@ import com.ibm.icu.util.ULocale;
 public class CheckConsistentCasing extends FactoryCheckCLDR {
 
     private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
-    
+
     private static final double MIN_FACTOR = 2.5;
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*Currencies.*
@@ -40,16 +40,17 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
     public CheckConsistentCasing(Factory factory) {
         super(factory);
-        casingInfo = new CasingInfo(factory.getSupplementalDirectory().getAbsolutePath()+"/../casing"); // TODO: fix.
+        casingInfo = new CasingInfo(factory.getSupplementalDirectory().getAbsolutePath() + "/../casing"); // TODO: fix.
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+        List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         locale = cldrFileToCheck.getLocaleID();
 
         Map<String, CasingType> casing = casingInfo.getLocaleCasing(locale);
-        if(casing == null) {
+        if (casing == null) {
             possibleErrors.add(new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.warningType)
                 .setSubtype(Subtype.incorrectCasing)
@@ -66,7 +67,8 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     }
 
     // If you don't need any file initialization or postprocessing, you only need this one routine
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+        List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
         if (fullPath == null) return this; // skip paths that we don't have
         if (!hasCasingInfo) return this;
@@ -97,28 +99,28 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             for (int i = 0; i < s.length(); i += Character.charCount(cp)) {
                 cp = s.codePointAt(i);
                 // used to skip the placeholders, but works better to have them be 'other'
-//                if (cp == '{') {
-//                    if (placeholder.reset(s).region(i,s.length()).lookingAt()) {
-//                        i = placeholder.end() - 1; // skip
-//                        continue;
-//                    }
-//                }
+                // if (cp == '{') {
+                // if (placeholder.reset(s).region(i,s.length()).lookingAt()) {
+                // i = placeholder.end() - 1; // skip
+                // continue;
+                // }
+                // }
                 int type = UCharacter.getType(cp);
-                switch(type) {
-                
+                switch (type) {
+
                 case UCharacter.LOWERCASE_LETTER:
                     return lowercase;
-                    
+
                 case UCharacter.UPPERCASE_LETTER:
                 case UCharacter.TITLECASE_LETTER:
                     return titlecase;
-                
-                // for other letters / numbers / symbols, return other
-                case UCharacter.OTHER_LETTER:      
+
+                    // for other letters / numbers / symbols, return other
+                case UCharacter.OTHER_LETTER:
                 case UCharacter.DECIMAL_DIGIT_NUMBER:
                 case UCharacter.LETTER_NUMBER:
                 case UCharacter.OTHER_NUMBER:
-                case UCharacter.MATH_SYMBOL :
+                case UCharacter.MATH_SYMBOL:
                 case UCharacter.CURRENCY_SYMBOL:
                 case UCharacter.MODIFIER_SYMBOL:
                 case UCharacter.OTHER_SYMBOL:
@@ -131,6 +133,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
         /**
          * Return true if either is other, or they are identical.
+         * 
          * @param ft
          * @param firstLetterType
          * @return
@@ -141,41 +144,41 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     }
 
     static final RegexLookup<Integer> pathToBucket = new RegexLookup<Integer>()
-    .add("//ldml/localeDisplayNames/languages/language", 0)
-    .add("//ldml/localeDisplayNames/scripts/script", 1)
-    .add("//ldml/localeDisplayNames/territories/territory", 2)
-    .add("//ldml/localeDisplayNames/variants/variant", 3)
-    .add("//ldml/localeDisplayNames/keys/key", 30)
-    .add("//ldml/localeDisplayNames/types/type", 4)
-    .add("//ldml/dates/calendars/calendar.*/months.*narrow", 5)
-    .add("//ldml/dates/calendars/calendar.*/months.*format", 6)
-    .add("//ldml/dates/calendars/calendar.*/months", 7)
-    .add("//ldml/dates/calendars/calendar.*/days.*narrow", 8)
-    .add("//ldml/dates/calendars/calendar.*/days.*format", 9)
-    .add("//ldml/dates/calendars/calendar.*/days", 10)
-    .add("//ldml/dates/calendars/calendar.*/eras/eraNarrow", 11)
-    .add("//ldml/dates/calendars/calendar.*/eras/eraAbbr", 12)
-    .add("//ldml/dates/calendars/calendar.*/eras/", 13)
-    .add("//ldml/dates/calendars/calendar.*/quarters.*narrow", 14)
-    .add("//ldml/dates/calendars/calendar.*/quarters.*abbreviated", 15)
-    .add("//ldml/dates/calendars/calendar.*/quarters.*format", 16)
-    .add("//ldml/dates/calendars/calendar.*/quarters", 17)
-    .add("//ldml/.*/relative", 28)
-    .add("//ldml/dates/calendars/calendar.*/fields", 18)
-    .add("//ldml/dates/timeZoneNames/zone.*/exemplarCity", 19)
-    .add("//ldml/dates/timeZoneNames/zone.*/short", 20)
-    .add("//ldml/dates/timeZoneNames/zone", 21)
-    .add("//ldml/dates/timeZoneNames/metazone.*/commonlyUsed", 22) // just to remove them from the other cases
-    .add("//ldml/dates/timeZoneNames/metazone.*/short", 23)
-    .add("//ldml/dates/timeZoneNames/metazone", 24)
-    .add("//ldml/numbers/currencies/currency.*/symbol", 25)
-    .add("//ldml/numbers/currencies/currency.*/displayName.*@count", 26)
-    .add("//ldml/numbers/currencies/currency.*/displayName", 27)
-    .add("//ldml/units/unit.*/unitPattern.*(past|future)", 28)
-    .add("//ldml/units/unit.*/unitPattern", 29)
-    //ldml/localeDisplayNames/keys/key[@type=".*"]
-    //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
-    //ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
+        .add("//ldml/localeDisplayNames/languages/language", 0)
+        .add("//ldml/localeDisplayNames/scripts/script", 1)
+        .add("//ldml/localeDisplayNames/territories/territory", 2)
+        .add("//ldml/localeDisplayNames/variants/variant", 3)
+        .add("//ldml/localeDisplayNames/keys/key", 30)
+        .add("//ldml/localeDisplayNames/types/type", 4)
+        .add("//ldml/dates/calendars/calendar.*/months.*narrow", 5)
+        .add("//ldml/dates/calendars/calendar.*/months.*format", 6)
+        .add("//ldml/dates/calendars/calendar.*/months", 7)
+        .add("//ldml/dates/calendars/calendar.*/days.*narrow", 8)
+        .add("//ldml/dates/calendars/calendar.*/days.*format", 9)
+        .add("//ldml/dates/calendars/calendar.*/days", 10)
+        .add("//ldml/dates/calendars/calendar.*/eras/eraNarrow", 11)
+        .add("//ldml/dates/calendars/calendar.*/eras/eraAbbr", 12)
+        .add("//ldml/dates/calendars/calendar.*/eras/", 13)
+        .add("//ldml/dates/calendars/calendar.*/quarters.*narrow", 14)
+        .add("//ldml/dates/calendars/calendar.*/quarters.*abbreviated", 15)
+        .add("//ldml/dates/calendars/calendar.*/quarters.*format", 16)
+        .add("//ldml/dates/calendars/calendar.*/quarters", 17)
+        .add("//ldml/.*/relative", 28)
+        .add("//ldml/dates/calendars/calendar.*/fields", 18)
+        .add("//ldml/dates/timeZoneNames/zone.*/exemplarCity", 19)
+        .add("//ldml/dates/timeZoneNames/zone.*/short", 20)
+        .add("//ldml/dates/timeZoneNames/zone", 21)
+        .add("//ldml/dates/timeZoneNames/metazone.*/commonlyUsed", 22) // just to remove them from the other cases
+        .add("//ldml/dates/timeZoneNames/metazone.*/short", 23)
+        .add("//ldml/dates/timeZoneNames/metazone", 24)
+        .add("//ldml/numbers/currencies/currency.*/symbol", 25)
+        .add("//ldml/numbers/currencies/currency.*/displayName.*@count", 26)
+        .add("//ldml/numbers/currencies/currency.*/displayName", 27)
+        .add("//ldml/units/unit.*/unitPattern.*(past|future)", 28)
+        .add("//ldml/units/unit.*/unitPattern", 29)
+    // ldml/localeDisplayNames/keys/key[@type=".*"]
+    // ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
+    // ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
     ;
 
     public static final int LIMIT_COUNT = 31;
@@ -183,9 +186,9 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     CasingType[] types = new CasingType[LIMIT_COUNT];
 
     public static String NOT_USED = "NOT_USED";
- 
+
     public static String[] typeNames = new String[] {
-        "language","script", "territory", "variant", "type",
+        "language", "script", "territory", "variant", "type",
         "month-narrow", "month-format-except-narrow", "month-standalone-except-narrow",
         "day-narrow", "day-format-except-narrow", "day-standalone-except-narrow",
         "era-narrow", "era-abbr", "era-name",
@@ -210,8 +213,10 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     }
 
     /**
-     * Calculates casing information using data from the specified CLDRFile. 
-     * @param resolved the resolved CLDRFile to calculate casing information from
+     * Calculates casing information using data from the specified CLDRFile.
+     * 
+     * @param resolved
+     *            the resolved CLDRFile to calculate casing information from
      * @return
      */
     public static Map<String, CasingType> getSamples(CLDRFile resolved) {
@@ -250,7 +255,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 missing.add(starred);
             }
         }
-        
+
         CasingType[] types = new CasingType[LIMIT_COUNT];
         Map<String, CasingType> info = new HashMap();
         for (int i = 0; i < LIMIT_COUNT; ++i) {
@@ -275,16 +280,16 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         }
         return info;
     }
-    
+
     private void checkConsistentCasing(int i, String path, String fullPath, String value,
-            Map<String, String> options, List<CheckStatus> result) {
+        Map<String, String> options, List<CheckStatus> result) {
         CasingType ft = CasingType.from(value);
         if (!CasingType.works(ft, types[i])) {
             result.add(new CheckStatus().setCause(this)
-                    .setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.incorrectCasing) // typically warningType or errorType
-                    .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the majority of this type: {2}", 
-                            value, ft, types[i])); // the message; can be MessageFormat with arguments
+                .setMainType(CheckStatus.warningType)
+                .setSubtype(Subtype.incorrectCasing) // typically warningType or errorType
+                .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the majority of this type: {2}",
+                    value, ft, types[i])); // the message; can be MessageFormat with arguments
         }
     }
 }

@@ -25,16 +25,15 @@ public class LanguageInfoTest extends TestFmwk {
         data.freeze();
     }
 
-
     public static void main(String[] args) {
         new LanguageInfoTest().run(args);
     }
 
     public void testBasics() {
         final LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList
-                .add(ULocale.FRENCH).add(ULocale.UK)
-                .add(ULocale.ENGLISH).build(),
-                data);
+            .add(ULocale.FRENCH).add(ULocale.UK)
+            .add(ULocale.ENGLISH).build(),
+            data);
         logln(matcher.toString());
 
         assertEquals("UK in FR, UK, EN", ULocale.UK, matcher.getBestMatch(ULocale.UK));

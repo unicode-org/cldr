@@ -50,7 +50,7 @@ public class StandardCodes {
 
     private Map country_modernCurrency = new TreeMap();
 
-    private Map<String,Set<String>> goodCodes = new TreeMap<String,Set<String>>();
+    private Map<String, Set<String>> goodCodes = new TreeMap<String, Set<String>>();
 
     private static final boolean DEBUG = false;
 
@@ -92,15 +92,17 @@ public class StandardCodes {
 
     /**
      * Get at the language registry values, as a Map from label to value.
+     * 
      * @param type
      * @param code
      * @return
      */
-    public Map<String,String> getLangData(String type, String code) {
+    public Map<String, String> getLangData(String type, String code) {
         try {
-            if (type.equals("territory")) type = "region";
+            if (type.equals("territory"))
+                type = "region";
             else if (type.equals("variant")) code = code.toLowerCase(Locale.ENGLISH);
-            return (Map) ((Map)getLStreg().get(type)).get(code);
+            return (Map) ((Map) getLStreg().get(type)).get(code);
         } catch (RuntimeException e) {
             return null;
         }
@@ -214,7 +216,7 @@ public class StandardCodes {
                             System.out.println(code + "\t" + data);
                     }
                     if ("PRIVATE USE".equalsIgnoreCase(data.get(0).toString())
-                            || (!data.get(2).equals("") && !data.get(2).equals("--"))) {
+                        || (!data.get(2).equals("") && !data.get(2).equals("--"))) {
                         // System.out.println("Removing: " + code);
                         it.remove();
                     }
@@ -233,11 +235,12 @@ public class StandardCodes {
         return (Set) country_modernCurrency.get(countryCode);
     }
 
-    private Map<String,Map<String,Level>> platform_locale_level = null;
-    private Map<String,Map<String,String>> platform_locale_levelString = null;
+    private Map<String, Map<String, Level>> platform_locale_level = null;
+    private Map<String, Map<String, String>> platform_locale_levelString = null;
 
     /**
      * Get rid of this
+     * 
      * @param type
      * @return
      * @throws IOException
@@ -264,6 +267,7 @@ public class StandardCodes {
     /**
      * Returns locales according to status. It returns a Map of Maps, key 1 is
      * either IBM or Java (perhaps more later), key 2 is the Level.
+     * 
      * @deprecated
      */
     public Map<String, Map<String, Level>> getLocaleTypes() {
@@ -345,14 +349,14 @@ public class StandardCodes {
                     continue;
                 List stuff = CldrUtility.splitList(line, ';', true);
                 String organization = (String) stuff.get(0);
-                
+
                 // verify that the organization is valid
                 try {
                     VoteResolver.Organization.valueOf(organization.toLowerCase(Locale.ENGLISH));
                 } catch (Exception e) {
                     throw new IllegalArgumentException("Invalid organization in Locales.txt: " + line);
                 }
-                
+
                 // verify that the locale is valid BCP47
                 String locale = (String) stuff.get(1);
                 if (!locale.equals("*")) {
@@ -416,7 +420,7 @@ public class StandardCodes {
         // backwards compat hack
         platform_locale_levelString = new TreeMap(caseless);
         for (String platform : platform_locale_level.keySet()) {
-            Map<String,String> locale_levelString = new TreeMap();
+            Map<String, String> locale_levelString = new TreeMap();
             platform_locale_levelString.put(platform, locale_levelString);
             Map<String, Level> locale_level = platform_locale_level.get(platform);
             for (String locale : locale_level.keySet()) {
@@ -456,7 +460,7 @@ public class StandardCodes {
      * @return boolean
      */
     public boolean isLocaleInGroup(String locale, String group, String org) {
-        return group.equals(getGroup(locale,org));
+        return group.equals(getGroup(locale, org));
     }
 
     /**
@@ -467,8 +471,8 @@ public class StandardCodes {
      * @return group if availble, null if not
      */
     public String getGroup(String locale, String org) {
-        Level l = getLocaleCoverageLevel(org,locale);
-        if ( l.equals(Level.UNDETERMINED)) {
+        Level l = getLocaleCoverageLevel(org, locale);
+        if (l.equals(Level.UNDETERMINED)) {
             return null;
         } else {
             return l.toString();
@@ -502,7 +506,7 @@ public class StandardCodes {
                     if (line.length() == 0)
                         continue;
                     List<String> pieces = CldrUtility.splitList(line, '|', true,
-                            new ArrayList<String>());
+                        new ArrayList<String>());
                     String type = pieces.get(0);
                     pieces.remove(0);
                     if (type.equals("region"))
@@ -576,10 +580,10 @@ public class StandardCodes {
                 lstreg.close();
             } catch (Exception e) {
                 System.err.println("WARNING: " + files[fileIndex]
-                                                       + " may be a corrupted UTF-8 file. Please check.");
+                    + " may be a corrupted UTF-8 file. Please check.");
                 throw (IllegalArgumentException) new IllegalArgumentException(
-                        "Can't read " + files[fileIndex] + "\t" + originalLine)
-                .initCause(e);
+                    "Can't read " + files[fileIndex] + "\t" + originalLine)
+                    .initCause(e);
             }
             country_modernCurrency = CldrUtility.protectCollection(country_modernCurrency);
         }
@@ -589,13 +593,13 @@ public class StandardCodes {
         // HACK, just rework
 
         Map<String, Map<String, Map<String, String>>> languageRegistry = getLStreg();
-        //languageRegistry = CldrUtility.protectCollection(languageRegistry);
+        // languageRegistry = CldrUtility.protectCollection(languageRegistry);
 
         for (String type : languageRegistry.keySet()) {
             String type2 = type.equals("region") ? "territory" : type;
-            Map<String,Map<String,String>> m = languageRegistry.get(type);
+            Map<String, Map<String, String>> m = languageRegistry.get(type);
             for (String code : m.keySet()) {
-                Map<String,String> mm = m.get(code);
+                Map<String, String> mm = m.get(code);
                 List<String> data = new ArrayList<String>(0);
                 data.add(mm.get("Description"));
                 data.add(mm.get("Added"));
@@ -708,9 +712,9 @@ public class StandardCodes {
     }
 
     private List DELETED3166 = Collections.unmodifiableList(Arrays
-            .asList(new String[] { "BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV",
-                    "JT", "MI", "NH", "NQ", "NT", "PC", "PU", "PZ", "RH", "SU", "TP",
-                    "VD", "WK", "YD", "YU", "ZR" }));
+        .asList(new String[] { "BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV",
+            "JT", "MI", "NH", "NQ", "NT", "PC", "PU", "PZ", "RH", "SU", "TP",
+            "VD", "WK", "YD", "YU", "ZR" }));
 
     public List getOld3166() {
         return DELETED3166;
@@ -718,7 +722,7 @@ public class StandardCodes {
 
     private Map WorldBankInfo;
 
-    public Map<String,List<String>> getWorldBankInfo() {
+    public Map<String, List<String>> getWorldBankInfo() {
         if (WorldBankInfo == null) {
             List<String> temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "WorldBankInfo.txt", false);
             WorldBankInfo = new HashMap();
@@ -761,7 +765,7 @@ public class StandardCodes {
                 }
                 if (trim) {
                     line = line.trim();
-                }    
+                }
                 if (line.length() == 0)
                     continue;
                 result.add(line);
@@ -769,7 +773,7 @@ public class StandardCodes {
             return result;
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(
-                    "Can't process file: " + dir + filename).initCause(e);
+                "Can't process file: " + dir + filename).initCause(e);
         }
     }
 
@@ -777,21 +781,21 @@ public class StandardCodes {
     // "Description->y,...}
     static String[][] extras = {
         { "language", "root", "Description", "Root", "CLDR", "True" },
-//        { "language", "cch", "Description", "Atsam", "CLDR", "True" },
-//        { "language", "kaj", "Description", "Jju", "CLDR", "True" },
-//        { "language", "kcg", "Description", "Tyap", "CLDR", "True" },
-//        { "language", "kfo", "Description", "Koro", "CLDR", "True" },
-//        { "language", "mfe", "Description", "Morisyen", "CLDR", "True" },
-        //{ "region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True" },
-        //{ "region", "062", "Description", "South-Central Asia", "CLDR", "True" },
-        //{ "region", "003", "Description", "North America", "CLDR", "True" },
+        // { "language", "cch", "Description", "Atsam", "CLDR", "True" },
+        // { "language", "kaj", "Description", "Jju", "CLDR", "True" },
+        // { "language", "kcg", "Description", "Tyap", "CLDR", "True" },
+        // { "language", "kfo", "Description", "Koro", "CLDR", "True" },
+        // { "language", "mfe", "Description", "Morisyen", "CLDR", "True" },
+        // { "region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True" },
+        // { "region", "062", "Description", "South-Central Asia", "CLDR", "True" },
+        // { "region", "003", "Description", "North America", "CLDR", "True" },
         { "variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True", "Preferred-Value", "POLYTON" },
         { "variant", "REVISED", "Description", "Revised Orthography", "CLDR", "True" },
         { "variant", "SAAHO", "Description", "Dialect", "CLDR", "True" },
         { "variant", "POSIX", "Description", "Computer-Style", "CLDR", "True" },
         // {"region", "172", "Description", "Commonwealth of Independent States",
         // "CLDR", "True"},
-        //{ "region", "", "Description", "European Union", "CLDR", "True" },
+        // { "region", "", "Description", "European Union", "CLDR", "True" },
         { "region", "ZZ", "Description", "Unknown or Invalid Region", "CLDR", "True" },
         { "region", "QO", "Description", "Outlying Oceania", "CLDR", "True" },
         { "script", "Qaai", "Description", "Inherited", "CLDR", "True" },
@@ -832,21 +836,22 @@ public class StandardCodes {
 
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
-    static Map<String,Map<String,Map<String,String>>> LSTREG;
+    static Map<String, Map<String, Map<String, String>>> LSTREG;
 
     /**
      * Returns a map like {extlang={aao={Added=2009-07-29, Description=Algerian Saharan Arabic, ...<br>
      * That is, type => subtype => map<tag,value>. Descriptions are concatenated together, separated by
      * DESCRIPTION_SEPARATOR.
+     * 
      * @return
      */
-    public static Map<String,Map<String,Map<String,String>>> getLStreg() {
-        
+    public static Map<String, Map<String, Map<String, String>>> getLStreg() {
+
         if (LSTREG != null) {
             return LSTREG;
         }
-        
-        Map<String,Map<String,Map<String,String>>> result = new TreeMap();
+
+        Map<String, Map<String, Map<String, String>>> result = new TreeMap();
 
         int lineNumber = 1;
 
@@ -857,12 +862,12 @@ public class StandardCodes {
             boolean started = false;
             String lastType = null;
             String lastTag = null;
-            Map<String,Map<String,String>> subtagData = null;
-            Map<String,String> currentData = null;
+            Map<String, Map<String, String>> subtagData = null;
+            Map<String, String> currentData = null;
             String lastLabel = null;
             String lastRest = null;
             boolean inRealContent = false;
-            for (; ; ++lineNumber) {
+            for (;; ++lineNumber) {
                 line = lstreg.readLine();
                 if (line == null)
                     break;
@@ -910,7 +915,7 @@ public class StandardCodes {
                     if (subtagData == null)
                         result.put(rest, subtagData = new TreeMap());
                 } else if (label.equalsIgnoreCase("Subtag")
-                        || label.equalsIgnoreCase("Tag")) {
+                    || label.equalsIgnoreCase("Tag")) {
                     lastTag = rest;
                     String endTag = null;
                     int pos = lastTag.indexOf("..");
@@ -922,20 +927,20 @@ public class StandardCodes {
                     if (endTag == null) {
                         putSubtagData(lastTag, subtagData, currentData);
                         languageCount.add(lastType, 1);
-                        //System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
+                        // System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
                     } else {
                         for (; lastTag.compareTo(endTag) <= 0; lastTag = nextAlpha(lastTag)) {
-                            //System.out.println(">" + current);
+                            // System.out.println(">" + current);
                             putSubtagData(lastTag, subtagData, currentData);
                             languageCount.add(lastType, 1);
-                            //System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
+                            // System.out.println(languageCount.getCount(lastType) + "\t" + lastType + "\t" + lastTag);
                         }
 
                     }
-                    //label.equalsIgnoreCase("Added") || label.equalsIgnoreCase("Suppress-Script")) {
+                    // label.equalsIgnoreCase("Added") || label.equalsIgnoreCase("Suppress-Script")) {
                     // skip
-                    //} else if (pieces.length < 2) {
-                    //	System.out.println("Odd Line: " + lastType + "\t" + lastTag + "\t" + line);
+                    // } else if (pieces.length < 2) {
+                    // System.out.println("Odd Line: " + lastType + "\t" + lastTag + "\t" + line);
                 } else {
                     lastLabel = label.intern();
                     lastRest = TransliteratorUtilities.fromXML.transliterate(rest);
@@ -948,7 +953,7 @@ public class StandardCodes {
             }
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(
-                    "Can't process file: " + CldrUtility.UTIL_DATA_DIR
+                "Can't process file: " + CldrUtility.UTIL_DATA_DIR
                     + registryName + ";\t at line " + lineNumber).initCause(e);
         } finally {
             if (!funnyTags.isEmpty()) {
@@ -961,19 +966,20 @@ public class StandardCodes {
             Map subtagData = (Map) result.get(extras[i][0]);
             if (subtagData == null) {
                 result.put(extras[i][0], subtagData = new TreeMap());
-            }            
+            }
             Map labelData = new TreeMap();
             for (int j = 2; j < extras[i].length; j += 2) {
                 labelData.put(extras[i][j], extras[i][j + 1]);
             }
-            Map<String,String> old = (Map<String, String>) subtagData.get(extras[i][1]);
+            Map<String, String> old = (Map<String, String>) subtagData.get(extras[i][1]);
             if (old != null) {
                 if (!"Private use".equals(old.get("Description"))) {
-                    throw new IllegalArgumentException("REPLACING data for " + extras[i][1] + "\t" + old + "\twith" + labelData);
+                    throw new IllegalArgumentException("REPLACING data for " + extras[i][1] + "\t" + old + "\twith"
+                        + labelData);
                 }
             }
-            if (false) System.out.println((old != null ? "REPLACING"  + "\t" + old : "ADDING") +
-            		" data for " + extras[i][1] + "\twith" + labelData);
+            if (false) System.out.println((old != null ? "REPLACING" + "\t" + old : "ADDING") +
+                " data for " + extras[i][1] + "\twith" + labelData);
             subtagData.put(extras[i][1], labelData);
         }
         LSTREG = CldrUtility.protectCollection(result);
@@ -1001,19 +1007,21 @@ public class StandardCodes {
     ZoneParser zoneParser = new ZoneParser();
 
     static public final Set<String> MODERN_SCRIPTS = Collections
-    .unmodifiableSet(new TreeSet(
-            //"Bali " +
+        .unmodifiableSet(new TreeSet(
+            // "Bali " +
             // "Bugi " +
-            //"Copt " +
-            //"Hano " +
-            //"Osma " +
+            // "Copt " +
+            // "Hano " +
+            // "Osma " +
             // "Qaai " +
             // "Sylo " +
             // "Syrc " +
             // "Tagb " +
-            //"Tglg " +
+            // "Tglg " +
             Arrays
-            .asList("Hans Hant Jpan Hrkt Kore Arab Armn Bali Beng Bopo Cans Cham Cher Cyrl Deva Ethi Geor Grek Gujr Guru Hani Hang Hebr Hira Knda Kana Kali Khmr Laoo Latn Lepc Limb Mlym Mong Mymr Talu Nkoo Olck Orya Saur Sinh Tale Taml Telu Thaa Thai Tibt Tfng Vaii Yiii".split("\\s+"))));
+                .asList("Hans Hant Jpan Hrkt Kore Arab Armn Bali Beng Bopo Cans Cham Cher Cyrl Deva Ethi Geor Grek Gujr Guru Hani Hang Hebr Hira Knda Kana Kali Khmr Laoo Latn Lepc Limb Mlym Mong Mymr Talu Nkoo Olck Orya Saur Sinh Tale Taml Telu Thaa Thai Tibt Tfng Vaii Yiii"
+                    .split("\\s+"))));
+
     // updated to http://www.unicode.org/reports/tr31/tr31-9.html#Specific_Character_Adjustments
 
     /**
@@ -1029,7 +1037,7 @@ public class StandardCodes {
     public Map getZoneData() {
         return zoneParser.getZoneData();
     }
-    
+
     /**
      * @deprecated
      */
@@ -1107,8 +1115,8 @@ public class StandardCodes {
         Type type = Iso639Data.getType(languageCode);
         if (type == Type.Living) return true;
         if (languageCode.equals("eo")) return true; // exception for Esperanto
-        //    Scope scope = Iso639Data.getScope(languageCode);
-        //    if (scope == Scope.Collection) return false;
+        // Scope scope = Iso639Data.getScope(languageCode);
+        // if (scope == Scope.Collection) return false;
         return false;
     }
 
@@ -1124,6 +1132,7 @@ public class StandardCodes {
     }
 
     static UnicodeSet COUNTRY = new UnicodeSet("[a-zA-Z]").freeze();
+
     public static boolean isCountry(String territory) {
         if (territory.length() != 2) return false;
         if (territory.equals("ZZ") || territory.equals("QO") || territory.equals("EU")) return false;

@@ -8,25 +8,31 @@ import org.unicode.cldr.util.VoteResolver.VoterInfo;
 
 /**
  * Provides detailed information about paths and voters
+ * 
  * @author markdavis
- *
+ * 
  */
 public class CLDRInfo {
-    
+
     public interface PathValueInfo { // DataSection.DataRow will implement
         Collection<? extends CandidateInfo> getValues();
+
         String getLastReleaseValue();
+
         Level getCoverageLevel(); // OK
+
         boolean hadVotesSometimeThisRelease();
     }
 
-    public interface CandidateInfo { // DataSection.DataRow.CandidateItem  will implement
+    public interface CandidateInfo { // DataSection.DataRow.CandidateItem will implement
         String getValue();
-        Collection<UserInfo> getUsersVotingOn(); 
+
+        Collection<UserInfo> getUsersVotingOn();
+
         List<CheckStatus> getCheckStatusList();
     }
 
-    public interface UserInfo  { // UserRegistry.User will implement
+    public interface UserInfo { // UserRegistry.User will implement
         VoterInfo getVoterInfo();
     }
     // TODO merge into VoterInfo.

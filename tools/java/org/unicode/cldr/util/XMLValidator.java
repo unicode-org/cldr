@@ -30,47 +30,48 @@ import org.xml.sax.SAXParseException;
 
 public class XMLValidator {
     public static boolean quiet = false;
-    public static boolean parseonly=false;
-    
+    public static boolean parseonly = false;
+
     public static void main(String[] args) throws IOException {
         if (args.length == 0) {
             System.out.println("No files specified. Validation failed");
             return;
         }
         for (int i = 0; i < args.length; i++) {
-            if(args[i].equals("-q") || args[i].equals("--quiet")) {
+            if (args[i].equals("-q") || args[i].equals("--quiet")) {
                 quiet = true;
-            } else if(args[i].equals("--help")) {
+            } else if (args[i].equals("--help")) {
                 usage();
                 return;
-            } else if(args[i].equals("--parseonly")) {
+            } else if (args[i].equals("--parseonly")) {
                 System.err.println("# DTD Validation is disabled. Will only check for well formed XML.");
                 parseonly = true;
             } else {
                 File f = new File(args[i]);
-                if(f.isDirectory()) {
+                if (f.isDirectory()) {
                     parseDirectory(f);
                 } else {
-                  if(!quiet) System.out.println("Processing file " + args[i]);
-                  /* Document doc = */parse(args[i]);
+                    if (!quiet) System.out.println("Processing file " + args[i]);
+                    /* Document doc = */parse(args[i]);
                 }
             }
         }
-        if(parseonly) {
+        if (parseonly) {
             System.err.println("# DTD Validation is disabled. Only checked for well formed XML.");
         }
     }
+
     private static void parseDirectory(File f) throws IOException {
-        //System.err.println("Parsing directory " + f.getAbsolutePath());
-        for(File s : f.listFiles(new FilenameFilter(){
+        // System.err.println("Parsing directory " + f.getAbsolutePath());
+        for (File s : f.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File arg0, String arg1) {
-                if(arg1.startsWith(".")) {
-                    return false; // skip  .git, .svn, ...
+                if (arg1.startsWith(".")) {
+                    return false; // skip .git, .svn, ...
                 }
-                File n  =new File(arg0,arg1);
-                //System.err.println("Considering " + n.getAbsolutePath() );
-                if(n.isDirectory()) {
+                File n = new File(arg0, arg1);
+                // System.err.println("Considering " + n.getAbsolutePath() );
+                if (n.isDirectory()) {
                     try {
                         parseDirectory(n);
                     } catch (IOException e) {
@@ -79,20 +80,24 @@ public class XMLValidator {
                         System.err.println("Error " + e.toString() + " parsing " + arg0.getPath());
                     }
                     return false;
-                } else if(arg1.endsWith(".xml")) {
+                } else if (arg1.endsWith(".xml")) {
                     return true;
                 } else {
                     return false;
                 }
-            }})) {
-            if(!quiet) System.out.println("Processing file " + s.getPath());
+            }
+        })) {
+            if (!quiet) System.out.println("Processing file " + s.getPath());
             /* Document doc = */parse(s.getCanonicalPath());
         }
     }
+
     private static void usage() {
-        System.err.println("usage:  "+XMLValidator.class.getName()+" [ -q ] [ --help ] [ --parseonly ] file ...");
-        System.err.println("usage:  "+XMLValidator.class.getName()+" [ -q ] [ --help ] [ --parseonly ] directory ...");
+        System.err.println("usage:  " + XMLValidator.class.getName() + " [ -q ] [ --help ] [ --parseonly ] file ...");
+        System.err.println("usage:  " + XMLValidator.class.getName()
+            + " [ -q ] [ --help ] [ --parseonly ] directory ...");
     }
+
     /**
      * Utility method to translate a String filename to URL.
      * 
@@ -119,11 +124,11 @@ public class XMLValidator {
 
         // Don't translate a string that already looks like a URL
         if (filename.startsWith("file:") || filename.startsWith("http:")
-                || filename.startsWith("ftp:")
-                || filename.startsWith("gopher:")
-                || filename.startsWith("mailto:")
-                || filename.startsWith("news:")
-                || filename.startsWith("telnet:"))
+            || filename.startsWith("ftp:")
+            || filename.startsWith("gopher:")
+            || filename.startsWith("mailto:")
+            || filename.startsWith("news:")
+            || filename.startsWith("telnet:"))
             return filename;
 
         File f = new File(filename);
@@ -133,7 +138,7 @@ public class XMLValidator {
             tmp = f.getCanonicalPath();
         } catch (IOException ioe) {
             // But this can be used as a backup, for cases
-            //  where the file does not exist, etc.
+            // where the file does not exist, etc.
             tmp = f.getAbsolutePath();
         }
 
@@ -143,14 +148,15 @@ public class XMLValidator {
         }
         // Note the presumption that it's a file reference
         // Ensure we have the correct number of slashes at the
-        //  start: we always want 3 /// if it's absolute
-        //  (which we should have forced above)
+        // start: we always want 3 /// if it's absolute
+        // (which we should have forced above)
         if (tmp.startsWith("/"))
             return "file://" + tmp;
         else
             return "file:///" + tmp;
 
     }
+
     static Document parse(String filename) {
         // Force filerefs to be URI's if needed: note this is independent of any
         // other files
@@ -162,12 +168,12 @@ public class XMLValidator {
 
         DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
         // Always set namespaces on
-        if(!parseonly) {
+        if (!parseonly) {
             dfactory.setNamespaceAware(true);
             dfactory.setValidating(true);
         }
         // Set other attributes here as needed
-        //applyAttributes(dfactory, attributes);
+        // applyAttributes(dfactory, attributes);
 
         // Local class: cheap non-printing ErrorHandler
         // This is used to suppress validation warnings
@@ -177,11 +183,14 @@ public class XMLValidator {
                 System.err.println(filename2 + ": Warning: " + e.getMessage());
 
             }
+
             public void error(SAXParseException e) throws SAXException {
                 int col = e.getColumnNumber();
-                System.err.println(filename2 + ":" + e.getLineNumber() +  (col>=0?":" + col:"") + ": ERROR: Element " + e.getPublicId()
-                                   + " is not valid because " + e.getMessage());
+                System.err.println(filename2 + ":" + e.getLineNumber() + (col >= 0 ? ":" + col : "")
+                    + ": ERROR: Element " + e.getPublicId()
+                    + " is not valid because " + e.getMessage());
             }
+
             public void fatalError(SAXParseException e) throws SAXException {
                 System.err.println(filename2 + ": ERROR ");
                 throw e;
@@ -194,16 +203,17 @@ public class XMLValidator {
             DocumentBuilder docBuilder = dfactory.newDocumentBuilder();
             docBuilder.setErrorHandler(nullHandler);
             docBuilder.setEntityResolver(new CachingEntityResolver());
-            //if(docBuilder.isValidating()){
-            //System.out.println("The parser is a validating parser");
-            //}
+            // if(docBuilder.isValidating()){
+            // System.out.println("The parser is a validating parser");
+            // }
             doc = docBuilder.parse(docSrc);
         } catch (Throwable se) {
             // ... if we couldn't parse as XML, attempt parse as HTML...
             if (se instanceof SAXParseException) {
                 SAXParseException pe = (SAXParseException) se;
                 int col = pe.getColumnNumber();
-                System.err.println(filename + ":" + pe.getLineNumber() + (col>=0?":" + col:"") + ": ERROR:" + se.toString());
+                System.err.println(filename + ":" + pe.getLineNumber() + (col >= 0 ? ":" + col : "") + ": ERROR:"
+                    + se.toString());
             } else {
                 System.err.println(filename + ": ERROR:" + se.toString());
             }
@@ -217,8 +227,8 @@ public class XMLValidator {
                     try {
 
                         // Parse as text, line by line
-                        //   Since we already know it should be text, this should
-                        //   work better than parsing by bytes.
+                        // Since we already know it should be text, this should
+                        // work better than parsing by bytes.
                         FileReader fr = new FileReader(filename);
                         BufferedReader br = new BufferedReader(fr);
                         StringBuffer buffer = new StringBuffer();
@@ -234,21 +244,21 @@ public class XMLValidator {
                         }
 
                         DocumentBuilder docBuilder = dfactory
-                                .newDocumentBuilder();
+                            .newDocumentBuilder();
                         doc = docBuilder.newDocument();
                         Element outElem = doc.createElement("out");
                         Text textNode = doc.createTextNode(buffer.toString());
 
                         // Note: will this always be a valid node? If we're
                         // parsing
-                        //    in as text, will there ever be cases where the diff that's 
-                        //    done later on will fail becuase some really garbage-like 
-                        //    text has been put into a node?
+                        // in as text, will there ever be cases where the diff that's
+                        // done later on will fail becuase some really garbage-like
+                        // text has been put into a node?
                         outElem.appendChild(textNode);
                         doc.appendChild(outElem);
                     } catch (Throwable throwable) {
 
-                        //throwable.printStackTrace();
+                        // throwable.printStackTrace();
                     }
                 }
             }

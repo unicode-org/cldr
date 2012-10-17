@@ -41,19 +41,19 @@ public class TestLocale extends TestFmwk {
 
             // verify that the parent locales are consistent with the default locales, for scripts
             // that is, if zh-Hant has a parent of root, then it is not the default content locale, and vice versa
-            
+
             if (hasScript && !hasRegion) {
                 boolean parentIsRoot = "root".equals(supplementalDataInfo.getExplicitParentLocale(locale));
                 if (parentIsRoot == isDefaultContent) {
                     errln("Inconsistency between parentLocales and defaultContents: " + locale
-                        + (parentIsRoot ? " +": " -") + "parentIsRoot"
-                        + (isDefaultContent ? " +": " -") + "isDefaultContent"
-                        );
+                        + (parentIsRoot ? " +" : " -") + "parentIsRoot"
+                        + (isDefaultContent ? " +" : " -") + "isDefaultContent");
                 }
-                
+
                 // we'd better have a separate likelySubtag
                 if (parentIsRoot && !hasLikelySubtag) {
-                    errln("Missing likely subtags for: " + locale + " " +  TestInheritance.suggestLikelySubtagFor(locale));                        
+                    errln("Missing likely subtags for: " + locale + " "
+                        + TestInheritance.suggestLikelySubtagFor(locale));
                 }
             }
 
@@ -61,7 +61,8 @@ public class TestLocale extends TestFmwk {
 
             if (!hasScript && !hasRegion) {
                 if (!hasLikelySubtag) {
-                    errln("Missing likely subtags for: " + locale+ " " +  TestInheritance.suggestLikelySubtagFor(locale));
+                    errln("Missing likely subtags for: " + locale + " "
+                        + TestInheritance.suggestLikelySubtagFor(locale));
                 }
             }
         }
@@ -70,10 +71,10 @@ public class TestLocale extends TestFmwk {
     public void TestCanonicalizer() {
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
         String[][] tests = {
-            {"iw", "he"},
-            {"no-YU", "nb_RS"},
-            {"no", "nb"},
-            {"eng-833", "en_IM"},
+            { "iw", "he" },
+            { "no-YU", "nb_RS" },
+            { "no", "nb" },
+            { "eng-833", "en_IM" },
         };
         for (String[] pair : tests) {
             String actual = canonicalizer.transform(pair[0]);
@@ -90,12 +91,16 @@ public class TestLocale extends TestFmwk {
         assertEquals("Locale name", "中国語(アメリカ合衆国)", japanese.getName("zh-US"));
         assertEquals("Locale name", "中国語(アラビア文字\uFF0Cアメリカ合衆国)", japanese.getName("zh-Arab-US"));
     }
+
     public void TestExtendedLanguage() {
         assertEquals("Extended language translation", "Simplified Chinese", testInfo.getEnglish().getName("zh_Hans"));
-        assertEquals("Extended language translation", "Simplified Chinese (Singapore)", testInfo.getEnglish().getName("zh_Hans_SG"));
+        assertEquals("Extended language translation", "Simplified Chinese (Singapore)",
+            testInfo.getEnglish().getName("zh_Hans_SG"));
         assertEquals("Extended language translation", "U.S. English", testInfo.getEnglish().getName("en-US"));
-        assertEquals("Extended language translation", "U.S. English (Arabic)", testInfo.getEnglish().getName("en-Arab-US"));
+        assertEquals("Extended language translation", "U.S. English (Arabic)",
+            testInfo.getEnglish().getName("en-Arab-US"));
     }
+
     public void TestNarrowEnough() {
         BreakIterator bi = BreakIterator.getCharacterInstance(ULocale.ENGLISH);
         assertEquals("Narrow Enough", 1, CheckDates.isNarrowEnough("a", bi));

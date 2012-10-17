@@ -23,7 +23,7 @@ import com.ibm.icu.impl.UnicodeRegex;
 import com.ibm.icu.util.ULocale;
 
 public class SearchXml {
-    //TODO Use options
+    // TODO Use options
     private static Matcher fileMatcher;
 
     private static Matcher pathMatcher;
@@ -56,30 +56,30 @@ public class SearchXml {
     private static Counter<String> starCounter;
     private static final Set<String> ERRORS = new LinkedHashSet<String>();
     private static final PathStarrer pathStarrer = new PathStarrer();
-    
 
     final static Options myOptions = new Options()
-    .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
-    .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
-    .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
-    .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
-    .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
-    .add("count", null, null, "only count items")
-    .add("kount", null, null, "count regex group matches in pattern")
-    .add("other", ".+", null, "compare against other directory")
-    .add("unique", null, null, "only unique lines")
-    .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
-    .add("Verbose", null, null, "verbose output")
-    .add("recursive", null, null, "recurse directories")
-    .add("Star", null, null, "get statistics on starred paths")
-    ;
+        .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
+        .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
+        .add("path", ".*", null,
+            "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
+        .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
+        .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
+        .add("count", null, null, "only count items")
+        .add("kount", null, null, "count regex group matches in pattern")
+        .add("other", ".+", null, "compare against other directory")
+        .add("unique", null, null, "only unique lines")
+        .add("groups", null, null,
+            "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
+        .add("Verbose", null, null, "verbose output")
+        .add("recursive", null, null, "recurse directories")
+        .add("Star", null, null, "get statistics on starred paths");
 
     public static void main(String[] args) throws IOException {
         double startTime = System.currentTimeMillis();
         myOptions.parse(args, true);
 
         verbose = myOptions.get("Verbose").doesOccur();
-        
+
         String sourceDirectory = myOptions.get("source").getValue();
         if (sourceDirectory == null) {
             System.out.println("Need Source Directory! ");
@@ -97,7 +97,7 @@ public class SearchXml {
 
         valueMatcher = getMatcher(myOptions.get("value").getValue(), exclude);
         valueExclude = exclude.value;
-        
+
         if (myOptions.get("Star").doesOccur()) {
             starCounter = new Counter<String>();
         }
@@ -114,12 +114,11 @@ public class SearchXml {
 
         countOnly = myOptions.get("count").doesOccur();
         kountRegexMatches = myOptions.get("kount").doesOccur() ? new Counter<String>() : null;
-        
+
         recursive = myOptions.get("recursive").doesOccur();
 
-
-        //        showFiles = myOptions.get("showFiles").doesOccur();
-        //        showValues = myOptions.get("showValues").doesOccur();
+        // showFiles = myOptions.get("showFiles").doesOccur();
+        // showValues = myOptions.get("showValues").doesOccur();
 
         File src = new File(sourceDirectory);
         if (!src.isDirectory()) {
@@ -182,12 +181,12 @@ public class SearchXml {
 
     private static void processDirectory(File src) throws IOException {
         if (comparisonDirectory != null) {
-            System.out.println("Locale" + 
+            System.out.println("Locale" +
                 "\tFile" +
-                "\tBase" + 
-                "\tSame" + 
-                "\tDeletions" + 
-                "\tAdditions" + 
+                "\tBase" +
+                "\tSame" +
+                "\tDeletions" +
+                "\tAdditions" +
                 "\tChanges"
                 );
         }
@@ -207,7 +206,7 @@ public class SearchXml {
                 continue;
             }
 
-            String coreName = fileName.substring(0,fileName.length()-4); // remove .xml
+            String coreName = fileName.substring(0, fileName.length() - 4); // remove .xml
 
             if (fileMatcher != null && fileExclude == fileMatcher.reset(coreName).find()) {
                 if (verbose) {
@@ -219,13 +218,12 @@ public class SearchXml {
                 System.out.println("Searching " + canonicalFile);
             }
 
-
             if (showFiles) {
                 System.out.println("* " + canonicalFile);
             }
 
             Relation<String, String> source = getXmlFileAsRelation(src, fileName);
-            Relation<String, String> other = null; 
+            Relation<String, String> other = null;
             if (comparisonDirectory != null) {
                 other = getXmlFileAsRelation(comparisonDirectory, fileName);
             }
@@ -239,7 +237,7 @@ public class SearchXml {
     }
 
     private static Relation<String, String> getXmlFileAsRelation(File directory, String fileName) {
-        ListHandler listHandler  = new ListHandler();
+        ListHandler listHandler = new ListHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(listHandler);
         try {
             String fileName2 = directory.getCanonicalPath() + "/" + fileName;
@@ -252,23 +250,24 @@ public class SearchXml {
     }
 
     static class ListHandler extends XMLFileReader.SimpleHandler {
-        public Relation<String,String> data = Relation.of(new LinkedHashMap<String,Set<String>>(), LinkedHashSet.class);
+        public Relation<String, String> data = Relation.of(new LinkedHashMap<String, Set<String>>(),
+            LinkedHashSet.class);
+
         public void handlePathValue(String path, String value) {
             data.put(path, value);
         }
     }
 
-    //static MyHandler myHandler = new MyHandler();
-
-
+    // static MyHandler myHandler = new MyHandler();
 
     /**
      * @author markdavis
-     * @param fileName 
-     * @param canonicalFile 
-     *
+     * @param fileName
+     * @param canonicalFile
+     * 
      */
-    private static void checkFiles(String filePath, String fileName, Relation<String, String> source, Relation<String, String> other) {
+    private static void checkFiles(String filePath, String fileName, Relation<String, String> source,
+        Relation<String, String> other) {
         CoverageLevel2 level = null;
         String firstMessage;
         String file;
@@ -285,7 +284,8 @@ public class SearchXml {
         if (levelMatcher != null || countOnly) {
             try {
                 level = CoverageLevel2.getInstance(canonicalFile);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
         }
 
         if (countOnly) {
@@ -318,9 +318,9 @@ public class SearchXml {
             Set<String> values = source.get(path);
             Set<String> otherValues = other == null ? null : other.get(path);
 
-            //            if (showValues) {
-            //                System.out.println(values + "\t" + otherValues + "\t<=\t" + path);
-            //            }
+            // if (showValues) {
+            // System.out.println(values + "\t" + otherValues + "\t<=\t" + path);
+            // }
 
             if (other != null) {
                 if (values != otherValues) {
@@ -363,38 +363,38 @@ public class SearchXml {
                     ++total;
 
                     if (firstMessage != null) {
-                        //System.out.println(firstMessage);
+                        // System.out.println(firstMessage);
                         firstMessage = null;
                     }
                     if (!countOnly) {
-                        String data = groups 
-                            ? group(value, valueMatcher) + "\t" + group(path, pathMatcher) 
-                                : value + "\t" + path;
-                            if (!unique) {
-                                System.out.println(
-                                    (recursive ? filePath + "\t" : "")
+                        String data = groups
+                            ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
+                            : value + "\t" + path;
+                        if (!unique) {
+                            System.out.println(
+                                (recursive ? filePath + "\t" : "")
                                     + file + "\t" + data);
-                            } else {
-                                uniqueData.add(data,1);
-                            }
+                        } else {
+                            uniqueData.add(data, 1);
+                        }
                     }
                 }
             }
         }
         if (other != null) {
-            ULocale locale = new ULocale(fileName.substring(0,fileName.length()-4));
+            ULocale locale = new ULocale(fileName.substring(0, fileName.length() - 4));
             String localeName = locale.getDisplayName(ULocale.ENGLISH);
-            System.out.println(localeName + 
+            System.out.println(localeName +
                 "\t" + fileName +
                 "\t" + getType(locale) +
-                "\t" + sameCount + 
-                "\t" + deletionCount + 
-                "\t" + additionCount + 
-                "\t" + (changed2Values/2)
+                "\t" + sameCount +
+                "\t" + deletionCount +
+                "\t" + additionCount +
+                "\t" + (changed2Values / 2)
                 );
         }
     }
-    
+
     static Set<String> defaultContent = SupplementalDataInfo.getInstance().getDefaultContentLocales();
 
     private static String getType(ULocale locale) {

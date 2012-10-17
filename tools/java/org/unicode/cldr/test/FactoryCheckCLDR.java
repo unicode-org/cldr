@@ -8,6 +8,7 @@ import org.unicode.cldr.util.Factory;
 
 /**
  * Subclass of CheckCLDR that requires a factory during checking.
+ * 
  * @author jchye
  */
 abstract class FactoryCheckCLDR extends CheckCLDR {
@@ -25,9 +26,10 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
         }
         return resolvedCldrFileToCheck;
     }
-    
+
     @Override
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+        List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         resolvedCldrFileToCheck = null;
         return this;

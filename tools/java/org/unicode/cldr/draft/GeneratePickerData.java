@@ -150,14 +150,15 @@ class GeneratePickerData {
     private static PrintWriter renamingLog;
 
     final static Options myOptions = new Options();
+
     enum MyOptions {
         output(".*", CldrUtility.GEN_DIRECTORY + "picker/", "output data directory"),
         unicodedata(null, CldrUtility.UCD_DIRECTORY, "Unicode Data directory"),
         verbose(null, null, "verbose debugging messages"),
-        korean(null, null, "generate korean hangul defectives instead"),
-        ;
+        korean(null, null, "generate korean hangul defectives instead"), ;
         // boilerplate
         final Option option;
+
         MyOptions(String argumentPattern, String defaultArgument, String helpText) {
             option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
         }
@@ -1272,8 +1273,8 @@ class GeneratePickerData {
                     + "Range String: " + Compacter.getInternalRangeString(strings) + "\r\n"
                     + "In original but not restored: " + ab + "\r\n" + "In restored but not original: " + ba + "\r\n"
                     + "Returned range string: " + CharacterListCompressor.base88DecodeList(result.toString())
-                // CharacterListCompressor.base88Decode(in);
-                );
+                    // CharacterListCompressor.base88Decode(in);
+                    );
                 e.printStackTrace(System.err);
                 ERROR_COUNT.add(e);
             }
@@ -1394,88 +1395,88 @@ class GeneratePickerData {
         + "\uD7FA > \u11C1\u11BA;" + "\uD7FB > \u11C1\u11C0;";
 
     static final String MKC_RULES = // "::MKD;"+
-    "\u1107\u1109\u1100 > \u1122;" + "\u1107\u1109\u1103 > \u1123;" + "\u1107\u1109\u1107 > \u1124;"
-        + "\u1107\u1109\u1109 > \u1125;" + "\u1107\u1109\u110C > \u1126;" + "\u1107\u1107\u110B > \u112C;"
-        + "\u1109\u1107\u1100 > \u1133;" + "\u1109\u1109\u1109 > \u1134;" + "\u1169\u1161\u1175 > \u116B;"
-        + "\u116E\u1165\u1175 > \u1170;" + "\u1169\u1165\u1175 > \u1180;" + "\u1169\u1167\u1175 > \u1181;"
-        + "\u116D\u1163\u1175 > \u1185;" + "\u116E\u1161\u1175 > \u118A;" + "\u116E\u1165\u1173 > \u118B;"
-        + "\u116E\u1167\u1175 > \u118C;" + "\u1172\u1165\u1175 > \u1190;" + "\u1172\u1167\u1175 > \u1192;"
-        + "\u1173\u1175\u116E > \u1197;" + "\u1169\u1163\u1175 > \u11A7;" + "\u11A8\u11BA\u11A8 > \u11C4;"
-        + "\u11AF\u11A8\u11BA > \u11CC;" + "\u11AF\u11AE\u11C2 > \u11CF;" + "\u11AF\u11B7\u11A8 > \u11D1;"
-        + "\u11AF\u11B7\u11BA > \u11D2;" + "\u11AF\u11B8\u11BA > \u11D3;" + "\u11AF\u11B8\u11C2 > \u11D4;"
-        + "\u11AF\u11B8\u11BC > \u11D5;" + "\u11AF\u11BA\u11BA > \u11D6;" + "\u11B7\u11BA\u11BA > \u11DE;"
-        + "\u11BC\u11A8\u11A8 > \u11ED;" + "\u1105\u1100\u1100 > \uA965;" + "\u1105\u1103\u1103 > \uA967;"
-        + "\u1105\u1107\u1107 > \uA96A;" + "\u1105\u1107\u110B > \uA96B;" + "\u1107\u1109\u1110 > \uA972;"
-        + "\u1109\u1109\u1107 > \uA975;" + "\u110C\u110C\u1112 > \uA978;" + "\u1169\u1169\u1175 > \uD7B1;"
-        + "\u116D\u1161\u1175 > \uD7B3;" + "\u116E\u1175\u1175 > \uD7B6;" + "\u1172\u1161\u1175 > \uD7B7;"
-        + "\u1173\u1165\u1175 > \uD7BB;" + "\u1175\u1163\u1169 > \uD7BD;" + "\u1175\u1163\u1175 > \uD7BE;"
-        + "\u1175\u1167\u1175 > \uD7C0;" + "\u1175\u1169\u1175 > \uD7C1;" + "\u119E\u1165\u1175 > \uD7C6;"
-        + "\u11AE\u11AE\u11B8 > \uD7CE;" + "\u11AE\u11BA\u11A8 > \uD7D1;" + "\u11AF\u11A8\u11A8 > \uD7D5;"
-        + "\u11AF\u11A8\u11C2 > \uD7D6;" + "\u11AF\u11AF\u11BF > \uD7D7;" + "\u11AF\u11B7\u11C2 > \uD7D8;"
-        + "\u11AF\u11B8\u11AE > \uD7D9;" + "\u11AF\u11B8\u11C1 > \uD7DA;" + "\u11AF\u11F9\u11C2 > \uD7DC;"
-        + "\u11B7\u11AB\u11AB > \uD7DF;" + "\u11B7\u11B8\u11BA > \uD7E1;" + "\u11B8\u11AF\u11C1 > \uD7E4;"
-        + "\u11B8\u11BA\u11AE > \uD7E7;" + "\u11BA\u11B8\u11BC > \uD7EB;" + "\u11BA\u11BA\u11A8 > \uD7EC;"
-        + "\u11BA\u11BA\u11AE > \uD7ED;" + "\u11EB\u11B8\u11BC > \uD7F4;" + "\u11BD\u11B8\u11B8 > \uD7F8;"
-        + "\u1100\u1100 > \u1101;" + "\u1103\u1103 > \u1104;" + "\u1107\u1107 > \u1108;" + "\u1109\u1109 > \u110A;"
-        + "\u110C\u110C > \u110D;" + "\u1102\u1100 > \u1113;" + "\u1102\u1102 > \u1114;" + "\u1102\u1103 > \u1115;"
-        + "\u1102\u1107 > \u1116;" + "\u1103\u1100 > \u1117;" + "\u1105\u1102 > \u1118;" + "\u1105\u1105 > \u1119;"
-        + "\u1105\u1112 > \u111A;" + "\u1105\u110B > \u111B;" + "\u1106\u1107 > \u111C;" + "\u1106\u110B > \u111D;"
-        + "\u1107\u1100 > \u111E;" + "\u1107\u1102 > \u111F;" + "\u1107\u1103 > \u1120;" + "\u1107\u1109 > \u1121;"
-        + "\u1107\u110C > \u1127;" + "\u1107\u110E > \u1128;" + "\u1107\u1110 > \u1129;" + "\u1107\u1111 > \u112A;"
-        + "\u1107\u110B > \u112B;" + "\u1109\u1100 > \u112D;" + "\u1109\u1102 > \u112E;" + "\u1109\u1103 > \u112F;"
-        + "\u1109\u1105 > \u1130;" + "\u1109\u1106 > \u1131;" + "\u1109\u1107 > \u1132;" + "\u1109\u110B > \u1135;"
-        + "\u1109\u110C > \u1136;" + "\u1109\u110E > \u1137;" + "\u1109\u110F > \u1138;" + "\u1109\u1110 > \u1139;"
-        + "\u1109\u1111 > \u113A;" + "\u1109\u1112 > \u113B;" + "\u113C\u113C > \u113D;" + "\u113E\u113E > \u113F;"
-        + "\u110B\u1100 > \u1141;" + "\u110B\u1103 > \u1142;" + "\u110B\u1106 > \u1143;" + "\u110B\u1107 > \u1144;"
-        + "\u110B\u1109 > \u1145;" + "\u110B\u1140 > \u1146;" + "\u110B\u110B > \u1147;" + "\u110B\u110C > \u1148;"
-        + "\u110B\u110E > \u1149;" + "\u110B\u1110 > \u114A;" + "\u110B\u1111 > \u114B;" + "\u110C\u110B > \u114D;"
-        + "\u114E\u114E > \u114F;" + "\u1150\u1150 > \u1151;" + "\u110E\u110F > \u1152;" + "\u110E\u1112 > \u1153;"
-        + "\u1111\u1107 > \u1156;" + "\u1111\u110B > \u1157;" + "\u1112\u1112 > \u1158;" + "\u1100\u1103 > \u115A;"
-        + "\u1102\u1109 > \u115B;" + "\u1102\u110C > \u115C;" + "\u1102\u1112 > \u115D;" + "\u1103\u1105 > \u115E;"
-        + "\u1161\u1175 > \u1162;" + "\u1163\u1175 > \u1164;" + "\u1165\u1175 > \u1166;" + "\u1167\u1175 > \u1168;"
-        + "\u1169\u1161 > \u116A;" + "\u1169\u1175 > \u116C;" + "\u116E\u1165 > \u116F;" + "\u116E\u1175 > \u1171;"
-        + "\u1173\u1175 > \u1174;" + "\u1161\u1169 > \u1176;" + "\u1161\u116E > \u1177;" + "\u1163\u1169 > \u1178;"
-        + "\u1163\u116D > \u1179;" + "\u1165\u1169 > \u117A;" + "\u1165\u116E > \u117B;" + "\u1165\u1173 > \u117C;"
-        + "\u1167\u1169 > \u117D;" + "\u1167\u116E > \u117E;" + "\u1169\u1165 > \u117F;" + "\u1169\u1169 > \u1182;"
-        + "\u1169\u116E > \u1183;" + "\u116D\u1163 > \u1184;" + "\u116D\u1167 > \u1186;" + "\u116D\u1169 > \u1187;"
-        + "\u116D\u1175 > \u1188;" + "\u116E\u1161 > \u1189;" + "\u116E\u116E > \u118D;" + "\u1172\u1161 > \u118E;"
-        + "\u1172\u1165 > \u118F;" + "\u1172\u1167 > \u1191;" + "\u1172\u116E > \u1193;" + "\u1172\u1175 > \u1194;"
-        + "\u1173\u116E > \u1195;" + "\u1173\u1173 > \u1196;" + "\u1175\u1161 > \u1198;" + "\u1175\u1163 > \u1199;"
-        + "\u1175\u1169 > \u119A;" + "\u1175\u116E > \u119B;" + "\u1175\u1173 > \u119C;" + "\u1175\u119E > \u119D;"
-        + "\u119E\u1165 > \u119F;" + "\u119E\u116E > \u11A0;" + "\u119E\u1175 > \u11A1;" + "\u119E\u119E > \u11A2;"
-        + "\u1161\u1173 > \u11A3;" + "\u1163\u116E > \u11A4;" + "\u1167\u1163 > \u11A5;" + "\u1169\u1163 > \u11A6;"
-        + "\u11A8\u11A8 > \u11A9;" + "\u11A8\u11BA > \u11AA;" + "\u11AB\u11BD > \u11AC;" + "\u11AB\u11C2 > \u11AD;"
-        + "\u11AF\u11A8 > \u11B0;" + "\u11AF\u11B7 > \u11B1;" + "\u11AF\u11B8 > \u11B2;" + "\u11AF\u11BA > \u11B3;"
-        + "\u11AF\u11C0 > \u11B4;" + "\u11AF\u11C1 > \u11B5;" + "\u11AF\u11C2 > \u11B6;" + "\u11B8\u11BA > \u11B9;"
-        + "\u11BA\u11BA > \u11BB;" + "\u11A8\u11AF > \u11C3;" + "\u11AB\u11A8 > \u11C5;" + "\u11AB\u11AE > \u11C6;"
-        + "\u11AB\u11BA > \u11C7;" + "\u11AB\u11EB > \u11C8;" + "\u11AB\u11C0 > \u11C9;" + "\u11AE\u11A8 > \u11CA;"
-        + "\u11AE\u11AF > \u11CB;" + "\u11AF\u11AB > \u11CD;" + "\u11AF\u11AE > \u11CE;" + "\u11AF\u11AF > \u11D0;"
-        + "\u11AF\u11EB > \u11D7;" + "\u11AF\u11BF > \u11D8;" + "\u11AF\u11F9 > \u11D9;" + "\u11B7\u11A8 > \u11DA;"
-        + "\u11B7\u11AF > \u11DB;" + "\u11B7\u11B8 > \u11DC;" + "\u11B7\u11BA > \u11DD;" + "\u11B7\u11EB > \u11DF;"
-        + "\u11B7\u11BE > \u11E0;" + "\u11B7\u11C2 > \u11E1;" + "\u11B7\u11BC > \u11E2;" + "\u11B8\u11AF > \u11E3;"
-        + "\u11B8\u11C1 > \u11E4;" + "\u11B8\u11C2 > \u11E5;" + "\u11B8\u11BC > \u11E6;" + "\u11BA\u11A8 > \u11E7;"
-        + "\u11BA\u11AE > \u11E8;" + "\u11BA\u11AF > \u11E9;" + "\u11BA\u11B8 > \u11EA;" + "\u11BC\u11A8 > \u11EC;"
-        + "\u11BC\u11BC > \u11EE;" + "\u11BC\u11BF > \u11EF;" + "\u11F0\u11BA > \u11F1;" + "\u11F0\u11EB > \u11F2;"
-        + "\u11C1\u11B8 > \u11F3;" + "\u11C1\u11BC > \u11F4;" + "\u11C2\u11AB > \u11F5;" + "\u11C2\u11AF > \u11F6;"
-        + "\u11C2\u11B7 > \u11F7;" + "\u11C2\u11B8 > \u11F8;" + "\u11A8\u11AB > \u11FA;" + "\u11A8\u11B8 > \u11FB;"
-        + "\u11A8\u11BE > \u11FC;" + "\u11A8\u11BF > \u11FD;" + "\u11A8\u11C2 > \u11FE;" + "\u11AB\u11AB > \u11FF;"
-        + "\u1103\u1106 > \uA960;" + "\u1103\u1107 > \uA961;" + "\u1103\u1109 > \uA962;" + "\u1103\u110C > \uA963;"
-        + "\u1105\u1100 > \uA964;" + "\u1105\u1103 > \uA966;" + "\u1105\u1106 > \uA968;" + "\u1105\u1107 > \uA969;"
-        + "\u1105\u1109 > \uA96C;" + "\u1105\u110C > \uA96D;" + "\u1105\u110F > \uA96E;" + "\u1106\u1100 > \uA96F;"
-        + "\u1106\u1103 > \uA970;" + "\u1106\u1109 > \uA971;" + "\u1107\u110F > \uA973;" + "\u1107\u1112 > \uA974;"
-        + "\u110B\u1105 > \uA976;" + "\u110B\u1112 > \uA977;" + "\u1110\u1110 > \uA979;" + "\u1111\u1112 > \uA97A;"
-        + "\u1112\u1109 > \uA97B;" + "\u1159\u1159 > \uA97C;" + "\u1169\u1167 > \uD7B0;" + "\u116D\u1161 > \uD7B2;"
-        + "\u116D\u1165 > \uD7B4;" + "\u116E\u1167 > \uD7B5;" + "\u1172\u1169 > \uD7B8;" + "\u1173\u1161 > \uD7B9;"
-        + "\u1173\u1165 > \uD7BA;" + "\u1173\u1169 > \uD7BC;" + "\u1175\u1167 > \uD7BF;" + "\u1175\u116D > \uD7C2;"
-        + "\u1175\u1172 > \uD7C3;" + "\u1175\u1175 > \uD7C4;" + "\u119E\u1161 > \uD7C5;" + "\u11AB\u11AF > \uD7CB;"
-        + "\u11AB\u11BE > \uD7CC;" + "\u11AE\u11AE > \uD7CD;" + "\u11AE\u11B8 > \uD7CF;" + "\u11AE\u11BA > \uD7D0;"
-        + "\u11AE\u11BD > \uD7D2;" + "\u11AE\u11BE > \uD7D3;" + "\u11AE\u11C0 > \uD7D4;" + "\u11AF\u11F0 > \uD7DB;"
-        + "\u11AF\u11BC > \uD7DD;" + "\u11B7\u11AB > \uD7DE;" + "\u11B7\u11B7 > \uD7E0;" + "\u11B7\u11BD > \uD7E2;"
-        + "\u11B8\u11AE > \uD7E3;" + "\u11B8\u11B7 > \uD7E5;" + "\u11B8\u11B8 > \uD7E6;" + "\u11B8\u11BD > \uD7E8;"
-        + "\u11B8\u11BE > \uD7E9;" + "\u11BA\u11B7 > \uD7EA;" + "\u11BA\u11EB > \uD7EE;" + "\u11BA\u11BD > \uD7EF;"
-        + "\u11BA\u11BE > \uD7F0;" + "\u11BA\u11C0 > \uD7F1;" + "\u11BA\u11C2 > \uD7F2;" + "\u11EB\u11B8 > \uD7F3;"
-        + "\u11F0\u11B7 > \uD7F5;" + "\u11F0\u11C2 > \uD7F6;" + "\u11BD\u11B8 > \uD7F7;" + "\u11BD\u11BD > \uD7F9;"
-        + "\u11C1\u11BA > \uD7FA;" + "\u11C1\u11C0 > \uD7FB;";
+        "\u1107\u1109\u1100 > \u1122;" + "\u1107\u1109\u1103 > \u1123;" + "\u1107\u1109\u1107 > \u1124;"
+            + "\u1107\u1109\u1109 > \u1125;" + "\u1107\u1109\u110C > \u1126;" + "\u1107\u1107\u110B > \u112C;"
+            + "\u1109\u1107\u1100 > \u1133;" + "\u1109\u1109\u1109 > \u1134;" + "\u1169\u1161\u1175 > \u116B;"
+            + "\u116E\u1165\u1175 > \u1170;" + "\u1169\u1165\u1175 > \u1180;" + "\u1169\u1167\u1175 > \u1181;"
+            + "\u116D\u1163\u1175 > \u1185;" + "\u116E\u1161\u1175 > \u118A;" + "\u116E\u1165\u1173 > \u118B;"
+            + "\u116E\u1167\u1175 > \u118C;" + "\u1172\u1165\u1175 > \u1190;" + "\u1172\u1167\u1175 > \u1192;"
+            + "\u1173\u1175\u116E > \u1197;" + "\u1169\u1163\u1175 > \u11A7;" + "\u11A8\u11BA\u11A8 > \u11C4;"
+            + "\u11AF\u11A8\u11BA > \u11CC;" + "\u11AF\u11AE\u11C2 > \u11CF;" + "\u11AF\u11B7\u11A8 > \u11D1;"
+            + "\u11AF\u11B7\u11BA > \u11D2;" + "\u11AF\u11B8\u11BA > \u11D3;" + "\u11AF\u11B8\u11C2 > \u11D4;"
+            + "\u11AF\u11B8\u11BC > \u11D5;" + "\u11AF\u11BA\u11BA > \u11D6;" + "\u11B7\u11BA\u11BA > \u11DE;"
+            + "\u11BC\u11A8\u11A8 > \u11ED;" + "\u1105\u1100\u1100 > \uA965;" + "\u1105\u1103\u1103 > \uA967;"
+            + "\u1105\u1107\u1107 > \uA96A;" + "\u1105\u1107\u110B > \uA96B;" + "\u1107\u1109\u1110 > \uA972;"
+            + "\u1109\u1109\u1107 > \uA975;" + "\u110C\u110C\u1112 > \uA978;" + "\u1169\u1169\u1175 > \uD7B1;"
+            + "\u116D\u1161\u1175 > \uD7B3;" + "\u116E\u1175\u1175 > \uD7B6;" + "\u1172\u1161\u1175 > \uD7B7;"
+            + "\u1173\u1165\u1175 > \uD7BB;" + "\u1175\u1163\u1169 > \uD7BD;" + "\u1175\u1163\u1175 > \uD7BE;"
+            + "\u1175\u1167\u1175 > \uD7C0;" + "\u1175\u1169\u1175 > \uD7C1;" + "\u119E\u1165\u1175 > \uD7C6;"
+            + "\u11AE\u11AE\u11B8 > \uD7CE;" + "\u11AE\u11BA\u11A8 > \uD7D1;" + "\u11AF\u11A8\u11A8 > \uD7D5;"
+            + "\u11AF\u11A8\u11C2 > \uD7D6;" + "\u11AF\u11AF\u11BF > \uD7D7;" + "\u11AF\u11B7\u11C2 > \uD7D8;"
+            + "\u11AF\u11B8\u11AE > \uD7D9;" + "\u11AF\u11B8\u11C1 > \uD7DA;" + "\u11AF\u11F9\u11C2 > \uD7DC;"
+            + "\u11B7\u11AB\u11AB > \uD7DF;" + "\u11B7\u11B8\u11BA > \uD7E1;" + "\u11B8\u11AF\u11C1 > \uD7E4;"
+            + "\u11B8\u11BA\u11AE > \uD7E7;" + "\u11BA\u11B8\u11BC > \uD7EB;" + "\u11BA\u11BA\u11A8 > \uD7EC;"
+            + "\u11BA\u11BA\u11AE > \uD7ED;" + "\u11EB\u11B8\u11BC > \uD7F4;" + "\u11BD\u11B8\u11B8 > \uD7F8;"
+            + "\u1100\u1100 > \u1101;" + "\u1103\u1103 > \u1104;" + "\u1107\u1107 > \u1108;" + "\u1109\u1109 > \u110A;"
+            + "\u110C\u110C > \u110D;" + "\u1102\u1100 > \u1113;" + "\u1102\u1102 > \u1114;" + "\u1102\u1103 > \u1115;"
+            + "\u1102\u1107 > \u1116;" + "\u1103\u1100 > \u1117;" + "\u1105\u1102 > \u1118;" + "\u1105\u1105 > \u1119;"
+            + "\u1105\u1112 > \u111A;" + "\u1105\u110B > \u111B;" + "\u1106\u1107 > \u111C;" + "\u1106\u110B > \u111D;"
+            + "\u1107\u1100 > \u111E;" + "\u1107\u1102 > \u111F;" + "\u1107\u1103 > \u1120;" + "\u1107\u1109 > \u1121;"
+            + "\u1107\u110C > \u1127;" + "\u1107\u110E > \u1128;" + "\u1107\u1110 > \u1129;" + "\u1107\u1111 > \u112A;"
+            + "\u1107\u110B > \u112B;" + "\u1109\u1100 > \u112D;" + "\u1109\u1102 > \u112E;" + "\u1109\u1103 > \u112F;"
+            + "\u1109\u1105 > \u1130;" + "\u1109\u1106 > \u1131;" + "\u1109\u1107 > \u1132;" + "\u1109\u110B > \u1135;"
+            + "\u1109\u110C > \u1136;" + "\u1109\u110E > \u1137;" + "\u1109\u110F > \u1138;" + "\u1109\u1110 > \u1139;"
+            + "\u1109\u1111 > \u113A;" + "\u1109\u1112 > \u113B;" + "\u113C\u113C > \u113D;" + "\u113E\u113E > \u113F;"
+            + "\u110B\u1100 > \u1141;" + "\u110B\u1103 > \u1142;" + "\u110B\u1106 > \u1143;" + "\u110B\u1107 > \u1144;"
+            + "\u110B\u1109 > \u1145;" + "\u110B\u1140 > \u1146;" + "\u110B\u110B > \u1147;" + "\u110B\u110C > \u1148;"
+            + "\u110B\u110E > \u1149;" + "\u110B\u1110 > \u114A;" + "\u110B\u1111 > \u114B;" + "\u110C\u110B > \u114D;"
+            + "\u114E\u114E > \u114F;" + "\u1150\u1150 > \u1151;" + "\u110E\u110F > \u1152;" + "\u110E\u1112 > \u1153;"
+            + "\u1111\u1107 > \u1156;" + "\u1111\u110B > \u1157;" + "\u1112\u1112 > \u1158;" + "\u1100\u1103 > \u115A;"
+            + "\u1102\u1109 > \u115B;" + "\u1102\u110C > \u115C;" + "\u1102\u1112 > \u115D;" + "\u1103\u1105 > \u115E;"
+            + "\u1161\u1175 > \u1162;" + "\u1163\u1175 > \u1164;" + "\u1165\u1175 > \u1166;" + "\u1167\u1175 > \u1168;"
+            + "\u1169\u1161 > \u116A;" + "\u1169\u1175 > \u116C;" + "\u116E\u1165 > \u116F;" + "\u116E\u1175 > \u1171;"
+            + "\u1173\u1175 > \u1174;" + "\u1161\u1169 > \u1176;" + "\u1161\u116E > \u1177;" + "\u1163\u1169 > \u1178;"
+            + "\u1163\u116D > \u1179;" + "\u1165\u1169 > \u117A;" + "\u1165\u116E > \u117B;" + "\u1165\u1173 > \u117C;"
+            + "\u1167\u1169 > \u117D;" + "\u1167\u116E > \u117E;" + "\u1169\u1165 > \u117F;" + "\u1169\u1169 > \u1182;"
+            + "\u1169\u116E > \u1183;" + "\u116D\u1163 > \u1184;" + "\u116D\u1167 > \u1186;" + "\u116D\u1169 > \u1187;"
+            + "\u116D\u1175 > \u1188;" + "\u116E\u1161 > \u1189;" + "\u116E\u116E > \u118D;" + "\u1172\u1161 > \u118E;"
+            + "\u1172\u1165 > \u118F;" + "\u1172\u1167 > \u1191;" + "\u1172\u116E > \u1193;" + "\u1172\u1175 > \u1194;"
+            + "\u1173\u116E > \u1195;" + "\u1173\u1173 > \u1196;" + "\u1175\u1161 > \u1198;" + "\u1175\u1163 > \u1199;"
+            + "\u1175\u1169 > \u119A;" + "\u1175\u116E > \u119B;" + "\u1175\u1173 > \u119C;" + "\u1175\u119E > \u119D;"
+            + "\u119E\u1165 > \u119F;" + "\u119E\u116E > \u11A0;" + "\u119E\u1175 > \u11A1;" + "\u119E\u119E > \u11A2;"
+            + "\u1161\u1173 > \u11A3;" + "\u1163\u116E > \u11A4;" + "\u1167\u1163 > \u11A5;" + "\u1169\u1163 > \u11A6;"
+            + "\u11A8\u11A8 > \u11A9;" + "\u11A8\u11BA > \u11AA;" + "\u11AB\u11BD > \u11AC;" + "\u11AB\u11C2 > \u11AD;"
+            + "\u11AF\u11A8 > \u11B0;" + "\u11AF\u11B7 > \u11B1;" + "\u11AF\u11B8 > \u11B2;" + "\u11AF\u11BA > \u11B3;"
+            + "\u11AF\u11C0 > \u11B4;" + "\u11AF\u11C1 > \u11B5;" + "\u11AF\u11C2 > \u11B6;" + "\u11B8\u11BA > \u11B9;"
+            + "\u11BA\u11BA > \u11BB;" + "\u11A8\u11AF > \u11C3;" + "\u11AB\u11A8 > \u11C5;" + "\u11AB\u11AE > \u11C6;"
+            + "\u11AB\u11BA > \u11C7;" + "\u11AB\u11EB > \u11C8;" + "\u11AB\u11C0 > \u11C9;" + "\u11AE\u11A8 > \u11CA;"
+            + "\u11AE\u11AF > \u11CB;" + "\u11AF\u11AB > \u11CD;" + "\u11AF\u11AE > \u11CE;" + "\u11AF\u11AF > \u11D0;"
+            + "\u11AF\u11EB > \u11D7;" + "\u11AF\u11BF > \u11D8;" + "\u11AF\u11F9 > \u11D9;" + "\u11B7\u11A8 > \u11DA;"
+            + "\u11B7\u11AF > \u11DB;" + "\u11B7\u11B8 > \u11DC;" + "\u11B7\u11BA > \u11DD;" + "\u11B7\u11EB > \u11DF;"
+            + "\u11B7\u11BE > \u11E0;" + "\u11B7\u11C2 > \u11E1;" + "\u11B7\u11BC > \u11E2;" + "\u11B8\u11AF > \u11E3;"
+            + "\u11B8\u11C1 > \u11E4;" + "\u11B8\u11C2 > \u11E5;" + "\u11B8\u11BC > \u11E6;" + "\u11BA\u11A8 > \u11E7;"
+            + "\u11BA\u11AE > \u11E8;" + "\u11BA\u11AF > \u11E9;" + "\u11BA\u11B8 > \u11EA;" + "\u11BC\u11A8 > \u11EC;"
+            + "\u11BC\u11BC > \u11EE;" + "\u11BC\u11BF > \u11EF;" + "\u11F0\u11BA > \u11F1;" + "\u11F0\u11EB > \u11F2;"
+            + "\u11C1\u11B8 > \u11F3;" + "\u11C1\u11BC > \u11F4;" + "\u11C2\u11AB > \u11F5;" + "\u11C2\u11AF > \u11F6;"
+            + "\u11C2\u11B7 > \u11F7;" + "\u11C2\u11B8 > \u11F8;" + "\u11A8\u11AB > \u11FA;" + "\u11A8\u11B8 > \u11FB;"
+            + "\u11A8\u11BE > \u11FC;" + "\u11A8\u11BF > \u11FD;" + "\u11A8\u11C2 > \u11FE;" + "\u11AB\u11AB > \u11FF;"
+            + "\u1103\u1106 > \uA960;" + "\u1103\u1107 > \uA961;" + "\u1103\u1109 > \uA962;" + "\u1103\u110C > \uA963;"
+            + "\u1105\u1100 > \uA964;" + "\u1105\u1103 > \uA966;" + "\u1105\u1106 > \uA968;" + "\u1105\u1107 > \uA969;"
+            + "\u1105\u1109 > \uA96C;" + "\u1105\u110C > \uA96D;" + "\u1105\u110F > \uA96E;" + "\u1106\u1100 > \uA96F;"
+            + "\u1106\u1103 > \uA970;" + "\u1106\u1109 > \uA971;" + "\u1107\u110F > \uA973;" + "\u1107\u1112 > \uA974;"
+            + "\u110B\u1105 > \uA976;" + "\u110B\u1112 > \uA977;" + "\u1110\u1110 > \uA979;" + "\u1111\u1112 > \uA97A;"
+            + "\u1112\u1109 > \uA97B;" + "\u1159\u1159 > \uA97C;" + "\u1169\u1167 > \uD7B0;" + "\u116D\u1161 > \uD7B2;"
+            + "\u116D\u1165 > \uD7B4;" + "\u116E\u1167 > \uD7B5;" + "\u1172\u1169 > \uD7B8;" + "\u1173\u1161 > \uD7B9;"
+            + "\u1173\u1165 > \uD7BA;" + "\u1173\u1169 > \uD7BC;" + "\u1175\u1167 > \uD7BF;" + "\u1175\u116D > \uD7C2;"
+            + "\u1175\u1172 > \uD7C3;" + "\u1175\u1175 > \uD7C4;" + "\u119E\u1161 > \uD7C5;" + "\u11AB\u11AF > \uD7CB;"
+            + "\u11AB\u11BE > \uD7CC;" + "\u11AE\u11AE > \uD7CD;" + "\u11AE\u11B8 > \uD7CF;" + "\u11AE\u11BA > \uD7D0;"
+            + "\u11AE\u11BD > \uD7D2;" + "\u11AE\u11BE > \uD7D3;" + "\u11AE\u11C0 > \uD7D4;" + "\u11AF\u11F0 > \uD7DB;"
+            + "\u11AF\u11BC > \uD7DD;" + "\u11B7\u11AB > \uD7DE;" + "\u11B7\u11B7 > \uD7E0;" + "\u11B7\u11BD > \uD7E2;"
+            + "\u11B8\u11AE > \uD7E3;" + "\u11B8\u11B7 > \uD7E5;" + "\u11B8\u11B8 > \uD7E6;" + "\u11B8\u11BD > \uD7E8;"
+            + "\u11B8\u11BE > \uD7E9;" + "\u11BA\u11B7 > \uD7EA;" + "\u11BA\u11EB > \uD7EE;" + "\u11BA\u11BD > \uD7EF;"
+            + "\u11BA\u11BE > \uD7F0;" + "\u11BA\u11C0 > \uD7F1;" + "\u11BA\u11C2 > \uD7F2;" + "\u11EB\u11B8 > \uD7F3;"
+            + "\u11F0\u11B7 > \uD7F5;" + "\u11F0\u11C2 > \uD7F6;" + "\u11BD\u11B8 > \uD7F7;" + "\u11BD\u11BD > \uD7F9;"
+            + "\u11C1\u11BA > \uD7FA;" + "\u11C1\u11C0 > \uD7FB;";
 
     static final Transliterator MKD = Transliterator.createFromRules("MKD", "::NFD;" + MKD_RULES,
         Transliterator.FORWARD);
@@ -1524,10 +1525,10 @@ class GeneratePickerData {
                 this.source = source;
                 this.target = target;
             }
-            
+
             @Override
             public String toString() {
-                return "source:"+source+" target:"+target;
+                return "source:" + source + " target:" + target;
             }
         }
 
@@ -1691,7 +1692,7 @@ class GeneratePickerData {
         }
         return output;
     }
-    
+
     private static void addManualCorrections(String fileName) throws IOException {
         InputStream stream = GeneratePickerData.class.getResourceAsStream(fileName);
         BufferedReader in = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
@@ -1703,30 +1704,31 @@ class GeneratePickerData {
                 continue;
             }
             String components[] = line.split(";");
-            if(components.length != 4) {
-                throw new IOException("Invalid line: <"+line+"> - Expecting 4 ';' separated components");
+            if (components.length != 4) {
+                throw new IOException("Invalid line: <" + line + "> - Expecting 4 ';' separated components");
             }
             UnicodeSet set = new UnicodeSet(components[3]);
             String subCategory = components[1];
-            if(components[1].equals("Historic")) {
+            if (components[1].equals("Historic")) {
                 subCategory = ARCHAIC_MARKER;
-            } else if(components[1].equals("Compatibility")) {
+            } else if (components[1].equals("Compatibility")) {
                 subCategory = COMPAT_MARKER;
             }
-            
-            if(components[2].equals("Add")) {
+
+            if (components[2].equals("Add")) {
                 CATEGORYTABLE.add(components[0], false, subCategory, buttonComparator, Separation.ALL_ORDINARY, set);
             }
-            else if(components[2].equals("Remove")) {
+            else if (components[2].equals("Remove")) {
                 CATEGORYTABLE.removeAll(components[0], subCategory, set);
             } else {
-                throw new IOException("Invalid operation: <"+components[2]+"> - Expecting one of {Add,Remove}");
+                throw new IOException("Invalid operation: <" + components[2] + "> - Expecting one of {Add,Remove}");
             }
         }
     }
-    
+
     private static void addEmojiCharacters() throws IOException {
-        File emojiSources = new File(unicodeDataDirectory + "/EmojiSources-6.2.0d1.txt"); // Needs fixing for release vs non-released directory
+        File emojiSources = new File(unicodeDataDirectory + "/EmojiSources-6.2.0d1.txt"); // Needs fixing for release vs
+                                                                                          // non-released directory
         FileInputStream fis = new FileInputStream(emojiSources);
         BufferedReader in = new BufferedReader(new InputStreamReader(fis, "UTF-8"));
         UnicodeSet emojiCharacters = new UnicodeSet();
@@ -1740,7 +1742,7 @@ class GeneratePickerData {
             String[] components = line.split(";");
             String[] codepoints = components[0].split(" ");
             // No support yet for multi-codepoint characters so we skip them
-            if(codepoints.length > 1) {
+            if (codepoints.length > 1) {
                 continue;
             }
             int codepoint = Integer.valueOf(codepoints[0], 16);
@@ -1755,7 +1757,7 @@ class GeneratePickerData {
         }
         return output;
     }
-    
+
     private static int utf8Length(Collection<String> set) {
         int len = 0;
         for (String s : set) {

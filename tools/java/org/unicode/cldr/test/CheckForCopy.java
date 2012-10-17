@@ -27,7 +27,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
     private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
 
     XPathParts parts = new XPathParts();
-    //CLDRFile.Status status = new CLDRFile.Status();
+    // CLDRFile.Status status = new CLDRFile.Status();
     Set seenSoFar = new HashSet();
 
     public CheckForCopy(Factory factory) {
@@ -35,7 +35,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
     }
 
     static RegexLookup<Boolean> skip = new RegexLookup<Boolean>()
-    .add("/(availableFormats" +
+        .add("/(availableFormats" +
             "|exponential" +
             "|nan" +
             "|availableFormats" +
@@ -55,14 +55,17 @@ public class CheckForCopy extends FactoryCheckCLDR {
             "|otherNumberingSystems" +
             "|exemplarCharacters" +
             ")", true)
-            .add("^//ldml/dates/calendars/calendar\\[@type=\"gregorian\"]", false)
-            .add("^//ldml/dates/calendars/calendar", true);
+        .add("^//ldml/dates/calendars/calendar\\[@type=\"gregorian\"]", false)
+        .add("^//ldml/dates/calendars/calendar", true);
 
-    static Set<String> SKIP_TYPES = Builder.with(new HashSet<String>()).addAll(
-            "CHF", "EUR", "XPD", 
-            "Vaii", "Yiii", "Thai", 
+    static Set<String> SKIP_TYPES = Builder
+        .with(new HashSet<String>())
+        .addAll(
+            "CHF", "EUR", "XPD",
+            "Vaii", "Yiii", "Thai",
             "SAAHO", "BOONT", "SCOUSE",
-            "fon", "ijo", "luo", "tiv", "yao", "zu", "zza", "tw", "ur", "vo", "ha", "hi", "ig", "yo", "ak", "vai", "eo", "af",
+            "fon", "ijo", "luo", "tiv", "yao", "zu", "zza", "tw", "ur", "vo", "ha", "hi", "ig", "yo", "ak", "vai",
+            "eo", "af",
             "Cuba",
             // languages that are the same in English as in themselves
             // and countries that have the same name as English in one of their official languages.
@@ -134,15 +137,17 @@ public class CheckForCopy extends FactoryCheckCLDR {
             "TO", // Tonga
             "wae", // Walser
             "metric"
-    ).freeze();
+        ).freeze();
 
     static UnicodeSet ASCII_LETTER = new UnicodeSet("[a-zA-Z]");
 
-    enum Failure {ok, same_as_english, same_as_code}
+    enum Failure {
+        ok, same_as_english, same_as_code
+    }
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-            Map<String, String> options, List<CheckStatus> result) {
-        
+        Map<String, String> options, List<CheckStatus> result) {
+
         if (fullPath == null || value == null) return this; // skip paths that we don't have
 
         Status status = new Status();
@@ -183,40 +188,61 @@ public class CheckForCopy extends FactoryCheckCLDR {
                         break;
                     }
                 } catch (NullPointerException e) {
-                    throw new IllegalArgumentException("Value: " + value + "\nattributeValue: " + attributeValue + "\nPath: " + path, e);
+                    throw new IllegalArgumentException("Value: " + value + "\nattributeValue: " + attributeValue
+                        + "\nPath: " + path, e);
                 }
             }
         }
 
         switch (failure) {
         case same_as_english:
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.sameAsEnglishOrCode)
+            result
+                .add(new CheckStatus()
+                    .setCause(this)
+                    .setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.sameAsEnglishOrCode)
                     .setCheckOnSubmit(false)
-                    .setMessage("The value is the same as in English: see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.", new Object[]{}));
+                    .setMessage(
+                        "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
+                        new Object[] {}));
             break;
         case same_as_code:
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.sameAsEnglishOrCode)
+            result
+                .add(new CheckStatus()
+                    .setCause(this)
+                    .setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.sameAsEnglishOrCode)
                     .setCheckOnSubmit(false)
-                    .setMessage("The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.", new Object[]{}));
+                    .setMessage(
+                        "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>.",
+                        new Object[] {}));
             break;
         }
         return this;
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+        List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        
+
         final String localeID = cldrFileToCheck.getLocaleID();
         LanguageTagParser ltp = new LanguageTagParser().set(localeID);
         String lang = ltp.getLanguage();
         UnicodeSet exemplars = cldrFileToCheck.getExemplarSet("main", CLDRFile.WinningChoice.WINNING);
-        if (lang.equals("en") || lang.equals("root") || exemplars != null && ASCII_LETTER.containsNone(exemplars)) { // skip non-Latin, because the exemplar set will check
+        if (lang.equals("en") || lang.equals("root") || exemplars != null && ASCII_LETTER.containsNone(exemplars)) { // skip
+                                                                                                                     // non-Latin,
+                                                                                                                     // because
+                                                                                                                     // the
+                                                                                                                     // exemplar
+                                                                                                                     // set
+                                                                                                                     // will
+                                                                                                                     // check
             setSkipTest(true);
-            if(DEBUG) System.out.println("CheckForCopy: Skipping: " + localeID);
+            if (DEBUG) System.out.println("CheckForCopy: Skipping: " + localeID);
             return this;
         }
-        
-        //generateExcludedItems(cldrFileToCheck);
+
+        // generateExcludedItems(cldrFileToCheck);
 
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
@@ -224,7 +250,8 @@ public class CheckForCopy extends FactoryCheckCLDR {
 
     private void generateExcludedItems(CLDRFile cldrFileToCheck) {
         // find the names of langauges that are the same in themselves as in English
-        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
+        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck
+            .getSupplementalDirectory());
 
         Set<String> locales = getFactory().getAvailable();
         for (String locale : locales) {

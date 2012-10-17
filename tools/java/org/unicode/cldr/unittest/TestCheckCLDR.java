@@ -35,17 +35,21 @@ public class TestCheckCLDR extends TestFmwk {
     public static void main(String[] args) {
         new TestCheckCLDR().run(args);
     }
+
     static class MyCheckCldr extends org.unicode.cldr.test.CheckCLDR {
         CheckStatus doTest() {
             try {
                 throw new IllegalArgumentException("hi");
             } catch (Exception e) {
-                return new CheckStatus().setMainType(CheckStatus.warningType).setSubtype(Subtype.abbreviatedDateFieldTooWide)
-                .setMessage("An exception {0}, and a number {1}", e, 1.5);      
+                return new CheckStatus().setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.abbreviatedDateFieldTooWide)
+                    .setMessage("An exception {0}, and a number {1}", e, 1.5);
             }
         }
+
         @Override
-        public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
+        public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+            List<CheckStatus> result) {
             return null;
         }
     }
@@ -70,6 +74,7 @@ public class TestCheckCLDR extends TestFmwk {
             c.check(path, english.getFullXPath(path), english.getStringValue(path), options, possibleErrors);
         }
     }
+
     /**
      * Test the "collisionless" error/warning messages.
      */
@@ -101,7 +106,6 @@ public class TestCheckCLDR extends TestFmwk {
         }
         final String testPath = "//ldml/units/unit[@type=\"day-future\"]/unitPattern[@count=\"0\"]";
         sorted.add(pathHeaderFactory.fromPath(testPath));
-      
 
         for (PathHeader pathHeader : sorted) {
             String path = pathHeader.getOriginalPath();
@@ -115,8 +119,10 @@ public class TestCheckCLDR extends TestFmwk {
             boolean containsMessagePattern = messagePlaceholder.reset(value).find();
             final Map<String, PlaceholderInfo> placeholderInfo = patternPlaceholders.get(path);
             final PlaceholderStatus placeholderStatus = patternPlaceholders.getStatus(path);
-            if (containsMessagePattern && placeholderStatus == PlaceholderStatus.DISALLOWED || !containsMessagePattern && placeholderStatus == PlaceholderStatus.REQUIRED) {
-                errln("Value (" + value + ") looks like placeholder = " + containsMessagePattern + ", but placeholder info = " + placeholderStatus + "\t" + path);
+            if (containsMessagePattern && placeholderStatus == PlaceholderStatus.DISALLOWED || !containsMessagePattern
+                && placeholderStatus == PlaceholderStatus.REQUIRED) {
+                errln("Value (" + value + ") looks like placeholder = " + containsMessagePattern
+                    + ", but placeholder info = " + placeholderStatus + "\t" + path);
                 continue;
             } else if (placeholderStatus != PlaceholderStatus.DISALLOWED) {
                 if (containsMessagePattern) {
@@ -125,7 +131,8 @@ public class TestCheckCLDR extends TestFmwk {
                         found.add(messagePlaceholder.group());
                     } while (messagePlaceholder.find());
                     if (!found.equals(placeholderInfo.keySet())) {
-                        errln("Value (" + value + ") has different placeholders than placeholder info (" + placeholderInfo.keySet() + ")\t" + path);
+                        errln("Value (" + value + ") has different placeholders than placeholder info ("
+                            + placeholderInfo.keySet() + ")\t" + path);
                         continue;
                     } else {
                         logln("placeholder info = " + placeholderInfo + "\t" + path);
@@ -142,12 +149,14 @@ public class TestCheckCLDR extends TestFmwk {
                     }
                 }
                 if (placeholderStatus == PlaceholderStatus.REQUIRED && gotIt == null) {
-                    errln("CheckForExemplars SHOULD have detected " + Subtype.missingPlaceholders + " for " + placeholderStatus + " in " + path);
+                    errln("CheckForExemplars SHOULD have detected " + Subtype.missingPlaceholders + " for "
+                        + placeholderStatus + " in " + path);
                     if (DEBUG) {
                         test.handleCheck(path, english.getFullXPath(path), "?", options, result);
                     }
                 } else if (placeholderStatus == PlaceholderStatus.OPTIONAL && gotIt != null) {
-                    errln("CheckForExemplars should NOT have detected " + Subtype.missingPlaceholders + " for " + placeholderStatus  + " in " + path);
+                    errln("CheckForExemplars should NOT have detected " + Subtype.missingPlaceholders + " for "
+                        + placeholderStatus + " in " + path);
                     if (DEBUG) {
                         test.handleCheck(path, english.getFullXPath(path), "?", options, result);
                     }
@@ -221,18 +230,17 @@ public class TestCheckCLDR extends TestFmwk {
 
         for (PathHeader pathHeader : sorted) {
             String path = pathHeader.getOriginalPath();
-            //override.overridePath = path;
+            // override.overridePath = path;
             final String resolvedValue = dummyValue == null ? patched.getStringValue(path) : dummyValue;
             test.handleCheck(path, patched.getFullXPath(path), resolvedValue, options, result);
             if (result.size() != 0) {
                 for (CheckStatus item : result) {
                     addExemplars(item, missingCurrencyExemplars, missingExemplars);
                     final String mainMessage = StringId.getId(path)
-                    + "\t" + pathHeader 
-                    + "\t" + english.getStringValue(path) 
-                    + "\t" + item.getType() 
-                    + "\t" + item.getSubtype()
-                    ;
+                        + "\t" + pathHeader
+                        + "\t" + english.getStringValue(path)
+                        + "\t" + item.getType()
+                        + "\t" + item.getSubtype();
                     if (unique != null) {
                         if (unique.contains(mainMessage)) {
                             continue;
@@ -240,7 +248,8 @@ public class TestCheckCLDR extends TestFmwk {
                             unique.add(mainMessage);
                         }
                     }
-                    logln(localeID + "\t" + mainMessage + "\t" + resolvedValue + "\t" + item.getMessage() + "\t" + pathHeader.getOriginalPath());
+                    logln(localeID + "\t" + mainMessage + "\t" + resolvedValue + "\t" + item.getMessage() + "\t"
+                        + pathHeader.getOriginalPath());
                 }
             }
         }
@@ -263,7 +272,8 @@ public class TestCheckCLDR extends TestFmwk {
                     } else if (status.getSubtype() != Subtype.discouragedCharactersInTranslation) {
                         missingExemplars.addAll(set);
                     }
-                } catch (RuntimeException e) {} // skip if not parseable as set
+                } catch (RuntimeException e) {
+                } // skip if not parseable as set
             }
         }
     }

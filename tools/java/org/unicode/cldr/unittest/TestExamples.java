@@ -27,36 +27,40 @@ import com.ibm.icu.dev.util.Relation;
 public class TestExamples extends TestFmwk {
     static String DEBUG = "ALK";
     static boolean resolved = false;
-    
+
     public static void main(String[] args) {
         new TestExamples().run(args);
     }
+
     static TestInfo testInfo = TestInfo.getInstance();
+
     public void TestBasic() {
         final String localeId = "fr";
         checkLocale(localeId);
     }
+
     public void checkLocale(final String localeId) {
         final CLDRFile nativeFile = testInfo.getCldrFactory().make(localeId, true);
         PathHeader.Factory header = PathHeader.getFactory(testInfo.getEnglish());
 
-
         RegexLookup<String> expectPathsWithExamples = new RegexLookup<String>()
-        .setPatternTransform(RegexLookup.RegexFinderTransformPath)
-        .loadFromFile(TestExamples.class, "TestExamples.txt");
+            .setPatternTransform(RegexLookup.RegexFinderTransformPath)
+            .loadFromFile(TestExamples.class, "TestExamples.txt");
 
         PathStarrer pathStarrer = new PathStarrer();
-        Relation<String,String> pathsToAttributes = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        Relation<String,String> examplePathToAttributes = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        Relation<String, String> pathsToAttributes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> examplePathToAttributes = Relation.of(new TreeMap<String, Set<String>>(),
+            TreeSet.class);
 
         DeprecationChecker deprecationTester = new DeprecationChecker();
         Set<String> deprecated = new TreeSet<String>();
 
-        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeFile, testInfo.getEnglish(), CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeFile, testInfo.getEnglish(),
+            CldrUtility.SUPPLEMENTAL_DIRECTORY);
         ExampleContext exampleContext = new ExampleContext();
         Map<PathHeader, String> sortedExamples = isVerbose() ? new TreeMap() : null;
         Status status = new Status();
-        
+
         for (String path : nativeFile) {
             if (!resolved) {
                 String sourceLocale = nativeFile.getSourceLocaleID(path, status);
@@ -75,7 +79,8 @@ public class TestExamples extends TestFmwk {
                 int x = 0; // for debuggin
             }
             String value = nativeFile.getStringValue(path);
-            String example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
+            String example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT, exampleContext,
+                ExampleType.NATIVE);
             if (example == null) {
                 if (expectPathsWithExamples.get(path) != null) {
                     errln("Expected example for " + path);
@@ -89,7 +94,8 @@ public class TestExamples extends TestFmwk {
         if (sortedExamples != null) {
             for (Entry<PathHeader, String> item : sortedExamples.entrySet()) {
                 final PathHeader pathHeader = item.getKey();
-                logln("examples:\t" + pathHeader + StringId.getId(pathHeader.getOriginalPath()) + "\t" + item.getValue());
+                logln("examples:\t" + pathHeader + StringId.getId(pathHeader.getOriginalPath()) + "\t"
+                    + item.getValue());
             }
         }
         for (String item : deprecated) {
@@ -105,8 +111,9 @@ public class TestExamples extends TestFmwk {
             logln("no example:\t" + item.getKey() + "\t" + item.getValue().iterator().next() + "...");
         }
     }
+
     public void addSample(PathStarrer pathStarrer, Relation<String, String> pathsToAttributes,
-            String path, String value) {
+        String path, String value) {
         String starred = pathStarrer.set(path).replace("[@alt=\"([^\"]*+)\"]", "");
         List<String> attributes = pathStarrer.getAttributes();
         pathsToAttributes.put(starred, "<" + value + ">\t" + CollectionUtilities.join(attributes, "|"));

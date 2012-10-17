@@ -55,7 +55,7 @@ public class TestUtilities extends TestFmwk {
         Matcher byte2 = Pattern.compile("%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}").matcher("");
         Matcher byte3 = Pattern.compile("%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}").matcher("");
         Matcher byte4 = Pattern.compile("%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}%[A-Za-z0-9]{2}").matcher("");
-        for (int i = 1; i <= 0x10FFFF; i = i*3/2 + 1) {
+        for (int i = 1; i <= 0x10FFFF; i = i * 3 / 2 + 1) {
             String escaped = EscapingUtilities.urlEscape(new StringBuilder().appendCodePoint(i).toString());
             logln(Integer.toHexString(i) + " => " + escaped);
             if (EscapingUtilities.OK_TO_NOT_QUOTE.contains(i)) {
@@ -106,6 +106,7 @@ public class TestUtilities extends TestFmwk {
         Counter<String> counter = new Counter<String>(true);
         Comparator<String> uca = new Comparator<String>() {
             Collator col = Collator.getInstance(ULocale.ENGLISH);
+
             public int compare(String o1, String o2) {
                 return col.compare(o1, o2);
             }
@@ -123,22 +124,22 @@ public class TestUtilities extends TestFmwk {
         assertEquals("getCount(a)", counter.getTotal(), 338);
         assertEquals("getItemCount", counter.getItemCount(), 4);
 
-        assertEquals("getMap", "{a=95, b=151, c=95, d=-3}",counter.toString());
+        assertEquals("getMap", "{a=95, b=151, c=95, d=-3}", counter.toString());
 
         assertEquals("getKeysetSortedByKey", Arrays.asList("a", "b", "c", "d"), new ArrayList(counter
-                .getKeysetSortedByKey()));
+            .getKeysetSortedByKey()));
 
         assertEquals("getKeysetSortedByCount(true, ucaDown)", Arrays.asList("d", "c", "a", "b"), new ArrayList(counter
-                .getKeysetSortedByCount(true, ucaDown)));
+            .getKeysetSortedByCount(true, ucaDown)));
 
         assertEquals("getKeysetSortedByCount(true, null), value", Arrays.asList("d", "a", "c", "b"), new ArrayList(
-                counter.getKeysetSortedByCount(true, uca)));
+            counter.getKeysetSortedByCount(true, uca)));
 
         assertEquals("getKeysetSortedByCount(false, ucaDown), descending", Arrays.asList("b", "c", "a", "d"),
-                new ArrayList(counter.getKeysetSortedByCount(false, ucaDown)));
+            new ArrayList(counter.getKeysetSortedByCount(false, ucaDown)));
 
         assertEquals("getKeysetSortedByCount(false, null), descending, value", Arrays.asList("b", "a", "c", "d"),
-                new ArrayList(counter.getKeysetSortedByCount(false, uca)));
+            new ArrayList(counter.getKeysetSortedByCount(false, uca)));
     }
 
     public void TestOrganizationOrder() {
@@ -153,78 +154,82 @@ public class TestUtilities extends TestFmwk {
         }
     }
 
-    //  public void TestVoteResolverData() {
-    //    final PrintWriter errorLogPrintWriter = this.getErrorLogPrintWriter();
-    //    final PrintWriter logPrintWriter = this.getLogPrintWriter();
-    //    String userFile = CldrUtility.getProperty("usersxml", CldrUtility.TMP_DIRECTORY + "/incoming/vetted/usersa/usersa.xml");
-    //    String votesDirectory = CldrUtility.getProperty("votesxml", CldrUtility.TMP_DIRECTORY + "/incoming/vetted/votes/");
-    //    String vettedDirectory = CldrUtility.getProperty("vetted", CldrUtility.TMP_DIRECTORY + "/incoming/vetted/main/");
-    //    
-    //    PathValueInfo.voteInfo = VoteResolver.getIdToPath(votesDirectory + "xpathTable.xml");
-    //    Factory factory = Factory.make(vettedDirectory, ".*");
+    // public void TestVoteResolverData() {
+    // final PrintWriter errorLogPrintWriter = this.getErrorLogPrintWriter();
+    // final PrintWriter logPrintWriter = this.getLogPrintWriter();
+    // String userFile = CldrUtility.getProperty("usersxml", CldrUtility.TMP_DIRECTORY +
+    // "/incoming/vetted/usersa/usersa.xml");
+    // String votesDirectory = CldrUtility.getProperty("votesxml", CldrUtility.TMP_DIRECTORY +
+    // "/incoming/vetted/votes/");
+    // String vettedDirectory = CldrUtility.getProperty("vetted", CldrUtility.TMP_DIRECTORY + "/incoming/vetted/main/");
     //
-    //    VoteResolver.setVoterToInfo(userFile);
-    //    Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver
-    //            .getLocaleToVetters();
-    //    for (String locale : map.keySet()) {
-    //      Map<Organization, Relation<Level, Integer>> orgToLevelToVoter = map.get(locale);
-    //      String localeName = null;
-    //      try {
-    //        localeName = testInfo.getEnglish().getName(locale);
-    //      } catch (RuntimeException e) {
-    //        errln("Invalid locale:\t" + locale);
-    //        localeName = "UNVALID(" + locale + ")";
-    //      }
-    //      if (DEBUG) {
-    //        for (Organization org : orgToLevelToVoter.keySet()) {
-    //          log(locale + "\t" + localeName + "\t" + org + ":");
-    //          final Relation<Level, Integer> levelToVoter = orgToLevelToVoter.get(org);
-    //          for (Level level : levelToVoter.keySet()) {
-    //            log("\t" + level + "=" + levelToVoter.getAll(level).size());
-    //          }
-    //          logln("");
-    //        }
-    //      }
-    //    }
-    //    
-    //    File votesDir = new File(votesDirectory);
-    //    for (String file : votesDir.list()) {
-    //      if (file.startsWith("xpathTable")) {
-    //        continue;
-    //      }
-    //      if (file.endsWith(".xml")) {
-    //        final String locale = file.substring(0,file.length()-4);
-    //        try {
-    //          checkLocaleVotes(factory, locale, votesDirectory, errorLogPrintWriter, logPrintWriter);
-    //        } catch (RuntimeException e) {
-    //          errln("Can't process " + locale + ": " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
-    //          //throw (RuntimeException) new IllegalArgumentException("Can't process " + locale).initCause(e);
-    //        }
-    //      }
-    //    }
-    //  }
+    // PathValueInfo.voteInfo = VoteResolver.getIdToPath(votesDirectory + "xpathTable.xml");
+    // Factory factory = Factory.make(vettedDirectory, ".*");
+    //
+    // VoteResolver.setVoterToInfo(userFile);
+    // Map<String, Map<Organization, Relation<Level, Integer>>> map = VoteResolver
+    // .getLocaleToVetters();
+    // for (String locale : map.keySet()) {
+    // Map<Organization, Relation<Level, Integer>> orgToLevelToVoter = map.get(locale);
+    // String localeName = null;
+    // try {
+    // localeName = testInfo.getEnglish().getName(locale);
+    // } catch (RuntimeException e) {
+    // errln("Invalid locale:\t" + locale);
+    // localeName = "UNVALID(" + locale + ")";
+    // }
+    // if (DEBUG) {
+    // for (Organization org : orgToLevelToVoter.keySet()) {
+    // log(locale + "\t" + localeName + "\t" + org + ":");
+    // final Relation<Level, Integer> levelToVoter = orgToLevelToVoter.get(org);
+    // for (Level level : levelToVoter.keySet()) {
+    // log("\t" + level + "=" + levelToVoter.getAll(level).size());
+    // }
+    // logln("");
+    // }
+    // }
+    // }
+    //
+    // File votesDir = new File(votesDirectory);
+    // for (String file : votesDir.list()) {
+    // if (file.startsWith("xpathTable")) {
+    // continue;
+    // }
+    // if (file.endsWith(".xml")) {
+    // final String locale = file.substring(0,file.length()-4);
+    // try {
+    // checkLocaleVotes(factory, locale, votesDirectory, errorLogPrintWriter, logPrintWriter);
+    // } catch (RuntimeException e) {
+    // errln("Can't process " + locale + ": " + e.getMessage() + " " + Arrays.asList(e.getStackTrace()));
+    // //throw (RuntimeException) new IllegalArgumentException("Can't process " + locale).initCause(e);
+    // }
+    // }
+    // }
+    // }
 
     private String getValue(int item) {
         return String.valueOf(item);
     }
 
     static final boolean SHOW_DETAILS = CldrUtility.getProperty("showdetails", false);
-    private static final CharSequence DEBUG_COMMENT = "set up a case of conflict within organization"; 
+    private static final CharSequence DEBUG_COMMENT = "set up a case of conflict within organization";
 
-    private void checkLocaleVotes(Factory factory, final String locale, String votesDirectory, PrintWriter errorLog, PrintWriter warningLog) {
-        //logln("*** Locale " + locale + ": \t***");
+    private void checkLocaleVotes(Factory factory, final String locale, String votesDirectory, PrintWriter errorLog,
+        PrintWriter warningLog) {
+        // logln("*** Locale " + locale + ": \t***");
         PathValueInfo pathValueInfo = new PathValueInfo(factory, locale);
 
         Map<Organization, Level> orgToMaxVote = VoteResolver.getOrganizationToMaxVote(locale);
         if (orgToMaxVote.size() == 0) {
             logln("");
             logln(locale + ": \tNo organizations with translators");
-        } else if (!locale.contains("_")){
+        } else if (!locale.contains("_")) {
             logln("");
             logln(locale + ": \tOrganizations with translators:\t" + orgToMaxVote);
         }
 
-        Map<Integer, Map<Integer, CandidateInfo>> info = VoteResolver.getBaseToAlternateToInfo(votesDirectory + locale + ".xml");
+        Map<Integer, Map<Integer, CandidateInfo>> info = VoteResolver.getBaseToAlternateToInfo(votesDirectory + locale
+            + ".xml");
         Set<Organization> missingOrganizations = EnumSet.noneOf(Organization.class);
         Counter<Organization> missingOrganizationCounter = new Counter<Organization>(true);
         Counter<Organization> goodOrganizationCounter = new Counter<Organization>(true);
@@ -240,7 +245,7 @@ public class TestUtilities extends TestFmwk {
         Counter<Status> surveyStatusCounter = new Counter<Status>(true);
         Counter<Type> surveyTypeCounter = new Counter<Type>(true);
         VoteResolver<String> voteResolver = new VoteResolver<String>();
-        Map<String,Integer> valueToItem = new HashMap<String,Integer>();
+        Map<String, Integer> valueToItem = new HashMap<String, Integer>();
 
         for (int basePath : info.keySet()) {
             final Map<Integer, CandidateInfo> itemInfo = info.get(basePath);
@@ -274,9 +279,9 @@ public class TestUtilities extends TestFmwk {
                 }
 
                 CandidateInfo candidateInfo = itemInfo.get(item);
-                oldStatusCounter.add(candidateInfo.oldStatus,1);
-                surveyStatusCounter.add(candidateInfo.surveyStatus,1);
-                surveyTypeCounter.add(candidateInfo.surveyType,1);
+                oldStatusCounter.add(candidateInfo.oldStatus, 1);
+                surveyStatusCounter.add(candidateInfo.surveyStatus, 1);
+                surveyTypeCounter.add(candidateInfo.surveyType, 1);
                 if (candidateInfo.surveyType == Type.optimal) {
                     if (surveyWinningValue != null) {
                         errln(locale + ": \tDuplicate optimal item:\t" + item);
@@ -319,15 +324,15 @@ public class TestUtilities extends TestFmwk {
             Status winningStatus = voteResolver.getWinningStatus();
             String winningValue = voteResolver.getWinningValue();
 
-            winningStatusCounter.add(winningStatus,1);
+            winningStatusCounter.add(winningStatus, 1);
 
             // we'll say the status is "good enough" if they have the same votes
 
-            final boolean sameResults = surveyWinningStatus == winningStatus 
-            && voteResolver.getValuesWithSameVotes().contains(surveyWinningValue);
+            final boolean sameResults = surveyWinningStatus == winningStatus
+                && voteResolver.getValuesWithSameVotes().contains(surveyWinningValue);
             if (surveyWinningStatus == Status.approved && sameResults) {
                 continue;
-            } 
+            }
             if (!sameResults) {
                 surveyVsVoteResolverDifferences.add(basePath);
                 if (SHOW_DETAILS) {
@@ -349,27 +354,27 @@ public class TestUtilities extends TestFmwk {
             CandidateInfo candidateInfo = itemInfo.get(valueToItem.get(winningValue));
             Map<Organization, Level> orgToMaxVoteHere = VoteResolver.getOrganizationToMaxVote(candidateInfo.voters);
 
-
-            // if the winning item is less than contributed, record the organizations that haven't given their maximum vote to the winning item.
+            // if the winning item is less than contributed, record the organizations that haven't given their maximum
+            // vote to the winning item.
             if (winningStatus.compareTo(Status.contributed) < 0) {
-                //       showPaths(basePath, itemInfo);
+                // showPaths(basePath, itemInfo);
                 missingOrganizations.clear();
                 for (Organization org : orgToMaxVote.keySet()) {
                     Level maxVote = orgToMaxVote.get(org);
                     Level maxVoteHere = orgToMaxVoteHere.get(org);
                     if (maxVoteHere == null || maxVoteHere.compareTo(maxVote) < 0) {
                         missingOrganizations.add(org);
-                        missingOrganizationCounter.add(org,1);
+                        missingOrganizationCounter.add(org, 1);
                     }
                 }
-                //logln("&Missing organizations:\t" + missingOrganizations);
+                // logln("&Missing organizations:\t" + missingOrganizations);
             } else {
                 for (Organization org : orgToMaxVote.keySet()) {
                     Level maxVote = orgToMaxVote.get(org);
                     Level maxVoteHere = orgToMaxVoteHere.get(org);
                     if (maxVoteHere == null || maxVoteHere.compareTo(maxVote) < 0) {
                     } else {
-                        goodOrganizationCounter.add(org,1);
+                        goodOrganizationCounter.add(org, 1);
                     }
                 }
             }
@@ -378,13 +383,17 @@ public class TestUtilities extends TestFmwk {
             errln(locale + ": \tSurvey Tool missing optimal item for basePaths:\t" + missingOptimals);
         }
         if (surveyVsVoteResolverDifferences.size() > 0) {
-            errln(locale + ": \tSurvey Tool vs VoteResolver differences (approx):\t" + surveyVsVoteResolverDifferences.size());
+            errln(locale + ": \tSurvey Tool vs VoteResolver differences (approx):\t"
+                + surveyVsVoteResolverDifferences.size());
         }
         if (missingOrganizationCounter.size() > 0) {
             if (SHOW_DETAILS) {
-                logln(locale + ": \toldStatus values:\t" + oldStatusCounter + ", TOTAL:\t" + oldStatusCounter.getTotal());
-                logln(locale + ": \tsurveyType values:\t" + surveyTypeCounter + ", TOTAL:\t" + surveyTypeCounter.getTotal());
-                logln(locale + ": \tsurveyStatus values:\t" + surveyStatusCounter + ", TOTAL:\t" + surveyStatusCounter.getTotal());
+                logln(locale + ": \toldStatus values:\t" + oldStatusCounter + ", TOTAL:\t"
+                    + oldStatusCounter.getTotal());
+                logln(locale + ": \tsurveyType values:\t" + surveyTypeCounter + ", TOTAL:\t"
+                    + surveyTypeCounter.getTotal());
+                logln(locale + ": \tsurveyStatus values:\t" + surveyStatusCounter + ", TOTAL:\t"
+                    + surveyStatusCounter.getTotal());
             }
             logln(locale + ": \tMIA organizations:\t" + missingOrganizationCounter);
             logln(locale + ": \tConflicted organizations:\t" + conflictedOrganizations);
@@ -394,7 +403,7 @@ public class TestUtilities extends TestFmwk {
     }
 
     static class PathValueInfo {
-        private static Map<Integer,String> voteInfo;
+        private static Map<Integer, String> voteInfo;
         private CLDRFile file;
         private String locale;
 
@@ -412,26 +421,28 @@ public class TestUtilities extends TestFmwk {
         }
     }
 
-    private void showPaths(PathValueInfo pathValueInfo, String locale, int basePath, final Map<Integer, CandidateInfo> itemInfo) {
+    private void showPaths(PathValueInfo pathValueInfo, String locale, int basePath,
+        final Map<Integer, CandidateInfo> itemInfo) {
         logln(locale + " basePath:\t" + basePath + "\t" + pathValueInfo.getRealPath(basePath));
         for (int item : itemInfo.keySet()) {
             CandidateInfo candidateInfo = itemInfo.get(item);
             logln("\tpath:\t" + item + ", " + candidateInfo);
-            logln("\tvalue:\t" + pathValueInfo.getRealValue(item) + "\tpath:\t<" + pathValueInfo.getRealPath(item) + ">");
+            logln("\tvalue:\t" + pathValueInfo.getRealValue(item) + "\tpath:\t<" + pathValueInfo.getRealPath(item)
+                + ">");
         }
     }
 
     Map<Integer, VoterInfo> testdata = (Map<Integer, VoterInfo>) CldrUtility.asMap(
-            new Object[][] {
-                    { 801, new VoterInfo(Organization.guest, Level.street, "guestS") }, 
-                    { 701, new VoterInfo(Organization.gnome, Level.street, "gnomeS") }, 
-                    { 404, new VoterInfo(Organization.google, Level.vetter, "googleV") },
-                    { 411, new VoterInfo(Organization.google, Level.street, "googleS") },
-                    { 424, new VoterInfo(Organization.google, Level.vetter, "googleV2") },
-                    { 304, new VoterInfo(Organization.apple, Level.vetter, "appleV") },
-                    { 208, new VoterInfo(Organization.adobe, Level.expert, "adobeE") },
-                    { 101, new VoterInfo(Organization.ibm, Level.street, "ibmS") },
-            });
+        new Object[][] {
+            { 801, new VoterInfo(Organization.guest, Level.street, "guestS") },
+            { 701, new VoterInfo(Organization.gnome, Level.street, "gnomeS") },
+            { 404, new VoterInfo(Organization.google, Level.vetter, "googleV") },
+            { 411, new VoterInfo(Organization.google, Level.street, "googleS") },
+            { 424, new VoterInfo(Organization.google, Level.vetter, "googleV2") },
+            { 304, new VoterInfo(Organization.apple, Level.vetter, "appleV") },
+            { 208, new VoterInfo(Organization.adobe, Level.expert, "adobeE") },
+            { 101, new VoterInfo(Organization.ibm, Level.street, "ibmS") },
+        });
 
     private int toVoterId(String s) {
         for (Entry<Integer, VoterInfo> entry : testdata.entrySet()) {
@@ -441,31 +452,31 @@ public class TestUtilities extends TestFmwk {
         }
         return Integer.MIN_VALUE;
     }
-    
+
     public void TestTrunkStatus() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
         resolver.setEstablishedFromLocale("de");
-        
+
         resolver.setLastRelease("old-item", Status.approved);
         resolver.setTrunk("new-item", Status.approved);
         assertEquals("", "new-item", resolver.getWinningValue());
-        
+
         resolver.clear();
         resolver.setLastRelease("old-item", Status.approved);
         resolver.setTrunk("new-item", Status.provisional);
         assertEquals("", "old-item", resolver.getWinningValue());
     }
-    
+
     public void TestVoteResolverNgombaTrunkStatus() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
         resolver.setEstablishedFromLocale("jgo");
-	final String jgo21 = "\uA78B"; // "[ɑ ɑ́ ɑ̂ ɑ̌ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p pf s sh t ts u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z Ꞌ]";
-	final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
+        final String jgo21 = "\uA78B"; // "[ɑ ɑ́ ɑ̂ ɑ̌ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p pf s sh t ts u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z Ꞌ]";
+        final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
         Status oldStatus = Status.approved;
         resolver.setLastRelease(jgo21, oldStatus); // seed/jgo.xml from 21
-        logln("Last release: " + jgo21 + ", "+oldStatus);
+        logln("Last release: " + jgo21 + ", " + oldStatus);
         resolver.setTrunk(jgo22trunk, Status.approved); // seed/jgo.xml from 22 trunk
         logln("SVN: " + jgo22trunk);
         logln(resolver.toString());
@@ -485,7 +496,7 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", VoteStatus.ok, voteStatus);
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
         assertEquals("", VoteStatus.ok, voteStatus);
-        
+
         // make non-equal foo
         String s1 = "foo";
         String s2 = new StringBuilder("fo").append("o").toString();
@@ -498,28 +509,32 @@ public class TestUtilities extends TestFmwk {
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
         assertEquals("", VoteStatus.ok, voteStatus);
     }
-    
+
     public void TestLosingStatus() {
         // af
-        // losing? {lastRelease: {BQ, missing}, trunk: {null, null}, {orgToVotes: , totals: {}, conflicted: []}, sameVotes: [BQ], O: null, N: null, totals: {}, winning: {BQ, missing}}
+        // losing? {lastRelease: {BQ, missing}, trunk: {null, null}, {orgToVotes: , totals: {}, conflicted: []},
+        // sameVotes: [BQ], O: null, N: null, totals: {}, winning: {BQ, missing}}
         // XPath: //ldml/localeDisplayNames/territories/territory[@type="BQ"]
         // gcvs.openoffice_org.example.com
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
-        
+
         resolver.setEstablishedFromLocale("af");
         resolver.setLastRelease("BQ", Status.missing);
         VoteStatus status = resolver.getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.provisionalOrWorse, status);
-        
-        // {lastRelease: {{0}: {1}, missing}, trunk: {null, null}, {orgToVotes: pakistan={{0}: {1}=8}, totals: {{0}: {1}=8}, conflicted: []}, sameVotes: [{0}: {1}], O: {0}: {1}, N: null, totals: {{0}: {1}=8}, winning: {{0}: {1}, approved}}
+
+        // {lastRelease: {{0}: {1}, missing}, trunk: {null, null}, {orgToVotes: pakistan={{0}: {1}=8}, totals: {{0}:
+        // {1}=8}, conflicted: []}, sameVotes: [{0}: {1}], O: {0}: {1}, N: null, totals: {{0}: {1}=8}, winning: {{0}:
+        // {1}, approved}}
         resolver.clear();
         resolver.setLastRelease("{0}: {1}", Status.missing);
         resolver.add("{0}: {1}", toVoterId("adobeE"));
         status = resolver.getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.ok, status);
-        
-        // {lastRelease: {Arabisch, approved}, trunk: {Arabisch, approved}, {orgToVotes: , totals: {}, conflicted: []}, sameVotes: [Arabisch], O: null, N: null, totals: {}, winning: {Arabisch, approved}}
+
+        // {lastRelease: {Arabisch, approved}, trunk: {Arabisch, approved}, {orgToVotes: , totals: {}, conflicted: []},
+        // sameVotes: [Arabisch], O: null, N: null, totals: {}, winning: {Arabisch, approved}}
         resolver.clear();
         resolver.setLastRelease("Arabisch", Status.approved);
         resolver.setTrunk("Arabisch", Status.approved);
@@ -532,12 +547,12 @@ public class TestUtilities extends TestFmwk {
         VoteResolver<String> resolver = new VoteResolver<String>();
 
         Status oldStatus = Status.unconfirmed;
-        
+
         resolver.setEstablishedFromLocale("de");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
-        
+
         // check that alphabetical wins when votes are equal
         String winner = resolver.getWinningValue();
         Status winningStatus = resolver.getWinningStatus();
@@ -550,7 +565,7 @@ public class TestUtilities extends TestFmwk {
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("zebra", toVoterId("googleS"));
         resolver.add("apple", toVoterId("appleV"));
-        
+
         // check that total votes over alphabetical
         winner = resolver.getWinningValue();
         winningStatus = resolver.getWinningStatus();
@@ -563,17 +578,17 @@ public class TestUtilities extends TestFmwk {
         VoteResolver<String> resolver = new VoteResolver<String>();
 
         Status oldStatus = Status.unconfirmed;
-        
+
         resolver.setEstablishedFromLocale("de");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
-        
+
         // check that alphabetical wins when votes are equal
         Map<String, Long> counts = resolver.getResolvedVoteCounts();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList(counts.keySet()).get(2));
-        
+
         resolver.clear();
         resolver.setEstablishedFromLocale("de");
         resolver.setLastRelease("foo", Status.approved);
@@ -582,7 +597,7 @@ public class TestUtilities extends TestFmwk {
         counts = resolver.getResolvedVoteCounts();
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList(counts.keySet()).get(0));
-        
+
         resolver.clear();
         resolver.setEstablishedFromLocale("de");
         resolver.setLastRelease("foo", Status.approved);
@@ -592,125 +607,125 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", "foo", new ArrayList(counts.keySet()).get(0));
     }
 
-
     public void TestVoteResolver() {
-        // to make it easier to debug failures, the first digit is an org, second is the individual in that org, and third is the voting weight.
+        // to make it easier to debug failures, the first digit is an org, second is the individual in that org, and
+        // third is the voting weight.
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
         String[] tests = {
-                "comment=regression case from John Emmons",
-                "locale=wae",
-                "oldValue=2802",
-                "oldStatus=approved",
-                "304=208027", // Apple vetter
-                // expected values
-                "value=208027",
-                "status=approved",
-                "sameVotes=208027",
-                "conflicts=[]",
-                "check",
-                // first test
-                "oldValue=old-value",
-                "oldStatus=provisional",
-                "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + street = vetter)",
-                "404=next",
-                "411=next",
-                "304=best",
-                // expected values
-                "value=next",
-                "sameVotes=next,best",
-                "conflicts=[]",
-                "status=provisional",
-                "check",
+            "comment=regression case from John Emmons",
+            "locale=wae",
+            "oldValue=2802",
+            "oldStatus=approved",
+            "304=208027", // Apple vetter
+            // expected values
+            "value=208027",
+            "status=approved",
+            "sameVotes=208027",
+            "conflicts=[]",
+            "check",
+            // first test
+            "oldValue=old-value",
+            "oldStatus=provisional",
+            "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + street = vetter)",
+            "404=next",
+            "411=next",
+            "304=best",
+            // expected values
+            "value=next",
+            "sameVotes=next,best",
+            "conflicts=[]",
+            "status=provisional",
+            "check",
 
-                "comment=now give next a slight edge (5 to 4) with a different organization",
-                "404=next",
-                "304=best",
-                "801=next",
-                // expected values
-                "value=next",
-                "sameVotes=next",
-                "status=approved",
-                "check",
+            "comment=now give next a slight edge (5 to 4) with a different organization",
+            "404=next",
+            "304=best",
+            "801=next",
+            // expected values
+            "value=next",
+            "sameVotes=next",
+            "status=approved",
+            "check",
 
-                "comment=set up a case of conflict within organization",
-                "404=next",
-                "424=best",
-                // expected values
-                "value=best", // alphabetical
-                "sameVotes=best, next",
-                "conflicts=[google]",
-                "status=provisional",
-                "check",
+            "comment=set up a case of conflict within organization",
+            "404=next",
+            "424=best",
+            // expected values
+            "value=best", // alphabetical
+            "sameVotes=best, next",
+            "conflicts=[google]",
+            "status=provisional",
+            "check",
 
-                "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
-                "404=next",
-                "424=best",
-                "411=best",
-                "304=best",
-                // expected values
-                "conflicts=[google]",
-                "value=best",
-                "sameVotes=best",
-                "status=approved",
-                "check",
+            "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
+            "404=next",
+            "424=best",
+            "411=best",
+            "304=best",
+            // expected values
+            "conflicts=[google]",
+            "value=best",
+            "sameVotes=best",
+            "status=approved",
+            "check",
 
-                "comment=now clear winner 8 over 4",
-                "404=next",
-                //"424=best",
-                "411=best",
-                "304=best",
-                "208=primo",
-                // expected values
-                "conflicts=[]",
-                "value=primo",
-                "sameVotes=primo",
-                "status=approved",
-                "check",
+            "comment=now clear winner 8 over 4",
+            "404=next",
+            // "424=best",
+            "411=best",
+            "304=best",
+            "208=primo",
+            // expected values
+            "conflicts=[]",
+            "value=primo",
+            "sameVotes=primo",
+            "status=approved",
+            "check",
 
-                "comment=now not so clear, throw in a street value. So it is 8 to 5. (used to be provisional)",
-                "404=next",
-                //"424=best",
-                "411=best",
-                "304=best",
-                "208=primo",
-                "101=best",
-                // expected values
-                "conflicts=[]",
-                "value=primo",
-                "status=approved",
-                "check",
+            "comment=now not so clear, throw in a street value. So it is 8 to 5. (used to be provisional)",
+            "404=next",
+            // "424=best",
+            "411=best",
+            "304=best",
+            "208=primo",
+            "101=best",
+            // expected values
+            "conflicts=[]",
+            "value=primo",
+            "status=approved",
+            "check",
 
-                "comment=set up vote of 4 in established locale, with old provisional value",
-                "locale=fr",
-                "404=best",
-                "oldStatus=provisional",
-                // expected values
-                "value=best",
-                "sameVotes=best",
-                "status=contributed",
-                "conflicts=[]",
-                "check",
+            "comment=set up vote of 4 in established locale, with old provisional value",
+            "locale=fr",
+            "404=best",
+            "oldStatus=provisional",
+            // expected values
+            "value=best",
+            "sameVotes=best",
+            "status=contributed",
+            "conflicts=[]",
+            "check",
 
-                "comment=now set up vote of 4 in established locale, but with old contributed value",
-                "oldStatus=contributed",
-                // expected values
-                "value=old-value",
-                "sameVotes=old-value",
-                "status=contributed",
-                "conflicts=[]",
-                "check",
+            "comment=now set up vote of 4 in established locale, but with old contributed value",
+            "oldStatus=contributed",
+            // expected values
+            "value=old-value",
+            "sameVotes=old-value",
+            "status=contributed",
+            "conflicts=[]",
+            "check",
 
-                "comment=now set up vote of 1 + 1 in established locale, and with old contributed value",
-                "411=best",
-                "101=best",
-                "oldStatus=contributed",
-                // expected values
-                "value=best",
-                "sameVotes=best",
-                "status=contributed",
-                "conflicts=[]",
-                "check",
+            "comment=now set up vote of 1 + 1 in established locale, and with old contributed value",
+            "411=best",
+            "101=best",
+            "oldStatus=contributed",
+            // expected values
+            "value=best",
+            "sameVotes=best",
+            "status=contributed",
+            "conflicts=[]",
+            "check",
         };
         String expectedValue = null;
         String expectedConflicts = null;
@@ -740,7 +755,7 @@ public class TestUtilities extends TestFmwk {
             } else if (name.equalsIgnoreCase("value")) {
                 expectedValue = value;
             } else if (name.equalsIgnoreCase("sameVotes")) {
-                sameVotes = value==null ? new ArrayList<String>(0) : Arrays.asList(value.split(",\\s*"));
+                sameVotes = value == null ? new ArrayList<String>(0) : Arrays.asList(value.split(",\\s*"));
             } else if (name.equalsIgnoreCase("status")) {
                 expectedStatus = Status.valueOf(value);
             } else if (name.equalsIgnoreCase("conflicts")) {
@@ -768,7 +783,7 @@ public class TestUtilities extends TestFmwk {
                 assertEquals(counter + " sameVotes", sameVotes.toString(), resolver.getValuesWithSameVotes().toString());
                 assertEquals(counter + " status", expectedStatus, resolver.getWinningStatus());
                 assertEquals(counter + " conflicts", expectedConflicts, resolver.getConflictedOrganizations()
-                        .toString());
+                    .toString());
                 resolver.clear();
                 values.clear();
             } else {

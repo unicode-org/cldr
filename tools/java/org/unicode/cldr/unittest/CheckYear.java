@@ -35,32 +35,35 @@ import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 public class CheckYear {
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final String LOCALES = ".*";
-    private static final String[] STOCK = {"short", "medium", "long", "full"};
+    private static final String[] STOCK = { "short", "medium", "long", "full" };
 
-    enum Category {Year2_MonthNumeric, Year2_Other, Year4_MonthNumeric, Year4_Other}
+    enum Category {
+        Year2_MonthNumeric, Year2_Other, Year4_MonthNumeric, Year4_Other
+    }
+
     static DateTimePatternGenerator dtp = DateTimePatternGenerator.getEmptyInstance();
     static DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
 
     // mismatches between stocks
-    static Map<String,Relation<String,String>> stock2skeleton2locales = new LinkedHashMap();
+    static Map<String, Relation<String, String>> stock2skeleton2locales = new LinkedHashMap();
     static {
         for (String stock : STOCK) {
-            stock2skeleton2locales.put("date-" + stock, Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class));
+            stock2skeleton2locales.put("date-" + stock, Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
         }
         for (String stock : STOCK) {
-            stock2skeleton2locales.put("time-" + stock, Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class));
+            stock2skeleton2locales.put("time-" + stock, Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
         }
     }
 
     static class LocaleInfo {
         private static final boolean DEBUG = false;
         // information on the type of years
-        Relation<Category,String> category2base = Relation.of(new EnumMap<Category,Set<String>>(Category.class), TreeSet.class);
+        Relation<Category, String> category2base = Relation.of(new EnumMap<Category, Set<String>>(Category.class),
+            TreeSet.class);
         // collisions between baseSkeletons
-        Map<String,Relation<String,Row.R2<String,String>>> base2BasePatterns2Info = new TreeMap();
+        Map<String, Relation<String, Row.R2<String, String>>> base2BasePatterns2Info = new TreeMap();
 
-
-        Map<String,String> skeleton2pattern = new HashMap<String,String>();
+        Map<String, String> skeleton2pattern = new HashMap<String, String>();
 
         public void recordStockTime(String localeId, String stock, String dateTimePattern) {
             String skeleton = dtp.getSkeleton(dateTimePattern);
@@ -86,23 +89,23 @@ public class CheckYear {
 
         public void recordBase(String base, String skeleton, String dateTimePattern) {
             String coreBase = getCoreSkeleton(base);
-            Relation<String, Row.R2<String,String>> basePatterns2Info = base2BasePatterns2Info.get(coreBase);
+            Relation<String, Row.R2<String, String>> basePatterns2Info = base2BasePatterns2Info.get(coreBase);
             if (basePatterns2Info == null) {
-                base2BasePatterns2Info.put(coreBase, 
-                    basePatterns2Info = Relation.of(new TreeMap<String,Set<Row.R2<String,String>>>(), TreeSet.class));
+                base2BasePatterns2Info.put(coreBase,
+                    basePatterns2Info = Relation.of(new TreeMap<String, Set<Row.R2<String, String>>>(), TreeSet.class));
             }
             // adjust the pattern to correspond to the base fields
-            //String coreSkeleton = getCoreSkeleton(skeleton);
+            // String coreSkeleton = getCoreSkeleton(skeleton);
             String minimizedPattern = replaceFieldTypes(dateTimePattern, coreBase, !coreBase.equals(base));
             basePatterns2Info.put(minimizedPattern, Row.of(skeleton, dateTimePattern));
-            //            if (skeleton2pattern.put(skeleton, basePattern) != null) {
-            //                throw new IllegalArgumentException();
-            //            }
+            // if (skeleton2pattern.put(skeleton, basePattern) != null) {
+            // throw new IllegalArgumentException();
+            // }
         }
 
         public String getCoreSkeleton(String skeleton) {
             int slashPos = skeleton.indexOf('/');
-            String s = slashPos < 0 ? skeleton : skeleton.substring(0,slashPos);
+            String s = slashPos < 0 ? skeleton : skeleton.substring(0, slashPos);
             return s;
         }
 
@@ -191,7 +194,7 @@ public class CheckYear {
                     if (firstPart && firstComponents.contains(type)) {
                         firstPart = false;
                         startSecondPart = b.length();
-                    } 
+                    }
                     b.append(item);
                     if (firstPart) {
                         endFirstPart = b.length();
@@ -214,7 +217,7 @@ public class CheckYear {
             if (endFirstPart < 0 || startSecondPart < 0) {
                 throw new IllegalArgumentException("Illegal interval pattern: " + intervalPattern);
             } else {
-                if (DEBUG) System.out.println(normalized.substring(0,endFirstPart) + "$$"
+                if (DEBUG) System.out.println(normalized.substring(0, endFirstPart) + "$$"
                     + normalized.substring(endFirstPart, startSecondPart) + "$$"
                     + normalized.substring(startSecondPart) + "\t=>\t" + result);
             }
@@ -226,7 +229,7 @@ public class CheckYear {
             String core = skeleton;
             String diff = "";
             if (slashPos >= 0) {
-                core = skeleton.substring(0,slashPos);
+                core = skeleton.substring(0, slashPos);
                 diff = skeleton.substring(slashPos);
             }
             core = dtp.getBaseSkeleton(core);
@@ -235,9 +238,12 @@ public class CheckYear {
 
     }
 
-    static Map<String,LocaleInfo> data = new TreeMap();
-    //    private static final Relation<String,String> digit4 = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-    //    private static final Relation<String,String> digit2 = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+    static Map<String, LocaleInfo> data = new TreeMap();
+
+    // private static final Relation<String,String> digit4 = Relation.of(new TreeMap<String,Set<String>>(),
+    // TreeSet.class);
+    // private static final Relation<String,String> digit2 = Relation.of(new TreeMap<String,Set<String>>(),
+    // TreeSet.class);
 
     public static void main(String[] args) throws IOException {
         Factory englishFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
@@ -247,7 +253,7 @@ public class CheckYear {
         Factory factory = Factory.make(CldrUtility.TMP2_DIRECTORY + "vxml/common/main/", LOCALES);
         String calendarID = "gregorian";
         System.out.println("Total locales: " + factory.getAvailableLanguages().size());
-        Map<String, String> sorted = new TreeMap<String,String>();
+        Map<String, String> sorted = new TreeMap<String, String>();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Set<String> defaultContent = sdi.getDefaultContentLocales();
         LanguageTagParser ltp = new LanguageTagParser();
@@ -260,7 +266,7 @@ public class CheckYear {
                 System.out.println("Skipping default content: " + localeID);
                 continue;
             }
-            sorted.put(englishFile.getName(localeID,true), localeID);
+            sorted.put(englishFile.getName(localeID, true), localeID);
             data.put(localeID, new LocaleInfo());
         }
 
@@ -285,23 +291,27 @@ public class CheckYear {
             CLDRFile file = factory.make(localeId, true);
             LocaleInfo localeInfo = data.get(localeId);
             for (String stock : STOCK) {
-                String path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateFormats/dateFormatLength[@type=\"" +
+                String path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID
+                    + "\"]/dateFormats/dateFormatLength[@type=\"" +
                     stock +
                     "\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
                 String dateTimePattern = file.getStringValue(path);
                 localeInfo.recordStock(localeId, stock, dateTimePattern);
-                path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/timeFormats/timeFormatLength[@type=\"" +
+                path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID
+                    + "\"]/timeFormats/timeFormatLength[@type=\"" +
                     stock +
                     "\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
                 dateTimePattern = file.getStringValue(path);
                 localeInfo.recordStockTime(localeId, stock, dateTimePattern);
             }
-            for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
+            for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
+                + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
                 String key = parts.set(path).getAttributeValue(-1, "id");
                 String value = file.getStringValue(path);
                 localeInfo.record(key, value);
             }
-            for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {
+            for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
+                + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {
                 String skeleton = parts.set(path).getAttributeValue(-2, "id");
                 String diff = parts.set(path).getAttributeValue(-1, "id");
                 String value = file.getStringValue(path);
@@ -367,7 +377,8 @@ public class CheckYear {
         return b.toString();
     }
 
-    public static void writeConflictingPatterns(Map<String, String> sorted, boolean modern, String filename) throws IOException {
+    public static void writeConflictingPatterns(Map<String, String> sorted, boolean modern, String filename)
+        throws IOException {
         PrintWriter out;
         out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "datecheck/", filename);
         out.println("Language\tId\tMin. Skeleton\tMin Pat1\tskeleton → pattern\tMin Pat2\tskeleton → pattern\tMin Pat3\tskeleton → pattern");
@@ -379,15 +390,16 @@ public class CheckYear {
             String name = entry.getKey();
             LocaleInfo localeInfo = data.get(localeId);
 
-            for (Entry<String, Relation<String, R2<String, String>>> baseAndBasePatterns2Info : localeInfo.base2BasePatterns2Info.entrySet()) {
+            for (Entry<String, Relation<String, R2<String, String>>> baseAndBasePatterns2Info : localeInfo.base2BasePatterns2Info
+                .entrySet()) {
                 String base = baseAndBasePatterns2Info.getKey();
                 Relation<String, R2<String, String>> basePatterns2Info = baseAndBasePatterns2Info.getValue();
                 if (basePatterns2Info.size() == 1) {
                     continue;
                 }
-                //                Ewe ee  MMM LLL → ‹[MMM, LLL]›
-                //                Ewe ee  MMM MMM → ‹[MMM/M, MMM–MMM]›
-                //  => Ewe ee  MMM  ‹LLL›: tab MMM → ‹LLL›  tab ‹MMM›: tab MMM/M → ‹MMM–MMM›
+                // Ewe ee MMM LLL → ‹[MMM, LLL]›
+                // Ewe ee MMM MMM → ‹[MMM/M, MMM–MMM]›
+                // => Ewe ee MMM ‹LLL›: tab MMM → ‹LLL› tab ‹MMM›: tab MMM/M → ‹MMM–MMM›
                 StringBuilder s = new StringBuilder(name + "\t" + localeId + "\t" + base);
 
                 for (Entry<String, Set<R2<String, String>>> basePatternsAndInfo : basePatterns2Info.keyValuesSet()) {
@@ -411,8 +423,7 @@ public class CheckYear {
     }
 
     public static boolean getPriority(String localeId) {
-        return 
-            STANDARD_CODES.getLocaleCoverageLevel(Organization.google.toString(), localeId) == Level.MODERN
+        return STANDARD_CODES.getLocaleCoverageLevel(Organization.google.toString(), localeId) == Level.MODERN
             || STANDARD_CODES.getLocaleCoverageLevel(Organization.apple.toString(), localeId) == Level.MODERN
             || STANDARD_CODES.getLocaleCoverageLevel(Organization.ibm.toString(), localeId) == Level.MODERN;
     }

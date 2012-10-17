@@ -46,9 +46,10 @@ import com.ibm.icu.util.TimeZoneTransition;
  * TimezoneFormatter. Class that uses CLDR data directly to parse / format timezone names
  * according to the specification in TR#35. Note: there are some areas where the spec needs
  * fixing.
+ * 
  * @author davis
  */
-public class TimezoneFormatter extends UFormat  {
+public class TimezoneFormatter extends UFormat {
     public static boolean SHOW_DRAFT = false;
 
     public enum Location {
@@ -57,27 +58,30 @@ public class TimezoneFormatter extends UFormat  {
             return this == GMT ? "gmt" : this == LOCATION ? "location" : "non-location";
         }
     }
+
     public enum Type {
         GENERIC, SPECIFIC;
         public String toString(boolean daylight) {
             return this == GENERIC ? "generic" : daylight ? "daylight" : "standard";
         }
+
         public String toString() {
             return name().toLowerCase(Locale.ENGLISH);
         }
     }
+
     public enum Length {
         SHORT, LONG, OTHER;
         public String toString() {
             return this == SHORT ? "short" : this == LONG ? "long" : "other";
         }
     }
-    
+
     public enum Format {
-        VVVV(Type.GENERIC, Location.LOCATION, Length.OTHER), 
-        vvvv(Type.GENERIC, Location.NON_LOCATION, Length.LONG), 
-        v(Type.GENERIC, Location.NON_LOCATION, Length.SHORT), 
-        zzzz(Type.SPECIFIC, Location.NON_LOCATION, Length.LONG), 
+        VVVV(Type.GENERIC, Location.LOCATION, Length.OTHER),
+        vvvv(Type.GENERIC, Location.NON_LOCATION, Length.LONG),
+        v(Type.GENERIC, Location.NON_LOCATION, Length.SHORT),
+        zzzz(Type.SPECIFIC, Location.NON_LOCATION, Length.LONG),
         z(Type.SPECIFIC, Location.NON_LOCATION, Length.SHORT),
         ZZZZ(Type.GENERIC, Location.GMT, Length.LONG),
         Z(Type.GENERIC, Location.GMT, Length.SHORT),
@@ -85,6 +89,7 @@ public class TimezoneFormatter extends UFormat  {
         final Type type;
         final Location location;
         final Length length;
+
         private Format(Type type, Location location, Length length) {
             this.type = type;
             this.location = location;
@@ -92,23 +97,22 @@ public class TimezoneFormatter extends UFormat  {
         }
     };
 
-
-    //	/**
-    //	 * Type parameter for formatting
-    //	 */
-    //	public static final int GMT = 0, GENERIC = 1, STANDARD = 2, DAYLIGHT = 3, TYPE_LIMIT = 4;
-    //	
-    //	/**
-    //	 * Arrays of names, for testing. Should be const, but we can't do that in Java
-    //	 */
-    //	public static final List LENGTH = Arrays.asList(new String[] {"short", "long"});
-    //	public static final List TYPE = Arrays.asList(new String[] {"gmt", "generic", "standard", "daylight"});
+    // /**
+    // * Type parameter for formatting
+    // */
+    // public static final int GMT = 0, GENERIC = 1, STANDARD = 2, DAYLIGHT = 3, TYPE_LIMIT = 4;
+    //
+    // /**
+    // * Arrays of names, for testing. Should be const, but we can't do that in Java
+    // */
+    // public static final List LENGTH = Arrays.asList(new String[] {"short", "long"});
+    // public static final List TYPE = Arrays.asList(new String[] {"gmt", "generic", "standard", "daylight"});
 
     // static fields built from Timezone Database for formatting and parsing
 
-    //private static final Map zone_countries = StandardCodes.make().getZoneToCounty();
-    //private static final Map countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
-    //private static final Map old_new = StandardCodes.make().getZoneLinkold_new();
+    // private static final Map zone_countries = StandardCodes.make().getZoneToCounty();
+    // private static final Map countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
+    // private static final Map old_new = StandardCodes.make().getZoneLinkold_new();
 
     private static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
 
@@ -128,7 +132,7 @@ public class TimezoneFormatter extends UFormat  {
         TimeZone gmt = TimeZone.getTimeZone("GMT");
         rfc822Plus.setTimeZone(gmt);
         rfc822Minus.setTimeZone(gmt);
-    }	
+    }
 
     // input parameters
     private CLDRFile desiredLocaleFile;
@@ -142,19 +146,21 @@ public class TimezoneFormatter extends UFormat  {
     public TimezoneFormatter(Factory cldrFactory, String localeID, DraftStatus minimalDraftStatus) {
         this(cldrFactory.make(localeID, true, minimalDraftStatus));
     }
+
     /**
      * Create from a cldrFactory and a locale id.
+     * 
      * @see CLDRFile
      */
     public TimezoneFormatter(CLDRFile resolvedLocaleFile) {
         desiredLocaleFile = resolvedLocaleFile;
         inputLocaleID = desiredLocaleFile.getLocaleID();
         String hourFormatString = getStringValue("//ldml/dates/timeZoneNames/hourFormat");
-        String[] hourFormatStrings = CldrUtility.splitArray(hourFormatString,';');
+        String[] hourFormatStrings = CldrUtility.splitArray(hourFormatString, ';');
         ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder().setCldrFile(desiredLocaleFile);
-        hourFormatPlus = icuServiceBuilder.getDateFormat("gregorian",0, 1);
+        hourFormatPlus = icuServiceBuilder.getDateFormat("gregorian", 0, 1);
         hourFormatPlus.applyPattern(hourFormatStrings[0]);
-        hourFormatMinus = icuServiceBuilder.getDateFormat("gregorian",0, 1);
+        hourFormatMinus = icuServiceBuilder.getDateFormat("gregorian", 0, 1);
         hourFormatMinus.applyPattern(hourFormatStrings[1]);
         gmtFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
         regionFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
@@ -171,15 +177,16 @@ public class TimezoneFormatter extends UFormat  {
         }
         singleCountriesSet = new TreeSet(CldrUtility.splitList(singleCountriesList, ' '));
 
-        /* not needed
-		hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(
-				"//ldml/dates/timeZoneNames/hoursFormat"));
-		abbreviationFallback = (String) new XPathParts(null, null).set(
-				desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/abbreviationFallback"))
-				.findAttributes("abbreviationFallback").get("type");
-		temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/preferenceOrdering");
-		preferenceOrdering = (String) new XPathParts(null, null).set(
-				temp).findAttributes("preferenceOrdering").get("type");
+        /*
+         * not needed
+         * hoursFormat = new MessageFormat(desiredLocaleFile.getStringValue(
+         * "//ldml/dates/timeZoneNames/hoursFormat"));
+         * abbreviationFallback = (String) new XPathParts(null, null).set(
+         * desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/abbreviationFallback"))
+         * .findAttributes("abbreviationFallback").get("type");
+         * temp = desiredLocaleFile.getFullXPath("//ldml/dates/timeZoneNames/preferenceOrdering");
+         * preferenceOrdering = (String) new XPathParts(null, null).set(
+         * temp).findAttributes("preferenceOrdering").get("type");
          */
     }
 
@@ -192,7 +199,7 @@ public class TimezoneFormatter extends UFormat  {
     }
 
     private String getName(int territory_name, String country, boolean skipDraft2) {
-        checkForDraft(CLDRFile.getKey(territory_name,country));
+        checkForDraft(CLDRFile.getKey(territory_name, country));
         return desiredLocaleFile.getName(territory_name, country);
     }
 
@@ -206,7 +213,9 @@ public class TimezoneFormatter extends UFormat  {
 
     /**
      * Convenience routine for formatting based on daylight or not, and the offset
-     * @param skipExact TODO
+     * 
+     * @param skipExact
+     *            TODO
      */
     public String getFormattedZone(String zoneid, String pattern, long date) {
         Format format = Format.valueOf(pattern);
@@ -229,62 +238,69 @@ public class TimezoneFormatter extends UFormat  {
      */
     public String getFormattedZone(String inputZoneid, Location location, Type type, Length length, long date) {
         String result;
-        //      1.  Canonicalize the Olson ID according to the table in supplemental data.
-        //      Use that canonical ID in each of the following steps.
-        //      * America/Atka => America/Adak
-        //      * Australia/ACT => Australia/Sydney
+        // 1. Canonicalize the Olson ID according to the table in supplemental data.
+        // Use that canonical ID in each of the following steps.
+        // * America/Atka => America/Adak
+        // * Australia/ACT => Australia/Sydney
 
         String zoneid = TimeZone.getCanonicalID(inputZoneid);
         BasicTimeZone timeZone = (BasicTimeZone) TimeZone.getTimeZone(zoneid);
         int gmtOffset1 = timeZone.getOffset(date);
         boolean daylight = gmtOffset1 != timeZone.getRawOffset();
-        //if (zoneid == null) zoneid = inputZoneid;
+        // if (zoneid == null) zoneid = inputZoneid;
 
         switch (location) {
-        default: throw new IllegalArgumentException("Bad enum value for location: " + location);
+        default:
+            throw new IllegalArgumentException("Bad enum value for location: " + location);
 
-        //		2. For RFC 822 GMT format ("Z") return the results according to the RFC.
-        //	    America/Los_Angeles → "-0800"
-        //	    Note: The digits in this case are always from the western digits, 0..9.
+            // 2. For RFC 822 GMT format ("Z") return the results according to the RFC.
+            // America/Los_Angeles → "-0800"
+            // Note: The digits in this case are always from the western digits, 0..9.
         case GMT:
             if (length == Length.SHORT) {
-                return gmtOffset1 < 0 ? rfc822Minus.format(new Date(-gmtOffset1)) : rfc822Plus.format(new Date(gmtOffset1));
+                return gmtOffset1 < 0 ? rfc822Minus.format(new Date(-gmtOffset1)) : rfc822Plus.format(new Date(
+                    gmtOffset1));
             }
 
-            //	    3. For the localized GMT format, use the gmtFormat (such as "GMT{0}" or "HMG{0}") with the hourFormat (such as "+HH:mm;-HH:mm" or "+HH.mm;-HH.mm").
-            //	    America/Los_Angeles → "GMT-08:00" //  standard time
-            //	    America/Los_Angeles → "HMG-07:00" //  daylight time
-            //	    Etc/GMT+3 → "GMT-03.00" // note that TZ tzids have inverse polarity!
-            //	    Note: The digits should be whatever are appropriate for the locale used to format the time zone, not necessarily from the western digits, 0..9. For example, they might be from ०..९.
+            // 3. For the localized GMT format, use the gmtFormat (such as "GMT{0}" or "HMG{0}") with the hourFormat
+            // (such as "+HH:mm;-HH:mm" or "+HH.mm;-HH.mm").
+            // America/Los_Angeles → "GMT-08:00" // standard time
+            // America/Los_Angeles → "HMG-07:00" // daylight time
+            // Etc/GMT+3 → "GMT-03.00" // note that TZ tzids have inverse polarity!
+            // Note: The digits should be whatever are appropriate for the locale used to format the time zone, not
+            // necessarily from the western digits, 0..9. For example, they might be from ०..९.
 
             DateFormat format = gmtOffset1 < 0 ? hourFormatMinus : hourFormatPlus;
             calendar.setTimeInMillis(Math.abs(gmtOffset1));
             result = format.format(calendar);
-            return gmtFormat.format(new Object[]{result});
-            //	    4. For ISO 8601 time zone format ("ZZZZZ") return the results according to the ISO 8601.
-            //	    America/Los_Angeles → "-08:00"
-            //	    Etc/GMT → Z // special case of UTC
-            //	    Note: The digits in this case are always from the western digits, 0..9.
+            return gmtFormat.format(new Object[] { result });
+            // 4. For ISO 8601 time zone format ("ZZZZZ") return the results according to the ISO 8601.
+            // America/Los_Angeles → "-08:00"
+            // Etc/GMT → Z // special case of UTC
+            // Note: The digits in this case are always from the western digits, 0..9.
 
             // TODO
         case NON_LOCATION:
-            //    5. For the non-location formats (generic or specific),
-            //    5.1 if there is an explicit translation for the TZID in timeZoneNames according to type (generic, standard, or daylight) in the resolved locale, return it.
-            //    America/Los_Angeles → "Heure du Pacifique (ÉUA)" // generic
-            //    America/Los_Angeles → 太平洋標準時 // standard
-            //    America/Los_Angeles → Yhdysvaltain Tyynenmeren kesäaika // daylight
-            //    Europe/Dublin  → Am Samhraidh na hÉireann // daylight
-            //    Note: This translation may not at all be literal: it would be what is most recognizable for people using the target language.
+            // 5. For the non-location formats (generic or specific),
+            // 5.1 if there is an explicit translation for the TZID in timeZoneNames according to type (generic,
+            // standard, or daylight) in the resolved locale, return it.
+            // America/Los_Angeles → "Heure du Pacifique (ÉUA)" // generic
+            // America/Los_Angeles → 太平洋標準時 // standard
+            // America/Los_Angeles → Yhdysvaltain Tyynenmeren kesäaika // daylight
+            // Europe/Dublin → Am Samhraidh na hÉireann // daylight
+            // Note: This translation may not at all be literal: it would be what is most recognizable for people using
+            // the target language.
 
             String formatValue = getLocalizedExplicitTzid(zoneid, type, length, daylight);
             if (formatValue != null) {
                 return formatValue;
             }
 
-            //    5.2 Otherwise, if there is a metazone standard format, 
-            // and the offset and daylight offset do not change within 184 day +/- interval 
-            // around the exact formatted time, use the metazone standard format ("Mountain Standard Time" for Phoenix). 
-            // (184 is the smallest number that is at least 6 months AND the smallest number that is more than 1/2 year (Gregorian)).
+            // 5.2 Otherwise, if there is a metazone standard format,
+            // and the offset and daylight offset do not change within 184 day +/- interval
+            // around the exact formatted time, use the metazone standard format ("Mountain Standard Time" for Phoenix).
+            // (184 is the smallest number that is at least 6 months AND the smallest number that is more than 1/2 year
+            // (Gregorian)).
             MetaZoneRange metazoneRange = sdi.getMetaZoneRange(zoneid, date);
             String metaZoneName = getLocalizedMetazone(metazoneRange.metazone, type, length, daylight);
             if (metaZoneName == null) {
@@ -303,21 +319,24 @@ public class TimezoneFormatter extends UFormat  {
                 }
             }
 
-            //    5.3 Otherwise, if there is a metazone generic format, then do the following:
+            // 5.3 Otherwise, if there is a metazone generic format, then do the following:
             // *** CHANGE to
             // 5.2 Get the appropriate metazone format (generic, standard, daylight).
-            //     if there is none, (do old 5.2).
-            //     if there is either one, then do the following
+            // if there is none, (do old 5.2).
+            // if there is either one, then do the following
 
             if (metaZoneName != null) {
 
-                //    5.3.1 Compare offset at the requested time with the preferred zone for the current locale; if same, we use the metazone generic format. 
-                //   "Pacific Time" for Vancouver if the locale is en-CA, or for Los Angeles if locale is en-US. Note that the fallback is the golden zone.
-                //    The metazone data actually supplies the preferred zone for a country. 
+                // 5.3.1 Compare offset at the requested time with the preferred zone for the current locale; if same,
+                // we use the metazone generic format.
+                // "Pacific Time" for Vancouver if the locale is en-CA, or for Los Angeles if locale is en-US. Note that
+                // the fallback is the golden zone.
+                // The metazone data actually supplies the preferred zone for a country.
                 String localeId = desiredLocaleFile.getLocaleID();
                 LanguageTagParser languageTagParser = new LanguageTagParser();
                 String defaultRegion = languageTagParser.set(localeId).getRegion();
-                // If the locale does not have a country the likelySubtags supplemental data is used to get the most likely country.
+                // If the locale does not have a country the likelySubtags supplemental data is used to get the most
+                // likely country.
                 if (defaultRegion.isEmpty()) {
                     String localeMax = LikelySubtags.maximize(localeId, sdi.getLikelySubtags());
                     defaultRegion = languageTagParser.set(localeMax).getRegion();
@@ -330,15 +349,16 @@ public class TimezoneFormatter extends UFormat  {
                 if (preferredLocalesZone == null) {
                     preferredLocalesZone = regionToZone.get("001");
                 }
-                //TimeZone preferredTimeZone = TimeZone.getTimeZone(preferredZone);
+                // TimeZone preferredTimeZone = TimeZone.getTimeZone(preferredZone);
                 // CLARIFY: do we mean that the offset is the same at the current time, or that the zone is the same???
                 // the following code does the latter.
                 if (zoneid.equals(preferredLocalesZone)) {
                     return metaZoneName;
                 }
 
-                //    5.3.2 If the zone is the preferred zone for its country but not for the country of the locale, use the metazone generic format + (country)
-                //    [Generic partial location] "Pacific Time (Canada)" for the zone Vancouver in the locale en_MX.
+                // 5.3.2 If the zone is the preferred zone for its country but not for the country of the locale, use
+                // the metazone generic format + (country)
+                // [Generic partial location] "Pacific Time (Canada)" for the zone Vancouver in the locale en_MX.
 
                 String zoneIdsCountry = TimeZone.getRegion(zoneid);
                 String preferredZonesCountrysZone = regionToZone.get(zoneIdsCountry);
@@ -347,39 +367,43 @@ public class TimezoneFormatter extends UFormat  {
                 }
                 if (zoneid.equals(preferredZonesCountrysZone)) {
                     String countryName = getLocalizedCountryName(zoneIdsCountry);
-                    return fallbackFormat.format(new Object[]{countryName, metaZoneName}); // UGLY, should be able to just list
+                    return fallbackFormat.format(new Object[] { countryName, metaZoneName }); // UGLY, should be able to
+                                                                                              // just list
                 }
 
-                //    If all else fails, use metazone generic format + (city).
-                //    [Generic partial location]: "Mountain Time (Phoenix)", "Pacific Time (Whitehorse)"
+                // If all else fails, use metazone generic format + (city).
+                // [Generic partial location]: "Mountain Time (Phoenix)", "Pacific Time (Whitehorse)"
                 String cityName = getLocalizedExemplarCity(zoneid);
-                return fallbackFormat.format(new Object[]{cityName, metaZoneName});
+                return fallbackFormat.format(new Object[] { cityName, metaZoneName });
             }
             //
-            //    Otherwise, fall back.
-            //    Note: In composing the metazone + city or country: use the fallbackFormat
+            // Otherwise, fall back.
+            // Note: In composing the metazone + city or country: use the fallbackFormat
             //
-            //    {1} will be the metazone
-            //    {0} will be a qualifier (city or country)
-            //    Example: Pacific Time (Phoenix)
+            // {1} will be the metazone
+            // {0} will be a qualifier (city or country)
+            // Example: Pacific Time (Phoenix)
             return null;
         case LOCATION:
 
-            //6.1 For the generic location format:
-            //Use as the country name, the explicitly localized country if available, otherwise the raw country code. 
-            // If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.
-            //CU → "CU" // no localized country name for Cuba
+            // 6.1 For the generic location format:
+            // Use as the country name, the explicitly localized country if available, otherwise the raw country code.
+            // If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID,
+            // stripping off the prefix and turning _ into space.
+            // CU → "CU" // no localized country name for Cuba
 
             // CLARIFY that above applies to 5.3.2 also!
 
-            //America/Los_Angeles → "Los Angeles" // no localized exemplar city
-            //From <timezoneData> get the country code for the zone, and determine whether there is only one timezone in the country. 
-            //If there is only one timezone or the zone id is in the singleCountries list, 
-            //format the country name with the regionFormat (for example, "{0} Time"), and return it.
-            //Europe/Rome → IT → Italy Time // for English
-            //Africa/Monrovia → LR → "Hora de Liberja"
-            //America/Havana → CU → "Hora de CU" // if CU is not localized
-            //Note: If a language does require grammatical changes when composing strings, then it should either use a neutral format such as what is in root, or put all exceptional cases in explicitly translated strings.
+            // America/Los_Angeles → "Los Angeles" // no localized exemplar city
+            // From <timezoneData> get the country code for the zone, and determine whether there is only one timezone
+            // in the country.
+            // If there is only one timezone or the zone id is in the singleCountries list,
+            // format the country name with the regionFormat (for example, "{0} Time"), and return it.
+            // Europe/Rome → IT → Italy Time // for English
+            // Africa/Monrovia → LR → "Hora de Liberja"
+            // America/Havana → CU → "Hora de CU" // if CU is not localized
+            // Note: If a language does require grammatical changes when composing strings, then it should either use a
+            // neutral format such as what is in root, or put all exceptional cases in explicitly translated strings.
             //
 
             String zoneIdsCountry = TimeZone.getRegion(zoneid);
@@ -387,38 +411,39 @@ public class TimezoneFormatter extends UFormat  {
                 String[] zonesInRegion = TimeZone.getAvailableIDs(zoneIdsCountry);
                 if (zonesInRegion != null && zonesInRegion.length == 1 || singleCountriesSet.contains(zoneid)) {
                     String countryName = getLocalizedCountryName(zoneIdsCountry);
-                    return regionFormat.format(new Object[]{countryName});
+                    return regionFormat.format(new Object[] { countryName });
                 }
             }
-            //Note: <timezoneData> may not have data for new TZIDs. 
+            // Note: <timezoneData> may not have data for new TZIDs.
             //
-            //If the country for the zone cannot be resolved, format the exemplar city 
-            // (it is unlikely that the localized exemplar city is available in this case, 
-            // so the exemplar city might be composed by the last field of the raw TZID as described above) 
+            // If the country for the zone cannot be resolved, format the exemplar city
+            // (it is unlikely that the localized exemplar city is available in this case,
+            // so the exemplar city might be composed by the last field of the raw TZID as described above)
             // with the regionFormat (for example, "{0} Time"), and return it.
-            //***FIX by changing to: if the country can't be resolved, or the zonesInRegion are not unique
+            // ***FIX by changing to: if the country can't be resolved, or the zonesInRegion are not unique
 
             String cityName = getLocalizedExemplarCity(zoneid);
-            return regionFormat.format(new Object[]{cityName});
+            return regionFormat.format(new Object[] { cityName });
 
             // FIX examples
-            //Otherwise, get both the exemplar city and country name. Format  them with the fallbackRegionFormat (for example, "{1} Time ({0})". For example:
-            //America/Buenos_Aires → "Argentina Time (Buenos Aires)"
-            //// if the fallbackRegionFormat is "{1} Time ({0})".
-            //America/Buenos_Aires → "Аргентина (Буэнос-Айрес)"
-            //// if both are translated, and the fallbackRegionFormat is "{1} ({0})".
-            //America/Buenos_Aires → "AR (Буэнос-Айрес)"
-            //// if Argentina is not translated.
-            //America/Buenos_Aires → "Аргентина (Buenos Aires)"
-            //// if Buenos Aires is not translated.
-            //America/Buenos_Aires → "AR (Buenos Aires)"
-            //// if both are not translated.
-            //Note: As with the regionFormat, exceptional cases need to be explicitly translated.
+            // Otherwise, get both the exemplar city and country name. Format them with the fallbackRegionFormat (for
+            // example, "{1} Time ({0})". For example:
+            // America/Buenos_Aires → "Argentina Time (Buenos Aires)"
+            // // if the fallbackRegionFormat is "{1} Time ({0})".
+            // America/Buenos_Aires → "Аргентина (Буэнос-Айрес)"
+            // // if both are translated, and the fallbackRegionFormat is "{1} ({0})".
+            // America/Buenos_Aires → "AR (Буэнос-Айрес)"
+            // // if Argentina is not translated.
+            // America/Buenos_Aires → "Аргентина (Buenos Aires)"
+            // // if Buenos Aires is not translated.
+            // America/Buenos_Aires → "AR (Buenos Aires)"
+            // // if both are not translated.
+            // Note: As with the regionFormat, exceptional cases need to be explicitly translated.
         }
     }
 
     private boolean atLeast184Days(long start, long end) {
-        long transitionDays = (end - start) / (24*60*60*1000);
+        long transitionDays = (end - start) / (24 * 60 * 60 * 1000);
         return transitionDays >= 184;
     }
 
@@ -429,7 +454,7 @@ public class TimezoneFormatter extends UFormat  {
     }
 
     public String getLocalizedMetazone(String metazone, Type type, Length length, boolean daylight) {
-        String name = desiredLocaleFile.getWinningValue("//ldml/dates/timeZoneNames/metazone[@type=\"" 
+        String name = desiredLocaleFile.getWinningValue("//ldml/dates/timeZoneNames/metazone[@type=\""
             + metazone + "\"]/" + length.toString() + "/" + type.toString(daylight));
         return name;
     }
@@ -443,9 +468,10 @@ public class TimezoneFormatter extends UFormat  {
     }
 
     public String getLocalizedExemplarCity(String timezoneString) {
-        String exemplarCity = desiredLocaleFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\""+timezoneString+"\"]/exemplarCity");
-        if ( exemplarCity == null ) {
-            exemplarCity = timezoneString.substring(timezoneString.lastIndexOf('/')+1).replace('_',' ');
+        String exemplarCity = desiredLocaleFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\""
+            + timezoneString + "\"]/exemplarCity");
+        if (exemplarCity == null) {
+            exemplarCity = timezoneString.substring(timezoneString.lastIndexOf('/') + 1).replace('_', ' ');
         }
         return exemplarCity;
     }
@@ -454,22 +480,22 @@ public class TimezoneFormatter extends UFormat  {
      * Used for computation in parsing
      */
     private static final int WALL_LIMIT = 2, STANDARD_LIMIT = 4;
-    private static final String[] zoneTypes = {"\"]/long/generic", "\"]/short/generic",
-        "\"]/long/standard", "\"]/short/standard", 
-        "\"]/long/daylight", "\"]/short/daylight"};
+    private static final String[] zoneTypes = { "\"]/long/generic", "\"]/short/generic",
+        "\"]/long/standard", "\"]/short/standard",
+        "\"]/long/daylight", "\"]/short/daylight" };
 
     private transient Matcher m = Pattern.compile("([-+])([0-9][0-9])([0-9][0-9])").matcher("");
 
     private transient boolean parseInfoBuilt;
-    private transient final Map localizedCountry_countryCode= new HashMap();
-    private transient final Map exemplar_zone= new HashMap();
+    private transient final Map localizedCountry_countryCode = new HashMap();
+    private transient final Map exemplar_zone = new HashMap();
     private transient final Map localizedExplicit_zone = new HashMap();
     private transient final Map country_zone = new HashMap();
 
     /**
      * Returns zoneid. In case of an offset, returns "Etc/GMT+/-HH" or "Etc/GMT+/-HHmm".
      * Remember that Olson IDs have reversed signs!
-     *
+     * 
      */
     public String parse(String inputText, ParsePosition parsePosition) {
         long[] offsetMillisOutput = new long[1];
@@ -481,13 +507,14 @@ public class TimezoneFormatter extends UFormat  {
             offsetMillis = -offsetMillis;
             sign = "Etc/GMT+";
         }
-        long minutes = (offsetMillis + 30*1000) / (60*1000);
+        long minutes = (offsetMillis + 30 * 1000) / (60 * 1000);
         long hours = minutes / 60;
         minutes = minutes % 60;
         result = sign + String.valueOf(hours);
-        if (minutes != 0) result += ":" + String.valueOf(100 + minutes).substring(1,3);
-        return result;	
+        if (minutes != 0) result += ":" + String.valueOf(100 + minutes).substring(1, 3);
+        return result;
     }
+
     /**
      * Returns zoneid, or if a gmt offset, returns "" and a millis value in offsetMillis[0].
      * If we can't parse, return null
@@ -502,8 +529,8 @@ public class TimezoneFormatter extends UFormat  {
         // If the result is a Long it is millis, otherwise it is the zoneID
         Object result = localizedExplicit_zone.get(inputText);
         if (result != null) {
-            if (result instanceof String) return (String)result;
-            offsetMillis[0] = ((Long)result).longValue();
+            if (result instanceof String) return (String) result;
+            offsetMillis[0] = ((Long) result).longValue();
             return "";
         }
 
@@ -511,8 +538,8 @@ public class TimezoneFormatter extends UFormat  {
         if (m.reset(inputText).matches()) {
             int hours = Integer.parseInt(m.group(2));
             int minutes = Integer.parseInt(m.group(3));
-            int millis = hours *60*60*1000 + minutes * 60*1000;
-            if (m.group(1).equals("-")) millis = - millis;		// check sign!
+            int millis = hours * 60 * 60 * 1000 + minutes * 60 * 1000;
+            if (m.group(1).equals("-")) millis = -millis; // check sign!
             offsetMillis[0] = millis;
             return "";
         }
@@ -530,17 +557,17 @@ public class TimezoneFormatter extends UFormat  {
             Date date = hourFormatPlus.parse(hours, parsePosition);
             if (date != null) {
                 offsetMillis[0] = date.getTime();
-                return "";					
+                return "";
             }
             parsePosition.setIndex(0);
             date = hourFormatMinus.parse(hours, parsePosition); // negative format
             if (date != null) {
                 offsetMillis[0] = -date.getTime();
-                return "";					
+                return "";
             }
         }
 
-        //	Generic fallback, example: city or city (country)
+        // Generic fallback, example: city or city (country)
 
         // first remove the region format if possible
 
@@ -577,11 +604,11 @@ public class TimezoneFormatter extends UFormat  {
         // Exemplar cities (plus constructed ones)
         // and add all the last fields.
 
-        //		// do old ones first, we don't care if they are overriden
-        //		for (Iterator it = old_new.keySet().iterator(); it.hasNext();) {
-        //			String zoneid = (String) it.next();
-        //			exemplar_zone.put(getFallbackName(zoneid), zoneid);
-        //		}
+        // // do old ones first, we don't care if they are overriden
+        // for (Iterator it = old_new.keySet().iterator(); it.hasNext();) {
+        // String zoneid = (String) it.next();
+        // exemplar_zone.put(getFallbackName(zoneid), zoneid);
+        // }
 
         // then canonical ones
         for (String zoneid : TimeZone.getAvailableIDs()) {
@@ -610,15 +637,15 @@ public class TimezoneFormatter extends UFormat  {
                         if (i < WALL_LIMIT) { // wall time
                             localizedExplicit_zone.put(name, zoneId);
                         } else {
-                            // TODO: if a daylight or standard string is ambiguous, return GMT!!							
+                            // TODO: if a daylight or standard string is ambiguous, return GMT!!
                             Object dup = localizedNonWall.get(name);
                             if (dup != null) {
                                 skipDuplicates.add(name);
-                                // TODO: use Etc/GMT...			localizedNonWall.remove(name);
+                                // TODO: use Etc/GMT... localizedNonWall.remove(name);
                                 TimeZone tz = TimeZone.getTimeZone(zoneId);
                                 int offset = tz.getRawOffset();
                                 if (i >= STANDARD_LIMIT) {
-                                    offset +=  tz.getDSTSavings();
+                                    offset += tz.getDSTSavings();
                                 }
                                 localizedNonWall.put(name, new Long(offset));
                             } else {
@@ -627,7 +654,7 @@ public class TimezoneFormatter extends UFormat  {
                         }
                     }
                 }
-            } else {		
+            } else {
                 // now do localizedCountry_countryCode
                 String countryCode = matchesPart(path, countryPrefix, "\"]");
                 if (countryCode != null) {
@@ -675,16 +702,18 @@ public class TimezoneFormatter extends UFormat  {
     public static String getFallbackName(String zoneid) {
         String result;
         int pos = zoneid.lastIndexOf('/');
-        result = pos < 0 ? zoneid : zoneid.substring(pos+1);
+        result = pos < 0 ? zoneid : zoneid.substring(pos + 1);
         result = result.replace('_', ' ');
         return result;
     }
+
     /**
      * Getter
      */
     public boolean isSkipDraft() {
         return skipDraft;
     }
+
     /**
      * Setter
      */
@@ -705,7 +734,7 @@ public class TimezoneFormatter extends UFormat  {
         return null;
     }
 
- // The following are just for compatibility, until some fixes are made.
+    // The following are just for compatibility, until some fixes are made.
 
     public static final List<String> LENGTH = Arrays.asList(Length.SHORT.toString(), Length.LONG.toString());
     public static final int LENGTH_LIMIT = LENGTH.size();
@@ -716,8 +745,8 @@ public class TimezoneFormatter extends UFormat  {
     }
 
     public String getFormattedZone(String zoneId, int length, int type, int offset, boolean b) {
-// HACK
-        return getFormattedZone(zoneId, Location.LOCATION, Type.values()[type], Length.values()[length], 
+        // HACK
+        return getFormattedZone(zoneId, Location.LOCATION, Type.values()[type], Length.values()[length],
             new Date().getTime());
     }
 
@@ -725,6 +754,6 @@ public class TimezoneFormatter extends UFormat  {
         return getFormattedZone(zoneId, pattern, time);
     }
 
-// end compat
+    // end compat
 
 }

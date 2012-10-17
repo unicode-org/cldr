@@ -5,10 +5,13 @@ import java.util.Map;
 
 /**
  * A Map that keeps a fixed number of key-value pairs and kicks pairs out in least-recently-used order.
+ * 
  * @author jchye
- *
- * @param <K> the key type
- * @param <V> the value type
+ * 
+ * @param <K>
+ *            the key type
+ * @param <V>
+ *            the value type
  */
 public class LruMap<K, V> extends LinkedHashMap<K, V> {
     private static final long serialVersionUID = -9176469448381227725L;

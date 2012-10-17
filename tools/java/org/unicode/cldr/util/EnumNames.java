@@ -8,6 +8,7 @@ import java.util.Map;
 public class EnumNames<T extends Enum<?>> {
     private Map<String, T> namesToEnum = new HashMap<String, T>();
     private ArrayList<String> enumToPreferredName = new ArrayList<String>();
+
     public void add(T enumItem, String... alternateNames) {
         final String name = enumItem.name();
         namesToEnum.put(name, enumItem);
@@ -23,6 +24,7 @@ public class EnumNames<T extends Enum<?>> {
             }
         }
     }
+
     public T forString(String name) {
         T result = namesToEnum.get(name);
         if (result != null) {
@@ -34,6 +36,7 @@ public class EnumNames<T extends Enum<?>> {
         }
         throw new IllegalArgumentException("No enum value for " + name + ", should be one of " + namesToEnum.keySet());
     }
+
     public String toString(T item) {
         return enumToPreferredName.get(item.ordinal());
     }

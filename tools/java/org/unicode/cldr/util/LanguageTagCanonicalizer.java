@@ -25,9 +25,9 @@ public class LanguageTagCanonicalizer implements StringTransform {
         copyFields(LanguageTagField.language);
         copyFields(LanguageTagField.script);
         copyFields(LanguageTagField.region);
-        
+
         // special code for variants
-        
+
         List<String> originalVariants = ltp1.getVariants();
         if (originalVariants.size() != 0) {
             Set<String> newVariants = new TreeSet<String>();
@@ -57,11 +57,15 @@ public class LanguageTagCanonicalizer implements StringTransform {
 
         private String get(LanguageTagParser parser) {
             switch (this) {
-            case language: return parser.getLanguage();
-            case script: return parser.getScript();
-            case region: return parser.getRegion();
-            default: throw new UnsupportedOperationException();
-            //case variant: return parser.getVariants();
+            case language:
+                return parser.getLanguage();
+            case script:
+                return parser.getScript();
+            case region:
+                return parser.getRegion();
+            default:
+                throw new UnsupportedOperationException();
+                // case variant: return parser.getVariants();
             }
         }
     }
@@ -83,9 +87,11 @@ public class LanguageTagCanonicalizer implements StringTransform {
     }
 
     /**
-     * Copy fields from one language tag into another. 
+     * Copy fields from one language tag into another.
+     * 
      * @param otherField
-     * @param mainField - for this field, force a copy. For other fields, only copy if target is empty
+     * @param mainField
+     *            - for this field, force a copy. For other fields, only copy if target is empty
      */
     private void copyFields(LanguageTagField mainField) {
         String otherField = getReplacement(mainField);

@@ -36,30 +36,35 @@ public class LanguageTagParser {
     public String getLanguage() {
         return language;
     }
+
     /**
      * @return Returns the script, or "" if none.
      */
     public String getScript() {
         return script;
     }
+
     /**
      * @return Returns the region, or "" if none.
      */
     public String getRegion() {
         return region;
     }
+
     /**
      * @return Returns the variants.
      */
     public List<String> getVariants() {
         return frozenVariants;
     }
+
     /**
      * @return Returns the grandfathered flag
      */
     public boolean isGrandfathered() {
         return grandfathered;
     }
+
     /**
      * @return Returns the extensions.
      */
@@ -73,23 +78,27 @@ public class LanguageTagParser {
     public String getOriginal() {
         return original;
     }
+
     /**
      * @return Returns the language-script (or language) part of a tag.
      */
     public String getLanguageScript() {
         if (script.length() != 0) return language + "_" + script;
         return language;
-    } 
+    }
 
     /**
-     * @param in Collection of language tag strings
+     * @param in
+     *            Collection of language tag strings
      * @return Returns each of the language-script tags in the collection.
      */
     public static Set<String> getLanguageScript(Collection<String> in) {
         return getLanguageAndScript(in, null);
     }
+
     /**
-     * @param in Collection of language tag strings
+     * @param in
+     *            Collection of language tag strings
      * @return Returns each of the language-script tags in the collection.
      */
     public static Set<String> getLanguageAndScript(Collection<String> in, Set<String> output) {
@@ -109,11 +118,11 @@ public class LanguageTagParser {
     private String script;
     private String region;
     private List<String> variants = new ArrayList<String>();
-    private Map<String,String> extensions = new LinkedHashMap<String,String>();
-    private LinkedHashMap<String,String> localeExtensions = new LinkedHashMap<String,String>();
+    private Map<String, String> extensions = new LinkedHashMap<String, String>();
+    private LinkedHashMap<String, String> localeExtensions = new LinkedHashMap<String, String>();
 
     private List<String> frozenVariants = Collections.unmodifiableList(variants);
-    private Map<String,String> frozenExtensions = Collections.unmodifiableMap(extensions);
+    private Map<String, String> frozenExtensions = Collections.unmodifiableMap(extensions);
 
     private static final UnicodeSet ALPHA = new UnicodeSet("[a-zA-Z]");
     private static final UnicodeSet DIGIT = new UnicodeSet("[0-9]");
@@ -128,7 +137,9 @@ public class LanguageTagParser {
     /**
      * Parses out a language tag, setting a number of fields that can subsequently be retrieved.
      * If a private-use field is found, it is returned as the last extension.<br>
-     * This only checks for well-formedness (syntax), not for validity (subtags in registry). For the latter, see isValid.
+     * This only checks for well-formedness (syntax), not for validity (subtags in registry). For the latter, see
+     * isValid.
+     * 
      * @param languageTag
      * @return
      */
@@ -167,7 +178,7 @@ public class LanguageTagParser {
         }
 
         // each time we fetch a token, we check for length from 1..8, and all alphanum
-        StringTokenizer st = new StringTokenizer(languageTag,separator);
+        StringTokenizer st = new StringTokenizer(languageTag, separator);
         String subtag = getSubtag(st);
 
         // check for private use (x-...) and return if so
@@ -187,13 +198,14 @@ public class LanguageTagParser {
             // check for script, 4 letters
             if (subtag.length() == 4 && ALPHA.containsAll(subtag)) {
                 script = subtag;
-                script = script.substring(0,1).toUpperCase(Locale.ENGLISH) + script.substring(1).toLowerCase(Locale.ENGLISH);
+                script = script.substring(0, 1).toUpperCase(Locale.ENGLISH)
+                    + script.substring(1).toLowerCase(Locale.ENGLISH);
                 subtag = getSubtag(st); // prepare for next
             }
 
             // check for region, 2 letters or 3 digits
             if (subtag.length() == 2 && ALPHA.containsAll(subtag)
-                    || subtag.length() == 3 && DIGIT.containsAll(subtag)) {
+                || subtag.length() == 3 && DIGIT.containsAll(subtag)) {
                 region = subtag.toUpperCase(Locale.ENGLISH);
                 subtag = getSubtag(st); // prepare for next
             }
@@ -225,8 +237,8 @@ public class LanguageTagParser {
     }
 
     private boolean isValidVariant(String subtag) {
-        return subtag != null && ALPHANUM.containsAll(subtag) 
-        && (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0)));
+        return subtag != null && ALPHANUM.containsAll(subtag)
+            && (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0)));
     }
 
     /**
@@ -244,7 +256,9 @@ public class LanguageTagParser {
         return true; // passed the gauntlet
     }
 
-    public enum Status {WELL_FORMED, VALID, CANONICAL, MINIMAL}
+    public enum Status {
+        WELL_FORMED, VALID, CANONICAL, MINIMAL
+    }
 
     public Status getStatus(Set<String> errors) {
         errors.clear();
@@ -300,9 +314,12 @@ public class LanguageTagParser {
     private boolean validates(String subtag, String type) {
         return subtag.length() == 0 || standardCodes.getAvailableCodes(type).contains(subtag);
     }
+
     /**
      * Internal method
-     * @param minLength TODO
+     * 
+     * @param minLength
+     *            TODO
      */
     private String getExtension(String subtag, StringTokenizer st, int minLength) {
         final String key = subtag;
@@ -354,7 +371,7 @@ public class LanguageTagParser {
     /**
      * @return Returns the localeExtensions.
      */
-    public Map<String,String> getLocaleExtensions() {
+    public Map<String, String> getLocaleExtensions() {
         return localeExtensions;
     }
 
@@ -362,6 +379,7 @@ public class LanguageTagParser {
         this.region = region;
         return this;
     }
+
     public LanguageTagParser setScript(String script) {
         this.script = script;
         return this;
@@ -379,10 +397,14 @@ public class LanguageTagParser {
         return result;
     }
 
-    public enum Fields {LANGUAGE, SCRIPT, REGION, VARIANTS};
+    public enum Fields {
+        LANGUAGE, SCRIPT, REGION, VARIANTS
+    };
+
     public static Set<Fields> LANGUAGE_SCRIPT = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT));
     public static Set<Fields> LANGUAGE_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.REGION));
-    public static Set<Fields> LANGUAGE_SCRIPT_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT, Fields.REGION));
+    public static Set<Fields> LANGUAGE_SCRIPT_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE,
+        Fields.SCRIPT, Fields.REGION));
 
     public String toString(Set<Fields> selection) {
         String result = language;

@@ -30,7 +30,8 @@ public class TestXMLSource extends TestFmwk {
         }
 
         @Override
-        public void removeValueAtDPath(String distinguishingXPath) {}
+        public void removeValueAtDPath(String distinguishingXPath) {
+        }
 
         @Override
         public String getValueAtDPath(String path) {
@@ -48,7 +49,8 @@ public class TestXMLSource extends TestFmwk {
         }
 
         @Override
-        public void setXpathComments(Comments comments) {}
+        public void setXpathComments(Comments comments) {
+        }
 
         @Override
         public Iterator<String> iterator() {
@@ -63,7 +65,7 @@ public class TestXMLSource extends TestFmwk {
     public static void main(String[] args) {
         new TestXMLSource().run(args);
     }
-    
+
     public void TestGetPathsWithValue() {
         XMLSource source = new DummyXMLSource();
         source.putValueAtDPath("//ldml/foo", "x");
@@ -77,7 +79,7 @@ public class TestXMLSource extends TestFmwk {
         source.getPathsWithValue("x", "//ldml/foo/bar", result);
         assertEquals("no paths should be matched", 0, result.size());
         result.clear();
-        
+
         String xpath = "//ldml/foo";
         source.getPathsWithValue("x", xpath, result);
         assertEquals("Set matched but incorrect: " + result.toString(), 2, result.size());
@@ -89,16 +91,20 @@ public class TestXMLSource extends TestFmwk {
         source.getPathsWithValue("x", xpath, result);
         assertEquals("Set matched but incorrect: " + result.toString(), 3, result.size());
         assertTrue(xpath + " not found", result.contains(xpath));
-        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"] not found", result.contains("//ldml/foo[@alt=\"short-proposed-x\"]"));
-        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found", result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
+        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"] not found",
+            result.contains("//ldml/foo[@alt=\"short-proposed-x\"]"));
+        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found",
+            result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
         result.clear();
 
         xpath = "//ldml/foo[@alt=\"short-proposed\"]";
         source.getPathsWithValue("x", xpath, result);
         assertEquals("Set matched but incorrect: " + result.toString(), 3, result.size());
-        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"] not found", result.contains("//ldml/foo[@alt=\"short-proposed-x\"]"));
+        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"] not found",
+            result.contains("//ldml/foo[@alt=\"short-proposed-x\"]"));
         assertTrue("//ldml/foo[@alt=\"short\"] not found", result.contains("//ldml/foo[@alt=\"short\"]"));
-        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found", result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
+        assertTrue("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found",
+            result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
         result.clear();
     }
 }

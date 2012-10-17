@@ -42,7 +42,7 @@ public class GenerateIndexCharacters {
         AlphabeticIndex<String> index = new AlphabeticIndex<String>(uLocale);
         index.clearRecords();
         UnicodeSet indexLabels = cFile.getExemplarSet("index", WinningChoice.WINNING);
-        if ( indexLabels != null && indexLabels.size() > 0) {
+        if (indexLabels != null && indexLabels.size() > 0) {
             index.addLabels(indexLabels);
         }
         UnicodeSet uset = new UnicodeSet();
@@ -51,10 +51,10 @@ public class GenerateIndexCharacters {
             uset.add(item);
         }
         PrettyPrinter pp = new PrettyPrinter()
-        .setCompressRanges(true)
-        .setToQuote(DisplayAndInputProcessor.TO_QUOTE)
-        .setOrdering(collator)
-        .setSpaceComparator(collator);
+            .setCompressRanges(true)
+            .setToQuote(DisplayAndInputProcessor.TO_QUOTE)
+            .setOrdering(collator)
+            .setSpaceComparator(collator);
 
         String cleanedSet = DisplayAndInputProcessor.getCleanedUnicodeSet(uset, pp, ExemplarType.index);
         return cleanedSet;

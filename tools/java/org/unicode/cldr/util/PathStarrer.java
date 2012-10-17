@@ -11,12 +11,13 @@ import com.ibm.icu.text.Transform;
 
 /**
  * Transforms a path by replacing attributes with .*
+ * 
  * @author markdavis
  */
-public class PathStarrer implements Transform<String,String> {
+public class PathStarrer implements Transform<String, String> {
     static final String STAR_PATTERN = "([^\"]*+)";
     static final Pattern ATTRIBUTE_PATTERN = Pattern.compile("=\"([^\"]*)\"");
-    
+
     private String starredPathString;
     private final List<String> attributes = new ArrayList<String>();
     private final List<String> protectedAttributes = Collections.unmodifiableList(attributes);
@@ -41,15 +42,15 @@ public class PathStarrer implements Transform<String,String> {
         starredPathString = starredPath.toString();
         return starredPathString;
     }
-    
+
     public List<String> getAttributes() {
         return protectedAttributes;
     }
-    
+
     public String getAttributesString(String separator) {
         return CollectionUtilities.join(attributes, separator);
     }
-    
+
     public String getResult() {
         return starredPathString;
     }

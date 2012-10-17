@@ -20,31 +20,34 @@ import com.ibm.icu.lang.UProperty.NameChoice;
 import com.ibm.icu.text.UnicodeSet;
 
 public class Typology {
-    private static final Set<String> NOLABELS = Collections.unmodifiableSet(new HashSet<String>(Arrays.asList("NOLABEL")));
+    private static final Set<String> NOLABELS = Collections.unmodifiableSet(new HashSet<String>(Arrays
+        .asList("NOLABEL")));
     public static final UnicodeSet SKIP = new UnicodeSet("[[:C:]-[:Cf:]-[:Cc:]]").freeze();
-    //static UnicodeMap<String> reasons = new UnicodeMap<String>();
-    public static Map<String,UnicodeSet> label_to_uset = new TreeMap<String,UnicodeSet>();
+    // static UnicodeMap<String> reasons = new UnicodeMap<String>();
+    public static Map<String, UnicodeSet> label_to_uset = new TreeMap<String, UnicodeSet>();
     public static UnicodeMap<Set<String>> char2labels = new UnicodeMap<Set<String>>();
-    //  static {
-    //      label_to_uset.put("S", new UnicodeSet("[:S:]").freeze());
-    //      label_to_uset.put("L", new UnicodeSet("[:L:]").freeze());
-    //      label_to_uset.put("M", new UnicodeSet("[:M:]").freeze());
-    //      label_to_uset.put("N", new UnicodeSet("[:N:]").freeze());
-    //      label_to_uset.put("C", new UnicodeSet("[:C:]").freeze());
-    //      label_to_uset.put("Z", new UnicodeSet("[:Z:]").freeze());
-    //      label_to_uset.put("P", new UnicodeSet("[:P:]").freeze());
-    //  }
-    static Set<String> skiplabels = new HashSet(Arrays.asList("", "Symbol", "Punctuation", "Letter", "S", "L", "M", "N", "C", "Z", "P"));
+    // static {
+    // label_to_uset.put("S", new UnicodeSet("[:S:]").freeze());
+    // label_to_uset.put("L", new UnicodeSet("[:L:]").freeze());
+    // label_to_uset.put("M", new UnicodeSet("[:M:]").freeze());
+    // label_to_uset.put("N", new UnicodeSet("[:N:]").freeze());
+    // label_to_uset.put("C", new UnicodeSet("[:C:]").freeze());
+    // label_to_uset.put("Z", new UnicodeSet("[:Z:]").freeze());
+    // label_to_uset.put("P", new UnicodeSet("[:P:]").freeze());
+    // }
+    static Set<String> skiplabels = new HashSet(Arrays.asList("", "Symbol", "Punctuation", "Letter", "S", "L", "M",
+        "N", "C", "Z", "P"));
 
-    public static Map<String,UnicodeSet> full_path_to_uset = new TreeMap<String,UnicodeSet>();
-    public static Map<String,UnicodeSet> path_to_uset = new TreeMap<String,UnicodeSet>();
-    //static Map<List<String>,UnicodeSet> path_to_uset = new TreeMap<List<String>,UnicodeSet>();
+    public static Map<String, UnicodeSet> full_path_to_uset = new TreeMap<String, UnicodeSet>();
+    public static Map<String, UnicodeSet> path_to_uset = new TreeMap<String, UnicodeSet>();
+    // static Map<List<String>,UnicodeSet> path_to_uset = new TreeMap<List<String>,UnicodeSet>();
     public static Relation<String, String> labelToPaths = new Relation(new TreeMap(), TreeSet.class);
-    public static Map<String, Map<String,UnicodeSet>> label_parent_uset = new TreeMap();
-    //public static Relation<String, String> pathToList = new Relation(new TreeMap(), TreeSet.class);
+    public static Map<String, Map<String, UnicodeSet>> label_parent_uset = new TreeMap();
+
+    // public static Relation<String, String> pathToList = new Relation(new TreeMap(), TreeSet.class);
 
     static class MyReader extends FileUtilities.SemiFileReader {
-        //0000  Cc  [Control] [X] [X] [X] <control>
+        // 0000 Cc [Control] [X] [X] [X] <control>
         public final static Pattern SPLIT = Pattern.compile("\\s*\t\\s*");
         public final static Pattern NON_ALPHANUM = Pattern.compile("[^0-9A-Za-z]+");
 
@@ -60,12 +63,12 @@ public class Typology {
             temp_path.append('/');
             for (int i = 2; i < items.length - 1; ++i) {
                 String item = items[i];
-//                if (item.equals("[X]")) continue;
+                // if (item.equals("[X]")) continue;
 
-//                if (!item.startsWith("[") || !item.endsWith("]")) {
-//                    throw new IllegalArgumentException(i + "\t" + item);
-//                }
-//                item = item.substring(1, item.length()-1);
+                // if (!item.startsWith("[") || !item.endsWith("]")) {
+                // throw new IllegalArgumentException(i + "\t" + item);
+                // }
+                // item = item.substring(1, item.length()-1);
                 if (item.length() == 0) continue;
                 item = NON_ALPHANUM.matcher(item).replaceAll("_");
                 temp_path.append('/').append(item);
@@ -96,7 +99,7 @@ public class Typology {
                 }
                 uset.add(startRaw, endRaw);
 
-                //labelToPath.put(item, path);
+                // labelToPath.put(item, path);
 
                 path = (path + "/" + item).intern();
 
@@ -110,13 +113,13 @@ public class Typology {
             return true;
         }
 
-        Map<List<String>,List<String>> listCache = new HashMap<List<String>,List<String>>();
-        Map<Set<String>,Set<String>> setCache = new HashMap<Set<String>,Set<String>>();
+        Map<List<String>, List<String>> listCache = new HashMap<List<String>, List<String>>();
+        Map<Set<String>, Set<String>> setCache = new HashMap<Set<String>, Set<String>>();
 
-        private <T> T intern(Map<T,T> cache, T list) {
+        private <T> T intern(Map<T, T> cache, T list) {
             T old = cache.get(list);
             if (old != null) return old;
-            cache.put(list,list);
+            cache.put(list, list);
             return list;
         }
 
@@ -126,13 +129,13 @@ public class Typology {
         new MyReader().process(Typology.class, "Categories.txt"); // "09421-u52m09xxxx.txt"
 
         // fix the paths
-        Map<String, UnicodeSet> temp= new TreeMap<String, UnicodeSet>();
+        Map<String, UnicodeSet> temp = new TreeMap<String, UnicodeSet>();
         for (int i = 0; i < UCharacter.CHAR_CATEGORY_COUNT; ++i) {
             UnicodeSet same = new UnicodeSet()
-            .applyIntPropertyValue(UProperty.GENERAL_CATEGORY, i);
+                .applyIntPropertyValue(UProperty.GENERAL_CATEGORY, i);
             String gcName = UCharacter.getPropertyValueName(UProperty.GENERAL_CATEGORY, i, NameChoice.SHORT);
-            //System.out.println("\n" + gcName);
-            String prefix = gcName.substring(0,1);
+            // System.out.println("\n" + gcName);
+            String prefix = gcName.substring(0, 1);
 
             for (String path : path_to_uset.keySet()) {
                 UnicodeSet uset = path_to_uset.get(path);
@@ -161,16 +164,16 @@ public class Typology {
                 }
             }
         }
-        //        Set<String> labelUsetKeys = label_to_uset.keySet();
-        //        Set<String> labelToPathKeys = labelToPath.keySet();
-        //        if (!labelUsetKeys.equals(labelToPathKeys)) {
-        //            TreeSet<String> uset_path = new TreeSet<String>(labelUsetKeys);
-        //            uset_path.removeAll(labelToPathKeys);
-        //            System.out.println("\nuset - path labels\t" + uset_path);
-        //            TreeSet<String> path_uset = new TreeSet<String>(labelToPathKeys);
-        //            path_uset.removeAll(labelUsetKeys);
-        //            System.out.println("\npath -uset labels\t" + path_uset);
-        //        }
+        // Set<String> labelUsetKeys = label_to_uset.keySet();
+        // Set<String> labelToPathKeys = labelToPath.keySet();
+        // if (!labelUsetKeys.equals(labelToPathKeys)) {
+        // TreeSet<String> uset_path = new TreeSet<String>(labelUsetKeys);
+        // uset_path.removeAll(labelToPathKeys);
+        // System.out.println("\nuset - path labels\t" + uset_path);
+        // TreeSet<String> path_uset = new TreeSet<String>(labelToPathKeys);
+        // path_uset.removeAll(labelUsetKeys);
+        // System.out.println("\npath -uset labels\t" + path_uset);
+        // }
         UnicodeSet nolabels = char2labels.getSet(null);
         nolabels.removeAll(SKIP);
         char2labels.putAll(nolabels, NOLABELS);
@@ -215,7 +218,7 @@ public class Typology {
     public static Set<String> getLabels() {
         return label_to_uset.keySet();
     }
-    
+
     public static Set<Entry<String, UnicodeSet>> getLabelAndSet() {
         return label_to_uset.entrySet();
     }

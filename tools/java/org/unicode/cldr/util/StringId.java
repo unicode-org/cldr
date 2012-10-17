@@ -13,7 +13,7 @@ import java.security.MessageDigest;
  */
 public final class StringId {
     private static final MessageDigest digest;
-    private static final Charset       UTF_8 = Charset.forName("UTF-8");
+    private static final Charset UTF_8 = Charset.forName("UTF-8");
     static {
         try {
             digest = MessageDigest.getInstance("SHA-1");
@@ -25,7 +25,8 @@ public final class StringId {
     /**
      * Get the ID for a string.
      * 
-     * @param string input string.
+     * @param string
+     *            input string.
      * @return a value from 0 to 0x7FFFFFFFFFFFFFFFL.
      */
     public static long getId(CharSequence string) {

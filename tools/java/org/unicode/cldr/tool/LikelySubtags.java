@@ -26,10 +26,11 @@ public class LikelySubtags {
     private Map<String, String> toMaximized;
     private boolean favorRegion = false;
     private SupplementalDataInfo supplementalDataInfo;
-    private Map<String,String> currencyToLikelyTerritory = new HashMap<String,String>();
+    private Map<String, String> currencyToLikelyTerritory = new HashMap<String, String>();
 
     /**
-     * Create the likely subtags. 
+     * Create the likely subtags.
+     * 
      * @param toMaximized
      */
     public LikelySubtags(Map<String, String> toMaximized) {
@@ -37,7 +38,8 @@ public class LikelySubtags {
     }
 
     /**
-     * Create the likely subtags. 
+     * Create the likely subtags.
+     * 
      * @param toMaximized
      */
     public LikelySubtags(SupplementalDataInfo supplementalDataInfo) {
@@ -45,7 +47,8 @@ public class LikelySubtags {
     }
 
     /**
-     * Create the likely subtags. 
+     * Create the likely subtags.
+     * 
      * @param toMaximized
      */
     public LikelySubtags(SupplementalDataInfo supplementalDataInfo, Map<String, String> toMaximized) {
@@ -62,21 +65,24 @@ public class LikelySubtags {
         for (R2<Double, String> item : sorted) {
             String territory = item.get1();
             Set<CurrencyDateInfo> targetCurrencyInfo = supplementalDataInfo.getCurrencyDateInfo(territory);
-            if ( targetCurrencyInfo == null ) {
+            if (targetCurrencyInfo == null) {
                 continue;
             }
             for (CurrencyDateInfo cdi : targetCurrencyInfo) {
                 String currency = cdi.getCurrency();
-                if (!currencyToLikelyTerritory.containsKey(currency) && cdi.getStart().before(now) && cdi.getEnd().after(now) && cdi.isLegalTender()) {
+                if (!currencyToLikelyTerritory.containsKey(currency) && cdi.getStart().before(now)
+                    && cdi.getEnd().after(now) && cdi.isLegalTender()) {
                     currencyToLikelyTerritory.put(currency, territory);
                 }
             }
         }
-        //System.out.println("Currency to Territory:\n\t" + CollectionUtilities.join(currencyToLikelyTerritory.entrySet(), "\n\t"));
+        // System.out.println("Currency to Territory:\n\t" +
+        // CollectionUtilities.join(currencyToLikelyTerritory.entrySet(), "\n\t"));
     }
 
     /**
-     * Create the likely subtags. 
+     * Create the likely subtags.
+     * 
      * @param toMaximized
      */
     public LikelySubtags() {
@@ -164,13 +170,14 @@ public class LikelySubtags {
             if (region.length() != 0) {
                 result = toMaximized.get(ltp.setRegion("").toString());
                 if (result != null) {
-                    return ltp.set(result).setScript(script).setRegion(region).setVariants(variants).setExtensions(extensions).toString();
+                    return ltp.set(result).setScript(script).setRegion(region).setVariants(variants)
+                        .setExtensions(extensions).toString();
                 }
             }
         }
-        //    if (!language.equals("und") && script.length() != 0 && region.length() != 0) {
-        //      return languageTag; // it was ok, and we couldn't do anything with it
-        //    }
+        // if (!language.equals("und") && script.length() != 0 && region.length() != 0) {
+        // return languageTag; // it was ok, and we couldn't do anything with it
+        // }
         return null; // couldn't maximize
     }
 
@@ -186,11 +193,11 @@ public class LikelySubtags {
         String language = ltp.getLanguage();
         String region = ltp.getRegion();
         String script = ltp.getScript();
-        // try building up from shorter to longer, and find the first  that matches
+        // try building up from shorter to longer, and find the first that matches
         // could be more optimized, but for this code we want simplest
-        String[] trials = {language, 
-                language + TAG_SEPARATOR + (favorRegion ? region : script), 
-                language + TAG_SEPARATOR + (!favorRegion ? region : script)};
+        String[] trials = { language,
+            language + TAG_SEPARATOR + (favorRegion ? region : script),
+            language + TAG_SEPARATOR + (!favorRegion ? region : script) };
         for (String trial : trials) {
             String newMaximized = maximize(trial, toMaximized);
             if (maximized.equals(newMaximized)) {
@@ -200,11 +207,10 @@ public class LikelySubtags {
         return maximized;
     }
 
-    static final Map<String,String> EXTRA_SCRIPTS = 
-        Builder.with(new HashMap<String,String>())
-        .on("crs", "pcm", "tlh").put("Latn")
-        .freeze();
-
+    static final Map<String, String> EXTRA_SCRIPTS =
+        Builder.with(new HashMap<String, String>())
+            .on("crs", "pcm", "tlh").put("Latn")
+            .freeze();
 
     public String getLikelyScript(String code) {
         String max = this.maximize(code);

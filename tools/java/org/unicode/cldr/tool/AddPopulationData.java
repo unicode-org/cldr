@@ -26,7 +26,7 @@ public class AddPopulationData {
     enum WBLine {
         // "Afghanistan","AFG","GNI, PPP (current international $)","NY.GNP.MKTP.PP.CD","..","..","13144920451.3325","16509662130.816","18932631964.8727","22408872945.1924","25820670505.2627","30783369469.7509","32116190092.1429","..",
 
-        Country_Name, Country_Code, Series_Name, Series_Code, 
+        Country_Name, Country_Code, Series_Name, Series_Code,
         YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008, YR2009, YR2010;
         String get(String[] pieces) {
             return pieces[ordinal()];
@@ -40,35 +40,33 @@ public class AddPopulationData {
         }
     }
 
-    private static final String        GCP                   = "NY.GNP.MKTP.PP.CD";
-    private static final String        POP                   = "SP.POP.TOTL";
-    private static final String        EMPTY                 = "..";
-    private static Counter2<String> worldbank_gdp        = new Counter2<String>();
+    private static final String GCP = "NY.GNP.MKTP.PP.CD";
+    private static final String POP = "SP.POP.TOTL";
+    private static final String EMPTY = "..";
+    private static Counter2<String> worldbank_gdp = new Counter2<String>();
     private static Counter2<String> worldbank_population = new Counter2<String>();
-    private static Counter2<String> un_literacy   = new Counter2<String>();
+    private static Counter2<String> un_literacy = new Counter2<String>();
 
-    private static Counter2<String> factbook_gdp          = new Counter2<String>();
-    private static Counter2<String> factbook_population   = new Counter2<String>();
-    private static Counter2<String> factbook_literacy   = new Counter2<String>();
+    private static Counter2<String> factbook_gdp = new Counter2<String>();
+    private static Counter2<String> factbook_population = new Counter2<String>();
+    private static Counter2<String> factbook_literacy = new Counter2<String>();
 
     private static CountryData other = new CountryData();
 
-
     static class CountryData {
-        private static Counter2<String> population   = new Counter2<String>();
-        private static Counter2<String> gdp   = new Counter2<String>();
-        private static Counter2<String> literacy   = new Counter2<String>();
+        private static Counter2<String> population = new Counter2<String>();
+        private static Counter2<String> gdp = new Counter2<String>();
+        private static Counter2<String> literacy = new Counter2<String>();
     }
 
     public static void main(String[] args) throws IOException {
 
-
         System.out.println("Code"
-                + "\t" + "Name"
-                + "\t" + "Pop"
-                + "\t" + "GDP-PPP"
-                + "\t" + "UN Literacy"
-        );
+            + "\t" + "Name"
+            + "\t" + "Pop"
+            + "\t" + "GDP-PPP"
+            + "\t" + "UN Literacy"
+            );
 
         for (String country : ULocale.getISOCountries()) {
             showCountryData(country);
@@ -90,7 +88,7 @@ public class AddPopulationData {
         for (String display : CountryCodeConverter.names()) {
             String code = CountryCodeConverter.getCodeFromName(display);
             String icu = ULocale.getDisplayCountry("und-" + code, "en");
-            if (!display.equalsIgnoreCase(icu)) {       
+            if (!display.equalsIgnoreCase(icu)) {
                 altNames.add(code + "\t" + display + "\t" + icu);
             }
         }
@@ -106,39 +104,40 @@ public class AddPopulationData {
                     System.out.println();
                 }
                 System.out.println(code + "; " + pieces[2] + "; " + pieces[1]);
-                //System.out.println("<territory type=\"" + code + "\" alt=\"v" + (++alt) + "\">" + pieces[1] + "</territory> <!-- " + pieces[2] + " -->");
+                // System.out.println("<territory type=\"" + code + "\" alt=\"v" + (++alt) + "\">" + pieces[1] +
+                // "</territory> <!-- " + pieces[2] + " -->");
             }
         }
     }
 
     private static void showCountryData(String country) {
         System.out.println(country
-                + "\t" + ULocale.getDisplayCountry("und-" + country, "en")
-                + "\t" + getPopulation(country)
-                + "\t" + getGdp(country)
-                + "\t" + getLiteracy(country)
-        );
+            + "\t" + ULocale.getDisplayCountry("und-" + country, "en")
+            + "\t" + getPopulation(country)
+            + "\t" + getGdp(country)
+            + "\t" + getLiteracy(country)
+            );
     }
 
     public static Double getLiteracy(String country) {
         return firstNonZero(factbook_literacy.getCount(country),
-                un_literacy.getCount(country),
-                other.literacy.getCount(country));
+            un_literacy.getCount(country),
+            other.literacy.getCount(country));
     }
 
     public static Double getGdp(String country) {
         return firstNonZero(factbook_gdp.getCount(country),
-                worldbank_gdp.getCount(country),
-                other.gdp.getCount(country));
+            worldbank_gdp.getCount(country),
+            other.gdp.getCount(country));
     }
 
     public static Double getPopulation(String country) {
         return firstNonZero(factbook_population.getCount(country),
-                worldbank_population.getCount(country),
-                other.population.getCount(country));
+            worldbank_population.getCount(country),
+            other.population.getCount(country));
     }
 
-    private static Double firstNonZero(Double...items) {
+    private static Double firstNonZero(Double... items) {
         for (Double item : items) {
             if (item.doubleValue() != 0) {
                 return item;
@@ -157,8 +156,8 @@ public class AddPopulationData {
         boolean inQuote = false;
         for (int i = 0; i < line.length(); ++i) {
             char ch = line.charAt(i); // don't worry about supplementaries
-            switch(ch) {
-            case '"': 
+            switch (ch) {
+            case '"':
                 inQuote = !inQuote;
                 // at start or end, that's enough
                 // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote
@@ -188,7 +187,7 @@ public class AddPopulationData {
         FileUtilities.handleFile(filename, new FileUtilities.LineHandler() {
             public boolean handle(String line) {
                 if (line.length() == 0 || line.startsWith("This tab") || line.startsWith("Rank")
-                        || line.startsWith(" This file")) {
+                    || line.startsWith(" This file")) {
                     return false;
                 }
                 String[] pieces = line.split("\t");
@@ -219,6 +218,7 @@ public class AddPopulationData {
             super();
             this.countryData = countryData;
         }
+
         public boolean handle(String line) throws ParseException {
             if (line.startsWith("#")) return true;
             if (line.length() == 0) {
@@ -271,13 +271,17 @@ public class AddPopulationData {
     private static void loadFactbookLiteracy() throws IOException {
         final String filename = "external/factbook_literacy.html";
         FileUtilities.handleFile(filename, new FileUtilities.LineHandler() {
-            Matcher m = Pattern.compile("<strong>total population:</strong>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
-            //Matcher m = Pattern.compile("<i>total population:</i>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
-            //Matcher codeMatcher = Pattern.compile("<a href=\"../geos/[^\\.]+.html\" class=\"CountryLink\">([^<]+)</a>").matcher("");
+            Matcher m = Pattern.compile(
+                "<strong>total population:</strong>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
+            // Matcher m =
+            // Pattern.compile("<i>total population:</i>\\s*(?:above\\s*)?(?:[0-9]+-)?([0-9]*\\.?[0-9]*)%.*").matcher("");
+            // Matcher codeMatcher =
+            // Pattern.compile("<a href=\"../geos/[^\\.]+.html\" class=\"CountryLink\">([^<]+)</a>").matcher("");
             Matcher codeMatcher = Pattern.compile(">([^<]+)<").matcher("");
             String code = null;
+
             public boolean handle(String line) throws ParseException {
-                // <i>total population:</i> 43.1% 
+                // <i>total population:</i> 43.1%
                 line = line.trim();
                 if (line.contains("fl_region")) {
                     if (!codeMatcher.reset(line).find()) {
@@ -287,21 +291,22 @@ public class AddPopulationData {
                     code = CountryCodeConverter.getCodeFromName(trialCode);
                     System.out.println(trialCode + "\t" + code);
                     if (code == null) {
-                        throw new IllegalArgumentException("bad country: change countryToCode()\t" + trialCode + "\t" + code);
+                        throw new IllegalArgumentException("bad country: change countryToCode()\t" + trialCode + "\t"
+                            + code);
                     }
                     return true;
 
                 }
-                //        if (line.contains("CountryLink")) {
-                //          if (!codeMatcher.reset(line).matches()) {
-                //            throw new IllegalArgumentException("mismatched line: " + code);
-                //          }       
-                //          code = countryToCode(codeMatcher.group(1));
-                //          if (code == null) {
-                //            throw new IllegalArgumentException("bad country");
-                //          }
-                //          return true;
-                //        }
+                // if (line.contains("CountryLink")) {
+                // if (!codeMatcher.reset(line).matches()) {
+                // throw new IllegalArgumentException("mismatched line: " + code);
+                // }
+                // code = countryToCode(codeMatcher.group(1));
+                // if (code == null) {
+                // throw new IllegalArgumentException("bad country");
+                // }
+                // return true;
+                // }
                 if (!line.contains("total population:")) {
                     return true;
                 }
@@ -312,7 +317,7 @@ public class AddPopulationData {
                     throw new IllegalArgumentException("mismatched line: " + code);
                 }
                 // <a href="../geos/al.html" class="CountryLink">Albania</a>
-                // AX Aland Islands www.aland.ax  26,200  $929,773,254
+                // AX Aland Islands www.aland.ax 26,200 $929,773,254
                 final String percentString = m.group(1);
                 final double percent = number.parse(percentString).doubleValue();
                 if (factbook_literacy.getCount(code) != 0) {
@@ -326,11 +331,10 @@ public class AddPopulationData {
         });
     }
 
-
     private static void loadWorldBankInfo() throws IOException {
         final String filename = "external/world_bank_data.csv";
 
-        //List<List<String>> data = SpreadSheet.convert(CldrUtility.getUTF8Data(filename));
+        // List<List<String>> data = SpreadSheet.convert(CldrUtility.getUTF8Data(filename));
 
         FileUtilities.handleFile(filename, new FileUtilities.LineHandler() {
             public boolean handle(String line) {
@@ -339,7 +343,7 @@ public class AddPopulationData {
                 }
                 String[] pieces = splitCommaSeparated(line);
 
-                //String[] pieces = line.substring(1, line.length() - 2).split("\"\t\"");
+                // String[] pieces = line.substring(1, line.length() - 2).split("\"\t\"");
 
                 final String seriesCode = WBLine.Series_Code.get(pieces);
 
@@ -376,7 +380,6 @@ public class AddPopulationData {
             }
         });
     }
-
 
     private static void loadUnLiteracy() throws IOException {
         FileUtilities.handleFile("external/un_literacy.csv", new FileUtilities.LineHandler() {
@@ -428,11 +431,13 @@ public class AddPopulationData {
                     myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";literacy;0;reason");
                 }
                 if (population == 0) {
-                    myErrors.append("\n" + territory + ";" + sc.getData("territory", territory) + ";population;0;reason");
+                    myErrors.append("\n" + territory + ";" + sc.getData("territory", territory)
+                        + ";population;0;reason");
                 }
             }
             if (myErrors.length() != 0) {
-                throw new IllegalArgumentException("Missing Country values, edit external/other_country_data to fix:" + myErrors);
+                throw new IllegalArgumentException("Missing Country values, edit external/other_country_data to fix:"
+                    + myErrors);
             }
         } catch (IOException e) {
         }

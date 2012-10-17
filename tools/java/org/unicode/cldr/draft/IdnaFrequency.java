@@ -1,4 +1,5 @@
 package org.unicode.cldr.draft;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -23,26 +24,27 @@ import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
-
 public class IdnaFrequency {
     private static final Charset UTF8 = Charset.forName("utf-8");
     private static final Charset LATIN1 = Charset.forName("8859-1");
     private static final boolean DEBUG = true;
 
     /**
-cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc5\x96@\xc5\xb9\xc5\xb8.yoll.net    278    41991    0    29    home.\xc5\xa2replug.net
-0   c = child, p=parent; m = mapped, u=unmapped; 000162 hex code point
-1   3 - count
-2   481 - navboost
-3   31032 - page rank
-4   6 - language
-5   22 - encoding
-6   url in utf-8 (c-style byte escapes)
-7,8,9,10
-11  url
-12,13,14,15
-16 url
-...
+     * cm000162 3 481 31032 6 22 \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc5\x96@\xc5\xb9\xc5\xb8.yoll.net 278 41991 0 29
+     * home.\xc5\xa2replug.net
+     * 0 c = child, p=parent; m = mapped, u=unmapped; 000162 hex code point
+     * 1 3 - count
+     * 2 481 - navboost
+     * 3 31032 - page rank
+     * 4 6 - language
+     * 5 22 - encoding
+     * 6 url in utf-8 (c-style byte escapes)
+     * 7,8,9,10
+     * 11 url
+     * 12,13,14,15
+     * 16 url
+     * ...
+     * 
      * @param args
      * @throws IOException
      */
@@ -53,25 +55,28 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
             String norm = normalize(cp);
             if (!norm.equals(UTF16.valueOf(cp))) {
                 final int dt = UCharacter.getIntPropertyValue(cp, UProperty.DECOMPOSITION_TYPE);
-                final String tdName = UCharacter.getPropertyValueName(UProperty.DECOMPOSITION_TYPE, dt, NameChoice.LONG);
-                System.out.println(charTotal.getCount(cp) + "\t" + tdName + "\t" + getCodeAndName(cp) + "\t=>\t" + getCodeAndName(norm));
+                final String tdName = UCharacter
+                    .getPropertyValueName(UProperty.DECOMPOSITION_TYPE, dt, NameChoice.LONG);
+                System.out.println(charTotal.getCount(cp) + "\t" + tdName + "\t" + getCodeAndName(cp) + "\t=>\t"
+                    + getCodeAndName(norm));
             }
         }
     }
-    
+
     static UnicodeSet testchars = new UnicodeSet("[[:script=greek:]ÄäÖöÜüß]");
 
     static Counter<Integer> getData(boolean writeOut) throws IOException {
         BufferedReader in = BagFormatter.openUTF8Reader("", CldrUtility.getProperty("idnaFrequency"));
-        PrintWriter out = !writeOut ? null : BagFormatter.openUTF8Writer("/Users/markdavis/Desktop/Google/", "idn41-data.txt");
+        PrintWriter out = !writeOut ? null : BagFormatter.openUTF8Writer("/Users/markdavis/Desktop/Google/",
+            "idn41-data.txt");
         if (writeOut) {
-            out.write((char)0xFEFF);
+            out.write((char) 0xFEFF);
         }
         Mapper<Language> languageMapper = new Mapper<Language>(Language.values());
         Mapper<Encoding> encodingMapper = new Mapper<Encoding>(Encoding.values());
         Counter<Integer> charTotal = new Counter();
 
-        for (int counter = 0; ; ++counter) {
+        for (int counter = 0;; ++counter) {
             String line = in.readLine();
             if (line == null) {
                 break;
@@ -80,7 +85,7 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
                 String[] parts = line.split("\t");
                 boolean child = parts[0].charAt(0) == 'c';
                 boolean mapped = parts[0].charAt(0) == 'm';
-                int cp = Integer.parseInt(parts[0].substring(2),16);
+                int cp = Integer.parseInt(parts[0].substring(2), 16);
                 long count = Long.parseLong(parts[1]);
                 charTotal.add(cp, count);
                 if (!testchars.contains(cp)) continue;
@@ -105,7 +110,7 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
 
     private static void showCharsets() {
         SortedMap<String, Charset> charsets = Charset.availableCharsets();
-        HashMap<Charset,Set<String>> charset2strings = new HashMap();
+        HashMap<Charset, Set<String>> charset2strings = new HashMap();
         for (String charsetname : charsets.keySet()) {
             Charset charset = charsets.get(charsetname);
             Set<String> set = charset2strings.get(charset);
@@ -119,8 +124,10 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         }
     }
 
-    static UnicodeSet diSet = new UnicodeSet("[\\u034F \\u180B-\\u180D\\u200B-\\u200F\\u202A-\\u202E\\u2060-\\u2064\\u206A-\\u206F \\uFE00-\\uFE0F\\uFEFF\\U0001D173-\\U0001D17A\\U000E0001\\U000E0020-\\U000E007F \\U000E0100-\\U000E01EF \\u00AD \\u17B4 \\u17B5 \\u115F \\u1160\\u3164\\uFFA0 \\u2065-\\u2069 \\uFFF0-\\uFFF8]");
+    static UnicodeSet diSet = new UnicodeSet(
+        "[\\u034F \\u180B-\\u180D\\u200B-\\u200F\\u202A-\\u202E\\u2060-\\u2064\\u206A-\\u206F \\uFE00-\\uFE0F\\uFEFF\\U0001D173-\\U0001D17A\\U000E0001\\U000E0020-\\U000E007F \\U000E0100-\\U000E01EF \\u00AD \\u17B4 \\u17B5 \\u115F \\u1160\\u3164\\uFFA0 \\u2065-\\u2069 \\uFFF0-\\uFFF8]");
     static Matcher defaultIgnorables = Pattern.compile(diSet.toPattern(false), Pattern.COMMENTS).matcher("");
+
     private static String normalize(int cp) {
         String a = Normalizer.normalize(cp, Normalizer.NFKC);
         String b = UCharacter.foldCase(a, true);
@@ -130,7 +137,8 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
     }
 
     private static String getCodeAndName(int cp) {
-        return "U+" + Utility.hex(cp, 4) + "\t( " + com.ibm.icu.text.UTF16.valueOf(cp) + " )\t" + UCharacter.getName(cp);
+        return "U+" + Utility.hex(cp, 4) + "\t( " + com.ibm.icu.text.UTF16.valueOf(cp) + " )\t"
+            + UCharacter.getName(cp);
     }
 
     private static String getCodeAndName(String cp) {
@@ -143,7 +151,6 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         }
         return buffer.toString();
     }
-
 
     private static String unescape(String string, Encoding encoding) throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -173,7 +180,7 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
                 break;
             case 3:
                 chBuffer |= getNybble(b);
-                out.write((byte)chBuffer);
+                out.write((byte) chBuffer);
                 state = 0;
                 break;
             }
@@ -224,7 +231,7 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         // 9: in BasisTech but not in Teragram
         ISO_8859_10(9, "Latin6", "ISO-8859-10"),
         // 10: Teragram EUC_JP
-        JAPANESE_EUC_JP(10, "EUC-JP",  "EUC-JP"),
+        JAPANESE_EUC_JP(10, "EUC-JP", "EUC-JP"),
         // 11: Teragram SJS
         JAPANESE_SHIFT_JIS(11, "SJS", "Shift_JIS"),
         // 12: Teragram JIS
@@ -232,20 +239,20 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         // 13: Teragram BIG5
         CHINESE_BIG5(13, "BIG5", "Big5"),
         // 14: Teragram GB
-        CHINESE_GB(14, "GB",  "GB2312"),
+        CHINESE_GB(14, "GB", "GB2312"),
         // 15: Misnamed. Should be EUC_TW. Was Basis Tech
-        //      CNS11643EUC, before that Teragram EUC-CN(!)
-        //      See //i18n/basistech/basistech_encodings.h
+        // CNS11643EUC, before that Teragram EUC-CN(!)
+        // See //i18n/basistech/basistech_encodings.h
         CHINESE_EUC_CN(15, "EUC-CN", "EUC-CN"),
         // 16: Teragram KSC
         KOREAN_EUC_KR(16, "KSC", "EUC-KR"),
         // 17: Teragram Unicode
         UNICODE(17, "Unicode", "UTF-16LE"),
         // 18: Misnamed. Should be EUC_TW. Was Basis Tech
-        //      CNS11643EUC, before that Teragram EUC.
+        // CNS11643EUC, before that Teragram EUC.
         CHINESE_EUC_DEC(18, "EUC", "EUC-TW"),
         // 19: Misnamed. Should be EUC_TW. Was Basis Tech
-        //      CNS11643EUC, before that Teragram CNS.
+        // CNS11643EUC, before that Teragram CNS.
         CHINESE_CNS(19, "CNS", "CNS"),
         // 20: Teragram BIG5_CP950
         CHINESE_BIG5_CP950(20, "BIG5-CP950", "BIG5-CP950"),
@@ -256,29 +263,29 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         // 23
         UNKNOWN_ENCODING(23, "Unknown", "x-unknown"),
         // 24: ISO_8859_1 with all characters <= 127.
-        //      Should be present only in the crawler
-        //      and in the repository,
-        //      *never* as a result of Document::encoding().
+        // Should be present only in the crawler
+        // and in the repository,
+        // *never* as a result of Document::encoding().
         ASCII_7BIT(24, "ASCII-7-bit", "US-ASCII"),
         // 25: Teragram KOI8R
         RUSSIAN_KOI8_R(25, "KOI8R", "KOI8-R"),
         // 26: Teragram CP1251
         RUSSIAN_CP1251(26, "CP1251", "windows-1251"),
-        //----------------------------------------------------------
+        // ----------------------------------------------------------
         // These are _not_ output from teragram. Instead, they are as
         // detected in the headers of usenet articles.
         // 27: CP1252 aka MSFT euro ascii
         MSFT_CP1252(27, "CP1252", "windows-1252"),
         // 28: CP21866 aka KOI8-U, used for Ukrainian.
-        //      Misnamed, this is _not_ KOI8-RU but KOI8-U.
-        //      KOI8-U is used much more often than KOI8-RU.
+        // Misnamed, this is _not_ KOI8-RU but KOI8-U.
+        // KOI8-U is used much more often than KOI8-RU.
         RUSSIAN_KOI8_RU(28, "KOI8U", "KOI8-U"),
         // 29: CP1250 aka MSFT eastern european
         MSFT_CP1250(29, "CP1250", "windows-1250"),
         // 30: aka ISO_8859_0 aka ISO_8859_1 euroized
         ISO_8859_15(30, "ISO-8859-15", "ISO-8859-15"),
-        //----------------------------------------------------------
-        //----------------------------------------------------------
+        // ----------------------------------------------------------
+        // ----------------------------------------------------------
         // These are in BasisTech but not in Teragram. They are
         // needed for new interface languages. Now detected by
         // research langid
@@ -286,9 +293,9 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         MSFT_CP1254(31, "CP1254", "windows-1254"),
         // 32: used in Baltic countries
         MSFT_CP1257(32, "CP1257", "windows-1257"),
-        //----------------------------------------------------------
-        //----------------------------------------------------------
-        //----------------------------------------------------------
+        // ----------------------------------------------------------
+        // ----------------------------------------------------------
+        // ----------------------------------------------------------
         // New encodings detected by Teragram
         // 33: aka TIS-620, used for Thai
         ISO_8859_11(33, "ISO-8859-11", "ISO-8859-11"),
@@ -296,7 +303,7 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         MSFT_CP874(34, "CP874", "windows-874"),
         // 35: used for Arabic
         MSFT_CP1256(35, "CP1256", "windows-1256"),
-        //----------------------------------------------------------
+        // ----------------------------------------------------------
         // Detected as ISO_8859_8 by Teragram, but can be found in META tags
         // 36: Logical Hebrew Microsoft
         MSFT_CP1255(36, "CP1255", "windows-1255"),
@@ -304,8 +311,8 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         ISO_8859_8_I(37, "ISO-8859-8-I", "ISO-8859-8-I"),
         // 38: Iso Hebrew Visual
         HEBREW_VISUAL(38, "VISUAL", "ISO-8859-8"),
-        //----------------------------------------------------------
-        //----------------------------------------------------------
+        // ----------------------------------------------------------
+        // ----------------------------------------------------------
         // Detected by research langid
         // 39
         CZECH_CP852(39, "CP852", "cp852"),
@@ -315,8 +322,8 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         MSFT_CP1253(41, "CP1253", "windows-1253"),
         // 42
         RUSSIAN_CP866(42, "CP866", "IBM866"),
-        //----------------------------------------------------------
-        //----------------------------------------------------------
+        // ----------------------------------------------------------
+        // ----------------------------------------------------------
         // Handled by iconv in glibc
         // 43
         ISO_8859_13(43, "ISO-8859-13", "ISO-8859-13"),
@@ -330,7 +337,7 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         BIG5_HKSCS(47, "BIG5_HKSCS", "BIG5-HKSCS"),
         // 48
         ISO_2022_CN(48, "ISO_2022_CN", "ISO-2022-CN"),
-        //-----------------------------------------------------------
+        // -----------------------------------------------------------
         // Detected by xin liu's detector
         // Handled by transcoder
         // (Indic encodings)
@@ -350,7 +357,7 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         BHASKAR(55, "BHASKAR", "bhaskar"),
         // 56 Indic encoding - Devanagari
         HTCHANAKYA(56, "HTCHANAKYA", "htchanakya"),
-        //-----------------------------------------------------------
+        // -----------------------------------------------------------
         // These allow a single place (inputconverter and outputconverter)
         // to do UTF-16 <==> UTF-8 bulk conversions and UTF-32 <==> UTF-8
         // bulk conversions, with interchange-valid checking on input and
@@ -363,8 +370,8 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         UTF32BE(59, "UTF-32BE", "UTF-32BE"),
         // 60 little-endian UTF-32
         UTF32LE(60, "UTF-32LE", "UTF-32LE"),
-        //-----------------------------------------------------------
-        //-----------------------------------------------------------
+        // -----------------------------------------------------------
+        // -----------------------------------------------------------
         // An encoding that means "This is not text, but it may have some
         // simple ASCII text embedded". Intended input conversion (not yet
         // implemented) is to keep strings of >=4 seven-bit ASCII characters
@@ -373,8 +380,8 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         // in JPEGs. No output conversion needed.
         // 61
         BINARYENC(61, "X-BINARYENC", "x-binaryenc"),
-        //-----------------------------------------------------------
-        //-----------------------------------------------------------
+        // -----------------------------------------------------------
+        // -----------------------------------------------------------
         // Some Web pages allow a mixture of HZ-GB and GB-2312 by using
         // ~{ ... ~} for 2-byte pairs, and the browsers support this.
         // 62
@@ -385,7 +392,7 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
         private final String mimeEncodingName;
         private final Charset charset;
 
-        //-----------------------------------------------------------
+        // -----------------------------------------------------------
         private Encoding(int encodingNum, String encodingName, String mimeEncodingName) {
             this.encodingNum = encodingNum;
             this.encodingName = encodingName;
@@ -399,9 +406,11 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
             }
             this.charset = charset0;
         }
+
         public Charset getCharset() {
             return charset;
         }
+
         public String toString() {
             return encodingNum + ":" + encodingName + ":" + mimeEncodingName;
         }
@@ -409,9 +418,11 @@ cm000162    3    481    31032    6    22    \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc
 
     static class Mapper<T extends Enum> {
         T[] items;
+
         public Mapper(T[] languages) {
             items = languages;
         }
+
         T fromOrdinal(int ordinal) {
             return items[ordinal];
         }

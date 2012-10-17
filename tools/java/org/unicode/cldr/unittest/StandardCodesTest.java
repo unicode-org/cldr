@@ -15,14 +15,14 @@ public class StandardCodesTest extends TestFmwk {
     public static void main(String[] args) {
         new StandardCodesTest().run(args);
     }
-    
+
     TestInfo testInfo = TestInfo.getInstance();
-    
+
     public void testCoverage() {
         Map<String, Map<String, Level>> map = StandardCodes.make().getLocaleTypes();
         EnumSet<Organization> missing = EnumSet.noneOf(Organization.class);
         for (Organization org : Organization.values()) {
-            // Sun  ;   ar  ;   modern 
+            // Sun ; ar ; modern
             final Map<String, Level> entrySet = map.get(org.toString());
             if (entrySet == null) {
                 missing.add(org);

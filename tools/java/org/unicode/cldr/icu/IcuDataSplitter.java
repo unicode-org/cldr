@@ -17,7 +17,8 @@ public class IcuDataSplitter {
     private final Map<String, File> targetDirs;
 
     /**
-     * Splits the 
+     * Splits the
+     * 
      * @param splitInfos
      */
     private IcuDataSplitter(List<SplitInfo> splitInfos) {
@@ -28,7 +29,9 @@ public class IcuDataSplitter {
     /**
      * Creates a new IcuDataSplitter and creates directories for the split files
      * if they do not already exist.
-     * @param mainDirPath the main directory that other directories will be relative to.
+     * 
+     * @param mainDirPath
+     *            the main directory that other directories will be relative to.
      * @param splitInfos
      * @return
      */
@@ -66,6 +69,7 @@ public class IcuDataSplitter {
 
     /**
      * Splits an IcuData object for writing to different directories.
+     * 
      * @param data
      * @return
      */
@@ -80,7 +84,7 @@ public class IcuDataSplitter {
         }
         splitData.put(fallbackDir, new IcuData(sourceFile, name, hasFallback));
 
-        for (Entry<String, List<String[]>>  entry : icuData.entrySet()) {
+        for (Entry<String, List<String[]>> entry : icuData.entrySet()) {
             String rbPath = entry.getKey();
             List<String[]> values = entry.getValue();
             boolean wasSplit = false;
@@ -116,11 +120,11 @@ public class IcuDataSplitter {
                 // Comment copied from ResourceSplitter:
                 // Some locales that use root data rely on the presence of
                 // a resource file matching the prefix of the locale to prevent fallback
-                // lookup through the default locale.  To prevent this error, all resources
+                // lookup through the default locale. To prevent this error, all resources
                 // need at least a language-only stub resource to be present.
                 //
-                // Arrgh.  The icu package tool wants all internal nodes in the tree to be
-                // present.  Currently, the missing nodes are all lang_Script locales.
+                // Arrgh. The icu package tool wants all internal nodes in the tree to be
+                // present. Currently, the missing nodes are all lang_Script locales.
                 // Maybe change the package tool to fix this.
                 String locale = data.getName();
                 int underscorePos = locale.indexOf('_');
@@ -132,4 +136,3 @@ public class IcuDataSplitter {
         return splitData;
     }
 }
-

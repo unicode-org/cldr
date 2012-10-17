@@ -9,8 +9,10 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 
 public class CheckNames extends CheckCLDR {
     private static final Pattern YEAR_PATTERN = Pattern.compile("\\d{3,4}");
-    private static final Pattern YEARS_NOT_ALLOWED = Pattern.compile(
+    private static final Pattern YEARS_NOT_ALLOWED = Pattern
+        .compile(
         "//ldml/localeDisplayNames/(languages|currencies|scripts|territories|measurementSystemNames|transformNames)/.*");
+
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
         List<CheckStatus> result) {
@@ -37,6 +39,6 @@ public class CheckNames extends CheckCLDR {
 
     private boolean isEnclosedByBraces(Matcher matcher, String value, char startBrace, char endBrace) {
         return value.lastIndexOf(startBrace, matcher.start()) > -1 &&
-               value.indexOf(endBrace, matcher.end()) >= -1;
+            value.indexOf(endBrace, matcher.end()) >= -1;
     }
 }

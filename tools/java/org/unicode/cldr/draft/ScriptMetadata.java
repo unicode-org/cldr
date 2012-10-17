@@ -23,20 +23,22 @@ public class ScriptMetadata {
     public enum Column {
         // must match the spreadshee header (caseless compare) or have the alternate header as an argument.
         // doesn't have to be in order
-        WR, SAMPLE, ID_USAGE("ID Usage (UAX31)"), RTL("RTL?"), LB_LETTERS("LB letters?"), SHAPING_REQ("Shaping Req?"), IME("IME?"),
+        WR, SAMPLE, ID_USAGE("ID Usage (UAX31)"), RTL("RTL?"), LB_LETTERS("LB letters?"), SHAPING_REQ("Shaping Req?"), IME(
+            "IME?"),
         ORIGIN_COUNTRY("Origin Country"),
         DENSITY("~Density"),
         LIKELY_LANGUAGE("Likely Language"),
-        HAS_CASE("Has Case?"),
-        ;
+        HAS_CASE("Has Case?"), ;
         int columnNumber = -1;
         final Set<String> names = new HashSet<String>();
+
         Column(String... alternateNames) {
             names.add(this.name());
             for (String name : alternateNames) {
                 names.add(name.toUpperCase(Locale.ENGLISH));
             }
         }
+
         static void setColumns(String[] headers) {
             for (int i = 0; i < headers.length; ++i) {
                 String header = headers[i].toUpperCase(Locale.ENGLISH);
@@ -48,55 +50,65 @@ public class ScriptMetadata {
             }
             for (Column v : values()) {
                 if (v.columnNumber == -1) {
-                    throw new IllegalArgumentException("Missing field for " + v + ", may need to add additional column alias");
+                    throw new IllegalArgumentException("Missing field for " + v
+                        + ", may need to add additional column alias");
                 }
             }
         }
+
         String getItem(String[] items) {
             return items[columnNumber];
         }
+
         int getInt(String[] items, int defaultValue) {
             final String item = getItem(items);
             return item.isEmpty() || item.equalsIgnoreCase("n/a") ? defaultValue : Integer.parseInt(item);
         }
     }
+
     public enum IdUsage {
-        UNKNOWN("Other"), EXCLUSION("Historic"), LIMITED_USE("Limited Use"), ASPIRATIONAL("Aspirational"), RECOMMENDED("Major Use");
+        UNKNOWN("Other"), EXCLUSION("Historic"), LIMITED_USE("Limited Use"), ASPIRATIONAL("Aspirational"), RECOMMENDED(
+            "Major Use");
         public final String name;
+
         private IdUsage(String name) {
             this.name = name;
         }
     }
 
-    public enum Trinary {UNKNOWN, NO, YES}
+    public enum Trinary {
+        UNKNOWN, NO, YES
+    }
 
-    public enum Shaping {UNKNOWN, NO, MIN, YES}
+    public enum Shaping {
+        UNKNOWN, NO, MIN, YES
+    }
 
     static StandardCodes SC = StandardCodes.make();
-    //static HashMap<String,String> NAME_TO_REGION_CODE = new HashMap<String,String>();
-//    static HashMap<String,String> NAME_TO_LANGUAGE_CODE = new HashMap<String,String>();
+    // static HashMap<String,String> NAME_TO_REGION_CODE = new HashMap<String,String>();
+    // static HashMap<String,String> NAME_TO_LANGUAGE_CODE = new HashMap<String,String>();
     static EnumLookup<Shaping> shapingLookup = EnumLookup.of(Shaping.class, null, "n/a", Shaping.UNKNOWN);
     static EnumLookup<Trinary> trinaryLookup = EnumLookup.of(Trinary.class, null, "n/a", Trinary.UNKNOWN);
     static EnumLookup<IdUsage> idUsageLookup = EnumLookup.of(IdUsage.class, null, "n/a", IdUsage.UNKNOWN);
     static {
-//        addNameToCode("language", NAME_TO_LANGUAGE_CODE);
-//        //      NAME_TO_LANGUAGE_CODE.put("", "und");
-//        NAME_TO_LANGUAGE_CODE.put("N/A", "und");
-//        addSynonym(NAME_TO_LANGUAGE_CODE, "Ancient Greek", "Ancient Greek (to 1453)");
-//        //addSynonym(NAME_TO_LANGUAGE_CODE, "Khmer", "Cambodian");
-//        addSynonym(NAME_TO_LANGUAGE_CODE, "Old Irish", "Old Irish (to 900)");
-        
-//        addNameToCode("region", NAME_TO_REGION_CODE);
-//        //        NAME_TO_REGION_CODE.put("UNKNOWN", "ZZ");
-//        //        NAME_TO_REGION_CODE.put("", "ZZ");
-//        NAME_TO_REGION_CODE.put("N/A", "ZZ");
-//        addSynonym(NAME_TO_REGION_CODE, "Laos", "Lao People's Democratic Republic");
+        // addNameToCode("language", NAME_TO_LANGUAGE_CODE);
+        // // NAME_TO_LANGUAGE_CODE.put("", "und");
+        // NAME_TO_LANGUAGE_CODE.put("N/A", "und");
+        // addSynonym(NAME_TO_LANGUAGE_CODE, "Ancient Greek", "Ancient Greek (to 1453)");
+        // //addSynonym(NAME_TO_LANGUAGE_CODE, "Khmer", "Cambodian");
+        // addSynonym(NAME_TO_LANGUAGE_CODE, "Old Irish", "Old Irish (to 900)");
+
+        // addNameToCode("region", NAME_TO_REGION_CODE);
+        // // NAME_TO_REGION_CODE.put("UNKNOWN", "ZZ");
+        // // NAME_TO_REGION_CODE.put("", "ZZ");
+        // NAME_TO_REGION_CODE.put("N/A", "ZZ");
+        // addSynonym(NAME_TO_REGION_CODE, "Laos", "Lao People's Democratic Republic");
     }
 
     public static void addNameToCode(String type, Map<String, String> hashMap) {
         for (String language : SC.getAvailableCodes(type)) {
             Map<String, String> fullData = SC.getLStreg().get(type).get(language);
-            String name = (String)(fullData.get("Description"));
+            String name = (String) (fullData.get("Description"));
             hashMap.put(name.toUpperCase(Locale.ENGLISH), language);
         }
     }
@@ -118,13 +130,14 @@ public class ScriptMetadata {
         public final int density;
         public final String originCountry;
         public final String likelyLanguage;
+
         private Info(String[] items) {
             // 3,Han,Hani,1.1,"74,519",字,5B57,East_Asian,Recommended,no,Yes,no,Yes
             rank = Column.WR.getInt(items, 999);
             sampleChar = Column.SAMPLE.getItem(items);
             idUsage = idUsageLookup.forString(Column.ID_USAGE.getItem(items));
             rtl = trinaryLookup.forString(Column.RTL.getItem(items));
-            lbLetters = trinaryLookup.forString(Column.LB_LETTERS.getItem(items)); 
+            lbLetters = trinaryLookup.forString(Column.LB_LETTERS.getItem(items));
             shapingReq = shapingLookup.forString(Column.SHAPING_REQ.getItem(items));
             ime = trinaryLookup.forString(Column.IME.getItem(items));
             hasCase = trinaryLookup.forString(Column.HAS_CASE.getItem(items));
@@ -132,7 +145,7 @@ public class ScriptMetadata {
 
             final String countryRaw = Column.ORIGIN_COUNTRY.getItem(items);
             String country = CountryCodeConverter.getCodeFromName(countryRaw);
-            //NAME_TO_REGION_CODE.get(countryRaw.toUpperCase(Locale.ENGLISH));
+            // NAME_TO_REGION_CODE.get(countryRaw.toUpperCase(Locale.ENGLISH));
             if (country == null) {
                 errors.add("Can't map " + countryRaw + " to country/region");
             }
@@ -146,14 +159,17 @@ public class ScriptMetadata {
             }
             likelyLanguage = language == null ? "und" : language;
         }
-        //        public Trinary parseTrinary(Column title, String[] items) {
-        //            return Trinary.valueOf(fix(title.getItem(items)).toUpperCase(Locale.ENGLISH));
-        //        }
+
+        // public Trinary parseTrinary(Column title, String[] items) {
+        // return Trinary.valueOf(fix(title.getItem(items)).toUpperCase(Locale.ENGLISH));
+        // }
         String fix(String in) {
-            return in.toUpperCase(Locale.ENGLISH).replace("N/A", "UNKNOWN").replace("?","UNKNOWN").replace("RTL","YES");
+            return in.toUpperCase(Locale.ENGLISH).replace("N/A", "UNKNOWN").replace("?", "UNKNOWN")
+                .replace("RTL", "YES");
         }
+
         public String toString() {
-            return rank 
+            return rank
                 + "\tSample: " + sampleChar
                 + "\tCountry: " + getName("territory", originCountry) + " (" + originCountry + ")"
                 + "\tLanguage: " + getName("language", likelyLanguage) + " (" + likelyLanguage + ")"
@@ -163,9 +179,9 @@ public class ScriptMetadata {
                 + "\tShape: " + shapingReq
                 + "\tIme: " + ime
                 + "\tCase: " + hasCase
-                + "\tDensity: " + density
-                ;
+                + "\tDensity: " + density;
         }
+
         public Object getName(String type, String code) {
             List fullData = SC.getFullData(type, code);
             if (fullData == null) {
@@ -176,18 +192,21 @@ public class ScriptMetadata {
     }
 
     public static Set<String> errors = new LinkedHashSet<String>();
-    static HashMap<String,Integer> titleToColumn = new HashMap<String,Integer>();
+    static HashMap<String, Integer> titleToColumn = new HashMap<String, Integer>();
 
     private static class MyFileReader extends FileUtilities.SemiFileReader {
         public Map<String, Info> data = new HashMap<String, Info>();
+
         @Override
         protected boolean isCodePoint() {
             return false;
         }
+
         @Override
         protected String[] splitLine(String line) {
             return FileUtilities.splitCommaSeparated(line);
         };
+
         @Override
         protected boolean handleLine(int lineCount, int start, int end, String[] items) {
             if (items[0].startsWith("For help")) {
@@ -215,6 +234,7 @@ public class ScriptMetadata {
             }
             return true;
         }
+
         @Override
         public MyFileReader process(Class<?> classLocation, String fileName) {
             super.process(classLocation, fileName);
@@ -222,14 +242,15 @@ public class ScriptMetadata {
         }
 
     }
-    static Relation<String, String> EXTRAS = Relation.of(new HashMap<String,Set<String>>(), HashSet.class);
+
+    static Relation<String, String> EXTRAS = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
     static {
         EXTRAS.put("Hani", "Hans");
         EXTRAS.put("Hani", "Hant");
         EXTRAS.put("Hang", "Kore");
         EXTRAS.put("Hira", "Jpan");
     }
-    static Map<String,Info> data = new MyFileReader().process(ScriptMetadata.class, DATA_FILE).data;
+    static Map<String, Info> data = new MyFileReader().process(ScriptMetadata.class, DATA_FILE).data;
 
     public static Info getInfo(String s) {
         return data.get(s);

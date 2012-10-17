@@ -6,7 +6,7 @@ import org.w3c.dom.Node;
 public class WindowsZonesConverter extends BaseTimeZoneDataConverter {
 
     public WindowsZonesConverter(ICULog log, String fileName,
-            String supplementalDir) {
+        String supplementalDir) {
         super(log, fileName, supplementalDir, LDMLConstants.WINDOWS_ZONES);
     }
 
@@ -14,7 +14,7 @@ public class WindowsZonesConverter extends BaseTimeZoneDataConverter {
     protected Resource parseInfo(Node root, StringBuilder xpath) {
         Resource res = null;
         for (Node node = root.getFirstChild(); node != null; node = node
-                .getNextSibling()) {
+            .getNextSibling()) {
             if (node.getNodeType() != Node.ELEMENT_NODE) {
                 continue;
             }

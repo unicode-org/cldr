@@ -35,16 +35,18 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     int current;
 
     /**
-     * Interface for an iterator that is simpler to implement, without 'look-ahead'. 
+     * Interface for an iterator that is simpler to implement, without 'look-ahead'.
      * Using With.in(), this can be transformed into a regular Java iterator.
      * The one restriction is that elements cannot be null, since that signals end of the sequence.
+     * 
      * @author markdavis
-     *
+     * 
      * @param <T>
      */
     public interface SimpleIterator<T> {
         /**
          * Returns null when done
+         * 
          * @return object, or null when done.
          */
         public T next();
@@ -73,11 +75,13 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     @Override
     public void remove() {
-        throw new UnsupportedOperationException();        
+        throw new UnsupportedOperationException();
     }
 
     /**
-     * Create a collection from whatever is left in the iterator. For example, myCollection = With.in(anIterator).toList();
+     * Create a collection from whatever is left in the iterator. For example, myCollection =
+     * With.in(anIterator).toList();
+     * 
      * @return
      */
     public List<V> toList() {
@@ -87,7 +91,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         }
         return result;
     }
-    
+
     /**
      * Create a simple object for use in for loops. Example:
      * 
@@ -125,8 +129,10 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     }
 
     /**
-     * An alterative to With.in(CharSequence) that is better when it is likely that only a portion of the text will be looked at,
+     * An alterative to With.in(CharSequence) that is better when it is likely that only a portion of the text will be
+     * looked at,
      * such as when an iterator over codepoints is aborted partway.
+     * 
      * @param source
      * @return
      */
@@ -187,6 +193,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Creates an iterable from a simple iterator.
+     * 
      * @param <T>
      * @param source
      * @return
@@ -195,7 +202,8 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         return new With<T>().and(sources);
     }
 
-    private With() {}
+    private With() {
+    }
 
     public With<V> and(Iterator<V>... iterators) {
         for (Iterator<V> iterator : iterators) {
@@ -224,24 +232,28 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     /**
      * Will fail if V is not a CharSequence.
+     * 
      * @param sources
      * @return
      */
     public With<V> andCodePoints(CharSequence... sources) {
         for (CharSequence charSequence : sources) {
-            this.iterators.add((Iterator<V>) new ToIterator<CharSequence>(new CharSequenceSimpleIterator(charSequence)));
+            this.iterators
+                .add((Iterator<V>) new ToIterator<CharSequence>(new CharSequenceSimpleIterator(charSequence)));
         }
         return this;
     }
 
-    //new CharSequenceSimpleIterator(source)
+    // new CharSequenceSimpleIterator(source)
 
     private static class CharSequenceSimpleIterator implements SimpleIterator<CharSequence> {
         private int position;
         private CharSequence source;
+
         public CharSequenceSimpleIterator(CharSequence source) {
             this.source = source;
         }
+
         @Override
         public CharSequence next() {
             // TODO optimize
@@ -257,18 +269,19 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     public static <T> Iterator<T> toIterator(SimpleIterator<T> simple) {
         return new ToIterator<T>(simple);
     }
-    
+
     public static <T> Iterable<T> toIterable(SimpleIterator<T> simple) {
         return new ToIterator<T>(simple);
     }
-    
+
     public static <T> ToSimpleIterator<T> toSimpleIterator(Iterator<T> iterator) {
         return new ToSimpleIterator<T>(iterator);
     }
-    
+
     private static class ToIterator<T> implements Iterator<T>, Iterable<T> {
         private final SimpleIterator<T> simpleIterator;
         private T current;
+
         /**
          * @param simpleIterator
          */
@@ -302,9 +315,11 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
 
     private static class ToSimpleIterator<T> implements SimpleIterator<T> {
         private final Iterator<T> iterator;
+
         public ToSimpleIterator(Iterator<T> iterator) {
             this.iterator = iterator;
         }
+
         @Override
         public T next() {
             return iterator.hasNext() ? iterator.next() : null;

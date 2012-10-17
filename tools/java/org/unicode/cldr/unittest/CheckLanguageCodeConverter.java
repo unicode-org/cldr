@@ -33,7 +33,7 @@ public class CheckLanguageCodeConverter {
                 String cldrName = getName(english, code);
                 names.add(new LanguageName(code, cldrName));
                 if (!name.equalsIgnoreCase(cldrName)) {
-                    names.add(new LanguageName(code,name));
+                    names.add(new LanguageName(code, name));
                 }
             }
         }
@@ -45,11 +45,13 @@ public class CheckLanguageCodeConverter {
         }
 
         System.out.println();
-        System.out.println("Input Code" + "\t" + "Bcp47 Code" + "\t" + "CLDR Code" + "\t" + "Google Code" + "\t" + "Std Name");
+        System.out.println("Input Code" + "\t" + "Bcp47 Code" + "\t" + "CLDR Code" + "\t" + "Google Code" + "\t"
+            + "Std Name");
 
         Set<LanguageLine> lines = new TreeSet<LanguageLine>();
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-        Map<String, R2<List<String>, String>> languageAliases = supplementalDataInfo.getLocaleAliasInfo().get("language");
+        Map<String, R2<List<String>, String>> languageAliases = supplementalDataInfo.getLocaleAliasInfo().get(
+            "language");
 
         for (Entry<String, R2<List<String>, String>> languageAlias : languageAliases.entrySet()) {
             String badCode = languageAlias.getKey();
@@ -94,7 +96,7 @@ public class CheckLanguageCodeConverter {
         LikelySubtags likely = new LikelySubtags(supplementalDataInfo);
         LanguageTagParser ltp = new LanguageTagParser();
         // get targets of language aliases for macros
-        Map<String,String> macroToEncompassed = new HashMap<String,String>();
+        Map<String, String> macroToEncompassed = new HashMap<String, String>();
         for (Entry<String, R2<List<String>, String>> languageAlias : languageAliases.entrySet()) {
             String reason = languageAlias.getValue().get1();
             if ("macrolanguage".equals(reason)) {
@@ -135,7 +137,8 @@ public class CheckLanguageCodeConverter {
             } else {
                 encompassed = "\t" + encompassed + "\t" + getName(english, encompassed);
             }
-            System.out.println(LanguageCodeConverter.toHyphenLocale(code) + "\t" + getName(english, code) + "\t" + script + encompassed);
+            System.out.println(LanguageCodeConverter.toHyphenLocale(code) + "\t" + getName(english, code) + "\t"
+                + script + encompassed);
         }
     }
 
@@ -148,28 +151,29 @@ public class CheckLanguageCodeConverter {
 
     public static void printLine(LanguageLine entry) {
         System.out.println(
-                entry.get1() // reverse the order: bad
+            entry.get1() // reverse the order: bad
                 + "\t" + entry.get0() // bcp47
                 + "\t" + entry.get2() // cldr
                 + "\t" + entry.get3() // google
                 + "\t" + entry.get4()
-        );
+            );
     }
 
     private static class LanguageLine extends R5<String, String, String, String, String> {
         public LanguageLine(String a, String b, String c, String d) {
             super(LanguageCodeConverter.toHyphenLocale(a), b, LanguageCodeConverter.toUnderbarLocale(a), c, d);
         }
+
         boolean isStandard() {
             return get0().equals(get2()) && get0().equals(get3());
         }
     }
 
-    public static void addLine(Set<LanguageLine> lines, 
-            String badCode,
-            String goodCode, 
-            String googleCode, 
-            String cldrName) {
+    public static void addLine(Set<LanguageLine> lines,
+        String badCode,
+        String goodCode,
+        String googleCode,
+        String cldrName) {
         // add the various combinations
         lines.add(new LanguageLine(goodCode, goodCode, googleCode, cldrName));
         lines.add(new LanguageLine(goodCode, badCode, googleCode, cldrName));
@@ -182,7 +186,7 @@ public class CheckLanguageCodeConverter {
         lines.add(new LanguageLine(goodCode, LanguageCodeConverter.toHyphenLocale(googleCode), googleCode, cldrName));
     }
 
-    private static class LanguageName extends Row.R2<String,String> {
+    private static class LanguageName extends Row.R2<String, String> {
 
         public LanguageName(String a, String b) {
             super(a, b);

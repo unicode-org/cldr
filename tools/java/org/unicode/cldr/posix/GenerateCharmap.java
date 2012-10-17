@@ -1,11 +1,11 @@
 /*
-**********************************************************************
-* Copyright (c) 2005-2011, International Business Machines
-* Corporation and others.  All Rights Reserved.
-**********************************************************************
-* Author: John Emmons
-**********************************************************************
-*/
+ **********************************************************************
+ * Copyright (c) 2005-2011, International Business Machines
+ * Corporation and others.  All Rights Reserved.
+ **********************************************************************
+ * Author: John Emmons
+ **********************************************************************
+ */
 package org.unicode.cldr.posix;
 
 import java.io.File;
@@ -28,13 +28,14 @@ import com.ibm.icu.text.UnicodeSetIterator;
 
 /**
  * Class to generate POSIX format charmap
+ * 
  * @author John C. Emmons
  */
 
 public class GenerateCharmap {
-    
-    private static final int 
-        DESTDIR = 2, 
+
+    private static final int
+        DESTDIR = 2,
         UNICODESET = 3,
         CHARSET = 4;
 
@@ -49,53 +50,51 @@ public class GenerateCharmap {
     public static void main(String[] args) throws IOException {
         UOption.parseArgs(args, options);
         String codeset = options[CHARSET].value;
-    	GenerateCharmap gp = new GenerateCharmap( new UnicodeSet(options[UNICODESET].value),
-                                                      Charset.forName(codeset), codeset);
-        PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value+File.separator, codeset + ".cm");
+        GenerateCharmap gp = new GenerateCharmap(new UnicodeSet(options[UNICODESET].value),
+            Charset.forName(codeset), codeset);
+        PrintWriter out = BagFormatter.openUTF8Writer(options[DESTDIR].value + File.separator, codeset + ".cm");
         gp.write(out);
         out.close();
     }
-    
 
     public class CharmapLine implements Comparable<Object>
     {
-       public String CharacterValue;
-       public String CharacterName;
-       public String CharacterAltName;
+        public String CharacterValue;
+        public String CharacterName;
+        public String CharacterAltName;
 
-       public CharmapLine(String Name, String AltName, String Value)
-       {
-          CharacterName = Name;
-          CharacterAltName = AltName;
-          CharacterValue = Value;
-          if ( Name.equals(AltName) )
-             CharacterAltName = "" ;
-       }
-       public int compareTo( Object o )
-       {
-          CharmapLine c = (CharmapLine) o;
-          return ( CharacterValue.compareTo(c.CharacterValue) );
-       }
-    }    
+        public CharmapLine(String Name, String AltName, String Value)
+        {
+            CharacterName = Name;
+            CharacterAltName = AltName;
+            CharacterValue = Value;
+            if (Name.equals(AltName))
+                CharacterAltName = "";
+        }
 
-    
+        public int compareTo(Object o)
+        {
+            CharmapLine c = (CharmapLine) o;
+            return (CharacterValue.compareTo(c.CharacterValue));
+        }
+    }
 
     UnicodeSet chars;
     Charset cs;
     String codeset;
-    
-    public GenerateCharmap(UnicodeSet chars, Charset cs , String codeset) {
+
+    public GenerateCharmap(UnicodeSet chars, Charset cs, String codeset) {
         this.cs = cs;
-        if (cs != null && ! cs.name().equals("UTF-8")) {
+        if (cs != null && !cs.name().equals("UTF-8")) {
             UnicodeSet csset = new SimpleConverter(cs).getCharset();
-        	chars = new UnicodeSet(chars).retainAll(csset);
+            chars = new UnicodeSet(chars).retainAll(csset);
         }
         this.chars = chars;
         this.codeset = codeset;
 
     }
 
-	public void write(PrintWriter out) {
+    public void write(PrintWriter out) {
         out.println("######################");
         out.println("# POSIX charmap ");
         out.println("# Generated automatically from the Unicode Character Database and Common Locale Data Repository");
@@ -127,16 +126,16 @@ public class GenerateCharmap {
         out.println("# CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA FILES OR SOFTWARE.                         #");
         out.println("#################################################################################################");
         out.println();
-        doCharmap(out,cs);       
+        doCharmap(out, cs);
         out.println("######################");
         out.println();
     }
-    
-	/**
-	 * @param out
-	 */
-	private void doCharmap(PrintWriter out , Charset cs)
-        {
+
+    /**
+     * @param out
+     */
+    private void doCharmap(PrintWriter out, Charset cs)
+    {
 
         // print character types, restricted to the charset
         int LongestCharNameLength = 0;
@@ -144,19 +143,19 @@ public class GenerateCharmap {
         UnicodeSet us = new UnicodeSet("[^[:Noncharacter_Code_Point:][:Cn:][:Cs:]]").retainAll(chars);
         List<CharmapLine> cml = new ArrayList<CharmapLine>();
         CharmapLine current;
-        for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next(); )
+        for (UnicodeSetIterator it = new UnicodeSetIterator(us); it.next();)
         {
-                String Name = POSIXUtilities.POSIXCharFullName(it.getString());
-                String AltName = POSIXUtilities.POSIXCharName(it.getString());
-                String Value = getCodepointValue(it.getString(),cs);
-                current = new CharmapLine(Name,AltName,Value);
-                cml.add(current);
-                if ( current.CharacterName.length() > LongestCharNameLength )
-                   LongestCharNameLength = current.CharacterName.length();
-                if ( current.CharacterValue.length() > LongestCharValueLength )
-                   LongestCharValueLength = current.CharacterValue.length();
+            String Name = POSIXUtilities.POSIXCharFullName(it.getString());
+            String AltName = POSIXUtilities.POSIXCharName(it.getString());
+            String Value = getCodepointValue(it.getString(), cs);
+            current = new CharmapLine(Name, AltName, Value);
+            cml.add(current);
+            if (current.CharacterName.length() > LongestCharNameLength)
+                LongestCharNameLength = current.CharacterName.length();
+            if (current.CharacterValue.length() > LongestCharValueLength)
+                LongestCharValueLength = current.CharacterValue.length();
         }
-        
+
         Collections.sort(cml);
 
         out.print("<code_set_name> \"");
@@ -167,47 +166,47 @@ public class GenerateCharmap {
         out.print(LongestCharValueLength / 4);
         out.println();
         out.println();
-	out.println("CHARMAP");
+        out.println("CHARMAP");
 
-        for ( ListIterator<CharmapLine> li=cml.listIterator(); li.hasNext(); )
+        for (ListIterator<CharmapLine> li = cml.listIterator(); li.hasNext();)
         {
-                current = (CharmapLine) li.next();
+            current = (CharmapLine) li.next();
 
-                out.print(current.CharacterName);
-                for ( int i = LongestCharNameLength + 1 ; i > current.CharacterName.length() ; i-- )
-                   out.print(" ");
+            out.print(current.CharacterName);
+            for (int i = LongestCharNameLength + 1; i > current.CharacterName.length(); i--)
+                out.print(" ");
+            out.println(current.CharacterValue);
+            if (current.CharacterAltName.length() > 0)
+            {
+                out.print(current.CharacterAltName);
+                for (int i = LongestCharNameLength + 1; i > current.CharacterAltName.length(); i--)
+                    out.print(" ");
                 out.println(current.CharacterValue);
-                if ( current.CharacterAltName.length() > 0 )
-                {
-                   out.print(current.CharacterAltName);
-                   for ( int i = LongestCharNameLength + 1 ; i > current.CharacterAltName.length() ; i-- )
-                      out.print(" ");
-                   out.println(current.CharacterValue);
-                }
+            }
         }
 
         out.println();
-	out.println("END CHARMAP");
+        out.println("END CHARMAP");
         out.println();
 
     }
-    
-        private String getCodepointValue( String cp, Charset cs )
-        {
-           StringBuffer result = new StringBuffer();
-           ByteBuffer bb = cs.encode(cp);
-           int i;
-           while ( bb.hasRemaining() )
-           {
-                 result.append("\\x");
-                 byte b = bb.get();
-                 if ( b < 0 )
-                    i = (int)b + 256;
-                 else
-                    i = (int)b;
 
-                 result.append( Utility.hex(i,2));
-           }
-           return result.toString();
+    private String getCodepointValue(String cp, Charset cs)
+    {
+        StringBuffer result = new StringBuffer();
+        ByteBuffer bb = cs.encode(cp);
+        int i;
+        while (bb.hasRemaining())
+        {
+            result.append("\\x");
+            byte b = bb.get();
+            if (b < 0)
+                i = (int) b + 256;
+            else
+                i = (int) b;
+
+            result.append(Utility.hex(i, 2));
         }
+        return result.toString();
+    }
 }

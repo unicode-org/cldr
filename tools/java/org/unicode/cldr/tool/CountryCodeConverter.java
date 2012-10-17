@@ -17,7 +17,7 @@ public class CountryCodeConverter {
 
     private static final boolean SHOW_SKIP = false;
 
-    private static Map<String, String> nameToCountryCode     = new TreeMap(new UTF16.StringComparator(true, true, 0));
+    private static Map<String, String> nameToCountryCode = new TreeMap(new UTF16.StringComparator(true, true, 0));
 
     public static String getCodeFromName(String display) {
         String trial = display.trim().toLowerCase(Locale.ENGLISH);
@@ -26,9 +26,9 @@ public class CountryCodeConverter {
             trial = reverseComma(display);
             if (trial != null) {
                 result = nameToCountryCode.get(trial);
-//                if (result != null) {
-//                    addName(trial, result);
-//                }
+                // if (result != null) {
+                // addName(trial, result);
+                // }
             }
         }
         if (SHOW_SKIP && result == null) {
@@ -40,7 +40,7 @@ public class CountryCodeConverter {
     public static Set<String> names() {
         return nameToCountryCode.keySet();
     }
-    
+
     private static String reverseComma(String display) {
         String trial;
         trial = null;
@@ -50,7 +50,6 @@ public class CountryCodeConverter {
         }
         return trial;
     }
-
 
     static {
         try {
@@ -71,7 +70,7 @@ public class CountryCodeConverter {
             addName(description, country);
         }
         FileUtilities.handleFile("external/alternate_country_names.txt", new FileUtilities.LineHandler() {
-            public boolean handle(String line) {    
+            public boolean handle(String line) {
                 if (line.trim().length() == 0) {
                     return true; // don't show skips
                 }

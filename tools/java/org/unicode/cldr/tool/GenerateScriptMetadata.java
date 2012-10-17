@@ -17,8 +17,9 @@ import com.ibm.icu.impl.Utility;
 
 public class GenerateScriptMetadata {
     public static void main(String[] args) throws IOException {
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.COMMON_DIRECTORY + "/properties", "scriptMetadata.txt");
-        //PrintWriter out = new PrintWriter(System.out);
+        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.COMMON_DIRECTORY + "/properties",
+            "scriptMetadata.txt");
+        // PrintWriter out = new PrintWriter(System.out);
         FileUtilities.appendFile(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
         Set<R3<Integer, String, Info>> sorted = new TreeSet<R3<Integer, String, Info>>();
         for (String script : ScriptMetadata.getScripts()) {
@@ -34,7 +35,7 @@ public class GenerateScriptMetadata {
                 + "; " + Utility.hex(i.sampleChar)
                 + "; " + i.originCountry
                 + "; " + i.density
-                //+ "; " + i.likelyLanguage
+                // + "; " + i.likelyLanguage
                 + "; " + i.idUsage
                 + "; " + i.rtl
                 + "; " + i.lbLetters
@@ -42,7 +43,7 @@ public class GenerateScriptMetadata {
                 + "; " + i.ime
                 + "; " + i.hasCase
                 );
-            //RTL?    LB letters? Shaping Req?    IME?    Has Case?
+            // RTL? LB letters? Shaping Req? IME? Has Case?
         }
         out.println("\n# EOF");
         out.close();

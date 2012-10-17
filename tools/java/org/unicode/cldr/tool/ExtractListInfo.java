@@ -14,14 +14,15 @@ public class ExtractListInfo {
         "//ldml/listPatterns/listPattern/listPatternPart[@type=\"middle\"]",
         "//ldml/listPatterns/listPattern/listPatternPart[@type=\"end\"]",
     };
+
     public static void main(String[] args) {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Set<String> skipped = new LinkedHashSet();
         for (String locale : cldrFactory.getAvailableLanguages()) {
-            CLDRFile file =  cldrFactory.make(locale, true);
+            CLDRFile file = cldrFactory.make(locale, true);
             StringBuilder sb = new StringBuilder("ListFormat.add(\"" + locale + "\"");
             boolean gotOne = locale.equals("root");
-            for (int i=0; i < paths.length; ++i) {
+            for (int i = 0; i < paths.length; ++i) {
                 final String value = file.getStringValue(paths[i]);
                 sb.append(", \"" + value + "\"");
                 if (!value.equals("{0}, {1}")) {

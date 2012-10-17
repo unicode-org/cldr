@@ -12,10 +12,10 @@ import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.util.TimeZone;
 
 public class Containment {
-    static final Relation<String, String> containmentCore          = PathHeader.supplementalDataInfo
-    .getContainmentCore();
-    static final Set<String>              continents               = containmentCore.get("001");
-    static final Set<String>              subcontinents;
+    static final Relation<String, String> containmentCore = PathHeader.supplementalDataInfo
+        .getContainmentCore();
+    static final Set<String> continents = containmentCore.get("001");
+    static final Set<String> subcontinents;
     static {
         LinkedHashSet<String> temp = new LinkedHashSet<String>();
         for (String continent : continents) {
@@ -23,19 +23,19 @@ public class Containment {
         }
         subcontinents = Collections.unmodifiableSet(temp);
     }
-    static final Relation<String, String> containmentFull          = PathHeader.supplementalDataInfo
-    .getTerritoryToContained();
-    static final Relation<String, String> containedToContainer     = Relation
-    .of(new HashMap<String, Set<String>>(),
+    static final Relation<String, String> containmentFull = PathHeader.supplementalDataInfo
+        .getTerritoryToContained();
+    static final Relation<String, String> containedToContainer = Relation
+        .of(new HashMap<String, Set<String>>(),
             HashSet.class)
-            .addAllInverted(containmentFull);
+        .addAllInverted(containmentFull);
     static final Relation<String, String> containedToContainerCore = Relation
-    .of(new HashMap<String, Set<String>>(),
+        .of(new HashMap<String, Set<String>>(),
             HashSet.class)
-            .addAllInverted(containmentCore);
-    static final Map<String, Integer>     toOrder                  = new LinkedHashMap<String, Integer>();
-    static int                      level                    = 0;
-    static int                      order;
+        .addAllInverted(containmentCore);
+    static final Map<String, Integer> toOrder = new LinkedHashMap<String, Integer>();
+    static int level = 0;
+    static int order;
     static {
         initOrder("001");
         // Special cases. Cyprus is because it is in the wrong location because it gets picked up in the EU.
@@ -44,7 +44,7 @@ public class Containment {
         resetOrder("CY", "BH");
     }
 
-    //static Map<String, String> zone2country = StandardCodes.make().getZoneToCounty();
+    // static Map<String, String> zone2country = StandardCodes.make().getZoneToCounty();
 
     public static String getRegionFromZone(String tzid) {
         if ("Etc/Unknown".equals(tzid)) {
@@ -55,7 +55,7 @@ public class Containment {
         } catch (IllegalArgumentException e) {
             return "ZZ";
         }
-        //return zone2country.get(source0);
+        // return zone2country.get(source0);
     }
 
     public static String getContainer(String territory) {
@@ -64,13 +64,14 @@ public class Containment {
             containers = containedToContainer.get(territory);
         }
         String container = containers != null
-        ? containers.iterator().next()
-                : territory.equals("001") ? "001" : "ZZ";
+            ? containers.iterator().next()
+            : territory.equals("001") ? "001" : "ZZ";
         return container;
     }
 
     /**
      * Return the Continent containing the territory, or 001 if the territory is 001, otherwise ZZ
+     * 
      * @param territory
      */
     public static String getContinent(String territory) {
@@ -85,12 +86,13 @@ public class Containment {
     /**
      * Return the Subcontinent containing the territory, or the continent if it is a continent, or
      * 001 if it is 001, otherwise ZZ.
+     * 
      * @param territory
      */
     public static String getSubcontinent(String territory) {
         while (true) {
-            if (territory.equals("001") || territory.equals("ZZ") 
-                    || continents.contains(territory) || subcontinents.contains(territory)) {
+            if (territory.equals("001") || territory.equals("ZZ")
+                || continents.contains(territory) || subcontinents.contains(territory)) {
                 return territory;
             }
             territory = getContainer(territory);
@@ -119,12 +121,12 @@ public class Containment {
             initOrder(subitem);
         }
     }
-    
+
     private static void resetOrder(String newTerritory, String oldTerritory) {
-//        final Integer newOrder = toOrder.get(newTerritory);
-//        if (newOrder != null) {
-//            throw new IllegalArgumentException(newTerritory + " already defined as " + newOrder);
-//        }
+        // final Integer newOrder = toOrder.get(newTerritory);
+        // if (newOrder != null) {
+        // throw new IllegalArgumentException(newTerritory + " already defined as " + newOrder);
+        // }
         final Integer oldOrder = toOrder.get(oldTerritory);
         if (oldOrder == null) {
             throw new IllegalArgumentException(oldTerritory + " not yet defined");
@@ -135,7 +137,7 @@ public class Containment {
     public Set<String> getContinents() {
         return continents;
     }
-    
+
     public Set<String> getSubontinents() {
         return subcontinents;
     }

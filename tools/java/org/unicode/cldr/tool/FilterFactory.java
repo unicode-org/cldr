@@ -17,8 +17,9 @@ import com.ibm.icu.util.ULocale;
 /**
  * Factory for filtering CLDRFiles by organization.
  * Organization coverage data is in org/unicode/cldr/util/data/Locales.txt.
+ * 
  * @author jchye
- *
+ * 
  */
 public class FilterFactory extends Factory {
     private static final String[] SPECIAL_ALT_PATHS = {
@@ -34,9 +35,13 @@ public class FilterFactory extends Factory {
 
     /**
      * Creates a new Factory for filtering CLDRFiles.
-     * @param rawFactory the factory to be filtered
-     * @param organization the organization that the filtering is catered towards
-     * @param useAltValues true if certain alt values should be used to replace the main values
+     * 
+     * @param rawFactory
+     *            the factory to be filtered
+     * @param organization
+     *            the organization that the filtering is catered towards
+     * @param useAltValues
+     *            true if certain alt values should be used to replace the main values
      */
     public FilterFactory(Factory rawFactory, String organization, boolean useAltValues) {
         this.rawFactory = rawFactory;
@@ -78,6 +83,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Replaces the value for certain XPaths with their alternate value.
+     * 
      * @param rawFile
      */
     private void filterAltValues(CLDRFile rawFile) {
@@ -96,6 +102,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Filters a CLDRFile according to the specified organization's coverage level.
+     * 
      * @param rawFile
      */
     private void filterCoverage(CLDRFile rawFile) {
@@ -125,6 +132,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Run FilterFactory for a specfic organization.
+     * 
      * @param args
      * @throws Exception
      */

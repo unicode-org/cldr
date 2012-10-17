@@ -33,22 +33,29 @@ import com.ibm.icu.lang.CharSequences;
 
 public class GenerateBirth {
     private static boolean DEBUG = false;
+
     enum Versions {
         trunk, v21_0, v2_0_1, v1_9_1, v1_8_1, v1_7_2, v1_6_1, v1_5_1, v1_4_1, v1_3_0, v1_2_0, v1_1_1;
         public String toString() {
             return this == Versions.trunk ? name() : name().substring(1).replace('_', '.');
         };
     }
+
     static final Versions[] VERSIONS = Versions.values();
     static final Factory[] factories = new Factory[VERSIONS.length];
 
     final static Options myOptions = new Options()
-    .add("target", ".*", OutdatedPaths.OUTDATED_DIR, "The target directory for building the text files that show the results.")
-    .add("log", ".*", CldrUtility.TMP_DIRECTORY + "dropbox/births/", "The target directory for building the text files that show the results.")
-    .add("file", ".*", ".*", "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
-    .add("previous", "Stop after writing the English previous data.")
-    .add("debug", "Debug")
-    ;
+        .add("target", ".*", OutdatedPaths.OUTDATED_DIR,
+            "The target directory for building the text files that show the results.")
+        .add("log", ".*", CldrUtility.TMP_DIRECTORY + "dropbox/births/",
+            "The target directory for building the text files that show the results.")
+        .add(
+            "file",
+            ".*",
+            ".*",
+            "Filter the information based on file name, using a regex argument. The '.xml' is removed from the file before filtering")
+        .add("previous", "Stop after writing the English previous data.")
+        .add("debug", "Debug");
 
     public static void main(String[] args) throws IOException {
         myOptions.parse(args, true);
@@ -61,9 +68,9 @@ public class GenerateBirth {
 
         ArrayList<Factory> list = new ArrayList<Factory>();
         for (Versions version : VERSIONS) {
-            Factory aFactory = Factory.make(CldrUtility.BASE_DIRECTORY 
-                    + (version == Versions.trunk ? "" : "../cldr-archive/cldr-" + version) 
-                    + "/common/main/", filePattern);
+            Factory aFactory = Factory.make(CldrUtility.BASE_DIRECTORY
+                + (version == Versions.trunk ? "" : "../cldr-archive/cldr-" + version)
+                + "/common/main/", filePattern);
             list.add(aFactory);
         }
         list.toArray(factories);
@@ -79,11 +86,11 @@ public class GenerateBirth {
         english.writeBirth(outputDirectory, "en", null);
         english.writeBirthValues(dataDirectory + "/" + OutdatedPaths.OUTDATED_ENGLISH_DATA);
 
-//        if (!myOptions.get("file").doesOccur()) {
-//            OutdatedPaths outdatedPaths = new OutdatedPaths(dataDirectory);
-//
-//            return;
-//        }
+        // if (!myOptions.get("file").doesOccur()) {
+        // OutdatedPaths outdatedPaths = new OutdatedPaths(dataDirectory);
+        //
+        // return;
+        // }
         // Set up the binary data file
 
         File file = new File(dataDirectory + "/" + OutdatedPaths.OUTDATED_DATA);
@@ -144,7 +151,8 @@ public class GenerateBirth {
                 }
                 String previous = outdatedPaths.getPreviousEnglish(xpath);
                 if (previous.isEmpty() != english.emptyPrevious.contains(xpath)) {
-                    System.out.println("previous.isEmpty() != original" + locale + "\t" + StringId.getId(xpath) + "\t" + xpath);
+                    System.out.println("previous.isEmpty() != original" + locale + "\t" + StringId.getId(xpath) + "\t"
+                        + xpath);
                     needPrevious.add(xpath);
                     ++errorCount;
                 }
@@ -157,10 +165,9 @@ public class GenerateBirth {
         }
     }
 
-
     static class Births {
         final Relation<Versions, String> birthToPaths;
-        final Map<String, Row.R3<Versions,String,String>> pathToBirthCurrentPrevious;
+        final Map<String, Row.R3<Versions, String, String>> pathToBirthCurrentPrevious;
         final String locale;
         static final Pattern TYPE = Pattern.compile("\\[@type=\"([^\"]*)\"");
         final Matcher typeMatcher = TYPE.matcher("");
@@ -196,12 +203,11 @@ public class GenerateBirth {
                         break;
                     }
                 }
-                Versions version = VERSIONS[i-1];
+                Versions version = VERSIONS[i - 1];
                 birthToPaths.put(version, xpath);
                 pathToBirthCurrentPrevious.put(xpath, Row.of(version, base, previousValue));
             }
         }
-
 
         private String fixNullPrevious(String xpath) {
             if (typeMatcher.reset(xpath).find()) {
@@ -210,7 +216,7 @@ public class GenerateBirth {
                     return type.replace("_", " ");
                 } else if (xpath.contains("zone")) {
                     String[] splits = type.split("/");
-                    return splits[splits.length-1].replace("_", " ");
+                    return splits[splits.length - 1].replace("_", " ");
                 }
                 return type;
             }
@@ -273,22 +279,22 @@ public class GenerateBirth {
                         if (version.compareTo(onlyNewerVersion) <= 0) {
                             continue;
                         }
-                        otherValue = fixNull(otherInfo.get1());   
+                        otherValue = fixNull(otherInfo.get1());
                         olderOtherValue = fixNull(otherInfo.get2());
                         newer.add(xpath);
                     }
                     String value = fixNull(info.get1());
                     String olderValue = fixNull(info.get2());
 
-                    out.println(locale 
-                            + "\t" + version 
-                            + "\t" + value
-                            + "\t" + olderValue
-                            + "\t" + onlyNewerVersion 
-                            + "\t" + otherValue 
-                            + "\t" + olderOtherValue 
-                            + "\t" + xpath 
-                    );
+                    out.println(locale
+                        + "\t" + version
+                        + "\t" + value
+                        + "\t" + olderValue
+                        + "\t" + onlyNewerVersion
+                        + "\t" + otherValue
+                        + "\t" + olderOtherValue
+                        + "\t" + xpath
+                        );
 
                 }
             }

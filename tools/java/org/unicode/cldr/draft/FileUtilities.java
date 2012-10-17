@@ -24,8 +24,11 @@ public final class FileUtilities {
 
     public static abstract class SemiFileReader extends FileProcessor {
         public final static Pattern SPLIT = Pattern.compile("\\s*;\\s*");
+
         protected abstract boolean handleLine(int lineCount, int start, int end, String[] items);
-        protected void handleEnd() {}
+
+        protected void handleEnd() {
+        }
 
         protected boolean isCodePoint() {
             return true;
@@ -34,7 +37,7 @@ public final class FileUtilities {
         protected String[] splitLine(String line) {
             return SPLIT.split(line);
         }
-        
+
         @Override
         protected boolean handleLine(int lineCount, String line) {
             String[] parts = splitLine(line);
@@ -43,8 +46,8 @@ public final class FileUtilities {
                 String source = parts[0];
                 int range = source.indexOf("..");
                 if (range >= 0) {
-                    start = Integer.parseInt(source.substring(0,range),16);
-                    end = Integer.parseInt(source.substring(range+2),16);
+                    start = Integer.parseInt(source.substring(0, range), 16);
+                    end = Integer.parseInt(source.substring(range + 2), 16);
                 } else {
                     start = end = Integer.parseInt(source, 16);
                 }
@@ -54,13 +57,16 @@ public final class FileUtilities {
             return handleLine(lineCount, start, end, parts);
         }
     }
-    
+
     public static class FileProcessor {
         private int lineCount;
 
-        protected void handleStart() {}
+        protected void handleStart() {
+        }
+
         /**
          * Return false to abort
+         * 
          * @param lineCount
          * @param line
          * @return
@@ -68,11 +74,14 @@ public final class FileUtilities {
         protected boolean handleLine(int lineCount, String line) {
             return true;
         }
-        protected void handleEnd() {}
+
+        protected void handleEnd() {
+        }
 
         public int getLineCount() {
             return lineCount;
         }
+
         public void handleComment(String line, int commentCharPosition) {
         }
 
@@ -90,7 +99,7 @@ public final class FileUtilities {
             try {
                 FileInputStream fileStream = new FileInputStream(directory + "/" + fileName);
                 InputStreamReader reader = new InputStreamReader(fileStream, FileUtilities.UTF8);
-                BufferedReader bufferedReader = new BufferedReader(reader,1024*64);
+                BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);
             } catch (Exception e) {
                 throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
@@ -102,7 +111,7 @@ public final class FileUtilities {
             String line = null;
             lineCount = 1;
             try {
-                for (; ; ++lineCount) {
+                for (;; ++lineCount) {
                     line = in.readLine();
                     if (line == null) {
                         break;
@@ -110,7 +119,7 @@ public final class FileUtilities {
                     int comment = line.indexOf("#");
                     if (comment >= 0) {
                         handleComment(line, comment);
-                        line = line.substring(0,comment);
+                        line = line.substring(0, comment);
                     }
                     if (line.startsWith("\uFEFF")) {
                         line = line.substring(1);
@@ -133,41 +142,41 @@ public final class FileUtilities {
     }
 
     //
-    //  public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName, SemiFileReader handler) {
-    //    return handler.process(classLocation, fileName);
-    //  }
+    // public static SemiFileReader fillMapFromSemi(Class classLocation, String fileName, SemiFileReader handler) {
+    // return handler.process(classLocation, fileName);
+    // }
     public static BufferedReader openFile(Class<?> class1, String file) {
         return openFile(class1, file, FileUtilities.UTF8);
     }
-    
+
     public static BufferedReader openFile(Class<?> class1, String file, Charset charset) {
-        //URL path = null;
-        //String externalForm = null;
+        // URL path = null;
+        // String externalForm = null;
         try {
-            //      //System.out.println("Reading:\t" + file1.getCanonicalPath());
-            //      path = class1.getResource(file);
-            //      externalForm = path.toExternalForm();
-            //      if (externalForm.startsWith("file:")) {
-            //        externalForm = externalForm.substring(5);
-            //      }
-            //      File file1 = new File(externalForm);
-            //      boolean x = file1.canRead();
-            //      final InputStream resourceAsStream = new FileInputStream(file1);
+            // //System.out.println("Reading:\t" + file1.getCanonicalPath());
+            // path = class1.getResource(file);
+            // externalForm = path.toExternalForm();
+            // if (externalForm.startsWith("file:")) {
+            // externalForm = externalForm.substring(5);
+            // }
+            // File file1 = new File(externalForm);
+            // boolean x = file1.canRead();
+            // final InputStream resourceAsStream = new FileInputStream(file1);
             final InputStream resourceAsStream = class1.getResourceAsStream(file);
-            //String foo = class1.getResource(".").toString();
+            // String foo = class1.getResource(".").toString();
             if (charset == null) {
                 charset = UTF8;
             }
             InputStreamReader reader = new InputStreamReader(resourceAsStream, charset);
-            BufferedReader bufferedReader = new BufferedReader(reader,1024*64);
+            BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
             return bufferedReader;
         } catch (Exception e) {
-            throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: " 
-                    + (class1 == null ? null : class1.getCanonicalName())
-                    , e); 
+            throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
+                + (class1 == null ? null : class1.getCanonicalName())
+                , e);
         }
     }
-    
+
     public static BufferedReader openFile(String directory, String file, Charset charset) {
         try {
             return new BufferedReader(new InputStreamReader(new FileInputStream(new File(directory, file)), charset));
@@ -192,8 +201,8 @@ public final class FileUtilities {
         boolean inQuote = false;
         for (int i = 0; i < line.length(); ++i) {
             char ch = line.charAt(i); // don't worry about supplementaries
-            switch(ch) {
-            case '"': 
+            switch (ch) {
+            case '"':
                 inQuote = !inQuote;
                 // at start or end, that's enough
                 // if get a quote when we are not in a quote, and not at start, then add it and return to inQuote
@@ -223,14 +232,16 @@ public final class FileUtilities {
         appendFile(class1, filename, FileUtilities.UTF8, null, out);
     }
 
-    public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList, PrintWriter out) {
+    public static void appendFile(Class<?> class1, String filename, Charset charset, String[] replacementList,
+        PrintWriter out) {
         try {
-            com.ibm.icu.dev.util.FileUtilities.appendBufferedReader(openFile(class1, filename, charset), out, replacementList); // closes file
+            com.ibm.icu.dev.util.FileUtilities.appendBufferedReader(openFile(class1, filename, charset), out,
+                replacementList); // closes file
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // wrap darn'd checked exception
         }
     }
-    
+
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory) {
         copyFile(class1, sourceFile, targetDirectory, sourceFile);
     }
@@ -253,73 +264,78 @@ public final class FileUtilities {
         } else if (resourceString.startsWith("jar:file:")) {
             return resourceString.substring(9);
         } else {
-          throw new IllegalArgumentException("File not found: " + resourceString);
+            throw new IllegalArgumentException("File not found: " + resourceString);
         }
     }
-    
+
     /**
      * Simple API to iterate over file lines. Example:
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
+     * 
      * @author markdavis
-     *
+     * 
      */
     public static Iterable<String> in(Class<?> class1, String file) {
         return With.in(new FileLines(openFile(class1, file, UTF8)));
     }
-    
+
     /**
      * Simple API to iterate over file lines. Example:
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
+     * 
      * @author markdavis
-     *
+     * 
      */
     public static Iterable<String> in(Class<?> class1, String file, Charset charset) {
         return With.in(new FileLines(openFile(class1, file, charset)));
     }
-    
+
     /**
      * Simple API to iterate over file lines. Example:
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
+     * 
      * @author markdavis
-     *
+     * 
      */
     public static Iterable<String> in(String directory, String file) {
         return With.in(new FileLines(openFile(directory, file, UTF8)));
     }
-    
+
     /**
      * Simple API to iterate over file lines. Example:
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
+     * 
      * @author markdavis
-     *
+     * 
      */
     public static Iterable<String> in(BufferedReader reader) {
         return With.in(new FileLines(reader));
     }
-    
+
     /**
      * Simple API to iterate over file lines. Example:
      * for (String s : FileUtilities.in(directory,name)) {
      * ...
      * }
+     * 
      * @author markdavis
-     *
+     * 
      */
     public static Iterable<String> in(String directory, String file, Charset charset) {
         return With.in(new FileLines(openFile(directory, file, charset)));
     }
-    
-    private static class FileLines implements SimpleIterator<String>{
+
+    private static class FileLines implements SimpleIterator<String> {
         private BufferedReader input;
-        
+
         public FileLines(BufferedReader input) {
             this.input = input;
         }
@@ -336,20 +352,20 @@ public final class FileUtilities {
                 throw new IllegalArgumentException(e); // handle dang'd checked exception
             }
         }
-        
+
     }
-    
+
     public static String cleanLine(String line) {
         int comment = line.indexOf("#");
         if (comment >= 0) {
-            line = line.substring(0,comment);
+            line = line.substring(0, comment);
         }
         if (line.startsWith("\uFEFF")) {
             line = line.substring(1);
         }
         return line.trim();
     }
-    
+
     public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*");
     private static final boolean SHOW_SKIP = false;
 
@@ -357,10 +373,11 @@ public final class FileUtilities {
         line = cleanLine(line);
         return line.isEmpty() ? null : SEMI_SPLIT.split(line);
     }
-    
+
     public interface LineHandler {
         /**
          * Return false if line was skipped
+         * 
          * @param line
          * @return
          */
@@ -380,7 +397,7 @@ public final class FileUtilities {
                 }
             } catch (Exception e) {
                 throw (RuntimeException) new IllegalArgumentException("Problem with line: " + line)
-                .initCause(e);
+                    .initCause(e);
             }
         }
         in.close();

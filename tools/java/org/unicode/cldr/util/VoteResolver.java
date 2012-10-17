@@ -39,7 +39,8 @@ import com.ibm.icu.util.ULocale;
  *     { 222, new VoterInfo(Organization.adobe, Level.expert, &quot;A. Aldus&quot;) },
  *     { 111, new VoterInfo(Organization.ibm, Level.street, &quot;J. Henry&quot;) }, }));
  * 
- * // you can create a resolver and keep it around. It isn't thread-safe, so either have a separate one per thread (they are small), or synchronize.
+ * // you can create a resolver and keep it around. It isn't thread-safe, so either have a separate one per thread (they
+ * // are small), or synchronize.
  * VoteResolver resolver = new VoteResolver();
  * 
  * // For any particular base path, set the values
@@ -58,7 +59,7 @@ import com.ibm.icu.util.ULocale;
  * </pre>
  */
 public class VoteResolver<T> {
-    private static final boolean           DEBUG                      = false;
+    private static final boolean DEBUG = false;
 
     /**
      * The status levels according to the committee, in ascending order
@@ -70,16 +71,21 @@ public class VoteResolver<T> {
         }
     }
 
-    private final static Set<String> ESTABLISHED_LOCALES = Collections.unmodifiableSet(new HashSet(Arrays.asList(
-        "ar bg bn ca cs da de el es fi fr he hi hr hu it ja ko ml nb nl pl pt pt_PT ro ru sk sl sr sv th tu uk vi zh zh_Hant"
-        .split(" "))));
+    private final static Set<String> ESTABLISHED_LOCALES = Collections
+        .unmodifiableSet(new HashSet(
+            Arrays
+                .asList(
+                "ar bg bn ca cs da de el es fi fr he hi hr hu it ja ko ml nb nl pl pt pt_PT ro ru sk sl sr sv th tu uk vi zh zh_Hant"
+                    .split(" "))));
 
     /**
      * This list needs updating as a new organizations are added; that's by design
      * so that we know when new ones show up.
      */
     public enum Organization {
-        // adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
+        // adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra,
+        // kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika,
+        // wikimedia, yahoo;
         adobe, afrigen, apple, bhutan, breton, cherokee, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
 
         public static Organization fromString(String name) {
@@ -101,7 +107,7 @@ public class VoteResolver<T> {
      * weight.
      */
     public enum Level {
-        locked(0,999), street(1,10), vetter(4,5), expert(8,3), manager(4,2), tc(8,1), admin(100,0);
+        locked(0, 999), street(1, 10), vetter(4, 5), expert(8, 3), manager(4, 2), tc(8, 1), admin(100, 0);
         private int votes;
         private int stlevel;
 
@@ -116,6 +122,7 @@ public class VoteResolver<T> {
         public int getVotes() {
             return votes;
         }
+
         /**
          * Get the Survey Tool userlevel for each level. (0=admin, 999=locked)
          */
@@ -125,12 +132,13 @@ public class VoteResolver<T> {
 
         /**
          * Find the Level, given ST Level
+         * 
          * @param stlevel
          * @return
          */
         public static Level fromSTLevel(int stlevel) {
-            for(Level l: Level.values()) {
-                if(l.getSTLevel()==stlevel) {
+            for (Level l : Level.values()) {
+                if (l.getSTLevel() == stlevel) {
                     return l;
                 }
             }
@@ -139,38 +147,38 @@ public class VoteResolver<T> {
 
         /**
          * Policy: can this user manage the "other" user's settings?
-         * @param myOrg the current organization
-         * @param otherLevel the other user's level
-         * @param otherOrg the other user's organization
-         * @return 
+         * 
+         * @param myOrg
+         *            the current organization
+         * @param otherLevel
+         *            the other user's level
+         * @param otherOrg
+         *            the other user's organization
+         * @return
          */
         public boolean isManagerFor(Organization myOrg, Level otherLevel, Organization otherOrg) {
-            return(this==admin ||
-                (
-                    canManageSomeUsers() &&
-                    (myOrg==otherOrg) &&
-                    this.getSTLevel()<=otherLevel.getSTLevel()
-                    ));
+            return (this == admin || (canManageSomeUsers() &&
+                (myOrg == otherOrg) && this.getSTLevel() <= otherLevel.getSTLevel()));
         }
 
         /**
          * Policy: Can this user manage any users?
-         * @return 
+         * 
+         * @return
          */
         public boolean canManageSomeUsers() {
-            return this.getSTLevel()<=manager.getSTLevel();
+            return this.getSTLevel() <= manager.getSTLevel();
         }
 
         /**
          * Policy: can this user create or set a user to the specified level?
          */
         public boolean canCreateOrSetLevelTo(Level otherLevel) {
-            return (this==admin) || // admin can set any level
-                (otherLevel!=expert &&  // expert can't be set by any users but admin
-                canManageSomeUsers()&& // must be some sort of manager
-                otherLevel.getSTLevel()>=getSTLevel()); // can't gain higher privs
+            return (this == admin) || // admin can set any level
+                (otherLevel != expert && // expert can't be set by any users but admin
+                    canManageSomeUsers() && // must be some sort of manager
+                otherLevel.getSTLevel() >= getSTLevel()); // can't gain higher privs
         }
-
 
     };
 
@@ -179,10 +187,9 @@ public class VoteResolver<T> {
      */
     public static class VoterInfo {
         private Organization organization;
-        private Level        level;
-        private String       name;
-        private Set<String>  locales = new TreeSet<String>();
-
+        private Level level;
+        private String name;
+        private Set<String> locales = new TreeSet<String>();
 
         public VoterInfo(Organization organization, Level level, String name, Set<String> locales) {
             this.setOrganization(organization);
@@ -247,8 +254,9 @@ public class VoteResolver<T> {
 
     /**
      * MaxCounter: make sure that we are always only getting the maximum of the values.
+     * 
      * @author markdavis
-     *
+     * 
      * @param <T>
      */
     static class MaxCounter<T> extends Counter<T> {
@@ -274,10 +282,10 @@ public class VoteResolver<T> {
     private static class OrganizationToValueAndVote<T> {
         private Map<Organization, MaxCounter<T>> orgToVotes = new HashMap<Organization, MaxCounter<T>>();
         private Counter<T> totalVotes = new Counter<T>();
-        private Map<Organization, Integer>    orgToMax   = new HashMap<Organization, Integer>();
-        private Counter<T>                    totals     = new Counter<T>(true);
+        private Map<Organization, Integer> orgToMax = new HashMap<Organization, Integer>();
+        private Counter<T> totals = new Counter<T>(true);
         // map an organization to what it voted for.
-        private Map<Organization, T>          orgToAdd   = new HashMap<Organization, T>();
+        private Map<Organization, T> orgToAdd = new HashMap<Organization, T>();
 
         OrganizationToValueAndVote() {
             for (Organization org : Organization.values()) {
@@ -303,6 +311,7 @@ public class VoteResolver<T> {
 
         /**
          * Returns value of voted item, in case there is exactly 1.
+         * 
          * @return
          */
         public T getSingleVotedItem() {
@@ -332,7 +341,8 @@ public class VoteResolver<T> {
 
         /**
          * Return the overall vote for each organization. It is the max for each value.
-         * When the organization is conflicted (the top two values have the same vote), the organization is also added to disputed
+         * When the organization is conflicted (the top two values have the same vote), the organization is also added
+         * to disputed
          */
         public Counter<T> getTotals(EnumSet<Organization> conflictedOrganizations) {
             if (conflictedOrganizations != null) {
@@ -393,7 +403,7 @@ public class VoteResolver<T> {
 
         public String toString() {
             String orgToVotesString = "";
-            for (Organization org: orgToVotes.keySet()) {
+            for (Organization org : orgToVotes.keySet()) {
                 Counter<T> counter = orgToVotes.get(org);
                 if (counter.size() != 0) {
                     if (orgToVotesString.length() != 0) {
@@ -403,11 +413,13 @@ public class VoteResolver<T> {
                 }
             }
             EnumSet<Organization> conflicted = EnumSet.noneOf(Organization.class);
-            return "{orgToVotes: " + orgToVotesString + ", totals: " + getTotals(conflicted) + ", conflicted: " + conflicted + "}";
+            return "{orgToVotes: " + orgToVotesString + ", totals: " + getTotals(conflicted) + ", conflicted: "
+                + conflicted + "}";
         }
 
         /**
          * This is now deprecated, since the organization may have multiple votes.
+         * 
          * @param org
          * @return
          * @deprecated
@@ -416,8 +428,8 @@ public class VoteResolver<T> {
             return orgToAdd.get(org);
         }
 
-        public Map<T,Long> getOrgToVotes(Organization org) {
-            Map<T,Long> result = new LinkedHashMap();
+        public Map<T, Long> getOrgToVotes(Organization org) {
+            Map<T, Long> result = new LinkedHashMap();
             MaxCounter<T> counter = orgToVotes.get(org);
             for (T item : counter) {
                 result.put(item, counter.getCount(item));
@@ -436,30 +448,31 @@ public class VoteResolver<T> {
     /**
      * Data built internally
      */
-    private T                                                winningValue;
-    private T                                                oValue; // optimal value; winning if better approval status than old
-    private T                                                nValue; // next to optimal value
-    private List<T>                                          valuesWithSameVotes = new ArrayList<T>();
-    private Counter<T>                                        totals = null;
+    private T winningValue;
+    private T oValue; // optimal value; winning if better approval status than old
+    private T nValue; // next to optimal value
+    private List<T> valuesWithSameVotes = new ArrayList<T>();
+    private Counter<T> totals = null;
 
-    private Status                                           winningStatus;
-    private EnumSet<Organization>                            conflictedOrganizations    = EnumSet
+    private Status winningStatus;
+    private EnumSet<Organization> conflictedOrganizations = EnumSet
         .noneOf(Organization.class);
-    private OrganizationToValueAndVote<T>                    organizationToValueAndVote = new OrganizationToValueAndVote<T>();
-    private T                                                lastReleaseValue;
-    private Status                                           lastReleaseStatus;
-    private T                                                trunkValue;
-    private Status                                           trunkStatus;
+    private OrganizationToValueAndVote<T> organizationToValueAndVote = new OrganizationToValueAndVote<T>();
+    private T lastReleaseValue;
+    private Status lastReleaseStatus;
+    private T trunkValue;
+    private Status trunkStatus;
 
-    private boolean                                          resolved;
-    private boolean                                          isEstablished;
+    private boolean resolved;
+    private boolean isEstablished;
 
     private final Comparator<T> ucaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
+
         public int compare(T o1, T o2) {
             // TODO Auto-generated method stub
             return col.compare(String.valueOf(o1), String.valueOf(o2));
-        }   
+        }
     };
 
     /**
@@ -485,7 +498,6 @@ public class VoteResolver<T> {
         return lastReleaseValue;
     }
 
-
     public Status getLastReleaseStatus() {
         return lastReleaseStatus;
     }
@@ -496,10 +508,11 @@ public class VoteResolver<T> {
 
     public Status getTrunkStatus() {
         return trunkStatus;
-    }   
+    }
 
     /**
      * You must call this locale whenever you are using a VoteResolver with a new locale.
+     * 
      * @param locale
      * @return
      */
@@ -507,8 +520,10 @@ public class VoteResolver<T> {
         isEstablished = ESTABLISHED_LOCALES.contains(new LanguageTagParser().set(locale).getLanguage());
         return this;
     }
+
     /**
      * You must call this locale whenever you are using a VoteResolver with a new locale.
+     * 
      * @param locale
      * @return
      */
@@ -538,6 +553,7 @@ public class VoteResolver<T> {
 
     /**
      * Call once for each voter for a value. If there are no voters for an item, then call add(value);
+     * 
      * @param value
      * @param voter
      */
@@ -551,6 +567,7 @@ public class VoteResolver<T> {
 
     /**
      * Call if a value has no voters. It is safe to also call this if there is a voter, just unnecessary.
+     * 
      * @param value
      * @param voter
      */
@@ -565,6 +582,7 @@ public class VoteResolver<T> {
 
     private final Comparator<T> votesThenUcaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
+
         public int compare(T o1, T o2) {
             long v1 = organizationToValueAndVote.totalVotes.get(o1);
             long v2 = organizationToValueAndVote.totalVotes.get(o2);
@@ -572,9 +590,8 @@ public class VoteResolver<T> {
                 return v1 < v2 ? 1 : -1; // use reverse order, biggest first!
             }
             return col.compare(String.valueOf(o1), String.valueOf(o2));
-        }   
+        }
     };
-
 
     private void resolveVotes() {
         resolved = true;
@@ -602,7 +619,7 @@ public class VoteResolver<T> {
         // get the optimal value, and the penoptimal value
         long weight1 = 0;
         long weight2 = 0;
-        T    value2 = null;
+        T value2 = null;
         int i = -1;
         for (T value : sortedValues) {
             ++i;
@@ -641,14 +658,14 @@ public class VoteResolver<T> {
 
     private Status computeStatus(long weight1, long weight2, Status oldStatus) {
         int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
-        return weight1 > weight2 && 
-            (weight1 >= 8 
+        return weight1 > weight2 &&
+            (weight1 >= 8
             || (weight1 >= 4 && !isEstablished)) ? Status.approved
-                : weight1 > weight2 && 
+            : weight1 > weight2 &&
                 (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
                 || weight1 >= 2 && orgCount >= 2) ? Status.contributed
-                    : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
-                        : Status.unconfirmed;
+                : weight1 >= weight2 && weight1 >= 2 ? Status.provisional
+                    : Status.unconfirmed;
     }
 
     public Status getPossibleWinningStatus() {
@@ -662,6 +679,7 @@ public class VoteResolver<T> {
     /**
      * If the winning item is not approved, and if all the people who voted had voted for the winning item,
      * would it have made contributed or approved?
+     * 
      * @return
      */
     public boolean isDisputed() {
@@ -688,10 +706,11 @@ public class VoteResolver<T> {
     /**
      * Returns O Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
      * Not always the same as the Winning Value.
+     * 
      * @return
      */
     public T getOValue() {
-        if( !resolved) {
+        if (!resolved) {
             resolveVotes();
         }
         return oValue;
@@ -700,10 +719,11 @@ public class VoteResolver<T> {
     /**
      * Returns N Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
      * Not always the same as the Winning Value.
+     * 
      * @return
      */
     public T getNValue() {
-        if( !resolved) {
+        if (!resolved) {
             resolveVotes();
         }
         return nValue;
@@ -719,6 +739,7 @@ public class VoteResolver<T> {
     /**
      * Returns Winning Value as described in http://cldr.unicode.org/index/process#TOC-Voting-Process.
      * Not always the same as the O Value.
+     * 
      * @return
      */
     public T getWinningValue() {
@@ -744,6 +765,7 @@ public class VoteResolver<T> {
 
     /**
      * What value did this organization vote for?
+     * 
      * @param org
      * @return
      */
@@ -751,7 +773,7 @@ public class VoteResolver<T> {
         return organizationToValueAndVote.getOrgVote(org);
     }
 
-    public Map<T,Long> getOrgToVotes(Organization org) {
+    public Map<T, Long> getOrgToVotes(Organization org) {
         return organizationToValueAndVote.getOrgToVotes(org);
     }
 
@@ -761,9 +783,9 @@ public class VoteResolver<T> {
             + "trunk: {" + trunkValue + ", " + trunkStatus + "}, "
             + organizationToValueAndVote
             + ", sameVotes: " + valuesWithSameVotes
-            + ", O: " + getOValue() 
-            + ", N: " + getNValue() 
-            + ", totals: " + totals 
+            + ", O: " + getOValue()
+            + ", N: " + getNValue()
+            + ", totals: " + totals
             + ", winning: {" + getWinningValue() + ", " + getWinningStatus() + "}"
             + "}";
     }
@@ -802,9 +824,9 @@ public class VoteResolver<T> {
 
     /**
      * Set the voter info.
-     * <p>Synchronized, however, once this is called, you must
-     * NOT change the contents of your copy of testVoterToInfo. You can create a whole new one
-     * and set it.
+     * <p>
+     * Synchronized, however, once this is called, you must NOT change the contents of your copy of testVoterToInfo. You
+     * can create a whole new one and set it.
      */
     public static void setVoterToInfo(Map<Integer, VoterInfo> testVoterToInfo) {
         synchronized (VoteResolver.class) {
@@ -820,9 +842,9 @@ public class VoteResolver<T> {
 
     /**
      * Set the voter info from a users.xml file.
-     * <p>Synchronized, however, once this is called, you must
-     * NOT change the contents of your copy of testVoterToInfo. You can create a whole new one
-     * and set it.
+     * <p>
+     * Synchronized, however, once this is called, you must NOT change the contents of your copy of testVoterToInfo. You
+     * can create a whole new one and set it.
      */
     public static void setVoterToInfo(String fileName) {
         MyHandler myHandler = new MyHandler();
@@ -835,7 +857,7 @@ public class VoteResolver<T> {
 
     private static synchronized void computeMaxVotes() {
         // compute the localeToOrganizationToMaxVote
-        localeToOrganizationToMaxVote = new TreeMap<String, Map<Organization,Level>>();
+        localeToOrganizationToMaxVote = new TreeMap<String, Map<Organization, Level>>();
         for (int voter : getVoterToInfo().keySet()) {
             VoterInfo info = getVoterToInfo().get(voter);
             if (info.getLevel() == Level.tc || info.getLevel() == Level.locked) {
@@ -845,12 +867,14 @@ public class VoteResolver<T> {
             for (String locale : info.getLocales()) {
                 Map<Organization, Level> organizationToMaxVote = localeToOrganizationToMaxVote.get(locale);
                 if (organizationToMaxVote == null) {
-                    localeToOrganizationToMaxVote.put(locale, organizationToMaxVote = new TreeMap<Organization, Level>());
+                    localeToOrganizationToMaxVote.put(locale,
+                        organizationToMaxVote = new TreeMap<Organization, Level>());
                 }
                 Level maxVote = organizationToMaxVote.get(info.getOrganization());
                 if (maxVote == null || info.getLevel().compareTo(maxVote) > 0) {
                     organizationToMaxVote.put(info.getOrganization(), info.getLevel());
-                    // System.out.println("Example best voter for " + locale + " for " + info.organization + " is " + info);
+                    // System.out.println("Example best voter for " + locale + " for " + info.organization + " is " +
+                    // info);
                 }
             }
         }
@@ -868,8 +892,8 @@ public class VoteResolver<T> {
      * 
      * Steven's new format:
      * //users[@generated="Wed May 07 15:57:15 PDT 2008"][@host="tintin"][@obscured="true"]
-     *    /user[@id="286"][@email="?@??.??"]
-     *    /level[@n="1"][@type="TC"]
+     * /user[@id="286"][@email="?@??.??"]
+     * /level[@n="1"][@type="TC"]
      */
 
     static class MyHandler extends XMLFileReader.SimpleHandler {
@@ -880,19 +904,21 @@ public class VoteResolver<T> {
                     + "/("
                     + "org" +
                     "|name" +
-                    "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" + 
+                    "|level\\[@n=\"([^\"]*)\"]\\[@type=\"([^\"]*)\"]" +
                     "|locales\\[@type=\"([^\"]*)\"]" +
                     "(?:/locale\\[@id=\"([^\"]*)\"])?"
-                    + ")",Pattern.COMMENTS);
-        enum Group {all, userId, mainType, n, levelType, localeType, localeId;
-        String get(Matcher matcher) {
-            return matcher.group(this.ordinal());
-        };
+                    + ")", Pattern.COMMENTS);
+
+        enum Group {
+            all, userId, mainType, n, levelType, localeType, localeId;
+            String get(Matcher matcher) {
+                return matcher.group(this.ordinal());
+            };
         }
 
-        private static final boolean DEBUG_HANDLER           = false;
-        Map<Integer, VoterInfo>      testVoterToInfo = new TreeMap<Integer, VoterInfo>();
-        Matcher                      matcher         = userPathMatcher.matcher("");
+        private static final boolean DEBUG_HANDLER = false;
+        Map<Integer, VoterInfo> testVoterToInfo = new TreeMap<Integer, VoterInfo>();
+        Matcher matcher = userPathMatcher.matcher("");
 
         public void handlePathValue(String path, String value) {
             if (DEBUG_HANDLER)
@@ -934,7 +960,8 @@ public class VoteResolver<T> {
             }
         }
     }
-    public static Map<Integer,String> getIdToPath(String fileName) {
+
+    public static Map<Integer, String> getIdToPath(String fileName) {
         XPathTableHandler myHandler = new XPathTableHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
         xfr.read(fileName, XMLFileReader.CONTENT_HANDLER | XMLFileReader.ERROR_HANDLER, false);
@@ -943,11 +970,12 @@ public class VoteResolver<T> {
 
     static class XPathTableHandler extends XMLFileReader.SimpleHandler {
         Matcher matcher = Pattern.compile("id=\"([0-9]+)\"").matcher("");
-        Map<Integer,String> pathIdToPath = new HashMap<Integer,String>();
+        Map<Integer, String> pathIdToPath = new HashMap<Integer, String>();
 
         public void handlePathValue(String path, String value) {
-            // <xpathTable host="tintin.local" date="Tue Apr 29 14:34:32 PDT 2008"  count="18266" >
-            // <xpath id="1">//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]</xpath>
+            // <xpathTable host="tintin.local" date="Tue Apr 29 14:34:32 PDT 2008" count="18266" >
+            // <xpath
+            // id="1">//ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="short"]/dateFormat[@type="standard"]/pattern[@type="standard"]</xpath>
             if (!matcher.reset(path).find()) {
                 throw new IllegalArgumentException("Unknown path " + path);
             }
@@ -966,13 +994,16 @@ public class VoteResolver<T> {
         }
     }
 
-    public enum Type {proposal, optimal};
+    public enum Type {
+        proposal, optimal
+    };
 
     public static class CandidateInfo {
         public Status oldStatus;
         public Type surveyType;
         public Status surveyStatus;
         public Set<Integer> voters = new TreeSet<Integer>();
+
         public String toString() {
             StringBuilder voterString = new StringBuilder("{");
             for (int voter : voters) {
@@ -986,8 +1017,7 @@ public class VoteResolver<T> {
                 }
             }
             voterString.append("}");
-            return 
-                "{oldStatus: " + oldStatus
+            return "{oldStatus: " + oldStatus
                 + ", surveyType: " + surveyType
                 + ", surveyStatus: " + surveyStatus
                 + ", voters: " + voterString
@@ -998,19 +1028,19 @@ public class VoteResolver<T> {
     /*
      * <locale-votes host="tintin.local" date="Tue Apr 29 14:34:32 PDT 2008"
      * oldVersion="1.5.1" currentVersion="1.6" resolved="false" locale="zu">
-     *  <row baseXpath="1">
-     *    <item xpath="2855" type="proposal" id="1" status="unconfirmed">
-     *      <old status="unconfirmed"/>
-     *    </item>
-     *    <item xpath="1" type="optimal" id="56810" status="confirmed">
-     *      <vote user="210"/>
-     *    </item>
-     *  </row>
-     *  ...
+     * <row baseXpath="1">
+     * <item xpath="2855" type="proposal" id="1" status="unconfirmed">
+     * <old status="unconfirmed"/>
+     * </item>
+     * <item xpath="1" type="optimal" id="56810" status="confirmed">
+     * <vote user="210"/>
+     * </item>
+     * </row>
+     * ...
      * A base path has a set of candidates. Each candidate has various items of information.
      */
     static class VotesHandler extends XMLFileReader.SimpleHandler {
-        Map<Integer,Map<Integer,CandidateInfo>> basepathToInfo = new TreeMap<Integer,Map<Integer,CandidateInfo>>();
+        Map<Integer, Map<Integer, CandidateInfo>> basepathToInfo = new TreeMap<Integer, Map<Integer, CandidateInfo>>();
         XPathParts parts = new XPathParts();
 
         public void handlePathValue(String path, String value) {
@@ -1021,16 +1051,17 @@ public class VoteResolver<T> {
                     return;
                 }
                 int baseId = Integer.parseInt(parts.getAttributeValue(1, "baseXpath"));
-                Map<Integer,CandidateInfo> info = basepathToInfo.get(baseId);
+                Map<Integer, CandidateInfo> info = basepathToInfo.get(baseId);
                 if (info == null) {
-                    basepathToInfo.put(baseId, info = new TreeMap<Integer,CandidateInfo>());
+                    basepathToInfo.put(baseId, info = new TreeMap<Integer, CandidateInfo>());
                 }
                 int itemId = Integer.parseInt(parts.getAttributeValue(2, "xpath"));
                 CandidateInfo candidateInfo = info.get(itemId);
                 if (candidateInfo == null) {
                     info.put(itemId, candidateInfo = new CandidateInfo());
                     candidateInfo.surveyType = Type.valueOf(parts.getAttributeValue(2, "type"));
-                    candidateInfo.surveyStatus = Status.valueOf(fixBogusDraftStatusValues(parts.getAttributeValue(2, "status")));
+                    candidateInfo.surveyStatus = Status.valueOf(fixBogusDraftStatusValues(parts.getAttributeValue(2,
+                        "status")));
                     // ignore id
                 }
                 if (parts.size() < 4) {
@@ -1038,7 +1069,8 @@ public class VoteResolver<T> {
                 }
                 final String lastElement = parts.getElement(3);
                 if (lastElement.equals("old")) {
-                    candidateInfo.oldStatus = Status.valueOf(fixBogusDraftStatusValues(parts.getAttributeValue(3, "status")));
+                    candidateInfo.oldStatus = Status.valueOf(fixBogusDraftStatusValues(parts.getAttributeValue(3,
+                        "status")));
                 } else if (lastElement.equals("vote")) {
                     candidateInfo.voters.add(Integer.parseInt(parts.getAttributeValue(3, "user")));
                 } else {
@@ -1050,6 +1082,7 @@ public class VoteResolver<T> {
         }
 
     }
+
     public static Map<Organization, Level> getOrganizationToMaxVote(String locale) {
         locale = locale.split("_")[0]; // take base language
         Map<Organization, Level> result = localeToOrganizationToMaxVote.get(locale);
@@ -1058,7 +1091,6 @@ public class VoteResolver<T> {
         }
         return result;
     }
-
 
     public static Map<Organization, Level> getOrganizationToMaxVote(Set<Integer> voters) {
         Map<Organization, Level> orgToMaxVoteHere = new TreeMap<Organization, Level>();
@@ -1070,7 +1102,7 @@ public class VoteResolver<T> {
             Level maxVote = orgToMaxVoteHere.get(info.getOrganization());
             if (maxVote == null || info.getLevel().compareTo(maxVote) > 0) {
                 orgToMaxVoteHere.put(info.getOrganization(), info.getLevel());
-                //System.out.println("*Best voter for " + info.organization + " is " + info);
+                // System.out.println("*Best voter for " + info.organization + " is " + info);
             }
         }
         return orgToMaxVoteHere;
@@ -1078,24 +1110,27 @@ public class VoteResolver<T> {
 
     public static class UnknownVoterException extends RuntimeException {
         int voter;
+
         public UnknownVoterException(int voter) {
             this.voter = voter;
         }
+
         public String toString() {
             return "Unknown voter: " + voter;
         }
+
         public int getVoter() {
             return voter;
         }
     }
+
     public static String fixBogusDraftStatusValues(String attributeValue) {
-        if(attributeValue==null) return "approved";
+        if (attributeValue == null) return "approved";
         if ("confirmed".equals(attributeValue)) return "approved";
         if ("true".equals(attributeValue)) return "unconfirmed";
         if ("unknown".equals(attributeValue)) return "unconfirmed";
         return attributeValue;
     }
-
 
     public int size() {
         return values.size();
@@ -1105,13 +1140,14 @@ public class VoteResolver<T> {
      * Returns a map from value to resolved vote count, in descending order.
      * If the winning item is not there, insert at the front.
      * If the last-release item is not there, insert at the end.
+     * 
      * @return
      */
     public Map<T, Long> getResolvedVoteCounts() {
         if (!resolved) {
             resolveVotes();
         }
-        Map<T,Long> result = new LinkedHashMap<T,Long>();
+        Map<T, Long> result = new LinkedHashMap<T, Long>();
         if (winningValue != null && !totals.containsKey(winningValue)) {
             result.put(winningValue, 0l);
         }
@@ -1131,7 +1167,7 @@ public class VoteResolver<T> {
 
         T win = getWinningValue();
         Status winStatus = getWinningStatus();
-        boolean provisionalOrWorse = Status.provisional.compareTo(winStatus)>=0;
+        boolean provisionalOrWorse = Status.provisional.compareTo(winStatus) >= 0;
 
         T orgVote = orgOfUser == null ? null : getOrgVote(orgOfUser);
         // get the number of other values with votes.
@@ -1142,19 +1178,19 @@ public class VoteResolver<T> {
             // We voted and lost
             return VoteStatus.losing;
         } else if (itemsWithVotes > 1) {
-            //  If there are votes for two items, we should look at them.
+            // If there are votes for two items, we should look at them.
             return VoteStatus.disputed;
         } else if (singleVotedItem != null && !win.equals(singleVotedItem)) {
-            //  If someone voted but didn't win
+            // If someone voted but didn't win
             return VoteStatus.disputed;
         } else if (provisionalOrWorse) {
-            //  If the value is provisional, it needs more votes.
-            return VoteStatus.provisionalOrWorse;          
+            // If the value is provisional, it needs more votes.
+            return VoteStatus.provisionalOrWorse;
         } else if (itemsWithVotes == 0) {
-            //  The value is ok, but we capture that there are no votes, for revealing items like unsync'ed
+            // The value is ok, but we capture that there are no votes, for revealing items like unsync'ed
             return VoteStatus.ok_novotes;
         } else {
-            //  We voted, we won, value is approved, no disputes, have votes
+            // We voted, we won, value is approved, no disputes, have votes
             return VoteStatus.ok;
         }
     }

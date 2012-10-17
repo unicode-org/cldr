@@ -33,7 +33,7 @@ public class LocaleReplacements {
      */
     static Map<String, Map<String, Row.R2<Set<String>, String>>> type2item2replacementAndReason = new HashMap();
     static Map<String, Relation<String, Row.R2<String, Set<String>>>> type2reason2itemAndreplacement = new TreeMap();
-    static Relation<String,String> fixed = Relation.of(new TreeMap<String,Set<String>>(), LinkedHashSet.class);
+    static Relation<String, String> fixed = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
 
     public String get(String old, Output<String> reason) {
         reason.value = null;
@@ -67,13 +67,12 @@ public class LocaleReplacements {
             addType2item2reasonNreplacement("language", alpha3, lang, "overlong", false);
         }
         /*
-         *                 return IsoRegionData.get_alpha3(region);
-            }
-        });
-        addRegions(english, territories, "AC,CP,DG,EA,EU,IC,TA".split(","), new Transform<String,String>() {
-            public String transform(String region) {
-                return IsoRegionData.getNumeric(region);
-
+         * return IsoRegionData.get_alpha3(region);
+         * }
+         * });
+         * addRegions(english, territories, "AC,CP,DG,EA,EU,IC,TA".split(","), new Transform<String,String>() {
+         * public String transform(String region) {
+         * return IsoRegionData.getNumeric(region);
          */
         Set<String> available2 = IsoRegionData.getAvailable();
 
@@ -100,7 +99,7 @@ public class LocaleReplacements {
         for (Entry<String, Map<String, R2<Set<String>, String>>> entry : type2item2replacementAndReason.entrySet()) {
             String type = entry.getKey();
             final Map<String, R2<Set<String>, String>> item2replacementAndReason = entry.getValue();
-            while(true) {
+            while (true) {
                 boolean keepGoing = false;
                 for (Entry<String, R2<Set<String>, String>> entry2 : item2replacementAndReason.entrySet()) {
                     String item = entry2.getKey();
@@ -139,9 +138,13 @@ public class LocaleReplacements {
                 Set<String> replacements = replacementAndReason.get0();
                 String reason = replacementAndReason.get1();
 
-                Relation<String, R2<String, Set<String>>> reason2item2replacement = type2reason2itemAndreplacement.get(type);
+                Relation<String, R2<String, Set<String>>> reason2item2replacement = type2reason2itemAndreplacement
+                    .get(type);
                 if (reason2item2replacement == null) {
-                    type2reason2itemAndreplacement.put(type, reason2item2replacement = Relation.of(new TreeMap<String,Set<R2<String, Set<String>>>>(), TreeSet.class));
+                    type2reason2itemAndreplacement.put(
+                        type,
+                        reason2item2replacement = Relation.of(new TreeMap<String, Set<R2<String, Set<String>>>>(),
+                            TreeSet.class));
                 }
                 reason2item2replacement.put(reason, Row.of(item, replacements));
             }
@@ -154,13 +157,14 @@ public class LocaleReplacements {
             addType2item2reasonNreplacement(parts[0], parts[2], parts[1], "", true);
             return;
         }
-        // language    macrolanguage   bxk luy
+        // language macrolanguage bxk luy
         for (int i = 3; i < parts.length; ++i) {
             addType2item2reasonNreplacement(parts[0], parts[2], parts[i], parts[1], true);
         }
     }
 
-    private static void addType2item2reasonNreplacement(String type, String key, String preferredValue, String reason, boolean ignoreDuplicates) {
+    private static void addType2item2reasonNreplacement(String type, String key, String preferredValue, String reason,
+        boolean ignoreDuplicates) {
         if (key == null) {
             return;
         }
@@ -182,7 +186,7 @@ public class LocaleReplacements {
         R2<Set<String>, String> oldReplacementAndReason = item2replacementAndReason.get(key);
         if (oldReplacementAndReason != null) {
             final String message = "duplicateReplacement\t" + type + "\t" + key + "\told: "
-            + oldReplacementAndReason + "\tnew:" + preferredValue + ", " + reason;
+                + oldReplacementAndReason + "\tnew:" + preferredValue + ", " + reason;
             if (!ignoreDuplicates) {
                 throw new IllegalArgumentException(message);
             } else {
@@ -200,7 +204,8 @@ public class LocaleReplacements {
     }
 
     public static void main(String[] args) {
-        Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo = SupplementalDataInfo.getInstance().getLocaleAliasInfo();
+        Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo = SupplementalDataInfo.getInstance()
+            .getLocaleAliasInfo();
 
         Set<String> newStuff = new TreeSet<String>();
         Set<String> oldStuff = new TreeSet<String>();
@@ -211,8 +216,9 @@ public class LocaleReplacements {
                 R2<String, Set<String>> replacementAndReason = entry2.getValue();
                 String key = replacementAndReason.get0();
                 Set<String> replacements = replacementAndReason.get1();
-                final String message = type + "\t" + reason + "\t" + key + "\t" + CollectionUtilities.join(replacements, " ");
-                //System.out.println(message);
+                final String message = type + "\t" + reason + "\t" + key + "\t"
+                    + CollectionUtilities.join(replacements, " ");
+                // System.out.println(message);
                 newStuff.add(message);
             }
         }
@@ -228,22 +234,22 @@ public class LocaleReplacements {
                 List<String> replacements = replacementAndReason.get0();
                 String reason = replacementAndReason.get1();
                 oldStuff.add(type + "\t" + reason + "\t" + item
-                        + "\t" + (replacements == null ? "": CollectionUtilities.join(replacements, " ")));
+                    + "\t" + (replacements == null ? "" : CollectionUtilities.join(replacements, " ")));
             }
         }
-        Set<Row.R2<String,String>> merged = new TreeSet<Row.R2<String,String>>();
+        Set<Row.R2<String, String>> merged = new TreeSet<Row.R2<String, String>>();
 
         Set<String> oldNotNew = Builder.with(new TreeSet<String>(oldStuff)).removeAll(newStuff).get();
         Set<String> newNotOld = Builder.with(new TreeSet<String>(newStuff)).removeAll(oldStuff).get();
         Set<String> shared = Builder.with(new TreeSet<String>(oldStuff)).retainAll(newStuff).get();
-//        for (String s : shared) {
-//            merged.add(Row.of(s,"\tSAME"));
-//        }
+        // for (String s : shared) {
+        // merged.add(Row.of(s,"\tSAME"));
+        // }
         for (String s : oldNotNew) {
-            merged.add(Row.of(s,"\tOLD"));
+            merged.add(Row.of(s, "\tOLD"));
         }
         for (String s : newNotOld) {
-            merged.add(Row.of(s,"\tNEW"));
+            merged.add(Row.of(s, "\tNEW"));
         }
         int i = 0;
         for (R2<String, String> s : merged) {

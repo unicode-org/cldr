@@ -45,25 +45,29 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public void TestAliases() {
         Map<String, Map<String, Map<String, String>>> bcp47Data = testInfo.getStandardCodes().getLStreg();
-        Map<String, Map<String, R2<List<String>, String>>> aliases = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
+        Map<String, Map<String, R2<List<String>, String>>> aliases = testInfo.getSupplementalDataInfo()
+            .getLocaleAliasInfo();
 
         for (Entry<String, Map<String, R2<List<String>, String>>> typeMap : aliases.entrySet()) {
             String type = typeMap.getKey();
             Map<String, R2<List<String>, String>> codeReplacement = typeMap.getValue();
 
-            Map<String, Map<String, String>> bcp47DataTypeData = bcp47Data.get(type.equals("territory") ? "region" : type);
+            Map<String, Map<String, String>> bcp47DataTypeData = bcp47Data.get(type.equals("territory") ? "region"
+                : type);
             if (bcp47DataTypeData == null) {
                 logln("skipping BCP47 test for " + type);
             } else {
                 for (Entry<String, Map<String, String>> codeData : bcp47DataTypeData.entrySet()) {
                     String code = codeData.getKey();
-                    if (codeReplacement.containsKey(code) || codeReplacement.containsKey(code.toUpperCase(Locale.ENGLISH))) {
+                    if (codeReplacement.containsKey(code)
+                        || codeReplacement.containsKey(code.toUpperCase(Locale.ENGLISH))) {
                         continue;
                         // TODO, check the value
                     }
                     Map<String, String> data = codeData.getValue();
                     if (data.containsKey("Deprecated")) {
-                        errln("supplementalMetadata.xml: alias is missing <languageAlias type=\""+code+"\" ... /> " + "\t" + data);
+                        errln("supplementalMetadata.xml: alias is missing <languageAlias type=\"" + code + "\" ... /> "
+                            + "\t" + data);
                     }
                 }
             }
@@ -80,7 +84,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 Set<String> fixedReplacements = new LinkedHashSet();
                 for (String replacement : replacements) {
                     R2<List<String>, String> newReplacement = codeReplacement.get(replacement);
-                    if (newReplacement != null ) {
+                    if (newReplacement != null) {
                         List<String> list = newReplacement.get0();
                         if (list != null) {
                             fixedReplacements.addAll(list);
@@ -103,7 +107,8 @@ public class TestSupplementalInfo extends TestFmwk {
                     List<String> newReplacement = item.get2();
 
                     errln(code + "\t=>\t" + oldReplacement + "\tshould be:\n\t" +
-                            "<" + type + "Alias type=\"" + code + "\" replacement=\"" + CollectionUtilities.join(newReplacement, " ") + "\" reason=\"XXX\"/> <!-- YYY -->\n");
+                        "<" + type + "Alias type=\"" + code + "\" replacement=\""
+                        + CollectionUtilities.join(newReplacement, " ") + "\" reason=\"XXX\"/> <!-- YYY -->\n");
                 }
             }
             if (nullReplacements.size() != 0) {
@@ -145,14 +150,14 @@ public class TestSupplementalInfo extends TestFmwk {
 
         // verify that everything in the containment core can be reached downwards from 001.
 
-        Map<String, Integer> from001 = getRecursiveContainment("001", map, new LinkedHashMap<String,Integer>(), 1);
+        Map<String, Integer> from001 = getRecursiveContainment("001", map, new LinkedHashMap<String, Integer>(), 1);
         from001.put("001", 0);
         Set<String> keySet = from001.keySet();
         for (String region : keySet) {
-            logln(Utility.repeat("\t", from001.get(region)) + "\t" + region 
-                    + "\t" + getRegionName(region));
+            logln(Utility.repeat("\t", from001.get(region)) + "\t" + region
+                + "\t" + getRegionName(region));
         }
-        
+
         // Populate mapItems with the core containment
         mapItems.clear();
         for (String item : mapCore.keySet()) {
@@ -177,7 +182,8 @@ public class TestSupplementalInfo extends TestFmwk {
         return testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, region);
     }
 
-    private Map<String, Integer> getRecursiveContainment(String region, Relation<String, String> map, Map<String,Integer> result, int depth) {
+    private Map<String, Integer> getRecursiveContainment(String region, Relation<String, String> map,
+        Map<String, Integer> result, int depth) {
         Set<String> contained = map.getAll(region);
         if (contained == null) {
             return result;
@@ -188,17 +194,18 @@ public class TestSupplementalInfo extends TestFmwk {
                 continue;
             }
             result.put(item, depth);
-            getRecursiveContainment(item, map, result, depth+1);
+            getRecursiveContainment(item, map, result, depth + 1);
         }
         return result;
     }
 
     public void TestMacrolanguages() {
         Set<String> languageCodes = testInfo.getStandardCodes().getAvailableCodes("language");
-        Map<String, Map<String, R2<List<String>, String>>> typeToTagToReplacement = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
+        Map<String, Map<String, R2<List<String>, String>>> typeToTagToReplacement = testInfo.getSupplementalDataInfo()
+            .getLocaleAliasInfo();
         Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get("language");
 
-        Relation<String,String> replacementToReplaced = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> replacementToReplaced = new Relation(new TreeMap(), TreeSet.class);
         for (String language : tagToReplacement.keySet()) {
             List<String> replacements = tagToReplacement.get(language).get0();
             if (replacements != null) {
@@ -210,32 +217,32 @@ public class TestSupplementalInfo extends TestFmwk {
         Map<String, Map<String, Map<String, String>>> lstreg = testInfo.getStandardCodes().getLStreg();
         Map<String, Map<String, String>> lstregLanguageInfo = lstreg.get("language");
 
-        Relation<Scope,String> scopeToCodes = new Relation(new TreeMap(), TreeSet.class);
+        Relation<Scope, String> scopeToCodes = new Relation(new TreeMap(), TreeSet.class);
         // the invariant is that every macrolanguage has exactly 1 encompassed language that maps to it
 
-        main:
-            for (String language : Builder.with(new TreeSet<String>()).addAll(languageCodes).addAll(Iso639Data.getAvailable()).get()) {
-                if (language.equals("no") || language.equals("sh")) continue; // special cases
-                Scope languageScope = getScope(language, lstregLanguageInfo);
-                if (languageScope == Scope.Collection || languageScope == Scope.Macrolanguage) {
-                    if (Iso639Data.getHeirarchy(language) != null) {
-                        continue main; // is real family
-                    }
-                    Set<String> replacements = replacementToReplaced.getAll(language);
-                    if (replacements == null || replacements.size() == 0) {
-                        scopeToCodes.put(languageScope, language);
-                    } else {
-                        // it still might be bad, if we don't have a mapping to a regular language
-                        for (String replacement : replacements) {
-                            Scope replacementScope = getScope(replacement, lstregLanguageInfo);
-                            if (replacementScope == Scope.Individual) {
-                                continue main;
-                            }
+        main: for (String language : Builder.with(new TreeSet<String>()).addAll(languageCodes)
+            .addAll(Iso639Data.getAvailable()).get()) {
+            if (language.equals("no") || language.equals("sh")) continue; // special cases
+            Scope languageScope = getScope(language, lstregLanguageInfo);
+            if (languageScope == Scope.Collection || languageScope == Scope.Macrolanguage) {
+                if (Iso639Data.getHeirarchy(language) != null) {
+                    continue main; // is real family
+                }
+                Set<String> replacements = replacementToReplaced.getAll(language);
+                if (replacements == null || replacements.size() == 0) {
+                    scopeToCodes.put(languageScope, language);
+                } else {
+                    // it still might be bad, if we don't have a mapping to a regular language
+                    for (String replacement : replacements) {
+                        Scope replacementScope = getScope(replacement, lstregLanguageInfo);
+                        if (replacementScope == Scope.Individual) {
+                            continue main;
                         }
-                        scopeToCodes.put(languageScope, language);
                     }
+                    scopeToCodes.put(languageScope, language);
                 }
             }
+        }
         // now show the items we found
         for (Scope scope : scopeToCodes.keySet()) {
             for (String language : scopeToCodes.getAll(scope)) {
@@ -252,10 +259,9 @@ public class TestSupplementalInfo extends TestFmwk {
                     }
                 }
                 errln(scope
-                        + "\t" + language
-                        + "\t" + name
-                        + "\t" + Iso639Data.getType(language)
-                );
+                    + "\t" + language
+                    + "\t" + name
+                    + "\t" + Iso639Data.getType(language));
             }
         }
     }
@@ -264,13 +270,14 @@ public class TestSupplementalInfo extends TestFmwk {
         Scope languageScope = Iso639Data.getScope(language);
         Map<String, String> languageInfo = lstregLanguageInfo.get(language);
         if (languageInfo == null) {
-            //System.out.println("Couldn't get lstreg info for " + language);
+            // System.out.println("Couldn't get lstreg info for " + language);
         } else {
             String lstregScope = languageInfo.get("Scope");
             if (lstregScope != null) {
                 Scope scope2 = Scope.fromString(lstregScope);
                 if (languageScope != scope2) {
-                    //System.out.println("Mismatch in scope between LSTR and ISO 639:\t" + scope2 + "\t" + languageScope);
+                    // System.out.println("Mismatch in scope between LSTR and ISO 639:\t" + scope2 + "\t" +
+                    // languageScope);
                     languageScope = scope2;
                 }
             }
@@ -280,7 +287,7 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public void TestPopulation() {
         Set<String> languages = testInfo.getSupplementalDataInfo().getLanguagesForTerritoriesPopulationData();
-        Relation<String,String> baseToLanguages = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> baseToLanguages = new Relation(new TreeMap(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
         for (String language : languages) {
             String base = ltp.set(language).getLanguage();
@@ -304,7 +311,8 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestCompleteness() {
-        assertEquals("API doesn't support: " + testInfo.getSupplementalDataInfo().getSkippedElements(), 0, testInfo.getSupplementalDataInfo().getSkippedElements().size());
+        assertEquals("API doesn't support: " + testInfo.getSupplementalDataInfo().getSkippedElements(), 0, testInfo
+            .getSupplementalDataInfo().getSkippedElements().size());
     }
 
     // these are settings for exceptional cases we want to allow
@@ -312,28 +320,33 @@ public class TestSupplementalInfo extends TestFmwk {
 
     // ok since there is no problem with confusion
     private static final Set<String> OK_TO_NOT_HAVE_OLD = new TreeSet<String>(Arrays.asList(
-            "ADP", "ATS", "BEF", "CYP", "DEM", "ESP", "FIM", "FRF", "GRD", "IEP", "ITL", "LUF", "MTL", "MTP",
-            "NLG", "PTE", "YUM", "ARA", "BAD", "BGL", "BOP", "BRC", "BRN", "BRR", "BUK", "CSK", "ECS", "GEK", "GNS",
-            "GQE", "HRD", "ILP", "LTT", "LVR", "MGF", "MLF", "MZE", "NIC", "PEI", "PES", "SIT", "SRG", "SUR",
-            "TJR", "TPE", "UAK", "YUD", "YUN", "ZRZ", "GWE"));
+        "ADP", "ATS", "BEF", "CYP", "DEM", "ESP", "FIM", "FRF", "GRD", "IEP", "ITL", "LUF", "MTL", "MTP",
+        "NLG", "PTE", "YUM", "ARA", "BAD", "BGL", "BOP", "BRC", "BRN", "BRR", "BUK", "CSK", "ECS", "GEK", "GNS",
+        "GQE", "HRD", "ILP", "LTT", "LVR", "MGF", "MLF", "MZE", "NIC", "PEI", "PES", "SIT", "SRG", "SUR",
+        "TJR", "TPE", "UAK", "YUD", "YUN", "ZRZ", "GWE"));
 
     private static final Date LIMIT_FOR_NEW_CURRENCY = new Date(new Date().getYear() - 5, 1, 1);
     private static final Date NOW = new Date();
-    private Matcher oldMatcher = Pattern.compile("\\bold\\b|\\([0-9]{4}-[0-9]{4}\\)",Pattern.CASE_INSENSITIVE).matcher("");
-    private Matcher newMatcher = Pattern.compile("\\bnew\\b",Pattern.CASE_INSENSITIVE).matcher("");
+    private Matcher oldMatcher = Pattern.compile("\\bold\\b|\\([0-9]{4}-[0-9]{4}\\)", Pattern.CASE_INSENSITIVE)
+        .matcher("");
+    private Matcher newMatcher = Pattern.compile("\\bnew\\b", Pattern.CASE_INSENSITIVE).matcher("");
 
     /**
      * Test that access to currency info in supplemental data is ok. At this point just a simple test.
+     * 
      * @param args
      */
     public void TestCurrency() {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
         Set<String> currencyCodes = testInfo.getStandardCodes().getGoodAvailableCodes("currency");
-        Relation<String,Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes = new Relation(new TreeMap(), TreeSet.class);
-        Relation<String,Pair<String, CurrencyDateInfo>> modernCurrencyCodes = new Relation(new TreeMap(), TreeSet.class);
-        Set<String> territoriesWithoutModernCurrencies = new TreeSet(testInfo.getStandardCodes().getGoodAvailableCodes("territory"));
-        Map<String,Date> currencyFirstValid = new TreeMap();
-        Map<String,Date> currencyLastValid = new TreeMap();
+        Relation<String, Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes = new Relation(new TreeMap(),
+            TreeSet.class);
+        Relation<String, Pair<String, CurrencyDateInfo>> modernCurrencyCodes = new Relation(new TreeMap(),
+            TreeSet.class);
+        Set<String> territoriesWithoutModernCurrencies = new TreeSet(testInfo.getStandardCodes().getGoodAvailableCodes(
+            "territory"));
+        Map<String, Date> currencyFirstValid = new TreeMap();
+        Map<String, Date> currencyLastValid = new TreeMap();
         territoriesWithoutModernCurrencies.remove("ZZ");
 
         for (String territory : testInfo.getStandardCodes().getGoodAvailableCodes("territory")) {
@@ -355,24 +368,25 @@ public class TestSupplementalInfo extends TestFmwk {
                 Date firstValue = currencyFirstValid.get(currency);
                 if (firstValue == null || firstValue.compareTo(start) < 0) {
                     currencyFirstValid.put(currency, start);
-                } 
+                }
                 Date lastValue = currencyLastValid.get(currency);
                 if (lastValue == null || lastValue.compareTo(end) > 0) {
                     currencyLastValid.put(currency, end);
-                }         
+                }
                 if (end.compareTo(NOW) >= 0) {
                     modernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));
                     territoriesWithoutModernCurrencies.remove(territory);
                 } else {
-                    nonModernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));          
+                    nonModernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));
                 }
-                logln(territory + "\t" + dateInfo.toString() + "\t" + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency));
+                logln(territory + "\t" + dateInfo.toString() + "\t"
+                    + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency));
             }
         }
-        // fix up 
+        // fix up
         nonModernCurrencyCodes.removeAll(modernCurrencyCodes.keySet());
         Relation<String, String> isoCurrenciesToCountries = new Relation(new TreeMap(), TreeSet.class)
-        .addAllInverted(isoCodes.getCountryToCodes());
+            .addAllInverted(isoCodes.getCountryToCodes());
 
         // now print error messages
         logln("Modern Codes: " + modernCurrencyCodes.size() + "\t" + modernCurrencyCodes);
@@ -396,7 +410,8 @@ public class TestSupplementalInfo extends TestFmwk {
                 cldrCountries.add(x.getFirst());
             }
             if (!isoCountries.equals(cldrCountries)) {
-                warnln("Mismatch between ISO and Cldr modern currencies for "  + currency + "\t" + isoCountries + "\t" + cldrCountries);
+                warnln("Mismatch between ISO and Cldr modern currencies for " + currency + "\t" + isoCountries + "\t"
+                    + cldrCountries);
                 showCountries("iso-cldr", isoCountries, cldrCountries, missing);
                 showCountries("cldr-iso", cldrCountries, isoCountries, missing);
             }
@@ -406,10 +421,14 @@ public class TestSupplementalInfo extends TestFmwk {
             }
             if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
                 // find the first use. If older than 5 years, flag as error
-                if (currencyFirstValid.get(currency).compareTo(LIMIT_FOR_NEW_CURRENCY) < 0) {   
-                    warnln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + data);
+                if (currencyFirstValid.get(currency).compareTo(LIMIT_FOR_NEW_CURRENCY) < 0) {
+                    warnln("Has 'new' in name but used since "
+                        + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name
+                        + "\t" + data);
                 } else {
-                    warnln("Has 'new' in name but used since " + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + data);
+                    warnln("Has 'new' in name but used since "
+                        + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name
+                        + "\t" + data);
                 }
             }
         }
@@ -417,19 +436,23 @@ public class TestSupplementalInfo extends TestFmwk {
         for (String currency : nonModernCurrencyCodes.keySet()) {
             final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
             if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
-                logln("Has 'new' in name but NOT used since " + CurrencyDateInfo.formatDate(currencyLastValid.get(currency)) + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
-            } else if (!oldMatcher.reset(name).find() && !OK_TO_NOT_HAVE_OLD.contains(currency)){
-                logln("Doesn't have 'old' or date range in name but NOT used since " + CurrencyDateInfo.formatDate(currencyLastValid.get(currency))
-                        + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
+                logln("Has 'new' in name but NOT used since "
+                    + CurrencyDateInfo.formatDate(currencyLastValid.get(currency)) + "\t" + currency + "\t" + name
+                    + "\t" + nonModernCurrencyCodes.getAll(currency));
+            } else if (!oldMatcher.reset(name).find() && !OK_TO_NOT_HAVE_OLD.contains(currency)) {
+                logln("Doesn't have 'old' or date range in name but NOT used since "
+                    + CurrencyDateInfo.formatDate(currencyLastValid.get(currency))
+                    + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
                 for (Pair<String, CurrencyDateInfo> pair : nonModernCurrencyCodes.getAll(currency)) {
                     final String territory = pair.getFirst();
-                    Set<CurrencyDateInfo> currencyInfo = testInfo.getSupplementalDataInfo().getCurrencyDateInfo(territory);
+                    Set<CurrencyDateInfo> currencyInfo = testInfo.getSupplementalDataInfo().getCurrencyDateInfo(
+                        territory);
                     for (CurrencyDateInfo dateInfo : currencyInfo) {
                         if (dateInfo.getEnd().compareTo(NOW) < 0) {
                             continue;
                         }
                         logln("\tCurrencies used instead: " + territory + "\t" + dateInfo
-                                + "\t" + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
+                            + "\t" + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
 
                     }
                 }
@@ -447,7 +470,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     private void showCountries(final String title, Set<String> isoCountries,
-            Set<String> cldrCountries, Set<String> missing) {
+        Set<String> cldrCountries, Set<String> missing) {
         missing.clear();
         missing.addAll(isoCountries);
         missing.removeAll(cldrCountries);

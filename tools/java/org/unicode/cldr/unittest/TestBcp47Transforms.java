@@ -33,7 +33,7 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.ULocale;
 
-public class TestBcp47Transforms extends TestFmwk { 
+public class TestBcp47Transforms extends TestFmwk {
 
     public static void main(String[] args) {
         new TestBcp47Transforms().run(args);
@@ -52,7 +52,7 @@ public class TestBcp47Transforms extends TestFmwk {
                 System.out.println(key + ", " + subtype + ", " + description);
             }
         }
-        Map<String,String> old2newName = new TreeMap();
+        Map<String, String> old2newName = new TreeMap();
         for (String file : Arrays.asList(new File(CLDRTransforms.TRANSFORM_DIR).list())) {
             if (!file.endsWith(".xml")) continue;
             ParsedTransformID directionInfo = new ParsedTransformID();
@@ -62,11 +62,11 @@ public class TestBcp47Transforms extends TestFmwk {
             String target = directionInfo.target;
             String variant = directionInfo.variant;
             String standard = getStandard0(source, target, variant);
-//            System.out.println(standard
-//                    + "\t =>\t" + directionInfo 
-//                    + "\tdirection:\t" + directionInfo.getDirection()
-//                    + "\tvisibility:\t" + directionInfo.getVisibility()
-//            );
+            // System.out.println(standard
+            // + "\t =>\t" + directionInfo
+            // + "\tdirection:\t" + directionInfo.getDirection()
+            // + "\tvisibility:\t" + directionInfo.getVisibility()
+            // );
             if (!standard.contains("?")) {
                 old2newName.put(directionInfo.toString(), standard);
             }
@@ -74,7 +74,7 @@ public class TestBcp47Transforms extends TestFmwk {
                 standard = getStandard0(source, target, variant);
                 if (!standard.contains("?")) {
                     old2newName.put(directionInfo.toString(), standard);
-                }                
+                }
             }
         }
         for (String source : Collections.list(Transliterator.getAvailableSources())) {
@@ -100,7 +100,10 @@ public class TestBcp47Transforms extends TestFmwk {
         }
     }
 
-    enum Type {source, target, mechanism}
+    enum Type {
+        source, target, mechanism
+    }
+
     private String getStandard0(String source, String target, String variant) {
         String id = source + "-" + target + "/" + variant;
         String newSource = getStandard(Type.source, source, id);
@@ -113,13 +116,13 @@ public class TestBcp47Transforms extends TestFmwk {
     static Relation<String, Row.R2<Type, String>> MISSING = Relation.of(new TreeMap(), TreeSet.class);
     static StandardCodes sc = StandardCodes.make();
 
-    static Map<String,String> SPECIAL_CASES;
+    static Map<String, String> SPECIAL_CASES;
     static Set<String> languages = sc.getAvailableCodes("language");
     static Set<String> scripts = new HashSet<String>();
     static Set<String> regions = new HashSet<String>();
     static {
-        
-        MBuilder<String, String, HashMap<String, String>> builder = Builder.with(new HashMap<String,String>());
+
+        MBuilder<String, String, HashMap<String, String>> builder = Builder.with(new HashMap<String, String>());
         // add language names
         for (String s : languages) {
             final String data = sc.getData("language", s);
@@ -130,35 +133,34 @@ public class TestBcp47Transforms extends TestFmwk {
             scripts.add(s.toLowerCase(Locale.ENGLISH));
             final String data = sc.getData("script", s);
             add(builder, "und-" + s, data);
-            //System.out.println(data + "\t" + s);
+            // System.out.println(data + "\t" + s);
         }
         for (String s : sc.getAvailableCodes("territory")) {
             regions.add(s.toLowerCase(Locale.ENGLISH));
         }
         // real special cases
-        builder.put("any","und")
-        .put("simplified", "Hans")
-        .put("traditional", "Hant")
-        .put("ipa", "und-fonipa")
-        .put("xsampa", "und-fonxsamp")
-        .put("japanesekana", "und-Hrkt")
-        ;
+        builder.put("any", "und")
+            .put("simplified", "Hans")
+            .put("traditional", "Hant")
+            .put("ipa", "und-fonipa")
+            .put("xsampa", "und-fonxsamp")
+            .put("japanesekana", "und-Hrkt");
         /*
-            source  fullwidth
-            source  jamo
-            target  accents
-            target  ascii
-            target  halfwidth
-            target  jamo
-            target  numericpinyin
-            target  publishing
+         * source fullwidth
+         * source jamo
+         * target accents
+         * target ascii
+         * target halfwidth
+         * target jamo
+         * target numericpinyin
+         * target publishing
          */
         SPECIAL_CASES = builder.freeze();
-        
+
     }
 
     public static void add(MBuilder<String, String, HashMap<String, String>> builder, String code,
-             String names) {
+        String names) {
         names = names.toLowerCase(Locale.ENGLISH);
         if (!names.contains("▪")) {
             builder.put(names, code);
@@ -185,7 +187,8 @@ public class TestBcp47Transforms extends TestFmwk {
         try {
             code = UCharacter.getPropertyValueEnum(UProperty.SCRIPT, source);
             return "und-" + UScript.getShortName(code);
-        } catch (Exception e1) {}
+        } catch (Exception e1) {
+        }
         try {
             ULocale ulocale = new ULocale(source);
             // hack for now
@@ -199,7 +202,8 @@ public class TestBcp47Transforms extends TestFmwk {
                     }
                 }
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+        }
         // we failed
         MISSING.put(source, Row.of(type, id));
         return "?" + source;

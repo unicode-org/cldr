@@ -16,26 +16,26 @@ public class TestTransforms extends TestFmwk {
     public static void main(String[] args) throws Exception {
         new TestTransforms().run(args);
     }
-    
+
     public void TestBackslashHalfwidth() throws Exception {
         register();
-        //CLDRTransforms.registerCldrTransforms(null, "(?i)(Fullwidth-Halfwidth|Halfwidth-Fullwidth)", isVerbose() ? getLogPrintWriter() : null);
-        //Transliterator.DEBUG = true;
+        // CLDRTransforms.registerCldrTransforms(null, "(?i)(Fullwidth-Halfwidth|Halfwidth-Fullwidth)", isVerbose() ?
+        // getLogPrintWriter() : null);
+        // Transliterator.DEBUG = true;
 
-        String input = "＼"; //FF3C 
-        String expected = "\\"; //005C 
+        String input = "＼"; // FF3C
+        String expected = "\\"; // 005C
         Transliterator t = Transliterator.getInstance("Fullwidth-Halfwidth");
         String output = t.transliterate(input);
         assertEquals("To Halfwidth", expected, output);
-        
-        input = "\\"; //FF3C 
-        expected = "＼"; //005C 
+
+        input = "\\"; // FF3C
+        expected = "＼"; // 005C
         Transliterator t2 = t.getInverse();
         output = t2.transliterate(input);
         assertEquals("To FullWidth", expected, output);
     }
 
-    
     public void TestASimple() {
         Transliterator foo = Transliterator.getInstance("cs-cs_FONIPA");
     }
@@ -49,19 +49,21 @@ public class TestTransforms extends TestFmwk {
         }
     }
 
-    enum Options {transliterator, roundtrip};
+    enum Options {
+        transliterator, roundtrip
+    };
 
     public void Test1461() {
         register();
         System.out.println("hi");
 
         String[][] tests = {
-                { "transliterator=", "Katakana-Latin"},
-                { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F", "ha hā ba pa" },
-                { "transliterator=", "Hangul-Latin"},
-                { "roundtrip=", "true"},
-                { "갗", "gach"},
-                { "느", "neu"},
+            { "transliterator=", "Katakana-Latin" },
+            { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F", "ha hā ba pa" },
+            { "transliterator=", "Hangul-Latin" },
+            { "roundtrip=", "true" },
+            { "갗", "gach" },
+            { "느", "neu" },
         };
 
         Transliterator transform = null;
@@ -72,7 +74,7 @@ public class TestTransforms extends TestFmwk {
             String source = items[0];
             String target = items[1];
             if (source.endsWith("=")) {
-                switch (Options.valueOf(source.substring(0,source.length()-1).toLowerCase(Locale.ENGLISH))) {
+                switch (Options.valueOf(source.substring(0, source.length() - 1).toLowerCase(Locale.ENGLISH))) {
                 case transliterator:
                     id = target;
                     transform = Transliterator.getInstance(id);
@@ -135,5 +137,7 @@ public class TestTransforms extends TestFmwk {
             throw new IllegalArgumentException(e);
         }
     }
-    public void TestZZZ() {}
+
+    public void TestZZZ() {
+    }
 }

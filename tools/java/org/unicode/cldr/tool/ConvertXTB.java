@@ -42,6 +42,7 @@ import org.xml.sax.XMLReader;
 /**
  * A command-line tool for converting XTB files to the CLDR format and checking
  * them against current CLDR data.
+ * 
  * @author jchye@google.com (Jennifer Chye)
  */
 public class ConvertXTB {
@@ -53,7 +54,7 @@ public class ConvertXTB {
     private static PatternPlaceholders patternPlaceholders;
     private static Map<String, Map<String, String>> loadedReverseTagMaps;
     private static PathDescription pathDescription;
-    
+
     private Factory factory;
     private File xtbDir;
     private File inputDir;
@@ -64,6 +65,8 @@ public class ConvertXTB {
 
     /***
      * Constructor. The input directory must have the following format:
+     * 
+     * <pre>
      * inputDir/
      *   ar/
      *     ar.wsb
@@ -74,9 +77,14 @@ public class ConvertXTB {
      *     ar.xtb
      *     ca.xtb
      *     ...
-     * @param inputDir the directory to read the wsb and xtb files from
-     * @param outputDir the directory to write the generated CLDR files to
-     * @param checkFilter the CheckCLDR regex filter for checking
+     * </pre>
+     * 
+     * @param inputDir
+     *            the directory to read the wsb and xtb files from
+     * @param outputDir
+     *            the directory to write the generated CLDR files to
+     * @param checkFilter
+     *            the CheckCLDR regex filter for checking
      */
     private ConvertXTB(String inputDir, String outputDir, String checkFilter) {
         xtbDir = new File(inputDir, "xtb");
@@ -92,6 +100,7 @@ public class ConvertXTB {
     /**
      * Sets the PrintStream that any errors will be sent to. System.out is used
      * by default.
+     * 
      * @param out
      */
     private void setErrorOutput(PrintStream out) {
@@ -104,7 +113,7 @@ public class ConvertXTB {
     private class XtbInfo implements Iterable<XtbEntry> {
         public String locale;
         public List<XtbEntry> entries;
-        
+
         public XtbInfo(String locale) {
             this.locale = locale;
             entries = new ArrayList<XtbEntry>();
@@ -124,11 +133,11 @@ public class ConvertXTB {
      * Wrapper class for information related to a &lt;translation&gt; node in
      * an XTB file.
      */
-    private class XtbEntry{
+    private class XtbEntry {
         public String messageId;
         public String xpath;
         public String value;
-        
+
         public XtbEntry(String messageId, String xpath, String value) {
             this.messageId = messageId;
             this.xpath = xpath;
@@ -148,7 +157,7 @@ public class ConvertXTB {
         private Set<String> orphanedMessages;
         private Set<String> oldMessages;
         private XtbInfo output;
-        
+
         public XtbHandler(Set<String> oldMessages, XtbInfo output) {
             daip = new DisplayAndInputProcessor(CLDRLocale.getInstance(output.locale));
             currentText = new StringBuffer();
@@ -164,7 +173,7 @@ public class ConvertXTB {
 
         @Override
         public void startElement(String uri, String localName, String qName,
-                Attributes attr) throws SAXException {
+            Attributes attr) throws SAXException {
             if (qName.equals("translation")) {
                 lastId = attr.getValue("id");
                 lastXpath = IdToPath.getPath(lastId);
@@ -178,7 +187,7 @@ public class ConvertXTB {
 
         @Override
         public void endElement(String uri, String localName, String qName)
-                throws SAXException {
+            throws SAXException {
             if (qName.equals("translation")) {
                 if (lastXpath == null) {
                     orphanedMessages.add(lastId);
@@ -192,6 +201,7 @@ public class ConvertXTB {
 
         /**
          * Add the specified xpath and value to the output.
+         * 
          * @param xpath
          * @param value
          */
@@ -209,6 +219,7 @@ public class ConvertXTB {
 
         /**
          * Processes a plural value and xpath and adds them to the output.
+         * 
          * @param xpath
          * @param value
          */
@@ -252,7 +263,7 @@ public class ConvertXTB {
                         String pluralXPath = xpath + "[@count=\"" + countType + "\"]";
                         // Add any remaining missing placeholders.
                         String pluralValue = buffer.toString();
-                        if (pluralValue.contains("{1}") && !pluralValue.contains("{0}")){
+                        if (pluralValue.contains("{1}") && !pluralValue.contains("{0}")) {
                             // Fix placeholder numbering. Assumes there is only one
                             // placeholder in the pattern.
                             if (countType.matches("[01]")) {
@@ -288,22 +299,26 @@ public class ConvertXTB {
         }
 
         @Override
-        public void ignorableWhitespace(char[] arg0, int arg1, int arg2) throws SAXException {}
+        public void ignorableWhitespace(char[] arg0, int arg1, int arg2) throws SAXException {
+        }
 
         @Override
-        public void processingInstruction(String arg0, String arg1) throws SAXException {}
+        public void processingInstruction(String arg0, String arg1) throws SAXException {
+        }
 
         @Override
-        public void skippedEntity(String arg0) throws SAXException {}
+        public void skippedEntity(String arg0) throws SAXException {
+        }
 
         @Override
-        public void startDocument() throws SAXException {}
+        public void startDocument() throws SAXException {
+        }
 
         @Override
         public void endDocument() throws SAXException {
             if (orphanedMessages.size() > 0) {
                 System.err.println(orphanedMessages.size() +
-                        " message IDs with no matching xpaths: ");
+                    " message IDs with no matching xpaths: ");
                 for (String messageID : orphanedMessages) {
                     System.err.println(messageID);
                 }
@@ -311,13 +326,16 @@ public class ConvertXTB {
         }
 
         @Override
-        public void setDocumentLocator(Locator arg0) {}
+        public void setDocumentLocator(Locator arg0) {
+        }
 
         @Override
-        public void startPrefixMapping(String arg0, String arg1) throws SAXException {}
+        public void startPrefixMapping(String arg0, String arg1) throws SAXException {
+        }
 
         @Override
-        public void endPrefixMapping(String arg0) throws SAXException {}
+        public void endPrefixMapping(String arg0) throws SAXException {
+        }
     }
 
     /**
@@ -345,8 +363,10 @@ public class ConvertXTB {
 
     /**
      * 
-     * @param xpath the xpath that the placeholder belongs to
-     * @param name the name to get the placeholder for
+     * @param xpath
+     *            the xpath that the placeholder belongs to
+     * @param name
+     *            the name to get the placeholder for
      * @return the placeholder, e.g. "{0}" or "{1}"
      */
     private String getPlaceholderForName(String xpath, String name) {
@@ -366,9 +386,10 @@ public class ConvertXTB {
     }
 
     /**
-     * @param xpath the xpath to get placeholder information for
+     * @param xpath
+     *            the xpath to get placeholder information for
      * @return a mapping of placeholders to placeholder information for the
-     *      specified xpath
+     *         specified xpath
      */
     private Map<String, PlaceholderInfo> getTagMap(String xpath) {
         if (patternPlaceholders == null) {
@@ -379,7 +400,9 @@ public class ConvertXTB {
 
     /**
      * Loads the contents of an XTB file into memory.
-     * @param locale the locale of the XTB file to be loaded
+     * 
+     * @param locale
+     *            the locale of the XTB file to be loaded
      * @return
      */
     private XtbInfo load(String locale) {
@@ -394,7 +417,7 @@ public class ConvertXTB {
         Set<String> oldMessages = null;
         try {
             oldMessages = loadOldMessages(locale);
-        } catch (IllegalArgumentException e) { 
+        } catch (IllegalArgumentException e) {
             System.err.println("No wsb found for " + locale + ", skipping");
             return null;
         }
@@ -422,9 +445,12 @@ public class ConvertXTB {
 
     /**
      * Loads the set of messages that were previously translated.
-     * @param locale the locale of the messages to be retrieved
+     * 
+     * @param locale
+     *            the locale of the messages to be retrieved
      * @return
-     * @throws IllegalArgumentException if there was an error parsing the wsb
+     * @throws IllegalArgumentException
+     *             if there was an error parsing the wsb
      */
     private Set<String> loadOldMessages(String locale) throws IllegalArgumentException {
         locale = LanguageCodeConverter.toGoogleLocaleId(locale);
@@ -438,14 +464,15 @@ public class ConvertXTB {
     /**
      * Processes all XTB files in the input directory that match the specified
      * regex.
+     * 
      * @param regexFilter
      */
     private void processAll(String regexFilter) {
         out.println("Locale\tMessage ID\tDescription\tEnglish Value\t" +
             "Translated Value\tType\tError Message");
         for (String filename : xtbDir.list()) {
-            if (filename.matches(regexFilter +"\\.xtb")) {
-                String locale = filename.substring(0, filename.length()-4);
+            if (filename.matches(regexFilter + "\\.xtb")) {
+                String locale = filename.substring(0, filename.length() - 4);
                 XtbInfo xtbInfo = load(locale);
                 if (xtbInfo == null) continue;
                 check(xtbInfo);
@@ -456,7 +483,9 @@ public class ConvertXTB {
 
     /**
      * Checks the contents of the XTB file against the existing CLDR data.
-     * @param xtbInfo the contents of the XTB to be checked
+     * 
+     * @param xtbInfo
+     *            the contents of the XTB to be checked
      */
     private void check(XtbInfo xtbInfo) {
         String locale = xtbInfo.locale;
@@ -484,20 +513,26 @@ public class ConvertXTB {
 
     /**
      * Displays any errors that occurred when checking the specified xpath
-     * @param locale the locale of the xpath being checked
-     * @param id the message ID corresponding to the xpath
-     * @param xpath the xpath that was checked
-     * @param value the value of the xpath
-     * @param possibleErrors a list of errors generated by checking the xpath
+     * 
+     * @param locale
+     *            the locale of the xpath being checked
+     * @param id
+     *            the message ID corresponding to the xpath
+     * @param xpath
+     *            the xpath that was checked
+     * @param value
+     *            the value of the xpath
+     * @param possibleErrors
+     *            a list of errors generated by checking the xpath
      */
     private int displayErrors(String locale, String id, String xpath,
-            String value, List<CheckStatus> possibleErrors) {
+        String value, List<CheckStatus> possibleErrors) {
         String description = getDescription(xpath, value);
         // Ignore these interval formats since they'll be removed.
         if (id.equals("8190100716823312848") || id.equals("8190100716823312848")) return 0;
         int numErrors = 0;
         for (CheckStatus status : possibleErrors) {
-            out.println(locale + "\t" +  id +
+            out.println(locale + "\t" + id +
                 "\t" + description +
                 "\t" + englishFile.getStringValue(xpath) +
                 "\t" + value + "\t" + status.getType() + "\t" + status.getMessage().replace('\t', ' '));
@@ -510,6 +545,7 @@ public class ConvertXTB {
 
     /**
      * Writes the contents of the XTB file to an XML file in CLDR format.
+     * 
      * @param xtbInfo
      */
     private void writeXml(XtbInfo xtbInfo) {
@@ -529,11 +565,12 @@ public class ConvertXTB {
             System.err.println("Couldn't write " + xmlFile.getAbsolutePath() + " to disk.");
         }
     }
-    
+
     private String getDescription(String path, String value) {
         if (pathDescription == null) {
             SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-            pathDescription = new PathDescription(supplementalDataInfo, englishFile, null, null, PathDescription.ErrorHandling.CONTINUE);
+            pathDescription = new PathDescription(supplementalDataInfo, englishFile, null, null,
+                PathDescription.ErrorHandling.CONTINUE);
         }
         final String description = pathDescription.getDescription(path, value, null, null);
         return description;
@@ -568,7 +605,7 @@ public class ConvertXTB {
         String localeFilter = options.get("locale_filter").getValue();
         String testFilter = options.get("test_filter").getValue();
         String errorFile = options.get("error_file").getValue();
-        
+
         // input, output
         ConvertXTB converter = new ConvertXTB(inputDir, outputDir, testFilter);
         PrintStream out = new PrintStream(new File(errorFile));

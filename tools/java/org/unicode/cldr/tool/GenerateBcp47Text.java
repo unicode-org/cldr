@@ -25,7 +25,7 @@ public class GenerateBcp47Text {
     Relation<R2<String, String>, String> keySubtype2Aliases = info.getBcp47Aliases();
     Map<R2<String, String>, String> keySubtype2Description = info.getBcp47Descriptions();
     Map<R2<String, String>, String> keySubtype2Since = info.getBcp47Since();
-    R2<String, String> probe = Row.of("","");
+    R2<String, String> probe = Row.of("", "");
 
     public static void main(String[] args) throws IOException {
         new GenerateBcp47Text().run();
@@ -33,9 +33,10 @@ public class GenerateBcp47Text {
 
     private void run() throws IOException {
         for (Entry<String, Set<String>> extensionAndKeys : extension2Keys.keyValuesSet()) {
-            
+
             String extension = extensionAndKeys.getKey();
-            PrintWriter out = BagFormatter.openUTF8Writer(ShowLanguages.CHART_TARGET_DIR, "bcp47-" + extension + ".txt");
+            PrintWriter out = BagFormatter
+                .openUTF8Writer(ShowLanguages.CHART_TARGET_DIR, "bcp47-" + extension + ".txt");
             showField(out, "Version", CldrUtility.CHART_DISPLAY_VERSION);
             showField(out, "Extension", extension);
 
@@ -58,13 +59,14 @@ public class GenerateBcp47Text {
     }
 
     /**
-%%
-Type: language
-Subtag: ab
-Description: Abkhazian
-Added: 2005-10-16
-Suppress-Script: Cyrl
-%%
+     * %%
+     * Type: language
+     * Subtag: ab
+     * Description: Abkhazian
+     * Added: 2005-10-16
+     * Suppress-Script: Cyrl
+     * %%
+     * 
      * @param key
      * @param string
      */
@@ -75,7 +77,7 @@ Suppress-Script: Cyrl
         final String since = keySubtype2Since.get(probe);
         if (SHOW_ONLY_WITHOUT_DESCRIPTION && description != null) return;
         out.println("%%");
-        //showField(out, "Extension", extension);
+        // showField(out, "Extension", extension);
         showField(out, "Key", key);
         showField(out, "Subtype", subtype);
         showField(out, "Aliases", keySubtype2Aliases.get(probe));
@@ -84,7 +86,7 @@ Suppress-Script: Cyrl
     }
 
     private void showField(PrintWriter out, String title, Collection<String> set) {
-        showField(out, title, set==null || set.isEmpty() ? null : CollectionUtilities.join(set, ", "));
+        showField(out, title, set == null || set.isEmpty() ? null : CollectionUtilities.join(set, ", "));
     }
 
     private void showField(PrintWriter out, String title, String item) {

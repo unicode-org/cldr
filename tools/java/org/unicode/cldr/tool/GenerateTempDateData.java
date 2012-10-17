@@ -15,18 +15,18 @@ import com.ibm.icu.dev.util.BagFormatter;
 
 public class GenerateTempDateData {
     /*
-<dates>
-<calendars>
-<calendar type="gregorian">
-<dateTimeFormats>
-<availableFormats>
-<dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
-    */
+     * <dates>
+     * <calendars>
+     * <calendar type="gregorian">
+     * <dateTimeFormats>
+     * <availableFormats>
+     * <dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
+     */
     public static void main(String[] args) throws IOException {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Set x = cldrFactory.getAvailable();
         XPathParts parts = new XPathParts();
-        PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "datedata/" ,"DateData.java");
+        PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "datedata/", "DateData.java");
         pw.println("package com.ibm.icu.impl.data;");
         pw.println("import java.util.ListResourceBundle;");
         pw.println("class DateData { // extracted from CLDR 1.4");
@@ -40,20 +40,21 @@ public class GenerateTempDateData {
                 String path = (String) it2.next();
                 if (path.indexOf("dateTimeFormats/availableFormats/dateFormatItem") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    String id = parts.set(path).getAttributeValue(-1,"id");
+                    String id = parts.set(path).getAttributeValue(-1, "id");
                     String pattern = file.getStringValue(path);
                     pw.println("     {\"pattern/" + id + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern) + "\"},");
                 } else if (path.indexOf("dateTimeFormats/appendItems") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    String request = parts.set(path).getAttributeValue(-1,"request");
+                    String request = parts.set(path).getAttributeValue(-1, "request");
                     String pattern = file.getStringValue(path);
-                    pw.println("     {\"append/" + request + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern) + "\"},");
+                    pw.println("     {\"append/" + request + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern)
+                        + "\"},");
                 } else if (path.indexOf("fields/field") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
-                    String type = parts.set(path).getAttributeValue(-2,"type");
+                    String type = parts.set(path).getAttributeValue(-2, "type");
                     String pattern = file.getStringValue(path);
                     pw.println("     {\"field/" + type + "\",\"" + com.ibm.icu.impl.Utility.escape(pattern) + "\"},");
-                } 
+                }
             }
             if (gotOne) {
                 pw.println(" };}}");
@@ -61,7 +62,7 @@ public class GenerateTempDateData {
         }
         pw.println("}");
         pw.close();
-   }
+    }
 
     private static boolean doHeader(PrintWriter pw, String locale, boolean gotOne) {
         if (!gotOne) {
@@ -73,25 +74,24 @@ public class GenerateTempDateData {
         }
         return gotOne;
     }
-    
-    /*
-     *  * public class MyResources_fr extends ListResourceBundle {
- *     protected Object[][] getContents() {
- *         return new Object[][] = {
- *         // LOCALIZE THIS
- *             {"s1", "Le disque \"{1}\" {0}."},          // MessageFormat pattern
- *             {"s2", "1"},                               // location of {0} in pattern
- *             {"s3", "Mon disque"},                      // sample disk name
- *             {"s4", "ne contient pas de fichiers"},     // first ChoiceFormat choice
- *             {"s5", "contient un fichier"},             // second ChoiceFormat choice
- *             {"s6", "contient {0,number} fichiers"},    // third ChoiceFormat choice
- *             {"s7", "3 mars 1996"},                     // sample date
- *             {"s8", new Dimension(1,3)}                 // real object, not just string
- *         // END OF MATERIAL TO LOCALIZE
- *         };
- *     }
- * }
 
+    /*
+     * * public class MyResources_fr extends ListResourceBundle {
+     * protected Object[][] getContents() {
+     * return new Object[][] = {
+     * // LOCALIZE THIS
+     * {"s1", "Le disque \"{1}\" {0}."}, // MessageFormat pattern
+     * {"s2", "1"}, // location of {0} in pattern
+     * {"s3", "Mon disque"}, // sample disk name
+     * {"s4", "ne contient pas de fichiers"}, // first ChoiceFormat choice
+     * {"s5", "contient un fichier"}, // second ChoiceFormat choice
+     * {"s6", "contient {0,number} fichiers"}, // third ChoiceFormat choice
+     * {"s7", "3 mars 1996"}, // sample date
+     * {"s8", new Dimension(1,3)} // real object, not just string
+     * // END OF MATERIAL TO LOCALIZE
+     * };
+     * }
+     * }
      */
     static class RBundle extends ListResourceBundle {
         protected Object[][] getContents() {

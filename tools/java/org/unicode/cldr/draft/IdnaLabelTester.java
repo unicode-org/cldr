@@ -54,7 +54,9 @@ public class IdnaLabelTester {
 
     private static boolean VERBOSE = false;
 
-    enum Result {none, next, next2, fail};
+    enum Result {
+        none, next, next2, fail
+    };
 
     static class Rule {
         final Matcher before;
@@ -69,11 +71,11 @@ public class IdnaLabelTester {
 
         public String toString() {
             return "{Rule "
-            + (before == null ? "" : "before: " + beforeString + ", ")
-            + "at: " + atString
-            + ", result: " + result
-            + ", line: " + lineNumber
-            + ", title: " + title + "}";
+                + (before == null ? "" : "before: " + beforeString + ", ")
+                + "at: " + atString
+                + ", result: " + result
+                + ", line: " + lineNumber
+                + ", title: " + title + "}";
         }
 
         public Rule(String before, String at, String result, String title, int lineNumber, VariableReplacer variables) {
@@ -81,8 +83,10 @@ public class IdnaLabelTester {
             if (before != null) {
                 before = variables.replace(before.trim());
             }
-            this.before = before == null || before == "" ? null 
-                    : Pattern.compile(".*" + UnicodeRegex.fix(before), Pattern.COMMENTS).matcher(""); // hack, because Java doesn't have lookingBefore
+            this.before = before == null || before == "" ? null
+                : Pattern.compile(".*" + UnicodeRegex.fix(before), Pattern.COMMENTS).matcher(""); // hack, because Java
+                                                                                                  // doesn't have
+                                                                                                  // lookingBefore
             atString = at;
             at = variables.replace(at.trim());
             this.at = Pattern.compile(UnicodeRegex.fix(at), Pattern.COMMENTS).matcher("");
@@ -94,13 +98,13 @@ public class IdnaLabelTester {
         public Result match(int position) {
             if (before != null) {
                 before.region(0, position);
-                //before.reset(label.substring(0,position));
+                // before.reset(label.substring(0,position));
                 if (!before.matches()) {
                     return Result.none;
                 }
             }
             at.region(position, length);
-            //at.reset(label.substring(position,length));
+            // at.reset(label.substring(position,length));
             if (!at.lookingAt()) {
                 return Result.none;
             }
@@ -129,13 +133,13 @@ public class IdnaLabelTester {
         BufferedReader in = openFile(file);
 
         String title = "???";
-        for (int lineCount = 1; ; ++lineCount) {
+        for (int lineCount = 1;; ++lineCount) {
             String line = in.readLine();
             try {
                 if (line == null) break;
                 int commentPos = line.indexOf("#");
                 if (commentPos >= 0) {
-                    line = line.substring(0,commentPos);
+                    line = line.substring(0, commentPos);
                 }
                 line = line.trim();
                 if (line.length() == 0) continue;
@@ -160,15 +164,15 @@ public class IdnaLabelTester {
                 if (startsWithIgnoreCase(line, "$")) {
                     int equals = line.indexOf("=");
                     if (equals >= 0) {
-                        final String variable = line.substring(0,equals).trim();
-                        final String value = variables.replace(line.substring(equals+1).trim());
+                        final String variable = line.substring(0, equals).trim();
+                        final String value = variables.replace(line.substring(equals + 1).trim());
                         if (VERBOSE && value.contains("$")) {
                             System.out.println("Warning: contains $ " + variable + "\t=\t" + value);
                         }
                         // small hack, because this property isn't in ICU until 5.2
                         UnicodeSet s = value.equals("[:^nfkc_casefolded:]")
-                        ? NOT_NFKC_CASE_FOLD
-                                : new UnicodeSet(value).complement().complement();
+                            ? NOT_NFKC_CASE_FOLD
+                            : new UnicodeSet(value).complement().complement();
                         System.out.println(variable + "\tcontains 20000\t" + s.contains(0x20000));
                         if (VERBOSE) {
                             System.out.println("{Variable: " + variable + ", value: " + toPattern(s, true) + "}");
@@ -181,14 +185,23 @@ public class IdnaLabelTester {
                 // do rules. This could be much more compact, but is broken out for debugging
 
                 String[] pieces = line.split("\\s*;\\s*");
-                //        if (DEBUG) {
-                //          System.out.println(Arrays.asList(pieces));
-                //        }
+                // if (DEBUG) {
+                // System.out.println(Arrays.asList(pieces));
+                // }
                 String before, at, result;
                 switch (pieces.length) {
-                case 2: before = null; at = pieces[0]; result= pieces[1]; break;
-                case 3: before = pieces[0]; at = pieces[1]; result= pieces[2]; break;
-                default: throw new IllegalArgumentException(line + " => " + Arrays.asList(pieces));
+                case 2:
+                    before = null;
+                    at = pieces[0];
+                    result = pieces[1];
+                    break;
+                case 3:
+                    before = pieces[0];
+                    at = pieces[1];
+                    result = pieces[2];
+                    break;
+                default:
+                    throw new IllegalArgumentException(line + " => " + Arrays.asList(pieces));
                 }
                 Rule rule = new Rule(before, at, result, title, lineCount, variables);
                 if (VERBOSE) {
@@ -196,15 +209,17 @@ public class IdnaLabelTester {
                 }
                 rules.add(rule);
             } catch (Exception e) {
-                throw (RuntimeException) new IllegalArgumentException("Error on line: " + lineCount + ".\t" + line).initCause(e);
+                throw (RuntimeException) new IllegalArgumentException("Error on line: " + lineCount + ".\t" + line)
+                    .initCause(e);
             }
         }
         in.close();
     }
-    // 248C ;   0035 002E ; MA  #* ( ⒌ → 5. ) DIGIT FIVE FULL STOP → DIGIT FIVE, FULL STOP  # {nfkc:9357}
 
-    public static XEquivalenceClass<String,String> getConfusables() throws IOException {
-        XEquivalenceClass<String,String> result = new XEquivalenceClass<String,String>();
+    // 248C ; 0035 002E ; MA #* ( ⒌ → 5. ) DIGIT FIVE FULL STOP → DIGIT FIVE, FULL STOP # {nfkc:9357}
+
+    public static XEquivalenceClass<String, String> getConfusables() throws IOException {
+        XEquivalenceClass<String, String> result = new XEquivalenceClass<String, String>();
         BufferedReader in = openFile("/Users/markdavis/Documents/workspace/draft/reports/tr39/data/confusables.txt");
         String original = null;
         try {
@@ -216,7 +231,7 @@ public class IdnaLabelTester {
                     line = line.substring(1);
                 }
                 int pos = line.indexOf('#');
-                if (pos >= 0) line = line.substring(0,pos);
+                if (pos >= 0) line = line.substring(0, pos);
                 line = line.trim();
                 if (line.length() == 0) continue;
                 String[] parts = line.split("\\s*;\\s*");
@@ -225,7 +240,7 @@ public class IdnaLabelTester {
                 String cp = Utility.fromHex(parts[0], 4, SPACES);
                 String s = Utility.fromHex(parts[1], 4, SPACES);
                 result.add(cp, s);
-            } 
+            }
         } catch (Exception e) {
             throw new IllegalArgumentException("Line:\t" + original, e);
         } finally {
@@ -237,7 +252,7 @@ public class IdnaLabelTester {
     static Pattern SPACES = Pattern.compile("\\s+");
 
     private static UnicodeSet computeNotNfkcCaseFold() {
-        //    B: toNFKC(toCaseFold(toNFKC(cp))) != cp
+        // B: toNFKC(toCaseFold(toNFKC(cp))) != cp
         UnicodeSet result = new UnicodeSet();
         for (int i = 0; i <= 0x10FFFF; ++i) {
             // quick check to avoid extra processing
@@ -273,10 +288,13 @@ public class IdnaLabelTester {
     }
 
     private static boolean equals(String string, int codePoint) {
-        switch(string.length()) {
-        case 1: return codePoint == string.charAt(0);
-        case 2: return codePoint >= 0x10000 && codePoint == string.codePointAt(0);
-        default: return false;
+        switch (string.length()) {
+        case 1:
+            return codePoint == string.charAt(0);
+        case 2:
+            return codePoint >= 0x10000 && codePoint == string.codePointAt(0);
+        default:
+            return false;
         }
     }
 
@@ -285,8 +303,8 @@ public class IdnaLabelTester {
     private static BufferedReader openFile(String file) throws IOException {
         try {
             File file1 = new File(file);
-            //System.out.println("Reading:\t" + file1.getCanonicalPath());
-            return new BufferedReader(new InputStreamReader(new FileInputStream(file1), UTF8),1024*64);
+            // System.out.println("Reading:\t" + file1.getCanonicalPath());
+            return new BufferedReader(new InputStreamReader(new FileInputStream(file1), UTF8), 1024 * 64);
         } catch (Exception e) {
             File f = new File(file);
             throw new IllegalArgumentException("Bad file name: " + f.getCanonicalPath());
@@ -306,15 +324,17 @@ public class IdnaLabelTester {
         ESCAPER.setFilter(TO_QUOTE);
     }
 
-    private static final PrettyPrinter PRETTY_PRINTER = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT)).setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
-    .setToQuote(TO_QUOTE)
-    .setOrdering(null)
-    .setSpaceComparator(null);
+    private static final PrettyPrinter PRETTY_PRINTER = new PrettyPrinter()
+        .setOrdering(Collator.getInstance(ULocale.ROOT))
+        .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
+        .setToQuote(TO_QUOTE)
+        .setOrdering(null)
+        .setSpaceComparator(null);
 
     private static String toPattern(UnicodeSet s, boolean escape) {
-        return !escape 
-        ? s.toPattern(false) 
-                : PRETTY_PRINTER.format(s);
+        return !escape
+            ? s.toPattern(false)
+            : PRETTY_PRINTER.format(s);
     }
 
     // ==================== Test Code =======================
@@ -334,6 +354,7 @@ public class IdnaLabelTester {
     /**
      * Test a label; null for success.
      * Later, return information.
+     * 
      * @param label
      * @return
      */
@@ -346,16 +367,18 @@ public class IdnaLabelTester {
         boolean skipOverFail = false;
         boolean skipOverFailAndNext2 = false;
         // note: it doesn't matter if we test in the middle of a supplemental character
-        for (int i= 0; i < label.length(); ++i) {
+        for (int i = 0; i < label.length(); ++i) {
             for (Rule rule : rules) {
 
                 // handle the skipping
 
                 switch (rule.result) {
-                case fail: if (skipOverFail || skipOverFailAndNext2) continue;
-                break;
-                case next2: if (skipOverFailAndNext2) continue;
-                break;
+                case fail:
+                    if (skipOverFail || skipOverFailAndNext2) continue;
+                    break;
+                case next2:
+                    if (skipOverFailAndNext2) continue;
+                    break;
                 }
                 skipOverFail = false;
                 skipOverFailAndNext2 = false;
@@ -364,19 +387,19 @@ public class IdnaLabelTester {
 
                 Result result = rule.match(i);
                 switch (result) {
-                case next: 
+                case next:
                     if (VERBOSE) {
                         rule.match(i);
                     }
                     skipOverFailAndNext2 = true;
                     break;
-                case next2: 
+                case next2:
                     if (VERBOSE) {
                         rule.match(i);
                     }
                     skipOverFail = true;
                     break;
-                case fail: 
+                case fail:
                     if (VERBOSE) {
                         rule.match(i);
                     }
@@ -393,7 +416,7 @@ public class IdnaLabelTester {
     }
 
     public static void main(String[] args) throws Exception {
-        //checkMapIterator();
+        // checkMapIterator();
         showPunycode("γιατρόσ");
         showPunycode("γιατρός");
         showPunycode("γιατρός".toUpperCase());
@@ -414,12 +437,12 @@ public class IdnaLabelTester {
         int successes = 0;
         boolean firstTestLine = true;
 
-        for (int lineCount = 1; ; ++lineCount) {
+        for (int lineCount = 1;; ++lineCount) {
             String line = in.readLine();
             if (line == null) break;
             int commentPos = line.indexOf("#");
             if (commentPos >= 0) {
-                line = line.substring(0,commentPos);
+                line = line.substring(0, commentPos);
             }
             line = UNESCAPER.transform(line);
 
@@ -450,7 +473,6 @@ public class IdnaLabelTester {
                 tester.checkPatrik();
                 continue;
             }
-
 
             if (firstTestLine) {
                 if (VERBOSE) {
@@ -490,10 +512,10 @@ public class IdnaLabelTester {
                     successes++;
                 }
                 if (showLine) {
-                    System.out.println(ESCAPER.transform(line.substring(0, result.position)) 
-                            + "\u2639" + ESCAPER.transform(line.substring(result.position)) 
-                            + "\t\t" + result.title
-                            + "; \tRuleLine: " + result.ruleLine);
+                    System.out.println(ESCAPER.transform(line.substring(0, result.position))
+                        + "\u2639" + ESCAPER.transform(line.substring(result.position))
+                        + "\t\t" + result.title
+                        + "; \tRuleLine: " + result.ruleLine);
                 }
             }
         }
@@ -504,12 +526,12 @@ public class IdnaLabelTester {
 
     private static void showPunycode(String string) throws StringPrepParseException {
         System.out.println(string +
-                "\t" + Punycode.encode(new StringBuffer(string), null));
+            "\t" + Punycode.encode(new StringBuffer(string), null));
     }
 
     private static void checkMapIterator() {
         UnicodeMap<String> foo = new UnicodeMap<String>();
-        //foo.putAll(new UnicodeSet("[:cc:]"), " control");
+        // foo.putAll(new UnicodeSet("[:cc:]"), " control");
         foo.putAll(new UnicodeSet("[:Lu:]"), " upper");
         foo.putAll(new UnicodeSet("[:Ll:]"), " lower");
         for (UnicodeMapIterator<String> it = new UnicodeMapIterator<String>(foo); it.nextRange();) {
@@ -547,9 +569,10 @@ public class IdnaLabelTester {
 
         // $Context = [$ExceptionContexto $BackwardCompatibleContexto $JoinControl]
         // $ValidAlways = [$ExceptionPvalid $BackwardCompatiblePvalid $LDH]
-        // $InvalidLetterDigits = [$ExceptionDisallowed $BackwardCompatibleDisallowed $Unassigned $Unstable $IgnorableProperties $IgnorableBlocks $OldHangulJamo]
+        // $InvalidLetterDigits = [$ExceptionDisallowed $BackwardCompatibleDisallowed $Unassigned $Unstable
+        // $IgnorableProperties $IgnorableBlocks $OldHangulJamo]
         // $Valid = [$ValidAlways $Context [$LetterDigits - $InvalidLetterDigits]]
-        
+
         countConfusables(pvalid, contexto);
 
         BufferedReader in = openFile("../DATA/IDN/idna-calculation.txt");
@@ -559,7 +582,7 @@ public class IdnaLabelTester {
          * 000020; DISALLOWED # C : Zs : NOK : HOSTNAME # SPACE
          * Unicode codepoint
          * IDNA2008 property value
-         * Rule(s) in the table document the codepoint matches 
+         * Rule(s) in the table document the codepoint matches
          * General category
          * Is the codepoint OK or NOK as _output_ of IDNA2003
          * If NOK according to IDNA2003, why?
@@ -576,9 +599,9 @@ public class IdnaLabelTester {
                 if (gc == UCharacter.UNASSIGNED) {
                     continue; // skip for now
                 }
-//                if (cp == 0x10000) {
-//                    System.out.println("debug?");
-//                }
+                // if (cp == 0x10000) {
+                // System.out.println("debug?");
+                // }
 
                 String s = UTF16.valueOf(cp);
 
@@ -596,10 +619,12 @@ public class IdnaLabelTester {
                 }
                 String myName = getName(cp);
 
-                if (gc == UCharacter.UNASSIGNED || gc == UCharacter.PRIVATE_USE  || gc == UCharacter.SURROGATE  || gc == UCharacter.CONTROL) {
+                if (gc == UCharacter.UNASSIGNED || gc == UCharacter.PRIVATE_USE || gc == UCharacter.SURROGATE
+                    || gc == UCharacter.CONTROL) {
                     // do nothing
                 } else {
-                    if (!myName.equals(cpName) && !myName.startsWith("CJK UNIFIED IDEOGRAPH-") && !myName.startsWith("HANGUL SYLLABLE ")) {
+                    if (!myName.equals(cpName) && !myName.startsWith("CJK UNIFIED IDEOGRAPH-")
+                        && !myName.startsWith("HANGUL SYLLABLE ")) {
                         diff += "name; ";
                     }
                 }
@@ -609,9 +634,9 @@ public class IdnaLabelTester {
                 }
 
                 IdnaStatus myIdna2003 = getIdnaStatus(s);
-                //                if ((myIdna2003a == IdnaStatus.PVALID) != idna2003out.equals("OK")) {
-                //                    //diff += "idna2003; ";
-                //                }
+                // if ((myIdna2003a == IdnaStatus.PVALID) != idna2003out.equals("OK")) {
+                // //diff += "idna2003; ";
+                // }
 
                 String idna2008map = getIDNA2008Value(s, true);
                 if (idna2008map.equals("")) {
@@ -628,14 +653,15 @@ public class IdnaLabelTester {
                     idna2003map = "\uE000";
                 }
 
-                //                String predicate = ";\t" + my2008 + ";\t" + idna2008map + ";\t" + myIdna2003  + ";\t" + idna2003map;
-                //                String myLine = hex4 + predicate + ";\t" + myGc + ";\t" + myName;
-                R5<IdnaStatus, String, IdnaStatus, String, Integer> row = Row.of(my2008, idna2008map, myIdna2003, idna2003map, UScript.getScript(cp));
+                // String predicate = ";\t" + my2008 + ";\t" + idna2008map + ";\t" + myIdna2003 + ";\t" + idna2003map;
+                // String myLine = hex4 + predicate + ";\t" + myGc + ";\t" + myName;
+                R5<IdnaStatus, String, IdnaStatus, String, Integer> row = Row.of(my2008, idna2008map, myIdna2003,
+                    idna2003map, UScript.getScript(cp));
                 myLines.put(cp, row);
 
-                //                if (diff.length() != 0) {
-                //                    System.out.println(line + "\n≠\t" + myLine + "\n#\tdiff:\t" + diff);
-                //                }
+                // if (diff.length() != 0) {
+                // System.out.println(line + "\n≠\t" + myLine + "\n#\tdiff:\t" + diff);
+                // }
             } catch (Exception e) {
                 throw (RuntimeException) new IllegalArgumentException("EXCEPTION with:\t" + line).initCause(e);
             }
@@ -643,21 +669,24 @@ public class IdnaLabelTester {
         in.close();
         printFullComparison(myLines);
     }
-    
+
     static class ConfusableData {
         long count;
         long countWeighted;
         long countWeightedIdna;
         UnicodeSet samples = new UnicodeSet();
+
         public void add(int codePoint, long weight, long weightIdna) {
             count++;
             countWeighted += weight;
             countWeightedIdna += weightIdna;
             samples.add(codePoint);
         }
+
         public String toString() {
             return count + "\t" + countWeighted + "\t" + countWeightedIdna + "\t" + samples;
         }
+
         /**
          * Creates new
          */
@@ -670,7 +699,7 @@ public class IdnaLabelTester {
             return result;
         }
     }
-    
+
     private void countConfusables(UnicodeSet pvalid, UnicodeSet contexto) throws IOException {
         Counter<Integer> idnaWeights = IdnaFrequency.getData(false);
         loadFrequencies();
@@ -682,11 +711,11 @@ public class IdnaLabelTester {
         }
         idna2003Valid.freeze();
         XEquivalenceClass<String, String> equivs = getConfusables();
-//        int i = 0;
-//        for (String sample : equivs) {
-//            System.out.println((i++) + "\t" + Utility.hex(sample) + "\t" + equivs.getEquivalences(sample));
-//        }
-        
+        // int i = 0;
+        // for (String sample : equivs) {
+        // System.out.println((i++) + "\t" + Utility.hex(sample) + "\t" + equivs.getEquivalences(sample));
+        // }
+
         ConfusableData valid = new ConfusableData();
         ConfusableData pvalid_pvalid = new ConfusableData();
         ConfusableData cvalid_cvalid = new ConfusableData();
@@ -698,7 +727,8 @@ public class IdnaLabelTester {
         pvalid = new UnicodeSet(pvalid).addAll(syntax).freeze();
         contexto = new UnicodeSet(contexto).removeAll(syntax).freeze();
         UnicodeSet pvalidWithContexto = new UnicodeSet(pvalid).addAll(contexto);
-        UnicodeSet allTest = new UnicodeSet(pvalid).addAll(contexto).addAll(idna2003Valid).addAll(syntax).removeAll(new UnicodeSet("[:ideographic:]")).freeze();
+        UnicodeSet allTest = new UnicodeSet(pvalid).addAll(contexto).addAll(idna2003Valid).addAll(syntax)
+            .removeAll(new UnicodeSet("[:ideographic:]")).freeze();
         for (String item : allTest) {
             int codePoint = item.codePointAt(0);
             long weight = frequencies.getCount(codePoint);
@@ -712,12 +742,12 @@ public class IdnaLabelTester {
             boolean inSyntax = syntax.containsAll(item);
 
             Set<String> equivalentItems = equivs.getEquivalences(item);
-            
+
             boolean has_pvalid_pvalid = false;
             boolean has_cvalid_cvalid = false;
             boolean has_pvalid3_pvalid3 = false;
             boolean has_pvalid_pvalid3 = false;
-            
+
             for (String item2 : equivalentItems) {
                 if ((pvalid.containsAll(item) || inSyntax) && pvalid.containsAll(item2)) {
                     has_pvalid_pvalid = true;
@@ -750,39 +780,47 @@ public class IdnaLabelTester {
         System.out.println("cvalid_cvalid.count:\t" + cvalid_cvalid);
         System.out.println("pvalid3_pvalid3.count:\t" + pvalid3_pvalid3);
         System.out.println("pvalid_pvalid3.count:\t" + pvalid_pvalid3);
-        //System.out.println('\u03C2' + "\t" + frequencies.getCount('\u03C2') + "\t" + idnaWeights.getCount((int)'\u03C2'));
-        //System.out.println('\u00DF' + "\t" + frequencies.getCount('\u00DF') + "\t" + idnaWeights.getCount((int)'\u00DF'));
+        // System.out.println('\u03C2' + "\t" + frequencies.getCount('\u03C2') + "\t" +
+        // idnaWeights.getCount((int)'\u03C2'));
+        // System.out.println('\u00DF' + "\t" + frequencies.getCount('\u00DF') + "\t" +
+        // idnaWeights.getCount((int)'\u00DF'));
     }
 
-    enum Diff {same, warn, bad};
+    enum Diff {
+        same, warn, bad
+    };
 
-    private void printFullComparison(UnicodeMap<R5<IdnaStatus, String, IdnaStatus, String, Integer>> myLines) throws IOException {
+    private void printFullComparison(UnicodeMap<R5<IdnaStatus, String, IdnaStatus, String, Integer>> myLines)
+        throws IOException {
         Tabber tabber = new Tabber.MonoTabber()
-        .add(12, Tabber.LEFT) // code
-        .add(12, Tabber.CENTER) // chars
-        .add(12, Tabber.LEFT) // idna2008
-        .add(12, Tabber.LEFT) // map
-        .add(12, Tabber.LEFT) // idna2003
-        .add(12, Tabber.LEFT) // map
-        .add(12, Tabber.LEFT) // gc
-        .add(7, Tabber.LEFT) // name
+            .add(12, Tabber.LEFT) // code
+            .add(12, Tabber.CENTER) // chars
+            .add(12, Tabber.LEFT) // idna2008
+            .add(12, Tabber.LEFT) // map
+            .add(12, Tabber.LEFT) // idna2003
+            .add(12, Tabber.LEFT) // map
+            .add(12, Tabber.LEFT) // gc
+            .add(7, Tabber.LEFT) // name
         ;
         HTMLTabber htmlTabber = new Tabber.HTMLTabber();
-        //003A..0040;DISALLOWED;;DISALLOWED;; Po Sm;COLON..COMMERCIAL AT
-        //0041;REMAP; 0061;  REMAP; 0061;    Lu;  LATIN CAPITAL LETTER A
+        // 003A..0040;DISALLOWED;;DISALLOWED;; Po Sm;COLON..COMMERCIAL AT
+        // 0041;REMAP; 0061; REMAP; 0061; Lu; LATIN CAPITAL LETTER A
 
-        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info.txt");
-        PrintWriter out2 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info-tab.txt");
-        PrintWriter out3 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"), "idna-info.html");
+        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"),
+            "idna-info.txt");
+        PrintWriter out2 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"),
+            "idna-info-tab.txt");
+        PrintWriter out3 = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.getProperty("out"),
+            "idna-info.html");
         out3.println("<html>\n" +
-                "<head>\n" +
-                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
-                "<title>IDNA Info</title>\n" +
-                "<link rel='stylesheet' type='text/css' href='idna-info.css'>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "<p><a href='http://www.macchiato.com/unicode/idna/idna-info-key'>Key</a></p>" +
-        "<table>");
+            "<head>\n" +
+            "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
+            "<title>IDNA Info</title>\n" +
+            "<link rel='stylesheet' type='text/css' href='idna-info.css'>\n" +
+            "</head>\n" +
+            "<body>\n" +
+            "<p><a href='http://www.macchiato.com/unicode/idna/idna-info-key'>Key</a></p>" +
+            "<table>");
         String title = "D\tCode Points\tChars\tIdna2008\tMap\tIdna2003\tMap\tScript\tGCs\tDescription";
         out.println(tabber.process(title));
         out2.println(title);
@@ -792,8 +830,8 @@ public class IdnaLabelTester {
 
         Set<String> gcs = new LinkedHashSet<String>();
         Set<String> scripts = new LinkedHashSet<String>();
-        for (UnicodeMapIterator<R5<IdnaStatus, String, IdnaStatus, String, Integer>> it 
-                = new UnicodeMapIterator<R5<IdnaStatus, String, IdnaStatus, String, Integer>>(myLines); it.nextRange();) {
+        for (UnicodeMapIterator<R5<IdnaStatus, String, IdnaStatus, String, Integer>> it = new UnicodeMapIterator<R5<IdnaStatus, String, IdnaStatus, String, Integer>>(
+            myLines); it.nextRange();) {
             String codepointsHex = Utility.hex(it.codepoint, 4);
             String myName = getName(it.codepoint);
             String myGc = getGc(it.codepoint);
@@ -802,7 +840,7 @@ public class IdnaLabelTester {
             if (it.codepoint != it.codepointEnd) {
                 codepointsHex += "\u200B.." + Utility.hex(it.codepointEnd, 4);
                 myName += "\u200B.." + getName(it.codepointEnd);
-                charsHex +=  "\u200B.." + TransliteratorUtilities.toHTML.transform(UTF16.valueOf(it.codepointEnd));
+                charsHex += "\u200B.." + TransliteratorUtilities.toHTML.transform(UTF16.valueOf(it.codepointEnd));
                 gcs.clear();
                 scripts.clear();
                 for (int cp = it.codepoint; cp < it.codepointEnd; ++cp) {
@@ -818,11 +856,11 @@ public class IdnaLabelTester {
             if (valid2008 == IdnaStatus.CONTEXTJ || valid2008 == IdnaStatus.CONTEXTO) {
                 valid2008 = IdnaStatus.PVALID;
             }
-            Diff diff = (valid2003 == IdnaStatus.REMAP || valid2003 == IdnaStatus.PVALID) 
-            && (valid2008 == IdnaStatus.REMAP || valid2008 == IdnaStatus.PVALID)
-            && !it.value.get1().equals(it.value.get3()) ? Diff.bad 
-                    : valid2003 != IdnaStatus.UNASSIGNED && valid2008 != valid2003 ? Diff.warn 
-                            : Diff.same;
+            Diff diff = (valid2003 == IdnaStatus.REMAP || valid2003 == IdnaStatus.PVALID)
+                && (valid2008 == IdnaStatus.REMAP || valid2008 == IdnaStatus.PVALID)
+                && !it.value.get1().equals(it.value.get3()) ? Diff.bad
+                : valid2003 != IdnaStatus.UNASSIGNED && valid2008 != valid2003 ? Diff.warn
+                    : Diff.same;
             switch (diff) {
             case bad:
                 htmlTabber.setParameters(0, "class='bad'");
@@ -841,11 +879,12 @@ public class IdnaLabelTester {
             }
             out.println(tabber.process(getline(diff, codepointsHex, "", it.value, myScript, myGc, myName, false)));
             out2.println(getline(diff, codepointsHex, "", it.value, myGc, myScript, myName, true));
-            out3.println(htmlTabber.process(getline(diff, codepointsHex, charsHex, it.value, myScript, myGc, myNameHtml, true)));
+            out3.println(htmlTabber.process(getline(diff, codepointsHex, charsHex, it.value, myScript, myGc,
+                myNameHtml, true)));
         }
         out3.println("</table>\n" +
-                "</body>\n" +
-        "</html>");
+            "</body>\n" +
+            "</html>");
         out.close();
         out2.close();
         out3.close();
@@ -854,7 +893,7 @@ public class IdnaLabelTester {
     private String shortStringForSet(Set<String> gcs, String myGc, int limit) {
         if (gcs.size() != 1) {
             myGc = "";
-            for (String item: gcs) {
+            for (String item : gcs) {
                 if (--limit < 0) {
                     myGc += "...";
                     break;
@@ -870,35 +909,38 @@ public class IdnaLabelTester {
         return myGc;
     }
 
-    private String getline(Diff diff, String codepointsHex, String chars, R5<IdnaStatus, String, IdnaStatus, String, Integer> value, 
-            String myScript, String myGc, String myName, boolean fixHex) {
+    private String getline(Diff diff, String codepointsHex, String chars,
+        R5<IdnaStatus, String, IdnaStatus, String, Integer> value,
+        String myScript, String myGc, String myName, boolean fixHex) {
         IdnaStatus v8 = value.get0();
         String m8 = value.get1();
         IdnaStatus v3 = value.get2();
         String m3 = value.get3();
 
-        String sep = ";\t";  
+        String sep = ";\t";
         if (fixHex) {
-            codepointsHex = "U+"+codepointsHex.replace("..", "..U+");
+            codepointsHex = "U+" + codepointsHex.replace("..", "..U+");
             sep = "\t";
         }
 
-        String m8a = v8 != IdnaStatus.REMAP ? "n/a" : 
-            m8.length() == 0 ? "delete" : 
+        String m8a = v8 != IdnaStatus.REMAP ? "n/a" :
+            m8.length() == 0 ? "delete" :
                 hex(m8, fixHex);
         String m3a = v3 != IdnaStatus.REMAP ? "n/a" :
-            v8 == IdnaStatus.REMAP && m8.equals(m3) ? "~" : 
-                m3.length() == 0 ? "delete" : 
+            v8 == IdnaStatus.REMAP && m8.equals(m3) ? "~" :
+                m3.length() == 0 ? "delete" :
                     hex(m3, fixHex);
 
         String v8a = v8.toString();
         String v3a = v8 == v3 ? "~" : v3.toString();
-        String line = (diff == Diff.bad ? "X" : diff == Diff.warn ? "w" : "") + sep + codepointsHex + sep + chars + sep + v8a + sep + m8a + sep + v3a + sep + m3a + sep + myScript + sep + myGc + sep + myName;
+        String line = (diff == Diff.bad ? "X" : diff == Diff.warn ? "w" : "") + sep + codepointsHex + sep + chars + sep
+            + v8a + sep + m8a + sep + v3a + sep + m3a + sep + myScript + sep + myGc + sep + myName;
         return line;
     }
 
     private String getGc(int cp) {
-        return UCharacter.getPropertyValueName(UProperty.GENERAL_CATEGORY,  UCharacter.getType(cp), UProperty.NameChoice.SHORT);
+        return UCharacter.getPropertyValueName(UProperty.GENERAL_CATEGORY, UCharacter.getType(cp),
+            UProperty.NameChoice.SHORT);
     }
 
     private String getName(int cp) {
@@ -909,33 +951,34 @@ public class IdnaLabelTester {
 
     private String hex(String item, boolean fixHex) {
         String hex = Utility.hex(item, 4, " ");
-        if (fixHex && item.length() != 0) hex = "U+"+hex.replace(" ", " U+");
+        if (fixHex && item.length() != 0) hex = "U+" + hex.replace(" ", " U+");
         return hex;
     }
-    
+
     public String getVariable(String variableName) {
-     return variables.replace(variableName);
+        return variables.replace(variableName);
     }
 
     private void showMapping() {
         UnicodeSet valid = new UnicodeSet(variables.replace("$Valid"));
         UnicodeSet graphic = new UnicodeSet("[^[:cn:][:co:][:cs:][:cc:]]");
         Counter<String> counter = new Counter<String>();
-        Map<String,R2<Long, Set<R2<Long, String>>>> examples = new HashMap<String,R2<Long, Set<R2<Long, String>>>>();
+        Map<String, R2<Long, Set<R2<Long, String>>>> examples = new HashMap<String, R2<Long, Set<R2<Long, String>>>>();
         double totalFrequency = 0;
         loadFrequencies();
 
         for (String s : graphic) {
             String idna2003 = getIDNAValue(s, StringPrep.ALLOW_UNASSIGNED, null); // StringPrep.ALLOW_UNASSIGNED
             String idna2008 = getIDNA2008Value(s, true);
-            //String idna2008c = getIDNA2008Value(s, true);
+            // String idna2008c = getIDNA2008Value(s, true);
             // a problem case is where they are not equal, and both mapped values are valid
             String eq = idna2008.equals(idna2003) ? "↔" : "⇹";
             String sourceStatus = getIdnaStatus(valid, s);
             String status3 = getIdnaStatus(valid, idna2003);
             String status8 = getIdnaStatus(valid, idna2008);
-            //String status8c = getIdnaStatus(valid, idna2008c);
-            String key = eq+"\t"+sourceStatus+"\t"+status3+"\t"+status8; // + (idna2008.equals(idna2008c) ? "" : " "+status8c);
+            // String status8c = getIdnaStatus(valid, idna2008c);
+            String key = eq + "\t" + sourceStatus + "\t" + status3 + "\t" + status8; // + (idna2008.equals(idna2008c) ?
+                                                                                     // "" : " "+status8c);
             counter.add(key, 1);
             long newFrequency = frequencies.getCount(s.codePointAt(0));
             totalFrequency += newFrequency;
@@ -959,24 +1002,25 @@ public class IdnaLabelTester {
         }
         System.out.println("==== Char count for groups");
         for (String s : counter) {
-            R2<Long, Set<R2<Long, String>>> data  = examples.get(s);
+            R2<Long, Set<R2<Long, String>>> data = examples.get(s);
             double freq = data.get0();
             R2<Long, String> freqSample = data.get1().iterator().next();
-            System.out.println(freqSample.get1() + "\t" + counter.get(s) + "\t" + (freq/totalFrequency));
+            System.out.println(freqSample.get1() + "\t" + counter.get(s) + "\t" + (freq / totalFrequency));
         }
 
         System.out.println("==== Samples for groups");
         for (String s : counter) {
-            R2<Long, Set<R2<Long, String>>> data  = examples.get(s);
+            R2<Long, Set<R2<Long, String>>> data = examples.get(s);
             double freq = data.get0();
             int max = 10;
             for (R2<Long, String> freqSample : data.get1()) {
                 if (--max <= 0) break;
-                System.out.println(freqSample.get1() + "\t" + freq + "\t" + (-freqSample.get0()/freq));
+                System.out.println(freqSample.get1() + "\t" + freq + "\t" + (-freqSample.get0() / freq));
             }
         }
 
     }
+
     private void loadFrequencies() {
         if (frequencies == null && frequencyFile != null) {
             try {
@@ -987,12 +1031,13 @@ public class IdnaLabelTester {
         }
     }
 
-    private static String getExample(String s, String idna2003, String idna2008, String eq, String sourceStatus, String status3, String status8, String idna2008c, String status8c) {
+    private static String getExample(String s, String idna2003, String idna2008, String eq, String sourceStatus,
+        String status3, String status8, String idna2008c, String status8c) {
         return version(s) + "\t" + eq
-        + "\t" + getCodeAndName(s) + "\t" + sourceStatus
-        + "\t" + getCodeAndName(idna2003, s) + "\t" + status3
-        + "\t" + getCodeAndName(idna2008, s) + "\t" + status8
-        //        + (idna2008.equals(idna2008c) ? "" : "\t" + getCodeAndName(idna2008c, s) + "\t" + status8c)
+            + "\t" + getCodeAndName(s) + "\t" + sourceStatus
+            + "\t" + getCodeAndName(idna2003, s) + "\t" + status3
+            + "\t" + getCodeAndName(idna2008, s) + "\t" + status8
+        // + (idna2008.equals(idna2008c) ? "" : "\t" + getCodeAndName(idna2008c, s) + "\t" + status8c)
         ;
     }
 
@@ -1013,7 +1058,7 @@ public class IdnaLabelTester {
 
     private static String getIdnaStatus(UnicodeSet valid, String s) {
         return (s != null && getIDNAValue(s, StringPrep.DEFAULT, null) != null ? "V" : "x") + "3"
-        + "\t" + (s != null && valid.containsAll(s) ? "V" : "x") + 8;
+            + "\t" + (s != null && valid.containsAll(s) ? "V" : "x") + 8;
     }
 
     private static String getCodeAndName(String string) {
@@ -1034,7 +1079,7 @@ public class IdnaLabelTester {
         String s = UTF16.valueOf(i);
         if (!s.equals(mapped)) {
             UnicodeSet x = mapping.get(mapped);
-            if (x == null) mapping.put(mapped, x= new UnicodeSet());
+            if (x == null) mapping.put(mapped, x = new UnicodeSet());
             x.add(i);
         }
     }
@@ -1044,7 +1089,9 @@ public class IdnaLabelTester {
     static StringBuffer outbuffer = new StringBuffer();
     static StringPrep namePrep = StringPrep.getInstance(StringPrep.RFC3491_NAMEPREP);
 
-    enum IdnaStatus {PVALID, CONTEXTO, CONTEXTJ, REMAP, UNASSIGNED, DISALLOWED};
+    enum IdnaStatus {
+        PVALID, CONTEXTO, CONTEXTJ, REMAP, UNASSIGNED, DISALLOWED
+    };
 
     IdnaStatus[] temp = new IdnaStatus[1];
 
@@ -1102,13 +1149,13 @@ public class IdnaLabelTester {
         String source = original;
         for (int j = 0; j < 2; ++j) {
             String lower = lowerCase ? UCharacter.toLowerCase(ULocale.ROOT, source) : UCharacter.foldCase(source, true);
-            //            String caseFoldNfc = Normalizer.normalize(caseFold, Normalizer.NFC);
-            //            String lowerNfc = Normalizer.normalize(lower, Normalizer.NFC);
-            //            if (!caseFoldNfc.equals(lowerNfc)) {
-            //                System.out.println("fold difference:\t" + getCodeAndName(original)
-            //                        + "\t" + getCodeAndName(lowerNfc)
-            //                        + "\t" + getCodeAndName(caseFoldNfc));
-            //            }
+            // String caseFoldNfc = Normalizer.normalize(caseFold, Normalizer.NFC);
+            // String lowerNfc = Normalizer.normalize(lower, Normalizer.NFC);
+            // if (!caseFoldNfc.equals(lowerNfc)) {
+            // System.out.println("fold difference:\t" + getCodeAndName(original)
+            // + "\t" + getCodeAndName(lowerNfc)
+            // + "\t" + getCodeAndName(caseFoldNfc));
+            // }
             StringBuilder result = new StringBuilder();
             for (int i = 0; i < lower.length(); ++i) {
                 int cp = lower.codePointAt(i);

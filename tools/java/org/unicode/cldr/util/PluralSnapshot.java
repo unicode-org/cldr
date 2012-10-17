@@ -20,23 +20,28 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
-public class PluralSnapshot implements Comparable<PluralSnapshot>{
+public class PluralSnapshot implements Comparable<PluralSnapshot> {
 
     public enum Plurals {
         zero, one, two, few, many, other("x");
         final String abb;
+
         Plurals(String s) {
             abb = s;
         }
+
         Plurals() {
-            abb = name().substring(0,1);
+            abb = name().substring(0, 1);
         }
+
         public String abbreviated() {
             return abb;
         }
     }
 
-    public enum Integral {integer, fraction}
+    public enum Integral {
+        integer, fraction
+    }
 
     static final int LEN = 128;
 
@@ -49,8 +54,8 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
     public final int count;
     public final int count01;
 
-    EnumSet<Plurals> coveredBy01 = EnumSet.noneOf(Plurals.class); 
-    EnumSet<Plurals> not01 = EnumSet.noneOf(Plurals.class); 
+    EnumSet<Plurals> coveredBy01 = EnumSet.noneOf(Plurals.class);
+    EnumSet<Plurals> not01 = EnumSet.noneOf(Plurals.class);
 
     Plurals[] plurals = new Plurals[LEN];
 
@@ -61,8 +66,10 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
     static NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
 
     public static class SnapshotInfo implements Iterable<Entry<PluralSnapshot, Set<String>>> {
-        //private Relation<String,String> rulesToLocales = Relation.of(new HashMap<String,Set<String>>(), TreeSet.class);
-        private Relation<PluralSnapshot, String> snapshotToLocales = Relation.of(new TreeMap<PluralSnapshot,Set<String>>(), TreeSet.class);
+        // private Relation<String,String> rulesToLocales = Relation.of(new HashMap<String,Set<String>>(),
+        // TreeSet.class);
+        private Relation<PluralSnapshot, String> snapshotToLocales = Relation.of(
+            new TreeMap<PluralSnapshot, Set<String>>(), TreeSet.class);
         private BitSet pluralsTransitionAt = new BitSet();
         private Integral integral;
 
@@ -90,7 +97,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
         public String toOverview() {
             StringBuilder result = new StringBuilder();
             result.append("Transitions:\t 0");
-            for (int i = pluralsTransitionAt.nextSetBit(0); i >= 0; i = pluralsTransitionAt.nextSetBit(i+1)) {
+            for (int i = pluralsTransitionAt.nextSetBit(0); i >= 0; i = pluralsTransitionAt.nextSetBit(i + 1)) {
                 result.append(",").append(i);
             }
             return result.toString();
@@ -101,15 +108,15 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
             result.append("<tr><th class='h'></th>");
             int next = -2;
             for (int i = pluralsTransitionAt.nextSetBit(0); i >= 0; i = next) {
-                next = pluralsTransitionAt.nextSetBit(i+1);
+                next = pluralsTransitionAt.nextSetBit(i + 1);
                 result.append("<th class='h'>").append(i);
                 if (integral == Integral.fraction) {
                     result.append(".x");
                 }
                 int vnext = next == -1 ? LEN : next;
-                if (vnext > i+1) {
-                    result.append("-").append(String.valueOf(vnext-1)
-                            + (integral == Integral.fraction ? ".x" : ""));
+                if (vnext > i + 1) {
+                    result.append("-").append(String.valueOf(vnext - 1)
+                        + (integral == Integral.fraction ? ".x" : ""));
                 }
                 result.append("</th>");
             }
@@ -144,7 +151,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
             if (probe != 0.0d && probe != 1.0d) {
                 not01.add(plural);
             }
-            if (i > 0 && plural != plurals[i-1]) {
+            if (i > 0 && plural != plurals[i - 1]) {
                 pluralsTransitionAt.set(i);
             }
         }
@@ -153,6 +160,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
         count = found.size();
         count01 = 2 + not01.size();
     }
+
     @Override
     public int compareTo(PluralSnapshot other) {
         int diff = count - other.count;
@@ -176,7 +184,6 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
         return compareTo((PluralSnapshot) other) == 0;
     }
 
-
     public int hashCode() {
         return count; // brain dead but we don't care.
     }
@@ -198,7 +205,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
 
         Plurals lastItem = null;
         int colSpan = 0;
-        for (int i = pluralsTransitionAt.nextSetBit(0); i >= 0; i = pluralsTransitionAt.nextSetBit(i+1)) {
+        for (int i = pluralsTransitionAt.nextSetBit(0); i >= 0; i = pluralsTransitionAt.nextSetBit(i + 1)) {
             Plurals item = plurals[i];
             if (item == lastItem) {
                 colSpan += 1;
@@ -226,39 +233,41 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
             result.append(" colSpan='" + colSpan + "'");
         }
         result.append(" title='").append(item.toString()).append("'>")
-        .append(item.abbreviated()).append("</td>");
+            .append(item.abbreviated()).append("</td>");
     }
 
     private static <T> void appendItems(StringBuilder result, T[] plurals3, double offset) {
         int start = 0;
-        result.append(plurals3[0]).append("=").append(nf.format(start+offset));
+        result.append(plurals3[0]).append("=").append(nf.format(start + offset));
         for (int i = 1; i < plurals3.length; ++i) {
-            if (!plurals3[i].equals(plurals3[i-1])) {
-                if (i-1 != start) {
+            if (!plurals3[i].equals(plurals3[i - 1])) {
+                if (i - 1 != start) {
                     result.append("-").append(nf.format(i - 1 + offset));
                 }
-                result.append("; ").append(plurals3[i]).append("=").append(nf.format(i+offset));
+                result.append("; ").append(plurals3[i]).append("=").append(nf.format(i + offset));
                 start = i;
             }
         }
-        if (plurals3.length-1 != start) {
-            result.append("-").append(nf.format(plurals3.length -1 + offset));
+        if (plurals3.length - 1 != start) {
+            result.append("-").append(nf.format(plurals3.length - 1 + offset));
         }
     }
 
     public static String getDefaultStyles() {
-        return "<style type='text/css'>\n" +
-        "td.l, td.z, td.o, td.t, td.f, td.m, td.x, th.h, table.pluralComp {border: 1px solid #666; font-size: 8pt}\n" +
-        "table.pluralComp {border-collapse:collapse}\n" +
-        "th.h {background-color:#EEE; border-top: 2px solid #000; border-bottom: 2px solid #000;}\n" +
-        "td.l {background-color:#C0C; border-top: 2px solid #000; color:white; font-weight: bold}\n" +
-        "td.z {background-color:#F00}\n" +
-        "td.o {background-color:#DD0}\n" +
-        "td.t {background-color:#0F0}\n" +
-        "td.f {background-color:#0DD}\n" +
-        "td.m {background-color:#99F}\n" +
-        "td.x {background-color:#CCC}\n" +
-        "td.c01 {text-decoration:underline}\n";
+        return "<style type='text/css'>\n"
+            +
+            "td.l, td.z, td.o, td.t, td.f, td.m, td.x, th.h, table.pluralComp {border: 1px solid #666; font-size: 8pt}\n"
+            +
+            "table.pluralComp {border-collapse:collapse}\n" +
+            "th.h {background-color:#EEE; border-top: 2px solid #000; border-bottom: 2px solid #000;}\n" +
+            "td.l {background-color:#C0C; border-top: 2px solid #000; color:white; font-weight: bold}\n" +
+            "td.z {background-color:#F00}\n" +
+            "td.o {background-color:#DD0}\n" +
+            "td.t {background-color:#0F0}\n" +
+            "td.f {background-color:#0DD}\n" +
+            "td.m {background-color:#99F}\n" +
+            "td.x {background-color:#CCC}\n" +
+            "td.c01 {text-decoration:underline}\n";
     }
 
     public static void writeTables(CLDRFile english, PrintWriter out) {
@@ -281,23 +290,23 @@ public class PluralSnapshot implements Comparable<PluralSnapshot>{
                 System.out.println();
                 System.out.println(locales);
                 System.out.println(ss);
-                //                if (ss.count != lastCount) {
-                //                    out.println(info.toHtmlStringHeader());
-                //                    lastCount = ss.count;
-                //                    lastCount01 = ss.count01;
-                //                }
-                Map<String,String> fullLocales = new TreeMap<String,String>();
+                // if (ss.count != lastCount) {
+                // out.println(info.toHtmlStringHeader());
+                // lastCount = ss.count;
+                // lastCount01 = ss.count01;
+                // }
+                Map<String, String> fullLocales = new TreeMap<String, String>();
                 for (String localeId : locales) {
                     String name = english.getName(localeId);
                     fullLocales.put(name, localeId);
                 }
                 out.print("<tr><td rowSpan='2'>" + ss.count +
-                "</td><td class='l' colSpan='121' title=>");
+                    "</td><td class='l' colSpan='121' title=>");
                 int count = 0;
                 for (Entry<String, String> entry : fullLocales.entrySet()) {
                     out.print("<span title='" + entry.getValue() + "'>"
-                            + (count == 0 ? "" : ", ") + entry.getKey() 
-                            + "</span>");
+                        + (count == 0 ? "" : ", ") + entry.getKey()
+                        + "</span>");
                     count++;
                 }
                 out.println("</td></tr>");

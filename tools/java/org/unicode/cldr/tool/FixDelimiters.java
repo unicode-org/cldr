@@ -21,36 +21,37 @@ import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 
-/** One-time class to fix delimiters
+/**
+ * One-time class to fix delimiters
  * 
  * @author markdavis
- *
+ * 
  */
 public class FixDelimiters {
 
     public static void main(String[] args) throws IOException {
         SupplementalDataInfo info = SupplementalDataInfo.getInstance();
         Set<String> defaultContentLocales = info.getDefaultContentLocales();
-        
+
         for (Entry<String, R2<Quotes, Quotes>> entry : Data.locales2delimiters.entrySet()) {
             System.out.println(entry);
         }
         Factory factory = SimpleFactory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Set<String> remainder = new LinkedHashSet(Data.locales2delimiters.keySet());
 
-        String [] paths = {
-                "//ldml/delimiters/quotationStart",
-                "//ldml/delimiters/quotationEnd",
-                "//ldml/delimiters/alternateQuotationStart",
-                "//ldml/delimiters/alternateQuotationEnd"
+        String[] paths = {
+            "//ldml/delimiters/quotationStart",
+            "//ldml/delimiters/quotationEnd",
+            "//ldml/delimiters/alternateQuotationStart",
+            "//ldml/delimiters/alternateQuotationEnd"
         };
-        String [] oldValue = new String[4];
-        String [] newValue = new String[4];
-        
+        String[] oldValue = new String[4];
+        String[] newValue = new String[4];
+
         System.out.println("Writing data");
         for (String locale : factory.getAvailable()) {
             if (defaultContentLocales.contains(locale)) continue;
-            
+
             R2<Quotes, Quotes> data = Data.locales2delimiters.get(locale);
             if (data == null) {
                 continue;
@@ -61,7 +62,7 @@ public class FixDelimiters {
                 remainder.remove(locale);
             }
             CLDRFile cldrFile = factory.make(locale, false).cloneAsThawed();
-            
+
             newValue[0] = data.get0().start;
             newValue[1] = data.get0().end;
             newValue[2] = data.get1().start;
@@ -83,10 +84,12 @@ public class FixDelimiters {
         }
         System.out.println("Missing: " + remainder);
     }
+
     static class Quotes {
         static Matcher quotes = Pattern.compile("(.*)…(.*)").matcher("");
         final String start;
         final String end;
+
         Quotes(String input) {
             if (!quotes.reset(input).matches()) {
                 throw new IllegalArgumentException(input);
@@ -94,21 +97,23 @@ public class FixDelimiters {
             start = quotes.group(1);
             end = quotes.group(2);
         }
+
         public String toString() {
             return start + "...." + end;
         }
     }
+
     static class Data {
-        static Map<String,Row.R2<Quotes,Quotes>> locales2delimiters = new LinkedHashMap();
+        static Map<String, Row.R2<Quotes, Quotes>> locales2delimiters = new LinkedHashMap();
         static Matcher localeString = Pattern.compile(".*\\((.*)\\)").matcher("");
         static {
             final String instructionFile = "delimiterFixes.txt";
             System.out.println("Instruction file: " + instructionFile);
             for (String line : FileUtilities.in(FixDelimiters.class, instructionFile)) {
                 int first = line.indexOf(' ');
-                int second = line.indexOf(' ', first+1);
-                Quotes qmain = new Quotes(line.substring(0,first));
-                Quotes qalt = new Quotes(line.substring(first+1, second));
+                int second = line.indexOf(' ', first + 1);
+                Quotes qmain = new Quotes(line.substring(0, first));
+                Quotes qalt = new Quotes(line.substring(first + 1, second));
                 R2<Quotes, Quotes> both = Row.of(qmain, qalt);
                 String last = line.substring(second);
                 String[] locales = last.split("\\s*;\\s*");
@@ -117,7 +122,7 @@ public class FixDelimiters {
                         throw new IllegalArgumentException("<" + locale + "> in " + line);
                     }
                     String localeCode = localeString.group(1);
-                    locales2delimiters.put(localeCode,both);
+                    locales2delimiters.put(localeCode, both);
                 }
             }
         }

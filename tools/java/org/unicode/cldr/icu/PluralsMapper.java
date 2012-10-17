@@ -17,6 +17,7 @@ import com.ibm.icu.impl.Row.R2;
  * ICU data with. It might be possible for PluralsMapper and LdmlLocaleMapper to
  * share a parent class, but there isn't currently a need for that so they're
  * kept separate for the time being.
+ * 
  * @author jchye
  */
 public class PluralsMapper {
@@ -29,9 +30,10 @@ public class PluralsMapper {
      * supplemental directory because the supplemental data parsing is already
      * done for us. The RegexLookup method used by LdmlLocaleMapper wouldn't
      * work well, since there would only be one regex.
+     * 
      * @param supplementalDataInfo
      */
-    public PluralsMapper(String supplementalDir)  {
+    public PluralsMapper(String supplementalDir) {
         this.supplementalDir = supplementalDir;
         ruleOrder = new HashMap<String, Integer>();
     }
@@ -45,7 +47,7 @@ public class PluralsMapper {
         fillType(PluralType.ordinal, icuData);
         return icuData;
     }
-    
+
     private void fillType(PluralType type, IcuData icuData) {
         PluralsHandler handler = new PluralsHandler(type, icuData);
         String filename = type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml";
@@ -109,7 +111,7 @@ public class PluralsMapper {
                 currentRules.clear();
             } else if (qName.equals("pluralRule")) {
                 currentRules.add(new R2<String, String>(currentCount,
-                        currentText.toString()));
+                    currentText.toString()));
                 currentText.setLength(0);
             }
         }

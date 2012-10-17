@@ -30,13 +30,14 @@ import com.ibm.icu.util.ULocale;
 public class VerifyCompactNumbers {
 
     final static Options myOptions = new Options();
+
     enum MyOptions {
         organization(".*", "Google", "organization"),
         filter(".*", ".*", "locale filter (regex)"),
-        currency(null, null, "show currency"),
-        ;
+        currency(null, null, "show currency"), ;
         // boilerplate
         final Option option;
+
         MyOptions(String argumentPattern, String defaultArgument, String helpText) {
             option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
         }
@@ -48,6 +49,7 @@ public class VerifyCompactNumbers {
 
     /**
      * Produce a set of static tables from the vxml data. Only a stopgap until the above is integrated into ST.
+     * 
      * @param args
      * @throws IOException
      */
@@ -68,22 +70,22 @@ public class VerifyCompactNumbers {
         Set<String> debugCreationErrors = new LinkedHashSet<String>();
         Set<String> errors = new LinkedHashSet<String>();
 
-        TablePrinter tablePrinter = new TablePrinter() //.setCaption("Timezone Formats")
-        .addColumn("Number").setHeaderCell(true)
-        .addColumn("Numeric Format")
-        .addColumn("Compact-Short")
-        .addColumn("Compact-Long");
+        TablePrinter tablePrinter = new TablePrinter() // .setCaption("Timezone Formats")
+            .addColumn("Number").setHeaderCell(true)
+            .addColumn("Numeric Format")
+            .addColumn("Compact-Short")
+            .addColumn("Compact-Long");
         if (showCurrency) {
             tablePrinter
-            .addColumn("Compact-Short<br>+Currency")
-            .addColumn("Compact-Long<br>+Currency")
-            .addColumn("Number").setHeaderCell(true);
+                .addColumn("Compact-Short<br>+Currency")
+                .addColumn("Compact-Long<br>+Currency")
+                .addColumn("Number").setHeaderCell(true);
         }
         ;
 
         Set<String> availableLanguages = new TreeSet<String>(factory2.getAvailableLanguages());
         availableLanguages.add("pt_PT");
-        
+
         for (String locale : availableLanguages) {
             if (defaultContentLocales.contains(locale)) {
                 continue;
@@ -105,14 +107,18 @@ public class VerifyCompactNumbers {
             CLDRFile cldrFile = factory2.make(locale, true, DraftStatus.contributed);
             PluralInfo pluralInfo = sdi.getPlurals(locale);
             String[] debugOriginals = null;
-            CompactDecimalFormat cdf = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors, debugOriginals, Style.SHORT, locale2, CurrencyStyle.PLAIN);
+            CompactDecimalFormat cdf = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
+                debugOriginals, Style.SHORT, locale2, CurrencyStyle.PLAIN);
             captureErrors(debugCreationErrors, errors, locale, "short");
-            CompactDecimalFormat cdfs = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors, debugOriginals, Style.LONG, locale2, CurrencyStyle.PLAIN);
+            CompactDecimalFormat cdfs = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
+                debugOriginals, Style.LONG, locale2, CurrencyStyle.PLAIN);
             captureErrors(debugCreationErrors, errors, locale, "long");
 
-            CompactDecimalFormat cdfCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors, debugOriginals, Style.SHORT, locale2, CurrencyStyle.CURRENCY);
+            CompactDecimalFormat cdfCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
+                debugOriginals, Style.SHORT, locale2, CurrencyStyle.CURRENCY);
             captureErrors(debugCreationErrors, errors, locale, "short");
-            CompactDecimalFormat cdfsCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors, debugOriginals, Style.LONG, locale2, CurrencyStyle.CURRENCY);
+            CompactDecimalFormat cdfsCurr = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,
+                debugOriginals, Style.LONG, locale2, CurrencyStyle.CURRENCY);
             captureErrors(debugCreationErrors, errors, locale, "long");
 
             // Collect samples for display
@@ -131,17 +137,17 @@ public class VerifyCompactNumbers {
                 collectItems(pluralInfo, 1000, 10000, samples);
             }
 
-            //            for (Entry<Count, List<Double>> entry : pluralInfo.getCountToExamplesMap().entrySet()) {
-            //                samples.add(entry.getValue().get(0));
-            //            }
+            // for (Entry<Count, List<Double>> entry : pluralInfo.getCountToExamplesMap().entrySet()) {
+            // samples.add(entry.getValue().get(0));
+            // }
             //
-            //            Set<Double> samples2 = new TreeSet<Double>();
-            //            for (int i = 10; i < factor; i *= 10) {
-            //                for (Double sample : samples) {
-            //                    samples2.add(sample*i);
-            //                }
-            //            }
-            //            samples.addAll(samples2);
+            // Set<Double> samples2 = new TreeSet<Double>();
+            // for (int i = 10; i < factor; i *= 10) {
+            // for (Double sample : samples) {
+            // samples2.add(sample*i);
+            // }
+            // }
+            // samples.addAll(samples2);
 
             Set<Double> allSamples = new TreeSet<Double>();
             for (long i = factor; i <= 100000000000000L; i *= factor) {
@@ -158,24 +164,24 @@ public class VerifyCompactNumbers {
                     }
 
                     tablePrinter.addRow()
-                    .addCell(enf.format(source))
-                    .addCell(nf.format(source))
-                    .addCell(cdf.format(source))
-                    .addCell(cdfs.format(source));
+                        .addCell(enf.format(source))
+                        .addCell(nf.format(source))
+                        .addCell(cdf.format(source))
+                        .addCell(cdfs.format(source));
                     if (showCurrency) {
                         tablePrinter.addCell(cdfCurr.format(source))
-                        .addCell(cdfsCurr.format(source))
-                        .addCell(enf.format(source));
-                    }       
+                            .addCell(cdfsCurr.format(source))
+                            .addCell(enf.format(source));
+                    }
                     tablePrinter
-                    .finishRow();
+                        .finishRow();
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
             PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.TMP_DIRECTORY + "verify/numbers/",
                 locale +
-                ".html");
+                    ".html");
             String title = "Verify Number Formats: " + englishCldrFile.getName(locale);
             out.println("<html><head>\n" +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
@@ -185,16 +191,15 @@ public class VerifyCompactNumbers {
 
             out.println(tablePrinter.toString());
             out.println("</body></html>");
-            out.close();            
+            out.close();
         }
-
 
         for (String s : errors) {
             System.out.println(s);
         }
     }
 
-    private static Set<Double> collectItems(PluralInfo pluralInfo, double start, double limit, 
+    private static Set<Double> collectItems(PluralInfo pluralInfo, double start, double limit,
         Set<Double> samples) {
         // TODO optimize once we have all the keywords
         Map<String, Double> ones = new TreeMap<String, Double>();

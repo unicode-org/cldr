@@ -8,11 +8,12 @@ import org.unicode.cldr.tool.FallbackIterator;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestFallbackIterator extends TestFmwk {
-  public static void main(String[] args) {
-    new TestFallbackIterator().run(args);
-  }
-  public void TestSimpleFallbacks() {
-    String[] tests = {
+    public static void main(String[] args) {
+        new TestFallbackIterator().run(args);
+    }
+
+    public void TestSimpleFallbacks() {
+        String[] tests = {
             // throw in some extreme cases with multiple variants
             "zh-TW-foobar-variant, zh-Hant-TW-foobar-variant, zh-Hant-foobar-variant, zh-Hant-TW-foobar, zh-Hant-foobar, zh-TW-foobar, zh-Hant-TW, zh-Hant, zh-TW, zh",
             "zh-HK-foobar-variant, zh-Hant-TW, zh-Hant, zh-TW, zh",
@@ -43,17 +44,17 @@ public class TestFallbackIterator extends TestFmwk {
             "zh-Hant, zh-TW, zh",
             "zh-Hant-TW, zh-Hant, zh-TW, zh",
             "zh-Hant-TW-foobar, zh-Hant-TW, zh-Hant, zh-TW, zh",
-    };
-    for (String testString : tests) {
-      String[] test = testString.split(",\\s*");
-      FallbackIterator it = new FallbackIterator(test[0]);
-      // get the fallback list
-      ArrayList<String> items = new ArrayList<String>();
-      while (it.hasNext())  {
-        items.add(it.next());
-      }
-      // expected is the whole list, since the first item is always the same
-      assertEquals("Fallback chain", Arrays.asList(test).toString(), items.toString());
+        };
+        for (String testString : tests) {
+            String[] test = testString.split(",\\s*");
+            FallbackIterator it = new FallbackIterator(test[0]);
+            // get the fallback list
+            ArrayList<String> items = new ArrayList<String>();
+            while (it.hasNext()) {
+                items.add(it.next());
+            }
+            // expected is the whole list, since the first item is always the same
+            assertEquals("Fallback chain", Arrays.asList(test).toString(), items.toString());
+        }
     }
-  }
 }

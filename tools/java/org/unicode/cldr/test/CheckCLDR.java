@@ -42,14 +42,13 @@ import com.ibm.icu.text.Transliterator;
  * This class provides a foundation for both console-driven CLDR tests, and
  * Survey Tool Tests.
  * <p>
- * To add a test, subclass CLDRFile and override handleCheck and possibly
- * setCldrFileToCheck. Then put the test into getCheckAll.
+ * To add a test, subclass CLDRFile and override handleCheck and possibly setCldrFileToCheck. Then put the test into
+ * getCheckAll.
  * <p>
- * To use the test, take a look at the main in ConsoleCheckCLDR. Note that you need to call
- * setDisplayInformation with the CLDRFile for the locale that you want the
- * display information (eg names for codes) to be in.<br>
- * Some options are passed in the Map options. Examples:
- *       boolean SHOW_TIMES = options.containsKey("SHOW_TIMES"); // for printing times for doing setCldrFileToCheck
+ * To use the test, take a look at the main in ConsoleCheckCLDR. Note that you need to call setDisplayInformation with
+ * the CLDRFile for the locale that you want the display information (eg names for codes) to be in.<br>
+ * Some options are passed in the Map options. Examples: boolean SHOW_TIMES = options.containsKey("SHOW_TIMES"); // for
+ * printing times for doing setCldrFileToCheck
  * 
  * @author davis
  */
@@ -61,43 +60,49 @@ abstract public class CheckCLDR {
     private boolean skipTest = false;
     private Phase phase;
 
-    public enum InputMethod {DIRECT, BULK}
+    public enum InputMethod {
+        DIRECT, BULK
+    }
 
     public enum StatusAction {
         /**
          * Allow voting and add new values (in Change column).
          */
-        ALLOW, 
+        ALLOW,
         /**
          * Allow voting and ticket (in Change column).
          */
-        ALLOW_VOTING_AND_TICKET, 
+        ALLOW_VOTING_AND_TICKET,
         /**
          * Allow voting but no add new values (in Change column).
          */
-        ALLOW_VOTING_BUT_NO_ADD, 
+        ALLOW_VOTING_BUT_NO_ADD,
         /**
          * Disallow (for various reasons)
          */
-        FORBID_ERRORS(true), 
-        FORBID_READONLY, 
-        FORBID_UNLESS_DATA_SUBMISSION, 
+        FORBID_ERRORS(true),
+        FORBID_READONLY,
+        FORBID_UNLESS_DATA_SUBMISSION,
         FORBID_COVERAGE,
-        FORBID_NEEDS_TICKET
-        ;
+        FORBID_NEEDS_TICKET;
         private final boolean isForbidden;
+
         private StatusAction() {
             isForbidden = false;
         };
+
         private StatusAction(boolean isForbidden) {
             this.isForbidden = isForbidden;
         };
+
         public boolean isForbidden() {
             return isForbidden;
         }
+
         public boolean canShow() {
             return !isForbidden;
         }
+
         /**
          * @deprecated
          */
@@ -109,7 +114,7 @@ abstract public class CheckCLDR {
     }
 
     private static final HashMap<String, Phase> PHASE_NAMES = new HashMap<String, Phase>();
-    
+
     public enum Phase {
         SUBMISSION, VETTING, FINAL_TESTING("RESOLUTION");
         Phase(String... alternateName) {
@@ -124,14 +129,14 @@ abstract public class CheckCLDR {
             }
             value = value.toUpperCase(Locale.ENGLISH);
             Phase result = PHASE_NAMES.get(value);
-            return result != null ? result 
-                    : Phase.valueOf(value);
+            return result != null ? result
+                : Phase.valueOf(value);
         }
 
         /**
          * @deprecated
          */
-        public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo, 
+        public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo,
             InputMethod inputMethod, PathHeader.SurveyToolStatus status, Level coverageLevel) {
             // don't need phase or inputMethod yet, but might in the future.
 
@@ -153,7 +158,8 @@ abstract public class CheckCLDR {
             // check for errors (allowing collisions
             for (CheckStatus item : statusList) {
                 if (item.getType().equals(CheckStatus.errorType)) {
-                    if (item.getSubtype() != Subtype.dateSymbolCollision && item.getSubtype() != Subtype.displayCollision) {
+                    if (item.getSubtype() != Subtype.dateSymbolCollision
+                        && item.getSubtype() != Subtype.displayCollision) {
                         return StatusAction.FORBID_ERRORS;
                     }
                 }
@@ -167,18 +173,20 @@ abstract public class CheckCLDR {
 
         /**
          * Return whether or not to show a row, and if so, how.
+         * 
          * @param pathValueInfo
          * @param inputMethod
          * @param status
-         * @param userInfo null if there is no userInfo (nobody logged in).
+         * @param userInfo
+         *            null if there is no userInfo (nobody logged in).
          * @return
          */
         public StatusAction getShowRowAction(
             PathValueInfo pathValueInfo,
-            InputMethod inputMethod, 
+            InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-            ) {
+        ) {
 
             // always forbid deprecated items.
             if (status == SurveyToolStatus.DEPRECATED) {
@@ -205,20 +213,20 @@ abstract public class CheckCLDR {
             }
 
             if (this == Phase.SUBMISSION) {
-                return status == SurveyToolStatus.READ_WRITE 
-                    ? StatusAction.SHOW_VOTING_AND_ADD 
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
+                return status == SurveyToolStatus.READ_WRITE
+                    ? StatusAction.SHOW_VOTING_AND_ADD
+                    : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
-            // We are not in submission. 
+            // We are not in submission.
             // Only allow ADD if we have an error or warning
             ValueStatus valueStatus = ValueStatus.NONE;
             for (CandidateInfo value : pathValueInfo.getValues()) {
                 valueStatus = getValueStatus(value, valueStatus);
                 if (valueStatus != ValueStatus.NONE) {
-                    return status == SurveyToolStatus.READ_WRITE 
-                        ? StatusAction.ALLOW 
-                            : StatusAction.ALLOW_VOTING_AND_TICKET;
+                    return status == SurveyToolStatus.READ_WRITE
+                        ? StatusAction.ALLOW
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
                 }
             }
 
@@ -229,8 +237,10 @@ abstract public class CheckCLDR {
         /**
          * getAcceptNewItemAction. MUST only be called if getShowRowAction(...).canShow()
          * TODO Consider moving Phase, StatusAction, etc into CLDRInfo.
-         * @param enteredValue If null, means an abstention. 
-         * If voting for an existing value, pathValueInfo.getValues().contains(enteredValue) MUST be true
+         * 
+         * @param enteredValue
+         *            If null, means an abstention.
+         *            If voting for an existing value, pathValueInfo.getValues().contains(enteredValue) MUST be true
          * @param pathValueInfo
          * @param inputMethod
          * @param status
@@ -240,10 +250,10 @@ abstract public class CheckCLDR {
         public StatusAction getAcceptNewItemAction(
             CandidateInfo enteredValue,
             PathValueInfo pathValueInfo,
-            InputMethod inputMethod, 
+            InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-            ) {
+        ) {
 
             // only logged in users can add items.
             if (userInfo == null) {
@@ -291,7 +301,9 @@ abstract public class CheckCLDR {
             return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
         }
 
-        enum ValueStatus {ERROR, WARNING, NONE}
+        enum ValueStatus {
+            ERROR, WARNING, NONE
+        }
 
         private ValueStatus getValueStatus(CandidateInfo value, ValueStatus previous) {
             if (previous == ValueStatus.ERROR) {
@@ -300,7 +312,7 @@ abstract public class CheckCLDR {
             for (CheckStatus item : value.getCheckStatusList()) {
                 String type = item.getType();
                 if (type.equals(CheckStatus.errorType)) {
-                    if (item.getSubtype() != Subtype.dateSymbolCollision 
+                    if (item.getSubtype() != Subtype.dateSymbolCollision
                         && item.getSubtype() != Subtype.displayCollision) {
                         return ValueStatus.ERROR;
                     }
@@ -322,61 +334,68 @@ abstract public class CheckCLDR {
     }
 
     /**
-     * Here is where the list of all checks is found. 
-     * @param nameMatcher Regex pattern that determines which checks are run,
-     * based on their class name (such as .* for all checks, .*Collisions.* for CheckDisplayCollisions, etc.)
+     * Here is where the list of all checks is found.
+     * 
+     * @param nameMatcher
+     *            Regex pattern that determines which checks are run,
+     *            based on their class name (such as .* for all checks, .*Collisions.* for CheckDisplayCollisions, etc.)
      * @return
      */
     public static CompoundCheckCLDR getCheckAll(Factory factory, String nameMatcher) {
         return new CompoundCheckCLDR()
-        .setFilter(Pattern.compile(nameMatcher,Pattern.CASE_INSENSITIVE).matcher(""))
-        .add(new CheckAttributeValues(factory))
-        .add(new CheckChildren(factory))
-        //.add(new CheckCoverage(factory)) // outmoded
-        .add(new CheckDates(factory))
-        .add(new CheckForCopy(factory))
-        .add(new CheckDisplayCollisions(factory))
-        .add(new CheckExemplars(factory))
-        .add(new CheckForExemplars(factory))
-        .add(new CheckNames())
-        .add(new CheckNumbers(factory))
-        // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
-        .add(new CheckMetazones())
-        .add(new CheckLogicalGroupings())
-        .add(new CheckAlt())
-        .add(new CheckCurrencies())
-        .add(new CheckCasing())
-        .add(new CheckConsistentCasing(factory)) //  this doesn't work; many spurious errors that user can't correct
-        .add(new CheckWidths())
-        .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and not add a message if there are any.
+            .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
+            .add(new CheckAttributeValues(factory))
+            .add(new CheckChildren(factory))
+            // .add(new CheckCoverage(factory)) // outmoded
+            .add(new CheckDates(factory))
+            .add(new CheckForCopy(factory))
+            .add(new CheckDisplayCollisions(factory))
+            .add(new CheckExemplars(factory))
+            .add(new CheckForExemplars(factory))
+            .add(new CheckNames())
+            .add(new CheckNumbers(factory))
+            // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
+            .add(new CheckMetazones())
+            .add(new CheckLogicalGroupings())
+            .add(new CheckAlt())
+            .add(new CheckCurrencies())
+            .add(new CheckCasing())
+            .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
+            .add(new CheckWidths())
+            .add(new CheckNew()) // this is at the end; it will check for other certain other errors and warnings and
+                                 // not add a message if there are any.
         ;
     }
 
     /**
      * These determine what language is used to display information. Must be set before use.
+     * 
      * @param locale
      * @return
      */
     public static synchronized CLDRFile getDisplayInformation() {
         return displayInformation;
     }
+
     public static synchronized void setDisplayInformation(CLDRFile inputDisplayInformation) {
         displayInformation = inputDisplayInformation;
     }
+
     /**
-     * [Warnings - please zoom in]  dates/timeZoneNames/singleCountries   
-(empty)
-        [refs][hide] Ref:     [Zoom...]
-[Warnings - please zoom in]   dates/timeZoneNames/hours   {0}/{1}   {0}/{1}
-        [refs][hide] Ref:     [Zoom...]
-[Warnings - please zoom in]   dates/timeZoneNames/hour  +HH:mm;-HH:mm   
-+HH:mm;-HH:mm
-      [refs][hide] Ref:     [Zoom...]
-[ok]  layout/orientation     (empty)
-        [refs][hide] Ref:     [Zoom...]
-[ok]  dates/localizedPatternChars  GyMdkHmsSEDFwWahKzYeugAZvcL 
-GaMjkHmsSEDFwWxhKzAeugXZvcL
-        [refs][hide] Ref:     [Zoom...]*/
+     * [Warnings - please zoom in] dates/timeZoneNames/singleCountries
+     * (empty)
+     * [refs][hide] Ref: [Zoom...]
+     * [Warnings - please zoom in] dates/timeZoneNames/hours {0}/{1} {0}/{1}
+     * [refs][hide] Ref: [Zoom...]
+     * [Warnings - please zoom in] dates/timeZoneNames/hour +HH:mm;-HH:mm
+     * +HH:mm;-HH:mm
+     * [refs][hide] Ref: [Zoom...]
+     * [ok] layout/orientation (empty)
+     * [refs][hide] Ref: [Zoom...]
+     * [ok] dates/localizedPatternChars GyMdkHmsSEDFwWahKzYeugAZvcL
+     * GaMjkHmsSEDFwWxhKzAeugXZvcL
+     * [refs][hide] Ref: [Zoom...]
+     */
 
     public static final Pattern skipShowingInSurvey = Pattern.compile(
         ".*/(" +
@@ -393,9 +412,9 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             "|inText" + // internal use only
             "|inList" + // internal use only
             "|mapping" + // deprecated
-            "|zone/long" + 
-            "|zone/short" + 
-            "|zone/commonlyUsed" + 
+            "|zone/long" +
+            "|zone/short" +
+            "|zone/commonlyUsed" +
             "|measurementSystem" + // deprecated
             "|preferenceOrdering" + // deprecated
             ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
@@ -405,19 +424,20 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
      */
     public static final Pattern FORCE_ZOOMED_EDIT = Pattern.compile(
         ".*/(" +
-            "nothingAtTheMoment"+ // Remove forced zooming since we have inline pre-edit in ST
-            //"exemplarCharacters" +
-            /*"|metazone" +*/
-            //"|pattern" +
-            //"|dateFormatItem" +
-            //"|relative" +
-            //"|hourFormat" +
-            //"|gmtFormat" +
-            //"|regionFormat" +
+            "nothingAtTheMoment" + // Remove forced zooming since we have inline pre-edit in ST
+            // "exemplarCharacters" +
+            /* "|metazone" + */
+            // "|pattern" +
+            // "|dateFormatItem" +
+            // "|relative" +
+            // "|hourFormat" +
+            // "|gmtFormat" +
+            // "|regionFormat" +
             ")((\\[|/).*)?", Pattern.COMMENTS); // the last bit is to ensure whole element
 
     /**
      * Get the CLDRFile.
+     * 
      * @param cldrFileToCheck
      */
     public final CLDRFile getCldrFileToCheck() {
@@ -427,36 +447,43 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     /**
      * Set the CLDRFile. Must be done before calling check. If null is called, just skip
      * Often subclassed for initializing. If so, make the first 2 lines:
-     * 		if (cldrFileToCheck == null) return this;
-     * 		super.setCldrFileToCheck(cldrFileToCheck);
-     * 		do stuff
+     * if (cldrFileToCheck == null) return this;
+     * super.setCldrFileToCheck(cldrFileToCheck);
+     * do stuff
+     * 
      * @param cldrFileToCheck
-     * @param options TODO
-     * @param possibleErrors TODO
+     * @param options
+     *            TODO
+     * @param possibleErrors
+     *            TODO
      */
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+        List<CheckStatus> possibleErrors) {
         this.cldrFileToCheck = cldrFileToCheck;
         return this;
     }
+
     /**
      * Status value returned from check
      */
     public static class CheckStatus {
-        public static final String 
-        alertType = "Comment", 
-        warningType = "Warning", 
-        errorType = "Error", 
-        exampleType = "Example",
-        demoType = "Demo";
-        public enum Subtype {none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale, 
-            incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel, 
-            missingPluralInfo, currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide, 
+        public static final String
+            alertType = "Comment",
+            warningType = "Warning",
+            errorType = "Error",
+            exampleType = "Example",
+            demoType = "Demo";
+
+        public enum Subtype {
+            none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale,
+            incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel,
+            missingPluralInfo, currencySymbolTooWide, incorrectDatePattern, abbreviatedDateFieldTooWide,
             displayCollision, illegalExemplarSet, missingAuxiliaryExemplars, extraPlaceholders, missingPlaceholders, shouldntHavePlaceholders,
-            couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, invalidCurrencyMatchSet, 
-            multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow, 
+            couldNotAccessExemplars, noExemplarCharacters, modifiedEnglishValue, invalidCurrencyMatchSet,
+            multipleMetazoneMappings, noMetazoneMapping, noMetazoneMappingAfter1970, noMetazoneMappingBeforeNow,
             cannotCreateZoneFormatter, insufficientCoverage, missingLanguageTerritoryInfo, missingEuroCountryInfo,
-            deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError, 
-            auxiliaryExemplarsOverlap,missingPunctuationCharacters,
+            deprecatedAttributeWithReplacement, missingOrExtraDateField, internalUnicodeSetFormattingError,
+            auxiliaryExemplarsOverlap, missingPunctuationCharacters,
 
             charactersNotInCurrencyExemplars, asciiCharactersNotInCurrencyExemplars,
             charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
@@ -471,11 +498,13 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             valueTooNarrow,
             nameContainsYear,
             patternCannotContainDigits, patternContainsInvalidCharacters;
-        public String toString() {
-            return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
-        }
-        static Pattern TO_STRING = Pattern.compile("([A-Z])");
+            public String toString() {
+                return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
+            }
+
+            static Pattern TO_STRING = Pattern.compile("([A-Z])");
         };
+
         private String type;
         private Subtype subtype = Subtype.none;
         private String messageFormat;
@@ -487,20 +516,25 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         public CheckStatus() {
 
         }
+
         public boolean isCheckOnSubmit() {
             return checkOnSubmit;
         }
+
         public CheckStatus setCheckOnSubmit(boolean dependent) {
             this.checkOnSubmit = dependent;
             return this;
         }
+
         public String getType() {
             return type;
         }
+
         public CheckStatus setMainType(String type) {
             this.type = type;
             return this;
         }
+
         public String getMessage() {
             String message = messageFormat;
             if (messageFormat != null && parameters != null) {
@@ -510,29 +544,31 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
                     message = format.format(parameters);
                 } catch (Exception e) {
                     message = messageFormat;
-                    System.err.println("MessageFormat Failure: " + subtype + "; " + messageFormat + "; " 
+                    System.err.println("MessageFormat Failure: " + subtype + "; " + messageFormat + "; "
                         + (parameters == null ? null : Arrays.asList(parameters)));
-                    //                    throw new IllegalArgumentException(subtype + "; " + messageFormat + "; " 
-                    //                        + (parameters == null ? null : Arrays.asList(parameters)), e);
+                    // throw new IllegalArgumentException(subtype + "; " + messageFormat + "; "
+                    // + (parameters == null ? null : Arrays.asList(parameters)), e);
                 }
             }
             Exception[] exceptionParameters = getExceptionParameters();
             if (exceptionParameters != null) {
                 for (Exception exception : exceptionParameters) {
-                    message += "; " + exception.getMessage(); //  + " \t(" + exception.getClass().getName() + ")";
-                    //          for (StackTraceElement item : exception.getStackTrace()) {
-                    //            message += "\n\t" + item;
-                    //          }
+                    message += "; " + exception.getMessage(); // + " \t(" + exception.getClass().getName() + ")";
+                    // for (StackTraceElement item : exception.getStackTrace()) {
+                    // message += "\n\t" + item;
+                    // }
                 }
             }
             return message.replace('\t', ' ');
         }
+
         /**
          * @deprecated
          */
         public String getHTMLMessage() {
             return htmlMessage;
         }
+
         /**
          * @deprecated
          */
@@ -540,19 +576,23 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             htmlMessage = message;
             return this;
         }
+
         public CheckStatus setMessage(String message) {
             this.messageFormat = message;
             this.parameters = null;
             return this;
         }
+
         public CheckStatus setMessage(String message, Object... messageArguments) {
             this.messageFormat = message;
             this.parameters = messageArguments;
             return this;
         }
+
         public String toString() {
             return getType() + ": " + getMessage();
         }
+
         /**
          * Warning: don't change the contents of the parameters after retrieving.
          */
@@ -562,6 +602,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
 
         /**
          * Returns any Exception parameters in the status, or null if there are none.
+         * 
          * @return
          */
         public Exception[] getExceptionParameters() {
@@ -572,7 +613,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             List<Exception> errors = new ArrayList<Exception>();
             for (Object o : parameters) {
                 if (o instanceof Exception) {
-                    errors.add((Exception)o);
+                    errors.add((Exception) o);
                 }
             }
             if (errors.size() == 0) {
@@ -580,6 +621,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             }
             return errors.toArray(new Exception[errors.size()]);
         }
+
         /**
          * Warning: don't change the contents of the parameters after passing in.
          */
@@ -587,19 +629,24 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             this.parameters = parameters;
             return this;
         }
+
         public SimpleDemo getDemo() {
             return null;
         }
+
         public CheckCLDR getCause() {
             return cause;
         }
+
         public CheckStatus setCause(CheckCLDR cause) {
             this.cause = cause;
             return this;
         }
+
         public Subtype getSubtype() {
             return subtype;
         }
+
         public CheckStatus setSubtype(Subtype subtype) {
             this.subtype = subtype;
             return this;
@@ -607,14 +654,15 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     }
 
     public static abstract class SimpleDemo {
-        Map<String,String> internalPostArguments = new HashMap<String,String>();
+        Map<String, String> internalPostArguments = new HashMap<String, String>();
 
         /**
-         * @param postArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
-         * <br>The first time this is called, the Map should be empty.
+         * @param postArguments
+         *            A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc. <br>
+         *            The first time this is called, the Map should be empty.
          * @return true if the map has been changed
-         */ 
-        public abstract String getHTML(Map<String,String> postArguments) throws Exception;
+         */
+        public abstract String getHTML(Map<String, String> postArguments) throws Exception;
 
         /**
          * Only here for compatibiltiy. Use the other getHTML instead
@@ -624,23 +672,26 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         }
 
         /**
-         * THIS IS ONLY FOR COMPATIBILITY: you can call this, then the non-postArguments form of getHTML; or better, call
+         * THIS IS ONLY FOR COMPATIBILITY: you can call this, then the non-postArguments form of getHTML; or better,
+         * call
          * getHTML with the postArguments.
-         * @param postArguments A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
+         * 
+         * @param postArguments
+         *            A read-write map containing post-style arguments. eg TEXTBOX=abcd, etc.
          * @return true if the map has been changed
-         */ 
-        public final boolean processPost(Map<String,String> postArguments) {
+         */
+        public final boolean processPost(Map<String, String> postArguments) {
             internalPostArguments.clear();
             internalPostArguments.putAll(postArguments);
             return true;
         }
-        //  /**
-        //  * Utility for setting map. Use the paradigm in CheckNumbers.
-        //  */
-        //  public boolean putIfDifferent(Map inout, String key, String value) {
-        //  Object oldValue = inout.put(key, value);
-        //  return !value.equals(oldValue);
-        //  }
+        // /**
+        // * Utility for setting map. Use the paradigm in CheckNumbers.
+        // */
+        // public boolean putIfDifferent(Map inout, String key, String value) {
+        // Object oldValue = inout.put(key, value);
+        // return !value.equals(oldValue);
+        // }
     }
 
     public static abstract class FormatDemo extends SimpleDemo {
@@ -648,10 +699,12 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         protected ParsePosition parsePosition = new ParsePosition(0);
 
         protected abstract String getPattern();
-        protected abstract String getSampleInput(); 
-        protected abstract void getArguments(Map<String,String> postArguments);
 
-        public String getHTML(Map<String,String> postArguments) throws Exception {
+        protected abstract String getSampleInput();
+
+        protected abstract void getArguments(Map<String, String> postArguments);
+
+        public String getHTML(Map<String, String> postArguments) throws Exception {
             getArguments(postArguments);
             StringBuffer htmlMessage = new StringBuffer();
             FormatDemo.appendTitle(htmlMessage);
@@ -660,10 +713,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             return htmlMessage.toString();
         }
 
-        public String getPlainText(Map<String,String> postArguments) {
+        public String getPlainText(Map<String, String> postArguments) {
             getArguments(postArguments);
             return MessageFormat.format("<\"\u200E{0}\u200E\", \"{1}\"> \u2192 \"\u200E{2}\u200E\" \u2192 \"{3}\"",
-                (Object[]) new String[] {currentPattern, currentInput, currentFormatted, currentReparsed});
+                (Object[]) new String[] { currentPattern, currentInput, currentFormatted, currentReparsed });
         }
 
         /**
@@ -673,18 +726,19 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
          * @param formatted
          * @param reparsed
          */
-        public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted, String reparsed) {
+        public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted,
+            String reparsed) {
             htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(pattern))
-            .append("'></td><td><input type='text' name='input' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(input))
-            .append("'></td><td>")
-            .append("<input type='submit' value='Test' name='Test'>")
-            .append("</td><td>" + "<input type='text' name='formatted' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(formatted))
-            .append("'></td><td>" + "<input type='text' name='reparsed' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(reparsed))
-            .append("'></td></tr>");
+                .append(TransliteratorUtilities.toXML.transliterate(pattern))
+                .append("'></td><td><input type='text' name='input' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(input))
+                .append("'></td><td>")
+                .append("<input type='submit' value='Test' name='Test'>")
+                .append("</td><td>" + "<input type='text' name='formatted' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(formatted))
+                .append("'></td><td>" + "<input type='text' name='reparsed' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(reparsed))
+                .append("'></td></tr>");
         }
 
         /**
@@ -692,7 +746,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
          */
         public static void appendTitle(StringBuffer htmlMessage) {
             htmlMessage.append("<table border='1' cellspacing='0' cellpadding='2'" +
-                //" style='border-collapse: collapse' style='width: 100%'" +
+                // " style='border-collapse: collapse' style='width: 100%'" +
                 "><tr>" +
                 "<th>Pattern</th>" +
                 "<th>Unlocalized Input</th>" +
@@ -706,34 +760,40 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
     /**
      * Checks the path/value in the cldrFileToCheck for correctness, according to some criterion.
      * If the path is relevant to the check, there is an alert or warning, then a CheckStatus is added to List.
-     * @param path Must be a distinguished path, such as what comes out of CLDRFile.iterator()
-     * @param fullPath Must be the full path
-     * @param value the value associated with the path
-     * @param options A set of test-specific options. Set these with code of the form:<br>
-     * options.put("CoverageLevel.localeType", "G0")<br>
-     * That is, the key is of the form <testname>.<optiontype>, and the value is of the form <optionvalue>.<br>
-     * There is one general option; the following will select only the tests that should be run during this phase.<br>
-     * options.put("phase", Phase.<something>);
-     * It can be used for new data entry.
+     * 
+     * @param path
+     *            Must be a distinguished path, such as what comes out of CLDRFile.iterator()
+     * @param fullPath
+     *            Must be the full path
+     * @param value
+     *            the value associated with the path
+     * @param options
+     *            A set of test-specific options. Set these with code of the form:<br>
+     *            options.put("CoverageLevel.localeType", "G0")<br>
+     *            That is, the key is of the form <testname>.<optiontype>, and the value is of the form <optionvalue>.<br>
+     *            There is one general option; the following will select only the tests that should be run during this
+     *            phase.<br>
+     *            options.put("phase", Phase.<something>);
+     *            It can be used for new data entry.
      * @param result
      */
-    public final CheckCLDR check(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
-        if(cldrFileToCheck == null) {
+    public final CheckCLDR check(String path, String fullPath, String value, Map<String, String> options,
+        List<CheckStatus> result) {
+        if (cldrFileToCheck == null) {
             throw new InternalCldrException("CheckCLDR problem: cldrFileToCheck must not be null");
         }
         if (path == null) {
             throw new InternalCldrException("CheckCLDR problem: path must not be null");
         }
-        //    if (fullPath == null) {
-        //      throw new InternalError("CheckCLDR problem: fullPath must not be null");
-        //    }
-        //    if (value == null) {
-        //      throw new InternalError("CheckCLDR problem: value must not be null");
-        //    }
+        // if (fullPath == null) {
+        // throw new InternalError("CheckCLDR problem: fullPath must not be null");
+        // }
+        // if (value == null) {
+        // throw new InternalError("CheckCLDR problem: value must not be null");
+        // }
         result.clear();
         return handleCheck(path, fullPath, value, options, result);
     }
-
 
     /**
      * Returns any examples in the result parameter. Both examples and demos can
@@ -741,14 +801,15 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
      * case, there will be no getMessage or getHTMLMessage available; instead,
      * call getDemo() to get the demo, then call getHTML() to get the initial
      * HTML.
-     */ 
-    public final CheckCLDR getExamples(String path, String fullPath, String value, Map<String,String> options, List<CheckStatus> result) {
+     */
+    public final CheckCLDR getExamples(String path, String fullPath, String value, Map<String, String> options,
+        List<CheckStatus> result) {
         result.clear();
-        return handleGetExamples(path, fullPath, value, options, result);		
+        return handleGetExamples(path, fullPath, value, options, result);
     }
 
-
-    protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String,String> options2, List<CheckStatus> result) {
+    protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String, String> options2,
+        List<CheckStatus> result) {
         return this; // NOOP unless overridden
     }
 
@@ -756,23 +817,30 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
      * This is what the subclasses override.
      * If they ever use pathParts or fullPathParts, they need to call initialize() with the respective
      * path. Otherwise they must NOT change pathParts or fullPathParts.
-     * <p>If something is found, a CheckStatus is added to result. This can be done multiple times in one call,
-     * if multiple errors or warnings are found. The CheckStatus may return warnings, errors,
-     * examples, or demos. We may expand that in the future.
-     * <p>The code to add the CheckStatus will look something like::
-     * <pre> result.add(new CheckStatus()
-     * 		.setType(CheckStatus.errorType)
-     *		.setMessage("Value should be {0}", new Object[]{pattern}));				
+     * <p>
+     * If something is found, a CheckStatus is added to result. This can be done multiple times in one call, if multiple
+     * errors or warnings are found. The CheckStatus may return warnings, errors, examples, or demos. We may expand that
+     * in the future.
+     * <p>
+     * The code to add the CheckStatus will look something like::
+     * 
+     * <pre>
+     * result.add(new CheckStatus()
+     *     .setType(CheckStatus.errorType)
+     *     .setMessage(&quot;Value should be {0}&quot;, new Object[] { pattern }));
      * </pre>
-     * @param options TODO
+     * 
+     * @param options
+     *            TODO
      */
     abstract public CheckCLDR handleCheck(String path, String fullPath, String value,
         Map<String, String> options, List<CheckStatus> result);
 
     /**
      * Internal class used to bundle up a number of Checks.
+     * 
      * @author davis
-     *
+     * 
      */
     static class CompoundCheckCLDR extends CheckCLDR {
         private Matcher filter;
@@ -791,11 +859,12 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             }
             return this;
         }
+
         public CheckCLDR handleCheck(String path, String fullPath, String value,
             Map<String, String> options, List<CheckStatus> result) {
             result.clear();
-            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext(); ) {
-                CheckCLDR item =  it.next();
+            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
+                CheckCLDR item = it.next();
                 // skip proposed items in final testing.
                 if (Phase.FINAL_TESTING == item.getPhase()) {
                     if (path.contains("proposed") && path.contains("[@alt=")) {
@@ -814,9 +883,10 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             return this;
         }
 
-        protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String,String> options, List<CheckStatus> result) {
+        protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String, String> options,
+            List<CheckStatus> result) {
             result.clear();
-            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext(); ) {
+            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
                 CheckCLDR item = it.next();
                 try {
                     item.handleGetExamples(path, fullPath, value, options, result);
@@ -830,28 +900,30 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
 
         private void addError(List<CheckStatus> result, CheckCLDR item, Exception e) {
             result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
-                .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}", 
-                    new Object[]{item.getClass().getName(), e.getClass().getName(), e, 
-                    Arrays.asList(e.getStackTrace())
-                }));
+                .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
+                    new Object[] { item.getClass().getName(), e.getClass().getName(), e,
+                        Arrays.asList(e.getStackTrace())
+                    }));
         }
 
-        public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options, List<CheckStatus> possibleErrors) {
+        public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+            List<CheckStatus> possibleErrors) {
             ElapsedTimer testTime = null, testOverallTime = null;
             if (cldrFileToCheck == null) return this;
             boolean SHOW_TIMES = options.containsKey("SHOW_TIMES");
             setPhase(Phase.forString(options.get("phase")));
-            if(SHOW_TIMES) testOverallTime = new ElapsedTimer("Test setup time for setCldrFileToCheck: {0}");
-            super.setCldrFileToCheck(cldrFileToCheck,options,possibleErrors);
+            if (SHOW_TIMES) testOverallTime = new ElapsedTimer("Test setup time for setCldrFileToCheck: {0}");
+            super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
             possibleErrors.clear();
 
-            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext(); ) {
+            for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
                 CheckCLDR item = (CheckCLDR) it.next();
-                if(SHOW_TIMES) testTime = new ElapsedTimer("Test setup time for " + item.getClass().toString() + ": {0}");
+                if (SHOW_TIMES)
+                    testTime = new ElapsedTimer("Test setup time for " + item.getClass().toString() + ": {0}");
                 try {
                     item.setPhase(getPhase());
                     item.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-                    if(SHOW_TIMES) {
+                    if (SHOW_TIMES) {
                         if (item.isSkipTest()) {
                             System.out.println("Disabled : " + testTime);
                         } else {
@@ -860,12 +932,13 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
                     }
                 } catch (RuntimeException e) {
                     addError(possibleErrors, item, e);
-                    if(SHOW_TIMES) System.out.println("ERR: " + testTime + " - " + e.toString());
+                    if (SHOW_TIMES) System.out.println("ERR: " + testTime + " - " + e.toString());
                 }
             }
-            if(SHOW_TIMES) System.out.println("Overall: " + testOverallTime + ": {0}");
+            if (SHOW_TIMES) System.out.println("Overall: " + testOverallTime + ": {0}");
             return this;
         }
+
         public Matcher getFilter() {
             return filter;
         }
@@ -873,7 +946,7 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         public CompoundCheckCLDR setFilter(Matcher filter) {
             this.filter = filter;
             filteredCheckList.clear();
-            for (Iterator<CheckCLDR> it = checkList.iterator(); it.hasNext(); ) {
+            for (Iterator<CheckCLDR> it = checkList.iterator(); it.hasNext();) {
                 CheckCLDR item = it.next();
                 if (filter == null || filter.reset(item.getClass().getName()).matches()) {
                     filteredCheckList.add(item);
@@ -886,12 +959,13 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
         public String getFilteredTests() {
             return filteredCheckList.toString();
         }
+
         public List<CheckCLDR> getFilteredTestList() {
             return filteredCheckList;
         }
     }
 
-    //static Transliterator prettyPath = getTransliteratorFromFile("ID", "prettyPath.txt");
+    // static Transliterator prettyPath = getTransliteratorFromFile("ID", "prettyPath.txt");
 
     public static Transliterator getTransliteratorFromFile(String ID, String file) {
         try {
@@ -906,7 +980,8 @@ GaMjkHmsSEDFwWxhKzAeugXZvcL
             }
             return Transliterator.createFromRules(ID, input.toString(), Transliterator.FORWARD);
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't open transliterator file " + file).initCause(e);
+            throw (IllegalArgumentException) new IllegalArgumentException("Can't open transliterator file " + file)
+                .initCause(e);
         }
     }
 

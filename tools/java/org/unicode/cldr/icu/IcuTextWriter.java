@@ -14,6 +14,7 @@ import com.ibm.icu.impl.Utility;
 
 /**
  * Writes an IcuData object to a text file.
+ * 
  * @author jchye
  */
 public class IcuTextWriter {
@@ -26,37 +27,40 @@ public class IcuTextWriter {
      * ICU paths have a simple comparison, alphabetical within a level. We do
      * have to catch the / so that it is lower than everything.
      */
-    public static final Comparator<String>       PATH_COMPARATOR       =
+    public static final Comparator<String> PATH_COMPARATOR =
         new Comparator<String>() {
-        @Override
-        public int compare(String arg0, String arg1) {
-            int min = Math.min(arg0.length(), arg1.length());
-            for (int i = 0; i < min; ++i) {
-                int ch0 = arg0.charAt(i);
-                int ch1 = arg1.charAt(i);
-                int diff = ch0 - ch1;
-                if (diff == 0) {
-                    continue;
+            @Override
+            public int compare(String arg0, String arg1) {
+                int min = Math.min(arg0.length(), arg1.length());
+                for (int i = 0; i < min; ++i) {
+                    int ch0 = arg0.charAt(i);
+                    int ch1 = arg1.charAt(i);
+                    int diff = ch0 - ch1;
+                    if (diff == 0) {
+                        continue;
+                    }
+                    if (ch0 == '/') {
+                        return -1;
+                    } else if (ch1 == '/') {
+                        return 1;
+                    } else {
+                        return diff;
+                    }
                 }
-                if (ch0 == '/') {
-                    return -1;
-                } else if (ch1 == '/') {
-                    return 1;
-                } else {
-                    return diff;
-                }
+                return arg0.length() - arg1.length();
             }
-            return arg0.length() - arg1.length();
-        }
-    };
+        };
 
     /**
      * Write a file in ICU format. LDML2ICUConverter currently has some
      * funny formatting in a few cases; don't try to match everything.
      * 
-     * @param icuData the icu data structure to be written
-     * @param dirPath the directory to write the file to
-     * @param hasSpecial true if a special file was used to create the ICU data
+     * @param icuData
+     *            the icu data structure to be written
+     * @param dirPath
+     *            the directory to write the file to
+     * @param hasSpecial
+     *            true if a special file was used to create the ICU data
      */
     public static void writeToFile(IcuData icuData, String dirPath) throws IOException {
         String name = icuData.getName();
@@ -124,13 +128,15 @@ public class IcuTextWriter {
 
     /**
      * Inserts padding and values between braces.
+     * 
      * @param values
      * @param numTabs
      * @param quote
      * @param out
      * @return
      */
-    private static boolean appendValues(String rbPath, List<String[]> values, int numTabs, boolean quote, PrintWriter out) {
+    private static boolean appendValues(String rbPath, List<String[]> values, int numTabs, boolean quote,
+        PrintWriter out) {
         String[] firstArray;
         boolean wasSingular = false;
         if (values.size() == 1) {
@@ -177,17 +183,18 @@ public class IcuTextWriter {
         }
         return wasSingular;
     }
-    
+
     /**
      * Wrapper for a hack to determine if the given rb path should always
      * present its values as an array. This hack is required for an ICU data test to pass.
+     * 
      * @param rbPath
      * @return
      */
     private static boolean mustBeArray(String rbPath) {
-       // TODO(jchye): Add this as an option to the locale file instead of hardcoding.
-       return rbPath.equals("/LocaleScript") || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias")) ||
-               rbPath.startsWith("/calendarPreferenceData") || rbPath.startsWith("/metazoneInfo");
+        // TODO(jchye): Add this as an option to the locale file instead of hardcoding.
+        return rbPath.equals("/LocaleScript") || (rbPath.contains("/eras/") && !rbPath.endsWith(":alias")) ||
+            rbPath.startsWith("/calendarPreferenceData") || rbPath.startsWith("/metazoneInfo");
     }
 
     private static PrintWriter appendArray(String padding, String[] valueArray, boolean quote, PrintWriter out) {

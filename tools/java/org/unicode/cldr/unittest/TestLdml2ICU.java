@@ -55,7 +55,7 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     static final Pattern SKIP = Pattern.compile("^//ldml/(identity|posix/messages)|/(default|alias|commonlyUsed)$");
-    
+
     public void checkLocale(String locale) {
         // /Users/markdavis/Documents/workspace/icu/source/data/locales/en.txt
 
@@ -64,7 +64,7 @@ public class TestLdml2ICU extends TestFmwk {
         SupplementalDataInfo supp = info.getSupplementalDataInfo();
         XPathParts parts = new XPathParts();
 
-        //show(supp.getDeprecationInfo());
+        // show(supp.getDeprecationInfo());
         Matcher skipper = SKIP.matcher("");
         Set<String> seen = new HashSet<String>();
 
@@ -91,7 +91,7 @@ public class TestLdml2ICU extends TestFmwk {
         Set<String> notSeen = icu.getAllBut(valuesInResolved.iterator());
         notSeen.removeAll(CURRENCY_CODES);
         notSeen.removeAll(TIMEZONE_CODES);
-        
+
         for (String s : notSeen) {
             if (s.startsWith("meta:")) continue;
             warnln("ICU Values not in CLDR: " + s);
@@ -114,7 +114,7 @@ public class TestLdml2ICU extends TestFmwk {
 
     static class IcuValues {
         static final String IcuBaseDir = "/Users/markdavis/Documents/workspace/icu/source/data/";
-        static final String[] dirs = {"locales/", "lang/", "curr/", "region/", "zone/"};
+        static final String[] dirs = { "locales/", "lang/", "curr/", "region/", "zone/" };
         static final Pattern quotedPattern = Pattern.compile("\"([^\"]*)\"");
         static final Map<String, IcuValues> cache = new HashMap();
 

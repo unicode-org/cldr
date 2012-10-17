@@ -42,8 +42,8 @@ import com.ibm.icu.util.VersionInfo;
 
 public class GenerateItemCounts {
     private static final boolean SKIP_ORDERING = true;
-    private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/itemcount/"; //CldrUtility.MAIN_DIRECTORY;
-    private Map<String,List<StackTraceElement>> cantRead = new TreeMap<String,List<StackTraceElement>>();
+    private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/itemcount/"; // CldrUtility.MAIN_DIRECTORY;
+    private Map<String, List<StackTraceElement>> cantRead = new TreeMap<String, List<StackTraceElement>>();
 
     private static String[] DIRECTORIES = {
         // MUST be oldest first!
@@ -52,18 +52,20 @@ public class GenerateItemCounts {
     };
 
     static boolean doChanges = true;
-    static Relation<String,String> path2value = new Relation(new TreeMap<String,String>(), TreeSet.class);
+    static Relation<String, String> path2value = new Relation(new TreeMap<String, String>(), TreeSet.class);
     static final AttributeTypes ATTRIBUTE_TYPES = new AttributeTypes();
 
     final static Options myOptions = new Options();
+
     enum MyOptions {
         summary(null, null, "if present, summarizes data already collected. Run once with, once without."),
-        directory(".*", ".*", "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
+        directory(".*", ".*",
+            "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
         verbose(null, null, "verbose debugging messages"),
-        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"),
-        ;
+        rawfilter(".*", ".*", "filter the raw files (non-summary, mostly for debugging)"), ;
         // boilerplate
         final Option option;
+
         MyOptions(String argumentPattern, String defaultArgument, String helpText) {
             option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
         }
@@ -72,6 +74,7 @@ public class GenerateItemCounts {
     static Matcher DIR_FILE_MATCHER;
     static Matcher RAW_FILE_MATCHER;
     static boolean VERBOSE;
+
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.directory, args, true);
 
@@ -83,28 +86,29 @@ public class GenerateItemCounts {
             doSummary();
             System.out.println("DONE");
             return;
-            //      } else if (arg.equals("changes")) {
-            //        doChanges = true;
+            // } else if (arg.equals("changes")) {
+            // doChanges = true;
         } else {
         }
-        //Pattern dirPattern = dirPattern = Pattern.compile(arg);
+        // Pattern dirPattern = dirPattern = Pattern.compile(arg);
         GenerateItemCounts main = new GenerateItemCounts();
         try {
-            Relation<String,String> oldPath2value = null;
+            Relation<String, String> oldPath2value = null;
             for (String dir : DIRECTORIES) {
-                //if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
+                // if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
                 String fulldir = new File(CldrUtility.BASE_DIRECTORY + "../" + dir).getCanonicalPath();
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
-                String fileKey =  dir.replace("/", "_");
+                String fileKey = dir.replace("/", "_");
                 PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, prefix + "count_" + fileKey + ".txt");
-                PrintWriter changes = BagFormatter.openUTF8Writer(OUT_DIRECTORY, prefix + "changes_" + fileKey + ".txt");
+                PrintWriter changes = BagFormatter
+                    .openUTF8Writer(OUT_DIRECTORY, prefix + "changes_" + fileKey + ".txt");
                 main.summarizeCoverage(summary, fulldir);
                 if (doChanges) {
                     if (oldPath2value != null) {
                         compare(summary, changes, oldPath2value, path2value);
                     }
                     oldPath2value = path2value;
-                    path2value = new Relation(new TreeMap<String,String>(), TreeSet.class);
+                    path2value = new Relation(new TreeMap<String, String>(), TreeSet.class);
                 }
                 summary.close();
                 changes.close();
@@ -122,7 +126,8 @@ public class GenerateItemCounts {
     }
 
     static class AttributeTypes {
-        Relation<String,String> elementPathToAttributes = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        Relation<String, String> elementPathToAttributes = Relation.of(new TreeMap<String, Set<String>>(),
+            TreeSet.class);
         final PathStarrer PATH_STARRER = new PathStarrer().setSubstitutionPattern("*");
         final Set<String> STARRED_PATHS = new TreeSet<String>();
         XPathParts parts = new XPathParts();
@@ -165,11 +170,12 @@ public class GenerateItemCounts {
         }
     }
 
-
     static Pattern prefix = Pattern.compile("([^/]+/[^/]+)(.*)");
 
-    private static void compare(PrintWriter summary, PrintWriter changes2, Relation<String, String> oldPath2value, Relation<String, String> path2value2) {
-        Set<String> union = Builder.with(new TreeSet<String>()).addAll(oldPath2value.keySet()).addAll(path2value2.keySet()).get();
+    private static void compare(PrintWriter summary, PrintWriter changes2, Relation<String, String> oldPath2value,
+        Relation<String, String> path2value2) {
+        Set<String> union = Builder.with(new TreeSet<String>()).addAll(oldPath2value.keySet())
+            .addAll(path2value2.keySet()).get();
         long changes = 0;
         long total = 0;
         Matcher prefixMatcher = prefix.matcher("");
@@ -202,7 +208,7 @@ public class GenerateItemCounts {
                 newCount.add(prefix, set2minus1.size());
                 deletedCount.add(prefix, set1minus2.size());
                 changes2.println(prefix + "\tChanged:\t" + set1minus2
-                    + "\t" 
+                    + "\t"
                     + set2minus1
                     + "\t" + localPath);
             }
@@ -219,13 +225,13 @@ public class GenerateItemCounts {
         "([a-z]{2,3})(?:[_-]([A-Z][a-z]{3}))?(?:[_-]([a-zA-Z0-9]{2,3}))?([_-][a-zA-Z0-9]{1,8})*");
 
     public static void doSummary() throws IOException {
-        Map<String,R4<Counter<String>,Counter<String>,Counter<String>,Counter<String>>> key_release_count = new TreeMap();
+        Map<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>> key_release_count = new TreeMap();
         Matcher countryLocale = LOCALE_PATTERN.matcher("");
         List<String> releases = new ArrayList<String>();
         Pattern releaseNumber = Pattern.compile("count_.*-(\\d+(\\.\\d+)*)\\.txt");
-        //int releaseCount = 1;
-        Relation<String,String> release_keys = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        Relation<String,String> localesToPaths = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        // int releaseCount = 1;
+        Relation<String, String> release_keys = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> localesToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Set<String> writtenLanguages = new TreeSet();
         Set<String> countries = new TreeSet();
 
@@ -286,8 +292,8 @@ public class GenerateItemCounts {
                     long attrCount = Long.parseLong(parts[3]);
                     long attrLen = Long.parseLong(parts[4]);
                     int lastSlash = file.lastIndexOf("/");
-                    String path = file.substring(0,lastSlash);
-                    String key = file.substring(lastSlash+1);
+                    String path = file.substring(0, lastSlash);
+                    String key = file.substring(lastSlash + 1);
                     if (countryLocale.reset(key).matches()) {
                         String lang = countryLocale.group(1);
                         String script = countryLocale.group(2);
@@ -301,14 +307,16 @@ public class GenerateItemCounts {
                                 countries.add(country);
                             }
                         }
-                        //System.out.println(key + " => " + newKey);
+                        // System.out.println(key + " => " + newKey);
                         key = writtenLang + "—" + ULocale.getDisplayName(writtenLang, "en");
                     }
                     if (valueCount + attrCount == 0) continue;
                     release_keys.put(releaseNum, key);
-                    R4<Counter<String>,Counter<String>,Counter<String>,Counter<String>> release_count = key_release_count.get(key);
+                    R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>> release_count = key_release_count
+                        .get(key);
                     if (release_count == null) {
-                        release_count = Row.of(new Counter<String>(), new Counter<String>(), new Counter<String>(), new Counter<String>());
+                        release_count = Row.of(new Counter<String>(), new Counter<String>(), new Counter<String>(),
+                            new Counter<String>());
                         key_release_count.put(key, release_count);
                     }
                     release_count.get0().add(releaseNum, valueCount);
@@ -316,20 +324,22 @@ public class GenerateItemCounts {
                     release_count.get2().add(releaseNum, attrCount);
                     release_count.get3().add(releaseNum, attrLen);
                 } catch (Exception e) {
-                    throw new IllegalArgumentException(line,e);
+                    throw new IllegalArgumentException(line, e);
                 }
             }
             in.close();
         }
-        PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, (MyOptions.directory.option.doesOccur() ? "filtered-" : "") +"summary" + 
-            ".txt");
+        PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
+            (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "summary" +
+                ".txt");
         for (String file : releases) {
             summary.print("\t" + file + "\tlen");
         }
         summary.println();
         for (String key : key_release_count.keySet()) {
             summary.print(key);
-            R4<Counter<String>,Counter<String>,Counter<String>,Counter<String>> release_count = key_release_count.get(key);
+            R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>> release_count = key_release_count
+                .get(key);
             for (String release2 : releases) {
                 long count = release_count.get0().get(release2) + release_count.get2().get(release2);
                 long len = release_count.get1().get(release2) + release_count.get3().get(release2);
@@ -341,8 +351,9 @@ public class GenerateItemCounts {
             System.out.println("Release:\t" + release + "\t" + release_keys.getAll(release).size());
         }
         summary.close();
-        PrintWriter summary2 = BagFormatter.openUTF8Writer(OUT_DIRECTORY, (MyOptions.directory.option.doesOccur() ? "filtered-" : "") +"locales" + 
-            ".txt");
+        PrintWriter summary2 = BagFormatter.openUTF8Writer(OUT_DIRECTORY,
+            (MyOptions.directory.option.doesOccur() ? "filtered-" : "") + "locales" +
+                ".txt");
         summary2.println("#Languages (inc. script):\t" + writtenLanguages.size());
         summary2.println("#Countries:\t" + countries.size());
         summary2.println("#Locales:\t" + localesToPaths.size());
@@ -352,7 +363,8 @@ public class GenerateItemCounts {
         summary2.close();
     }
 
-    static final Set<String> ATTRIBUTES_TO_SKIP = Builder.with(new HashSet<String>()).addAll("version", "references", "standard", "draft").freeze();
+    static final Set<String> ATTRIBUTES_TO_SKIP = Builder.with(new HashSet<String>())
+        .addAll("version", "references", "standard", "draft").freeze();
     static final Pattern skipPath = Pattern.compile("" +
         "\\[\\@alt=\"[^\"]*proposed" +
         "|^//" +
@@ -372,10 +384,10 @@ public class GenerateItemCounts {
         int orderedCount;
         DtdType type;
 
-
         MyHandler(String prefix) {
             this.prefix = prefix;
         }
+
         @Override
         public void handlePathValue(String path, String value) {
             if (type == null) {
@@ -390,9 +402,9 @@ public class GenerateItemCounts {
             }
             String pathKey = null;
             if (doChanges) {
-                //        if (path.contains("/collations")) {
-                //          System.out.println("whoops");
-                //        }
+                // if (path.contains("/collations")) {
+                // System.out.println("whoops");
+                // }
                 pathKey = fixKeyPath(path);
             }
             if (value.length() != 0) {
@@ -404,7 +416,7 @@ public class GenerateItemCounts {
             }
             if (path.contains("[@")) {
                 parts.set(path);
-                int i = parts.size()-1; // only look at last item
+                int i = parts.size() - 1; // only look at last item
                 Collection<String> attributes = parts.getAttributeKeys(i);
                 if (attributes.size() != 0) {
                     String element = parts.getElement(i);
@@ -414,18 +426,19 @@ public class GenerateItemCounts {
                             continue;
                         }
                         String valuePart = parts.getAttributeValue(i, attribute);
-                        //                        String[] valueParts = attrValue.split("\\s");
-                        //                        for (String valuePart : valueParts) {
+                        // String[] valueParts = attrValue.split("\\s");
+                        // for (String valuePart : valueParts) {
                         attributeCount++;
                         attributeLen += valuePart.length();
                         if (doChanges) {
                             path2value.put(pathKey, valuePart);
-                            //                            }
+                            // }
                         }
                     }
                 }
             }
         }
+
         private String fixKeyPath(String path) {
             parts.set(path);
             for (int i = 0; i < parts.size(); ++i) {
@@ -450,28 +463,28 @@ public class GenerateItemCounts {
         }
         return myHandler;
 
-        //    try {
-        //      FileInputStream fis = new FileInputStream(systemID);
-        //      XMLFileReader xmlReader = XMLFileReader.createXMLReader(true);
-        //      xmlReader.setErrorHandler(new MyErrorHandler());
-        //      MyHandler myHandler = new MyHandler();
-        //      smlReader
-        //      xmlReader.setHandler(myHandler);
-        //      InputSource is = new InputSource(fis);
-        //      is.setSystemId(systemID.toString());
-        //      xmlReader.parse(is);
-        //      fis.close();
-        //      return myHandler;
-        //    } catch (SAXParseException e) {
-        //      System.out.println("\t" + "Can't read " + systemID);
-        //      System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
-        //    } catch (SAXException e) {
-        //      System.out.println("\t" + "Can't read " + systemID);
-        //      System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
-        //    } catch (IOException e) {
-        //      System.out.println("\t" + "Can't read " + systemID);
-        //      System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
-        //    }      
+        // try {
+        // FileInputStream fis = new FileInputStream(systemID);
+        // XMLFileReader xmlReader = XMLFileReader.createXMLReader(true);
+        // xmlReader.setErrorHandler(new MyErrorHandler());
+        // MyHandler myHandler = new MyHandler();
+        // smlReader
+        // xmlReader.setHandler(myHandler);
+        // InputSource is = new InputSource(fis);
+        // is.setSystemId(systemID.toString());
+        // xmlReader.parse(is);
+        // fis.close();
+        // return myHandler;
+        // } catch (SAXParseException e) {
+        // System.out.println("\t" + "Can't read " + systemID);
+        // System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
+        // } catch (SAXException e) {
+        // System.out.println("\t" + "Can't read " + systemID);
+        // System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
+        // } catch (IOException e) {
+        // System.out.println("\t" + "Can't read " + systemID);
+        // System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
+        // }
     }
 
     static class MyErrorHandler implements ErrorHandler {
@@ -479,10 +492,12 @@ public class GenerateItemCounts {
             System.out.println("\r\nerror: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
+
         public void fatalError(SAXParseException exception) throws SAXException {
             System.out.println("\r\nfatalError: " + XMLFileReader.showSAX(exception));
             throw exception;
         }
+
         public void warning(SAXParseException exception) throws SAXException {
             System.out.println("\r\nwarning: " + XMLFileReader.showSAX(exception));
             throw exception;
@@ -500,15 +515,16 @@ public class GenerateItemCounts {
     }
 
     public void summarizeFiles(PrintWriter summary, File directory, int level) {
-        System.out.println("\t\t\t\t\t\t\t".substring(0,level) + directory);
+        System.out.println("\t\t\t\t\t\t\t".substring(0, level) + directory);
         int count = 0;
         for (File file : directory.listFiles()) {
             String filename = file.getName();
             if (file.isDirectory()) {
-                summarizeFiles(summary, file, level+1);
+                summarizeFiles(summary, file, level + 1);
             } else if (!filename.startsWith("#") && filename.endsWith(".xml")) {
-                String name = new File(directory.getParent()).getName() + "/" + directory.getName() + "/" + file.getName();
-                name = name.substring(0,name.length()-4); // strip .xml
+                String name = new File(directory.getParent()).getName() + "/" + directory.getName() + "/"
+                    + file.getName();
+                name = name.substring(0, name.length() - 4); // strip .xml
                 if (!RAW_FILE_MATCHER.reset(name).find()) {
                     continue;
                 }
@@ -523,7 +539,8 @@ public class GenerateItemCounts {
                     System.out.flush();
                 }
                 MyHandler handler = check(file.toString(), name);
-                summary.println(name + "\t" + handler.valueCount + "\t" + handler.valueLen + "\t" + handler.attributeCount + "\t" + handler.attributeLen);
+                summary.println(name + "\t" + handler.valueCount + "\t" + handler.valueLen + "\t"
+                    + handler.attributeCount + "\t" + handler.attributeLen);
             }
         }
         System.out.println();

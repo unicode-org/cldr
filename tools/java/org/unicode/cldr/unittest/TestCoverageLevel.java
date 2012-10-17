@@ -96,10 +96,14 @@ public class TestCoverageLevel extends TestFmwk {
         List possibleErrors = new ArrayList();
         ULocale ulocale = new ULocale(locale);
 
-        CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
+        CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
         coverageLevel1.setFile(cldrFileToCheck, options, null, possibleErrors);
 
-        Map<Row.R2<Level, Level>, Relation<String, String>> failures = new TreeMap<Row.R2<Level, Level>, Relation<String, String>>(); // Relation.of(new HashMap<Row.R2<Level, Integer>, Set<Relation<String,String>>>(), HashSet.class);
+        Map<Row.R2<Level, Level>, Relation<String, String>> failures = new TreeMap<Row.R2<Level, Level>, Relation<String, String>>(); // Relation.of(new
+                                                                                                                                      // HashMap<Row.R2<Level,
+                                                                                                                                      // Integer>,
+                                                                                                                                      // Set<Relation<String,String>>>(),
+                                                                                                                                      // HashSet.class);
 
         int failureCount = 0;
         int successCount = 0;
@@ -115,10 +119,10 @@ public class TestCoverageLevel extends TestFmwk {
             if (fullPath == null) {
                 continue;
             }
-            //            if (path.contains("ethiopic")) {
-            //                System.out.println("?");
-            //            }
-            Level level = coverageLevel1.getCoverageLevel(fullPath);     
+            // if (path.contains("ethiopic")) {
+            // System.out.println("?");
+            // }
+            Level level = coverageLevel1.getCoverageLevel(fullPath);
 
             Level newLevel = Level.fromLevel(testInfo.getSupplementalDataInfo().getCoverageValue(path, ulocale));
             if (newLevel != level) {
@@ -143,7 +147,7 @@ public class TestCoverageLevel extends TestFmwk {
         if (failureCount != 0) {
             errln("Differences between new and old: " + failureCount + ", same: " + successCount);
         } else {
-            logln("Same value: " + successCount);            
+            logln("Same value: " + successCount);
         }
         if (params.verbose) {
             for (int i = 0; i < 2; ++i) {
@@ -155,21 +159,22 @@ public class TestCoverageLevel extends TestFmwk {
                     if ((i == 0) == (oldLevel == newLevel)) {
                         continue;
                     }
-                    //logln("\tCount:\t" + starredToAttributes.values().size() + ",\tOld level:\t" + oldLevel + " (=" + oldLevelInt + ")" + ",\tNew level:\t" + newLevel);
-                    //int maxCount = 10;
+                    // logln("\tCount:\t" + starredToAttributes.values().size() + ",\tOld level:\t" + oldLevel + " (=" +
+                    // oldLevelInt + ")" + ",\tNew level:\t" + newLevel);
+                    // int maxCount = 10;
                     for (Entry<String, Set<String>> s : starredToAttributes.keyValuesSet()) {
-                        //                    if (--maxCount < 0) {
-                        //                        logln("\t...");
-                        //                        break;
-                        //                    }
+                        // if (--maxCount < 0) {
+                        // logln("\t...");
+                        // break;
+                        // }
                         String valueSample = s.getValue().toString();
                         if (valueSample.length() > 100) {
-                            valueSample = valueSample.substring(0,100) + "…";
+                            valueSample = valueSample.substring(0, 100) + "…";
                         }
-                        logln((oldLevel == null ? "?" : oldLevel.getLevel()) 
-                                + "\t" + (newLevel == null ? "?" : newLevel.getLevel())
-                                + "\t" + s.getKey() 
-                                + "\t" + valueSample);
+                        logln((oldLevel == null ? "?" : oldLevel.getLevel())
+                            + "\t" + (newLevel == null ? "?" : newLevel.getLevel())
+                            + "\t" + s.getKey()
+                            + "\t" + valueSample);
                     }
                 }
             }
@@ -180,9 +185,13 @@ public class TestCoverageLevel extends TestFmwk {
         ULocale ulocale = new ULocale(locale);
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(locale);
 
-        CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
+        CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
 
-        Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new HashMap<Row.R2<Level, Integer>, Set<Relation<String,String>>>(), HashSet.class);
+        Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
+                                                                                                    // HashMap<Row.R2<Level,
+                                                                                                    // Integer>,
+                                                                                                    // Set<Relation<String,String>>>(),
+                                                                                                    // HashSet.class);
 
         int count = 0;
         PathStarrer pathStarrer = new PathStarrer();
@@ -202,12 +211,12 @@ public class TestCoverageLevel extends TestFmwk {
             if (fullPath == null) {
                 continue;
             }
-            //            if (path.contains("ethiopic")) {
-            //                System.out.println("?");
-            //            }
+            // if (path.contains("ethiopic")) {
+            // System.out.println("?");
+            // }
             Level level = coverageLevel2.getLevel(path);
 
-            //R2<Level, Level> key = Row.of(level, newLevel);
+            // R2<Level, Level> key = Row.of(level, newLevel);
             String starredPath = pathStarrer.set(path);
             Relation<String, String> starredToAttributes = data.get(level);
             if (starredToAttributes == null) {
@@ -215,27 +224,27 @@ public class TestCoverageLevel extends TestFmwk {
             }
             starredToAttributes.put(starredPath, pathStarrer.getAttributesString("|"));
         }
-        RegexLookup<Transform<String,String>> longTransLookup = new RegexLookup<Transform<String,String>>()
-        .add("^//ldml/localeDisplayNames/languages/language", new TypeName(CLDRFile.LANGUAGE_NAME))
-        .add("^//ldml/localeDisplayNames/scripts/script", new TypeName(CLDRFile.SCRIPT_NAME))
-        .add("^//ldml/localeDisplayNames/territories/territory", new TypeName(CLDRFile.TERRITORY_NAME))
-        .add("^//ldml/numbers/currencies/currency", new TypeName(CLDRFile.CURRENCY_NAME))
-        ;
+        RegexLookup<Transform<String, String>> longTransLookup = new RegexLookup<Transform<String, String>>()
+            .add("^//ldml/localeDisplayNames/languages/language", new TypeName(CLDRFile.LANGUAGE_NAME))
+            .add("^//ldml/localeDisplayNames/scripts/script", new TypeName(CLDRFile.SCRIPT_NAME))
+            .add("^//ldml/localeDisplayNames/territories/territory", new TypeName(CLDRFile.TERRITORY_NAME))
+            .add("^//ldml/numbers/currencies/currency", new TypeName(CLDRFile.CURRENCY_NAME));
 
         for (Entry<Level, Relation<String, String>> entry : data.entrySet()) {
             final Level level = entry.getKey();
             for (Entry<String, Set<String>> entry2 : entry.getValue().keyValuesSet()) {
                 final String key = entry2.getKey();
                 final Set<String> value = entry2.getValue();
-                Transform<String,String> longTrans = null;
+                Transform<String, String> longTrans = null;
                 if (longForm && level.compareTo(Level.MODERN) <= 0) {
                     longTrans = longTransLookup.get(key);
                 }
                 if (longTrans != null) {
                     for (String s : value) {
                         int barPos = s.indexOf('|');
-                        String codePart = barPos < 0 ? s : s.substring(0,barPos);
-                        System.out.println(level.getLevel() + "\t" + level + "\t" + key + "\t" + s + "\t" + longTrans.transform(codePart));
+                        String codePart = barPos < 0 ? s : s.substring(0, barPos);
+                        System.out.println(level.getLevel() + "\t" + level + "\t" + key + "\t" + s + "\t"
+                            + longTrans.transform(codePart));
                     }
                 } else {
                     System.out.println(level.getLevel() + "\t" + level + "\t" + key + "\t" + value);
@@ -247,16 +256,18 @@ public class TestCoverageLevel extends TestFmwk {
     enum LanguageStatus {
         Lit100M("P1"), Lit10MandOfficial("P2"), Lit1MandOneThird("P3");
         final String name;
+
         LanguageStatus(String name) {
             this.name = name;
         }
     }
 
-    static Relation<String,LanguageStatus> languageStatus = Relation.of(new HashMap<String,Set<LanguageStatus>>(), TreeSet.class);
+    static Relation<String, LanguageStatus> languageStatus = Relation.of(new HashMap<String, Set<LanguageStatus>>(),
+        TreeSet.class);
     static Counter2<String> languageLiteratePopulation = new Counter2();
-    static Map<String,Date> currencyToLast = new HashMap();
+    static Map<String, Date> currencyToLast = new HashMap();
     static Set<String> officialSomewhere = new HashSet();
-    
+
     static {
         Counter2<String> territoryLiteratePopulation = new Counter2();
         LanguageTagParser parser = new LanguageTagParser();
@@ -266,7 +277,8 @@ public class TestCoverageLevel extends TestFmwk {
             boolean isOfficial = false;
             double languageLiterate = 0;
             for (String territory : testInfo.getSupplementalDataInfo().getTerritoriesForPopulationData(language)) {
-                PopulationData pop = testInfo.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(language, territory);
+                PopulationData pop = testInfo.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(language,
+                    territory);
                 OfficialStatus officialStatus = pop.getOfficialStatus();
                 if (officialStatus.compareTo(OfficialStatus.de_facto_official) >= 0) {
                     isOfficial = true;
@@ -292,10 +304,11 @@ public class TestCoverageLevel extends TestFmwk {
             }
             String base = parser.set(language).getLanguage();
             for (String territory : testInfo.getSupplementalDataInfo().getTerritoriesForPopulationData(language)) {
-                PopulationData pop = testInfo.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(language, territory);
+                PopulationData pop = testInfo.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(language,
+                    territory);
                 double litPop = pop.getLiteratePopulation();
                 double total = territoryLiteratePopulation.getCount(territory);
-                if (litPop > total/3) {
+                if (litPop > total / 3) {
                     languageStatus.put(base, LanguageStatus.Lit1MandOneThird);
                 }
             }
@@ -315,9 +328,9 @@ public class TestCoverageLevel extends TestFmwk {
             }
         }
     }
-    
+
     static CompactDecimalFormat cdf = CompactDecimalFormat.getInstance(ULocale.ENGLISH, CompactStyle.SHORT);
-    
+
     static String isBigLanguage(String lang) {
         Set<LanguageStatus> status = languageStatus.get(lang);
         Double size = languageLiteratePopulation.getCount(lang);
@@ -328,13 +341,13 @@ public class TestCoverageLevel extends TestFmwk {
         }
         return status.iterator().next().name + "-" + sizeString + off;
     }
-    
+
     static final Date NOW = new Date();
 
-    static class TypeName implements Transform<String,String> {
+    static class TypeName implements Transform<String, String> {
         private final int field;
         private final Map<String, R2<List<String>, String>> dep;
-        
+
         public TypeName(int field) {
             this.field = field;
             switch (field) {
@@ -352,7 +365,7 @@ public class TestCoverageLevel extends TestFmwk {
                 break;
             }
         }
-        
+
         public String transform(String source) {
             String result = testInfo.getEnglish().getName(field, source);
             String extra = "";
@@ -372,7 +385,7 @@ public class TestCoverageLevel extends TestFmwk {
         }
     }
 
-    public void TestTime() { 
+    public void TestTime() {
         checkTime("en");
     }
 
@@ -381,7 +394,7 @@ public class TestCoverageLevel extends TestFmwk {
         List possibleErrors = new ArrayList();
         ULocale ulocale = new ULocale(locale);
 
-        CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale,true);
+        CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
         CoverageLevel coverageLevel1 = new CoverageLevel(testInfo.getCldrFactory());
 
         Timer t = new Timer();
@@ -391,7 +404,7 @@ public class TestCoverageLevel extends TestFmwk {
             if (fullPath == null) {
                 continue;
             }
-            Level level = coverageLevel1.getCoverageLevel(fullPath);            
+            Level level = coverageLevel1.getCoverageLevel(fullPath);
         }
         long oldTime = t.getDuration();
         logln("Old time:\t" + t.toString());
@@ -406,22 +419,19 @@ public class TestCoverageLevel extends TestFmwk {
             int newLevel = testInfo.getSupplementalDataInfo().getCoverageValue(path, ulocale);
         }
         double newTime = t.getDuration();
-        if (newTime > 2*oldTime) {
+        if (newTime > 2 * oldTime) {
             errln("New Coverage Level time too big " + t.toString(1, oldTime));
         } else {
             logln("Old time:\t" + t.toString(1, oldTime));
         }
     }
 
-
-
-
-    RegexLookup<Level> exceptions = RegexLookup.of(null, new Transform<String,Level>() {
+    RegexLookup<Level> exceptions = RegexLookup.of(null, new Transform<String, Level>() {
         public Level transform(String source) {
             return Level.fromLevel(Integer.parseInt(source));
         }
     }, null)
-    .loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
+        .loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
     {
         for (R2<Finder, Level> x : exceptions) {
             System.out.println(x.get0().toString() + " => " + x.get1());

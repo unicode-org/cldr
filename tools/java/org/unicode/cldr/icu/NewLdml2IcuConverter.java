@@ -27,18 +27,19 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  * Simpler mechanism for converting CLDR data to ICU Resource Bundles, intended
  * to replace LDML2ICUConverter. The format is almost entirely data-driven
  * instead of having lots of special-case code.
- *
+ * 
  * The flags used to specify the data to be generated are copied directly from
  * LDML2ICUConverter.
- *
+ * 
  * Unlike the instructions in CLDRConverterTool, this converter does not invoke
  * computeConvertibleXPaths to check if each xpath is convertible because the
  * xpaths that are convertible have already been filtered out by the regex lookups.
  * It may make more sense down the road to refactor CLDRConverterTool such that
  * this class doesn't inherit unnecessary functionality.
- *
+ * 
  * A rough overview of the new converter is available at
  * https://sites.google.com/site/cldr/development/coding-cldr-tools/newldml2icuconverter
+ * 
  * @author jchye
  */
 public class NewLdml2IcuConverter extends CLDRConverterTool {
@@ -50,20 +51,20 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      * The type of file to be converted.
      */
     enum Type {
-        locales, 
+        locales,
         dayPeriods,
         genderList, likelySubtags,
         metadata, metaZones,
         numberingSystems,
         plurals,
         postalCodeData,
-        supplementalData, 
+        supplementalData,
         windowsZones,
         keyTypeData;
     }
 
     private static final Options options = new Options(
-            "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
+        "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
             "This program is used to convert LDML files to ICU data text files.\n" +
             "Please refer to the following options. Options are not case sensitive.\n" +
             "\texample: org.unicode.cldr.icu.Ldml2IcuConverter -s xxx -d yyy en")
@@ -71,7 +72,8 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         .add("destdir", ".*", ".", "Destination directory for output files, defaults to the current directory")
         .add("specialsdir", 'p', ".*", null, "Source directory for files containing special data, if any")
         .add("supplementaldir", 'm', ".*", null, "The supplemental data directory")
-        .add("keeptogether", 'k', null, null, "Write locale data to one file instead of splitting into separate directories. For debugging")
+        .add("keeptogether", 'k', null, null,
+            "Write locale data to one file instead of splitting into separate directories. For debugging")
         .add("type", 't', "\\w+", null, "The type of file to be generated")
         .add("cldrVersion", 'c', ".*", "21.0", "The version of the CLDR data, used purely for supplementalData output.")
         .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
@@ -105,7 +107,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         String line;
         try {
             int lineNum = 1;
-            while((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 if (line.length() == 0 || line.startsWith("#")) continue;
                 String[] content = line.split(SEMI.toString());
                 if (content.length != 2) {
@@ -114,7 +116,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
                 map.put(content[0], content[1]);
                 lineNum++;
             }
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.err.println("Failed to read fallback file.");
             e.printStackTrace();
         }
@@ -228,8 +230,11 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
     /**
      * Writes the given IcuData object to file.
-     * @param icuData the IcuData object to be written
-     * @param outputDir the destination directory of the output file
+     * 
+     * @param icuData
+     *            the IcuData object to be written
+     * @param outputDir
+     *            the destination directory of the output file
      */
     private void writeIcuData(IcuData icuData, String outputDir) {
         if (icuData.keySet().size() == 0) {
@@ -259,18 +264,19 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             IcuData icuData = mapper.fillFromCLDR(locale);
             writeIcuData(icuData, destinationDir);
             System.out.println("Converted " + locale + ".xml in " +
-                    (System.currentTimeMillis() - time) + "ms");
+                (System.currentTimeMillis() - time) + "ms");
         }
     }
 
     /**
      * TODO: call this method when we switch over to writing aliased files from
      * the LDML2ICUConverter. aliasList = aliasDeprecates.aliasList.
+     * 
      * @param mapper
      * @param aliasList
      */
     private void writeAliasedFiles(LocaleMapper mapper, List<Alias> aliasList) {
-        for (Alias alias: aliasList) {
+        for (Alias alias : aliasList) {
             IcuData icuData = mapper.fillFromCldr(alias);
             if (icuData != null) {
                 writeIcuData(icuData, destinationDir);
@@ -280,7 +286,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
     /**
      * In this prototype, just convert one file.
-     *
+     * 
      * @param args
      * @throws IOException
      */

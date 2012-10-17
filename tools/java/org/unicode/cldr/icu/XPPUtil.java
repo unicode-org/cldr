@@ -12,48 +12,48 @@ import org.unicode.cldr.util.XPathParts;
 // this turns out not to be true, make thread-local.
 
 public class XPPUtil {
-  public static String getXpathName(String xpath) {
-    xpp.set(xpath);
-    return xpp.getElement(-1);
-  }
-
-  public static String getXpathName(String xpath, int pos) {
-    xpp.set(xpath);
-    return xpp.getElement(pos);
-  }
-
-  public static String getAttributeValue(String xpath, String element, String attribute) {
-    xpp.set(xpath);
-    int el = xpp.findElement(element);
-    if (el == -1) {
-      return null;
+    public static String getXpathName(String xpath) {
+        xpp.set(xpath);
+        return xpp.getElement(-1);
     }
-    return xpp.getAttributeValue(el, attribute);
-  }
 
-  public static String getAttributeValue(String xpath, String attribute) {
-    xpp.set(xpath);
-    return xpp.getAttributeValue(-1, attribute);
-  }
-
-  public static String getBasicAttributeValue(CLDRFile whichFile, String xpath, String attribute) {
-    String fullPath = whichFile.getFullXPath(xpath);
-    if (fullPath == null) {
-      return null;
+    public static String getXpathName(String xpath, int pos) {
+        xpp.set(xpath);
+        return xpp.getElement(pos);
     }
-    return getAttributeValue(fullPath, attribute);
-  }
 
-  public static String findAttributeValue(CLDRFile file, String xpath, String attribute) {
-    String fullPath = file.getFullXPath(xpath);
-    xpp.set(fullPath);
-    for (int j = 1; j <= xpp.size(); j++) {
-      String v = xpp.getAttributeValue(0 - j, attribute);
-      if (v != null)
-        return v;
+    public static String getAttributeValue(String xpath, String element, String attribute) {
+        xpp.set(xpath);
+        int el = xpp.findElement(element);
+        if (el == -1) {
+            return null;
+        }
+        return xpp.getAttributeValue(el, attribute);
     }
-    return null;
-  }
 
-  private static final XPathParts xpp = new XPathParts(null, null);
+    public static String getAttributeValue(String xpath, String attribute) {
+        xpp.set(xpath);
+        return xpp.getAttributeValue(-1, attribute);
+    }
+
+    public static String getBasicAttributeValue(CLDRFile whichFile, String xpath, String attribute) {
+        String fullPath = whichFile.getFullXPath(xpath);
+        if (fullPath == null) {
+            return null;
+        }
+        return getAttributeValue(fullPath, attribute);
+    }
+
+    public static String findAttributeValue(CLDRFile file, String xpath, String attribute) {
+        String fullPath = file.getFullXPath(xpath);
+        xpp.set(fullPath);
+        for (int j = 1; j <= xpp.size(); j++) {
+            String v = xpp.getAttributeValue(0 - j, attribute);
+            if (v != null)
+                return v;
+        }
+        return null;
+    }
+
+    private static final XPathParts xpp = new XPathParts(null, null);
 }

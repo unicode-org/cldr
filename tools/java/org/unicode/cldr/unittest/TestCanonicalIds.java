@@ -27,9 +27,9 @@ public class TestCanonicalIds extends TestFmwk {
 
     static final Pattern WHITESPACE_PATTERN = Pattern.compile("\\s+");
 
-
     static TestAll.TestInfo testInfo = TestAll.TestInfo.getInstance();
-    static Map<String, Map<String, R2<List<String>, String>>> aliasInfo = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
+    static Map<String, Map<String, R2<List<String>, String>>> aliasInfo = testInfo.getSupplementalDataInfo()
+        .getLocaleAliasInfo();
 
     public static void main(String[] args) {
         new TestCanonicalIds().run(args);
@@ -56,7 +56,8 @@ public class TestCanonicalIds extends TestFmwk {
 
         Map<String, R2<String, String>> validityInfo = testInfo.getSupplementalDataInfo().getValidityInfo();
         String timezoneItemString = validityInfo.get("$tzid").get1();
-        HashSet<String> variable = new LinkedHashSet<String>(Arrays.asList(WHITESPACE_PATTERN.split(timezoneItemString.trim())));
+        HashSet<String> variable = new LinkedHashSet<String>(Arrays.asList(WHITESPACE_PATTERN.split(timezoneItemString
+            .trim())));
         if (!variable.equals(bcp47Canonical)) {
             TreeSet<String> bcp47Only = new TreeSet<String>(bcp47Canonical);
             bcp47Only.removeAll(variable);
@@ -66,10 +67,13 @@ public class TestCanonicalIds extends TestFmwk {
         }
     }
 
-    enum Type {language, script, territory, zone}
+    enum Type {
+        language, script, territory, zone
+    }
 
     public void TestForDeprecatedVariables() {
-        Map<String, Map<String, R2<List<String>, String>>> aliasInfo = testInfo.getSupplementalDataInfo().getLocaleAliasInfo();
+        Map<String, Map<String, R2<List<String>, String>>> aliasInfo = testInfo.getSupplementalDataInfo()
+            .getLocaleAliasInfo();
         // language, script, territory, variant, zone
         Map<String, R2<String, String>> validityInfo = testInfo.getSupplementalDataInfo().getValidityInfo();
         for (Entry<String, R2<String, String>> entry : validityInfo.entrySet()) {
@@ -86,13 +90,14 @@ public class TestCanonicalIds extends TestFmwk {
         }
     }
 
-    private void checkItems(Map<String, Map<String, R2<List<String>, String>>> aliasInfo, Entry<String, R2<String, String>> entry, String key,
-            final Type type) {
+    private void checkItems(Map<String, Map<String, R2<List<String>, String>>> aliasInfo,
+        Entry<String, R2<String, String>> entry, String key,
+        final Type type) {
         Map<String, R2<List<String>, String>> badMap = aliasInfo.get(type.toString());
         final String valueString = entry.getValue().get1();
         HashSet<String> values = new LinkedHashSet<String>(Arrays.asList(WHITESPACE_PATTERN.split(valueString.trim())));
         Set<String> emptyScripts = new TreeSet<String>();
-        UnicodeSet remainingCharacters = new UnicodeSet(0,0x10FFFF);
+        UnicodeSet remainingCharacters = new UnicodeSet(0, 0x10FFFF);
         UnicodeSet s = new UnicodeSet();
         for (String value : values) {
             R2<List<String>, String> replacement = badMap.get(value);
@@ -129,7 +134,7 @@ public class TestCanonicalIds extends TestFmwk {
             }
         }
     }
-    
+
     static final long CURRENT_YEAR = new Date().getYear() + 1900;
 
     private boolean isOk(Type type, String value) {

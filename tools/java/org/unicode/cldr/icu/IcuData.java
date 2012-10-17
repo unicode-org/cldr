@@ -21,12 +21,16 @@ class IcuData {
 
     /**
      * IcuData constructor.
-     * @param sourceFile the source file of the IcuData object, displayed in
-     *      comments in the file
-     * @param name The name of the IcuData object, also used as the name of the
-     *      root node in the output file
-     * @param hasFallback true if the output file has another ICU file as a
-     *      fallback
+     * 
+     * @param sourceFile
+     *            the source file of the IcuData object, displayed in
+     *            comments in the file
+     * @param name
+     *            The name of the IcuData object, also used as the name of the
+     *            root node in the output file
+     * @param hasFallback
+     *            true if the output file has another ICU file as a
+     *            fallback
      */
     public IcuData(String sourceFile, String name, boolean hasFallback) {
         this(sourceFile, name, hasFallback, new HashMap<String, String>());
@@ -34,20 +38,25 @@ class IcuData {
 
     /**
      * IcuData constructor.
-     * @param sourceFile the source file of the IcuData object, displayed in
-     *      comments in the file
-     * @param name The name of the IcuData object, also used as the name of the
-     *      root node in the output file
-     * @param hasFallback true if the output file has another ICU file as a
-     *      fallback
-     * @param enumMap a mapping of CLDR string values to their integer values in
-     *      ICU
+     * 
+     * @param sourceFile
+     *            the source file of the IcuData object, displayed in
+     *            comments in the file
+     * @param name
+     *            The name of the IcuData object, also used as the name of the
+     *            root node in the output file
+     * @param hasFallback
+     *            true if the output file has another ICU file as a
+     *            fallback
+     * @param enumMap
+     *            a mapping of CLDR string values to their integer values in
+     *            ICU
      */
     public IcuData(String sourceFile, String name, boolean hasFallback, Map<String, String> enumMap) {
         this.hasFallback = hasFallback;
         this.sourceFile = sourceFile;
         this.name = name;
-        rbPathToValues = new HashMap<String,List<String[]>>();
+        rbPathToValues = new HashMap<String, List<String[]>>();
         this.enumMap = enumMap;
     }
 
@@ -61,7 +70,8 @@ class IcuData {
     /**
      * Returns the the relative path of the source file used to generate the
      * ICU data. Used when writing the data to file.
-     * @return 
+     * 
+     * @return
      */
     public String getSourceFile() {
         return sourceFile;
@@ -73,17 +83,18 @@ class IcuData {
     public String getName() {
         return name;
     }
-    
+
     public void setHasSpecial(boolean hasSpecial) {
         this.hasSpecial = hasSpecial;
     }
-    
+
     /**
      * @return true if special data is included in this IcuData, false by default
      */
     public boolean hasSpecial() {
         return hasSpecial;
     }
+
     /**
      * The RB path,value pair actually has an array as the value. So when we
      * add to it, add to a list.
@@ -109,9 +120,9 @@ class IcuData {
      * @return
      */
     void add(String path, String value) {
-        add(path, new String[]{value});
+        add(path, new String[] { value });
     }
-    
+
     void addAll(String path, Collection<String[]> valueList) {
         for (String[] values : valueList) {
             add(path, values);
@@ -144,12 +155,13 @@ class IcuData {
 
     /**
      * Get items
+     * 
      * @return
      */
     public Set<String> keySet() {
         return rbPathToValues.keySet();
     }
-    
+
     public int size() {
         return rbPathToValues.size();
     }
@@ -157,7 +169,7 @@ class IcuData {
     public boolean containsKey(String key) {
         return rbPathToValues.containsKey(key);
     }
-    
+
     public List<String[]> get(String path) {
         return rbPathToValues.get(path);
     }

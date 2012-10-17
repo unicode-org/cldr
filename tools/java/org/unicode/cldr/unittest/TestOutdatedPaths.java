@@ -17,13 +17,19 @@ public class TestOutdatedPaths extends TestFmwk {
     }
 
     OutdatedPaths paths = new OutdatedPaths();
-    
+
     public void TestBasic() {
         assertEquals("English should have none", 0, paths.countOutdated("en"));
-        assertEquals("French should have at least one", 518, paths.countOutdated("fr")); // update this when GenerateBirth is rerun.
-        assertTrue("", paths.isOutdated("fr", "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]"));
+        assertEquals("French should have at least one", 518, paths.countOutdated("fr")); // update this when
+                                                                                         // GenerateBirth is rerun.
+        assertTrue(
+            "",
+            paths
+                .isOutdated(
+                    "fr",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]"));
     }
-    
+
     public void TestShow() {
         Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile fr = factory.make("fr", false);

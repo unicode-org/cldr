@@ -11,19 +11,21 @@ import org.unicode.cldr.util.RegexLookup.Merger;
 import com.ibm.icu.text.Transform;
 
 public class PatternPlaceholders {
-    
-    public enum PlaceholderStatus {DISALLOWED, OPTIONAL, REQUIRED}
-    
+
+    public enum PlaceholderStatus {
+        DISALLOWED, OPTIONAL, REQUIRED
+    }
+
     private static class PlaceholderData {
         PlaceholderStatus status = PlaceholderStatus.REQUIRED;
         Map<String, PlaceholderInfo> data = new LinkedHashMap<String, PlaceholderInfo>();
 
         public void add(String id, String name, String example) {
             PlaceholderInfo row = new PlaceholderInfo(name, example);
-            data.put(id,row);
+            data.put(id, row);
         }
     }
-    
+
     public static class PlaceholderInfo {
         public String name;
         public String example;
@@ -32,7 +34,7 @@ public class PatternPlaceholders {
             this.name = name;
             this.example = example;
         }
-        
+
         @Override
         public String toString() {
             return name + " (" + example + ")";
@@ -70,12 +72,12 @@ public class PatternPlaceholders {
                     }
                     int equalsPos = part.indexOf('=');
                     String id = part.substring(0, equalsPos).trim();
-                    String name = part.substring(equalsPos+1).trim();
+                    String name = part.substring(equalsPos + 1).trim();
                     int spacePos = name.indexOf(' ');
                     String example;
                     if (spacePos >= 0) {
-                        example = name.substring(spacePos+1).trim();
-                        name = name.substring(0,spacePos).trim();
+                        example = name.substring(spacePos + 1).trim();
+                        name = name.substring(0, spacePos).trim();
                     } else {
                         example = "";
                     }
@@ -98,16 +100,18 @@ public class PatternPlaceholders {
     }
 
     private RegexLookup<PlaceholderData> patternPlaceholders;
-    
+
     private static PatternPlaceholders SINGLETON;
-    private PatternPlaceholders() {}
-    
+
+    private PatternPlaceholders() {
+    }
+
     public static PatternPlaceholders getInstance() {
         if (SINGLETON == null) {
             SINGLETON = new PatternPlaceholders();
             SINGLETON.patternPlaceholders = RegexLookup.of(new MapTransform())
-            .setValueMerger(new MyMerger())
-            .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
+                .setValueMerger(new MyMerger())
+                .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
         }
         return SINGLETON;
     }
@@ -117,7 +121,7 @@ public class PatternPlaceholders {
         final PlaceholderData map = patternPlaceholders.get(path);
         return map == null ? null : Collections.unmodifiableMap(map.data);
     }
-    
+
     public PlaceholderStatus getStatus(String path) {
         // TODO change the original map to be unmodifiable, to avoid this step. Need to add a "finalize" to the lookup.
         final PlaceholderData map = patternPlaceholders.get(path);

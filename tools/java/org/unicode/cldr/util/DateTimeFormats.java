@@ -36,33 +36,32 @@ public class DateTimeFormats {
 
     private static final TimeZone GMT = TimeZone.getTimeZone("GMT");
 
-    private static final String[] STOCK = {"short", "medium", "long", "full"};
-    private static final String[] CALENDAR_FIELD_TO_PATTERN_LETTER = 
+    private static final String[] STOCK = { "short", "medium", "long", "full" };
+    private static final String[] CALENDAR_FIELD_TO_PATTERN_LETTER =
     {
         "G", "y", "M",
-        "w", "W", "d", 
+        "w", "W", "d",
         "D", "E", "F",
         "a", "h", "H",
         "m",
     };
-    private static final Date SAMPLE_DATE = new Date(2012-1900, 0, 13, 14, 45, 59);
+    private static final Date SAMPLE_DATE = new Date(2012 - 1900, 0, 13, 14, 45, 59);
 
     private static final String SAMPLE_DATE_STRING = CldrUtility.isoFormat(SAMPLE_DATE);
 
-    private static final Date[] SAMPLE_DATE_END =     {
-        //        "G", "y", "M",
-        null, new Date(2013-1900, 0, 13, 14, 45, 59), new Date(2012-1900, 1, 13, 14, 45, 59),
-        //        "w", "W", "d", 
-        null, null, new Date(2012-1900, 0, 14, 14, 45, 59),
-        //        "D", "E", "F",
-        null, new Date(2012-1900, 0, 14, 14, 45, 59), null,
-        //        "a", "h", "H",
-        new Date(2012-1900, 0, 13, 2, 45, 59), new Date(2012-1900, 0, 13, 15, 45, 59), new Date(2012-1900, 0, 13, 15, 45, 59),
-        //        "m",
-        new Date(2012-1900, 0, 13, 14, 46, 59)
-    };
-    ;
-
+    private static final Date[] SAMPLE_DATE_END = {
+        // "G", "y", "M",
+        null, new Date(2013 - 1900, 0, 13, 14, 45, 59), new Date(2012 - 1900, 1, 13, 14, 45, 59),
+        // "w", "W", "d",
+        null, null, new Date(2012 - 1900, 0, 14, 14, 45, 59),
+        // "D", "E", "F",
+        null, new Date(2012 - 1900, 0, 14, 14, 45, 59), null,
+        // "a", "h", "H",
+        new Date(2012 - 1900, 0, 13, 2, 45, 59), new Date(2012 - 1900, 0, 13, 15, 45, 59),
+        new Date(2012 - 1900, 0, 13, 15, 45, 59),
+        // "m",
+        new Date(2012 - 1900, 0, 13, 14, 46, 59)
+    };;
 
     private DateTimePatternGenerator generator;
     private ULocale locale;
@@ -71,12 +70,12 @@ public class DateTimeFormats {
     private String calendarID;
     private CLDRFile file;
 
-    private static String surveyUrl = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL", "http://st.unicode.org/cldr-apps/survey");
-
-
+    private static String surveyUrl = CLDRConfig.getInstance().getProperty("CLDR_SURVEY_URL",
+        "http://st.unicode.org/cldr-apps/survey");
 
     /**
      * Set a CLDRFile and calendar. Must be done before calling addTable.
+     * 
      * @param file
      * @param calendarID
      * @return
@@ -92,17 +91,19 @@ public class DateTimeFormats {
         boolean haveDefaultHourChar = false;
 
         for (String stock : STOCK) {
-            String path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateFormats/dateFormatLength[@type=\"" +
+            String path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID
+                + "\"]/dateFormats/dateFormatLength[@type=\"" +
                 stock +
                 "\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
             String dateTimePattern = file.getStringValue(path);
             generator.addPattern(dateTimePattern, true, returnInfo);
-            path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/timeFormats/timeFormatLength[@type=\"" +
+            path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID
+                + "\"]/timeFormats/timeFormatLength[@type=\"" +
                 stock +
                 "\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
             dateTimePattern = file.getStringValue(path);
             generator.addPattern(dateTimePattern, true, returnInfo);
-            if (DEBUG 
+            if (DEBUG
                 && DEBUG_LIST_PATTERNS.equals(locale)) {
                 System.out.println("* Adding: " + locale + "\t" + dateTimePattern);
             }
@@ -115,7 +116,7 @@ public class DateTimeFormats {
                 for (int idx = 0; idx < items.size(); idx++) {
                     Object item = items.get(idx);
                     if (item instanceof VariableField) {
-                        VariableField fld = (VariableField)item;
+                        VariableField fld = (VariableField) item;
                         if (fld.getType() == DateTimePatternGenerator.HOUR) {
                             generator.setDefaultHourFormatChar(fld.toString().charAt(0));
                             haveDefaultHourChar = true;
@@ -126,21 +127,21 @@ public class DateTimeFormats {
             }
         }
 
-
-        // appendItems                  result.setAppendItemFormat(getAppendFormatNumber(formatName), value);
-        for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/appendItems/appendItem"))) {
+        // appendItems result.setAppendItemFormat(getAppendFormatNumber(formatName), value);
+        for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
+            + "\"]/dateTimeFormats/appendItems/appendItem"))) {
             String request = parts.set(path).getAttributeValue(-1, "request");
             int requestNumber = DateTimePatternGenerator.getAppendFormatNumber(request);
             String value = file.getStringValue(path);
             generator.setAppendItemFormat(requestNumber, value);
-            if (DEBUG 
+            if (DEBUG
                 && DEBUG_LIST_PATTERNS.equals(locale)) {
                 System.out.println("* Adding: " + locale + "\t" + request + "\t" + value);
             }
         }
 
-        // field names                     result.setAppendItemName(i, value);
-        //ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/displayName
+        // field names result.setAppendItemName(i, value);
+        // ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/displayName
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field"))) {
             if (!path.contains("displayName")) {
                 continue;
@@ -150,48 +151,53 @@ public class DateTimeFormats {
 
             String value = file.getStringValue(path);
             generator.setAppendItemName(requestNumber, value);
-            if (DEBUG 
+            if (DEBUG
                 && DEBUG_LIST_PATTERNS.equals(locale)) {
                 System.out.println("* Adding: " + locale + "\t" + type + "\t" + value);
             }
         }
 
-        for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
+        for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
+            + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
             String key = parts.set(path).getAttributeValue(-1, "id");
             String value = file.getStringValue(path);
             if (key.equals(DEBUG_SKELETON)) {
                 int debug = 0;
             }
             generator.addPatternWithSkeleton(value, key, true, returnInfo);
-            if (DEBUG 
+            if (DEBUG
                 && DEBUG_LIST_PATTERNS.equals(locale)) {
                 System.out.println("* Adding: " + locale + "\t" + key + "\t" + value);
             }
         }
 
-        generator.setDateTimeFormat(Calendar.getDateTimePattern(Calendar.getInstance(locale), locale, DateFormat.MEDIUM));
+        generator
+            .setDateTimeFormat(Calendar.getDateTimePattern(Calendar.getInstance(locale), locale, DateFormat.MEDIUM));
 
-        //ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
-        for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {
+        // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
+        for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
+            + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {
             String skeleton = parts.set(path).getAttributeValue(-2, "id");
             String diff = parts.set(path).getAttributeValue(-1, "id");
             int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, diff);
             String intervalPattern = file.getStringValue(path);
             dateIntervalInfo.setIntervalPattern(skeleton, diffNumber, intervalPattern);
         }
-        dateIntervalInfo.setFallbackIntervalPattern(file.getStringValue("//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/dateTimeFormats/intervalFormats/intervalFormatFallback"));
+        dateIntervalInfo.setFallbackIntervalPattern(file.getStringValue("//ldml/dates/calendars/calendar[@type=\""
+            + calendarID + "\"]/dateTimeFormats/intervalFormats/intervalFormatFallback"));
         return this;
     }
 
     private static final String[] FIELD_NAMES = {
         "era", "year", "quarter", "month", "week", "week_of_month",
-        "weekday", "day", "day_of_year", "day_of_week_in_month", 
+        "weekday", "day", "day_of_year", "day_of_week_in_month",
         "dayperiod", "hour", "minute", "second", "fractional_second", "zone"
     };
 
     static {
         if (FIELD_NAMES.length != DateTimePatternGenerator.TYPE_LIMIT) {
-            throw new IllegalArgumentException("Internal error " + FIELD_NAMES.length + "\t" + DateTimePatternGenerator.TYPE_LIMIT);
+            throw new IllegalArgumentException("Internal error " + FIELD_NAMES.length + "\t"
+                + DateTimePatternGenerator.TYPE_LIMIT);
         }
     }
 
@@ -303,13 +309,13 @@ public class DateTimeFormats {
         { "&nbsp;&nbsp;&nbsp;to  hour+1", "Hm/H" },
         { "hour<sub>24</sub> minute second", "Hms" },
 
-        //        { "-", "Timezones (used alone or with Time)" },
-        //        { "location", "VVVV" },
-        //        { "generic", "vvvv" },
-        //        { "generic<sub>a</sub>", "v" },
-        //        { "specific", "zzzz" },
-        //        { "specific<sub>a</sub>", "z" },
-        //        { "gmt", "ZZZZ" },
+        // { "-", "Timezones (used alone or with Time)" },
+        // { "location", "VVVV" },
+        // { "generic", "vvvv" },
+        // { "generic<sub>a</sub>", "v" },
+        // { "specific", "zzzz" },
+        // { "specific<sub>a</sub>", "z" },
+        // { "gmt", "ZZZZ" },
     };
 
     private class Diff {
@@ -321,12 +327,15 @@ public class DateTimeFormats {
                 }
             }
         }
+
         public boolean isPresent(String skeleton) {
             return availablePatterns.remove(skeleton.replace('j', generator.getDefaultHourFormatChar()));
         }
     }
+
     /**
      * Generate a table of date examples.
+     * 
      * @param comparison
      * @param output
      */
@@ -351,12 +360,12 @@ public class DateTimeFormats {
                     if (is24h && skeleton.contains("H")) {
                         continue;
                     }
-                    showRow(output, RowStyle.normal, name, skeleton, 
+                    showRow(output, RowStyle.normal, name, skeleton,
                         comparison.getExample(skeleton), getExample(skeleton), diff.isPresent(skeleton));
                 }
             }
             if (!diff.availablePatterns.isEmpty()) {
-                showRow(output, RowStyle.separator, "Additional Patterns in Locale data", null, null, null,false);
+                showRow(output, RowStyle.separator, "Additional Patterns in Locale data", null, null, null, false);
                 for (String skeleton : diff.availablePatterns) {
                     if (skeleton.equals(DEBUG_SKELETON)) {
                         int debug = 0;
@@ -364,15 +373,16 @@ public class DateTimeFormats {
                     if (is24h && (skeleton.contains("h") || skeleton.contains("a"))) {
                         continue;
                     }
-                    // skip zones, day_of_year, Day of Week in Month, numeric quarter, week in month, week in year, frac.sec
-                    if (skeleton.contains("v") || skeleton.contains("z") 
+                    // skip zones, day_of_year, Day of Week in Month, numeric quarter, week in month, week in year,
+                    // frac.sec
+                    if (skeleton.contains("v") || skeleton.contains("z")
                         || skeleton.contains("Q") && !skeleton.contains("QQ")
                         || skeleton.equals("D") || skeleton.equals("F")
                         || skeleton.equals("S")
                         || skeleton.equals("W") || skeleton.equals("w")) {
                         continue;
                     }
-                    showRow(output, RowStyle.normal, skeleton, skeleton, 
+                    showRow(output, RowStyle.normal, skeleton, skeleton,
                         comparison.getExample(skeleton), getExample(skeleton), true);
                 }
             }
@@ -384,6 +394,7 @@ public class DateTimeFormats {
 
     /**
      * Get an example from the "enhanced" skeleton.
+     * 
      * @param skeleton
      * @return
      */
@@ -391,16 +402,16 @@ public class DateTimeFormats {
         String example;
         int slashPos = skeleton.indexOf('/');
         if (slashPos >= 0) {
-            String mainSkeleton = skeleton.substring(0,slashPos);
-            DateIntervalFormat dateIntervalFormat = new DateIntervalFormat(mainSkeleton, dateIntervalInfo, generator, 
+            String mainSkeleton = skeleton.substring(0, slashPos);
+            DateIntervalFormat dateIntervalFormat = new DateIntervalFormat(mainSkeleton, dateIntervalInfo, generator,
                 icuServiceBuilder.getDateFormat(calendarID, generator.getBestPattern(mainSkeleton)));
-            String diffString = skeleton.substring(slashPos+1).replace('j', 'H');
+            String diffString = skeleton.substring(slashPos + 1).replace('j', 'H');
             int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, diffString);
             Date endDate = SAMPLE_DATE_END[diffNumber];
             try {
                 example = dateIntervalFormat.format(new DateInterval(SAMPLE_DATE.getTime(), endDate.getTime()));
             } catch (Exception e) {
-                throw new IllegalArgumentException(skeleton + ", " + endDate,e);
+                throw new IllegalArgumentException(skeleton + ", " + endDate, e);
             }
         } else {
             if (skeleton.equals(DEBUG_SKELETON)) {
@@ -414,32 +425,37 @@ public class DateTimeFormats {
         return TransliteratorUtilities.toHTML.transform(example);
     }
 
-    enum RowStyle {header, separator, normal}
+    enum RowStyle {
+        header, separator, normal
+    }
 
     /**
      * Show a single row
+     * 
      * @param output
      * @param rowStyle
      * @param name
      * @param skeleton
      * @param english
      * @param example
-     * @param isPresent 
+     * @param isPresent
      * @throws IOException
      */
-    private void showRow(Appendable output, RowStyle rowStyle, String name, String skeleton, String english, String example, boolean isPresent)
+    private void showRow(Appendable output, RowStyle rowStyle, String name, String skeleton, String english,
+        String example, boolean isPresent)
         throws IOException {
         output.append("<tr>");
         switch (rowStyle) {
         case separator:
             String link = name.replace(' ', '_');
-            output.append("<th colSpan='3' class='dtf-sep'><a href='#").append(link).append("' name='").append(link).append("'>")
-            .append(name).append("</a></th>");
+            output.append("<th colSpan='3' class='dtf-sep'><a href='#").append(link).append("' name='").append(link)
+                .append("'>")
+                .append(name).append("</a></th>");
             break;
         case header:
         case normal:
             String startCell = rowStyle == RowStyle.header ? "<th class='dtf-h'>" : "<td class='dtf-s'>";
-            String endCell = rowStyle == RowStyle.header  ? "</th>" : "</td>";
+            String endCell = rowStyle == RowStyle.header ? "</th>" : "</td>";
             if (name.equals(FIELDS_TITLE)) {
                 output.append("<th class='dtf-th'>").append(name).append("</a></th>");
             } else {
@@ -448,10 +464,10 @@ public class DateTimeFormats {
                     "name='" + skeleton + "' " +
                     ">").append(name).append("</a></th>");
             }
-            //.append(startCell).append(skeleton).append(endCell)
+            // .append(startCell).append(skeleton).append(endCell)
             output.append(startCell).append(english).append(endCell)
-            .append(startCell).append(example).append(endCell)
-            .append(startCell).append(isPresent ? "&nbsp;" : "c").append(endCell);
+                .append(startCell).append(example).append(endCell)
+                .append(startCell).append(isPresent ? "&nbsp;" : "c").append(endCell);
             if (rowStyle != RowStyle.header) {
                 String fix = getFix(skeleton);
                 if (fix != null) {
@@ -467,15 +483,15 @@ public class DateTimeFormats {
         skeleton = skeleton.replace('j', generator.getDefaultHourFormatChar());
         int slashPos = skeleton.indexOf('/');
         if (slashPos >= 0) {
-            String mainSkeleton = skeleton.substring(0,slashPos);
-            String diff = skeleton.substring(slashPos+1);
+            String mainSkeleton = skeleton.substring(0, slashPos);
+            String diff = skeleton.substring(slashPos + 1);
             path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID +
                 "\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"" + mainSkeleton +
                 "\"]/greatestDifference[@id=\"" + diff +
                 "\"]";
         } else {
             path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID +
-                "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"" + skeleton + 
+                "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"" + skeleton +
                 "\"]";
         }
         String value = file.getStringValue(path);
@@ -498,28 +514,32 @@ public class DateTimeFormats {
             return null;
         }
         String strid = Long.toHexString(StringId.getId(path));
-        return "<a href='"+surveyUrl+"?_=" + file.getLocaleID() +
+        return "<a href='" + surveyUrl + "?_=" + file.getLocaleID() +
             "&strid=" + strid + "'><i>fix</i></a>";
     }
 
     /**
      * Add a table of date comparisons
+     * 
      * @param english
      * @param output
      */
     public void addDateTable(CLDRFile english, Appendable output) {
-        //ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="format"]/monthWidth[@type="abbreviated"]/month[@type="1"]
-        //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]
-        //ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sun"]
+        // ldml/dates/calendars/calendar[@type="gregorian"]/months/monthContext[@type="format"]/monthWidth[@type="abbreviated"]/month[@type="1"]
+        // ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]
+        // ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sun"]
         try {
             output.append("<h2><a href='#Weekdays' name='Weekdays'>Weekdays</a></h2>\n");
-            addDateSubtable("//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/days/dayContext[@type=\"FORMAT\"]/dayWidth[@type=\"WIDTH\"]/day[@type=\"TYPE\"]",
+            addDateSubtable(
+                "//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/days/dayContext[@type=\"FORMAT\"]/dayWidth[@type=\"WIDTH\"]/day[@type=\"TYPE\"]",
                 english, output, "sun", "mon", "tue", "wed", "thu", "fri", "sat");
             output.append("<h2><a href='#Months' name='Months'>Months</a></h2>\n");
-            addDateSubtable("//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/months/monthContext[@type=\"FORMAT\"]/monthWidth[@type=\"WIDTH\"]/month[@type=\"TYPE\"]",
+            addDateSubtable(
+                "//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/months/monthContext[@type=\"FORMAT\"]/monthWidth[@type=\"WIDTH\"]/month[@type=\"TYPE\"]",
                 english, output, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
             output.append("<h2><a href='#Quarters' name='Quarters'>Quarters</a></h2>\n");
-            addDateSubtable("//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/quarters/quarterContext[@type=\"FORMAT\"]/quarterWidth[@type=\"WIDTH\"]/quarter[@type=\"TYPE\"]",
+            addDateSubtable(
+                "//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/quarters/quarterContext[@type=\"FORMAT\"]/quarterWidth[@type=\"WIDTH\"]/quarter[@type=\"TYPE\"]",
                 english, output, "1", "2", "3", "4");
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
@@ -528,9 +548,12 @@ public class DateTimeFormats {
 
     private void addDateSubtable(String path, CLDRFile english, Appendable output, String... types) throws IOException {
         path = path.replace("CALENDAR", calendarID);
-        output.append("<table class='dtf-table'>\n" +
-            "<tr><th class='dtf-th'>English</th><th class='dtf-th'>Wide</th><th class='dtf-th'>Abbr.</th><th class='dtf-th'>Narrow</th></tr>" +
-            "\n");
+        output
+            .append("<table class='dtf-table'>\n"
+                +
+                "<tr><th class='dtf-th'>English</th><th class='dtf-th'>Wide</th><th class='dtf-th'>Abbr.</th><th class='dtf-th'>Narrow</th></tr>"
+                +
+                "\n");
         for (String type : types) {
             String path1 = path.replace("TYPE", type);
             output.append("<tr>");
@@ -543,7 +566,8 @@ public class DateTimeFormats {
                     String path3 = path2.replace("FORMAT", format);
                     if (first) {
                         String value = english.getStringValue(path3);
-                        output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(value)).append("</th>");
+                        output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(value))
+                            .append("</th>");
                         first = false;
                     }
                     String value = file.getStringValue(path3);
@@ -552,13 +576,14 @@ public class DateTimeFormats {
                         lastPath = path3;
                     } else {
                         String lastFix = getFixFromPath(lastPath);
-                        output.append("<td class='dtf-nopad'><table class='dtf-int'><tr><td>").append(TransliteratorUtilities.toHTML.transform(last));
+                        output.append("<td class='dtf-nopad'><table class='dtf-int'><tr><td>").append(
+                            TransliteratorUtilities.toHTML.transform(last));
                         if (lastFix != null) {
                             output.append("</td><td class='dtf-fix'>").append(lastFix);
                         }
                         if (!value.equals(last)) {
                             String fix = getFixFromPath(path3);
-                            output.append("</td></tr><tr><td>").append(TransliteratorUtilities.toHTML.transform(value));                        
+                            output.append("</td></tr><tr><td>").append(TransliteratorUtilities.toHTML.transform(value));
                             if (fix != null) {
                                 output.append("</td><td class='dtf-fix'>").append(fix);
                             }
@@ -575,9 +600,9 @@ public class DateTimeFormats {
     private static final boolean RETIRE = false;
     private static final String LOCALES = "ja";
 
-
     /**
      * Produce a set of static tables from the vxml data. Only a stopgap until the above is integrated into ST.
+     * 
      * @param args
      * @throws IOException
      */
@@ -590,18 +615,27 @@ public class DateTimeFormats {
         System.out.println("Total locales: " + factory.getAvailableLanguages().size());
         DateTimeFormats english = new DateTimeFormats().set(englishFile, "gregorian");
         PrintWriter index = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "dates/", "index.html");
-        index.println(
-            "<html><head>\n" +
-                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
-                "<title>Date/Time Charts</title>\n" +
-                "</head><body><h1>Date/Time Charts</h1>" +
-                //"<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
-                "<p style='float:right; text-align:right'>" + dateString + "</p>\n" +
-                "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review. </b></p>\n" +
+        index
+            .println(
+            "<html><head>\n"
+                +
+                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
+                +
+                "<title>Date/Time Charts</title>\n"
+                +
+                "</head><body><h1>Date/Time Charts</h1>"
+                +
+                // "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
+                "<p style='float:right; text-align:right'>"
+                + dateString
+                + "</p>\n"
+                +
+                "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review. </b></p>\n"
+                +
                 "<p>The following charts show typical usage of date and time formatting with the Gregorian calendar. " +
-            "Please review the chart for your locale(s).</p><div style='margin:2em'>");
+                "Please review the chart for your locale(s).</p><div style='margin:2em'>");
 
-        Map<String, String> sorted = new TreeMap<String,String>();
+        Map<String, String> sorted = new TreeMap<String, String>();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Set<String> defaultContent = sdi.getDefaultContentLocales();
         for (String localeID : factory.getAvailableLanguages()) {
@@ -609,12 +643,14 @@ public class DateTimeFormats {
                 System.out.println("Skipping default content: " + localeID);
                 continue;
             }
-            sorted.put(englishFile.getName(localeID,true), localeID);
+            sorted.put(englishFile.getName(localeID, true), localeID);
         }
 
         PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "dates/", "index.css");
-        out.println(".dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}\n" +
-            ".dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}\n" +
+        out.println(".dtf-table, .dtf-int {margin-left:auto; margin-right:auto; border-collapse:collapse;}\n"
+            +
+            ".dtf-table, .dtf-s, .dtf-nopad, .dtf-fix, .dtf-th, .dtf-h, .dtf-sep, .dtf-left, .dtf-int {border:1px solid gray;}\n"
+            +
             ".dtf-th {background-color:#EEE; padding:4px}\n" +
             ".dtf-s, .dtf-nopad, .dtf-fix {padding:3px; text-align:center}\n" +
             ".dtf-sep {background-color:#EEF; text-align:center}\n" +
@@ -625,7 +661,7 @@ public class DateTimeFormats {
             ".dtf-nopad {padding:0px; align:top}\n"
             );
         out.close();
-        //http://st.unicode.org/cldr-apps/survey?_=LOCALE&x=r_datetime&calendar=gregorian
+        // http://st.unicode.org/cldr-apps/survey?_=LOCALE&x=r_datetime&calendar=gregorian
         int oldFirst = 0;
         for (Entry<String, String> nameAndLocale : sorted.entrySet()) {
             String name = nameAndLocale.getKey();
@@ -633,24 +669,48 @@ public class DateTimeFormats {
             DateTimeFormats formats = new DateTimeFormats().set(factory.make(localeID, true), "gregorian");
             String filename = localeID + ".html";
             out = BagFormatter.openUTF8Writer(CldrUtility.CHART_DIRECTORY + "dates/", filename);
-            String redirect = "http://st.unicode.org/cldr-apps/survey?_=" + localeID + "&x=r_datetime&calendar=gregorian";
+            String redirect = "http://st.unicode.org/cldr-apps/survey?_=" + localeID
+                + "&x=r_datetime&calendar=gregorian";
             out.println(
-                "<html><head>\n" +
-                    (RETIRE ? "<meta http-equiv='REFRESH' content='0;url=" + redirect + "'>\n" : "") +
-                    "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n" +
-                    "<title>Date/Time Charts: " + name + "</title>\n" +
-                    "<link rel='stylesheet' type='text/css' href='index.css'>\n" +
-                    "</head><body><h1>Date/Time Charts: " + name + "</h1>" +
-                    "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n" +
-                    "<p style='float:right; text-align:right'><i>Last Generated: " + dateString + "</i></p>\n" +
-                    "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review: " +
-                    "please go to <a href='" + redirect + "'>" + redirect + "</a></b>.</p>" +
-                    "<p>The following chart shows typical usage of date and time formatting with the Gregorian calendar. " +
-                    "<i>There is important information on <a href='http://cldr.unicode.org/translation/date-time-review'>Date/Time Review</a>, " +
-                "so please read that page before starting!</i></p>\n");
+                "<html><head>\n"
+                    +
+                    (RETIRE ? "<meta http-equiv='REFRESH' content='0;url=" + redirect + "'>\n" : "")
+                    +
+                    "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
+                    +
+                    "<title>Date/Time Charts: "
+                    + name
+                    + "</title>\n"
+                    +
+                    "<link rel='stylesheet' type='text/css' href='index.css'>\n"
+                    +
+                    "</head><body><h1>Date/Time Charts: "
+                    + name
+                    + "</h1>"
+                    +
+                    "<p style='float:left; text-align:left'><a href='index.html'>Index</a></p>\n"
+                    +
+                    "<p style='float:right; text-align:right'><i>Last Generated: "
+                    + dateString
+                    + "</i></p>\n"
+                    +
+                    "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review: "
+                    +
+                    "please go to <a href='"
+                    + redirect
+                    + "'>"
+                    + redirect
+                    + "</a></b>.</p>"
+                    +
+                    "<p>The following chart shows typical usage of date and time formatting with the Gregorian calendar. "
+                    +
+                    "<i>There is important information on <a href='http://cldr.unicode.org/translation/date-time-review'>Date/Time Review</a>, "
+                    +
+                    "so please read that page before starting!</i></p>\n");
             formats.addTable(english, out);
             formats.addDateTable(englishFile, out);
-            out.println("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>" +
+            out.println("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>"
+                +
                 "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>");
             out.println("</body></html>");
             out.close();

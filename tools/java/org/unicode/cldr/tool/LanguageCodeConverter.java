@@ -24,56 +24,59 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;
 
 public class LanguageCodeConverter {
-    private static Map<String,String> languageNameToCode = new TreeMap<String,String>();
+    private static Map<String, String> languageNameToCode = new TreeMap<String, String>();
     private static Set<String> exceptionCodes = new TreeSet<String>();
     private static Set<String> parseErrors = new LinkedHashSet<String>();
 
-    private static Map<String, R2<List<String>, String>> languageAliases = 
+    private static Map<String, R2<List<String>, String>> languageAliases =
         CLDRConfig.getInstance().getSupplementalDataInfo().getLocaleAliasInfo().get("language");
 
     /**
      * Public only for testing.
+     * 
      * @internal
      */
-    public static final Map<String,String> GOOGLE_CLDR = 
-        Builder.with(new LinkedHashMap<String,String>()) // preserve order
-        .put("iw", "he")
-        .put("no", "nb")
-        .put("tl", "fil")
-        .put("pt-BR", "pt")
-        .put("xx-bork", "x_bork")
-        .put("xx-elmer", "x_elmer")
-        .put("xx-hacker", "x_hacker")
-        .put("xx-pirate", "x_pirate")
-        .put("xx-klingon", "tlh")
-        .put("zh-CN", "zh")
-        .put("zh-TW", "zh_Hant")
-        .put("zh-HK", "zh_Hant_HK")
-        .put("sit-NP", "lif")
-        .put("ut", "und")
-        .put("un", "und")
-        .put("xx", "und")
-        
-        //.put("sh", "fil")
-        .freeze();
+    public static final Map<String, String> GOOGLE_CLDR =
+        Builder.with(new LinkedHashMap<String, String>()) // preserve order
+            .put("iw", "he")
+            .put("no", "nb")
+            .put("tl", "fil")
+            .put("pt-BR", "pt")
+            .put("xx-bork", "x_bork")
+            .put("xx-elmer", "x_elmer")
+            .put("xx-hacker", "x_hacker")
+            .put("xx-pirate", "x_pirate")
+            .put("xx-klingon", "tlh")
+            .put("zh-CN", "zh")
+            .put("zh-TW", "zh_Hant")
+            .put("zh-HK", "zh_Hant_HK")
+            .put("sit-NP", "lif")
+            .put("ut", "und")
+            .put("un", "und")
+            .put("xx", "und")
+
+            // .put("sh", "fil")
+            .freeze();
 
     /**
      * Public only for testing.
+     * 
      * @internal
      */
-    public static final Map<String,String> CLDR_GOOGLE = 
-        Builder.with(new HashMap<String,String>())
-        .putAllTransposed(GOOGLE_CLDR)
-        .freeze();
-    
+    public static final Map<String, String> CLDR_GOOGLE =
+        Builder.with(new HashMap<String, String>())
+            .putAllTransposed(GOOGLE_CLDR)
+            .freeze();
+
     /**
      * Public only for testing.
+     * 
      * @internal
      */
-    public static final Map<String,String> EXTRA_SCRIPTS = 
-        Builder.with(new HashMap<String,String>())
-        .on("crs", "pcm", "tlh").put("Latn")
-        .freeze();
+    public static final Map<String, String> EXTRA_SCRIPTS =
+        Builder.with(new HashMap<String, String>())
+            .on("crs", "pcm", "tlh").put("Latn")
+            .freeze();
 
     static {
 
@@ -95,9 +98,9 @@ public class LanguageCodeConverter {
                     continue;
                 }
             }
-//            if (languageAliases.containsKey(code)) {
-//                continue;
-//            }
+            // if (languageAliases.containsKey(code)) {
+            // continue;
+            // }
             final Map<String, String> info = codeInfo.getValue();
             String deprecated = info.get("Deprecated");
             if (deprecated != null) {
@@ -121,13 +124,13 @@ public class LanguageCodeConverter {
         for (String code : validCodes) {
             String icuName = ULocale.getDisplayName(code, "en");
             addNameToCode("cldr", code, icuName);
-//            if (languageAliases.containsKey(code)) {
-//                continue;
-//            }
-//            String cldrName = english.getName("language", code);
-//            if (cldrName != null && !cldrName.equals("private-use")) {
-//                addNameToCode("cldr", code, cldrName);
-//            }
+            // if (languageAliases.containsKey(code)) {
+            // continue;
+            // }
+            // String cldrName = english.getName("language", code);
+            // if (cldrName != null && !cldrName.equals("private-use")) {
+            // addNameToCode("cldr", code, cldrName);
+            // }
         }
         // add exceptions
         LanguageTagParser ltp = new LanguageTagParser();
@@ -206,7 +209,7 @@ public class LanguageCodeConverter {
     public static String toHyphenLocale(String localeId) {
         return localeId.replace("_", "-");
     }
-    
+
     public static String getCodeForName(String languageName) {
         return languageNameToCode.get(languageName.toLowerCase(Locale.ENGLISH));
     }
@@ -219,7 +222,7 @@ public class LanguageCodeConverter {
         return parseErrors;
     }
 
-    public static Map<String,String> getLanguageNameToCode() {
+    public static Map<String, String> getLanguageNameToCode() {
         return languageNameToCode;
     }
 

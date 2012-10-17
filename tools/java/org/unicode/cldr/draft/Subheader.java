@@ -32,8 +32,8 @@ class Subheader {
     Matcher hexMatcher = Pattern.compile("([A-Z0-9]+).*").matcher("");
     Map<Integer, String> codePoint2Subblock = new HashMap();
     Map<String, UnicodeSet> subblock2UnicodeSet = new TreeMap();
-    Map<String,Set<String>> block2subblock = new TreeMap();
-    Map<String,Set<String>> subblock2block = new TreeMap();
+    Map<String, Set<String>> block2subblock = new TreeMap();
+    Map<String, Set<String>> subblock2block = new TreeMap();
 
     Subheader(String unicodeDataDirectory, String outputDirectory) throws IOException {
         UnicodeSet archaicSubblock = new UnicodeSet();
@@ -63,7 +63,9 @@ class Subheader {
             for (UnicodeSetIterator it = new UnicodeSetIterator(uset); it.next();) {
                 codePoint2Subblock.put(it.codepoint, subblock);
 
-                String block = UCharacter.getStringPropertyValue(UProperty.BLOCK, it.codepoint, UProperty.NameChoice.LONG).toString().replace('_', ' ').intern();
+                String block = UCharacter
+                    .getStringPropertyValue(UProperty.BLOCK, it.codepoint, UProperty.NameChoice.LONG).toString()
+                    .replace('_', ' ').intern();
 
                 Set<String> set = block2subblock.get(block);
                 if (set == null) {
@@ -97,11 +99,11 @@ class Subheader {
             final Set<String> set = block2subblock.get(block);
             for (String subblock2 : set) {
                 out.println("<tr><td>" + block + "</td><td>" +
-                        (subblock2.equalsIgnoreCase(block) || subblock2.equalsIgnoreCase(block + "s") ? "duplicate" : "") +
-                        (set.size() < 2 ? " singleton" : "")
-                        + "\u00a0" 
-                        + "</td><td>" + subblock2 + 
-                "</td></tr>");
+                    (subblock2.equalsIgnoreCase(block) || subblock2.equalsIgnoreCase(block + "s") ? "duplicate" : "") +
+                    (set.size() < 2 ? " singleton" : "")
+                    + "\u00a0"
+                    + "</td><td>" + subblock2 +
+                    "</td></tr>");
             }
         }
         out.println("</table></body></html>");
@@ -109,7 +111,6 @@ class Subheader {
         System.out.println("***By subblocks");
 
         out = GeneratePickerData.getFileWriter(outputDirectory, "subblocks_blocks.html");
-
 
         htmlHeader(out);
         out.println("<tr><th>" + "Subblock" + "</th><th>" + "Notes" + "</th><th>" + "Blocks" + "</th></tr>");
@@ -120,11 +121,11 @@ class Subheader {
             final Set<String> set = subblock2block.get(subblock2);
             final String first = set.iterator().next();
             String otherString = String.valueOf(set);
-            otherString = otherString.substring(1,otherString.length()-1) + '\u00a0';
-            out.println("<tr><td>" + subblock2 
-                    + "</td><td>" + getComments(subblock2, tests) 
-                    + "</td><td>" + otherString 
-                    + "</td></tr>");
+            otherString = otherString.substring(1, otherString.length() - 1) + '\u00a0';
+            out.println("<tr><td>" + subblock2
+                + "</td><td>" + getComments(subblock2, tests)
+                + "</td><td>" + otherString
+                + "</td></tr>");
         }
         System.out.println("***Block/Subblock end");
         out.close();
@@ -133,27 +134,31 @@ class Subheader {
     private String getComments(String subblock2, Set<String> keySet) {
 
         if (keySet.contains(subblock2 + "s")
-                || keySet.contains("Additional " + subblock2)
-                || keySet.contains("Additional " + subblock2 + "s")
-                || keySet.contains("Other " + subblock2)
-                || keySet.contains("Other " + subblock2 + "s")
-                || keySet.contains("Miscellaneous " + subblock2)
-                || keySet.contains("Miscellaneous " + subblock2 + "s")
-        ) return "has-longer";
+            || keySet.contains("Additional " + subblock2)
+            || keySet.contains("Additional " + subblock2 + "s")
+            || keySet.contains("Other " + subblock2)
+            || keySet.contains("Other " + subblock2 + "s")
+            || keySet.contains("Miscellaneous " + subblock2)
+            || keySet.contains("Miscellaneous " + subblock2 + "s")) return "has-longer";
         return "\u00a0";
     }
 
     private void htmlHeader(PrintWriter out) {
-        out.println("<html><head>" +
-                "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>" +
-                "<style>" +
-                "table    { border-spacing: 0; border-collapse: collapse; border-style: solid; border-color: blue; border-width: 1px; }" + 
-                "th, td    { border-spacing: 0; border-collapse: collapse; border-style: solid; border-color: blue; border-width: 1px;" + 
-                "color: black; vertical-align: top; text-align: left;        }" + 
-                "</style>" +
-                "</head>" +
-                "<body><table>"
-        );
+        out.println("<html><head>"
+            +
+            "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>"
+            +
+            "<style>"
+            +
+            "table    { border-spacing: 0; border-collapse: collapse; border-style: solid; border-color: blue; border-width: 1px; }"
+            +
+            "th, td    { border-spacing: 0; border-collapse: collapse; border-style: solid; border-color: blue; border-width: 1px;"
+            +
+            "color: black; vertical-align: top; text-align: left;        }" +
+            "</style>" +
+            "</head>" +
+            "<body><table>"
+            );
     }
 
     private String getDataFromFile(String dir, String filenameRegex) throws FileNotFoundException, IOException {
@@ -188,7 +193,8 @@ class Subheader {
             }
             String[] files = dir.list(new RegexFileFilter(filenameRegex));
             if (files.length != 1) {
-                throw new IllegalArgumentException("Not a unique match for : " + dir.getCanonicalPath() + " / " + filenameRegex + " : " + Arrays.asList(files));
+                throw new IllegalArgumentException("Not a unique match for : " + dir.getCanonicalPath() + " / "
+                    + filenameRegex + " : " + Arrays.asList(files));
             }
             return new File(directory, files[0]);
         } catch (IOException e) {
@@ -198,12 +204,15 @@ class Subheader {
 
     public static class RegexFileFilter implements FilenameFilter {
         private Matcher m;
+
         public RegexFileFilter(String regex) {
             set(regex);
         }
+
         public boolean accept(File dir, String name) {
             return m.reset(name).matches();
         }
+
         public void set(String regex) {
             m = Pattern.compile(regex).matcher("");
         }

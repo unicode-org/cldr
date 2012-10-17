@@ -13,14 +13,13 @@ public class DeprecationChecker {
     }
 
     public boolean isBoilerplate(String path) {
-        return 
-        path.endsWith("/alias") 
-        || path.endsWith("/default") 
-        || path.startsWith("//ldml/identity") 
-        || path.startsWith("//ldml/numbers/symbols/")
-        || path.startsWith("//ldml/numbers/currencyFormats/")        
-        ;
+        return path.endsWith("/alias")
+            || path.endsWith("/default")
+            || path.startsWith("//ldml/identity")
+            || path.startsWith("//ldml/numbers/symbols/")
+            || path.startsWith("//ldml/numbers/currencyFormats/");
     }
+
     public boolean isDeprecated(String path) {
         synchronized (this) {
             parts.set(path);

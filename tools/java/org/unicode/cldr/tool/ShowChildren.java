@@ -20,7 +20,7 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 
 public class ShowChildren {
-    
+
     public static void main(String[] args) {
         System.out.println("Arguments: " + CollectionUtilities.join(args, " "));
 
@@ -29,21 +29,21 @@ public class ShowChildren {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
 
-        Relation<String,String> parent2children = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        Relation<String, String> parent2children = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : locales) {
             String parent = getParentWithoutRegion(ltp, locale);
             if (!parent.equals(locale)) {
-                parent2children.put(parent,locale);
+                parent2children.put(parent, locale);
             }
         }
         PrettyPath prettyPath = new PrettyPath();
-        
+
         final CLDRFile english = TestAll.TestInfo.getInstance().getEnglish();
         Counter<String> deviations = new Counter<String>();
 
         for (Entry<String, Set<String>> entry : parent2children.keyValuesSet()) {
-            Map<String, Relation<String,String>> path2value2locales = new TreeMap<String, Relation<String,String>>();
+            Map<String, Relation<String, String>> path2value2locales = new TreeMap<String, Relation<String, String>>();
             String parent = entry.getKey();
             String parentName = english.getName(parent);
             CLDRFile parentFile = (CLDRFile) cldrFactory.make(parent, true);
@@ -52,14 +52,15 @@ public class ShowChildren {
             for (String child : children) {
                 CLDRFile file = (CLDRFile) cldrFactory.make(child, false);
                 for (String path : file) {
-                    if (path.startsWith("//ldml/identity") 
-                            || path.endsWith("/alias") 
-                            || path.endsWith("/commonlyUsed")) {
+                    if (path.startsWith("//ldml/identity")
+                        || path.endsWith("/alias")
+                        || path.endsWith("/commonlyUsed")) {
                         continue;
                     }
                     Relation<String, String> value2locales = path2value2locales.get(path);
                     if (value2locales == null) {
-                        path2value2locales.put(path, value2locales = Relation.of(new LinkedHashMap<String,Set<String>>(), TreeSet.class));
+                        path2value2locales.put(path,
+                            value2locales = Relation.of(new LinkedHashMap<String, Set<String>>(), TreeSet.class));
                     }
                     String parentValue = parentFile.getStringValue(path);
                     if (parentValue == null) {
@@ -76,12 +77,13 @@ public class ShowChildren {
             if (path2value2locales.size() == 0) {
                 continue;
             }
-            for (Entry<String, Relation<String, String>> datum  : path2value2locales.entrySet()) {
+            for (Entry<String, Relation<String, String>> datum : path2value2locales.entrySet()) {
                 String path = datum.getKey();
                 String ppath = prettyPath.getPrettyPath(path, false);
                 Relation<String, String> value2locales = datum.getValue();
                 for (Entry<String, Set<String>> valueAndLocales : value2locales.keyValuesSet()) {
-                    System.out.println(parentName + "\t" + parent + "\t〈" + valueAndLocales.getKey() + "〉\t" + valueAndLocales.getValue() + "\t" + ppath);
+                    System.out.println(parentName + "\t" + parent + "\t〈" + valueAndLocales.getKey() + "〉\t"
+                        + valueAndLocales.getValue() + "\t" + ppath);
                 }
                 System.out.println();
             }
@@ -92,7 +94,8 @@ public class ShowChildren {
             System.out.println(parentName + "\t" + locale + "\t" + deviations.get(locale));
         }
 
-        System.out.println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime)/60000.0) + " minutes");
+        System.out
+            .println("Done -- Elapsed time: " + ((System.currentTimeMillis() - startTime) / 60000.0) + " minutes");
     }
 
     private static String getParentWithoutRegion(LanguageTagParser ltp, String locale) {

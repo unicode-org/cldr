@@ -22,9 +22,9 @@ public class TestMetadata {
     public static void main(String[] args) {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile metadata = cldrFactory.make("supplementalMetadata", false);
-        //        Set allKeys = new TreeSet();
-        //        CollectionUtilities.addAll(metadata.iterator(), allKeys);
-        //        System.out.println("Keys: " + allKeys);
+        // Set allKeys = new TreeSet();
+        // CollectionUtilities.addAll(metadata.iterator(), allKeys);
+        // System.out.println("Keys: " + allKeys);
         // attribute order
 
         Set elements = new TreeSet();
@@ -35,7 +35,8 @@ public class TestMetadata {
         Set suppElements = new TreeSet();
         Set suppAttributes = new TreeSet();
         Set suppElementOrderingLists = new LinkedHashSet();
-        getElementsAndAttributes(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml", suppElements, suppAttributes, suppElementOrderingLists);
+        getElementsAndAttributes(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml", suppElements,
+            suppAttributes, suppElementOrderingLists);
 
         Set allElements = new TreeSet();
         allElements.addAll(elements);
@@ -44,14 +45,16 @@ public class TestMetadata {
         allAttributes.addAll(attributes);
         allAttributes.addAll(suppAttributes);
 
-        List attributeOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/attributeOrder").split("\\s+"));
+        List attributeOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/attributeOrder")
+            .split("\\s+"));
         java.util.Collection programAttributeOrder = CLDRFile.getAttributeOrder();
 
         Set allAttributeOrder = new TreeSet();
         allAttributeOrder.addAll(attributeOrder);
         allAttributeOrder.addAll(programAttributeOrder);
         allAttributeOrder.remove("_q");
-        if (showSetDifferences("dtd attributes", allAttributes, "attributeOrder+programAttributeOrder", allAttributeOrder)) {
+        if (showSetDifferences("dtd attributes", allAttributes, "attributeOrder+programAttributeOrder",
+            allAttributeOrder)) {
             System.out.println("ERROR: differences in sets!");
         }
 
@@ -63,7 +66,8 @@ public class TestMetadata {
             System.out.println("ERROR: differences in sets!");
         }
 
-        List elementOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/elementOrder").split("\\s+"));
+        List elementOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/elementOrder").split(
+            "\\s+"));
         List programElementOrder = (List) CLDRFile.getElementOrder();
 
         sublistCheck(elementOrderingLists, programElementOrder);
@@ -75,7 +79,6 @@ public class TestMetadata {
         if (showSetDifferences("dtd elements", allElements, "elementOrder+programElementOrder", allElementOrder)) {
             System.out.println("ERROR: differences in sets!");
         }
-
 
         if (!elementOrder.equals(programElementOrder)) {
             System.out.println("ElementOrderDifference: ");
@@ -125,25 +128,27 @@ public class TestMetadata {
         return hasDifference;
     }
 
-    private static void getElementsAndAttributes(String fileWithDTD, Collection elements, Collection attributes, Collection elementOrderingLists) {
+    private static void getElementsAndAttributes(String fileWithDTD, Collection elements, Collection attributes,
+        Collection elementOrderingLists) {
         XMLFileReader xfr = new XMLFileReader().setHandler(new MyHandler(elements, attributes, elementOrderingLists));
         xfr.read(fileWithDTD, -1, true);
     }
 
-    private static class ToString<T> implements Transform<T,String> {
+    private static class ToString<T> implements Transform<T, String> {
         @Override
         public String transform(T source) {
             return source == null ? "<null>" : source.toString();
         }
     }
+
     public static <T> String showDifference(Iterable<T> a, Iterable<T> b, String separator) {
         return showDifference(a, b, separator, new ToString<T>(), new ToString<T>());
     }
 
-    public static <T> String showDifference(Iterable<T> a, Iterable<T> b, String separator, 
-            Transform<T,String> aDisplay,
-            Transform<T,String> bDisplay
-    ) {
+    public static <T> String showDifference(Iterable<T> a, Iterable<T> b, String separator,
+        Transform<T, String> aDisplay,
+        Transform<T, String> bDisplay
+        ) {
         Differ<T> differ = new Differ<T>(300, 10);
         StringBuilder out = new StringBuilder();
         Iterator<T> ai = a.iterator();
@@ -162,13 +167,15 @@ public class TestMetadata {
             differ.checkMatch(done);
 
             if (differ.getACount() != 0 || differ.getBCount() != 0) {
-                if (first) first = false;
-                else out.append(separator);
+                if (first)
+                    first = false;
+                else
+                    out.append(separator);
                 out.append("...");
                 out.append(separator).append(aDisplay.transform(differ.getA(-1)));
 
                 if (differ.getACount() != 0) {
-                    for (int i =0; i < differ.getACount(); ++i) {
+                    for (int i = 0; i < differ.getACount(); ++i) {
                         out.append(separator).append('-');
                         out.append(aDisplay.transform(differ.getA(i)));
                     }
@@ -227,20 +234,22 @@ public class TestMetadata {
         Collection elements;
         Collection attributes;
         Collection elementOrderingLists;
+
         public MyHandler(Collection elements, Collection attributes, Collection elementOrderingLists) {
             this.elements = elements;
             this.attributes = attributes;
             this.elementOrderingLists = elementOrderingLists;
         }
+
         public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
             attributes.add(aName);
-            //			System.out.println(
-            //					"eName: " + eName
-            //					+ ",\t aName: " + aName
-            //					+ ",\t type: " + type
-            //					+ ",\t mode: " + mode
-            //					+ ",\t value: " + value
-            //					);
+            // System.out.println(
+            // "eName: " + eName
+            // + ",\t aName: " + aName
+            // + ",\t type: " + type
+            // + ",\t mode: " + mode
+            // + ",\t value: " + value
+            // );
         }
 
         public void handleElementDecl(String name, String model) {
@@ -251,25 +260,25 @@ public class TestMetadata {
             ordering.remove("EMPTY");
             if (ordering.size() > 1) {
                 if (elementOrderingLists.add(ordering)) {
-                    //System.out.println(model + " =>\t" + ordering);					
+                    // System.out.println(model + " =>\t" + ordering);
                 }
             }
-            //			System.out.println(
-            //					"name: " + name
-            //					+ ",\t model: " + model);
+            // System.out.println(
+            // "name: " + name
+            // + ",\t model: " + model);
         }
 
-        //		public void handlePathValue(String path, String value) {
-        //			System.out.println(
-        //					"path: " + path
-        //					+ ",\t value: " + value);
-        //		}
+        // public void handlePathValue(String path, String value) {
+        // System.out.println(
+        // "path: " + path
+        // + ",\t value: " + value);
+        // }
         //
-        //		public void handleComment(String path, String comment) {
-        //			System.out.println(
-        //					"path: " + path
-        //					+ ",\t comment: " + comment);
-        //		}
+        // public void handleComment(String path, String comment) {
+        // System.out.println(
+        // "path: " + path
+        // + ",\t comment: " + comment);
+        // }
 
     }
 }

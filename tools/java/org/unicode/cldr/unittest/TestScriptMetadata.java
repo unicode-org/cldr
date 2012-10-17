@@ -32,10 +32,11 @@ public class TestScriptMetadata extends TestFmwk {
     public void TestBasic() {
         Info info0 = ScriptMetadata.getInfo(UScript.LATIN);
         if (ScriptMetadata.errors.size() != 0) {
-            errln("ScriptMetadata initialization errors\t" + ScriptMetadata.errors.size() + "\t" + CollectionUtilities.join(ScriptMetadata.errors, "\n"));
+            errln("ScriptMetadata initialization errors\t" + ScriptMetadata.errors.size() + "\t"
+                + CollectionUtilities.join(ScriptMetadata.errors, "\n"));
         }
 
-        // Latin    Latn    2   L   European    Recommended no  no  no  no
+        // Latin Latn 2 L European Recommended no no no no
         assertEquals("Latin-rank", 2, info0.rank);
         assertEquals("Latin-country", "IT", info0.originCountry);
         assertEquals("Latin-sample", "L", info0.sampleChar);
@@ -45,16 +46,17 @@ public class TestScriptMetadata extends TestFmwk {
         assertEquals("Latin-rtl?", Trinary.NO, info0.rtl);
         assertEquals("Latin-shaping", Shaping.MIN, info0.shapingReq);
         assertEquals("Latin-density", 1, info0.density);
-        
+
         info0 = ScriptMetadata.getInfo(UScript.HEBREW);
         assertEquals("Arabic-rtl", Trinary.YES, info0.rtl);
         assertEquals("Arabic-shaping", Shaping.NO, info0.shapingReq);
 
     }
-    
+
     public void TestScripts() {
         UnicodeSet temp = new UnicodeSet();
-        Relation<IdUsage,String> map = Relation.of(new EnumMap<IdUsage,Set<String>>(IdUsage.class), LinkedHashSet.class);
+        Relation<IdUsage, String> map = Relation.of(new EnumMap<IdUsage, Set<String>>(IdUsage.class),
+            LinkedHashSet.class);
         for (int i = UScript.COMMON; i < UScript.CODE_LIMIT; ++i) {
             Info info = ScriptMetadata.getInfo(i);
             if (info != null) {

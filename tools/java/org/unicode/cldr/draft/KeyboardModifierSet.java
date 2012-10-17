@@ -14,18 +14,17 @@ import org.unicode.cldr.util.SetComparator;
  * A class which represents a particular modifier combination (or combinations
  * of combinations).
  * <p>
- * For example {@code alt+cmd?} gets transformed into a native format consisting
- * of sets of ON modifiers. In this case it would get transformed into {@code
- * altL+cmd, altR+cmd, altL+altR+cmd, altL, altR, altL+altR}}.
+ * For example {@code alt+cmd?} gets transformed into a native format consisting of sets of ON modifiers. In this case
+ * it would get transformed into {@code altL+cmd, altR+cmd, altL+altR+cmd, altL, altR, altL+altR} .
  * <p>
- * This definition can be expanded across multiple combinations. For example
- * {@code optR+caps? cmd+shift} gets transformed into {@code optR+caps, optR,
- * cmd+shiftL, cmd+shiftR, cmd+shiftL+shiftR}}.
+ * This definition can be expanded across multiple combinations. For example {@code optR+caps? cmd+shift} gets
+ * transformed into {@code optR+caps, optR,
+ * cmd+shiftL, cmd+shiftR, cmd+shiftL+shiftR} .
  * 
  * <h1>Usage</h1>
  * <p>
- * There is a 1 to 1 relationship between a {@link KeyboardModifierSet} and a
- * particular key map (a mapping from physical keys to their output).
+ * There is a 1 to 1 relationship between a {@link KeyboardModifierSet} and a particular key map (a mapping from
+ * physical keys to their output).
  * 
  * <pre>
  * {@code 
@@ -49,7 +48,7 @@ public class KeyboardModifierSet {
     static final SetComparator<Modifier> SINGLETON_COMPARATOR = new SetComparator<Modifier>();
 
     /** Initial input string */
-    private final String             input;
+    private final String input;
     /** Internal representation of all the possible combination variants */
     private final Set<Set<Modifier>> variants;
 
@@ -111,16 +110,14 @@ public class KeyboardModifierSet {
     /**
      * Parse a set containing one or more modifier sets. Each modifier set is
      * separated by a single space and modifiers within a modifier set are
-     * separated by a '+'. For example
-     * {@code "ctrl+opt?+caps?+shift? alt+caps+cmd?"} has two modifier sets,
+     * separated by a '+'. For example {@code "ctrl+opt?+caps?+shift? alt+caps+cmd?"} has two modifier sets,
      * namely:
      * <ul>
      * <li>{@code "ctrl+opt?+caps?+shift?"}
      * <li>{@code "alt+caps+cmd?"}
      * </ul>
      * <p>
-     * The '?' symbol appended to some modifiers indicates that this modifier is
-     * optional (it can be ON or OFF).
+     * The '?' symbol appended to some modifiers indicates that this modifier is optional (it can be ON or OFF).
      * 
      * @param input
      *            String representing the sets of modifier sets. This string
@@ -144,12 +141,11 @@ public class KeyboardModifierSet {
     }
 
     /**
-     * Parse a modifier set. The set typically looks something like
-     * {@code ctrl+opt?+caps?+shift?} or {@code alt+caps+cmd?} and return a set
+     * Parse a modifier set. The set typically looks something like {@code ctrl+opt?+caps?+shift?} or
+     * {@code alt+caps+cmd?} and return a set
      * containing all possible variants for that particular modifier set.
      * <p>
-     * For example {@code alt+caps+cmd?} gets expanded into {@code
-     * alt+caps+cmd?, alt+caps}}.
+     * For example {@code alt+caps+cmd?} gets expanded into {@code alt+caps+cmd?, alt+caps} .
      * 
      * @param input
      *            The input string representing the modifiers. This String must
@@ -252,7 +248,7 @@ public class KeyboardModifierSet {
      */
     private enum ModifierParent {
         ctrl(Modifier.ctrlL, Modifier.ctrlR), alt(Modifier.altL, Modifier.altR), opt(
-                Modifier.optL, Modifier.optR), shift(Modifier.shiftL, Modifier.shiftR);
+            Modifier.optL, Modifier.optR), shift(Modifier.shiftL, Modifier.shiftR);
 
         private final Modifier leftChild;
         private final Modifier rightChild;
@@ -291,6 +287,6 @@ public class KeyboardModifierSet {
     public String getShortInput() {
         int pos = input.indexOf(' ');
         if (pos < 0) return input;
-        return input.substring(0,pos)+"…";
+        return input.substring(0, pos) + "…";
     }
 }

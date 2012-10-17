@@ -28,13 +28,13 @@ public class LanguageTest extends TestFmwk {
     final TestInfo testInfo = TestInfo.getInstance();
     final SupplementalDataInfo supplementalDataInfo = testInfo.getSupplementalDataInfo();
     final Map<String, String> likelyMap = supplementalDataInfo.getLikelySubtags();
-    final HashMap<String,String> language2likely = new HashMap<String,String>();
-    final HashMap<String,String> script2likely = new HashMap<String,String>();
+    final HashMap<String, String> language2likely = new HashMap<String, String>();
+    final HashMap<String, String> script2likely = new HashMap<String, String>();
     {
-        final HashMap<String,Map<Type,String>> language2script = new HashMap<String,Map<Type,String>>();
-        final HashMap<String,Map<Type,String>> language2territory = new HashMap<String,Map<Type,String>>();
-        final HashMap<String,Map<Type,String>> script2language = new HashMap<String,Map<Type,String>>();
-        final HashMap<String,Map<Type,String>> script2territory = new HashMap<String,Map<Type,String>>();
+        final HashMap<String, Map<Type, String>> language2script = new HashMap<String, Map<Type, String>>();
+        final HashMap<String, Map<Type, String>> language2territory = new HashMap<String, Map<Type, String>>();
+        final HashMap<String, Map<Type, String>> script2language = new HashMap<String, Map<Type, String>>();
+        final HashMap<String, Map<Type, String>> script2territory = new HashMap<String, Map<Type, String>>();
         final HashSet<String> scriptSet = new HashSet();
         for (String language : supplementalDataInfo.getBasicLanguageDataLanguages()) {
             for (BasicLanguageData basic : supplementalDataInfo.getBasicLanguageData(language)) {
@@ -79,10 +79,10 @@ public class LanguageTest extends TestFmwk {
     public void addMap(HashMap<String, Map<Type, String>> hashMap, String language, final String script, Type type) {
         Map<Type, String> old = hashMap.get(language);
         if (old == null) {
-            hashMap.put(language, old = new EnumMap<Type,String>(Type.class));
+            hashMap.put(language, old = new EnumMap<Type, String>(Type.class));
         }
         if (!old.containsKey(type)) {
-            old.put(type,script);
+            old.put(type, script);
         }
     }
 
@@ -127,12 +127,12 @@ public class LanguageTest extends TestFmwk {
         for (String script : scriptToLanguageCounter.keySet()) {
             Counter2<String> c = scriptToLanguageCounter.get(script);
             String biggestLanguage = c.getKeysetSortedByCount(false).iterator().next();
-            logln(script + "\t" + getScriptName(script) 
-                    + "\t" + biggestLanguage + "\t" + getLanguageName(biggestLanguage) 
-                    + "\t" + c.getCount(biggestLanguage));
+            logln(script + "\t" + getScriptName(script)
+                + "\t" + biggestLanguage + "\t" + getLanguageName(biggestLanguage)
+                + "\t" + c.getCount(biggestLanguage));
         }
     }
-    
+
     public void TestScriptsWithoutLanguage() {
         if (true) throw new IllegalArgumentException("    Remove Kana => Ainu, Bopo, Latn => Afar");
         Set<String> needTransfer = new LinkedHashSet<String>();
@@ -155,21 +155,21 @@ public class LanguageTest extends TestFmwk {
             final String tag = script2likely.get(script);
             LanguageTagParser parser = new LanguageTagParser().set(tag);
             String lang = parser.getLanguage();
-            logln(script + "\t" + getScriptName(script) + 
-                    "\t" + lang + "\t" + getLanguageName(lang) + "\t*");
+            logln(script + "\t" + getScriptName(script) +
+                "\t" + lang + "\t" + getLanguageName(lang) + "\t*");
         }
         String[][] special = {
-                {"Hani", "zh"},
-                {"Hira", "ja"},
-                {"Kana", "ja"},
-                {"Hang", "ko"},
-                {"Bopo", "zh"},
+            { "Hani", "zh" },
+            { "Hira", "ja" },
+            { "Kana", "ja" },
+            { "Hang", "ko" },
+            { "Bopo", "zh" },
         };
         for (String[] scriptLang : special) {
             String script = scriptLang[0];
             final String lang = scriptLang[1];
-            logln(script + "\t" + getScriptName(script) + 
-                    "\t" + lang + "\t" + getLanguageName(lang) + "\t*");
+            logln(script + "\t" + getScriptName(script) +
+                "\t" + lang + "\t" + getLanguageName(lang) + "\t*");
         }
 
     }
@@ -178,20 +178,21 @@ public class LanguageTest extends TestFmwk {
      * <likelySubtag from="aa" to="aa_Latn_ET"/> <!--{ Afar; ?; ? } => { Afar; Latin; Ethiopia }-->
      */
     public void addLine(String input, final String result) {
-        errln("Add?:\t<likelySubtag from=\"" + input + 
-                "\" to=\"" + result +
-                "\"/> <!--{ " + getLocaleName(input) +
-                " } => { " + getLocaleName(result) +
-        " }-->");
+        errln("Add?:\t<likelySubtag from=\"" + input +
+            "\" to=\"" + result +
+            "\"/> <!--{ " + getLocaleName(input) +
+            " } => { " + getLocaleName(result) +
+            " }-->");
     }
-
 
     private String getLocaleName(String input) {
         LanguageTagParser parser = new LanguageTagParser().set(input);
         return (parser.getLanguage().isEmpty() ? "?" : getLanguageName(parser.getLanguage()))
-        + "; " + (parser.getScript().isEmpty() ? "?" : getScriptName(parser.getScript()))
-        + "; " + (parser.getRegion().isEmpty() ? "?" : testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, parser.getRegion()))
-        ;
+            + "; "
+            + (parser.getScript().isEmpty() ? "?" : getScriptName(parser.getScript()))
+            + "; "
+            + (parser.getRegion().isEmpty() ? "?" : testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME,
+                parser.getRegion()));
     }
 
     Set<String> getUnicodeScripts() {
@@ -222,7 +223,7 @@ public class LanguageTest extends TestFmwk {
         try {
             String name = testInfo.getStandardCodes().getLStreg().get(type).get(token).get("Description");
             int pos = name.indexOf('▪');
-            return pos < 0 ? name : name.substring(0,pos);
+            return pos < 0 ? name : name.substring(0, pos);
         } catch (Exception e) {
             return token;
         }

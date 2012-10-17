@@ -1,28 +1,27 @@
 package org.unicode.cldr.util;
 
-
-
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-public  class SimpleEquivalenceClass {
-    
+
+public class SimpleEquivalenceClass {
+
     public SimpleEquivalenceClass(Comparator c) {
         comparator = c;
         itemToSet = new TreeMap(c);
     }
-    
+
     private Map itemToSet;
-    
+
     private Comparator comparator;
-    
+
     public void add(Object a, Object b) {
-    	if(a == b) {
-    		throw new InternalError("Err! a is b!");
-    	}
+        if (a == b) {
+            throw new InternalError("Err! a is b!");
+        }
         Set sa = (Set) itemToSet.get(a);
         Set sb = (Set) itemToSet.get(b);
         if (sa == null && sb == null) { // new set!
@@ -43,36 +42,37 @@ public  class SimpleEquivalenceClass {
             }
         }
     }
-    
+
     private class MyIterator implements Iterator {
         private Iterator it;
-        
+
         MyIterator(Comparator comp) {
-            if (comp == null) it = itemToSet.values().iterator();
+            if (comp == null)
+                it = itemToSet.values().iterator();
             else {
-            TreeSet values = new TreeSet(comp);
-            values.addAll(itemToSet.values());
-            it = values.iterator();
+                TreeSet values = new TreeSet(comp);
+                values.addAll(itemToSet.values());
+                it = values.iterator();
             }
         }
-        
+
         public boolean hasNext() {
             return it.hasNext();
         }
-        
+
         public Object next() {
             return it.next();
         }
-        
+
         public void remove() {
             throw new IllegalArgumentException("can't remove");
         }
     }
-    
+
     public Iterator getSetIterator(Comparator comp) {
         return new MyIterator(comp);
     }
-    
+
     public String toString() {
         return itemToSet.values().toString();
     }

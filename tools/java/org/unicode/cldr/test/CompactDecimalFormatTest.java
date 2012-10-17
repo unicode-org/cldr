@@ -33,9 +33,11 @@ import com.ibm.icu.util.ULocale;
 public class CompactDecimalFormatTest {
     static class MyCurrencySymbolDisplay implements CurrencySymbolDisplay {
         CLDRFile cldrFile;
+
         public MyCurrencySymbolDisplay(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
         }
+
         @Override
         public String getName(Currency currency, int count) {
             final String currencyCode = currency.getCurrencyCode();
@@ -51,17 +53,21 @@ public class CompactDecimalFormatTest {
     static final Pattern CURRENCY_PATTERN = Pattern.compile("([^#0-9]*).*?[#0-9]([^#0-9]*)");
 
     final static Options myOptions = new Options()
-    .add("sourceDir", ".*", CldrUtility.MAIN_DIRECTORY, "The source directory for the compact decimal format information.")
-    .add("organization", ".*", null, "The organization to use.")
-    .add("locale", ".*", null, "The locales to use (comma-separated).")
-    .add("generate", ".*", CldrUtility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/test/", "Hard coded data file.")
-    .add("use", null, null, "Use hard coded data file.")
-    .add("display", null, null, "Display results on console (instead of generating)")
-    .add("currency", "[A-Z]{3}", null, "Currency")
-    ;
+        .add("sourceDir", ".*", CldrUtility.MAIN_DIRECTORY,
+            "The source directory for the compact decimal format information.")
+        .add("organization", ".*", null, "The organization to use.")
+        .add("locale", ".*", null, "The locales to use (comma-separated).")
+        .add("generate", ".*", CldrUtility.BASE_DIRECTORY + "tools/java/org/unicode/cldr/test/",
+            "Hard coded data file.")
+        .add("use", null, null, "Use hard coded data file.")
+        .add("display", null, null, "Display results on console (instead of generating)")
+        .add("currency", "[A-Z]{3}", null, "Currency");
 
-    /** JUST FOR DEVELOPMENT 
-     * @throws IOException */
+    /**
+     * JUST FOR DEVELOPMENT
+     * 
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         myOptions.parse(args, true);
 
@@ -73,16 +79,18 @@ public class CompactDecimalFormatTest {
         boolean display = myOptions.get("display").doesOccur();
         String hardCodedFile = myOptions.get("generate").getValue();
         boolean useHard = myOptions.get("use").doesOccur();
-        Currency currency = myOptions.get("currency").doesOccur() ? Currency.getInstance(myOptions.get("currency").getValue()) : null;
+        Currency currency = myOptions.get("currency").doesOccur() ? Currency.getInstance(myOptions.get("currency")
+            .getValue()) : null;
 
-        PrintWriter hardOut = display 
-        ? null : 
+        PrintWriter hardOut = display
+            ? null :
             BagFormatter.openUTF8Writer(hardCodedFile, "CompactDecimalFormatData2.java");
         if (hardOut != null) {
-            hardOut.println("package org.unicode.cldr.test;\npublic class CompactDecimalFormatData {\n\tstatic void load() {");
+            hardOut
+                .println("package org.unicode.cldr.test;\npublic class CompactDecimalFormatData {\n\tstatic void load() {");
         }
 
-        Factory cldrFactory  = Factory.make(sourceDir, ".*");
+        Factory cldrFactory = Factory.make(sourceDir, ".*");
         StandardCodes sc = StandardCodes.make();
         NumberFormat enf = NumberFormat.getInstance(ULocale.ENGLISH);
 
@@ -104,7 +112,7 @@ public class CompactDecimalFormatTest {
 
         // get test values
         List<Double> testValues = new ArrayList<Double>();
-        double base       = 123456789012345.0d;
+        double base = 123456789012345.0d;
         for (long divisor = 100000000000000L; divisor >= 1; divisor /= 10) {
             double test = base / divisor;
             testValues.add(test);
@@ -138,7 +146,8 @@ public class CompactDecimalFormatTest {
             String[] debugOriginals = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
             CompactDecimalFormat snf;
             try {
-                snf = BuildIcuCompactDecimalFormat.build(file, errors, debugOriginals, Style.SHORT, new ULocale(locale), CurrencyStyle.PLAIN);
+                snf = BuildIcuCompactDecimalFormat.build(file, errors, debugOriginals, Style.SHORT,
+                    new ULocale(locale), CurrencyStyle.PLAIN);
             } catch (Exception e) {
                 errors.add("Can't construct: " + e.getMessage());
                 continue;
@@ -150,13 +159,13 @@ public class CompactDecimalFormatTest {
                 String original = debugOriginals[count++];
                 String formatted;
                 try {
-                    formatted = currency == null 
-                    ? snf.format(test) 
-                            : snf.format(new CurrencyAmount(test,currency));
+                    formatted = currency == null
+                        ? snf.format(test)
+                        : snf.format(new CurrencyAmount(test, currency));
                     if (formatted.length() > 8 && currency == null) {
                         tooLong = formatted + " for " + enf.format(test);
                     }
-                    list.add(formatted); // original + "\t" + 
+                    list.add(formatted); // original + "\t" +
                     Double old = already.get(formatted);
                     if (old != null) {
                         errors.add("Collision: " + formatted + " for " + enf.format(test) + " & " + old);
@@ -182,8 +191,10 @@ public class CompactDecimalFormatTest {
                     intFormatted[i++] = String.valueOf(divisor);
                 }
                 hardOut.println("\t\t\tnew long[]{" + CollectionUtilities.join(intFormatted, "L, ") + "L},");
-                hardOut.println("\t\t\tnew String[]{\"" + CollectionUtilities.join(snf.prefixes.entrySet(), "\", \"") + "\"},");
-                hardOut.println("\t\t\tnew String[]{\"" + CollectionUtilities.join(snf.suffixes.entrySet(), "\", \"") + "\"});");
+                hardOut.println("\t\t\tnew String[]{\"" + CollectionUtilities.join(snf.prefixes.entrySet(), "\", \"")
+                    + "\"},");
+                hardOut.println("\t\t\tnew String[]{\"" + CollectionUtilities.join(snf.suffixes.entrySet(), "\", \"")
+                    + "\"});");
             }
         }
 
@@ -194,7 +205,7 @@ public class CompactDecimalFormatTest {
         }
 
         // now do a transposed table
-        for (int row = 0; ; ++row) {
+        for (int row = 0;; ++row) {
             boolean moreToGo = false;
             int num = row - 1;
             if (num >= 0 && num < testValues.size()) {

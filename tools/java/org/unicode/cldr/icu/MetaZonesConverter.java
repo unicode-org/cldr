@@ -16,7 +16,7 @@ public class MetaZonesConverter extends BaseTimeZoneDataConverter {
     private static final int MIN_RES_INT = -134217728;
 
     public MetaZonesConverter(ICULog log, String fileName,
-            String supplementalDir) {
+        String supplementalDir) {
         super(log, fileName, supplementalDir, LDMLConstants.META_ZONES);
     }
 
@@ -25,7 +25,7 @@ public class MetaZonesConverter extends BaseTimeZoneDataConverter {
         Resource first = null;
         Resource current = null;
         for (Node node = root.getFirstChild(); node != null; node = node
-                .getNextSibling()) {
+            .getNextSibling()) {
             if (node.getNodeType() != Node.ELEMENT_NODE) {
                 continue;
             }
@@ -53,7 +53,7 @@ public class MetaZonesConverter extends BaseTimeZoneDataConverter {
         Resource current = null;
 
         for (Node node = root.getFirstChild(); node != null; node = node
-                .getNextSibling()) {
+            .getNextSibling()) {
             if (node.getNodeType() != Node.ELEMENT_NODE) {
                 continue;
             }

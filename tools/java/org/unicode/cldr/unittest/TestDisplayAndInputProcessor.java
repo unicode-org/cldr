@@ -8,7 +8,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
 
-public class TestDisplayAndInputProcessor extends TestFmwk{
+public class TestDisplayAndInputProcessor extends TestFmwk {
 
     TestInfo info = TestAll.TestInfo.getInstance();
 
@@ -30,7 +30,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk{
             "//ldml/characters/exemplarCharacters",
             input, null);
         if (!value.equals(expect)) {
-            errln("Tasawaq incorrectly normalized with output: '" + value+"', expected '"+expect+"'");
+            errln("Tasawaq incorrectly normalized with output: '" + value + "', expected '" + expect + "'");
         }
     }
 
@@ -61,7 +61,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk{
         String value = daip.processInput(xpath, "#,###,##0.###", null);
         assertEquals("Format not correctly canonicalized", "#,##0.###", value);
     }
-    
+
     public void TestCurrencyFormatSpaces() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
         String xpath = "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
@@ -80,23 +80,23 @@ public class TestDisplayAndInputProcessor extends TestFmwk{
             String diff = diff(value, input, path);
             if (diff != null) {
                 errln("No roundtrip in DAIP:"
-                        + "\n\tvalue<" + value 
-                        + ">\n\tdisplay<" + display 
-                        + ">\n\tinput<" + input 
-                        + ">\n\tdiff<" + diff
-                        + (internalException[0] != null ? ">\n\texcep<" + internalException[0] : "" )
-                        + ">\n\tpath<" + path + ">");
+                    + "\n\tvalue<" + value
+                    + ">\n\tdisplay<" + display
+                    + ">\n\tinput<" + input
+                    + ">\n\tdiff<" + diff
+                    + (internalException[0] != null ? ">\n\texcep<" + internalException[0] : "")
+                    + ">\n\tpath<" + path + ">");
                 daip.processInput(path, value, internalException); // for debugging
-            } else if (!CharSequences.equals(value, display) 
-                    || !CharSequences.equals(value, input) 
-                    || internalException[0] != null) {
+            } else if (!CharSequences.equals(value, display)
+                || !CharSequences.equals(value, input)
+                || internalException[0] != null) {
                 logln("DAIP Changes"
-                		+ "\n\tvalue<" + value 
-                        + ">\n\tdisplay<" + display 
-                        + ">\n\tinput<" + input 
-                        + ">\n\tdiff<" + diff
-                        + (internalException[0] != null ? ">\n\texcep<" + internalException[0] : "" )
-                        + ">\n\tpath<" + path + ">");
+                    + "\n\tvalue<" + value
+                    + ">\n\tdisplay<" + display
+                    + ">\n\tinput<" + input
+                    + ">\n\tdiff<" + diff
+                    + (internalException[0] != null ? ">\n\texcep<" + internalException[0] : "")
+                    + ">\n\tpath<" + path + ">");
             }
         }
     }
@@ -117,7 +117,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk{
                 }
             } catch (Exception e) {
                 // TODO: handle exception
-            }   
+            }
         }
         return "?";
     }

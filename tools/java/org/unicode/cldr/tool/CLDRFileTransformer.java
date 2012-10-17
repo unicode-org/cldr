@@ -16,16 +16,19 @@ import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Transforms the contents of a CLDRFile.
+ * 
  * @author jchye
  */
 public class CLDRFileTransformer {
     private UnicodeSet cyrillic = new UnicodeSet("[:script=Cyrl:]");
     private UnicodeSet unconverted = new UnicodeSet();
     private Transliterator transliterator;
-    
+
     /**
-     * @param transformFilename the filename of the transform data
-     * @param direction the direction that the transliteration should be in
+     * @param transformFilename
+     *            the filename of the transform data
+     * @param direction
+     *            the direction that the transliteration should be in
      */
     public CLDRFileTransformer(String transformFilename, int direction) {
         CLDRTransforms transforms = CLDRTransforms.getInstance();
@@ -36,10 +39,10 @@ public class CLDRFileTransformer {
         transliterator = Transliterator.createFromRules(directionInfo.getId(),
             ruleString, direction);
     }
-    
-    
+
     /**
      * NOTE: This method does not currently handle nested transliterators.
+     * 
      * @param input
      * @return
      */

@@ -12,8 +12,8 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.text.UnicodeSet;
 
 /**

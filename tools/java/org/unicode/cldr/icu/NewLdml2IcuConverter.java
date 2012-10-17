@@ -16,7 +16,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
-import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;

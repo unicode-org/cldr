@@ -13,12 +13,10 @@ import org.unicode.cldr.test.CompactDecimalFormat.Style;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.ULocale;
 
 public class BuildIcuCompactDecimalFormat {

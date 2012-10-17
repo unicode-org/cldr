@@ -8,7 +8,6 @@
 package org.unicode.cldr.util;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.CollationElementIterator;

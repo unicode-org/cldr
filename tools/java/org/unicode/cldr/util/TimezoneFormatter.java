@@ -28,12 +28,9 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.MetaZoneRange;
-import org.unicode.cldr.util.VerifyZones.ZoneFormats.Length;
-import org.unicode.cldr.util.VerifyZones.ZoneFormats.Type;
 
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.Replaceable;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UFormat;
 import com.ibm.icu.util.BasicTimeZone;

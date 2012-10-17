@@ -36,7 +36,6 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 

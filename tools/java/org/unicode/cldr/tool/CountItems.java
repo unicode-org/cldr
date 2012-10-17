@@ -45,11 +45,11 @@ import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneInflections;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.ArrayComparator;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.ICUPropertyFactory;
+import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.Tabber;
 import com.ibm.icu.dev.util.UnicodeMap;

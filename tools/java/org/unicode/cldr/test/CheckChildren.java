@@ -2,19 +2,14 @@ package org.unicode.cldr.test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.StackTracker;
 
 public class CheckChildren extends FactoryCheckCLDR {
     CLDRFile[] immediateChildren;

@@ -17,8 +17,8 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.util.Date;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;

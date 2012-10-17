@@ -4,18 +4,14 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.FieldPosition;
 import java.text.ParsePosition;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.util.Currency;
-import com.ibm.icu.util.CurrencyAmount;
 import com.ibm.icu.util.ULocale;
 
 /**

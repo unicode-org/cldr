@@ -51,10 +51,10 @@ import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.VoteResolver.UnknownVoterException;
 import org.unicode.cldr.util.XMLSource;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row;

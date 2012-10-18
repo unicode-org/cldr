@@ -1279,6 +1279,7 @@ $Date$
 <!ATTLIST settings hiraganaQuarternary  ( on | off ) #IMPLIED >
 <!ATTLIST settings hiraganaQuaternary   ( on | off ) #IMPLIED >
 <!ATTLIST settings numeric              ( on | off ) #IMPLIED >
+<!ATTLIST settings private              ( true | false ) #IMPLIED > <!-- deprecated -->
 <!ATTLIST settings variableTop          CDATA #IMPLIED >
 <!ATTLIST settings reorder              NMTOKENS #IMPLIED >
 

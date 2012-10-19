@@ -29,7 +29,7 @@ public class CheckNames extends CheckCLDR {
                 // no errors
             } else {
                 result.add(new CheckStatus().setCause(this)
-                    .setMainType(CheckStatus.errorType)
+                    .setMainType(CheckStatus.warningType) // TODO (jchye): This should be an error.
                     .setSubtype(Subtype.nameContainsYear)
                     .setMessage("The name should not contain any years ({0})", matcher.group()));
             }

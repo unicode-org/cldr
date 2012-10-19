@@ -3256,14 +3256,16 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<p>This section contains one or more collation elements, distinguished by type. Each collation contains rules that specify a certain sort-order, as a tailoring 
 	of the root order. The root order is based on the UCA default table defined in <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. (For a chart view of the UCA, see
 	Collation Chart [<a href="#UCAChart">UCAChart</a>].) </p>
-  <p><span class="changed">CLDR uses  </span>modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. <span class="changed">U+FFFD, </span>U+FFFE, and U+FFFF have special tailorings as well:</p>
+  <p><span class="changed">CLDR uses  </span>modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFE and U+FFFF have special tailorings as well:</p>
     <blockquote>
-      <p><span class="changed"><strong>U+FFFF: </strong>This  code point</span> is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;, to include all strings starting with &quot;sch&quot; or equivalent.</p>
-      <p class="changed"><strong>U+FFFD: </strong>This  code point is tailored to have a primary weight higher than all other characters except for U+FFFD. This provides a reliable weighting for ill-formed sequences that are handled as U+FFFD, as recommended in UCA.</p>
-      <p><span class="changed"><strong>U+FFFE: </strong>This  code point</span> produces a CE with special minimal weights on all levels, regardless of alternate handling. This allows for <a href="http://unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a> within code point space. For example, when sorting names in a database, a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>. These strings would sort properly, without ever comparing the last part of a last name with the first part of another first name.</p>
+      <p class="changed"><strong>U+FFFF: </strong>This  code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;, to include all strings starting with &quot;sch&quot; or equivalent.</p>
+      <!-- 
+      <p class="changed"><strong>U+FFFD: </strong>This  code point is tailored to have a primary weight higher than all other characters except for U+FFFF. This provides a reliable weighting for ill-formed sequences that are handled as U+FFFD, as recommended in UCA.</p> 
+      -->
+      <p class="changed"><strong>U+FFFE: </strong>This  code point produces a CE with special minimal weights on all levels, regardless of alternate handling. This allows for <a href="http://unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a> within code point space. For example, when sorting names in a database, a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>. These strings would sort properly, without ever comparing the last part of a last name with the first part of another first name.</p>
     </blockquote>
     <p class="changed">In CLDR, so as to maintain the <em>highest</em> and <em>lowest</em> status,
-      <strong class="changed">U+FFFD..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
+      <strong class="changed">U+FFFE..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
   That is, neither can occur in a collation rule: for example, the following rules are illegal:</p>
     <p class="changed"><code>&amp; \uFFFF &lt; x</code></p>
     <p><span class="changed"><code>&amp; x &lt;\uFFFF</code></span> <br>

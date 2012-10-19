@@ -3256,18 +3256,27 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<p>This section contains one or more collation elements, distinguished by type. Each collation contains rules that specify a certain sort-order, as a tailoring 
 	of the root order. The root order is based on the UCA default table defined in <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. (For a chart view of the UCA, see
 	Collation Chart [<a href="#UCAChart">UCAChart</a>].) </p>
-  <blockquote>
-      <p>There were major changes in CLDR 1.9 and beyond, including use of the modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFF and U+FFFE have special tailorings as well.</p>
-<p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</p>
-  <p>As of CLDR 2.0, special index markers have been added to the CJK collations for stroke, pinyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
-      <p>&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>
+  <p><span class="changed">CLDR uses  </span>modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. <span class="changed">U+FFFD, </span>U+FFFE, and U+FFFF have special tailorings as well:</p>
+    <blockquote>
+      <p><span class="changed"><strong>U+FFFF: </strong>This  code point</span> is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;, to include all strings starting with &quot;sch&quot; or equivalent.</p>
+      <p class="changed"><strong>U+FFFD: </strong>This  code point is tailored to have a primary weight higher than all other characters except for U+FFFD. This provides a reliable weighting for ill-formed sequences that are handled as U+FFFD, as recommended in UCA.</p>
+      <p><span class="changed"><strong>U+FFFE: </strong>This  code point</span> produces a CE with special minimal weights on all levels, regardless of alternate handling. This allows for <a href="http://unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a> within code point space. For example, when sorting names in a database, a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>. These strings would sort properly, without ever comparing the last part of a last name with the first part of another first name.</p>
+    </blockquote>
+    <p class="changed">In CLDR, so as to maintain the <em>highest</em> and <em>lowest</em> status,
+      <strong class="changed">U+FFFD..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
+  That is, neither can occur in a collation rule: for example, the following rules are illegal:</p>
+    <p class="changed"><code>&amp; \uFFFF &lt; x</code></p>
+    <p><span class="changed"><code>&amp; x &lt;\uFFFF</code></span> <br>
+    </p>
+    <p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</p>
+    <p>Special index markers have been added to the CJK collations for stroke, pinyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
+    <p>&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>
       &lt;pc&gt;阿呵𥥩锕𠼞𨉚&lt;/pc&gt;&lt;!-- ā --&gt;</p>
-      <p>…</p>
-      <p>&lt;pc&gt;翶&lt;/pc&gt;&lt;!-- ao --&gt;<br>
+    <p>…</p>
+    <p>&lt;pc&gt;翶&lt;/pc&gt;&lt;!-- ao --&gt;<br>
       &lt;p&gt; B&lt;/p&gt;&lt;!-- INDEX B --&gt;</p>
-      <p>These indicate the boundaries of &quot;buckets&quot; that can be used for indexing. They are always two characters starting with U+FDD0, and thus will not occur in normal text. For pinyin the second character is A-Z; for unihan they are the radicals; and for stroke they are characters after U+2800 indicating the number of strokes, such as  ⠁.</p>
-      <p>To allow implementations in reduced memory environments to use CJK sorting, there are also short forms of each of these collation sequences. These provide for the most common characters in common use, and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
-  </blockquote>
+    <p>These indicate the boundaries of &quot;buckets&quot; that can be used for indexing. They are always two characters starting with U+FDD0, and thus will not occur in normal text. For pinyin the second character is A-Z; for unihan they are the radicals; and for stroke they are characters after U+2800 indicating the number of strokes, such as  ⠁.</p>
+    <p>To allow implementations in reduced memory environments to use CJK sorting, there are also short forms of each of these collation sequences. These provide for the most common characters in common use, and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
 <p>There are two syntax specifications for specifying collation rules: the <em>basic collation syntax</em> and the <em>XML collation syntax</em>. Both have the same functionality. The LDML files use the XML format, but the basic format is simpler to read, and will often be used in examples. Implementations of LDML, such as [<a href="#ICUCollation">ICUCollation</a>] may choose to use the basic collation syntax as their native syntax.</p>
 <p class="note"><b>Notes:</b></p>
 	<ul>

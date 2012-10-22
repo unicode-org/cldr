@@ -43,7 +43,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td><span class="changed">22.1</span></td>
+			<td class="changed">22.1</td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -1886,16 +1886,33 @@ root</pre>
   <p>When determining the character repertoire needed to support a language, a reasonable initial set would include at least the
   characters in the main and punctuation exemplar sets, along with the digits and common symbols associated with the numberSystems supported for the locale
   (see <i>Section C.13 <a href="#Numbering_Systems">Numbering Systems</a></i>).</p>
-  <p>The <em>index</em> characters are an ordered list of characters for use as a UI "index", that is, a list of clickable characters (or character sequences) that allow the user to see a segment of a larger "target" list. Each character corresponds to a bucket in the target list. One may have different kinds of index lists; one that produces an index list that is relatively static, and the other is a list that produces roughly equally-sized buckets. While we are mostly focused on the first, there is provision for supporting the second as well.</p>
-  <br>
-  The static list would be presented as something like the following (either vertically or horizontally):<br>
-  <br>
-  <div align="center">… A B C D E F G H CH I J K L M N O P Q R S T U V W X Y Z …</div>
-    <br>
-  Under "A" you would find all items that are greater than or equal to "A" in collation order, and less than any other item that is greater than "A". The use of the list requires that the target list be sorted according to the locale that is used to create that list. The … items are special, and is a bucket for everything else, either less or greater. Although we say "character" above, the index character could be a sequence, like "CH" above. The index exemplar characters should always be used with a collation appropriate for the locale. Any characters that do not have primary differences from others in the set should be removed.<br>
-    <br>
-    In the UI, an index character could also be omitted or grayed out if its bucket is empty. For example, if there is nothing in the bucket for Q, then Q could be omitted. That would be up to the implementation. Additional buckets could be added if other characters are present. For example, we might see something like the following:<br>
-    <br>
+  <p>The <em>index</em> characters are <span class="changed">a set </span>of characters for use as a UI "index", that is, a list of clickable characters (or character sequences) that allow the user to see a segment of a larger "target" list. Each character corresponds to a bucket in the target list. One may have different kinds of index lists; one that produces an index list that is relatively static, and the other is a list that produces roughly equally-sized buckets. While <span class="changed">CLDR is </span>mostly focused on the first, there is provision for supporting the second as well.</p>
+<p>The index characters need to be used in conjunction with a collation for the locale, which will determine the order of the characters. It will also determine which index characters show up.</p>
+  <p>The static list would be presented as something like the following (either vertically or horizontally):
+  </p>
+<div align="center">… A B C D E F G H CH I J K L M N O P Q R S T U V W X Y Z …</div>
+    <p><br>
+  <span class="changed">In the "A" bucket, </span>you would find all items that are <span class="changed">primary</span> greater than or equal to "A" in collation order, and <span class="changed">primary less than  "B"</span>. The use of the list requires that the target list be sorted according to the locale that is used to create that list. Although we say "character" above, the index character could be a sequence, like "CH" above. The index exemplar characters <span class="changed">must</span> always be used with a collation appropriate for the locale. Any characters that do not have primary differences from others in the set should be removed.</p>
+    <p class="changed">Details: </p>
+    <ol>
+      <li class="changed">The primary weight (according to the collation) is used to determine which bucket a string is in. There are special buckets for before the first character, between buckets of different scripts, and after the last bucket (and of a different script).</li>
+      <li class="changed">Characters in the <em>index characters</em> do not need to have distinct primary weights. That is, the <em>index characters</em> are adapted to the underlying collation: normally Ё is in the Е bucket for Russian, but if someone used a variant of Russian collation that distinguished them on a primary level, then Ё would show up as its own bucket.</li>
+      <li class="changed">The behavior for <em>index characters</em> that have multiple primary weights (such as &quot;sch&quot; in German) is currently undefined and not supported.</li>
+  </ol>
+    <p>The … items are special: <span class="changed">each</span> is a bucket for everything else, either less or greater. <span class="changed">They are inserted at the start and end of the index list, <em>and</em> on script boundaries. These are really script boundaries, <em>not</em> reordering code boundaries. Each script has its own range, except where scripts sort primary-equal (e.g., Hira &amp; Kana). All characters that sort in the low reordering groups (whitespace, punctuation, symbols, currency symbols, digits) are treated as a single script for this purpose. So if you had a collation that reordered Hebrew after Ethiopic, you would still get  index boundaries between the following (and in that order):<br>
+    </span></p>
+    <ol>
+      <li class="changed">Ethiopic</li>
+      <li class="changed">Hebrew </li>
+      <li class="changed">Phoenician<em> // included in the Hebrew reordering group</em></li>
+      <li class="changed">Samaritan<em> // included in the Hebrew reordering group</em></li>
+      <li class="changed">Devanagari</li>
+    </ol>
+    <p class="changed">If you tailor a Greek character into the Cyrillic script, that Greek character will be bucketed (and sorted) among the Cyrillic ones.</p>
+    <p>
+      In the UI, an index character could also be omitted or grayed out if its bucket is empty. For example, if there is nothing in the bucket for Q, then Q could be omitted. That would be up to the implementation. Additional buckets could be added if other characters are present. For example, we might see something like the following:<br>
+      <br>
+  </p>
     <table border="1" cellspacing="0">
       <tbody>
         <tr align="center">
@@ -10062,9 +10079,9 @@ decimal?, group?, special*)) &gt;</pre>
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
 	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>
 
-  <h3><span class="changed">Revision 28</span></h3>
+  <h3 class="changed">Revision 28</h3>
     <ul>
-    <li><span class="changed">Updated for Version 22.1.</span></li>
+    <li class="changed">Updated for Version 22.1.</li>
 	</ul>
   
   <h3>Revision 27</h3>

@@ -775,7 +775,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		<tr>
 			<td>"ducet"</td>
 			<td>The unmodified [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] order
-			(Default Unicode Collation Element Table), provided in the root locale and available in all locales.</td>
+			(Default Unicode Collation Element Table). <span class="changed">(The current version of this tailoring does not fully reverse the CLDR root modifications.)</span></td>
 		</tr>
 
 		<tr>
@@ -3287,8 +3287,9 @@ types; the plural forms for certain unit types may not use all of the plural-for
     <p class="changed"><code>&amp; \uFFFF &lt; x</code></p>
     <p><span class="changed"><code>&amp; x &lt;\uFFFF</code></span> <br>
     </p>
-    <p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</p>
-    <p>Special index markers have been added to the CJK collations for stroke, pinyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
+    <p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. <span class="changed">For a  description of how inheritance applies to keywords, see <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance 
+	and Validity</a></i>.</span> <span class="removed">For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</span></p>
+  <p>Special index markers have been added to the CJK collations for stroke, pinyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
     <p>&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>
       &lt;pc&gt;阿呵𥥩锕𠼞𨉚&lt;/pc&gt;&lt;!-- ā --&gt;</p>
     <p>…</p>
@@ -7513,11 +7514,24 @@ range         = value'..'value</pre>
 			<td>root@collation=standard</td>
 			<td><i>found</i></td>
 		</tr>
-	</table>
+		<tr>
+		  <td rowspan="3"><span class="changed">5.</span></td>
+		  <td><span class="changed">de-DE@collation=ducet</span></td>
+		  <td><span class="changed">not found</span></td>
+	  </tr>
+			<tr>
+			<td><span class="changed">de@collation=ducet</span></td>
+			<td><span class="changed">not found</span></td>
+		</tr>
+		<tr>
+			<td><span class="changed">root@collation=ducet</span></td>
+			<td><span class="changed"><i>found</i></span></td>
+		</tr>
+</table>
 	<blockquote>
 		<p><b>Note: </b>It is an invariant that the default in root for a given element must<br>
-		always be a value that exists in root. So you can not have the following in root:</p>
-	</blockquote>
+	  always be a value that exists in root. So you can not have the following in root:</p>
+</blockquote>
 	<p><code>&lt;someElements&gt;<br>
 &nbsp; &lt;default type=&#39;a&#39;/&gt;<br>
 &nbsp; &lt;someElement type=&#39;b&#39;&gt;...&lt;/someElement&gt;<br>

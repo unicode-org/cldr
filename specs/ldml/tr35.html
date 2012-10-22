@@ -7459,72 +7459,120 @@ range         = value'..'value</pre>
 	<p>The validSubLocales in the most specific (farthest from root file) locale file &quot;wins&quot; through the full resolution step (data from more specific files replacing 
 	data from less specific ones).</p>
 	<h3>I.5 Keyword and Default Resolution</h3>
-	<p>When accessing data based on keywords, the following process is used. Consider the following example:<br>
-	<br>
-	The locale &#39;de&#39; has collation types A, B, C, and no &lt;default&gt; element<br>
-	The locale &#39;de_CH&#39; has &lt;default type=&#39;B&#39;&gt;<br>
-	<br>
-	Here are the searches for various combinations.</p>
+    <p>When accessing data based on keywords, the following process is used. Consider the following example:</p>
+    <ul>
+      <li>The locale &#39;de&#39; has collation types A, B, C, and no &lt;default&gt; element</li>
+      <li>The locale &#39;de_CH&#39; has &lt;default type=&#39;B&#39;&gt;</li>
+    </ul>
+	<p>Here are the searches for various combinations.</p>
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr>
-			<td rowspan="4">1.</td>
-			<td>de_CH</td>
-			<td>not found</td>
+			<td><span class="changed"><strong>User Input</strong></span></td>
+			<td><span class="changed"><strong>Lookup in Locale</strong></span></td>
+			<td><span class="changed"><strong>For</strong></span></td>
+			<td><span class="changed"><strong>Comment</strong></span></td>
 		</tr>
-		<tr>
-			<td>de</td>
-			<td>not found</td>
-		</tr>
-		<tr>
-			<td>root</td>
-			<td>not found: so get the default type in de_CH</td>
-		</tr>
-		<tr>
-			<td>de@collation=B</td>
-			<td><i>found</i></td>
-		</tr>
-		<tr>
-			<td rowspan="4">2.</td>
-			<td>de</td>
-			<td>not found</td>
-		</tr>
-		<tr>
-			<td>root</td>
-			<td>not found: so get the default type in de, which itself falls back to root</td>
-		</tr>
-		<tr>
-			<td>de@collation=standard</td>
-			<td>not found</td>
-		</tr>
-		<tr>
-			<td>root@collation=standard</td>
-			<td><i>found</i></td>
-		</tr>
-		<tr>
-			<td>3.</td>
-			<td>de@collation=A</td>
-			<td><i>found</i></td>
-		</tr>
-		<tr>
-			<td rowspan="2">4.</td>
-			<td>de@collation=standard</td>
-			<td>not found</td>
-		</tr>
-		<tr>
-			<td>root@collation=standard</td>
-			<td><i>found</i></td>
-		</tr>
-		<tr>
-		  <td rowspan="3"><span class="changed">5.</span></td>
-		  <td><span class="changed">de-DE@collation=ducet</span></td>
-		  <td><span class="changed">not found</span></td>
-	  </tr>
-			<tr>
-			<td><span class="changed">de@collation=ducet</span></td>
+      <tr>
+        <td rowspan="3"><span class="changed">de_CH<br>
+        <em>no keyword</em></span></td>
+  <td><span class="changed">de_CH</span></td>
+  <td><span class="changed">default collation type</span></td>
+  <td><span class="changed">finds &quot;B&quot;</span></td>
+  </tr>
+<tr>
+			<td><span class="changed">de_CH</span></td>
+			<td><span class="changed">collation type=B</span></td>
 			<td><span class="changed">not found</span></td>
 		</tr>
 		<tr>
-			<td><span class="changed">root@collation=ducet</span></td>
+			<td><span class="changed">de</span></td>
+			<td><span class="changed">collation type=B</span></td>
+			<td><span class="changed"><em>found</em></span></td>
+		</tr>
+		<tr>
+			<td rowspan="4"><span class="changed">de<br>
+	        <em>no keyword</em></span></td>
+			<td><span class="changed">de</span></td>
+			<td><span class="changed">default collation type</span></td>
+			<td><span class="changed">not found</span></td>
+		</tr>
+		<tr>
+			<td><span class="changed">root</span></td>
+			<td><span class="changed">default collation type</span></td>
+			<td><span class="changed">finds &quot;standard&quot;</span></td>
+		</tr>
+		<tr>
+			<td><span class="changed">de</span></td>
+			<td><span class="changed">collation type=standard</span></td>
+			<td><span class="changed">not found</span></td>
+		</tr>
+		<tr>
+			<td><span class="changed">root</span></td>
+			<td><span class="changed">collation type=standard</span></td>
+			<td><span class="changed"><i>found</i></span></td>
+		</tr>
+		<tr>
+			<td><span class="changed">de@collation=A</span></td>
+			<td><span class="changed">de</span></td>
+			<td><span class="changed">collation type=A</span></td>
+			<td><span class="changed"><i>found</i></span></td>
+		</tr>
+		<tr>
+		  <td rowspan="2"><span class="changed">de@collation=standard</span></td>
+		  <td><span class="changed">de</span></td>
+		  <td><span class="changed">collation type=standard</span></td>
+		  <td><span class="changed">not found</span></td>
+	  </tr>
+		<tr>
+		  <td><span class="changed">root</span></td>
+		  <td><span class="changed">collation type=standard</span></td>
+		  <td><span class="changed"><i>found</i></span></td>
+	  </tr>
+		<tr>
+			<td rowspan="6"><span class="changed">de@collation=foobar</span></td>
+			<td><span class="changed">de</span></td>
+			<td><span class="changed">collation type=foobar</span></td>
+			<td><span class="changed">not found</span></td>
+		</tr>
+		<tr>
+		  <td><span class="changed">root</span></td>
+		  <td><span class="changed">collation type=foobar</span></td>
+		  <td><span class="changed">not found, starts looking for default</span></td>
+	  </tr>
+		<tr>
+		  <td><span class="changed">de</span></td>
+		  <td><span class="changed">default collation type</span></td>
+		  <td><span class="changed">not found</span></td>
+	  </tr>
+		<tr>
+		  <td><span class="changed">root</span></td>
+		  <td><span class="changed">default collation type</span></td>
+		  <td><span class="changed">finds &quot;standard&quot;</span></td>
+	  </tr>
+		<tr>
+		  <td><span class="changed">de</span></td>
+		  <td><span class="changed">collation type=standard</span></td>
+		  <td><span class="changed">not found</span></td>
+	  </tr>
+		<tr>
+		  <td><span class="changed">root</span></td>
+		  <td><span class="changed">collation type=standard</span></td>
+		  <td><span class="changed"><i>found</i></span></td>
+		</tr>
+		<tr>
+		  <td rowspan="3"><span class="changed">de_DE@collation=ducet</span></td>
+		  <td><span class="changed">de_DE</span></td>
+		  <td><span class="changed">collation type=ducet</span></td>
+		  <td><span class="changed">not found</span></td>
+	  </tr>
+			<tr>
+			<td><span class="changed">de</span></td>
+			<td><span class="changed">collation type=ducet</span></td>
+			<td><span class="changed">not found</span></td>
+		</tr>
+		<tr>
+			<td><span class="changed">root</span></td>
+			<td><span class="changed">collation type=ducet</span></td>
 			<td><span class="changed"><i>found</i></span></td>
 		</tr>
 </table>
@@ -10098,6 +10146,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Updated for Version 22.1.</li>
     <li class="changed">Clarified the mechanism for producing timezone display names, removing fallbackRegionFormat.</li>
     <li class="changed">Clarified the use and meaning of the index characters.</li>
+    <li class="changed">Revised the table for collation keyword lookup in Section I.5 Keyword and Default Resolution</li>
 	</ul>
   
   <h3>Revision 27</h3>

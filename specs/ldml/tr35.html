@@ -7782,92 +7782,110 @@ range         = value'..'value</pre>
 			</ul>
 			<p><b>Note: </b>The digits in this case are always from the western digits, 0..9.</p>
 		</li>
-		<li>For the non-location formats (generic or specific),
+		<li class="changed">For the non-location formats (generic or specific):</li>
+		<ol>
+		  <li class="changed">if there is an explicit translation for the TZID in timeZoneNames according to type (generic, standard, or daylight) in the resolved locale, return it.</li>
+		  <ol>
+		    <li class="changed">If the requested type is not available, but another type is, and there is a <strong>Type Fallback</strong> then return that other type.</li>
+	      </ol>
+		  <ul>
+		    <li class="changed">Examples:</li>
+	      </ul>
+		  <ol>
+		    <ul>
+		      <li class="changed">America/Los_Angeles → "Heure du Pacifique (ÉUA)" // generic</li>
+		      <li class="changed">America/Los_Angeles → 太平洋標準時 // standard</li>
+		      <li class="changed">America/Los_Angeles → Yhdysvaltain Tyynenmeren kesäaika // daylight</li>
+		      <li class="changed">Europe/Dublin  → Am Samhraidh na hÉireann // daylight</li>
+		      <li class="changed">Note: This translation may not at all be literal: it would be what is most recognizable for people using the target language.</li>
+	        </ul>
+	      </ol>
+		  <li class="changed">Otherwise, get the requested metazone format according to type (generic, standard, daylight).</li>
+		  <ol>
+		    <li class="changed">If the requested type is not available, but another type is, get the format according to <strong>Type Fallback</strong>.</li>
+		    <li class="changed">If there is no format for the type, fall back.</li>
+	      </ol>
+		  <li class="changed">Otherwise do the following:</li>
+		  <ol>
+		    <li class="changed">Get the country for the current locale. If there is none, use the most likely country based on the likelySubtags data. If there is none, use &ldquo;001&rdquo;.</li>
+		    <li class="changed">Get the preferred zone for the metazone for the country; if there is none for the country, use the preferred zone for the metazone for &ldquo;001&rdquo;.</li>
+		    <li class="changed">If that preferred zone is the same as the requested zone, use the metazone format. For example, "Pacific Time" for Vancouver if the locale is en-CA, or for Los Angeles if locale is en-US.</li>
+		    <li class="changed">Otherwise, if the zone is the preferred zone for its country but not for the country of the locale, use the metazone format + country in the <em>fallbackFormat</em>.</li>
+		    <li class="changed">Otherwise, use the metazone format + city in the <em>fallbackFormat</em>.</li>
+	      </ol>
+		  <ul>
+		    <li class="changed">Examples:</li>
+	      </ul>
+		  <ol>
+		    <ul>
+		      <li class="changed">&ldquo;Pacific Time (Canada)" for the zone Vancouver in the locale en_MX.</li>
+		      <li class="changed">Mountain Time (Phoenix)</li>
+		      <li class="changed">Pacific Time (Whitehorse)</li>
+	        </ul>
+	      </ol>
+      </ol>
+		<li class="changed">For the generic location format:</li>
+		<ol>
+		  <li><span class="changed">From &lt;timezoneData&gt; get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone or if the zone id is in the <em>singleCountries</em> list, format the country name with the <em>regionFormat</em>, and return it.
+		    </span>
+		    <ul>
+		      <li class="changed">Examples:</li>
+		      <li class="changed">Europe/Rome → IT → Italy Time // for English</li>
+		      <li class="changed">Africa/Monrovia → LR → "Hora de Liberja"</li>
+		      <li class="changed">America/Havana → CU → "Hora de CU" // if CU is not localized</li>
+	        </ul>
+	      </li>
+		  <li class="changed">Otherwise format the exemplar city with the <em>regionFormat</em>, and return it.</li>
+		  <ol>
+		    <li class="changed">America/Buenos_Aires → "Buenos Aires Time</li>
+	      </ol>
+	  </ol>
+	</ol>
+	<blockquote>
+	  <p> <span class="changed"><strong>Note:</strong> If a language does require grammatical changes when composing strings, then the <em>regionFormat</em> should either use a neutral format such as &quot;Heure: {0}&quot;, or put all exceptional cases in explicitly translated strings. </span></p>
+  </blockquote>
+	<span class="changed"><strong>Type Fallback</strong><br>
+	<br>
+	When a specified type (generic, standard, daylight) does not exist:<br>
+    </span>
 	<ol>
-		<li>if there is an explicit translation for the TZID in 
-		timeZoneNames according to type (generic, standard, or daylight) in the resolved locale, return it.<ul>
-			<li>America/Los_Angeles → &quot;Heure du Pacifique (ÉUA)&quot; // generic</li>
-			<li>America/Los_Angeles → 太平洋標準時 // standard</li>
-			<li>America/Los_Angeles → Yhdysvaltain Tyynenmeren kesäaika // daylight</li>
-			<li>Europe/Dublin&nbsp; → Am Samhraidh na hÉireann // daylight</li>
-		</ul>
-		<p><b>Note: </b>This translation may not at all be literal: it would be what is most recognizable for people using the target language.</p>
-		</li>
-		<li>Otherwise, if there is a metazone standard format, and the offset 
-				and daylight offset do not change within 184 day +/- interval around the exact 
-				formatted time, use the metazone standard format (&quot;Mountain Standard Time&quot; for 
-				Phoenix). (184 is the smallest number that is at least 6 months AND the smallest 
-				number that is more than 1/2 year (Gregorian)). </li>
-		<li>Otherwise, if there is a metazone generic format, then do the 
-				following:<ol>
-			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Compare offset at the requested time with the 
-					preferred zone for the current locale; if same, we use the metazone generic 
-					format. &quot;Pacific Time&quot; for Vancouver if the locale is en-CA, or for Los Angeles 
-					if locale is en-US. Note that the fallback is the golden zone.<ul>
-				<li>The metazone data actually supplies the preferred zone for a country. If the locale 
-				does not have a country 
-				the likelySubtags supplemental data is used 
-					to get the most likely country.</li>
-			</ul>
-			</li>
-			<li style="margin-top: 0.5em; margin-bottom: 0.5em">If the zone is the preferred zone for its country 
-					but not for the country of the locale, use the metazone generic format + 
-					(country)<p><b>[Generic partial location] </b>&quot;Pacific Time (Canada)&quot; for the zone 
-					Vancouver in the locale en_MX.</li>
-			<li style="margin-top: 0.5em; margin-bottom: 0.5em">If all else fails, use metazone generic format + 
-					(city).<p><b>[Generic partial location]: </b>&quot;Mountain Time (Phoenix)&quot;, &quot;Pacific 
-					Time (Whitehorse)&quot;</li>
-		</ol></li>
-		<li>Otherwise, fall back.<p><b>
-		Note:</b> In composing the metazone + city or country: use the <a name="fallbackFormat0">fallbackFormat</a><ul>
-			<li>{1} will 
-			be the metazone</li>
-			<li style="margin-top: 0.5em; margin-bottom: 0.5em">{0} will be a qualifier (city or country)
-			  <p>
-			    <i>Example:
-	        </i>Pacific Time (Phoenix) </li>
-		</ul></li>
-	</ol>
-		</li>
-		<li>For the generic location format:<ol>
-		<li>Use as the country name, the explicitly localized country if available, 
-		otherwise the raw country code. If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off 
-		the prefix and turning _ into space.<ul>
-			<li>CU → &quot;CU&quot; // no localized country name for Cuba</li>
-			<li>America/Los_Angeles → &quot;Los Angeles&quot; // no localized exemplar city</li>
-		</ul></li>
-		<li>From &lt;timezoneData&gt; get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone 
-		or the zone id is in the singleCountries list, format the country name with the regionFormat 
-		(for example, &quot;{0} Time&quot;), and return it.<ul>
-			<li>Europe/Rome → IT → Italy Time // for English</li>
-			<li>Africa/Monrovia → LR → &quot;Hora de Liberja&quot;</li>
-			<li>America/Havana → CU → &quot;Hora de CU&quot; // if CU is not localized</li>
-		</ul>
-		<p><b>Note: </b>If a language does require grammatical changes when composing strings, then it should either use a neutral format such as what is in root, 
-		or put all exceptional cases in explicitly translated strings.</p>
-		<p><b>Note: </b>&lt;timezoneData&gt; may not have data for new TZIDs. If the country for the zone cannot be resolved,
-		format the exemplar city (it is unlikely that the localized exemplar city is available in this case, so the exemplar city might be composed
-		by the last field of the raw TZID as described above) with the regionFormat (for example, "{0} Time"), and return it.</p></li>
-		<li>Otherwise, get both the exemplar city and country name.  Format&nbsp; them with the fallbackRegionFormat (for 
-		example, &quot;{1} Time ({0})&quot;. For example:
-<ul>
-			<li>America/Buenos_Aires → &quot;Argentina Time (Buenos Aires)&quot;<br>
-			// if the fallbackRegionFormat is &quot;{1} Time ({0})&quot;.</li>
-			<li>America/Buenos_Aires → &quot;Аргентина (Буэнос-Айрес)&quot;<br>
-			// if both are translated, and the fallbackRegionFormat is &quot;{1}  ({0})&quot;.</li>
-			<li>America/Buenos_Aires → &quot;AR (Буэнос-Айрес)&quot;<br>
-			// if Argentina is not translated.</li>
-			<li>America/Buenos_Aires → &quot;Аргентина (Buenos Aires)&quot;<br>
-			// if Buenos Aires is not translated.</li>
-			<li>America/Buenos_Aires → &quot;AR (Buenos Aires)&quot;<br>
-			// if both are not translated.</li>
-		</ul>
-		<p><b>Note: </b>As with the regionFormat, exceptional cases need to be explicitly translated.</p>
-		</li>
-	</ol>
-		</li>
-	</ol>
-	<h3 style="background-color: rgb(255, 255, 255);">
+	  <li class="changed">If the daylight type does not exist, then the metazone doesn&rsquo;t require daylight support. For all three types:</li>
+	  <ol>
+	    <li class="changed">If the generic type exists, use it.</li>
+	    <li class="changed">Otherwise if the standard type exists, use it.</li>
+      </ol>
+	  <li class="changed">Otherwise if the generic type is needed, but not available, and the offset and daylight offset do not change within 184 day +/- interval around the exact formatted time, use the standard type.</li>
+	  <ol>
+	    <li class="changed">Example: "Mountain Standard Time" for Phoenix</li>
+	    <li class="changed">Note: 184 is the smallest number that is at least 6 months AND the smallest number that is more than 1/2 year (Gregorian).</li>
+      </ol>
+  </ol>
+	<p class="changed"><strong>Composition</strong></p>
+	<p class="changed"><br>
+	In composing the metazone + city or metazone + country:</p>
+	<ol>
+	  <li class="changed">Use the fallbackFormat, where:</li>
+	  <ul>
+	    <li class="changed">{1} will be the metazone</li>
+	    <li class="changed">{0} will be a qualifier (city or country)</li>
+	    <li class="changed">Example: </li>
+	    <ul>
+	      <li class="changed">metazone = Pacific Time</li>
+	      <li class="changed">city = Phoenix</li>
+	      <li class="changed"> → Pacific Time (Phoenix)</li>
+        </ul>
+      </ul>
+	  <li class="changed">If the localized country name is not available, use the code:</li>
+	  <ul>
+	    <li class="changed">CU (country code)→ "CU" <em>// no localized country name for Cuba</em></li>
+      </ul>
+	  <li class="changed">If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.</li>
+	  <ul>
+	    <li class="changed">America/Los_Angeles → "Los Angeles" <em>// no localized exemplar city</em></li>
+      </ul>
+  </ol>
+  <p class="changed"><b>Note: </b>As with the <em>regionFormat</em>, exceptional cases need to be explicitly translated. </p>
+<h3 style="background-color: rgb(255, 255, 255);">
 <font color="#000000"><i><b>Parsing</b></i></font></h3>
 	<p>In parsing, an implementation will be able to either determine the zone id, or a simple offset from GMT for anything formatting according to the above process.</p>
 	<p>The following is a sample process for how this might be done. It is 

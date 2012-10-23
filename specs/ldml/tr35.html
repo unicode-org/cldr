@@ -4367,6 +4367,11 @@ A known limitation of the tailoring is that where the source string is a contrac
   <li>[あいうえお-ぢつ-もやゆよ-ろわ-ゔアイウエオ-ヂツ-モヤユヨ-ロワ-ヴヷ-ヺ 𛀀𛀁]</li>
   <li>[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>
 </ul>
+<h4><a name="Visibility"></a><span class="changed">5.14.14 Visibility</span></h4>
+<p class="dtd"><span class="changed">&lt;!ATTLIST collation visibility ( internal | external ) &quot;external&quot; &gt;</span></p>
+<p><span class="changed">Collators have external visibility by default, meaning that they can be displayed in a list of collation
+options for users to choose from. Collators marked as having internal visibility should not be shown in such a list.
+Collators are typically internal when they are partial sequences included in other collators.</span></p>
 <h3>5.15 <a name="Segmentations">Segmentations</a></h3>
 	<p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] 
   notation, but adapted to be machine-readable. It uses a list of variables (representing character classes) and a list of rules. Each must have an id attribute.</p>

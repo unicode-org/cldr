@@ -2520,7 +2520,9 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
 	</p>
 	<p>The dateTimeFormat element works like the dateFormats and timeFormats, except 
 	that the pattern is of the form &quot;{1} {0}&quot;, where {0} is replaced by the time format, and {1} is replaced by the date format, with results such as &quot;8/27/06 7:31 
-	AM&quot;.</p>
+	AM&quot;.<span class="changed"> Except for the substitution markers {0} and {1}, text in the dateTimeFormat is interpreted as part of a date/time pattern, and is subject
+	to the same rules described in <a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a>. This includes the need to enclose ASCII letters in single quotes if they
+	are intended to represent literal text.</span></p>
 	<p class="dtd">
 	&lt;!ELEMENT availableFormats (alias | (dateFormatItem*, special*))&gt;<br>
 	&lt;!ELEMENT dateFormatItem ( #PCDATA ) &gt;<br>
@@ -10149,6 +10151,8 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Revised the table for collation keyword lookup in Section I.5 Keyword and Default Resolution</li>
     <li class="changed">In <em>Section 5.14, <a href="#Collation_Elements">Collation Elements</a>,</em> added information on
     zhuyin collation index markers. [ticket <a href="http://unicode.org/cldr/trac/ticket/5320">#5320</a>]</li>
+    <li class="changed">Clarify that text in a dateTimePattern other than {0}{1} is treated as part of a date pattern.
+    [ticket <a href="http://unicode.org/cldr/trac/ticket/5398">#5398</a>]</li>
 	</ul>
   
   <h3>Revision 27</h3>

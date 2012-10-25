@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012-<span class="changed">10-03</span></td>
+			<td>2012-<span class="changed">10-24</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -3289,13 +3289,15 @@ types; the plural forms for certain unit types may not use all of the plural-for
     </p>
     <p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. <span class="changed">For a  description of how inheritance applies to keywords, see <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance 
 	and Validity</a></i>.</span> <span class="removed">For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</span></p>
-  <p>Special index markers have been added to the CJK collations for stroke, pinyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
+  <p>Special index markers have been added to the CJK collations for stroke, pinyin, <span class="changed">zhuyin, </span>and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
     <p>&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>
       &lt;pc&gt;阿呵𥥩锕𠼞𨉚&lt;/pc&gt;&lt;!-- ā --&gt;</p>
     <p>…</p>
     <p>&lt;pc&gt;翶&lt;/pc&gt;&lt;!-- ao --&gt;<br>
       &lt;p&gt; B&lt;/p&gt;&lt;!-- INDEX B --&gt;</p>
-    <p>These indicate the boundaries of &quot;buckets&quot; that can be used for indexing. They are always two characters starting with U+FDD0, and thus will not occur in normal text. For pinyin the second character is A-Z; for unihan they are the radicals; and for stroke they are characters after U+2800 indicating the number of strokes, such as  ⠁.</p>
+    <p>These indicate the boundaries of &quot;buckets&quot; that can be used for indexing. They are always two characters starting with U+FDD0, and thus will not occur in normal text.
+    For pinyin the second character is A-Z; for unihan <span class="changed">it is one of</span> the radicals; and for stroke <span class="changed">it is a character</span> after U+2800
+    indicating the number of strokes, such as  ⠁.<span class="changed"> For zhuyin the second character is one of the standard Bopomofo characters in the range U+3105 through U+3129.</span></p>
     <p>To allow implementations in reduced memory environments to use CJK sorting, there are also short forms of each of these collation sequences. These provide for the most common characters in common use, and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
 <p>There are two syntax specifications for specifying collation rules: the <em>basic collation syntax</em> and the <em>XML collation syntax</em>. Both have the same functionality. The LDML files use the XML format, but the basic format is simpler to read, and will often be used in examples. Implementations of LDML, such as [<a href="#ICUCollation">ICUCollation</a>] may choose to use the basic collation syntax as their native syntax.</p>
 <p class="note"><b>Notes:</b></p>
@@ -7866,108 +7868,101 @@ range         = value'..'value</pre>
 			</ul>
 			<p><b>Note: </b>The digits in this case are always from the western digits, 0..9.</p>
 		</li>
-		<li class="changed">For the non-location formats (generic or specific):</li>
+		<li class="changed">For the non-location formats (generic or specific):
 		<ol>
-		  <li class="changed">if there is an explicit translation for the TZID in timeZoneNames according to type (generic, standard, or daylight) in the resolved locale, return it.</li>
+		  <li>if there is an explicit translation for the TZID in timeZoneNames according to type (generic, standard, or daylight) in the resolved locale, return it.
 		  <ol>
-		    <li class="changed">If the requested type is not available, but another type is, and there is a <strong>Type Fallback</strong> then return that other type.</li>
-	      </ol>
-		  <ul>
-		    <li class="changed">Examples:</li>
-	      </ul>
-		  <ol>
+		    <li>If the requested type is not available, but another type is, and there is a <strong>Type Fallback</strong> then return that other type.
 		    <ul>
-		      <li class="changed">America/Los_Angeles → "Heure du Pacifique (ÉUA)" // generic</li>
-		      <li class="changed">America/Los_Angeles → 太平洋標準時 // standard</li>
-		      <li class="changed">America/Los_Angeles → Yhdysvaltain Tyynenmeren kesäaika // daylight</li>
-		      <li class="changed">Europe/Dublin  → Am Samhraidh na hÉireann // daylight</li>
-		      <li class="changed">Note: This translation may not at all be literal: it would be what is most recognizable for people using the target language.</li>
-	        </ul>
-	      </ol>
-		  <li class="changed">Otherwise, get the requested metazone format according to type (generic, standard, daylight).</li>
+		      <li>Examples:
+		      <ul>
+		          <li>America/Los_Angeles → "Heure du Pacifique (ÉUA)" // generic</li>
+		          <li>America/Los_Angeles → 太平洋標準時 // standard</li>
+		          <li>America/Los_Angeles → Yhdysvaltain Tyynenmeren kesäaika // daylight</li>
+		          <li>Europe/Dublin  → Am Samhraidh na hÉireann // daylight</li>
+		          <li>Note: This translation may not at all be literal: it would be what is most recognizable for people using the target language.</li>
+	          </ul></li>
+		    </ul></li>
+		  </ol></li>
+		  <li>Otherwise, get the requested metazone format according to type (generic, standard, daylight).
 		  <ol>
-		    <li class="changed">If the requested type is not available, but another type is, get the format according to <strong>Type Fallback</strong>.</li>
-		    <li class="changed">If there is no format for the type, fall back.</li>
-	      </ol>
-		  <li class="changed">Otherwise do the following:</li>
+		    <li>If the requested type is not available, but another type is, get the format according to <strong>Type Fallback</strong>.</li>
+		    <li>If there is no format for the type, fall back.</li>
+		  </ol></li>
+		  <li>Otherwise do the following:
 		  <ol>
-		    <li class="changed">Get the country for the current locale. If there is none, use the most likely country based on the likelySubtags data. If there is none, use &ldquo;001&rdquo;.</li>
-		    <li class="changed">Get the preferred zone for the metazone for the country; if there is none for the country, use the preferred zone for the metazone for &ldquo;001&rdquo;.</li>
-		    <li class="changed">If that preferred zone is the same as the requested zone, use the metazone format. For example, "Pacific Time" for Vancouver if the locale is en-CA, or for Los Angeles if locale is en-US.</li>
-		    <li class="changed">Otherwise, if the zone is the preferred zone for its country but not for the country of the locale, use the metazone format + country in the <em>fallbackFormat</em>.</li>
-		    <li class="changed">Otherwise, use the metazone format + city in the <em>fallbackFormat</em>.</li>
-	      </ol>
-		  <ul>
-		    <li class="changed">Examples:</li>
-	      </ul>
-		  <ol>
-		    <ul>
-		      <li class="changed">&ldquo;Pacific Time (Canada)" for the zone Vancouver in the locale en_MX.</li>
-		      <li class="changed">Mountain Time (Phoenix)</li>
-		      <li class="changed">Pacific Time (Whitehorse)</li>
-	        </ul>
-	      </ol>
-      </ol>
-		<li class="changed">For the generic location format:</li>
+		    <li>Get the country for the current locale. If there is none, use the most likely country based on the likelySubtags data. If there is none, use &ldquo;001&rdquo;.</li>
+		    <li>Get the preferred zone for the metazone for the country; if there is none for the country, use the preferred zone for the metazone for &ldquo;001&rdquo;.</li>
+		    <li>If that preferred zone is the same as the requested zone, use the metazone format. For example, "Pacific Time" for Vancouver if the locale is en-CA, or for Los Angeles if locale is en-US.</li>
+		    <li>Otherwise, if the zone is the preferred zone for its country but not for the country of the locale, use the metazone format + country in the <em>fallbackFormat</em>.</li>
+		    <li>Otherwise, use the metazone format + city in the <em>fallbackFormat</em>.
+			<ul>
+		      <li>Examples:
+		        <ul>
+		          <li>&ldquo;Pacific Time (Canada)" for the zone Vancouver in the locale en_MX.</li>
+		          <li>Mountain Time (Phoenix)</li>
+		          <li>Pacific Time (Whitehorse)</li>
+	           </ul></li>
+			</ul></li>
+		  </ol></li>
+		</ol></li>
+		<li class="changed">For the generic location format:
 		<ol>
-		  <li><span class="changed">From &lt;timezoneData&gt; get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone or if the zone id is in the <em>singleCountries</em> list, format the country name with the <em>regionFormat</em>, and return it.
-		    </span>
+		  <li>From &lt;timezoneData&gt; get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone or if the zone id is in the <em>singleCountries</em> list, format the country name with the <em>regionFormat</em>, and return it.
+		  <ul>
+		    <li>Examples:
 		    <ul>
-		      <li class="changed">Examples:</li>
-		      <li class="changed">Europe/Rome → IT → Italy Time // for English</li>
-		      <li class="changed">Africa/Monrovia → LR → "Hora de Liberja"</li>
-		      <li class="changed">America/Havana → CU → "Hora de CU" // if CU is not localized</li>
-	        </ul>
-	      </li>
-		  <li class="changed">Otherwise format the exemplar city with the <em>regionFormat</em>, and return it.</li>
+		      <li>Europe/Rome → IT → Italy Time // for English</li>
+		      <li>Africa/Monrovia → LR → "Hora de Liberja"</li>
+		      <li>America/Havana → CU → "Hora de CU" // if CU is not localized</li>
+		    </ul> </li>
+	      </ul></li>
+		  <li>Otherwise format the exemplar city with the <em>regionFormat</em>, and return it.
 		  <ol>
-		    <li class="changed">America/Buenos_Aires → "Buenos Aires Time</li>
-	      </ol>
-	  </ol>
+		    <li>America/Buenos_Aires → "Buenos Aires Time</li>
+	      </ol></li>
+		</ol></li>
 	</ol>
 	<blockquote>
 	  <p> <span class="changed"><strong>Note:</strong> If a language does require grammatical changes when composing strings, then the <em>regionFormat</em> should either use a neutral format such as &quot;Heure: {0}&quot;, or put all exceptional cases in explicitly translated strings. </span></p>
   </blockquote>
-	<span class="changed"><strong>Type Fallback</strong><br>
-	<br>
-	When a specified type (generic, standard, daylight) does not exist:<br>
-    </span>
+	<p class="changed"><strong>Type Fallback</strong></p>
+	<p class="changed">When a specified type (generic, standard, daylight) does not exist:</p>
 	<ol>
-	  <li class="changed">If the daylight type does not exist, then the metazone doesn&rsquo;t require daylight support. For all three types:</li>
+	  <li class="changed">If the daylight type does not exist, then the metazone doesn&rsquo;t require daylight support. For all three types:
 	  <ol>
-	    <li class="changed">If the generic type exists, use it.</li>
-	    <li class="changed">Otherwise if the standard type exists, use it.</li>
-      </ol>
-	  <li class="changed">Otherwise if the generic type is needed, but not available, and the offset and daylight offset do not change within 184 day +/- interval around the exact formatted time, use the standard type.</li>
+	    <li>If the generic type exists, use it.</li>
+	    <li>Otherwise if the standard type exists, use it.</li>
+      </ol></li>
+	  <li class="changed">Otherwise if the generic type is needed, but not available, and the offset and daylight offset do not change within 184 day +/- interval around the exact formatted time, use the standard type.
 	  <ol>
-	    <li class="changed">Example: "Mountain Standard Time" for Phoenix</li>
-	    <li class="changed">Note: 184 is the smallest number that is at least 6 months AND the smallest number that is more than 1/2 year (Gregorian).</li>
-      </ol>
-  </ol>
+	    <li>Example: "Mountain Standard Time" for Phoenix</li>
+	    <li>Note: 184 is the smallest number that is at least 6 months AND the smallest number that is more than 1/2 year (Gregorian).</li>
+      </ol></li>
+	</ol>
 	<p class="changed"><strong>Composition</strong></p>
-	<p class="changed"><br>
-	In composing the metazone + city or metazone + country:</p>
+	<p class="changed">In composing the metazone + city or metazone + country:</p>
 	<ol>
-	  <li class="changed">Use the fallbackFormat, where:</li>
+	  <li class="changed">Use the fallbackFormat, where:
 	  <ul>
-	    <li class="changed">{1} will be the metazone</li>
-	    <li class="changed">{0} will be a qualifier (city or country)</li>
-	    <li class="changed">Example: </li>
+	    <li>{1} will be the metazone</li>
+	    <li>{0} will be a qualifier (city or country)</li>
+	    <li>Example: 
 	    <ul>
-	      <li class="changed">metazone = Pacific Time</li>
-	      <li class="changed">city = Phoenix</li>
-	      <li class="changed"> → Pacific Time (Phoenix)</li>
-        </ul>
-      </ul>
-	  <li class="changed">If the localized country name is not available, use the code:</li>
+	      <li>metazone = Pacific Time</li>
+	      <li>city = Phoenix</li>
+	      <li>→ Pacific Time (Phoenix)</li>
+        </ul></li>
+      </ul></li>
+	  <li class="changed">If the localized country name is not available, use the code:
 	  <ul>
-	    <li class="changed">CU (country code)→ "CU" <em>// no localized country name for Cuba</em></li>
-      </ul>
-	  <li class="changed">If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.</li>
+	    <li>CU (country code)→ "CU" <em>// no localized country name for Cuba</em></li>
+      </ul></li>
+	  <li class="changed">If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.
 	  <ul>
-	    <li class="changed">America/Los_Angeles → "Los Angeles" <em>// no localized exemplar city</em></li>
-      </ul>
-  </ol>
+	    <li>America/Los_Angeles → "Los Angeles" <em>// no localized exemplar city</em></li>
+      </ul></li>
+	</ol>
   <p class="changed"><b>Note: </b>As with the <em>regionFormat</em>, exceptional cases need to be explicitly translated. </p>
 <h3 style="background-color: rgb(255, 255, 255);">
 <font color="#000000"><i><b>Parsing</b></i></font></h3>
@@ -10135,7 +10130,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Xiaomei Ji (吉晓梅) for her work on time intervals and plural formatting.</li>
 		<li>David Bertoni for his contributions to the conversion tools.</li>
 		<li>Mike Tardif for reviewing this specification and for coordinating and vetting data submissions.</li>
-		<li>Peter Edberg for work on this specification, telephone code data, plurals, monthPatterns and cyclicNameSets.</li>
+		<li>Peter Edberg for work on this specification, telephone code data, monthPatterns, cyclicNameSets and contextTransforms.</li>
 		<li><span class="c1 c16">Raymond Wainman</span> and Cibu Johny
           for their work on keyboards.
 		</li>
@@ -10152,6 +10147,8 @@ decimal?, group?, special*)) &gt;</pre>
     <li class="changed">Clarified the mechanism for producing timezone display names, removing fallbackRegionFormat.</li>
     <li class="changed">Clarified the use and meaning of the index characters.</li>
     <li class="changed">Revised the table for collation keyword lookup in Section I.5 Keyword and Default Resolution</li>
+    <li class="changed">In <em>Section 5.14, <a href="#Collation_Elements">Collation Elements</a>,</em> added information on
+    zhuyin collation index markers. [ticket <a href="http://unicode.org/cldr/trac/ticket/5320">#5320</a>]</li>
 	</ul>
   
   <h3>Revision 27</h3>

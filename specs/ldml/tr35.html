@@ -38,12 +38,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	</tr>
 </table>
 <div class="body">
-	<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+	<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 	<h1 style="text-align: center">Unicode Locale Data Markup Language (LDML)</h1>
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td class="changed">22.1</td>
+			<td>22.1</td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -52,17 +52,17 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2012-<span class="changed">10-24</span></td>
+			<td>2012-10-26</td>
 		</tr>
 		<tr>
 			<td>This Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-28.html" class="changed">http://unicode.org/reports/tr35/tr35-28.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-29.html">http://unicode.org/reports/tr35/tr35-29.html</a></td>
 		</tr>
 		<tr>
 			<td>Previous Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-27.html" class="changed">http://unicode.org/reports/tr35/tr35-27.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-27.html">http://unicode.org/reports/tr35/tr35-27.html</a></td>
 		</tr>
 		<tr>
 			<td>Latest Version</td>
@@ -89,11 +89,11 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>DTDs</td>
-			<td><a href="http://unicode.org/cldr/dtd/22/">http://unicode.org/cldr/dtd/22/</a></td>
+			<td><a href="http://unicode.org/cldr/dtd/22.1/">http://unicode.org/cldr/dtd/22.1/</a></td>
 		</tr>
 		<tr>
 			<td>Revision</td>
-			<td><a href="#Modifications" class="changed">28</a></td>
+			<td><a href="#Modifications">29</a></td>
 		</tr>
 	</table>
 	<h3><i>Summary</i></h3>
@@ -102,19 +102,19 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	
 	<h3><i>Status</i></h3>
 
-	   <!-- NOT YET APPROVED -->
+	   <!-- NOT YET APPROVED
 	  <p><i class="changed">This is a<b><font color="#ff3333"> draft </font></b>document which 
       may be updated, replaced, or superseded by other documents at any time. 
       Publication does not imply endorsement by the Unicode Consortium. This is 
       not a stable document; it is inappropriate to cite this document as other 
       than a work in progress.</i></p>
-      <!-- END NOT YET APPROVED -->
-	  <!-- APPROVED
+      END NOT YET APPROVED -->
+	  <!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 	<blockquote>
 		<p><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</i></p>
@@ -775,7 +775,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		<tr>
 			<td>"ducet"</td>
 			<td>The unmodified [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] order
-			(Default Unicode Collation Element Table). <span class="changed">(The current version of this tailoring does not fully reverse the CLDR root modifications.)</span></td>
+			(Default Unicode Collation Element Table). (The current version of this tailoring does not fully reverse the CLDR root modifications.)</td>
 		</tr>
 
 		<tr>
@@ -1886,29 +1886,29 @@ root</pre>
   <p>When determining the character repertoire needed to support a language, a reasonable initial set would include at least the
   characters in the main and punctuation exemplar sets, along with the digits and common symbols associated with the numberSystems supported for the locale
   (see <i>Section C.13 <a href="#Numbering_Systems">Numbering Systems</a></i>).</p>
-  <p>The <em>index</em> characters are <span class="changed">a set </span>of characters for use as a UI "index", that is, a list of clickable characters (or character sequences) that allow the user to see a segment of a larger "target" list. Each character corresponds to a bucket in the target list. One may have different kinds of index lists; one that produces an index list that is relatively static, and the other is a list that produces roughly equally-sized buckets. While <span class="changed">CLDR is </span>mostly focused on the first, there is provision for supporting the second as well.</p>
+  <p>The <em>index</em> characters are a set of characters for use as a UI "index", that is, a list of clickable characters (or character sequences) that allow the user to see a segment of a larger "target" list. Each character corresponds to a bucket in the target list. One may have different kinds of index lists; one that produces an index list that is relatively static, and the other is a list that produces roughly equally-sized buckets. While CLDR is mostly focused on the first, there is provision for supporting the second as well.</p>
 <p>The index characters need to be used in conjunction with a collation for the locale, which will determine the order of the characters. It will also determine which index characters show up.</p>
   <p>The static list would be presented as something like the following (either vertically or horizontally):
   </p>
 <div align="center">… A B C D E F G H CH I J K L M N O P Q R S T U V W X Y Z …</div>
     <p><br>
-  <span class="changed">In the "A" bucket, </span>you would find all items that are <span class="changed">primary</span> greater than or equal to "A" in collation order, and <span class="changed">primary less than  "B"</span>. The use of the list requires that the target list be sorted according to the locale that is used to create that list. Although we say "character" above, the index character could be a sequence, like "CH" above. The index exemplar characters <span class="changed">must</span> always be used with a collation appropriate for the locale. Any characters that do not have primary differences from others in the set should be removed.</p>
-    <p class="changed">Details: </p>
+    In the "A" bucket, you would find all items that are primary greater than or equal to "A" in collation order, and primary less than  "B". The use of the list requires that the target list be sorted according to the locale that is used to create that list. Although we say "character" above, the index character could be a sequence, like "CH" above. The index exemplar characters must always be used with a collation appropriate for the locale. Any characters that do not have primary differences from others in the set should be removed.</p>
+    <p>Details: </p>
     <ol>
-      <li class="changed">The primary weight (according to the collation) is used to determine which bucket a string is in. There are special buckets for before the first character, between buckets of different scripts, and after the last bucket (and of a different script).</li>
-      <li class="changed">Characters in the <em>index characters</em> do not need to have distinct primary weights. That is, the <em>index characters</em> are adapted to the underlying collation: normally Ё is in the Е bucket for Russian, but if someone used a variant of Russian collation that distinguished them on a primary level, then Ё would show up as its own bucket.</li>
-      <li class="changed">The behavior for <em>index characters</em> that have multiple primary weights (such as &quot;sch&quot; in German) is currently undefined and not supported.</li>
+      <li>The primary weight (according to the collation) is used to determine which bucket a string is in. There are special buckets for before the first character, between buckets of different scripts, and after the last bucket (and of a different script).</li>
+      <li>Characters in the <em>index characters</em> do not need to have distinct primary weights. That is, the <em>index characters</em> are adapted to the underlying collation: normally Ё is in the Е bucket for Russian, but if someone used a variant of Russian collation that distinguished them on a primary level, then Ё would show up as its own bucket.</li>
+      <li>The behavior for <em>index characters</em> that have multiple primary weights (such as &quot;sch&quot; in German) is currently undefined and not supported.</li>
   </ol>
-    <p>The … items are special: <span class="changed">each</span> is a bucket for everything else, either less or greater. <span class="changed">They are inserted at the start and end of the index list, <em>and</em> on script boundaries. These are really script boundaries, <em>not</em> reordering code boundaries. Each script has its own range, except where scripts sort primary-equal (e.g., Hira &amp; Kana). All characters that sort in the low reordering groups (whitespace, punctuation, symbols, currency symbols, digits) are treated as a single script for this purpose. So if you had a collation that reordered Hebrew after Ethiopic, you would still get  index boundaries between the following (and in that order):<br>
-    </span></p>
+    <p>The … items are special: each is a bucket for everything else, either less or greater. They are inserted at the start and end of the index list, <em>and</em> on script boundaries. These are really script boundaries, <em>not</em> reordering code boundaries. Each script has its own range, except where scripts sort primary-equal (e.g., Hira &amp; Kana). All characters that sort in the low reordering groups (whitespace, punctuation, symbols, currency symbols, digits) are treated as a single script for this purpose. So if you had a collation that reordered Hebrew after Ethiopic, you would still get  index boundaries between the following (and in that order):<br>
+    </p>
     <ol>
-      <li class="changed">Ethiopic</li>
-      <li class="changed">Hebrew </li>
-      <li class="changed">Phoenician<em> // included in the Hebrew reordering group</em></li>
-      <li class="changed">Samaritan<em> // included in the Hebrew reordering group</em></li>
-      <li class="changed">Devanagari</li>
+      <li>Ethiopic</li>
+      <li>Hebrew </li>
+      <li>Phoenician<em> // included in the Hebrew reordering group</em></li>
+      <li>Samaritan<em> // included in the Hebrew reordering group</em></li>
+      <li>Devanagari</li>
     </ol>
-    <p class="changed">If you tailor a Greek character into the Cyrillic script, that Greek character will be bucketed (and sorted) among the Cyrillic ones.</p>
+    <p>If you tailor a Greek character into the Cyrillic script, that Greek character will be bucketed (and sorted) among the Cyrillic ones.</p>
     <p>
       In the UI, an index character could also be omitted or grayed out if its bucket is empty. For example, if there is nothing in the bucket for Q, then Q could be omitted. That would be up to the implementation. Additional buckets could be added if other characters are present. For example, we might see something like the following:<br>
       <br>
@@ -2520,9 +2520,9 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
 	</p>
 	<p>The dateTimeFormat element works like the dateFormats and timeFormats, except 
 	that the pattern is of the form &quot;{1} {0}&quot;, where {0} is replaced by the time format, and {1} is replaced by the date format, with results such as &quot;8/27/06 7:31 
-	AM&quot;.<span class="changed"> Except for the substitution markers {0} and {1}, text in the dateTimeFormat is interpreted as part of a date/time pattern, and is subject
+	AM&quot;. Except for the substitution markers {0} and {1}, text in the dateTimeFormat is interpreted as part of a date/time pattern, and is subject
 	to the same rules described in <a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a>. This includes the need to enclose ASCII letters in single quotes if they
-	are intended to represent literal text.</span></p>
+	are intended to represent literal text.</p>
 	<p class="dtd">
 	&lt;!ELEMENT availableFormats (alias | (dateFormatItem*, special*))&gt;<br>
 	&lt;!ELEMENT dateFormatItem ( #PCDATA ) &gt;<br>
@@ -3058,7 +3058,7 @@ language may not be in common usage in a particular territory.</p>
 
     A pattern type attribute is used for <em>compact number formats</em>, such as the following:
   <pre>
-&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;ecimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		...<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>				...<br>		&lt;/decimalFormat&gt;</pre>
+&lt;decimalFormatLength type=&quot;long&quot;&gt;<br>	&lt;ecimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 millier&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 milliers&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 mille&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 million&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 millions&lt;/pattern&gt;<br>		...<br>	&lt;/decimalFormat&gt;<br>&lt;/decimalFormatLength&gt;<br>&lt;decimalFormatLength type=&quot;short&quot;&gt;<br>	&lt;decimalFormat&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;one&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000&quot; count=&quot;other&quot;&gt;0 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;one&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;one&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;100000&quot; count=&quot;other&quot;&gt;000 K&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;one&quot;&gt;0 M&lt;/pattern&gt;<br>		&lt;pattern type=&quot;1000000&quot; count=&quot;other&quot;&gt;0 M&lt;/pattern&gt;<br>								...<br>		&lt;/decimalFormat&gt;</pre>
 <p>To format a number N, the greatest type less than or equal to N is used, with the appropriate  plural category. N is divided by the type, after removing the number of zeros in the pattern, less 1. APIs supporting this format should provide control over the number of significant or fraction digits.</p>
 <p>Thus N=12345 matches <code>&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>. N is divided by 1000 (obtained from10000 after removing &quot;00&quot; and restoring one &quot;0&quot;. The result is formatted according to the normal decimal pattern. With no fractional digits, that yields &quot;12 K&quot;.</p>
 <p>The short format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits). </p>
@@ -3275,31 +3275,30 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<p>This section contains one or more collation elements, distinguished by type. Each collation contains rules that specify a certain sort-order, as a tailoring 
 	of the root order. The root order is based on the UCA default table defined in <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. (For a chart view of the UCA, see
 	Collation Chart [<a href="#UCAChart">UCAChart</a>].) </p>
-  <p><span class="changed">CLDR uses  </span>modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFE and U+FFFF have special tailorings as well:</p>
+  <p>CLDR uses  modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFE and U+FFFF have special tailorings as well:</p>
     <blockquote>
-      <p class="changed"><strong>U+FFFF: </strong>This  code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;, to include all strings starting with &quot;sch&quot; or equivalent.</p>
+      <p><strong>U+FFFF: </strong>This  code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;, to include all strings starting with &quot;sch&quot; or equivalent.</p>
       <!-- 
-      <p class="changed"><strong>U+FFFD: </strong>This  code point is tailored to have a primary weight higher than all other characters except for U+FFFF. This provides a reliable weighting for ill-formed sequences that are handled as U+FFFD, as recommended in UCA.</p> 
+      <p><strong>U+FFFD: </strong>This  code point is tailored to have a primary weight higher than all other characters except for U+FFFF. This provides a reliable weighting for ill-formed sequences that are handled as U+FFFD, as recommended in UCA.</p> 
       -->
-      <p class="changed"><strong>U+FFFE: </strong>This  code point produces a CE with special minimal weights on all levels, regardless of alternate handling. This allows for <a href="http://unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a> within code point space. For example, when sorting names in a database, a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>. These strings would sort properly, without ever comparing the last part of a last name with the first part of another first name.</p>
+      <p><strong>U+FFFE: </strong>This  code point produces a CE with special minimal weights on all levels, regardless of alternate handling. This allows for <a href="http://unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a> within code point space. For example, when sorting names in a database, a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>. These strings would sort properly, without ever comparing the last part of a last name with the first part of another first name.</p>
     </blockquote>
-    <p class="changed">In CLDR, so as to maintain the <em>highest</em> and <em>lowest</em> status,
-      <strong class="changed">U+FFFE..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
+    <p>In CLDR, so as to maintain the <em>highest</em> and <em>lowest</em> status,
+      <strong>U+FFFE..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
   That is, neither can occur in a collation rule: for example, the following rules are illegal:</p>
-    <p class="changed"><code>&amp; \uFFFF &lt; x</code></p>
-    <p><span class="changed"><code>&amp; x &lt;\uFFFF</code></span> <br>
+    <p><code>&amp; \uFFFF &lt; x</code></p>
+    <p><code>&amp; x &lt;\uFFFF</code><br>
     </p>
-    <p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. <span class="changed">For a  description of how inheritance applies to keywords, see <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance 
-	and Validity</a></i>.</span> <span class="removed">For more information, see the release page for <a href="http://cldr.unicode.org/index/downloads">CLDR 1.9</a>.</span></p>
-  <p>Special index markers have been added to the CJK collations for stroke, pinyin, <span class="changed">zhuyin, </span>and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
+    <p>There is also a separate collation  in root that allows access to the original DUCET table order. Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order. For a  description of how inheritance applies to keywords, see <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance 
+	and Validity</a></i>. Special index markers have been added to the CJK collations for stroke, pinyin, zhuyin, and unihan. These markers allow for effective and robust use of indexes for these collations. For example, near the start of the pinyin there is the following:</p>
     <p>&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>
       &lt;pc&gt;阿呵𥥩锕𠼞𨉚&lt;/pc&gt;&lt;!-- ā --&gt;</p>
     <p>…</p>
     <p>&lt;pc&gt;翶&lt;/pc&gt;&lt;!-- ao --&gt;<br>
       &lt;p&gt; B&lt;/p&gt;&lt;!-- INDEX B --&gt;</p>
     <p>These indicate the boundaries of &quot;buckets&quot; that can be used for indexing. They are always two characters starting with U+FDD0, and thus will not occur in normal text.
-    For pinyin the second character is A-Z; for unihan <span class="changed">it is one of</span> the radicals; and for stroke <span class="changed">it is a character</span> after U+2800
-    indicating the number of strokes, such as  ⠁.<span class="changed"> For zhuyin the second character is one of the standard Bopomofo characters in the range U+3105 through U+3129.</span></p>
+    For pinyin the second character is A-Z; for unihan it is one of the radicals; and for stroke it is a character after U+2800
+    indicating the number of strokes, such as  ⠁. For zhuyin the second character is one of the standard Bopomofo characters in the range U+3105 through U+3129.</p>
     <p>To allow implementations in reduced memory environments to use CJK sorting, there are also short forms of each of these collation sequences. These provide for the most common characters in common use, and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
 <p>There are two syntax specifications for specifying collation rules: the <em>basic collation syntax</em> and the <em>XML collation syntax</em>. Both have the same functionality. The LDML files use the XML format, but the basic format is simpler to read, and will often be used in examples. Implementations of LDML, such as [<a href="#ICUCollation">ICUCollation</a>] may choose to use the basic collation syntax as their native syntax.</p>
 <p class="note"><b>Notes:</b></p>
@@ -4371,11 +4370,11 @@ A known limitation of the tailoring is that where the source string is a contrac
   <li>[あいうえお-ぢつ-もやゆよ-ろわ-ゔアイウエオ-ヂツ-モヤユヨ-ロワ-ヴヷ-ヺ 𛀀𛀁]</li>
   <li>[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>
 </ul>
-<h4><a name="Visibility"></a><span class="changed">5.14.14 Visibility</span></h4>
-<p class="dtd"><span class="changed">&lt;!ATTLIST collation visibility ( internal | external ) &quot;external&quot; &gt;</span></p>
-<p><span class="changed">Collators have external visibility by default, meaning that they can be displayed in a list of collation
+<h4><a name="Visibility"></a>5.14.14 Visibility</h4>
+<p class="dtd">&lt;!ATTLIST collation visibility ( internal | external ) &quot;external&quot; &gt;</p>
+<p>Collators have external visibility by default, meaning that they can be displayed in a list of collation
 options for users to choose from. Collators marked as having internal visibility should not be shown in such a list.
-Collators are typically internal when they are partial sequences included in other collators.</span></p>
+Collators are typically internal when they are partial sequences included in other collators.</p>
 <h3>5.15 <a name="Segmentations">Segmentations</a></h3>
 	<p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] 
   notation, but adapted to be machine-readable. It uses a list of variables (representing character classes) and a list of rules. Each must have an id attribute.</p>
@@ -7476,113 +7475,113 @@ range         = value'..'value</pre>
 	<p>Here are the searches for various combinations.</p>
 	<table border="1" cellpadding="0" cellspacing="0">
 		<tr>
-			<td><span class="changed"><strong>User Input</strong></span></td>
-			<td><span class="changed"><strong>Lookup in Locale</strong></span></td>
-			<td><span class="changed"><strong>For</strong></span></td>
-			<td><span class="changed"><strong>Comment</strong></span></td>
+			<td><strong>User Input</strong></td>
+			<td><strong>Lookup in Locale</strong></td>
+			<td><strong>For</strong></td>
+			<td><strong>Comment</strong></td>
 		</tr>
       <tr>
-        <td rowspan="3"><span class="changed">de_CH<br>
-        <em>no keyword</em></span></td>
-  <td><span class="changed">de_CH</span></td>
-  <td><span class="changed">default collation type</span></td>
-  <td><span class="changed">finds &quot;B&quot;</span></td>
+        <td rowspan="3">de_CH<br>
+        <em>no keyword</em></td>
+  <td>de_CH</td>
+  <td>default collation type</td>
+  <td>finds &quot;B&quot;</td>
   </tr>
 <tr>
-			<td><span class="changed">de_CH</span></td>
-			<td><span class="changed">collation type=B</span></td>
-			<td><span class="changed">not found</span></td>
+			<td>de_CH</td>
+			<td>collation type=B</td>
+			<td>not found</td>
 		</tr>
 		<tr>
-			<td><span class="changed">de</span></td>
-			<td><span class="changed">collation type=B</span></td>
-			<td><span class="changed"><em>found</em></span></td>
+			<td>de</td>
+			<td>collation type=B</td>
+			<td><em>found</em></td>
 		</tr>
 		<tr>
-			<td rowspan="4"><span class="changed">de<br>
-	        <em>no keyword</em></span></td>
-			<td><span class="changed">de</span></td>
-			<td><span class="changed">default collation type</span></td>
-			<td><span class="changed">not found</span></td>
+			<td rowspan="4">de<br>
+	        <em>no keyword</em></td>
+			<td>de</td>
+			<td>default collation type</td>
+			<td>not found</td>
 		</tr>
 		<tr>
-			<td><span class="changed">root</span></td>
-			<td><span class="changed">default collation type</span></td>
-			<td><span class="changed">finds &quot;standard&quot;</span></td>
+			<td>root</td>
+			<td>default collation type</td>
+			<td>finds &quot;standard&quot;</td>
 		</tr>
 		<tr>
-			<td><span class="changed">de</span></td>
-			<td><span class="changed">collation type=standard</span></td>
-			<td><span class="changed">not found</span></td>
+			<td>de</td>
+			<td>collation type=standard</td>
+			<td>not found</td>
 		</tr>
 		<tr>
-			<td><span class="changed">root</span></td>
-			<td><span class="changed">collation type=standard</span></td>
-			<td><span class="changed"><i>found</i></span></td>
+			<td>root</td>
+			<td>collation type=standard</td>
+			<td><i>found</i></td>
 		</tr>
 		<tr>
-			<td><span class="changed">de@collation=A</span></td>
-			<td><span class="changed">de</span></td>
-			<td><span class="changed">collation type=A</span></td>
-			<td><span class="changed"><i>found</i></span></td>
+			<td>de@collation=A</td>
+			<td>de</td>
+			<td>collation type=A</td>
+			<td><i>found</i></td>
 		</tr>
 		<tr>
-		  <td rowspan="2"><span class="changed">de@collation=standard</span></td>
-		  <td><span class="changed">de</span></td>
-		  <td><span class="changed">collation type=standard</span></td>
-		  <td><span class="changed">not found</span></td>
+		  <td rowspan="2">de@collation=standard</td>
+		  <td>de</td>
+		  <td>collation type=standard</td>
+		  <td>not found</td>
 	  </tr>
 		<tr>
-		  <td><span class="changed">root</span></td>
-		  <td><span class="changed">collation type=standard</span></td>
-		  <td><span class="changed"><i>found</i></span></td>
+		  <td>root</td>
+		  <td>collation type=standard</td>
+		  <td><i>found</i></td>
 	  </tr>
 		<tr>
-			<td rowspan="6"><span class="changed">de@collation=foobar</span></td>
-			<td><span class="changed">de</span></td>
-			<td><span class="changed">collation type=foobar</span></td>
-			<td><span class="changed">not found</span></td>
+			<td rowspan="6">de@collation=foobar</td>
+			<td>de</td>
+			<td>collation type=foobar</td>
+			<td>not found</td>
 		</tr>
 		<tr>
-		  <td><span class="changed">root</span></td>
-		  <td><span class="changed">collation type=foobar</span></td>
-		  <td><span class="changed">not found, starts looking for default</span></td>
+		  <td>root</td>
+		  <td>collation type=foobar</td>
+		  <td>not found, starts looking for default</td>
 	  </tr>
 		<tr>
-		  <td><span class="changed">de</span></td>
-		  <td><span class="changed">default collation type</span></td>
-		  <td><span class="changed">not found</span></td>
+		  <td>de</td>
+		  <td>default collation type</td>
+		  <td>not found</td>
 	  </tr>
 		<tr>
-		  <td><span class="changed">root</span></td>
-		  <td><span class="changed">default collation type</span></td>
-		  <td><span class="changed">finds &quot;standard&quot;</span></td>
+		  <td>root</td>
+		  <td>default collation type</td>
+		  <td>finds &quot;standard&quot;</td>
 	  </tr>
 		<tr>
-		  <td><span class="changed">de</span></td>
-		  <td><span class="changed">collation type=standard</span></td>
-		  <td><span class="changed">not found</span></td>
+		  <td>de</td>
+		  <td>collation type=standard</td>
+		  <td>not found</td>
 	  </tr>
 		<tr>
-		  <td><span class="changed">root</span></td>
-		  <td><span class="changed">collation type=standard</span></td>
-		  <td><span class="changed"><i>found</i></span></td>
+		  <td>root</td>
+		  <td>collation type=standard</td>
+		  <td><i>found</i></td>
 		</tr>
 		<tr>
-		  <td rowspan="3"><span class="changed">de_DE@collation=ducet</span></td>
-		  <td><span class="changed">de_DE</span></td>
-		  <td><span class="changed">collation type=ducet</span></td>
-		  <td><span class="changed">not found</span></td>
+		  <td rowspan="3">de_DE@collation=ducet</td>
+		  <td>de_DE</td>
+		  <td>collation type=ducet</td>
+		  <td>not found</td>
 	  </tr>
 			<tr>
-			<td><span class="changed">de</span></td>
-			<td><span class="changed">collation type=ducet</span></td>
-			<td><span class="changed">not found</span></td>
+			<td>de</td>
+			<td>collation type=ducet</td>
+			<td>not found</td>
 		</tr>
 		<tr>
-			<td><span class="changed">root</span></td>
-			<td><span class="changed">collation type=ducet</span></td>
-			<td><span class="changed"><i>found</i></span></td>
+			<td>root</td>
+			<td>collation type=ducet</td>
+			<td><i>found</i></td>
 		</tr>
 </table>
 	<blockquote>
@@ -7870,7 +7869,7 @@ range         = value'..'value</pre>
 			</ul>
 			<p><b>Note: </b>The digits in this case are always from the western digits, 0..9.</p>
 		</li>
-		<li class="changed">For the non-location formats (generic or specific):
+		<li>For the non-location formats (generic or specific):
 		<ol>
 		  <li>if there is an explicit translation for the TZID in timeZoneNames according to type (generic, standard, or daylight) in the resolved locale, return it.
 		  <ol>
@@ -7908,7 +7907,7 @@ range         = value'..'value</pre>
 			</ul></li>
 		  </ol></li>
 		</ol></li>
-		<li class="changed">For the generic location format:
+		<li>For the generic location format:
 		<ol>
 		  <li>From &lt;timezoneData&gt; get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone or if the zone id is in the <em>singleCountries</em> list, format the country name with the <em>regionFormat</em>, and return it.
 		  <ul>
@@ -7926,26 +7925,26 @@ range         = value'..'value</pre>
 		</ol></li>
 	</ol>
 	<blockquote>
-	  <p> <span class="changed"><strong>Note:</strong> If a language does require grammatical changes when composing strings, then the <em>regionFormat</em> should either use a neutral format such as &quot;Heure: {0}&quot;, or put all exceptional cases in explicitly translated strings. </span></p>
+	  <p> <strong>Note:</strong> If a language does require grammatical changes when composing strings, then the <em>regionFormat</em> should either use a neutral format such as &quot;Heure: {0}&quot;, or put all exceptional cases in explicitly translated strings.</p>
   </blockquote>
-	<p class="changed"><strong>Type Fallback</strong></p>
-	<p class="changed">When a specified type (generic, standard, daylight) does not exist:</p>
+	<p><strong>Type Fallback</strong></p>
+	<p>When a specified type (generic, standard, daylight) does not exist:</p>
 	<ol>
-	  <li class="changed">If the daylight type does not exist, then the metazone doesn&rsquo;t require daylight support. For all three types:
+	  <li>If the daylight type does not exist, then the metazone doesn&rsquo;t require daylight support. For all three types:
 	  <ol>
 	    <li>If the generic type exists, use it.</li>
 	    <li>Otherwise if the standard type exists, use it.</li>
       </ol></li>
-	  <li class="changed">Otherwise if the generic type is needed, but not available, and the offset and daylight offset do not change within 184 day +/- interval around the exact formatted time, use the standard type.
+	  <li>Otherwise if the generic type is needed, but not available, and the offset and daylight offset do not change within 184 day +/- interval around the exact formatted time, use the standard type.
 	  <ol>
 	    <li>Example: "Mountain Standard Time" for Phoenix</li>
 	    <li>Note: 184 is the smallest number that is at least 6 months AND the smallest number that is more than 1/2 year (Gregorian).</li>
       </ol></li>
 	</ol>
-	<p class="changed"><strong>Composition</strong></p>
-	<p class="changed">In composing the metazone + city or metazone + country:</p>
+	<p><strong>Composition</strong></p>
+	<p>In composing the metazone + city or metazone + country:</p>
 	<ol>
-	  <li class="changed">Use the fallbackFormat, where:
+	  <li>Use the fallbackFormat, where:
 	  <ul>
 	    <li>{1} will be the metazone</li>
 	    <li>{0} will be a qualifier (city or country)</li>
@@ -7956,16 +7955,16 @@ range         = value'..'value</pre>
 	      <li>→ Pacific Time (Phoenix)</li>
         </ul></li>
       </ul></li>
-	  <li class="changed">If the localized country name is not available, use the code:
+	  <li>If the localized country name is not available, use the code:
 	  <ul>
 	    <li>CU (country code)→ "CU" <em>// no localized country name for Cuba</em></li>
       </ul></li>
-	  <li class="changed">If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.
+	  <li>If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.
 	  <ul>
 	    <li>America/Los_Angeles → "Los Angeles" <em>// no localized exemplar city</em></li>
       </ul></li>
 	</ol>
-  <p class="changed"><b>Note: </b>As with the <em>regionFormat</em>, exceptional cases need to be explicitly translated. </p>
+  <p><b>Note: </b>As with the <em>regionFormat</em>, exceptional cases need to be explicitly translated. </p>
 <h3 style="background-color: rgb(255, 255, 255);">
 <font color="#000000"><i><b>Parsing</b></i></font></h3>
 	<p>In parsing, an implementation will be able to either determine the zone id, or a simple offset from GMT for anything formatting according to the above process.</p>
@@ -10143,17 +10142,19 @@ decimal?, group?, special*)) &gt;</pre>
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
 	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>
 
-  <h3 class="changed">Revision 28</h3>
+  <h3>Revision 29</h3>
     <ul>
-    <li class="changed">Updated for Version 22.1.</li>
-    <li class="changed">Clarified the mechanism for producing timezone display names, removing fallbackRegionFormat.</li>
-    <li class="changed">Clarified the use and meaning of the index characters.</li>
-    <li class="changed">Revised the table for collation keyword lookup in Section I.5 Keyword and Default Resolution</li>
-    <li class="changed">In <em>Section 5.14, <a href="#Collation_Elements">Collation Elements</a>,</em> added information on
+    <li>Updated for Version 22.1.</li>
+    <li>Clarified the mechanism for producing timezone display names, removing fallbackRegionFormat.</li>
+    <li>Clarified the use and meaning of the index characters.</li>
+    <li>Revised the table for collation keyword lookup in Section I.5 Keyword and Default Resolution</li>
+    <li>In <em>Section 5.14, <a href="#Collation_Elements">Collation Elements</a>,</em> added information on
     zhuyin collation index markers. [ticket <a href="http://unicode.org/cldr/trac/ticket/5320">#5320</a>]</li>
-    <li class="changed">Clarify that text in a dateTimePattern other than {0}{1} is treated as part of a date pattern.
+    <li>Clarify that text in a dateTimePattern other than {0}{1} is treated as part of a date pattern.
     [ticket <a href="http://unicode.org/cldr/trac/ticket/5398">#5398</a>]</li>
 	</ul>
+	<p>Revision 28 being a proposed update, only changes between revisions 27 and 29 are summarized here.</p>
+
   
   <h3>Revision 27</h3>
   <ul>

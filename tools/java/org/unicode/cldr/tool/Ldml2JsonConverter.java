@@ -34,7 +34,7 @@ public class Ldml2JsonConverter {
         "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
             "This program converts CLDR data to the JSON format.\n" +
             "Please refer to the following options. \n" +
-        "\texample: org.unicode.cldr.tool.Ldml2JsonConverter -c xxx -d yyy <locale_regex>")
+        "\texample: org.unicode.cldr.tool.Ldml2JsonConverter -c xxx -d yyy")
     .add("commondir", ".*", CldrUtility.COMMON_DIRECTORY, "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
     .add("destdir", ".*", CldrUtility.GEN_DIRECTORY, "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
     .add("resolved", 'r', "(true|false)", "false", "Whether the output JSON for the main directory should be based on resolved or unresolved data")

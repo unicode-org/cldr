@@ -52,12 +52,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-10-29</span></td>
+			<td><span class="changed">2012-11-07</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-30.html" class="changed">http://unicode.org/reports/tr35/tr35-30.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-30/tr35.html" class="changed">http://unicode.org/reports/tr35/tr35-30/tr35.html</a></td>
 		</tr>
 		<tr>
 			<td>Previous Version</td>
@@ -86,7 +86,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Revision</td>
-			<td><a href="#Modifications">30</a></td>
+			<td><a class="changed" href="#Modifications">30</a></td>
 		</tr>
 	</table>
 	<h3><i>Summary</i></h3>
@@ -123,11 +123,11 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   This is intended to make it easier to read about each topic’s relevant parts of the specification.</p>
   <ul class="toc changed">
     <li>Part 1: Core specification (this document)</li>
-    <li>Part 2: <a href="tr35-general.html">General</a> (display names &amp; transforms, etc.)</li>
-    <li>Part 3: <a href="tr35-numbers.html">Numbers</a> (number &amp; currency formatting)</li>
-    <li>Part 4: <a href="tr35-dates.html">Dates</a> (date, time, time zone formatting)</li>
+    <li>Part 2: (TBD: &lt;a href="tr35-general.html">General&lt;/a> (display names &amp; transforms, etc.)</li>
+    <li>Part 3: (TBD: &lt;a href="tr35-numbers.html">Numbers&lt;/a> (number &amp; currency formatting)</li>
+    <li>Part 4: (TBD: &lt;a href="tr35-dates.html">Dates&lt;/a> (date, time, time zone formatting)</li>
     <li>Part 5: <a href="tr35-collation.html">Collation</a> (sorting, searching, grouping)</li>
-    <li>Part 6: <a href="tr35-info.html">Information</a> (supplemental data)</li>
+    <li>Part 6: (TBD: &lt;a href="tr35-info.html">Information&lt;/a> (supplemental data)</li>
   </ul>
 
 <h2><a name="Contents"><span class="changed">Core:</span> Contents</a></h2>
@@ -259,7 +259,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		<li><a href="#Acknowledgments">Acknowledgments</a></li>
 		<li><a href="#Modifications">Modifications</a></li>
 	</ul>
-<h2>1. <a name="Introduction">Introduction</a></h2>
+<h2>1 <a name="Introduction">Introduction</a></h2>
 	<p>Not long ago, computer systems were like separate worlds, isolated from one another. The internet and related events have changed all that. A single system 
 	can be built of many different components, hardware and software, all needing to work together. Many different technologies have been important in bridging 
 	the gaps; in the internationalization arena, Unicode has provided a lingua franca for communicating textual data. 
@@ -332,7 +332,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
       subtag values as given in Unicode Technical Standard #35: Unicode Locale Data Markup Language (LDML), 
       excluding grouping codes.</i></p>
     </blockquote>
-	<h2>2. <a name="Locale">What is a Locale?</a></h2>
+	<h2>2 <a name="Locale">What is a Locale?</a></h2>
 	<p>Before diving into the XML structure, it is helpful to describe the model behind the structure. People do not have to subscribe to this model to use data 
 	in LDML, but they do need to understand it so that the data can be correctly translated into whatever model their implementation uses.</p>
 	<p>The first issue is basic: <i>what is a locale?</i> In this model, a locale is an identifier (id) that refers to a set of user preferences that tend to be 
@@ -358,7 +358,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	<p>We will speak of data as being &quot;in locale X&quot;. That does not imply that a locale <i>is</i> a collection of data; it is simply shorthand for &quot;the set of data 
 	associated with the locale id X&quot;. Each individual piece of data is called a <i>resource </i>or <i>field</i>, and a tag indicating the key of the resource is 
 	called a <i>resource tag.</i></p>
-	<h2><a name="Identifiers"></a>3.
+<h2><a name="Identifiers"></a>3
     <a name="Unicode_Language_and_Locale_Identifiers">
     Unicode Language and Locale Identifiers</a></h2>
 	<p>Unicode LDML uses stable identifiers based on [<a href="#BCP47">BCP47</a>] for distinguishing among languages, locales, regions, currencies, time 
@@ -1210,13 +1210,13 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 	<p>For more information about the key/type definitions and their old code mappings,
 	see Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
 
-	<h2>4. <a name="Locale_Inheritance">Locale Inheritance</a></h2>
+	<h2>4 <a name="Locale_Inheritance">Locale Inheritance</a></h2>
 	<p>The XML format relies on an inheritance model, whereby the resources are collected into <i>bundles</i>, and the bundles organized into a tree. Data for the 
 	many Spanish locales does not need to be duplicated across all of the countries having Spanish as a national language. Instead, common data is collected in 
 	the Spanish language locale, and territory locales only need to supply differences. The parent of all of the language locales is a generic locale known as
 	<i>root</i>. Wherever possible, the resources in the root are language &amp; territory neutral.
 	For example, the collation (sorting) order in the root is based on the 
-	<span class="changed"><a href="#DUCET">DUCET</a></span> (see<em><a href="tr35-collation.html#Root_Collation">Root Collation</a></em>).
+	<span class="changed">[<a href="#DUCET">DUCET</a>]</span> (see<em><a href="tr35-collation.html#Root_Collation">Root Collation</a></em>).
 	Since English language collation has the same ordering <span class="changed">as the root locale</span>,
 	the &#39;en&#39; locale data does not need 
 	to supply any collation data, nor does either the &#39;en_US&#39; or the &#39;en_IE&#39; locale data.</p>
@@ -8833,6 +8833,11 @@ decimal?, group?, special*)) &gt;</pre>
 			</a><i>For answers to common questions on technical issues.</i></td>
 		</tr>
 		<tr>
+			<td class="noborder" width="148">[<a name="FCD">FCD</a>]</td>
+			<td class="noborder" width="730">As defined in UTN #5 Canonical Equivalences in Applications<br>
+			<a href="http://unicode.org/notes/tn5/">http://unicode.org/notes/tn5/</a></td>
+		</tr>
+		<tr>
 			<td class="noborder" width="148">[<a name="Glossary">Glossary</a>]</td>
 			<td class="noborder" width="730">Unicode Glossary<a href="http://unicode.org/glossary/"><br>
 			http://unicode.org/glossary/<br>
@@ -8989,6 +8994,11 @@ decimal?, group?, special*)) &gt;</pre>
 			<a href="http://unicode.org/cldr/dtd/1.1/ldml-example.xml">http://unicode.org/cldr/dtd/1.1/ldml-example.xml</a></td>
 		</tr>
 		<tr>
+			<td class="noborder" width="148">[<a name="ICUCollation">ICUCollation</a>]</td>
+			<td class="noborder" width="730">ICU rule syntax<br>
+			<a href="http://www.icu-project.org/userguide/Collate_Customization.html">http://www.icu-project.org/userguide/Collate_Customization.html</a></td>
+		</tr>
+		<tr>
 			<td class="noborder" width="148">[<a name="ICUTransforms">ICUTransforms</a>]</td>
 			<td class="noborder" width="730">Transforms<br>
 			<a href="http://www.icu-project.org/userguide/Transformations.html">http://www.icu-project.org/userguide/Transformations.html</a><br>
@@ -9003,9 +9013,14 @@ decimal?, group?, special*)) &gt;</pre>
 			<a href="http://www.icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html">http://www.icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html</a></td>
 		</tr>
 		<tr>
-			<th class="noborder" width="148">[<a name="ITUE164">ITUE164</a>]</th>
+			<td class="noborder" width="148">[<a name="ITUE164">ITUE164</a>]</th>
 			<td class="noborder" width="730">International Telecommunication Union: List Of ITU Recommendation E.164 Assigned Country Codes<br>
 			available at <a href="http://www.itu.int/opb/publications.aspx?parent=T-SP&amp;view=T-SP2">http://www.itu.int/opb/publications.aspx?parent=T-SP&amp;view=T-SP2</a></td>
+		</tr>
+		<tr>
+			<td class="noborder" width="148">[<a name="LocaleExplorer">LocaleExplorer</a>]</td>
+			<td class="noborder" width="730">ICU Locale Explorer<br>
+			<a href="http://demo.icu-project.org/icu-bin/locexp">http://demo.icu-project.org/icu-bin/locexp</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="localeProject">LocaleProject</a>]</td>
@@ -9031,6 +9046,11 @@ decimal?, group?, special*)) &gt;</pre>
 			<td class="noborder" width="148">[<a name="RFC5234">RFC5234</a>]</td>
 			<td class="noborder" width="730">RFC5234 Augmented BNF for Syntax Specifications: ABNF<br>
 			<a href="http://www.ietf.org/rfc/rfc5234.txt">http://www.ietf.org/rfc/rfc5234.txt</a></td>
+		</tr>
+		<tr>
+			<td class="noborder" width="148">[<a name="UCAChart">UCAChart</a>]</td>
+			<td class="noborder" width="730">Collation Chart<a href="http://unicode.org/charts/collation/"><br>
+			http://unicode.org/charts/collation/</a></td>
 		</tr>
 		<tr>
 			<td class="noborder" width="148">[<a name="UTCInfo">UTCInfo</a>]</td>

@@ -53,12 +53,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-11-03</span></td>
+			<td><span class="changed">2012-11-07</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-30.html" class="changed">http://unicode.org/reports/tr35/tr35-30.html</a></td>
+			<a href="http://unicode.org/reports/tr35/tr35-30/tr35.html" class="changed">http://unicode.org/reports/tr35/tr35-30/tr35.html</a></td>
 		</tr>
 		<tr>
 			<td>Previous Version</td>
@@ -87,7 +87,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Revision</td>
-			<td><a href="tr35.html#Modifications">30</a></td>
+			<td><a class="changed" href="tr35.html#Modifications">30</a></td>
 		</tr>
 	</table>
 	<h3><i>Summary</i></h3>
@@ -118,16 +118,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	<blockquote>
 		<p><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</i></p>
 	</blockquote>
-	<p><i>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="#Bugs">Bugs</a>]. Related information that is useful in understanding 
-	this document is found in the <a href="#References">References</a>. For the latest version of the Unicode Standard see [<a href="#Unicode">Unicode</a>]. For 
-	a list of current Unicode Technical Reports see [<a href="#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="#Versions">Versions</a>]. 
+	<p><i>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding 
+	this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For 
+	a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>]. 
 	</i></p>
-
-  <p class="reviewnote">TODO: How should the parts of the LDML spec be versioned when posted on unicode.org?
-  If we version each file (tr35-30.html &amp; tr35-30-collation.html) then we have to
-  modify every link in each of the part files.<br>
-  Markus proposes instead that we use versioned <i>folders</i> (tr35-30/tr35.html &amp; tr35-30/tr35-collation.html)
-  so that cross-links stay the same between the "head" version and the versioned, published files.</p>
 
 <h2><a name="Contents"><span class="changed">Collation:</span> Contents</a></h2>
 	<ul class="toc">
@@ -149,11 +143,11 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
                     <li>3.12 <a href="#Script_Reordering">Collation Reordering</a></li>
                     <li>3.13 <a href="#Case_Parameters">Case Parameters</a></li>
                     <li>3.14 <a href="#Visibility">Visibility</a></li>
-                    <li class="changed">3.15 <a href="#Collation_Indexes">Collation Indexes</a></li>
+                    <li>3.15 <a href="#Collation_Indexes">Collation Indexes</a></li>
                   </ul>
                 </li>
 	</ul>
-<h2>1. <a name="CLDR_Collation">CLDR Collation</a></h2>
+<h2>1 <a name="CLDR_Collation">CLDR Collation</a></h2>
   <p class="changed">Collation is the general term for the process and function of
   determining the sorting order of strings of characters,
   for example for lists of strings presented to users,
@@ -169,11 +163,11 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   with common modifications applied in the CLDR root collation,
   and further tailored for language and style as needed.</p>
 
-<h2>2. <a name="Root_Collation">Root Collation</a></h2>
+<h2>2 <a name="Root_Collation">Root Collation</a></h2>
   <p class="reviewnote">TODO: Merge CollationAuxiliary.html into this section and clean up.</p>
   <p>The <span class="changed">CLDR</span> root <span class="changed">collation</span> order
   is based on the UCA default table defined in <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
-  (For a chart view of the UCA, see Collation Chart [<a href="#UCAChart">UCAChart</a>].)</p>
+  (For a chart view of the UCA, see Collation Chart [<a href="tr35.html#UCAChart">UCAChart</a>].)</p>
   <p>CLDR uses  modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFE and U+FFFF have special tailorings as well:</p>
     <blockquote>
       <p><strong>U+FFFF: </strong>This  code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;, to include all strings starting with &quot;sch&quot; or equivalent.</p>
@@ -188,7 +182,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <p><code>&amp; \uFFFF &lt; x</code></p>
     <p><code>&amp; x &lt;\uFFFF</code><br>
     </p>
-    <p>There is also a separate collation in root that allows access to the original <a href="#DUCET">DUCET</a> table order.
+    <p>There is also a separate collation in root that allows access to the original [<a href="tr35.html#DUCET">DUCET</a>] table order.
     Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order.
     For a  description of how inheritance applies to keywords, see
     <i><a href="tr35.html#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></i>.</p>
@@ -213,10 +207,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   the <em>basic collation syntax</em> and the <em>XML collation syntax</em>.
   Both have the same functionality.
   The LDML files use the XML format, but the basic format is simpler to read, and will often be used in examples.
-  Implementations of LDML, such as [<a href="#ICUCollation">ICUCollation</a>], may choose to use the basic collation syntax as their native syntax.</p>
+  Implementations of LDML, such as [<a href="tr35.html#ICUCollation">ICUCollation</a>], may choose to use the basic collation syntax as their native syntax.</p>
   <p class="note"><b>Note:</b></p>
 	<ul>
-	  <li class="note">There is an on-line demonstration of collation at [<a href="#LocaleExplorer">LocaleExplorer</a>] that uses the basic syntax. (Pick the locale and scroll 
+	  <li class="note">There is an on-line demonstration of collation at [<a href="tr35.html#LocaleExplorer">LocaleExplorer</a>] that uses the basic syntax. (Pick the locale and scroll 
 	    to &quot;Collation Rules&quot;, near the end.)</li>
   </ul>
 <h3>3.1 <a name="Collation_Version">Version</a></h3>
@@ -330,7 +324,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <br>
 [normalization off]			</code></td>
 			<td rowspan="2">If <strong>on</strong>, then the normal [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm is used.
-			If <strong>off</strong>, then all strings that are in [<a href="#FCD">FCD</a>] will sort correctly, but 
+			If <strong>off</strong>, then all strings that are in [<a href="tr35.html#FCD">FCD</a>] will sort correctly, but 
 			others will not necessarily sort correctly. So should only be set <strong>off</strong> if the the strings to be compared are in FCD. <em>Note that the default for CLDR locales may be different than  in the UCA. The rules for particular locales have it set to <strong>on</strong>: those locales whose exemplar characters (in forms commonly interchanged) would be affected by normalization.</em></td>
 		</tr>
 		<tr>
@@ -1288,8 +1282,6 @@ options for users to choose from. Collators marked as having internal visibility
 Collators are typically internal when they are partial sequences included in other collators.</p>
 
 <h3>3.15 <a name="Collation_Indexes"></a>Collation Indexes</h3>
-        <p class="reviewnote">TODO: Markus moved the following text about collation indexes into
-        its own section, from the introductory part about tailorings.</p>
         <p class="reviewnote">TODO: Add text about index characters in general, and/or point to
         the part of the spec that describes them.</p>
 
@@ -1304,104 +1296,6 @@ Collators are typically internal when they are partial sequences included in oth
     indicating the number of strokes, such as  ⠁. For zhuyin the second character is one of the standard Bopomofo characters in the range U+3105 through U+3129.</p>
 
 <hr>
-        <h2><a name="References">References</a></h2>
-        <table cellpadding="4" cellspacing="0" class="noborder" border="0">
-                <tr>
-                        <th class="noborder" width="148">Ancillary Information</th>
-                        <td class="noborder" width="730"><i>To properly <span class="changed">collate</span> requires ancillary information
-                        which is not expressed in Locale Data Markup Language.
-                        The sources <span class="changed">for external specifications</span> include the following:<br>
-&nbsp;</i></td>
-                </tr>
-                <tr>
-                        <td width="148">[<a name="Bugs">Bugs</a>]</td>
-                        <td width="730">CLDR Bug Reporting form<br>
-                        <a href="http://cldr.unicode.org/index/bug-reports">
-                        http://cldr.unicode.org/index/bug-reports</a></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="Charts">Charts</a>]</td>
-                        <td class="noborder" width="730">The online code charts can be found at <a href="http://unicode.org/charts/">http://unicode.org/charts/</a> An index 
-                        to character names with links to the corresponding chart is found at <a href="http://unicode.org/charts/charindex.html">http://unicode.org/charts/charindex.html</a></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="DUCET">DUCET</a>]</td>
-                        <td class="noborder" width="730">The Default Unicode Collation Element Table (DUCET)<br>
-                        For the base-level collation, of which all the collation tables in this document are tailorings.<br>
-                        <a href="http://unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">http://unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table</a></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="FAQ">FAQ</a>]</td>
-                        <td class="noborder" valign="top" width="730">Unicode Frequently Asked Questions<br>
-                        <a href="http://unicode.org/faq/">http://unicode.org/faq/<br>
-                        </a><i>For answers to common questions on technical issues.</i></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="FCD">FCD</a>]</td>
-                        <td class="noborder" width="730">As defined in UTN #5 Canonical Equivalences in Applications<br>
-                        <a href="http://unicode.org/notes/tn5/">http://unicode.org/notes/tn5/</a></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="Glossary">Glossary</a>]</td>
-                        <td class="noborder" width="730">Unicode Glossary<a href="http://unicode.org/glossary/"><br>
-                        http://unicode.org/glossary/<br>
-                        </a><i>For explanations of terminology used in this and other documents.</i></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="Reports">Reports</a>]</td>
-                        <td class="noborder" width="730">Unicode Technical Reports<br>
-                        <a href="http://unicode.org/reports/">http://unicode.org/reports/<br>
-                        </a><i>For information on the status and development process for technical reports, and for a list of technical reports.</i></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="Unicode">Unicode</a>]</td>
-                        <td class="noborder" width="730">
-                                The Unicode Consortium. The Unicode Standard, Version 6.2.0, 
-                                (Mountain View, CA: The Unicode Consortium, 2012. ISBN 978-1-936213-07-8)<br>
-                                <a href="http://www.unicode.org/versions/Unicode6.2.0/">http://www.unicode.org/versions/Unicode6.2.0/</a></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="Versions">Versions</a>]</td>
-                        <td class="noborder" width="730">Versions 
-                        of the Unicode Standard<br>
-                        <a href="http://www.unicode.org/versions/">
-                        http://www.unicode.org/versions/</a><br>
-                        <i>For information on version numbering, and citing and referencing 
-                        the Unicode Standard, the Unicode Character Database, and Unicode 
-                        Technical Reports.</i> </td>
-                </tr>
-                <tr>
-                        <th class="noborder" width="148">Other Standards</th>
-                        <td class="noborder" width="730"><i>Various standards define codes that are used as keys or values in Locale Data Markup Language. These include:</i></td>
-                </tr>
-                <tr>
-                  <td class="noborder">[<a name="BCP47">BCP47</a>]</th>
-                  <td class="noborder"><a href="http://www.rfc-editor.org/rfc/bcp/bcp47.txt"> http://www.rfc-editor.org/rfc/bcp/bcp47.txt</a>
-                    <p>The Registry<br>
-                      <a href="http://www.iana.org/assignments/language-subtag-registry">http://www.iana.org/assignments/language-subtag-registry</a></p></td>
-                </tr>
-                <tr>
-                        <th class="noborder" width="148">General</th>
-                        <td class="noborder" width="730"><i>The following are general references from the text:</i></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="ICUCollation">ICUCollation</a>]</td>
-                        <td class="noborder" width="730">ICU rule syntax<br>
-                        <a href="http://www.icu-project.org/userguide/Collate_Customization.html">http://www.icu-project.org/userguide/Collate_Customization.html</a></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="LocaleExplorer">LocaleExplorer</a>]</td>
-                        <td class="noborder" width="730">ICU Locale Explorer<br>
-                        <a href="http://demo.icu-project.org/icu-bin/locexp">http://demo.icu-project.org/icu-bin/locexp</a></td>
-                </tr>
-                <tr>
-                        <td class="noborder" width="148">[<a name="UCAChart">UCAChart</a>]</td>
-                        <td class="noborder" width="730">Collation Chart<a href="http://unicode.org/charts/collation/"><br>
-                        http://unicode.org/charts/collation/</a></td>
-                </tr>
-        </table>
-
-<hr>
 	<p class="copyright">Copyright © 2001-2012 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and 
 	assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use 
 	of the information or programs contained or accompanying this technical report. The Unicode <a href="http://unicode.org/copyright.html">Terms of Use</a> apply.</p>
@@ -1411,4 +1305,3 @@ Collators are typically internal when they are partial sequences included in oth
 </body>
 
 </html>
-

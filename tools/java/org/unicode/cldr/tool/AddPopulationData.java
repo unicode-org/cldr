@@ -84,7 +84,6 @@ public class AddPopulationData {
         }
         Set<String> altNames = new TreeSet<String>();
         String oldCode = "";
-        int alt = 0;
         for (String display : CountryCodeConverter.names()) {
             String code = CountryCodeConverter.getCodeFromName(display);
             String icu = ULocale.getDisplayCountry("und-" + code, "en");
@@ -99,7 +98,6 @@ public class AddPopulationData {
                 String code = pieces[0];
                 if (code.equals("ZZ")) continue;
                 if (!code.equals(oldCode)) {
-                    alt = 0;
                     oldCode = code;
                     System.out.println();
                 }
@@ -122,19 +120,19 @@ public class AddPopulationData {
     public static Double getLiteracy(String country) {
         return firstNonZero(factbook_literacy.getCount(country),
             un_literacy.getCount(country),
-            other.literacy.getCount(country));
+            CountryData.literacy.getCount(country));
     }
 
     public static Double getGdp(String country) {
         return firstNonZero(factbook_gdp.getCount(country),
             worldbank_gdp.getCount(country),
-            other.gdp.getCount(country));
+            CountryData.gdp.getCount(country));
     }
 
     public static Double getPopulation(String country) {
         return firstNonZero(factbook_population.getCount(country),
             worldbank_population.getCount(country),
-            other.population.getCount(country));
+            CountryData.population.getCount(country));
     }
 
     private static Double firstNonZero(Double... items) {
@@ -243,21 +241,21 @@ public class AddPopulationData {
                         myPop = getPopulation(code);
                         throw new IllegalArgumentException("Zero population");
                     }
-                    countryData.gdp.add(code, otherGdp * myPop / otherPop);
+                    CountryData.gdp.add(code, otherGdp * myPop / otherPop);
                 } else {
-                    countryData.gdp.add(code, dollars.parse(data).doubleValue());
+                    CountryData.gdp.add(code, dollars.parse(data).doubleValue());
                 }
             } else if (typeString.equals("population")) {
                 if (StandardCodes.isCountry(data)) {
                     throw new IllegalArgumentException("Population can't use other country's");
                 }
-                countryData.population.add(code, number.parse(data).doubleValue());
+                CountryData.population.add(code, number.parse(data).doubleValue());
             } else if (typeString.equals("literacy")) {
                 if (StandardCodes.isCountry(data)) {
                     Double otherPop = getLiteracy(data);
-                    countryData.literacy.add(code, otherPop);
+                    CountryData.literacy.add(code, otherPop);
                 } else {
-                    countryData.literacy.add(code, number.parse(data).doubleValue());
+                    CountryData.literacy.add(code, number.parse(data).doubleValue());
                 }
             } else {
                 throw new IllegalArgumentException("Illegal type");
@@ -417,7 +415,7 @@ public class AddPopulationData {
             StandardCodes sc = StandardCodes.make();
             StringBuilder myErrors = new StringBuilder();
             for (String territory : sc.getGoodAvailableCodes("territory")) {
-                if (!sc.isCountry(territory)) {
+                if (!StandardCodes.isCountry(territory)) {
                     continue;
                 }
                 double gdp = getGdp(territory);

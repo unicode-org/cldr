@@ -108,7 +108,7 @@ public class LenientDateParser {
 
         public void parse(String text, Calendar cal, ParsePosition parsePosition) {
             calendar = cal;
-            parse(new CharUtilities.CharSourceWrapper(text), parsePosition);
+            parse(new CharUtilities.CharSourceWrapper<CharSequence>(text), parsePosition);
         }
 
         private boolean addSeparator(StringBuilder separatorBuffer) {

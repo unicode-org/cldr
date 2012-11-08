@@ -19,7 +19,6 @@ public class RadicalStroke {
     private static Pattern RAD_STROKE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kRSUnicode\\s+(.*)");
     private static Pattern RAD_DATA = Pattern.compile("([0-9]{1,3}\\'?)\\.([0-9]{1,2})\\s*");
 
-    private static Pattern TOTAL_STROKE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kTotalStrokes\\s+(.*)");
     private static Pattern IICORE = Pattern.compile("U\\+([A-Z0-9]+)\\s+kIICore\\s+(.*)");
 
     public static RadicalStroke SINGLETON = new RadicalStroke();
@@ -27,9 +26,9 @@ public class RadicalStroke {
     Map<Integer, Map<String, Map<Integer, UnicodeSet>>> radStrokesToRadToRemainingStrokes;
     UnicodeSet remainder;
     UnicodeSet iiCoreSet = new UnicodeSet();
-    UnicodeMap<Integer> charToTotalStrokes = new UnicodeMap();
-    UnicodeMap<Integer> charToRemainingStrokes = new UnicodeMap();
-    UnicodeMap<Integer> charToRadical = new UnicodeMap();
+    UnicodeMap<Integer> charToTotalStrokes = new UnicodeMap<Integer>();
+    UnicodeMap<Integer> charToRemainingStrokes = new UnicodeMap<Integer>();
+    UnicodeMap<Integer> charToRadical = new UnicodeMap<Integer>();
 
     private RadicalStroke() {
         try {
@@ -44,7 +43,6 @@ public class RadicalStroke {
             remainder = ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(GeneratePickerData.SKIP);
             String dataDir = CldrUtility.UCD_DIRECTORY + "/Unihan/";
 
-            String unihanFile = GeneratePickerData.unicodeDataDirectory + "Unihan.txt";
             BufferedReader in = new BufferedReader(
                 new FileReader(
                     Subheader.getFileNameFromPattern(
@@ -142,13 +140,13 @@ public class RadicalStroke {
         uset2.add(cp);
     }
 
-    static Comparator RadicalStrokeComparator = new Comparator() {
+    static Comparator<CharSequence> RadicalStrokeComparator = new Comparator<CharSequence>() {
         CodePoints cps1 = new CodePoints("");
         CodePoints cps2 = new CodePoints("");
 
-        public int compare(Object o1, Object o2) {
-            cps1.reset((CharSequence) o1);
-            cps2.reset((CharSequence) o2);
+        public int compare(CharSequence o1, CharSequence o2) {
+            cps1.reset(o1);
+            cps2.reset(o2);
             boolean n1 = cps1.next();
             boolean n2 = cps2.next();
             // shorter strings are less

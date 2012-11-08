@@ -204,7 +204,7 @@ public class TestCldr extends TestFmwk {
 
         String name;
 
-        List currentLocales = new ArrayList();
+        List<ULocale> currentLocales = new ArrayList<ULocale>();
 
         int failures = 0;
 
@@ -223,7 +223,7 @@ public class TestCldr extends TestFmwk {
             ULocale ul = new ULocale("xx");
             try {
                 for (int i = 0; i < currentLocales.size(); ++i) {
-                    ul = (ULocale) currentLocales.get(i);
+                    ul = currentLocales.get(i);
                     // loglnSAX("  Checking " + ul + "(" + ul.getDisplayName(ULocale.ENGLISH) + ")" + " for " + name);
                     handleResult(ul, value);
                     if (failures != 0) {

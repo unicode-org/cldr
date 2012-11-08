@@ -101,9 +101,9 @@ class GeneratePickerData {
         UCA_BASE.setNumericCollation(true);
     }
 
-    public static final Comparator CODE_POINT_ORDER = new UTF16.StringComparator(true, false, 0);
+    public static final Comparator<String> CODE_POINT_ORDER = new UTF16.StringComparator(true, false, 0);
 
-    static Comparator UCA = new MultilevelComparator(UCA_BASE, CODE_POINT_ORDER);
+    static Comparator<String> UCA = new MultilevelComparator(UCA_BASE, CODE_POINT_ORDER);
 
     static Comparator<String> buttonComparator = new MultilevelComparator(
         // new UnicodeSetInclusionFirst(ScriptCategories.parseUnicodeSet("[:ascii:]")),

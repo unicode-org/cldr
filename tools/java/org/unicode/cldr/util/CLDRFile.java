@@ -38,6 +38,7 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.With.SimpleIterator;
+import org.unicode.cldr.util.XPathParts.Comments;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
@@ -535,7 +536,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return this;
     }
 
-    public CLDRFile addComment(String xpath, String comment, int type) {
+    public CLDRFile addComment(String xpath, String comment, Comments.CommentType type) {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         // System.out.println("Adding comment: <" + xpath + "> '" + comment + "'");
         Log.logln(LOG_PROGRESS, "ADDING Comment: \t" + type + "\t" + xpath + " \t" + comment);
@@ -1018,12 +1019,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return dataSource.iterator(pathFilter);
     }
 
-    public Iterator<String> iterator(String prefix, Comparator comparator) {
-        Iterator it = (prefix == null || prefix.length() == 0)
+    public Iterator<String> iterator(String prefix, Comparator<String> comparator) {
+        Iterator<String> it = (prefix == null || prefix.length() == 0)
             ? dataSource.iterator()
             : dataSource.iterator(prefix);
         if (comparator == null) return it;
-        Set orderedSet = new TreeSet(comparator);
+        Set<String> orderedSet = new TreeSet<String>(comparator);
         CollectionUtilities.addAll(it, orderedSet);
         return orderedSet.iterator();
     }
@@ -1448,7 +1449,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 }
             }
             if (comment != null) {
-                target.addComment(currentFullXPath, comment, XPathParts.Comments.PREBLOCK);
+                target.addComment(currentFullXPath, comment, XPathParts.Comments.CommentType.PREBLOCK);
                 comment = null;
             }
             justPopped = false;
@@ -1518,9 +1519,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     }
                 }
                 if (acceptItem) {
-                    if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
-                        System.out.println(currentFullXPath);
-                    }
+//                    if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
+//                        System.out.println(currentFullXPath);
+//                    }
                     String former = target.getStringValue(currentFullXPath);
                     if (former != null) {
                         String formerPath = target.getFullXPath(currentFullXPath);
@@ -1538,7 +1539,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     + lastActiveLeafNode);
                 lastActiveLeafNode = null;
                 if (comment != null) {
-                    target.addComment(lastLeafNode, comment, XPathParts.Comments.POSTBLOCK);
+                    target.addComment(lastLeafNode, comment, XPathParts.Comments.CommentType.POSTBLOCK);
                     comment = null;
                 }
             }
@@ -1689,7 +1690,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 if (commentStack != 0) return;
                 String comment0 = trimWhitespaceSpecial(string).trim();
                 if (lastActiveLeafNode != null) {
-                    target.addComment(lastActiveLeafNode, comment0, XPathParts.Comments.LINE);
+                    target.addComment(lastActiveLeafNode, comment0, XPathParts.Comments.CommentType.LINE);
                 } else {
                     comment = (comment == null ? comment0 : comment + XPathParts.NEWLINE + comment0);
                 }
@@ -1723,7 +1724,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         public void endDocument() throws SAXException {
             Log.logln(LOG_PROGRESS, "endDocument");
             try {
-                if (comment != null) target.addComment(null, comment, XPathParts.Comments.LINE);
+                if (comment != null) target.addComment(null, comment, XPathParts.Comments.CommentType.LINE);
             } catch (RuntimeException e) {
                 e.printStackTrace();
                 throw e;
@@ -2128,7 +2129,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * 
      * @return ordered collection with items.
      */
-    public static Collection getValueOrder() {
+    public static Collection<String> getValueOrder() {
         return valueOrdering.getOrder(); // already unmodifiable
     }
 
@@ -2411,16 +2412,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public static Map getDefaultSuppressionMap() {
         return defaultSuppressionMap;
-    }
-
-    private static boolean matches(Map map, Object[] items, boolean doStar) {
-        for (int i = 0; i < items.length - 2; ++i) {
-            Map tempMap = (Map) map.get(items[i]);
-            if (doStar && map == null) map = (Map) map.get("*");
-            if (map == null) return false;
-            map = tempMap;
-        }
-        return map.get(items[items.length - 2]) == items[items.length - 1];
     }
 
     private static Map asMap(String[][] data, boolean tree) {
@@ -2829,7 +2820,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @author markdavis
      * 
      */
-    static class WinningComparator implements Comparator {
+    static class WinningComparator implements Comparator<String> {
         String user;
 
         public WinningComparator(String user) {
@@ -2841,9 +2832,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          * at
          * the number of votes next, and whither there was an approved or provisional path.
          */
-        public int compare(Object oo1, Object oo2) {
-            String o1 = (String) oo1;
-            String o2 = (String) oo2;
+        public int compare(String o1, String o2) {
             if (o1.contains(user)) {
                 if (!o2.contains(user)) {
                     return -1; // if it contains user

@@ -30,33 +30,33 @@ class Subheader {
     Matcher isArchaic = GeneratePickerData.IS_ARCHAIC.matcher("");
     Matcher subheadMatcher = Pattern.compile("(@+)\\s+(.*)").matcher("");
     Matcher hexMatcher = Pattern.compile("([A-Z0-9]+).*").matcher("");
-    Map<Integer, String> codePoint2Subblock = new HashMap();
-    Map<String, UnicodeSet> subblock2UnicodeSet = new TreeMap();
-    Map<String, Set<String>> block2subblock = new TreeMap();
-    Map<String, Set<String>> subblock2block = new TreeMap();
+    Map<Integer, String> codePoint2Subblock = new HashMap<Integer, String>();
+    Map<String, UnicodeSet> subblock2UnicodeSet = new TreeMap<String, UnicodeSet>();
+    Map<String, Set<String>> block2subblock = new TreeMap<String, Set<String>>();
+    Map<String, Set<String>> subblock2block = new TreeMap<String, Set<String>>();
 
     Subheader(String unicodeDataDirectory, String outputDirectory) throws IOException {
         UnicodeSet archaicSubblock = new UnicodeSet();
 
         getDataFromFile(unicodeDataDirectory, "NamesList.*\\.txt");
 
-        if (false) {
-            if (GeneratePickerData.DEBUG)
-                System.out.println("*** Fixing plurals");
-            for (java.util.Iterator<String> it = subblock2UnicodeSet.keySet().iterator(); it.hasNext();) {
-                String subblock = it.next();
-                final String pluralSubblock = subblock + "s";
-                UnicodeSet plural = subblock2UnicodeSet.get(pluralSubblock);
-                if (plural != null) {
-                    if (GeneratePickerData.DEBUG)
-                        System.out.println(subblock + " => " + pluralSubblock);
-                    UnicodeSet singular = subblock2UnicodeSet.get(subblock);
-                    plural.addAll(singular);
-                    it.remove();
-                }
-            }
-            if (GeneratePickerData.DEBUG) System.out.println("*** Done Fixing plurals");
-        }
+//        if (false) {
+//            if (GeneratePickerData.DEBUG)
+//                System.out.println("*** Fixing plurals");
+//            for (java.util.Iterator<String> it = subblock2UnicodeSet.keySet().iterator(); it.hasNext();) {
+//                String subblock = it.next();
+//                final String pluralSubblock = subblock + "s";
+//                UnicodeSet plural = subblock2UnicodeSet.get(pluralSubblock);
+//                if (plural != null) {
+//                    if (GeneratePickerData.DEBUG)
+//                        System.out.println(subblock + " => " + pluralSubblock);
+//                    UnicodeSet singular = subblock2UnicodeSet.get(subblock);
+//                    plural.addAll(singular);
+//                    it.remove();
+//                }
+//            }
+//            if (GeneratePickerData.DEBUG) System.out.println("*** Done Fixing plurals");
+//        }
 
         for (String subblock : subblock2UnicodeSet.keySet()) {
             final UnicodeSet uset = subblock2UnicodeSet.get(subblock);

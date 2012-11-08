@@ -57,7 +57,7 @@ public class TestMisc {
     static class Lists {
         public static <E extends Comparable> List<E> sortedCopy(Collection<E> iterable)
         {
-            List<E> list = new ArrayList();
+            List<E> list = new ArrayList<E>();
             list.addAll(iterable);
             Collections.sort(list);
             return list;

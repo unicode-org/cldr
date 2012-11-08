@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeSet;
@@ -25,9 +26,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 public class IdnaFrequency {
-    private static final Charset UTF8 = Charset.forName("utf-8");
     private static final Charset LATIN1 = Charset.forName("8859-1");
-    private static final boolean DEBUG = true;
 
     /**
      * cm000162 3 481 31032 6 22 \xc5\xa2\xc4\x98\xc4\x82M\xc4\x8c\xc5\x96@\xc5\xb9\xc5\xb8.yoll.net 278 41991 0 29
@@ -67,14 +66,13 @@ public class IdnaFrequency {
 
     static Counter<Integer> getData(boolean writeOut) throws IOException {
         BufferedReader in = BagFormatter.openUTF8Reader("", CldrUtility.getProperty("idnaFrequency"));
-        PrintWriter out = !writeOut ? null : BagFormatter.openUTF8Writer("/Users/markdavis/Desktop/Google/",
-            "idn41-data.txt");
+        PrintWriter out = !writeOut ? null : BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "idn41-data.txt");
         if (writeOut) {
             out.write((char) 0xFEFF);
         }
-        Mapper<Language> languageMapper = new Mapper<Language>(Language.values());
-        Mapper<Encoding> encodingMapper = new Mapper<Encoding>(Encoding.values());
-        Counter<Integer> charTotal = new Counter();
+//        Mapper<Language> languageMapper = new Mapper<Language>(Language.values());
+//        Mapper<Encoding> encodingMapper = new Mapper<Encoding>(Encoding.values());
+        Counter<Integer> charTotal = new Counter<Integer>();
 
         for (int counter = 0;; ++counter) {
             String line = in.readLine();
@@ -83,17 +81,15 @@ public class IdnaFrequency {
             }
             try {
                 String[] parts = line.split("\t");
-                boolean child = parts[0].charAt(0) == 'c';
-                boolean mapped = parts[0].charAt(0) == 'm';
                 int cp = Integer.parseInt(parts[0].substring(2), 16);
                 long count = Long.parseLong(parts[1]);
                 charTotal.add(cp, count);
                 if (!testchars.contains(cp)) continue;
-                Language lang = languageMapper.fromOrdinal(Integer.parseInt(parts[4]));
-                Encoding encoding = encodingMapper.fromOrdinal(Integer.parseInt(parts[5]));
-                String url1 = unescape(parts[6], Encoding.UTF8);
+//                Language lang = languageMapper.fromOrdinal(Integer.parseInt(parts[4]));
+//                Encoding encoding = encodingMapper.fromOrdinal(Integer.parseInt(parts[5]));
+//                String url1 = unescape(parts[6], Encoding.UTF8);
                 String url2 = unescape(parts[11], Encoding.UTF8);
-                String url3 = unescape(parts[16], Encoding.UTF8);
+//                String url3 = unescape(parts[16], Encoding.UTF8);
                 if (writeOut) {
                     out.println(counter + "\t" + getCodeAndName(cp) + "\t" + count + "\t" + url2);
                 }
@@ -110,7 +106,7 @@ public class IdnaFrequency {
 
     private static void showCharsets() {
         SortedMap<String, Charset> charsets = Charset.availableCharsets();
-        HashMap<Charset, Set<String>> charset2strings = new HashMap();
+        Map<Charset, Set<String>> charset2strings = new HashMap<Charset, Set<String>>();
         for (String charsetname : charsets.keySet()) {
             Charset charset = charsets.get(charsetname);
             Set<String> set = charset2strings.get(charset);
@@ -416,7 +412,7 @@ public class IdnaFrequency {
         }
     }
 
-    static class Mapper<T extends Enum> {
+    static class Mapper<T extends Enum<Language>> {
         T[] items;
 
         public Mapper(T[] languages) {

@@ -164,7 +164,7 @@ public abstract class Dictionary<T> {
          * @return
          */
         public Matcher<T> setText(CharSequence text) {
-            this.text = new CharUtilities.CharSourceWrapper(text);
+            this.text = new CharUtilities.CharSourceWrapper<CharSequence>(text);
             return setOffset(0);
         }
 

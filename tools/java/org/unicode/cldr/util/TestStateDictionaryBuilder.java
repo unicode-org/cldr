@@ -102,7 +102,7 @@ public class TestStateDictionaryBuilder<T> {
 
         for (Filter filter : Filter.values()) {
             final String string = "many manners ma";
-            tryFind(string, new CharSourceWrapper(string), stateDictionary, filter);
+            tryFind(string, new CharSourceWrapper<CharSequence>(string), stateDictionary, filter);
         }
 
         showWords("ma");
@@ -281,7 +281,7 @@ public class TestStateDictionaryBuilder<T> {
             if ((++count & 0xFF) == 0xFF) {
                 System.out.println(count + ":\t" + myText);
             }
-            crossCheck(new CharSourceWrapper(myText));
+            crossCheck(new CharSourceWrapper<CharSequence>(myText));
             crossCheck("!" + myText);
             crossCheck(myText + "!");
         }
@@ -303,7 +303,7 @@ public class TestStateDictionaryBuilder<T> {
     }
 
     private void crossCheck(CharSequence myText) {
-        crossCheck(new CharSourceWrapper(myText));
+        crossCheck(new CharSourceWrapper<CharSequence>(myText));
     }
 
     private void crossCheck(CharSource myText) {

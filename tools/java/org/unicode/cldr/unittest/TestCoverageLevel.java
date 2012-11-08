@@ -12,18 +12,20 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.RegexLookup.Finder;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -33,7 +35,6 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.Transform;
@@ -44,45 +45,44 @@ public class TestCoverageLevel extends TestFmwk {
     private static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) throws IOException {
-        new TestCoverageLevel().getStarred("en", true);
-        if (true) return;
-        new TestCoverageLevel().getOrgs();
-        new TestCoverageLevel().run(args);
+        TestCoverageLevel.getStarred("en", true);
+        // new TestCoverageLevel().getOrgs();
+        // new TestCoverageLevel().run(args);
     }
 
-    private void getOrgs() {
-        StandardCodes sc = StandardCodes.make();
-        Set<R4<String, Level, String, String>> sorted = new TreeSet<R4<String, Level, String, String>>();
-        Map<String, String> mapped = new TreeMap();
-        for (String org : sc.getLocaleCoverageOrganizations()) {
-            for (String locale : sc.getLocaleCoverageLocales(org)) {
-                Level level = sc.getLocaleCoverageLevel(org, locale);
-                final String name = testInfo.getEnglish().getName(locale);
-                final R4<String, Level, String, String> row = Row.of(org, level, locale, name);
-                mapped.put(name, locale);
-                sorted.add(row);
-            }
-        }
-        for (R4<String, Level, String, String> item : sorted) {
-            System.out.println(item);
-        }
-
-        for (String org : sc.getLocaleCoverageOrganizations()) {
-            System.out.print("\t" + org);
-        }
-        System.out.println();
-
-        for (Entry<String, String> entry : mapped.entrySet()) {
-            String name = entry.getKey();
-            String locale = entry.getValue();
-            System.out.print(name);
-            for (String org : sc.getLocaleCoverageOrganizations()) {
-                Level level = sc.getLocaleCoverageLevel(org, locale);
-                System.out.print("\t" + (level == Level.UNDETERMINED ? "n/a" : level));
-            }
-            System.out.println();
-        }
-    }
+//    private void getOrgs() {
+//        StandardCodes sc = StandardCodes.make();
+//        Set<R4<String, Level, String, String>> sorted = new TreeSet<R4<String, Level, String, String>>();
+//        Map<String, String> mapped = new TreeMap<String, String>();
+//        for (String org : sc.getLocaleCoverageOrganizations()) {
+//            for (String locale : sc.getLocaleCoverageLocales(org)) {
+//                Level level = sc.getLocaleCoverageLevel(org, locale);
+//                final String name = testInfo.getEnglish().getName(locale);
+//                final R4<String, Level, String, String> row = Row.of(org, level, locale, name);
+//                mapped.put(name, locale);
+//                sorted.add(row);
+//            }
+//        }
+//        for (R4<String, Level, String, String> item : sorted) {
+//            System.out.println(item);
+//        }
+//
+//        for (String org : sc.getLocaleCoverageOrganizations()) {
+//            System.out.print("\t" + org);
+//        }
+//        System.out.println();
+//
+//        for (Entry<String, String> entry : mapped.entrySet()) {
+//            String name = entry.getKey();
+//            String locale = entry.getValue();
+//            System.out.print(name);
+//            for (String org : sc.getLocaleCoverageOrganizations()) {
+//                Level level = sc.getLocaleCoverageLevel(org, locale);
+//                System.out.print("\t" + (level == Level.UNDETERMINED ? "n/a" : level));
+//            }
+//            System.out.println();
+//        }
+//    }
 
     public void TestNewVsOld() {
         checkNewVsOld("en");
@@ -91,8 +91,8 @@ public class TestCoverageLevel extends TestFmwk {
     private void checkNewVsOld(String locale) {
         CoverageLevel coverageLevel1 = new CoverageLevel(testInfo.getCldrFactory());
 
-        Map options = new TreeMap();
-        List possibleErrors = new ArrayList();
+        Map<String, String> options = new TreeMap<String, String>();
+        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
         ULocale ulocale = new ULocale(locale);
 
         CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
@@ -181,9 +181,8 @@ public class TestCoverageLevel extends TestFmwk {
     }
 
     private static void getStarred(String locale, boolean longForm) {
-        ULocale ulocale = new ULocale(locale);
-        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(locale);
-
+        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(
+            SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
         CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
 
         Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
@@ -192,16 +191,14 @@ public class TestCoverageLevel extends TestFmwk {
                                                                                                     // Set<Relation<String,String>>>(),
                                                                                                     // HashSet.class);
 
-        int count = 0;
         PathStarrer pathStarrer = new PathStarrer();
         Status status = new Status();
 
         for (String path : cldrFileToCheck) {
-            ++count;
             if (path.contains("/alias")) {
                 continue;
             }
-            String localeFound = cldrFileToCheck.getSourceLocaleID(path, status);
+            cldrFileToCheck.getSourceLocaleID(path, status);
             if (status.pathWhereFound != path) {
                 continue;
             }
@@ -263,12 +260,12 @@ public class TestCoverageLevel extends TestFmwk {
 
     static Relation<String, LanguageStatus> languageStatus = Relation.of(new HashMap<String, Set<LanguageStatus>>(),
         TreeSet.class);
-    static Counter2<String> languageLiteratePopulation = new Counter2();
-    static Map<String, Date> currencyToLast = new HashMap();
-    static Set<String> officialSomewhere = new HashSet();
+    static Counter2<String> languageLiteratePopulation = new Counter2<String>();
+    static Map<String, Date> currencyToLast = new HashMap<String, Date>();
+    static Set<String> officialSomewhere = new HashSet<String>();
 
     static {
-        Counter2<String> territoryLiteratePopulation = new Counter2();
+        Counter2<String> territoryLiteratePopulation = new Counter2<String>();
         LanguageTagParser parser = new LanguageTagParser();
         // cf http://cldr.unicode.org/development/development-process/design-proposals/languages-to-show-for-translation
         for (String language : testInfo.getSupplementalDataInfo().getLanguagesForTerritoriesPopulationData()) {
@@ -389,8 +386,8 @@ public class TestCoverageLevel extends TestFmwk {
     }
 
     private void checkTime(String locale) {
-        Map options = new TreeMap();
-        List possibleErrors = new ArrayList();
+        Map<String, String> options = new TreeMap<String, String>();
+        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
         ULocale ulocale = new ULocale(locale);
 
         CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
@@ -403,7 +400,7 @@ public class TestCoverageLevel extends TestFmwk {
             if (fullPath == null) {
                 continue;
             }
-            Level level = coverageLevel1.getCoverageLevel(fullPath);
+            coverageLevel1.getCoverageLevel(fullPath);
         }
         long oldTime = t.getDuration();
         logln("Old time:\t" + t.toString());
@@ -415,7 +412,7 @@ public class TestCoverageLevel extends TestFmwk {
             if (fullPath == null) {
                 continue;
             }
-            int newLevel = testInfo.getSupplementalDataInfo().getCoverageValue(path, ulocale);
+            testInfo.getSupplementalDataInfo().getCoverageValue(path, ulocale);
         }
         double newTime = t.getDuration();
         if (newTime > 2 * oldTime) {

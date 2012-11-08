@@ -37,7 +37,7 @@ public class JsonConverter {
     private static final String MAIN_DIRECTORY = CldrUtility.MAIN_DIRECTORY;// CldrUtility.SUPPLEMENTAL_DIRECTORY;
                                                                             // //CldrUtility.MAIN_DIRECTORY;
     private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/jason/"; // CldrUtility.MAIN_DIRECTORY;
-    private static final boolean COMPACT = false;
+    private static boolean COMPACT = false;
     static final Set<String> REPLACING_BASE = !COMPACT ? Collections.EMPTY_SET : new HashSet<String>(
         Arrays.asList("type id key count".split("\\s")));
     static final Set<String> EXTRA_DISTINGUISHING = new HashSet<String>(

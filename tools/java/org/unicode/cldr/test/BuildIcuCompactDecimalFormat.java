@@ -14,12 +14,14 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.util.ULocale;
 
 public class BuildIcuCompactDecimalFormat {
+    private static boolean DEBUG = false;
     static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
 
     public enum CurrencyStyle {
@@ -35,13 +37,13 @@ public class BuildIcuCompactDecimalFormat {
     public static final CompactDecimalFormat build(CLDRFile resolvedCldrFile,
         Set<String> debugCreationErrors, String[] debugOriginals,
         Style style, ULocale locale, CurrencyStyle currencyStyle) {
-        Map<String, String[]> prefixes = new HashMap();
-        Map<String, String[]> suffixes = new HashMap();
+        Map<String, String[]> prefixes = new HashMap<String, String[]>();
+        Map<String, String[]> suffixes = new HashMap<String, String[]>();
         // String[] prefix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         // String[] suffix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         long[] divisor = new long[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         // get the pattern details from the locale
-        PluralInfo pluralInfo = sdi.getPlurals(locale.toString());
+        PluralInfo pluralInfo = sdi.getPlurals(PluralType.cardinal, locale.toString());
 
         // fix low numbers
         for (String key : pluralInfo.getCanonicalKeywords()) {
@@ -149,7 +151,7 @@ public class BuildIcuCompactDecimalFormat {
         // currencyAffixes[CompactDecimalFormat.POSITIVE_PREFIX] = matcher.group(1);
         // currencyAffixes[CompactDecimalFormat.POSITIVE_SUFFIX] = matcher.group(2);
         //
-        if (false) {
+        if (DEBUG) {
             for (Entry<String, String[]> keyList : suffixes.entrySet()) {
                 System.out.println("*\t" + keyList.getKey() + "\t" + Arrays.asList(keyList.getValue()));
             }

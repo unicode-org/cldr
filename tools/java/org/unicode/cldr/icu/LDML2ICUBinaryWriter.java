@@ -745,8 +745,7 @@ public class LDML2ICUBinaryWriter
          * copyright plus null terminator. Subject to change.
          */
         headSize += info.size + BYTES_TAKEN_BY_HEADER_SIZE + BYTES_TAKEN_BY_MAGIC1 + BYTES_TAKEN_BY_MAGIC2;
-        if (copyright != null && INCLUDE_COPYRIGHT)
-        {
+        if (copyright != null && INCLUDE_COPYRIGHT) {
             headSize += copyright.length() + 1;
         }
         if ((pad = pad16Bytes(headSize)) != 0)

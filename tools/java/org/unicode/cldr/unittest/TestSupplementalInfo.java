@@ -72,8 +72,8 @@ public class TestSupplementalInfo extends TestFmwk {
                 }
             }
 
-            Set<R3<String, List<String>, List<String>>> failures = new TreeSet();
-            Set<String> nullReplacements = new TreeSet();
+            Set<R3<String, List<String>, List<String>>> failures = new TreeSet<R3<String, List<String>, List<String>>>();
+            Set<String> nullReplacements = new TreeSet<String>();
             for (Entry<String, R2<List<String>, String>> codeRep : codeReplacement.entrySet()) {
                 String code = codeRep.getKey();
                 List<String> replacements = codeRep.getValue().get0();
@@ -81,7 +81,7 @@ public class TestSupplementalInfo extends TestFmwk {
                     nullReplacements.add(code);
                     continue;
                 }
-                Set<String> fixedReplacements = new LinkedHashSet();
+                Set<String> fixedReplacements = new LinkedHashSet<String>();
                 for (String replacement : replacements) {
                     R2<List<String>, String> newReplacement = codeReplacement.get(replacement);
                     if (newReplacement != null) {
@@ -93,7 +93,7 @@ public class TestSupplementalInfo extends TestFmwk {
                         fixedReplacements.add(replacement);
                     }
                 }
-                List<String> fixedList = new ArrayList(fixedReplacements);
+                List<String> fixedList = new ArrayList<String>(fixedReplacements);
                 if (!replacements.equals(fixedList)) {
                     R3<String, List<String>, List<String>> row = Row.of(code, replacements, fixedList);
                     failures.add(row);

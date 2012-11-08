@@ -209,8 +209,8 @@ public class TestCheckCLDR extends TestFmwk {
 
     public void checkLocale(CheckCLDR test, CLDRFile nativeFile, String dummyValue, Set<String> unique) {
         String localeID = nativeFile.getLocaleID();
-        List<CheckStatus> possibleErrors = new ArrayList();
-        Map<String, String> options = new HashMap();
+        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
+        Map<String, String> options = new HashMap<String, String>();
         test.setCldrFileToCheck(nativeFile, options, possibleErrors);
         List<CheckStatus> result = new ArrayList<CheckStatus>();
 

@@ -261,7 +261,7 @@ public class TestBasic extends TestFmwk {
             .add("([^]])/", "$1\t/")
             .add("/", "\t");
         CoverageLevel coverageLevel = new CoverageLevel(cldrFactory);
-        List<CheckStatus> possibleErrors = new ArrayList();
+        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
         Map options = new HashMap();
 
         for (String locale : cldrFactory.getAvailable()) {

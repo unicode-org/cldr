@@ -58,7 +58,7 @@ public class TestMetadata extends TestFmwk {
         modifiedDtdOrder.addAll(order.getCommonAttributes());
 
         // now make a list for comparison
-        List<String> dtdAttributeOrder = new ArrayList(modifiedDtdOrder);
+        List<String> dtdAttributeOrder = new ArrayList<String>(modifiedDtdOrder);
 
         // fix to and from
         dtdAttributeOrder.remove("from");
@@ -77,7 +77,7 @@ public class TestMetadata extends TestFmwk {
                 + secondTitle + ": " + dtdAttributeOrder + CldrUtility.LINE_SEPARATOR
                 + "to fix, replace in " + firstTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t"
                 + CldrUtility.join(dtdAttributeOrder, " "));
-            Differ differ = new Differ(200, 1);
+            Differ<String> differ = new Differ<String>(200, 1);
             Iterator<String> oldIt = cldrFileOrder.iterator();
             Iterator<String> newIt = dtdAttributeOrder.iterator();
             while (oldIt.hasNext() || newIt.hasNext()) {

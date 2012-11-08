@@ -224,7 +224,7 @@ public class GenerateNormalizeForMatch {
         }
 
         int counter = 0;
-        for (Comparable[] items : ordered) {
+        for (Comparable<?>[] items : ordered) {
             counter++;
             if (counter > limit) {
                 break;
@@ -251,9 +251,9 @@ public class GenerateNormalizeForMatch {
         }
     }
 
-    static Comparator<Comparable[]> DOUBLE_STRING_COMP = new Comparator<Comparable[]>() {
+    static Comparator<Comparable<Object>[]> DOUBLE_STRING_COMP = new Comparator<Comparable<Object>[]>() {
         // only handle the case where the lengths are equal
-        public int compare(Comparable[] o1, Comparable[] o2) {
+        public int compare(Comparable<Object>[] o1, Comparable<Object>[] o2) {
             for (int i = 0; i < o1.length; ++i) {
                 int result = o1[i].compareTo(o2[i]);
                 if (result != 0) {
@@ -288,7 +288,6 @@ public class GenerateNormalizeForMatch {
 
         loadMappings(specialMappingsFile, SPECIAL_MAPPINGS, true);
 
-        int linecount = 0;
         UnicodeMap mappings = new UnicodeMap();
         for (UnicodeSetIterator it = new UnicodeSetIterator(ASSIGNED); it.next();) {
             if (LIST_STYLE == ListStyle.ONLY_OLD && !U50.contains(it.codepoint)) {
@@ -323,7 +322,6 @@ public class GenerateNormalizeForMatch {
         // print them
         for (UnicodeSetIterator it = new UnicodeSetIterator(mappings.keySet()); it.next();) {
             writeMapping(out, it.getString(), (String) mappings.getValue(it.codepoint));
-            linecount++;
         }
         out.close();
 
@@ -563,7 +561,6 @@ public class GenerateNormalizeForMatch {
      */
     private static void addMappings(UnicodeSet source, String target, UnicodeSet targetFilter,
         UnicodeMap resultMappings, boolean printWriter) {
-        String oldTarget = target;
         // remap options
 
         if (target.equalsIgnoreCase("delete")) {
@@ -583,7 +580,6 @@ public class GenerateNormalizeForMatch {
 
         // show a sample of what changed
         // and absorb new mappings, where they make a difference
-        int count = 0;
         UnicodeSet affected = new UnicodeSet(source).retainAll(ASSIGNED);
         UnicodeMap deltaMappings = new UnicodeMap();
         UnicodeSet done = new UnicodeSet();
@@ -605,7 +601,6 @@ public class GenerateNormalizeForMatch {
             }
             deltaMappings.put(it.codepoint, willGet);
             done.add(it.codepoint);
-            count++;
 
             // // show what we are doing
             //

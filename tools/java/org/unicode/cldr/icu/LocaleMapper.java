@@ -80,7 +80,6 @@ public class LocaleMapper extends LdmlMapper {
          * //ldml/dates/calendars/calendar[@type="([^"]*)"]/(dateFormats|dateTimeFormats|timeFormats)/(?:[^/\[]*)[@type=
          * "([^"]*)"]/(?:[^/\[]*)[@type="([^"]*)"]/.* ; locales ; /calendar/$1/DateTimePatterns
          */
-        @SuppressWarnings("unchecked")
         @Override
         public int compare(String arg0, String arg1) {
             Matcher[] matchers = new Matcher[2];

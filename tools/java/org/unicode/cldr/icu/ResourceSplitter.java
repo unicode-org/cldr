@@ -95,7 +95,6 @@ public class ResourceSplitter {
 
         File baseDir = new File(baseDirPath);
 
-        int resultLength = 0;
         for (SplitInfo si : splitInfos) {
             String dirPath = si.targetDirPath;
             if (!targetDirs.containsKey(dirPath)) {

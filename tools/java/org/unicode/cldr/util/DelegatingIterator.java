@@ -13,7 +13,6 @@ public class DelegatingIterator<T> implements Iterator<T> {
     }
 
     public boolean hasNext() {
-        // TODO Auto-generated method stub
         while (item < iterators.length) {
             boolean result = iterators[item].hasNext();
             if (result) {
@@ -40,12 +39,10 @@ public class DelegatingIterator<T> implements Iterator<T> {
     }
 
     public static <T> Iterable<T> iterable(Iterable<T>... s) {
-        // TODO Auto-generated method stub
         return new MyIterable<T>(s);
     }
 
     public static <T> T[] array(T... s) {
-        // TODO Auto-generated method stub
         return s;
     }
 

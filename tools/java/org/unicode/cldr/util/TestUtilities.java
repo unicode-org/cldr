@@ -63,9 +63,6 @@ public class TestUtilities {
     };
 
     String s;
-    {
-        UTF16.StringComparator x = null;
-    }
 
     public static void main(String[] args) throws Exception {
         try {
@@ -132,9 +129,8 @@ public class TestUtilities {
         CLDRFile english = mainCldrFactory.make("en", true);
         System.out.println("Creating Example Generator");
         ExampleGenerator englishExampleGenerator = new ExampleGenerator(english, english,
-            CldrUtility.SUPPLEMENTAL_DIRECTORY);
+            CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         // invoke once
-        String foo = englishExampleGenerator.getHelpHtml("", null);
         System.out.println("Processing paths");
         StringBuilder result = new StringBuilder();
         Relation<String, String> message_paths = new Relation(new TreeMap(), TreeSet.class);
@@ -174,11 +170,11 @@ public class TestUtilities {
     private static void checkNumericTimezone() throws IOException {
         String[] map_integer_zones = new String[1000];
         StandardCodes sc = StandardCodes.make();
-        Set timezones = new TreeSet(sc.getGoodAvailableCodes("tzid"));
-        Map map_timezone_integer = new java.util.TreeMap();
+        Set<String> timezones = new TreeSet<String>(sc.getGoodAvailableCodes("tzid"));
+        Map<String, Integer> map_timezone_integer = new TreeMap<String, Integer>();
         BufferedReader input = CldrUtility.getUTF8Data("timezone_numeric.txt");
         int maxNumeric = -1;
-        Map fixOld = sc.getZoneLinkold_new();
+        Map fixOld = sc.zoneParser.getZoneLinkold_new();
         while (true) {
             String line = input.readLine();
             if (line == null)
@@ -214,11 +210,11 @@ public class TestUtilities {
         RuleBasedCollator eng = (RuleBasedCollator) Collator.getInstance();
         eng.setNumericCollation(true);
 
-        Set extra = new TreeSet(eng);
+        Set<String> extra = new TreeSet<String>(eng);
         extra.addAll(map_timezone_integer.keySet());
         extra.removeAll(timezones);
         System.out.println("Extra: " + extra);
-        Set needed = new TreeSet(eng);
+        Set<String> needed = new TreeSet<String>(eng);
         needed.addAll(timezones);
         needed.removeAll(map_timezone_integer.keySet());
         System.out.println("Needed: " + needed);
@@ -226,14 +222,13 @@ public class TestUtilities {
         // fill in the slots with the missing items
         // make Etc/GMT go first
         int numeric = 1;
-        List ordered = new ArrayList(needed);
+        List<String> ordered = new ArrayList<String>(needed);
         // if (ordered.contains("Etc/GMT")) {
         // ordered.remove("Etc/GMT");
         // ordered.add(0,"Etc/GMT");
         // }
 
-        for (Iterator it = ordered.iterator(); it.hasNext();) {
-            String tzid = (String) it.next();
+        for (String tzid : ordered) {
             while (map_integer_zones[numeric] != null)
                 ++numeric; // find first free one
             if (maxNumeric < numeric)
@@ -243,42 +238,20 @@ public class TestUtilities {
         }
 
         // print it out
-        Map equiv = sc.getZoneLinkNew_OldSet();
-        TreeSet old = new TreeSet();
+        Map<String, Set<String>> equiv = sc.zoneParser.getZoneLinkNew_OldSet();
+        Set<String> old = new TreeSet<String>();
         for (int i = 1; i <= maxNumeric; ++i) {
-            Set s = (Set) equiv.get(map_integer_zones[i]);
-            String oString = "";
+            Set<String> s = equiv.get(map_integer_zones[i]);
             if (s != null) {
                 old.clear();
                 old.addAll(s);
-                oString = "\t" + old;
             }
-            // System.out.println(i + ";\t" + map_integer_zones[i] + ";" + oString);
             System.out.println("\t\"" + map_integer_zones[i] + "\",");
         }
     }
 
     private static void checkTranslit() {
 
-        Set unicodeProps = new HashSet(Arrays.asList(new String[] { "Numeric_Value", "Bidi_Mirroring_Glyph",
-            "Case_Folding", "Decomposition_Mapping", "FC_NFKC_Closure", "Lowercase_Mapping",
-            "Special_Case_Condition", "Simple_Case_Folding", "Simple_Lowercase_Mapping", "Simple_Titlecase_Mapping",
-            "Simple_Uppercase_Mapping", "Titlecase_Mapping", "Uppercase_Mapping", "ISO_Comment",
-            "Name", "Unicode_1_Name", "Unicode_Radical_Stroke", "Age", "Block", "Script", "Bidi_Class",
-            "Canonical_Combining_Class", "Decomposition_Type", "East_Asian_Width", "General_Category",
-            "Grapheme_Cluster_Break", "Hangul_Syllable_Type", "Joining_Group", "Joining_Type", "Line_Break",
-            "NFC_Quick_Check", "NFD_Quick_Check", "NFKC_Quick_Check", "NFKD_Quick_Check", "Numeric_Type",
-            "Sentence_Break", "Word_Break", "ASCII_Hex_Digit", "Alphabetic", "Bidi_Control", "Bidi_Mirrored",
-            "Composition_Exclusion", "Full_Composition_Exclusion", "Dash", "Deprecated",
-            "Default_Ignorable_Code_Point", "Diacritic", "Extender", "Grapheme_Base", "Grapheme_Extend",
-            "Grapheme_Link", "Hex_Digit", "Hyphen", "ID_Continue", "Ideographic", "ID_Start",
-            "IDS_Binary_Operator", "IDS_Trinary_Operator", "Join_Control", "Logical_Order_Exception", "Lowercase",
-            "Math", "Noncharacter_Code_Point", "Other_Alphabetic",
-            "Other_Default_Ignorable_Code_Point", "Other_Grapheme_Extend", "Other_ID_Continue", "Other_ID_Start",
-            "Other_Lowercase", "Other_Math", "Other_Uppercase", "Pattern_Syntax",
-            "Pattern_White_Space", "Quotation_Mark", "Radical", "Soft_Dotted", "STerm", "Terminal_Punctuation",
-            "Unified_Ideograph", "Uppercase", "Variation_Selector", "space", "XID_Continue",
-            "XID_Start", "Expands_On_NFC", "Expands_On_NFD", "Expands_On_NFKC", "Expands_On_NFKD" }));
         for (int i = 0; i < 0xFFFF; ++i) {
             checkTranslit(UTF16.valueOf(i));
         }
@@ -506,8 +479,8 @@ public class TestUtilities {
         StringBuffer result = new StringBuffer();
         b.setText(text);
         b.first();
-        for (int nextBreak = b.next(); nextBreak != b.DONE; nextBreak = b.next()) {
-            int status = b.getRuleStatus();
+        for (int nextBreak = b.next(); nextBreak != BreakIterator.DONE; nextBreak = b.next()) {
+            b.getRuleStatus();
             String piece = text.substring(lastBreak, nextBreak);
             piece = toHTML.transliterate(piece);
             piece = piece.replaceAll("&#xA;", "<br>");

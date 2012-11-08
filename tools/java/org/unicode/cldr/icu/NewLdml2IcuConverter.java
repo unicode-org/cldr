@@ -274,14 +274,14 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
      * @param mapper
      * @param aliasList
      */
-    private void writeAliasedFiles(LocaleMapper mapper, List<Alias> aliasList) {
-        for (Alias alias : aliasList) {
-            IcuData icuData = mapper.fillFromCldr(alias);
-            if (icuData != null) {
-                writeIcuData(icuData, destinationDir);
-            }
-        }
-    }
+//    private void writeAliasedFiles(LocaleMapper mapper, List<Alias> aliasList) {
+//        for (Alias alias : aliasList) {
+//            IcuData icuData = mapper.fillFromCldr(alias);
+//            if (icuData != null) {
+//                writeIcuData(icuData, destinationDir);
+//            }
+//        }
+//    }
 
     /**
      * In this prototype, just convert one file.

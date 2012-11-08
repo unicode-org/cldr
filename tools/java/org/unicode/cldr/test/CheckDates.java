@@ -790,11 +790,11 @@ public class CheckDates extends FactoryCheckCLDR {
         bi.setText(value);
         if (current != 0) bi.preceding(current + 1); // get safe spot, possibly before
         current = bi.next();
-        if (current == bi.DONE) {
+        if (current == BreakIterator.DONE) {
             return value.length();
         }
         current = bi.next();
-        if (current == bi.DONE) {
+        if (current == BreakIterator.DONE) {
             return value.length();
         }
         // continue collecting any additional characters that are M or grapheme extend

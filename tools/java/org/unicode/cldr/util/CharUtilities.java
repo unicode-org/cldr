@@ -28,11 +28,11 @@ public class CharUtilities {
         }
 
         public CharSource sublist(int start, int end) {
-            return new CharSourceWrapper(source.subSequence(start, end));
+            return new CharSourceWrapper<CharSequence>(source.subSequence(start, end));
         }
 
         public CharSource sublist(int start) {
-            return new CharSourceWrapper(source.subSequence(start, source.length()));
+            return new CharSourceWrapper<CharSequence>(source.subSequence(start, source.length()));
         }
 
         public int getKnownLength() {

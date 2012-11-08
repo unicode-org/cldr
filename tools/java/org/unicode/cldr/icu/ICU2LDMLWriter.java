@@ -237,7 +237,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             loader, true);
         String curXPath = "//";
         curXPath += LDMLConstants.LDML;
-        xfile.addComment(curXPath, COMMENT, Comments.PREBLOCK);
+        xfile.addComment(curXPath, COMMENT, Comments.CommentType.PREBLOCK);
 
         addLocaleDisplayNames(xfile, curXPath, bund);
         addCharacters(xfile, curXPath, bund);
@@ -301,11 +301,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             else
             {
                 ICUResourceBundle varTable = (ICUResourceBundle) bund.get(resourceName);
-                Enumeration keys = varTable.getKeysSafe();
+                Enumeration<String> keys = varTable.getKeysSafe();
                 Object temp;
                 String curKey;
                 String curValue;
-                int x = 0;
                 while (keys.hasMoreElements())
                 {
                     temp = keys.nextElement();
@@ -325,7 +324,6 @@ public class ICU2LDMLWriter extends CLDRConverterTool
                             xfile.add(myXPath, curValue);
                         }
                     }
-                    x++;
                 }
             }
         } catch (MissingResourceException e)

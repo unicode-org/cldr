@@ -136,9 +136,9 @@ public class ScriptCategories {
     static final Map<Integer, Integer> RADICAL_CHAR2STROKES;
 
     static {
-        Map<String, Integer> num2char = new LinkedHashMap();
-        Map<Integer, String> char2num = new LinkedHashMap();
-        Map<Integer, Integer> char2strokes = new LinkedHashMap();
+        Map<String, Integer> num2char = new LinkedHashMap<String, Integer>();
+        Map<Integer, String> char2num = new LinkedHashMap<Integer, String>();
+        Map<Integer, Integer> char2strokes = new LinkedHashMap<Integer, Integer>();
 
         String[][] radicalData = {
             { "1", "一", "1" },
@@ -497,7 +497,6 @@ public class ScriptCategories {
             String pvalue;
             UnicodeSet result2;
             UnicodeSet additions;
-            boolean general;
             switch (propEnum) {
             case UProperty.SCRIPT:
                 pvalue = getFixedPropertyValue(propEnum, propertyValue);
@@ -510,7 +509,6 @@ public class ScriptCategories {
                 result.set(result2);
                 return true;
             case UProperty.GENERAL_CATEGORY_MASK:
-                general = true;
             case UProperty.GENERAL_CATEGORY:
                 // TODO: fix Mask
                 pvalue = getFixedPropertyValue(propEnum, propertyValue);
@@ -645,7 +643,7 @@ public class ScriptCategories {
 
     static Map<RemapType, Map<String, UnicodeSet>> getRemapData(String filename) throws IOException {
         BufferedReader in = new BufferedReader(new FileReader(filename));
-        Map<RemapType, Map<String, UnicodeSet>> data = new TreeMap();
+        Map<RemapType, Map<String, UnicodeSet>> data = new TreeMap<RemapType, Map<String, UnicodeSet>>();
         data.put(RemapType.SCRIPT, new TreeMap<String, UnicodeSet>());
         data.put(RemapType.CATEGORY, new TreeMap<String, UnicodeSet>());
 
@@ -681,7 +679,7 @@ public class ScriptCategories {
                         for (String part : parts) {
                             RemapType newRemapType = RemapType.NONE;
                             String fixed = null;
-                            UnicodeSet scriptSet = null;
+                            // UnicodeSet scriptSet = null;
                             // check
                             try {
                                 // scriptSet = new UnicodeSet("[:script=" + part + ":]");
@@ -761,7 +759,7 @@ public class ScriptCategories {
 
         for (String item : Arrays.asList("EUROPEAN", "MIDDLE_EASTERN", "AFRICAN", "SOUTH_ASIAN", "EAST_ASIAN",
             "AMERICAN", "SOUTHEAST_ASIAN")) {
-            Collection c =
+            Collection<String> c =
                 item.equals("EUROPEAN") ? EUROPEAN :
                     item.equals("MIDDLE_EASTERN") ? MIDDLE_EASTERN :
                         item.equals("AFRICAN") ? AFRICAN :
@@ -787,18 +785,17 @@ public class ScriptCategories {
             }
         }
 
-        if (true) return;
-        System.out.println("Archaic: " + ARCHAIC.size() + ", " + ARCHAIC);
+        // System.out.println("Archaic: " + ARCHAIC.size() + ", " + ARCHAIC);
 
-        parseUnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]]");
-        parseUnicodeSet("[:Lm:]");
-        parseUnicodeSet("[:s:]");
-        parseUnicodeSet("[:Letter:]");
-        parseUnicodeSet("[:script=Common:]");
-        parseUnicodeSet("[[:Letter:]&[:script=common:]]");
-        parseUnicodeSet("[[:So:]&[[:script=common:][:script=inherited:]][[:Letter:]&[:script=common:]]]");
-        checkHistoricClosure();
-        generateRemappingCode(args);
+        // parseUnicodeSet("[[:script=han:]-[:block=CJK Unified Ideographs:]]");
+        // parseUnicodeSet("[:Lm:]");
+        // parseUnicodeSet("[:s:]");
+        // parseUnicodeSet("[:Letter:]");
+        // parseUnicodeSet("[:script=Common:]");
+        // parseUnicodeSet("[[:Letter:]&[:script=common:]]");
+        // parseUnicodeSet("[[:So:]&[[:script=common:][:script=inherited:]][[:Letter:]&[:script=common:]]]");
+        // checkHistoricClosure();
+        // generateRemappingCode(args);
     }
 
     private static String getAge(UnicodeSet unicodeSet) {

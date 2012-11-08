@@ -212,6 +212,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         return this;
     }
 
+    @SuppressWarnings("unchecked")
     public With<V> and(V... items) {
         return and(Arrays.asList(items));
     }

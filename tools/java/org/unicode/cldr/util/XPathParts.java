@@ -155,10 +155,10 @@ public class XPathParts {
 
         public List<String> extractCommentsWithoutBase() {
             List<String> result = new ArrayList<String>();
-            for (int i = 0; i < comments.size(); ++i) {
-                for (Iterator<String> it = comments.get(i).keySet().iterator(); it.hasNext();) {
+            for (CommentType style : CommentType.values()) {
+                for (Iterator<String> it = comments.get(style).keySet().iterator(); it.hasNext();) {
                     String key = it.next();
-                    String value = comments.get(i).get(key);
+                    String value = comments.get(style).get(key);
                     result.add(value + "\t - was on: " + key);
                     it.remove();
                 }

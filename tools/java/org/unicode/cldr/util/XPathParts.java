@@ -130,10 +130,9 @@ public class XPathParts {
             POSTBLOCK
         }
         
-        private EnumMap<CommentType, Map<String, String>> comments;
+        private EnumMap<CommentType, Map<String, String>> comments = new EnumMap<CommentType, Map<String, String>>(CommentType.class);
 
         public Comments() {
-            comments = new EnumMap<CommentType, Map<String, String>>(CommentType.class);
             for ( CommentType c : CommentType.values()) {
                 comments.put(c,new HashMap<String, String>());
             }

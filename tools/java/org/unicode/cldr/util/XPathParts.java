@@ -133,6 +133,7 @@ public class XPathParts {
         private EnumMap<CommentType, Map<String, String>> comments;
 
         public Comments() {
+            comments = new EnumMap<CommentType, Map<String, String>>(CommentType.class);
             for ( CommentType c : CommentType.values()) {
                 comments.put(c,new HashMap<String, String>());
             }

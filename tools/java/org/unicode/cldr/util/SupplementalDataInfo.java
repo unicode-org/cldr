@@ -2029,16 +2029,21 @@ public class SupplementalDataInfo {
         Set<String> targetCalendars = new HashSet<String>();
         Iterator<String> it = territories.iterator();
         while (it.hasNext()) {
-            List<String> addCalendars = calendarPreferences.get(it.next());
+            List<String> addCalendars = getCalendars(it.next());
             if (addCalendars == null) {
                 continue;
             }
-            Iterator<String> it2 = addCalendars.iterator();
-            while (it2.hasNext()) {
-                targetCalendars.add(it2.next());
-            }
+            targetCalendars.addAll(addCalendars);
         }
         return targetCalendars;
+    }
+
+    /**
+     * @param territory
+     * @return a list the calendars used in the specified territorys
+     */
+    public List<String> getCalendars(String territory) {
+        return calendarPreferences.get(territory);
     }
 
     private Set<String> getCurrentCurrencies(Set<String> territories) {

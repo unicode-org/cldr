@@ -593,7 +593,7 @@ public abstract class Ids implements Comparable<Ids> {
         out.println(tempStr);
 
         // Get data for minimizing
-        Map<Ids, Integer> reverseData2 = new HashMap();
+        Map<Ids, Integer> reverseData2 = new HashMap<Ids, Integer>();
         for (String key : data) {
             Ids value = data.get(key);
             Integer oldKey = reverseData2.get(value);
@@ -831,10 +831,6 @@ public abstract class Ids implements Comparable<Ids> {
 
     private static boolean betterThan(int cp1, int cp2) {
         return MAIN_CJK.contains(cp1) && !MAIN_CJK.contains(cp2);
-    }
-
-    private static String charAndHex(UnicodeSet uset) {
-        return pp.format(uset) + "\t(" + uset + ")";
     }
 
     private static String charAndHex(int codepoint) {

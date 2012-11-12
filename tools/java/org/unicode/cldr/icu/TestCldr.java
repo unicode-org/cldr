@@ -60,7 +60,7 @@ import com.ibm.icu.util.ULocale;
  * @author medavis
  */
 public class TestCldr extends TestFmwk {
-    static final boolean DEBUG = false;
+    static boolean DEBUG = false;
 
     // ULocale uLocale = ULocale.ENGLISH;
     // Locale oLocale = Locale.ENGLISH; // TODO Drop once ICU4J has ULocale everywhere
@@ -81,7 +81,7 @@ public class TestCldr extends TestFmwk {
 
     String directory;
 
-    Set allLocales = new TreeSet();
+    Set<String> allLocales = new TreeSet<String>();
 
     public void TestScripts() {
         Factory cldrFactory = Factory.make(
@@ -91,7 +91,7 @@ public class TestCldr extends TestFmwk {
             ULocale locale = locales[i];
             logln(locale.toString());
             int[] scriptNumbers = UScript.getCode(locale);
-            Set ICUScripts = new TreeSet();
+            Set<String> ICUScripts = new TreeSet<String>();
             for (int j = 0; j < scriptNumbers.length; ++j) {
                 ICUScripts.add(UScript.getShortName(scriptNumbers[j]));
             }
@@ -99,7 +99,7 @@ public class TestCldr extends TestFmwk {
             CLDRFile cfile = cldrFactory.make(locale.toString(), true, true);
             UnicodeSet exemplars = getExemplarSet(cfile, "").addAll(
                 getExemplarSet(cfile, "auxiliary"));
-            Set CLDRScripts = getScriptsFromUnicodeSet(exemplars);
+            Set<String> CLDRScripts = getScriptsFromUnicodeSet(exemplars);
             if (!CLDRScripts.equals(ICUScripts)) {
                 errln(locale + "\tscripts not equals.\tCLDR: " + CLDRScripts
                     + ",\tICU: " + ICUScripts);
@@ -109,14 +109,14 @@ public class TestCldr extends TestFmwk {
         }
     }
 
-    public Set getScriptsFromUnicodeSet(UnicodeSet exemplars) {
+    public Set<String> getScriptsFromUnicodeSet(UnicodeSet exemplars) {
         // use bits first, since that's faster
         BitSet scriptBits = new BitSet();
         boolean show = false;
         for (UnicodeSetIterator it = new UnicodeSetIterator(exemplars); it.next();) {
             if (show)
                 System.out.println(Integer.toHexString(it.codepoint));
-            if (it.codepoint != it.IS_STRING) {
+            if (it.codepoint != UnicodeSetIterator.IS_STRING) {
                 scriptBits.set(UScript.getScript(it.codepoint));
             } else {
                 int cp;
@@ -127,7 +127,7 @@ public class TestCldr extends TestFmwk {
         }
         scriptBits.clear(UScript.COMMON);
         scriptBits.clear(UScript.INHERITED);
-        Set scripts = new TreeSet();
+        Set<String> scripts = new TreeSet<String>();
         for (int j = 0; j < scriptBits.size(); ++j) {
             if (scriptBits.get(j)) {
                 scripts.add(UScript.getShortName(j));
@@ -155,21 +155,20 @@ public class TestCldr extends TestFmwk {
          * }
          */
         // only get ICU's locales
-        Set s = new TreeSet();
+        Set<String> s = new TreeSet<String>();
         addLocales(NumberFormat.getAvailableULocales(), s);
         addLocales(DateFormat.getAvailableULocales(), s);
         addLocales(Collator.getAvailableULocales(), s);
 
         Matcher m = Pattern.compile(MATCH).matcher("");
-        for (Iterator it = s.iterator(); it.hasNext();) {
-            String locale = (String) it.next();
+        for (String locale : s ) {
             if (!m.reset(locale).matches())
                 continue;
             _test(locale);
         }
     }
 
-    public void addLocales(ULocale[] list, Collection s) {
+    public void addLocales(ULocale[] list, Collection<String> s) {
         LanguageTagParser lsp = new LanguageTagParser();
         for (int i = 0; i < list.length; ++i) {
             allLocales.add(list[i].toString());
@@ -304,7 +303,7 @@ public class TestCldr extends TestFmwk {
         RegisteredHandlers.put(name, handler);
     }
 
-    Map RegisteredHandlers = new HashMap();
+    Map<String, Handler> RegisteredHandlers = new HashMap<String, Handler>();
 
     // ============ Statics for Date/Number Support ============
 
@@ -513,8 +512,6 @@ public class TestCldr extends TestFmwk {
 
             String zone = "";
 
-            String parse = "";
-
             String pattern = "";
 
             public void handleResult(ULocale locale, String result)
@@ -534,7 +531,6 @@ public class TestCldr extends TestFmwk {
                         zone = attributeValue;
                         break;
                     case parse:
-                        parse = attributeValue;
                         break;
                     case draft:
                         approved = attributeValue.contains("approved");
@@ -576,7 +572,6 @@ public class TestCldr extends TestFmwk {
 
         StringBuffer lastChars = new StringBuffer();
 
-        boolean justPopped = false;
 
         Handler handler;
 
@@ -597,7 +592,6 @@ public class TestCldr extends TestFmwk {
                     // handler.set("locale", uLocale.toString());
                 }
                 // if (DEBUG) logln("startElement:\t" + contextStack);
-                justPopped = false;
             } catch (RuntimeException e) {
                 e.printStackTrace();
                 throw e;
@@ -614,7 +608,6 @@ public class TestCldr extends TestFmwk {
                     // logln("Unexpected contents of: " + qName + ", <" + lastChars + ">");
                 }
                 lastChars.setLength(0);
-                justPopped = true;
             } catch (RuntimeException e) {
                 e.printStackTrace();
                 throw e;
@@ -629,7 +622,6 @@ public class TestCldr extends TestFmwk {
                 if (DEBUG)
                     logln("characters:\t" + value);
                 lastChars.append(value);
-                justPopped = false;
             } catch (RuntimeException e) {
                 e.printStackTrace();
                 throw e;

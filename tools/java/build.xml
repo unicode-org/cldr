@@ -19,7 +19,7 @@
             <pathelement path="${libs.dir}"/>
         </path>
 
-        <property name="CLDR_DIR" value="../../"/>
+        <property name="CLDR_DIR" value="${env.CLDR_DIR}"/>
         <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false"/>
         <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
 

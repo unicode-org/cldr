@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -37,6 +38,7 @@ import com.ibm.icu.util.TimeZoneTransition;
  * 
  */
 public class TestMetazones {
+    public static boolean DEBUG = false;
 
     private static final long HOUR = 3600000;
     private static final long DAY = 24 * 60 * 60 * 1000L;
@@ -173,9 +175,11 @@ public class TestMetazones {
         errorLog.println();
 
         for (String mzone : mzoneToData.keySet()) {
-            if (false) errorLog.println(mzone);
+            if (DEBUG) {
+                errorLog.println(mzone);
+            }
             Set<DateRangeAndZone> values = mzoneToData.getAll(mzone);
-            if (false) {
+            if (DEBUG) {
                 for (DateRangeAndZone value : values) {
                     errorLog.println("\t" + value);
                 }
@@ -294,7 +298,7 @@ public class TestMetazones {
             if (lastPoint != Long.MIN_VALUE) {
                 long start = lastPoint;
                 long end = point - MINUTE;
-                if (false && start == 25678800000L && end == 33193740000L) {
+                if (DEBUG && start == 25678800000L && end == 33193740000L) {
                     errorLog.println("debugStop");
                     showDeltas(zone1, zone2, start, end);
                 }
@@ -362,13 +366,15 @@ public class TestMetazones {
         errorLog.println();
         errorLog.println("*** Verify no gaps or overlaps in zones");
         for (String zone : zoneToDateRanges.keySet()) {
-            if (false)
+            if (DEBUG) {
                 errorLog.println(zone);
+            }
             Set<DateRangeAndZone> values = zoneToDateRanges.getAll(zone);
             long last = DateRange.MIN_DATE;
             for (DateRangeAndZone value : values) {
-                if (false)
+                if (DEBUG) {
                     errorLog.println("\t" + value);
+                }
                 checkGapOrOverlap(last, value.range.startDate);
                 last = value.range.endDate;
             }
@@ -405,8 +411,9 @@ public class TestMetazones {
         Map<String, Map<String, String>> metazoneToRegionToZone = supplementalData.getMetazoneToRegionToZone();
 
         for (String mzone : mzoneToData.keySet()) {
-            if (false)
+            if (DEBUG) {
                 errorLog.println(mzone);
+            }
 
             // get the best zone
             final String bestZone = metazoneToRegionToZone.get(mzone).get("001");
@@ -415,7 +422,7 @@ public class TestMetazones {
             }
             Set<DateRangeAndZone> values = mzoneToData.getAll(mzone);
 
-            Map<String, DateRanges> zoneToRanges = new TreeMap();
+            Map<String, DateRanges> zoneToRanges = new TreeMap<String, DateRanges>();
             DateRanges mzoneRanges = new DateRanges();
             // first determine what the max and min dates are
 
@@ -710,7 +717,7 @@ public class TestMetazones {
         }
 
         static long MIN_DATE = new Date(70, 0, 1, 0, 0, 0).getTime();
-
+        
         static long MAX_DATE = new Date(110, 0, 1, 0, 0, 0).getTime();
 
         public String toString() {

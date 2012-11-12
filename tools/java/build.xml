@@ -66,7 +66,7 @@
     </target>
 
     <!-- build everything but dist-related stuff -->
-    <target name="all" depends="util,ant-plugin,tool,posix,icu,test,ooo" description="build all primary targets"/>
+    <target name="all" depends="util,ant-plugin,tool,posix,icu,test" description="build all primary targets"/>
     <target name="ant-plugin" depends="init" description="build utility classes">
         <javac includeantruntime="false" includes="org/unicode/cldr/ant/*.java"
             excludes="**/CVS/**/*"
@@ -157,17 +157,6 @@
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
     </target>
-   <target name="ooo" depends="init,icu,util" description="build OpenOffice.org conversion tools">
-        <javac includeantruntime="false" includes="org/unicode/cldr/ooo/**/*.java"
-            excludes="**/CVS/**/*"
-            srcdir="${src.dir}"
-            destdir="${build.dir}"
-            classpathref="project.class.path"
-            source="1.6"
-            target="1.6"
-            debug="on" deprecation="off"
-            encoding="UTF-8"/>
-    </target>
     <target name="clean" depends="init" description="remove all build targets">
         <delete dir="${build.dir}"/>
         <delete file="${jar.file}"/>
@@ -176,7 +165,7 @@
     <target name="jar" depends="all" description="build full 'cldr.jar' jar file">
         <jar jarfile="${jar.file}"
             compress="true"
-            includes="org/unicode/cldr/draft/**/*,org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ooo/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/icu/**/*"
+            includes="org/unicode/cldr/draft/**/*,org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/icu/**/*"
             basedir="${build.dir}"/>
     </target>
   <!-- Docs stuff -->

@@ -2303,7 +2303,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             else if (element.equals("field"))
                 comp = dateFieldOrder;
             else if (element.equals("zone")) comp = zoneOrder;
-        } else if (attribute.equals("count")) {
+        } else if (attribute.equals("count") && !element.equals("minDays")) {
             comp = countValueOrder;
         }
         return comp;

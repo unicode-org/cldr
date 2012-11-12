@@ -6,17 +6,16 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -24,7 +23,8 @@ import java.util.regex.Pattern;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON
- * format. 
+ * format.
+ * 
  * @author shanjian
  */
 public class Ldml2JsonConverter {
@@ -34,13 +34,17 @@ public class Ldml2JsonConverter {
         "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
             "This program converts CLDR data to the JSON format.\n" +
             "Please refer to the following options. \n" +
-        "\texample: org.unicode.cldr.tool.Ldml2JsonConverter -c xxx -d yyy")
-    .add("commondir", ".*", CldrUtility.COMMON_DIRECTORY, "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
-    .add("destdir", ".*", CldrUtility.GEN_DIRECTORY, "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
-    .add("resolved", 'r', "(true|false)", "false", "Whether the output JSON for the main directory should be based on resolved or unresolved data")
-    .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed", "The minimum draft status of the output data");
+            "\texample: org.unicode.cldr.tool.Ldml2JsonConverter -c xxx -d yyy")
+        .add("commondir", ".*", CldrUtility.COMMON_DIRECTORY,
+            "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
+        .add("destdir", ".*", CldrUtility.GEN_DIRECTORY,
+            "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
+        .add("resolved", 'r', "(true|false)", "false",
+            "Whether the output JSON for the main directory should be based on resolved or unresolved data")
+        .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
+            "The minimum draft status of the output data");
 
-    public static void main(String [] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         options.parse(args, true);
 
         Ldml2JsonConverter extractor = new Ldml2JsonConverter(
@@ -73,7 +77,9 @@ public class Ldml2JsonConverter {
 
     /**
      * Indent to specified level.
-     * @param level Level of indent.
+     * 
+     * @param level
+     *            Level of indent.
      * @return indentation string.
      * @throws IOException
      */
@@ -83,7 +89,9 @@ public class Ldml2JsonConverter {
 
     /**
      * Transform the path by applying PATH_TRANSFORMATIONS rules.
-     * @param pathStr The path string being transformed.
+     * 
+     * @param pathStr
+     *            The path string being transformed.
      * @return The transformed path.
      */
     private String transformPath(String pathStr) {
@@ -100,12 +108,15 @@ public class Ldml2JsonConverter {
 
     /**
      * Convert CLDR's XML data to JSON format.
-     * @param file CLDRFile object.
-     * @param outFilename The file name used to save JSON data.
+     * 
+     * @param file
+     *            CLDRFile object.
+     * @param outFilename
+     *            The file name used to save JSON data.
      * @throws IOException
-     * @throws ParseException 
+     * @throws ParseException
      */
-    private void convertCldrFile(CLDRFile file, String outFilename)
+    private void convertCldrFile(CLDRFile file, String outDirname, String outFilename)
         throws IOException, ParseException {
         // zone and timezone items are queued for sorting first before they are
         // processed.
@@ -118,8 +129,7 @@ public class Ldml2JsonConverter {
         String leadingArrayItemPath = "";
         int valueCount = 0;
 
-        for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator);
-            it.hasNext();) {
+        for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
             String path = it.next();
             String fullPath = file.getFullXPath(path);
             if (fullPath == null) {
@@ -177,7 +187,7 @@ public class Ldml2JsonConverter {
 
         closeNodes(out, nodesForLastItem.size() - 2, 0);
 
-        writeToFile(outFilename, out);
+        writeToFile(outDirname, outFilename, out);
 
         System.out.println(String.format("%s = %d values", outFilename, valueCount));
     }
@@ -186,12 +196,14 @@ public class Ldml2JsonConverter {
      * Write all the line of the generated JSON output to files. Add comma if
      * necessary, and add newline.
      * 
-     * @param outFilename The filename for output file.
-     * @param out Lines of JSON representation. 
+     * @param outFilename
+     *            The filename for output file.
+     * @param out
+     *            Lines of JSON representation.
      * @throws IOException
      */
-    private void writeToFile(String outFilename, ArrayList<String> out) throws IOException {
-        BufferedWriter outf = new BufferedWriter(new FileWriter(outFilename));
+    private void writeToFile(String outputDir, String outFilename, ArrayList<String> out) throws IOException {
+        PrintWriter outf = BagFormatter.openUTF8Writer(outputDir, outFilename);
         Iterator<String> it = out.iterator();
         int lastSpaceCount = -1;
         String line;
@@ -203,29 +215,33 @@ public class Ldml2JsonConverter {
                 spaceCount++;
             }
             if (spaceCount == lastSpaceCount) {
-                outf.write(",\n");
-            } else if (lastSpaceCount >= 0){
-                outf.write("\n");
+                outf.println(",");
+            } else if (lastSpaceCount >= 0) {
+                outf.println();
             }
-            outf.write(line);
+            outf.print(line);
             lastSpaceCount = spaceCount;
         }
+        outf.println();
         outf.close();
     }
 
     /**
      * Process the pending sorting items.
      * 
-     * @param out The ArrayList to hold all output lines.
-     * @param nodesForLastItem  All the nodes from last item.
-     * @param sortingItems  The item list that should be sorted before output.
+     * @param out
+     *            The ArrayList to hold all output lines.
+     * @param nodesForLastItem
+     *            All the nodes from last item.
+     * @param sortingItems
+     *            The item list that should be sorted before output.
      * @throws IOException
      * @throws ParseException
      */
-    private void resolveSortingItems(ArrayList<String> out, 
+    private void resolveSortingItems(ArrayList<String> out,
         ArrayList<CldrNode> nodesForLastItem,
         ArrayList<CldrItem> sortingItems)
-            throws IOException, ParseException {
+        throws IOException, ParseException {
         ArrayList<CldrItem> arrayItems = new ArrayList<CldrItem>();
         String lastLeadingArrayItemPath = null;
 
@@ -254,16 +270,19 @@ public class Ldml2JsonConverter {
     /**
      * Process the pending array items.
      * 
-     * @param out The ArrayList to hold all output lines.
-     * @param nodesForLastItem  All the nodes from last item.
-     * @param arrayItems The item list that should be output as array.
+     * @param out
+     *            The ArrayList to hold all output lines.
+     * @param nodesForLastItem
+     *            All the nodes from last item.
+     * @param arrayItems
+     *            The item list that should be output as array.
      * @throws IOException
      * @throws ParseException
      */
-    private void resolveArrayItems(ArrayList<String> out, 
+    private void resolveArrayItems(ArrayList<String> out,
         ArrayList<CldrNode> nodesForLastItem,
         ArrayList<CldrItem> arrayItems)
-            throws IOException, ParseException {
+        throws IOException, ParseException {
         if (!arrayItems.isEmpty()) {
             CldrItem firstItem = arrayItems.get(0);
             if (firstItem.needsSort()) {
@@ -297,8 +316,10 @@ public class Ldml2JsonConverter {
     }
 
     /**
-     * Find the indent level on which array should be inserted. 
-     * @param item The CldrItem being examined.
+     * Find the indent level on which array should be inserted.
+     * 
+     * @param item
+     *            The CldrItem being examined.
      * @return The array indent level.
      * @throws ParseException
      */
@@ -318,16 +339,20 @@ public class Ldml2JsonConverter {
     /**
      * Write the start of an array.
      * 
-     * @param out The ArrayList to hold all output lines.
-     * @param nodesForLastItem Nodes in path for last CldrItem.
-     * @param item The CldrItem to be processed. 
-     * @param arrayLevel The level on which array is laid out.
+     * @param out
+     *            The ArrayList to hold all output lines.
+     * @param nodesForLastItem
+     *            Nodes in path for last CldrItem.
+     * @param item
+     *            The CldrItem to be processed.
+     * @param arrayLevel
+     *            The level on which array is laid out.
      * @throws IOException
-     * @throws ParseException 
+     * @throws ParseException
      */
     private void outputStartArray(ArrayList<String> out,
         ArrayList<CldrNode> nodesForLastItem, CldrItem item, int arrayLevel)
-            throws IOException, ParseException {
+        throws IOException, ParseException {
 
         ArrayList<CldrNode> nodesInPath = item.getNodesInPath();
 
@@ -350,15 +375,17 @@ public class Ldml2JsonConverter {
      * "usesMetazone" will be checked to see if it is current. Those non-current
      * item will be dropped.
      * 
-     * @param out The ArrayList to hold all output lines.
+     * @param out
+     *            The ArrayList to hold all output lines.
      * @param nodesForLastItem
-     * @param item The CldrItem to be processed. 
+     * @param item
+     *            The CldrItem to be processed.
      * @throws IOException
-     * @throws ParseException 
+     * @throws ParseException
      */
     private void outputCldrItem(ArrayList<String> out,
         ArrayList<CldrNode> nodesForLastItem, CldrItem item)
-            throws IOException, ParseException {
+        throws IOException, ParseException {
         // alias has been resolved, no need to keep it.
         if (item.isAliasItem()) {
             return;
@@ -388,9 +415,12 @@ public class Ldml2JsonConverter {
     /**
      * Close nodes that no longer appears in path.
      * 
-     * @param out The ArrayList to hold all output lines.
-     * @param last The last node index in previous item.
-     * @param firstDiff The first different node in next item.
+     * @param out
+     *            The ArrayList to hold all output lines.
+     * @param last
+     *            The last node index in previous item.
+     * @param firstDiff
+     *            The first different node in next item.
      * @throws IOException
      */
     private void closeNodes(ArrayList<String> out, int last, int firstDiff)
@@ -407,15 +437,18 @@ public class Ldml2JsonConverter {
     /**
      * Start a non-leaf node, write out its attributes.
      * 
-     * @param out The ArrayList to hold all output lines.
-     * @param node The node being written.
-     * @param level indentation level.
+     * @param out
+     *            The ArrayList to hold all output lines.
+     * @param node
+     *            The node being written.
+     * @param level
+     *            indentation level.
      * @throws IOException
      */
     private void startNonleafNode(ArrayList<String> out, CldrNode node, int level)
         throws IOException {
         String objName = node.getNodeKeyName();
-        // Some node should be skipped as indicated by objName being null. 
+        // Some node should be skipped as indicated by objName being null.
         if (objName == null) {
             return;
         }
@@ -435,34 +468,37 @@ public class Ldml2JsonConverter {
         }
     }
 
-
     /**
      * Write a CLDR item to file.
      * 
      * "usesMetazone" will be checked to see if it is current. Those non-current
      * item will be dropped.
      * 
-     * @param out The ArrayList to hold all output lines.
-     * @param item The CldrItem to be processed.
-     * @param nodesForLastItem Nodes in path for last item.
-     * @param arrayLevel The indentation level in which array exists.
+     * @param out
+     *            The ArrayList to hold all output lines.
+     * @param item
+     *            The CldrItem to be processed.
+     * @param nodesForLastItem
+     *            Nodes in path for last item.
+     * @param arrayLevel
+     *            The indentation level in which array exists.
      * @throws IOException
-     * @throws ParseException 
+     * @throws ParseException
      */
-    private void outputArrayItem(ArrayList<String> out, CldrItem item, 
+    private void outputArrayItem(ArrayList<String> out, CldrItem item,
         ArrayList<CldrNode> nodesForLastItem, int arrayLevel)
-            throws IOException, ParseException {
+        throws IOException, ParseException {
 
         // This method is more complicated that outputCldrItem because it needs to
         // handle 3 different cases.
         // 1. When difference is found below array item, this item will be of the
-        //    same array item. Inside the array item, it is about the same as
-        //    outputCldrItem, just with one more level of indentation because of
-        //    the array.
+        // same array item. Inside the array item, it is about the same as
+        // outputCldrItem, just with one more level of indentation because of
+        // the array.
         // 2. The array item is the leaf item with no attribute, simplify it as
-        //    an object with one name/value pair.
+        // an object with one name/value pair.
         // 3. The array item is the leaf item with attribute, an embedded object
-        //    will be created inside the array item object.
+        // will be created inside the array item object.
 
         ArrayList<CldrNode> nodesInPath = item.getNodesInPath();
         String value = escapeValue(item.getValue());
@@ -496,7 +532,6 @@ public class Ldml2JsonConverter {
 
             Map<String, String> attrAsValueMap =
                 nodesInPath.get(nodesNum - 1).getAttrAsValueMap();
-
 
             if (attrAsValueMap.isEmpty()) {
                 out.add(indent(nodesNum - 1) + "{ \"" + objName + "\": \"" + value + "\"}");
@@ -543,9 +578,11 @@ public class Ldml2JsonConverter {
     /**
      * Compare two nodes list, find first index that the two list have different
      * nodes and return it.
-     *
-     * @param nodesForLastItem Nodes from last item.
-     * @param nodesInPath Nodes for current item.
+     * 
+     * @param nodesForLastItem
+     *            Nodes from last item.
+     * @param nodesInPath
+     *            Nodes for current item.
      * @return The index of first different node.
      */
     private int findFirstDiffNodeIndex(ArrayList<CldrNode> nodesForLastItem,
@@ -563,10 +600,13 @@ public class Ldml2JsonConverter {
 
     /**
      * Process files in a directory of CLDR file tree.
-     * @param dirName The directory in which xml file will be transformed.
-     * @param minimalDraftStatus The minimumDraftStatus that will be accepted.
-     * @throws IOException 
-     * @throws ParseException 
+     * 
+     * @param dirName
+     *            The directory in which xml file will be transformed.
+     * @param minimalDraftStatus
+     *            The minimumDraftStatus that will be accepted.
+     * @throws IOException
+     * @throws ParseException
      */
     public void processDirectory(String dirName, DraftStatus minimalDraftStatus)
         throws IOException, ParseException {
@@ -584,16 +624,16 @@ public class Ldml2JsonConverter {
             }
             CLDRFile file = cldrFactory.make(filename, resolve && dirName.equals(MAIN),
                 minimalDraftStatus);
-            String outputFile = outputDir + dirName + "/" + filename + ".json";
-            convertCldrFile(file, outputFile);
+            String outputFile = filename + ".json";
+            String outputDirname = outputDir + dirName;
+            convertCldrFile(file, outputDirname, outputFile);
         }
     }
 
     /**
      * Replacement pattern for escaping.
      */
-    private static final Pattern escapePattern = Pattern.compile("\\\\(?!u)");    
-
+    private static final Pattern escapePattern = Pattern.compile("\\\\(?!u)");
 
     /**
      * Escape \ and " in value string.
@@ -601,7 +641,9 @@ public class Ldml2JsonConverter {
      * " should be replaced by \"
      * In following code, \\\\ represent one \, because java compiler and
      * regular expression compiler each do one round of escape.
-     * @param value Input string.
+     * 
+     * @param value
+     *            Input string.
      * @return escaped string.
      */
     private String escapeValue(String value) {
@@ -613,13 +655,17 @@ public class Ldml2JsonConverter {
     /**
      * Write the value to output.
      * 
-     * @param out The ArrayList to hold all output lines.
-     * @param node The CldrNodo being written.
-     * @param value The value part for this element.
-     * @param level Indent level.
+     * @param out
+     *            The ArrayList to hold all output lines.
+     * @param node
+     *            The CldrNodo being written.
+     * @param value
+     *            The value part for this element.
+     * @param level
+     *            Indent level.
      * @throws IOException
      */
-    private void writeLeafNode(ArrayList<String> out, CldrNode node, String value, 
+    private void writeLeafNode(ArrayList<String> out, CldrNode node, String value,
         int level) throws IOException {
 
         String objName = node.getNodeKeyName();
@@ -630,18 +676,23 @@ public class Ldml2JsonConverter {
     /**
      * Write the value to output.
      * 
-     * @param out The ArrayList to hold all output lines.
-     * @param objName The node's node.
-     * @param attrAsValueMap Those attributes that will be treated as values.
-     * @param value The value part for this element.
-     * @param level Indent level.
+     * @param out
+     *            The ArrayList to hold all output lines.
+     * @param objName
+     *            The node's node.
+     * @param attrAsValueMap
+     *            Those attributes that will be treated as values.
+     * @param value
+     *            The value part for this element.
+     * @param level
+     *            Indent level.
      * @throws IOException
      */
-    private void writeLeafNode(ArrayList<String> out, String objName, 
+    private void writeLeafNode(ArrayList<String> out, String objName,
         Map<String, String> attrAsValueMap, String value, int level)
-            throws IOException {
+        throws IOException {
         if (objName == null) {
-            return;  
+            return;
         }
         value = escapeValue(value);
 
@@ -673,4 +724,3 @@ public class Ldml2JsonConverter {
         out.add(indent(level) + "}");
     }
 }
-

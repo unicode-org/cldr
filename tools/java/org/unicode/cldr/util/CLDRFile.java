@@ -2209,7 +2209,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         "era", "year", "month", "week", "day", "weekday", "dayperiod",
         "hour", "minute", "second", "zone").freeze();
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
-        "zero", "one", "two", "few", "many", "other").freeze();
+        "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
     static Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<String>(Arrays

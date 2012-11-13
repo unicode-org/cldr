@@ -1359,6 +1359,7 @@ public class SupplementalDataInfo {
                 String defContent = parts.getAttributeValue(-1, "locales").trim();
                 String[] defLocales = defContent.split("\\s+");
                 defaultContentLocales = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(defLocales)));
+                
                 return true;
             }
             if (level2.equals("alias")) {
@@ -1665,6 +1666,8 @@ public class SupplementalDataInfo {
     private VariableReplacer coverageVariables = new VariableReplacer();
     private Map<String, String> numberingSystems = new HashMap<String, String>();
     private Set<String> defaultContentLocales;
+    public Map<CLDRLocale, CLDRLocale> baseToDefaultContent; // wo -> wo_Arab_SN
+    public Map<CLDRLocale, CLDRLocale> defaultContentToBase; // wo_Arab_SN -> wo
     private Set<String> CLDRLanguageCodes;
     private Set<String> CLDRScriptCodes;
 
@@ -1798,15 +1801,28 @@ public class SupplementalDataInfo {
     }
 
     /**
-     * Return the canonicalized zone, or null if there is none.
+     * Return the list of default content locales.
      * 
-     * @param alias
      * @return
      */
     public Set<String> getDefaultContentLocales() {
         return defaultContentLocales;
     }
+    /**
+     * Return the list of default content locales.
+     * 
+     * @return
+     */
+    public Set<CLDRLocale> getDefaultContentCLDRLocales() {
+        initCLDRLocaleBasedData();
+        return defaultContentToBase.keySet();
+    }
 
+    /**
+     * Get the default content locale for a specified language
+     * @param language language to search
+     * @return default content, or null if none
+     */
     public String getDefaultContentLocale(String language) {
         for (String dc : defaultContentLocales) {
             if (dc.startsWith(language + "_")) {
@@ -1816,13 +1832,52 @@ public class SupplementalDataInfo {
         return null;
     }
 
+    /**
+     * Get the default content locale for a specified language and script.
+     * If script is null, delegates to {@link #getDefaultContentLocale(String)}
+     * @param language
+     * @param script if null, delegates to {@link #getDefaultContentLocale(String)}
+     * @return default content, or null if none
+     */
     public String getDefaultContentLocale(String language, String script) {
+        if(script == null) return getDefaultContentLocale(language);
         for (String dc : defaultContentLocales) {
             if (dc.startsWith(language + "_" + script + "_")) {
                 return dc;
             }
         }
         return null;
+    }
+    
+    /**
+     * Given a default locale (such as 'wo_Arab_SN') return the base locale (such as 'wo'), or null if the input wasn't a default conetnt locale.
+     * @param baseLocale
+     * @return
+     */
+    public CLDRLocale getBaseFromDefaultContent(CLDRLocale dcLocale) {
+        initCLDRLocaleBasedData();
+        return defaultContentToBase.get(dcLocale);
+    }
+    
+    /**
+     * Given a base locale (such as 'wo') return the default content locale (such as 'wo_Arab_SN'), or null.
+     * @param baseLocale
+     * @return
+     */
+    public CLDRLocale getDefaultContentFromBase(CLDRLocale baseLocale) {
+        initCLDRLocaleBasedData();
+        return baseToDefaultContent.get(baseLocale);
+    }
+    
+    /**
+     * Is this a default content locale?
+     * @param dcLocale
+     * @return
+     */
+    public boolean isDefaultContent(CLDRLocale dcLocale) {
+        initCLDRLocaleBasedData();
+        if(dcLocale==null) throw new NullPointerException("null locale");
+        return (defaultContentToBase.get(dcLocale) != null);
     }
 
     public Set<String> getNumberingSystems() {
@@ -2840,5 +2895,52 @@ public class SupplementalDataInfo {
 
     public boolean isCLDRScriptCode(String code) {
         return CLDRScriptCodes.contains(code);
+    }
+
+    private synchronized void initCLDRLocaleBasedData() throws InternalError {
+        // This initialization depends on SDI being initialized.
+        if(defaultContentToBase==null) {
+            Map<CLDRLocale,CLDRLocale> p2c = new TreeMap<CLDRLocale,CLDRLocale>();
+            Map<CLDRLocale,CLDRLocale> c2p = new TreeMap<CLDRLocale,CLDRLocale>();
+            TreeSet<CLDRLocale> tmpAllLocales = new TreeSet<CLDRLocale>();
+            // copied from SupplementalData.java - CLDRLocale based 
+            for (String l : defaultContentLocales) {
+                CLDRLocale child = CLDRLocale.getInstance(l);
+                tmpAllLocales.add(child);
+            }
+            
+            for(CLDRLocale child : tmpAllLocales) {
+                // Find a parent of this locale which is NOT itself also a defaultContent
+                CLDRLocale nextParent = child.getParent();
+                while (nextParent != null) {
+                    if (!tmpAllLocales.contains(nextParent)) { // Did we find a parent that's also not itself a
+                                                           // defaultContent?
+                        break;
+                    }
+                    nextParent = nextParent.getParent();
+                }
+                // parent
+                if (nextParent == null) {
+                    throw new InternalError("SupplementalDataInfo.defaultContentToChild(): No valid parent for " + child);
+                }
+    
+                c2p.put(child, nextParent); // wo_Arab_SN -> wo
+                CLDRLocale oldChild = p2c.get(nextParent);
+                if (oldChild != null) {
+                    CLDRLocale childParent = child.getParent();
+                    if (!childParent.equals(oldChild)) {
+                        throw new InternalError(
+                            "SupplementalData.defaultContentToChild(): defaultContent list in wrong order? Tried to map "
+                                + nextParent + " -> " + child + ", replacing " + oldChild + " (should have been "
+                                + childParent + ")");
+                    }
+                }
+                p2c.put(nextParent, child); // wo -> wo_Arab_SN
+            }
+            
+            // done, save the hashtables..
+            baseToDefaultContent = Collections.unmodifiableMap(p2c); // wo -> wo_Arab_SN
+            defaultContentToBase = Collections.unmodifiableMap(c2p); // wo_Arab_SN -> wo
+        }
     }
 }

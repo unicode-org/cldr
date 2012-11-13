@@ -2517,16 +2517,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * @param aLocale
-     * @return
+     * @deprecated to be inlined
      */
     public boolean isDefaultContent(CLDRLocale aLocale) {
-        boolean localeIsDefaultContent = (null != supplemental.defaultContentToParent(aLocale.toString()));
-        return localeIsDefaultContent;
+        if(aLocale==null) throw new NullPointerException("locale must not be null");
+        return getSupplementalDataInfo().isDefaultContent(aLocale);
     }
 
+    /**
+     * @deprecated to be inlined
+     */
     public CLDRLocale defaultContentToParent(CLDRLocale aLocale) {
-        return CLDRLocale.getInstance(supplemental.defaultContentToParent(aLocale.toString()));
+        return getSupplementalDataInfo().getBaseFromDefaultContent(aLocale);
     }
 
     // ============= User list management
@@ -4140,19 +4142,22 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             ctx.println("<td valign='top'>");
             int j = 0;
-            for (Iterator si = sm.keySet().iterator(); si.hasNext();) {
-                if (j > 0) {
-                    ctx.println(", ");
+            if(sm!=null) {
+                for (String sn : sm.keySet()) {
+                    if (j > 0) {
+                        ctx.println(", ");
+                    }
+                    CLDRLocale subLocale = sm.get(sn);
+                    // if(subLocale.length()>0) {
+                    printLocaleLink(baseContext, (subLocale), sn);
+                    if (showCodes) {
+                        ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
+                    }
+                    // }
+                    j++;
                 }
-                String sn = (String) si.next();
-                CLDRLocale subLocale = sm.get(sn);
-                // if(subLocale.length()>0) {
-                printLocaleLink(baseContext, (subLocale), sn);
-                if (showCodes) {
-                    ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
-                }
-                // }
-                j++;
+            } else {
+                ctx.println("<i>no sublocales</i>");
             }
             ctx.println("</td>");
             ctx.println("</tr>");

@@ -204,6 +204,9 @@ public class SupplementalData {
     private Hashtable defaultContentToChildHash = null; // list of default content source IDs -> 'which default content
                                                         // locale ID'
 
+    /**
+     * @deprecated use {@link SupplementalDataInfo#getBaseFromDefaultContent(CLDRLocale)}
+     */
     public String defaultContentToParent(String child) {
         if (defaultContentToParentHash == null) {
             defaultContentToChild(""); // so that it will initialize
@@ -211,6 +214,9 @@ public class SupplementalData {
         return (String) defaultContentToParentHash.get(child);
     }
 
+    /**
+     * @deprecated use {@link SupplementalDataInfo#getDefaultContentFromBase(CLDRLocale)}
+     */
     public synchronized String defaultContentToChild(String parent) {
         if (defaultContentToChildHash == null) {
             Hashtable c2p = new Hashtable(); // child to parent

@@ -93,7 +93,12 @@ public class LocaleTree {
     }
     
     public CLDRLocale getLocaleCode(String localeName) {
-        return localeNameToCode.get(localeName);
+        CLDRLocale loc =  localeNameToCode.get(localeName);
+        if(loc==null) {
+            System.err.println("Cannot find locale for name '"+localeName+"'");
+            return CLDRLocale.ROOT;
+        }
+        return loc;
     }
     public  String getLocaleDisplayName(CLDRLocale locale) {
         return locale.getDisplayName(displayLocale);

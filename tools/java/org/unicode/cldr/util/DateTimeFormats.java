@@ -417,12 +417,17 @@ public class DateTimeFormats {
             if (skeleton.equals(DEBUG_SKELETON)) {
                 int debug = 0;
             }
-            String pattern = generator.getBestPattern(skeleton);
-            SimpleDateFormat format = icuServiceBuilder.getDateFormat(calendarID, pattern);
-            format.setTimeZone(GMT);
+            SimpleDateFormat format = getDateFormat(skeleton);
             example = format.format(SAMPLE_DATE);
         }
         return TransliteratorUtilities.toHTML.transform(example);
+    }
+
+    public SimpleDateFormat getDateFormat(String skeleton) {
+        String pattern = generator.getBestPattern(skeleton);
+        SimpleDateFormat format = icuServiceBuilder.getDateFormat(calendarID, pattern);
+        format.setTimeZone(GMT);
+        return format;
     }
 
     enum RowStyle {

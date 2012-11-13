@@ -1986,8 +1986,8 @@
 						<era type="1">西暦</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0">BC</era>
-						<era type="1">AD</era>
+						<era type="0">紀元前</era>
+						<era type="1">西暦</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">BC</era>
@@ -2063,7 +2063,9 @@
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
 						<dateFormatItem id="EEEEd">d日EEEE</dateFormatItem>
-						<dateFormatItem id="GGGGyMd">GGGGy年M月d日</dateFormatItem>
+						<dateFormatItem id="Gy">Gy年</dateFormatItem>
+						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="h">aK時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
 						<dateFormatItem id="hm">aK:mm</dateFormatItem>

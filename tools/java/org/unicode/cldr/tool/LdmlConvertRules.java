@@ -11,7 +11,7 @@ class LdmlConvertRules {
 
     /** All sub-directories that will be processed in JSON transformation. */
     public static final String CLDR_SUBDIRS[] = {
-        "collation",  "bcp47", "supplemental", "rbnf", "segments", "main",
+        "collation", "bcp47", "supplemental", "rbnf", "segments", "main",
         "transforms"
     };
 
@@ -30,12 +30,13 @@ class LdmlConvertRules {
         "currencyFormats:unitPattern:count",
         "currency:displayName:count",
         "numbers:symbols:numberSystem",
-        "territoryContainment:group:status"
+        "territoryContainment:group:status",
+        "unit:unitPattern:count"
     };
 
     /**
      * The set of attributes that should become part of the name in form of
-     * name-(attribute)-(value).  
+     * name-(attribute)-(value).
      */
     public static final Set<String> NAME_PART_DISTINGUISHING_ATTR_SET =
         new HashSet<String>(Arrays.asList(NAME_PART_DISTINGUISHING_ATTR_LIST));
@@ -43,12 +44,12 @@ class LdmlConvertRules {
     /**
      * Following is a list of element:attribute pair. These attributes should be
      * treated as values. For example,
-     *   <type type="arab" key="numbers">Arabic-Indic Digits</type>
+     * <type type="arab" key="numbers">Arabic-Indic Digits</type>
      * should be really converted as,
-     *   "arab": {
-     *     "_value": "Arabic-Indic Digits",
-     *     "@key": "numbers"
-     *   }
+     * "arab": {
+     * "_value": "Arabic-Indic Digits",
+     * "@key": "numbers"
+     * }
      */
     private static final String[] ATTR_AS_VALUE_LIST = {
         // common/main
@@ -71,7 +72,6 @@ class LdmlConvertRules {
         "mapTimezones:mapZone:other",
         "mapTimezones:mapZone:type",
         "mapTimezones:mapZone:territory",
-
 
         // in common/supplemental/numberingSystems.xml
         "numberingSystems:numberingSystem:type",
@@ -109,18 +109,18 @@ class LdmlConvertRules {
 
     /**
      * For those attributes that are treated as values, they taken the form of
-     *   element_name: { ..., attribute: value, ...}
+     * element_name: { ..., attribute: value, ...}
      * This is desirable as an element may have several attributes that are
      * treated as values. But in some cases, there is one such attribute only,
      * and it is more desirable to convert
-     *   element_name: { attribute: value}
+     * element_name: { attribute: value}
      * to
-     *   element_name: value
+     * element_name: value
      * With a solid example,
-     *   <likelySubtag from="zh" to="zh_Hans_CN" />
+     * <likelySubtag from="zh" to="zh_Hans_CN" />
      * distinguishing attr "from" will become the key, its better to
      * omit "to" and have this simple mapping:
-     *   "zh" : "zh_Hans_CN",
+     * "zh" : "zh_Hans_CN",
      */
     private static final String[] COMPACTABLE_ATTR_AS_VALUE_LIST = {
         // common/main
@@ -156,7 +156,7 @@ class LdmlConvertRules {
 
     /**
      * The set of attributes that should be treated as value, and reduce to
-     * simple value only form. 
+     * simple value only form.
      */
     public static final Set<String> COMPACTABLE_ATTR_AS_VALUE_SET =
         new HashSet<String>(Arrays.asList(COMPACTABLE_ATTR_AS_VALUE_LIST));
@@ -183,8 +183,8 @@ class LdmlConvertRules {
      */
     public static final Set<String> IGNORABLE_NONDISTINGUISHING_ATTR_SET =
         Builder.with(new HashSet<String>())
-        .add("draft")
-        .add("references").freeze();
+            .add("draft")
+            .add("references").freeze();
 
     /**
      * List of attributes that should be suppressed.
@@ -195,16 +195,15 @@ class LdmlConvertRules {
      */
     public static final String[] ATTR_SUPPRESS_LIST = {
         // common/main
-        "dateFormat", "standard", "type",   
-        "dateTimeFormat", "standard", "type", 
-        "timeFormat", "standard", "type", 
-        "currencyFormat", "standard", "type", 
-        "decimalFormat", "standard", "type", 
-        "percentFormat", "standard", "type",  
-        "scientificFormat", "standard", "type", 
-        "pattern", "standard", "type", 
+        "dateFormat", "standard", "type",
+        "dateTimeFormat", "standard", "type",
+        "timeFormat", "standard", "type",
+        "currencyFormat", "standard", "type",
+        "decimalFormat", "standard", "type",
+        "percentFormat", "standard", "type",
+        "scientificFormat", "standard", "type",
+        "pattern", "standard", "type",
     };
-
 
     /**
      * This is a simple class to hold the splittable attribute specification.
@@ -222,18 +221,18 @@ class LdmlConvertRules {
     /**
      * List of attributes that has value that can be split. Each two of them is a
      * group, and represent element and value. Occurrences of such match should
-     * lead to creation of multiple node. 
+     * lead to creation of multiple node.
      * Example:
-     *  <weekendStart day="thu"  territories="DZ KW OM SA SD YE AF IR"/>
+     * <weekendStart day="thu" territories="DZ KW OM SA SD YE AF IR"/>
      * should be treated as if following node is encountered.
-     *  <weekendStart day="thu"  territories="DZ"/>
-     *  <weekendStart day="thu"  territories="KW"/>
-     *  <weekendStart day="thu"  territories="OM"/>
-     *  <weekendStart day="thu"  territories="SA"/>
-     *  <weekendStart day="thu"  territories="SD"/>
-     *  <weekendStart day="thu"  territories="YE"/>
-     *  <weekendStart day="thu"  territories="AF"/>
-     *  <weekendStart day="thu"  territories="IR"/>
+     * <weekendStart day="thu" territories="DZ"/>
+     * <weekendStart day="thu" territories="KW"/>
+     * <weekendStart day="thu" territories="OM"/>
+     * <weekendStart day="thu" territories="SA"/>
+     * <weekendStart day="thu" territories="SD"/>
+     * <weekendStart day="thu" territories="YE"/>
+     * <weekendStart day="thu" territories="AF"/>
+     * <weekendStart day="thu" territories="IR"/>
      */
     public static final SplittableAttributeSpec[] SPLITTABLE_ATTRS = {
         new SplittableAttributeSpec("/measurementSystem", "territories"),
@@ -250,15 +249,15 @@ class LdmlConvertRules {
      */
     public static final Set<String> TIMEZONE_ELEMENT_NAME_SET =
         Builder.with(new HashSet<String>())
-        .add("zone").add("timezone")
-        .add("zoneItem").add("typeMap").freeze();
+            .add("zone").add("timezone")
+            .add("zoneItem").add("typeMap").freeze();
 
     /**
      * Following is the list of elements that need to be sorted before output.
      * 
      * Time zone item is split to multiple level, and each level should be
      * grouped together. The locale list in "dayPeriodRule" could be split to
-     * multiple items, and items for each locale should be grouped together. 
+     * multiple items, and items for each locale should be grouped together.
      */
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
@@ -270,7 +269,7 @@ class LdmlConvertRules {
      * We would like to treat them as array.
      */
     public static final Pattern ARRAY_ITEM_PATTERN = Pattern.compile(
-        "(.*/collation[^/]*/rules[^/]*/" + 
+        "(.*/collation[^/]*/rules[^/]*/" +
             "|.*/character-fallback[^/]*/character[^/]*/" +
             "|.*/dayPeriodRuleSet[^/]*/dayPeriodRules[^/]*/" +
             "|.*/languageMatching[^/]*/languageMatches[^/]*/" +
@@ -282,8 +281,7 @@ class LdmlConvertRules {
             "|.*/keyword[^/]*/key[^/]*/" +
             "|.*/telephoneCodeData[^/]*/codesByTerritory[^/]*/" +
             "|.*/metazoneInfo[^/]*/timezone\\[[^\\]]*\\]/" +
-        ")(.*)");
-
+            ")(.*)");
 
     /**
      * A simple class to hold the specification of a path transformation.
@@ -298,7 +296,6 @@ class LdmlConvertRules {
         }
     }
 
-
     /**
      * Some special transformation, like add an additional layer, can be easily
      * done by transforming the path. Following rules covers these kind of
@@ -311,7 +308,7 @@ class LdmlConvertRules {
         // is none, and separate them to two layers.
         new PathTransformSpec(
             "(.*ldml/exemplarCharacters)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
-        new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$",  "$1/standard$2"),
+        new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$", "$1/standard$2"),
 
         // Separate "ellipsis" from its type as another layer.
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
@@ -327,7 +324,7 @@ class LdmlConvertRules {
             "(.*/numbers/decimalFormats/decimalFormatLength)/(.*)$",
             "$1[@type=\"standard\"]/$2"),
 
-        // Separate type of an language as another layer. 
+        // Separate type of an language as another layer.
         new PathTransformSpec("(.*identity/language)\\[@type=\"([^\"]*)\"\\](.*)$",
             "$1/$2$3"),
 
@@ -337,7 +334,7 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/paperSize)\\[@type=\"([^\"]*)\"\\](.*)",
             "$1/$2$3"),
 
-        new PathTransformSpec("(.*/alias)(.*)","$1/alias$2"),
+        new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),
 
         // The purpose for following transformation is to keep the element name
         // and still use distinguishing attribute inside. Element name is repeated

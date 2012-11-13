@@ -24,7 +24,7 @@ import com.ibm.icu.util.ULocale;
  * (at offset 0) to lowest. The ZoneInflections has no knowledge of the
  * internals of TimeZones -- public API is queried to get the information.
  */
-public class ZoneInflections implements Comparable {
+public class ZoneInflections implements Comparable<ZoneInflections> {
     static private final long SECOND = 1000;
 
     static private final long MINUTE = 60 * SECOND;
@@ -188,11 +188,11 @@ public class ZoneInflections implements Comparable {
 
     private transient OutputLong temp = new OutputLong(0);
 
-    public int compareTo(Object o) {
-        return compareTo((ZoneInflections) o, temp);
+    public int compareTo(ZoneInflections o) {
+        return compareTo(o, temp);
     }
 
-    public static class InflectionPoint implements Comparable {
+    public static class InflectionPoint implements Comparable<InflectionPoint> {
         static final long NONE = Long.MIN_VALUE;
 
         public long utcDateTime;
@@ -215,8 +215,7 @@ public class ZoneInflections implements Comparable {
          * offset != that.offset) { return Math.max(utcDateTime, that.utcDateTime); }
          * return NONE; }
          */
-        public int compareTo(Object o) {
-            InflectionPoint that = (InflectionPoint) o;
+        public int compareTo(InflectionPoint that) {
             if (utcDateTime < that.utcDateTime)
                 return -1;
             if (utcDateTime > that.utcDateTime)

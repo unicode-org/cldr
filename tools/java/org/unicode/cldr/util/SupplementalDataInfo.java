@@ -226,7 +226,7 @@ public class SupplementalDataInfo {
      * Simple language/script/region information
      */
     public static class BasicLanguageData implements
-        Comparable<BasicLanguageData>, Freezable<Object> {
+    Comparable<BasicLanguageData>, Freezable<Object> {
         public enum Type {
             primary, secondary
         };
@@ -301,13 +301,13 @@ public class SupplementalDataInfo {
             if (scripts.size() == 0 && territories.size() == 0)
                 return "";
             return "\t\t<language type=\""
-                + languageSubtag
-                + "\""
-                + (scripts.size() == 0 ? "" : " scripts=\""
-                    + CldrUtility.join(scripts, " ") + "\"")
+            + languageSubtag
+            + "\""
+            + (scripts.size() == 0 ? "" : " scripts=\""
+                + CldrUtility.join(scripts, " ") + "\"")
                 + (territories.size() == 0 ? "" : " territories=\""
                     + CldrUtility.join(territories, " ") + "\"")
-                + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+                    + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         public int compareTo(BasicLanguageData o) {
@@ -839,7 +839,7 @@ public class SupplementalDataInfo {
             return getInstance(supplementalDirectory.getCanonicalPath());
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException()
-                .initCause(e);
+            .initCause(e);
         }
     }
 
@@ -880,7 +880,7 @@ public class SupplementalDataInfo {
                 canonicalpath = new File(supplementalDirectory).getCanonicalPath();
             } catch (IOException e) {
                 throw (IllegalArgumentException) new IllegalArgumentException()
-                    .initCause(e);
+                .initCause(e);
             }
             if (!canonicalpath.equals(supplementalDirectory)) {
                 instance = directory_instance.get(canonicalpath);
@@ -1462,9 +1462,9 @@ public class SupplementalDataInfo {
             double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
             if (territoryToPopulationData.get(territory) == null) {
                 territoryToPopulationData.put(territory, new PopulationData()
-                    .setPopulation(territoryPopulation)
-                    .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
-                    .setGdp(territoryGdp));
+                .setPopulation(territoryPopulation)
+                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
+                .setGdp(territoryGdp));
             }
             if (parts.size() > 3) {
 
@@ -1475,10 +1475,10 @@ public class SupplementalDataInfo {
                 if (Double.isNaN(languageLiteracyPercent)) {
                     languageLiteracyPercent = territoryLiteracyPercent;
                 }// else {
-                 // System.out.println("writingPercent\t" + languageLiteracyPercent
-                 // + "\tterritory\t" + territory
-                 // + "\tlanguage\t" + language);
-                 // }
+                // System.out.println("writingPercent\t" + languageLiteracyPercent
+                // + "\tterritory\t" + territory
+                // + "\tlanguage\t" + language);
+                // }
                 double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
                 double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
                 // double languageGdp = languagePopulationPercent * territoryGdp;
@@ -1495,16 +1495,16 @@ public class SupplementalDataInfo {
                 if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
 
                 PopulationData newData = new PopulationData()
-                    .setPopulation(languagePopulation)
-                    .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
-                    .setOfficialStatus(officialStatus)
+                .setPopulation(languagePopulation)
+                .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+                .setOfficialStatus(officialStatus)
                 // .setGdp(languageGdp)
                 ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
-                        .println("Internal Problem in supplementalData: multiple data items for "
-                            + language + ", " + territory + "\tSkipping " + newData);
+                    .println("Internal Problem in supplementalData: multiple data items for "
+                        + language + ", " + territory + "\tSkipping " + newData);
                     return true;
                 }
 
@@ -1605,10 +1605,10 @@ public class SupplementalDataInfo {
             String language = (String) parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData
-                .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-                    : BasicLanguageData.Type.secondary);
+            .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+                : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-                .setTerritories(parts.getAttributeValue(2, "territories"));
+            .setTerritories(parts.getAttributeValue(2, "territories"));
             languageToBasicLanguageData.put(language, languageData);
         }
 
@@ -1617,8 +1617,8 @@ public class SupplementalDataInfo {
                 return false;
             }
             System.out
-                .println("Internal Problem in supplementalData: range check fails for "
-                    + input + ", min: " + min + ", max:" + max + "\t" + path);
+            .println("Internal Problem in supplementalData: range check fails for "
+                + input + ", min: " + min + ", max:" + max + "\t" + path);
 
             return false;
         }
@@ -1922,8 +1922,8 @@ public class SupplementalDataInfo {
                 String pattern = ci.match.replace('\'', '"')
                     .replace("[@", "\\[@") // make sure that attributes are quoted
                     .replace("(", "(?:") // make sure that there are no capturing groups (beyond what we generate
-                                         // below).
-                ;
+                    // below).
+                    ;
                 pattern = "^//ldml/" + pattern + "$"; // for now, force a complete match
                 String variableType = null;
                 variable.reset(pattern);
@@ -2800,9 +2800,11 @@ public class SupplementalDataInfo {
      */
     public MetaZoneRange getMetaZoneRange(String zone, long date) {
         Set<MetaZoneRange> metazoneRanges = zoneToMetaZoneRanges.get(zone);
-        for (MetaZoneRange metazoneRange : metazoneRanges) {
-            if (metazoneRange.dateRange.getFrom() <= date && date < metazoneRange.dateRange.getTo()) {
-                return metazoneRange;
+        if (metazoneRanges != null) {
+            for (MetaZoneRange metazoneRange : metazoneRanges) {
+                if (metazoneRange.dateRange.getFrom() <= date && date < metazoneRange.dateRange.getTo()) {
+                    return metazoneRange;
+                }
             }
         }
         return null;

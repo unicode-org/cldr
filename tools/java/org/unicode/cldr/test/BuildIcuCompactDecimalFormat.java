@@ -18,6 +18,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.ULocale;
 
 public class BuildIcuCompactDecimalFormat {
@@ -25,20 +26,24 @@ public class BuildIcuCompactDecimalFormat {
     static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
 
     public enum CurrencyStyle {
-        PLAIN, CURRENCY
+        PLAIN, CURRENCY, LONG_CURRENCY, ISO_CURRENCY
     }
 
     /**
      * JUST FOR DEVELOPMENT
-     * 
      * @param currencyStyle
      *            TODO
+     * @param currencyCode TODO
      */
     public static final CompactDecimalFormat build(CLDRFile resolvedCldrFile,
         Set<String> debugCreationErrors, String[] debugOriginals,
-        Style style, ULocale locale, CurrencyStyle currencyStyle) {
+        Style style, ULocale locale, CurrencyStyle currencyStyle, String currencyCode) {
+
         Map<String, String[]> prefixes = new HashMap<String, String[]>();
         Map<String, String[]> suffixes = new HashMap<String, String[]>();
+        Map<String, String> unitPrefixes = new HashMap();
+        Map<String, String> unitSuffixes = new HashMap();
+        
         // String[] prefix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         // String[] suffix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         long[] divisor = new long[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
@@ -46,7 +51,8 @@ public class BuildIcuCompactDecimalFormat {
         PluralInfo pluralInfo = sdi.getPlurals(PluralType.cardinal, locale.toString());
 
         // fix low numbers
-        for (String key : pluralInfo.getCanonicalKeywords()) {
+        Set<String> canonicalKeywords = pluralInfo.getCanonicalKeywords();
+        for (String key : canonicalKeywords) {
             String[] prefix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
             String[] suffix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
             for (int i = 0; i < 3; ++i) {
@@ -121,14 +127,44 @@ public class BuildIcuCompactDecimalFormat {
             int zeroCount = patternMatcher.end(2) - patternMatcher.start(2) - 1;
             divisor[typeZeroCount] = (long) Math.pow(10.0, typeZeroCount - zeroCount);
         }
+
         // DecimalFormat format = (DecimalFormat) (currencyStyle == CurrencyStyle.PLAIN
         // ? NumberFormat.getInstance(new ULocale(resolvedCldrFile.getLocaleID()))
         // : NumberFormat.getCurrencyInstance(new ULocale(resolvedCldrFile.getLocaleID())));
 
         ICUServiceBuilder builder = new ICUServiceBuilder().setCldrFile(resolvedCldrFile);
-        DecimalFormat format = currencyStyle == CurrencyStyle.PLAIN
-            ? builder.getNumberFormat(1) // 1 = decimal
-            : builder.getCurrencyFormat("EUR");
+        DecimalFormat format;
+        switch (currencyStyle) {
+        case PLAIN:
+        default:
+            format = builder.getNumberFormat(1);
+            break;
+        case CURRENCY:
+            format = builder.getCurrencyFormat(currencyCode);
+            break;
+        case LONG_CURRENCY:
+            // if the long form, modify the patterns
+            CurrencyInfo names = new CurrencyInfo(resolvedCldrFile, canonicalKeywords, 
+                currencyCode, parts);
+            if (names.isEmpty()) {
+                format = builder.getCurrencyFormat(currencyCode, currencyCode);
+            } else {
+                for (String count : canonicalKeywords) {
+                    String unitPattern = names.getUnitPattern(count);
+                    int pos = unitPattern.indexOf("{0}");
+                    String prefixUnit = unitPattern.substring(0,pos);
+                    String suffixUnit = unitPattern.substring(pos+3);
+                    String currencyName = names.getCurrencyName(count);
+                    unitPrefixes.put(count, MessageFormat.format(prefixUnit, null, currencyName));
+                    unitSuffixes.put(count, MessageFormat.format(suffixUnit, null, currencyName));                    
+                }
+                format = builder.getNumberFormat(1);
+            }
+            break;
+        case ISO_CURRENCY:
+            format = builder.getCurrencyFormat(currencyCode, currencyCode);
+            break;
+        }
 
         // DecimalFormat currencyFormat = new
         // ICUServiceBuilder().setCldrFile(resolvedCldrFile).getCurrencyFormat("USD");
@@ -165,9 +201,80 @@ public class BuildIcuCompactDecimalFormat {
         // pattern = pattern.replace("¤", "¤¤¤");
         // }
         return new CompactDecimalFormat(pattern, format.getDecimalFormatSymbols(), prefixes, suffixes, divisor,
+            unitPrefixes, unitSuffixes,
             debugCreationErrors, style,
             currencyAffixes, new CompactDecimalFormatTest.MyCurrencySymbolDisplay(resolvedCldrFile),
             pluralInfo.getPluralRules());
     }
+
+    private static class CurrencyInfo {
+        private HashMap<String,String> currencyNames = new HashMap<String,String>();
+        private HashMap<String,String> unitPatterns = new HashMap<String,String>();
+        
+        CurrencyInfo(CLDRFile resolvedCldrFile, Set<String> canonicalKeywords, String currencyCode, XPathParts parts) {
+            Iterator<String> it;
+            it = resolvedCldrFile.iterator(
+                "//ldml/numbers/currencies/currency[@type=\"" +
+                    currencyCode +
+                "\"]/displayName");
+            // //ldml/numbers/currencies/currency[@type="SRD"]/symbol
+            while (it.hasNext()) {
+                String path = it.next();
+                parts.set(path);
+                String key = parts.getAttributeValue(-1, "count");
+                if (key == null) {
+                    key = "default";
+                }
+                currencyNames.put(key, resolvedCldrFile.getStringValue(path));
+            }
+            
+            it = resolvedCldrFile.iterator(
+                "//ldml/numbers/currencyFormats/unitPattern");
+            while (it.hasNext()) {
+                String path = it.next();
+                parts.set(path);
+                String key = parts.getAttributeValue(-1, "count");
+                unitPatterns.put(key, resolvedCldrFile.getStringValue(path));
+            }
+            //<displayName count="one" draft="contributed">evro</displayName>
+            // flesh out missing
+        }
+
+        public boolean isEmpty() {
+            return currencyNames.isEmpty();
+        }
+
+        String getUnitPattern(String count) {
+            String result = unitPatterns.get(count);
+            if (result == null) {
+                result = unitPatterns.get("other");
+            }
+            return result;
+        }
+        
+        String getCurrencyName(String count) {
+            String result = currencyNames.get(count);
+            if (result != null) {
+                return result;
+            }
+            if (!count.equals("other")) {
+                result = currencyNames.get("other");
+                if (result != null) {
+                    return result;
+                }
+            }
+            result = currencyNames.get("default");
+            return result;
+        }
+    }
+    //    <currencyFormats numberSystem="latn">
+    //    <currencyFormatLength>
+    //        <currencyFormat>
+    //            <pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+    //        </currencyFormat>
+    //    </currencyFormatLength>
+    //    <unitPattern count="one">{0} {1}</unitPattern>
+    //    <unitPattern count="other">{0} {1}</unitPattern>
+    //</currencyFormats>
 
 }

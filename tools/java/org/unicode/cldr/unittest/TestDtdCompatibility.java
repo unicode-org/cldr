@@ -42,50 +42,54 @@ public class TestDtdCompatibility extends TestFmwk {
 
         // test all DTDs
         for (DtdType dtd : DtdType.values()) {
-            ElementAttributeInfo oldDtd = ElementAttributeInfo.getInstance(oldCommon, dtd);
-            ElementAttributeInfo newDtd = ElementAttributeInfo.getInstance(dtd);
+            try {
+                ElementAttributeInfo oldDtd = ElementAttributeInfo.getInstance(oldCommon, dtd);
+                ElementAttributeInfo newDtd = ElementAttributeInfo.getInstance(dtd);
 
-            Relation<String, String> oldElement2Children = oldDtd.getElement2Children();
-            Relation<String, String> newElement2Children = newDtd.getElement2Children();
+                Relation<String, String> oldElement2Children = oldDtd.getElement2Children();
+                Relation<String, String> newElement2Children = newDtd.getElement2Children();
 
-            Relation<String, String> oldElement2Attributes = oldDtd.getElement2Attributes();
-            Relation<String, String> newElement2Attributes = newDtd.getElement2Attributes();
+                Relation<String, String> oldElement2Attributes = oldDtd.getElement2Attributes();
+                Relation<String, String> newElement2Attributes = newDtd.getElement2Attributes();
 
-            for (String element : oldElement2Children.keySet()) {
-                Set<String> oldChildren = oldElement2Children.getAll(element);
-                Set<String> newChildren = newElement2Children.getAll(element);
-                if (newChildren == null) {
-                    errln("Old " + dtd + " contains element not in new: <" + element + ">");
-                    continue;
-                }
-                Set<String> funny = containsInOrder(newChildren, oldChildren);
-                if (funny != null) {
-                    if (changedToEmpty.contains(element) && oldChildren.equals(PCDATA) && newChildren.equals(EMPTY)) {
-                        // ok, skip
-                    } else {
-                        errln("Old " + dtd + " element <" + element + "> has children Missing/Misordered:\t" + funny
-                            + "\n\t\tOld:\t" + oldChildren + "\n\t\tNew:\t" + newChildren);
+                for (String element : oldElement2Children.keySet()) {
+                    Set<String> oldChildren = oldElement2Children.getAll(element);
+                    Set<String> newChildren = newElement2Children.getAll(element);
+                    if (newChildren == null) {
+                        errln("Old " + dtd + " contains element not in new: <" + element + ">");
+                        continue;
+                    }
+                    Set<String> funny = containsInOrder(newChildren, oldChildren);
+                    if (funny != null) {
+                        if (changedToEmpty.contains(element) && oldChildren.equals(PCDATA) && newChildren.equals(EMPTY)) {
+                            // ok, skip
+                        } else {
+                            errln("Old " + dtd + " element <" + element + "> has children Missing/Misordered:\t" + funny
+                                + "\n\t\tOld:\t" + oldChildren + "\n\t\tNew:\t" + newChildren);
+                        }
+                    }
+
+                    Set<String> oldAttributes = oldElement2Attributes.getAll(element);
+                    if (oldAttributes == null) {
+                        oldAttributes = Collections.emptySet();
+                    }
+                    Set<String> newAttributes = newElement2Attributes.getAll(element);
+                    if (newAttributes == null) {
+                        newAttributes = Collections.emptySet();
+                    }
+                    if (!newAttributes.containsAll(oldAttributes)) {
+                        LinkedHashSet<String> missing = new LinkedHashSet<String>(oldAttributes);
+                        missing.removeAll(newAttributes);
+                        if (element.equals(dtd.toString()) && missing.equals(VERSION)) {
+                            // ok, skip
+                        } else {
+                            errln("Old " + dtd + " element <" + element + "> has attributes Missing:\t" + missing
+                                + "\n\t\tOld:\t" + oldAttributes + "\n\t\tNew:\t" + newAttributes);
+                        }
                     }
                 }
-
-                Set<String> oldAttributes = oldElement2Attributes.getAll(element);
-                if (oldAttributes == null) {
-                    oldAttributes = Collections.emptySet();
-                }
-                Set<String> newAttributes = newElement2Attributes.getAll(element);
-                if (newAttributes == null) {
-                    newAttributes = Collections.emptySet();
-                }
-                if (!newAttributes.containsAll(oldAttributes)) {
-                    LinkedHashSet<String> missing = new LinkedHashSet<String>(oldAttributes);
-                    missing.removeAll(newAttributes);
-                    if (element.equals(dtd.toString()) && missing.equals(VERSION)) {
-                        // ok, skip
-                    } else {
-                        errln("Old " + dtd + " element <" + element + "> has attributes Missing:\t" + missing
-                            + "\n\t\tOld:\t" + oldAttributes + "\n\t\tNew:\t" + newAttributes);
-                    }
-                }
+            } catch (Exception e) {
+                errln("Failure with " + dtd);
             }
         }
     }

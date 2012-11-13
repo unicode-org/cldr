@@ -29,6 +29,7 @@ import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.VoteResolver.Organization;
@@ -63,9 +64,9 @@ public class VettingViewer<T> {
     private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
     private static final String LOCALE = CldrUtility.getProperty("LOCALE", "af");
     private static final String CURRENT_MAIN = CldrUtility.getProperty("MAIN",
-        "/Users/markdavis/Documents/workspace/cldr/common/main");
+        "/Users/markdavis/workspace/cldr/common/main");
 
-    private static final Pattern ALT_PROPOSED = Pattern.compile("\\[@alt=\"[^\"]*proposed");
+    public static final Pattern ALT_PROPOSED = Pattern.compile("\\[@alt=\"[^\"]*proposed");
 
     public static Set<CheckCLDR.CheckStatus.Subtype> OK_IF_VOTED = EnumSet.of(Subtype.sameAsEnglishOrCode,
         Subtype.sameAsEnglishOrCode);
@@ -83,41 +84,41 @@ public class VettingViewer<T> {
             "Losing",
             "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. "
                 + "This might be due to a dispute between members of your organization."),
-        /**
-         * There is a dispute.
-         */
-        notApproved('P', "Provisional", "There are not enough votes for this item to be approved (and used)."),
-        /**
-         * There is a dispute.
-         */
-        hasDispute('D', "Disputed", "Different organizations are choosing different values. "
-            + "Please review to approve or reach consensus."),
-        /**
-         * There is a console-check warning
-         */
-        warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
-        /**
-         * The English value for the path changed AFTER the current value for
-         * the locale.
-         */
-        englishChanged('U', "Unsync’d",
-            "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
-        /**
-         * The value changed from the last version of CLDR
-         */
-        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)"),
-        /**
-         * Given the users' coverage, some items are missing.
-         */
-        missingCoverage(
-            'M',
-            "Missing",
-            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)"),
-        // /**
-        // * There is a console-check error
-        // */
-        // other('O', "Other", "Everything else."),
-        ;
+                /**
+                 * There is a dispute.
+                 */
+                notApproved('P', "Provisional", "There are not enough votes for this item to be approved (and used)."),
+                /**
+                 * There is a dispute.
+                 */
+                hasDispute('D', "Disputed", "Different organizations are choosing different values. "
+                    + "Please review to approve or reach consensus."),
+                    /**
+                     * There is a console-check warning
+                     */
+                    warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
+                    /**
+                     * The English value for the path changed AFTER the current value for
+                     * the locale.
+                     */
+                    englishChanged('U', "Unsync’d",
+                        "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
+                        /**
+                         * The value changed from the last version of CLDR
+                         */
+                        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)"),
+                        /**
+                         * Given the users' coverage, some items are missing.
+                         */
+                        missingCoverage(
+                            'M',
+                            "Missing",
+                            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)"),
+                            // /**
+                            // * There is a console-check error
+                            // */
+                            // other('O', "Other", "Everything else."),
+                            ;
 
         public final char abbreviation;
         public final String buttonLabel;
@@ -149,14 +150,14 @@ public class VettingViewer<T> {
 
         private <T extends Appendable> void appendDisplay(String htmlMessage, T target) throws IOException {
             target.append("<span title='")
-                .append(description);
+            .append(description);
             if (!htmlMessage.isEmpty()) {
                 target.append(": ")
-                    .append(htmlMessage);
+                .append(htmlMessage);
             }
             target.append("'>")
-                .append(buttonLabel)
-                .append("*</span>");
+            .append(buttonLabel)
+            .append("*</span>");
         }
 
         public static Choice fromString(String i) {
@@ -757,6 +758,8 @@ public class VettingViewer<T> {
         EnumSet<Subtype> subtypes = EnumSet.noneOf(Subtype.class);
         Set<String> seenSoFar = new HashSet<String>();
 
+        boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
+
         for (String path : sourceFile.fullIterable()) {
             if (seenSoFar.contains(path)) {
                 continue;
@@ -796,7 +799,7 @@ public class VettingViewer<T> {
 
             VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
 
-            MissingStatus missingStatus = getMissingStatus(sourceFile, path, status);
+            MissingStatus missingStatus = getMissingStatus(sourceFile, path, status, latin);
             if (missingStatus == MissingStatus.ABSENT) {
                 problems.add(Choice.missingCoverage);
                 problemCounter.increment(Choice.missingCoverage);
@@ -827,7 +830,7 @@ public class VettingViewer<T> {
             if (choice == Choice.error
                 || choice == Choice.warning
                 && (!itemsOkIfVoted
-                || !OK_IF_VOTED.containsAll(subtypes))) {
+                    || !OK_IF_VOTED.containsAll(subtypes))) {
                 problems.add(choice);
                 appendToMessage(statusMessage, htmlMessage);
                 problemCounter.increment(choice);
@@ -850,7 +853,7 @@ public class VettingViewer<T> {
                 break;
             case provisionalOrWorse:
                 if (missingStatus == MissingStatus.PRESENT) {
-                    MissingStatus debug = getMissingStatus(sourceFile, path, status);
+                    MissingStatus debug = getMissingStatus(sourceFile, path, status, false);
                     problems.add(Choice.notApproved);
                     problemCounter.increment(Choice.notApproved);
                 }
@@ -888,9 +891,9 @@ public class VettingViewer<T> {
     public static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
         Set<String> hackHasVotes = new HashSet(Arrays.asList(
             "da de el en en_GB es es_419 ja kn kovi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK"
-                // "af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
-                // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
-                .split("\\s")));
+            // "af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
+            // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
+            .split("\\s")));
 
         @Override
         public boolean is(String localeId) {
@@ -903,7 +906,7 @@ public class VettingViewer<T> {
         try {
 
             output
-                .append("<p>The following summarizes the Priority Items across locales, using the default coverage level for your organization for each locale. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
+            .append("<p>The following summarizes the Priority Items across locales, using the default coverage level for your organization for each locale. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
             // Gather the relevant paths
             // each one will be marked with the choice that it triggered.
             Counter<Choice> problemCounter = new Counter<Choice>();
@@ -1037,15 +1040,33 @@ public class VettingViewer<T> {
     static final RegexLookup<String> missingOk = new RegexLookup<String>()
         .setPatternTransform(
             RegexLookup.RegexFinderTransformPath)
-        .loadFromFile(
-            VettingViewer.class,
-            "data/paths/missingOk.txt");
+            .loadFromFile(
+                VettingViewer.class,
+                "data/paths/missingOk.txt");
 
-    enum MissingStatus {
-        PRESENT, ALIASED, MISSING_OK, ABSENT
+    
+    private static boolean isMissingOk(String path, boolean latin, boolean aliased) {
+        String value = missingOk.get(path);
+        if (value == null) {
+            return false;
+        }
+        if (value.equals("ok")){
+            return true;
+        }
+        if (value.equals("latin")) {
+            return latin;
+        }
+        if (value.equals("alias")) {
+            return aliased;
+        }
+        throw new IllegalArgumentException();
     }
 
-    private MissingStatus getMissingStatus(CLDRFile sourceFile, String path, Status status) {
+    public enum MissingStatus {
+        PRESENT, ALIASED, MISSING_OK, ROOT_OK, ABSENT
+    }
+
+    public static MissingStatus getMissingStatus(CLDRFile sourceFile, String path, Status status, boolean latin) {
         if (sourceFile == null) {
             return MissingStatus.ABSENT;
         }
@@ -1058,8 +1079,10 @@ public class VettingViewer<T> {
         MissingStatus result;
 
         String value = sourceFile.getStringValue(path);
+        boolean isAliased = path.equals(status.pathWhereFound);
+
         if (value == null) {
-            result = MissingStatus.ABSENT;
+            result = isMissingOk(path, latin, isAliased) ? MissingStatus.MISSING_OK : MissingStatus.ABSENT;
         } else {
             String localeFound = sourceFile.getSourceLocaleID(path, status);
 
@@ -1067,24 +1090,27 @@ public class VettingViewer<T> {
             // AND the aliasing didn't change the path
             if (localeFound.equals("root")
                 || localeFound.equals(XMLSource.CODE_FALLBACK_ID)
-            // || voteStatus == VoteStatus.provisionalOrWorse
-            ) {
-                result = MissingStatus.ABSENT;
-            } else if (path.equals(status.pathWhereFound)) {
+                // || voteStatus == VoteStatus.provisionalOrWorse
+                ) {
+                result = isMissingOk(path, latin, isAliased) ? MissingStatus.ROOT_OK : MissingStatus.ABSENT;
+            } else if (isAliased) {
                 result = MissingStatus.PRESENT;
-            } else if (path.contains("decimalFormatLength[@type=\"long\"]") && path.contains("pattern[@type=\"1")) { // aliased
-                // special case compact numbers
-                // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"]
-                result = MissingStatus.ABSENT;
+                //            } else if (path.contains("decimalFormatLength[@type=\"long\"]") && path.contains("pattern[@type=\"1")) { // aliased
+                //                // special case compact numbers
+                //                // ldml/numbers/decimalFormats[@numberSystem="latn"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="10000000"]
+                //                result = MissingStatus.ABSENT;
             } else {
-                result = MissingStatus.PRESENT;
+                result = MissingStatus.ALIASED;
             }
         }
-        // certain paths are ok to be missing.
-        if (result == MissingStatus.ABSENT && missingOk.get(path) != null) {
-            result = MissingStatus.MISSING_OK;
-        }
         return result;
+    }
+
+    public static final UnicodeSet LATIN = new UnicodeSet("[:sc=Latn:]").freeze();
+
+    public static boolean isLatinScriptLocale(CLDRFile sourceFile) {
+        UnicodeSet main = sourceFile.getExemplarSet("", WinningChoice.WINNING);
+        return LATIN.containsSome(main);
     }
 
     private static StringBuilder appendToMessage(CharSequence usersValue, StringBuilder testMessage) {
@@ -1195,13 +1221,14 @@ public class VettingViewer<T> {
         String localeID,
         boolean nonVettingPhase) {
         try {
+            boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
 
             Status status = new Status();
 
             output.append("<h2>Summary</h2>\n")
-                .append("<p><i>It is important that you read " +
-                    "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
-                    "Priority Items</a> before starting!</i></p>")
+            .append("<p><i>It is important that you read " +
+                "<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/vetting-view'>" +
+                "Priority Items</a> before starting!</i></p>")
                 .append("<form name='checkboxes' action='#'>\n")
                 .append("<table class='tvs-table'>\n")
                 .append("<tr class='tvs-tr'>" +
@@ -1220,11 +1247,11 @@ public class VettingViewer<T> {
             for (Choice choice : choices) {
                 long count = problemCounter.get(choice);
                 output.append("<tr><td class='tvs-count'>")
-                    .append(nf.format(count))
-                    .append("</td>\n\t<td nowrap class='tvs-abb'>")
-                    .append("<input type='checkbox' name='")
-                    .append(Character.toLowerCase(choice.abbreviation))
-                    .append("' onclick='setStyles()'");
+                .append(nf.format(count))
+                .append("</td>\n\t<td nowrap class='tvs-abb'>")
+                .append("<input type='checkbox' name='")
+                .append(Character.toLowerCase(choice.abbreviation))
+                .append("' onclick='setStyles()'");
                 if (checkedItem == choice || checkedItem == null && count != 0) {
                     output.append(" checked");
                     checkedItem = choice;
@@ -1232,8 +1259,8 @@ public class VettingViewer<T> {
                 output.append(">");
                 choice.appendDisplay("", output);
                 output.append("</td>\n\t<td class='tvs-desc'>")
-                    .append(choice.description)
-                    .append("</td></tr>\n");
+                .append(choice.description)
+                .append("</td></tr>\n");
             }
             output.append("</table>\n</form>\n"
                 + "<script type='text/javascript'>\n" +
@@ -1274,12 +1301,12 @@ public class VettingViewer<T> {
                 // http://unicode.org/cldr-apps/survey?_=ur&x=scripts
 
                 output.append("\n<h2 class='tv-s'>Section: ")
-                    .append(section.toString())
-                    .append(" — <i><a target='CLDR_ST-SECTION' href='")
-                    .append(getPageUrl(localeId, subsection))
-                    .append("'>Page: ")
-                    .append(subsection.toString())
-                    .append("</a></i> (" + rows.size() + ")</h2>\n");
+                .append(section.toString())
+                .append(" — <i><a target='CLDR_ST-SECTION' href='")
+                .append(getPageUrl(localeId, subsection))
+                .append("'>Page: ")
+                .append(subsection.toString())
+                .append("</a></i> (" + rows.size() + ")</h2>\n");
                 startTable(choicesForSection.get(Row.of(section, subsection)), output);
 
                 String oldHeader = "";
@@ -1324,7 +1351,7 @@ public class VettingViewer<T> {
                     }
                     // value for last version
                     final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
-                    MissingStatus oldValueMissing = getMissingStatus(lastSourceFile, path, status);
+                    MissingStatus oldValueMissing = getMissingStatus(lastSourceFile, path, status, latin);
 
                     addCell(output, oldStringValue, null, oldValueMissing != MissingStatus.PRESENT ? "tv-miss"
                         : "tv-last", HTMLType.plain);
@@ -1338,11 +1365,11 @@ public class VettingViewer<T> {
                     // Fix?
                     // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
                     output.append(" <td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='")
-                        .append(pathInfo.getUrl(localeId)) // .append(c)baseUrl + "?_=")
-                        // .append(localeID)
-                        // .append("&amp;xpath=")
-                        // .append(percentEscape.transform(path))
-                        .append("'>");
+                    .append(pathInfo.getUrl(localeId)) // .append(c)baseUrl + "?_=")
+                    // .append(localeID)
+                    // .append("&amp;xpath=")
+                    // .append(percentEscape.transform(path))
+                    .append("'>");
                     Choice.appendDisplay(choicesForPath, "", output);
                     // String otherUrl = pathInfo.getUrl(sourceFile.getLocaleID());
                     output.append("</a></td>");
@@ -1389,7 +1416,7 @@ public class VettingViewer<T> {
     private void addCell(Appendable output, String value, String title, String classValue, HTMLType htmlType)
         throws IOException {
         output.append(" <td class='")
-            .append(classValue);
+        .append(classValue);
         if (value == null) {
             output.append(" tv-null'><i>missing</i></td>");
         } else {
@@ -1397,9 +1424,9 @@ public class VettingViewer<T> {
                 output.append("title='").append(TransliteratorUtilities.toHTML.transform(title)).append('\'');
             }
             output
-                .append("'>")
-                .append(htmlType == HTMLType.markup ? value : TransliteratorUtilities.toHTML.transform(value))
-                .append("</td>\n");
+            .append("'>")
+            .append(htmlType == HTMLType.markup ? value : TransliteratorUtilities.toHTML.transform(value))
+            .append("</td>\n");
         }
     }
 
@@ -1415,7 +1442,7 @@ public class VettingViewer<T> {
         Timer timer = new Timer();
         timer.start();
         final String version = "2.0.1";
-        final String lastMain = "/Users/markdavis/Documents/workspace/cldr-archive/cldr-" +
+        final String lastMain = "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-" +
             version +
             "/common/main";
 
@@ -1517,7 +1544,7 @@ public class VettingViewer<T> {
         String name, String localeStringID, int userNumericID,
         Level usersLevel,
         CodeChoice newCode, Organization organization)
-        throws IOException {
+            throws IOException {
         // open up a file, and output some of the styles to control the table
         // appearance
 
@@ -1554,9 +1581,9 @@ public class VettingViewer<T> {
         case newCode:
             tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, SHOW_ALL);
             break;
-        // case oldCode:
-        // tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
-        // break;
+            // case oldCode:
+            // tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
+            // break;
         case summary:
             tableView.generateSummaryHtmlErrorTables(out, choiceSet, HackIncludeLocalesWithVotes, organization);
             break;

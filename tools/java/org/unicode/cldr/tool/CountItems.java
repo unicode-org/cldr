@@ -10,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -32,7 +31,6 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.IsoCurrencyParser.Data;
@@ -43,9 +41,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.ZoneInflections;
 
-import com.ibm.icu.dev.util.ArrayComparator;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.ICUPropertyFactory;
@@ -62,7 +58,6 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -123,6 +118,9 @@ public class CountItems {
     public static void main(String[] args) throws Exception {
         double deltaTime = System.currentTimeMillis();
         try {
+            ShowZoneEquivalences.getZoneEquivalences();
+            if (true) return;
+            
             String methodName = System.getProperty("method");
             CldrUtility.callMethod(methodName, CountItems.class);
             // countItems();
@@ -141,187 +139,7 @@ public class CountItems {
         }
     }
 
-    public static void getZoneEquivalences() throws IOException, ParseException {
-        // String tzid = "America/Argentina/ComodRivadavia";
-        // TimeZone tz = TimeZone.getTimeZone(tzid);
-        // int offset = tz.getOffset(new Date().getTime());
-        // System.out.println(tzid + ":\t" + offset);
-        // System.out.println("in available? " + Arrays.asList(TimeZone.getAvailableIDs()).contains(tzid));
-        // System.out.println(new TreeSet(Arrays.asList(TimeZone.getAvailableIDs())));
-
-        Set needsTranslation = new TreeSet(Arrays.asList(needsTranslationString
-            .split("[,]?\\s+")));
-        Set singleCountries = new TreeSet(
-            Arrays
-                .asList("Africa/Bamako America/Godthab America/Santiago America/Guayaquil     Asia/Shanghai Asia/Tashkent Asia/Kuala_Lumpur Europe/Madrid Europe/Lisbon Europe/London Pacific/Auckland Pacific/Tahiti"
-                    .split("\\s")));
-        Set defaultItems = new TreeSet(
-            Arrays
-                .asList("Antarctica/McMurdo America/Buenos_Aires Australia/Sydney America/Sao_Paulo America/Toronto Africa/Kinshasa America/Santiago Asia/Shanghai America/Guayaquil Europe/Madrid Europe/London America/Godthab Asia/Jakarta Africa/Bamako America/Mexico_City Asia/Kuala_Lumpur Pacific/Auckland Europe/Lisbon Europe/Moscow Europe/Kiev America/New_York Asia/Tashkent Pacific/Tahiti Pacific/Kosrae Pacific/Tarawa Asia/Almaty Pacific/Majuro Asia/Ulaanbaatar Arctic/Longyearbyen Pacific/Midway"
-                    .split("\\s")));
-
-        StandardCodes sc = StandardCodes.make();
-        Collection codes = sc.getGoodAvailableCodes("tzid");
-        TreeSet extras = new TreeSet();
-        Map m = sc.getZoneLinkNew_OldSet();
-        for (String code : (Collection<String>) codes) {
-            Collection s = (Collection) m.get(code);
-            if (s == null)
-                continue;
-            extras.addAll(s);
-        }
-        extras.addAll(codes);
-        Set icu4jTZIDs = new TreeSet(Arrays.asList(TimeZone.getAvailableIDs()));
-        Set diff2 = new TreeSet(icu4jTZIDs);
-        diff2.removeAll(extras);
-        System.out.println("icu4jTZIDs - StandardCodes: " + diff2);
-        diff2 = new TreeSet(extras);
-        diff2.removeAll(icu4jTZIDs);
-        System.out.println("StandardCodes - icu4jTZIDs: " + diff2);
-        ArrayComparator ac = new ArrayComparator(new Comparator[] {
-            ArrayComparator.COMPARABLE, ArrayComparator.COMPARABLE,
-            ArrayComparator.COMPARABLE });
-        Map zone_countries = sc.getZoneToCounty();
-
-        TreeSet country_inflection_names = new TreeSet(ac);
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
-            "inflections.txt");
-
-        TreeMap<Integer, TreeSet<String>> minOffsetMap = new TreeMap<Integer, TreeSet<String>>();
-        TreeMap<Integer, TreeSet<String>> maxOffsetMap = new TreeMap<Integer, TreeSet<String>>();
-
-        for (Iterator it = codes.iterator(); it.hasNext();) {
-            String zoneID = (String) it.next();
-            String country = (String) zone_countries.get(zoneID);
-            TimeZone zone = TimeZone.getTimeZone(zoneID);
-            ZoneInflections zip = new ZoneInflections(zone);
-            out.println(zoneID + "\t" + zip);
-            country_inflection_names.add(new Object[] { country, zip, zoneID });
-
-            TreeSet<String> s = minOffsetMap.get(zip.getMinOffset());
-            if (s == null)
-                minOffsetMap.put(zip.getMinOffset(), s = new TreeSet<String>());
-            s.add(zone.getID());
-
-            s = maxOffsetMap.get(zip.getMaxOffset());
-            if (s == null)
-                maxOffsetMap.put(zip.getMaxOffset(), s = new TreeSet<String>());
-            s.add(zone.getID());
-
-        }
-        System.out.println("Minimum Offset: " + minOffsetMap);
-        System.out.println("Maximum Offset: " + maxOffsetMap);
-        out.close();
-
-        out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
-            "modernTimezoneEquivalents.html");
-        out.println("<html>" + "<head>"
-            + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
-            + "<title>Modern Equivalent Timezones</title><style>");
-        out.println("td.top,td.topr { background-color: #EEEEFF }");
-        out.println("td.r,td.topr { text-align:right }");
-        out
-            .println("td.gap { font-weight:bold; border-top: 3px solid #0000FF; border-bottom: 3px solid #0000FF; background-color: #CCCCCC }");
-        out
-            .println("</style>"
-                + "</head>"
-                + "<body>"
-                + "<table border='1' cellspacing='0' cellpadding='2' style='border-collapse: collapse'>");
-        Tabber.HTMLTabber tabber1 = new Tabber.HTMLTabber();
-        tabber1.setParameters(4, "class='r'");
-        tabber1.setParameters(5, "class='r'");
-        Tabber.HTMLTabber tabber2 = new Tabber.HTMLTabber();
-        tabber2.setParameters(0, "class='top'");
-        tabber2.setParameters(1, "class='top'");
-        tabber2.setParameters(2, "class='top'");
-        tabber2.setParameters(3, "class='top'");
-        tabber2.setParameters(4, "class='topr'");
-        tabber2.setParameters(5, "class='topr'");
-        Tabber.HTMLTabber tabber3 = new Tabber.HTMLTabber();
-        tabber3.setParameters(0, "class='gap'");
-        tabber3.setParameters(1, "class='gap'");
-        tabber3.setParameters(2, "class='gap'");
-        tabber3.setParameters(3, "class='gap'");
-        tabber3.setParameters(4, "class='gap'");
-        tabber3.setParameters(5, "class='gap'");
-
-        long minimumDate = ICUServiceBuilder.isoDateParse("2000-1-1T00:00:00Z")
-            .getTime();
-        out
-            .println("<h1>Modern Equivalent Timezones: <a target='_blank' href='instructions.html'>Instructions</a></h1>");
-        out.println(ShowData.dateFooter());
-        out.println("<p>Zones identical after: "
-            + ICUServiceBuilder.isoDateFormat(minimumDate) + "</p>");
-        String lastCountry = "";
-        ZoneInflections lastZip = null;
-        ZoneInflections.OutputLong diff = new ZoneInflections.OutputLong(0);
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-        TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, "en", true);
-        Map country_zoneSet = sc.getCountryToZoneSet();
-        boolean shortList = true;
-        boolean first = true;
-        int category = 1;
-        Tabber tabber = tabber1;
-        for (Iterator it = country_inflection_names.iterator(); it.hasNext();) {
-            Object[] row = (Object[]) it.next();
-            String country = (String) row[0];
-            if (country.equals("001"))
-                continue;
-            if (shortList && ((Set) country_zoneSet.get(country)).size() < 2)
-                continue;
-            ZoneInflections zip = (ZoneInflections) row[1];
-            String zoneID = (String) row[2];
-            int zipComp = zip.compareTo(lastZip, diff);
-
-            if (!country.equals(lastCountry)) {
-                if (first)
-                    first = false;
-                category = 1;
-                subheader(out, tabber3);
-            } else if (diff.value >= minimumDate) {
-                // out.println(tabber.process("\tDiffers at:\t" + ICUServiceBuilder.isoDateFormat(diff.value)));
-                tabber = tabber == tabber1 ? tabber2 : tabber1;
-                ++category;
-            }
-            String zoneIDShown = zoneID;
-            if (needsTranslation.contains(zoneID)) {
-                zoneIDShown = "<b>" + zoneIDShown + "\u00B9</b>";
-            }
-            if (singleCountries.contains(zoneID)) {
-                zoneIDShown = "<i>" + zoneIDShown + "</i> \u00B2";
-            }
-            if (defaultItems.contains(zoneID)) {
-                zoneIDShown = "<span style='background-color: #FFFF00'>" + zoneIDShown
-                    + "</span> ?";
-            }
-            // if (country.equals(lastCountry) && diff.value >= minimumDate) System.out.print("X");
-            String newCountry = country;
-            String mapLink = (String) country_map.get(country);
-            if (mapLink != null) {
-                newCountry = "<a target='map' href='" + mapLink + "'>" + country
-                    + "</a>";
-            }
-            String minOffset = zip.formatHours(zip.getMinOffset(minimumDate));
-            String maxOffset = zip.formatHours(zip.getMaxOffset(minimumDate));
-            if (!icu4jTZIDs.contains(zoneID)) {
-                minOffset = maxOffset = "??";
-            }
-
-            out.println(tabber.process(newCountry + "\t" + "<b>" + category + "</b>"
-                + "\t" + zoneIDShown + "\t"
-                + tzf.getFormattedZone(zoneID, "vvvv", minimumDate, false) + "\t"
-                + minOffset + "\t" + maxOffset));
-            lastCountry = country;
-            lastZip = zip;
-        }
-        subheader(out, tabber3);
-        out.println("</table>");
-        out.println(ShowData.ANALYTICS);
-        out.println("</body></html>");
-        out.close();
-    }
-
-    private static void subheader(PrintWriter out, Tabber tabber) {
+    static void subheader(PrintWriter out, Tabber tabber) {
         // out.println("<tr><td colspan='6' class='gap'>&nbsp;</td></tr>");
         out.println(tabber.process("Cnty" + "\t" + "Grp" + "\t" + "ZoneID" + "\t"
             + "Formatted ID" + "\t" + "MaxOffset" + "\t" + "MinOffset"));

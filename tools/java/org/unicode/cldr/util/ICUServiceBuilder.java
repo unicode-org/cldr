@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 
 import com.ibm.icu.text.DateFormat;
@@ -444,10 +445,15 @@ public class ICUServiceBuilder {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(currency, CURRENCY, null, null);
     }
-
+    
     public DecimalFormat getCurrencyFormat(String currency, String currencySymbol) {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(currency, CURRENCY, currencySymbol, null);
+    }
+
+    public DecimalFormat getLongCurrencyFormat(String currency) {
+        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
+        return _getNumberFormat(currency, CURRENCY, null, null);
     }
 
     public DecimalFormat getNumberFormat(int index) {

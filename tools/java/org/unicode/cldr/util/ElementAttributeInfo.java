@@ -62,6 +62,10 @@ public class ElementAttributeInfo {
                         + "/supplemental/plurals.xml", DtdType.supplementalData));
                     result.put(DtdType.ldmlBCP47, new ElementAttributeInfo(canonicalCommonDirectory
                         + "/bcp47/calendar.xml", DtdType.ldmlBCP47));
+                    result.put(DtdType.keyboard, new ElementAttributeInfo(canonicalCommonDirectory
+                        + "/../keyboards/android/ar-t-k0-android.xml", DtdType.keyboard));
+                    result.put(DtdType.platform, new ElementAttributeInfo(canonicalCommonDirectory
+                        + "/../keyboards/android/_platform.xml", DtdType.keyboard));
                     cache.put(commonDirectory, result);
                     cache.put(canonicalCommonDirectory, result);
                 }

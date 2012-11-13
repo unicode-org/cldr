@@ -70,6 +70,8 @@ public class CompactDecimalFormat extends DecimalFormat {
     // final String[] currencyAffixes;
     final CurrencySymbolDisplay currencySymbolDisplay;
     final PluralRules pluralRules;
+    private Map<String, String> unitPrefixes;
+    private Map<String, String> unitSuffixes;
 
     // /**
     // * Create a CompactDecimalFormat appropriate for a locale (Mockup for what would be in NumberFormat). The result
@@ -164,6 +166,8 @@ public class CompactDecimalFormat extends DecimalFormat {
      *            An array of prefix values, one for each power of 10 from 0 to 14
      * @param divisor
      *            An array of prefix values, one for each power of 10 from 0 to 14
+     * @param unitSuffixes 
+     * @param unitPrefixes 
      * @param debugCreationErrors
      *            A collection of strings for debugging.
      *            If null on input, then any errors found will be added to that collection instead of throwing
@@ -172,10 +176,15 @@ public class CompactDecimalFormat extends DecimalFormat {
      */
     public CompactDecimalFormat(String pattern, DecimalFormatSymbols formatSymbols,
         Map<String, String[]> prefixesInput, Map<String, String[]> suffixesInput, long[] divisor,
+        Map<String, String> unitPrefixes, Map<String, String> unitSuffixes, 
         Collection<String> debugCreationErrors, Style style,
         String[] currencyAffixes, CurrencySymbolDisplay currencySymbolDisplay, PluralRules pluralRules) {
+        
         super(pattern, formatSymbols);
         this.pluralRules = pluralRules;
+        this.unitPrefixes = unitPrefixes;
+        this.unitSuffixes = unitSuffixes;
+        
         for (String key : prefixesInput.keySet()) {
             String[] prefix = prefixesInput.get(key);
             String[] suffix = prefixesInput.get(key);
@@ -256,6 +265,11 @@ public class CompactDecimalFormat extends DecimalFormat {
             String prefixString = prefixes.get(key)[base];
             String suffixString = suffixes.get(key)[base];
             check = prefixString.length() + suffixString.length();
+            if (!unitSuffixes.isEmpty()) {
+                String key2 = pluralRules.select(numberInput * divisor[base]);
+                toAppendTo.append(unitPrefixes.get(key2));
+                suffixString += unitSuffixes.get(key2);
+            }
             toAppendTo.append(prefixString);
 
             super.format(number, toAppendTo, pos);

@@ -39,6 +39,9 @@ public class Ldml2JsonConverter {
             "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
         .add("destdir", ".*", CldrUtility.GEN_DIRECTORY,
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
+        .add("match", 'm', ".*", ".*",
+            "Regular expression to define only specific locales or files to be generated")
+
         .add("resolved", 'r', "(true|false)", "false",
             "Whether the output JSON for the main directory should be based on resolved or unresolved data")
         .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
@@ -50,7 +53,8 @@ public class Ldml2JsonConverter {
         Ldml2JsonConverter extractor = new Ldml2JsonConverter(
             options.get("commondir").getValue(),
             options.get("destdir").getValue(),
-            Boolean.parseBoolean(options.get("resolved").getValue()));
+            Boolean.parseBoolean(options.get("resolved").getValue()),
+            options.get("match").getValue());
 
         long start = System.currentTimeMillis();
         DraftStatus status = DraftStatus.valueOf(options.get("draftstatus").getValue());
@@ -68,11 +72,14 @@ public class Ldml2JsonConverter {
     private String outputDir;
     // Whether data in main should be resolved for output.
     private boolean resolve;
+    // Whether data in main should be resolved for output.
+    private String match;
 
-    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean resolve) {
+    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean resolve, String match) {
         this.cldrCommonDir = cldrDir;
         this.outputDir = outputDir;
         this.resolve = resolve;
+        this.match = match;
     }
 
     /**
@@ -620,6 +627,9 @@ public class Ldml2JsonConverter {
         Set<String> files = cldrFactory.getAvailable();
         for (String filename : files) {
             if (LdmlConvertRules.IGNORE_FILE_SET.contains(filename)) {
+                continue;
+            }
+            if (!filename.matches(match)) {
                 continue;
             }
             CLDRFile file = cldrFactory.make(filename, resolve && dirName.equals(MAIN),

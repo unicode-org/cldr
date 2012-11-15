@@ -15,6 +15,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.MissingResourceException;
 import java.util.StringTokenizer;
 
@@ -36,6 +37,7 @@ import com.ibm.icu.util.UResourceTypeMismatchException;
  * @author Brian Rower - IBM - August 2009
  * 
  */
+@SuppressWarnings("deprecation")
 public class ICU2LDMLWriter extends CLDRConverterTool
 {
     private static final UOption[] options = new UOption[] {
@@ -349,7 +351,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             else
             {
                 ICUResourceBundle table = (ICUResourceBundle) bund.get(resourceName);
-                Enumeration keys = table.getKeysSafe();
+                Enumeration<String> keys = table.getKeysSafe();
                 Object temp;
                 String curKey;
                 String curType;
@@ -370,7 +372,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
                         else
                         {
                             ICUResourceBundle curTable = (ICUResourceBundle) table.get(curKey);
-                            Enumeration types = curTable.getKeysSafe();
+                            Enumeration<String> types = curTable.getKeysSafe();
 
                             while (types.hasMoreElements())
                             {
@@ -513,7 +515,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             else
             {
                 ICUResourceBundle table = (ICUResourceBundle) bund.get(resourceName);
-                Enumeration keys = table.getKeysSafe();
+                Enumeration<String> keys = table.getKeysSafe();
                 Object temp;
                 String curKey;
                 String curValue = "";
@@ -553,7 +555,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         Object temp = null;
         String curKey = null;
         ICUResourceBundle curBund = null;
-        Enumeration keys = null;
+        Enumeration<String> keys = null;
 
         curXPath += SEP + LDMLConstants.CALENDARS;
 
@@ -662,7 +664,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
                 bund = (ICUResourceBundle) bund.get(resourceName);
                 curXPath += SEP + tagName;
 
-                Enumeration keys = bund.getKeysSafe();
+                Enumeration<String> keys = bund.getKeysSafe();
                 String curKey = null;
                 while (keys.hasMoreElements())
                 {
@@ -713,7 +715,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         String type = bund.getKey();
         curXPath += SEP + tagName + addXType(type);
         String curKey = null;
-        Enumeration keys = bund.getKeysSafe();
+        Enumeration<String> keys = bund.getKeysSafe();
         while (keys.hasMoreElements())
         {
             curKey = (String) keys.nextElement();
@@ -760,7 +762,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         curXPath += SEP + tagName + addXType(bund.getKey());
 
         String curKey;
-        Enumeration keys = bund.getKeysSafe();
+        Enumeration<String> keys = bund.getKeysSafe();
         while (keys.hasMoreElements())
         {
             curKey = (String) keys.nextElement();
@@ -861,7 +863,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         {
             bund = (ICUResourceBundle) bund.get(LDMLConstants.ABBREVIATED);
             curXPath += SEP + LDMLConstants.ERAABBR;
-            Enumeration keys = bund.getKeys();
+            Enumeration<String> keys = bund.getKeys();
             String curKey;
             while (keys.hasMoreElements())
             {
@@ -890,7 +892,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         {
             bund = (ICUResourceBundle) bund.get(LDMLConstants.WIDE);
             curXPath += SEP + LDMLConstants.ERANAMES;
-            Enumeration keys = bund.getKeys();
+            Enumeration<String> keys = bund.getKeys();
             String curKey;
             while (keys.hasMoreElements())
             {
@@ -919,7 +921,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         {
             bund = (ICUResourceBundle) bund.get(LDMLConstants.NARROW);
             curXPath += SEP + LDMLConstants.ERANARROW;
-            Enumeration keys = bund.getKeys();
+            Enumeration<String> keys = bund.getKeys();
             String curKey;
             while (keys.hasMoreElements())
             {
@@ -1066,10 +1068,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             {
                 ICUResourceBundle bund1 = (ICUResourceBundle) bund.get(resourceName);
                 String myXPath = curXPath + SEP + LDMLConstants.AVAIL_FMTS;
-                Enumeration keys = bund1.getKeysSafe();
+                Enumeration<String> keys = bund1.getKeysSafe();
                 while (keys.hasMoreElements())
                 {
-                    String curKey = (String) keys.nextElement();
+                    String curKey = keys.nextElement();
                     if (bund1.isAlias(curKey))
                     {
                         addAlias(xfile, curXPath + SEP + LDMLConstants.DATE_FMT_ITEM + addXID(curKey),
@@ -1097,10 +1099,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             {
                 ICUResourceBundle bund1 = (ICUResourceBundle) bund.get(resourceName);
                 String myXPath = curXPath + SEP + LDMLConstants.INTVL_FMTS;
-                Enumeration keys = bund1.getKeysSafe();
+                Enumeration<String> keys = bund1.getKeysSafe();
                 while (keys.hasMoreElements())
                 {
-                    String curKey = (String) keys.nextElement();
+                    String curKey = keys.nextElement();
                     if (bund1.isAlias(curKey))
                     {
                         addAlias(xfile, curXPath + SEP + LDMLConstants.INTVL_FMT_ITEM + addXID(curKey),
@@ -1128,10 +1130,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             {
                 ICUResourceBundle bund1 = (ICUResourceBundle) bund.get(resourceName);
                 String myXPath = curXPath + SEP + LDMLConstants.APPEND_ITEMS;
-                Enumeration keys = bund1.getKeysSafe();
+                Enumeration<String> keys = bund1.getKeysSafe();
                 while (keys.hasMoreElements())
                 {
-                    String curKey = (String) keys.nextElement();
+                    String curKey = keys.nextElement();
                     if (bund1.isAlias(curKey))
                     {
                         addAlias(xfile, curXPath + SEP + LDMLConstants.APPEND_ITEM, bund1.getAliasPath(curKey),
@@ -1165,10 +1167,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         else
         {
             curXPath += SEP + LDMLConstants.INTVL_FMT_ITEM + addXID(key);
-            Enumeration keys = bund.getKeysSafe();
+            Enumeration<String> keys = bund.getKeysSafe();
             while (keys.hasMoreElements())
             {
-                String curKey = (String) keys.nextElement();
+                String curKey = keys.nextElement();
                 if (bund.isAlias(curKey))
                 {
                     addAlias(xfile, curXPath + SEP + LDMLConstants.GREATEST_DIFF + addXID(curKey),
@@ -1205,10 +1207,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
                 bund = (ICUResourceBundle) bund.get(resourceName);
 
                 String curKey;
-                Enumeration keys = bund.getKeysSafe();
+                Enumeration<String> keys = bund.getKeysSafe();
                 while (keys.hasMoreElements())
                 {
-                    curKey = (String) keys.nextElement();
+                    curKey = keys.nextElement();
                     if (bund.isAlias(curKey))
                     {
                         addAlias(xfile, curXPath + SEP + LDMLConstants.FIELD + addXType(curKey),
@@ -1269,10 +1271,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
     private void addRelatives(CLDRFile xfile, String curXPath, ICUResourceBundle bund)
     {
         String curKey;
-        Enumeration keys = bund.getKeysSafe();
+        Enumeration<String> keys = bund.getKeysSafe();
         while (keys.hasMoreElements())
         {
-            curKey = (String) keys.nextElement();
+            curKey = keys.nextElement();
             if (bund.isAlias(curKey))
             {
                 addAlias(xfile, curXPath + SEP + LDMLConstants.RELATIVE + addXType(curKey), bund.getAliasPath(curKey),
@@ -1311,10 +1313,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
                 bund = (ICUResourceBundle) bund.get(timeZoneResourceName);
                 curXPath += SEP + LDMLConstants.TZN;
                 // get all keys (each one is the name of a time zone or one of a few special cases
-                Enumeration keys = bund.getKeysSafe();
+                Enumeration<String> keys = bund.getKeysSafe();
                 while (keys.hasMoreElements())
                 {
-                    String curKey = (String) keys.nextElement();
+                    String curKey = keys.nextElement();
 
                     if (bund.isAlias(curKey))
                     {
@@ -1372,11 +1374,11 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             printError("Invalid ID: " + id);
             break;
         }
-        Enumeration keys = bund.getKeysSafe();
+        Enumeration<String> keys = bund.getKeysSafe();
 
         while (keys.hasMoreElements())
         {
-            String curKey = (String) keys.nextElement();
+            String curKey = keys.nextElement();
 
             if (bund.isAlias(curKey))
             {
@@ -1676,7 +1678,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
 
     private void addCurrencyFormats(CLDRFile xfile, String curXPath, String val, ICUResourceBundle bund)
     {
-        Enumeration keys;
+        Enumeration<String> keys;
 
         curXPath += SEP + LDMLConstants.CURRENCY_FORMATS;
 
@@ -1690,7 +1692,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             keys = bund.getKeysSafe();
             while (keys.hasMoreElements())
             {
-                String curKey = (String) keys.nextElement();
+                String curKey = keys.nextElement();
                 if (bund.isAlias(curKey))
                 {
                     addAlias(xfile, curXPath + SEP + LDMLConstants.UNIT_PATTERN + addXCount(curKey),
@@ -1740,11 +1742,11 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             {
                 bund = (ICUResourceBundle) bund.get(currenciesResourceName);
 
-                Enumeration keys = bund.getKeysSafe();
+                Enumeration<String> keys = bund.getKeysSafe();
 
                 while (keys.hasMoreElements())
                 {
-                    String curKey = (String) keys.nextElement();
+                    String curKey = keys.nextElement();
                     if (bund.isAlias(curKey))
                     {
                         addAlias(xfile, curXPath + SEP + curKey, bund.getAliasPath(curKey), bund.getResPath());
@@ -1779,11 +1781,11 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             symbArray = symbBund.getStringArray();
         } catch (UResourceTypeMismatchException e)
         {
-            ArrayList strings = new ArrayList();
-            Enumeration keys = symbBund.getKeysSafe();
+            List<String> strings = new ArrayList<String>();
+            Enumeration<String> keys = symbBund.getKeysSafe();
             while (keys.hasMoreElements())
             {
-                String curKey = (String) keys.nextElement();
+                String curKey = keys.nextElement();
                 try
                 {
                     String val = symbBund.getString(curKey);
@@ -1810,13 +1812,13 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         {
             if (pluralBund != null)
             {
-                Enumeration ekeys = pluralBund.getKeysSafe();
-                ArrayList keysArray = new ArrayList();
-                ArrayList valuesArray = new ArrayList();
+                Enumeration<String> ekeys = pluralBund.getKeysSafe();
+                List<String> keysArray = new ArrayList<String>();
+                List<String> valuesArray = new ArrayList<String>();
 
                 while (ekeys.hasMoreElements())
                 {
-                    String curKey = (String) ekeys.nextElement();
+                    String curKey = ekeys.nextElement();
                     if (pluralBund.isAlias(curKey))
                     {
                         addAlias(xfile, curXPath, pluralBund.getAliasPath(curKey), pluralBund.getResPath());
@@ -1880,7 +1882,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             else
             {
                 bund = (ICUResourceBundle) bund.get(unitResourceName);
-                Enumeration keys = bund.getKeysSafe();
+                Enumeration<String> keys = bund.getKeysSafe();
                 while (keys.hasMoreElements())
                 {
                     String curKey = (String) keys.nextElement();
@@ -1905,10 +1907,10 @@ public class ICU2LDMLWriter extends CLDRConverterTool
     {
         curXPath += SEP + LDMLConstants.UNIT + addXType(bund.getKey());
 
-        Enumeration keys = bund.getKeysSafe();
+        Enumeration<String> keys = bund.getKeysSafe();
         while (keys.hasMoreElements())
         {
-            String curKey = (String) keys.nextElement();
+            String curKey = keys.nextElement();
 
             if (bund.isAlias(curKey))
             {
@@ -2080,7 +2082,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             else
             {
                 ICUResourceBundle table = (ICUResourceBundle) bund.get(resourceName);
-                Enumeration keys = table.getKeysSafe();
+                Enumeration<String> keys = table.getKeysSafe();
                 Object temp;
                 String curKey;
                 String curValue = "";
@@ -2423,7 +2425,7 @@ public class ICU2LDMLWriter extends CLDRConverterTool
         String returnString = p;
         if (tok.countTokens() > 1)
         {
-            ArrayList l = new ArrayList();
+            List<String> l = new ArrayList<String>();
 
             while (tok.hasMoreTokens())
             {
@@ -2434,8 +2436,8 @@ public class ICU2LDMLWriter extends CLDRConverterTool
             int z = 1;
             while (z < l.size())
             {
-                StringTokenizer t = new StringTokenizer(translateICUtoLDMLName((String) l.get(x) + SEP
-                    + (String) l.get(z)), pathSep);
+                StringTokenizer t = new StringTokenizer(translateICUtoLDMLName(l.get(x) + SEP
+                    + l.get(z)), pathSep);
                 l.set(x, t.nextToken());
                 l.set(z, t.nextToken());
                 z++;

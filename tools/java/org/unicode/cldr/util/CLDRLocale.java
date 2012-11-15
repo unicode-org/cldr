@@ -99,35 +99,28 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         }
     }
 
-    private StandardCodes sc = StandardCodes.make();
-
     /**
      * @author srl
      * 
      */
     public static class CLDRFormatter extends SimpleFormatter {
-        private CLDRFile file;
         private FormatBehavior behavior = FormatBehavior.extend;
 
         public CLDRFormatter(CLDRFile fromFile) {
             super(CLDRLocale.getInstance(fromFile.getLocaleID()).toULocale());
-            file = fromFile;
         }
 
         public CLDRFormatter(CLDRFile fromFile, FormatBehavior behavior) {
             super(CLDRLocale.getInstance(fromFile.getLocaleID()).toULocale());
-            file = fromFile;
             this.behavior = behavior;
         }
 
         public CLDRFormatter() {
             super(ULocale.ROOT);
-            file = null;
         }
 
         public CLDRFormatter(FormatBehavior behavior) {
             super(ULocale.ROOT);
-            file = null;
             this.behavior = behavior;
         }
 

@@ -4631,6 +4631,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     private Factory gFactory = null;
 
+    /**
+     * Return the factory that corresponds to trunk
+     * @return
+     */
     public synchronized Factory getDiskFactory() {
         if (gFactory == null) {
             ensureOrCheckout("CLDR_COMMON", getFileBase(), "http://unicode.org/repos/cldr/trunk/common");
@@ -4710,6 +4714,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     private STFactory gSTFactory = null;
 
+    /**
+     * Get the factory corresponding to the current snapshot.
+     * @return
+     */
     public final synchronized STFactory getSTFactory() {
         if (gSTFactory == null) {
             gSTFactory = new STFactory(this);
@@ -4743,6 +4751,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return new File(base, loc.getBaseName() + ".xml");
     }
 
+    /**
+     * Get the factory corresponding to the old release version.
+     * @return
+     */
     public synchronized Factory getOldFactory() {
         if (gOldFactory == null) {
             File oldBase = new File(getFileBaseOld());

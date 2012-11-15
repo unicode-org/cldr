@@ -1952,24 +1952,9 @@ public class DataSection implements JSONString {
 					int ourStart = partitions[j].start;
 					int ourLimit = partitions[j].limit;
 					for (int i = ourStart; i < ourLimit; i = (i - (i % ctx.prefCodesPerPage())) + ctx.prefCodesPerPage()) {
-						int pageStart = i - (i % ctx.prefCodesPerPage()); // pageStart
-						// is
-						// the
-						// skip
-						// at
-						// the
-						// top
-						// of
-						// this
-						// page.
-						// should
-						// be
-						// ==
-						// ourStart
-						// unless
-						// on
-						// a
-						// boundary.
+					    // skip at the top of the page
+                        int pageStart = i - (i % ctx.prefCodesPerPage());
+
 						int end = pageStart + ctx.prefCodesPerPage() - 1;
 						if (end >= ourLimit) {
 							end = ourLimit - 1;
@@ -2150,13 +2135,13 @@ public class DataSection implements JSONString {
 	};
 	private static Pattern fromto_p[] = new Pattern[fromto.length / 2];
 	private static boolean isInitted = false;
-	private static Pattern keyTypeSwapPattern;
-
+	/**
+	 * @deprecated only used in non-pageID use.
+	 */
 	private static Pattern mostPattern;
 
 	private static int n = 0;
 	static final Pattern NAME_TYPE_PATTERN = Pattern.compile("[a-zA-Z0-9]+|.*exemplarCity.*");
-	private static Pattern needFullPathPattern; // items that need getFullXpath
 
 	private static final boolean NOINHERIT = true;
 
@@ -2203,35 +2188,22 @@ public class DataSection implements JSONString {
 	private static synchronized void init() {
 		if (!isInitted) {
 			typeReplacementPattern = Pattern.compile("\\[@(?:type|key)=['\"]([^'\"]*)['\"]\\]");
-			keyTypeSwapPattern = Pattern.compile("([^/]*)/(.*)");
-//			noisePattern = Pattern.compile( // 'noise' to be removed
-//					"^/|" + "Formats/currencyFormatLength/currencyFormat|" + "Formats/currencySpacing|"
-//							+ "Formats/percentFormatLength/percentFormat|" + "Formats/decimalFormatLength/decimalFormat|"
-//							+ "Formats/scientificFormatLength/scientificFormat|" + "dateTimes/dateTimeLength/|"
-//							+ "Formats/timeFormatLength|" + "/timeFormats/timeFormatLength|" + "/timeFormat|"
-//							+ "s/quarterContext|" + "/dateFormats/dateFormatLength|" + "/pattern|" + "/monthContext|"
-//							+ "/monthWidth|" + "/timeLength|" + "/quarterWidth|" + "/dayContext|" + "/dayWidth|"
-//							+ "/dayPeriodContext|" + "/dayPeriodWidth|" + "/dayPeriod|" +
-//							// "day/|"+
-//							// "date/|"+
-//							"Format|" + "s/field|" + "\\[@draft=\"true\"\\]|" + // ???
-//							"\\[@alt=\"[^\"]*\"\\]|" + // ???
-//							"/displayName$|" + // for currency
-//							"/standard/standard$");
+			Pattern.compile("([^/]*)/(.*)");
+
+			/* This one is only used with non-pageID use. */
 			mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"
 					+ // these are excluded when 'misc' is chosen.
 					"^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
 					+ "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
 					+ "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
-			// what to exclude under 'misc' and calendars
+			
+			/* Always excluded. Compare with PathHeader/Coverage. */
 			excludeAlways = Pattern.compile("^//ldml/segmentations.*|" + "^//ldml/measurement.*|" + ".*week/minDays.*|"
 					+ ".*week/firstDay.*|" + ".*/usesMetazone.*|" + ".*week/weekendEnd.*|" + ".*week/weekendStart.*|"
 					+
 					// "^//ldml/dates/.*localizedPatternChars.*|" +
-					"^//ldml/posix/messages/.*expr$|" + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|"
+					"^//ldml/posix/messages/.*expr$|" + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|"  // //ldml/dates/timeZoneNames/zone[@type="Etc/GMT+11"]/exemplarCity
 					+ "^//ldml/dates/.*default");// no defaults
-
-			needFullPathPattern = Pattern.compile("^//ldml/layout/orientation$|" + ".*/alias");
 
 			int pn;
 			for (pn = 0; pn < fromto.length / 2; pn++) {
@@ -2241,6 +2213,27 @@ public class DataSection implements JSONString {
 		}
 		isInitted = true;
 	}
+
+	/**
+	 * @return a new XPathMatcher that matches all paths in the hacky excludeAlways regex. For testing.
+	 * @deprecated
+	 */
+    public static XPathMatcher getHackyExcludeMatcher() {
+        init();
+        return new XPathMatcher() {
+
+            @Override
+            public String getName() {
+                // TODO Auto-generated method stub
+                return null;
+            }
+
+            @Override
+            public boolean matches(String xpath, int xpid) {
+                return excludeAlways.matcher(xpath).matches();
+            }
+        };
+    }
 
 	/**
 	 * Create, populate, and complete a DataSection given the specified locale
@@ -2949,7 +2942,7 @@ public class DataSection implements JSONString {
 				        // System.err.println("ns1 1 "+(System.currentTimeMillis()-nextTime)
 				        // + " " + xpath);
 				        continue;
-				    } else if (excludeMost && mostPattern.matcher(xpath).matches()) {
+				    } else if (excludeMost && mostPattern.matcher(xpath).matches()) { // ONLY used in non-PageId use.
 				        // if(ndebug)
 				        // System.err.println("ns1 2 "+(System.currentTimeMillis()-nextTime)
 				        // + " " + xpath);
@@ -3043,9 +3036,6 @@ public class DataSection implements JSONString {
 						fullPath = xpath;
 					}
 				}
-
-//				if (needFullPathPattern.matcher(xpath).matches()) {
-//				}
 
 				if (TRACE_TIME)
 					System.err.println("ns0  " + (System.currentTimeMillis() - nextTime));

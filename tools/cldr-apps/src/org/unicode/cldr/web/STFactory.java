@@ -320,8 +320,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             PathHeader ph = getPathHeader(xpath);
             if(ph==null) return false;
             if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.DEPRECATED) return false;
-            if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.HIDE && !UserRegistry.userIsTC(user)) return false;
-            if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.READ_ONLY && !UserRegistry.userIsTC(user)) return false;
+            if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.HIDE  || 
+                    ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.READ_ONLY) {
+                if(user==null || !UserRegistry.userIsTC(user)) return false;
+            }
             if(sm.getSupplementalDataInfo().getCoverageValue(xpath, locale.toULocale())>org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) return false;
             return true;
         }

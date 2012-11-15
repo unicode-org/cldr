@@ -32,7 +32,12 @@ class LdmlConvertRules {
         "currencyFormats:unitPattern:count",
         "currency:displayName:count",
         "numbers:symbols:numberSystem",
+        "numbers:decimalFormats:numberSystem",
+        "numbers:currencyFormats:numberSystem",
+        "numbers:percentFormats:numberSystem",
+        "numbers:scientificFormats:numberSystem",
         "territoryContainment:group:status",
+        "decimalFormat:pattern:count",
         "unit:unitPattern:count"
     };
 
@@ -323,8 +328,8 @@ class LdmlConvertRules {
         // Add "type" attribute with value "standard" if there is no "type" in
         // "decimalFormatLength".
         new PathTransformSpec(
-            "(.*/numbers/decimalFormats/decimalFormatLength)/(.*)$",
-            "$1[@type=\"standard\"]/$2"),
+            "(.*/numbers/(decimal|currency|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|currency|scientific|percent)FormatLength)/(.*)$",
+            "$1[@type=\"standard\"]/$5"),
 
         // Separate type of an language as another layer.
         new PathTransformSpec("(.*identity/language)\\[@type=\"([^\"]*)\"\\](.*)$",

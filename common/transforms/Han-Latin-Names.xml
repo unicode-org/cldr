@@ -7,15 +7,33 @@
 		<transform source="Han" target="Latin" direction="forward" variant="Names">
 			<comment># Need Spacedhan so the name transliterations get spaced properly</comment>
 			<tRule>::Han-Spacedhan();</tRule>
-			<comment># Convert name characters with special readings</comment>
+			<comment># Convert special name readings that depend on next character</comment>
+			<tRule>万俟→mòqí;</tRule>
+			<tRule>长孙→zhǎngsūn;</tRule>
+			<comment># Convert single characters with special name readings</comment>
+			<tRule>卜→bǔ;</tRule>
 			<tRule>长→cháng;</tRule>
+			<tRule>干→gān;</tRule>
 			<tRule>葛→gě;</tRule>
-			<tRule>贾→jǐa;</tRule>
-			<tRule>賈→jǐa;</tRule>
+			<tRule>盖→gě;</tRule>
+			<tRule>华→huà;</tRule>
+			<tRule>贾→jiǎ;</tRule>
+			<tRule>賈→jiǎ;</tRule>
 			<tRule>筠→jūn;</tRule>
+			<tRule>区→ōu;</tRule>
+			<tRule>繁→pó;</tRule>
+			<tRule>仇→qiú;</tRule>
+			<tRule>任→rén;</tRule>
+			<tRule>单→shàn;</tRule>
 			<tRule>沈→shěn;</tRule>
 			<tRule>峙→shì;</tRule>
+			<tRule>隗→wěi;</tRule>
+			<tRule>解→xiè;</tRule>
 			<tRule>莘→xīn;</tRule>
+			<tRule>尉→yù;</tRule>
+			<tRule>乐→yuè;</tRule>
+			<tRule>查→zhā;</tRule>
+			<tRule>翟→zhái;</tRule>
 			<tRule>曾→zēng;</tRule>
 			<comment># Then run the normal Han-Latin transform for the rest</comment>
 			<tRule>::Han-Latin();</tRule>

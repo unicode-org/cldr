@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="Content-Language" content="en-us">
-<link rel="stylesheet" href="http://unicode.org/reports/reports.css" type="text/css">
+<link rel="stylesheet" href="http://www.unicode.org/reports/reports.css" type="text/css">
 <title>UTS #35: Unicode LDML: Collation</title>
 <style type="text/css">
 <!--
@@ -53,21 +53,21 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-11-07</span></td>
+			<td><span class="changed">2012-11-20</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-30/tr35.html" class="changed">http://unicode.org/reports/tr35/tr35-30/tr35.html</a></td>
+			<a href="http://www.unicode.org/reports/tr35/tr35-30/tr35.html" class="changed">http://www.unicode.org/reports/tr35/tr35-30/tr35.html</a></td>
 		</tr>
 		<tr>
 			<td>Previous Version</td>
 			<td>
-			<a href="http://unicode.org/reports/tr35/tr35-29.html" class="changed">http://unicode.org/reports/tr35/tr35-29.html</a></td>
+			<a href="http://www.unicode.org/reports/tr35/tr35-29.html" class="changed">http://www.unicode.org/reports/tr35/tr35-29.html</a></td>
 		</tr>
 		<tr>
 			<td>Latest Version</td>
-			<td><a href="http://unicode.org/reports/tr35/">http://unicode.org/reports/tr35/</a></td>
+			<td><a href="http://www.unicode.org/reports/tr35/">http://www.unicode.org/reports/tr35/</a></td>
 		</tr>
 		<tr>
 			<td>Corrigenda</td>
@@ -75,7 +75,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Latest Proposed Update</td>
-			<td><a href="http://unicode.org/reports/tr35/proposed.html">http://unicode.org/reports/tr35/proposed.html</a></td>
+			<td><a href="http://www.unicode.org/reports/tr35/proposed.html">http://www.unicode.org/reports/tr35/proposed.html</a></td>
 		</tr>
 		<tr>
 			<td>Namespace</td>
@@ -124,10 +124,15 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	</i></p>
 
 <h2><a name="Contents"><span class="changed">Collation:</span> Contents</a></h2>
-	<ul class="toc">
-		<li class="changed">1 <a href="#CLDR_Collation">CLDR Collation</a></li>
-		<li class="changed">2 <a href="#Root_Collation">Root Collation</a></li>
-		<li class="changed">3 <a href="#Collation_Tailorings">Collation Tailorings</a>
+	<ul class="toc changed">
+		<li>1 <a href="#CLDR_Collation">CLDR Collation</a></li>
+		<li>2 <a href="#Root_Collation">Root Collation</a>
+                  <ul class="toc">
+                    <li>2.1 <a href="#Root_Data_Files">Root Collation Data Files</a></li>
+                    <li>2.2 <a href="#Root_Data_File_Formats">Root Collation Data File Formats</a></li>
+                  </ul>
+		</li>
+		<li>3 <a href="#Collation_Tailorings">Collation Tailorings</a>
                   <ul class="toc">
                     <li>3.1 <a href="#Collation_Version">Version</a></li>
                     <li>3.2 <a href="#Collation_Element">Collation Element</a></li>
@@ -164,35 +169,372 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   and further tailored for language and style as needed.</p>
 
 <h2>2 <a name="Root_Collation">Root Collation</a></h2>
-  <p class="reviewnote">TODO: Merge CollationAuxiliary.html into this section and clean up.</p>
+  <p class="reviewnote">Note: CollationAuxiliary.html was moved/merged from
+  the <a href="http://www.unicode.org/reports/tr10/#Data10">UCA data directory</a> into this section.
+  Much but not all merged/modified/deleted contents is marked as changed; moved-as-is contents is generally not marked.</p>
+
   <p>The <span class="changed">CLDR</span> root <span class="changed">collation</span> order
-  is based on the UCA default table defined in <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
+  is based on the UCA default table defined in
+  <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
+  <span class="changed">It is used by all other locales by default, or as the base for their tailorings.</span>
   (For a chart view of the UCA, see Collation Chart [<a href="tr35.html#UCAChart">UCAChart</a>].)</p>
-  <p>CLDR uses  modified tables  for the root order as described in <strong>CollationAuxiliary.html</strong> in the <a href="http://unicode.org/reports/tr10/#Data10">UCA data directory</a>. U+FFFE and U+FFFF have special tailorings as well:</p>
+  <p><span class="changed">Starting with CLDR 1.9,</span>
+  CLDR uses modified tables for the root <span class="changed">collation</span> order
+  <span class="removed">as described in <strong>CollationAuxiliary.html</strong>
+  in the <a href="http://www.unicode.org/reports/tr10/#Data10">UCA data directory</a></span>.</p>
+
+  <p class="reviewnote">Note: Remove the following paragraph if <a href="http://unicode.org/cldr/trac/ticket/5464">the "ducet" tailoring is removed</a>.</p>
+  <p>There is a separate collation tailoring in root that allows access to
+  the original [<a href="tr35.html#DUCET">DUCET</a>] table order.
+  Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order.
+  For a  description of how inheritance applies to keywords, see
+  <i><a href="tr35.html#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></i>.</p>
+  <p>The root locale ordering is tailored in the following ways:</p>
+
+  <h3><a name="grouping_classes_of_characters"></a>Grouping classes of characters</h3>
+  <p>As of Version 6.1.0, the DUCET puts characters into the following ordering:</p>
+  <ul>
+    <li>First &quot;common characters&quot;: whitespace, punctuation,
+    general symbols, some numbers, currency symbols, and other numbers.</li>
+    <li>Then &quot;script characters&quot;: Latin, Greek, and the rest of the scripts.</li>
+  </ul>
+  <p>(There are a few exceptions to this general ordering.)</p>
+  <p>The CLDR root locale modifies the DUCET tailoring by ordering the common characters more strictly by category:</p>
+  <ul>
+    <li>whitespace, punctuation, general symbols, currency symbols, and numbers.</li>
+  </ul>
+  <p>What the regrouping allows is for users to parametrically reorder the groups.
+  For example, users can reorder numbers after all scripts, or reorder Greek before Latin.</p>
+  <p>The relative order within each of these groups still matches the DUCET.
+  Symbols, punctuation, and numbers that are grouped with a particular script stay with that script.
+  The differences between CLDR and the DUCET order are:</p>
+  <ol>
+    <li>CLDR groups the numbers together after currency symbols,
+    instead of splitting them with some before and some after. 
+    Thus the following are put <em>after</em> currencies and just before all the other numbers.
     <blockquote>
-      <p><strong>U+FFFF: </strong>This  code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;, to include all strings starting with &quot;sch&quot; or equivalent.</p>
-      <!-- 
-      <p><strong>U+FFFD: </strong>This  code point is tailored to have a primary weight higher than all other characters except for U+FFFF. This provides a reliable weighting for ill-formed sequences that are handled as U+FFFD, as recommended in UCA.</p> 
-      -->
-      <p><strong>U+FFFE: </strong>This  code point produces a CE with special minimal weights on all levels, regardless of alternate handling. This allows for <a href="http://unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a> within code point space. For example, when sorting names in a database, a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>. These strings would sort properly, without ever comparing the last part of a last name with the first part of another first name.</p>
+      <p>U+09F4 ( ৴ ) [No] BENGALI CURRENCY NUMERATOR ONE<br>
+        ...<br>
+        U+1D371 ( 𝍱 ) [No] COUNTING ROD TENS DIGIT NINE</p>
     </blockquote>
-    <p>In CLDR, so as to maintain the <em>highest</em> and <em>lowest</em> status,
-      <strong>U+FFFE..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
+    </li>
+    <li>CLDR handles a few other characters differently
+      <ol>
+        <li>U+10A7F ( 𐩿 ) [Po] OLD SOUTH ARABIAN NUMERIC INDICATOR
+        is put with punctuation, not symbols</li>
+        <li>U+20A8 ( ₨ ) [Sc] RUPEE SIGN and U+FDFC ( ﷼ ) [Sc] RIAL SIGN
+        are put with currency signs, not with R and REH.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <h3><a name="non_variable_symbols"></a>Non-variable symbols</h3>
+  <p>There are multiple <a href="http://www.unicode.org/reports/tr10/#Variable_Weighting">Variable-Weighting</a> options
+  in the UCA for symbols and punctuation, including <em>non-ignorable</em> and <em>shifted</em>. 
+  With the <em>shifted</em> option, almost all symbols and punctuation are ignored—except at a fourth level. 
+  The CLDR root locale ordering is modified so that symbols are not affected by the <em>shifted</em> option.
+  That is, by default, symbols are not “variable” in CLDR.
+  So <em>shifted</em> only causes whitespace and punctuation to be ignored, but not symbols (like ♥). 
+  The DUCET behavior can be specified with a locale ID using the &quot;vt&quot; keyword, to set the Variable section to 
+  include all of the symbols below it, or be set parametrically where implementations allow access.</p>
+  <p>See also:</p>
+  <ul>
+    <li><i>Section 3.3, <a href="#Setting_Options">Setting Options</a></i></li>
+    <li><a href="http://www.unicode.org/charts/collation/">http://www.unicode.org/charts/collation/</a></li>
+  </ul>
+
+  <h3><a name="tibetan_contractions"></a>Additional contractions for Tibetan</h3>
+  <p>Ten contractions are added for Tibetan:
+  Two to fulfill <a href="http://www.unicode.org/reports/tr10/#WF5">well-formedness condition 5</a>,
+  and eight more to preserve the default order for Tibetan.
+  For details see <i>UTS #10, Section 3.6.4,
+  <a href="http://www.unicode.org/reports/tr10/#Well_Formed_DUCET">Well-Formedness of the DUCET</a></i>.</p>
+
+  <h3><a name="tailored_noncharacter_weights"></a>Tailored noncharacter weights</h3>
+  <p>U+FFFE and U+FFFF have special tailorings<span class="removed"> as well</span>:</p>
+  <blockquote>
+    <p><strong>U+FFFF: </strong>This code point is tailored to have a
+    primary weight higher than all other characters.
+    This allows the reliable specification of a range,
+    such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;,
+    to include all strings starting with &quot;sch&quot; or equivalent.</p>
+    <p><strong>U+FFFE: </strong>This code point produces a CE with special minimal weights on all levels,
+    regardless of alternate handling.
+    This allows for <a href="http://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a>
+    within code point space.
+    For example, when sorting names in a database,
+    a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>.
+    These strings would sort properly, without ever comparing the last part of a last name
+    with the first part of another first name.</p>
+  </blockquote>
+  <p class="changed">UCA (beginning with version 6.3) also maps <strong>U+FFFD</strong>
+  to a special collation element with a very high primary weight,
+  so that it is reliably non-<a href="http://www.unicode.org/reports/tr10/#Variable_Weighting">variable</a>,
+  for use with <a href="http://www.unicode.org/reports/tr10/#Handling_Illformed">ill-formed code unit sequences</a>.</p>
+  <p>In CLDR, so as to maintain the <span class="removed"><em>highest</em> and <em>lowest</em> status</span>
+  <span class="changed">special collation elements</span>,
+  <strong>U+FFF<span class="changed">D</span>..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
   That is, neither can occur in a collation rule: for example, the following rules are illegal:</p>
-    <p><code>&amp; \uFFFF &lt; x</code></p>
-    <p><code>&amp; x &lt;\uFFFF</code><br>
-    </p>
-    <p>There is also a separate collation in root that allows access to the original [<a href="tr35.html#DUCET">DUCET</a>] table order.
-    Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order.
-    For a  description of how inheritance applies to keywords, see
-    <i><a href="tr35.html#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></i>.</p>
+  <p><code>&amp; \uFFFF &lt; x</code></p>
+  <p><code>&amp; x &lt;\uFFFF</code><br>
+  </p>
 
 <p class="note"><b>Note:</b></p>
   <ul>
     <li class="note">Java uses an early version of the basic collation syntax, but has not been updated recently.
     It does not support any of the basic syntax marked with [...],
-    and its default table is not the <span class="changed">specified in the</span> UCA.</li>
+    and its default table is not the <span class="changed">DUCET</span>.</li>
   </ul>
+
+<h3 class="changed">2.1 <a name="Root_Data_Files">Root Collation Data Files</a></h3>
+  <p class="changed">The CLDR root collation data files are in the CLDR repository and release,
+  under the path <a href="http://unicode.org/repos/cldr/trunk/common/uca/">common/uca/</a>.</p>
+
+  <p>Comments with DUCET-style weights in files other than allkeys_CLDR.txt
+  use the weights defined in allkeys_CLDR.txt.</p>
+  <p class="reviewnote">TODO: Adjust the list of files
+  according to what is actually published in the repository.</p>
+  <ul>
+    <li> <strong>allkeys_CLDR</strong> -
+    A file that provides a remapping of UCA DUCET weights for use with CLDR. </li>
+    <li><strong>FractionalUCA</strong> -
+    Files that provide a remapping of UCA DUCET weights for use with CLDR.
+    The weight values are also modified to provide variable-width weights for compression. 
+      <ul>
+        <li>FractionalUCA_summary.txt - provides an overview of the weight assignments</li>
+        <li>FractionalUCA.txt - provides the full data table</li>
+        <li>FractionalUCA_SHORT.txt - <em>omits comment information for compactness</em></li>
+      </ul>
+    </li>
+    <li><strong>UCA_Rules</strong> -
+    Files that provide the information in FractionalUCA as a set of comparison rules,
+    for use with CLDR and other environments.
+    These rules provide the relative values for different characters without being tied to particular weights.
+    There may be some minor differences in the resulting ordering compared to the allkeys_CLDR. 
+    For example, "&amp;D &lt;&lt;&lt; ǲ / z" will create a sequence of two CEs for ǲ.
+    The tertiary difference (for the syntax &lt;&lt;&lt;) is produced
+    by incrementing the tertiary weight on the first CE.
+    This may not correspond to how tertiary differences are distributed
+    across the two CEs by the DUCET.
+      <ul>
+        <li>UCA_Rules.txt - rules<em> (CLDR basic collation syntax)</em></li>
+        <li>UCA_Rules.xml - rules<em> (CLDR XML collation syntax)</em></li>
+        <li>UCA_Rules_SHORT.txt - rules omitting comment information for compactness
+          <em>(CLDR basic collation syntax)</em></li>
+        <li>UCA_Rules_SHORT.xml - rules omitting comment information for compactness
+          <em>(CLDR XML collation syntax)</em></li>
+        <li>UCA_Rules_NoCE.txt - rules omitting  the (remapped) DUCET value,
+          for more effective comparison across versions<em> (CLDR basic collation syntax)</em></li>
+        <li>UCA_Rules_NoCE.xml - rules omitting  the (remapped) DUCET value,
+          for more effective comparison across versions<em> (CLDR XML collation syntax)</em></li>
+      </ul>
+    </li>
+    <li><strong>CollationTest_CLDR</strong> - The CLDR versions of the CollationTest files,
+      which use the tailorings for CLDR.
+      For information on the format, see
+      <a href="http://www.unicode.org/Public/UCA/latest/CollationTest.html">CollationTest.html</a>
+      <span class="changed">in the <a href="http://www.unicode.org/reports/tr10/#Data10">UCA data directory</a></span>.
+      <ul>
+        <li>CollationTest_CLDR_NON_IGNORABLE_SHORT.txt</li>
+        <li>CollationTest_CLDR_NON_IGNORABLE.txt</li>
+        <li>CollationTest_CLDR_SHIFTED_SHORT.txt</li>
+        <li>CollationTest_CLDR_SHIFTED.txt</li>
+      </ul>
+    </li>
+  </ul>
+
+<h3 class="changed">2.2 <a name="Root_Data_File_Formats">Root Collation Data File Formats</a></h3>
+
+  <p>The file formats may change between versions of <span class="changed">CLDR</span>.
+  The formats for <span class="changed">CLDR 23</span> and beyond are as follows.
+  As usual, text after a # is a comment.</p>
+
+<h4>FractionalUCA_summary.txt</h4>
+  <p>The lines are all comments, giving an overview of the weight structure.
+  Lines are tab delimited, for use with spreadsheets. Most are in the format:</p>
+  <p># position fractional-weight Script General-category Codepoint Name</p>
+  <p>where <em>position</em> is &quot;First&quot; or &quot;Last&quot;</p>
+  <p><em>Example</em></p>
+  <pre># First      03 05           Zyyy    Cc      U+0009 &lt;CHARACTER TABULATION&gt;
+# Last      03 15           Zyyy    Zp      U+2029 PARAGRAPH SEPARATOR</pre>
+  <p>The topmost variable weight is marked with the following format:</p>
+  <pre>[variable top = 0C 32 04] # END OF VARIABLE SECTION!!!</pre>
+  <p>The purpose of other lines is given by comments.</p>
+
+<h4>FractionalUCA.txt</h4>
+  <p>The format is illustrated by the following sample lines, with commentary  afterwards.</p>
+  <pre>[UCA version = 6.0.0]</pre>
+  <blockquote>
+    <p>Provides the version number of the UCA table.</p>
+  </blockquote>
+  <pre>0000; [,,]     # Zyyy Cc       [0000.0000.0000]        * &lt;NULL&gt;</pre>
+  <blockquote>
+    <p>Provides a weight line. The first element (before the &quot;;&quot;) is a hex codepoint sequence. 
+    The second field is a sequence of collation elements.
+    Each collation element has 3 parts separated by commas: 
+    the primary weight, secondary weight, and tertiary weight.
+    The tertiary weight actually consists of two components: 
+    the top two bits (0xC0) are used for the <em>case level</em>,
+    and should be masked off where a case level is not used.</p>
+    <p>A weight is either empty (meaning a zero or ignorable weight)
+    or is a sequence of one or more bytes.
+    The bytes are interpreted as a &quot;fraction&quot;,
+    meaning that the ordering is 04 &lt; 05 05 &lt; 06.
+    The weights are constructed so that no weight is an initial subsequence of another:
+    that is, having both the weights 05 and 05 05 is illegal.
+    The above line consists of all ignorable weights.</p>
+    <p>The vertical bar (“|”) character is used to indicate context, as in:</p>
+  </blockquote>
+  <pre>006C | 00B7; [, DB A9, 05]</pre>
+  <blockquote> This example indicates  that if U+00B7 appears immediately after U+006C,
+  it is given the corresponding collation element instead.
+  This syntax is equivalent to the following contraction, but is more efficient.</blockquote>
+  <pre>006C 00B7; <em>CE(006C)</em> [, DB A9, 05]</pre>
+  <blockquote>
+    <p>Single-byte primary weights are given to particularly frequent characters,
+    such as space, digits, and a-z.
+    Most characters are given two-byte weights,
+    while relatively infrequent characters are given three-byte weights.
+    For example:</p>
+  </blockquote>
+  <pre>...
+0009; [03 05, 05, 05] # Zyyy Cc       [0100.0020.0002]        * &lt;CHARACTER TABULATION&gt;
+...
+1B60; [06 14 0C, 05, 05]    # Bali Po       [0111.0020.0002]        * BALINESE PAMENENG
+...
+0031; [14, 05, 05]    # Zyyy Nd       [149B.0020.0002]        * DIGIT ONE</pre>
+  <blockquote>
+    <p>The assignment of 2 vs 3 bytes does not reflect importance, or exact frequency.</p>
+  </blockquote>
+  <pre># SPECIAL MAX/MIN COLLATION ELEMENTS
+FFFE; [02, 02, 02]     # Special LOWEST primary, for merge/interleaving
+FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges</pre>
+  <blockquote>
+    <p>The two tailored noncharacters have their own weights.</p>
+  </blockquote>
+  <pre># SPECIAL FINAL VALUES for Script Reordering
+FDD0 0042; [05 FE, 05, 05]     # Special final value for reordering token
+FDD0 0043; [0C FE, 05, 05]     # Special final value for reordering token</pre>
+  <blockquote>
+    <p>There are special values assigned to code point sequences FDD0+X.
+    These sequences are simply used to communicate special values, and can be eliminated.
+    For the reordering values, the purpose is to make sure that there is
+    a &quot;high&quot; weight at the end of each reordering group.</p>
+  </blockquote>
+  <pre>...
+# HOMELESS COLLATION ELEMENTS
+FDD0 0063; [, 97, 3D]       # [15E4.0020.0004] [1844.0020.0004] [0000.0041.001F]    * U+01C6 LATIN SMALL LETTER DZ WITH CARON
+FDD0 0064; [, A7, 09]       # [15D1.0020.0004] [0000.0056.0004]     * U+1DD7 COMBINING LATIN SMALL LETTER C CEDILLA
+FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LATIN SMALL LETTER G WITH OBLIQUE STROKE</pre>
+  <blockquote>
+    <p>The DUCET has some weights that don't correspond directly to a character.
+    To allow for implementations to have a character associated with each weight
+    (necessary for certain implementations of tailoring),
+    this requires the construction of special sequences for those weights.</p>
+    <p>Next, a number of tables are defined.
+    The function of each of the tables is summarized afterwards.</p>
+  </blockquote>
+  <pre># VALUES BASED ON UCA
+...
+[first regular [0D 0A, 05, 05]] # U+0060 GRAVE ACCENT
+[last regular [7A FE, 05, 05]] # U+1342E EGYPTIAN HIEROGLYPH AA032
+[first implicit [E0 04 06, 05, 05]] # CONSTRUCTED
+[last implicit [E4 DF 7E 20, 05, 05]] # CONSTRUCTED
+[first trailing [E5, 05, 05]] # CONSTRUCTED
+[last trailing [E5, 05, 05]] # CONSTRUCTED
+...</pre>
+  <blockquote>
+    <p>This table summarizes ranges of important groups of characters for implementations.</p>
+  </blockquote>
+  <pre># Top Byte =&gt; Reordering Tokens
+[top_byte     00      TERMINATOR ]    #       [0]     TERMINATOR=1
+[top_byte     01      LEVEL-SEPARATOR ]       #       [0]     LEVEL-SEPARATOR=1
+[top_byte     02      FIELD-SEPARATOR ]       #       [0]     FIELD-SEPARATOR=1
+[top_byte     03      SPACE ] #       [9]     SPACE=1 Cc=6 Zl=1 Zp=1 Zs=1
+...</pre>
+  <blockquote>
+    <p>This table maps from the first bytes of the fractional weights to a reordering token.
+    The format is &quot;[top_byte        &quot; byte-value reordering-token &quot;COMPRESS&quot;? &quot;]&quot;.
+    The &quot;COMPRESS&quot; value is present when
+    there is only one byte in the reordering token,
+    and primary-weight compression can be applied.
+    Most reordering tokens are script values;
+    others are special-purpose values, such as PUNCTUATION.</p>
+  </blockquote>
+  <pre># Reordering Tokens =&gt; Top Bytes
+[reorderingTokens     Arab    61=910 62=910 ]
+[reorderingTokens     Armi    7A=22 ]
+[reorderingTokens     Armn    5F=82 ]
+[reorderingTokens     Avst    7A=54 ]
+...</pre>
+  <blockquote>
+    <p>This table is an inverse mapping from reordering token to top byte(s).
+    In terms like &quot;61=910&quot;, the first value is the top byte,
+    while the second is informational,
+    indicating the number of primaries assigned with that top byte.</p>
+  </blockquote>
+  <pre># General Categories =&gt; Top Byte
+[categories   Cc      03{SPACE}=6 ]
+[categories   Cf      77{Khmr Tale Talu Lana Cham Bali Java Mong Olck Cher Cans Ogam Runr Orkh Vaii Bamu}=2 ]
+[categories   Lm      0D{SYMBOL}=25 0E{SYMBOL}=22 27{Latn}=12 28{Latn}=12 29{Latn}=12 2A{Latn}=12...</pre>
+  <blockquote>
+    <p>This table is informational, providing the top bytes, scripts, and primaries
+    associated with each general category value. </p>
+  </blockquote>
+  <pre># FIXED VALUES
+[fixed first implicit byte E0]
+[fixed last implicit byte E4]
+[fixed first trail byte E5]
+[fixed last trail byte EF]
+[fixed first special byte F0]
+[fixed last special byte FF]</pre>
+  <blockquote>
+    <p>The final table gives certain hard-coded byte values.
+    The &quot;trail&quot; area is provided for implementation of the &quot;trailing weights&quot;
+    as described in the UCA.</p>
+  </blockquote>
+
+<h4>allkeys_CLDR.txt</h4>
+  <p class="removed">When different from the DUCET table, represents the tailoring used in CLDR
+  as described under <a href="#cldr_tailoring">CLDR Tailoring</a>.</p> 
+  <p class="changed">This file defines CLDR’s tailoring of the DUCET,
+  as described in <i>Section 2, <a href="#Root_Collation">Root Collation</a></i>.</p>
+  <p>The format is similar to that of allkeys.txt,
+  although there may be some differences in whitespace.</p>
+
+<h4>UCA_Rules.txt</h4>
+  <p>The format for this file uses the CLDR
+  <span class="removed">&quot;short&quot; format for collation tailoring</span>
+  <span class="changed"><i>basic collation syntax</i>,
+  see <i>Section 3, <a href="#Collation_Tailorings">Collation Tailorings</a></i></span>.
+  <span class="removed">Some examples of the format are provided below.</span></p>
+  <pre class="removed">&lt;    𝍱     # 5.0 [No] [1499.0020.0002] U+1D371 COUNTING ROD TENS DIGIT NINE
+&lt;   0      # 1.1 [Nd] [149A.0020.0002] U+0030 DIGIT ZERO</pre>
+  <blockquote class="removed">
+    <p>The ASCII ZERO is primary-greater than U+1D371 COUNTING ROD TENS DIGIT</p>
+  </blockquote>
+  <pre class="removed">&lt;&lt;&lt;    ０      # 1.1 [Nd] [149A.0020.0003] U+FF10 FULLWIDTH DIGIT ZERO</pre>
+  <blockquote class="removed">
+    <p>The fullwidth ZERO is tertiary-after the ASCII ZERO.</p>
+  </blockquote>
+  <pre class="removed">&lt;&lt;&lt;    🄁 / ','       # 5.2 [Nd/No] [149A.0020.0004] [011F.0020.0004] U+1F101 DIGIT ZERO COMMA / 002C</pre>
+  <blockquote class="removed">
+    <p>The U+1F101 DIGIT ZERO COMMA is tertiary-greater than the fullwidth ZERO followed by U+002C (comma)</p>
+  </blockquote>
+  <pre class="removed">=       𝟘     # 3.1 [Nd] [149A.0020.0005] U+1D7D8 MATHEMATICAL DOUBLE-STRUCK DIGIT ZERO</pre>
+  <blockquote class="removed">
+    <p>The U+1D7D8 MATHEMATICAL DOUBLE-STRUCK DIGIT ZERO is primary, secondary,
+    and tertiary equal to U+1F101 DIGIT ZERO COMMA</p>
+  </blockquote>
+  <p class="removed">For more information about this format for collation tailoring,
+  see <a href="http://www.unicode.org/reports/tr35/">LDML</a>.</p>
+
+<h4>UCA_Rules.xml</h4>
+  <p>Provides the same rule set in CLDR <span class="changed"><i>XML collation syntax</i></span>.
+  <span class="removed">For more information, see <a href="http://www.unicode.org/reports/tr35/">LDML</a>.</span></p>
+
+<h4>UCA_Rules_NoCE.txt</h4>
+  <p>Omits the (remapped) DUCET value, for more effective comparison across versions.</p>
 
 <h2>3 <a name="Collation_Tailorings">Collation Tailorings</a></h2>
 	<p class="dtd">&lt;!ELEMENT collations (alias | (default*, collation*, special*)) &gt;</p>
@@ -201,7 +543,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	Each collation contains rules that specify a certain sort-order, as a tailoring 
 	of the root order.</p>
 
-    <p>To allow implementations in reduced memory environments to use CJK sorting, there are also short forms of each of these collation sequences. These provide for the most common characters in common use, and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
+    <p>To allow implementations in reduced memory environments to use CJK sorting,
+    there are also short forms of each of these collation sequences.
+    These provide for the most common characters in common use,
+    and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
 
   <p>There are two <span class="changed">syntaxes</span> <span class="removed">syntax specifications</span> for specifying collation rules:
   the <em>basic collation syntax</em> and the <em>XML collation syntax</em>.
@@ -389,7 +734,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<td rowspan="2"><code>numeric = &quot;<span style="color: blue">on</span>&quot;<br>
 			  <br>
 		    [numeric on]</code></td>
-			<td rowspan="2">If set to <strong>on</strong>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>])
+			<td rowspan="2">If set to <strong>on</strong>, any sequence of Decimal Digits (General_Category = Nd in the [<a href="http://www.unicode.org/reports/tr41/#UAX44">UAX44</a>])
 			is sorted at a primary level with its numeric value. For example, &quot;A-21&quot; &lt; &quot;A-123&quot;. The computed primary weights are all at the start of the <strong>digit</strong> reordering group. Thus with an untailored UCA table, &quot;a$&quot; &lt; &quot;a0&quot; &lt; &quot;a2&quot; &lt; &quot;a12&quot; &lt; &quot;a⓪&quot; &lt; &quot;aa&quot;.</td>
 		</tr>
 		<tr>

@@ -25,7 +25,6 @@ public class FilterFactory extends Factory {
     private static final String[] SPECIAL_ALT_PATHS = {
         "//ldml/localeDisplayNames/territories/territory[@type=\"HK\"][@alt=\"short\"]",
         "//ldml/localeDisplayNames/territories/territory[@type=\"MO\"][@alt=\"short\"]",
-        "//ldml/localeDisplayNames/territories/territory[@type=\"MK\"][@alt=\"variant\"]"
     };
 
     private Factory rawFactory;

@@ -99,12 +99,12 @@ class LdmlConvertRules {
         "key:type:alias",
         "key:type:name",
 
-        // common/segments
+        // identity elements
+        "identity:language:type",
+        "identity:script:type",
         "identity:territory:type",
         "identity:variant:type",
 
-        // common/rbnf
-        "identity:script:type",
     };
 
     /**
@@ -156,7 +156,9 @@ class LdmlConvertRules {
         // common/collation
         "collations:default:choice",
 
-        // common/segments
+        // identity elements
+        "identity:language:type",
+        "identity:script:type",
         "identity:territory:type",
         "identity:variant:type",
     };
@@ -332,8 +334,8 @@ class LdmlConvertRules {
             "$1[@type=\"standard\"]/$5"),
 
         // Separate type of an language as another layer.
-        new PathTransformSpec("(.*identity/language)\\[@type=\"([^\"]*)\"\\](.*)$",
-            "$1/$2$3"),
+        //new PathTransformSpec("(.*identity/language)\\[@type=\"([^\"]*)\"\\](.*)$",
+        //    "$1/$2$3"),
 
         new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
             "$1/$2$3"),

@@ -135,6 +135,7 @@ public class Ldml2JsonConverter {
         String lastLeadingArrayItemPath = null;
         String leadingArrayItemPath = "";
         int valueCount = 0;
+        String previousIdentityPath = null;
 
         for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
             String path = it.next();
@@ -147,6 +148,18 @@ public class Ldml2JsonConverter {
             String transformedFullPath = transformPath(fullPath);
             CldrItem item = new CldrItem(transformedPath, transformedFullPath,
                 file.getStringValue(path));
+
+            // items in the identity section of a file should only ever contain the lowest level, even if using
+            // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress them
+            // here.
+            if (path.startsWith("//ldml/identity/")) {
+                String [] parts = path.split("\\[");
+                if (parts[0].equals(previousIdentityPath)) {
+                    continue;
+                } else {
+                    previousIdentityPath = parts[0];
+                }
+            }
 
             // some items need to be split to multiple item before processing. None
             // of those items need to be sorted.

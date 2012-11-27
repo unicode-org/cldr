@@ -136,7 +136,7 @@ public class Ldml2JsonConverter {
         String leadingArrayItemPath = "";
         int valueCount = 0;
         String previousIdentityPath = null;
-
+        Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
             String path = it.next();
             String fullPath = file.getFullXPath(path);
@@ -149,6 +149,11 @@ public class Ldml2JsonConverter {
             CldrItem item = new CldrItem(transformedPath, transformedFullPath,
                 file.getStringValue(path));
 
+            // automatically filter out number symbols and formats without a numbering system
+            noNumberingSystemMatcher.reset(fullPath);
+            if (noNumberingSystemMatcher.matches()) {
+                continue;
+            }
             // items in the identity section of a file should only ever contain the lowest level, even if using
             // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress them
             // here.

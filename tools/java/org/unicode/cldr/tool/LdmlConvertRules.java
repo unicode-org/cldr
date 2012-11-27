@@ -293,6 +293,12 @@ class LdmlConvertRules {
             ")(.*)");
 
     /**
+     * Number elements without a numbering system are there only for compatibility purposes.
+     * We automatically suppress generation of JSON objects for them.
+     */
+    public static final Pattern NO_NUMBERING_SYSTEM_PATTERN = Pattern.compile("//ldml/numbers/(symbols|(decimal|percent|scientific|currency)Formats)/.*");
+    
+    /**
      * A simple class to hold the specification of a path transformation.
      */
     public static class PathTransformSpec {

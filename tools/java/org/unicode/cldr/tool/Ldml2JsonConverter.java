@@ -5,6 +5,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
@@ -18,6 +19,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,7 +27,7 @@ import java.util.regex.Pattern;
  * Utility methods to extract data from CLDR repository and export it in JSON
  * format.
  * 
- * @author shanjian
+ * @author shanjian / emmons
  */
 public class Ldml2JsonConverter {
     private static final String MAIN = "main";
@@ -41,7 +43,8 @@ public class Ldml2JsonConverter {
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
         .add("match", 'm', ".*", ".*",
             "Regular expression to define only specific locales or files to be generated")
-
+        .add("fullnumbers", 'n', "(true|false)", "false",
+            "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
         .add("resolved", 'r', "(true|false)", "false",
             "Whether the output JSON for the main directory should be based on resolved or unresolved data")
         .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
@@ -53,6 +56,7 @@ public class Ldml2JsonConverter {
         Ldml2JsonConverter extractor = new Ldml2JsonConverter(
             options.get("commondir").getValue(),
             options.get("destdir").getValue(),
+            Boolean.parseBoolean(options.get("fullnumbers").getValue()),
             Boolean.parseBoolean(options.get("resolved").getValue()),
             options.get("match").getValue());
 
@@ -70,14 +74,17 @@ public class Ldml2JsonConverter {
     private String cldrCommonDir;
     // Where the generated JSON files will be stored.
     private String outputDir;
+    // Whether data in main should output all numbering systems, even those not in use in the locale.
+    private boolean fullNumbers;
     // Whether data in main should be resolved for output.
     private boolean resolve;
-    // Whether data in main should be resolved for output.
+    // Used to match specific locales for output
     private String match;
 
-    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean resolve, String match) {
+    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean fullNumbers, boolean resolve, String match) {
         this.cldrCommonDir = cldrDir;
         this.outputDir = outputDir;
+        this.fullNumbers = fullNumbers;
         this.resolve = resolve;
         this.match = match;
     }
@@ -137,6 +144,8 @@ public class Ldml2JsonConverter {
         int valueCount = 0;
         String previousIdentityPath = null;
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
+        Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
+        Set<String> activeNumberingSystems = new TreeSet<String>();
         for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
             String path = it.next();
             String fullPath = file.getFullXPath(path);
@@ -154,11 +163,32 @@ public class Ldml2JsonConverter {
             if (noNumberingSystemMatcher.matches()) {
                 continue;
             }
+
+            // Filter out non-active numbering systems data unless fullNumbers is specified.
+            numberingSystemMatcher.reset(fullPath);
+            if (numberingSystemMatcher.matches() && !fullNumbers) {
+                if (activeNumberingSystems.isEmpty()) {
+                    activeNumberingSystems.add("latn"); // Always include latin script numbers
+                    for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
+                        String ns = file.getWinningValue(np);
+                        if (ns != null && ns.length() > 0) {
+                            activeNumberingSystems.add(ns);
+                        }
+                    }
+                }
+                XPathParts xpp = new XPathParts();
+                xpp.set(fullPath);
+                String currentNS = xpp.getAttributeValue(2, "numberSystem");
+                if (currentNS != null && !activeNumberingSystems.contains(currentNS)) {
+                    continue;
+                }
+
+            }
             // items in the identity section of a file should only ever contain the lowest level, even if using
             // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress them
             // here.
             if (path.startsWith("//ldml/identity/")) {
-                String [] parts = path.split("\\[");
+                String[] parts = path.split("\\[");
                 if (parts[0].equals(previousIdentityPath)) {
                     continue;
                 } else {

@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-11-20</span></td>
+			<td><span class="changed">2012-11-28</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -183,12 +183,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <span class="removed">as described in <strong>CollationAuxiliary.html</strong>
   in the <a href="http://www.unicode.org/reports/tr10/#Data10">UCA data directory</a></span>.</p>
 
-  <p class="reviewnote">Note: Remove the following paragraph if <a href="http://unicode.org/cldr/trac/ticket/5464">the "ducet" tailoring is removed</a>.</p>
-  <p>There is a separate collation tailoring in root that allows access to
+  <p class="removed">There is a separate collation tailoring in root that allows access to
   the original [<a href="tr35.html#DUCET">DUCET</a>] table order.
   Using the keyword &ldquo;ducet&rdquo;, the locale ID &ldquo;und-u-co-ducet&rdquo; allows access to that order.
   For a  description of how inheritance applies to keywords, see
   <i><a href="tr35.html#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></i>.</p>
+  <!-- TODO: merge the previous remaining paragraph (Starting with CLDR 1.9, ...) with the following one. -->
   <p>The root locale ordering is tailored in the following ways:</p>
 
   <h3><a name="grouping_classes_of_characters"></a>Grouping classes of characters</h3>
@@ -267,13 +267,13 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     These strings would sort properly, without ever comparing the last part of a last name
     with the first part of another first name.</p>
   </blockquote>
-  <p class="changed">UCA (beginning with version 6.3) also maps <strong>U+FFFD</strong>
+  <!-- TODO(CLDR 24): p class="changed">UCA (beginning with version 6.3) also maps <strong>U+FFFD</strong>
   to a special collation element with a very high primary weight,
   so that it is reliably non-<a href="http://www.unicode.org/reports/tr10/#Variable_Weighting">variable</a>,
-  for use with <a href="http://www.unicode.org/reports/tr10/#Handling_Illformed">ill-formed code unit sequences</a>.</p>
+  for use with <a href="http://www.unicode.org/reports/tr10/#Handling_Illformed">ill-formed code unit sequences</a>.</p-->
   <p>In CLDR, so as to maintain the <span class="removed"><em>highest</em> and <em>lowest</em> status</span>
   <span class="changed">special collation elements</span>,
-  <strong>U+FFF<span class="changed">D</span>..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
+  <strong>U+FFFE<!-- TODO(CLDR 24): span class="changed">D</span-->..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
   That is, neither can occur in a collation rule: for example, the following rules are illegal:</p>
   <p><code>&amp; \uFFFF &lt; x</code></p>
   <p><code>&amp; x &lt;\uFFFF</code><br>
@@ -1437,7 +1437,7 @@ text data in the rule. For example, the following are all disallowed:</p>
       <li>Katakana characters are are always reordered with Hiragana.</li>
       <li>Characters in any script not in the 
 	  <a href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a> Table are treated as being in the preceding 
-	  <a href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a> script, in DUCET order. Thus Phoenician characters always reordered with Hebrew characters.</li>
+	  <a href="http://www.unicode.org/reports/tr31/tr31-15.html#Table_Recommended_Scripts">Recommended</a> script, in DUCET order. Thus Phoenician characters always reorder with Hebrew characters.</li>
     </ol>
   </li>
   <li><strong>others</strong> -  where all codes not explicitly mentioned should be ordered. The script code <strong>Zzzz</strong> (Unknown Script) is a synonym for <strong>others</strong>.</li>
@@ -1453,7 +1453,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 </ol>
 <p>The locale data may have a particular ordering. For example, the Czech locale data could put digits after all letters, with <code>[reorder others digit]</code>.
   Any reordering codes specified on top of that (such as with a bcp47 locale identifier) completely replace what was there. To specify a version of collation that completely
-  resets any existing reordering to the ducet ordering, the single code <strong>others</strong> can be used, as below<strong></strong>.</p>
+  resets any existing reordering to the DUCET ordering, the single code <strong>others</strong> can be used, as below<strong></strong>.</p>
 <p><em>Examples: </em></p>
 <table cellpadding="0" cellspacing="0">
   <tbody>

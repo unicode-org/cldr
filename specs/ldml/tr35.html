@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2012-11-20</span></td>
+			<td><span class="changed">2012-11-28</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -781,7 +781,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			Each other locale is based on that, except for appropriate modifications to certain characters for that language.</td>
 		</tr>
 
-		<tr>
+		<tr class="removed">
 			<td>"ducet"</td>
 			<td>The unmodified <span class="changed">[<a href="#DUCET">DUCET</a>]</span> order
 			(Default Unicode Collation Element Table).
@@ -6522,19 +6522,19 @@ range         = value'..'value</pre>
 		  <td><i>found</i></td>
 		</tr>
 		<tr>
-		  <td rowspan="3">de_DE@collation=ducet</td>
-		  <td>de_DE</td>
-		  <td>collation type=ducet</td>
+		  <td rowspan="3"><span class="removed">de_DE@collation=ducet</span><br><span class="changed">en_US@collation=search</span></td>
+		  <td><span class="removed">de_DE</span> <span class="changed">en_US</span></td>
+		  <td>collation type=<span class="removed">ducet</span> <span class="changed">search</span></td>
 		  <td>not found</td>
 	  </tr>
 			<tr>
-			<td>de</td>
-			<td>collation type=ducet</td>
+			<td><span class="removed">de</span> <span class="changed">en</span></td>
+			<td>collation type=<span class="removed">ducet</span> <span class="changed">search</span></td>
 			<td>not found</td>
 		</tr>
 		<tr>
 			<td>root</td>
-			<td>collation type=ducet</td>
+			<td>collation type=<span class="removed">ducet</span> <span class="changed">search</span></td>
 			<td><i>found</i></td>
 		</tr>
 </table>
@@ -8112,7 +8112,8 @@ decimal?, group?, special*)) &gt;</pre>
 			<p>By default in UCA, variable characters are ignored in sorting at a primary, secondary, and tertiary level. But in CLDR, they are not ignorable by default.
 			For more information, see <a href="tr35-collation.html#Setting_Options">Collation: Section 3.3 <em>Setting Options</em></a>.</p>
 
-			<p>The type name "REORDER_CODE" is reserved for reordering block names (e.g. "latn", "digit" and "others") defined by DUCET.
+			<p>The type name "REORDER_CODE" is reserved for reordering block names (e.g. "latn", "digit" and "others")
+			defined <span class="removed">by DUCET</span> <span class="changed">in the <i><a href="tr35-collation.html#Root_Collation">Root Collation</a></i></span>.
 			The type "REORDER_CODE" is used for locale extension key "kr" (colReorder). The value of type for "kr" is represented by one or more
 			reordering block names such as "latn-digit".
 			For more information, see <a href="tr35-collation.html#Script_Reordering">Collation: Section 3.12 <em>Collation Reordering</em></a>.</p>
@@ -9105,6 +9106,7 @@ decimal?, group?, special*)) &gt;</pre>
       <a href="tr35-collation.html">Collation</a> part of this document.
       The CLDR root collation data files have been moved
       from the UCA data directory into the CLDR repository.</li>
+  <li>The und-u-co-ducet tailoring has been removed.</li>
   </ul>
 
   <h3>Revision 29</h3>

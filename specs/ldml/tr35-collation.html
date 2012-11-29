@@ -292,22 +292,20 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
   <p>Comments with DUCET-style weights in files other than allkeys_CLDR.txt
   use the weights defined in allkeys_CLDR.txt.</p>
-  <p class="reviewnote">TODO: Adjust the list of files
-  according to what is actually published in the repository.</p>
   <ul>
     <li> <strong>allkeys_CLDR</strong> -
     A file that provides a remapping of UCA DUCET weights for use with CLDR. </li>
     <li><strong>FractionalUCA</strong> -
-    Files that provide a remapping of UCA DUCET weights for use with CLDR.
+    <span class="removed">Files that provide</span> <span class="changed">A file that provides</span> a remapping of UCA DUCET weights for use with CLDR.
     The weight values are also modified to provide variable-width weights for compression. 
-      <ul>
+      <ul class="removed">
         <li>FractionalUCA_summary.txt - provides an overview of the weight assignments</li>
         <li>FractionalUCA.txt - provides the full data table</li>
         <li>FractionalUCA_SHORT.txt - <em>omits comment information for compactness</em></li>
       </ul>
     </li>
     <li><strong>UCA_Rules</strong> -
-    Files that provide the information in FractionalUCA as a set of comparison rules,
+    <span class="removed">Files that provide</span> <span class="changed">A file that provides</span> the information in FractionalUCA as a set of comparison rules,
     for use with CLDR and other environments.
     These rules provide the relative values for different characters without being tied to particular weights.
     There may be some minor differences in the resulting ordering compared to the allkeys_CLDR. 
@@ -316,7 +314,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     by incrementing the tertiary weight on the first CE.
     This may not correspond to how tertiary differences are distributed
     across the two CEs by the DUCET.
-      <ul>
+      <ul class="removed">
         <li>UCA_Rules.txt - rules<em> (CLDR basic collation syntax)</em></li>
         <li>UCA_Rules.xml - rules<em> (CLDR XML collation syntax)</em></li>
         <li>UCA_Rules_SHORT.txt - rules omitting comment information for compactness
@@ -335,9 +333,9 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
       <a href="http://www.unicode.org/Public/UCA/latest/CollationTest.html">CollationTest.html</a>
       <span class="changed">in the <a href="http://www.unicode.org/reports/tr10/#Data10">UCA data directory</a></span>.
       <ul>
-        <li>CollationTest_CLDR_NON_IGNORABLE_SHORT.txt</li>
+        <li class="removed">CollationTest_CLDR_NON_IGNORABLE_SHORT.txt</li>
         <li>CollationTest_CLDR_NON_IGNORABLE.txt</li>
-        <li>CollationTest_CLDR_SHIFTED_SHORT.txt</li>
+        <li class="removed">CollationTest_CLDR_SHIFTED_SHORT.txt</li>
         <li>CollationTest_CLDR_SHIFTED.txt</li>
       </ul>
     </li>
@@ -349,17 +347,25 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   The formats for <span class="changed">CLDR 23</span> and beyond are as follows.
   As usual, text after a # is a comment.</p>
 
-<h4>FractionalUCA_summary.txt</h4>
-  <p>The lines are all comments, giving an overview of the weight structure.
+<h4>allkeys_CLDR.txt</h4>
+  <p class="removed">When different from the DUCET table, represents the tailoring used in CLDR
+  as described under <a href="#cldr_tailoring">CLDR Tailoring</a>.</p> 
+  <p class="changed">This file defines CLDR’s tailoring of the DUCET,
+  as described in <i>Section 2, <a href="#Root_Collation">Root Collation</a></i>.</p>
+  <p>The format is similar to that of allkeys.txt,
+  although there may be some differences in whitespace.</p>
+
+<h4 class="removed">FractionalUCA_summary.txt</h4>
+  <p class="removed">The lines are all comments, giving an overview of the weight structure.
   Lines are tab delimited, for use with spreadsheets. Most are in the format:</p>
-  <p># position fractional-weight Script General-category Codepoint Name</p>
-  <p>where <em>position</em> is &quot;First&quot; or &quot;Last&quot;</p>
-  <p><em>Example</em></p>
-  <pre># First      03 05           Zyyy    Cc      U+0009 &lt;CHARACTER TABULATION&gt;
+  <p class="removed"># position fractional-weight Script General-category Codepoint Name</p>
+  <p class="removed">where <em>position</em> is &quot;First&quot; or &quot;Last&quot;</p>
+  <p class="removed"><em>Example</em></p>
+  <pre class="removed"># First      03 05           Zyyy    Cc      U+0009 &lt;CHARACTER TABULATION&gt;
 # Last      03 15           Zyyy    Zp      U+2029 PARAGRAPH SEPARATOR</pre>
-  <p>The topmost variable weight is marked with the following format:</p>
-  <pre>[variable top = 0C 32 04] # END OF VARIABLE SECTION!!!</pre>
-  <p>The purpose of other lines is given by comments.</p>
+  <p class="removed">The topmost variable weight is marked with the following format:</p>
+  <pre class="removed">[variable top = 0C 32 04] # END OF VARIABLE SECTION!!!</pre>
+  <p class="removed">The purpose of other lines is given by comments.</p>
 
 <h4>FractionalUCA.txt</h4>
   <p>The format is illustrated by the following sample lines, with commentary  afterwards.</p>
@@ -494,14 +500,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
     as described in the UCA.</p>
   </blockquote>
 
-<h4>allkeys_CLDR.txt</h4>
-  <p class="removed">When different from the DUCET table, represents the tailoring used in CLDR
-  as described under <a href="#cldr_tailoring">CLDR Tailoring</a>.</p> 
-  <p class="changed">This file defines CLDR’s tailoring of the DUCET,
-  as described in <i>Section 2, <a href="#Root_Collation">Root Collation</a></i>.</p>
-  <p>The format is similar to that of allkeys.txt,
-  although there may be some differences in whitespace.</p>
-
 <h4>UCA_Rules.txt</h4>
   <p>The format for this file uses the CLDR
   <span class="removed">&quot;short&quot; format for collation tailoring</span>
@@ -529,12 +527,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   <p class="removed">For more information about this format for collation tailoring,
   see <a href="http://www.unicode.org/reports/tr35/">LDML</a>.</p>
 
-<h4>UCA_Rules.xml</h4>
-  <p>Provides the same rule set in CLDR <span class="changed"><i>XML collation syntax</i></span>.
+<h4 class="removed">UCA_Rules.xml</h4>
+  <p class="removed">Provides the same rule set in CLDR <span class="changed"><i>XML collation syntax</i></span>.
   <span class="removed">For more information, see <a href="http://www.unicode.org/reports/tr35/">LDML</a>.</span></p>
 
-<h4>UCA_Rules_NoCE.txt</h4>
-  <p>Omits the (remapped) DUCET value, for more effective comparison across versions.</p>
+<h4 class="removed">UCA_Rules_NoCE.txt</h4>
+  <p class="removed">Omits the (remapped) DUCET value, for more effective comparison across versions.</p>
 
 <h2>3 <a name="Collation_Tailorings">Collation Tailorings</a></h2>
 	<p class="dtd">&lt;!ELEMENT collations (alias | (default*, collation*, special*)) &gt;</p>

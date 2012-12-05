@@ -88,8 +88,10 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalData;
@@ -1703,7 +1705,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (locale != null && (locale.length() > 0)) {
             CLDRLocale l = CLDRLocale.getInstance(locale);
             if (getLocalesSet().contains(l)) {
-                CLDRLocale theDefaultContent = defaultContentToParent(l);
+                CLDRLocale theDefaultContent = getSupplementalDataInfo().getBaseFromDefaultContent(l);
                 if (theDefaultContent != null) {
                     l = theDefaultContent;
                 }
@@ -2301,7 +2303,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if ((group != null) &&
             // Not sure why we did this... jce (!"basic".equals(group)) && //
             // exclude it for being basic
-                    (null == supplemental.defaultContentToParent(group))) {
+                    (null == getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance(group)))) {
                 // SurveyLog.logger.warning("getGroup("+lang+", " +
                 // missingLocalesForOrg + ") = " + group);
                 if (!isValidLocale(lang)) {
@@ -2390,7 +2392,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("</ul>");
                 }
             }
-            boolean localeIsDefaultContent = isDefaultContent(aLocale);
+            boolean localeIsDefaultContent = getSupplementalDataInfo().isDefaultContent(aLocale);
             if (localeIsDefaultContent) {
                 ctx.println(" (<i>default content</i>)");
             } else if (participation && nullStatus != null && !nullStatus.isEmpty()) {
@@ -2446,7 +2448,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 if (showCodes) {
                     ctx.println("&nbsp;-&nbsp;<tt>" + subLocale + "</tt>");
                 }
-                boolean isDc = isDefaultContent(subLocale);
+                boolean isDc = getSupplementalDataInfo().isDefaultContent(subLocale);
 
                 if (localeStatus != null && !nullStatus.isEmpty()) {
                     Hashtable<Integer, String> what = localeStatus.get(subLocale);
@@ -2514,21 +2516,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
 
         printFooter(ctx);
-    }
-
-    /**
-     * @deprecated to be inlined
-     */
-    public boolean isDefaultContent(CLDRLocale aLocale) {
-        if(aLocale==null) throw new NullPointerException("locale must not be null");
-        return getSupplementalDataInfo().isDefaultContent(aLocale);
-    }
-
-    /**
-     * @deprecated to be inlined
-     */
-    public CLDRLocale defaultContentToParent(CLDRLocale aLocale) {
-        return getSupplementalDataInfo().getBaseFromDefaultContent(aLocale);
     }
 
     // ============= User list management
@@ -3854,8 +3841,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                                 // warnings for
                                                                 // example/easy
                                                                 // steps pages.
-            CLDRLocale dcParent = CLDRLocale.getInstance(supplemental.defaultContentToParent(ctx.getLocale().toString()));
-            String dcChild = supplemental.defaultContentToChild(ctx.getLocale().toString());
             // if (dcChild != null && (!which.equals(xMAIN))) {
             // String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
             // ctx.println("<div class='fnotebox'>" +
@@ -3867,7 +3852,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (aliasTarget != null) {
                 // the alias might be a default content locale. Save some clicks
                 // here.
-                dcParent = CLDRLocale.getInstance(supplemental.defaultContentToParent(aliasTarget.toString()));
+               CLDRLocale dcParent = getSupplementalDataInfo().getBaseFromDefaultContent(aliasTarget);
                 if (dcParent == null) {
                     dcParent = aliasTarget;
                 }
@@ -4023,7 +4008,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (n == null) {
             n = locale.getDisplayName();
         }
-        boolean isDefaultContent = isDefaultContent(locale);
+        boolean isDefaultContent = getSupplementalDataInfo().isDefaultContent(locale);
         // boolean hasDraft = draftSet.contains(localeName);
         // ctx.print(hasDraft?"<b>":"") ;
         String title = locale.toString();
@@ -4032,7 +4017,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (isDefaultContent) {
             classstr = "class='dcLocale'";
             localeUrl = null; // ctx.urlForLocale(defaultContentToParent(locale));
-            title = "Default Content: Please view and/or propose changes in " + defaultContentToParent(locale).getDisplayName()
+            title = "Default Content: Please view and/or propose changes in " + getSupplementalDataInfo().getBaseFromDefaultContent(locale).getDisplayName()
                     + ".";
         }
         String rv = ("<a " + classstr + " title='" + title + "' " + (localeUrl != null ? ("href=\"" + localeUrl + "\"") : "") + " >");
@@ -4045,6 +4030,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     && ((odisp = DisputePageManager.getOrgDisputeCount(ctx)) > 0)) {
                 rv = rv + ctx.iconHtml("disp", "(" + odisp + " org disputes)");
             }
+        }
+        if(!isDefaultContent && getReadOnlyLocales().contains(locale)) {
+            String comment = SpecialLocales.getComment(locale);
+            if(comment == null) {
+                comment = "This locale is read-only due to SurveyTool configuration.";
+            }
+            rv = rv + ctx.iconHtml("lock", comment);
         }
         rv = rv + ("</a>");
         // ctx.print(hasDraft?"</b>":"") ;
@@ -6137,7 +6129,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             try {
                 // spin up the gears
-                supplemental.defaultContentToParent(CLDRLocale.getInstance("mt_MT").getBaseName());
+                CLDRLocale dcParent = getSupplementalDataInfo().getBaseFromDefaultContent(CLDRLocale.getInstance("mt_MT"));
             } catch (InternalError ie) {
                 SurveyLog.logger.warning("can't do SupplementalData.defaultContentToParent() - " + ie);
                 ie.printStackTrace();
@@ -6466,25 +6458,86 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static Set<CLDRLocale> localeListSet = null;
+    private static Set<CLDRLocale> openLocales = null;
+    private static Set<CLDRLocale> roLocales = null;
 
-    static synchronized public Set<CLDRLocale> getLocalesSet() {
-        if (localeListSet == null) {
-            File inFiles[] = getInFiles();
-            int nrInFiles = inFiles.length;
-            Set<CLDRLocale> s = new HashSet<CLDRLocale>();
-            for (int i = 0; i < nrInFiles; i++) {
-                String fileName = inFiles[i].getName();
-                int dot = fileName.indexOf('.');
-                if (dot != -1) {
-                    String locale = fileName.substring(0, dot);
-                    s.add(CLDRLocale.getInstance(locale));
-                }
-            }
-            localeListSet = s;
-        }
+    
+    /**
+     * Get the list of locales 'open' for submission.
+     * Should be all locales that aren't either read-only or in the "only locales" list.
+     * @return
+     */
+    static final synchronized public Set<CLDRLocale> getOpenLocales() {
+        if(openLocales==null) loadLocalesSet();
+        return openLocales;
+    }
+    
+    /**
+     * Get the list of locales which are read only for some reason.
+     * These won't be generated, and will be shown with a lock symbol.
+     * @return
+     */
+    static final synchronized public Set<CLDRLocale> getReadOnlyLocales() {
+        if(roLocales==null) loadLocalesSet();
+        return roLocales;
+    }
+    
+    /**
+     * Get the list of locales that we have seen anywhere. Static set generated from {@link #getInFiles()}
+     * @return
+     */
+    static final synchronized public Set<CLDRLocale> getLocalesSet() {
+        if (localeListSet == null) loadLocalesSet();
         return localeListSet;
     }
+    
+    /**
+     * Set up the list of open vs read-only locales, and the full set.
+     */
+    private static synchronized void loadLocalesSet() {
+        File inFiles[] = getInFiles();
+        int nrInFiles = inFiles.length;
+        Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
+        Set<CLDRLocale> ro = new TreeSet<CLDRLocale>();
+        Set<CLDRLocale> w = new TreeSet<CLDRLocale>();
+        
+        String onlyLocales = CLDRConfig.getInstance().getProperty("CLDR_ONLY_LOCALES", null);
+        Set<String> onlySet=null;
+        
+        if(onlyLocales!=null && !onlyLocales.isEmpty()) {
+            onlySet = new TreeSet<String>();
+            for(String ol : onlyLocales.split("[ \t]")) {
+                onlySet.add(ol);
+            }
+        }
+        
+        for (int i = 0; i < nrInFiles; i++) {
+            String fileName = inFiles[i].getName();
+            int dot = fileName.indexOf('.');
+            if (dot != -1) {
+                String locale = fileName.substring(0, dot);
+                CLDRLocale l = CLDRLocale.getInstance(locale);
+                s.add(l);
+                SpecialLocales.Type t = (SpecialLocales.getType(l));
+                if(t == Type.scratch) {
+                    w.add(l); // always added
+                } else if(t == Type.readonly ||
+                        (onlySet!=null&&!onlySet.contains(locale))) {
+                    ro.add(l);
+                } else {
+                    w.add(l);
+                }
+            }
+        }
+        localeListSet = Collections.unmodifiableSet(s);
+        roLocales = Collections.unmodifiableSet(ro);
+        openLocales = Collections.unmodifiableSet(w);
+    }
 
+    /**
+     * Array of locales - calculated from {@link #getLocalesSet()}
+     * @return
+     */
     static public CLDRLocale[] getLocales() {
         return (CLDRLocale[]) getLocalesSet().toArray(new CLDRLocale[0]);
     }

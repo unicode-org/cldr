@@ -1452,7 +1452,7 @@ public class UserRegistry {
         if(isAliasTo!=null) {
             return ModifyDenial.DENY_ALIASLOCALE;
         }
-        String dcParent =     sm.getSupplementalData().defaultContentToParent(locale.toString());
+        CLDRLocale dcParent = sm.getSupplementalDataInfo().getBaseFromDefaultContent(locale);
         if(dcParent!=null)  {
             return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent locale or a pure alias.
         }
@@ -1484,7 +1484,7 @@ public class UserRegistry {
         if(isAliasTo!=null) {
             return ModifyDenial.DENY_ALIASLOCALE;
         }
-        String dcParent =     sm.getSupplementalData().defaultContentToParent(locale.toString());
+        CLDRLocale dcParent = sm.getSupplementalDataInfo().getBaseFromDefaultContent(locale);
         if(dcParent!=null)  {
             return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent locale or a pure alias.
         }

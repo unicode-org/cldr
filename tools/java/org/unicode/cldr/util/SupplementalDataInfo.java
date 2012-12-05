@@ -2914,30 +2914,35 @@ public class SupplementalDataInfo {
             for(CLDRLocale child : tmpAllLocales) {
                 // Find a parent of this locale which is NOT itself also a defaultContent
                 CLDRLocale nextParent = child.getParent();
+                ///System.err.println(">> considering " + child + " with parent " + nextParent);
                 while (nextParent != null) {
                     if (!tmpAllLocales.contains(nextParent)) { // Did we find a parent that's also not itself a
                                                            // defaultContent?
+                        ///System.err.println(">>>> Got 1? considering " + child + " with parent " + nextParent);
                         break;
                     }
+                    ///System.err.println(">>>>> considering " + child + " with parent " + nextParent);
                     nextParent = nextParent.getParent();
                 }
                 // parent
                 if (nextParent == null) {
                     throw new InternalError("SupplementalDataInfo.defaultContentToChild(): No valid parent for " + child);
-                }
-    
-                c2p.put(child, nextParent); // wo_Arab_SN -> wo
-                CLDRLocale oldChild = p2c.get(nextParent);
-                if (oldChild != null) {
-                    CLDRLocale childParent = child.getParent();
-                    if (!childParent.equals(oldChild)) {
-                        throw new InternalError(
-                            "SupplementalData.defaultContentToChild(): defaultContent list in wrong order? Tried to map "
-                                + nextParent + " -> " + child + ", replacing " + oldChild + " (should have been "
-                                + childParent + ")");
+                } else if(nextParent == CLDRLocale.ROOT || nextParent == CLDRLocale.getInstance("root")) {
+                    System.err.println("WARNING: " + this.getClass().getSimpleName() + ".initCLDRLocaleBasedData() - ignoring preposterous base locale '" + nextParent + "' for default content locale " + child);
+                } else {
+                    c2p.put(child, nextParent); // wo_Arab_SN -> wo
+                    CLDRLocale oldChild = p2c.get(nextParent);
+                    if (oldChild != null) {
+                        CLDRLocale childParent = child.getParent();
+                        if (!childParent.equals(oldChild)) {
+                            throw new InternalError(
+                                "SupplementalData.defaultContentToChild(): defaultContent list in wrong order? Tried to map "
+                                    + nextParent + " -> " + child + ", replacing " + oldChild + " (should have been "
+                                    + childParent + ")");
+                        }
                     }
+                    p2c.put(nextParent, child); // wo -> wo_Arab_SN
                 }
-                p2c.put(nextParent, child); // wo -> wo_Arab_SN
             }
             
             // done, save the hashtables..

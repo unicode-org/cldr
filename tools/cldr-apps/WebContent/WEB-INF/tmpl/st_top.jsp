@@ -36,8 +36,8 @@
             SurveyMain.decoratedLocaleName(ctx.getLocale(), ctx.getLocale().getDisplayName()+(canModifyL?SurveyMain.modifyThing(ctx):""), "") );
         ctx.print("</span>");
 
-        CLDRLocale dcParent = CLDRLocale.getInstance(ctx.sm.supplemental.defaultContentToParent(toplocale.toString()));
-        String dcChild = ctx.sm.supplemental.defaultContentToChild(ctx.getLocale().toString());
+        CLDRLocale dcParent = ctx.sm.getSupplementalDataInfo().getBaseFromDefaultContent(toplocale);
+        CLDRLocale dcChild = ctx.sm.getSupplementalDataInfo().getDefaultContentFromBase(ctx.getLocale());
         if (dcChild != null) {
             String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
             ctx.println("<span class='dcbox'>" +
@@ -46,7 +46,12 @@
                  + "</span>");
         }
 
-        
+    	if(ctx.sm.getReadOnlyLocales().contains(ctx.getLocale())) {
+    		String comment = SpecialLocales.getComment(ctx.getLocale());
+    		if(comment==null) comment = "Editing of this locale has been disabled by the SurveyTool administrators.";
+    		ctx.println(ctx.iconHtml("lock", comment));
+    	}
+    	
         if(title!=null&&!title.trim().isEmpty()) {%>
         |
     <% } } %>

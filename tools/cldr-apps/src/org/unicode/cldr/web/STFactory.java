@@ -35,6 +35,8 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.SpecialLocales;
+import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLFileReader;
@@ -906,17 +908,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     static final String CLDR_VBV = "cldr_votevalue";
     static final String CLDR_VBV_ALT = "cldr_votevalue_alt";
 
-    /**
-     * These locales can not be modified.
-     */
-    private static final CLDRLocale readOnlyLocales[] = { 
-    		CLDRLocale.getInstance("root"), 
-    		CLDRLocale.getInstance("en"), 
-    		CLDRLocale.getInstance("en_ZZ")
-    	};
-
-
-    //private static final String SOME_KEY = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+      //private static final String SOME_KEY = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
 
     /**
      * Is this a locale that can't be modified?
@@ -924,10 +916,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @return
      */
     public static final boolean isReadOnlyLocale(CLDRLocale loc) {
-        for(int i=0;i<readOnlyLocales.length;i++) {
-            if(readOnlyLocales[i] == loc) return true;
-        }
-        return false;
+        return SurveyMain.getReadOnlyLocales().contains(loc);
     }
 
     /**

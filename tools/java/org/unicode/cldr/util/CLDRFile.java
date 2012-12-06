@@ -108,7 +108,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-    public static final String GEN_VERSION = "22.1";
+    public static final String GEN_VERSION = "23";
 
     private boolean locked;
     XMLSource dataSource; // TODO(jchye): make private

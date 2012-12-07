@@ -3,16 +3,21 @@
  */
 package org.unicode.cldr.web;
 
+import java.awt.List;
 import java.io.File;
+import java.lang.ref.Reference;
+import java.lang.ref.SoftReference;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.BitSet;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -20,39 +25,32 @@ import java.util.TreeSet;
 import java.util.Vector;
 
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.SimpleTestCache;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
-import org.unicode.cldr.unittest.web.TestSTFactory;
-import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleXMLSource;
-import org.unicode.cldr.util.SpecialLocales;
-import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VoteResolver;
-import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
+import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
-import org.unicode.cldr.web.STFactory.DataBackedSource;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-import java.lang.ref.Reference;
-import java.lang.ref.SoftReference;
-import org.unicode.cldr.util.LruMap;
 
 /**
  * @author srl
@@ -104,21 +102,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return delegate.getValueAtDPath(path);
         }
 
-        //		/**
-        //		 * @param path
-        //		 * @return
-        //		 */
-        //		private String valueFromResolver(String path, VoteResolver<String> resolver) {
-        //			Map<User,String> m = ballotBox.peekXpathToVotes(path);
-        //			if(m==null || m.isEmpty()) {
-        //                String res =  delegate.getValueAtDPath(path);
-        //			    return res;
-        //			} else {
-        //				String res = ballotBox.getResolver(m,path, resolver).getWinningValue();
-        //                return res;
-        //			}
-        //		}
-        //		
         public VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver) {
             Map<User,String> m = ballotBox.peekXpathToVotes(path);
             String res;
@@ -239,7 +222,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     }
 
+	/**
+	 * The max string length accepted of any value.
+	 */
     private static final int MAX_VAL_LEN = 4096;
+    
     /**
      * the STFactory maintains exactly one instance of this class per locale it is working with. It contains the XMLSource, Example Generator, etc..
      * @author srl
@@ -478,6 +465,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 r.clear(); // reuse
             }
+            
+            HashSet<String> allValues = new HashSet<String>(8); // 16 is probably too many values
+            HashSet<String> badValues = new HashSet<String>(8); // 16 is probably too many values
+            
             // Set established locale
             r.setEstablishedFromLocale(locale);
 
@@ -487,20 +478,42 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // set prior release (if present)
             final String lastValue = anOldFile.getStringValue(path);
             final Status lastStatus = getStatus(anOldFile, path, lastValue);
+            if(lastValue!=null) {
+                allValues.add(lastValue);
+            }
             r.setLastRelease(lastValue, lastValue==null?Status.missing:lastStatus); /* add the last release value */
 
             // set current Trunk value (if present)
             final String currentValue = diskData.getValueAtDPath(path);
             final Status currentStatus = getStatus(diskFile, path, currentValue);
             if(currentValue!=null) {
+                allValues.add(currentValue);
                 r.setTrunk(currentValue, currentValue==null?Status.missing:currentStatus); /* add the current value. */
             }
             r.add(currentValue);
             
             // add each vote
-            if(userToVoteMap!=null) {
+            if(userToVoteMap!=null && !userToVoteMap.isEmpty()) {
+                TestResultBundle q = null;
                 for(Map.Entry<User, String>e : userToVoteMap.entrySet()) {
-                    r.add(e.getValue(),    // user's vote
+                    String v = e.getValue();
+                    
+                    if(badValues.contains(v)) 
+                           continue;
+                    
+                    if(!allValues.contains(v)) {
+                        if(q==null) {
+                            q = getDiskTestBundle(locale);
+                        }
+                        LinkedList<CheckCLDR.CheckStatus> result = new LinkedList<CheckCLDR.CheckStatus>();
+                        q.check(path, result, v);
+                        if(CheckCLDR.CheckStatus.hasError(result)) {
+                            badValues.add(v);
+                            continue; // skip this value
+                        }
+                    }
+                    allValues.add(v);
+                    r.add(v,    // user's vote
                           e.getKey().id);  // user's id
                 }
             }
@@ -942,9 +955,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     boolean dbIsSetup = false;
 
     /**
-     * Test cache
+     * Test cache against (this)
      */
     TestCache gTestCache = new SimpleTestCache();
+    /**
+     * Test cache against disk.  For rejecting items.
+     */
+    TestCache gDiskTestCache = new SimpleTestCache();
 
     /**
      * The infamous back-pointer.
@@ -962,6 +979,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         setSupplementalDirectory(sm.getDiskFactory().getSupplementalDirectory());
         
         gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
+        gDiskTestCache.setFactory(sm.getDiskFactory(), "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
         sm.reg.addListener(this);
         handleUserChanged(null);
         phf = PathHeader.getFactory(sm.getBaselineFile());
@@ -1435,5 +1453,19 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
         return ret.toArray(new Integer[2]);
     }
+    
+    /**
+     * @return
+     */
+    private synchronized TestResultBundle getDiskTestBundle(CLDRLocale locale) {
+        TestResultBundle q;
+        q = gDiskTestCache.getBundle(locale, basicOptions);  // only if we really, really need it
+        return q;
+    }
+
+    /**
+     * For tests.
+     */
+    static private Map<String,String> basicOptions = Collections.unmodifiableMap(SurveyMain.basicOptionsMap());
     
 }

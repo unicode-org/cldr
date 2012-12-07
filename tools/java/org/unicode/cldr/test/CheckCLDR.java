@@ -14,12 +14,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
@@ -650,6 +652,30 @@ abstract public class CheckCLDR {
         public CheckStatus setSubtype(Subtype subtype) {
             this.subtype = subtype;
             return this;
+        }
+
+        /**
+         * Convenience function: return true if any items in this list are of errorType
+         * @param result the list to check (could be null for empty)
+         * @return true if any items in result are of errorType
+         */
+        public static final boolean hasError(List<CheckStatus> result) {
+            return hasType(result, errorType);
+        }
+        
+        /**
+         * Convenience function: return true if any items in this list are of errorType
+         * @param result the list to check (could be null for empty)
+         * @return true if any items in result are of errorType
+         */
+        public static boolean hasType(List<CheckStatus> result, String type) {
+            if(result==null) return false;
+            for(CheckStatus s : result) {
+                if(s.getType().equals(type)) {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 

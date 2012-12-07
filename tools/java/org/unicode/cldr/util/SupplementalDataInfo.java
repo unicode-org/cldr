@@ -2928,7 +2928,7 @@ public class SupplementalDataInfo {
                 if (nextParent == null) {
                     throw new InternalError("SupplementalDataInfo.defaultContentToChild(): No valid parent for " + child);
                 } else if(nextParent == CLDRLocale.ROOT || nextParent == CLDRLocale.getInstance("root")) {
-                    System.err.println("WARNING: " + this.getClass().getSimpleName() + ".initCLDRLocaleBasedData() - ignoring preposterous base locale '" + nextParent + "' for default content locale " + child);
+                    throw new InternalError("SupplementalDataInfo.defaultContentToChild(): Parent is root for default content locale " + child);
                 } else {
                     c2p.put(child, nextParent); // wo_Arab_SN -> wo
                     CLDRLocale oldChild = p2c.get(nextParent);

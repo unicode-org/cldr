@@ -193,7 +193,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     };
 
     // ===== Configuration state
-    private static Phase currentPhase = null;
+    private static Phase currentPhase = Phase.SUBMIT;
     /** set by CLDR_PHASE property. **/
     private static String oldVersion = "OLDVERSION";
     private static String newVersion = "NEWVERSION";
@@ -6039,15 +6039,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             // phase
             {
+                Phase newPhase = null;
                 String phaseString = survprops.getProperty("CLDR_PHASE", null);
                 try {
                     if (phaseString != null) {
-                        currentPhase = (Phase.valueOf(phaseString));
+                        newPhase = (Phase.valueOf(phaseString));
                     }
                 } catch (IllegalArgumentException iae) {
                     SurveyLog.logger.warning("Error trying to parse CLDR_PHASE: " + iae.toString());
                 }
-                if (currentPhase == null) {
+                if (newPhase == null) {
                     StringBuffer allValues = new StringBuffer();
                     for (Phase v : Phase.values()) {
                         allValues.append(v.name());
@@ -6055,6 +6056,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     }
                     busted("Could not parse CLDR_PHASE - should be one of ( " + allValues + ") but instead got " + phaseString);
                 }
+                currentPhase = newPhase;
             }
             System.out.println("Phase: " + phase() + ", cPhase: " + phase().getCPhase());
             progress.update("Setup props..");

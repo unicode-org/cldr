@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="ssy"/> 
+	</identity>
+	<collations validSubLocales="ssy_ER">
+		<collation type="standard" >
+			<rules>
+				<reset>B</reset>
+				<p>t</p>
+				<t>T</t>
+				<p>s</p>
+				<t>S</t>
+				<p>e</p>
+				<t>E</t>
+				<reset>C</reset>
+				<p>k</p>
+				<t>K</t>
+				<p>x</p>
+				<t>X</t>
+				<p>i</p>
+				<t>I</t>
+				<reset>D</reset>
+				<p>q</p>
+				<t>Q</t>
+				<p>r</p>
+				<t>R</t>
+				<reset>G</reset>
+				<p>o</p>
+				<t>O</t>
+				<reset>W</reset>
+				<p>h</p>
+				<t>H</t>
+			</rules>
+		</collation>
+	</collations>
+</ldml>

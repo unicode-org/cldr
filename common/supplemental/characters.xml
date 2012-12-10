@@ -60,6 +60,21 @@
 			<character value = "ț">
 				<substitute>ţ</substitute>
 			</character>
+			<character value = "֏">
+				<substitute>AMD</substitute>
+			</character>
+			<character value = "؋">
+				<substitute>AFN</substitute>
+			</character>
+			<character value = "৳">
+				<substitute>BDT</substitute>
+			</character>
+			<character value = "฿">
+				<substitute>THB</substitute>
+			</character>
+			<character value = "៛">
+				<substitute>KHR</substitute>
+			</character>
 			<character value="־">
 				<substitute>‐</substitute>
 				<substitute>-</substitute>
@@ -186,8 +201,17 @@
 				<substitute>Ȼ</substitute>
 				<substitute>GHS</substitute>
 			</character>
+			<character value = "₸">
+				<substitute>KZT</substitute>
+			</character>
+			<character value = "₴">
+				<substitute>UAH</substitute>
+			</character>
 			<character value = "₹">
-				<substitute>Rs</substitute>
+				<substitute>INR</substitute>
+			</character>
+			<character value = "₺">
+				<substitute>TRY</substitute>
 			</character>
 			<character value = "℞">
 				<substitute>Rx</substitute>
@@ -488,6 +512,9 @@
 			</character>
 			<character value = "￣">
 				<substitute>¯</substitute>
+			</character>
+			<character value = "￦">
+				<substitute>KRW</substitute>
 			</character>
 		</character-fallback> 
 	</characters>

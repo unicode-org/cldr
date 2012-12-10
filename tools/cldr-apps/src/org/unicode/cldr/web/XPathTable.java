@@ -424,7 +424,7 @@ public class XPathTable {
     }
 
     /**
-     * remove the 'draft=' and 'alt=*proposed' from the XPath.  Makes the path almost distinguishing, except that certain attributes, such as numbers=É, will be left.
+     * remove the 'draft=' and 'alt=*proposed' from the XPath.  Makes the path almost distinguishing, except that certain attributes, such as numbers=, will be left.
      * @param path
      * @return
      */

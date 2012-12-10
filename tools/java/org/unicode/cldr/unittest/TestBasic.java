@@ -16,8 +16,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
@@ -35,9 +33,9 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -77,12 +75,8 @@ public class TestBasic extends TestFmwk {
 
     private static final Set<String> skipAttributes = new HashSet<String>(Arrays.asList("alt", "draft",
         "references"));
-    private static final Matcher skipPaths = Pattern.compile("/identity" + "|/alias" + "|\\[@alt=\"proposed")
-        .matcher("");
 
     private final String localeRegex = CldrUtility.getProperty("locale", ".*");
-
-    private final boolean showInfo = CldrUtility.getProperty("showinfo", false);
 
     private final String commonDirectory = CldrUtility.COMMON_DIRECTORY;
 
@@ -94,8 +88,6 @@ public class TestBasic extends TestFmwk {
 
     private final Exception[] internalException = new Exception[1];
 
-    private boolean pretty = CldrUtility.getProperty("pretty", true);
-
     public void TestDtds() throws IOException {
         checkDtds(commonDirectory + "/collation");
         checkDtds(commonDirectory + "/main");
@@ -103,7 +95,6 @@ public class TestBasic extends TestFmwk {
         checkDtds(commonDirectory + "/segments");
         checkDtds(commonDirectory + "/supplemental");
         checkDtds(commonDirectory + "/transforms");
-        checkDtds(commonDirectory + "/../test");
     }
 
     private void checkDtds(String directory) throws IOException {
@@ -160,7 +151,6 @@ public class TestBasic extends TestFmwk {
     public void TestCurrencyFallback() {
         XPathParts parts = new XPathParts();
         Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
-        CLDRFile english = cldrFactory.make("en", true);
         Set<String> currencies = StandardCodes.make().getAvailableCodes("currency");
 
         final UnicodeSet CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS = (UnicodeSet) new UnicodeSet(
@@ -214,7 +204,7 @@ public class TestBasic extends TestFmwk {
                         }
                         // later test for all Latin-1
                         if (fallbackList == null) {
-                            warnln("Locale:\t" + locale + ";\tCharacter with no fallback:\t" + it2.getString() + "\t"
+                            errln("Locale:\t" + locale + ";\tCharacter with no fallback:\t" + it2.getString() + "\t"
                                 + UCharacter.getName(fishyCodepoint));
                             badSoFar.add(fishyCodepoint);
                         } else {
@@ -232,7 +222,7 @@ public class TestBasic extends TestFmwk {
                                 }
                             }
                             if (fallback == null) {
-                                warnln("Locale:\t" + locale
+                                errln("Locale:\t" + locale
                                     + ";\tCharacter with no good fallback (exemplars+Latin1):\t" + it2.getString()
                                     + "\t" + UCharacter.getName(fishyCodepoint));
                                 badSoFar.add(fishyCodepoint);
@@ -262,7 +252,7 @@ public class TestBasic extends TestFmwk {
             .add("/", "\t");
         CoverageLevel coverageLevel = new CoverageLevel(cldrFactory);
         List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
-        Map options = new HashMap();
+        Map<String, String> options = new HashMap<String, String>();
 
         for (String locale : cldrFactory.getAvailable()) {
             // if (locale.equals("root") && !localeRegex.equals("root"))
@@ -315,13 +305,13 @@ public class TestBasic extends TestFmwk {
     }
 
     public void TestPaths() {
-        Relation<String, String> distinguishing = new Relation(new TreeMap(), TreeSet.class, null);
-        Relation<String, String> nonDistinguishing = new Relation(new TreeMap(), TreeSet.class, null);
+        Relation<String, String> distinguishing = new Relation(new TreeMap<String, String>(), TreeSet.class, null);
+        Relation<String, String> nonDistinguishing = new Relation(new TreeMap<String, String>(), TreeSet.class, null);
         XPathParts parts = new XPathParts();
         Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
         CLDRFile english = cldrFactory.make("en", true);
 
-        Relation<String, String> pathToLocale = new Relation(new TreeMap(CLDRFile.ldmlComparator),
+        Relation<String, String> pathToLocale = new Relation(new TreeMap<String, String>(CLDRFile.ldmlComparator),
             TreeSet.class, null);
 
         for (String locale : cldrFactory.getAvailable()) {
@@ -368,21 +358,6 @@ public class TestBasic extends TestFmwk {
                 if (path.contains("/identity"))
                     continue;
 
-                // make sure we don't have problem alts
-                if (false && path.contains("proposed")) {
-                    String sourceLocale = file.getSourceLocaleID(path, null);
-                    if (locale.equals(sourceLocale)) {
-                        String nonAltPath = file.getNondraftNonaltXPath(path);
-                        if (!path.equals(nonAltPath)) {
-                            String nonAltLocale = file.getSourceLocaleID(nonAltPath, null);
-                            String nonAltValue = file.getStringValue(nonAltPath);
-                            if (nonAltValue == null || !locale.equals(nonAltLocale)) {
-                                errln("\t" + locale + "\tProblem alt=proposed <" + value + ">\t\t" + path);
-                            }
-                        }
-                    }
-                }
-
                 String fullPath = file.getFullXPath(path);
                 parts.set(fullPath);
                 for (int i = 0; i < parts.size(); ++i) {
@@ -422,59 +397,6 @@ public class TestBasic extends TestFmwk {
                 }
             }
         }
-
-        if (pretty) {
-            if (showInfo) {
-                logln(CldrUtility.LINE_SEPARATOR + "Showing Path to PrettyPath mapping" + CldrUtility.LINE_SEPARATOR);
-            }
-            PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
-            Set<String> badPaths = new TreeSet();
-            for (String path : pathToLocale.keySet()) {
-                String prettied = prettyPath.getPrettyPath(path, false);
-                if (showInfo)
-                    logln(prettied + "\t\t" + path);
-                if (prettied.contains("%%") && !path.contains("/alias")) {
-                    badPaths.add(path);
-                }
-            }
-            // now remove root
-
-            if (showInfo) {
-                logln(CldrUtility.LINE_SEPARATOR + "Showing Paths not in root" + CldrUtility.LINE_SEPARATOR);
-            }
-
-            CLDRFile root = cldrFactory.make("root", true);
-            for (Iterator<String> it = root.iterator(); it.hasNext();) {
-                pathToLocale.removeAll(it.next());
-            }
-            if (showInfo)
-                for (String path : pathToLocale.keySet()) {
-                    if (skipPaths.reset(path).find()) {
-                        continue;
-                    }
-                    logln(path + "\t" + pathToLocale.getAll(path));
-                }
-
-            if (badPaths.size() != 0) {
-                errln("Error: " + badPaths.size()
-                    + " Paths were not prettied: use -DSHOW and look for ones with %% in them.");
-            }
-        }
-    }
-
-    private String doFormat(ULocale locale, Currency currency, double number) {
-        // ULocale myLocale = null;
-        // Currency myCurrency = null;
-        // double someNumber = 12345.678;
-        // old
-        NumberFormat format = NumberFormat.getCurrencyInstance(locale);
-        format.setCurrency(currency);
-
-        // if ICU 4.2 / CLDR 1.7, use ugly hack
-        fixFormatIfCantDisplay(format, locale, currency);
-
-        String result = format.format(number);
-        return result;
     }
 
     final static boolean DO_JOHNS = false;
@@ -645,14 +567,13 @@ public class TestBasic extends TestFmwk {
 
     public void TestCoreData() {
         Set<String> availableLanguages = testInfo.getCldrFactory().getAvailableLanguages();
-        PluralInfo rootRules = testInfo.getSupplementalDataInfo().getPlurals("root");
+        PluralInfo rootRules = testInfo.getSupplementalDataInfo().getPlurals(PluralType.cardinal, "root");
         EnumSet<MissingType> errors = EnumSet.of(MissingType.collation);
         EnumSet<MissingType> warnings = EnumSet.of(MissingType.collation, MissingType.index_exemplars,
             MissingType.punct_exemplars);
 
         Set<String> collations = new HashSet<String>();
         XPathParts parts = new XPathParts();
-        LocaleIDParser lip = new LocaleIDParser();
 
         // collect collation info
         Factory collationFactory = Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*", DraftStatus.contributed);
@@ -687,12 +608,16 @@ public class TestBasic extends TestFmwk {
             if (!isTopLevel(localeID)) {
                 continue;
             }
+
             errors.clear();
+            warnings.clear();
+
+            String name = "Locale:" + localeID + " (" + testInfo.getEnglish().getName(localeID) + ")";
 
             if (!collations.contains(localeID)) {
-                errors.add(MissingType.collation);
+                warnings.add(MissingType.collation);
+                logln(name + " is missing " + MissingType.collation.toString());
             }
-            String name = "\t" + testInfo.getEnglish().getName(localeID) + "\t" + localeID;
 
             try {
                 CLDRFile cldrFile = testInfo.getCldrFactory().make(localeID, false, DraftStatus.contributed);
@@ -703,40 +628,35 @@ public class TestBasic extends TestFmwk {
                     continue;
                 }
 
-                PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(localeID);
+                PluralInfo pluralInfo = testInfo.getSupplementalDataInfo().getPlurals(PluralType.cardinal, localeID);
                 if (pluralInfo == rootRules) {
-                    errors.add(MissingType.plurals);
+                    logln(name + " is missing " + MissingType.plurals.toString());
+                    warnings.add(MissingType.plurals);
                 }
                 UnicodeSet main = cldrFile.getExemplarSet("", WinningChoice.WINNING);
                 if (main == null || main.isEmpty()) {
+                    errln("  " + name + " is missing " + MissingType.main_exemplars.toString());
                     errors.add(MissingType.main_exemplars);
                 }
                 UnicodeSet index = cldrFile.getExemplarSet("index", WinningChoice.WINNING);
                 if (index == null || index.isEmpty()) {
-                    errors.add(MissingType.index_exemplars);
+                    logln(name + " is missing " + MissingType.index_exemplars.toString());
+                    warnings.add(MissingType.index_exemplars);
                 }
                 UnicodeSet punctuation = cldrFile.getExemplarSet("punctuation", WinningChoice.WINNING);
                 if (punctuation == null || punctuation.isEmpty()) {
-                    errors.add(MissingType.punct_exemplars);
+                    logln(name + " is missing " + MissingType.punct_exemplars.toString());
+                    warnings.add(MissingType.punct_exemplars);
                 }
             } catch (Exception e) {
+                errln("  " + name + " is missing main locale data.");
                 errors.add(MissingType.no_main);
             }
 
             // report errors
 
-            if (errors.isEmpty()) {
-                logln("No problems:" + name);
-                continue;
-            }
-            StringBuilder b = new StringBuilder();
-            for (MissingType i : MissingType.values()) {
-                b.append("\t").append(errors.contains(i) ? i.toString() : "");
-            }
-            if (warnings.containsAll(errors)) {
-                warnln(name + b);
-            } else {
-                errln(name + b);
+            if (errors.isEmpty() && warnings.isEmpty()) {
+                logln(name + ": No problems...");
             }
         }
     }

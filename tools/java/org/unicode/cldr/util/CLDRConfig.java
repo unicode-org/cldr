@@ -12,6 +12,7 @@ import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 
 public class CLDRConfig {
+    public static boolean DEBUG = false;
     private static CLDRConfig INSTANCE = null;
     public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
 
@@ -156,7 +157,7 @@ public class CLDRConfig {
         if (result == null) {
             result = System.getenv(key);
         }
-        if (!shown.contains(key)) {
+        if (DEBUG && !shown.contains(key)) {
             logln("-D" + key + "=" + result);
             shown.add(key);
         }

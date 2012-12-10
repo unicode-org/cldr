@@ -5,6 +5,7 @@
 	
 	<!--  the 'name' is the real name of the user, and is also used as a handle later. 
 		 level can be any member of VoteResolver.Level and org is any of VoteResolver.Organization  -->
+	<echo>setting up users</echo>
 	<user name="A" org="afrigen" level="vetter"/>
 	<user name="B" org="breton" level="vetter"/>
 	<user name="C" org="cherokee" level="vetter"/>
@@ -24,6 +25,7 @@
 	<verify status="provisional"  locale="und" xpath="//ldml/localeDisplayNames/keys/key[@type='calendar']">a</verify> <!--  a is a lower codepoint, so wins, but only approvedly -->
 
     <!--  Test meta' -->
+    <echo>Test meta'</echo>
     <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='1']">month1</vote>
     <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='2']">month2</vote>
   <!--   <vote name="A" locale="mgo" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='stand-alone']/monthWidth[@type='abbreviated']/month[@type='3']">month3</vote>
@@ -61,5 +63,14 @@
 
     <verify status="missing" locale="az" xpath="//ldml/numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='long']/decimalFormat/pattern[@type='1000'][@count='zero']"/>
 -->
+<!--  verify can't vote for items with errors -->
+	<echo>Testing no votes with errors.</echo>
+	<!--  first, sanity -->	
+	<verify status="missing" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard'][@alt='variant']" />
+	<vote name="A" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">The main pump fixing screws with the correct strength class</vote>	 <!--  conforms to ticket:2260 -->
+	<!--  still missing- that was a totally bogus date format. -->
+	<verify status="missing" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard'][@alt='variant']" />
+	<vote name="A" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard'][@alt='variant']">EEEE, d _MMMM_ y</vote>
+	<verify status="approved" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard'][@alt='variant']">EEEE, d _MMMM_ y</verify>
 
 </TestSTFactory>

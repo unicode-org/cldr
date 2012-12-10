@@ -451,7 +451,8 @@ public class TestSTFactory extends TestFmwk {
                        errln("Expected from XML: Status="+expStatus+" got "+xpathStatusBack+" "+locale+":"+fullXpathBack+" Resolver=" + box.getResolver(xpath));
                    }
                    
-                   
+               } else if(elem.equals("echo")) {
+                   logln("*** \"" + value.trim() + "\"");
                } else {
                    throw new IllegalArgumentException("Unknown test element type " + elem);
                }

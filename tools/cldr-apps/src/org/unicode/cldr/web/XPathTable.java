@@ -24,6 +24,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StringId;
@@ -421,6 +422,44 @@ public class XPathTable {
     public static String removeAlt(String path) {
         return removeAlt(path, new XPathParts(null,null));
     }
+
+    /**
+     * remove the 'draft=' and 'alt=*proposed' from the XPath.  Makes the path almost distinguishing, except that certain attributes, such as numbers=É, will be left.
+     * @param path
+     * @return
+     */
+    public static String removeDraftAltProposed(String path) {
+        XPathParts xpp = new XPathParts(null,null);
+        xpp.initialize(path);
+        Map<String,String> lastAtts = xpp.getAttributes(-1);
+        
+        // Remove alt proposed, but leave the type
+        String oldAlt = (String)lastAtts.get(LDMLConstants.ALT);
+        if(oldAlt != null) {
+            String newAlt = LDMLUtilities.parseAlt(oldAlt)[0];  // #0 : altType
+            if(newAlt == null) {
+                lastAtts.remove(LDMLConstants.ALT); // alt dropped out existence
+            } else {
+                lastAtts.put(LDMLConstants.ALT, newAlt);
+            }
+        }
+        
+        // always remove draft
+        lastAtts.remove(LDMLConstants.DRAFT);
+
+        String removed = xpp.toString();
+        
+        if(false) {
+            String dPath = CLDRFile.getDistinguishingXPath(path,null,false);
+            
+            if(!removed.equals(dPath)) {
+                System.err.println("RDAP: " + dPath + " vs " + removed);
+            }
+        }
+        
+        return removed;
+    }
+    
     public static String removeAlt(String path, XPathParts xpp) {
         xpp.clear();
         xpp.initialize(path);
@@ -694,4 +733,5 @@ public class XPathTable {
 	    writeXpathFragment(out, xpathSet);
 	    out.println("</xpathTable>");
 	}
+
 }

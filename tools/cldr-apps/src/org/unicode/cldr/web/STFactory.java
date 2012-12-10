@@ -3,7 +3,6 @@
  */
 package org.unicode.cldr.web;
 
-import java.awt.List;
 import java.io.File;
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
@@ -102,6 +101,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return delegate.getValueAtDPath(path);
         }
 
+        /**
+         * This is the bottleneck for processing values.
+         * @param path
+         * @param resolver
+         * @return
+         */
         public VoteResolver<String> setValueFromResolver(String path, VoteResolver<String> resolver) {
             Map<User,String> m = ballotBox.peekXpathToVotes(path);
             String res;
@@ -112,7 +117,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 //System.err.println("SVFR: " + fullPath + " due to disk data");
             } else {
                 res = (resolver=ballotBox.getResolver(m,path, resolver)).getWinningValue();
-                String baseXPath = CLDRFile.getDistinguishingXPath(path,null,false); // TODO: why false? What does this parameter do?
+                String diskFullPath = ballotBox.diskData.getFullPathAtDPath(path);
+                if(diskFullPath==null) {
+                    diskFullPath = path; // if the disk didn't have a full path, just use the inbound path.
+                }
+                String baseXPath = XPathTable.removeDraftAltProposed(diskFullPath); // Remove JUST draft alt proposed. Leave 'numbers=' etc.
+
                 Status win = resolver.getWinningStatus();
                 if(win==Status.approved) {
                     fullPath = baseXPath;

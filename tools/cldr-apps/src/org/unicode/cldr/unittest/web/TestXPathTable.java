@@ -1,5 +1,5 @@
 /**
- * Copyright (C) ?-2012
+ * Copyright (C) 2012
  */
 package org.unicode.cldr.unittest.web;
 
@@ -62,5 +62,57 @@ public class TestXPathTable extends TestFmwk {
 			}
 		}
 		logln("OK: Tested "+ii+" values");
+	}
+	
+	public void TestRemoveDraftAltProposed() {
+	    String inout[] = {
+	            
+                "//ldml/foo/bar[@draft=\"true\"]",
+                "//ldml/foo/bar",
+
+                "//ldml/foo/bar[@alt=\"variant\"]",
+                "//ldml/foo/bar[@alt=\"variant\"]",
+
+                "//ldml/foo/bar[@alt=\"variant\"][@draft=\"true\"]",
+                "//ldml/foo/bar[@alt=\"variant\"]",
+
+                "//ldml/foo/bar[@alt=\"proposed-x222\"]",
+                "//ldml/foo/bar",
+
+                "//ldml/foo/bar[@alt=\"proposed-x222\"][@draft=\"true\"]",
+                "//ldml/foo/bar",
+
+                "//ldml/foo/bar[@alt=\"variant-proposed-x333\"]",
+                "//ldml/foo/bar[@alt=\"variant\"]",
+
+                "//ldml/foo/bar[@draft=\"true\"][@alt=\"variant-proposed-x333\"]",
+                "//ldml/foo/bar[@alt=\"variant\"]",
+
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"variant-proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@alt=\"variant\"]",
+	    };
+	    
+	    for(int i=0;i<inout.length;i+=2) {
+	        final String in = inout[i+0];
+	        final String out = inout[i+1];
+	        final String got = XPathTable.removeDraftAltProposed(in);
+	        
+	        logln("-- case #" + i/2);
+	        logln("<< "+ in);
+	        logln(">> "+ got);
+	        if(!got.equals(out)) {
+	            logln("!= " + out);
+	            errln(in + " to " + got + " , expected " + out);
+	        }
+	    }
 	}
 }

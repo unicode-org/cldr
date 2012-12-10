@@ -72,9 +72,8 @@ public class TestSTFactory extends TestFmwk {
 		CLDRLocale locale = CLDRLocale.getInstance(file.getLocaleID());
 		String currentWinner = file.getStringValue(path);
 		boolean didVote = box.userDidVote(getMyUser(),path);
-        StackTraceElement  them = StackTracker.currentElement(1);
+        StackTraceElement  them = StackTracker.currentElement(0);
         String where = " ("+them.getFileName()+":"+them.getLineNumber()+"): ";
-		
 				
 		if(expectString==null) expectString = NULL;
 		if(currentWinner==null) currentWinner=NULL;
@@ -464,6 +463,101 @@ public class TestSTFactory extends TestFmwk {
         String fileName = TestSTFactory.class.getSimpleName()+".xml";
         myReader.read(TestSTFactory.class.getResource("data/"+fileName).toString(),TestAll.getUTF8Data(fileName),-1,true);
 	}
+
+    public void TestVettingWithNonDistinguishing() throws SQLException, IOException {
+        STFactory fac = getFactory();
+
+        final String somePath2 =                 
+                "//ldml/dates/calendars/calendar[@type=\"hebrew\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        String originalValue2 = null;
+        String changedTo2 = null;
+        CLDRLocale locale2 = CLDRLocale.getInstance("he");
+        String fullPath = null;
+        {
+            CLDRFile mt_MT = fac.make(locale2, false);
+            BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+            
+            originalValue2  = expect(somePath2,ANY,false,
+                    mt_MT,box);
+            
+            fullPath = mt_MT.getFullXPath(somePath2);
+            logln("locale " + locale2 + " path " + somePath2 + " full = " + fullPath);
+            if(!fullPath.contains("numbers=")) {
+                logln("Warning: " + locale2+":"+somePath2 + " fullpath doesn't contain numbers= - test skipped, got path " + fullPath);
+                return;
+            }
+            
+            changedTo2= "EEEE, d _MMMM y";
+            
+            if(originalValue2.equals(changedTo2)) {
+                errln("for " + locale2 + " value " + somePath2 + " winner is already= " + originalValue2);
+            }
+
+            box.voteForValue(getMyUser(), somePath2, changedTo2);
+            
+            expect(somePath2,changedTo2,true,
+                    mt_MT,box);
+        }
+        // Restart STFactory.
+        fac = resetFactory();
+        {
+            CLDRFile mt_MT = fac.make(locale2, false);
+            BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+
+            expect(somePath2,changedTo2,true,
+                    mt_MT,box);
+            
+            // unvote
+            box.voteForValue(getMyUser(), somePath2, null);
+
+            expect(somePath2,originalValue2,false, mt_MT,box); // Expect original value - no one has voted.
+            
+            String fullPath2 = mt_MT.getFullXPath(somePath2);
+            if(!fullPath2.contains("numbers=")) {
+                errln("Error - voted, but full path lost numbers= - " + fullPath2);
+            }
+        }
+        fac = resetFactory();
+        {
+            CLDRFile mt_MT = fac.make(locale2, false);
+            BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+
+
+            expect(somePath2,originalValue2,false,mt_MT,box); // still original value
+
+            // vote for ____2
+            changedTo2 = changedTo2+"__";
+            
+            logln("VoteFor: " + changedTo2);
+            box.voteForValue(getMyUser(), somePath2, changedTo2);
+
+            expect(somePath2,changedTo2,true,
+                    mt_MT,box);
+            
+            logln("Write out..");
+            File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName()+"_output");
+            File outFile = new File(targDir,locale2.getBaseName()+".xml");
+            PrintWriter pw = BagFormatter.openUTF8Writer(targDir.getAbsolutePath(), locale2.getBaseName()+".xml");
+            mt_MT.write(pw,noDtdPlease);
+            pw.close();
+            
+            logln("Read back..");
+            CLDRFile readBack = CLDRFile.loadFromFile(outFile, locale2.getBaseName(), DraftStatus.unconfirmed);
+            
+            String reRead = readBack.getStringValue(somePath2);
+            
+            logln("reread:  " + outFile.getAbsolutePath()+ " value " + somePath2+ " = " + reRead);
+            if(!changedTo2.equals(reRead)) {
+                logln("reread:  " + outFile.getAbsolutePath()+ " value " + somePath2 + " = " + reRead + ", should be " + changedTo2);
+            }
+            String fullPath2 = readBack.getFullXPath(somePath2);
+            if(!fullPath2.contains("numbers=")) {
+                errln("Error - readBack's full path lost numbers= - " + fullPath2);
+            }
+        }
+    }
+    
+	
 	
 	private void verifyReadOnly(CLDRFile f) {
 		String loc = f.getLocaleID();

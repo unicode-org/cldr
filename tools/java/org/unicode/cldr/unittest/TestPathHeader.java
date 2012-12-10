@@ -442,7 +442,7 @@ public class TestPathHeader extends TestFmwk {
                 if (Level.COMPREHENSIVE.compareTo(level) < 0) {
                     continue;
                 }
-                warnln("Path not in English\t" + locale + "\t" + path);
+                logln("Path not in English\t" + locale + "\t" + path);
                 alreadySeen.add(path);
             }
         }

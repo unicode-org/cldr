@@ -1439,6 +1439,20 @@ public class SupplementalDataInfo {
                         }
                     }
                 }
+            } else if(level2.equals("distinguishing")) {
+                String level3 = parts.getElement(3);
+                if (level3.equals("distinguishingItems")) {
+                    Map<String, String> attributes = parts.getAttributes(-1);
+//                  <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem"/>
+//                  <distinguishingItems exclude="true" elements="default measurementSystem mapping abbreviationFallback preferenceOrdering" attributes="type"/>
+                    
+                    if(attributes.containsKey("exclude") && "true".equals(attributes.get("exclude"))) {
+                        return false; // don't handle the excludes -yet.
+                    } else {
+                        distinguishingAttributes = Collections.unmodifiableCollection(getSpaceDelimited(-1, "attributes", STAR_SET));    
+                        return true;
+                    }
+                }
             }
             return false;
         }
@@ -2703,6 +2717,7 @@ public class SupplementalDataInfo {
     private List<String> attributeOrder;
     private List<String> elementOrder;
     private List<String> serialElements;
+    private Collection<String> distinguishingAttributes;
 
     public List<String> getAttributeOrder() {
         return attributeOrder;
@@ -2714,6 +2729,9 @@ public class SupplementalDataInfo {
 
     public List<String> getSerialElements() {
         return serialElements;
+    }
+    public Collection<String> getDistinguishingAttributes() {
+        return distinguishingAttributes;
     }
 
     public List<R4<String, String, Integer, Boolean>> getLanguageMatcherData(String string) {

@@ -34,6 +34,8 @@ define({
 			flyoverdraft: "Draft Icon",
 			flyovervoted: "Shows a checkmark if you voted",
 			flyovercode: "Code for this item",
+			extraAttribute_desc: "Additional specifiers for this element",
+			extraAttribute_heading: "Note: there are additional specifiers for this element. Read the help page for further details.",
 			flyoverbaseline: "Comparison value",
 			flyoverproposed: "Winning value",
 			flyoverothers: "Other non-winning items",

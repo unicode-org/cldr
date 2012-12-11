@@ -1714,6 +1714,7 @@ public class DataSection implements JSONString {
 					.put("statusAction", getStatusAction())
 					.put("prettyPath", getPrettyPath())
                     .put("code", pathCode)
+                    .put("extraAttributes", getNonDistinguishingAttributes())
                     .put("coverageValue", coverageValue)
 					.put("hasErrors", hasErrors)
 					.put("hasWarnings", hasWarnings)
@@ -1729,6 +1730,18 @@ public class DataSection implements JSONString {
 		        throw new JSONException(t);
 		    }
 		}
+
+		
+		Map<String,String> nonDistinguishingAttributes = null;
+		boolean checkedNDA = false;
+        private Map<String,String> getNonDistinguishingAttributes() {
+            if(checkedNDA==false) {
+                String fullDiskXPath = diskFile.getFullXPath(xpath);
+                nonDistinguishingAttributes = sm.xpt.getUndistinguishingElementsFor(fullDiskXPath, new XPathParts(null,null));
+                checkedNDA=true;
+            }
+            return nonDistinguishingAttributes;
+        }
 
         public StatusAction getStatusAction() {
             // null because this is for display.
@@ -2465,6 +2478,7 @@ public class DataSection implements JSONString {
 	private ExampleBuilder examplebuilder;
     private XPathMatcher matcher;
     private PageId pageId;
+    private CLDRFile diskFile;
 
 	DataSection(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher, String ptype) {
 	    this.locale = loc;
@@ -2772,6 +2786,7 @@ public class DataSection implements JSONString {
 			CLDRFile aFile = ourSrc;
 			STFactory stf = sm.getSTFactory();
 			CLDRFile oldFile = stf.getOldFile(locale);
+			diskFile = stf.getDiskFile(locale);
 			List<?> examplesResult = new ArrayList<Object>();
 			SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
 			long lastTime = -1;

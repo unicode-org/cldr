@@ -1658,6 +1658,14 @@ function calcPClass(value, winner) {
 	}
 }
 
+function appendExtraAttributes(container, theRow) {
+	for(var attr in theRow.extraAttributes) {
+		var attrval = theRow.extraAttributes[attr];
+		var extraChunk = createChunk( attr+"="+attrval , "span", "extraAttribute");
+		container.appendChild(extraChunk);
+	}
+}
+
 function updateRow(tr, theRow) {
 	tr.valueToItem = {}; // hash:  string value to item (which has a div)
 	tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
@@ -1673,6 +1681,15 @@ function updateRow(tr, theRow) {
 		// this also marks this row as a 'help parent'
 		tr.helpDiv = cloneAnon(dojo.byId("proto-help"));
 		tr.helpDiv.innerHTML += theRow.displayHelp;
+		
+		// extra attributes
+		if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
+			var extraHeading = createChunk( stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");
+			var extraContainer = createChunk("","div","extraAttributes");
+			appendExtraAttributes(extraContainer, theRow);
+			tr.helpDiv.appendChild(extraHeading);
+			tr.helpDiv.appendChild(extraContainer);
+		}
 	}
 	
 	// update the vote info
@@ -1931,6 +1948,10 @@ function updateRow(tr, theRow) {
 			codeStr = codeStr + " (optional)";
 		}
 		children[config.codecell].appendChild(createChunk(codeStr));
+		// extra attributes
+		if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
+			appendExtraAttributes(children[config.codecell], theRow);
+		}
 		var anch = document.createElement("a");
 		anch.className="anch";
 		anch.id=theRow.xpid;

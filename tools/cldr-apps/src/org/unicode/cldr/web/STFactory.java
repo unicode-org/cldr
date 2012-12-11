@@ -1262,6 +1262,14 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public CLDRFile getOldFile(CLDRLocale locale) {
         return get(locale).getOldFile();
     }
+    /**
+     * Resolving disk file, or null if none.
+     * @param locale
+     * @return
+     */
+    public CLDRFile getDiskFile(CLDRLocale locale) {
+        return sm.getDiskFactory().make(locale.getBaseName(), true);
+    }
 
     public Set<String> getPathsForFile(CLDRLocale locale) {
         return get(locale).getPathsForFile();

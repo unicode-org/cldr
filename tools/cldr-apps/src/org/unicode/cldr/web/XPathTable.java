@@ -15,6 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
@@ -458,6 +460,41 @@ public class XPathTable {
         }
         
         return removed;
+    }
+    
+    private Set<String> undistinguishingAttributes = null;
+    
+    public synchronized Set<String> getUndistinguishingElements() {
+        if(undistinguishingAttributes == null) {
+            Set<String> s = new HashSet<String>(sm.getSupplementalDataInfo().getElementOrder()); // all elements. We assume.
+            Collection<String> distinguishing = sm.getSupplementalDataInfo().getDistinguishingAttributes();
+            if(distinguishing!=null) {
+                s.removeAll(distinguishing);
+            } else {
+                throw new InternalError("Error: 0 attributes are distinguishing!\n");
+            }
+            s.remove("alt"); // ignore
+            s.remove("draft"); // ignore
+            undistinguishingAttributes = Collections.unmodifiableSet(s);
+        }
+        return undistinguishingAttributes;
+    }
+    
+    public Map<String,String> getUndistinguishingElementsFor(String path, XPathParts xpp) {
+        Set<String> ue = getUndistinguishingElements();
+        xpp.clear();
+        xpp.initialize(path);
+        Map<String,String> ueMap = null; // common case, none found.
+        for(int i=0;i<xpp.size();i++) {
+            for(String k : xpp.getAttributeKeys(i)) {
+                if(!ue.contains(k)) continue;
+                if(ueMap == null) {
+                    ueMap = new TreeMap<String,String>();
+                }
+                ueMap.put(k, xpp.getAttributeValue(i, k));
+            }
+        }
+        return ueMap;
     }
     
     public static String removeAlt(String path, XPathParts xpp) {

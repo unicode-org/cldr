@@ -6,7 +6,10 @@ package org.unicode.cldr.unittest.web;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyMain;
@@ -114,5 +117,60 @@ public class TestXPathTable extends TestFmwk {
 	            errln(in + " to " + got + " , expected " + out);
 	        }
 	    }
+	}
+	
+	public void TestNonDistinguishing() throws SQLException {
+        Connection conn = DBUtils.getInstance().getDBConnection();
+        XPathTable xpt = XPathTable.createTable(conn, new SurveyMain());
+        DBUtils.closeDBConnection(conn);
+        
+        String xpaths[]  = {
+                "//ldml/foo/bar[@draft=\"true\"]",
+                   "",
+                "//ldml/foo/bar[@alt=\"variant\"]",
+                    "",
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+                    "numbers=hanidec",
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+                    "numbers=hanidec",
+                "//ldml/dates/calendars/calendar[@type=\"hebrew\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"proposedx333\"][@numbers=\"hebrew\"][@draft=\"true\"]",
+                    "numbers=hebrew",
+                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"variant-proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+                    "numbers=hanidec",
+
+        };
+        
+        for(int i=0;i<xpaths.length;i+=2) {
+            String xpath=xpaths[i+0];
+            String expect=xpaths[i+1];
+            Map<String, String> ueMap = xpt.getUndistinguishingElementsFor(xpath, new XPathParts(null,null));
+            if(ueMap!=null) {
+                logln(xpath + "\n -> " + ueMap.toString() + " expect " + expect);
+            } else {
+                logln(xpath + "\n -> 0, expect" + expect);
+            }
+            if(expect.isEmpty()) {
+                if(ueMap!=null && !ueMap.isEmpty()) {
+                    errln("Error for xpath " + xpath + " expected nondistinguishing =EMPTY got " + ueMap.toString());
+                }
+            } else {
+                if(ueMap==null || ueMap.isEmpty()) {
+                    errln("Error for xpath " + xpath + " expected nondistinguishing ="+expect+" got " + ueMap.toString());
+                } else {
+                    Map<String,String> mymap = new TreeMap<String,String>();
+                    Map<String,String> uemap2 = new TreeMap<String,String>(ueMap);
+                    
+                    for(String pair : expect.split(",")) {
+                        String kv[] = pair.split("=");
+                        mymap.put(kv[0], kv[1]);
+                    }
+                    if(!mymap.equals(uemap2)) {
+                        errln("Error for " + xpath + "\n Got " + uemap2 + " expected " + mymap);
+                    } else {
+                        logln("PASS for " + xpath + "\n Got " + uemap2 + " expected " + mymap);
+                    }
+                }
+            }
+        }
 	}
 }

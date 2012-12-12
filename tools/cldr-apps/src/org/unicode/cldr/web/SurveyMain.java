@@ -633,17 +633,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
          */
 
         String baseThreadName = Thread.currentThread().getName();
-        
+
         // helper file
-        if(CLDRConfig.getInstance().getEnvironment()==Environment.LOCAL) {
+        if (CLDRConfig.getInstance().getEnvironment() == Environment.LOCAL) {
             File helperFile = new File(getSurveyHome(), "admin.html");
-            if(!helperFile.exists()) {
+            if (!helperFile.exists()) {
                 OutputStream file = new FileOutputStream(helperFile, false); // Append
                 PrintWriter pw = new PrintWriter(file);
                 pw.write("<h3>Survey Tool admin interface link</h3>");
                 pw.write("if you change the admin password ( CLDR_VAP in config.properties ), you will also need to change this link.<p>");
-                String url = ctx.schemeHostPort()+  ctx.context("AdminPanel.jsp") + "?vap=" + vap;
-                pw.write("<b>Admin Panel:</b>  <a href='"+url+"'>"+url+"</a>");
+                String url = ctx.schemeHostPort() + ctx.context("AdminPanel.jsp") + "?vap=" + vap;
+                pw.write("<b>Admin Panel:</b>  <a href='" + url + "'>" + url + "</a>");
                 pw.close();
                 file.close();
             }
@@ -866,11 +866,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static String getSurveyHome() {
         String cldrHome;
         CLDRConfig survprops = CLDRConfig.getInstance();
-        
-        if(!(survprops instanceof CLDRConfigImpl)) {
+
+        if (!(survprops instanceof CLDRConfigImpl)) {
             File tmpHome = new File("testing_cldr_home");
-            if(!tmpHome.isDirectory()) {
-                if(!tmpHome.mkdir()) {
+            if (!tmpHome.isDirectory()) {
+                if (!tmpHome.mkdir()) {
                     throw new InternalError("Couldn't create " + tmpHome.getAbsolutePath());
                 }
             }
@@ -2464,20 +2464,21 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println(" (<i>default content</i>)");
                 } // else if(participation && nullStatus!=null &&
                   // !nullStatus.isEmpty()) {
-                // Hashtable<Integer, String> what = nullStatus.get(subLocale);
-                // if(what!=null) {
-                // ctx.println("<br><blockquote><b>Did not participate:</b> ");
-                // for(Iterator<String> i =
-                // what.values().iterator();i.hasNext();) {
-                // ctx.println(i.next().toString() );
-                // if(i.hasNext()) {
-                // ctx.println(", ");
-                // }
-                // }
-                // ctx.println("</blockquote>");
-                // }
-                // }
-                // }
+                  // Hashtable<Integer, String> what =
+                  // nullStatus.get(subLocale);
+                  // if(what!=null) {
+                  // ctx.println("<br><blockquote><b>Did not participate:</b> ");
+                  // for(Iterator<String> i =
+                  // what.values().iterator();i.hasNext();) {
+                  // ctx.println(i.next().toString() );
+                  // if(i.hasNext()) {
+                  // ctx.println(", ");
+                  // }
+                  // }
+                  // ctx.println("</blockquote>");
+                  // }
+                  // }
+                  // }
                 j++;
             }
             ctx.println("</td>");
@@ -3170,14 +3171,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                     ctx.println("<b>Mail sent.</b><br>");
                                 }
                             } else { // dont' allow resend option
-                            // if (sendWhat.length() > 0) {
-                            // ctx.println("<label><input type='checkbox' value='y' name='"
-                            // + LIST_MAILUSER
-                            // +
-                            // "_d'>Check this box to send a Dispute complaint with this email.</label><br>");
-                            // } else {
-                            // ctx.println("<i>On the next page you will be able to choose a Dispute Report.</i><br>");
-                            // }
+                                // if (sendWhat.length() > 0) {
+                                // ctx.println("<label><input type='checkbox' value='y' name='"
+                                // + LIST_MAILUSER
+                                // +
+                                // "_d'>Check this box to send a Dispute complaint with this email.</label><br>");
+                                // } else {
+                                // ctx.println("<i>On the next page you will be able to choose a Dispute Report.</i><br>");
+                                // }
                                 ctx.println("<input type='hidden' name='" + LIST_MAILUSER + "' value='y'>");
                             }
                             ctx.println("From: <b>" + cleanEmail + "</b><br>");
@@ -3852,7 +3853,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (aliasTarget != null) {
                 // the alias might be a default content locale. Save some clicks
                 // here.
-               CLDRLocale dcParent = getSupplementalDataInfo().getBaseFromDefaultContent(aliasTarget);
+                CLDRLocale dcParent = getSupplementalDataInfo().getBaseFromDefaultContent(aliasTarget);
                 if (dcParent == null) {
                     dcParent = aliasTarget;
                 }
@@ -4017,8 +4018,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (isDefaultContent) {
             classstr = "class='dcLocale'";
             localeUrl = null; // ctx.urlForLocale(defaultContentToParent(locale));
-            title = "Default Content: Please view and/or propose changes in " + getSupplementalDataInfo().getBaseFromDefaultContent(locale).getDisplayName()
-                    + ".";
+            title = "Default Content: Please view and/or propose changes in "
+                    + getSupplementalDataInfo().getBaseFromDefaultContent(locale).getDisplayName() + ".";
         }
         String rv = ("<a " + classstr + " title='" + title + "' " + (localeUrl != null ? ("href=\"" + localeUrl + "\"") : "") + " >");
         rv = rv + decoratedLocaleName(locale, n, title);
@@ -4031,9 +4032,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 rv = rv + ctx.iconHtml("disp", "(" + odisp + " org disputes)");
             }
         }
-        if(!isDefaultContent && getReadOnlyLocales().contains(locale)) {
+        if (!isDefaultContent && getReadOnlyLocales().contains(locale)) {
             String comment = SpecialLocales.getComment(locale);
-            if(comment == null) {
+            if (comment == null) {
                 comment = "This locale is read-only due to SurveyTool configuration.";
             }
             rv = rv + ctx.iconHtml("lock", comment);
@@ -4134,7 +4135,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             ctx.println("<td valign='top'>");
             int j = 0;
-            if(sm!=null) {
+            if (sm != null) {
                 for (String sn : sm.keySet()) {
                     if (j > 0) {
                         ctx.println(", ");
@@ -4625,6 +4626,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     /**
      * Return the factory that corresponds to trunk
+     * 
      * @return
      */
     public synchronized Factory getDiskFactory() {
@@ -4646,40 +4648,43 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 ElapsedTimer et = new ElapsedTimer();
                 System.err.println(param + " directory " + dir.getAbsolutePath() + " did not exist - checking out " + url
                         + " - if this is not desired, modify " + param + " in cldr.properties. THIS MAY TAKE A WHILE!");
-                
+
                 long res;
-                if(dir.getName().equals("common")) {
-                    res = getOutputFileManager().svnCheckout(dir, url,SVNRevision.UNDEFINED,SVNRevision.HEAD,SVNDepth.IMMEDIATES,true);
+                if (dir.getName().equals("common")) {
+                    res = getOutputFileManager().svnCheckout(dir, url, SVNRevision.UNDEFINED, SVNRevision.HEAD,
+                            SVNDepth.IMMEDIATES, true);
                     Vector<File> toUpdate = new Vector<File>();
-//                    for(File f : dir.listFiles()) {
-//                        if(f.isDirectory()) {
-//                            if(f.getName().equals(".svn")) continue;
-//                            if(f.getName().equals("main")) continue;
-//                            if(f.getName().equals("collation")) continue;
-//                            toUpdate.add(f);
-//                        }
-//                    }
-                    String addLocales[] =  { "root.xml","en.xml","en_US.xml" };
-                    for (String s : addLocales ) {
+                    // for(File f : dir.listFiles()) {
+                    // if(f.isDirectory()) {
+                    // if(f.getName().equals(".svn")) continue;
+                    // if(f.getName().equals("main")) continue;
+                    // if(f.getName().equals("collation")) continue;
+                    // toUpdate.add(f);
+                    // }
+                    // }
+                    String addLocales[] = { "root.xml", "en.xml", "en_US.xml" };
+                    for (String s : addLocales) {
                         toUpdate.add(new File(base, s));
                     }
-                    String addDirs[] =  { "dtd", "supplemental" };
+                    String addDirs[] = { "dtd", "supplemental" };
                     for (String s : addDirs) {
                         toUpdate.add(new File(dir, s));
                     }
-                    getOutputFileManager().svnUpdate(toUpdate.toArray(new File[0]), SVNRevision.create(res),SVNDepth.INFINITY,true,true);
-                } else if(dir.getName().equals("seed")) {
-                    res = getOutputFileManager().svnCheckout(dir, url,SVNRevision.UNDEFINED,SVNRevision.HEAD,SVNDepth.IMMEDIATES,true);
-                    getOutputFileManager().svnUpdate(new File(base, BASELINE_ID+".xml"));
-                    getOutputFileManager().svnUpdate(new File(base, "und"+".xml"));
-                    getOutputFileManager().svnUpdate(new File(base, "und_ZZ"+".xml"));
+                    getOutputFileManager().svnUpdate(toUpdate.toArray(new File[0]), SVNRevision.create(res), SVNDepth.INFINITY,
+                            true, true);
+                } else if (dir.getName().equals("seed")) {
+                    res = getOutputFileManager().svnCheckout(dir, url, SVNRevision.UNDEFINED, SVNRevision.HEAD,
+                            SVNDepth.IMMEDIATES, true);
+                    getOutputFileManager().svnUpdate(new File(base, BASELINE_ID + ".xml"));
+                    getOutputFileManager().svnUpdate(new File(base, "und" + ".xml"));
+                    getOutputFileManager().svnUpdate(new File(base, "und_ZZ" + ".xml"));
                     System.err.println("Checked out stub seed dir.");
                 } else {
                     res = getOutputFileManager().svnCheckout(dir, url);
                 }
-                
-                System.err.println("Checked out " + url + " r " + res + " to " + dir.getAbsolutePath() + " - see the value of " + param
-                        + " if you want to have a different location.  Took: " + et);
+
+                System.err.println("Checked out " + url + " r " + res + " to " + dir.getAbsolutePath() + " - see the value of "
+                        + param + " if you want to have a different location.  Took: " + et);
             } catch (SVNException e) {
                 final String msg = "Checking out " + url + " into " + dir.getAbsolutePath();
                 SurveyLog.logException(e, msg);
@@ -4708,6 +4713,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     /**
      * Get the factory corresponding to the current snapshot.
+     * 
      * @return
      */
     public final synchronized STFactory getSTFactory() {
@@ -4745,6 +4751,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     /**
      * Get the factory corresponding to the old release version.
+     * 
      * @return
      */
     public synchronized Factory getOldFactory() {
@@ -5491,12 +5498,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @deprecated SupplementalData is deprecated.
      */
     public SupplementalData getSupplementalData() {
-        if(supplemental==null) {
+        if (supplemental == null) {
             getSupplementalDataInfo();
         }
         return supplemental;
     }
-    
+
     public synchronized final SupplementalDataInfo getSupplementalDataInfo() {
         if (supplementalDataInfo == null) {
             supplementalDataDir = getDiskFactory().getSupplementalDirectory();
@@ -5710,10 +5717,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                                    // territory.
             ctx.print("<i>The Metazone <b>" + currentMetaZone + "</b> is active for this zone. " +
             // <a href=\""+
-                    // bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE,
-                    // ctx.getLocale()+":"+ zone + ":" + currentMetaZone +
-                    // " incorrect")+
-                    // "\">Click Here to report Metazone problems</a>"+
+            // bugReplyUrl(BUG_METAZONE_FOLDER, BUG_METAZONE,
+            // ctx.getLocale()+":"+ zone + ":" + currentMetaZone +
+            // " incorrect")+
+            // "\">Click Here to report Metazone problems</a>"+
                     " Please report any Metazone problems. </i>");
         } else {
             ctx.println("<h3>Zone Contents</h3>"); // No metazone - this is just
@@ -6203,10 +6210,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public synchronized File getVetdir() {
         if (_vetdir == null) {
             CLDRConfig survprops = CLDRConfig.getInstance();
-            vetdata = survprops.getProperty("CLDR_VET_DATA", SurveyMain.getSurveyHome()+ "/vetdata"); // dir
-                                                                                            // for
-                                                                                            // vetted
-                                                                                            // data
+            vetdata = survprops.getProperty("CLDR_VET_DATA", SurveyMain.getSurveyHome() + "/vetdata"); // dir
+            // for
+            // vetted
+            // data
             File v = new File(vetdata);
             if (!v.isDirectory()) {
                 v.mkdir();
@@ -6463,36 +6470,42 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static Set<CLDRLocale> openLocales = null;
     private static Set<CLDRLocale> roLocales = null;
 
-    
     /**
-     * Get the list of locales 'open' for submission.
-     * Should be all locales that aren't either read-only or in the "only locales" list.
+     * Get the list of locales 'open' for submission. Should be all locales that
+     * aren't either read-only or in the "only locales" list.
+     * 
      * @return
      */
     static final synchronized public Set<CLDRLocale> getOpenLocales() {
-        if(openLocales==null) loadLocalesSet();
+        if (openLocales == null)
+            loadLocalesSet();
         return openLocales;
     }
-    
+
     /**
-     * Get the list of locales which are read only for some reason.
-     * These won't be generated, and will be shown with a lock symbol.
+     * Get the list of locales which are read only for some reason. These won't
+     * be generated, and will be shown with a lock symbol.
+     * 
      * @return
      */
     static final synchronized public Set<CLDRLocale> getReadOnlyLocales() {
-        if(roLocales==null) loadLocalesSet();
+        if (roLocales == null)
+            loadLocalesSet();
         return roLocales;
     }
-    
+
     /**
-     * Get the list of locales that we have seen anywhere. Static set generated from {@link #getInFiles()}
+     * Get the list of locales that we have seen anywhere. Static set generated
+     * from {@link #getInFiles()}
+     * 
      * @return
      */
     static final synchronized public Set<CLDRLocale> getLocalesSet() {
-        if (localeListSet == null) loadLocalesSet();
+        if (localeListSet == null)
+            loadLocalesSet();
         return localeListSet;
     }
-    
+
     /**
      * Set up the list of open vs read-only locales, and the full set.
      */
@@ -6502,17 +6515,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
         Set<CLDRLocale> ro = new TreeSet<CLDRLocale>();
         Set<CLDRLocale> w = new TreeSet<CLDRLocale>();
-        
+
         String onlyLocales = CLDRConfig.getInstance().getProperty("CLDR_ONLY_LOCALES", null);
-        Set<String> onlySet=null;
-        
-        if(onlyLocales!=null && !onlyLocales.isEmpty()) {
+        Set<String> onlySet = null;
+
+        if (onlyLocales != null && !onlyLocales.isEmpty()) {
             onlySet = new TreeSet<String>();
-            for(String ol : onlyLocales.split("[ \t]")) {
+            for (String ol : onlyLocales.split("[ \t]")) {
                 onlySet.add(ol);
             }
         }
-        
+
         for (int i = 0; i < nrInFiles; i++) {
             String fileName = inFiles[i].getName();
             int dot = fileName.indexOf('.');
@@ -6521,10 +6534,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 CLDRLocale l = CLDRLocale.getInstance(locale);
                 s.add(l);
                 SpecialLocales.Type t = (SpecialLocales.getType(l));
-                if(t == Type.scratch) {
+                if (t == Type.scratch) {
                     w.add(l); // always added
-                } else if(t == Type.readonly ||
-                        (onlySet!=null&&!onlySet.contains(locale))) {
+                } else if (t == Type.readonly || (onlySet != null && !onlySet.contains(locale))) {
                     ro.add(l);
                 } else {
                     w.add(l);
@@ -6538,6 +6550,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     /**
      * Array of locales - calculated from {@link #getLocalesSet()}
+     * 
      * @return
      */
     static public CLDRLocale[] getLocales() {
@@ -6661,7 +6674,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return (int) (Math.floor(total - free));
     }
 
-    public  static void busted(String what) {
+    public static void busted(String what) {
         busted(what, null, null);
     }
 

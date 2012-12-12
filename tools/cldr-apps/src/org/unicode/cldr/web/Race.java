@@ -19,36 +19,40 @@ public class Race {
     BallotBox<User> ballotBox;
     String xpath;
     VoteResolver<String> resolver;
-    
+
     public Race(BallotBox<User> ballotBoxForLocale, String xpath) {
         this.ballotBox = ballotBoxForLocale;
         this.xpath = xpath;
-        resolver =  ballotBox.getResolver(xpath);
+        resolver = ballotBox.getResolver(xpath);
     }
 
-
     private DataTester tester = null;
+
     public void setTester(DataTester tester) {
         STFactory.unimp();
-    	this.tester = tester;
+        this.tester = tester;
     }
 
     // All votes for a particular item
     class Chad implements Comparable<Chad> {
         String value;
-    	@Override
-    	public String toString() {
-    		return value;
-    	}
-    	public Chad(String s) {
-    	    value = s;
-    	}
-        
+
+        @Override
+        public String toString() {
+            return value;
+        }
+
+        public Chad(String s) {
+            value = s;
+        }
+
         @Override
         public boolean equals(Object other) {
-            if(other==this) return true;
-            if(!(other instanceof Chad)) return false;
-        	return(compareTo((Chad)other)==0);
+            if (other == this)
+                return true;
+            if (!(other instanceof Chad))
+                return false;
+            return (compareTo((Chad) other) == 0);
         }
 
         @Override
@@ -58,30 +62,29 @@ public class Race {
             }
             return value.compareTo(o.value);
         }
-        
+
         @Override
-        public
-        int hashCode() {
+        public int hashCode() {
             return value.hashCode();
         }
     }
 
     private org.unicode.cldr.util.VoteResolver.Organization getVROrg(String name) {
-	return org.unicode.cldr.util.VoteResolver.Organization.fromString(name);
+        return org.unicode.cldr.util.VoteResolver.Organization.fromString(name);
     }
- 
+
     /**
      * Get a map of xpath to score for this org.
      */
     public Map<String, Long> getOrgToVotes(Organization org) {
         return resolver.getOrgToVotes(org);
     }
-    
+
     /**
      * Get the last release xpath
      */
     public String getLastReleaseValue() {
-    	return resolver.getLastReleaseValue();
+        return resolver.getLastReleaseValue();
     }
 
     /**
@@ -91,10 +94,9 @@ public class Race {
         return resolver.getLastReleaseStatus();
     }
 
-
     public String resolverToString() {
-        return resolver.toString() + "\n"+
-            "WinningXpath: " +resolver.getWinningValue()+"#"+resolver.getWinningValue() + " "+resolver.getWinningStatus()+"\n";
+        return resolver.toString() + "\n" + "WinningXpath: " + resolver.getWinningValue() + "#" + resolver.getWinningValue()
+                + " " + resolver.getWinningStatus() + "\n";
     }
 
     public String getOrgVote(String organization) {
@@ -105,11 +107,11 @@ public class Race {
         return resolver.getOrgVote(org);
     }
 
-	public boolean isOrgDispute(VoteResolver.Organization org) {
-		return resolver.getConflictedOrganizations().contains(org);
-	}
+    public boolean isOrgDispute(VoteResolver.Organization org) {
+        return resolver.getConflictedOrganizations().contains(org);
+    }
 
-	public VoteStatus getStatusForOrganization(Organization orgOfUser) {
+    public VoteStatus getStatusForOrganization(Organization orgOfUser) {
         return resolver.getStatusForOrganization(orgOfUser);
-	}
+    }
 }

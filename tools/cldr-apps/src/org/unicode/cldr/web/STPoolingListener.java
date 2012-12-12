@@ -14,7 +14,8 @@ import javax.servlet.ServletContextListener;
 import javax.sql.DataSource;
 
 /**
- * Pooled (data source) listener. Disabled by default. 
+ * Pooled (data source) listener. Disabled by default.
+ * 
  * @author srl
  * @see SurveyMain#doStartupDB
  */
@@ -30,8 +31,11 @@ public class STPoolingListener implements ServletContextListener {
         // TODO Auto-generated constructor stub
     }
 
-    /* (non-Javadoc)
-     * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.ServletContextEvent)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.servlet.ServletContextListener#contextDestroyed(javax.servlet.
+     * ServletContextEvent)
      */
     public void contextDestroyed(ServletContextEvent arg0) {
         // TODO Auto-generated method stub
@@ -39,8 +43,12 @@ public class STPoolingListener implements ServletContextListener {
 
     }
 
-    /* (non-Javadoc)
-     * @see javax.servlet.ServletContextListener#contextInitialized(javax.servlet.ServletContextEvent)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * javax.servlet.ServletContextListener#contextInitialized(javax.servlet
+     * .ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent evt) {
         // from http://onjava.com/lpt/a/6555
@@ -48,7 +56,7 @@ public class STPoolingListener implements ServletContextListener {
             Context ourContext = (Context) new InitialContext().lookup("java:comp/env");
             DataSource ds = (DataSource) ourContext.lookup(ST_DATABASE);
             evt.getServletContext().setAttribute(ST_ATTRIBUTE, ds);
-            if(true==false) {
+            if (true == false) {
                 ds.setLogWriter(new PrintWriter(System.err));
             }
             System.err.println("Initialized Ctx for " + ST_DATABASE);

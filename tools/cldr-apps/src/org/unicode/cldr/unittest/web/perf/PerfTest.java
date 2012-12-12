@@ -30,26 +30,26 @@ import com.ibm.icu.impl.LocaleUtility;
  * Base class for performance testing framework. To use, the subclass can simply
  * define one or more instance methods with names beginning with "test" (case
  * ignored). The prototype of the method is
- *
+ * 
  * PerfTest.Function testTheName()
- *
+ * 
  * The actual performance test will execute on the returned Commond object
  * (refer to Command Pattern). To call a test from command line, the 'test'
  * prefix of the test method name can be ignored/removed.
- *
+ * 
  * In addition, the subclass should define a main() method that calls
  * PerfTest.run() as defined here.
- *
+ * 
  * If the subclasses uses any command line arguments (beyond those handled
  * automatically by this calss) then it should override PerfTest.setup() to
  * handle its arguments. If the subclasse needs more sophisticated management
  * for controlling finding/calling test method, it can replace the default
  * implementation for PerfTest.testProvider before calling PerfTest.run().
- *
+ * 
  * Example invocation: java -cp classes -verbose:gc
  * com.ibm.icu.dev.test.perf.UnicodeSetPerf --gc --passes 4 --iterations 100
  * UnicodeSetAdd [[:l:][:c:]]
- *
+ * 
  * Example output: [GC 511K->192K(1984K), 0.0086170 secs] [GC 704K->353K(1984K),
  * 0.0059619 secs] [Full GC 618K->371K(1984K), 0.0242779 secs] [Full GC
  * 371K->371K(1984K), 0.0228649 secs] = testUnicodeSetAdd begin 100 =
@@ -57,9 +57,9 @@ import com.ibm.icu.impl.LocaleUtility;
  * testUnicodeSetAdd end 12047 1109044 = testUnicodeSetAdd begin 100 =
  * testUnicodeSetAdd end 11987 1109044 = testUnicodeSetAdd begin 100 =
  * testUnicodeSetAdd end 11978 1109044
- *
+ * 
  * The [] lines are emitted by the JVM as a result of the -verbose:gc switch.
- *
+ * 
  * Lines beginning with '=' are emitted by PerfTest: = testUnicodeSetAdd begin
  * 100 A 'begin' statement contains the name of the setup method, which
  * determines what test function is measures, and the number of iterations that
@@ -68,9 +68,9 @@ import com.ibm.icu.impl.LocaleUtility;
  * total elapsed time in milliseconds, and the second is the number of events
  * per iteration. In this example, the time per event is 12047 / (100 * 1109044)
  * or 108.6 ns/event.
- *
+ * 
  * Raw times are given as integer ms, because this is what the system measures.
- *
+ * 
  * @author Alan Liu
  * @since ICU 2.4
  */
@@ -122,7 +122,8 @@ public abstract class PerfTest {
      */
     static class TestPrefixProvider implements TestCmdProvider {
         private Map theTests = null; // Map<string(no case), string(with case)>
-        private Set orgNames = null; // shadow reference, ==theTests, for better output
+        private Set orgNames = null; // shadow reference, ==theTests, for better
+                                     // output
         private Object refer;
 
         TestPrefixProvider(Object theProvider) {
@@ -141,9 +142,7 @@ public abstract class PerfTest {
                     // Note: methods named 'test()' are ignored
                     if (name.length() > 4 && name.startsWith("test")) {
                         if (theTests.containsKey(name)) {
-                            throw new Error(
-                                    "Duplicate method name ignoring case: "
-                                            + name);
+                            throw new Error("Duplicate method name ignoring case: " + name);
                         }
                         theTests.put(name, org);
                         orgNames.add(org);
@@ -180,13 +179,10 @@ public abstract class PerfTest {
             }
 
             try {
-                Method m = refer.getClass().getDeclaredMethod(name,
-                        (Class[]) null);
+                Method m = refer.getClass().getDeclaredMethod(name, (Class[]) null);
                 return (Function) m.invoke(refer, new Object[] {});
             } catch (Exception e) {
-                throw new Error(
-                        "TestPrefixProvider implementation error. Finding: "
-                                + name, e);
+                throw new Error("TestPrefixProvider implementation error. Finding: " + name, e);
             }
         }
     }
@@ -203,12 +199,17 @@ public abstract class PerfTest {
          * Subclasses should implement this method to do the action to be
          * measured if the action is thread-safe
          */
-        public void call() { call(0); }
+        public void call() {
+            call(0);
+        }
 
         /**
-         * Subclasses should implement this method if the action is not thread-safe
+         * Subclasses should implement this method if the action is not
+         * thread-safe
          */
-        public void call(int i) { call(); }
+        public void call(int i) {
+            call();
+        }
 
         /**
          * Subclasses may implement this method to return positive integer
@@ -247,25 +248,24 @@ public abstract class PerfTest {
             stop = System.currentTimeMillis();
             return stop - start; // ms
         }
-        
-        
+
         /**
          * init is called each time before looping through call
          */
-        public void init() {}
-        
-        
+        public void init() {
+        }
+
         public final int getID() {
             return id;
         }
-        
+
         public final void setID(int id) {
             this.id = id;
         }
-        
+
         private int id;
     }
-    
+
     private class FunctionRunner implements Runnable {
         public FunctionRunner(Function f, long loops, int id) {
             this.f = f;
@@ -278,13 +278,12 @@ public abstract class PerfTest {
             while (n-- > 0)
                 f.call(id);
         }
-        
+
         private Function f;
 
         private long loops;
         private int id;
     }
-    
 
     /**
      * Exception indicating a usage error.
@@ -346,28 +345,18 @@ public abstract class PerfTest {
     static final int LIST = 15;
 
     UOption[] getOptions() {
-        return new UOption[] {
-                UOption.HELP_H(),
-                UOption.HELP_QUESTION_MARK(),
-                UOption.VERBOSE(),
-                UOption.SOURCEDIR(),
-                UOption.ENCODING(),
-                UOption.DEF("uselen",     'u', UOption.NO_ARG),
-                UOption.DEF("filename",   'f', UOption.REQUIRES_ARG),
-                UOption.DEF("passes",     'p', UOption.REQUIRES_ARG),
-                UOption.DEF("iterations", 'i', UOption.REQUIRES_ARG),
-                UOption.DEF("time",       't', UOption.REQUIRES_ARG),
-                UOption.DEF("line-mode",  'l', UOption.NO_ARG),
-                UOption.DEF("bulk-mode",  'b', UOption.NO_ARG),
-                UOption.DEF("locale",     'L', UOption.REQUIRES_ARG),
-                UOption.DEF("testname",   'T', UOption.REQUIRES_ARG),
-                UOption.DEF("threads",    'r', UOption.REQUIRES_ARG),
+        return new UOption[] { UOption.HELP_H(), UOption.HELP_QUESTION_MARK(), UOption.VERBOSE(), UOption.SOURCEDIR(),
+                UOption.ENCODING(), UOption.DEF("uselen", 'u', UOption.NO_ARG),
+                UOption.DEF("filename", 'f', UOption.REQUIRES_ARG), UOption.DEF("passes", 'p', UOption.REQUIRES_ARG),
+                UOption.DEF("iterations", 'i', UOption.REQUIRES_ARG), UOption.DEF("time", 't', UOption.REQUIRES_ARG),
+                UOption.DEF("line-mode", 'l', UOption.NO_ARG), UOption.DEF("bulk-mode", 'b', UOption.NO_ARG),
+                UOption.DEF("locale", 'L', UOption.REQUIRES_ARG), UOption.DEF("testname", 'T', UOption.REQUIRES_ARG),
+                UOption.DEF("threads", 'r', UOption.REQUIRES_ARG),
 
                 // Options above here are identical to those in C; keep in sync
                 // Options below here are unique to Java
 
-                UOption.DEF("gc", 'g', UOption.NO_ARG),
-                UOption.DEF("list", (char) -1, UOption.NO_ARG), };
+                UOption.DEF("gc", 'g', UOption.NO_ARG), UOption.DEF("list", (char) -1, UOption.NO_ARG), };
     }
 
     /**
@@ -387,18 +376,17 @@ public abstract class PerfTest {
             // long eventsPerCall = -1;
             Function testFunction = testProvider.getTestCmd(meth);
             if (testFunction == null) {
-                throw new RuntimeException(meth
-                        + " failed to return a test function");
+                throw new RuntimeException(meth + " failed to return a test function");
             }
             if (testFunction.getOperationsPerIteration() < 1) {
-                throw new RuntimeException(meth
-                        + " returned an illegal operations/iteration()");
+                throw new RuntimeException(meth + " returned an illegal operations/iteration()");
             }
 
             long t;
             // long b = System.currentTimeMillis();
             long loops = getIteration(meth, testFunction);
-            // System.out.println("The guess cost: " + (System.currentTimeMillis() - b)/1000. + " s.");
+            // System.out.println("The guess cost: " +
+            // (System.currentTimeMillis() - b)/1000. + " s.");
 
             for (int j = 0; j < passes; ++j) {
                 long events = -1;
@@ -413,7 +401,7 @@ public abstract class PerfTest {
                 }
 
                 t = performLoops(testFunction, loops);
-                
+
                 events = testFunction.getEventsPerIteration();
 
                 if (verbose) {
@@ -484,7 +472,7 @@ public abstract class PerfTest {
             } catch (NumberFormatException ex) {
                 throw new UsageException("'-i <iterations>' requires an integer number of iterations");
             }
-        } else { //if (options[TIME].doesOccur)
+        } else { // if (options[TIME].doesOccur)
             try {
                 time = Integer.parseInt(options[TIME].value);
             } catch (NumberFormatException ex) {
@@ -509,19 +497,23 @@ public abstract class PerfTest {
             if (threads <= 0)
                 throw new UsageException("'-r <threads>' requires an number of threads greater than 0");
         }
-        
+
         line_mode = options[LINE_MODE].doesOccur;
         bulk_mode = options[BULK_MODE].doesOccur;
-        verbose   = options[VERBOSE].doesOccur;
-        uselen    = options[USELEN].doesOccur;
+        verbose = options[VERBOSE].doesOccur;
+        uselen = options[USELEN].doesOccur;
         doPriorGC = options[GARBAGE_COLLECT].doesOccur;
 
-        if (options[SOURCEDIR].doesOccur) sourceDir = options[SOURCEDIR].value;
-        if (options[ENCODING].doesOccur)  encoding  = options[ENCODING].value;
-        if (options[FILE_NAME].doesOccur) fileName  = options[FILE_NAME].value;
-        if (options[TEST_NAME].doesOccur) testName  = options[TEST_NAME].value;
-        if (options[LOCALE].doesOccur)    locale    = LocaleUtility.getLocaleFromName(options[LOCALE].value);
-
+        if (options[SOURCEDIR].doesOccur)
+            sourceDir = options[SOURCEDIR].value;
+        if (options[ENCODING].doesOccur)
+            encoding = options[ENCODING].value;
+        if (options[FILE_NAME].doesOccur)
+            fileName = options[FILE_NAME].value;
+        if (options[TEST_NAME].doesOccur)
+            testName = options[TEST_NAME].value;
+        if (options[LOCALE].doesOccur)
+            locale = LocaleUtility.getLocaleFromName(options[LOCALE].value);
 
         // build the test list
         Set testList = new HashSet();
@@ -543,10 +535,11 @@ public abstract class PerfTest {
             Set testNames = testProvider.getAllTestCmdNames();
             Iterator iter = testNames.iterator();
             while (iter.hasNext())
-                testList.add((String)iter.next());
+                testList.add((String) iter.next());
         }
 
-        // pass remaining arguments, if any, through to the subclass via setup() method.
+        // pass remaining arguments, if any, through to the subclass via setup()
+        // method.
         String[] subclassArgs = new String[remainingArgc - i];
         for (j = 0; i < remainingArgc; j++)
             subclassArgs[j] = args[i++];
@@ -561,7 +554,7 @@ public abstract class PerfTest {
 
     /**
      * Translate '-t time' to iterations (or just return '-i iteration')
-     *
+     * 
      * @param meth
      * @param fn
      * @return rt
@@ -575,8 +568,7 @@ public abstract class PerfTest {
             // Assuming there is a linear relation between time and iterations
 
             if (verbose) {
-                System.out.println("= " + methName + " calibrating " + time
-                        + " seconds");
+                System.out.println("= " + methName + " calibrating " + time + " seconds");
             }
 
             long base = time * 1000;
@@ -603,8 +595,7 @@ public abstract class PerfTest {
                     // cut, eg. 1/10
                     // == 0
                     if (iter == 0) {
-                        throw new RuntimeException(
-                                "Unable to converge on desired duration");
+                        throw new RuntimeException("Unable to converge on desired duration");
                     }
                 }
                 t = performLoops(fn, iter);
@@ -614,27 +605,25 @@ public abstract class PerfTest {
         }
         return iter;
     }
-    
-    
+
     private long performLoops(Function function, long loops) throws InterruptedException {
         function.init();
         if (threads > 1) {
             Thread[] threadList = new Thread[threads];
-            for (int i=0; i<threads; i++)
+            for (int i = 0; i < threads; i++)
                 threadList[i] = new Thread(new FunctionRunner(function, loops, i));
-            
+
             long start = System.currentTimeMillis();
-            for (int i=0; i<threads; i++)
+            for (int i = 0; i < threads; i++)
                 threadList[i].start();
-            for (int i=0; i<threads; i++)
+            for (int i = 0; i < threads; i++)
                 threadList[i].join();
             return System.currentTimeMillis() - start;
-            
+
         } else {
             return function.time(loops); // ms
         }
     }
-    
 
     /**
      * Invoke the runtime's garbage collection procedure repeatedly until the
@@ -670,7 +659,6 @@ public abstract class PerfTest {
         }
     }
 
-
     public static char[] readToEOS(Reader reader) {
         ArrayList vec = new ArrayList();
         int count = 0;
@@ -689,8 +677,7 @@ public abstract class PerfTest {
                     }
                     pos += n;
                 } while (pos < length);
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
             }
             vec.add(buffer);
             count += pos;
@@ -706,6 +693,7 @@ public abstract class PerfTest {
         }
         return data;
     }
+
     public static byte[] readToEOS(InputStream stream) {
 
         ArrayList vec = new ArrayList();
@@ -725,13 +713,11 @@ public abstract class PerfTest {
                     }
                     pos += n;
                 } while (pos < length);
-            }
-            catch (IOException e) {
+            } catch (IOException e) {
             }
             vec.add(buffer);
             count += pos;
         } while (pos == length);
-
 
         byte[] data = new byte[count];
         pos = 0;
@@ -765,8 +751,10 @@ public abstract class PerfTest {
                 System.err.println("Read File Error" + e.getMessage() + "!");
                 System.exit(1);
             }
-            if (line == null) break;
-            if (line.length() == 0) continue;
+            if (line == null)
+                break;
+            if (line.length() == 0)
+                continue;
             list.add(line);
         }
 
@@ -778,9 +766,9 @@ public abstract class PerfTest {
             StringBuffer buffer = new StringBuffer("");
             for (int i = 0; i < size; ++i) {
                 buffer.append((String) list.get(i));
-                /*if (i < (size - 1)) {
-                    buffer.append("\r\n");
-                }*/
+                /*
+                 * if (i < (size - 1)) { buffer.append("\r\n"); }
+                 */
             }
             lines[0] = buffer.toString();
         } else {
@@ -798,19 +786,20 @@ public abstract class PerfTest {
         String line = "";
         try {
             line = originalLine = br.readLine();
-            if (line == null) return null;
-            if (line.length() > 0 && line.charAt(0) == 0xFEFF) line = line.substring(1);
+            if (line == null)
+                return null;
+            if (line.length() > 0 && line.charAt(0) == 0xFEFF)
+                line = line.substring(1);
             int commentPos = line.indexOf('#');
-            if (commentPos >= 0) line = line.substring(0, commentPos);
+            if (commentPos >= 0)
+                line = line.substring(0, commentPos);
             line = line.trim();
         } catch (Exception e) {
-            throw new Exception("Line \"{0}\",  \"{1}\"" + originalLine + " "
-                    + line + " " + e.toString());
+            throw new Exception("Line \"{0}\",  \"{1}\"" + originalLine + " " + line + " " + e.toString());
         }
         return line;
     }
 
-    
     public static class BOMFreeReader extends Reader {
         InputStreamReader reader;
         String encoding;
@@ -828,7 +817,7 @@ public abstract class PerfTest {
         public BOMFreeReader(InputStream in) throws IOException {
             this(in, null);
         }
-        
+
         /**
          * Creates a new reader, skipping a BOM associated with the given
          * encoding. If encoding is null, attempts to detect the encoding by the
@@ -844,15 +833,15 @@ public abstract class PerfTest {
         public BOMFreeReader(InputStream in, String encoding) throws IOException {
             PushbackInputStream pushback = new PushbackInputStream(in, MAX_BOM_LENGTH);
             this.encoding = encoding;
-            
+
             byte[] start = new byte[MAX_BOM_LENGTH];
-            Arrays.fill(start, (byte)0xa5);
-            
+            Arrays.fill(start, (byte) 0xa5);
+
             int amountRead = pushback.read(start, 0, MAX_BOM_LENGTH);
             int bomLength = detectBOMLength(start);
             if (amountRead > bomLength)
                 pushback.unread(start, bomLength, amountRead - bomLength);
-            
+
             reader = (encoding == null) ? new InputStreamReader(pushback) : new InputStreamReader(pushback, encoding);
         }
 
@@ -870,46 +859,55 @@ public abstract class PerfTest {
          */
         private int detectBOMLength(byte[] start) {
             if ((encoding == null || "UTF-16BE".equals(encoding)) && start[0] == (byte) 0xFE && start[1] == (byte) 0xFF) {
-                if (encoding == null) this.encoding = "UTF-16BE";
+                if (encoding == null)
+                    this.encoding = "UTF-16BE";
                 return 2; // "UTF-16BE";
             } else if (start[0] == (byte) 0xFF && start[1] == (byte) 0xFE) {
-                if ((encoding == null || "UTF-32LE".equals(encoding)) && start[2] == (byte) 0x00
-                        && start[3] == (byte) 0x00) {
-                    if (encoding == null) this.encoding = "UTF-32LE";
+                if ((encoding == null || "UTF-32LE".equals(encoding)) && start[2] == (byte) 0x00 && start[3] == (byte) 0x00) {
+                    if (encoding == null)
+                        this.encoding = "UTF-32LE";
                     return 4; // "UTF-32LE";
                 } else if ((encoding == null || "UTF-16LE".equals(encoding))) {
-                    if (encoding == null) this.encoding = "UTF-16LE";
+                    if (encoding == null)
+                        this.encoding = "UTF-16LE";
                     return 2; // "UTF-16LE";
                 }
-            } else if ((encoding == null || "UTF-8".equals(encoding)) && start[0] == (byte) 0xEF
-                    && start[1] == (byte) 0xBB && start[2] == (byte) 0xBF) {
-                if (encoding == null) this.encoding = "UTF-8";
+            } else if ((encoding == null || "UTF-8".equals(encoding)) && start[0] == (byte) 0xEF && start[1] == (byte) 0xBB
+                    && start[2] == (byte) 0xBF) {
+                if (encoding == null)
+                    this.encoding = "UTF-8";
                 return 3; // "UTF-8";
-            } else if ((encoding == null || "UTF-32BE".equals(encoding)) && start[0] == (byte) 0x00
-                    && start[1] == (byte) 0x00 && start[2] == (byte) 0xFE && start[3] == (byte) 0xFF) {
-                if (encoding == null) this.encoding = "UTF-32BE";
+            } else if ((encoding == null || "UTF-32BE".equals(encoding)) && start[0] == (byte) 0x00 && start[1] == (byte) 0x00
+                    && start[2] == (byte) 0xFE && start[3] == (byte) 0xFF) {
+                if (encoding == null)
+                    this.encoding = "UTF-32BE";
                 return 4; // "UTF-32BE";
-            } else if ((encoding == null || "SCSU".equals(encoding)) && start[0] == (byte) 0x0E
-                    && start[1] == (byte) 0xFE && start[2] == (byte) 0xFF) {
-                if (encoding == null) this.encoding = "SCSU";
+            } else if ((encoding == null || "SCSU".equals(encoding)) && start[0] == (byte) 0x0E && start[1] == (byte) 0xFE
+                    && start[2] == (byte) 0xFF) {
+                if (encoding == null)
+                    this.encoding = "SCSU";
                 return 3; // "SCSU";
-            } else if ((encoding == null || "BOCU-1".equals(encoding)) && start[0] == (byte) 0xFB
-                    && start[1] == (byte) 0xEE && start[2] == (byte) 0x28) {
-                if (encoding == null) this.encoding = "BOCU-1";
+            } else if ((encoding == null || "BOCU-1".equals(encoding)) && start[0] == (byte) 0xFB && start[1] == (byte) 0xEE
+                    && start[2] == (byte) 0x28) {
+                if (encoding == null)
+                    this.encoding = "BOCU-1";
                 return 3; // "BOCU-1";
-            } else if ((encoding == null || "UTF-7".equals(encoding)) && start[0] == (byte) 0x2B
-                    && start[1] == (byte) 0x2F && start[2] == (byte) 0x76) {
+            } else if ((encoding == null || "UTF-7".equals(encoding)) && start[0] == (byte) 0x2B && start[1] == (byte) 0x2F
+                    && start[2] == (byte) 0x76) {
                 if (start[3] == (byte) 0x38 && start[4] == (byte) 0x2D) {
-                    if (encoding == null) this.encoding = "UTF-7";
+                    if (encoding == null)
+                        this.encoding = "UTF-7";
                     return 5; // "UTF-7";
                 } else if (start[3] == (byte) 0x38 || start[3] == (byte) 0x39 || start[3] == (byte) 0x2B
                         || start[3] == (byte) 0x2F) {
-                    if (encoding == null) this.encoding = "UTF-7";
+                    if (encoding == null)
+                        this.encoding = "UTF-7";
                     return 4; // "UTF-7";
                 }
-            } else if ((encoding == null || "UTF-EBCDIC".equals(encoding)) && start[0] == (byte) 0xDD
-                    && start[2] == (byte) 0x73 && start[2] == (byte) 0x66 && start[3] == (byte) 0x73) {
-                if (encoding == null) this.encoding = "UTF-EBCDIC";
+            } else if ((encoding == null || "UTF-EBCDIC".equals(encoding)) && start[0] == (byte) 0xDD && start[2] == (byte) 0x73
+                    && start[2] == (byte) 0x66 && start[3] == (byte) 0x73) {
+                if (encoding == null)
+                    this.encoding = "UTF-EBCDIC";
                 return 4; // "UTF-EBCDIC";
             }
 
@@ -926,7 +924,5 @@ public abstract class PerfTest {
         }
     }
 }
-
-
 
 // eof

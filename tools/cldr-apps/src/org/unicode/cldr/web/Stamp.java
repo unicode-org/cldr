@@ -4,7 +4,7 @@
 
 package org.unicode.cldr.web;
 
-public class Stamp implements Comparable<Stamp>{
+public class Stamp implements Comparable<Stamp> {
     private static long startStamp = System.currentTimeMillis();
     private static long lastStamp = startStamp;
 
@@ -15,7 +15,7 @@ public class Stamp implements Comparable<Stamp>{
     public static Stamp getInstance() {
         return new Stamp(nextStampTime());
     }
-    
+
     protected long stamp;
 
     protected Stamp(long stamp) {
@@ -24,30 +24,32 @@ public class Stamp implements Comparable<Stamp>{
 
     @Override
     public int compareTo(Stamp other) {
-        if(this==other||this.stamp==other.stamp) {
+        if (this == other || this.stamp == other.stamp) {
             return 0;
-        } else if(this.stamp<other.stamp) {
+        } else if (this.stamp < other.stamp) {
             return -1;
         } else {
             return 1;
         }
     }
-    
+
     @Override
     public boolean equals(Object other) {
-        return (this==other || (other instanceof Stamp && this.stamp==((Stamp)other).stamp));
+        return (this == other || (other instanceof Stamp && this.stamp == ((Stamp) other).stamp));
     }
-    
+
     @Override
     public int hashCode() {
         return (int) stamp;
     }
+
     /**
      * Get the stamp's current value
+     * 
      * @return
      */
     public long current() {
         return stamp;
     }
-    
+
 }

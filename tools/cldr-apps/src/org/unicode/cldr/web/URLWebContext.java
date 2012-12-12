@@ -15,82 +15,83 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class URLWebContext extends WebContext {
     URL url;
-    Map<String,String> params = new HashMap<String,String>();
-    
+    Map<String, String> params = new HashMap<String, String>();
+
     public URLWebContext(URLWebContext other) {
         super(other);
         url = other.url;
         params = other.params; // assume readonly
     }
-    
-    public URLWebContext(String url) throws IOException, java.net.MalformedURLException  {
+
+    public URLWebContext(String url) throws IOException, java.net.MalformedURLException {
         super(true);
         setURL(url);
     }
-    
+
     public void setURL(String urlString) throws java.net.MalformedURLException {
         this.url = new URL(urlString);
-        String work =  this.url.getQuery(); //.replaceAll("+"," ");
-        if(work == null) return;
-        if(work.length()==0) return;
-        String splits[] = work.split("&") ;
-        if(splits != null)  {
-            for ( String q : splits) {
+        String work = this.url.getQuery(); // .replaceAll("+"," ");
+        if (work == null)
+            return;
+        if (work.length() == 0)
+            return;
+        String splits[] = work.split("&");
+        if (splits != null) {
+            for (String q : splits) {
                 String n[] = q.split("=");
                 System.err.println(n[0] + " == " + n[1]);
                 params.put(n[0], n[1]);
             }
         }
     }
-    
+
     // imps
-    
+
     public Map getParameterMap() {
         return (Map) params;
-        //throw new InternalError("unsupported");
+        // throw new InternalError("unsupported");
     }
-    
+
     public boolean hasField(String x) {
         return params.get(x) != null;
     }
-    
+
     String userIP() {
         return "127.0.0.1";
     }
-    
+
     String serverName() {
         return sm.localhost();
     }
-    
+
     String serverHostport() {
         int port = url.getPort();
-        if(port == url.getDefaultPort()) {
+        if (port == url.getDefaultPort()) {
             return serverName();
         } else {
-            return serverName() + ":"+port;
+            return serverName() + ":" + port;
         }
     }
 
     String schemeHostPort() {
-        return url.getProtocol()+"://"+serverHostport();
+        return url.getProtocol() + "://" + serverHostport();
     }
-    
-    public String context() { 
+
+    public String context() {
         return "/cldr-apps";
     }
-    
+
     public String field(String x, String def) {
         String res = params.get(x);
-        if(res == null) {
+        if (res == null) {
             return def;
         } else {
             return res;
         }
     }
-    
+
     public String base() {
         return context() + "/survey";
     }

@@ -656,6 +656,8 @@ public class ZoneParser {
             { "Asia/Kolkata", "Asia/Calcutta" },
             { "Asia/Ho_Chi_Minh", "Asia/Saigon" },
             { "Asia/Kathmandu", "Asia/Katmandu" },
+            { "Pacific/Pohnpei", "Pacific/Ponape" },
+            { "Pacific/Chuuk", "Pacific/Truk" }
         };
         FIX_UNSTABLE_TZIDS = CldrUtility.asMap(FIX_UNSTABLE_TZID_DATA);
     }

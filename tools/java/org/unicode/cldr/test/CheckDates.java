@@ -607,7 +607,8 @@ public class CheckDates extends FactoryCheckCLDR {
             } else if (!dateTimePatternGenerator.skeletonsAreSimilar(idCanonical, skeletonCanonical)) {
                 String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
                 result
-                    .add(new CheckStatus().setCause(this)
+                    .add(new CheckStatus()
+                        .setCause(this)
                         .setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.incorrectDatePattern)
                         // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +

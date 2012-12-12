@@ -50,39 +50,39 @@ public class TestCoverageLevel extends TestFmwk {
         // new TestCoverageLevel().run(args);
     }
 
-//    private void getOrgs() {
-//        StandardCodes sc = StandardCodes.make();
-//        Set<R4<String, Level, String, String>> sorted = new TreeSet<R4<String, Level, String, String>>();
-//        Map<String, String> mapped = new TreeMap<String, String>();
-//        for (String org : sc.getLocaleCoverageOrganizations()) {
-//            for (String locale : sc.getLocaleCoverageLocales(org)) {
-//                Level level = sc.getLocaleCoverageLevel(org, locale);
-//                final String name = testInfo.getEnglish().getName(locale);
-//                final R4<String, Level, String, String> row = Row.of(org, level, locale, name);
-//                mapped.put(name, locale);
-//                sorted.add(row);
-//            }
-//        }
-//        for (R4<String, Level, String, String> item : sorted) {
-//            System.out.println(item);
-//        }
-//
-//        for (String org : sc.getLocaleCoverageOrganizations()) {
-//            System.out.print("\t" + org);
-//        }
-//        System.out.println();
-//
-//        for (Entry<String, String> entry : mapped.entrySet()) {
-//            String name = entry.getKey();
-//            String locale = entry.getValue();
-//            System.out.print(name);
-//            for (String org : sc.getLocaleCoverageOrganizations()) {
-//                Level level = sc.getLocaleCoverageLevel(org, locale);
-//                System.out.print("\t" + (level == Level.UNDETERMINED ? "n/a" : level));
-//            }
-//            System.out.println();
-//        }
-//    }
+    // private void getOrgs() {
+    // StandardCodes sc = StandardCodes.make();
+    // Set<R4<String, Level, String, String>> sorted = new TreeSet<R4<String, Level, String, String>>();
+    // Map<String, String> mapped = new TreeMap<String, String>();
+    // for (String org : sc.getLocaleCoverageOrganizations()) {
+    // for (String locale : sc.getLocaleCoverageLocales(org)) {
+    // Level level = sc.getLocaleCoverageLevel(org, locale);
+    // final String name = testInfo.getEnglish().getName(locale);
+    // final R4<String, Level, String, String> row = Row.of(org, level, locale, name);
+    // mapped.put(name, locale);
+    // sorted.add(row);
+    // }
+    // }
+    // for (R4<String, Level, String, String> item : sorted) {
+    // System.out.println(item);
+    // }
+    //
+    // for (String org : sc.getLocaleCoverageOrganizations()) {
+    // System.out.print("\t" + org);
+    // }
+    // System.out.println();
+    //
+    // for (Entry<String, String> entry : mapped.entrySet()) {
+    // String name = entry.getKey();
+    // String locale = entry.getValue();
+    // System.out.print(name);
+    // for (String org : sc.getLocaleCoverageOrganizations()) {
+    // Level level = sc.getLocaleCoverageLevel(org, locale);
+    // System.out.print("\t" + (level == Level.UNDETERMINED ? "n/a" : level));
+    // }
+    // System.out.println();
+    // }
+    // }
 
     public void TestNewVsOld() {
         checkNewVsOld("en");

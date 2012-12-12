@@ -576,7 +576,7 @@ public class CldrUtility {
     /**
      * Utility like Arrays.asList()
      */
-    public static <K,V> Map<K, V> asMap(Object[][] source, Map<K, V> target, boolean reverse) {
+    public static <K, V> Map<K, V> asMap(Object[][] source, Map<K, V> target, boolean reverse) {
         int from = 0, to = 1;
         if (reverse) {
             from = 1;
@@ -587,12 +587,12 @@ public class CldrUtility {
                 throw new IllegalArgumentException("Source must be array of pairs of strings: "
                     + Arrays.asList(source[i]));
             }
-            target.put((K)source[i][from], (V)source[i][to]);
+            target.put((K) source[i][from], (V) source[i][to]);
         }
         return target;
     }
 
-    public static <K,V> Map<K, V> asMap(Object[][] source) {
+    public static <K, V> Map<K, V> asMap(Object[][] source) {
         return asMap(source, new HashMap<K, V>(), false);
     }
 

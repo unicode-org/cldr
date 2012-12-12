@@ -717,7 +717,7 @@ public class TestMetazones {
         }
 
         static long MIN_DATE = new Date(70, 0, 1, 0, 0, 0).getTime();
-        
+
         static long MAX_DATE = new Date(110, 0, 1, 0, 0, 0).getTime();
 
         public String toString() {

@@ -161,7 +161,7 @@ public class TestCldr extends TestFmwk {
         addLocales(Collator.getAvailableULocales(), s);
 
         Matcher m = Pattern.compile(MATCH).matcher("");
-        for (String locale : s ) {
+        for (String locale : s) {
             if (!m.reset(locale).matches())
                 continue;
             _test(locale);
@@ -571,7 +571,6 @@ public class TestCldr extends TestFmwk {
         static final boolean DEBUG = false;
 
         StringBuffer lastChars = new StringBuffer();
-
 
         Handler handler;
 

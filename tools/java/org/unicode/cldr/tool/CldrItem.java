@@ -12,7 +12,9 @@ public class CldrItem implements Comparable<CldrItem> {
 
     /**
      * Split the path to an array of string, each string represent a segment.
-     * @param path The path of XML element.
+     * 
+     * @param path
+     *            The path of XML element.
      * @return array of segments.
      */
     private static String[] splitPathToSegments(String path) {
@@ -40,7 +42,7 @@ public class CldrItem implements Comparable<CldrItem> {
             } else {
                 if (ch == '[') {
                     inBracket = true;
-                } else if (ch == '/'){
+                } else if (ch == '/') {
                     segments.add(path.substring(start, pos));
                     start = pos + 1;
                 }
@@ -51,19 +53,18 @@ public class CldrItem implements Comparable<CldrItem> {
         return segments.toArray(new String[segments.size()]);
     }
 
-
-    /** 
-     * The full path of a CLDR item. 
+    /**
+     * The full path of a CLDR item.
      * 
-     *  Comparing to path, this full contains non-distinguishable attributes.
+     * Comparing to path, this full contains non-distinguishable attributes.
      */
     private String fullPath;
 
     /**
-     *  The resolution path of a CLDR item. 
-     *  
-     *  This path only contains distinguishable attributes that are necessary to
-     *  identify a CLDR XML item in the CLDR tree.
+     * The resolution path of a CLDR item.
+     * 
+     * This path only contains distinguishable attributes that are necessary to
+     * identify a CLDR XML item in the CLDR tree.
      */
     private String path;
 
@@ -114,6 +115,7 @@ public class CldrItem implements Comparable<CldrItem> {
 
     /**
      * Obtain the sortKey string, construct it if not yet.
+     * 
      * @return sort key string.
      */
     public String getSortKey() {
@@ -127,6 +129,7 @@ public class CldrItem implements Comparable<CldrItem> {
     public String getValue() {
         return value;
     }
+
     // Zone and time zone element has '/' in attribute value, like
     // .../zone[@type="America/Adak"]/...
     // Such element can not be converted to "zone-type-America/Adak" as it is
@@ -140,13 +143,14 @@ public class CldrItem implements Comparable<CldrItem> {
      * Mostly, the node has one-to-one correspondence with path segment. But there
      * are special cases where one segment can be split to multiple nodes. If
      * necessary, several segments can also be combined to one node.
+     * 
      * @return A list of node in strict parent-to-child order.
      * @throws ParseException
      */
     public ArrayList<CldrNode> getNodesInPath() throws ParseException {
-        String[] pathSegments = splitPathToSegments(path); 
+        String[] pathSegments = splitPathToSegments(path);
         String[] fullPathSegments = splitPathToSegments(fullPath);
-        assert(pathSegments.length == fullPathSegments.length);
+        assert (pathSegments.length == fullPathSegments.length);
         ArrayList<CldrNode> nodesInPath = new ArrayList<CldrNode>();
 
         String parent = "";
@@ -189,11 +193,11 @@ public class CldrItem implements Comparable<CldrItem> {
     /**
      * Some CLDR items have attributes that should be split before
      * transformation. For examples, item like:
-     *   <calendarPreference territories="CN CX" ordering="gregorian chinese"/>
+     * <calendarPreference territories="CN CX" ordering="gregorian chinese"/>
      * should really be treated as 2 separate items:
-     *   <calendarPreference territories="CN" ordering="gregorian chinese"/>
-     *   <calendarPreference territories="CX" ordering="gregorian chinese"/>
-     *   
+     * <calendarPreference territories="CN" ordering="gregorian chinese"/>
+     * <calendarPreference territories="CX" ordering="gregorian chinese"/>
+     * 
      * @return Array of CldrItem if it can be split, otherwise null.
      */
     public CldrItem[] split() {

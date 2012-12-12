@@ -1519,9 +1519,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     }
                 }
                 if (acceptItem) {
-//                    if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
-//                        System.out.println(currentFullXPath);
-//                    }
+                    // if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
+                    // System.out.println(currentFullXPath);
+                    // }
                     String former = target.getStringValue(currentFullXPath);
                     if (former != null) {
                         String formerPath = target.getFullXPath(currentFullXPath);

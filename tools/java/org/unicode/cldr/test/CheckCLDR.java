@@ -656,22 +656,26 @@ abstract public class CheckCLDR {
 
         /**
          * Convenience function: return true if any items in this list are of errorType
-         * @param result the list to check (could be null for empty)
+         * 
+         * @param result
+         *            the list to check (could be null for empty)
          * @return true if any items in result are of errorType
          */
         public static final boolean hasError(List<CheckStatus> result) {
             return hasType(result, errorType);
         }
-        
+
         /**
          * Convenience function: return true if any items in this list are of errorType
-         * @param result the list to check (could be null for empty)
+         * 
+         * @param result
+         *            the list to check (could be null for empty)
          * @return true if any items in result are of errorType
          */
         public static boolean hasType(List<CheckStatus> result, String type) {
-            if(result==null) return false;
-            for(CheckStatus s : result) {
-                if(s.getType().equals(type)) {
+            if (result == null) return false;
+            for (CheckStatus s : result) {
+                if (s.getType().equals(type)) {
                     return true;
                 }
             }

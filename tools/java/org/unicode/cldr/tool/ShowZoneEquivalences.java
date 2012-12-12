@@ -25,7 +25,7 @@ import com.ibm.icu.dev.util.Tabber;
 import com.ibm.icu.util.TimeZone;
 
 public class ShowZoneEquivalences {
-    
+
     public static void main(String[] args) throws Exception {
         double deltaTime = System.currentTimeMillis();
         try {
@@ -37,7 +37,6 @@ public class ShowZoneEquivalences {
         }
     }
 
-
     public static void getZoneEquivalences() throws IOException, ParseException {
         // String tzid = "America/Argentina/ComodRivadavia";
         // TimeZone tz = TimeZone.getTimeZone(tzid);
@@ -45,7 +44,7 @@ public class ShowZoneEquivalences {
         // System.out.println(tzid + ":\t" + offset);
         // System.out.println("in available? " + Arrays.asList(TimeZone.getAvailableIDs()).contains(tzid));
         // System.out.println(new TreeSet(Arrays.asList(TimeZone.getAvailableIDs())));
-    
+
         Set needsTranslation = new TreeSet(Arrays.asList(CountItems.needsTranslationString
             .split("[,]?\\s+")));
         Set singleCountries = new TreeSet(
@@ -56,7 +55,7 @@ public class ShowZoneEquivalences {
             Arrays
                 .asList("Antarctica/McMurdo America/Buenos_Aires Australia/Sydney America/Sao_Paulo America/Toronto Africa/Kinshasa America/Santiago Asia/Shanghai America/Guayaquil Europe/Madrid Europe/London America/Godthab Asia/Jakarta Africa/Bamako America/Mexico_City Asia/Kuala_Lumpur Pacific/Auckland Europe/Lisbon Europe/Moscow Europe/Kiev America/New_York Asia/Tashkent Pacific/Tahiti Pacific/Kosrae Pacific/Tarawa Asia/Almaty Pacific/Majuro Asia/Ulaanbaatar Arctic/Longyearbyen Pacific/Midway"
                     .split("\\s")));
-    
+
         StandardCodes sc = StandardCodes.make();
         Collection codes = sc.getGoodAvailableCodes("tzid");
         TreeSet extras = new TreeSet();
@@ -79,14 +78,14 @@ public class ShowZoneEquivalences {
             ArrayComparator.COMPARABLE, ArrayComparator.COMPARABLE,
             ArrayComparator.COMPARABLE });
         Map zone_countries = sc.getZoneToCounty();
-    
+
         TreeSet country_inflection_names = new TreeSet(ac);
         PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
             "inflections.txt");
-    
+
         TreeMap<Integer, TreeSet<String>> minOffsetMap = new TreeMap<Integer, TreeSet<String>>();
         TreeMap<Integer, TreeSet<String>> maxOffsetMap = new TreeMap<Integer, TreeSet<String>>();
-    
+
         for (Iterator it = codes.iterator(); it.hasNext();) {
             String zoneID = (String) it.next();
             String country = (String) zone_countries.get(zoneID);
@@ -94,22 +93,22 @@ public class ShowZoneEquivalences {
             ZoneInflections zip = new ZoneInflections(zone);
             out.println(zoneID + "\t" + zip);
             country_inflection_names.add(new Object[] { country, zip, zoneID });
-    
+
             TreeSet<String> s = minOffsetMap.get(zip.getMinOffset());
             if (s == null)
                 minOffsetMap.put(zip.getMinOffset(), s = new TreeSet<String>());
             s.add(zone.getID());
-    
+
             s = maxOffsetMap.get(zip.getMaxOffset());
             if (s == null)
                 maxOffsetMap.put(zip.getMaxOffset(), s = new TreeSet<String>());
             s.add(zone.getID());
-    
+
         }
         System.out.println("Minimum Offset: " + minOffsetMap);
         System.out.println("Maximum Offset: " + maxOffsetMap);
         out.close();
-    
+
         out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
             "modernTimezoneEquivalents.html");
         out.println("<html>" + "<head>"
@@ -141,7 +140,7 @@ public class ShowZoneEquivalences {
         tabber3.setParameters(3, "class='gap'");
         tabber3.setParameters(4, "class='gap'");
         tabber3.setParameters(5, "class='gap'");
-    
+
         long minimumDate = ICUServiceBuilder.isoDateParse("2000-1-1T00:00:00Z")
             .getTime();
         out
@@ -169,7 +168,7 @@ public class ShowZoneEquivalences {
             ZoneInflections zip = (ZoneInflections) row[1];
             String zoneID = (String) row[2];
             int zipComp = zip.compareTo(lastZip, diff);
-    
+
             if (!country.equals(lastCountry)) {
                 if (first)
                     first = false;
@@ -203,7 +202,7 @@ public class ShowZoneEquivalences {
             if (!icu4jTZIDs.contains(zoneID)) {
                 minOffset = maxOffset = "??";
             }
-    
+
             out.println(tabber.process(newCountry + "\t" + "<b>" + category + "</b>"
                 + "\t" + zoneIDShown + "\t"
                 + tzf.getFormattedZone(zoneID, "vvvv", minimumDate, false) + "\t"

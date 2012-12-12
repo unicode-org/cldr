@@ -64,7 +64,8 @@ public class TestDtdCompatibility extends TestFmwk {
                         if (changedToEmpty.contains(element) && oldChildren.equals(PCDATA) && newChildren.equals(EMPTY)) {
                             // ok, skip
                         } else {
-                            errln("Old " + dtd + " element <" + element + "> has children Missing/Misordered:\t" + funny
+                            errln("Old " + dtd + " element <" + element + "> has children Missing/Misordered:\t"
+                                + funny
                                 + "\n\t\tOld:\t" + oldChildren + "\n\t\tNew:\t" + newChildren);
                         }
                     }

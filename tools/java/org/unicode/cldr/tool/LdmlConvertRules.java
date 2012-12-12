@@ -308,6 +308,7 @@ class LdmlConvertRules {
         "//ldml/numbers/otherNumberingSystems/traditional",
         "//ldml/numbers/otherNumberingSystems/finance"
     };
+
     /**
      * A simple class to hold the specification of a path transformation.
      */
@@ -334,9 +335,10 @@ class LdmlConvertRules {
         new PathTransformSpec(
             "(.*ldml/exemplarCharacters)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*ldml/exemplarCharacters)(.*)$", "$1/standard$2"),
-        
-        // Add cldrVersion attribute 
-        new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\"" + CLDRFile.GEN_VERSION + "\"\\]"),
+
+        // Add cldrVersion attribute
+        new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
+            + CLDRFile.GEN_VERSION + "\"\\]"),
 
         // Separate "ellipsis" from its type as another layer.
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",

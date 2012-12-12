@@ -25,7 +25,7 @@ public class CheckNames extends CheckCLDR {
             // Allow years in currencies if enclosed by brackets.
             if (path.startsWith("//ldml/localeDisplayNames/currencies") &&
                 (isEnclosedByBraces(matcher, value, '(', ')') ||
-                 isEnclosedByBraces(matcher, value, '[', ']'))) {
+                isEnclosedByBraces(matcher, value, '[', ']'))) {
                 // no errors
             } else {
                 result.add(new CheckStatus().setCause(this)

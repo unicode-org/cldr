@@ -226,7 +226,7 @@ public class SupplementalDataInfo {
      * Simple language/script/region information
      */
     public static class BasicLanguageData implements
-    Comparable<BasicLanguageData>, Freezable<Object> {
+        Comparable<BasicLanguageData>, Freezable<Object> {
         public enum Type {
             primary, secondary
         };
@@ -301,13 +301,13 @@ public class SupplementalDataInfo {
             if (scripts.size() == 0 && territories.size() == 0)
                 return "";
             return "\t\t<language type=\""
-            + languageSubtag
-            + "\""
-            + (scripts.size() == 0 ? "" : " scripts=\""
-                + CldrUtility.join(scripts, " ") + "\"")
+                + languageSubtag
+                + "\""
+                + (scripts.size() == 0 ? "" : " scripts=\""
+                    + CldrUtility.join(scripts, " ") + "\"")
                 + (territories.size() == 0 ? "" : " territories=\""
                     + CldrUtility.join(territories, " ") + "\"")
-                    + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+                + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         public int compareTo(BasicLanguageData o) {
@@ -839,7 +839,7 @@ public class SupplementalDataInfo {
             return getInstance(supplementalDirectory.getCanonicalPath());
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException()
-            .initCause(e);
+                .initCause(e);
         }
     }
 
@@ -880,7 +880,7 @@ public class SupplementalDataInfo {
                 canonicalpath = new File(supplementalDirectory).getCanonicalPath();
             } catch (IOException e) {
                 throw (IllegalArgumentException) new IllegalArgumentException()
-                .initCause(e);
+                    .initCause(e);
             }
             if (!canonicalpath.equals(supplementalDirectory)) {
                 instance = directory_instance.get(canonicalpath);
@@ -1359,7 +1359,7 @@ public class SupplementalDataInfo {
                 String defContent = parts.getAttributeValue(-1, "locales").trim();
                 String[] defLocales = defContent.split("\\s+");
                 defaultContentLocales = Collections.unmodifiableSet(new TreeSet<String>(Arrays.asList(defLocales)));
-                
+
                 return true;
             }
             if (level2.equals("alias")) {
@@ -1439,17 +1439,21 @@ public class SupplementalDataInfo {
                         }
                     }
                 }
-            } else if(level2.equals("distinguishing")) {
+            } else if (level2.equals("distinguishing")) {
                 String level3 = parts.getElement(3);
                 if (level3.equals("distinguishingItems")) {
                     Map<String, String> attributes = parts.getAttributes(-1);
-//                  <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem"/>
-//                  <distinguishingItems exclude="true" elements="default measurementSystem mapping abbreviationFallback preferenceOrdering" attributes="type"/>
-                    
-                    if(attributes.containsKey("exclude") && "true".equals(attributes.get("exclude"))) {
+                    // <distinguishingItems
+                    // attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem"/>
+                    // <distinguishingItems exclude="true"
+                    // elements="default measurementSystem mapping abbreviationFallback preferenceOrdering"
+                    // attributes="type"/>
+
+                    if (attributes.containsKey("exclude") && "true".equals(attributes.get("exclude"))) {
                         return false; // don't handle the excludes -yet.
                     } else {
-                        distinguishingAttributes = Collections.unmodifiableCollection(getSpaceDelimited(-1, "attributes", STAR_SET));    
+                        distinguishingAttributes = Collections.unmodifiableCollection(getSpaceDelimited(-1,
+                            "attributes", STAR_SET));
                         return true;
                     }
                 }
@@ -1476,9 +1480,9 @@ public class SupplementalDataInfo {
             double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
             if (territoryToPopulationData.get(territory) == null) {
                 territoryToPopulationData.put(territory, new PopulationData()
-                .setPopulation(territoryPopulation)
-                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
-                .setGdp(territoryGdp));
+                    .setPopulation(territoryPopulation)
+                    .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
+                    .setGdp(territoryGdp));
             }
             if (parts.size() > 3) {
 
@@ -1489,10 +1493,10 @@ public class SupplementalDataInfo {
                 if (Double.isNaN(languageLiteracyPercent)) {
                     languageLiteracyPercent = territoryLiteracyPercent;
                 }// else {
-                // System.out.println("writingPercent\t" + languageLiteracyPercent
-                // + "\tterritory\t" + territory
-                // + "\tlanguage\t" + language);
-                // }
+                 // System.out.println("writingPercent\t" + languageLiteracyPercent
+                 // + "\tterritory\t" + territory
+                 // + "\tlanguage\t" + language);
+                 // }
                 double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
                 double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
                 // double languageGdp = languagePopulationPercent * territoryGdp;
@@ -1509,16 +1513,16 @@ public class SupplementalDataInfo {
                 if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
 
                 PopulationData newData = new PopulationData()
-                .setPopulation(languagePopulation)
-                .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
-                .setOfficialStatus(officialStatus)
+                    .setPopulation(languagePopulation)
+                    .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+                    .setOfficialStatus(officialStatus)
                 // .setGdp(languageGdp)
                 ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
-                    .println("Internal Problem in supplementalData: multiple data items for "
-                        + language + ", " + territory + "\tSkipping " + newData);
+                        .println("Internal Problem in supplementalData: multiple data items for "
+                            + language + ", " + territory + "\tSkipping " + newData);
                     return true;
                 }
 
@@ -1619,10 +1623,10 @@ public class SupplementalDataInfo {
             String language = (String) parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData
-            .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-                : BasicLanguageData.Type.secondary);
+                .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+                    : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-            .setTerritories(parts.getAttributeValue(2, "territories"));
+                .setTerritories(parts.getAttributeValue(2, "territories"));
             languageToBasicLanguageData.put(language, languageData);
         }
 
@@ -1631,8 +1635,8 @@ public class SupplementalDataInfo {
                 return false;
             }
             System.out
-            .println("Internal Problem in supplementalData: range check fails for "
-                + input + ", min: " + min + ", max:" + max + "\t" + path);
+                .println("Internal Problem in supplementalData: range check fails for "
+                    + input + ", min: " + min + ", max:" + max + "\t" + path);
 
             return false;
         }
@@ -1822,6 +1826,7 @@ public class SupplementalDataInfo {
     public Set<String> getDefaultContentLocales() {
         return defaultContentLocales;
     }
+
     /**
      * Return the list of default content locales.
      * 
@@ -1834,7 +1839,9 @@ public class SupplementalDataInfo {
 
     /**
      * Get the default content locale for a specified language
-     * @param language language to search
+     * 
+     * @param language
+     *            language to search
      * @return default content, or null if none
      */
     public String getDefaultContentLocale(String language) {
@@ -1849,12 +1856,14 @@ public class SupplementalDataInfo {
     /**
      * Get the default content locale for a specified language and script.
      * If script is null, delegates to {@link #getDefaultContentLocale(String)}
+     * 
      * @param language
-     * @param script if null, delegates to {@link #getDefaultContentLocale(String)}
+     * @param script
+     *            if null, delegates to {@link #getDefaultContentLocale(String)}
      * @return default content, or null if none
      */
     public String getDefaultContentLocale(String language, String script) {
-        if(script == null) return getDefaultContentLocale(language);
+        if (script == null) return getDefaultContentLocale(language);
         for (String dc : defaultContentLocales) {
             if (dc.startsWith(language + "_" + script + "_")) {
                 return dc;
@@ -1862,9 +1871,11 @@ public class SupplementalDataInfo {
         }
         return null;
     }
-    
+
     /**
-     * Given a default locale (such as 'wo_Arab_SN') return the base locale (such as 'wo'), or null if the input wasn't a default conetnt locale.
+     * Given a default locale (such as 'wo_Arab_SN') return the base locale (such as 'wo'), or null if the input wasn't
+     * a default conetnt locale.
+     * 
      * @param baseLocale
      * @return
      */
@@ -1872,9 +1883,10 @@ public class SupplementalDataInfo {
         initCLDRLocaleBasedData();
         return defaultContentToBase.get(dcLocale);
     }
-    
+
     /**
      * Given a base locale (such as 'wo') return the default content locale (such as 'wo_Arab_SN'), or null.
+     * 
      * @param baseLocale
      * @return
      */
@@ -1882,15 +1894,16 @@ public class SupplementalDataInfo {
         initCLDRLocaleBasedData();
         return baseToDefaultContent.get(baseLocale);
     }
-    
+
     /**
      * Is this a default content locale?
+     * 
      * @param dcLocale
      * @return
      */
     public boolean isDefaultContent(CLDRLocale dcLocale) {
         initCLDRLocaleBasedData();
-        if(dcLocale==null) throw new NullPointerException("null locale");
+        if (dcLocale == null) throw new NullPointerException("null locale");
         return (defaultContentToBase.get(dcLocale) != null);
     }
 
@@ -1936,8 +1949,8 @@ public class SupplementalDataInfo {
                 String pattern = ci.match.replace('\'', '"')
                     .replace("[@", "\\[@") // make sure that attributes are quoted
                     .replace("(", "(?:") // make sure that there are no capturing groups (beyond what we generate
-                    // below).
-                    ;
+                // below).
+                ;
                 pattern = "^//ldml/" + pattern + "$"; // for now, force a complete match
                 String variableType = null;
                 variable.reset(pattern);
@@ -2730,6 +2743,7 @@ public class SupplementalDataInfo {
     public List<String> getSerialElements() {
         return serialElements;
     }
+
     public Collection<String> getDistinguishingAttributes() {
         return distinguishingAttributes;
     }
@@ -2919,34 +2933,37 @@ public class SupplementalDataInfo {
 
     private synchronized void initCLDRLocaleBasedData() throws InternalError {
         // This initialization depends on SDI being initialized.
-        if(defaultContentToBase==null) {
-            Map<CLDRLocale,CLDRLocale> p2c = new TreeMap<CLDRLocale,CLDRLocale>();
-            Map<CLDRLocale,CLDRLocale> c2p = new TreeMap<CLDRLocale,CLDRLocale>();
+        if (defaultContentToBase == null) {
+            Map<CLDRLocale, CLDRLocale> p2c = new TreeMap<CLDRLocale, CLDRLocale>();
+            Map<CLDRLocale, CLDRLocale> c2p = new TreeMap<CLDRLocale, CLDRLocale>();
             TreeSet<CLDRLocale> tmpAllLocales = new TreeSet<CLDRLocale>();
-            // copied from SupplementalData.java - CLDRLocale based 
+            // copied from SupplementalData.java - CLDRLocale based
             for (String l : defaultContentLocales) {
                 CLDRLocale child = CLDRLocale.getInstance(l);
                 tmpAllLocales.add(child);
             }
-            
-            for(CLDRLocale child : tmpAllLocales) {
+
+            for (CLDRLocale child : tmpAllLocales) {
                 // Find a parent of this locale which is NOT itself also a defaultContent
                 CLDRLocale nextParent = child.getParent();
-                ///System.err.println(">> considering " + child + " with parent " + nextParent);
+                // /System.err.println(">> considering " + child + " with parent " + nextParent);
                 while (nextParent != null) {
                     if (!tmpAllLocales.contains(nextParent)) { // Did we find a parent that's also not itself a
-                                                           // defaultContent?
-                        ///System.err.println(">>>> Got 1? considering " + child + " with parent " + nextParent);
+                        // defaultContent?
+                        // /System.err.println(">>>> Got 1? considering " + child + " with parent " + nextParent);
                         break;
                     }
-                    ///System.err.println(">>>>> considering " + child + " with parent " + nextParent);
+                    // /System.err.println(">>>>> considering " + child + " with parent " + nextParent);
                     nextParent = nextParent.getParent();
                 }
                 // parent
                 if (nextParent == null) {
-                    throw new InternalError("SupplementalDataInfo.defaultContentToChild(): No valid parent for " + child);
-                } else if(nextParent == CLDRLocale.ROOT || nextParent == CLDRLocale.getInstance("root")) {
-                    throw new InternalError("SupplementalDataInfo.defaultContentToChild(): Parent is root for default content locale " + child);
+                    throw new InternalError("SupplementalDataInfo.defaultContentToChild(): No valid parent for "
+                        + child);
+                } else if (nextParent == CLDRLocale.ROOT || nextParent == CLDRLocale.getInstance("root")) {
+                    throw new InternalError(
+                        "SupplementalDataInfo.defaultContentToChild(): Parent is root for default content locale "
+                            + child);
                 } else {
                     c2p.put(child, nextParent); // wo_Arab_SN -> wo
                     CLDRLocale oldChild = p2c.get(nextParent);
@@ -2962,7 +2979,7 @@ public class SupplementalDataInfo {
                     p2c.put(nextParent, child); // wo -> wo_Arab_SN
                 }
             }
-            
+
             // done, save the hashtables..
             baseToDefaultContent = Collections.unmodifiableMap(p2c); // wo -> wo_Arab_SN
             defaultContentToBase = Collections.unmodifiableMap(c2p); // wo_Arab_SN -> wo

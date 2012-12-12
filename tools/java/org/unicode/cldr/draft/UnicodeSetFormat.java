@@ -159,7 +159,7 @@ public class UnicodeSetFormat extends Format {
          * \p{name=/DOT/} would call
          * getProperty("bidi_class", "neutral", false, result) <br>
          * (for an example of the latter, see {@linkplain http
-         * ://unicode.org/cldr/utility/list-unicodeset.jsp?a=\p name=/WITH%20DOT%20ABOVE/}}
+         * ://unicode.org/cldr/utility/list-unicodeset.jsp?a=\p name=/WITH%20DOT%20ABOVE/}
          * 
          * @param regex
          *            Set to true if the property value is a regex "find" expression. In that case,

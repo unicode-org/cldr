@@ -129,12 +129,13 @@ public class XPathParts {
             PREBLOCK,
             POSTBLOCK
         }
-        
-        private EnumMap<CommentType, Map<String, String>> comments = new EnumMap<CommentType, Map<String, String>>(CommentType.class);
+
+        private EnumMap<CommentType, Map<String, String>> comments = new EnumMap<CommentType, Map<String, String>>(
+            CommentType.class);
 
         public Comments() {
-            for ( CommentType c : CommentType.values()) {
-                comments.put(c,new HashMap<String, String>());
+            for (CommentType c : CommentType.values()) {
+                comments.put(c, new HashMap<String, String>());
             }
         }
 
@@ -169,8 +170,8 @@ public class XPathParts {
         public Object clone() {
             try {
                 Comments result = (Comments) super.clone();
-                for ( CommentType c : CommentType.values()) {
-                    result.comments.put(c,new HashMap<String, String>(comments.get(c)));
+                for (CommentType c : CommentType.values()) {
+                    result.comments.put(c, new HashMap<String, String>(comments.get(c)));
                 }
                 return result;
             } catch (CloneNotSupportedException e) {
@@ -248,24 +249,24 @@ public class XPathParts {
          */
         public void fixLineEndings() {
             if (true) return;
-//            Set<String> sharedKeys = new HashSet<String>(comments.get(CommentType.LINE).keySet());
-//            sharedKeys.addAll(comments.get(CommentType.POSTBLOCK).keySet());
-//            for (String key : sharedKeys) {
-//                String line = (String) comments.get(CommentType.LINE).get(key);
-//                String postblock = (String) comments.get(CommentType.POSTBLOCK).get(key);
-//                if (line != null) {
-//                    if (postblock != null) {
-//                        comments.get(CommentType.LINE).remove(key);
-//                        comments.get(CommentType.POSTBLOCK).put(key, line + NEWLINE + postblock);
-//                    } else if (line.contains(NEWLINE)) {
-//                        comments.get(CommentType.LINE).remove(key);
-//                        comments.get(CommentType.POSTBLOCK).put(key, line);
-//                    }
-//                } else if (postblock != null && !postblock.contains(NEWLINE)) {
-//                    comments.get(CommentType.LINE).put(key, postblock);
-//                    comments.get(CommentType.POSTBLOCK).remove(key);
-//                }
-//            }
+            // Set<String> sharedKeys = new HashSet<String>(comments.get(CommentType.LINE).keySet());
+            // sharedKeys.addAll(comments.get(CommentType.POSTBLOCK).keySet());
+            // for (String key : sharedKeys) {
+            // String line = (String) comments.get(CommentType.LINE).get(key);
+            // String postblock = (String) comments.get(CommentType.POSTBLOCK).get(key);
+            // if (line != null) {
+            // if (postblock != null) {
+            // comments.get(CommentType.LINE).remove(key);
+            // comments.get(CommentType.POSTBLOCK).put(key, line + NEWLINE + postblock);
+            // } else if (line.contains(NEWLINE)) {
+            // comments.get(CommentType.LINE).remove(key);
+            // comments.get(CommentType.POSTBLOCK).put(key, line);
+            // }
+            // } else if (postblock != null && !postblock.contains(NEWLINE)) {
+            // comments.get(CommentType.LINE).put(key, postblock);
+            // comments.get(CommentType.POSTBLOCK).remove(key);
+            // }
+            // }
         }
     }
 

@@ -70,8 +70,8 @@ public class IdnaFrequency {
         if (writeOut) {
             out.write((char) 0xFEFF);
         }
-//        Mapper<Language> languageMapper = new Mapper<Language>(Language.values());
-//        Mapper<Encoding> encodingMapper = new Mapper<Encoding>(Encoding.values());
+        // Mapper<Language> languageMapper = new Mapper<Language>(Language.values());
+        // Mapper<Encoding> encodingMapper = new Mapper<Encoding>(Encoding.values());
         Counter<Integer> charTotal = new Counter<Integer>();
 
         for (int counter = 0;; ++counter) {
@@ -85,11 +85,11 @@ public class IdnaFrequency {
                 long count = Long.parseLong(parts[1]);
                 charTotal.add(cp, count);
                 if (!testchars.contains(cp)) continue;
-//                Language lang = languageMapper.fromOrdinal(Integer.parseInt(parts[4]));
-//                Encoding encoding = encodingMapper.fromOrdinal(Integer.parseInt(parts[5]));
-//                String url1 = unescape(parts[6], Encoding.UTF8);
+                // Language lang = languageMapper.fromOrdinal(Integer.parseInt(parts[4]));
+                // Encoding encoding = encodingMapper.fromOrdinal(Integer.parseInt(parts[5]));
+                // String url1 = unescape(parts[6], Encoding.UTF8);
                 String url2 = unescape(parts[11], Encoding.UTF8);
-//                String url3 = unescape(parts[16], Encoding.UTF8);
+                // String url3 = unescape(parts[16], Encoding.UTF8);
                 if (writeOut) {
                     out.println(counter + "\t" + getCodeAndName(cp) + "\t" + count + "\t" + url2);
                 }

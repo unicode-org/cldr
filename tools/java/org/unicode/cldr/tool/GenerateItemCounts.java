@@ -47,7 +47,7 @@ public class GenerateItemCounts {
 
     private static String[] DIRECTORIES = {
         // MUST be oldest first!
-        //"cldr-archive/cldr-21.0",
+        // "cldr-archive/cldr-21.0",
         "cldr-archive/cldr-22.0",
         "cldr-archive/cldr-22.1",
     };

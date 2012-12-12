@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * CldrNode represent a Element in XML as it appears in a CldrItem's path. 
+ * CldrNode represent a Element in XML as it appears in a CldrItem's path.
  */
 public class CldrNode {
 
@@ -15,7 +15,7 @@ public class CldrNode {
 
         node.parent = parent;
         node.name = extractAttrs(pathSegment, node.distinguishingAttributes);
-        String fullTrunk = extractAttrs(fullPathSegment, 
+        String fullTrunk = extractAttrs(fullPathSegment,
             node.nondistinguishingAttributes);
         if (!node.name.equals(fullTrunk)) {
             throw new ParseException("Error in parsing \"" + pathSegment + " \":\"" +
@@ -38,17 +38,19 @@ public class CldrNode {
                 }
             }
         }
-        return node;       
+        return node;
     }
 
     /**
      * Extract all the attributes and their value in the path.
-     *  
-     * @param pathSegment A complete or partial path.
-     * @param attributes String map to receive attribute mapping.
+     * 
+     * @param pathSegment
+     *            A complete or partial path.
+     * @param attributes
+     *            String map to receive attribute mapping.
      * 
      * @return Part of the string before the first attribute.
-     * @throws ParseException 
+     * @throws ParseException
      */
     private static String extractAttrs(String pathSegment,
         Map<String, String> attributes) throws ParseException {
@@ -119,11 +121,9 @@ public class CldrNode {
 
     /**
      * This name is derived from element name and attributes. Once it is
-     * calculated, it is cached in this variable. 
+     * calculated, it is cached in this variable.
      */
     private String uniqueNodeName;
-
-
 
     private CldrNode() {
         distinguishingAttributes = new HashMap<String, String>();
@@ -132,7 +132,7 @@ public class CldrNode {
 
     /**
      * Get the string map for attributes that should be treated as values.
-     *   
+     * 
      * @return String map.
      */
     public Map<String, String> getAttrAsValueMap() {
@@ -161,7 +161,7 @@ public class CldrNode {
                 attributesAsValues.put(key, nondistinguishingAttributes.get(key));
             }
         }
-        return attributesAsValues;    
+        return attributesAsValues;
     }
 
     public Map<String, String> getDistinguishingAttributes() {
@@ -171,7 +171,6 @@ public class CldrNode {
     public String getName() {
         return name;
     }
-
 
     public Map<String, String> getNondistinguishingAttributes() {
         return nondistinguishingAttributes;
@@ -188,10 +187,10 @@ public class CldrNode {
      * attributes are returned and should be used to fill the mapping.
      * 
      * The basic mapping is from
-     *  <element_name>[@<attr_name>=<attr_value>]+
-     * to 
-     *  <element_name>-<attr_name>-<attr_value>
-     *  
+     * <element_name>[@<attr_name>=<attr_value>]+
+     * to
+     * <element_name>-<attr_name>-<attr_value>
+     * 
      * @return A unique name that can be used as key in its container.
      */
     public String getNodeKeyName() {
@@ -210,7 +209,7 @@ public class CldrNode {
                 continue;
             }
 
-            if (!key.equals("alt") && !key.equals("count") && 
+            if (!key.equals("alt") && !key.equals("count") &&
                 !LdmlConvertRules.NAME_PART_DISTINGUISHING_ATTR_SET.contains(attrIdStr)) {
                 if (strbuf.length() != 0) {
                     throw new IllegalArgumentException(
@@ -234,7 +233,7 @@ public class CldrNode {
                 continue;
             }
 
-            if (!key.equals("alt") && 
+            if (!key.equals("alt") &&
                 !LdmlConvertRules.NAME_PART_DISTINGUISHING_ATTR_SET.contains(attrIdStr)) {
                 continue;
             }
@@ -265,7 +264,7 @@ public class CldrNode {
      * 
      * Different from getNodeKeyName, this name has include those distinguishing
      * attributes that will be treated as values.
-     *  
+     * 
      * @return A distinguishing name for differentiating element.
      */
     public String getNodeDistinguishingName() {
@@ -282,7 +281,6 @@ public class CldrNode {
         }
         return strbuf.toString();
     }
-
 
     public boolean isTimezoneType() {
         return LdmlConvertRules.TIMEZONE_ELEMENT_NAME_SET.contains(name);

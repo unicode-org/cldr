@@ -31,9 +31,11 @@ public class BuildIcuCompactDecimalFormat {
 
     /**
      * JUST FOR DEVELOPMENT
+     * 
      * @param currencyStyle
      *            TODO
-     * @param currencyCode TODO
+     * @param currencyCode
+     *            TODO
      */
     public static final CompactDecimalFormat build(CLDRFile resolvedCldrFile,
         Set<String> debugCreationErrors, String[] debugOriginals,
@@ -43,7 +45,7 @@ public class BuildIcuCompactDecimalFormat {
         Map<String, String[]> suffixes = new HashMap<String, String[]>();
         Map<String, String> unitPrefixes = new HashMap();
         Map<String, String> unitSuffixes = new HashMap();
-        
+
         // String[] prefix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         // String[] suffix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         long[] divisor = new long[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
@@ -144,7 +146,7 @@ public class BuildIcuCompactDecimalFormat {
             break;
         case LONG_CURRENCY:
             // if the long form, modify the patterns
-            CurrencyInfo names = new CurrencyInfo(resolvedCldrFile, canonicalKeywords, 
+            CurrencyInfo names = new CurrencyInfo(resolvedCldrFile, canonicalKeywords,
                 currencyCode, parts);
             if (names.isEmpty()) {
                 format = builder.getCurrencyFormat(currencyCode, currencyCode);
@@ -152,11 +154,11 @@ public class BuildIcuCompactDecimalFormat {
                 for (String count : canonicalKeywords) {
                     String unitPattern = names.getUnitPattern(count);
                     int pos = unitPattern.indexOf("{0}");
-                    String prefixUnit = unitPattern.substring(0,pos);
-                    String suffixUnit = unitPattern.substring(pos+3);
+                    String prefixUnit = unitPattern.substring(0, pos);
+                    String suffixUnit = unitPattern.substring(pos + 3);
                     String currencyName = names.getCurrencyName(count);
                     unitPrefixes.put(count, MessageFormat.format(prefixUnit, null, currencyName));
-                    unitSuffixes.put(count, MessageFormat.format(suffixUnit, null, currencyName));                    
+                    unitSuffixes.put(count, MessageFormat.format(suffixUnit, null, currencyName));
                 }
                 format = builder.getNumberFormat(1);
             }
@@ -208,15 +210,15 @@ public class BuildIcuCompactDecimalFormat {
     }
 
     private static class CurrencyInfo {
-        private HashMap<String,String> currencyNames = new HashMap<String,String>();
-        private HashMap<String,String> unitPatterns = new HashMap<String,String>();
-        
+        private HashMap<String, String> currencyNames = new HashMap<String, String>();
+        private HashMap<String, String> unitPatterns = new HashMap<String, String>();
+
         CurrencyInfo(CLDRFile resolvedCldrFile, Set<String> canonicalKeywords, String currencyCode, XPathParts parts) {
             Iterator<String> it;
             it = resolvedCldrFile.iterator(
                 "//ldml/numbers/currencies/currency[@type=\"" +
                     currencyCode +
-                "\"]/displayName");
+                    "\"]/displayName");
             // //ldml/numbers/currencies/currency[@type="SRD"]/symbol
             while (it.hasNext()) {
                 String path = it.next();
@@ -227,7 +229,7 @@ public class BuildIcuCompactDecimalFormat {
                 }
                 currencyNames.put(key, resolvedCldrFile.getStringValue(path));
             }
-            
+
             it = resolvedCldrFile.iterator(
                 "//ldml/numbers/currencyFormats/unitPattern");
             while (it.hasNext()) {
@@ -236,7 +238,7 @@ public class BuildIcuCompactDecimalFormat {
                 String key = parts.getAttributeValue(-1, "count");
                 unitPatterns.put(key, resolvedCldrFile.getStringValue(path));
             }
-            //<displayName count="one" draft="contributed">evro</displayName>
+            // <displayName count="one" draft="contributed">evro</displayName>
             // flesh out missing
         }
 
@@ -251,7 +253,7 @@ public class BuildIcuCompactDecimalFormat {
             }
             return result;
         }
-        
+
         String getCurrencyName(String count) {
             String result = currencyNames.get(count);
             if (result != null) {
@@ -267,14 +269,14 @@ public class BuildIcuCompactDecimalFormat {
             return result;
         }
     }
-    //    <currencyFormats numberSystem="latn">
-    //    <currencyFormatLength>
-    //        <currencyFormat>
-    //            <pattern>¤#,##0.00;(¤#,##0.00)</pattern>
-    //        </currencyFormat>
-    //    </currencyFormatLength>
-    //    <unitPattern count="one">{0} {1}</unitPattern>
-    //    <unitPattern count="other">{0} {1}</unitPattern>
-    //</currencyFormats>
+    // <currencyFormats numberSystem="latn">
+    // <currencyFormatLength>
+    // <currencyFormat>
+    // <pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+    // </currencyFormat>
+    // </currencyFormatLength>
+    // <unitPattern count="one">{0} {1}</unitPattern>
+    // <unitPattern count="other">{0} {1}</unitPattern>
+    // </currencyFormats>
 
 }

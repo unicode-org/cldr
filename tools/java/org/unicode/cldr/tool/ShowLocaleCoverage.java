@@ -34,11 +34,10 @@ public class ShowLocaleCoverage {
     private static final String TEST_PATH = "//ldml/dates/calendars/calendar[@type=\"chinese\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
 
     enum MyOptions {
-        filter(".+", ".*", "Filter the information based on id, using a regex argument.")
-        ;
-        //        targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
-        //        layouts(null, null, "Only create html files for keyboard layouts"),
-        //        repertoire(null, null, "Only create html files for repertoire"), ;
+        filter(".+", ".*", "Filter the information based on id, using a regex argument.");
+        // targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
+        // layouts(null, null, "Only create html files for keyboard layouts"),
+        // repertoire(null, null, "Only create html files for repertoire"), ;
         // boilerplate
         final Option option;
 
@@ -51,7 +50,8 @@ public class ShowLocaleCoverage {
         myOptions.parse(MyOptions.filter, args, true);
         Matcher matcher = Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
 
-        Relation<MissingStatus, PathHeader> missingHeaders = Relation.of(new EnumMap<MissingStatus, Set<PathHeader>>(MissingStatus.class), TreeSet.class);
+        Relation<MissingStatus, PathHeader> missingHeaders = Relation.of(new EnumMap<MissingStatus, Set<PathHeader>>(
+            MissingStatus.class), TreeSet.class);
 
         LanguageTagParser ltp = new LanguageTagParser();
         Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();
@@ -66,11 +66,11 @@ public class ShowLocaleCoverage {
         Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getCldrFactory().make("en", true));
 
         EnumSet<Level> skipPrintingLevels = EnumSet.of(
-            Level.UNDETERMINED, 
-            Level.CORE, 
+            Level.UNDETERMINED,
+            Level.CORE,
             Level.OPTIONAL,
             Level.COMPREHENSIVE);
-        
+
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             if (!matcher.reset(locale).matches()) {
                 continue;
@@ -105,12 +105,11 @@ public class ShowLocaleCoverage {
                 if (path.equals(TEST_PATH)) {
                     int x = 0; // debug
                 }
-                if (path.contains("unconfirmed") 
+                if (path.contains("unconfirmed")
                     || path.contains("provisional")
                     || path.contains("/alias")
                     || path.contains("/references")
-                    || altProposed.reset(path).find()
-                    ) {
+                    || altProposed.reset(path).find()) {
                     continue;
                 }
 
@@ -119,33 +118,33 @@ public class ShowLocaleCoverage {
                     continue;
                 }
                 Level level = coverageLevel2.getLevel(path);
-                
-                
-                //String value = file.getSourceLocaleID(path, status);
+
+                // String value = file.getSourceLocaleID(path, status);
                 MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, status, latin);
                 switch (missingStatus) {
-                case ABSENT: 
+                case ABSENT:
                     missingCounter.add(level, 1);
                     if (capture && level.compareTo(Level.MODERN) <= 0) {
-                        missingHeaders.put(missingStatus,pathHeaderFactory.fromPath(path));
+                        missingHeaders.put(missingStatus, pathHeaderFactory.fromPath(path));
                     }
                     break;
-                case ALIASED: 
-                case PRESENT: 
+                case ALIASED:
+                case PRESENT:
                     foundCounter.add(level, 1);
                     break;
-                case MISSING_OK: 
-                case ROOT_OK: 
+                case MISSING_OK:
+                case ROOT_OK:
                     break;
-                default: throw new IllegalArgumentException();
+                default:
+                    throw new IllegalArgumentException();
                 }
             }
             System.out.print(
                 script
-                + "\t" + testInfo.getEnglish().getName(language)
-                + "\t" + file.getName(language)
-                + "\t" + language
-                + "\t" + locale);
+                    + "\t" + testInfo.getEnglish().getName(language)
+                    + "\t" + file.getName(language)
+                    + "\t" + language
+                    + "\t" + locale);
             int sumFound = 0;
             int sumMissing = 0;
             for (Level level : Level.values()) {
@@ -158,12 +157,13 @@ public class ShowLocaleCoverage {
             }
             System.out.println();
         }
-        
+
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance("en");
 
         for (Entry<MissingStatus, Set<PathHeader>> entity : missingHeaders.keyValuesSet()) {
             for (PathHeader s : entity.getValue()) {
-                System.out.println(entity.getKey() + "\t" + coverageLevel2.getLevel(s.getOriginalPath()) + "\t" + s + "\t\t" + s.getOriginalPath());
+                System.out.println(entity.getKey() + "\t" + coverageLevel2.getLevel(s.getOriginalPath()) + "\t" + s
+                    + "\t\t" + s.getOriginalPath());
             }
         }
     }

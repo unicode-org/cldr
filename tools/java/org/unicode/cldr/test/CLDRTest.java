@@ -622,12 +622,12 @@ public class CLDRTest extends TestFmwk {
     private void checkTranslatedCode(CLDRFile cldrfile, StandardCodes codes, String type, String prefix, String postfix) {
 
         // TODO, expand to other languages
-        Map<String,Set<String>> completionExceptions = new HashMap<String,Set<String>>();
+        Map<String, Set<String>> completionExceptions = new HashMap<String, Set<String>>();
         Set<String> scriptExceptions = new HashSet<String>();
         scriptExceptions.add("Cham");
         scriptExceptions.add("Thai");
-        completionExceptions.put("script",scriptExceptions);
-        
+        completionExceptions.put("script", scriptExceptions);
+
         Set codeItems = codes.getGoodAvailableCodes(type);
         int count = 0;
         Set exceptions = (Set) completionExceptions.get(type);
@@ -656,7 +656,6 @@ public class CLDRTest extends TestFmwk {
         }
         logln("Total " + type + ":\t" + count);
     }
-
 
     // <territoryContainment><group type="001" contains="002 009 019 142 150"/>
     // <languageData><language type="af" scripts="Latn" territories="ZA"/>

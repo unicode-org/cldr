@@ -40,23 +40,23 @@ class Subheader {
 
         getDataFromFile(unicodeDataDirectory, "NamesList.*\\.txt");
 
-//        if (false) {
-//            if (GeneratePickerData.DEBUG)
-//                System.out.println("*** Fixing plurals");
-//            for (java.util.Iterator<String> it = subblock2UnicodeSet.keySet().iterator(); it.hasNext();) {
-//                String subblock = it.next();
-//                final String pluralSubblock = subblock + "s";
-//                UnicodeSet plural = subblock2UnicodeSet.get(pluralSubblock);
-//                if (plural != null) {
-//                    if (GeneratePickerData.DEBUG)
-//                        System.out.println(subblock + " => " + pluralSubblock);
-//                    UnicodeSet singular = subblock2UnicodeSet.get(subblock);
-//                    plural.addAll(singular);
-//                    it.remove();
-//                }
-//            }
-//            if (GeneratePickerData.DEBUG) System.out.println("*** Done Fixing plurals");
-//        }
+        // if (false) {
+        // if (GeneratePickerData.DEBUG)
+        // System.out.println("*** Fixing plurals");
+        // for (java.util.Iterator<String> it = subblock2UnicodeSet.keySet().iterator(); it.hasNext();) {
+        // String subblock = it.next();
+        // final String pluralSubblock = subblock + "s";
+        // UnicodeSet plural = subblock2UnicodeSet.get(pluralSubblock);
+        // if (plural != null) {
+        // if (GeneratePickerData.DEBUG)
+        // System.out.println(subblock + " => " + pluralSubblock);
+        // UnicodeSet singular = subblock2UnicodeSet.get(subblock);
+        // plural.addAll(singular);
+        // it.remove();
+        // }
+        // }
+        // if (GeneratePickerData.DEBUG) System.out.println("*** Done Fixing plurals");
+        // }
 
         for (String subblock : subblock2UnicodeSet.keySet()) {
             final UnicodeSet uset = subblock2UnicodeSet.get(subblock);

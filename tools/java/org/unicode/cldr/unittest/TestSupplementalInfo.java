@@ -25,6 +25,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
@@ -44,7 +45,8 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestAliases() {
-        Map<String, Map<String, Map<String, String>>> bcp47Data = testInfo.getStandardCodes().getLStreg();
+        testInfo.getStandardCodes();
+        Map<String, Map<String, Map<String, String>>> bcp47Data = StandardCodes.getLStreg();
         Map<String, Map<String, R2<List<String>, String>>> aliases = testInfo.getSupplementalDataInfo()
             .getLocaleAliasInfo();
 
@@ -65,7 +67,8 @@ public class TestSupplementalInfo extends TestFmwk {
                         // TODO, check the value
                     }
                     Map<String, String> data = codeData.getValue();
-                    if (data.containsKey("Deprecated")) {
+                    if (data.containsKey("Deprecated")
+                        && testInfo.getSupplementalDataInfo().getCLDRLanguageCodes().contains(code)) {
                         errln("supplementalMetadata.xml: alias is missing <languageAlias type=\"" + code + "\" ... /> "
                             + "\t" + data);
                     }
@@ -311,8 +314,9 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestCompleteness() {
-        assertEquals("API doesn't support: " + testInfo.getSupplementalDataInfo().getSkippedElements(), 0, testInfo
-            .getSupplementalDataInfo().getSkippedElements().size());
+        if (testInfo.getSupplementalDataInfo().getSkippedElements().size() > 0) {
+            logln("SupplementalDataInfo API doesn't support: " + testInfo.getSupplementalDataInfo().getSkippedElements().toString());
+        }
     }
 
     // these are settings for exceptional cases we want to allow
@@ -373,7 +377,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (lastValue == null || lastValue.compareTo(end) > 0) {
                     currencyLastValid.put(currency, end);
                 }
-                if (end.compareTo(NOW) >= 0) {
+                if (end.compareTo(NOW) >= 0 && dateInfo.isLegalTender()) {
                     modernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));
                     territoriesWithoutModernCurrencies.remove(territory);
                 } else {

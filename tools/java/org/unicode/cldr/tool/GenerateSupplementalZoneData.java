@@ -8,6 +8,7 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
@@ -24,10 +25,15 @@ public class GenerateSupplementalZoneData {
      * @throws IOException
      */
     public static void main(String[] args) throws Exception {
-        double deltaTime = System.currentTimeMillis();
-        deltaTime = System.currentTimeMillis() - deltaTime;
         ZoneParser zp = new ZoneParser();
-        Set<String> tzids = zp.getZoneData().keySet();
+        Set<String> tzids = new TreeSet<String>();
+        tzids.addAll(zp.getZoneData().keySet());
+        // Add POSIX legacy IDs
+        tzids.add("EST5EDT");
+        tzids.add("CST6CDT");
+        tzids.add("MST7MDT");
+        tzids.add("PST8PDT");
+
         StringBuffer tzbuf = new StringBuffer();
         boolean first = true;
         for ( String z : tzids ) {
@@ -45,9 +51,6 @@ public class GenerateSupplementalZoneData {
             80);
         System.out.println("            <variable id=\"$tzid\" type=\"choice\">" + broken
             + CldrUtility.LINE_SEPARATOR + "            </variable>");
-
-        System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
-        System.out.println("Done");
     }
 }
 

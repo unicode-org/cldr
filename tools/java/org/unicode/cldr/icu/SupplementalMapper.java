@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -15,9 +16,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
+import com.ibm.icu.util.Calendar;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility.Output;
+import com.ibm.icu.util.GregorianCalendar;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.XMLSource;
@@ -212,7 +215,9 @@ public class SupplementalMapper extends LdmlMapper {
             value = value.substring(0, percentPos) + '%' + value.substring(percentPos);
             processedValues.add(value);
         } else if (isDatePath(rbPath)) {
-            String[] dateValues = getSeconds(values.get(0));
+            // e.g. rbPath = "/CurrencyMap/AD/from:intvector"
+            String type = rbPath.substring(rbPath.lastIndexOf('/') + 1, rbPath.lastIndexOf(':'));
+            String[] dateValues = getSeconds(values.get(0), type);
             processedValues.add(dateValues[0]);
             processedValues.add(dateValues[1]);
         } else {
@@ -235,9 +240,12 @@ public class SupplementalMapper extends LdmlMapper {
      * @param dateStr
      * @return
      */
-    private String[] getSeconds(String dateStr) {
-        long millis = getMilliSeconds(dateStr);
-        if (millis == -1) {
+    private String[] getSeconds(String dateStr, String type) {
+        long millis;
+        try {
+            millis = getMilliSeconds(dateStr, type);
+        } catch (ParseException ex) {
+            System.err.println("Could not parse date: " + dateStr);
             return null;
         }
 
@@ -258,25 +266,67 @@ public class SupplementalMapper extends LdmlMapper {
         return result;
     }
 
-    private long getMilliSeconds(String dateStr) {
-        try {
-            if (dateStr != null) {
-                int count = countHyphens(dateStr);
-                SimpleDateFormat format = new SimpleDateFormat();
-                format.setTimeZone(TimeZone.getTimeZone("GMT"));
-                if (count == 2) {
-                    format.applyPattern("yyyy-mm-dd");
-                } else if (count == 1) {
-                    format.applyPattern("yyyy-mm");
-                } else {
-                    format.applyPattern("yyyy");
-                }
-                return format.parse(dateStr).getTime();
-            }
-        } catch (ParseException ex) {
-            System.err.println("Could not parse date: " + dateStr);
+    /**
+     * Parses a string date and normalizes it depending on what type of date it
+     * is.
+     * @param dateStr
+     * @param type whether the date is a from or a to
+     * @return
+     * @throws ParseException
+     */
+    private long getMilliSeconds(String dateStr, String type)
+            throws ParseException {
+        int count = countHyphens(dateStr);
+        SimpleDateFormat format = new SimpleDateFormat();
+        if (count == 2) {
+            format.applyPattern("yyyy-MM-dd");
+        } else if (count == 1) {
+            format.applyPattern("yyyy-MM");
+        } else {
+            format.applyPattern("yyyy");
         }
-        return -1;
+        TimeZone timezone = TimeZone.getTimeZone("GMT");
+        format.setTimeZone(timezone);
+        Date date = format.parse(dateStr);
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTimeZone(timezone);
+        calendar.setTime(date);
+        boolean isFrom = type.equals("from");
+        // Fix dates with the month or day missing.
+        if (count < 2) {
+            System.out.print(format.format(calendar.getTime()));
+            if (count == 0) {  // yyyy
+                setDateField(calendar, Calendar.MONTH, isFrom);
+            }
+            setDateField(calendar, Calendar.DAY_OF_MONTH, isFrom);
+        }
+        String finalPattern = "yyyy-MM-dd";
+        if (!isFrom) {
+            // Set the times for to fields to the end of the day.
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE, 59);
+            calendar.set(Calendar.SECOND, 59);
+            calendar.set(Calendar.MILLISECOND, 999);
+            finalPattern += " HH:mm:ss.SSS";
+        }
+        format.applyPattern(finalPattern);
+        return calendar.getTimeInMillis();
+    }
+
+    /**
+     * Sets a field in a calendar to either the first or last value of the field.
+     * @param calendar
+     * @param field the calendar field to be set
+     * @param isFrom true if the calendar is for a from field
+     */
+    private static void setDateField(Calendar calendar, int field, boolean isFrom) {
+        int value;
+        if (isFrom) {
+            value = calendar.getActualMinimum(field);
+        } else {
+            value = calendar.getActualMaximum(field);
+        }
+        calendar.set(field,  value);
     }
 
     /**

@@ -44,8 +44,9 @@
                 sgn-BE-FR sgn-BE-NL sgn-CH-DE
                 zh-guoyu zh-hakka zh-min zh-min-nan zh-xiang
             </variable>
-            <!-- for CLDR 1.8 and beyond - will add new language codes by hand, until we figure out how to -->
-            <!-- deal with all the new language codes introduced by bcp 47 --> 
+            <!-- BCP 47 contains many more language codes than we are interested in maintaining as a part of the CLDR --> 
+            <!-- This list contains ONLY those languages considered to be "of interest" as part of CLDR, --> 
+            <!-- and is maintained manually by the CLDR TC --> 
             <variable id="$language" type="choice">
                 aa ab ace ach ada ady ae af afa afh agq ain ak akk ale alg alt am an ang anp apa ar
                 arc arn arp art arw as asa ast ath aus av awa ay az

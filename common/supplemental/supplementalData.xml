@@ -108,6 +108,9 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         <region iso3166="150"><!-- Europe -->
             <currency iso4217="EUR" from="1999-01-01"/>
         </region>
+        <region iso3166="AC">
+            <currency iso4217="SHP" from="1976-01-01"/>
+        </region>
         <region iso3166="AD">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="ESP" from="1873-01-01" to="2002-02-28"/>
@@ -137,9 +140,6 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="AMD" from="1993-11-22"/>
             <currency iso4217="RUR" from="1991-12-25" to="1993-11-22"/>
             <currency iso4217="SUR" from="1961-01-01" to="1991-12-25"/>
-        </region>
-        <region iso3166="AN">
-            <currency iso4217="ANG" from="1940-05-10"/>
         </region>
         <region iso3166="AO">
             <currency iso4217="AOA" from="1999-12-13"/>
@@ -240,6 +240,10 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="BOL" from="1863-06-23" to="1963-01-01"/>
             <currency iso4217="BOV" tender="false"/>
         </region>
+        <region iso3166="BQ">
+            <currency iso4217="USD" from="2011-01-01"/>
+            <currency iso4217="ANG" from="2010-10-10" to="2011-01-01"/>
+        </region>
         <region iso3166="BR">
             <currency iso4217="BRL" from="1994-07-01"/>
             <currency iso4217="BRR" from="1993-08-01" to="1994-07-01"/>
@@ -322,6 +326,10 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="COP" from="1905-01-01"/>
             <currency iso4217="COU" tender="false"/>
         </region>
+        <region iso3166="CP">
+            <currency iso4217="XXX"/>
+            <!-- Uninhabited, therefore no currency -->
+        </region>
         <region iso3166="CR">
             <currency iso4217="CRC" from="1896-10-26"/>
         </region>
@@ -340,6 +348,9 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         <region iso3166="CV">
             <currency iso4217="CVE" from="1914-01-01"/>
             <currency iso4217="PTE" from="1911-05-22" to="1975-07-05"/>
+        </region>
+        <region iso3166="CW">
+            <currency iso4217="ANG" from="2010-10-10"/>
         </region>
         <region iso3166="CX">
             <currency iso4217="AUD" from="1966-02-14"/>
@@ -362,6 +373,10 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="DEM" from="1948-06-20" to="2002-02-28"/>
         </region>
+        <region iso3166="DG"><!-- UK/US overseas territories. No indigenous population -->
+            <currency iso4217="GBP" from="1965-11-08"/>
+            <currency iso4217="USD" from="1965-11-08"/>
+        </region>
         <region iso3166="DJ">
             <currency iso4217="DJF" from="1977-06-27"/>
         </region>
@@ -377,6 +392,9 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="DZ">
             <currency iso4217="DZD" from="1964-04-01"/>
+        </region>
+        <region iso3166="EA">
+            <currency iso4217="EUR" from="1999-01-01"/>
         </region>
         <region iso3166="EC">
             <currency iso4217="USD" from="2000-10-02"/>
@@ -522,6 +540,9 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="HU">
             <currency iso4217="HUF" from="1946-07-23"/>
+        </region>
+        <region iso3166="IC">
+            <currency iso4217="EUR" from="1999-01-01"/>
         </region>
         <region iso3166="ID">
             <currency iso4217="IDR" from="1965-12-13"/>
@@ -908,7 +929,6 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="SH">
             <currency iso4217="SHP" from="1917-02-15"/>
-            <!-- currency iso4217="GBP" from="1917-02-15"/ --><!-- Not listed in the 2001 or 2004 list -->
         </region>
         <region iso3166="SI">
             <currency iso4217="EUR" from="2007-01-01"/>
@@ -958,12 +978,18 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="USD" from="2001-01-01"/>
             <currency iso4217="SVC" from="1919-11-11" to="2001-01-01"/>
         </region>
+        <region iso3166="SX">
+            <currency iso4217="ANG" from="2010-10-10"/>
+        </region>
         <region iso3166="SY">
             <currency iso4217="SYP" from="1948-01-01"/>
         </region>
         <region iso3166="SZ">
             <currency iso4217="SZL" from="1974-09-06"/>
             <!-- currency iso4217="ZAR" from="1961-02-14"/ --><!-- Not listed in the 2001 or 2004 list -->
+        </region>
+        <region iso3166="TA">
+            <currency iso4217="GBP" from="1938-01-12"/>
         </region>
         <region iso3166="TC">
             <currency iso4217="USD" from="1969-09-08"/>

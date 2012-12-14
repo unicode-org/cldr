@@ -14,7 +14,6 @@
 # supplementalData.xml
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@iso4217="(%W)"]([@tender="false"])?
      ; /CurrencyMap/$1/<FIFO>/id ; values=$2
-     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=9999-12-31
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@iso4217="(%W)"]
      ; /CurrencyMap/$1/<FIFO>/id ; values=$3
      ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2

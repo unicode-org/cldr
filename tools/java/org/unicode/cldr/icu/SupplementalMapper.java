@@ -294,7 +294,6 @@ public class SupplementalMapper extends LdmlMapper {
         boolean isFrom = type.equals("from");
         // Fix dates with the month or day missing.
         if (count < 2) {
-            System.out.print(format.format(calendar.getTime()));
             if (count == 0) {  // yyyy
                 setDateField(calendar, Calendar.MONTH, isFrom);
             }

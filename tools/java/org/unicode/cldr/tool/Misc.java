@@ -974,8 +974,7 @@ public class Misc {
             String population = (String) list.get(2);
             String latitude = (String) list.get(3);
             String longitude = (String) list.get(4);
-            String country2 = (String) corrections.get(country);
-            String code = (String) territoryName_code.get(country2 == null ? country : country2);
+            String code = (String) territoryName_code.get(country);
             if (code == null) missing.add(country);
             Map city_data = (Map) country_city_data.get(code);
             if (city_data == null) {
@@ -1021,57 +1020,6 @@ public class Misc {
         }
     }
 
-    static final String[] COUNTRY_CORRECTIONS = {
-        "Antigua & Barbuda", "Antigua and Barbuda",
-        "Bosnia-Herzegovina", "Bosnia and Herzegovina",
-        "British Virgin Islands", "Virgin Islands, British",
-        "Brunei", "Brunei Darussalam",
-        "Central Africa", "Central African Republic",
-        "Congo (Dem. Rep.)", "Congo, The Democratic Republic of the",
-        "East Timor", "Timor-Leste",
-        "External Territories of Australia", "Australia",
-        "Falkland Islands and dependencies", "Falkland Islands (Malvinas)",
-        "Guernsey and Alderney", "United Kingdom",
-        "Guinea Bissau", "Guinea-Bissau",
-        "Iran", "Iran, Islamic Republic of",
-        "Ivory Coast", "Cote d'Ivoire",
-        "Jersey", "United Kingdom",
-        "Korea (North)", "Korea, Democratic People's Republic of",
-        "Korea (South)", "Korea, Republic of",
-        "Laos", "Lao People's Democratic Republic",
-        "Libya", "Libyan Arab Jamahiriya",
-        "Macedonia", "Macedonia, The Former Yugoslav Republic of",
-        "Man (Isle of)", "United Kingdom",
-        "Moldova", "Moldova, Republic of",
-        "Norfolk", "Norfolk Island",
-        "Palestine", "Palestinian Territory, Occupied",
-        "Russia", "Russian Federation",
-        "R\u9D6Eion", "Reunion",
-        "Sahara", "Western Sahara",
-        "Saint Pierre & Miquelon", "Saint Pierre and Miquelon",
-        "Smaller Territories of the UK", "United Kingdom",
-        "Syria", "Syrian Arab Republic",
-        "S\u3BE0Tom\u9821nd Pr\uDBA3ipe", "Sao Tome and Principe",
-        "Taiwan", "Taiwan, Province of China",
-        "Tanzania", "Tanzania, United Republic of",
-        "Terres Australes", "French Polynesia",
-        "United States of America", "United States",
-        "Vatican", "Holy See (Vatican City State)",
-        "Vietnam", "Viet Nam",
-        "Virgin Islands of the United States", "Virgin Islands, U.S.",
-        "Wallis & Futuna", "Wallis and Futuna",
-    };
-
-    static final Map corrections = new HashMap();
-    static {
-        for (int i = 0; i < COUNTRY_CORRECTIONS.length; i += 2) {
-            corrections.put(COUNTRY_CORRECTIONS[i], COUNTRY_CORRECTIONS[i + 1]);
-        }
-    }
-
-    public static final Map<String, String> getCorrections() {
-        return corrections;
-    }
 
     // static PrintWriter log;
 

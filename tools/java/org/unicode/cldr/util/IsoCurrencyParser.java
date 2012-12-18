@@ -1,7 +1,5 @@
 package org.unicode.cldr.util;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Locale;
@@ -10,13 +8,59 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.Misc;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.XMLFileReader;
 
 import com.ibm.icu.dev.util.Relation;
 
 public class IsoCurrencyParser {
-    private static final String CURRENCYCODESLIST_TXT = "currencycodeslist.txt";
-    static Map<String, String> iso4217CountryToCountryCode = new TreeMap();
+
+    private static final String ISO_CURRENT_CODES_XML = "org/unicode/cldr/util/data/dl_iso_table_a1.xml";
+
+    /*
+     * IsoCurrencyParser doesn't currently use the historic codes list, but it could easily be modified/extended to do
+     * so if we need to at some point. (JCE)
+     * private static final String ISO_HISTORIC_CODES_XML = "org/unicode/cldr/util/data/dl_iso_tables_a3.xml";
+     */
+
+    /*
+     * CLDR_EXTENSIONS_XML is stuff that would/should be in ISO, but that we KNOW for a fact to be correct.
+     * Some subterritory designations that we use in CLDR, like Ascension Island or Tristan da Cunha aren't
+     * used in ISO4217, so we use an extensions data file to allow our tests to validate the CLDR data properly.
+     */
+    private static final String CLDR_EXTENSIONS_XML = "org/unicode/cldr/util/data/dl_cldr_extensions.xml";
+
+    /*
+     * These corrections are country descriptions that are in the ISO4217 tables but carry a different spelling
+     * in the language subtag registry.
+     */
+    private static final Map<String, String> COUNTRY_CORRECTIONS = CldrUtility.asMap(new String[][] {
+        { "BOLIVIA, PLURINATIONAL STATE OF", "BO" },
+        { "CONGO, THE DEMOCRATIC REPUBLIC OF", "CD" },
+        { "HEARD ISLAND AND McDONALD ISLANDS", "HM" },
+        { "INTERNATIONAL MONETARY FUND (IMF)\u00A0", "ZZ" },
+        { "IRAN, ISLAMIC REPUBLIC OF", "IR" },
+        { "VIRGIN ISLANDS (BRITISH)", "VG" },
+        { "VIRGIN ISLANDS (US)", "VI" },
+        { "KOREA, DEMOCRATIC PEOPLE\u2019S REPUBLIC OF", "KP" },
+        { "KOREA, REPUBLIC OF", "KR" },
+        { "MICRONESIA, FEDERATED STATES OF", "FM" },
+        { "TANZANIA, UNITED REPUBLIC OF", "TZ" },
+        { "Vatican City State (HOLY SEE)", "VA" },
+        { "LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC", "LA" },
+        { "MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF", "MK" },
+        { "MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ" },
+        { "MOLDOVA, REPUBLIC OF", "MD"},
+        { "PALESTINIAN TERRITORY, OCCUPIED", "PS" },
+        { "SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"", "ZZ" },
+        { "VENEZUELA, BOLIVARIAN REPUBLIC OF", "VE" },
+        { "EUROPEAN MONETARY CO-OPERATION FUND (EMCF)", "ZZ" },
+//        { "FRENCH  GUIANA", "GF" },
+        { "SAINT MARTIN", "MF" },
+        { "SAINT-BARTH\u00C9LEMY", "BL" },
+    });
+
+    static Map<String, String> iso4217CountryToCountryCode = new TreeMap<String, String>();
     static Set<String> exceptionList = new LinkedHashSet<String>();
     static {
         StandardCodes sc = StandardCodes.make();
@@ -24,74 +68,24 @@ public class IsoCurrencyParser {
         for (String country : countries) {
             String name = sc.getData("territory", country);
             iso4217CountryToCountryCode.put(name.toUpperCase(Locale.ENGLISH), country);
-            String exception = Misc.getCorrections().get(name); // we already have a list of exceptions - use it.
-            if (exception != null) {
-                iso4217CountryToCountryCode.put(exception.toUpperCase(Locale.ENGLISH), country);
-                // System.err.println("Put " + exception + " / " + exception.toUpperCase(Locale.ENGLISH) + " = " +
-                // country);
-            }
         }
-        // add bogus names which are used in currencycodeslist.txt, but aren't in lstreg.txt under territories.
-        String[][] extras = {
-            { "BOSNIA & HERZEGOVINA", "BA" },
-            { "CONGO, THE DEMOCRATIC REPUBLIC OF", "CD" },
-            { "C\u00D4TE D'IVOIRE", "CI" },
-            { "C\uFFFDTE D'IVOIRE", "CI" },
-            { "HEARD ISLAND AND McDONALD ISLANDS", "HM" },
-            { "INTERNATIONAL MONETARY FUND (I.M.F)", "ZZ" },
-            { "IRAN (ISLAMIC REPUBLIC OF)", "IR" },
-            { "MICRONESIA (FEDERATED STATES OF)", "FM" },
-            { "R\u00C9UNION", "RE" },
-            { "R\uFFFDUNION", "RE" },
-            { "S\u00C3O TOME AND PRINCIPE", "ST" },
-            { "S\uFFFDO TOME AND PRINCIPE", "ST" },
-            { "SERBIA AND MONTENEGRO *", "CS" },
-            { "VIRGIN ISLANDS (BRITISH)", "VG" },
-            { "VIRGIN ISLANDS (US)", "VI" },
-            { "VIRGIN ISLANDS (U.S.)", "VI" },
-            { "MOLDOVA, REPUBLIC OF", "MD" },
-            { "SAINT-BARTHÉLEMY", "EU" },
-            { "SAINT MARTIN", "MF" }, // not in lstreg.txt, in language-subtag-registry as "Saint Martin (French Part)"
-            { "ZZ", "ZZ" },
-            { "IRAN, ISLAMIC REPUBLIC OF", "IR" },
-            { "KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF", "KP" },
-            { "KOREA, REPUBLIC OF", "KR" },
-            { "MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF", "MK" },
-            { "MICRONESIA, FEDERATED STATES OF", "FM" },
-            { "TANZANIA, UNITED REPUBLIC OF", "TZ" },
-            { "VATICAN CITY STATE (Holy See)", "VA" },
-        };
-        for (String[] pair : extras) {
-            iso4217CountryToCountryCode.put(pair[0], pair[1]);
-        }
+        iso4217CountryToCountryCode.putAll(COUNTRY_CORRECTIONS);
     }
 
     private Relation<String, Data> codeList = new Relation(new TreeMap(), TreeSet.class, null);
     private Relation<String, String> countryToCodes = new Relation(new TreeMap(), TreeSet.class, null);
-    private String version;
 
-    public static class Data implements Comparable {
+    public static class Data implements Comparable<Object> {
         private String name;
         private String countryCode;
         private int numericCode;
+        private int minor_unit;
 
-        public Data(String countryCode, String name, String numericCode) {
-            this.countryCode = getCountryCode(countryCode);
+        public Data(String countryCode, String name, int numericCode, int minor_unit) {
+            this.countryCode = countryCode;
             this.name = name;
-            this.numericCode = numericCode.equals("Nil") || numericCode.length() == 0 ? -1 : Integer
-                .parseInt(numericCode);
-        }
-
-        String getCountryCode(String iso4217Country) {
-            iso4217Country = iso4217Country.trim();
-            if (iso4217Country.startsWith("\"")) {
-                iso4217Country = iso4217Country.substring(1, iso4217Country.length() - 1);
-            }
-            String name = iso4217CountryToCountryCode.get(iso4217Country);
-            if (name != null) return name;
-            exceptionList.add(String.format("\t\t{\"%s\", \"XXX\"}, // fix XXX and add to extras in "
-                + StackTracker.currentElement(0).getFileName() + CldrUtility.LINE_SEPARATOR, iso4217Country));
-            return "???" + iso4217Country;
+            this.numericCode = numericCode;
+            this.minor_unit = minor_unit;
         }
 
         public String getCountryCode() {
@@ -104,6 +98,10 @@ public class IsoCurrencyParser {
 
         public int getNumericCode() {
             return numericCode;
+        }
+
+        public int getMinorUnit() {
+            return minor_unit;
         }
 
         public String toString() {
@@ -120,110 +118,122 @@ public class IsoCurrencyParser {
         }
     }
 
-    private static IsoCurrencyParser INSTANCE = new IsoCurrencyParser();
+    private static IsoCurrencyParser INSTANCE_WITHOUT_EXTENSIONS = new IsoCurrencyParser(false);
+    private static IsoCurrencyParser INSTANCE_WITH_EXTENSIONS = new IsoCurrencyParser(true);
 
-    public String getVersion() {
-        return version;
+    public static IsoCurrencyParser getInstance(boolean useCLDRExtensions) {
+        return useCLDRExtensions ? INSTANCE_WITH_EXTENSIONS : INSTANCE_WITHOUT_EXTENSIONS;
     }
 
     public static IsoCurrencyParser getInstance() {
-        return INSTANCE;
+        return getInstance(true);
     }
 
     public Relation<String, Data> getCodeList() {
         return codeList;
     }
 
-    private IsoCurrencyParser() {
-        String line = null;
-        Set<String> currencies = new TreeSet();
-        try {
-            StandardCodes sc = StandardCodes.make();
-            version = getFlatList();
-            oldValues.addAll(sc.getAvailableCodes("currency"));
-            oldValues.removeAll(codeList.keySet());
-            for (String code : oldValues) {
-                String name = sc.getData("currency", code);
-                Data data = new Data("ZZ", name, "-1");
-                codeList.put(code, data);
-            }
-            if (exceptionList.size() != 0) {
-                throw new IllegalArgumentException(exceptionList.toString());
-            }
-            codeList.freeze();
-            countryToCodes.freeze();
-            // Set<String> remainder = new TreeSet(codeList.keySet());
-            // System.out.format("MISSING: %s" + Utility.LINE_SEPARATOR, Utility.join(oldValues," "));
-            // remainder.removeAll(StandardCodes.make().getAvailableCodes("currency"));
-            // if (remainder.size() != 0) {
-            // throw new IllegalArgumentException("Missing value; update internal list");
-            // }
-        } catch (RuntimeException e) {
-            throw e;
-        } catch (Exception e) {
-            throw (RuntimeException) new IllegalArgumentException().initCause(e);
+    private IsoCurrencyParser(boolean useCLDRExtensions) {
+
+        ISOCurrencyHandler isoCurrentHandler = new ISOCurrencyHandler();
+        XMLFileReader xfr = new XMLFileReader().setHandler(isoCurrentHandler);
+        xfr.read(ISO_CURRENT_CODES_XML, -1, false);
+        // xfr.read(ISO_HISTORIC_CODES_XML, -1, false);
+        if (useCLDRExtensions) {
+            xfr.read(CLDR_EXTENSIONS_XML, -1, false);
         }
+        if (exceptionList.size() != 0) {
+            throw new IllegalArgumentException(exceptionList.toString());
+        }
+        codeList.freeze();
+        countryToCodes.freeze();
     }
 
     /*
      * private Relation<String,Data> codeList = new Relation(new TreeMap(), TreeSet.class, null);
      * private String version;
      */
-    // just public for testing
-    private String getFlatList() throws IOException {
-        String[] parts = new String[0];
-        String lastCountry = "";
-        String line;
-        String version = null;
-        BufferedReader in = CldrUtility.getUTF8Data(CURRENCYCODESLIST_TXT);
-        while (true) {
-            line = in.readLine();
-            if (line == null) break;
-            if (line.startsWith("Last modified")) {
-                version = line.substring(14).trim();
-                continue;
-            }
-            parts = line.split("\t");
-            if (parts.length == 0) continue;
-            if (parts.length < 4 || parts[3].equals("Numeric") || parts[3].equals("")) {
-                // System.out.format("Skipping %s" + Utility.LINE_SEPARATOR, Arrays.asList(parts));
-                continue;
-            }
-            // AFGHANISTAN Afghani AFN 971
-            String countryCode = parts[0].length() != 0 ? parts[0] : lastCountry;
-            Data data = new Data(countryCode, parts[1], parts[3]);
-            codeList.put(parts[2], data);
-            countryToCodes.put(data.getCountryCode(), parts[2]);
-            lastCountry = countryCode.equals("ZIMBABWE") ? "ZZ" : countryCode;
-        }
-        in.close();
-        return version;
-    }
-
-    Set<String> oldValues = new TreeSet(Arrays.asList(new String[] {
-        "ADP", "AFA", "AOK", "AON", "AOR", "ARA", "ARP", "ATS", "AZM",
-        "BAD", "BEC", "BEF", "BEL", "BGL", "BOP", "BRB", "BRC", "BRE", "BRN", "BRR", "BUK", "BYB",
-        "CSD", "CSK",
-        "DDM", "DEM",
-        "ECS", "ECV", "ESA", "ESB", "ESP",
-        "FIM", "FRF",
-        "GEK", "GNS", "GQE", "GRD", "GWE",
-        "HRD",
-        "IEP", "ILP", "ITL",
-        "LTT", "LUC", "LUF", "LUL", "LVR",
-        "MAF", "MGF", "MLF", "MTP", "MXP", "MZE", "MZM",
-        "NIC", "NLG",
-        "PEI", "PES", "PLZ", "PTE",
-        "RHD", "RSD", "RUR",
-        "SDD", "SDP", "SRG", "SUR",
-        "TJR", "TPE", "TRL",
-        "UAK", "UGS", "UYP",
-        "XEU", "XRE",
-        "YDD", "YUD", "YUM", "YUN",
-        "ZAL", "ZRN", "ZRZ"
-    }));
 
     public Relation<String, String> getCountryToCodes() {
         return countryToCodes;
+    }
+
+    public static String getCountryCode(String iso4217Country) {
+        iso4217Country = iso4217Country.trim();
+        if (iso4217Country.startsWith("\"")) {
+            iso4217Country = iso4217Country.substring(1, iso4217Country.length() - 1);
+        }
+        String name = iso4217CountryToCountryCode.get(iso4217Country);
+        if (name != null) return name;
+        if (iso4217Country.startsWith("ZZ")) {
+            return "ZZ";
+        }
+        exceptionList.add(String.format("\t\t{\"%s\", \"XXX\"}, // fix XXX and add to COUNTRY_CORRECTIONS in "
+            + StackTracker.currentElement(0).getFileName() + CldrUtility.LINE_SEPARATOR, iso4217Country));
+        return "ZZ";
+    }
+
+    public class ISOCurrencyHandler extends XMLFileReader.SimpleHandler {
+
+        // This Set represents the entries in ISO4217 which we know to be bad.  I have sent e-mail
+        // to the ISO 4217 Maintenance agency attempting to get them removed.  Once that happens,
+        // we can remove these as well.
+        // SVC - El Salvador Colon - not used anymore ( uses USD instead )
+        // ZWL - Last Zimbabwe Dollar - abandoned due to hyper-inflation.
+        Set<String> KNOWN_BAD_ISO_DATA_CODES = new TreeSet<String>(Arrays.asList("SVC", "ZWL"));
+        XPathParts parts = new XPathParts();
+        String country_code;
+        String currency_name;
+        String alphabetic_code;
+        int numeric_code;
+        int minor_unit;
+
+        /**
+         * Finish processing anything left hanging in the file.
+         */
+        public void cleanup() {
+        }
+
+        public void handlePathValue(String path, String value) {
+            try {
+                parts.set(path);
+                String type = parts.getElement(-1);
+                if (type.equals("ENTITY")) {
+                    country_code = getCountryCode(value);
+                    if (country_code == null) {
+                        country_code = "ZZ";
+                    }
+                    alphabetic_code = "XXX";
+                    numeric_code = -1;
+                    minor_unit = 0;
+                } else if (type.equals("CURRENCY")) {
+                    currency_name = value;
+                } else if (type.equals("ALPHABETIC_CODE")) {
+                    alphabetic_code = value;
+                } else if (type.equals("NUMERIC_CODE")) {
+                    try {
+                        numeric_code = Integer.valueOf(value);
+                    } catch (NumberFormatException ex) {
+                        numeric_code = -1;
+                    }
+                } else if (type.equals("MINOR_UNIT")) {
+                    try {
+                        minor_unit = Integer.valueOf(value);
+                    } catch (NumberFormatException ex) {
+                        minor_unit = 0;
+                    }
+                }
+
+                if (type.equals("MINOR_UNIT") && alphabetic_code.length() > 0 && !KNOWN_BAD_ISO_DATA_CODES.contains(alphabetic_code)) {
+                    Data data = new Data(country_code, currency_name, numeric_code, minor_unit);
+                    codeList.put(alphabetic_code, data);
+                    countryToCodes.put(data.getCountryCode(), alphabetic_code);
+                }
+
+            } catch (Exception e) {
+                throw (IllegalArgumentException) new IllegalArgumentException("path: "
+                    + path + ",\tvalue: " + value).initCause(e);
+            }
+        }
     }
 }

@@ -315,12 +315,14 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public void TestCompleteness() {
         if (testInfo.getSupplementalDataInfo().getSkippedElements().size() > 0) {
-            logln("SupplementalDataInfo API doesn't support: " + testInfo.getSupplementalDataInfo().getSkippedElements().toString());
+            logln("SupplementalDataInfo API doesn't support: "
+                + testInfo.getSupplementalDataInfo().getSkippedElements().toString());
         }
     }
 
     // these are settings for exceptional cases we want to allow
-    private static final Set<String> EXCEPTION_CURRENCIES_WITH_NEW = new TreeSet<String>(Arrays.asList("NZD", "PGK"));
+    private static final Set<String> EXCEPTION_CURRENCIES_WITH_NEW = new TreeSet<String>(Arrays.asList("ILS", "NZD",
+        "PGK", "TWD"));
 
     // ok since there is no problem with confusion
     private static final Set<String> OK_TO_NOT_HAVE_OLD = new TreeSet<String>(Arrays.asList(
@@ -343,18 +345,22 @@ public class TestSupplementalInfo extends TestFmwk {
     public void TestCurrency() {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
         Set<String> currencyCodes = testInfo.getStandardCodes().getGoodAvailableCodes("currency");
-        Relation<String, Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes = new Relation(new TreeMap(),
+        Relation<String, Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes = Relation.of(
+            new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
             TreeSet.class);
-        Relation<String, Pair<String, CurrencyDateInfo>> modernCurrencyCodes = new Relation(new TreeMap(),
+        Relation<String, Pair<String, CurrencyDateInfo>> modernCurrencyCodes = Relation.of(
+            new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
             TreeSet.class);
-        Set<String> territoriesWithoutModernCurrencies = new TreeSet(testInfo.getStandardCodes().getGoodAvailableCodes(
-            "territory"));
-        Map<String, Date> currencyFirstValid = new TreeMap();
-        Map<String, Date> currencyLastValid = new TreeMap();
+        Set<String> territoriesWithoutModernCurrencies = new TreeSet<String>(testInfo.getStandardCodes()
+            .getGoodAvailableCodes(
+                "territory"));
+        Map<String, Date> currencyFirstValid = new TreeMap<String, Date>();
+        Map<String, Date> currencyLastValid = new TreeMap<String, Date>();
         territoriesWithoutModernCurrencies.remove("ZZ");
 
         for (String territory : testInfo.getStandardCodes().getGoodAvailableCodes("territory")) {
-            if (testInfo.getSupplementalDataInfo().getContained(territory) != null) {
+            /* "EU" behaves like a country for purposes of this test */
+            if ((testInfo.getSupplementalDataInfo().getContained(territory) != null) && !territory.equals("EU")) {
                 territoriesWithoutModernCurrencies.remove(territory);
                 continue;
             }
@@ -377,7 +383,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (lastValue == null || lastValue.compareTo(end) > 0) {
                     currencyLastValid.put(currency, end);
                 }
-                if (end.compareTo(NOW) >= 0 && dateInfo.isLegalTender()) {
+                if (end.compareTo(NOW) >= 0) { // Non-tender is OK...
                     modernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));
                     territoriesWithoutModernCurrencies.remove(territory);
                 } else {
@@ -389,15 +395,15 @@ public class TestSupplementalInfo extends TestFmwk {
         }
         // fix up
         nonModernCurrencyCodes.removeAll(modernCurrencyCodes.keySet());
-        Relation<String, String> isoCurrenciesToCountries = new Relation(new TreeMap(), TreeSet.class)
+        Relation<String, String> isoCurrenciesToCountries = Relation.of(new TreeMap<String, Set<String>>(),
+            TreeSet.class)
             .addAllInverted(isoCodes.getCountryToCodes());
-
         // now print error messages
         logln("Modern Codes: " + modernCurrencyCodes.size() + "\t" + modernCurrencyCodes);
         Set<String> missing = new TreeSet<String>(isoCurrenciesToCountries.keySet());
         missing.removeAll(modernCurrencyCodes.keySet());
         if (missing.size() != 0) {
-            errln("Missing codes compared to ISO: " + missing);
+            errln("Missing codes compared to ISO: " + missing.toString());
         }
 
         for (String currency : modernCurrencyCodes.keySet()) {
@@ -414,23 +420,24 @@ public class TestSupplementalInfo extends TestFmwk {
                 cldrCountries.add(x.getFirst());
             }
             if (!isoCountries.equals(cldrCountries)) {
-                warnln("Mismatch between ISO and Cldr modern currencies for " + currency + "\t" + isoCountries + "\t"
+                errln("Mismatch between ISO and Cldr modern currencies for " + currency + "\tISO:" + isoCountries
+                    + "\tCLDR:"
                     + cldrCountries);
                 showCountries("iso-cldr", isoCountries, cldrCountries, missing);
                 showCountries("cldr-iso", cldrCountries, isoCountries, missing);
             }
 
             if (oldMatcher.reset(name).find()) {
-                warnln("Has 'old' in name but still used " + "\t" + currency + "\t" + name + "\t" + data);
+                errln("Has 'old' in name but still used " + "\t" + currency + "\t" + name + "\t" + data);
             }
             if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
                 // find the first use. If older than 5 years, flag as error
                 if (currencyFirstValid.get(currency).compareTo(LIMIT_FOR_NEW_CURRENCY) < 0) {
-                    warnln("Has 'new' in name but used since "
+                    errln("Has 'new' in name but used since "
                         + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name
                         + "\t" + data);
                 } else {
-                    warnln("Has 'new' in name but used since "
+                    logln("Has 'new' in name but used since "
                         + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name
                         + "\t" + data);
                 }
@@ -463,13 +470,13 @@ public class TestSupplementalInfo extends TestFmwk {
 
             }
         }
-        Set remainder = new TreeSet();
+        Set<String> remainder = new TreeSet<String>();
         remainder.addAll(currencyCodes);
         remainder.removeAll(nonModernCurrencyCodes.keySet());
         // TODO make this an error, except for allowed exceptions.
         logln("Currencies without Territories: " + remainder);
         if (territoriesWithoutModernCurrencies.size() != 0) {
-            warnln("Modern territory missing currency: " + territoriesWithoutModernCurrencies);
+            errln("Modern territory missing currency: " + territoriesWithoutModernCurrencies);
         }
     }
 
@@ -479,7 +486,7 @@ public class TestSupplementalInfo extends TestFmwk {
         missing.addAll(isoCountries);
         missing.removeAll(cldrCountries);
         for (String country : missing) {
-            warnln("\t\tExtra in " + title + "\t" + country + " - " + getRegionName(country));
+            logln("\t\tExtra in " + title + "\t" + country + " - " + getRegionName(country));
         }
     }
 

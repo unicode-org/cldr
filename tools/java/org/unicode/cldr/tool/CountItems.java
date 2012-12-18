@@ -270,8 +270,6 @@ public class CountItems {
         String broken = CldrUtility.breakLines(list.toString(), sep, Pattern.compile(
             "([A-Z])[A-Z][A-Z]").matcher(""), 80);
         assert (list.toString().equals(broken.replace(sep, " ")));
-        System.out.println("\t\t\t<!-- currency version "
-            + isoCurrencyParser.getVersion() + " -->");
         System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">"
             + broken + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
         Set<String> isoTextFileCodes = StandardCodes.make().getAvailableCodes(

@@ -12,6 +12,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLFileReader;
 
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Utility;
 
 public class IsoCurrencyParser {
 
@@ -35,19 +36,23 @@ public class IsoCurrencyParser {
      * in the language subtag registry.
      */
     private static final Map<String, String> COUNTRY_CORRECTIONS = CldrUtility.asMap(new String[][] {
+        { Utility.unescape("R\u00C9UNION"), "RE"},
+        { Utility.unescape("\u00C5LAND ISLANDS"), "AX"}, 
         { "BOLIVIA, PLURINATIONAL STATE OF", "BO" },
         { "CONGO, THE DEMOCRATIC REPUBLIC OF", "CD" },
+        { Utility.unescape("C\u00D4TE D\u2019IVOIRE"), "CI"},
+        { Utility.unescape("CURA\u00C7AO"), "CW"},
         { "HEARD ISLAND AND McDONALD ISLANDS", "HM" },
-        { "INTERNATIONAL MONETARY FUND (IMF)\u00A0", "ZZ" },
+        { Utility.unescape("INTERNATIONAL MONETARY FUND (IMF)\u00A0"), "ZZ" },
         { "IRAN, ISLAMIC REPUBLIC OF", "IR" },
         { "VIRGIN ISLANDS (BRITISH)", "VG" },
         { "VIRGIN ISLANDS (US)", "VI" },
-        { "KOREA, DEMOCRATIC PEOPLE\u2019S REPUBLIC OF", "KP" },
+        { Utility.unescape("KOREA, DEMOCRATIC PEOPLE\u2019S REPUBLIC OF"), "KP" },
         { "KOREA, REPUBLIC OF", "KR" },
         { "MICRONESIA, FEDERATED STATES OF", "FM" },
         { "TANZANIA, UNITED REPUBLIC OF", "TZ" },
         { "Vatican City State (HOLY SEE)", "VA" },
-        { "LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC", "LA" },
+        { Utility.unescape("LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC"), "LA" },
         { "MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF", "MK" },
         { "MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ" },
         { "MOLDOVA, REPUBLIC OF", "MD"},
@@ -55,9 +60,8 @@ public class IsoCurrencyParser {
         { "SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"", "ZZ" },
         { "VENEZUELA, BOLIVARIAN REPUBLIC OF", "VE" },
         { "EUROPEAN MONETARY CO-OPERATION FUND (EMCF)", "ZZ" },
-//        { "FRENCH  GUIANA", "GF" },
         { "SAINT MARTIN", "MF" },
-        { "SAINT-BARTH\u00C9LEMY", "BL" },
+        { "SAINT BARTH\u00C9LEMY", "BL" },
     });
 
     static Map<String, String> iso4217CountryToCountryCode = new TreeMap<String, String>();
@@ -138,7 +142,6 @@ public class IsoCurrencyParser {
         ISOCurrencyHandler isoCurrentHandler = new ISOCurrencyHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(isoCurrentHandler);
         xfr.read(ISO_CURRENT_CODES_XML, -1, false);
-        // xfr.read(ISO_HISTORIC_CODES_XML, -1, false);
         if (useCLDRExtensions) {
             xfr.read(CLDR_EXTENSIONS_XML, -1, false);
         }

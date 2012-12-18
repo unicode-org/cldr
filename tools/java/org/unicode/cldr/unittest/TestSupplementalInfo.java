@@ -129,7 +129,7 @@ public class TestSupplementalInfo extends TestFmwk {
             mapItems.add(item);
             mapItems.addAll(map.getAll(item));
         }
-        Map<String, Map<String, String>> bcp47RegionData = testInfo.getStandardCodes().getLStreg().get("region");
+        Map<String, Map<String, String>> bcp47RegionData = StandardCodes.getLStreg().get("region");
 
         // verify that all regions are covered
         Set<String> bcp47Regions = new LinkedHashSet<String>(bcp47RegionData.keySet());
@@ -217,7 +217,7 @@ public class TestSupplementalInfo extends TestFmwk {
         }
         replacementToReplaced.freeze();
 
-        Map<String, Map<String, Map<String, String>>> lstreg = testInfo.getStandardCodes().getLStreg();
+        Map<String, Map<String, Map<String, String>>> lstreg = StandardCodes.getLStreg();
         Map<String, Map<String, String>> lstregLanguageInfo = lstreg.get("language");
 
         Relation<Scope, String> scopeToCodes = new Relation(new TreeMap(), TreeSet.class);

@@ -202,8 +202,8 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="BEF" from="1831-02-07" to="2002-02-28"/>
             <currency iso4217="NLG" from="1816-12-15" to="1831-02-07"/>
-            <currency iso4217="BEL" tender="false"/>
-            <currency iso4217="BEC" tender="false"/>
+            <currency iso4217="BEL" from="1970-01-01" to="1990-03-05" tender="false"/>
+            <currency iso4217="BEC" from="1970-01-01" to="1990-03-05" tender="false"/>
         </region>
         <region iso3166="BF">
             <currency iso4217="XOF" from="1984-08-04"/>
@@ -320,7 +320,7 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="CN">
             <currency iso4217="CNY" from="1953-03-01"/>
-            <currency iso4217="CNX" tender="false"/>
+            <currency iso4217="CNX" from="1979-01-01" to="1998-12-31" tender="false"/>
         </region>
         <region iso3166="CO">
             <currency iso4217="COP" from="1905-01-01"/>
@@ -373,8 +373,7 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="DEM" from="1948-06-20" to="2002-02-28"/>
         </region>
-        <region iso3166="DG"><!-- UK/US overseas territories. No indigenous population -->
-            <currency iso4217="GBP" from="1965-11-08"/>
+        <region iso3166="DG"><!-- UK/US overseas territories. No indigenous population, military bases only -->
             <currency iso4217="USD" from="1965-11-08"/>
         </region>
         <region iso3166="DJ">
@@ -399,7 +398,7 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         <region iso3166="EC">
             <currency iso4217="USD" from="2000-10-02"/>
             <currency iso4217="ECS" from="1884-04-01" to="2000-10-02"/>
-            <currency iso4217="ECV" tender="false"/>
+            <currency iso4217="ECV" from="1993-05-23" to="2000-01-09" tender="false"/>
         </region>
         <region iso3166="EE">
             <currency iso4217="EUR" from="2011-01-01"/>
@@ -419,8 +418,12 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         <region iso3166="ES">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="ESP" from="1868-10-19" to="2002-02-28"/>
-            <currency iso4217="ESA" tender="false"/>
-            <currency iso4217="ESB" tender="false"/>
+            <currency iso4217="ESA" from="1978-01-01" to="1981-12-31" tender="false"/>
+            <currency iso4217="ESB" from="1975-01-01" to="1994-12-31" tender="false"/>
+        </region>
+        <region iso3166="EU"><!-- European Union -->
+            <currency iso4217="EUR" from="1999-01-01"/>
+            <currency iso4217="XEU" from="1979-01-01" to="1998-12-31" tender="false"/>
         </region>
         <region iso3166="ET">
             <currency iso4217="ETB" from="1976-09-15"/>
@@ -563,9 +566,8 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         <region iso3166="IN">
             <currency iso4217="INR" from="1835-08-17"/>
         </region>
-        <region iso3166="IO"><!-- UK/US overseas territories. No indigenous population -->
+        <region iso3166="IO"><!-- UK/US overseas territories. No indigenous population, military bases only -->
             <currency iso4217="USD" from="1965-11-08"/>
-            <currency iso4217="GBP" from="1965-11-08"/>
         </region>
         <region iso3166="IQ">
             <currency iso4217="IQD" from="1931-04-19"/>
@@ -670,8 +672,8 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         <region iso3166="LU">
             <currency iso4217="EUR" from="1999-01-01"/>
             <currency iso4217="LUF" from="1944-09-4" to="2002-02-28"/>
-            <currency iso4217="LUC" tender="false"/>
-            <currency iso4217="LUL" tender="false"/>
+            <currency iso4217="LUC" from="1970-01-01" to="1990-03-05" tender="false"/>
+            <currency iso4217="LUL" from="1970-01-01" to="1990-03-05" tender="false"/>
         </region>
         <region iso3166="LV">
             <currency iso4217="LVL" from="1993-06-28"/>
@@ -712,7 +714,6 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="MH">
             <currency iso4217="USD" from="1944-01-01"/>
-            <!-- currency iso4217="MHD" from="1979-05-01"/ --><!-- Not listed in the 2001 or 2004 list -->
         </region>
         <region iso3166="MK">
             <currency iso4217="MKD" from="1993-05-20"/>
@@ -727,7 +728,6 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="MM">
             <currency iso4217="MMK" from="1989-06-18"/>
-            <!-- currency iso4217="MMX" from="1993"/ --><!-- Not listed in the 2001 or 2004 list -->
             <currency iso4217="BUK" from="1952-07-01" to="1989-06-18"/>
         </region>
         <region iso3166="MN">
@@ -780,7 +780,7 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="NA">
             <currency iso4217="NAD" from="1993-01-01"/>
-            <currency iso4217="ZAR" from="1961-02-14" to="1993-01-01"/>
+            <currency iso4217="ZAR" from="1961-02-14"/>
         </region>
         <region iso3166="NC">
             <currency iso4217="XPF" from="1985-01-01"/>
@@ -861,8 +861,8 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="ESP" from="1800-01-01" to="1898-12-10"/>
         </region>
         <region iso3166="PS">
-            <currency iso4217="JOD" from="1996-02-12"/>
             <currency iso4217="ILS" from="1985-09-04"/>
+            <currency iso4217="JOD" from="1996-02-12"/>
             <currency iso4217="ILP" from="1967-06" to="1980-02-22"/>
             <currency iso4217="JOD" from="1950-07-01" to="1967-06-01"/>
         </region>
@@ -878,9 +878,6 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="QA">
             <currency iso4217="QAR" from="1973-05-19"/>
-        </region>
-        <region iso3166="EU"><!-- European Union -->
-            <currency iso4217="EUR" from="1999-01-01"/>
         </region>
         <region iso3166="RE">
             <currency iso4217="EUR" from="1999-01-01"/>
@@ -1142,7 +1139,7 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="ZA">
             <currency iso4217="ZAR" from="1961-02-14"/>
-            <currency iso4217="ZAL" tender="false"/>
+            <currency iso4217="ZAL" from="1985-09-01" to="1995-03-13" tender="false"/>
         </region>
         <region iso3166="ZM">
             <currency iso4217="ZMK" from="1968-01-16"/>
@@ -1167,12 +1164,11 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="XBC" tender="false"/>
             <currency iso4217="XBD" tender="false"/>
             <currency iso4217="XDR" tender="false"/>
-            <currency iso4217="XEU" tender="false"/>
-            <currency iso4217="XFO" tender="false"/>
+            <currency iso4217="XFO" from="1930-01-01" to="2003-04-01" tender="false"/>
             <currency iso4217="XFU" tender="false"/>
             <currency iso4217="XPD" tender="false"/>
             <currency iso4217="XPT" tender="false"/>
-            <currency iso4217="XRE" tender="false"/>
+            <currency iso4217="XRE" to="1999-11-30" tender="false"/>
             <currency iso4217="XSU" tender="false"/>
             <currency iso4217="XTS" tender="false"/>
             <currency iso4217="XUA" tender="false"/>

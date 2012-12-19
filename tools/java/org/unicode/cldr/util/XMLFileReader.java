@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.nio.charset.Charset;
 import java.util.Stack;
 
 import org.xml.sax.Attributes;
@@ -80,7 +81,7 @@ public class XMLFileReader {
         try {
             InputStream fis = new FileInputStream(fileName);
             // fis = new DebuggingInputStream(fis);
-            return read(fileName, new InputStreamReader(fis), handlers, validating);
+            return read(fileName, new InputStreamReader(fis,Charset.forName("UTF-8")), handlers, validating);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fileName).initCause(e);
         }

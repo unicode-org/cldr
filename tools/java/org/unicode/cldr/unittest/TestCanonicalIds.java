@@ -101,7 +101,7 @@ public class TestCanonicalIds extends TestFmwk {
         UnicodeSet s = new UnicodeSet();
         for (String value : values) {
             R2<List<String>, String> replacement = badMap.get(value);
-            if (replacement != null && !isOk(type, value)) {
+            if (replacement != null && replacement.get1().equals("deprecated") && !isOk(type, value)) {
                 errln("Deprecated value in " + key + ":\t" + value + " should be " + badMap.get(value).get0());
             }
             if (type == Type.script) {
@@ -160,6 +160,28 @@ public class TestCanonicalIds extends TestFmwk {
             }
             long deprecationYear = Integer.parseInt(m.group(1));
             if (CURRENT_YEAR - deprecationYear <= 5) {
+                logln("Region "+value+" is deprecated but less than 5 years...");
+                return true;
+            }
+        } else if (type == Type.language) {
+            Map<String, String> languageInfo = StandardCodes.getLStreg().get("language").get(value);
+            if (languageInfo == null) {
+                errln("Language info null for " + value);
+                return false;
+            }
+            String deprecated = languageInfo.get("Deprecated");
+            if (deprecated == null) {
+                errln("No deprecated info for " + value);
+                return false;
+            }
+            Matcher m = Pattern.compile("(\\d{4})-(\\d{2})-(\\d{2})").matcher(deprecated);
+            if (!m.matches()) {
+                errln("Bad deprecated date for " + value + ", " + deprecated);
+                return false;
+            }
+            long deprecationYear = Integer.parseInt(m.group(1));
+            if (CURRENT_YEAR - deprecationYear <= 5) {
+                logln("Language "+value+" is deprecated but less than 5 years...");
                 return true;
             }
         }

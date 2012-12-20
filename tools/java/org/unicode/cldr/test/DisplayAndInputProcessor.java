@@ -286,7 +286,7 @@ public class DisplayAndInputProcessor {
 
     private String replace(Pattern pattern, String value, String replacement) {
         String value2 = pattern.matcher(value).replaceAll(replacement);
-        if (!value.equals(value2)) {
+        if (DEBUG_DAIP && !value.equals(value2)) {
             System.out.println("\n" + value + " => " + value2);
         }
         return value2;

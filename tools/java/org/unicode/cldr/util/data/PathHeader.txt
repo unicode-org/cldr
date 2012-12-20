@@ -18,7 +18,8 @@
 //ldml/identity/version                 ; Special ; Version ; null ; version ; HIDE
 //ldml/identity/generation                 ; Special ; Version ; null ; generation ; HIDE
 
-//ldml/(.*)/default$         ; Special ; Suppress ; Default ; $1 ; DEPRECATED
+# default items need to be deprecated but haven't been yet.
+//ldml/(.*)/default$         ; Special ; Suppress ; Default ; $1 ; HIDE
 //ldml/(.*)/alias$           ; Special ; Suppress ; Alias ; $1 ; HIDE
 
 //ldml/localeDisplayNames/languages/language[@type="%A"]                    ; Code Lists ; Languages ; &scriptFromLanguage($1) ; $1
@@ -97,10 +98,10 @@
 
 # HIDE OTHERS
 
-//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Special ; Labels2 ; Date Fields-$1 ; $2 ; DEPRECATED
+# //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Special ; Labels2 ; Date Fields-$1 ; $2 ; DEPRECATED
 
 # These should be deprecated
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Labels ; Append-Fallback-$1 ; $2 ; DEPRECATED
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Labels ; Append-Fallback-$1 ; $2 ; HIDE
 
 
 //ldml/fallback                             ; Special ; Deprecated ; null ; fallback ; DEPRECATED

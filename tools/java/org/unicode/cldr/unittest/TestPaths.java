@@ -50,7 +50,7 @@ public class TestPaths extends TestFmwk {
 
     public void TestPathHeaders() {
         if (params.inclusion == 0) {
-            warnln("TestPathHeaders skipped, use -e to include");
+            logln("TestPathHeaders skipped, use -e to include");
             return;
         }
 

@@ -66,9 +66,13 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                     me.recordingAttributeElements = true;
                     String filename = CldrUtility.MAIN_DIRECTORY + "/root.xml";
                     File file = new File(filename);
-                    System.out.println("Opening " + file.getCanonicalFile());
+                    if (DEBUG) {
+                        System.out.println("Opening " + file.getCanonicalFile());
+                    }
                     File dtd = new File(file.getCanonicalPath() + "/../" + "../../common/dtd/ldml.dtd");
-                    System.out.println("Opening " + dtd.getCanonicalFile());
+                    if (DEBUG) {
+                        System.out.println("Opening " + dtd.getCanonicalFile());
+                    }
 
                     fis = new FileInputStream(filename);
                     if (DEBUG) {
@@ -88,7 +92,9 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                     filename = CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY
                         + "/supplementalData.xml";
                     File file2 = new File(filename);
-                    System.out.println("Opening " + file2.getCanonicalFile());
+                    if (DEBUG) {
+                        System.out.println("Opening " + file2.getCanonicalFile());
+                    }
 
                     fis = new FileInputStream(filename);
                     is = new InputSource(fis);
@@ -261,8 +267,11 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                 break;
             }
         }
-        System.out.println("New code in CLDRFile:\n" + result);
-        System.out.println("Old code in CLDRFile:\n" + orderingList);
+
+        if (DEBUG) {
+            System.out.println("New code in CLDRFile:\n" + result);
+            System.out.println("Old code in CLDRFile:\n" + orderingList);
+        }
         // System.out.println("New code2: " + CldrUtility.breakLines(CldrUtility.join(result, " "), sep,
         // FIRST_LETTER_CHANGE.matcher(""), 80));
 
@@ -507,7 +516,6 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
         if (name.indexOf("contractions") >= 0
             || model
                 .indexOf("[alias, base, settings, suppress, contractions, optimize, rules, special]") >= 0) {
-            System.out.println("debug");
         }
         allDefinedElements.add(name);
         if (SHOW_PROGRESS) {

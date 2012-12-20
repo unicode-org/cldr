@@ -185,7 +185,6 @@ public class TestPathHeader extends TestFmwk {
         String locale = "af";
         CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
-        System.out.println(" Coverage Levels for:\t" + locale);
         for (String path : cldrFile.fullIterable()) {
             PathHeader p = pathHeaderFactory.fromPath(path);
             Level level = coverageLevel.getLevel(path);
@@ -230,7 +229,7 @@ public class TestPathHeader extends TestFmwk {
                 final Set<String> cachedPaths = PathHeader.Factory.getCachedPaths(section, page);
                 if (cachedPaths == null) {
                     if (!badZonePages.contains(page) && page != PageId.Unknown) {
-                        warnln("Null pages for: " + section + "\t" + page);
+                        errln("Null pages for: " + section + "\t" + page);
                     }
                 } else {
                     int count2 = cachedPaths.size();
@@ -386,7 +385,7 @@ public class TestPathHeader extends TestFmwk {
 
             if (tempSTS != oldStatus && oldStatus != SurveyToolStatus.READ_WRITE) {
                 if (!differentStar.contains(starred)) {
-                    warnln("Different from old:\t" + oldStatus + "\t" + surveyToolStatus + "\t"
+                    errln("Different from old:\t" + oldStatus + "\t" + surveyToolStatus + "\t"
                         + path);
                     differentStar.add(starred);
                 }
@@ -396,7 +395,7 @@ public class TestPathHeader extends TestFmwk {
             boolean isDeprecated = supplemental.hasDeprecatedItem("ldml", parts.set(path));
             if (isDeprecated != (surveyToolStatus == SurveyToolStatus.DEPRECATED)) {
                 if (!deprecatedStar.contains(starred)) {
-                    warnln("Different from supplementalMetadata deprecated:\t" + isDeprecated + "\t"
+                    errln("Different from supplementalMetadata deprecated:\t" + isDeprecated + "\t"
                         + surveyToolStatus + "\t" + path);
                     deprecatedStar.add(starred);
                 }
@@ -479,9 +478,9 @@ public class TestPathHeader extends TestFmwk {
         } else if (!description.contains("http://")) {
             errln("Description has no URL:\t" + description + "\t" + value + "\t" + path);
         } else if (!normal.reset(description).find()) {
-            warnln("Description has generic URL, fix to be specific:\t" + description + "\t" + value + "\t" + path);
+            errln("Description has generic URL, fix to be specific:\t" + description + "\t" + value + "\t" + path);
         } else if (description == PathDescription.MISSING_DESCRIPTION) {
-            warnln("Fallback Description:\t" + value + "\t" + path);
+            errln("Fallback Description:\t" + value + "\t" + path);
         } else {
             return;
         }
@@ -497,7 +496,7 @@ public class TestPathHeader extends TestFmwk {
         for (String territory : results) {
             String sub = Containment.getSubcontinent(territory);
             String cont = Containment.getContinent(territory);
-            warnln("Missing\t" + getNameAndOrder(territory) + "\t" +
+            errln("Missing\t" + getNameAndOrder(territory) + "\t" +
                 getNameAndOrder(sub) + "\t" +
                 getNameAndOrder(cont));
         }

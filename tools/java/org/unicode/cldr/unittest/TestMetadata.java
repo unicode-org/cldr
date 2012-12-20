@@ -26,7 +26,7 @@ public class TestMetadata extends TestFmwk {
     public void TestOrdering() {
         FindDTDOrder order = FindDTDOrder.getInstance();
 
-        warnln("Make sure that all and only blocking elements are serialElements.");
+        logln("Make sure that all and only blocking elements are serialElements.");
 
         // First Elements
 

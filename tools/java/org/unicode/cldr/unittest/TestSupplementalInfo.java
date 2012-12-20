@@ -227,7 +227,7 @@ public class TestSupplementalInfo extends TestFmwk {
             .addAll(Iso639Data.getAvailable()).get()) {
             if (language.equals("no") || language.equals("sh")) continue; // special cases
             Scope languageScope = getScope(language, lstregLanguageInfo);
-            if (languageScope == Scope.Collection || languageScope == Scope.Macrolanguage) {
+            if (languageScope == Scope.Macrolanguage) {
                 if (Iso639Data.getHeirarchy(language) != null) {
                     continue main; // is real family
                 }

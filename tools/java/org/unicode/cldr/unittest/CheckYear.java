@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -45,7 +44,7 @@ public class CheckYear {
     static DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
 
     // mismatches between stocks
-    static Map<String, Relation<String, String>> stock2skeleton2locales = new LinkedHashMap();
+    static Map<String, Relation<String, String>> stock2skeleton2locales = new LinkedHashMap<String, Relation<String, String>>();
     static {
         for (String stock : STOCK) {
             stock2skeleton2locales.put("date-" + stock, Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
@@ -61,7 +60,7 @@ public class CheckYear {
         Relation<Category, String> category2base = Relation.of(new EnumMap<Category, Set<String>>(Category.class),
             TreeSet.class);
         // collisions between baseSkeletons
-        Map<String, Relation<String, Row.R2<String, String>>> base2BasePatterns2Info = new TreeMap();
+        Map<String, Relation<String, Row.R2<String, String>>> base2BasePatterns2Info = new TreeMap<String, Relation<String, Row.R2<String, String>>>();
 
         Map<String, String> skeleton2pattern = new HashMap<String, String>();
 
@@ -238,7 +237,7 @@ public class CheckYear {
 
     }
 
-    static Map<String, LocaleInfo> data = new TreeMap();
+    static Map<String, LocaleInfo> data = new TreeMap<String, LocaleInfo>();
 
     // private static final Relation<String,String> digit4 = Relation.of(new TreeMap<String,Set<String>>(),
     // TreeSet.class);
@@ -248,7 +247,6 @@ public class CheckYear {
     public static void main(String[] args) throws IOException {
         Factory englishFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile englishFile = englishFactory.make("en", true);
-        String dateString = CldrUtility.isoFormat(new Date());
 
         Factory factory = Factory.make(CldrUtility.TMP2_DIRECTORY + "vxml/common/main/", LOCALES);
         String calendarID = "gregorian";

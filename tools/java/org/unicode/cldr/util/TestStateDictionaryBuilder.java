@@ -155,7 +155,7 @@ public class TestStateDictionaryBuilder<T> {
         showDictionaryContents();
         ((StateDictionary<T>) stateDictionary).flatten();
 
-        if (false) {
+        if (SIMPLE_ONLY) {
             testWithUnicodeNames();
 
             ((StateDictionary<T>) stateDictionary).flatten();
@@ -168,7 +168,7 @@ public class TestStateDictionaryBuilder<T> {
 
     static public <U> void tryFind(CharSequence originalText, CharSource charListText, Dictionary<U> dictionary,
         Filter filter) {
-        System.out.println("Using dictionary: " + Dictionary.load(dictionary.getMapping(), new TreeMap()));
+        System.out.println("Using dictionary: " + Dictionary.load(dictionary.getMapping(), new TreeMap<CharSequence, U>()));
         System.out.println("Searching in: {" + originalText + "} with filter=" + filter);
         // Dictionaries are immutable, so we create a Matcher to search/test text.
         Matcher matcher = dictionary.getMatcher();
@@ -215,7 +215,7 @@ public class TestStateDictionaryBuilder<T> {
         // ((Dictionary.Builder) simpleDictionary).addMapping(string, i);
         // ((Dictionary.Builder) stateDictionary).addMapping(string, i);
 
-        System.out.println("Dictionary: " + Dictionary.load(stateDictionary.getMapping(), new TreeMap()));
+        System.out.println("Dictionary: " + Dictionary.load(stateDictionary.getMapping(), new TreeMap<CharSequence, T>()));
         System.out.println();
         if (SHOW_STATES) {
             System.out.println("States:" + CldrUtility.LINE_SEPARATOR + stateDictionary);
@@ -243,9 +243,6 @@ public class TestStateDictionaryBuilder<T> {
                     + com.ibm.icu.impl.Utility.hex(it.codepoint) + "\t" + name);
             }
             data.put(name, (T) com.ibm.icu.impl.Utility.hex(it.codepoint, 4));
-            if (false) for (String item : name.split("\\s+")) {
-                data.put(item, (T) com.ibm.icu.impl.Utility.hex(it.codepoint, 4));
-            }
         }
         count = 0;
         for (String item : data.keySet()) {
@@ -261,8 +258,8 @@ public class TestStateDictionaryBuilder<T> {
     private void compare() {
         System.out.println("Comparing results: ");
 
-        Map<CharSequence, T> dictionaryData = Dictionary.load(stateDictionary.getMapping(), new HashMap());
-        Map<CharSequence, T> simpleDictionaryData = Dictionary.load(simpleDictionary.getMapping(), new HashMap());
+        Map<CharSequence, T> dictionaryData = Dictionary.load(stateDictionary.getMapping(), new HashMap<CharSequence, T>());
+        Map<CharSequence, T> simpleDictionaryData = Dictionary.load(simpleDictionary.getMapping(), new HashMap<CharSequence, T>());
 
         assert dictionaryData.equals(simpleDictionaryData) : showDifference(dictionaryData, simpleDictionaryData);
         if (SHOW_STATES) {

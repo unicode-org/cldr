@@ -33,9 +33,7 @@ public class BuildIcuCompactDecimalFormat {
      * JUST FOR DEVELOPMENT
      * 
      * @param currencyStyle
-     *            TODO
      * @param currencyCode
-     *            TODO
      */
     public static final CompactDecimalFormat build(CLDRFile resolvedCldrFile,
         Set<String> debugCreationErrors, String[] debugOriginals,
@@ -43,8 +41,8 @@ public class BuildIcuCompactDecimalFormat {
 
         Map<String, String[]> prefixes = new HashMap<String, String[]>();
         Map<String, String[]> suffixes = new HashMap<String, String[]>();
-        Map<String, String> unitPrefixes = new HashMap();
-        Map<String, String> unitSuffixes = new HashMap();
+        Map<String, String> unitPrefixes = new HashMap<String, String>();
+        Map<String, String> unitSuffixes = new HashMap<String, String>();
 
         // String[] prefix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];
         // String[] suffix = new String[CompactDecimalFormat.MINIMUM_ARRAY_LENGTH];

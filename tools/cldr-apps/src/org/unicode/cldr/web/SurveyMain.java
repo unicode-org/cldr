@@ -5290,9 +5290,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         Document d = LDMLUtilities.parse(f.getAbsolutePath(), false);
 
                         // look for directionality
-                        Node[] directionalityItems = LDMLUtilities.getNodeListAsArray(d, "//ldml/layout/orientation");
-                        if (directionalityItems != null && directionalityItems.length > 0) {
-                            direction = LDMLUtilities.getAttributeValue(directionalityItems[0], LDMLConstants.CHARACTERS);
+                        Node directionalityItem = LDMLUtilities.getNode(d, "//ldml/layout/orientation/characterOrder");
+                        if (directionalityItem != null) {
+                            direction = LDMLUtilities.getNodeValue(directionalityItem);
                             if (direction != null && direction.length() > 0) {
                             } else {
                                 direction = null;

@@ -160,9 +160,7 @@
 
 //ldml/delimiters/(%W) ; /delimiters/$1
 
-//ldml/layout/orientation[@lines="(%A)"][@characters="(%A)"]
-    ; /layout/lines ; values=$1
-    ; /layout/characters ; values=$2
+//ldml/layout/orientation/(%G)Order ; /layout/$1s
 
 //ldml/listPatterns/listPattern/listPatternPart[@type="(%A)"] ; /listPattern/standard/$1
 

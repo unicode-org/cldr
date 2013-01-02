@@ -201,13 +201,16 @@ $Date$
 <!ATTLIST layout draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST layout references CDATA #IMPLIED >
 
-<!ELEMENT orientation ( special* ) >
-<!ATTLIST orientation characters ( left-to-right | right-to-left | top-to-bottom | bottom-to-top ) "left-to-right" >
-<!ATTLIST orientation lines ( left-to-right | right-to-left | top-to-bottom | bottom-to-top ) "top-to-bottom" >
+<!ELEMENT orientation ( characterOrder*, lineOrder*, special* ) >
+<!ATTLIST orientation characters ( left-to-right | right-to-left | top-to-bottom | bottom-to-top ) #IMPLIED > <!-- deprecated -->
+<!ATTLIST orientation lines ( left-to-right | right-to-left | top-to-bottom | bottom-to-top ) #IMPLIED > <!-- deprecated -->
 <!ATTLIST orientation draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST orientation standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST orientation references CDATA #IMPLIED >
 <!ATTLIST orientation alt NMTOKENS #IMPLIED >
+
+<!ELEMENT characterOrder ( #PCDATA ) >
+<!ELEMENT lineOrder ( #PCDATA ) >
 
 <!ELEMENT inList ( #PCDATA ) > <!-- deprecated, use contextTransforms -->
 <!ATTLIST inList casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED > <!-- deprecated -->

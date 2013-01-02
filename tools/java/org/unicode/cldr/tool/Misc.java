@@ -399,10 +399,8 @@ public class Misc {
         for (Iterator it = languages.iterator(); it.hasNext();) {
             String language = (String) it.next();
             CLDRFile desiredLocaleFile = cldrFactory.make(language, true);
-            String orientation = desiredLocaleFile.getFullXPath("//ldml/layout/orientation");
-            boolean rtl = orientation == null ? false
-                : orientation.indexOf("[@characters=\"right-to-left\"]") >= 0;
-            // <orientation characters="right-to-left"/>
+            String orientation = desiredLocaleFile.getStringValue("//ldml/layout/orientation/characterOrder");
+            boolean rtl = orientation == null ? false : orientation.equals("right-to-left");
             PrintWriter log = BagFormatter.openUTF8Writer(options[DESTDIR].value + "", language + "_timezones.html");
             log.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
             log.println("<style type=\"text/css\"><!--");

@@ -1501,6 +1501,23 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         static final Pattern draftPattern = Pattern.compile("\\[@draft=\"([^\"]*)\"\\]");
         Matcher draftMatcher = draftPattern.matcher("");
 
+        /**
+         * Adds a parsed XPath to the CLDRFile.
+         * @param fullXPath
+         * @param value
+         */
+        private void addPath(String fullXPath, String value) {
+            String former = target.getStringValue(fullXPath);
+            if (former != null) {
+                String formerPath = target.getFullXPath(fullXPath);
+                if (!former.equals(value) || !fullXPath.equals(formerPath)) {
+                    warnOnOverride(former, formerPath);
+                }
+            }
+            value = trimWhitespaceSpecial(value);
+            target.add(fullXPath, value);
+        }
+
         private void pop(String qName) {
             Log.logln(LOG_PROGRESS, "pop\t" + qName);
             --level;
@@ -1519,18 +1536,25 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     }
                 }
                 if (acceptItem) {
-                    // if (false && currentFullXPath.indexOf("i-klingon") >= 0) {
-                    // System.out.println(currentFullXPath);
-                    // }
-                    String former = target.getStringValue(currentFullXPath);
-                    if (former != null) {
-                        String formerPath = target.getFullXPath(currentFullXPath);
-                        if (!former.equals(lastChars) || !currentFullXPath.equals(formerPath)) {
-                            warnOnOverride(former, formerPath);
+                    // Change any deprecated orientation attributes into values
+                    // for backwards compatibility.
+                    boolean skipAdd = false;
+                    if (currentFullXPath.startsWith("//ldml/layout/orientation")) {
+                        XPathParts parts = new XPathParts().set(currentFullXPath);
+                        String value = parts.getAttributeValue(-1, "characters");
+                        if (value != null) {
+                            addPath("//ldml/layout/orientation/characterOrder", value);
+                            skipAdd = true;
+                        }
+                        value = parts.getAttributeValue(-1, "lines");
+                        if (value != null) {
+                            addPath("//ldml/layout/orientation/lineOrder", value);
+                            skipAdd = true;
                         }
                     }
-                    lastChars = trimWhitespaceSpecial(lastChars);
-                    target.add(currentFullXPath, lastChars);
+                    if (!skipAdd) {
+                        addPath(currentFullXPath, lastChars);
+                    }
                     lastLeafNode = lastActiveLeafNode = currentFullXPath;
                 }
                 lastChars = "";

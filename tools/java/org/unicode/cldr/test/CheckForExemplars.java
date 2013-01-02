@@ -76,7 +76,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private boolean skip;
     private Collator col;
     private Collator spaceCol;
-    private String informationMessage;
     PrettyPrinter prettyPrint;
     private Status otherPathStatus = new Status();
     private Matcher patternMatcher = ExampleGenerator.PARAMETER.matcher("");
@@ -112,7 +111,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         ")");
     private Matcher leadOrTrailWhitespaceOk = LEAD_OR_TRAIL_WHITESPACE_OK.matcher("");
 
-    private static UnicodeSet ASCII_UPPERCASE = (UnicodeSet) new UnicodeSet("[A-Z]").freeze();
     private static UnicodeSet ASCII = (UnicodeSet) new UnicodeSet("[\\u0020-\\u007F]").freeze();
 
     static final Pattern IS_COUNT_ZERO_ONE_TWO = Pattern.compile("/units.*\\[@count=\"(zero|one|two)\"");
@@ -155,8 +153,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         }
         String locale = cldrFile.getLocaleID();
         hasSpecialPlurals = locale.equals("ar") || locale.startsWith("ar_");
-        informationMessage = "<a href='http://unicode.org/cldr/apps/survey?_=" + locale
-            + "&x=characters'>characters</a>";
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
         spaceCol.setStrength(Collator.PRIMARY);
@@ -190,7 +186,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return this;
     }
 
-    private UnicodeSet safeGetExemplars(String type, List possibleErrors, CLDRFile resolvedFile, boolean[] ok) {
+    private UnicodeSet safeGetExemplars(String type, List<CheckStatus> possibleErrors, CLDRFile resolvedFile, boolean[] ok) {
         UnicodeSet result = null;
         try {
             result = resolvedFile.getExemplarSet(type, CLDRFile.WinningChoice.WINNING);
@@ -433,9 +429,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     private void addMissingMessage(UnicodeSet missing, String warningVsError, Subtype subtype, Subtype subtypeAscii,
         String qualifier, List<CheckStatus> result) {
-        if (missing.containsAll(TEST)) {
-            int x = 1;
-        }
         String fixedMissing = prettyPrint.format(missing);
         BitSet scripts = new BitSet();
         for (String s : missing) {

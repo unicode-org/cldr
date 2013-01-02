@@ -204,16 +204,6 @@ public class SupplementalDataParser {
         return null;
     }
 
-    /**
-     * @deprecated
-     */
-    @Deprecated
-    private void printXPathWarning(Node node, StringBuilder xpath) {
-        int len = xpath.length();
-        LDML2ICUConverter.getXPath(node, xpath);
-        log.warning("Not producing resource for " + xpath.toString());
-        xpath.setLength(len);
-    }
 
     //
     // Currency
@@ -592,7 +582,6 @@ public class SupplementalDataParser {
             xpath.setLength(savedLength);
             return null;
         }
-        Hashtable<String, Resource> hash = new Hashtable<String, Resource>();
 
         ResourceTable table = new ResourceTable();
         table.name = LDMLConstants.LANGUAGE_MATCHING;
@@ -970,7 +959,6 @@ public class SupplementalDataParser {
             ResourceIntVector weekData = new ResourceIntVector();
             String country = it.next();
             weekData.name = country;
-            ResourceInt[] weekDataInfo = new ResourceInt[6];
             Integer firstDayOfWeek = firstDayOfWeekMap.get(country);
             if (firstDayOfWeek == null) {
                 firstDayOfWeek = firstDayOfWeekMap.get("001");

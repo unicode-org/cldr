@@ -1032,7 +1032,7 @@ public class CldrUtility {
         }
     }
 
-    public static void callMethod(String methodNames, Class cls) {
+    public static void callMethod(String methodNames, Class<?> cls) {
         for (String methodName : methodNames.split(",")) {
             try {
                 Method method;
@@ -1053,7 +1053,7 @@ public class CldrUtility {
         }
     }
 
-    public static void showMethods(Class cls) throws ClassNotFoundException {
+    public static void showMethods(Class<?> cls) throws ClassNotFoundException {
         System.out.println("Possible methods of " + cls.getCanonicalName() + " are: ");
         Method[] methods = cls.getMethods();
         Set<String> names = new TreeSet<String>();

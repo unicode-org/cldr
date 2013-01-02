@@ -1561,7 +1561,7 @@ public class CLDRModify {
         fixList.add('d', "fix dates", new CLDRFilter() {
             DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
             DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
-            HashMap seenSoFar = new HashMap();
+            Map<String, Set<String>> seenSoFar = new HashMap<String, Set<String>>();
 
             public void handleStart() {
                 seenSoFar.clear();
@@ -1591,7 +1591,6 @@ public class CLDRModify {
                         }
                     }
                 }
-                // if (true) return; // don't do the rest for now
                 if (xpath.indexOf("/availableFormats") < 0) return;
                 String value = cldrFileToFilter.getStringValue(xpath);
                 if (value == null) return; // not in current file
@@ -1611,15 +1610,7 @@ public class CLDRModify {
                     return;
                 }
 
-                // String draft = (String) attributes.get("draft");
-                // if (draft == null) draft = "approved";
-                // String alt = (String) attributes.get("alt");
-                // if (alt == null) alt = "proposed";
-                // alt = fixAlt(alt, id);
-                // attributes.put("draft", draft);
-                // attributes.put("alt", alt);
                 attributes.put("id", id);
-                // attributes.remove("_q");
                 totalSkeletons.add(id);
 
                 replace(xpath, fullparts.toString(), value);
@@ -1639,20 +1630,6 @@ public class CLDRModify {
                 return result.toString();
             }
 
-            private String fixAlt(String alt, String id) {
-                Set soFar = (Set) seenSoFar.get(id);
-                if (soFar == null) {
-                    seenSoFar.put(id, soFar = new HashSet());
-                } else {
-                    for (int i = 1;; ++i) {
-                        String newAlt = alt + "-" + i;
-                        alt += "-" + i;
-                        if (!soFar.contains(alt)) break;
-                    }
-                }
-                soFar.add(alt);
-                return alt;
-            }
         });
 
         // This should only be applied to specific locales, and the results checked manually afterward.
@@ -2076,10 +2053,8 @@ public class CLDRModify {
      * TODO add options to pick which one.
      * 
      * @param options
-     *            TODO
      * @param config
      * @param cldrFactory
-     *            TODO
      */
     private static void fix(CLDRFile k, String options, String config, Factory cldrFactory) {
 

@@ -73,6 +73,8 @@
 //supplementalData/metaZones/metazoneInfo/timezone[@type="(%W)"]/usesMetazone[@from="(%A)"][@to="(%A)"][@mzone="(%W)"] ; /metazoneInfo/"$1"/<$2> ; values=$4 "$2" "$3"
 //supplementalData/metaZones/metazoneInfo/timezone[@type="(%W)"]/usesMetazone[@to="(%A)"][@mzone="(%W)"] ; /metazoneInfo/"$1"/<1970-01-01 00:00> ; values=$3 "1970-01-01 00:00" "$2"
 
+//supplementalData/primaryZones/primaryZone[@iso3166="(%W)"] ; /primaryZones/$1 ; values={value}
+
 # numberingSystems.txt
 //supplementalData/numberingSystems/numberingSystem[@type="algorithmic"][@id="(%W)"][@rules="(%A)"]
      ; /numberingSystems/$1/algorithmic:int ; values=1

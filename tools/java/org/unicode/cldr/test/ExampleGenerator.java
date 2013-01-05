@@ -135,8 +135,6 @@ public class ExampleGenerator {
 
     private ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
 
-    private Set<String> singleCountryZones;
-
     private PluralInfo pluralInfo;
 
     private Map<Integer, Map<Count, Integer>> patternExamples;
@@ -214,20 +212,6 @@ public class ExampleGenerator {
         col = Collator.getInstance(new ULocale(cldrFile.getLocaleID()));
         coverageLevel = CoverageLevel2.getInstance(supplementalDataInfo, resolvedCldrFile.getLocaleID());
 
-        String singleCountriesPath = cldrFile.getFullXPath("//ldml/dates/timeZoneNames/singleCountries");
-        if (singleCountriesPath == null) {
-            System.err.println("Failure: in " + cldrFile.getLocaleID()
-                + " examplegenerator- cldrFile.getFullXPath(//ldml/dates/timeZoneNames/singleCountries)==null");
-        } else {
-            parts.set(singleCountriesPath);
-            String listValue = parts.getAttributeValue(-1, "list");
-            if (listValue == null) {
-                System.err.println("Failure: in " + cldrFile.getLocaleID() + " examplegenerator- "
-                    + singleCountriesPath + "  has a bad list attribute.");
-            } else {
-                singleCountryZones = new HashSet<String>(Arrays.asList(listValue.trim().split("\\s+")));
-            }
-        }
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
         patternExamples = new HashMap<Integer, Map<Count, Integer>>();
     }
@@ -737,8 +721,7 @@ public class ExampleGenerator {
                 }
             } else {
                 String countryName = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
-                boolean singleZone = singleCountryZones.contains(timezone)
-                    || !supplementalDataInfo.getMultizones().contains(countryCode);
+                boolean singleZone = !supplementalDataInfo.getMultizones().contains(countryCode);
                 // we show just country for singlezone countries
                 if (singleZone) {
                     result = countryName;
@@ -800,8 +783,7 @@ public class ExampleGenerator {
                     String countryName = cldrFile
                         .getWinningValue("//ldml/localeDisplayNames/territories/territory[@type=\"" + countryCode
                             + "\"]");
-                    boolean singleZone = singleCountryZones.contains(timezone)
-                        || !(supplementalDataInfo.getMultizones().contains(countryCode));
+                    boolean singleZone = !(supplementalDataInfo.getMultizones().contains(countryCode));
 
                     if (singleZone) {
                         result = setBackground(getMZTimeFormat() + " " +

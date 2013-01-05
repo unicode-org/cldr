@@ -1503,6 +1503,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         /**
          * Adds a parsed XPath to the CLDRFile.
+         * 
          * @param fullXPath
          * @param value
          */
@@ -3049,12 +3050,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (excludedZones == null) {
                 SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
                 excludedZones = new HashSet<String>(supplementalData.getSingleRegionZones());
-                List<String> singleCountries = Arrays.asList(
-                    new XPathParts()
-                        .set(getFullXPath("//ldml/dates/timeZoneNames/singleCountries"))
-                        .getAttributeValue(-1, "list")
-                        .split("\\s+"));
-                excludedZones.addAll(singleCountries);
                 excludedZones = Collections.unmodifiableSet(excludedZones); // protect
             }
             return excludedZones;

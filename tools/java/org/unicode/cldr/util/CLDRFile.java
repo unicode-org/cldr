@@ -109,6 +109,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
     public static final String GEN_VERSION = "23";
+    private static Collection<String> extraPaths = null;
 
     private boolean locked;
     XMLSource dataSource; // TODO(jchye): make private
@@ -463,7 +464,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (xpath.contains("[@count=")) {
             return getCountPathWithFallback(xpath, Count.other, winning);
         }
-        if (getExtraPaths().contains(xpath)) { // TODO - very inefficient - need to cache the extraPaths set
+        if (getExtraPaths().contains(xpath)) {
             return xpath;
         }
         return null;
@@ -2919,7 +2920,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     public Collection<String> getExtraPaths() {
-        return getExtraPaths(new HashSet<String>());
+        if (extraPaths == null) {
+            extraPaths = getExtraPaths(new HashSet<String>());
+        }
+        return extraPaths;
     }
 
     public Collection<String> getExtraPaths(Collection<String> toAddTo) {

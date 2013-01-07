@@ -122,7 +122,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     if (!builtCollisions[type.getIndex()]) {
                         buildCollisions(type.getIndex());
                     }
-                    Set codes = hasCollisions.getAll(path);
+                    Set<String> codes = hasCollisions.getAll(path);
                     if (codes != null) {
                         // String code = CLDRFile.getCode(path);
                         // Set codes = new TreeSet(s);
@@ -138,6 +138,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
             }
         } else {
+            if (value == null || value.length() == 0) {
+                return this;
+            }
             if (value.equals("∅∅∅")) {
                 return this;
             }

@@ -451,6 +451,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * Only call if xpath doesn't exist in the current file.
      * <p>
      * For now, just handle counts: see getCountPath
+     * Also handle extraPaths
      * 
      * @param xpath
      * @param winning
@@ -461,6 +462,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         // || xpath.contains("/currency") && xpath.contains("/displayName")
         if (xpath.contains("[@count=")) {
             return getCountPathWithFallback(xpath, Count.other, winning);
+        }
+        if (getExtraPaths().contains(xpath)) { // TODO - very inefficient - need to cache the extraPaths set
+            return xpath;
         }
         return null;
     }

@@ -519,6 +519,9 @@ public class XPathTable {
     }
 
     public Map<String, String> getUndistinguishingElementsFor(String path, XPathParts xpp) {
+        if (path == null) {
+            return null;
+        }
         Set<String> ue = getUndistinguishingElements();
         xpp.clear();
         xpp.initialize(path);

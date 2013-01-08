@@ -12,16 +12,27 @@
 %N=\d++
 
 # supplementalData.xml
-//supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@iso4217="(%W)"]([@tender="false"])?
+//supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@iso4217="(%W)"]
      ; /CurrencyMap/$1/<FIFO>/id ; values=$2
+//supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@iso4217="(%W)"][@tender="false"]
+     ; /CurrencyMap/$1/<FIFO>/id ; values=$2
+     ; /CurrencyMap/$1/<FIFO>/tender ; values=false
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@iso4217="(%W)"]
      ; /CurrencyMap/$1/<FIFO>/id ; values=$3
      ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2
+//supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@iso4217="(%W)"][@tender="false"]
+     ; /CurrencyMap/$1/<FIFO>/id ; values=$3
+     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2
+     ; /CurrencyMap/$1/<FIFO>/tender ; values=false
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@to="(%W)"][@iso4217="(%W)"]
      ; /CurrencyMap/$1/<FIFO>/id ; values=$4
      ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2
      ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=$3
-
+//supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@to="(%W)"][@iso4217="(%W)"][@tender="false"]
+     ; /CurrencyMap/$1/<FIFO>/id ; values=$4
+     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2
+     ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=$3
+     ; /CurrencyMap/$1/<FIFO>/tender ; values=false
 //supplementalData/currencyData/fractions/info[@iso4217="(%W)"][@digits="(%N)"][@rounding="(%N)"] ; /CurrencyMeta/$1:intvector ; values=$2 $3
 
 //supplementalData/calendarPreferenceData/calendarPreference[@territories="(%A)"][@ordering="(%A)"] ; /calendarPreferenceData/$1    ; values=$2

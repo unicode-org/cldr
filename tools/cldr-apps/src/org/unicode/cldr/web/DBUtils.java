@@ -69,6 +69,21 @@ public class DBUtils {
     public static String CLDR_DB_SHUTDOWNSUFFIX = null;
     public static boolean db_Derby = false;
     public static boolean db_Mysql = false;
+    
+    /**
+     * Return a string as to which SQL flavor is in use.
+     * @return
+     */
+    public static final String getDBKind() {
+        if(db_Derby) {
+            return "Derby";
+        } else if(db_Mysql) {
+            return "MySql";
+        } else {
+            return "Unknown";
+        }
+    }
+    
     // === DB workarounds :( - derby by default
     public static String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
     public static String DB_SQL_VARCHARXPATH = "varchar(1024)";
@@ -79,6 +94,7 @@ public class DBUtils {
     public static String DB_SQL_BIGTEXT = "VARCHAR(16384)";
     public static String DB_SQL_UNICODE = "VARCHAR(16384)"; // unicode type
                                                             // string
+    public static String DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
     public static String DB_SQL_LAST_MOD = " last_mod TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP  ";
     public static String DB_SQL_ALLTABLES = "select tablename from SYS.SYSTABLES where tabletype='T'";
     public static String DB_SQL_BINCOLLATE = "";
@@ -370,7 +386,12 @@ public class DBUtils {
         ResultSet rs = null;
         try {
             s = conn.createStatement();
-            rs = s.executeQuery(str);
+            try {
+                rs = s.executeQuery(str);
+            } catch (SQLException se) {
+                SurveyLog.logException(se, "Error [SQL was: "+str+"]");
+                throw se; // rethrow
+            }
             ArrayList<String[]> al = new ArrayList<String[]>();
             while (rs.next()) {
                 al.add(arrayOfResult(rs));
@@ -527,6 +548,7 @@ public class DBUtils {
             DB_SQL_BINTRODUCER = "_latin1";
             DB_SQL_WITHDEFAULT = "DEFAULT";
             DB_SQL_TIMESTAMP0 = "DATETIME";
+            DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
             DB_SQL_LAST_MOD = " last_mod TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ";
             DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
             DB_SQL_MIDTEXT = "TEXT(1024)";

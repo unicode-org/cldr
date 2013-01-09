@@ -29,6 +29,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -905,7 +906,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String q = ctx.field("q");
         boolean tblsel = false;
         printAdminMenu(ctx, "/AdminSql");
-        ctx.println("<h1>SQL Console</h1>");
+        ctx.println("<h1>SQL Console ("+ DBUtils.getDBKind() + ")</h1>");
+        ctx.println("Welcome to " + DBUtils.db_driver);
 
         if ((dbUtils.dbDir == null) || (isBusted != null)) { // This may or may
                                                              // not work. Survey
@@ -913,7 +915,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                              // can we attempt
                                                              // to get in via
                                                              // SQL?
-            ctx.println("<h4>ST busted, attempting to make SQL available</h4>");
+            ctx.println("<h4>ST not currently started, attempting to make SQL available</h4>");
             ctx.println("<pre>");
             specialMessage = "<b>SurveyTool is in an administrative mode- please log off.</b>";
             try {
@@ -2012,18 +2014,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public void doCoverage(WebContext ctx) {
         boolean showCodes = false; // ctx.prefBool(PREF_SHOWCODES);
+        String votesAfter = SurveyMain.getSQLVotesAfter();
         printHeader(ctx, "Locale Coverage");
 
         if (!UserRegistry.userIsVetter(ctx.session.user)) {
             ctx.print("Not authorized.");
+            return;
         }
 
         printUserTableWithHelp(ctx, "/LocaleCoverage");
 
+        
         showAddUser(ctx);
 
-        // ctx.println("<a href='" +
-        // ctx.url()+ctx.urlConnector()+"do=list'>[List Users]</a>");
+        ctx.println("        <i>Showing only votes cast after "+ SurveyMain.getVotesAfterDate() +"</i><br/>");
         ctx.print("<br>");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool in</b></a><hr>");
         String org = ctx.session.user.org;
@@ -2089,9 +2093,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         try {
             conn = dbUtils.getDBConnection();
-            psMySubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=?",
+            psMySubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=? and last_mod > " + votesAfter + "",
                     ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            psnSubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=? and locale=?",
+            psnSubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=? and locale=? and last_mod > " + votesAfter + "",
                     ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 
             synchronized (reg) {
@@ -7215,6 +7219,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return "Proposed&nbsp;" + getNewVersion();
     }
 
+    /**
+     * Return a string, in SQL date format, that describes a day *prior* to the start of vetting for the current release. This can be the last day of the 'beta' phase. 
+     * Votes on or before this day (midnight, DB server time) will be ignored for statistics/coverage purposes.
+     * Defaults to 1970-01-01 if "CLDR_NEWVERSION_AFTER" is not set.
+     * Result will be wrapped in either TIMESTAMP("...") or DATETIME("...") as appropriate for the current DB server
+     * @return
+     */
+    public static String getSQLVotesAfter() {
+        return DBUtils.DB_SQL_LAST_MOD_TYPE + ("('") + getVotesAfterString() + ("')");
+    }
+    
+    public static String getVotesAfterString() {
+        return CLDRConfig.getInstance().getProperty("CLDR_NEWVERSION_AFTER", "1970-01-01 00:00:00");
+    }
+    
+    public static Date getVotesAfterDate() {
+        return new Date(Timestamp.valueOf(getVotesAfterString()).getTime());
+    }
+    
     Pattern ALLOWED_EMPTY = Pattern.compile("//ldml/fallback(?![a-zA-Z])");
 
     // TODO move to central location

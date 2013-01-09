@@ -4,24 +4,21 @@
 <html>
 <head>
 <%
+
+	String votesAfter = SurveyMain.getSQLVotesAfter();
+
+
 	boolean doingByLocaleSubmit = false;
 	boolean doingByLocaleVote = false;
 	boolean doingByUser = false;
-	String theSql = null;
+//	String theSql = null;
 	String title = "?";
 	String stat = request.getParameter("stat");
 	if (stat == null)
 		stat = "s";
 
-	if (false|| stat.equals("v")) {
-		doingByLocaleVote = true;
-		title = "Locales by Vote";
-		theSql = "select  locale,count(*) as count from cldr_vet  where submitter is not null group by locale order by count desc ";
-	} else {
-		theSql = "select  locale,count(*) as count from cldr_votevalue group by locale order by count desc ";
-		title = "Locales by Submitted Data";
-		doingByLocaleSubmit = true;
-	}
+	title = "Locales by Submitted Data";
+	doingByLocaleSubmit = true;
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>SurveyTool Statistics | <%=title%></title>
@@ -42,16 +39,6 @@
 <!-- 	| <a class='notselected' href="statistics-org.jsp">by Organization</a> -->
 
 <br>
-<!-- 
-<hr/>
-Switch to: 
-  <a href="<%=request.getContextPath() + request.getServletPath()
-					+ "?stat=v"%>">Locale By Vote</a>  |
-  <a href="<%=request.getContextPath() + request.getServletPath()
-					+ "?stat=s"%>">Locale By Submit</a>  |
-<br/>
-<hr/>
--->
 
 <%
 	int totalwidth = 800;
@@ -66,15 +53,16 @@ Switch to:
 		String limit = "";
 %>
 	<h1>SurveyTool Statistics: <%=title%></h1>
+	<i>Showing only votes cast after <%= SurveyMain.getVotesAfterDate() %></i><br/>
 
 	Total Items Submitted: <%=dbUtils
 						.sqlQuery(conn,
-								"select count(*) from cldr_votevalue where submitter is not null")%> <br/>
+								"select count(*) from cldr_votevalue where submitter is not null and last_mod > " + votesAfter + " ")%> <br/>
 
 
 
 	<%
-		String theSqlVet = "select  locale,count(*) as count from cldr_votevalue  where submitter is not null "
+		String theSqlVet = "select  locale,count(*) as count from cldr_votevalue  where submitter is not null and last_mod > " + votesAfter + " "
 					+ limit + " group by locale ";
 			String theSqlData = theSqlVet;
 

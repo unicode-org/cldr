@@ -2050,7 +2050,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             missingLocalesForOrg = "default"; // ?!
         }
 
-        ctx.println("<h4>Showing coverage for: " + org + "</h4>");
+        if(org==null) {
+            ctx.println("<h4>Showing coverage for all organizations</h4>");
+        } else {
+            ctx.println("<h4>Showing coverage for: " + org + "</h4>");
+        }
+
         if (missingLocalesForOrg != org) {
             ctx.println("<h4> (and missing locales for " + missingLocalesForOrg + ")</h4>");
         }
@@ -2324,41 +2329,41 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
         }
 
-        if (!languagesNotInCLDR.isEmpty()) {
-            ctx.println("<p class='hang'>" + ctx.iconHtml("stop", "locales missing from CLDR") + "<B>Required by "
-                    + missingLocalesForOrg + " but not in CLDR: </b>");
-            boolean first = true;
-            for (Iterator<CLDRLocale> li = languagesNotInCLDR.iterator(); li.hasNext();) {
-                if (first == false) {
-                    ctx.print(", ");
-                } else {
-                    first = false;
-                }
-                String lang = li.next().toString();
-                showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg), lang);
-            }
-            ctx.println("<br>");
-            ctx.printHelpLink("/LocaleMissing", "Locale is missing from CLDR");
-            ctx.println("</p><br>");
-        }
-
-        if (!languagesMissing.isEmpty()) {
-            ctx.println("<p class='hang'>" + ctx.iconHtml("stop", "locales without vetters") + "<B>Required by "
-                    + missingLocalesForOrg + " but no vetters: </b>");
-            boolean first = true;
-            for (Iterator<CLDRLocale> li = languagesMissing.iterator(); li.hasNext();) {
-                if (first == false) {
-                    ctx.print(", ");
-                } else {
-                    first = false;
-                }
-                String lang = li.next().toString();
-                showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg), lang);
-            }
-            ctx.println("<br>");
-            // ctx.printHelpLink("/LocaleMissing","Locale is missing from CLDR");
-            ctx.println("</p><br>");
-        }
+//        if (!languagesNotInCLDR.isEmpty()) {
+//            ctx.println("<p class='hang'>" + ctx.iconHtml("stop", "locales missing from CLDR") + "<B>Required by "
+//                    + missingLocalesForOrg + " but not in CLDR: </b>");
+//            boolean first = true;
+//            for (Iterator<CLDRLocale> li = languagesNotInCLDR.iterator(); li.hasNext();) {
+//                if (first == false) {
+//                    ctx.print(", ");
+//                } else {
+//                    first = false;
+//                }
+//                String lang = li.next().toString();
+//                showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg), lang);
+//            }
+//            ctx.println("<br>");
+//            ctx.printHelpLink("/LocaleMissing", "Locale is missing from CLDR");
+//            ctx.println("</p><br>");
+//        }
+//
+//        if (!languagesMissing.isEmpty()) {
+//            ctx.println("<p class='hang'>" + ctx.iconHtml("stop", "locales without vetters") + "<B>Required by "
+//                    + missingLocalesForOrg + " but no vetters: </b>");
+//            boolean first = true;
+//            for (Iterator<CLDRLocale> li = languagesMissing.iterator(); li.hasNext();) {
+//                if (first == false) {
+//                    ctx.print(", ");
+//                } else {
+//                    first = false;
+//                }
+//                String lang = li.next().toString();
+//                showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg), lang);
+//            }
+//            ctx.println("<br>");
+//            // ctx.printHelpLink("/LocaleMissing","Locale is missing from CLDR");
+//            ctx.println("</p><br>");
+//        }
 
         ctx.println("Locales in <b>bold</b> have assigned vetters.<br><table summary='Locale Coverage' border=1 class='list'>");
         int n = 0;

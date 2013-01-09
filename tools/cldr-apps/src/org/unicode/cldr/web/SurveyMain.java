@@ -2151,7 +2151,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         allUsers++;
                         continue;
                     }
-                    String theirLocales[] = UserRegistry.tokenizeLocale(theirLocaleList);
+                    CLDRLocale theirLocales[] = UserRegistry.tokenizeCLDRLocale(theirLocaleList);
                     if ((theirLocales == null) || (theirLocales.length == 0)) {
                         // all.
                         allUsers++;
@@ -2167,7 +2167,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                                               // access
                                                                               // to
                         for (int j = 0; j < theirLocales.length; j++) {
-                            Set<CLDRLocale> subSet = intGroups.get(CLDRLocale.getInstance(theirLocales[j])); // Is
+                            Set<CLDRLocale> subSet = intGroups.get(theirLocales[j]); // Is
                                                                                                              // it
                                                                                                              // an
                                                                                                              // interest
@@ -2178,9 +2178,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             if (subSet != null) {
                                 theirSet.addAll(subSet); // add all sublocs
                             } else if (allLocs.contains(theirLocales[j])) {
-                                theirSet.add(CLDRLocale.getInstance(theirLocales[j]));
+                                theirSet.add(theirLocales[j]);
                             } else {
-                                badSet.add(CLDRLocale.getInstance(theirLocales[j]));
+                                badSet.add(theirLocales[j]);
                             }
                         }
                         for (CLDRLocale theLocale : theirSet) {

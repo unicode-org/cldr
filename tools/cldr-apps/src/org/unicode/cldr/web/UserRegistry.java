@@ -1732,6 +1732,25 @@ public class UserRegistry {
     }
 
     /**
+     * Tokenize a string, but return an array of CLDRLocales
+     * @param localeList
+     * @return
+     */
+    static CLDRLocale[] tokenizeCLDRLocale(String localeList) {
+        if ((localeList == null) || ((localeList = localeList.trim()).length() == 0)) {
+            // System.err.println("TKL: null input");
+            return new CLDRLocale[0];
+        }
+        
+        String s[] = tokenizeLocale(localeList);
+        CLDRLocale l[] = new CLDRLocale[s.length];
+        for(int j=0;j<s.length;j++) {
+            l[j]=CLDRLocale.getInstance(s[j]);
+        }
+        return l;
+    }
+
+    /**
      * take a locale string and convert it to HTML.
      */
     static String prettyPrintLocale(String localeList) {

@@ -95,6 +95,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
      * This is the method that does the check. Notice that for performance, you should try to
      * exit as fast as possible except where the path is one that you are testing.
      */
+    @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
@@ -117,6 +118,18 @@ public class CheckNumbers extends FactoryCheckCLDR {
         // give a reasonable error message.
         try {
             if (path.indexOf("/pattern") >= 0 && path.indexOf("/patternDigit") < 0) {
+                
+                // This if is meant to detect if we are examining compact decimal format patterns.
+                // as far as I can tell, only compact decimal format patterns both
+                // use the count attribute and are in /numbers/decimalFormats.
+                if (path.indexOf("/numbers/decimalFormats") >= 0
+                    && path.indexOf("[@count=") >= 0
+                    && !isValidPattern(value)) {
+                    result.add(new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.errorType)
+                        .setSubtype(Subtype.illegalCharactersInNumberPattern)
+                        .setMessage("Bad pattern {0}", new Object[] {value}));
+                }
                 checkPattern(path, fullPath, value, result, false);
             }
             // if (path.indexOf("/currencies") >= 0 && path.endsWith("/symbol")) {
@@ -207,6 +220,20 @@ public class CheckNumbers extends FactoryCheckCLDR {
                     new Object[] { e.getClass().getName(), e }));
         }
         return this;
+    }
+
+    private static boolean isValidPattern(String value) {
+        int firstIdx = value.indexOf("0");
+        if (firstIdx == -1) {
+            return false;
+        }
+        int lastIdx = value.lastIndexOf("0");
+        for (int i = firstIdx + 1; i < lastIdx; i++) {
+            if (value.charAt(i) != '0') {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

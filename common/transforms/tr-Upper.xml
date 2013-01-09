@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision: 8018 $"/>
+	<generation date="$Date: 2013-01-09 00:14:00 -0800 (Wed, 09 Jan 2013) $"/>
+	<transforms>
+		<transform source="tr" target="Upper" direction="forward">
+			<comment># Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
+			<tRule>i→İ;</tRule>
+			<tRule>::Any-Upper();</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

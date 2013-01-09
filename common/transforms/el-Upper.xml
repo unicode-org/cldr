@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+  <version number="$Revision: 8018 $"/>
+	<generation date="$Date: 2013-01-09 00:14:00 -0800 (Wed, 09 Jan 2013) $"/>
+	<transforms>
+		<transform source="el" target="Upper" direction="forward">
+			<comment># Copyright (C) 2011-2013, Apple Inc. and others. All Rights Reserved.</comment>
+			<comment># Remove \0301 following Greek, with possible intervening 0308 marks.</comment>
+			<tRule>::NFD();</tRule>
+			<tRule>[[:Greek:] &amp; [:Ll:]] [\u0308]? { \u0301 → ;</tRule>
+			<tRule>::NFC();</tRule>
+			<tRule>::Any-Upper();</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

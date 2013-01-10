@@ -2263,38 +2263,38 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // fileBase);
         // }
 
-        if (!badSet.isEmpty()) {
-            ctx.println("<B>Locales not in CLDR but assigned to vetters:</b> <br>");
-            int n = 0;
-            boolean first = true;
-            Set<CLDRLocale> subSet = new TreeSet<CLDRLocale>();
-            for (CLDRLocale li : badSet) {
-                if (li.toString().indexOf('_') >= 0) {
-                    n++;
-                    subSet.add(li);
-                    continue;
-                }
-                if (first == false) {
-                    ctx.print(" ");
-                } else {
-                    first = false;
-                }
-                ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>" + li.toString()
-                        + "</tt>");
-            }
-            ctx.println("<br>");
-            if (n > 0) {
-                ctx.println("Note: "
-                        + n
-                        + " locale(s) were specified that were sublocales. This is no longer supported, specify the top level locale (en, not en_US or en_Shaw): <br><font size=-1>");
-                if (isUnofficial())
-                    for (CLDRLocale li : subSet) {
-                        ctx.print(" <tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'><font size=-1>"
-                                + li.toString() + "</font></tt>");
-                    }
-                ctx.println("</font><br>");
-            }
-        }
+//        if (!badSet.isEmpty()) {
+//            ctx.println("<B>Locales not in CLDR but assigned to vetters:</b> <br>");
+//            int n = 0;
+//            boolean first = true;
+//            Set<CLDRLocale> subSet = new TreeSet<CLDRLocale>();
+//            for (CLDRLocale li : badSet) {
+//                if (li.toString().indexOf('_') >= 0) {
+//                    n++;
+//                    subSet.add(li);
+//                    continue;
+//                }
+//                if (first == false) {
+//                    ctx.print(" ");
+//                } else {
+//                    first = false;
+//                }
+//                ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>" + li.toString()
+//                        + "</tt>");
+//            }
+//            ctx.println("<br>");
+//            if (n > 0) {
+//                ctx.println("Note: "
+//                        + n
+//                        + " locale(s) were specified that were sublocales. This is no longer supported, specify the top level locale (en, not en_US or en_Shaw): <br><font size=-1>");
+//                if (isUnofficial())
+//                    for (CLDRLocale li : subSet) {
+//                        ctx.print(" <tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'><font size=-1>"
+//                                + li.toString() + "</font></tt>");
+//                    }
+//                ctx.println("</font><br>");
+//            }
+//        }
 
         // Now, calculate coverage of requested locales for this organization
         // sc.getGroup(locale,missingLocalesForOrg);
@@ -2578,9 +2578,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("\t\t<name>" + theirName + "</name>");
                     ctx.println("\t\t<org>" + theirOrg + "</org>");
                     ctx.println("\t\t<locales type=\"edit\">");
-                    String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
-                    for (int i = 0; i < theirLocalesList.length; i++) {
-                        ctx.println("\t\t\t<locale id=\"" + theirLocalesList[i] + "\"/>");
+                    Set<CLDRLocale> locs = UserRegistry.tokenizeValidCLDRLocale(theirLocales);
+                    for (CLDRLocale loc : locs) {
+                        ctx.println("\t\t\t<locale id=\"" + loc.getBaseName() + "\"/>");
                     }
                     ctx.println("\t\t</locales>");
                     ctx.println("\t</user>");
@@ -2650,7 +2650,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ctx.println("<a href='" + ctx.url() + ctx.urlConnector() + "do=list&p_justorg='>\u22d6 Show all users</a><br>");
         }
         if (UserRegistry.userIsAdmin(ctx.session.user)) {
-            if (reg.userIsAdmin(ctx.session.user)) {
+            if (just == null) { // show a filter
                 // WebContext subsubCtx = new WebContext(subCtx);
                 // subsubCtx.put(string, object)
                 String list0[] = UserRegistry.getOrgList();
@@ -6478,6 +6478,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static Set<CLDRLocale> localeListSet = null;
     private static Set<CLDRLocale> openLocales = null;
     private static Set<CLDRLocale> roLocales = null;
+    private static Set<CLDRLocale> topLocalesSet = null;
 
     /**
      * Get the list of locales 'open' for submission. Should be all locales that
@@ -6513,6 +6514,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (localeListSet == null)
             loadLocalesSet();
         return localeListSet;
+    }
+    
+    /**
+     * Get a list of all top level locales. 
+     * @return
+     */
+    public static final synchronized Set<CLDRLocale> getTopLocalesSet() {
+        if(topLocalesSet == null) {
+            Set<CLDRLocale> s = new HashSet<CLDRLocale>();
+            for(CLDRLocale l : getLocalesSet()) {
+                CLDRLocale par = l.getParent();
+                if(par==null ||  // root
+                        par.getParent()==null) { // child of root
+                    s.add(l);
+                }
+            }
+            topLocalesSet = Collections.unmodifiableSet(s);
+        }
+        return topLocalesSet;
     }
 
     /**
@@ -6594,78 +6614,78 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public boolean isValidLocale(CLDRLocale locale) {
         return getLocalesSet().contains(locale);
     }
-
-    /*
-     * returns a map of String localegroup -> Set [ User interestedUser, ... ]
-     */
-    protected Map getIntUsers(Map intGroups) {
-        Map m = new HashMap();
-        Connection conn = null;
-        try {
-            conn = dbUtils.getDBConnection();
-            synchronized (reg) {
-                java.sql.ResultSet rs = reg.list(null, conn);
-                if (rs == null) {
-                    return m;
-                }
-                while (rs.next()) {
-                    int theirLevel = rs.getInt(2);
-                    if (theirLevel > UserRegistry.VETTER) {
-                        continue; // will not receive notice.
-                    }
-
-                    int theirId = rs.getInt(1);
-                    UserRegistry.User u = reg.getInfo(theirId);
-                    // String theirName = rs.getString(3);
-                    // String theirEmail = rs.getString(4);
-                    // String theirOrg = rs.getString(5);
-                    String theirLocales = rs.getString(6);
-                    String theirIntlocs = rs.getString(7);
-
-                    String localeArray[] = UserRegistry.tokenizeLocale(theirLocales);
-
-                    if ((theirId <= UserRegistry.TC) || (localeArray.length == 0)) { // all
-                                                                                     // locales
-                        localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
-                    }
-
-                    if (localeArray.length == 0) {
-                        for (Iterator li = intGroups.keySet().iterator(); li.hasNext();) {
-                            String group = (String) li.next();
-                            Set v = (Set) m.get(group);
-                            if (v == null) {
-                                v = new HashSet();
-                                m.put(group, v);
-                            }
-                            v.add(u);
-                            // SurveyLog.logger.warning(group + " - " + u.email
-                            // +
-                            // " (ALL)");
-                        }
-                    } else {
-                        for (int i = 0; i < localeArray.length; i++) {
-                            String group = localeArray[i];
-                            Set v = (Set) m.get(group);
-                            if (v == null) {
-                                v = new HashSet();
-                                m.put(group, v);
-                            }
-                            v.add(u);
-                            // SurveyLog.logger.warning(group + " - " + u.email
-                            // + "");
-                        }
-                    }
-                }
-            }
-        } catch (SQLException se) {
-            busted("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
-            throw new RuntimeException("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
-
-        } finally {
-            DBUtils.close(conn);
-        }
-        return m;
-    }
+//
+//    /*
+//     * returns a map of String localegroup -> Set [ User interestedUser, ... ]
+//     */
+//    protected Map getIntUsers(Map intGroups) {
+//        Map m = new HashMap();
+//        Connection conn = null;
+//        try {
+//            conn = dbUtils.getDBConnection();
+//            synchronized (reg) {
+//                java.sql.ResultSet rs = reg.list(null, conn);
+//                if (rs == null) {
+//                    return m;
+//                }
+//                while (rs.next()) {
+//                    int theirLevel = rs.getInt(2);
+//                    if (theirLevel > UserRegistry.VETTER) {
+//                        continue; // will not receive notice.
+//                    }
+//
+//                    int theirId = rs.getInt(1);
+//                    UserRegistry.User u = reg.getInfo(theirId);
+//                    // String theirName = rs.getString(3);
+//                    // String theirEmail = rs.getString(4);
+//                    // String theirOrg = rs.getString(5);
+//                    String theirLocales = rs.getString(6);
+//                    String theirIntlocs = rs.getString(7);
+//
+//                    String localeArray[] = UserRegistry.tokenizeLocale(theirLocales);
+//
+//                    if ((theirId <= UserRegistry.TC) || (localeArray.length == 0)) { // all
+//                                                                                     // locales
+//                        localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
+//                    }
+//
+//                    if (localeArray.length == 0) {
+//                        for (Iterator li = intGroups.keySet().iterator(); li.hasNext();) {
+//                            String group = (String) li.next();
+//                            Set v = (Set) m.get(group);
+//                            if (v == null) {
+//                                v = new HashSet();
+//                                m.put(group, v);
+//                            }
+//                            v.add(u);
+//                            // SurveyLog.logger.warning(group + " - " + u.email
+//                            // +
+//                            // " (ALL)");
+//                        }
+//                    } else {
+//                        for (int i = 0; i < localeArray.length; i++) {
+//                            String group = localeArray[i];
+//                            Set v = (Set) m.get(group);
+//                            if (v == null) {
+//                                v = new HashSet();
+//                                m.put(group, v);
+//                            }
+//                            v.add(u);
+//                            // SurveyLog.logger.warning(group + " - " + u.email
+//                            // + "");
+//                        }
+//                    }
+//                }
+//            }
+//        } catch (SQLException se) {
+//            busted("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
+//            throw new RuntimeException("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
+//
+//        } finally {
+//            DBUtils.close(conn);
+//        }
+//        return m;
+//    }
 
     public static final com.ibm.icu.text.Transliterator hexXML = com.ibm.icu.text.Transliterator
             .getInstance("[^\\u0009\\u000A\\u0020-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");

@@ -1086,13 +1086,14 @@ public class UserRegistry {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
+            String normalizedLocales = validateLocaleList(newLocales);
             conn = DBUtils.getInstance().getDBConnection();
             String theSql = "UPDATE " + CLDR_USERS + " SET " + (intLocs ? "intlocs" : "locales") + "=? WHERE id=" + theirId
                     + " AND email='" + theirEmail + "' " + orgConstraint;
             ps = conn.prepareStatement(theSql);
             // msg = msg + " (<br /><pre> " + theSql + " </pre><br />) ";
             logger.info("Attempt user locales update by " + ctx.session.user.email + ": " + theSql + " - " + newLocales);
-            ps.setString(1, newLocales);
+            ps.setString(1, normalizedLocales);
             int n = ps.executeUpdate();
             conn.commit();
             userModified(theirId);
@@ -1104,6 +1105,11 @@ public class UserRegistry {
                 logger.severe("Error: " + n + " records updated!");
             } else {
                 msg = msg + " [locales set]";
+                
+                if(!normalizedLocales.equals(newLocales)) {
+                    msg = msg + " <br>You requested: <strike>" + newLocales + "</strike> <br> Valid locale list: " + prettyPrintLocale(normalizedLocales) + "<br>";
+                }
+                
                 msg = msg + updateIntLocs(theirId, conn);
                 /*
                  * if(intLocs) { return updateIntLocs(theirId); }
@@ -1749,20 +1755,59 @@ public class UserRegistry {
         }
         return l;
     }
+    
+    /**
+     * Tokenize a list, and validate it against actual locales
+     * @param localeList
+     * @return
+     */
+    static Set<CLDRLocale> tokenizeValidCLDRLocale(String localeList) {
+        Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
+        if(localeList==null || localeList.equals("all")) return s; // empty
+        Set<CLDRLocale> topLocs = SurveyMain.getTopLocalesSet();
+        CLDRLocale locs[] = tokenizeCLDRLocale(localeList);
+        for(CLDRLocale l : locs) {
+            if(!topLocs.contains(l)) {
+                continue;
+            }
+            s.add(l);
+        }
+        if(s.isEmpty() && localeList.trim().length()>0) {
+            s.add(CLDRLocale.getInstance("und")); // don't set it to 'all'
+        }
+        return s;
+    }
+    
+    static String validateLocaleList(String list) {
+        StringBuilder sb = new StringBuilder();
+        for(CLDRLocale l : tokenizeValidCLDRLocale(list)) {
+            if(sb.length()>0) {
+                sb.append(' ');
+            }
+            sb.append(l.getBaseName());
+        }
+        return sb.toString();
+    }
 
     /**
      * take a locale string and convert it to HTML.
      */
     static String prettyPrintLocale(String localeList) {
         // System.err.println("TKL: ppl - " + localeList);
-        String[] localeArray = tokenizeLocale(localeList);
+        Set<CLDRLocale> localeArray = tokenizeValidCLDRLocale(localeList);
         String ret = "";
-        if ((localeList == null) || (localeArray.length == 0)) {
+        if ((localeList == null) || (localeList.isEmpty())) {
             // System.err.println("TKL: null output");
-            ret = ("<i>all locales</i>");
-        } else {
-            for (int i = 0; i < localeArray.length; i++) {
-                ret = ret + " <tt class='codebox' title='" + new ULocale(localeArray[i]).getDisplayName() + "'>" + localeArray[i]
+            ret = ("<i title='"+localeList+"'>all locales</i>");
+        } else if(localeArray.isEmpty()) {
+            if(localeList.equals("all")) {
+                ret = ("<i title='"+localeList+"'>all locales</i>");
+            } else {
+                ret = ("<i style='font-size: smaller' title='"+localeList+"'>no locales</i>");
+            }
+        }    else {
+            for (CLDRLocale l : localeArray) {
+                ret = ret + " <tt class='codebox' title='" + l.getDisplayName() + "'>" + l.getBaseName()
                         + "</tt> ";
             }
         }

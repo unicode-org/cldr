@@ -30,6 +30,7 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestMetadata",
                 "org.unicode.cldr.unittest.TestUtilities",
                 "org.unicode.cldr.unittest.NumberingSystemsTest",
+                "org.unicode.cldr.unittest.StandardCodesTest",
                 "org.unicode.cldr.unittest.TestCheckCLDR",
             },
             "All tests in CLDR");

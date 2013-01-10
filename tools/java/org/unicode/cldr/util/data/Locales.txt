@@ -1,59 +1,62 @@
 # http://java.sun.com/j2se/1.5.0/docs/guide/intl/locale.doc.html
 # http://developers.sun.com/techtopics/global/index.html
 
-Sun	;	ar	;	modern
-Sun	;	cs	;	modern
-Sun	;	de	;	modern
-Sun	;	en	;	comprehensive
-Sun	;	es	;	modern
-Sun	;	fr	;	modern
-Sun	;	it	;	modern
-Sun	;	ja	;	modern
-Sun	;	ko	;	modern
-Sun	;	nl	;	modern
-Sun	;	pl	;	modern
-Sun	;	pt	;	modern
-Sun	;	ru	;	modern
-Sun	;	sv	;	modern
-Sun	;	zh	;	modern
-Sun	;	zh_Hant	;	modern
-Sun	;	af	;	basic
-Sun	;	az	;	basic
-Sun	;	be	;	basic
-Sun	;	bg	;	basic
-Sun	;	bs	;	basic
-Sun	;	ca	;	basic
-Sun	;	cy	;	basic
-Sun	;	da	;	basic
-Sun	;	el	;	basic
-Sun	;	et	;	basic
-Sun	;	fi	;	basic
-Sun	;	ga	;	basic
-Sun	;	he	;	basic
-Sun	;	hi	;	basic
-Sun	;	hr	;	basic
-Sun	;	hu	;	basic
-Sun	;	id	;	basic
-Sun	;	is	;	basic
-Sun	;	km	;	basic
-Sun	;	lt	;	basic
-Sun	;	lv	;	basic
-Sun	;	mk	;	basic
-Sun	;	ml	;	basic
-Sun	;	mt	;	basic
-Sun	;	nb	;	basic
-Sun	;	nn	;	basic
-Sun	;	ro	;	basic
-Sun	;	sk	;	basic
-Sun	;	sl	;	basic
-Sun	;	sq	;	basic
-Sun	;	sr	;	basic
-Sun	;	ta	;	basic
-Sun	;	te	;	basic
-Sun	;	th	;	basic
-Sun	;	tr	;	basic
-Sun	;	uk	;	basic
-Sun	;	vi	;	basic
+Oracle	;	ar	;	modern
+Oracle	;	cs	;	modern
+Oracle	;	de	;	modern
+Oracle	;	en	;	comprehensive
+Oracle	;	es	;	modern
+Oracle	;	fr	;	modern
+Oracle	;	it	;	modern
+Oracle	;	ja	;	modern
+Oracle	;	ko	;	modern
+Oracle	;	nl	;	modern
+Oracle	;	pl	;	modern
+Oracle	;	pt	;	modern
+Oracle	;	ru	;	modern
+Oracle	;	sv	;	modern
+Oracle	;	zh	;	modern
+Oracle	;	zh_Hant	;	modern
+Oracle	;	af	;	basic
+Oracle	;	az	;	basic
+Oracle	;	be	;	basic
+Oracle	;	bg	;	basic
+Oracle	;	bs	;	basic
+Oracle	;	ca	;	basic
+Oracle	;	cy	;	basic
+Oracle	;	da	;	basic
+Oracle	;	el	;	basic
+Oracle	;	et	;	basic
+Oracle	;	fi	;	basic
+Oracle	;	ga	;	basic
+Oracle	;	he	;	basic
+Oracle	;	hi	;	basic
+Oracle	;	hr	;	basic
+Oracle	;	hu	;	basic
+Oracle	;	id	;	basic
+Oracle	;	is	;	basic
+Oracle	;	km	;	basic
+Oracle	;	lt	;	basic
+Oracle	;	lv	;	basic
+Oracle	;	mk	;	basic
+Oracle	;	ml	;	basic
+Oracle	;	mt	;	basic
+Oracle	;	nb	;	basic
+Oracle	;	nn	;	basic
+Oracle	;	ro	;	basic
+Oracle	;	sk	;	basic
+Oracle	;	sl	;	basic
+Oracle	;	sq	;	basic
+Oracle	;	sr	;	basic
+Oracle	;	ta	;	basic
+Oracle	;	te	;	basic
+Oracle	;	th	;	basic
+Oracle	;	tr	;	basic
+Oracle	;	uk	;	basic
+Oracle	;	vi	;	basic
+
+# not used
+Sun ; * ; moderate
 
 openoffice_org	;	ar	;	basic
 openoffice_org	;	cs	;	basic
@@ -315,7 +318,7 @@ Apple	;	sk	;	moderate
 Apple	;	sl	;	moderate
 Apple	;	sr	;	moderate
 Apple	;	th	;	moderate
-Apple	;	tl	;	moderate
+#Apple	;	tl	;	moderate
 Apple	;	tr	;	moderate
 Apple	;	uk	;	moderate
 Apple	;	vi	;	moderate
@@ -341,7 +344,7 @@ Apple	;	lt	;	basic
 Apple	;	lv	;	basic
 Apple	;	mk	;	basic
 Apple	;	ml	;	basic
-Apple	;	mn	;	basic
+#Apple	;	mn	;	basic
 Apple	;	mr	;	basic
 Apple	;	ms	;	basic
 Apple	;	mt	;	basic
@@ -351,7 +354,7 @@ Apple	;	pa	;	basic
 Apple	;	sq	;	basic
 Apple	;	ta	;	basic
 Apple	;	te	;	basic
-Apple	;	ug	;	basic
+#Apple	;	ug	;	basic
 Apple	;	ur	;	basic
 
 Adobe	;	ar	;	basic
@@ -387,7 +390,7 @@ Adobe	;	lo	;	basic
 Adobe	;	lt	;	basic
 Adobe	;	lv	;	basic
 Adobe	;	mk	;	basic
-Adobe	;	mn_Mong	;	basic
+#Adobe	;	mn_Mong	;	basic
 Adobe	;	ms	;	basic
 Adobe	;	nb	;	moderate
 Adobe	;	nl	;	moderate
@@ -405,11 +408,20 @@ Adobe	;	sr	;	basic
 Adobe	;	sv	;	moderate
 Adobe	;	th	;	basic
 Adobe	;	tr	;	basic
-Adobe	;	ug	;	basic
+#Adobe	;	ug	;	basic
 Adobe	;	uk	;	basic
 Adobe	;	vi	;	basic
 Adobe	;	zh	;	moderate
 Adobe	;	zh	;	moderate
+
+
+Bhutan ;   dz   ;    modern  ; Dzongkha
+Bhutan ;   *    ; moderate   ;  All others
+
+georgia_isi ;  ka ; modern ; Georgian
+georgia_isi ;  os ; modern ; Ossetic
+georgia_isi ; * ; moderate ; All others
+
 
 Kotoistus	;	fi	;	modern	;	Finnish
 Kotoistus	;	sv	;	moderate	;	Swedish
@@ -437,7 +449,7 @@ India	;	kok	;	modern	;	Konkani
 India	;	ks	;	modern	;	Kashmiri
 India	;	mr	;	modern	;	Marathi
 India	;	pa	;	modern	;	Punjabi
-India	;	sa	;	modern	;	Sanskrit
+#India	;	sa	;	modern	;	Sanskrit
 India	;	ta	;	modern	;	Tamil
 India	;	*	;	moderate	;	All others
 
@@ -455,8 +467,8 @@ Pakistan	;	*	;	modern	;	All others
 
 SIL	;	kk	;	moderate	;
 SIL	;	mgo	;	moderate	;
-SIL	;	bss	;	moderate	;
-SIL	;	ken	;	moderate	;
+#SIL	;	bss	;	moderate	;
+#SIL	;	ken	;	moderate	;
 SIL	;	nnh	;	modern	;
 SIL	;	jgo	;	moderate	;
 SIL	;	*	;	moderate	;	All others

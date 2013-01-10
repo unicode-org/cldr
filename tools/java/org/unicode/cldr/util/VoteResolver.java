@@ -87,7 +87,10 @@ public class VoteResolver<T> {
         // kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika,
         // wikimedia, yahoo;
         adobe, afrigen, apple, bhutan, breton, cherokee, georgia_isi, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
-
+        // Not used (but keep in to avoid breakage):   sun
+        // Please update Locales.txt for default coverage when adding an organization here. 
+        
+        
         public static Organization fromString(String name) {
             name = name.toLowerCase().replace('-', '_').replace('.', '_');
             if (name.contains("pakistan")) {

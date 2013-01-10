@@ -301,7 +301,7 @@ public class StandardCodes {
         Level status = locale_status.get("*");
         if (status != null && status != Level.UNDETERMINED) return status;
         return Level.UNDETERMINED;
-    }
+    } 
 
     /**
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.

@@ -140,6 +140,8 @@ public class CldrUtility {
     public static final String COLLATION_DIRECTORY = getPath(COMMON_DIRECTORY, "collation/");
     public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN",
         getPath(CldrUtility.COMMON_DIRECTORY, "main"));
+    public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
+        getPath(CldrUtility.COMMON_DIRECTORY, "../seed"));
     public static final String TMP_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         getPath(BASE_DIRECTORY, "../cldr-tmp/")));
     public static final String AUX_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR",

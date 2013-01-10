@@ -141,7 +141,7 @@ public class CldrUtility {
     public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN",
         getPath(CldrUtility.COMMON_DIRECTORY, "main"));
     public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
-        getPath(CldrUtility.COMMON_DIRECTORY, "../seed"));
+        getPath(CldrUtility.COMMON_DIRECTORY, "../seed/main"));
     public static final String TMP_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
         getPath(BASE_DIRECTORY, "../cldr-tmp/")));
     public static final String AUX_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR",

@@ -7,13 +7,9 @@
 		<transform source="nl" target="Title" direction="forward">
 			<comment># Copyright (C) 2011-2013, Apple Inc. and others. All Rights Reserved.</comment>
 			<comment># Special titlecasing for Dutch initial "ij".</comment>
-			<comment># If [iI][jJ] is preceded by the following, don't change:</comment>
-			<tRule>[:WB=ALetter:] [:WB=Extend:]* [[:WB=MidLetter:][:WB=MidNumLet:]]? { ([iI][jJ]) → $1 ;</tRule>
-			<tRule>[[:WB=Numeric:][:WB=ExtendNumLet]] { ([iI][jJ]) → $1 ;</tRule>
-			<comment># Otherwise, change to IJ:</comment>
-			<tRule>[iI][jJ] → IJ ;</tRule>
-			<comment># Now handle everything else:</comment>
 			<tRule>::Any-Title();</tRule>
+			<comment># Fix up Ij at the beginning of a "word" (per Any-Title, notUAX #29)</comment>
+			<tRule>[:^WB=ALetter:] [:WB=Extend:]* [[:WB=MidLetter:][:WB=MidNumLet:]]? { Ij } → IJ ;</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
 
@@ -22,6 +24,9 @@ public class IcuTextWriter {
      * The default tab indent (actually spaces)
      */
     private static final String TAB = "    ";
+    private static final Pattern ESCAPED_CHARACTERS = Pattern.compile("\\\\[\\-\\&\\{\\}\\[\\]]");
+    private static final Pattern HTML_ESCAPED_CHARACTERS = Pattern.compile(" (\\&\\w)");
+
 
     /**
      * ICU paths have a simple comparison, alphabetical within a level. We do
@@ -109,7 +114,11 @@ public class IcuTextWriter {
             }
             boolean quote = !IcuData.isIntRbPath(path);
             List<String[]> values = icuData.get(path);
-            wasSingular = appendValues(path, values, labels.length, quote, out);
+            try {
+                wasSingular = appendValues(path, values, labels.length, quote, out);
+            } catch(NullPointerException npe) {
+                System.err.println("Null value encountered in " + path);
+            }
             out.flush();
             lastLabels = labels;
         }
@@ -141,7 +150,7 @@ public class IcuTextWriter {
         boolean wasSingular = false;
         if (values.size() == 1) {
             if ((firstArray = values.get(0)).length == 1 && !mustBeArray(rbPath)) {
-                String value = quoteInside(firstArray[0]);
+                String value = firstArray[0];
                 int maxWidth = 84 - Math.min(4, numTabs) * TAB.length();
                 if (value.length() <= maxWidth) {
                     // Single value for path: don't add newlines.
@@ -200,14 +209,14 @@ public class IcuTextWriter {
     private static PrintWriter appendArray(String padding, String[] valueArray, boolean quote, PrintWriter out) {
         for (String value : valueArray) {
             out.append(padding);
-            appendQuoted(quoteInside(value), quote, out).println(",");
+            appendQuoted(value, quote, out).println(",");
         }
         return out;
     }
 
     private static PrintWriter appendQuoted(String value, boolean quote, PrintWriter out) {
         if (quote) {
-            return out.append('"').append(value).append('"');
+            return out.append('"').append(quoteInside(value)).append('"');
         } else {
             return out.append(value);
         }
@@ -250,9 +259,11 @@ public class IcuTextWriter {
      * @return
      */
     private static String quoteInside(String item) {
-        if (item.contains("\"")) {
-            item = item.replace("\"", "\\\"");
-        }
+        item = item.replace("\"", "&quot;");
+        // Double up on backslashes, ignoring Unicode-escaped characters.
+        item = ESCAPED_CHARACTERS.matcher(item).replaceAll("\\\\$0");
+        // Add backslashes to HTML-escaped characters.
+        item = HTML_ESCAPED_CHARACTERS.matcher(item).replaceAll(" \\\\\\\\$1");
         return item;
     }
 

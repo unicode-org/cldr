@@ -724,7 +724,7 @@ public class StandardCodes {
 
     public Map<String, List<String>> getWorldBankInfo() {
         if (WorldBankInfo == null) {
-            List<String> temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "WorldBankInfo.txt", false);
+            List<String> temp = fillFromCommaFile("WorldBankInfo.txt", false);
             WorldBankInfo = new HashMap();
             for (String line : temp) {
                 List<String> row = CldrUtility.splitList(line, ';', true);
@@ -741,7 +741,7 @@ public class StandardCodes {
 
     public Set<String> getMoribundLanguages() {
         if (moribundLanguages == null) {
-            List temp = fillFromCommaFile(CldrUtility.UTIL_DATA_DIR, "moribund_languages.txt", true);
+            List temp = fillFromCommaFile("moribund_languages.txt", true);
             moribundLanguages = new TreeSet<String>();
             moribundLanguages.addAll(temp);
             moribundLanguages = CldrUtility.protectCollection(moribundLanguages);
@@ -750,11 +750,11 @@ public class StandardCodes {
     }
 
     // produces a list of the 'clean' lines
-    private List<String> fillFromCommaFile(String dir, String filename, boolean trim) {
+    private List<String> fillFromCommaFile(String filename, boolean trim) {
         try {
             List<String> result = new ArrayList<String>();
             String line;
-            BufferedReader lstreg = BagFormatter.openUTF8Reader(dir, filename);
+            BufferedReader lstreg = CldrUtility.getUTF8Data(filename);
             while (true) {
                 line = lstreg.readLine();
                 if (line == null)
@@ -773,7 +773,7 @@ public class StandardCodes {
             return result;
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(
-                "Can't process file: " + dir + filename).initCause(e);
+                "Can't process file: data/" + filename).initCause(e);
         }
     }
 
@@ -953,7 +953,7 @@ public class StandardCodes {
             }
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(
-                "Can't process file: " + CldrUtility.UTIL_DATA_DIR
+                "Can't process file: data/"
                     + registryName + ";\t at line " + lineNumber).initCause(e);
         } finally {
             if (!funnyTags.isEmpty()) {

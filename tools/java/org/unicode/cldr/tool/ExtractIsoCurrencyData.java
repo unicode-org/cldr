@@ -27,9 +27,14 @@ public class ExtractIsoCurrencyData {
         Pattern.DOTALL).matcher("");
 
     public static void main(String[] args) throws IOException {
-        final String inputFile = CldrUtility.getProperty("input", CldrUtility.UTIL_DATA_DIR
-            + "/currency_codes_list-1.htm");
-        BufferedReader in = BagFormatter.openUTF8Reader("", inputFile);
+        final String inputFile = CldrUtility.getProperty("input");
+        BufferedReader in;
+        if (inputFile == null) {
+            in = CldrUtility.getUTF8Data("currency_codes_list-1.htm");
+        } else {
+            in = BagFormatter.openUTF8Reader("", inputFile);
+        }
+        // NOTE: UTIL_DATA_DIR is required here because it is used as an output directory.
         final String outputFile = CldrUtility.getProperty("output", CldrUtility.UTIL_DATA_DIR
             + "/currencycodeslist.txt");
         PrintWriter out = BagFormatter.openUTF8Writer(null, outputFile);

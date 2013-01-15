@@ -120,16 +120,11 @@ public class CldrUtility {
     // if the main is different, use -Dcldrmain=<value>
 
     /**
-     * @deprecated Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc)
+     * @deprecated Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc).
+     * If it must be used, add a comment next to the usage to explain why it is needed.
      */
-    public static final String UTIL_CODE_DIR = FileUtilities.getRelativeFileName(CldrUtility.class, ""); // getPath(BASE_DIRECTORY,
-                                                                                                         // "tools/java/org/unicode/cldr/");
-
-    /**
-     * @deprecated Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc)
-     */
-    public static final String UTIL_DATA_DIR = getPath(UTIL_CODE_DIR, "data/"); // getPath(BASE_DIRECTORY,
-                                                                                // "tools/java/org/unicode/cldr/util/data/");
+    public static final String UTIL_DATA_DIR = FileUtilities.getRelativeFileName(
+        CldrUtility.class, "data/");
 
     public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new
                                                                                                     // File(Utility.getProperty("CLDR_DIR",
@@ -315,6 +310,8 @@ public class CldrUtility {
     }
 
     public static void registerExtraTransliterators() {
+        // NOTE: UTIL_DATA_DIR is required here only because TransliteratorUtilities
+        // requires a file path.
         String tzadir = UTIL_DATA_DIR + File.separatorChar; // work around bad pattern (dir+filename)
         // HACK around lack of Armenian, Ethiopic
         TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Armenian");

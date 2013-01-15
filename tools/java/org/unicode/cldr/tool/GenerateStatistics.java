@@ -46,7 +46,7 @@ class GenerateStatistics {
     static Collator col = Collator.getInstance(ULocale.ENGLISH);
     static boolean notitlecase = true;
 
-    public static void generateSize(String sourceDir, String logDir, String tzadir, String match, boolean transliterate)
+    public static void generateSize(String sourceDir, String logDir, String match, boolean transliterate)
         throws IOException {
         factory = Factory.make(sourceDir, match);
         CldrUtility.registerExtraTransliterators();

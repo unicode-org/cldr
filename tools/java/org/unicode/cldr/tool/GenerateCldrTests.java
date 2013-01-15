@@ -76,8 +76,8 @@ public class GenerateCldrTests {
     PrintWriter out;
 
     private static final int HELP1 = 0, HELP2 = 1, SOURCEDIR = 2, DESTDIR = 3,
-        LOGDIR = 4, MATCH = 5, NOT_RESOLVED = 6, LANGUAGES = 7, TZADIR = 8,
-        SHOW = 9;
+        LOGDIR = 4, MATCH = 5, NOT_RESOLVED = 6, LANGUAGES = 7,
+        SHOW = 8;
 
     private static final UOption[] options = {
         UOption.HELP_H(),
@@ -88,8 +88,6 @@ public class GenerateCldrTests {
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("notresolved", 'n', UOption.NO_ARG),
         UOption.create("languages", 'g', UOption.NO_ARG),
-        UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(
-            CldrUtility.UTIL_DATA_DIR),
         // "C:\\ICU4J\\icu4j\\src\\com\\ibm\\icu\\dev\\tool\\cldr\\"),
         UOption.create("show", 's', UOption.NO_ARG), };
 
@@ -124,7 +122,7 @@ public class GenerateCldrTests {
             if (options[LANGUAGES].doesOccur) {
                 GenerateStatistics.generateSize(
                     options[GenerateCldrTests.SOURCEDIR].value + "main/",
-                    options[GenerateCldrTests.LOGDIR].value, options[TZADIR].value,
+                    options[GenerateCldrTests.LOGDIR].value,
                     options[MATCH].value, true);
                 return;
             }

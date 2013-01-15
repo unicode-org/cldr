@@ -944,9 +944,13 @@ div.person a {
 	
 }
 
-.reply a {
+.reply a, div.subpost a.postReply {
 	background-color: #fff88d;
 	margin-bottom: 1em;
+}
+
+div.subpost a.postReply {
+	text-align: right;
 }
 
 .odashbox {
@@ -982,10 +986,75 @@ a.forumlink {
 	background: url(chat.png) no-repeat;
 }
 
+td.d-code.hasPosts {
+	background: url(chat.png) no-repeat right bottom;
+}
+
+div.forumDiv div.subpost {
+	border:  1px solid black;
+	background-color: #f5e3c2;
+	margin-right:  2em;
+	margin-top:  0.25em;
+	padding:  0.25em;
+}
+
+div.forumDiv div.subpost b {
+	margin-right: 1em;
+	display:  table-cell;
+	padding-right:  1em;
+}
+
+div.forumDiv div.subpost .postHeader {
+	display:  table-cell;
+}
+
+button.forumNewButton {
+	
+}
+
+div.forumDiv .adminUserUser {
+	background-color: lightgrey !important;
+	margin: 3px !important;
+	display:  block !important;
+}
+div.forumDiv span.adminUserName {
+	font-size:  medium !important;
+}
+div.forumDiv .adminUserUser span.adminUserName,
+div.forumDiv  .adminUserUser address,
+div.forumDiv .adminUserUser i {
+		float:none !important;
+		margin:  0.25em !important;
+}
+
+div.postHeaderInfoGroup {
+	display:  table;
+}
+
+
+div.postHeaderLine {
+	display:  table-row;
+}
+
+div.postHeaderLine div {
+	display:  table-cell;
+}
+
+div.postHeaderLine div.postHeaderItem {
+	display:  table-row;
+}
+
+div.forumDiv div.subpost div.postContent {
+	margin:  0.5em;
+	font-size:  medium;	
+	padding-top:  0.5em;
+}
+
 .disabledbox {
 	font-size: 80%;
 	color: #555;
 }
+
 
 .deactivated {
 	color: #555;
@@ -2428,3 +2497,4 @@ div.voterList .voterOrg {
 	color: white !important;
 	background-color: navy !important;
 }
+

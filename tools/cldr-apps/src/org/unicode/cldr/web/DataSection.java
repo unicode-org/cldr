@@ -1718,6 +1718,9 @@ public class DataSection implements JSONString {
             return ballotBox.userDidVote(sm.reg.getInfo(userId), getXpath());
         }
 
+        /**
+         * Per row
+         */
         @Override
         public String toJSONString() throws JSONException {
 
@@ -1771,12 +1774,17 @@ public class DataSection implements JSONString {
                         .put("displayInExample", displayInExample)
                         // .put("showstatus",
                         // (ph!=null)?ph.getSurveyToolStatus():null)
-                        .put("statusAction", getStatusAction()).put("prettyPath", getPrettyPath()).put("code", pathCode)
+                        .put("statusAction", getStatusAction())
+                        .put("prettyPath", getPrettyPath())
+                        .put("code", pathCode)
                         .put("extraAttributes", getNonDistinguishingAttributes()).put("coverageValue", coverageValue)
                         .put("hasErrors", hasErrors).put("hasWarnings", hasWarnings).put("confirmStatus", confirmStatus)
                         .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
-                        .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
+                        .put("winningVhash", winningVhash)
+                        .put("ourVote", ourVote)
+                        .put("voteVhash", voteVhash)
                         .put("voteResolver", SurveyAjax.JSONWriter.wrap(ballotBox.getResolver(xpath))).put("items", itemsJson)
+                        .put("forumPosts", sm.fora.postCountFor(locale,getXpathId()))
                         .toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in toJSONString of " + this);

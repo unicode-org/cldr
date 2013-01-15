@@ -2,7 +2,7 @@
 //  SurveyForum.java
 //
 //  Created by Steven R. Loomis on 27/10/2006.
-//  Copyright 2006-2012 IBM. All rights reserved.
+//  Copyright 2006-2013 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Hashtable;
@@ -28,11 +29,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.WebContext.LoadingShow;
 
@@ -394,8 +399,20 @@ public class SurveyForum {
      * @throws IOException
      */
     void doXpathPost(WebContext ctx, String forum, int forumNumber, int base_xpath) throws IOException {
-        String xpath = sm.xpt.getById(base_xpath);
+        String fieldStr = ctx.field("replyto",null);
+        int postToXpath = ctx.fieldInt("replyto", -1);
+        boolean isNewPost = false;
+        if(forum.isEmpty()) {
+            forum = localeToForum(ctx.getLocale().toULocale());
+            forumNumber = getForumNumber(forum);
+        }
+        if(postToXpath == -1 && fieldStr.startsWith("x")) {
+            base_xpath = Integer.parseInt(fieldStr.substring(1));
+            isNewPost = true;
+        }
+        //if(postToXpath!=-1) base_xpath = postToXpath;
         int replyTo = ctx.fieldInt("replyto", -1);
+        String xpath = sm.xpt.getById(base_xpath);
 
         // Don't want to call printHeader here - becasue if we do a post, we're
         // going ot be
@@ -407,7 +424,8 @@ public class SurveyForum {
             defaultSubj = true;
             if (xpath != null) {
                 // I could really use '#if 0' right here
-                subj = sm.xpt.getPrettyPath(xpath);
+                subj = sm.getSTFactory().getPathHeader(xpath).toString();
+                //subj = sm.xpt.getPrettyPath(xpath);
                 /*
                  * int n = xpath.lastIndexOf("/"); if(n!=-1) { subj =
                  * xpath.substring(n+1,xpath.length()); }
@@ -422,7 +440,7 @@ public class SurveyForum {
         } else {
             subj = subj.trim();
         }
-
+        
         if (text != null && text.length() > 0) {
             if (ctx.field("post").length() > 0) {
                 // do the post!
@@ -443,7 +461,7 @@ public class SurveyForum {
                         pAdd.setString(3, preparePostText(text));
                         pAdd.setInt(4, forumNumber);
                         pAdd.setInt(5, -1); // no parent
-                        pAdd.setString(6, ctx.getLocale().toString());
+                        pAdd.setString(6, ctx.getLocale().toString()); // real locale of item, not furm #
                         pAdd.setInt(7, base_xpath);
 
                         int n = pAdd.executeUpdate();
@@ -526,7 +544,10 @@ public class SurveyForum {
                     + "</div><p>");
             ctx.println("</div><hr>");
         } else {
-            String prettyPath = sm.xpt.getPrettyPath(base_xpath);
+            String prettyPath = null;
+            if(xpath!=null) {
+                prettyPath = sm.getSTFactory().getPathHeader(xpath).toString();
+            }
             if (prettyPath != null) {
                 sm.printHeader(ctx, prettyPath.replaceAll("\\|", " | "));
             } else {
@@ -535,6 +556,10 @@ public class SurveyForum {
 
             sm.printUserTable(ctx);
             printMiniMenu(ctx, forum, prettyPath);
+        }
+        
+        if(isNewPost) {
+            ctx.println("<h2><a href='"+  forumItemUrl(ctx,ctx.getLocale(),base_xpath) + "'>Return to original item</a></h2>");
         }
 
         if (replyTo != -1) {
@@ -549,7 +574,7 @@ public class SurveyForum {
             }
         }
 
-        if ((ctx.field("text").length() == 0) && (ctx.field("subj").length() == 0) && base_xpath != -1) {
+        if ((ctx.field("text").length() == 0) && (ctx.field("subj").length() == 0) && base_xpath != -1 && !isNewPost && (replyTo == -1)) {
             // hide the 'post comment' thing
             String warnHash = "post_comment" + base_xpath + "_" + forum;
             ctx.println("<div class='postcomment' id='h_" + warnHash + "'><a href='javascript:show(\"" + warnHash + "\")'>"
@@ -562,9 +587,15 @@ public class SurveyForum {
         ctx.print("<a name='replyto'></a>");
         ctx.println("<form method='POST' action='" + ctx.base() + "'>");
         ctx.println("<input type='hidden' name='" + F_FORUM + "' value='" + forum + "'>");
-        ctx.println("<input type='hidden' name='" + F_XPATH + "' value='" + base_xpath + "'>");
+        if(!isNewPost) {
+            ctx.println("<input type='hidden' name='" + F_XPATH + "' value='" + base_xpath + "'>");
+        }
         ctx.println("<input type='hidden' name='_' value='" + ctx.getLocale() + "'>");
-        ctx.println("<input type='hidden' name='replyto' value='" + replyTo + "'>");
+        if(isNewPost) {
+            ctx.println("<input type='hidden' name='replyto' value='x" + base_xpath + "'>");
+        } else {
+            ctx.println("<input type='hidden' name='replyto' value='" + replyTo + "'>");
+        }
 
         if (sm.isPhaseBeta()) {
             ctx.println("<div class='ferrbox'>Please remember that the SurveyTool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
@@ -638,7 +669,10 @@ public class SurveyForum {
             if (nopopups) {
                 ctx.println(returnText + "<hr>");
             }
-            showXpath(ctx, xpath, base_xpath, ctx.getLocale());
+            
+            if(isNewPost || (replyTo != -1)) {
+                showXpath(ctx, xpath, base_xpath, ctx.getLocale());
+            }
             if (nopopups) {
                 ctx.println("<hr>" + returnText + "<br/>");
             }
@@ -884,7 +918,7 @@ public class SurveyForum {
 
         ctx.println("<hr>");
         if (didpost) {
-            ctx.println("<b>Posted your response.</b><hr>");
+            ctx.println("<b>Posted your response. Click \"View Item\" to return to a particular forum post.</b><hr>");
         }
 
         ctx.println("<a href='" + forumUrl(ctx, forum) + "&amp;replyto='><b>+</b> " + POST_SPIEL + "</a><br>");
@@ -1033,8 +1067,7 @@ public class SurveyForum {
             ctx.println("</span> * ");
         }
         if (xpath != -1) {
-            ctx.println("<span class='reply'><a " + ctx.atarget() + " href='" + forumUrl(ctx, forum) + "&" + F_DO + "=" + F_VIEW
-                    + "&id=" + id + "'>View Item</a></span> * ");
+            ctx.println("<span class='reply'><a href='" + forumItemUrl(ctx,loc,xpath) + "'>View Item</a></span> * ");
         }
         ctx.println("<span class='reply'><a href='" + forumUrl(ctx, forum) + ((loc != null) ? ("&_=" + loc) : "") + "&" + F_DO
                 + "=" + F_REPLY + "&replyto=" + id + "#replyto'>Reply</a></span>");
@@ -1043,6 +1076,14 @@ public class SurveyForum {
 
         ctx.println("<div class='response'>" + preparePostText(text) + "</div>");
         ctx.println("</div>");
+    }
+
+    public String forumItemUrl(WebContext ctx, CLDRLocale loc, int xpath) {
+       WebContext subctx = new WebContext(ctx);
+       // .url() + "?_="+loc+"&strid=" + ctx.sm.xpt.getStringIDString(xpath)
+       subctx.addQuery("_", loc.getBaseName());
+       subctx.addQuery("strid", ctx.sm.xpt.getStringIDString(xpath));
+       return subctx.url();
     }
 
     String getNameLinkFromUid(UserRegistry.User me, int uid) {
@@ -1816,5 +1857,80 @@ public class SurveyForum {
                                                                                                                   * ;
                                                                                                                   */
 
+    }
+
+    public int postCountFor(CLDRLocale locale, int xpathId) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        String tableName = DB_POSTS;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+
+            ps = DBUtils.prepareForwardReadOnly(conn, "select count(*) from " + tableName + " where loc=? and xpath=?");
+            ps.setString(1, locale.getBaseName());
+            ps.setInt(2, xpathId);
+            
+            return DBUtils.sqlCount(null, conn, ps);
+        } catch (SQLException e) {
+            SurveyLog.logException(e, "postCountFor for " + tableName + " " + locale + ":" + xpathId);
+            return 0;
+        } finally {
+            DBUtils.close(ps, conn);
+        }
+    }
+
+    public JSONArray toJSON(CookieSession session, CLDRLocale locale, int base_xpath) throws JSONException {
+        boolean canModify = (UserRegistry.userCanAccessForum(session.user, locale));
+        if(!canModify) return null;
+
+        JSONArray ret = new JSONArray();
+        
+        int forumNumber = getForumNumber(locale.getLanguage());
+        
+        try {
+            Connection conn = null;
+            try {
+                conn = sm.dbUtils.getDBConnection();
+
+                Object[][] o = sm.dbUtils.sqlQueryArrayArrayObj(conn, "select " + pAllResultFora + "  FROM " + DB_POSTS
+                        + " WHERE (" + DB_POSTS + ".forum =? AND " + DB_POSTS + " .xpath =?) ORDER BY " + DB_POSTS
+                        + ".last_time DESC", forumNumber, base_xpath);
+
+                // private final static String pAllResult =
+                // DB_POSTS+".poster,"+DB_POSTS+".subj,"+DB_POSTS+".text,"+DB_POSTS+".last_time,"+DB_POSTS+".id,"+DB_POSTS+".forum,"+DB_FORA+".loc";
+                if (o != null) {
+                    for (int i = 0; i < o.length; i++) {
+                        int poster = (Integer) o[i][0];
+                        String subj2 = (String) o[i][1];
+                        String text2 = (String) o[i][2];
+                        Timestamp lastDate = (Timestamp) o[i][3];
+                        int id = (Integer) o[i][4];
+
+                        if (lastDate.after(oldOnOrBefore) || false) {
+                            JSONObject post = new JSONObject();
+                            post.put("poster", poster)
+                            .put("posterInfo", SurveyAjax.JSONWriter.wrap(session.sm.reg.getInfo(poster)))
+                             .put("subject", subj2)
+                             .put("text", text2)
+                             .put("date", lastDate)
+                             .put("id", id);
+                            ret.put(post);
+                        }
+                    }
+                }
+                return ret;
+                // System.err.println("Got: " + Arrays.toString(o) +
+                // " for fn " + forumNumber + " and " + base_xpath);
+            } finally {
+                DBUtils.close(conn);
+            }
+        } catch (SQLException se) {
+            String complaint = "SurveyForum:  Couldn't show posts in forum " + locale + " - "
+                    + DBUtils.unchainSqlException(se) + " - fGetByLoc";
+            logger.severe(complaint);
+            // ctx.println("<br>"+complaint+"</br>");
+            throw new RuntimeException(complaint);
+        }
+    
     }
 }

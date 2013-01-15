@@ -175,8 +175,9 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_GETROW = "getrow";
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_GETVV = "vettingviewer";
-    private static final Object WHAT_STATS_BYDAY = "stats_byday";
-    private static final Object WHAT_RECENT_ITEMS = "recent_items";
+    public static final String WHAT_STATS_BYDAY = "stats_byday";
+    public static final String WHAT_RECENT_ITEMS = "recent_items";
+    public static final String WHAT_FORUM_FETCH = "forum_fetch";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, "dummy" }; // list
                                                                               // of
@@ -567,6 +568,20 @@ public class SurveyAjax extends HttpServlet {
                         r.put("ret", str);
 
                         send(r, out);
+                    } else if(what.equals(WHAT_FORUM_FETCH)) {
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("what", what);
+
+                        CLDRLocale locale = CLDRLocale.getInstance(loc);
+                        int id = Integer.parseInt(xpath);
+                        String xp = sm.xpt.getById(id);
+                        r.put("loc", loc);
+                        r.put("xpath", xpath);
+                        r.put("ret",mySession.sm.fora.toJSON(mySession,locale,id));
+
+                        send(r, out);
+                    } else {
+                        sendError(out, "Unknown Session-based Request: " + what);
                     }
                 }
             } else {

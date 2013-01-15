@@ -19,6 +19,27 @@ stui_str = function(x) {
     	return x;
     }
 };
+function createChunk(text, tag, className) {
+	if(!tag) {
+		tag="span";
+	}
+	var chunk = document.createElement(tag);
+	if(className) {
+		chunk.className = className;
+		chunk.title=stui_str(firstword(className)+"_desc");
+	}
+	if(text) {
+		chunk.appendChild(document.createTextNode(text));
+	}
+	return chunk;
+}
+function createUser(user) {
+	var div = createChunk(null,"div","adminUserUser");
+	div.appendChild(createChunk(stui_str("userlevel_"+user.userlevelname),"i","userlevel_"+user.userlevelname));
+	div.appendChild(createChunk(user.name,"span","adminUserName"));
+	div.appendChild(createChunk(user.email,"address","adminUserAddress"));
+	return div;
+}
 
 function stStopPropagation(e) {
 	if(!e) {
@@ -1080,6 +1101,130 @@ function addClass(obj, className) {
 		obj.className = className+" "+obj.className;
 	}
 }
+
+
+// called when showing the popup each time
+function showForumStuff(frag, forumDiv, tr) {
+	// prepend something
+	var newButton = createChunk("New Post (leaves this page)", "button", "forumNewButton");
+	frag.appendChild(newButton);
+	
+	listenFor(newButton, "click", function(e) {
+		window.blur(); // submit anything unsubmitted
+		window.location = tr.forumDiv.postUrl;
+		stStopPropagation(e);
+		return true;
+	});
+
+	console.log("showingForumStuff: " + tr.forumDiv.forumPosts);
+	if(tr.forumDiv.forumPosts > 0) {
+		var showButton = createChunk("Show " + tr.forumDiv.forumPosts  + " posts", "button", "forumShow");
+		
+		forumDiv.appendChild(showButton);
+		
+		var theListen = function(e) {
+			showButton.style.display = "none";
+			
+			// callback.
+			var ourUrl = tr.forumDiv.url + "&what=forum_fetch";
+			var errorHandler = function(err, ioArgs) {
+				console.log('Error in showForumStuff: ' + err + ' response '
+						+ ioArgs.xhr.responseText);
+				showInPop(
+						stopIcon
+								+ " Couldn't load forum post for this row- please refresh the page. <br>Error: "
+								+ err + "</td>", tr, null);
+				handleDisconnect("Could not showForumStuff:"+err, null)
+				return true;
+			};
+			var loadHandler = function(json) {
+				try {
+					if (json) {
+						if(json.ret) {
+							for(num in json.ret) {
+								var post = json.ret[num];
+//								userChunk.style.float = "right";
+//								forumDiv.appendChild(createChunk("Id:","b"));
+//								forumDiv.appendChild(document.createElement("br"));
+								
+								var subpost = createChunk("","div","subpost");
+								forumDiv.appendChild(subpost);
+								
+								var headerLine = createChunk("","div","postHeaderLine");
+								subpost.appendChild(headerLine);
+								
+								var userChunk = createUser(post.posterInfo);
+								headerLine.appendChild(userChunk);
+								
+								var subSubChunk = createChunk("","div","postHeaderInfoGroup");
+								headerLine.appendChild(subSubChunk);
+								{
+									var subChunk = createChunk("","div","postHeaderItem");
+									subSubChunk.appendChild(subChunk);
+									subChunk.appendChild(createChunk("Date:","b"));
+									subChunk.appendChild(createChunk(post.date,"span","postHeader"));
+									subChunk.appendChild(document.createElement("br"));
+								}
+								{
+									var subChunk = createChunk("","div","postHeaderItem");
+									subSubChunk.appendChild(subChunk);
+									subChunk.appendChild(createChunk("Subject:","b"));
+									subChunk.appendChild(createChunk(post.subject,"span","postHeader"));
+									subChunk.appendChild(document.createElement("br"));
+								}
+																
+								// actual text
+								subpost.appendChild(createChunk(post.text, "div","postContent"));
+								
+								// reply link
+								var replyChunk = createChunk("Reply (leaves this page)","a","postReply");
+								replyChunk.href = tr.forumDiv.replyStub + post.id;
+								subpost.appendChild(replyChunk);
+								
+							}
+						}
+					}
+				} catch (e) {
+					console.log("Error in ajax forum read ", e.message);
+					console.log(" response: " + json);
+					showInPop(stopIcon + " exception in ajax forum read: " + e.message, tr, null, true);
+				}
+			};
+			var xhrArgs = {
+				url : ourUrl,
+				handleAs : "json",
+				load : loadHandler,
+				error : errorHandler
+			};
+			// window.xhrArgs = xhrArgs;
+			// console.log('xhrArgs = ' + xhrArgs);
+			queueXhr(xhrArgs);
+				
+			
+			stStopPropagation(e);
+			return false;
+		};
+		listenFor(showButton, "click", theListen);
+		listenFor(showButton, "mouseover", theListen);
+	}
+	
+	
+	//	if(tr.theRow.forumPosts > (-1)) {
+//		td.appendChild(document.createTextNode("Forum posts: " + tr.theRow.forumPosts ));
+//	}
+}
+
+// called when initially setting up the section
+function appendForumStuff(tr, theRow, forumDiv) {
+	removeAllChildNodes(forumDiv); // we may be updating.
+	forumDiv.replyStub = contextPath + "/survey?forum=&_=" + surveyCurrentLocale + "&replyto=";
+	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow.xpid;
+	forumDiv.url = contextPath + "/SurveyAjax?xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
+		+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
+		+ "&voteinfo=t";
+}
+
+// window loader stuff
 dojo.ready(function() {
 	var unShow = null;
 //	var lastShown = null;
@@ -1117,8 +1262,6 @@ dojo.ready(function() {
 //		hideInterval=null;
 //	});
 //	listenFor(pubody, "mouseout", hidePopHandler);
-	
-	var pupin =  createChunk("Pin", "button", "pu-pin");
 	
 	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate) {
 //		if(hideIfLast&&lastShown==hideIfLast) {
@@ -1174,23 +1317,29 @@ dojo.ready(function() {
 			td.appendChild(theVoteinfo.cloneNode(true));
 		}
 
+		// forum stuff
+		if(tr && tr.forumDiv) {
+			var forumDiv = tr.forumDiv.cloneNode(true);
+			showForumStuff(td, forumDiv, tr); // give a chance to update anything else
+			td.appendChild(forumDiv);
+		}
 		
 		removeAllChildNodes(pucontent);
 		pucontent.appendChild(td);
-		if(stdebug_enabled) {
-			if(pupin) {
-				pucontent.appendChild(pupin);
-			}
-//			listenFor(pupin, "click", function(e) {
-//				window.hidePop = function() {
+//		if(stdebug_enabled) {
+//			if(pupin) {
+//				pucontent.appendChild(pupin);
+//			}
+////			listenFor(pupin, "click", function(e) {
+////				window.hidePop = function() {
+////
+////				};
+////				pucontent.removeChild(pupin);
+////				pupin = null;
+////				stStopPropagation(e); return false; 
+////			});
 //
-//				};
-//				pucontent.removeChild(pupin);
-//				pupin = null;
-//				stStopPropagation(e); return false; 
-//			});
-
-		}
+//		}
 		td=null;
 		
 //		var popParent = tr;
@@ -1485,41 +1634,6 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
                h3.appendChild(createChunk(stui.sub("pClass_"+item.pClass, item ),"p","pClassExplain"));
 		 }
         
-		
-//		// NOT USED - because it's in the Approved box.
-////		votes: {
-////			1000: {
-////			level: "tc",
-////			email: "asdasdasf_iij7kpoiq (at) zc32.kendra.example.com",
-////			name: "ASDASDASF_TESTER_",
-////			votes: 8,
-////			org: "kendra"
-////			}
-////		}
-//		
-//		if(item.votes) {
-//			var vdiv = document.createElement("div");
-//			vdiv.className="voterList";
-//			//vdiv.appendChild(createChunk(stui_str("Voters"),"h4"));
-//			for(vuid in item.votes) {
-//				var voter = item.votes[vuid];
-//				var vp = document.createElement("p");
-//				vp.appendChild(createChunk(voter.org,"span","voterOrg"));
-//				if(voter.name) {
-//					vp.appendChild(createChunk(voter.name,"span","voterName"));
-//				} else {
-//					vp.appendChild(createChunk("#"+vuid,"span","voterName"));
-//				}
-//				if(voter.email) {
-//					vp.appendChild(createChunk(voter.email,"address","voterAddress"));
-//					vp.appendChild(createChunk(" "));
-//				}
-//				vdiv.appendChild(vp);
-//			}
-//			
-//			td.appendChild(vdiv);
-//		}
-//		
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
 		var newHtml = "";
@@ -1906,8 +2020,6 @@ function updateRow(tr, theRow) {
 //		children[config.proposedcell].className = 'd-win';
 //	}
 	
-	
-	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus;
 	if(!children[config.statuscell].isSetup) {
 		listenToPop("", tr, children[config.statuscell]);
@@ -1948,6 +2060,27 @@ function updateRow(tr, theRow) {
 			codeStr = codeStr + " (optional)";
 		}
 		children[config.codecell].appendChild(createChunk(codeStr));
+		
+		
+		if(tr.theTable.json.canModify) { // pointless if can't modify.
+	
+			if(theRow.forumPosts > 0) {
+				children[config.codecell].className = "d-code hasPosts";		
+			} else {
+				children[config.codecell].className = "d-code";			
+			}
+	
+			
+			if(!tr.forumDiv) {
+				tr.forumDiv = document.createElement("div");
+				tr.forumDiv.className = "forumDiv";
+			}			
+			tr.forumDiv.forumPosts = theRow.forumPosts;
+			tr.forumDiv.forumUpdate = null;
+			
+			appendForumStuff(tr,theRow, tr.forumDiv);
+		}
+		
 		// extra attributes
 		if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
 			appendExtraAttributes(children[config.codecell], theRow);
@@ -2350,20 +2483,8 @@ function loadStui(loc) {
 function firstword(str) {
 	return str.split(" ")[0];
 }
-function createChunk(text, tag, className) {
-	if(!tag) {
-		tag="span";
-	}
-	var chunk = document.createElement(tag);
-	if(className) {
-		chunk.className = className;
-		chunk.title=stui_str(firstword(className)+"_desc");
-	}
-	if(text) {
-		chunk.appendChild(document.createTextNode(text));
-	}
-	return chunk;
-}
+
+
 
 function appendIcon(toElement, className) {
 	var e = createChunk(null, "div", className);
@@ -2849,14 +2970,6 @@ function loadAdminPanel() {
 		}
 	}
 	
-	
-	function createUser(user) {
-		var div = createChunk(null,"div","adminUserUser");
-		div.appendChild(createChunk(stui.str("userlevel_"+user.userlevelname),"i","userlevel_"+user.userlevelname));
-		div.appendChild(createChunk(user.name,"span","adminUserName"));
-		div.appendChild(createChunk(user.email,"address","adminUserAddress"));
-		return div;
-	}
 	
 	addAdminPanel("admin_users", function(div) {
 		var frag = document.createDocumentFragment();

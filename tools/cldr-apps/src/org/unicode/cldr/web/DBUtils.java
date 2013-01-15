@@ -342,21 +342,26 @@ public class DBUtils {
             s.setBytes(which, u8);
         }
     }
+    
+    static int sqlCount(Connection conn, PreparedStatement ps) throws SQLException {
+        int rv = -1;
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            rv = rs.getInt(1);
+        }
+        rs.close();
+        return rv;
+    }
 
     static int sqlCount(WebContext ctx, Connection conn, PreparedStatement ps) {
-        int rv = -1;
         try {
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                rv = rs.getInt(1);
-            }
-            rs.close();
+            return sqlCount(conn,ps);
         } catch (SQLException se) {
             String complaint = " Couldn't query count - " + unchainSqlException(se) + " -  ps";
             System.err.println(complaint);
             ctx.println("<hr><font color='red'>ERR: " + complaint + "</font><hr>");
+            return -1;
         }
-        return rv;
     }
 
     static int sqlCount(WebContext ctx, Connection conn, String sql) {

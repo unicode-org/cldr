@@ -912,14 +912,13 @@ public class CldrUtility {
      * @param name
      *            a name residing in the org/unicode/cldr/util/data/ directory, or loading from a jar will break.
      */
-    static public BufferedReader getUTF8Data(String name) {
-        /*
-         * if(name.startsWith(".")||name.startsWith("/")) {
-         * throw new IllegalArgumentException(
-         * "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
-         * +name+"'.");
-         * }
-         */
+    public static BufferedReader getUTF8Data(String name) {
+         if(new File(name).isAbsolute()) {
+             throw new IllegalArgumentException(
+                 "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
+                 +name+"'.");
+         }
+         
         return FileUtilities.openFile(CldrUtility.class, "data/" + name);
     }
 
@@ -929,15 +928,17 @@ public class CldrUtility {
      * @param name
      *            a name residing in the org/unicode/cldr/util/data/ directory, or loading from a jar will break.
      */
-    static public InputStream getInputStream(String name) {
-        /*
-         * if(name.startsWith(".")||name.startsWith("/")) {
-         * throw new IllegalArgumentException(
-         * "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
-         * +name+"'.");
-         * }
-         */
-        return CldrUtility.class.getResourceAsStream("data/" + name);
+    public static InputStream getInputStream(String name) {
+         if(new File(name).isAbsolute()) {
+             throw new IllegalArgumentException(
+                 "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
+                 +name+"'.");
+         }
+        return getInputStream(CldrUtility.class, "data/" + name);
+    }
+
+    public static InputStream getInputStream(Class<?> callingClass, String relativePath) {
+        return callingClass.getResourceAsStream(relativePath);
     }
 
     /**

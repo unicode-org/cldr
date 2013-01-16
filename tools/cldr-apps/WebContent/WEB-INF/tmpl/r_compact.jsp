@@ -6,7 +6,7 @@
 <%
 %>
 <h3>Review Numbers</h3>
-<p>See <a href='http://cldr.unicode.org/translation/review-numbers'>instructions</a> before continuing.</p>
+<p>Please read the <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/review-numbers'>instructions</a> before continuing.</p>
 <%
 // OLD CLDRFile englishFile = ctx.sm.getSTFactory().getOldFile(CLDRLocale.getInstance("en"));
 // NEW

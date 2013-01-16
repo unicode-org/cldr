@@ -117,44 +117,35 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 	}
 	%>
 	<b>Sections:</b> 
-	<%
-			String xclass = SurveyMain.R_VETTING.equals(ctx.field(SurveyMain.QUERY_SECTION))?"selected":"notselected";
-	        if(true && ctx.session.user!=null) {
-	        	%><label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" class="<%= xclass %>">Priority Items</a></label> |
-        
-        <%   } 
-	        %>
 <%
-            String covlev = ctx.getCoverageSetting();
-            Level coverage = Level.COMPREHENSIVE;
-            if(covlev!=null && covlev.length()>0) {
-                coverage = Level.get(covlev);
-            }
-            String effectiveCoverageLevel = ctx
-                    .getEffectiveCoverageLevel(ctx.getLocale().toString());
-            int workingCoverageValue = Level.get(effectiveCoverageLevel)
-                    .getLevel();
+       String covlev = ctx.getCoverageSetting();
+       Level coverage = Level.COMPREHENSIVE;
+       if(covlev!=null && covlev.length()>0) {
+           coverage = Level.get(covlev);
+       }
+       String effectiveCoverageLevel = ctx
+               .getEffectiveCoverageLevel(ctx.getLocale().toString());
+       int workingCoverageValue = Level.get(effectiveCoverageLevel)
+               .getLevel();
 
 
-             for(SurveyMenus.Section sec : ctx.sm.getSTFactory().getSurveyMenus()) {
-	            writeMenu(out,ctx, sec, workingCoverageValue);
-	        }
+        for(SurveyMenus.Section sec : ctx.sm.getSTFactory().getSurveyMenus()) {
+        	writeMenu(out,ctx, sec, workingCoverageValue);
+    	}
 		out.flush();
 		ctx.flush();
 		// commenting out easy steps until we have time to work on it more
 		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
 %>
 	      <br><b>Review:</b> 
-	      <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_datetime&calendar=gregorian"
+	      <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" 
+	      					class="notselected">Priority Items</a></label>
+	      | <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_datetime&calendar=gregorian"
 	                        class="notselected">Date/Time</a></label>
 	      | <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_zones"
 	                        class="notselected">Zones</a></label>
 	      | <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_compact"
 	                        class="notselected">Numbers</a></label>
-   | <a <%=ctx.atarget("st:supplemental")%> class='notselected' 
-            href='http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#<%=
-            ctx.getLocale().getLanguage() %>'>Supplemental</a>
-
         </p>
         <%
         	/* END NON JAVASCRIPT */

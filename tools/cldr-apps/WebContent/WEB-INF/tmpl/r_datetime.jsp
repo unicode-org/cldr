@@ -7,7 +7,7 @@
 String type = ctx.field("calendar", "gregorian");
 %>
 <h3>Review Date/Times : <%=         com.ibm.icu.lang.UCharacter.toTitleCase(SurveyMain.BASELINE_LOCALE.toLocale(), type, null)  %></h3>
-<p>See <a href='http://cldr.unicode.org/translation/date-time-review'>instructions</a> before continuing.</p>
+<p>Please read the <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/date-time-review'>instructions</a> before continuing.</p>
 <%
 // OLD CLDRFile englishFile = ctx.sm.getSTFactory().getOldFile(CLDRLocale.getInstance("en"));
 // NEW

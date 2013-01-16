@@ -4,16 +4,18 @@
 
 
 <%
-String type = ctx.field("calendar", "gregorian");
 %>
-<h3>Review Date/Times : <%=         com.ibm.icu.lang.UCharacter.toTitleCase(SurveyMain.BASELINE_LOCALE.toLocale(), type, null)  %></h3>
-<p>See <a href='http://cldr.unicode.org/translation/date-time-review'>instructions</a> before continuing.</p>
+<h3>Review Numbers</h3>
+<p>See <a href='http://cldr.unicode.org/translation/review-numbers'>instructions</a> before continuing.</p>
 <%
 // OLD CLDRFile englishFile = ctx.sm.getSTFactory().getOldFile(CLDRLocale.getInstance("en"));
 // NEW
 CLDRFile englishFile = ctx.sm.getDiskFactory().make("en",true);
-DateTimeFormats formats = new DateTimeFormats().set(ctx.sm.getSTFactory().make(ctx.getLocale(), true), type);
+CLDRFile nativeFile = ctx.sm.getSTFactory().make(ctx.getLocale(), true);
+org.unicode.cldr.util.VerifyCompactNumbers.showNumbers(nativeFile, true, "EUR", out);
+/* DateTimeFormats formats = new DateTimeFormats().set(, type);
 DateTimeFormats english = new DateTimeFormats().set(englishFile,type);
 formats.addTable(english, out);
 formats.addDateTable(englishFile, out);
+ */
 %>

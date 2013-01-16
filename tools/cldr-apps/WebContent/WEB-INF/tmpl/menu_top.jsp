@@ -116,7 +116,7 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 		jout.println("</label>");
 	}
 	%>
-	
+	<b>Sections:</b> 
 	<%
 			String xclass = SurveyMain.R_VETTING.equals(ctx.field(SurveyMain.QUERY_SECTION))?"selected":"notselected";
 	        if(true && ctx.session.user!=null) {
@@ -124,10 +124,6 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
         
         <%   } 
 	        %>
-	      
-	      <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_datetime&calendar=gregorian"
-	                        class="notselected">Date/Time Review</a></label> |
-    
 <%
             String covlev = ctx.getCoverageSetting();
             Level coverage = Level.COMPREHENSIVE;
@@ -148,7 +144,14 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 		// commenting out easy steps until we have time to work on it more
 		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
 %>
-   |&nbsp;<a <%=ctx.atarget("st:supplemental")%> class='notselected' 
+	      <br><b>Review:</b> 
+	      <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_datetime&calendar=gregorian"
+	                        class="notselected">Date/Time</a></label>
+	      | <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_zones"
+	                        class="notselected">Zones</a></label>
+	      | <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_compact"
+	                        class="notselected">Numbers</a></label>
+   | <a <%=ctx.atarget("st:supplemental")%> class='notselected' 
             href='http://unicode.org/cldr/data/charts/supplemental/language_territory_information.html#<%=
             ctx.getLocale().getLanguage() %>'>Supplemental</a>
 

@@ -18,7 +18,7 @@ public class TestIdentifierInfo extends TestFmwk {
 
     public void TestMain() {
         String[][] testCases = {
-            // Format is testString, expected scripts, expected numerics (if any)
+            // Format is testString, expected scripts, expected alternates, expected numerics (if any)
             { "ab c", "ASCII", "Latn Common" },
             { "a12", "ASCII", "Common Latn", "", "[0]" },
             { "ー", "HIGHLY_RESTRICTIVE", "", "Kana Hira" },

@@ -424,10 +424,15 @@ public class DateTimeFormats {
     }
 
     public SimpleDateFormat getDateFormat(String skeleton) {
-        String pattern = generator.getBestPattern(skeleton);
+        String pattern = getBestPattern(skeleton);
         SimpleDateFormat format = icuServiceBuilder.getDateFormat(calendarID, pattern);
         format.setTimeZone(GMT);
         return format;
+    }
+
+    public String getBestPattern(String skeleton) {
+        String pattern = generator.getBestPattern(skeleton);
+        return pattern;
     }
 
     enum RowStyle {

@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class TablePrinter {
@@ -345,13 +346,13 @@ public class TablePrinter {
                     try {
                         patternArgs[0] = sortedFlat[i][j];
                         System.arraycopy(sortedFlat[i], 0, patternArgs, 1, sortedFlat[i].length);
-                        result.append(columnsFlat[j].cellPattern.format(patternArgs));
+                        result.append(format(columnsFlat[j].cellPattern.format(patternArgs)));
                     } catch (RuntimeException e) {
                         throw (RuntimeException) new IllegalArgumentException("cellPattern<" + i + ", " + j + "> = "
                             + sortedFlat[i][j]).initCause(e);
                     }
                 } else {
-                    result.append(sortedFlat[i][j]);
+                    result.append(format(sortedFlat[i][j]));
                 }
                 result.append(columnsFlat[j].isHeader ? "</th>" : "</td>");
             }
@@ -359,6 +360,18 @@ public class TablePrinter {
         }
         result.append("</table>");
         return result.toString();
+    }
+
+    static final UnicodeSet BIDI = new UnicodeSet("[[:bc=R:][:bc=AL:]]");
+    static final char RLE = '\u202B';
+    static final char PDF = '\u202C';
+    
+    private String format(Comparable comparable) {
+        if (comparable == null) {
+            return null;
+        }
+        String s = comparable.toString();
+        return BIDI.containsNone(s) ? s : RLE + s + PDF;
     }
 
     private void showHeader(StringBuilder result) {

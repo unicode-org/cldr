@@ -1017,6 +1017,10 @@ public class XPathParts {
     public void setAttribute(int elementIndex, String attributeName, String attributeValue) {
         if (elementIndex < 0) elementIndex += size();
         Element element = elements.get(elementIndex);
-        element.getAttributes().put(attributeName, attributeValue);
+        if (attributeValue == null) {
+            element.getAttributes().remove(attributeName);
+        } else {
+            element.getAttributes().put(attributeName, attributeValue);
+        }
     }
 }

@@ -12,8 +12,8 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
- * This class analyzes a possible identifier for script and identifier status. Use it by calling setIdentifierProfile
- * then setIdentifier.
+ * This class analyzes a possible identifier for script and identifier status. 
+ * Use it by calling setIdentifierProfile then setIdentifier.
  * At this point:
  * <ol>
  * <li>call getScripts for the specific scripts in the identifier. The identifier contains at least one character in
@@ -28,7 +28,7 @@ import com.ibm.icu.text.UnicodeSet;
  * </ol>
  * 
  * @author markdavis
- * 
+ * @internal
  */
 public class IdentifierInfo {
 

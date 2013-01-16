@@ -396,12 +396,15 @@ public class LocaleMapper extends LdmlMapper {
         // <version number="$Revision: 5806 $"/>
         String versionPath = cldrResolved.getFullXPath("//ldml/identity/version");
         Matcher versionMatcher = VERSION_PATTERN.matcher(versionPath);
+        int versionNum;
         if (!versionMatcher.find()) {
             int failPoint = RegexUtilities.findMismatch(versionMatcher, versionPath);
             String show = versionPath.substring(0, failPoint) + "☹" + versionPath.substring(failPoint);
-            throw new IllegalArgumentException("no version match with: " + show);
+            System.err.println("Warning: no version match with: " + show);
+            versionNum = 0;
+        } else {
+            versionNum = Integer.parseInt(versionMatcher.group(1));
         }
-        int versionNum = Integer.parseInt(versionMatcher.group(1));
         String versionValue = "2.0." + (versionNum / 100) + "." + (versionNum % 100);
         icuData.add("/Version", versionValue);
 

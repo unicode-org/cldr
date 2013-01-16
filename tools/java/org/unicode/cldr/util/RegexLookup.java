@@ -54,7 +54,14 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
         }
 
         public boolean find(String item, Object context) {
-            return matcher.reset(item).find();
+            try {
+                return matcher.reset(item).find();
+            } catch(StringIndexOutOfBoundsException e) {
+                // We don't know what causes this error (cldrbug 5051) so
+                // make the exception message more detailed.
+                throw new IllegalArgumentException("Matching error caused by pattern: [" 
+                    + matcher.toString() + "] on text: [" + item + "]", e);
+            }
         }
 
         @Override

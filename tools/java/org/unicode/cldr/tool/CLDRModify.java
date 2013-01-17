@@ -1074,15 +1074,6 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('c', "Remove EU", new CLDRFilter() {
-
-            public void handlePath(String xpath) {
-
-                if (xpath.indexOf("/territory") < 0) return;
-                if (xpath.indexOf("[@type=\"EU\"]") < 0) return;
-                remove(xpath, "Remove territory EU");
-            }
-        });
 
         fixList.add('a', "Fix 0/1", new CLDRFilter() {
             final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
@@ -1140,6 +1131,20 @@ public class CLDRModify {
                 parts.addAttribute("alt", "proposed-u" + userID + "-implicit1.8");
                 String newPath = parts.toString();
                 replace(fullpath, newPath, value);
+            }
+        });
+
+        fixList.add('c', "Fix transiton from ZMK to ZMW currency for Zambia", new CLDRFilter() {
+            public void handlePath(String xpath) {
+                if (xpath.indexOf("/currency[@type=\"ZMK\"]") < 0 ) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                String newFullXPath = fullXPath.replace("ZMK", "ZMW");
+                cldrFileToFilter.add(newFullXPath,value);
+                replace(fullXPath, fullXPath, value + " (1968-2012)");
+                
             }
         });
 

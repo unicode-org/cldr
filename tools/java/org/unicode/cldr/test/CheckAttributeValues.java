@@ -8,7 +8,9 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -21,6 +23,9 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -159,7 +164,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         synchronized (elementOrder) {
             if (!initialized) {
                 CLDRFile metadata = getFactory().getSupplementalMetadata();
-                getMetadata(metadata);
+                getMetadata(metadata, supplementalData);
                 initialized = true;
                 localeMatcher = LocaleMatcher.make();
             }
@@ -174,7 +179,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         return this;
     }
 
-    private void getMetadata(CLDRFile metadata) {
+    private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi) {
         // sorting is expensive, but we need it here.
         for (Iterator<String> it = metadata.iterator(null, CLDRFile.ldmlComparator); it.hasNext();) {
             String path = it.next();
@@ -197,7 +202,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                 // value = variableReplacer.replace(value);
                 // if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
                 Map<String, String> attributes = parts.getAttributes(-1);
-                MatcherPattern mp = getMatcherPattern(value, attributes, path);
+                MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
                 if (mp != null) {
                     String id = attributes.get("id");
                     variables.put(id, mp);
@@ -207,7 +212,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                 try {
                     Map<String, String> attributes = parts.getAttributes(-1);
 
-                    MatcherPattern mp = getMatcherPattern(value, attributes, path);
+                    MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
                     if (mp == null) {
                         // System.out.println("Failed to make matcher for: " + value + "\t" + path);
                         continue;
@@ -271,7 +276,32 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         }
     }
 
-    private MatcherPattern getMatcherPattern(String value, Map<String, String> attributes, String path) {
+    private MatcherPattern getBcp47MatcherPattern(SupplementalDataInfo sdi, String key) {
+        MatcherPattern m = new MatcherPattern();
+        Relation<R2<String, String>, String> bcp47Aliases = sdi.getBcp47Aliases();
+        Set<String> values = new TreeSet<String>();
+        for (String value : sdi.getBcp47Keys().getAll(key)) {
+            if (key.equals("cu")) { // Currency codes are in upper case.
+                values.add(value.toUpperCase());
+            } else {
+                values.add(value);
+            }
+            R2<String, String> keyValue = R2.of(key, value);
+            Set<String> aliases = bcp47Aliases.getAll(keyValue);
+            if (aliases != null) {
+                values.addAll(aliases);
+            }
+        }
+
+        m.value = key;
+        m.pattern = values.toString();
+        m.matcher = new CollectionMatcher().set(values);
+        return m;
+
+    }
+
+    private MatcherPattern getMatcherPattern(String value, Map<String, String> attributes, String path,
+        SupplementalDataInfo sdi) {
         String typeAttribute = attributes.get("type");
         MatcherPattern result = variables.get(value);
         if (result != null) {
@@ -293,6 +323,8 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             || "given".equals(attributes.get("order"))) {
             result.matcher = new CollectionMatcher()
                 .set(new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
+        } else if ("bcp47".equals(typeAttribute)) {
+            result = getBcp47MatcherPattern(sdi, value);
         } else if ("regex".equals(typeAttribute)) {
             result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
         } else if ("locale".equals(typeAttribute)) {

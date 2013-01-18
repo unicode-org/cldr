@@ -3188,6 +3188,18 @@
 		<otherNumberingSystems>
 			<native>arabext</native>
 		</otherNumberingSystems>
+		<symbols numberSystem="arabext">
+			<decimal>.</decimal>
+			<group>,</group>
+			<list>;</list>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential draft="unconfirmed">ق</exponential>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan draft="unconfirmed">یہ عدد نہیں</nan>
+		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>
@@ -3196,11 +3208,9 @@
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
-			<exponential alt="arab" draft="unconfirmed">ق</exponential>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
-			<nan alt="arab" draft="unconfirmed">یہ عدد نہیں</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>

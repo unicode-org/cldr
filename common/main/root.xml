@@ -2863,12 +2863,12 @@
 		<currencyFormats numberSystem="latn">
 			<currencySpacing>
 				<beforeCurrency>
-					<currencyMatch>[:letter:]</currencyMatch>
+					<currencyMatch>[:^S:]</currencyMatch>
 					<surroundingMatch>[:digit:]</surroundingMatch>
 					<insertBetween> </insertBetween>
 				</beforeCurrency>
 				<afterCurrency>
-					<currencyMatch>[:letter:]</currencyMatch>
+					<currencyMatch>[:^S:]</currencyMatch>
 					<surroundingMatch>[:digit:]</surroundingMatch>
 					<insertBetween> </insertBetween>
 				</afterCurrency>

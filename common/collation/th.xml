@@ -8,7 +8,7 @@
         </identity>
         <collations validSubLocales="th_TH">
                 <collation type="standard" references="ISO/IEC 14651, Annex C, C.2.1 Thai ordering principles">
-                        <settings normalization="on" alternate="shifted"/>
+                        <settings normalization="on" alternate="shifted" reorder="Thai Latn"/>
                         <rules>
                                 <!--
                                         The following tailoring is an adjustment of the

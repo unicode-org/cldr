@@ -767,6 +767,11 @@ public class VettingViewer<T> {
             seenSoFar.add(path);
             progressCallback.nudge(); // Let the user know we're moving along.
 
+            PathHeader pretty = pathTransform.fromPath(path);
+            if (pretty.getSurveyToolStatus() == PathHeader.SurveyToolStatus.HIDE) {
+                continue;
+            }
+
             // note that the value might be missing!
 
             // make sure we only look at the real values
@@ -873,7 +878,6 @@ public class VettingViewer<T> {
                     reasonsToPaths.clear();
                     // final String prettyPath = pathTransform.getPrettyPath(path);
 
-                    PathHeader pretty = pathTransform.fromPath(path);
                     // String[] pathParts = breaks.split(pretty);
                     // String sectionOutput = pathParts.length == 3 ? pathParts[0] : "Unknown";
                     // String subsectionOutput = pathParts.length == 3 ? pathParts[1] : "Unknown";

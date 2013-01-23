@@ -51,7 +51,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         "/otherNumberingSystems",
         "/exponential",
         "/nan",
-        "/inText"
+        "/inText",
+        "/orientation"
     };
 
     static String[] DATE_PARTS = {

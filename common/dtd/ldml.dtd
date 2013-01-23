@@ -64,8 +64,8 @@ $Date$
 <!ATTLIST alias alt NMTOKENS #IMPLIED >
 
 <!ELEMENT default (special*) >
-<!ATTLIST default type NMTOKEN #IMPLIED > <!-- deprecated in favor of choice -->
-<!ATTLIST default choice NMTOKEN #IMPLIED > <!-- really required, but needs to be optional to support type also -->
+<!ATTLIST default type NMTOKEN #IMPLIED > <!-- only used in collation, to be deprecated -->
+<!ATTLIST default choice NMTOKEN #IMPLIED > <!-- deprecated -->
 <!ATTLIST default draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST default references CDATA #IMPLIED >
 <!ATTLIST default alt NMTOKENS #IMPLIED >

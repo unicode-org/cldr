@@ -56,8 +56,6 @@
 
 # Defaults
 
-//ldml/dates/calendars/calendar[@type="(%A)"]/(month|day)s/default[@choice="(%A)"] ; /calendar/$1/$2Names/default  ; values=$3
-//ldml/dates/calendars/calendar[@type="(%A)"]/(month|day)s/%W[@type="(%A)"]/default[@choice="(%A)"] ; /calendar/$1/$2Names/$3/default  ; values=$4
 //ldml/dates/calendars/calendar[@type="(%A)"]/(monthPattern)s/\2Context[@type="(%W)"]/\2Width[@type="(%W)"]/\2[@type="(%W)"]   ; /calendar/$1/$2s/$3/$4/$5
 
 # Dates

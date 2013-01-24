@@ -4710,14 +4710,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 int index = rules.length();
                 rules.append("[suppressContractions ");
                 rules.append(LDMLUtilities.getNodeValue(node));
-                rules.append(" ]");
+                rules.append("]");
                 if (DEBUG) {
                     log.debug(rules.substring(index));
                 }
             } else if (name.equals(LDMLConstants.OPTIMIZE)) {
                 rules.append("[optimize ");
                 rules.append(LDMLUtilities.getNodeValue(node));
-                rules.append(" ]");
+                rules.append("]");
             } else if (name.equals(LDMLConstants.BASE)) {
                 // TODO Dont know what to do here
                 // if (DEBUG)printXPathWarning(node, xpath);
@@ -4808,14 +4808,14 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if (strength != null) {
             rules.append(" [strength ");
             rules.append(getStrength(strength));
-            rules.append(" ]");
+            rules.append("]");
         }
 
         String alternate = LDMLUtilities.getAttributeValue(node, LDMLConstants.ALTERNATE);
         if (alternate != null) {
             rules.append(" [alternate ");
             rules.append(alternate);
-            rules.append(" ]");
+            rules.append("]");
         }
 
         String backwards = LDMLUtilities.getAttributeValue(node, LDMLConstants.BACKWARDS);
@@ -4827,21 +4827,21 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if (normalization != null) {
             rules.append(" [normalization ");
             rules.append(normalization);
-            rules.append(" ]");
+            rules.append("]");
         }
 
         String caseLevel = LDMLUtilities.getAttributeValue(node, LDMLConstants.CASE_LEVEL);
         if (caseLevel != null) {
             rules.append(" [caseLevel ");
             rules.append(caseLevel);
-            rules.append(" ]");
+            rules.append("]");
         }
 
         String caseFirst = LDMLUtilities.getAttributeValue(node, LDMLConstants.CASE_FIRST);
         if (caseFirst != null) {
             rules.append(" [caseFirst ");
             rules.append(caseFirst);
-            rules.append(" ]");
+            rules.append("]");
         }
 
         String hiraganaQ = LDMLUtilities.getAttributeValue(node, LDMLConstants.HIRAGANA_Q);
@@ -4852,21 +4852,21 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         if (hiraganaQ != null) {
             rules.append(" [hiraganaQ ");
             rules.append(hiraganaQ);
-            rules.append(" ]");
+            rules.append("]");
         }
 
         String numeric = LDMLUtilities.getAttributeValue(node, LDMLConstants.NUMERIC);
         if (numeric != null) {
             rules.append(" [numericOrdering ");
             rules.append(numeric);
-            rules.append(" ]");
+            rules.append("]");
         }
 
         String reorder = LDMLUtilities.getAttributeValue(node, LDMLConstants.REORDER);
         if (reorder != null) {
             rules.append(" [reorder ");
             rules.append(reorder);
-            rules.append(" ]");
+            rules.append("]");
         }
 
         return rules;

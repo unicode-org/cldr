@@ -1089,7 +1089,7 @@ public class CoverageLevel {
             { "Rothera", "standard" },
             { "Sakhalin", "daylight" },
             { "Samara", "daylight" },
-            { "Samoa", "standard" },
+            { "Samoa", "generic" },
             { "Seychelles", "standard" },
             { "Singapore", "standard" },
             { "Solomon", "standard" },

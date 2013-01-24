@@ -4862,6 +4862,13 @@ public class LDML2ICUConverter extends CLDRConverterTool {
             rules.append(" ]");
         }
 
+        String reorder = LDMLUtilities.getAttributeValue(node, LDMLConstants.REORDER);
+        if (reorder != null) {
+            rules.append(" [reorder ");
+            rules.append(reorder);
+            rules.append(" ]");
+        }
+
         return rules;
     }
 

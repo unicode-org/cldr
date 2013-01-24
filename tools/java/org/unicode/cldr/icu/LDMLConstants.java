@@ -190,6 +190,7 @@ public class LDMLConstants {
     public static final String HIRAGANA_Q = "hiraganaQuaternary";
     public static final String HIRAGANA_Q_DEP = "hiraganaQuarternary";
     public static final String NUMERIC = "numeric";
+    public static final String REORDER = "reorder";
     public static final String RESET = "reset";
     public static final String PC = "pc";
     public static final String SC = "sc";

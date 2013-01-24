@@ -1415,13 +1415,13 @@ text data in the rule. For example, the following are all disallowed:</p>
 <p>Collation reordering allows scripts and certain other defined blocks of characters to be moved relative to each other parametrically, without changing the detailed rules for all the characters involved. This reordering is done on top of any specific ordering rules within the script or block currently in effect. Reordering can specify groups to be placed at the start and/or the end of the collation order. For example, to reorder Greek characters before Latin characters, and digits afterwards (but before other scripts), the following can be used:</p>
 <table >
   <tr>
-    <th>Basic</th>
+    <th>Basic <span class="changed">syntax</span></th>
     <th>XML</th>
     <th>Locale Identifier</th>
   </tr>
   <tr>
     <td><code>[reorder Grek Latn digit]</code></td>
-    <td><code>&lt;reorder&gt;Grek Latn digit&lt;/reorder&gt;</code></td>
+    <td class="changed"><code>&lt;settings reorder="Grek Latn digit"/&gt;</code></td>
     <td><code>en-u-kr-grek-latn-digit</code></td>
   </tr>
 </table>

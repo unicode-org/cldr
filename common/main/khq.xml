@@ -483,43 +483,43 @@
 						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Zaman</displayName>
-					</field>
-					<field type="year">
-						<displayName>Jiiri</displayName>
-					</field>
-					<field type="month">
-						<displayName>Handu</displayName>
-					</field>
-					<field type="week">
-						<displayName>Hebu</displayName>
-					</field>
-					<field type="day">
-						<displayName>Jaari</displayName>
-						<relative type="-1">Bi</relative>
-						<relative type="0">Hõo</relative>
-						<relative type="1">Suba</relative>
-					</field>
-					<field type="dayperiod">
-						<displayName>Adduha wala Aluula</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Guuru</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Miniti</displayName>
-					</field>
-					<field type="second">
-						<displayName>Miti</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Leerazuu</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Zaman</displayName>
+			</field>
+			<field type="year">
+				<displayName>Jiiri</displayName>
+			</field>
+			<field type="month">
+				<displayName>Handu</displayName>
+			</field>
+			<field type="week">
+				<displayName>Hebu</displayName>
+			</field>
+			<field type="day">
+				<displayName>Jaari</displayName>
+				<relative type="-1">Bi</relative>
+				<relative type="0">Hõo</relative>
+				<relative type="1">Suba</relative>
+			</field>
+			<field type="dayperiod">
+				<displayName>Adduha wala Aluula</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Guuru</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Miniti</displayName>
+			</field>
+			<field type="second">
+				<displayName>Miti</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Leerazuu</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

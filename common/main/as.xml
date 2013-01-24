@@ -185,41 +185,41 @@
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
-				<fields>
-					<field type="era">
-						<displayName>যুগ</displayName>
-					</field>
-					<field type="year">
-						<displayName>বছৰ</displayName>
-					</field>
-					<field type="month">
-						<displayName>মাহ</displayName>
-					</field>
-					<field type="week">
-						<displayName>সপ্তাহ</displayName>
-					</field>
-					<field type="day">
-						<displayName>দিন</displayName>
-						<relative type="-2" draft="unconfirmed">পৰহি</relative>
-						<relative type="-1">কালি</relative>
-						<relative type="1">কাইলৈ</relative>
-						<relative type="2">পৰহিলৈ</relative>
-					</field>
-					<field type="hour">
-						<displayName>ঘণ্টা</displayName>
-					</field>
-					<field type="minute">
-						<displayName>মিনিট</displayName>
-					</field>
-					<field type="second">
-						<displayName>ছেকেণ্ড</displayName>
-					</field>
-					<field type="zone">
-						<displayName>ক্ষেত্ৰ</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>যুগ</displayName>
+			</field>
+			<field type="year">
+				<displayName>বছৰ</displayName>
+			</field>
+			<field type="month">
+				<displayName>মাহ</displayName>
+			</field>
+			<field type="week">
+				<displayName>সপ্তাহ</displayName>
+			</field>
+			<field type="day">
+				<displayName>দিন</displayName>
+				<relative type="-2" draft="unconfirmed">পৰহি</relative>
+				<relative type="-1">কালি</relative>
+				<relative type="1">কাইলৈ</relative>
+				<relative type="2">পৰহিলৈ</relative>
+			</field>
+			<field type="hour">
+				<displayName>ঘণ্টা</displayName>
+			</field>
+			<field type="minute">
+				<displayName>মিনিট</displayName>
+			</field>
+			<field type="second">
+				<displayName>ছেকেণ্ড</displayName>
+			</field>
+			<field type="zone">
+				<displayName>ক্ষেত্ৰ</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="Asia/Calcutta">
 				<exemplarCity>এলাহাৱাদ</exemplarCity>

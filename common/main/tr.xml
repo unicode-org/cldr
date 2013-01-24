@@ -1730,55 +1730,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Miladi Dönem</displayName>
-					</field>
-					<field type="year">
-						<displayName>Yıl</displayName>
-						<relative type="-1">Geçen yıl</relative>
-						<relative type="0">Bu yıl</relative>
-						<relative type="1">Gelecek yıl</relative>
-					</field>
-					<field type="month">
-						<displayName>Ay</displayName>
-						<relative type="-1">Geçen ay</relative>
-						<relative type="0">Bu ay</relative>
-						<relative type="1">Gelecek ay</relative>
-					</field>
-					<field type="week">
-						<displayName>Hafta</displayName>
-						<relative type="-1">Geçen hafta</relative>
-						<relative type="0">Bu hafta</relative>
-						<relative type="1">Gelecek hafta</relative>
-					</field>
-					<field type="day">
-						<displayName>Gün</displayName>
-						<relative type="-2">Evvelsi gün</relative>
-						<relative type="-1">Dün</relative>
-						<relative type="0">Bugün</relative>
-						<relative type="1">Yarın</relative>
-						<relative type="2">Öbür gün</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Haftanın Günü</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>ÖÖ/ÖS</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Saat</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Dakika</displayName>
-					</field>
-					<field type="second">
-						<displayName>Saniye</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Saat Dilimi</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2048,6 +1999,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Miladi Dönem</displayName>
+			</field>
+			<field type="year">
+				<displayName>Yıl</displayName>
+				<relative type="-1">Geçen yıl</relative>
+				<relative type="0">Bu yıl</relative>
+				<relative type="1">Gelecek yıl</relative>
+			</field>
+			<field type="month">
+				<displayName>Ay</displayName>
+				<relative type="-1">Geçen ay</relative>
+				<relative type="0">Bu ay</relative>
+				<relative type="1">Gelecek ay</relative>
+			</field>
+			<field type="week">
+				<displayName>Hafta</displayName>
+				<relative type="-1">Geçen hafta</relative>
+				<relative type="0">Bu hafta</relative>
+				<relative type="1">Gelecek hafta</relative>
+			</field>
+			<field type="day">
+				<displayName>Gün</displayName>
+				<relative type="-2">Evvelsi gün</relative>
+				<relative type="-1">Dün</relative>
+				<relative type="0">Bugün</relative>
+				<relative type="1">Yarın</relative>
+				<relative type="2">Öbür gün</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Haftanın Günü</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>ÖÖ/ÖS</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Saat</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Dakika</displayName>
+			</field>
+			<field type="second">
+				<displayName>Saniye</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Saat Dilimi</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

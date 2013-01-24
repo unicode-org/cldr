@@ -130,16 +130,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<relative type="-1">Last Year</relative>
-						<relative type="0">This Year</relative>
-						<relative type="1">Next Year</relative>
-					</field>
-					<field type="week">
-						<relative type="1">Next Week</relative>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
@@ -210,6 +200,16 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<relative type="-1">Last Year</relative>
+				<relative type="0">This Year</relative>
+				<relative type="1">Next Year</relative>
+			</field>
+			<field type="week">
+				<relative type="1">Next Week</relative>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="Europe/London">
 				<short>

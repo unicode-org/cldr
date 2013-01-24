@@ -1738,55 +1738,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Ера</displayName>
-					</field>
-					<field type="year">
-						<displayName>Рік</displayName>
-						<relative type="-1">Минулого року</relative>
-						<relative type="0">Цього року</relative>
-						<relative type="1">Наступного року</relative>
-					</field>
-					<field type="month">
-						<displayName>Місяць</displayName>
-						<relative type="-1">Минулого місяця</relative>
-						<relative type="0">Цього місяця</relative>
-						<relative type="1">Наступного місяця</relative>
-					</field>
-					<field type="week">
-						<displayName>Тиждень</displayName>
-						<relative type="-1">Минулого тижня</relative>
-						<relative type="0">Цього тижня</relative>
-						<relative type="1">Наступного тижня</relative>
-					</field>
-					<field type="day">
-						<displayName>День</displayName>
-						<relative type="-2">Позавчора</relative>
-						<relative type="-1">Вчора</relative>
-						<relative type="0">Сьогодні</relative>
-						<relative type="1">Завтра</relative>
-						<relative type="2">Післязавтра</relative>
-					</field>
-					<field type="weekday">
-						<displayName>День тижня</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Частина доби</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Година</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Хвилина</displayName>
-					</field>
-					<field type="second">
-						<displayName>Секунда</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Зона</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2235,6 +2186,55 @@
 				</months>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Ера</displayName>
+			</field>
+			<field type="year">
+				<displayName>Рік</displayName>
+				<relative type="-1">Минулого року</relative>
+				<relative type="0">Цього року</relative>
+				<relative type="1">Наступного року</relative>
+			</field>
+			<field type="month">
+				<displayName>Місяць</displayName>
+				<relative type="-1">Минулого місяця</relative>
+				<relative type="0">Цього місяця</relative>
+				<relative type="1">Наступного місяця</relative>
+			</field>
+			<field type="week">
+				<displayName>Тиждень</displayName>
+				<relative type="-1">Минулого тижня</relative>
+				<relative type="0">Цього тижня</relative>
+				<relative type="1">Наступного тижня</relative>
+			</field>
+			<field type="day">
+				<displayName>День</displayName>
+				<relative type="-2">Позавчора</relative>
+				<relative type="-1">Вчора</relative>
+				<relative type="0">Сьогодні</relative>
+				<relative type="1">Завтра</relative>
+				<relative type="2">Післязавтра</relative>
+			</field>
+			<field type="weekday">
+				<displayName>День тижня</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Частина доби</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Година</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Хвилина</displayName>
+			</field>
+			<field type="second">
+				<displayName>Секунда</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Зона</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -1647,55 +1647,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>العصر</displayName>
-					</field>
-					<field type="year">
-						<displayName>السنة</displayName>
-						<relative type="-1" draft="contributed">السنة الماضية</relative>
-						<relative type="0" draft="contributed">هذه السنة</relative>
-						<relative type="1" draft="contributed">السنة التالية</relative>
-					</field>
-					<field type="month">
-						<displayName>الشهر</displayName>
-						<relative type="-1" draft="contributed">الشهر الماضي</relative>
-						<relative type="0" draft="contributed">هذا الشهر</relative>
-						<relative type="1" draft="contributed">الشهر التالي</relative>
-					</field>
-					<field type="week">
-						<displayName>الأسبوع</displayName>
-						<relative type="-1" draft="contributed">الأسبوع الماضي</relative>
-						<relative type="0" draft="contributed">هذا الأسبوع</relative>
-						<relative type="1" draft="contributed">الأسبوع التالي</relative>
-					</field>
-					<field type="day">
-						<displayName>يوم</displayName>
-						<relative type="-2" draft="contributed">أول أمس</relative>
-						<relative type="-1">أمس</relative>
-						<relative type="0">اليوم</relative>
-						<relative type="1">غدًا</relative>
-						<relative type="2">بعد الغد</relative>
-					</field>
-					<field type="weekday">
-						<displayName>اليوم</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>ص/م</displayName>
-					</field>
-					<field type="hour">
-						<displayName>الساعات</displayName>
-					</field>
-					<field type="minute">
-						<displayName>الدقائق</displayName>
-					</field>
-					<field type="second">
-						<displayName>الثواني</displayName>
-					</field>
-					<field type="zone">
-						<displayName>التوقيت</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2252,6 +2203,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>العصر</displayName>
+			</field>
+			<field type="year">
+				<displayName>السنة</displayName>
+				<relative type="-1" draft="contributed">السنة الماضية</relative>
+				<relative type="0" draft="contributed">هذه السنة</relative>
+				<relative type="1" draft="contributed">السنة التالية</relative>
+			</field>
+			<field type="month">
+				<displayName>الشهر</displayName>
+				<relative type="-1" draft="contributed">الشهر الماضي</relative>
+				<relative type="0" draft="contributed">هذا الشهر</relative>
+				<relative type="1" draft="contributed">الشهر التالي</relative>
+			</field>
+			<field type="week">
+				<displayName>الأسبوع</displayName>
+				<relative type="-1" draft="contributed">الأسبوع الماضي</relative>
+				<relative type="0" draft="contributed">هذا الأسبوع</relative>
+				<relative type="1" draft="contributed">الأسبوع التالي</relative>
+			</field>
+			<field type="day">
+				<displayName>يوم</displayName>
+				<relative type="-2" draft="contributed">أول أمس</relative>
+				<relative type="-1">أمس</relative>
+				<relative type="0">اليوم</relative>
+				<relative type="1">غدًا</relative>
+				<relative type="2">بعد الغد</relative>
+			</field>
+			<field type="weekday">
+				<displayName>اليوم</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>ص/م</displayName>
+			</field>
+			<field type="hour">
+				<displayName>الساعات</displayName>
+			</field>
+			<field type="minute">
+				<displayName>الدقائق</displayName>
+			</field>
+			<field type="second">
+				<displayName>الثواني</displayName>
+			</field>
+			<field type="zone">
+				<displayName>التوقيت</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>جرينتش{0}</gmtFormat>

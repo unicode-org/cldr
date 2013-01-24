@@ -2324,55 +2324,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>时期</displayName>
-					</field>
-					<field type="year">
-						<displayName>年</displayName>
-						<relative type="-1">去年</relative>
-						<relative type="0">今年</relative>
-						<relative type="1">明年</relative>
-					</field>
-					<field type="month">
-						<displayName>月</displayName>
-						<relative type="-1">上个月</relative>
-						<relative type="0">本月</relative>
-						<relative type="1">下个月</relative>
-					</field>
-					<field type="week">
-						<displayName>周</displayName>
-						<relative type="-1">上周</relative>
-						<relative type="0">本周</relative>
-						<relative type="1">下周</relative>
-					</field>
-					<field type="day">
-						<displayName>日</displayName>
-						<relative type="-2">前天</relative>
-						<relative type="-1">昨天</relative>
-						<relative type="0">今天</relative>
-						<relative type="1">明天</relative>
-						<relative type="2">后天</relative>
-					</field>
-					<field type="weekday">
-						<displayName>星期</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>上午/下午</displayName>
-					</field>
-					<field type="hour">
-						<displayName>小时</displayName>
-					</field>
-					<field type="minute">
-						<displayName>分钟</displayName>
-					</field>
-					<field type="second">
-						<displayName>秒钟</displayName>
-					</field>
-					<field type="zone">
-						<displayName>时区</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -3180,6 +3131,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>时期</displayName>
+			</field>
+			<field type="year">
+				<displayName>年</displayName>
+				<relative type="-1">去年</relative>
+				<relative type="0">今年</relative>
+				<relative type="1">明年</relative>
+			</field>
+			<field type="month">
+				<displayName>月</displayName>
+				<relative type="-1">上个月</relative>
+				<relative type="0">本月</relative>
+				<relative type="1">下个月</relative>
+			</field>
+			<field type="week">
+				<displayName>周</displayName>
+				<relative type="-1">上周</relative>
+				<relative type="0">本周</relative>
+				<relative type="1">下周</relative>
+			</field>
+			<field type="day">
+				<displayName>日</displayName>
+				<relative type="-2">前天</relative>
+				<relative type="-1">昨天</relative>
+				<relative type="0">今天</relative>
+				<relative type="1">明天</relative>
+				<relative type="2">后天</relative>
+			</field>
+			<field type="weekday">
+				<displayName>星期</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>上午/下午</displayName>
+			</field>
+			<field type="hour">
+				<displayName>小时</displayName>
+			</field>
+			<field type="minute">
+				<displayName>分钟</displayName>
+			</field>
+			<field type="second">
+				<displayName>秒钟</displayName>
+			</field>
+			<field type="zone">
+				<displayName>时区</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -1097,43 +1097,43 @@
 						<dateFormatItem id="yMMMEd">E, d, MMM, y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>era</displayName>
-					</field>
-					<field type="year">
-						<displayName>il</displayName>
-					</field>
-					<field type="month">
-						<displayName>ay</displayName>
-					</field>
-					<field type="week">
-						<displayName>həftə</displayName>
-					</field>
-					<field type="day">
-						<displayName>bu gün</displayName>
-						<relative type="-1">dünən</relative>
-						<relative type="0">bu gün</relative>
-						<relative type="1">sabah</relative>
-					</field>
-					<field type="weekday">
-						<displayName>həftə günü</displayName>
-					</field>
-					<field type="hour">
-						<displayName>saat</displayName>
-					</field>
-					<field type="minute">
-						<displayName>dəqiqə</displayName>
-					</field>
-					<field type="second">
-						<displayName>saniyə</displayName>
-					</field>
-					<field type="zone">
-						<displayName>zona</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>era</displayName>
+			</field>
+			<field type="year">
+				<displayName>il</displayName>
+			</field>
+			<field type="month">
+				<displayName>ay</displayName>
+			</field>
+			<field type="week">
+				<displayName>həftə</displayName>
+			</field>
+			<field type="day">
+				<displayName>bu gün</displayName>
+				<relative type="-1">dünən</relative>
+				<relative type="0">bu gün</relative>
+				<relative type="1">sabah</relative>
+			</field>
+			<field type="weekday">
+				<displayName>həftə günü</displayName>
+			</field>
+			<field type="hour">
+				<displayName>saat</displayName>
+			</field>
+			<field type="minute">
+				<displayName>dəqiqə</displayName>
+			</field>
+			<field type="second">
+				<displayName>saniyə</displayName>
+			</field>
+			<field type="zone">
+				<displayName>zona</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">Bilinmir</exemplarCity>

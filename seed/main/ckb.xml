@@ -649,34 +649,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<displayName draft="unconfirmed">ساڵ</displayName>
-					</field>
-					<field type="month">
-						<displayName draft="unconfirmed">مانگ</displayName>
-					</field>
-					<field type="week">
-						<displayName draft="unconfirmed">ھەفتە</displayName>
-					</field>
-					<field type="day">
-						<displayName draft="unconfirmed">ڕۆژ</displayName>
-						<relative type="0" draft="unconfirmed">ئەمڕۆ</relative>
-						<relative type="1" draft="unconfirmed">سبەی</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="unconfirmed">ڕۆژی ھەفتە</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="unconfirmed">کاتژمێر</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="unconfirmed">خولەک</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="unconfirmed">چرکە</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -743,6 +715,34 @@
 				</months>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<displayName draft="unconfirmed">ساڵ</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">مانگ</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">ھەفتە</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">ڕۆژ</displayName>
+				<relative type="0" draft="unconfirmed">ئەمڕۆ</relative>
+				<relative type="1" draft="unconfirmed">سبەی</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="unconfirmed">ڕۆژی ھەفتە</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">کاتژمێر</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">خولەک</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">چرکە</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>arab</defaultNumberingSystem>

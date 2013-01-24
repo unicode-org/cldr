@@ -2155,55 +2155,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName>Tahun</displayName>
-						<relative type="-1">Tahun lalu</relative>
-						<relative type="0">Tahun ini</relative>
-						<relative type="1">Tahun depan</relative>
-					</field>
-					<field type="month">
-						<displayName>Bulan</displayName>
-						<relative type="-1">Bulan lalu</relative>
-						<relative type="0">Bulan ini</relative>
-						<relative type="1">Bulan berikutnya</relative>
-					</field>
-					<field type="week">
-						<displayName>Minggu</displayName>
-						<relative type="-1">Minggu lalu</relative>
-						<relative type="0">Minggu ini</relative>
-						<relative type="1">Minggu berikutnya</relative>
-					</field>
-					<field type="day">
-						<displayName>Hari</displayName>
-						<relative type="-2">Kemarin lusa</relative>
-						<relative type="-1">Kemarin</relative>
-						<relative type="0">Hari Ini</relative>
-						<relative type="1">Besok</relative>
-						<relative type="2">Lusa</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Hari dalam Seminggu</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Siang/Malam</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Jam</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Menit</displayName>
-					</field>
-					<field type="second">
-						<displayName>Detik</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Zona Waktu</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2997,6 +2948,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName>Tahun</displayName>
+				<relative type="-1">Tahun lalu</relative>
+				<relative type="0">Tahun ini</relative>
+				<relative type="1">Tahun depan</relative>
+			</field>
+			<field type="month">
+				<displayName>Bulan</displayName>
+				<relative type="-1">Bulan lalu</relative>
+				<relative type="0">Bulan ini</relative>
+				<relative type="1">Bulan berikutnya</relative>
+			</field>
+			<field type="week">
+				<displayName>Minggu</displayName>
+				<relative type="-1">Minggu lalu</relative>
+				<relative type="0">Minggu ini</relative>
+				<relative type="1">Minggu berikutnya</relative>
+			</field>
+			<field type="day">
+				<displayName>Hari</displayName>
+				<relative type="-2">Kemarin lusa</relative>
+				<relative type="-1">Kemarin</relative>
+				<relative type="0">Hari Ini</relative>
+				<relative type="1">Besok</relative>
+				<relative type="2">Lusa</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Hari dalam Seminggu</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Siang/Malam</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Jam</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Menit</displayName>
+			</field>
+			<field type="second">
+				<displayName>Detik</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Zona Waktu</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

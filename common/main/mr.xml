@@ -1503,55 +1503,55 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>युग</displayName>
-					</field>
-					<field type="year">
-						<displayName>वर्ष</displayName>
-						<relative type="-1">मागील वर्ष</relative>
-						<relative type="0">या वर्षी</relative>
-						<relative type="1">पुढील वर्ष</relative>
-					</field>
-					<field type="month">
-						<displayName>महिना</displayName>
-						<relative type="-1">मागील महिना</relative>
-						<relative type="0">हा महिना</relative>
-						<relative type="1">पुढील महिना</relative>
-					</field>
-					<field type="week">
-						<displayName>आठव़डा</displayName>
-						<relative type="-1">मागील आठवडा</relative>
-						<relative type="0">हा आठवडा</relative>
-						<relative type="1">पुढील आठवडा</relative>
-					</field>
-					<field type="day">
-						<displayName>दिवस</displayName>
-						<relative type="-1">काल</relative>
-						<relative type="0">आज</relative>
-						<relative type="1">उद्या</relative>
-					</field>
-					<field type="weekday">
-						<displayName>आठवड्याचा दिवस</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>तास</displayName>
-					</field>
-					<field type="minute">
-						<displayName>मिनिट</displayName>
-					</field>
-					<field type="second">
-						<displayName>सेकंद</displayName>
-					</field>
-					<field type="zone">
-						<displayName>झोन</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>युग</displayName>
+			</field>
+			<field type="year">
+				<displayName>वर्ष</displayName>
+				<relative type="-1">मागील वर्ष</relative>
+				<relative type="0">या वर्षी</relative>
+				<relative type="1">पुढील वर्ष</relative>
+			</field>
+			<field type="month">
+				<displayName>महिना</displayName>
+				<relative type="-1">मागील महिना</relative>
+				<relative type="0">हा महिना</relative>
+				<relative type="1">पुढील महिना</relative>
+			</field>
+			<field type="week">
+				<displayName>आठव़डा</displayName>
+				<relative type="-1">मागील आठवडा</relative>
+				<relative type="0">हा आठवडा</relative>
+				<relative type="1">पुढील आठवडा</relative>
+			</field>
+			<field type="day">
+				<displayName>दिवस</displayName>
+				<relative type="-1">काल</relative>
+				<relative type="0">आज</relative>
+				<relative type="1">उद्या</relative>
+			</field>
+			<field type="weekday">
+				<displayName>आठवड्याचा दिवस</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>तास</displayName>
+			</field>
+			<field type="minute">
+				<displayName>मिनिट</displayName>
+			</field>
+			<field type="second">
+				<displayName>सेकंद</displayName>
+			</field>
+			<field type="zone">
+				<displayName>झोन</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

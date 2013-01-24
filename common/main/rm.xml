@@ -1275,48 +1275,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName draft="contributed">epoca</displayName>
-					</field>
-					<field type="year">
-						<displayName draft="contributed">onn</displayName>
-					</field>
-					<field type="month">
-						<displayName draft="contributed">mais</displayName>
-					</field>
-					<field type="week">
-						<displayName draft="contributed">emna</displayName>
-					</field>
-					<field type="day">
-						<displayName draft="contributed">Tag</displayName>
-						<relative type="-2" draft="contributed">stersas</relative>
-						<relative type="-1" draft="contributed">ier</relative>
-						<relative type="0" draft="contributed">oz</relative>
-						<relative type="1" draft="contributed">damaun</relative>
-						<relative type="2" draft="contributed">puschmaun</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="contributed">di da l'emna</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="contributed">mesadad dal di</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="contributed">ura</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="contributed">minuta</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="contributed">secunda</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="contributed">zona d'urari</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="contributed">epoca</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">onn</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">mais</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">emna</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">Tag</displayName>
+				<relative type="-2" draft="contributed">stersas</relative>
+				<relative type="-1" draft="contributed">ier</relative>
+				<relative type="0" draft="contributed">oz</relative>
+				<relative type="1" draft="contributed">damaun</relative>
+				<relative type="2" draft="contributed">puschmaun</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">di da l'emna</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">mesadad dal di</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="contributed">ura</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">minuta</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">secunda</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">zona d'urari</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>

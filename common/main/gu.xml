@@ -1531,57 +1531,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>યુગ</displayName>
-					</field>
-					<field type="year">
-						<displayName>વર્ષ</displayName>
-						<relative type="-1">પાછલું વર્ષ</relative>
-						<relative type="0">આ વર્ષ</relative>
-						<relative type="1">આગલું વર્ષ</relative>
-					</field>
-					<field type="month">
-						<displayName>મહિનો</displayName>
-						<relative type="-1">છેલ્લો મહિનો</relative>
-						<relative type="0">આ મહિને</relative>
-						<relative type="1">આગલો મહીનો</relative>
-					</field>
-					<field type="week">
-						<displayName>અહવાડિયું</displayName>
-						<relative type="-1">છેલ્લું અઠવાડિયું</relative>
-						<relative type="0">આ અઠવાડિયે</relative>
-						<relative type="1">આગલા અઠવાડિયે</relative>
-					</field>
-					<field type="day">
-						<displayName>દિવસ</displayName>
-						<relative type="-2">ગઈકાસ પહેસાંનો દિવસ</relative>
-						<relative type="-1">ગઈકાલ</relative>
-						<relative type="0">આજ</relative>
-						<relative type="1">આવતીકાલ</relative>
-						<relative type="2">પરમ દિવસ</relative>
-					</field>
-					<field type="weekday">
-						<displayName>અઠવાડિયાનો દિવસ</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>કલાક</displayName>
-					</field>
-					<field type="minute">
-						<displayName>મિનિટ</displayName>
-					</field>
-					<field type="second">
-						<displayName>ક્ષણ</displayName>
-					</field>
-					<field type="zone">
-						<displayName>વિસ્તાર</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>યુગ</displayName>
+			</field>
+			<field type="year">
+				<displayName>વર્ષ</displayName>
+				<relative type="-1">પાછલું વર્ષ</relative>
+				<relative type="0">આ વર્ષ</relative>
+				<relative type="1">આગલું વર્ષ</relative>
+			</field>
+			<field type="month">
+				<displayName>મહિનો</displayName>
+				<relative type="-1">છેલ્લો મહિનો</relative>
+				<relative type="0">આ મહિને</relative>
+				<relative type="1">આગલો મહીનો</relative>
+			</field>
+			<field type="week">
+				<displayName>અહવાડિયું</displayName>
+				<relative type="-1">છેલ્લું અઠવાડિયું</relative>
+				<relative type="0">આ અઠવાડિયે</relative>
+				<relative type="1">આગલા અઠવાડિયે</relative>
+			</field>
+			<field type="day">
+				<displayName>દિવસ</displayName>
+				<relative type="-2">ગઈકાસ પહેસાંનો દિવસ</relative>
+				<relative type="-1">ગઈકાલ</relative>
+				<relative type="0">આજ</relative>
+				<relative type="1">આવતીકાલ</relative>
+				<relative type="2">પરમ દિવસ</relative>
+			</field>
+			<field type="weekday">
+				<displayName>અઠવાડિયાનો દિવસ</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>કલાક</displayName>
+			</field>
+			<field type="minute">
+				<displayName>મિનિટ</displayName>
+			</field>
+			<field type="second">
+				<displayName>ક્ષણ</displayName>
+			</field>
+			<field type="zone">
+				<displayName>વિસ્તાર</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

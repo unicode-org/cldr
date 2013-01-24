@@ -2021,55 +2021,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>ère</displayName>
-					</field>
-					<field type="year">
-						<displayName>année</displayName>
-						<relative type="-1">l’année dernière</relative>
-						<relative type="0">cette année</relative>
-						<relative type="1">l’année prochaine</relative>
-					</field>
-					<field type="month">
-						<displayName>mois</displayName>
-						<relative type="-1">le mois dernier</relative>
-						<relative type="0">ce mois-ci</relative>
-						<relative type="1">le mois prochain</relative>
-					</field>
-					<field type="week">
-						<displayName>semaine</displayName>
-						<relative type="-1">la semaine dernière</relative>
-						<relative type="0">cette semaine</relative>
-						<relative type="1">la semaine prochaine</relative>
-					</field>
-					<field type="day">
-						<displayName>jour</displayName>
-						<relative type="-2">avant-hier</relative>
-						<relative type="-1">hier</relative>
-						<relative type="0">aujourd’hui</relative>
-						<relative type="1">demain</relative>
-						<relative type="2">après-demain</relative>
-					</field>
-					<field type="weekday">
-						<displayName>jour de la semaine</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>cadran</displayName>
-					</field>
-					<field type="hour">
-						<displayName>heure</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minute</displayName>
-					</field>
-					<field type="second">
-						<displayName>seconde</displayName>
-					</field>
-					<field type="zone">
-						<displayName>fuseau horaire</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2486,6 +2437,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ère</displayName>
+			</field>
+			<field type="year">
+				<displayName>année</displayName>
+				<relative type="-1">l’année dernière</relative>
+				<relative type="0">cette année</relative>
+				<relative type="1">l’année prochaine</relative>
+			</field>
+			<field type="month">
+				<displayName>mois</displayName>
+				<relative type="-1">le mois dernier</relative>
+				<relative type="0">ce mois-ci</relative>
+				<relative type="1">le mois prochain</relative>
+			</field>
+			<field type="week">
+				<displayName>semaine</displayName>
+				<relative type="-1">la semaine dernière</relative>
+				<relative type="0">cette semaine</relative>
+				<relative type="1">la semaine prochaine</relative>
+			</field>
+			<field type="day">
+				<displayName>jour</displayName>
+				<relative type="-2">avant-hier</relative>
+				<relative type="-1">hier</relative>
+				<relative type="0">aujourd’hui</relative>
+				<relative type="1">demain</relative>
+				<relative type="2">après-demain</relative>
+			</field>
+			<field type="weekday">
+				<displayName>jour de la semaine</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>cadran</displayName>
+			</field>
+			<field type="hour">
+				<displayName>heure</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minute</displayName>
+			</field>
+			<field type="second">
+				<displayName>seconde</displayName>
+			</field>
+			<field type="zone">
+				<displayName>fuseau horaire</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>UTC{0}</gmtFormat>

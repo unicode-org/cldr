@@ -1040,55 +1040,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Aroa</displayName>
-					</field>
-					<field type="year">
-						<displayName>Urtea</displayName>
-						<relative type="-1">Aurreko urtea</relative>
-						<relative type="0">Aurten</relative>
-						<relative type="1">Hurrengo urtea</relative>
-					</field>
-					<field type="month">
-						<displayName>Hilabetea</displayName>
-						<relative type="-1">Aurreko hilabetea</relative>
-						<relative type="0">Gauden hilabetea</relative>
-						<relative type="1">Hurrengo hilabetea</relative>
-					</field>
-					<field type="week">
-						<displayName>Astea</displayName>
-						<relative type="-1">Aurreko astea</relative>
-						<relative type="0">Aste hau</relative>
-						<relative type="1">Hurrengo astea</relative>
-					</field>
-					<field type="day">
-						<displayName>Eguna</displayName>
-						<relative type="-2">Herenegun</relative>
-						<relative type="-1">Atzo</relative>
-						<relative type="0">Gaur</relative>
-						<relative type="1">Bihar</relative>
-						<relative type="2">Etzi</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Asteguna</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM//PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Ordua</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minutuak</displayName>
-					</field>
-					<field type="second">
-						<displayName>Segundoak</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Ordu-eremua</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="roc">
 				<eras>
@@ -1099,6 +1050,55 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Aroa</displayName>
+			</field>
+			<field type="year">
+				<displayName>Urtea</displayName>
+				<relative type="-1">Aurreko urtea</relative>
+				<relative type="0">Aurten</relative>
+				<relative type="1">Hurrengo urtea</relative>
+			</field>
+			<field type="month">
+				<displayName>Hilabetea</displayName>
+				<relative type="-1">Aurreko hilabetea</relative>
+				<relative type="0">Gauden hilabetea</relative>
+				<relative type="1">Hurrengo hilabetea</relative>
+			</field>
+			<field type="week">
+				<displayName>Astea</displayName>
+				<relative type="-1">Aurreko astea</relative>
+				<relative type="0">Aste hau</relative>
+				<relative type="1">Hurrengo astea</relative>
+			</field>
+			<field type="day">
+				<displayName>Eguna</displayName>
+				<relative type="-2">Herenegun</relative>
+				<relative type="-1">Atzo</relative>
+				<relative type="0">Gaur</relative>
+				<relative type="1">Bihar</relative>
+				<relative type="2">Etzi</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Asteguna</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM//PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Ordua</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minutuak</displayName>
+			</field>
+			<field type="second">
+				<displayName>Segundoak</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Ordu-eremua</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

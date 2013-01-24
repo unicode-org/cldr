@@ -475,40 +475,40 @@
 						<dateFormatItem id="yyMMMEd">E d MMM yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName>Taona</displayName>
-					</field>
-					<field type="month">
-						<displayName>Volana</displayName>
-					</field>
-					<field type="week">
-						<displayName>Herinandro</displayName>
-					</field>
-					<field type="day">
-						<displayName>Andro</displayName>
-						<relative type="-1">Omaly</relative>
-						<relative type="0">Anio</relative>
-						<relative type="1">Rahampitso</relative>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Ora</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minitra</displayName>
-					</field>
-					<field type="second">
-						<displayName>Segondra</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName>Taona</displayName>
+			</field>
+			<field type="month">
+				<displayName>Volana</displayName>
+			</field>
+			<field type="week">
+				<displayName>Herinandro</displayName>
+			</field>
+			<field type="day">
+				<displayName>Andro</displayName>
+				<relative type="-1">Omaly</relative>
+				<relative type="0">Anio</relative>
+				<relative type="1">Rahampitso</relative>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Ora</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minitra</displayName>
+			</field>
+			<field type="second">
+				<displayName>Segondra</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<currencyFormats numberSystem="latn">

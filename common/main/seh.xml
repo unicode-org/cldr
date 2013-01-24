@@ -461,31 +461,31 @@
 						<dateFormatItem id="yyQQQ">QQQ yy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<displayName>Chaka</displayName>
-					</field>
-					<field type="month">
-						<displayName>Mwezi</displayName>
-					</field>
-					<field type="day">
-						<displayName>Ntsiku</displayName>
-						<relative type="-1">Zuro</relative>
-						<relative type="0">Lero</relative>
-						<relative type="1">Manguana</relative>
-					</field>
-					<field type="hour">
-						<displayName>Hora</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minuto</displayName>
-					</field>
-					<field type="second">
-						<displayName>Segundo</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<displayName>Chaka</displayName>
+			</field>
+			<field type="month">
+				<displayName>Mwezi</displayName>
+			</field>
+			<field type="day">
+				<displayName>Ntsiku</displayName>
+				<relative type="-1">Zuro</relative>
+				<relative type="0">Lero</relative>
+				<relative type="1">Manguana</relative>
+			</field>
+			<field type="hour">
+				<displayName>Hora</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minuto</displayName>
+			</field>
+			<field type="second">
+				<displayName>Segundo</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

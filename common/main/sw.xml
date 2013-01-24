@@ -1116,57 +1116,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Enzi</displayName>
-					</field>
-					<field type="year">
-						<displayName>Mwaka</displayName>
-						<relative type="-1">Mwaka uliopita</relative>
-						<relative type="0">Mwaka huu</relative>
-						<relative type="1">Mwaka ujao</relative>
-					</field>
-					<field type="month">
-						<displayName>Mwezi</displayName>
-						<relative type="-1">Mwezi uliopita</relative>
-						<relative type="0">Mwezi huu</relative>
-						<relative type="1">Mwezi ujao</relative>
-					</field>
-					<field type="week">
-						<displayName>Wiki</displayName>
-						<relative type="-1">Wiki iliyopita</relative>
-						<relative type="0">Wiki hii</relative>
-						<relative type="1">Wiki ijayo</relative>
-					</field>
-					<field type="day">
-						<displayName>Siku</displayName>
-						<relative type="-2">Mtondo</relative>
-						<relative type="-1">Jana</relative>
-						<relative type="0">Leo</relative>
-						<relative type="1">Kesho</relative>
-						<relative type="2">Kesho kutwa</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Siku ya wiki</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Muda wa siku</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Saa</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Dakika</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekunde</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Majira ya saa</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Enzi</displayName>
+			</field>
+			<field type="year">
+				<displayName>Mwaka</displayName>
+				<relative type="-1">Mwaka uliopita</relative>
+				<relative type="0">Mwaka huu</relative>
+				<relative type="1">Mwaka ujao</relative>
+			</field>
+			<field type="month">
+				<displayName>Mwezi</displayName>
+				<relative type="-1">Mwezi uliopita</relative>
+				<relative type="0">Mwezi huu</relative>
+				<relative type="1">Mwezi ujao</relative>
+			</field>
+			<field type="week">
+				<displayName>Wiki</displayName>
+				<relative type="-1">Wiki iliyopita</relative>
+				<relative type="0">Wiki hii</relative>
+				<relative type="1">Wiki ijayo</relative>
+			</field>
+			<field type="day">
+				<displayName>Siku</displayName>
+				<relative type="-2">Mtondo</relative>
+				<relative type="-1">Jana</relative>
+				<relative type="0">Leo</relative>
+				<relative type="1">Kesho</relative>
+				<relative type="2">Kesho kutwa</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Siku ya wiki</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Muda wa siku</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Saa</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Dakika</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekunde</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Majira ya saa</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT {0}</gmtFormat>

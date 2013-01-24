@@ -1404,48 +1404,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>æra</displayName>
-					</field>
-					<field type="year">
-						<displayName>år</displayName>
-					</field>
-					<field type="month">
-						<displayName>månad</displayName>
-					</field>
-					<field type="week">
-						<displayName>veke</displayName>
-					</field>
-					<field type="day">
-						<displayName>dag</displayName>
-						<relative type="-2">i forgårs</relative>
-						<relative type="-1">i går</relative>
-						<relative type="0">i dag</relative>
-						<relative type="1">i morgon</relative>
-						<relative type="2">i overmorgon</relative>
-					</field>
-					<field type="weekday">
-						<displayName>vekedag</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>f.m./e.m.-val</displayName>
-					</field>
-					<field type="hour">
-						<displayName>time</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minutt</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekund</displayName>
-					</field>
-					<field type="zone">
-						<displayName>sone</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>æra</displayName>
+			</field>
+			<field type="year">
+				<displayName>år</displayName>
+			</field>
+			<field type="month">
+				<displayName>månad</displayName>
+			</field>
+			<field type="week">
+				<displayName>veke</displayName>
+			</field>
+			<field type="day">
+				<displayName>dag</displayName>
+				<relative type="-2">i forgårs</relative>
+				<relative type="-1">i går</relative>
+				<relative type="0">i dag</relative>
+				<relative type="1">i morgon</relative>
+				<relative type="2">i overmorgon</relative>
+			</field>
+			<field type="weekday">
+				<displayName>vekedag</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>f.m./e.m.-val</displayName>
+			</field>
+			<field type="hour">
+				<displayName>time</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minutt</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekund</displayName>
+			</field>
+			<field type="zone">
+				<displayName>sone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

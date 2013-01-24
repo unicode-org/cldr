@@ -224,6 +224,46 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="contributed">Эрин</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">Жил</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">Сар</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">Долоо хоног</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">Өдөр</displayName>
+				<relative type="-2" draft="contributed">Уржигдар</relative>
+				<relative type="-1" draft="contributed">Өчигдөр</relative>
+				<relative type="0" draft="contributed">Өнөөдөр</relative>
+				<relative type="1" draft="contributed">Маргааш</relative>
+				<relative type="2" draft="contributed">Нөгөөдөр</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">Гариг</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">Өдрийн цаг</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="contributed">Цаг</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">Минут</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">Хором</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">Бүс</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

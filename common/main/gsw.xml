@@ -1346,48 +1346,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Epoche</displayName>
-					</field>
-					<field type="year">
-						<displayName>Jaar</displayName>
-					</field>
-					<field type="month">
-						<displayName>Monet</displayName>
-					</field>
-					<field type="week">
-						<displayName>Wuche</displayName>
-					</field>
-					<field type="day">
-						<displayName>Tag</displayName>
-						<relative type="-2">vorgeschter</relative>
-						<relative type="-1">geschter</relative>
-						<relative type="0">hüt</relative>
-						<relative type="1">moorn</relative>
-						<relative type="2">übermoorn</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Wuchetag</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Tageshälfti</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Schtund</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minuute</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekunde</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Zone</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Epoche</displayName>
+			</field>
+			<field type="year">
+				<displayName>Jaar</displayName>
+			</field>
+			<field type="month">
+				<displayName>Monet</displayName>
+			</field>
+			<field type="week">
+				<displayName>Wuche</displayName>
+			</field>
+			<field type="day">
+				<displayName>Tag</displayName>
+				<relative type="-2">vorgeschter</relative>
+				<relative type="-1">geschter</relative>
+				<relative type="0">hüt</relative>
+				<relative type="1">moorn</relative>
+				<relative type="2">übermoorn</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Wuchetag</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Tageshälfti</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Schtund</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minuute</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekunde</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Zone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

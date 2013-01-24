@@ -1379,48 +1379,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Ера</displayName>
-					</field>
-					<field type="year">
-						<displayName>година</displayName>
-					</field>
-					<field type="month">
-						<displayName>Месец</displayName>
-					</field>
-					<field type="week">
-						<displayName>Недела</displayName>
-					</field>
-					<field type="day">
-						<displayName>ден</displayName>
-						<relative type="-2">завчера</relative>
-						<relative type="-1">Вчера</relative>
-						<relative type="0">Денес</relative>
-						<relative type="1">Утре</relative>
-						<relative type="2">задутре</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Ден во неделата</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>претпладне/попладне</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Час</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Минута</displayName>
-					</field>
-					<field type="second">
-						<displayName>Секунда</displayName>
-					</field>
-					<field type="zone">
-						<displayName>зона</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Ера</displayName>
+			</field>
+			<field type="year">
+				<displayName>година</displayName>
+			</field>
+			<field type="month">
+				<displayName>Месец</displayName>
+			</field>
+			<field type="week">
+				<displayName>Недела</displayName>
+			</field>
+			<field type="day">
+				<displayName>ден</displayName>
+				<relative type="-2">завчера</relative>
+				<relative type="-1">Вчера</relative>
+				<relative type="0">Денес</relative>
+				<relative type="1">Утре</relative>
+				<relative type="2">задутре</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Ден во неделата</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>претпладне/попладне</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Час</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Минута</displayName>
+			</field>
+			<field type="second">
+				<displayName>Секунда</displayName>
+			</field>
+			<field type="zone">
+				<displayName>зона</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

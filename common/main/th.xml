@@ -2277,55 +2277,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>สมัย</displayName>
-					</field>
-					<field type="year">
-						<displayName>ปี</displayName>
-						<relative type="-1">ปีที่แล้ว</relative>
-						<relative type="0">ปีนี้</relative>
-						<relative type="1">ปีหน้า</relative>
-					</field>
-					<field type="month">
-						<displayName>เดือน</displayName>
-						<relative type="-1">เดือนที่แล้ว</relative>
-						<relative type="0">เดือนนี้</relative>
-						<relative type="1">เดือนหน้า</relative>
-					</field>
-					<field type="week">
-						<displayName>สัปดาห์</displayName>
-						<relative type="-1">สัปดาห์ที่แล้ว</relative>
-						<relative type="0">สัปดาห์นี้</relative>
-						<relative type="1">สัปดาห์หน้า</relative>
-					</field>
-					<field type="day">
-						<displayName>วัน</displayName>
-						<relative type="-2">เมื่อวานซืน</relative>
-						<relative type="-1">เมื่อวาน</relative>
-						<relative type="0">วันนี้</relative>
-						<relative type="1">พรุ่งนี้</relative>
-						<relative type="2">มะรืนนี้</relative>
-					</field>
-					<field type="weekday">
-						<displayName>วันในสัปดาห์</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>ช่วงวัน</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ชั่วโมง</displayName>
-					</field>
-					<field type="minute">
-						<displayName>นาที</displayName>
-					</field>
-					<field type="second">
-						<displayName>วินาที</displayName>
-					</field>
-					<field type="zone">
-						<displayName>เขต</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -3110,6 +3061,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>สมัย</displayName>
+			</field>
+			<field type="year">
+				<displayName>ปี</displayName>
+				<relative type="-1">ปีที่แล้ว</relative>
+				<relative type="0">ปีนี้</relative>
+				<relative type="1">ปีหน้า</relative>
+			</field>
+			<field type="month">
+				<displayName>เดือน</displayName>
+				<relative type="-1">เดือนที่แล้ว</relative>
+				<relative type="0">เดือนนี้</relative>
+				<relative type="1">เดือนหน้า</relative>
+			</field>
+			<field type="week">
+				<displayName>สัปดาห์</displayName>
+				<relative type="-1">สัปดาห์ที่แล้ว</relative>
+				<relative type="0">สัปดาห์นี้</relative>
+				<relative type="1">สัปดาห์หน้า</relative>
+			</field>
+			<field type="day">
+				<displayName>วัน</displayName>
+				<relative type="-2">เมื่อวานซืน</relative>
+				<relative type="-1">เมื่อวาน</relative>
+				<relative type="0">วันนี้</relative>
+				<relative type="1">พรุ่งนี้</relative>
+				<relative type="2">มะรืนนี้</relative>
+			</field>
+			<field type="weekday">
+				<displayName>วันในสัปดาห์</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>ช่วงวัน</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ชั่วโมง</displayName>
+			</field>
+			<field type="minute">
+				<displayName>นาที</displayName>
+			</field>
+			<field type="second">
+				<displayName>วินาที</displayName>
+			</field>
+			<field type="zone">
+				<displayName>เขต</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -103,25 +103,25 @@
 						<dateFormatItem id="yMEd" draft="contributed">E d/M/y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<relative type="-1" draft="contributed">Año pasado</relative>
-						<relative type="0" draft="contributed">Este año</relative>
-						<relative type="1" draft="contributed">Año próximo</relative>
-					</field>
-					<field type="month">
-						<relative type="-1" draft="contributed">El mes pasado</relative>
-						<relative type="0" draft="contributed">Este mes</relative>
-						<relative type="1" draft="contributed">Mes próximo</relative>
-					</field>
-					<field type="week">
-						<relative type="-1" draft="contributed">Semana pasada</relative>
-						<relative type="0" draft="contributed">Esta semana</relative>
-						<relative type="1" draft="contributed">Próxima semana</relative>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<relative type="-1" draft="contributed">Año pasado</relative>
+				<relative type="0" draft="contributed">Este año</relative>
+				<relative type="1" draft="contributed">Año próximo</relative>
+			</field>
+			<field type="month">
+				<relative type="-1" draft="contributed">El mes pasado</relative>
+				<relative type="0" draft="contributed">Este mes</relative>
+				<relative type="1" draft="contributed">Mes próximo</relative>
+			</field>
+			<field type="week">
+				<relative type="-1" draft="contributed">Semana pasada</relative>
+				<relative type="0" draft="contributed">Esta semana</relative>
+				<relative type="1" draft="contributed">Próxima semana</relative>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity draft="contributed">Atikokan</exemplarCity>

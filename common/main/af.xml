@@ -1081,57 +1081,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName>Jaar</displayName>
-						<relative type="-1">Verlede jaar</relative>
-						<relative type="0">Hierdie jaar</relative>
-						<relative type="1">Volgende jaar</relative>
-					</field>
-					<field type="month">
-						<displayName>Maand</displayName>
-						<relative type="-1">Verlede maand</relative>
-						<relative type="0">Vandeesmaand</relative>
-						<relative type="1">Volgende maand</relative>
-					</field>
-					<field type="week">
-						<displayName>Week</displayName>
-						<relative type="-1">Verlede week</relative>
-						<relative type="0">Vandeesweek</relative>
-						<relative type="1">Volgende week</relative>
-					</field>
-					<field type="day">
-						<displayName>Dag</displayName>
-						<relative type="-2">Die dag voor gister</relative>
-						<relative type="-1">Gister</relative>
-						<relative type="0">Vandag</relative>
-						<relative type="1">Môre</relative>
-						<relative type="2">Die dag na môre</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Weeksdag</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Uur</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minuut</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekonde</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Tydsone</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName>Jaar</displayName>
+				<relative type="-1">Verlede jaar</relative>
+				<relative type="0">Hierdie jaar</relative>
+				<relative type="1">Volgende jaar</relative>
+			</field>
+			<field type="month">
+				<displayName>Maand</displayName>
+				<relative type="-1">Verlede maand</relative>
+				<relative type="0">Vandeesmaand</relative>
+				<relative type="1">Volgende maand</relative>
+			</field>
+			<field type="week">
+				<displayName>Week</displayName>
+				<relative type="-1">Verlede week</relative>
+				<relative type="0">Vandeesweek</relative>
+				<relative type="1">Volgende week</relative>
+			</field>
+			<field type="day">
+				<displayName>Dag</displayName>
+				<relative type="-2">Die dag voor gister</relative>
+				<relative type="-1">Gister</relative>
+				<relative type="0">Vandag</relative>
+				<relative type="1">Môre</relative>
+				<relative type="2">Die dag na môre</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Weeksdag</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Uur</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minuut</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekonde</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Tydsone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>MGT{0}</gmtFormat>

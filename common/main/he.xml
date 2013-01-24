@@ -1498,55 +1498,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>תקופה</displayName>
-					</field>
-					<field type="year">
-						<displayName>שנה</displayName>
-						<relative type="-1">שנה שעברה</relative>
-						<relative type="0">השנה</relative>
-						<relative type="1">שנה הבאה</relative>
-					</field>
-					<field type="month">
-						<displayName>חודש</displayName>
-						<relative type="-1">חודש שעבר</relative>
-						<relative type="0">החודש</relative>
-						<relative type="1">חודש הבא</relative>
-					</field>
-					<field type="week">
-						<displayName>שבוע</displayName>
-						<relative type="-1">שבוע שעבר</relative>
-						<relative type="0">השבוע</relative>
-						<relative type="1">שבוע הבא</relative>
-					</field>
-					<field type="day">
-						<displayName>יום</displayName>
-						<relative type="-2">שלשום</relative>
-						<relative type="-1">אתמול</relative>
-						<relative type="0">היום</relative>
-						<relative type="1">מחר</relative>
-						<relative type="2">מחרתיים</relative>
-					</field>
-					<field type="weekday">
-						<displayName>יום בשבוע</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>לפה״צ/אחה״צ</displayName>
-					</field>
-					<field type="hour">
-						<displayName>שעה</displayName>
-					</field>
-					<field type="minute">
-						<displayName>דקה</displayName>
-					</field>
-					<field type="second">
-						<displayName>שנייה</displayName>
-					</field>
-					<field type="zone">
-						<displayName>אזור</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -1873,6 +1824,55 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>תקופה</displayName>
+			</field>
+			<field type="year">
+				<displayName>שנה</displayName>
+				<relative type="-1">שנה שעברה</relative>
+				<relative type="0">השנה</relative>
+				<relative type="1">שנה הבאה</relative>
+			</field>
+			<field type="month">
+				<displayName>חודש</displayName>
+				<relative type="-1">חודש שעבר</relative>
+				<relative type="0">החודש</relative>
+				<relative type="1">חודש הבא</relative>
+			</field>
+			<field type="week">
+				<displayName>שבוע</displayName>
+				<relative type="-1">שבוע שעבר</relative>
+				<relative type="0">השבוע</relative>
+				<relative type="1">שבוע הבא</relative>
+			</field>
+			<field type="day">
+				<displayName>יום</displayName>
+				<relative type="-2">שלשום</relative>
+				<relative type="-1">אתמול</relative>
+				<relative type="0">היום</relative>
+				<relative type="1">מחר</relative>
+				<relative type="2">מחרתיים</relative>
+			</field>
+			<field type="weekday">
+				<displayName>יום בשבוע</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>לפה״צ/אחה״צ</displayName>
+			</field>
+			<field type="hour">
+				<displayName>שעה</displayName>
+			</field>
+			<field type="minute">
+				<displayName>דקה</displayName>
+			</field>
+			<field type="second">
+				<displayName>שנייה</displayName>
+			</field>
+			<field type="zone">
+				<displayName>אזור</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

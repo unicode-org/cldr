@@ -936,48 +936,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName draft="unconfirmed">vür/noh Chr.</displayName>
-					</field>
-					<field type="year">
-						<displayName draft="unconfirmed">Johr</displayName>
-					</field>
-					<field type="month">
-						<displayName draft="unconfirmed">Mohnd</displayName>
-					</field>
-					<field type="week">
-						<displayName draft="unconfirmed">Woch</displayName>
-					</field>
-					<field type="day">
-						<displayName draft="unconfirmed">Daach</displayName>
-						<relative type="-2" draft="unconfirmed">vörjestere</relative>
-						<relative type="-1" draft="unconfirmed">jestere</relative>
-						<relative type="0" draft="unconfirmed">hück</relative>
-						<relative type="1" draft="unconfirmed">morje</relative>
-						<relative type="2" draft="unconfirmed">övvermorje</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="unconfirmed">Wochedaach</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="unconfirmed">v.m./n.m.</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="unconfirmed">Schtund</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="unconfirmed">Menutt</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="unconfirmed">Sekund</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="unconfirmed">Zickzon</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="unconfirmed">vür/noh Chr.</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="unconfirmed">Johr</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">Mohnd</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">Woch</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">Daach</displayName>
+				<relative type="-2" draft="unconfirmed">vörjestere</relative>
+				<relative type="-1" draft="unconfirmed">jestere</relative>
+				<relative type="0" draft="unconfirmed">hück</relative>
+				<relative type="1" draft="unconfirmed">morje</relative>
+				<relative type="2" draft="unconfirmed">övvermorje</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="unconfirmed">Wochedaach</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="unconfirmed">v.m./n.m.</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">Schtund</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">Menutt</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">Sekund</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="unconfirmed">Zickzon</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>

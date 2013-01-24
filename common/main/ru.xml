@@ -1949,55 +1949,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Эра</displayName>
-					</field>
-					<field type="year">
-						<displayName>Год</displayName>
-						<relative type="-1" draft="contributed">В прошлом году</relative>
-						<relative type="0" draft="contributed">В этом году</relative>
-						<relative type="1" draft="contributed">В следующем году</relative>
-					</field>
-					<field type="month">
-						<displayName>Месяц</displayName>
-						<relative type="-1" draft="contributed">В прошлом месяце</relative>
-						<relative type="0" draft="contributed">В этом месяце</relative>
-						<relative type="1" draft="contributed">В следующем месяце</relative>
-					</field>
-					<field type="week">
-						<displayName>Неделя</displayName>
-						<relative type="-1" draft="contributed">На прошлой неделе</relative>
-						<relative type="0" draft="contributed">На этой неделе</relative>
-						<relative type="1" draft="contributed">На следующей неделе</relative>
-					</field>
-					<field type="day">
-						<displayName>День</displayName>
-						<relative type="-2">Позавчера</relative>
-						<relative type="-1">Вчера</relative>
-						<relative type="0">Сегодня</relative>
-						<relative type="1">Завтра</relative>
-						<relative type="2">Послезавтра</relative>
-					</field>
-					<field type="weekday">
-						<displayName>День недели</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="contributed">ДП/ПП</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Час</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Минута</displayName>
-					</field>
-					<field type="second">
-						<displayName>Секунда</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Часовой пояс</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2731,6 +2682,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Эра</displayName>
+			</field>
+			<field type="year">
+				<displayName>Год</displayName>
+				<relative type="-1" draft="contributed">В прошлом году</relative>
+				<relative type="0" draft="contributed">В этом году</relative>
+				<relative type="1" draft="contributed">В следующем году</relative>
+			</field>
+			<field type="month">
+				<displayName>Месяц</displayName>
+				<relative type="-1" draft="contributed">В прошлом месяце</relative>
+				<relative type="0" draft="contributed">В этом месяце</relative>
+				<relative type="1" draft="contributed">В следующем месяце</relative>
+			</field>
+			<field type="week">
+				<displayName>Неделя</displayName>
+				<relative type="-1" draft="contributed">На прошлой неделе</relative>
+				<relative type="0" draft="contributed">На этой неделе</relative>
+				<relative type="1" draft="contributed">На следующей неделе</relative>
+			</field>
+			<field type="day">
+				<displayName>День</displayName>
+				<relative type="-2">Позавчера</relative>
+				<relative type="-1">Вчера</relative>
+				<relative type="0">Сегодня</relative>
+				<relative type="1">Завтра</relative>
+				<relative type="2">Послезавтра</relative>
+			</field>
+			<field type="weekday">
+				<displayName>День недели</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">ДП/ПП</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Час</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Минута</displayName>
+			</field>
+			<field type="second">
+				<displayName>Секунда</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Часовой пояс</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>

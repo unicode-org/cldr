@@ -1795,55 +1795,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>연호</displayName>
-					</field>
-					<field type="year">
-						<displayName>년</displayName>
-						<relative type="-1" draft="contributed">지난해</relative>
-						<relative type="0" draft="contributed">올해</relative>
-						<relative type="1" draft="contributed">내년</relative>
-					</field>
-					<field type="month">
-						<displayName>월</displayName>
-						<relative type="-1" draft="contributed">지난달</relative>
-						<relative type="0" draft="contributed">이번 달</relative>
-						<relative type="1" draft="contributed">다음 달</relative>
-					</field>
-					<field type="week">
-						<displayName>주</displayName>
-						<relative type="-1" draft="contributed">지난주</relative>
-						<relative type="0" draft="contributed">이번 주</relative>
-						<relative type="1" draft="contributed">다음 주</relative>
-					</field>
-					<field type="day">
-						<displayName>일</displayName>
-						<relative type="-2">그저께</relative>
-						<relative type="-1">어제</relative>
-						<relative type="0">오늘</relative>
-						<relative type="1">내일</relative>
-						<relative type="2">모레</relative>
-					</field>
-					<field type="weekday">
-						<displayName>요일</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>오전/오후</displayName>
-					</field>
-					<field type="hour">
-						<displayName>시</displayName>
-					</field>
-					<field type="minute">
-						<displayName>분</displayName>
-					</field>
-					<field type="second">
-						<displayName>초</displayName>
-					</field>
-					<field type="zone">
-						<displayName>시간대</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
@@ -2221,6 +2172,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>연호</displayName>
+			</field>
+			<field type="year">
+				<displayName>년</displayName>
+				<relative type="-1" draft="contributed">지난해</relative>
+				<relative type="0" draft="contributed">올해</relative>
+				<relative type="1" draft="contributed">내년</relative>
+			</field>
+			<field type="month">
+				<displayName>월</displayName>
+				<relative type="-1" draft="contributed">지난달</relative>
+				<relative type="0" draft="contributed">이번 달</relative>
+				<relative type="1" draft="contributed">다음 달</relative>
+			</field>
+			<field type="week">
+				<displayName>주</displayName>
+				<relative type="-1" draft="contributed">지난주</relative>
+				<relative type="0" draft="contributed">이번 주</relative>
+				<relative type="1" draft="contributed">다음 주</relative>
+			</field>
+			<field type="day">
+				<displayName>일</displayName>
+				<relative type="-2">그저께</relative>
+				<relative type="-1">어제</relative>
+				<relative type="0">오늘</relative>
+				<relative type="1">내일</relative>
+				<relative type="2">모레</relative>
+			</field>
+			<field type="weekday">
+				<displayName>요일</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>오전/오후</displayName>
+			</field>
+			<field type="hour">
+				<displayName>시</displayName>
+			</field>
+			<field type="minute">
+				<displayName>분</displayName>
+			</field>
+			<field type="second">
+				<displayName>초</displayName>
+			</field>
+			<field type="zone">
+				<displayName>시간대</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

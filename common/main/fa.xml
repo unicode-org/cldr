@@ -1535,55 +1535,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>دوره</displayName>
-					</field>
-					<field type="year">
-						<displayName>سال</displayName>
-						<relative type="-1">سال گذشته</relative>
-						<relative type="0">امسال</relative>
-						<relative type="1">سال آینده</relative>
-					</field>
-					<field type="month">
-						<displayName>ماه</displayName>
-						<relative type="-1">ماه گذشته</relative>
-						<relative type="0">این ماه</relative>
-						<relative type="1">ماه آینده</relative>
-					</field>
-					<field type="week">
-						<displayName>هفته</displayName>
-						<relative type="-1">هفتهٔ گذشته</relative>
-						<relative type="0">این هفته</relative>
-						<relative type="1">هفتهٔ آینده</relative>
-					</field>
-					<field type="day">
-						<displayName>روز</displayName>
-						<relative type="-2">پریروز</relative>
-						<relative type="-1">دیروز</relative>
-						<relative type="0">امروز</relative>
-						<relative type="1">فردا</relative>
-						<relative type="2">پس‌فردا</relative>
-					</field>
-					<field type="weekday">
-						<displayName>روز هفته</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>قبل/بعدازظهر</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ساعت</displayName>
-					</field>
-					<field type="minute">
-						<displayName>دقیقه</displayName>
-					</field>
-					<field type="second">
-						<displayName>ثانیه</displayName>
-					</field>
-					<field type="zone">
-						<displayName>منطقهٔ زمانی</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -1941,6 +1892,55 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>دوره</displayName>
+			</field>
+			<field type="year">
+				<displayName>سال</displayName>
+				<relative type="-1">سال گذشته</relative>
+				<relative type="0">امسال</relative>
+				<relative type="1">سال آینده</relative>
+			</field>
+			<field type="month">
+				<displayName>ماه</displayName>
+				<relative type="-1">ماه گذشته</relative>
+				<relative type="0">این ماه</relative>
+				<relative type="1">ماه آینده</relative>
+			</field>
+			<field type="week">
+				<displayName>هفته</displayName>
+				<relative type="-1">هفتهٔ گذشته</relative>
+				<relative type="0">این هفته</relative>
+				<relative type="1">هفتهٔ آینده</relative>
+			</field>
+			<field type="day">
+				<displayName>روز</displayName>
+				<relative type="-2">پریروز</relative>
+				<relative type="-1">دیروز</relative>
+				<relative type="0">امروز</relative>
+				<relative type="1">فردا</relative>
+				<relative type="2">پس‌فردا</relative>
+			</field>
+			<field type="weekday">
+				<displayName>روز هفته</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>قبل/بعدازظهر</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ساعت</displayName>
+			</field>
+			<field type="minute">
+				<displayName>دقیقه</displayName>
+			</field>
+			<field type="second">
+				<displayName>ثانیه</displayName>
+			</field>
+			<field type="zone">
+				<displayName>منطقهٔ زمانی</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -1553,55 +1553,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>యుగం, శకము</displayName>
-					</field>
-					<field type="year">
-						<displayName>సంవత్సరం</displayName>
-						<relative type="-1">మునుపటి సంవత్సరం</relative>
-						<relative type="0">ఈ సంవత్సరం</relative>
-						<relative type="1">తర్వాతి సంవత్సరం</relative>
-					</field>
-					<field type="month">
-						<displayName>నెల</displayName>
-						<relative type="-1">గత నెల</relative>
-						<relative type="0">ఈ నెల</relative>
-						<relative type="1">తర్వాతి నెల</relative>
-					</field>
-					<field type="week">
-						<displayName>వారము</displayName>
-						<relative type="-1">గత వారం</relative>
-						<relative type="0">ఈ వారం</relative>
-						<relative type="1">తదుపరి వారం</relative>
-					</field>
-					<field type="day">
-						<displayName>దినం</displayName>
-						<relative type="-2">మొన్న</relative>
-						<relative type="-1">నిన్న</relative>
-						<relative type="0">ఈ రోజు</relative>
-						<relative type="1">రేపు</relative>
-						<relative type="2">ఎల్లుండి</relative>
-					</field>
-					<field type="weekday">
-						<displayName>వారంలో రోజు</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>గంట</displayName>
-					</field>
-					<field type="minute">
-						<displayName>నిమిషము</displayName>
-					</field>
-					<field type="second">
-						<displayName>క్షణం</displayName>
-					</field>
-					<field type="zone">
-						<displayName>మండలం</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -1629,6 +1580,55 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>యుగం, శకము</displayName>
+			</field>
+			<field type="year">
+				<displayName>సంవత్సరం</displayName>
+				<relative type="-1">మునుపటి సంవత్సరం</relative>
+				<relative type="0">ఈ సంవత్సరం</relative>
+				<relative type="1">తర్వాతి సంవత్సరం</relative>
+			</field>
+			<field type="month">
+				<displayName>నెల</displayName>
+				<relative type="-1">గత నెల</relative>
+				<relative type="0">ఈ నెల</relative>
+				<relative type="1">తర్వాతి నెల</relative>
+			</field>
+			<field type="week">
+				<displayName>వారము</displayName>
+				<relative type="-1">గత వారం</relative>
+				<relative type="0">ఈ వారం</relative>
+				<relative type="1">తదుపరి వారం</relative>
+			</field>
+			<field type="day">
+				<displayName>దినం</displayName>
+				<relative type="-2">మొన్న</relative>
+				<relative type="-1">నిన్న</relative>
+				<relative type="0">ఈ రోజు</relative>
+				<relative type="1">రేపు</relative>
+				<relative type="2">ఎల్లుండి</relative>
+			</field>
+			<field type="weekday">
+				<displayName>వారంలో రోజు</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>గంట</displayName>
+			</field>
+			<field type="minute">
+				<displayName>నిమిషము</displayName>
+			</field>
+			<field type="second">
+				<displayName>క్షణం</displayName>
+			</field>
+			<field type="zone">
+				<displayName>మండలం</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -1650,55 +1650,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Epoche</displayName>
-					</field>
-					<field type="year">
-						<displayName>Jahr</displayName>
-						<relative type="-1">Letztes Jahr</relative>
-						<relative type="0">Dieses Jahr</relative>
-						<relative type="1">Nächstes Jahr</relative>
-					</field>
-					<field type="month">
-						<displayName>Monat</displayName>
-						<relative type="-1">Letzter Monat</relative>
-						<relative type="0">Dieser Monat</relative>
-						<relative type="1">Nächster Monat</relative>
-					</field>
-					<field type="week">
-						<displayName>Woche</displayName>
-						<relative type="-1">Letzte Woche</relative>
-						<relative type="0">Diese Woche</relative>
-						<relative type="1">Nächste Woche</relative>
-					</field>
-					<field type="day">
-						<displayName>Tag</displayName>
-						<relative type="-2">Vorgestern</relative>
-						<relative type="-1">Gestern</relative>
-						<relative type="0">Heute</relative>
-						<relative type="1">Morgen</relative>
-						<relative type="2">Übermorgen</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Wochentag</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Tageshälfte</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Stunde</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minute</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekunde</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Zone</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<dateFormats>
@@ -1885,6 +1836,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Epoche</displayName>
+			</field>
+			<field type="year">
+				<displayName>Jahr</displayName>
+				<relative type="-1">Letztes Jahr</relative>
+				<relative type="0">Dieses Jahr</relative>
+				<relative type="1">Nächstes Jahr</relative>
+			</field>
+			<field type="month">
+				<displayName>Monat</displayName>
+				<relative type="-1">Letzter Monat</relative>
+				<relative type="0">Dieser Monat</relative>
+				<relative type="1">Nächster Monat</relative>
+			</field>
+			<field type="week">
+				<displayName>Woche</displayName>
+				<relative type="-1">Letzte Woche</relative>
+				<relative type="0">Diese Woche</relative>
+				<relative type="1">Nächste Woche</relative>
+			</field>
+			<field type="day">
+				<displayName>Tag</displayName>
+				<relative type="-2">Vorgestern</relative>
+				<relative type="-1">Gestern</relative>
+				<relative type="0">Heute</relative>
+				<relative type="1">Morgen</relative>
+				<relative type="2">Übermorgen</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Wochentag</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Tageshälfte</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Stunde</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minute</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekunde</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Zone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

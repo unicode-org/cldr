@@ -303,47 +303,47 @@
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName>fituʼ</displayName>
-					</field>
-					<field type="month">
-						<displayName>iməg</displayName>
-					</field>
-					<field type="week">
-						<displayName>nkap</displayName>
-					</field>
-					<field type="day">
-						<displayName>anəg</displayName>
-						<relative type="-1">ikwiri</relative>
-						<relative type="0">tèchɔ̀ŋ</relative>
-						<relative type="1">isu</relative>
-						<relative type="2">isu ywi</relative>
-					</field>
-					<field type="weekday">
-						<displayName>anəg agu nkap</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Dayperiod</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Hour</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minute</displayName>
-					</field>
-					<field type="second">
-						<displayName>Second</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Zone</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName>fituʼ</displayName>
+			</field>
+			<field type="month">
+				<displayName>iməg</displayName>
+			</field>
+			<field type="week">
+				<displayName>nkap</displayName>
+			</field>
+			<field type="day">
+				<displayName>anəg</displayName>
+				<relative type="-1">ikwiri</relative>
+				<relative type="0">tèchɔ̀ŋ</relative>
+				<relative type="1">isu</relative>
+				<relative type="2">isu ywi</relative>
+			</field>
+			<field type="weekday">
+				<displayName>anəg agu nkap</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Dayperiod</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Hour</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minute</displayName>
+			</field>
+			<field type="second">
+				<displayName>Second</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Zone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

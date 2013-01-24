@@ -1557,55 +1557,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Ēra</displayName>
-					</field>
-					<field type="year">
-						<displayName>Gads</displayName>
-						<relative type="-1">Pagājušajā gadā</relative>
-						<relative type="0">Šogad</relative>
-						<relative type="1">Nākamgad</relative>
-					</field>
-					<field type="month">
-						<displayName>Mēnesis</displayName>
-						<relative type="-1">Pagājušajā mēnesī</relative>
-						<relative type="0">Šomēnes</relative>
-						<relative type="1">Nākammēnes</relative>
-					</field>
-					<field type="week">
-						<displayName>Nedēļa</displayName>
-						<relative type="-1">Pagājušajā nedēļā</relative>
-						<relative type="0">Šonedēļ</relative>
-						<relative type="1">Nākamnedēļ</relative>
-					</field>
-					<field type="day">
-						<displayName>Diena</displayName>
-						<relative type="-2">aizvakar</relative>
-						<relative type="-1">vakar</relative>
-						<relative type="0">šodien</relative>
-						<relative type="1">rīt</relative>
-						<relative type="2">parīt</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Nedēļas diena</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Pirmspusd./pēcpusd.</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Stundas</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minūtes</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekundes</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Laika josla</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -1650,6 +1601,55 @@
 				</months>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Ēra</displayName>
+			</field>
+			<field type="year">
+				<displayName>Gads</displayName>
+				<relative type="-1">Pagājušajā gadā</relative>
+				<relative type="0">Šogad</relative>
+				<relative type="1">Nākamgad</relative>
+			</field>
+			<field type="month">
+				<displayName>Mēnesis</displayName>
+				<relative type="-1">Pagājušajā mēnesī</relative>
+				<relative type="0">Šomēnes</relative>
+				<relative type="1">Nākammēnes</relative>
+			</field>
+			<field type="week">
+				<displayName>Nedēļa</displayName>
+				<relative type="-1">Pagājušajā nedēļā</relative>
+				<relative type="0">Šonedēļ</relative>
+				<relative type="1">Nākamnedēļ</relative>
+			</field>
+			<field type="day">
+				<displayName>Diena</displayName>
+				<relative type="-2">aizvakar</relative>
+				<relative type="-1">vakar</relative>
+				<relative type="0">šodien</relative>
+				<relative type="1">rīt</relative>
+				<relative type="2">parīt</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Nedēļas diena</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Pirmspusd./pēcpusd.</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Stundas</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minūtes</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekundes</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Laika josla</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

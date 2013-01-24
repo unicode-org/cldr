@@ -1067,57 +1067,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName draft="contributed">Ano</displayName>
-						<relative type="-1">Ano pasado</relative>
-						<relative type="0">Este ano</relative>
-						<relative type="1">Seguinte ano</relative>
-					</field>
-					<field type="month">
-						<displayName draft="contributed">Mes</displayName>
-						<relative type="-1">Mes pasado</relative>
-						<relative type="0">Este mes</relative>
-						<relative type="1">Mes seguinte</relative>
-					</field>
-					<field type="week">
-						<displayName draft="contributed">Semana</displayName>
-						<relative type="-1">Semana pasada</relative>
-						<relative type="0">Esta semana</relative>
-						<relative type="1">Semana seguinte</relative>
-					</field>
-					<field type="day">
-						<displayName draft="contributed">Día</displayName>
-						<relative type="-2" draft="contributed">antonte</relative>
-						<relative type="-1" draft="contributed">onte</relative>
-						<relative type="0" draft="contributed">hoxe</relative>
-						<relative type="1" draft="contributed">mañá</relative>
-						<relative type="2" draft="contributed">pasadomañá</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="contributed">Día da semana</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>a.m./p.m.</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="contributed">Hora</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="contributed">Minuto</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="contributed">Segundo</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="contributed">Fuso horario</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">Ano</displayName>
+				<relative type="-1">Ano pasado</relative>
+				<relative type="0">Este ano</relative>
+				<relative type="1">Seguinte ano</relative>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">Mes</displayName>
+				<relative type="-1">Mes pasado</relative>
+				<relative type="0">Este mes</relative>
+				<relative type="1">Mes seguinte</relative>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">Semana</displayName>
+				<relative type="-1">Semana pasada</relative>
+				<relative type="0">Esta semana</relative>
+				<relative type="1">Semana seguinte</relative>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">Día</displayName>
+				<relative type="-2" draft="contributed">antonte</relative>
+				<relative type="-1" draft="contributed">onte</relative>
+				<relative type="0" draft="contributed">hoxe</relative>
+				<relative type="1" draft="contributed">mañá</relative>
+				<relative type="2" draft="contributed">pasadomañá</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">Día da semana</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>a.m./p.m.</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="contributed">Hora</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">Minuto</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">Segundo</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">Fuso horario</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>

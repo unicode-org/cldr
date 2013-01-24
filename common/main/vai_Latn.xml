@@ -396,37 +396,37 @@
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<displayName>saŋ</displayName>
-					</field>
-					<field type="month">
-						<displayName>kalo</displayName>
-					</field>
-					<field type="week">
-						<displayName>wiki</displayName>
-					</field>
-					<field type="day">
-						<displayName>tele</displayName>
-						<relative type="-1">kunu</relative>
-						<relative type="0">wɛlɛ</relative>
-						<relative type="1">sina</relative>
-					</field>
-					<field type="weekday">
-						<displayName>wikiyɛma tele</displayName>
-					</field>
-					<field type="hour">
-						<displayName>hawa</displayName>
-					</field>
-					<field type="minute">
-						<displayName>mini</displayName>
-					</field>
-					<field type="second">
-						<displayName>jaki-jaka</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<displayName>saŋ</displayName>
+			</field>
+			<field type="month">
+				<displayName>kalo</displayName>
+			</field>
+			<field type="week">
+				<displayName>wiki</displayName>
+			</field>
+			<field type="day">
+				<displayName>tele</displayName>
+				<relative type="-1">kunu</relative>
+				<relative type="0">wɛlɛ</relative>
+				<relative type="1">sina</relative>
+			</field>
+			<field type="weekday">
+				<displayName>wikiyɛma tele</displayName>
+			</field>
+			<field type="hour">
+				<displayName>hawa</displayName>
+			</field>
+			<field type="minute">
+				<displayName>mini</displayName>
+			</field>
+			<field type="second">
+				<displayName>jaki-jaka</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<defaultNumberingSystem>latn</defaultNumberingSystem>

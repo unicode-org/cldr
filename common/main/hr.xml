@@ -1727,55 +1727,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>era</displayName>
-					</field>
-					<field type="year">
-						<displayName>godina</displayName>
-						<relative type="-1">Prošla godina</relative>
-						<relative type="0">Ova godina</relative>
-						<relative type="1">Sljedeća godina</relative>
-					</field>
-					<field type="month">
-						<displayName>mjesec</displayName>
-						<relative type="-1">Prošli mjesec</relative>
-						<relative type="0">Ovaj mjesec</relative>
-						<relative type="1">Sljedeći mjesec</relative>
-					</field>
-					<field type="week">
-						<displayName>tjedan</displayName>
-						<relative type="-1">Prošli tjedan</relative>
-						<relative type="0">Ovaj tjedan</relative>
-						<relative type="1">Sljedeći tjedan</relative>
-					</field>
-					<field type="day">
-						<displayName>dan</displayName>
-						<relative type="-2">prekjučer</relative>
-						<relative type="-1">jučer</relative>
-						<relative type="0">danas</relative>
-						<relative type="1">sutra</relative>
-						<relative type="2">prekosutra</relative>
-					</field>
-					<field type="weekday">
-						<displayName>dan u tjednu</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>dio dana</displayName>
-					</field>
-					<field type="hour">
-						<displayName>sat</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minuta</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekunda</displayName>
-					</field>
-					<field type="zone">
-						<displayName>vremenska zona</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="japanese">
 				<dateFormats>
@@ -1874,6 +1825,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>era</displayName>
+			</field>
+			<field type="year">
+				<displayName>godina</displayName>
+				<relative type="-1">Prošla godina</relative>
+				<relative type="0">Ova godina</relative>
+				<relative type="1">Sljedeća godina</relative>
+			</field>
+			<field type="month">
+				<displayName>mjesec</displayName>
+				<relative type="-1">Prošli mjesec</relative>
+				<relative type="0">Ovaj mjesec</relative>
+				<relative type="1">Sljedeći mjesec</relative>
+			</field>
+			<field type="week">
+				<displayName>tjedan</displayName>
+				<relative type="-1">Prošli tjedan</relative>
+				<relative type="0">Ovaj tjedan</relative>
+				<relative type="1">Sljedeći tjedan</relative>
+			</field>
+			<field type="day">
+				<displayName>dan</displayName>
+				<relative type="-2">prekjučer</relative>
+				<relative type="-1">jučer</relative>
+				<relative type="0">danas</relative>
+				<relative type="1">sutra</relative>
+				<relative type="2">prekosutra</relative>
+			</field>
+			<field type="weekday">
+				<displayName>dan u tjednu</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>dio dana</displayName>
+			</field>
+			<field type="hour">
+				<displayName>sat</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minuta</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekunda</displayName>
+			</field>
+			<field type="zone">
+				<displayName>vremenska zona</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm; -HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

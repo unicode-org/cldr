@@ -472,40 +472,40 @@
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<displayName>Umnyaka</displayName>
-					</field>
-					<field type="month">
-						<displayName>Inyangacale</displayName>
-					</field>
-					<field type="week">
-						<displayName>Iviki</displayName>
-					</field>
-					<field type="day">
-						<displayName>Ilanga</displayName>
-						<relative type="-1">Izolo</relative>
-						<relative type="0">Lamuhla</relative>
-						<relative type="1">Kusasa</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Ilanga leviki</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Ihola</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Umuzuzu</displayName>
-					</field>
-					<field type="second">
-						<displayName>Isekendi</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Isikhathi</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<displayName>Umnyaka</displayName>
+			</field>
+			<field type="month">
+				<displayName>Inyangacale</displayName>
+			</field>
+			<field type="week">
+				<displayName>Iviki</displayName>
+			</field>
+			<field type="day">
+				<displayName>Ilanga</displayName>
+				<relative type="-1">Izolo</relative>
+				<relative type="0">Lamuhla</relative>
+				<relative type="1">Kusasa</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Ilanga leviki</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Ihola</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Umuzuzu</displayName>
+			</field>
+			<field type="second">
+				<displayName>Isekendi</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Isikhathi</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<currencyFormats numberSystem="latn">

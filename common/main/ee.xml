@@ -1496,46 +1496,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>ŋɔli</displayName>
-					</field>
-					<field type="year">
-						<displayName>ƒe</displayName>
-					</field>
-					<field type="month">
-						<displayName>Xleti</displayName>
-					</field>
-					<field type="week">
-						<displayName>kɔsiɖa ɖeka</displayName>
-					</field>
-					<field type="day">
-						<displayName>ŋkeke</displayName>
-						<relative type="-2">nyitsɔ</relative>
-						<relative type="-1">etsɔ si va yi</relative>
-						<relative type="0">egbe</relative>
-						<relative type="1">etsɔ si gbɔna</relative>
-						<relative type="2">nyitsɔ si gbɔna</relative>
-					</field>
-					<field type="weekday">
-						<displayName>kɔsiɖa me ŋkeke</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>ŋkekea me</displayName>
-					</field>
-					<field type="hour">
-						<displayName>gaƒoƒo</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Mintigaƒoƒo</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekend</displayName>
-					</field>
-					<field type="zone">
-						<displayName>nutomegaƒoƒome</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -1913,6 +1873,46 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ŋɔli</displayName>
+			</field>
+			<field type="year">
+				<displayName>ƒe</displayName>
+			</field>
+			<field type="month">
+				<displayName>Xleti</displayName>
+			</field>
+			<field type="week">
+				<displayName>kɔsiɖa ɖeka</displayName>
+			</field>
+			<field type="day">
+				<displayName>ŋkeke</displayName>
+				<relative type="-2">nyitsɔ</relative>
+				<relative type="-1">etsɔ si va yi</relative>
+				<relative type="0">egbe</relative>
+				<relative type="1">etsɔ si gbɔna</relative>
+				<relative type="2">nyitsɔ si gbɔna</relative>
+			</field>
+			<field type="weekday">
+				<displayName>kɔsiɖa me ŋkeke</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>ŋkekea me</displayName>
+			</field>
+			<field type="hour">
+				<displayName>gaƒoƒo</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Mintigaƒoƒo</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekend</displayName>
+			</field>
+			<field type="zone">
+				<displayName>nutomegaƒoƒome</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<regionFormat draft="contributed">{0} gaƒoƒo</regionFormat>

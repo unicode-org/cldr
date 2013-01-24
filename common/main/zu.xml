@@ -1044,57 +1044,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Isikhathi</displayName>
-					</field>
-					<field type="year">
-						<displayName>Unyaka</displayName>
-						<relative type="-1">Onyakeni odlule</relative>
-						<relative type="0">Kulo nyaka</relative>
-						<relative type="1">Unyaka ozayo</relative>
-					</field>
-					<field type="month">
-						<displayName>Inyanga</displayName>
-						<relative type="-1">Inyanga edlule</relative>
-						<relative type="0">Le nyanga</relative>
-						<relative type="1">Inyanga ezayo</relative>
-					</field>
-					<field type="week">
-						<displayName>Iviki</displayName>
-						<relative type="-1">Iviki eledlule</relative>
-						<relative type="0">Leli viki</relative>
-						<relative type="1">Iviki elizayo</relative>
-					</field>
-					<field type="day">
-						<displayName>Usuku</displayName>
-						<relative type="-2">Usuku olwandulela olwayizolo</relative>
-						<relative type="-1">Izolo</relative>
-						<relative type="0">Namhlanje</relative>
-						<relative type="1">Kusasa</relative>
-						<relative type="2">Usuku olulandela olakusasa</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Usuku evikini</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Ihora</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Iminithi</displayName>
-					</field>
-					<field type="second">
-						<displayName>Isekhondi</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Isikhathi sendawo</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Isikhathi</displayName>
+			</field>
+			<field type="year">
+				<displayName>Unyaka</displayName>
+				<relative type="-1">Onyakeni odlule</relative>
+				<relative type="0">Kulo nyaka</relative>
+				<relative type="1">Unyaka ozayo</relative>
+			</field>
+			<field type="month">
+				<displayName>Inyanga</displayName>
+				<relative type="-1">Inyanga edlule</relative>
+				<relative type="0">Le nyanga</relative>
+				<relative type="1">Inyanga ezayo</relative>
+			</field>
+			<field type="week">
+				<displayName>Iviki</displayName>
+				<relative type="-1">Iviki eledlule</relative>
+				<relative type="0">Leli viki</relative>
+				<relative type="1">Iviki elizayo</relative>
+			</field>
+			<field type="day">
+				<displayName>Usuku</displayName>
+				<relative type="-2">Usuku olwandulela olwayizolo</relative>
+				<relative type="-1">Izolo</relative>
+				<relative type="0">Namhlanje</relative>
+				<relative type="1">Kusasa</relative>
+				<relative type="2">Usuku olulandela olakusasa</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Usuku evikini</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Ihora</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Iminithi</displayName>
+			</field>
+			<field type="second">
+				<displayName>Isekhondi</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Isikhathi sendawo</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

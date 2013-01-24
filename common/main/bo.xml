@@ -435,48 +435,48 @@
 						<dateFormatItem id="yMMMMd">སྦྱི་ལོ་y MMMMའི་ཙེས་dད</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName draft="provisional">ལོ་རིམ།</displayName>
-					</field>
-					<field type="year">
-						<displayName draft="contributed">ལོ།</displayName>
-					</field>
-					<field type="month">
-						<displayName>ཟླ་བ་</displayName>
-					</field>
-					<field type="week">
-						<displayName draft="provisional">གཟའ་འཁོར།</displayName>
-					</field>
-					<field type="day">
-						<displayName draft="contributed">ཉིན།</displayName>
-						<relative type="-2">ཁས་ཉིན་ཀ་</relative>
-						<relative type="-1">ཁས་ས་</relative>
-						<relative type="0">དེ་རིང་</relative>
-						<relative type="1">སང་ཉིན་</relative>
-						<relative type="2">གནངས་ཉིན་ཀ་</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="provisional">གཟའ་འཁོར་གཅིག</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="provisional">སྔ་དྲོ། ཕྱི་དྲོ།</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ཆུ་ཙོ་</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="contributed">སྐར་མ།</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="contributed">སྐར་ཆ།</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="contributed">དུས་ཚོད།</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="provisional">ལོ་རིམ།</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">ལོ།</displayName>
+			</field>
+			<field type="month">
+				<displayName>ཟླ་བ་</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="provisional">གཟའ་འཁོར།</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">ཉིན།</displayName>
+				<relative type="-2">ཁས་ཉིན་ཀ་</relative>
+				<relative type="-1">ཁས་ས་</relative>
+				<relative type="0">དེ་རིང་</relative>
+				<relative type="1">སང་ཉིན་</relative>
+				<relative type="2">གནངས་ཉིན་ཀ་</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="provisional">གཟའ་འཁོར་གཅིག</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="provisional">སྔ་དྲོ། ཕྱི་དྲོ།</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ཆུ་ཙོ་</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">སྐར་མ།</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">སྐར་ཆ།</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">དུས་ཚོད།</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="Etc/Unknown">
 				<exemplarCity>མ་རྟོགས་པ</exemplarCity>

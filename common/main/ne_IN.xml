@@ -64,33 +64,6 @@
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
-				<fields>
-					<field type="era">
-						<displayName>युग</displayName>
-					</field>
-					<field type="year">
-						<displayName>वर्ष</displayName>
-					</field>
-					<field type="week">
-						<displayName>साता</displayName>
-					</field>
-					<field type="day">
-						<displayName>वार</displayName>
-						<relative type="2">पर्सि</relative>
-					</field>
-					<field type="weekday">
-						<displayName>हप्ताको वार</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>पूर्वाह्न / अपराह्न</displayName>
-					</field>
-					<field type="second">
-						<displayName>सेकेन्ड</displayName>
-					</field>
-					<field type="zone">
-						<displayName>अञ्‍चल</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -113,6 +86,33 @@
 				</months>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>युग</displayName>
+			</field>
+			<field type="year">
+				<displayName>वर्ष</displayName>
+			</field>
+			<field type="week">
+				<displayName>साता</displayName>
+			</field>
+			<field type="day">
+				<displayName>वार</displayName>
+				<relative type="2">पर्सि</relative>
+			</field>
+			<field type="weekday">
+				<displayName>हप्ताको वार</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>पूर्वाह्न / अपराह्न</displayName>
+			</field>
+			<field type="second">
+				<displayName>सेकेन्ड</displayName>
+			</field>
+			<field type="zone">
+				<displayName>अञ्‍चल</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<currencies>

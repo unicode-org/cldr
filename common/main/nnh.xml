@@ -243,28 +243,28 @@
 						<dateFormatItem id="yMMMEd">E , 'lyɛ'̌ʼ d 'na' MMM, y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>tsɔ́ fʉ̀ʼ</displayName>
-					</field>
-					<field type="year">
-						<displayName>ngùʼ</displayName>
-					</field>
-					<field type="day">
-						<displayName>lyɛ̌ʼ</displayName>
-						<relative type="-1">jǔɔ gẅie à ka tɔ̌g</relative>
-						<relative type="0">lyɛ̌ʼɔɔn</relative>
-						<relative type="1">jǔɔ gẅie à ne ntóo</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ngàba láʼ</displayName>
-					</field>
-					<field type="hour">
-						<displayName>fʉ̀ʼ nèm</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>tsɔ́ fʉ̀ʼ</displayName>
+			</field>
+			<field type="year">
+				<displayName>ngùʼ</displayName>
+			</field>
+			<field type="day">
+				<displayName>lyɛ̌ʼ</displayName>
+				<relative type="-1">jǔɔ gẅie à ka tɔ̌g</relative>
+				<relative type="0">lyɛ̌ʼɔɔn</relative>
+				<relative type="1">jǔɔ gẅie à ne ntóo</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ngàba láʼ</displayName>
+			</field>
+			<field type="hour">
+				<displayName>fʉ̀ʼ nèm</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

@@ -455,52 +455,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName draft="unconfirmed">ايرا</displayName>
-					</field>
-					<field type="year">
-						<displayName draft="unconfirmed">تاهون</displayName>
-						<relative type="-1" draft="unconfirmed">تاهون لڤس</relative>
-						<relative type="0" draft="unconfirmed">تاهون ني</relative>
-						<relative type="1" draft="unconfirmed">تاهون هدڤن</relative>
-					</field>
-					<field type="month">
-						<displayName draft="unconfirmed">بولن</displayName>
-						<relative type="-1" draft="unconfirmed">بولن لالو</relative>
-						<relative type="0" draft="unconfirmed">بولن ني</relative>
-						<relative type="1" draft="unconfirmed">بولن ستروسڽ</relative>
-					</field>
-					<field type="week">
-						<displayName draft="unconfirmed">ميڠݢو</displayName>
-						<relative type="-1" draft="unconfirmed">ميڠݢو لڤس</relative>
-						<relative type="0" draft="unconfirmed">ميڠݢو ني</relative>
-						<relative type="1" draft="unconfirmed">ميڠݢو ستروسڽ</relative>
-					</field>
-					<field type="day">
-						<displayName draft="unconfirmed">هاري</displayName>
-						<relative type="-2" draft="unconfirmed">هاري سبلوم سمالم</relative>
-						<relative type="-1" draft="unconfirmed">سمالم</relative>
-						<relative type="0" draft="unconfirmed">هاري ني</relative>
-						<relative type="1" draft="unconfirmed">ايسوق</relative>
-						<relative type="2" draft="unconfirmed">هاري سلڤس ايسوق</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="unconfirmed">هاري دالم ميڠݢو</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="unconfirmed">جم</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="unconfirmed">مينيت</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="unconfirmed">کدوا</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="unconfirmed">زون وقتو</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<dateFormats>
@@ -581,6 +535,52 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="unconfirmed">ايرا</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="unconfirmed">تاهون</displayName>
+				<relative type="-1" draft="unconfirmed">تاهون لڤس</relative>
+				<relative type="0" draft="unconfirmed">تاهون ني</relative>
+				<relative type="1" draft="unconfirmed">تاهون هدڤن</relative>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">بولن</displayName>
+				<relative type="-1" draft="unconfirmed">بولن لالو</relative>
+				<relative type="0" draft="unconfirmed">بولن ني</relative>
+				<relative type="1" draft="unconfirmed">بولن ستروسڽ</relative>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">ميڠݢو</displayName>
+				<relative type="-1" draft="unconfirmed">ميڠݢو لڤس</relative>
+				<relative type="0" draft="unconfirmed">ميڠݢو ني</relative>
+				<relative type="1" draft="unconfirmed">ميڠݢو ستروسڽ</relative>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">هاري</displayName>
+				<relative type="-2" draft="unconfirmed">هاري سبلوم سمالم</relative>
+				<relative type="-1" draft="unconfirmed">سمالم</relative>
+				<relative type="0" draft="unconfirmed">هاري ني</relative>
+				<relative type="1" draft="unconfirmed">ايسوق</relative>
+				<relative type="2" draft="unconfirmed">هاري سلڤس ايسوق</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="unconfirmed">هاري دالم ميڠݢو</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">جم</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">مينيت</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">کدوا</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="unconfirmed">زون وقتو</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<regionFormat draft="unconfirmed">وقتو {0}</regionFormat>

@@ -1601,57 +1601,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>ajastu</displayName>
-					</field>
-					<field type="year">
-						<displayName>aasta</displayName>
-						<relative type="-1">Eelmine aasta</relative>
-						<relative type="0">Sel aastal</relative>
-						<relative type="1">Järgmine aasta</relative>
-					</field>
-					<field type="month">
-						<displayName>kuu</displayName>
-						<relative type="-1">Eelmine kuu</relative>
-						<relative type="0">See kuu</relative>
-						<relative type="1">Järgmine kuu</relative>
-					</field>
-					<field type="week">
-						<displayName>nädal</displayName>
-						<relative type="-1">Eelmine nädal</relative>
-						<relative type="0">See nädal</relative>
-						<relative type="1">Järgmine nädal</relative>
-					</field>
-					<field type="day">
-						<displayName>päev</displayName>
-						<relative type="-2">üleeile</relative>
-						<relative type="-1">eile</relative>
-						<relative type="0">täna</relative>
-						<relative type="1">homme</relative>
-						<relative type="2">ülehomme</relative>
-					</field>
-					<field type="weekday">
-						<displayName>nädalapäev</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>enne/pärast lõunat</displayName>
-					</field>
-					<field type="hour">
-						<displayName>tund</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minut</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekund</displayName>
-					</field>
-					<field type="zone">
-						<displayName>vöönd</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ajastu</displayName>
+			</field>
+			<field type="year">
+				<displayName>aasta</displayName>
+				<relative type="-1">Eelmine aasta</relative>
+				<relative type="0">Sel aastal</relative>
+				<relative type="1">Järgmine aasta</relative>
+			</field>
+			<field type="month">
+				<displayName>kuu</displayName>
+				<relative type="-1">Eelmine kuu</relative>
+				<relative type="0">See kuu</relative>
+				<relative type="1">Järgmine kuu</relative>
+			</field>
+			<field type="week">
+				<displayName>nädal</displayName>
+				<relative type="-1">Eelmine nädal</relative>
+				<relative type="0">See nädal</relative>
+				<relative type="1">Järgmine nädal</relative>
+			</field>
+			<field type="day">
+				<displayName>päev</displayName>
+				<relative type="-2">üleeile</relative>
+				<relative type="-1">eile</relative>
+				<relative type="0">täna</relative>
+				<relative type="1">homme</relative>
+				<relative type="2">ülehomme</relative>
+			</field>
+			<field type="weekday">
+				<displayName>nädalapäev</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>enne/pärast lõunat</displayName>
+			</field>
+			<field type="hour">
+				<displayName>tund</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minut</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekund</displayName>
+			</field>
+			<field type="zone">
+				<displayName>vöönd</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -32,15 +32,11 @@
 		<exemplarCharacters type="auxiliary">[ã ç ë í ñ ó š ÿ ü ž]</exemplarCharacters>
 	</characters>
 	<dates>
-		<calendars>
-			<calendar type="gregorian">
-				<fields>
-					<field type="dayperiod">
-						<displayName>dagsperiod</displayName>
-					</field>
-				</fields>
-			</calendar>
-		</calendars>
+		<fields>
+			<field type="dayperiod">
+				<displayName>dagsperiod</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
 			<zone type="Etc/Unknown">

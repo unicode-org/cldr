@@ -1452,55 +1452,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>युग</displayName>
-					</field>
-					<field type="year">
-						<displayName>वर्ष</displayName>
-						<relative type="-1" draft="contributed">पिछले वर्ष</relative>
-						<relative type="0" draft="contributed">इस वर्ष</relative>
-						<relative type="1" draft="contributed">अगले वर्ष</relative>
-					</field>
-					<field type="month">
-						<displayName>मास</displayName>
-						<relative type="-1" draft="contributed">पिछला माह</relative>
-						<relative type="0" draft="contributed">इस माह</relative>
-						<relative type="1" draft="contributed">अगले माह</relative>
-					</field>
-					<field type="week">
-						<displayName>सप्ताह</displayName>
-						<relative type="-1" draft="contributed">पिछले सप्ताह</relative>
-						<relative type="0" draft="contributed">इस सप्ताह</relative>
-						<relative type="1" draft="contributed">अगले सप्ताह</relative>
-					</field>
-					<field type="day">
-						<displayName>दिन</displayName>
-						<relative type="-2">बीता परसों</relative>
-						<relative type="-1">बीता कल</relative>
-						<relative type="0">आज</relative>
-						<relative type="1">कल</relative>
-						<relative type="2">परसों</relative>
-					</field>
-					<field type="weekday">
-						<displayName>सप्ताह का दिन</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>समय अवधि</displayName>
-					</field>
-					<field type="hour">
-						<displayName>घंटा</displayName>
-					</field>
-					<field type="minute">
-						<displayName>मिनट</displayName>
-					</field>
-					<field type="second">
-						<displayName>सेकेंड</displayName>
-					</field>
-					<field type="zone">
-						<displayName>क्षेत्र</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -1805,6 +1756,55 @@
 				</months>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>युग</displayName>
+			</field>
+			<field type="year">
+				<displayName>वर्ष</displayName>
+				<relative type="-1" draft="contributed">पिछले वर्ष</relative>
+				<relative type="0" draft="contributed">इस वर्ष</relative>
+				<relative type="1" draft="contributed">अगले वर्ष</relative>
+			</field>
+			<field type="month">
+				<displayName>मास</displayName>
+				<relative type="-1" draft="contributed">पिछला माह</relative>
+				<relative type="0" draft="contributed">इस माह</relative>
+				<relative type="1" draft="contributed">अगले माह</relative>
+			</field>
+			<field type="week">
+				<displayName>सप्ताह</displayName>
+				<relative type="-1" draft="contributed">पिछले सप्ताह</relative>
+				<relative type="0" draft="contributed">इस सप्ताह</relative>
+				<relative type="1" draft="contributed">अगले सप्ताह</relative>
+			</field>
+			<field type="day">
+				<displayName>दिन</displayName>
+				<relative type="-2">बीता परसों</relative>
+				<relative type="-1">बीता कल</relative>
+				<relative type="0">आज</relative>
+				<relative type="1">कल</relative>
+				<relative type="2">परसों</relative>
+			</field>
+			<field type="weekday">
+				<displayName>सप्ताह का दिन</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>समय अवधि</displayName>
+			</field>
+			<field type="hour">
+				<displayName>घंटा</displayName>
+			</field>
+			<field type="minute">
+				<displayName>मिनट</displayName>
+			</field>
+			<field type="second">
+				<displayName>सेकेंड</displayName>
+			</field>
+			<field type="zone">
+				<displayName>क्षेत्र</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

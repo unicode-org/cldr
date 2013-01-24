@@ -179,17 +179,6 @@
 						<dateFormatItem id="yyyyM" draft="provisional">M/y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<relative type="-1" draft="contributed">上年</relative>
-						<relative type="0" draft="contributed">本年</relative>
-						<relative type="1" draft="contributed">下年</relative>
-					</field>
-					<field type="month">
-						<relative type="-1" draft="contributed">上月</relative>
-						<relative type="1" draft="contributed">下月</relative>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="roc">
 				<dateTimeFormats>
@@ -200,6 +189,17 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<relative type="-1" draft="contributed">上年</relative>
+				<relative type="0" draft="contributed">本年</relative>
+				<relative type="1" draft="contributed">下年</relative>
+			</field>
+			<field type="month">
+				<relative type="-1" draft="contributed">上月</relative>
+				<relative type="1" draft="contributed">下月</relative>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity draft="contributed">比尤拉，北達科他州</exemplarCity>

@@ -1487,57 +1487,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Éra</displayName>
-					</field>
-					<field type="year">
-						<displayName>Rok</displayName>
-						<relative type="-1">Minulý rok</relative>
-						<relative type="0">Tento rok</relative>
-						<relative type="1">Budúci rok</relative>
-					</field>
-					<field type="month">
-						<displayName>Mesiac</displayName>
-						<relative type="-1" draft="contributed">Posledný mesiac</relative>
-						<relative type="0">Tento mesiac</relative>
-						<relative type="1">Budúci mesiac</relative>
-					</field>
-					<field type="week">
-						<displayName>Týždeň</displayName>
-						<relative type="-1">Minulý týždeň</relative>
-						<relative type="0">Tento týždeň</relative>
-						<relative type="1">Budúci týždeň</relative>
-					</field>
-					<field type="day">
-						<displayName>Deň</displayName>
-						<relative type="-2">Predvčerom</relative>
-						<relative type="-1">Včera</relative>
-						<relative type="0">Dnes</relative>
-						<relative type="1">Zajtra</relative>
-						<relative type="2">Pozajtra</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Deň v týždni</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Časť dňa</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Hodina</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minúta</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekunda</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Časové pásmo</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Éra</displayName>
+			</field>
+			<field type="year">
+				<displayName>Rok</displayName>
+				<relative type="-1">Minulý rok</relative>
+				<relative type="0">Tento rok</relative>
+				<relative type="1">Budúci rok</relative>
+			</field>
+			<field type="month">
+				<displayName>Mesiac</displayName>
+				<relative type="-1" draft="contributed">Posledný mesiac</relative>
+				<relative type="0">Tento mesiac</relative>
+				<relative type="1">Budúci mesiac</relative>
+			</field>
+			<field type="week">
+				<displayName>Týždeň</displayName>
+				<relative type="-1">Minulý týždeň</relative>
+				<relative type="0">Tento týždeň</relative>
+				<relative type="1">Budúci týždeň</relative>
+			</field>
+			<field type="day">
+				<displayName>Deň</displayName>
+				<relative type="-2">Predvčerom</relative>
+				<relative type="-1">Včera</relative>
+				<relative type="0">Dnes</relative>
+				<relative type="1">Zajtra</relative>
+				<relative type="2">Pozajtra</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Deň v týždni</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Časť dňa</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Hodina</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minúta</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekunda</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Časové pásmo</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

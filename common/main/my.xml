@@ -742,48 +742,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>ခေတ်</displayName>
-					</field>
-					<field type="year">
-						<displayName>နှစ်</displayName>
-					</field>
-					<field type="month">
-						<displayName>လ</displayName>
-					</field>
-					<field type="week">
-						<displayName>ပတ်</displayName>
-					</field>
-					<field type="day">
-						<displayName>ရက်</displayName>
-						<relative type="-2">တနေ့က</relative>
-						<relative type="-1">မနေ့က</relative>
-						<relative type="0">ယနေ့</relative>
-						<relative type="1">မနက်ဖြန်</relative>
-						<relative type="2">သဘက်ခါ</relative>
-					</field>
-					<field type="weekday">
-						<displayName>နေ့</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="unconfirmed">နံနက်/ညနေ</displayName>
-					</field>
-					<field type="hour">
-						<displayName>နာရီ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>မိနစ်</displayName>
-					</field>
-					<field type="second">
-						<displayName>စက္ကန့်</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="unconfirmed">ဇုန်</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ခေတ်</displayName>
+			</field>
+			<field type="year">
+				<displayName>နှစ်</displayName>
+			</field>
+			<field type="month">
+				<displayName>လ</displayName>
+			</field>
+			<field type="week">
+				<displayName>ပတ်</displayName>
+			</field>
+			<field type="day">
+				<displayName>ရက်</displayName>
+				<relative type="-2">တနေ့က</relative>
+				<relative type="-1">မနေ့က</relative>
+				<relative type="0">ယနေ့</relative>
+				<relative type="1">မနက်ဖြန်</relative>
+				<relative type="2">သဘက်ခါ</relative>
+			</field>
+			<field type="weekday">
+				<displayName>နေ့</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="unconfirmed">နံနက်/ညနေ</displayName>
+			</field>
+			<field type="hour">
+				<displayName>နာရီ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>မိနစ်</displayName>
+			</field>
+			<field type="second">
+				<displayName>စက္ကန့်</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="unconfirmed">ဇုန်</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<regionFormat>{0} အချိန်</regionFormat>

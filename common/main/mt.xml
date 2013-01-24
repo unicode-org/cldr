@@ -1083,49 +1083,49 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Epoka</displayName>
-					</field>
-					<field type="year">
-						<displayName>Sena</displayName>
-						<relative type="-1" draft="unconfirmed">Sena l-oħra</relative>
-						<relative type="0" draft="unconfirmed">Din is-sena</relative>
-						<relative type="1" draft="unconfirmed">Sena li ġej</relative>
-					</field>
-					<field type="month">
-						<displayName>Xahar</displayName>
-					</field>
-					<field type="week">
-						<displayName>Ġimgħa</displayName>
-					</field>
-					<field type="day">
-						<displayName>Jum</displayName>
-						<relative type="-1">Lbieraħ</relative>
-						<relative type="0">Illum</relative>
-						<relative type="1">Għada</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Jum tal-Ġimgħa</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="unconfirmed">QN/WN</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Siegħa</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minuta</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekonda</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Żona</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Epoka</displayName>
+			</field>
+			<field type="year">
+				<displayName>Sena</displayName>
+				<relative type="-1" draft="unconfirmed">Sena l-oħra</relative>
+				<relative type="0" draft="unconfirmed">Din is-sena</relative>
+				<relative type="1" draft="unconfirmed">Sena li ġej</relative>
+			</field>
+			<field type="month">
+				<displayName>Xahar</displayName>
+			</field>
+			<field type="week">
+				<displayName>Ġimgħa</displayName>
+			</field>
+			<field type="day">
+				<displayName>Jum</displayName>
+				<relative type="-1">Lbieraħ</relative>
+				<relative type="0">Illum</relative>
+				<relative type="1">Għada</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Jum tal-Ġimgħa</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="unconfirmed">QN/WN</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Siegħa</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minuta</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekonda</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Żona</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

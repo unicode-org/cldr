@@ -1785,57 +1785,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>era</displayName>
-					</field>
-					<field type="year">
-						<displayName>metai</displayName>
-						<relative type="-1">praėjusiais metais</relative>
-						<relative type="0">šiais metais</relative>
-						<relative type="1">kitais metais</relative>
-					</field>
-					<field type="month">
-						<displayName>mėnuo</displayName>
-						<relative type="-1">praėjusį mėnesį</relative>
-						<relative type="0">šį mėnesį</relative>
-						<relative type="1">kitą mėnesį</relative>
-					</field>
-					<field type="week">
-						<displayName>savaitė</displayName>
-						<relative type="-1">praėjusią savaitę</relative>
-						<relative type="0">šią savaitę</relative>
-						<relative type="1">kitą savaitę</relative>
-					</field>
-					<field type="day">
-						<displayName>diena</displayName>
-						<relative type="-2">užvakar</relative>
-						<relative type="-1">vakar</relative>
-						<relative type="0">šiandien</relative>
-						<relative type="1">rytoj</relative>
-						<relative type="2">poryt</relative>
-					</field>
-					<field type="weekday">
-						<displayName>savaitės diena</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>iki pietų / po pietų</displayName>
-					</field>
-					<field type="hour">
-						<displayName>valanda</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minutė</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekundė</displayName>
-					</field>
-					<field type="zone">
-						<displayName>laiko juosta</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>era</displayName>
+			</field>
+			<field type="year">
+				<displayName>metai</displayName>
+				<relative type="-1">praėjusiais metais</relative>
+				<relative type="0">šiais metais</relative>
+				<relative type="1">kitais metais</relative>
+			</field>
+			<field type="month">
+				<displayName>mėnuo</displayName>
+				<relative type="-1">praėjusį mėnesį</relative>
+				<relative type="0">šį mėnesį</relative>
+				<relative type="1">kitą mėnesį</relative>
+			</field>
+			<field type="week">
+				<displayName>savaitė</displayName>
+				<relative type="-1">praėjusią savaitę</relative>
+				<relative type="0">šią savaitę</relative>
+				<relative type="1">kitą savaitę</relative>
+			</field>
+			<field type="day">
+				<displayName>diena</displayName>
+				<relative type="-2">užvakar</relative>
+				<relative type="-1">vakar</relative>
+				<relative type="0">šiandien</relative>
+				<relative type="1">rytoj</relative>
+				<relative type="2">poryt</relative>
+			</field>
+			<field type="weekday">
+				<displayName>savaitės diena</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>iki pietų / po pietų</displayName>
+			</field>
+			<field type="hour">
+				<displayName>valanda</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minutė</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekundė</displayName>
+			</field>
+			<field type="zone">
+				<displayName>laiko juosta</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -524,6 +524,46 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="contributed">Թվարկություն</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">Տարի</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">Ամիս</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">Շաբաթ</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">Օր</displayName>
+				<relative type="-2" draft="contributed">Երեկ չէ առաջի օրը</relative>
+				<relative type="-1" draft="contributed">Երեկ</relative>
+				<relative type="0" draft="contributed">Այսօր</relative>
+				<relative type="1" draft="contributed">Վաղը</relative>
+				<relative type="2" draft="contributed">Վաղը չէ մյուս օրը</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">Շաբաթվա օր</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">ԿԱ/ԿՀ</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="contributed">Ժամ</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">Րոպե</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">Վայրկյան</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">Ժամային գոտի</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<regionFormat>Ժամանակ՝ {0}</regionFormat>
 		</timeZoneNames>

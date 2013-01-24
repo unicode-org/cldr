@@ -1933,55 +1933,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Thời đại</displayName>
-					</field>
-					<field type="year">
-						<displayName>Năm</displayName>
-						<relative type="-1">Năm ngoái</relative>
-						<relative type="0">Năm nay</relative>
-						<relative type="1">Năm sau</relative>
-					</field>
-					<field type="month">
-						<displayName>Tháng</displayName>
-						<relative type="-1">Tháng trước</relative>
-						<relative type="0">Tháng này</relative>
-						<relative type="1">Tháng sau</relative>
-					</field>
-					<field type="week">
-						<displayName>Tuần</displayName>
-						<relative type="-1">Tuần trước</relative>
-						<relative type="0">Tuần này</relative>
-						<relative type="1">Tuần sau</relative>
-					</field>
-					<field type="day">
-						<displayName>Ngày</displayName>
-						<relative type="-2">Ngày hôm kia</relative>
-						<relative type="-1">Ngày hôm qua</relative>
-						<relative type="0">Hôm nay</relative>
-						<relative type="1">Ngày mai</relative>
-						<relative type="2">Ngày kia</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Ngày trong tuần</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>SA/CH</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Giờ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Phút</displayName>
-					</field>
-					<field type="second">
-						<displayName>Giây</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Múi giờ</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2349,6 +2300,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Thời đại</displayName>
+			</field>
+			<field type="year">
+				<displayName>Năm</displayName>
+				<relative type="-1">Năm ngoái</relative>
+				<relative type="0">Năm nay</relative>
+				<relative type="1">Năm sau</relative>
+			</field>
+			<field type="month">
+				<displayName>Tháng</displayName>
+				<relative type="-1">Tháng trước</relative>
+				<relative type="0">Tháng này</relative>
+				<relative type="1">Tháng sau</relative>
+			</field>
+			<field type="week">
+				<displayName>Tuần</displayName>
+				<relative type="-1">Tuần trước</relative>
+				<relative type="0">Tuần này</relative>
+				<relative type="1">Tuần sau</relative>
+			</field>
+			<field type="day">
+				<displayName>Ngày</displayName>
+				<relative type="-2">Ngày hôm kia</relative>
+				<relative type="-1">Ngày hôm qua</relative>
+				<relative type="0">Hôm nay</relative>
+				<relative type="1">Ngày mai</relative>
+				<relative type="2">Ngày kia</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Ngày trong tuần</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>SA/CH</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Giờ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Phút</displayName>
+			</field>
+			<field type="second">
+				<displayName>Giây</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Múi giờ</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

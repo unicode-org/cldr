@@ -960,49 +960,49 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName draft="unconfirmed">era</displayName>
-					</field>
-					<field type="year">
-						<displayName draft="unconfirmed">añu</displayName>
-					</field>
-					<field type="month">
-						<displayName draft="unconfirmed">mes</displayName>
-					</field>
-					<field type="week">
-						<displayName draft="unconfirmed">selmana</displayName>
-					</field>
-					<field type="day">
-						<displayName draft="unconfirmed">día</displayName>
-						<relative type="-3" draft="unconfirmed">antantayeri</relative>
-						<relative type="-2" draft="unconfirmed">antayeri</relative>
-						<relative type="-1" draft="unconfirmed">ayeri</relative>
-						<relative type="0" draft="unconfirmed">güei</relative>
-						<relative type="1" draft="unconfirmed">mañana</relative>
-						<relative type="2" draft="unconfirmed">pasao mañana</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="unconfirmed">día de la selmana</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="unconfirmed">periodu del día</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="unconfirmed">hora</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="unconfirmed">minutu</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="unconfirmed">segundu</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="unconfirmed">zona horaria</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="unconfirmed">era</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="unconfirmed">añu</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">mes</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">selmana</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">día</displayName>
+				<relative type="-3" draft="unconfirmed">antantayeri</relative>
+				<relative type="-2" draft="unconfirmed">antayeri</relative>
+				<relative type="-1" draft="unconfirmed">ayeri</relative>
+				<relative type="0" draft="unconfirmed">güei</relative>
+				<relative type="1" draft="unconfirmed">mañana</relative>
+				<relative type="2" draft="unconfirmed">pasao mañana</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="unconfirmed">día de la selmana</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="unconfirmed">periodu del día</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">hora</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">minutu</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">segundu</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="unconfirmed">zona horaria</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="unconfirmed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="unconfirmed">GMT{0}</gmtFormat>

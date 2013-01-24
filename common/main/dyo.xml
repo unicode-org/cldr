@@ -340,31 +340,31 @@
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Jamanay</displayName>
-					</field>
-					<field type="year">
-						<displayName>Emit</displayName>
-					</field>
-					<field type="month">
-						<displayName>Fuleeŋ</displayName>
-					</field>
-					<field type="week">
-						<displayName>Lóokuŋ</displayName>
-					</field>
-					<field type="day">
-						<displayName>Funak</displayName>
-						<relative type="-1">Fucen</relative>
-						<relative type="0">Jaat</relative>
-						<relative type="1">Kajom</relative>
-					</field>
-					<field type="dayperiod">
-						<displayName>Bujom / Kalíim</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Jamanay</displayName>
+			</field>
+			<field type="year">
+				<displayName>Emit</displayName>
+			</field>
+			<field type="month">
+				<displayName>Fuleeŋ</displayName>
+			</field>
+			<field type="week">
+				<displayName>Lóokuŋ</displayName>
+			</field>
+			<field type="day">
+				<displayName>Funak</displayName>
+				<relative type="-1">Fucen</relative>
+				<relative type="0">Jaat</relative>
+				<relative type="1">Kajom</relative>
+			</field>
+			<field type="dayperiod">
+				<displayName>Bujom / Kalíim</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

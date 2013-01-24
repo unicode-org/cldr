@@ -133,6 +133,9 @@ $element=[a-zA-Z0-9]+;
 
 '$%%/fields/field[@type="' ($avalue) '"]/relative[@type="' ($avalue) '"]' > '|fields|' $1 ':' $2 ;
 
+'/dates/fields/field[@type="' ($avalue) '"]/displayName' > '|field-label|' $1;
+'/dates/fields/field[@type="' ($avalue) '"]/relative[@type="' ($avalue) '"]' > '|fields|' $1 ':' $2 ;
+
 '/dates/timeZoneNames/zone[@type="' ($avalue) '"]/exemplarCity' > '0-names|time-zone-cities|' &prettyPathZone($1);
 '/dates/timeZoneNames/zone[@type="' ($avalue) '"]/usesMetazone' (.*) > '3-time-zone|uses-metazone|' &prettyPathZone($1) '-uses-' $2;
 '/dates/timeZoneNames/zone[@type="' ($avalue) '"]/' ($element) '/' ($element) > '0-names|time-zone-old|' &prettyPathZone($1) ':' $3 '-' $2;

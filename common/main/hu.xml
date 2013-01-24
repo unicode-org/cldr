@@ -1873,55 +1873,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>éra</displayName>
-					</field>
-					<field type="year">
-						<displayName>év</displayName>
-						<relative type="-1">Előző év</relative>
-						<relative type="0">Ez az év</relative>
-						<relative type="1">Következő év</relative>
-					</field>
-					<field type="month">
-						<displayName>hónap</displayName>
-						<relative type="-1">Előző hónap</relative>
-						<relative type="0">Ez a hónap</relative>
-						<relative type="1">Következő hónap</relative>
-					</field>
-					<field type="week">
-						<displayName>hét</displayName>
-						<relative type="-1">Előző hét</relative>
-						<relative type="0">Ez a hét</relative>
-						<relative type="1">Következő hét</relative>
-					</field>
-					<field type="day">
-						<displayName>nap</displayName>
-						<relative type="-2">tegnapelőtt</relative>
-						<relative type="-1">tegnap</relative>
-						<relative type="0">ma</relative>
-						<relative type="1">holnap</relative>
-						<relative type="2">holnapután</relative>
-					</field>
-					<field type="weekday">
-						<displayName>hét napja</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>napszak</displayName>
-					</field>
-					<field type="hour">
-						<displayName>óra</displayName>
-					</field>
-					<field type="minute">
-						<displayName>perc</displayName>
-					</field>
-					<field type="second">
-						<displayName>másodperc</displayName>
-					</field>
-					<field type="zone">
-						<displayName>időzóna</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2268,6 +2219,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>éra</displayName>
+			</field>
+			<field type="year">
+				<displayName>év</displayName>
+				<relative type="-1">Előző év</relative>
+				<relative type="0">Ez az év</relative>
+				<relative type="1">Következő év</relative>
+			</field>
+			<field type="month">
+				<displayName>hónap</displayName>
+				<relative type="-1">Előző hónap</relative>
+				<relative type="0">Ez a hónap</relative>
+				<relative type="1">Következő hónap</relative>
+			</field>
+			<field type="week">
+				<displayName>hét</displayName>
+				<relative type="-1">Előző hét</relative>
+				<relative type="0">Ez a hét</relative>
+				<relative type="1">Következő hét</relative>
+			</field>
+			<field type="day">
+				<displayName>nap</displayName>
+				<relative type="-2">tegnapelőtt</relative>
+				<relative type="-1">tegnap</relative>
+				<relative type="0">ma</relative>
+				<relative type="1">holnap</relative>
+				<relative type="2">holnapután</relative>
+			</field>
+			<field type="weekday">
+				<displayName>hét napja</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>napszak</displayName>
+			</field>
+			<field type="hour">
+				<displayName>óra</displayName>
+			</field>
+			<field type="minute">
+				<displayName>perc</displayName>
+			</field>
+			<field type="second">
+				<displayName>másodperc</displayName>
+			</field>
+			<field type="zone">
+				<displayName>időzóna</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

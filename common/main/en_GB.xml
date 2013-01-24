@@ -398,11 +398,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="dayperiod">
-						<displayName>am/pm</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -631,6 +626,11 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="dayperiod">
+				<displayName>am/pm</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<zone type="America/Lower_Princes">

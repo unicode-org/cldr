@@ -1923,55 +1923,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName>Rok</displayName>
-						<relative type="-1">Zeszły rok</relative>
-						<relative type="0">Bieżący rok</relative>
-						<relative type="1">Przyszły rok</relative>
-					</field>
-					<field type="month">
-						<displayName>Miesiąc</displayName>
-						<relative type="-1">Zeszły miesiąc</relative>
-						<relative type="0">Bieżący miesiąc</relative>
-						<relative type="1">Przyszły miesiąc</relative>
-					</field>
-					<field type="week">
-						<displayName>Tydzień</displayName>
-						<relative type="-1">Zeszły tydzień</relative>
-						<relative type="0">Bieżący tydzień</relative>
-						<relative type="1">Przyszły tydzień</relative>
-					</field>
-					<field type="day">
-						<displayName>Dzień</displayName>
-						<relative type="-2">Przedwczoraj</relative>
-						<relative type="-1">Wczoraj</relative>
-						<relative type="0">Dzisiaj</relative>
-						<relative type="1">Jutro</relative>
-						<relative type="2">Pojutrze</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Dzień tygodnia</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="contributed">Dayperiod</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Godzina</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minuta</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekunda</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Strefa</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2454,6 +2405,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName>Rok</displayName>
+				<relative type="-1">Zeszły rok</relative>
+				<relative type="0">Bieżący rok</relative>
+				<relative type="1">Przyszły rok</relative>
+			</field>
+			<field type="month">
+				<displayName>Miesiąc</displayName>
+				<relative type="-1">Zeszły miesiąc</relative>
+				<relative type="0">Bieżący miesiąc</relative>
+				<relative type="1">Przyszły miesiąc</relative>
+			</field>
+			<field type="week">
+				<displayName>Tydzień</displayName>
+				<relative type="-1">Zeszły tydzień</relative>
+				<relative type="0">Bieżący tydzień</relative>
+				<relative type="1">Przyszły tydzień</relative>
+			</field>
+			<field type="day">
+				<displayName>Dzień</displayName>
+				<relative type="-2">Przedwczoraj</relative>
+				<relative type="-1">Wczoraj</relative>
+				<relative type="0">Dzisiaj</relative>
+				<relative type="1">Jutro</relative>
+				<relative type="2">Pojutrze</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Dzień tygodnia</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">Dayperiod</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Godzina</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minuta</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekunda</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Strefa</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

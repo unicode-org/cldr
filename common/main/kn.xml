@@ -1477,57 +1477,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>ಯುಗ</displayName>
-					</field>
-					<field type="year">
-						<displayName>ವರ್ಷ</displayName>
-						<relative type="-1">ಕೊನೆಯ ವರ್ಷ</relative>
-						<relative type="0">ಈ ವರ್ಷ</relative>
-						<relative type="1">ಮುಂದಿನ ವರ್ಷ</relative>
-					</field>
-					<field type="month">
-						<displayName>ತಿಂಗಳು</displayName>
-						<relative type="-1">ಕಳೆದ ತಿಂಗಳು</relative>
-						<relative type="0">ಈ ತಿಂಗಳು</relative>
-						<relative type="1">ಮುಂದಿನ ತಿಂಗಳು</relative>
-					</field>
-					<field type="week">
-						<displayName>ವಾರ</displayName>
-						<relative type="-1">ಕೊನೆಯ ವಾರ</relative>
-						<relative type="0">ಈ ವಾರ</relative>
-						<relative type="1">ಮುಂದಿನ ವಾರ</relative>
-					</field>
-					<field type="day">
-						<displayName>ದಿನ</displayName>
-						<relative type="-2">ಮೊನ್ನೆ</relative>
-						<relative type="-1">ನಿನ್ನೆ</relative>
-						<relative type="0">ಇಂದು</relative>
-						<relative type="1">ನಾಳೆ</relative>
-						<relative type="2">ನಾಡಿದ್ದು</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ವಾರದ ದಿನ</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>ಪೂರ್ವಾಹ್ನ/ಅಪರಾಹ್ನ</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ಗಂಟೆ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>ನಿಮಿಷ</displayName>
-					</field>
-					<field type="second">
-						<displayName>ಸೆಕೆಂಡ್</displayName>
-					</field>
-					<field type="zone">
-						<displayName>ಸಮಯ ವಲಯ:</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ಯುಗ</displayName>
+			</field>
+			<field type="year">
+				<displayName>ವರ್ಷ</displayName>
+				<relative type="-1">ಕೊನೆಯ ವರ್ಷ</relative>
+				<relative type="0">ಈ ವರ್ಷ</relative>
+				<relative type="1">ಮುಂದಿನ ವರ್ಷ</relative>
+			</field>
+			<field type="month">
+				<displayName>ತಿಂಗಳು</displayName>
+				<relative type="-1">ಕಳೆದ ತಿಂಗಳು</relative>
+				<relative type="0">ಈ ತಿಂಗಳು</relative>
+				<relative type="1">ಮುಂದಿನ ತಿಂಗಳು</relative>
+			</field>
+			<field type="week">
+				<displayName>ವಾರ</displayName>
+				<relative type="-1">ಕೊನೆಯ ವಾರ</relative>
+				<relative type="0">ಈ ವಾರ</relative>
+				<relative type="1">ಮುಂದಿನ ವಾರ</relative>
+			</field>
+			<field type="day">
+				<displayName>ದಿನ</displayName>
+				<relative type="-2">ಮೊನ್ನೆ</relative>
+				<relative type="-1">ನಿನ್ನೆ</relative>
+				<relative type="0">ಇಂದು</relative>
+				<relative type="1">ನಾಳೆ</relative>
+				<relative type="2">ನಾಡಿದ್ದು</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ವಾರದ ದಿನ</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>ಪೂರ್ವಾಹ್ನ/ಅಪರಾಹ್ನ</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ಗಂಟೆ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>ನಿಮಿಷ</displayName>
+			</field>
+			<field type="second">
+				<displayName>ಸೆಕೆಂಡ್</displayName>
+			</field>
+			<field type="zone">
+				<displayName>ಸಮಯ ವಲಯ:</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

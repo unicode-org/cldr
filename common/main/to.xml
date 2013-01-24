@@ -1157,48 +1157,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>kuonga</displayName>
-					</field>
-					<field type="year">
-						<displayName>taʻu</displayName>
-					</field>
-					<field type="month">
-						<displayName>māhina</displayName>
-					</field>
-					<field type="week">
-						<displayName>uike</displayName>
-					</field>
-					<field type="day">
-						<displayName>ʻaho</displayName>
-						<relative type="-2">ʻaneheafi</relative>
-						<relative type="-1">ʻaneafi</relative>
-						<relative type="0">ʻaho⸍ni</relative>
-						<relative type="1">ʻapongipongi</relative>
-						<relative type="2">ʻahepongipongi</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ʻaho ʻo e uike</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>houa</displayName>
-					</field>
-					<field type="minute">
-						<displayName>miniti</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekoni</displayName>
-					</field>
-					<field type="zone">
-						<displayName>taimi fakavahe</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>kuonga</displayName>
+			</field>
+			<field type="year">
+				<displayName>taʻu</displayName>
+			</field>
+			<field type="month">
+				<displayName>māhina</displayName>
+			</field>
+			<field type="week">
+				<displayName>uike</displayName>
+			</field>
+			<field type="day">
+				<displayName>ʻaho</displayName>
+				<relative type="-2">ʻaneheafi</relative>
+				<relative type="-1">ʻaneafi</relative>
+				<relative type="0">ʻaho⸍ni</relative>
+				<relative type="1">ʻapongipongi</relative>
+				<relative type="2">ʻahepongipongi</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ʻaho ʻo e uike</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>houa</displayName>
+			</field>
+			<field type="minute">
+				<displayName>miniti</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekoni</displayName>
+			</field>
+			<field type="zone">
+				<displayName>taimi fakavahe</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

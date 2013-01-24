@@ -1056,57 +1056,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName draft="contributed">Taon</displayName>
-						<relative type="-1">Nakaraang taon</relative>
-						<relative type="0">Sa taong ito</relative>
-						<relative type="1">Susunod na taon</relative>
-					</field>
-					<field type="month">
-						<displayName draft="contributed">Buwan</displayName>
-						<relative type="-1">Nakaraang buwan</relative>
-						<relative type="0">Ngayon buwang ito</relative>
-						<relative type="1">Susunod na buwan</relative>
-					</field>
-					<field type="week">
-						<displayName draft="contributed">Linggo</displayName>
-						<relative type="-1">Nakaraang Linggo</relative>
-						<relative type="0">Sa linggong ito</relative>
-						<relative type="1">Susunod na linggo</relative>
-					</field>
-					<field type="day">
-						<displayName draft="contributed">Araw</displayName>
-						<relative type="-2">Araw bago ang kahapon</relative>
-						<relative type="-1">Kahapon</relative>
-						<relative type="0">Ngayon</relative>
-						<relative type="1">Bukas</relative>
-						<relative type="2">Araw pagkatapos ng kahapon</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="contributed">Araw ng Linggo</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="contributed">Dayperiod</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="contributed">Oras</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="contributed">Minuto</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="contributed">Segundo</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="contributed">Zone</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">Taon</displayName>
+				<relative type="-1">Nakaraang taon</relative>
+				<relative type="0">Sa taong ito</relative>
+				<relative type="1">Susunod na taon</relative>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">Buwan</displayName>
+				<relative type="-1">Nakaraang buwan</relative>
+				<relative type="0">Ngayon buwang ito</relative>
+				<relative type="1">Susunod na buwan</relative>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">Linggo</displayName>
+				<relative type="-1">Nakaraang Linggo</relative>
+				<relative type="0">Sa linggong ito</relative>
+				<relative type="1">Susunod na linggo</relative>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">Araw</displayName>
+				<relative type="-2">Araw bago ang kahapon</relative>
+				<relative type="-1">Kahapon</relative>
+				<relative type="0">Ngayon</relative>
+				<relative type="1">Bukas</relative>
+				<relative type="2">Araw pagkatapos ng kahapon</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">Araw ng Linggo</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">Dayperiod</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="contributed">Oras</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">Minuto</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">Segundo</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">Zone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>

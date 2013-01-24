@@ -1973,55 +1973,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>era</displayName>
-					</field>
-					<field type="year">
-						<displayName>any</displayName>
-						<relative type="-1">Últim any</relative>
-						<relative type="0" draft="contributed">Aquest any</relative>
-						<relative type="1" draft="contributed">Any següent</relative>
-					</field>
-					<field type="month">
-						<displayName>mes</displayName>
-						<relative type="-1" draft="contributed">Últim mes</relative>
-						<relative type="0" draft="contributed">Aquest mes</relative>
-						<relative type="1" draft="contributed">Mes següent</relative>
-					</field>
-					<field type="week">
-						<displayName>setmana</displayName>
-						<relative type="-1" draft="contributed">Última setmana</relative>
-						<relative type="0" draft="contributed">Aquesta setmana</relative>
-						<relative type="1" draft="contributed">Setmana següent</relative>
-					</field>
-					<field type="day">
-						<displayName>dia</displayName>
-						<relative type="-2">abans d'ahir</relative>
-						<relative type="-1">ahir</relative>
-						<relative type="0">avui</relative>
-						<relative type="1">demà</relative>
-						<relative type="2">demà passat</relative>
-					</field>
-					<field type="weekday">
-						<displayName>dia de la setmana</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>a.m./p.m.</displayName>
-					</field>
-					<field type="hour">
-						<displayName>hora</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minut</displayName>
-					</field>
-					<field type="second">
-						<displayName>segon</displayName>
-					</field>
-					<field type="zone">
-						<displayName>zona</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="roc">
 				<dateTimeFormats>
@@ -2037,6 +1988,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>era</displayName>
+			</field>
+			<field type="year">
+				<displayName>any</displayName>
+				<relative type="-1">Últim any</relative>
+				<relative type="0" draft="contributed">Aquest any</relative>
+				<relative type="1" draft="contributed">Any següent</relative>
+			</field>
+			<field type="month">
+				<displayName>mes</displayName>
+				<relative type="-1" draft="contributed">Últim mes</relative>
+				<relative type="0" draft="contributed">Aquest mes</relative>
+				<relative type="1" draft="contributed">Mes següent</relative>
+			</field>
+			<field type="week">
+				<displayName>setmana</displayName>
+				<relative type="-1" draft="contributed">Última setmana</relative>
+				<relative type="0" draft="contributed">Aquesta setmana</relative>
+				<relative type="1" draft="contributed">Setmana següent</relative>
+			</field>
+			<field type="day">
+				<displayName>dia</displayName>
+				<relative type="-2">abans d'ahir</relative>
+				<relative type="-1">ahir</relative>
+				<relative type="0">avui</relative>
+				<relative type="1">demà</relative>
+				<relative type="2">demà passat</relative>
+			</field>
+			<field type="weekday">
+				<displayName>dia de la setmana</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>a.m./p.m.</displayName>
+			</field>
+			<field type="hour">
+				<displayName>hora</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minut</displayName>
+			</field>
+			<field type="second">
+				<displayName>segon</displayName>
+			</field>
+			<field type="zone">
+				<displayName>zona</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

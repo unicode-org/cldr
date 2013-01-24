@@ -477,43 +477,43 @@
 						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>tile</displayName>
-					</field>
-					<field type="year">
-						<displayName>san</displayName>
-					</field>
-					<field type="month">
-						<displayName>kalo</displayName>
-					</field>
-					<field type="week">
-						<displayName>dɔgɔkun</displayName>
-					</field>
-					<field type="day">
-						<displayName>don</displayName>
-						<relative type="-1">kunu</relative>
-						<relative type="0">bi</relative>
-						<relative type="1">sini</relative>
-					</field>
-					<field type="dayperiod">
-						<displayName>sɔgɔma/tile/wula/su</displayName>
-					</field>
-					<field type="hour">
-						<displayName>lɛrɛ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>miniti</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekondi</displayName>
-					</field>
-					<field type="zone">
-						<displayName>sigikun tilena</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>tile</displayName>
+			</field>
+			<field type="year">
+				<displayName>san</displayName>
+			</field>
+			<field type="month">
+				<displayName>kalo</displayName>
+			</field>
+			<field type="week">
+				<displayName>dɔgɔkun</displayName>
+			</field>
+			<field type="day">
+				<displayName>don</displayName>
+				<relative type="-1">kunu</relative>
+				<relative type="0">bi</relative>
+				<relative type="1">sini</relative>
+			</field>
+			<field type="dayperiod">
+				<displayName>sɔgɔma/tile/wula/su</displayName>
+			</field>
+			<field type="hour">
+				<displayName>lɛrɛ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>miniti</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekondi</displayName>
+			</field>
+			<field type="zone">
+				<displayName>sigikun tilena</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<currencyFormats numberSystem="latn">

@@ -1672,55 +1672,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Περίοδος</displayName>
-					</field>
-					<field type="year">
-						<displayName>Έτος</displayName>
-						<relative type="-1">Προηγούμενο έτος</relative>
-						<relative type="0">Φέτος</relative>
-						<relative type="1">Επόμενο έτος</relative>
-					</field>
-					<field type="month">
-						<displayName>Μήνας</displayName>
-						<relative type="-1">Προηγούμενος μήνας</relative>
-						<relative type="0">Τρέχων μήνας</relative>
-						<relative type="1">Επόμενος μήνας</relative>
-					</field>
-					<field type="week">
-						<displayName>Εβδομάδα</displayName>
-						<relative type="-1">Προηγούμενη εβδομάδα</relative>
-						<relative type="0">Αυτήν την εβδομάδα</relative>
-						<relative type="1">Επόμενη εβδομάδα</relative>
-					</field>
-					<field type="day">
-						<displayName>Ημέρα</displayName>
-						<relative type="-2">Προχτές</relative>
-						<relative type="-1">Χτες</relative>
-						<relative type="0">Σήμερα</relative>
-						<relative type="1">Αύριο</relative>
-						<relative type="2">Μεθαύριο</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Ημέρα εβδομάδας</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>π.μ./μ.μ.</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Ώρα</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Λεπτό</displayName>
-					</field>
-					<field type="second">
-						<displayName>Δευτερόλεπτο</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Ζώνη</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<eras>
@@ -1825,6 +1776,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Περίοδος</displayName>
+			</field>
+			<field type="year">
+				<displayName>Έτος</displayName>
+				<relative type="-1">Προηγούμενο έτος</relative>
+				<relative type="0">Φέτος</relative>
+				<relative type="1">Επόμενο έτος</relative>
+			</field>
+			<field type="month">
+				<displayName>Μήνας</displayName>
+				<relative type="-1">Προηγούμενος μήνας</relative>
+				<relative type="0">Τρέχων μήνας</relative>
+				<relative type="1">Επόμενος μήνας</relative>
+			</field>
+			<field type="week">
+				<displayName>Εβδομάδα</displayName>
+				<relative type="-1">Προηγούμενη εβδομάδα</relative>
+				<relative type="0">Αυτήν την εβδομάδα</relative>
+				<relative type="1">Επόμενη εβδομάδα</relative>
+			</field>
+			<field type="day">
+				<displayName>Ημέρα</displayName>
+				<relative type="-2">Προχτές</relative>
+				<relative type="-1">Χτες</relative>
+				<relative type="0">Σήμερα</relative>
+				<relative type="1">Αύριο</relative>
+				<relative type="2">Μεθαύριο</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Ημέρα εβδομάδας</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>π.μ./μ.μ.</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Ώρα</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Λεπτό</displayName>
+			</field>
+			<field type="second">
+				<displayName>Δευτερόλεπτο</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Ζώνη</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

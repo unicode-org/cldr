@@ -1262,6 +1262,46 @@
 				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="contributed">Oes</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">Blwyddyn</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">Mis</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">Wythnos</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">Dydd</displayName>
+				<relative type="-2" draft="contributed">Echdoe</relative>
+				<relative type="-1" draft="contributed">Ddoe</relative>
+				<relative type="0" draft="contributed">Heddiw</relative>
+				<relative type="1" draft="contributed">Yfory</relative>
+				<relative type="2" draft="contributed">Drennydd</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">Dydd o'r Wythnos</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="contributed">Awr</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">Munud</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">Eiliad</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">Cylchfa</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat draft="unconfirmed">UTC{0}</gmtFormat>

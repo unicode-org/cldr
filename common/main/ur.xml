@@ -1023,55 +1023,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>عہد</displayName>
-					</field>
-					<field type="year">
-						<displayName>سال</displayName>
-						<relative type="-1">پچھلے سال</relative>
-						<relative type="0">اس سال</relative>
-						<relative type="1">اگلے سال</relative>
-					</field>
-					<field type="month">
-						<displayName>مہینہ</displayName>
-						<relative type="-1">پچھلے مہینہ</relative>
-						<relative type="0">اس مہینہ</relative>
-						<relative type="1">اگلے مہینہ</relative>
-					</field>
-					<field type="week">
-						<displayName>ہفتہ</displayName>
-						<relative type="-1">پچھلے ہفتہ</relative>
-						<relative type="0">اس ہفتہ</relative>
-						<relative type="1">اگلے ہفتہ</relative>
-					</field>
-					<field type="day">
-						<displayName>دن</displayName>
-						<relative type="-2">گزشتہ پرسوں</relative>
-						<relative type="-1">گزشتہ کل</relative>
-						<relative type="0">آج</relative>
-						<relative type="1">آئندہ کل</relative>
-						<relative type="2">آنے والا پرسوں</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ہفتے کا دن</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>رات/صبح</displayName>
-					</field>
-					<field type="hour">
-						<displayName>گھنٹہ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>منٹ</displayName>
-					</field>
-					<field type="second">
-						<displayName>سیکنڈ</displayName>
-					</field>
-					<field type="zone">
-						<displayName>منطقہ وقت</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -1100,6 +1051,55 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>عہد</displayName>
+			</field>
+			<field type="year">
+				<displayName>سال</displayName>
+				<relative type="-1">پچھلے سال</relative>
+				<relative type="0">اس سال</relative>
+				<relative type="1">اگلے سال</relative>
+			</field>
+			<field type="month">
+				<displayName>مہینہ</displayName>
+				<relative type="-1">پچھلے مہینہ</relative>
+				<relative type="0">اس مہینہ</relative>
+				<relative type="1">اگلے مہینہ</relative>
+			</field>
+			<field type="week">
+				<displayName>ہفتہ</displayName>
+				<relative type="-1">پچھلے ہفتہ</relative>
+				<relative type="0">اس ہفتہ</relative>
+				<relative type="1">اگلے ہفتہ</relative>
+			</field>
+			<field type="day">
+				<displayName>دن</displayName>
+				<relative type="-2">گزشتہ پرسوں</relative>
+				<relative type="-1">گزشتہ کل</relative>
+				<relative type="0">آج</relative>
+				<relative type="1">آئندہ کل</relative>
+				<relative type="2">آنے والا پرسوں</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ہفتے کا دن</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>رات/صبح</displayName>
+			</field>
+			<field type="hour">
+				<displayName>گھنٹہ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>منٹ</displayName>
+			</field>
+			<field type="second">
+				<displayName>سیکنڈ</displayName>
+			</field>
+			<field type="zone">
+				<displayName>منطقہ وقت</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT {0}</gmtFormat>

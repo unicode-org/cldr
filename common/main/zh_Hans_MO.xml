@@ -145,14 +145,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName draft="contributed">纪元</displayName>
-					</field>
-					<field type="day">
-						<displayName draft="contributed">天</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<dateFormats>
@@ -233,6 +225,14 @@
 				</dateFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="contributed">纪元</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">天</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="contributed">杜蒙杜威勒</exemplarCity>

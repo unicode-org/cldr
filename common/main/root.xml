@@ -2167,6 +2167,44 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName>Year</displayName>
+			</field>
+			<field type="month">
+				<displayName>Month</displayName>
+			</field>
+			<field type="week">
+				<displayName>Week</displayName>
+			</field>
+			<field type="day">
+				<displayName>Day</displayName>
+				<relative type="-1">Yesterday</relative>
+				<relative type="0">Today</relative>
+				<relative type="1">Tomorrow</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Day of the Week</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Dayperiod</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Hour</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minute</displayName>
+			</field>
+			<field type="second">
+				<displayName>Second</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Zone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

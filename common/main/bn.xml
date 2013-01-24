@@ -1444,55 +1444,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>যুগ</displayName>
-					</field>
-					<field type="year">
-						<displayName>বছর</displayName>
-						<relative type="-1" draft="contributed">আগের বছর</relative>
-						<relative type="0" draft="contributed">এই বছর</relative>
-						<relative type="1" draft="contributed">পরের বছর</relative>
-					</field>
-					<field type="month">
-						<displayName>মাস</displayName>
-						<relative type="-1" draft="contributed">গত মাস</relative>
-						<relative type="0" draft="contributed">এই মাস</relative>
-						<relative type="1" draft="contributed">পরের মাস</relative>
-					</field>
-					<field type="week">
-						<displayName>সপ্তাহ</displayName>
-						<relative type="-1" draft="contributed">গত সপ্তাহ</relative>
-						<relative type="0" draft="contributed">এই সপ্তাহ</relative>
-						<relative type="1" draft="contributed">পরবর্তী সপ্তাহ</relative>
-					</field>
-					<field type="day">
-						<displayName>দিন</displayName>
-						<relative type="-2">গত পরশু</relative>
-						<relative type="-1">গতকাল</relative>
-						<relative type="0">আজ</relative>
-						<relative type="1">আগামীকাল</relative>
-						<relative type="2">আগামী পরশু</relative>
-					</field>
-					<field type="weekday">
-						<displayName>সপ্তাহের দিন</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="contributed">পূর্বাহ্ণ/অপরাহ্ণ</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ঘন্টা</displayName>
-					</field>
-					<field type="minute">
-						<displayName>মিনিট</displayName>
-					</field>
-					<field type="second">
-						<displayName>সেকেন্ড</displayName>
-					</field>
-					<field type="zone">
-						<displayName>এলাকা</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -1577,6 +1528,55 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>যুগ</displayName>
+			</field>
+			<field type="year">
+				<displayName>বছর</displayName>
+				<relative type="-1" draft="contributed">আগের বছর</relative>
+				<relative type="0" draft="contributed">এই বছর</relative>
+				<relative type="1" draft="contributed">পরের বছর</relative>
+			</field>
+			<field type="month">
+				<displayName>মাস</displayName>
+				<relative type="-1" draft="contributed">গত মাস</relative>
+				<relative type="0" draft="contributed">এই মাস</relative>
+				<relative type="1" draft="contributed">পরের মাস</relative>
+			</field>
+			<field type="week">
+				<displayName>সপ্তাহ</displayName>
+				<relative type="-1" draft="contributed">গত সপ্তাহ</relative>
+				<relative type="0" draft="contributed">এই সপ্তাহ</relative>
+				<relative type="1" draft="contributed">পরবর্তী সপ্তাহ</relative>
+			</field>
+			<field type="day">
+				<displayName>দিন</displayName>
+				<relative type="-2">গত পরশু</relative>
+				<relative type="-1">গতকাল</relative>
+				<relative type="0">আজ</relative>
+				<relative type="1">আগামীকাল</relative>
+				<relative type="2">আগামী পরশু</relative>
+			</field>
+			<field type="weekday">
+				<displayName>সপ্তাহের দিন</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">পূর্বাহ্ণ/অপরাহ্ণ</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ঘন্টা</displayName>
+			</field>
+			<field type="minute">
+				<displayName>মিনিট</displayName>
+			</field>
+			<field type="second">
+				<displayName>সেকেন্ড</displayName>
+			</field>
+			<field type="zone">
+				<displayName>এলাকা</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>গ্রীনিচ মান সময় {0}</gmtFormat>

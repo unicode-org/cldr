@@ -1258,55 +1258,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>ዘመን</displayName>
-					</field>
-					<field type="year">
-						<displayName>ዓመት</displayName>
-						<relative type="-1">ያለፈው ዓመት</relative>
-						<relative type="0">በዚህ ዓመት</relative>
-						<relative type="1">የሚቀጥለው ዓመት</relative>
-					</field>
-					<field type="month">
-						<displayName>ወር</displayName>
-						<relative type="-1">ያለፈው ወር</relative>
-						<relative type="0">በዚህ ወር</relative>
-						<relative type="1">የሚቀጥለው ወር</relative>
-					</field>
-					<field type="week">
-						<displayName>ሳምንት</displayName>
-						<relative type="-1">ባለፈው ሳምንት</relative>
-						<relative type="0">በዚህ ሣምንት</relative>
-						<relative type="1">የሚቀጥለው ሳምንት</relative>
-					</field>
-					<field type="day">
-						<displayName>ቀን</displayName>
-						<relative type="-2">ከትናንት ወዲያ</relative>
-						<relative type="-1">ትናንት</relative>
-						<relative type="0">ዛሬ</relative>
-						<relative type="1">ነገ</relative>
-						<relative type="2">ከነገ ወዲያ</relative>
-					</field>
-					<field type="weekday">
-						<displayName>አዘቦት</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>ጥዋት/ከሰዓት</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ሰዓት</displayName>
-					</field>
-					<field type="minute">
-						<displayName>ደቂቃ</displayName>
-					</field>
-					<field type="second">
-						<displayName>ሰከንድ</displayName>
-					</field>
-					<field type="zone">
-						<displayName>የሰዓት ሰቅ</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -1329,6 +1280,55 @@
 				</months>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ዘመን</displayName>
+			</field>
+			<field type="year">
+				<displayName>ዓመት</displayName>
+				<relative type="-1">ያለፈው ዓመት</relative>
+				<relative type="0">በዚህ ዓመት</relative>
+				<relative type="1">የሚቀጥለው ዓመት</relative>
+			</field>
+			<field type="month">
+				<displayName>ወር</displayName>
+				<relative type="-1">ያለፈው ወር</relative>
+				<relative type="0">በዚህ ወር</relative>
+				<relative type="1">የሚቀጥለው ወር</relative>
+			</field>
+			<field type="week">
+				<displayName>ሳምንት</displayName>
+				<relative type="-1">ባለፈው ሳምንት</relative>
+				<relative type="0">በዚህ ሣምንት</relative>
+				<relative type="1">የሚቀጥለው ሳምንት</relative>
+			</field>
+			<field type="day">
+				<displayName>ቀን</displayName>
+				<relative type="-2">ከትናንት ወዲያ</relative>
+				<relative type="-1">ትናንት</relative>
+				<relative type="0">ዛሬ</relative>
+				<relative type="1">ነገ</relative>
+				<relative type="2">ከነገ ወዲያ</relative>
+			</field>
+			<field type="weekday">
+				<displayName>አዘቦት</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>ጥዋት/ከሰዓት</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ሰዓት</displayName>
+			</field>
+			<field type="minute">
+				<displayName>ደቂቃ</displayName>
+			</field>
+			<field type="second">
+				<displayName>ሰከንድ</displayName>
+			</field>
+			<field type="zone">
+				<displayName>የሰዓት ሰቅ</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>ጂ ኤም ቲ{0}</gmtFormat>

@@ -1519,57 +1519,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>காலம்</displayName>
-					</field>
-					<field type="year">
-						<displayName>வருடம்</displayName>
-						<relative type="-1">கடந்த வருடம்</relative>
-						<relative type="0">இந்த ஆண்டு</relative>
-						<relative type="1">அடுத்த வருடம்</relative>
-					</field>
-					<field type="month">
-						<displayName>மாதம்</displayName>
-						<relative type="-1">சென்ற மாதம்</relative>
-						<relative type="0">இந்த மாதம்</relative>
-						<relative type="1">அடுத்த மாதம்</relative>
-					</field>
-					<field type="week">
-						<displayName>வாரம்</displayName>
-						<relative type="-1">கடந்த வாரம்</relative>
-						<relative type="0">இந்த வாரம்</relative>
-						<relative type="1">அடுத்த வாரம்</relative>
-					</field>
-					<field type="day">
-						<displayName>நாள்</displayName>
-						<relative type="-2">முந்தா நாள்</relative>
-						<relative type="-1">நேற்று</relative>
-						<relative type="0">இன்று</relative>
-						<relative type="1">நாளை</relative>
-						<relative type="2">நாளை மறுநாள்</relative>
-					</field>
-					<field type="weekday">
-						<displayName>வார நாள்</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>முற்பகல்/பிற்பகல்</displayName>
-					</field>
-					<field type="hour">
-						<displayName>மணி</displayName>
-					</field>
-					<field type="minute">
-						<displayName>நிமிடம்</displayName>
-					</field>
-					<field type="second">
-						<displayName>வினாடி</displayName>
-					</field>
-					<field type="zone">
-						<displayName>மண்டலம்</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>காலம்</displayName>
+			</field>
+			<field type="year">
+				<displayName>வருடம்</displayName>
+				<relative type="-1">கடந்த வருடம்</relative>
+				<relative type="0">இந்த ஆண்டு</relative>
+				<relative type="1">அடுத்த வருடம்</relative>
+			</field>
+			<field type="month">
+				<displayName>மாதம்</displayName>
+				<relative type="-1">சென்ற மாதம்</relative>
+				<relative type="0">இந்த மாதம்</relative>
+				<relative type="1">அடுத்த மாதம்</relative>
+			</field>
+			<field type="week">
+				<displayName>வாரம்</displayName>
+				<relative type="-1">கடந்த வாரம்</relative>
+				<relative type="0">இந்த வாரம்</relative>
+				<relative type="1">அடுத்த வாரம்</relative>
+			</field>
+			<field type="day">
+				<displayName>நாள்</displayName>
+				<relative type="-2">முந்தா நாள்</relative>
+				<relative type="-1">நேற்று</relative>
+				<relative type="0">இன்று</relative>
+				<relative type="1">நாளை</relative>
+				<relative type="2">நாளை மறுநாள்</relative>
+			</field>
+			<field type="weekday">
+				<displayName>வார நாள்</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>முற்பகல்/பிற்பகல்</displayName>
+			</field>
+			<field type="hour">
+				<displayName>மணி</displayName>
+			</field>
+			<field type="minute">
+				<displayName>நிமிடம்</displayName>
+			</field>
+			<field type="second">
+				<displayName>வினாடி</displayName>
+			</field>
+			<field type="zone">
+				<displayName>மண்டலம்</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

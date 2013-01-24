@@ -1145,44 +1145,6 @@
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>जौथाय</displayName>
-					</field>
-					<field type="year">
-						<displayName>बोसोर</displayName>
-					</field>
-					<field type="month">
-						<displayName>दान</displayName>
-					</field>
-					<field type="week">
-						<displayName>सबथा/हबथा</displayName>
-					</field>
-					<field type="day">
-						<displayName>सान</displayName>
-						<relative type="-1">मैया</relative>
-						<relative type="0">दिनै</relative>
-						<relative type="1">गाबोन</relative>
-					</field>
-					<field type="weekday">
-						<displayName>सप्ताह के दिन</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>फुं/बेलासे</displayName>
-					</field>
-					<field type="hour">
-						<displayName>रिंगा</displayName>
-					</field>
-					<field type="minute">
-						<displayName>मिनिथ</displayName>
-					</field>
-					<field type="second">
-						<displayName>सेखेन्द</displayName>
-					</field>
-					<field type="zone">
-						<displayName>ओनसोल</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -1205,6 +1167,44 @@
 				</months>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>जौथाय</displayName>
+			</field>
+			<field type="year">
+				<displayName>बोसोर</displayName>
+			</field>
+			<field type="month">
+				<displayName>दान</displayName>
+			</field>
+			<field type="week">
+				<displayName>सबथा/हबथा</displayName>
+			</field>
+			<field type="day">
+				<displayName>सान</displayName>
+				<relative type="-1">मैया</relative>
+				<relative type="0">दिनै</relative>
+				<relative type="1">गाबोन</relative>
+			</field>
+			<field type="weekday">
+				<displayName>सप्ताह के दिन</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>फुं/बेलासे</displayName>
+			</field>
+			<field type="hour">
+				<displayName>रिंगा</displayName>
+			</field>
+			<field type="minute">
+				<displayName>मिनिथ</displayName>
+			</field>
+			<field type="second">
+				<displayName>सेखेन्द</displayName>
+			</field>
+			<field type="zone">
+				<displayName>ओनसोल</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="Etc/Unknown">
 				<exemplarCity>अज्ञात</exemplarCity>

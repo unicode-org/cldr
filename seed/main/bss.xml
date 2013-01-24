@@ -81,32 +81,32 @@
 						</dayWidth>
 					</dayContext>
 				</days>
-				<fields>
-					<field type="year">
-						<displayName>mwɛ̌</displayName>
-					</field>
-					<field type="month">
-						<displayName>ngɔn</displayName>
-					</field>
-					<field type="week">
-						<displayName>sɔ̂ndé</displayName>
-					</field>
-					<field type="day">
-						<displayName>mbwɛ</displayName>
-						<relative type="-2">súúbɛ</relative>
-						<relative type="-1">chǎn ábe éʼtómé</relative>
-						<relative type="0">chii</relative>
-						<relative type="1">chǎn ábe éʼhúɛʼ</relative>
-					</field>
-					<field type="hour">
-						<displayName>háwa</displayName>
-					</field>
-					<field type="minute">
-						<displayName>menúte</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<displayName>mwɛ̌</displayName>
+			</field>
+			<field type="month">
+				<displayName>ngɔn</displayName>
+			</field>
+			<field type="week">
+				<displayName>sɔ̂ndé</displayName>
+			</field>
+			<field type="day">
+				<displayName>mbwɛ</displayName>
+				<relative type="-2">súúbɛ</relative>
+				<relative type="-1">chǎn ábe éʼtómé</relative>
+				<relative type="0">chii</relative>
+				<relative type="1">chǎn ábe éʼhúɛʼ</relative>
+			</field>
+			<field type="hour">
+				<displayName>háwa</displayName>
+			</field>
+			<field type="minute">
+				<displayName>menúte</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<zone type="Etc/GMT+1">
 				<exemplarCity>GMT+1</exemplarCity>

@@ -1631,55 +1631,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName draft="contributed">Letopočet</displayName>
-					</field>
-					<field type="year">
-						<displayName>Rok</displayName>
-						<relative type="-1">Minulý rok</relative>
-						<relative type="0">Tento rok</relative>
-						<relative type="1">Příští rok</relative>
-					</field>
-					<field type="month">
-						<displayName>Měsíc</displayName>
-						<relative type="-1">Minulý měsíc</relative>
-						<relative type="0">Tento měsíc</relative>
-						<relative type="1">Příští měsíc</relative>
-					</field>
-					<field type="week">
-						<displayName>Týden</displayName>
-						<relative type="-1">Minulý týden</relative>
-						<relative type="0">Tento týden</relative>
-						<relative type="1">Příští týden</relative>
-					</field>
-					<field type="day">
-						<displayName>Den</displayName>
-						<relative type="-2">Předevčírem</relative>
-						<relative type="-1">Včera</relative>
-						<relative type="0">Dnes</relative>
-						<relative type="1">Zítra</relative>
-						<relative type="2">Pozítří</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Den v týdnu</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Hodina</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minuta</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekunda</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Časové pásmo</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<dateFormats>
@@ -1790,6 +1741,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="contributed">Letopočet</displayName>
+			</field>
+			<field type="year">
+				<displayName>Rok</displayName>
+				<relative type="-1">Minulý rok</relative>
+				<relative type="0">Tento rok</relative>
+				<relative type="1">Příští rok</relative>
+			</field>
+			<field type="month">
+				<displayName>Měsíc</displayName>
+				<relative type="-1">Minulý měsíc</relative>
+				<relative type="0">Tento měsíc</relative>
+				<relative type="1">Příští měsíc</relative>
+			</field>
+			<field type="week">
+				<displayName>Týden</displayName>
+				<relative type="-1">Minulý týden</relative>
+				<relative type="0">Tento týden</relative>
+				<relative type="1">Příští týden</relative>
+			</field>
+			<field type="day">
+				<displayName>Den</displayName>
+				<relative type="-2">Předevčírem</relative>
+				<relative type="-1">Včera</relative>
+				<relative type="0">Dnes</relative>
+				<relative type="1">Zítra</relative>
+				<relative type="2">Pozítří</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Den v týdnu</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Hodina</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minuta</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekunda</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Časové pásmo</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+H:mm;-H:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

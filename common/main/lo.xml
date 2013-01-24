@@ -2068,46 +2068,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>ສະໄໝ</displayName>
-					</field>
-					<field type="year">
-						<displayName>ປີ</displayName>
-					</field>
-					<field type="month">
-						<displayName>ເດືອນ</displayName>
-					</field>
-					<field type="week">
-						<displayName>ອາທິດ</displayName>
-					</field>
-					<field type="day">
-						<displayName>ມື້</displayName>
-						<relative type="-2">ມື້ກ່ອນ</relative>
-						<relative type="-1">ວານນີ້</relative>
-						<relative type="0">ມື້ນີ້</relative>
-						<relative type="1">ມື້ອື່ນ</relative>
-						<relative type="2">ມື້ຮື</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ມື້ຂອງອາທິດ</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>ເຊົ້າ/ແລງ</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ຊົ່ວໂມງ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>ນາທີ</displayName>
-					</field>
-					<field type="second">
-						<displayName>ວິນາທີ</displayName>
-					</field>
-					<field type="zone">
-						<displayName>ເວລາຕາມເຂດ</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2774,6 +2734,46 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ສະໄໝ</displayName>
+			</field>
+			<field type="year">
+				<displayName>ປີ</displayName>
+			</field>
+			<field type="month">
+				<displayName>ເດືອນ</displayName>
+			</field>
+			<field type="week">
+				<displayName>ອາທິດ</displayName>
+			</field>
+			<field type="day">
+				<displayName>ມື້</displayName>
+				<relative type="-2">ມື້ກ່ອນ</relative>
+				<relative type="-1">ວານນີ້</relative>
+				<relative type="0">ມື້ນີ້</relative>
+				<relative type="1">ມື້ອື່ນ</relative>
+				<relative type="2">ມື້ຮື</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ມື້ຂອງອາທິດ</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>ເຊົ້າ/ແລງ</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ຊົ່ວໂມງ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>ນາທີ</displayName>
+			</field>
+			<field type="second">
+				<displayName>ວິນາທີ</displayName>
+			</field>
+			<field type="zone">
+				<displayName>ເວລາຕາມເຂດ</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -1503,55 +1503,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>കാലഘട്ടം</displayName>
-					</field>
-					<field type="year">
-						<displayName>വർഷം</displayName>
-						<relative type="-1" draft="contributed">കഴിഞ്ഞ വർഷം</relative>
-						<relative type="0" draft="contributed">ഈ വർ‌ഷം</relative>
-						<relative type="1" draft="contributed">അടുത്തവർഷം</relative>
-					</field>
-					<field type="month">
-						<displayName>മാസം</displayName>
-						<relative type="-1" draft="contributed">കഴിഞ്ഞ മാസം</relative>
-						<relative type="0" draft="contributed">ഈ മാസം</relative>
-						<relative type="1" draft="contributed">അടുത്ത മാസം</relative>
-					</field>
-					<field type="week">
-						<displayName>ആഴ്ച</displayName>
-						<relative type="-1" draft="contributed">കഴിഞ്ഞ ആഴ്‌ച</relative>
-						<relative type="0" draft="contributed">ഈ ആഴ്ച</relative>
-						<relative type="1" draft="contributed">അടുത്ത ആഴ്ച</relative>
-					</field>
-					<field type="day">
-						<displayName>ദിവസം</displayName>
-						<relative type="-2">മിനിഞ്ഞാന്ന്</relative>
-						<relative type="-1">ഇന്നലെ</relative>
-						<relative type="0">ഇന്ന്</relative>
-						<relative type="1">നാളെ</relative>
-						<relative type="2">മറ്റന്നാൾ</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ആഴ്ചയിലെ ദിവസം</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>am/pm</displayName>
-					</field>
-					<field type="hour">
-						<displayName>മണിക്കൂർ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>മിനിട്ട്</displayName>
-					</field>
-					<field type="second">
-						<displayName>സെക്കൻറ്</displayName>
-					</field>
-					<field type="zone">
-						<displayName>മേഖല</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -1636,6 +1587,55 @@
 				</eras>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>കാലഘട്ടം</displayName>
+			</field>
+			<field type="year">
+				<displayName>വർഷം</displayName>
+				<relative type="-1" draft="contributed">കഴിഞ്ഞ വർഷം</relative>
+				<relative type="0" draft="contributed">ഈ വർ‌ഷം</relative>
+				<relative type="1" draft="contributed">അടുത്തവർഷം</relative>
+			</field>
+			<field type="month">
+				<displayName>മാസം</displayName>
+				<relative type="-1" draft="contributed">കഴിഞ്ഞ മാസം</relative>
+				<relative type="0" draft="contributed">ഈ മാസം</relative>
+				<relative type="1" draft="contributed">അടുത്ത മാസം</relative>
+			</field>
+			<field type="week">
+				<displayName>ആഴ്ച</displayName>
+				<relative type="-1" draft="contributed">കഴിഞ്ഞ ആഴ്‌ച</relative>
+				<relative type="0" draft="contributed">ഈ ആഴ്ച</relative>
+				<relative type="1" draft="contributed">അടുത്ത ആഴ്ച</relative>
+			</field>
+			<field type="day">
+				<displayName>ദിവസം</displayName>
+				<relative type="-2">മിനിഞ്ഞാന്ന്</relative>
+				<relative type="-1">ഇന്നലെ</relative>
+				<relative type="0">ഇന്ന്</relative>
+				<relative type="1">നാളെ</relative>
+				<relative type="2">മറ്റന്നാൾ</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ആഴ്ചയിലെ ദിവസം</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>am/pm</displayName>
+			</field>
+			<field type="hour">
+				<displayName>മണിക്കൂർ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>മിനിട്ട്</displayName>
+			</field>
+			<field type="second">
+				<displayName>സെക്കൻറ്</displayName>
+			</field>
+			<field type="zone">
+				<displayName>മേഖല</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

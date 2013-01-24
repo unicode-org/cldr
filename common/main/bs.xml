@@ -1205,47 +1205,6 @@
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<!-- Copied from sr_Latn -->
-					<field type="era">
-						<displayName>era</displayName>
-					</field>
-					<field type="year">
-						<displayName>godina</displayName>
-					</field>
-					<field type="month">
-						<displayName>mesec</displayName>
-					</field>
-					<field type="week">
-						<displayName>nedelja</displayName>
-					</field>
-					<field type="day">
-						<displayName>dan</displayName>
-						<relative type="-2">prekjuče</relative>
-						<relative type="-1">juče</relative>
-						<relative type="0">danas</relative>
-						<relative type="1">sutra</relative>
-						<relative type="2">prekosutra</relative>
-					</field>
-					<field type="weekday">
-						<displayName>dan u nedelji</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>pre podne/ popodne</displayName>
-					</field>
-					<field type="hour">
-						<displayName>čas</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minut</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekund</displayName>
-					</field>
-					<field type="zone">
-						<displayName>zona</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<months>
@@ -1335,6 +1294,47 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<!-- Copied from sr_Latn -->
+			<field type="era">
+				<displayName>era</displayName>
+			</field>
+			<field type="year">
+				<displayName>godina</displayName>
+			</field>
+			<field type="month">
+				<displayName>mesec</displayName>
+			</field>
+			<field type="week">
+				<displayName>nedelja</displayName>
+			</field>
+			<field type="day">
+				<displayName>dan</displayName>
+				<relative type="-2">prekjuče</relative>
+				<relative type="-1">juče</relative>
+				<relative type="0">danas</relative>
+				<relative type="1">sutra</relative>
+				<relative type="2">prekosutra</relative>
+			</field>
+			<field type="weekday">
+				<displayName>dan u nedelji</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>pre podne/ popodne</displayName>
+			</field>
+			<field type="hour">
+				<displayName>čas</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minut</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekund</displayName>
+			</field>
+			<field type="zone">
+				<displayName>zona</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<!-- This just had confirmed data for "Etc/Unknown" (different from the translation
 				 in sr_Latn). Fill in the other translations from data in sr_Latn.

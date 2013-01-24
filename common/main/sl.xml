@@ -1471,57 +1471,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Doba</displayName>
-					</field>
-					<field type="year">
-						<displayName>Leto</displayName>
-						<relative type="-1" draft="contributed">Lani</relative>
-						<relative type="0" draft="contributed">Letos</relative>
-						<relative type="1" draft="contributed">Naslednje leto</relative>
-					</field>
-					<field type="month">
-						<displayName>Mesec</displayName>
-						<relative type="-1" draft="contributed">Prejšnji mesec</relative>
-						<relative type="0" draft="contributed">Ta mesec</relative>
-						<relative type="1" draft="contributed">Naslednji mesec</relative>
-					</field>
-					<field type="week">
-						<displayName>Teden</displayName>
-						<relative type="-1" draft="contributed">Prejšnji teden</relative>
-						<relative type="0" draft="contributed">Ta teden</relative>
-						<relative type="1" draft="contributed">Naslednji teden</relative>
-					</field>
-					<field type="day">
-						<displayName>Dan</displayName>
-						<relative type="-2">Predvčerajšnjim</relative>
-						<relative type="-1">Včeraj</relative>
-						<relative type="0">Danes</relative>
-						<relative type="1">Jutri</relative>
-						<relative type="2">Pojutrišnjem</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Dan v tednu</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>Čas dneva</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Ura</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minuta</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sekunda</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Območje</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Doba</displayName>
+			</field>
+			<field type="year">
+				<displayName>Leto</displayName>
+				<relative type="-1" draft="contributed">Lani</relative>
+				<relative type="0" draft="contributed">Letos</relative>
+				<relative type="1" draft="contributed">Naslednje leto</relative>
+			</field>
+			<field type="month">
+				<displayName>Mesec</displayName>
+				<relative type="-1" draft="contributed">Prejšnji mesec</relative>
+				<relative type="0" draft="contributed">Ta mesec</relative>
+				<relative type="1" draft="contributed">Naslednji mesec</relative>
+			</field>
+			<field type="week">
+				<displayName>Teden</displayName>
+				<relative type="-1" draft="contributed">Prejšnji teden</relative>
+				<relative type="0" draft="contributed">Ta teden</relative>
+				<relative type="1" draft="contributed">Naslednji teden</relative>
+			</field>
+			<field type="day">
+				<displayName>Dan</displayName>
+				<relative type="-2">Predvčerajšnjim</relative>
+				<relative type="-1">Včeraj</relative>
+				<relative type="0">Danes</relative>
+				<relative type="1">Jutri</relative>
+				<relative type="2">Pojutrišnjem</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Dan v tednu</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>Čas dneva</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Ura</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minuta</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sekunda</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Območje</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

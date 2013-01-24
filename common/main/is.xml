@@ -1494,57 +1494,57 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName draft="contributed">tímabil</displayName>
-					</field>
-					<field type="year">
-						<displayName draft="contributed">ár</displayName>
-						<relative type="-1">Á síðasta ári</relative>
-						<relative type="0">Á þessu ári</relative>
-						<relative type="1">Á næsta ári</relative>
-					</field>
-					<field type="month">
-						<displayName draft="contributed">mánuður</displayName>
-						<relative type="-1">Í síðasta mánuði</relative>
-						<relative type="0">Í þessum mánuði</relative>
-						<relative type="1">Í næsta mánuði</relative>
-					</field>
-					<field type="week">
-						<displayName draft="contributed">vika</displayName>
-						<relative type="-1">Í síðustu viku</relative>
-						<relative type="0">Í þessari viku</relative>
-						<relative type="1">Í næstu viku</relative>
-					</field>
-					<field type="day">
-						<displayName draft="contributed">dagur</displayName>
-						<relative type="-2">fyrir tveimur dögum</relative>
-						<relative type="-1">í gær</relative>
-						<relative type="0">í dag</relative>
-						<relative type="1">á morgun</relative>
-						<relative type="2">eftir tvo daga</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="contributed">vikudagur</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="contributed">f.h./e.h.</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="contributed">klukkustund</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="contributed">mínúta</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="contributed">sekúnda</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="contributed">svæði</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName draft="contributed">tímabil</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">ár</displayName>
+				<relative type="-1">Á síðasta ári</relative>
+				<relative type="0">Á þessu ári</relative>
+				<relative type="1">Á næsta ári</relative>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">mánuður</displayName>
+				<relative type="-1">Í síðasta mánuði</relative>
+				<relative type="0">Í þessum mánuði</relative>
+				<relative type="1">Í næsta mánuði</relative>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">vika</displayName>
+				<relative type="-1">Í síðustu viku</relative>
+				<relative type="0">Í þessari viku</relative>
+				<relative type="1">Í næstu viku</relative>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">dagur</displayName>
+				<relative type="-2">fyrir tveimur dögum</relative>
+				<relative type="-1">í gær</relative>
+				<relative type="0">í dag</relative>
+				<relative type="1">á morgun</relative>
+				<relative type="2">eftir tvo daga</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">vikudagur</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">f.h./e.h.</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="contributed">klukkustund</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">mínúta</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">sekúnda</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">svæði</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>

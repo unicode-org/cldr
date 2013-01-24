@@ -855,6 +855,46 @@
 				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ეპოქა</displayName>
+			</field>
+			<field type="year">
+				<displayName>წელი</displayName>
+			</field>
+			<field type="month">
+				<displayName>თვე</displayName>
+			</field>
+			<field type="week">
+				<displayName>კვირა</displayName>
+			</field>
+			<field type="day">
+				<displayName>დღე</displayName>
+				<relative type="-2" draft="provisional">გუშინწინ</relative>
+				<relative type="-1">გუშინ</relative>
+				<relative type="0">დღეს</relative>
+				<relative type="1">ხვალ</relative>
+				<relative type="2" draft="provisional">ზეგ</relative>
+			</field>
+			<field type="weekday">
+				<displayName>კვირის დღე</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>საათი</displayName>
+			</field>
+			<field type="minute">
+				<displayName>წუთი</displayName>
+			</field>
+			<field type="second">
+				<displayName>წამი</displayName>
+			</field>
+			<field type="zone">
+				<displayName>დროის სარტყელი</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<regionFormat>დრო: {0}</regionFormat>

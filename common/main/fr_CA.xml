@@ -202,25 +202,25 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<relative type="-1" draft="contributed">L'année dernière</relative>
-						<relative type="0" draft="contributed">Cette année</relative>
-						<relative type="1" draft="contributed">L'année prochaine</relative>
-					</field>
-					<field type="month">
-						<relative type="-1" draft="contributed">Le mois dernier</relative>
-						<relative type="0" draft="contributed">Ce mois-ci</relative>
-						<relative type="1" draft="contributed">Le mois prochain</relative>
-					</field>
-					<field type="week">
-						<relative type="-1" draft="contributed">La semaine dernière</relative>
-						<relative type="0" draft="contributed">Cette semaine</relative>
-						<relative type="1" draft="contributed">La semaine prochaine</relative>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<relative type="-1" draft="contributed">L'année dernière</relative>
+				<relative type="0" draft="contributed">Cette année</relative>
+				<relative type="1" draft="contributed">L'année prochaine</relative>
+			</field>
+			<field type="month">
+				<relative type="-1" draft="contributed">Le mois dernier</relative>
+				<relative type="0" draft="contributed">Ce mois-ci</relative>
+				<relative type="1" draft="contributed">Le mois prochain</relative>
+			</field>
+			<field type="week">
+				<relative type="-1" draft="contributed">La semaine dernière</relative>
+				<relative type="0" draft="contributed">Cette semaine</relative>
+				<relative type="1" draft="contributed">La semaine prochaine</relative>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<regionFormat draft="contributed">Heure de {0}</regionFormat>
 			<fallbackRegionFormat draft="contributed">Heure de {1} ({0})</fallbackRegionFormat>

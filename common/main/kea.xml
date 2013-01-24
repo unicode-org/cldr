@@ -947,46 +947,46 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Era</displayName>
-					</field>
-					<field type="year">
-						<displayName>Anu</displayName>
-					</field>
-					<field type="month">
-						<displayName>Mes</displayName>
-					</field>
-					<field type="week">
-						<displayName>Simana</displayName>
-					</field>
-					<field type="day">
-						<displayName>Dia</displayName>
-						<relative type="-1">Onti</relative>
-						<relative type="0">Oji</relative>
-						<relative type="1">Manha</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Dia di simana</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>am/pm</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Ora</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minutu</displayName>
-					</field>
-					<field type="second">
-						<displayName>Sigundu</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Ora lokal</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Era</displayName>
+			</field>
+			<field type="year">
+				<displayName>Anu</displayName>
+			</field>
+			<field type="month">
+				<displayName>Mes</displayName>
+			</field>
+			<field type="week">
+				<displayName>Simana</displayName>
+			</field>
+			<field type="day">
+				<displayName>Dia</displayName>
+				<relative type="-1">Onti</relative>
+				<relative type="0">Oji</relative>
+				<relative type="1">Manha</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Dia di simana</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>am/pm</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Ora</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minutu</displayName>
+			</field>
+			<field type="second">
+				<displayName>Sigundu</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Ora lokal</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

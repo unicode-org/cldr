@@ -877,48 +877,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>эра</displayName>
-					</field>
-					<field type="year">
-						<displayName>год</displayName>
-					</field>
-					<field type="month">
-						<displayName>месяц</displayName>
-					</field>
-					<field type="week">
-						<displayName>тыдзень</displayName>
-					</field>
-					<field type="day">
-						<displayName>дзень</displayName>
-						<relative type="-2">пазаўчора</relative>
-						<relative type="-1">учора</relative>
-						<relative type="0">сёння</relative>
-						<relative type="1">заўтра</relative>
-						<relative type="2">паслязаўтра</relative>
-					</field>
-					<field type="weekday">
-						<displayName>дзень тыдня</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName draft="contributed">ДП/ПП</displayName>
-					</field>
-					<field type="hour">
-						<displayName>гадзіна</displayName>
-					</field>
-					<field type="minute">
-						<displayName>хвіліна</displayName>
-					</field>
-					<field type="second">
-						<displayName>секунда</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="contributed">Zone</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>эра</displayName>
+			</field>
+			<field type="year">
+				<displayName>год</displayName>
+			</field>
+			<field type="month">
+				<displayName>месяц</displayName>
+			</field>
+			<field type="week">
+				<displayName>тыдзень</displayName>
+			</field>
+			<field type="day">
+				<displayName>дзень</displayName>
+				<relative type="-2">пазаўчора</relative>
+				<relative type="-1">учора</relative>
+				<relative type="0">сёння</relative>
+				<relative type="1">заўтра</relative>
+				<relative type="2">паслязаўтра</relative>
+			</field>
+			<field type="weekday">
+				<displayName>дзень тыдня</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName draft="contributed">ДП/ПП</displayName>
+			</field>
+			<field type="hour">
+				<displayName>гадзіна</displayName>
+			</field>
+			<field type="minute">
+				<displayName>хвіліна</displayName>
+			</field>
+			<field type="second">
+				<displayName>секунда</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">Zone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

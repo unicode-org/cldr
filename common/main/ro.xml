@@ -1715,55 +1715,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>eră</displayName>
-					</field>
-					<field type="year">
-						<displayName>an</displayName>
-						<relative type="-1">Anul trecut</relative>
-						<relative type="0">Anul acesta</relative>
-						<relative type="1">Anul viitor</relative>
-					</field>
-					<field type="month">
-						<displayName>lună</displayName>
-						<relative type="-1">Luna trecută</relative>
-						<relative type="0">Luna aceasta</relative>
-						<relative type="1">Luna viitoare</relative>
-					</field>
-					<field type="week">
-						<displayName>săptămână</displayName>
-						<relative type="-1">Săptămâna trecută</relative>
-						<relative type="0">Săptămâna aceasta</relative>
-						<relative type="1">Săptămâna viitoare</relative>
-					</field>
-					<field type="day">
-						<displayName>zi</displayName>
-						<relative type="-2">alaltăieri</relative>
-						<relative type="-1">ieri</relative>
-						<relative type="0">azi</relative>
-						<relative type="1">mâine</relative>
-						<relative type="2">poimâine</relative>
-					</field>
-					<field type="weekday">
-						<displayName>zi a săptămânii</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>perioada zilei</displayName>
-					</field>
-					<field type="hour">
-						<displayName>oră</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minut</displayName>
-					</field>
-					<field type="second">
-						<displayName>secundă</displayName>
-					</field>
-					<field type="zone">
-						<displayName>zonă</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -1845,6 +1796,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>eră</displayName>
+			</field>
+			<field type="year">
+				<displayName>an</displayName>
+				<relative type="-1">Anul trecut</relative>
+				<relative type="0">Anul acesta</relative>
+				<relative type="1">Anul viitor</relative>
+			</field>
+			<field type="month">
+				<displayName>lună</displayName>
+				<relative type="-1">Luna trecută</relative>
+				<relative type="0">Luna aceasta</relative>
+				<relative type="1">Luna viitoare</relative>
+			</field>
+			<field type="week">
+				<displayName>săptămână</displayName>
+				<relative type="-1">Săptămâna trecută</relative>
+				<relative type="0">Săptămâna aceasta</relative>
+				<relative type="1">Săptămâna viitoare</relative>
+			</field>
+			<field type="day">
+				<displayName>zi</displayName>
+				<relative type="-2">alaltăieri</relative>
+				<relative type="-1">ieri</relative>
+				<relative type="0">azi</relative>
+				<relative type="1">mâine</relative>
+				<relative type="2">poimâine</relative>
+			</field>
+			<field type="weekday">
+				<displayName>zi a săptămânii</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>perioada zilei</displayName>
+			</field>
+			<field type="hour">
+				<displayName>oră</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minut</displayName>
+			</field>
+			<field type="second">
+				<displayName>secundă</displayName>
+			</field>
+			<field type="zone">
+				<displayName>zonă</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>

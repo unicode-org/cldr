@@ -1703,55 +1703,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>tidsalder</displayName>
-					</field>
-					<field type="year">
-						<displayName>år</displayName>
-						<relative type="-1">I fjor</relative>
-						<relative type="0">Dette året</relative>
-						<relative type="1">Neste år</relative>
-					</field>
-					<field type="month">
-						<displayName>måned</displayName>
-						<relative type="-1">Sist måned</relative>
-						<relative type="0">Denne måneden</relative>
-						<relative type="1">Neste måned</relative>
-					</field>
-					<field type="week">
-						<displayName>uke</displayName>
-						<relative type="-1">Sist uke</relative>
-						<relative type="0">Denne uken</relative>
-						<relative type="1">Neste uke</relative>
-					</field>
-					<field type="day">
-						<displayName>dag</displayName>
-						<relative type="-2">i forgårs</relative>
-						<relative type="-1">i går</relative>
-						<relative type="0">i dag</relative>
-						<relative type="1">i morgen</relative>
-						<relative type="2">i overmorgen</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ukedag</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>time</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minutt</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekund</displayName>
-					</field>
-					<field type="zone">
-						<displayName>sone</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="islamic">
 				<dateFormats>
@@ -1934,6 +1885,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>tidsalder</displayName>
+			</field>
+			<field type="year">
+				<displayName>år</displayName>
+				<relative type="-1">I fjor</relative>
+				<relative type="0">Dette året</relative>
+				<relative type="1">Neste år</relative>
+			</field>
+			<field type="month">
+				<displayName>måned</displayName>
+				<relative type="-1">Sist måned</relative>
+				<relative type="0">Denne måneden</relative>
+				<relative type="1">Neste måned</relative>
+			</field>
+			<field type="week">
+				<displayName>uke</displayName>
+				<relative type="-1">Sist uke</relative>
+				<relative type="0">Denne uken</relative>
+				<relative type="1">Neste uke</relative>
+			</field>
+			<field type="day">
+				<displayName>dag</displayName>
+				<relative type="-2">i forgårs</relative>
+				<relative type="-1">i går</relative>
+				<relative type="0">i dag</relative>
+				<relative type="1">i morgen</relative>
+				<relative type="2">i overmorgen</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ukedag</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>time</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minutt</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekund</displayName>
+			</field>
+			<field type="zone">
+				<displayName>sone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

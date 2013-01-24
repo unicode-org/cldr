@@ -1003,48 +1003,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>សករាជ</displayName>
-					</field>
-					<field type="year">
-						<displayName>ឆ្នាំ</displayName>
-					</field>
-					<field type="month">
-						<displayName>ខែ</displayName>
-					</field>
-					<field type="week">
-						<displayName>សប្ដាហ៍</displayName>
-					</field>
-					<field type="day">
-						<displayName>ថ្ងៃ</displayName>
-						<relative type="-2">ម្សិល​ម៉្ងៃ</relative>
-						<relative type="-1">ម្សិលមិញ</relative>
-						<relative type="0">ថ្ងៃ​នេះ</relative>
-						<relative type="1">ថ្ងៃ​ស្អែក</relative>
-						<relative type="2">​ខាន​ស្អែក</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ថ្ងៃ​នៃ​សប្ដាហ៍</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>ព្រឹក/ល្ងាច</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ម៉ោង</displayName>
-					</field>
-					<field type="minute">
-						<displayName>នាទី</displayName>
-					</field>
-					<field type="second">
-						<displayName>វិនាទី</displayName>
-					</field>
-					<field type="zone">
-						<displayName draft="provisional">តំបន់</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>សករាជ</displayName>
+			</field>
+			<field type="year">
+				<displayName>ឆ្នាំ</displayName>
+			</field>
+			<field type="month">
+				<displayName>ខែ</displayName>
+			</field>
+			<field type="week">
+				<displayName>សប្ដាហ៍</displayName>
+			</field>
+			<field type="day">
+				<displayName>ថ្ងៃ</displayName>
+				<relative type="-2">ម្សិល​ម៉្ងៃ</relative>
+				<relative type="-1">ម្សិលមិញ</relative>
+				<relative type="0">ថ្ងៃ​នេះ</relative>
+				<relative type="1">ថ្ងៃ​ស្អែក</relative>
+				<relative type="2">​ខាន​ស្អែក</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ថ្ងៃ​នៃ​សប្ដាហ៍</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>ព្រឹក/ល្ងាច</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ម៉ោង</displayName>
+			</field>
+			<field type="minute">
+				<displayName>នាទី</displayName>
+			</field>
+			<field type="second">
+				<displayName>វិនាទី</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="provisional">តំបន់</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

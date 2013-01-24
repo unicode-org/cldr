@@ -1929,55 +1929,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>era</displayName>
-					</field>
-					<field type="year">
-						<displayName>år</displayName>
-						<relative type="-1">i fjol</relative>
-						<relative type="0">i år</relative>
-						<relative type="1">nästa år</relative>
-					</field>
-					<field type="month">
-						<displayName>månad</displayName>
-						<relative type="-1">förra månaden</relative>
-						<relative type="0">denna månad</relative>
-						<relative type="1">nästa månad</relative>
-					</field>
-					<field type="week">
-						<displayName>vecka</displayName>
-						<relative type="-1">förra veckan</relative>
-						<relative type="0">denna vecka</relative>
-						<relative type="1">nästa vecka</relative>
-					</field>
-					<field type="day">
-						<displayName>dag</displayName>
-						<relative type="-2">i förrgår</relative>
-						<relative type="-1">i går</relative>
-						<relative type="0">i dag</relative>
-						<relative type="1">i morgon</relative>
-						<relative type="2">i övermorgon</relative>
-					</field>
-					<field type="weekday">
-						<displayName>veckodag</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>fm/em</displayName>
-					</field>
-					<field type="hour">
-						<displayName>timme</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minut</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekund</displayName>
-					</field>
-					<field type="zone">
-						<displayName>tidszon</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2689,6 +2640,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>era</displayName>
+			</field>
+			<field type="year">
+				<displayName>år</displayName>
+				<relative type="-1">i fjol</relative>
+				<relative type="0">i år</relative>
+				<relative type="1">nästa år</relative>
+			</field>
+			<field type="month">
+				<displayName>månad</displayName>
+				<relative type="-1">förra månaden</relative>
+				<relative type="0">denna månad</relative>
+				<relative type="1">nästa månad</relative>
+			</field>
+			<field type="week">
+				<displayName>vecka</displayName>
+				<relative type="-1">förra veckan</relative>
+				<relative type="0">denna vecka</relative>
+				<relative type="1">nästa vecka</relative>
+			</field>
+			<field type="day">
+				<displayName>dag</displayName>
+				<relative type="-2">i förrgår</relative>
+				<relative type="-1">i går</relative>
+				<relative type="0">i dag</relative>
+				<relative type="1">i morgon</relative>
+				<relative type="2">i övermorgon</relative>
+			</field>
+			<field type="weekday">
+				<displayName>veckodag</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>fm/em</displayName>
+			</field>
+			<field type="hour">
+				<displayName>timme</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minut</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekund</displayName>
+			</field>
+			<field type="zone">
+				<displayName>tidszon</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

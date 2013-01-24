@@ -1748,55 +1748,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>Tijdperk</displayName>
-					</field>
-					<field type="year">
-						<displayName>Jaar</displayName>
-						<relative type="-1">Vorig jaar</relative>
-						<relative type="0">Dit jaar</relative>
-						<relative type="1">Volgend jaar</relative>
-					</field>
-					<field type="month">
-						<displayName>Maand</displayName>
-						<relative type="-1">Vorige maand</relative>
-						<relative type="0">Deze maand</relative>
-						<relative type="1">Volgende maand</relative>
-					</field>
-					<field type="week">
-						<displayName draft="contributed">week</displayName>
-						<relative type="-1">Vorige week</relative>
-						<relative type="0">Deze week</relative>
-						<relative type="1">Volgende week</relative>
-					</field>
-					<field type="day">
-						<displayName>Dag</displayName>
-						<relative type="-2" draft="contributed">Eergisteren</relative>
-						<relative type="-1" draft="contributed">Gisteren</relative>
-						<relative type="0" draft="contributed">Vandaag</relative>
-						<relative type="1" draft="contributed">Morgen</relative>
-						<relative type="2" draft="contributed">Overmorgen</relative>
-					</field>
-					<field type="weekday">
-						<displayName>Dag van de week</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>AM/PM</displayName>
-					</field>
-					<field type="hour">
-						<displayName>Uur</displayName>
-					</field>
-					<field type="minute">
-						<displayName>Minuut</displayName>
-					</field>
-					<field type="second">
-						<displayName>Seconde</displayName>
-					</field>
-					<field type="zone">
-						<displayName>Zone</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2049,6 +2000,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>Tijdperk</displayName>
+			</field>
+			<field type="year">
+				<displayName>Jaar</displayName>
+				<relative type="-1">Vorig jaar</relative>
+				<relative type="0">Dit jaar</relative>
+				<relative type="1">Volgend jaar</relative>
+			</field>
+			<field type="month">
+				<displayName>Maand</displayName>
+				<relative type="-1">Vorige maand</relative>
+				<relative type="0">Deze maand</relative>
+				<relative type="1">Volgende maand</relative>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">week</displayName>
+				<relative type="-1">Vorige week</relative>
+				<relative type="0">Deze week</relative>
+				<relative type="1">Volgende week</relative>
+			</field>
+			<field type="day">
+				<displayName>Dag</displayName>
+				<relative type="-2" draft="contributed">Eergisteren</relative>
+				<relative type="-1" draft="contributed">Gisteren</relative>
+				<relative type="0" draft="contributed">Vandaag</relative>
+				<relative type="1" draft="contributed">Morgen</relative>
+				<relative type="2" draft="contributed">Overmorgen</relative>
+			</field>
+			<field type="weekday">
+				<displayName>Dag van de week</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>AM/PM</displayName>
+			</field>
+			<field type="hour">
+				<displayName>Uur</displayName>
+			</field>
+			<field type="minute">
+				<displayName>Minuut</displayName>
+			</field>
+			<field type="second">
+				<displayName>Seconde</displayName>
+			</field>
+			<field type="zone">
+				<displayName>Zone</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat draft="contributed">GMT{0}</gmtFormat>

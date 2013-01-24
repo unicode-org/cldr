@@ -370,40 +370,40 @@
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>kal'lai</displayName>
-					</field>
-					<field type="year">
-						<displayName>yaka</displayName>
-					</field>
-					<field type="month">
-						<displayName>mweri</displayName>
-					</field>
-					<field type="week">
-						<displayName>iwiki mocha</displayName>
-					</field>
-					<field type="day">
-						<displayName>nihuku</displayName>
-						<relative type="-1">n'chana</relative>
-						<relative type="0">lel'lo</relative>
-						<relative type="1">me'llo</relative>
-					</field>
-					<field type="weekday">
-						<displayName>nihuku no mwisho wa wiki</displayName>
-					</field>
-					<field type="hour">
-						<displayName>isaa</displayName>
-					</field>
-					<field type="minute">
-						<displayName>idakika</displayName>
-					</field>
-					<field type="second">
-						<displayName>isekunde</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>kal'lai</displayName>
+			</field>
+			<field type="year">
+				<displayName>yaka</displayName>
+			</field>
+			<field type="month">
+				<displayName>mweri</displayName>
+			</field>
+			<field type="week">
+				<displayName>iwiki mocha</displayName>
+			</field>
+			<field type="day">
+				<displayName>nihuku</displayName>
+				<relative type="-1">n'chana</relative>
+				<relative type="0">lel'lo</relative>
+				<relative type="1">me'llo</relative>
+			</field>
+			<field type="weekday">
+				<displayName>nihuku no mwisho wa wiki</displayName>
+			</field>
+			<field type="hour">
+				<displayName>isaa</displayName>
+			</field>
+			<field type="minute">
+				<displayName>idakika</displayName>
+			</field>
+			<field type="second">
+				<displayName>isekunde</displayName>
+			</field>
+		</fields>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

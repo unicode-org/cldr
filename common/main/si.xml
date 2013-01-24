@@ -974,48 +974,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>යුගය</displayName>
-					</field>
-					<field type="year">
-						<displayName>වර්ෂ</displayName>
-					</field>
-					<field type="month">
-						<displayName>මාසය</displayName>
-					</field>
-					<field type="week">
-						<displayName>සතිය</displayName>
-					</field>
-					<field type="day">
-						<displayName>දිනය</displayName>
-						<relative type="-2">පෙරේදා</relative>
-						<relative type="-1">ඊයෙ</relative>
-						<relative type="0">අද</relative>
-						<relative type="1">හෙට</relative>
-						<relative type="2">අනිද්දා</relative>
-					</field>
-					<field type="weekday">
-						<displayName>සතියේ දිනය</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>දිවා කාලය</displayName>
-					</field>
-					<field type="hour">
-						<displayName>පැය</displayName>
-					</field>
-					<field type="minute">
-						<displayName>මිනිස්තුව</displayName>
-					</field>
-					<field type="second">
-						<displayName>තප්පරය</displayName>
-					</field>
-					<field type="zone">
-						<displayName>වේලා කලාපය</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>යුගය</displayName>
+			</field>
+			<field type="year">
+				<displayName>වර්ෂ</displayName>
+			</field>
+			<field type="month">
+				<displayName>මාසය</displayName>
+			</field>
+			<field type="week">
+				<displayName>සතිය</displayName>
+			</field>
+			<field type="day">
+				<displayName>දිනය</displayName>
+				<relative type="-2">පෙරේදා</relative>
+				<relative type="-1">ඊයෙ</relative>
+				<relative type="0">අද</relative>
+				<relative type="1">හෙට</relative>
+				<relative type="2">අනිද්දා</relative>
+			</field>
+			<field type="weekday">
+				<displayName>සතියේ දිනය</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>දිවා කාලය</displayName>
+			</field>
+			<field type="hour">
+				<displayName>පැය</displayName>
+			</field>
+			<field type="minute">
+				<displayName>මිනිස්තුව</displayName>
+			</field>
+			<field type="second">
+				<displayName>තප්පරය</displayName>
+			</field>
+			<field type="zone">
+				<displayName>වේලා කලාපය</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

@@ -995,48 +995,48 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>དུས་བསྐལ</displayName>
-					</field>
-					<field type="year">
-						<displayName>ལོ</displayName>
-					</field>
-					<field type="month">
-						<displayName>ཟླ་ཝ་</displayName>
-					</field>
-					<field type="week">
-						<displayName>བདུན་ཕྲག</displayName>
-					</field>
-					<field type="day">
-						<displayName>ཚེས་</displayName>
-						<relative type="-2">ཁ་ཉིམ</relative>
-						<relative type="-1">ཁ་ཙ་</relative>
-						<relative type="0">ད་རིས་</relative>
-						<relative type="1">ནངས་པ་</relative>
-						<relative type="2">གནངས་ཚེ</relative>
-					</field>
-					<field type="weekday">
-						<displayName>བདུན་ཕྲག་གི་ཉིམ</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>སྔ་ཆ/ཕྱི་ཆ་</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ཆུ་ཚོད</displayName>
-					</field>
-					<field type="minute">
-						<displayName>སྐར་མ</displayName>
-					</field>
-					<field type="second">
-						<displayName>སྐར་ཆཱ་</displayName>
-					</field>
-					<field type="zone">
-						<displayName>དུས་ཀུལ</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>དུས་བསྐལ</displayName>
+			</field>
+			<field type="year">
+				<displayName>ལོ</displayName>
+			</field>
+			<field type="month">
+				<displayName>ཟླ་ཝ་</displayName>
+			</field>
+			<field type="week">
+				<displayName>བདུན་ཕྲག</displayName>
+			</field>
+			<field type="day">
+				<displayName>ཚེས་</displayName>
+				<relative type="-2">ཁ་ཉིམ</relative>
+				<relative type="-1">ཁ་ཙ་</relative>
+				<relative type="0">ད་རིས་</relative>
+				<relative type="1">ནངས་པ་</relative>
+				<relative type="2">གནངས་ཚེ</relative>
+			</field>
+			<field type="weekday">
+				<displayName>བདུན་ཕྲག་གི་ཉིམ</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>སྔ་ཆ/ཕྱི་ཆ་</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ཆུ་ཚོད</displayName>
+			</field>
+			<field type="minute">
+				<displayName>སྐར་མ</displayName>
+			</field>
+			<field type="second">
+				<displayName>སྐར་ཆཱ་</displayName>
+			</field>
+			<field type="zone">
+				<displayName>དུས་ཀུལ</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>ཇི་ཨེམ་ཏི་{0}</gmtFormat>

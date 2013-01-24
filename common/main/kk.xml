@@ -554,39 +554,39 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="year">
-						<displayName draft="unconfirmed">жыл</displayName>
-					</field>
-					<field type="month">
-						<displayName draft="unconfirmed">ай</displayName>
-					</field>
-					<field type="week">
-						<displayName draft="unconfirmed">апта</displayName>
-					</field>
-					<field type="day">
-						<displayName draft="unconfirmed">күн</displayName>
-						<relative type="-2" draft="unconfirmed">алдыңғы күні</relative>
-						<relative type="-1" draft="unconfirmed">кеше</relative>
-						<relative type="0" draft="unconfirmed">бүгін</relative>
-						<relative type="1" draft="unconfirmed">ертең</relative>
-						<relative type="2" draft="unconfirmed">арғы күні</relative>
-					</field>
-					<field type="weekday">
-						<displayName draft="unconfirmed">апта күні</displayName>
-					</field>
-					<field type="hour">
-						<displayName draft="unconfirmed">сағат</displayName>
-					</field>
-					<field type="minute">
-						<displayName draft="unconfirmed">минут</displayName>
-					</field>
-					<field type="second">
-						<displayName draft="unconfirmed">секунд</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<displayName draft="unconfirmed">жыл</displayName>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">ай</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">апта</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">күн</displayName>
+				<relative type="-2" draft="unconfirmed">алдыңғы күні</relative>
+				<relative type="-1" draft="unconfirmed">кеше</relative>
+				<relative type="0" draft="unconfirmed">бүгін</relative>
+				<relative type="1" draft="unconfirmed">ертең</relative>
+				<relative type="2" draft="unconfirmed">арғы күні</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="unconfirmed">апта күні</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">сағат</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">минут</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">секунд</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<regionFormat>{0} уақыт</regionFormat>
 			<fallbackRegionFormat>{1} Уақыт ({0})</fallbackRegionFormat>

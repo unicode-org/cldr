@@ -1829,55 +1829,6 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>aikakausi</displayName>
-					</field>
-					<field type="year">
-						<displayName>vuosi</displayName>
-						<relative type="-1">viime vuonna</relative>
-						<relative type="0">tänä vuonna</relative>
-						<relative type="1">ensi vuonna</relative>
-					</field>
-					<field type="month">
-						<displayName>kuukausi</displayName>
-						<relative type="-1">viime kuussa</relative>
-						<relative type="0">tässä kuussa</relative>
-						<relative type="1">ensi kuussa</relative>
-					</field>
-					<field type="week">
-						<displayName>viikko</displayName>
-						<relative type="-1">viime viikolla</relative>
-						<relative type="0">tällä viikolla</relative>
-						<relative type="1">ensi viikolla</relative>
-					</field>
-					<field type="day">
-						<displayName>päivä</displayName>
-						<relative type="-2">toissapäivänä</relative>
-						<relative type="-1">eilen</relative>
-						<relative type="0">tänään</relative>
-						<relative type="1">huomenna</relative>
-						<relative type="2">ylihuomenna</relative>
-					</field>
-					<field type="weekday">
-						<displayName>viikonpäivä</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>vuorokaudenaika</displayName>
-					</field>
-					<field type="hour">
-						<displayName>tunti</displayName>
-					</field>
-					<field type="minute">
-						<displayName>minuutti</displayName>
-					</field>
-					<field type="second">
-						<displayName>sekunti</displayName>
-					</field>
-					<field type="zone">
-						<displayName>aikavyöhyke</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="hebrew">
 				<months>
@@ -2127,6 +2078,55 @@
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>aikakausi</displayName>
+			</field>
+			<field type="year">
+				<displayName>vuosi</displayName>
+				<relative type="-1">viime vuonna</relative>
+				<relative type="0">tänä vuonna</relative>
+				<relative type="1">ensi vuonna</relative>
+			</field>
+			<field type="month">
+				<displayName>kuukausi</displayName>
+				<relative type="-1">viime kuussa</relative>
+				<relative type="0">tässä kuussa</relative>
+				<relative type="1">ensi kuussa</relative>
+			</field>
+			<field type="week">
+				<displayName>viikko</displayName>
+				<relative type="-1">viime viikolla</relative>
+				<relative type="0">tällä viikolla</relative>
+				<relative type="1">ensi viikolla</relative>
+			</field>
+			<field type="day">
+				<displayName>päivä</displayName>
+				<relative type="-2">toissapäivänä</relative>
+				<relative type="-1">eilen</relative>
+				<relative type="0">tänään</relative>
+				<relative type="1">huomenna</relative>
+				<relative type="2">ylihuomenna</relative>
+			</field>
+			<field type="weekday">
+				<displayName>viikonpäivä</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>vuorokaudenaika</displayName>
+			</field>
+			<field type="hour">
+				<displayName>tunti</displayName>
+			</field>
+			<field type="minute">
+				<displayName>minuutti</displayName>
+			</field>
+			<field type="second">
+				<displayName>sekunti</displayName>
+			</field>
+			<field type="zone">
+				<displayName>aikavyöhyke</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+H.mm;-H.mm</hourFormat>
 			<gmtFormat>UTC{0}</gmtFormat>

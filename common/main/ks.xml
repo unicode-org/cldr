@@ -1161,44 +1161,6 @@
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>دور</displayName>
-					</field>
-					<field type="year">
-						<displayName>ؤری</displayName>
-					</field>
-					<field type="month">
-						<displayName>رٮ۪تھ</displayName>
-					</field>
-					<field type="week">
-						<displayName>ہفتہٕ</displayName>
-					</field>
-					<field type="day">
-						<displayName>دۄہ</displayName>
-						<relative type="-1">راتھ</relative>
-						<relative type="0">اَز</relative>
-						<relative type="1">پگاہ</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ہفتُک دۄہ</displayName>
-					</field>
-					<field type="dayperiod">
-						<displayName>صبح/رات</displayName>
-					</field>
-					<field type="hour">
-						<displayName>گٲنٛٹہٕ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>مِنَٹ</displayName>
-					</field>
-					<field type="second">
-						<displayName>سٮ۪کَنڑ</displayName>
-					</field>
-					<field type="zone">
-						<displayName>زون</displayName>
-					</field>
-				</fields>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -1221,6 +1183,44 @@
 				</months>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>دور</displayName>
+			</field>
+			<field type="year">
+				<displayName>ؤری</displayName>
+			</field>
+			<field type="month">
+				<displayName>رٮ۪تھ</displayName>
+			</field>
+			<field type="week">
+				<displayName>ہفتہٕ</displayName>
+			</field>
+			<field type="day">
+				<displayName>دۄہ</displayName>
+				<relative type="-1">راتھ</relative>
+				<relative type="0">اَز</relative>
+				<relative type="1">پگاہ</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ہفتُک دۄہ</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>صبح/رات</displayName>
+			</field>
+			<field type="hour">
+				<displayName>گٲنٛٹہٕ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>مِنَٹ</displayName>
+			</field>
+			<field type="second">
+				<displayName>سٮ۪کَنڑ</displayName>
+			</field>
+			<field type="zone">
+				<displayName>زون</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

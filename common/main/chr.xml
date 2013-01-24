@@ -479,43 +479,43 @@
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-				<fields>
-					<field type="era">
-						<displayName>ᎡᎶᎯ ᎠᏣᎢᎵᏒᎢ</displayName>
-					</field>
-					<field type="year">
-						<displayName>ᏑᏕᏘᏴᏓ</displayName>
-					</field>
-					<field type="month">
-						<displayName>ᏏᏅᏓ</displayName>
-					</field>
-					<field type="week">
-						<displayName>ᏒᎾᏙᏓᏆᏍᏗ</displayName>
-					</field>
-					<field type="day">
-						<displayName>ᏏᎦ</displayName>
-						<relative type="-1">ᏒᎯ</relative>
-						<relative type="0">ᎪᎯ ᎢᎦ</relative>
-						<relative type="1">ᏌᎾᎴᎢ</relative>
-					</field>
-					<field type="weekday">
-						<displayName>ᏒᎾᏙᏓᏆᏍᏗ ᎠᏣᎢᎵᏒ</displayName>
-					</field>
-					<field type="hour">
-						<displayName>ᏑᏣᎶᏓ</displayName>
-					</field>
-					<field type="minute">
-						<displayName>ᎢᏯᏔᏬᏍᏔᏅ</displayName>
-					</field>
-					<field type="second">
-						<displayName>ᎠᏎᏢ</displayName>
-					</field>
-					<field type="zone">
-						<displayName>ᎡᎶᎯ ᎠᏍᏓᏅᏅ</displayName>
-					</field>
-				</fields>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>ᎡᎶᎯ ᎠᏣᎢᎵᏒᎢ</displayName>
+			</field>
+			<field type="year">
+				<displayName>ᏑᏕᏘᏴᏓ</displayName>
+			</field>
+			<field type="month">
+				<displayName>ᏏᏅᏓ</displayName>
+			</field>
+			<field type="week">
+				<displayName>ᏒᎾᏙᏓᏆᏍᏗ</displayName>
+			</field>
+			<field type="day">
+				<displayName>ᏏᎦ</displayName>
+				<relative type="-1">ᏒᎯ</relative>
+				<relative type="0">ᎪᎯ ᎢᎦ</relative>
+				<relative type="1">ᏌᎾᎴᎢ</relative>
+			</field>
+			<field type="weekday">
+				<displayName>ᏒᎾᏙᏓᏆᏍᏗ ᎠᏣᎢᎵᏒ</displayName>
+			</field>
+			<field type="hour">
+				<displayName>ᏑᏣᎶᏓ</displayName>
+			</field>
+			<field type="minute">
+				<displayName>ᎢᏯᏔᏬᏍᏔᏅ</displayName>
+			</field>
+			<field type="second">
+				<displayName>ᎠᏎᏢ</displayName>
+			</field>
+			<field type="zone">
+				<displayName>ᎡᎶᎯ ᎠᏍᏓᏅᏅ</displayName>
+			</field>
+		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>

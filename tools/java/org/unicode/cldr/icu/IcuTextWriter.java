@@ -24,9 +24,11 @@ public class IcuTextWriter {
      * The default tab indent (actually spaces)
      */
     private static final String TAB = "    ";
-    private static final Pattern ESCAPED_CHARACTERS = Pattern.compile("\\\\[\\-\\&\\{\\}\\[\\]]");
-    private static final Pattern HTML_ESCAPED_CHARACTERS = Pattern.compile(" (\\&\\w)");
 
+    // List of characters to escape in UnicodeSets.
+    private static final Pattern UNICODESET_ESCAPE = Pattern.compile("(\\\\[\\\\\\[\\]\\{\\}\\-&:^=]|\\\\?\")");
+    // Only escape \ and " from other strings.
+    private static final Pattern STRING_ESCAPE = Pattern.compile("(\\\\\\\\|\\\\?\")");
 
     /**
      * ICU paths have a simple comparison, alphabetical within a level. We do
@@ -112,10 +114,9 @@ public class IcuTextWriter {
                     out.println();
                 }
             }
-            boolean quote = !IcuData.isIntRbPath(path);
             List<String[]> values = icuData.get(path);
             try {
-                wasSingular = appendValues(path, values, labels.length, quote, out);
+                wasSingular = appendValues(path, values, labels.length, out);
             } catch(NullPointerException npe) {
                 System.err.println("Null value encountered in " + path);
             }
@@ -144,13 +145,17 @@ public class IcuTextWriter {
      * @param out
      * @return
      */
-    private static boolean appendValues(String rbPath, List<String[]> values, int numTabs, boolean quote,
+    private static boolean appendValues(String rbPath, List<String[]> values, int numTabs,
         PrintWriter out) {
         String[] firstArray;
         boolean wasSingular = false;
+        boolean quote = !IcuData.isIntRbPath(rbPath);
         if (values.size() == 1) {
             if ((firstArray = values.get(0)).length == 1 && !mustBeArray(rbPath)) {
                 String value = firstArray[0];
+                if (quote) {
+                    value = quoteInside(value);
+                }
                 int maxWidth = 84 - Math.min(4, numTabs) * TAB.length();
                 if (value.length() <= maxWidth) {
                     // Single value for path: don't add newlines.
@@ -209,14 +214,14 @@ public class IcuTextWriter {
     private static PrintWriter appendArray(String padding, String[] valueArray, boolean quote, PrintWriter out) {
         for (String value : valueArray) {
             out.append(padding);
-            appendQuoted(value, quote, out).println(",");
+            appendQuoted(quoteInside(value), quote, out).println(",");
         }
         return out;
     }
 
     private static PrintWriter appendQuoted(String value, boolean quote, PrintWriter out) {
         if (quote) {
-            return out.append('"').append(quoteInside(value)).append('"');
+            return out.append('"').append(value).append('"');
         } else {
             return out.append(value);
         }
@@ -259,12 +264,22 @@ public class IcuTextWriter {
      * @return
      */
     private static String quoteInside(String item) {
-        item = item.replace("\"", "&quot;");
-        // Double up on backslashes, ignoring Unicode-escaped characters.
-        item = ESCAPED_CHARACTERS.matcher(item).replaceAll("\\\\$0");
-        // Add backslashes to HTML-escaped characters.
-        item = HTML_ESCAPED_CHARACTERS.matcher(item).replaceAll(" \\\\\\\\$1");
-        return item;
+        Pattern pattern = item.startsWith("[") && item.endsWith("]") ? UNICODESET_ESCAPE : STRING_ESCAPE;
+        Matcher matcher = pattern.matcher(item);
+
+        if (!matcher.find()) {
+            return item;
+        }
+        StringBuffer buffer = new StringBuffer();
+        int start = 0;
+        do {
+            buffer.append(item.substring(start, matcher.start()));
+            int punctuationChar = item.codePointAt(matcher.end() - 1);
+            buffer.append(String.format("\\u%04X", punctuationChar));
+            start = matcher.end();
+        } while (matcher.find());
+        buffer.append(item.substring(start));
+        return buffer.toString();
     }
 
     /**

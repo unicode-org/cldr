@@ -24,11 +24,11 @@ public class IcuTextWriter {
      * The default tab indent (actually spaces)
      */
     private static final String TAB = "    ";
-
     // List of characters to escape in UnicodeSets.
-    private static final Pattern UNICODESET_ESCAPE = Pattern.compile("(\\\\[\\\\\\[\\]\\{\\}\\-&:^=]|\\\\?\")");
+    private static final Pattern UNICODESET_ESCAPE = Pattern.compile("\\\\[\\\\\\[\\]\\{\\}\\-&:^=]");
     // Only escape \ and " from other strings.
-    private static final Pattern STRING_ESCAPE = Pattern.compile("(\\\\\\\\|\\\\?\")");
+    private static final Pattern STRING_ESCAPE = Pattern.compile("\\\\\\\\");
+    private static final Pattern QUOTE_ESCAPE = Pattern.compile("\\\\?\"");
 
     /**
      * ICU paths have a simple comparison, alphabetical within a level. We do
@@ -264,6 +264,9 @@ public class IcuTextWriter {
      * @return
      */
     private static String quoteInside(String item) {
+        // Unicode-escape all quotes.
+        item = QUOTE_ESCAPE.matcher(item).replaceAll("\\\\u0022");
+        // Double up on backslashes, ignoring Unicode-escaped characters.
         Pattern pattern = item.startsWith("[") && item.endsWith("]") ? UNICODESET_ESCAPE : STRING_ESCAPE;
         Matcher matcher = pattern.matcher(item);
 
@@ -275,7 +278,11 @@ public class IcuTextWriter {
         do {
             buffer.append(item.substring(start, matcher.start()));
             int punctuationChar = item.codePointAt(matcher.end() - 1);
-            buffer.append(String.format("\\u%04X", punctuationChar));
+            buffer.append("\\");
+            if (punctuationChar == '\\') {
+                buffer.append('\\');
+            }
+            buffer.append(matcher.group());
             start = matcher.end();
         } while (matcher.find());
         buffer.append(item.substring(start));

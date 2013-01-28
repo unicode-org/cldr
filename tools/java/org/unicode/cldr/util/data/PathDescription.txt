@@ -67,15 +67,15 @@
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/months/monthContext\[@type="([^"]*)"]/monthWidth\[@type="([^"]*)"]/month\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for month {4}. For more information, please see http://cldr.org/translation/date-time-names.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/quarters/quarterContext\[@type="([^"]*)"]/quarterWidth\[@type="([^"]*)"]/quarter\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for quarter {4}. For more information, please see http://cldr.org/translation/date-time-names.
 
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="([^"]*)"]/displayName   ;   Provide the name (as it would appear in menus) for the field “{2}”. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/fields/field\[@type="([^"]*)"]/displayName   ;   Provide the name (as it would appear in menus) for the field “{1}”. For more information, please see http://cldr.org/translation/date-time-names.
 
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="0"]    ;   Provide the name for today. For more information, please see http://cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="-([^"]*)"]    ;   Provide a name for the day, {2} before today. For more information, please see http://cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="day"]/relative\[@type="([^"]*)"]    ;   Provide a name for the day, {2} after today. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/fields/field\[@type="day"]/relative\[@type="0"]    ;   Provide the name for today. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/fields/field\[@type="day"]/relative\[@type="-([^"]*)"]    ;   Provide a name for the day, {1} before today. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/fields/field\[@type="day"]/relative\[@type="([^"]*)"]    ;   Provide a name for the day, {1} after today. For more information, please see http://cldr.org/translation/date-time-names.
 
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="([^"]*)"]/relative\[@type="0"]    ;   Provide the name for “this {2}”. For more information, please see http://cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="([^"]*)"]/relative\[@type="-1"]    ;   Provide a name for “last {2}”. For more information, please see http://cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/fields/field\[@type="([^"]*)"]/relative\[@type="1"]    ;   Provide a name for “next {2}”. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="0"]    ;   Provide the name for “this {2}”. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="-1"]    ;   Provide a name for “last {1}”. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/fields/field\[@type="([^"]*)"]/relative\[@type="1"]    ;   Provide a name for “next {1}”. For more information, please see http://cldr.org/translation/date-time-names.
 
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateTimeFormats/dateTimeFormatLength\[@type="([^"]*)"]/dateTimeFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the date-time pattern. Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dateFormats/dateFormatLength\[@type="([^"]*)"]/dateFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]    ;   Provide the {2} version of the basic date pattern. Note: before translating, be sure to read http://cldr.org/translation/date-time-patterns.

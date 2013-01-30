@@ -56,14 +56,17 @@ public class CasingInfo {
      * @return
      */
     public Map<String, CasingType> getLocaleCasing(String localeID) {
-        // If there isn a casing file available for the locale,
+        // If there isn't a casing file available for the locale,
         // recurse over the locale's parents until something is found.
         if (!casing.containsKey(localeID)) {
-            loadFromXml(localeID);
-            if (!casing.containsKey(localeID)) {
-                String parentID = LocaleIDParser.getSimpleParent(localeID);
-                if (!parentID.equals("root")) {
-                    casing.put(localeID, getLocaleCasing(parentID));
+            // Synchronize writes to casing map in an attempt to avoid NPEs (cldrbug 5051).
+            synchronized(casing) {
+                loadFromXml(localeID);
+                if (!casing.containsKey(localeID)) {
+                    String parentID = LocaleIDParser.getSimpleParent(localeID);
+                    if (!parentID.equals("root")) {
+                        casing.put(localeID, getLocaleCasing(parentID));
+                    }
                 }
             }
         }

@@ -670,7 +670,9 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<layout>
-		<orientation characters="right-to-left"/>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+		</orientation>
 	</layout>
 	<characters>
 		<exemplarCharacters>[ا أ آ ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ں و ؤ ہ ۂ ھ ء ی ئ ے ة ه]</exemplarCharacters>
@@ -1107,12 +1109,6 @@
 			<regionFormat>{0} وقت</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<fallbackRegionFormat>{1} وقت ({0})</fallbackRegionFormat>
-			<zone type="America/Lower_Princes">
-				<exemplarCity>لوور پرنسس کوارٹر</exemplarCity>
-			</zone>
-			<zone type="America/North_Dakota/Beulah">
-				<exemplarCity>بیولاہ، شمالی ڈکوٹا</exemplarCity>
-			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>نامعلوم شہر</exemplarCity>
 			</zone>
@@ -1136,9 +1132,6 @@
 			</zone>
 			<zone type="Asia/Yerevan">
 				<exemplarCity>یریوان</exemplarCity>
-			</zone>
-			<zone type="America/Curacao">
-				<exemplarCity>کیوراکاؤ</exemplarCity>
 			</zone>
 			<zone type="Africa/Luanda">
 				<exemplarCity>لوانڈا</exemplarCity>
@@ -1502,6 +1495,9 @@
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>کیپ ورڈی</exemplarCity>
+			</zone>
+			<zone type="America/Curacao">
+				<exemplarCity>کیوراکاؤ</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>کرسمس</exemplarCity>
@@ -2109,6 +2105,9 @@
 			<zone type="America/El_Salvador">
 				<exemplarCity>ال سلواڈور</exemplarCity>
 			</zone>
+			<zone type="America/Lower_Princes">
+				<exemplarCity>لوور پرنسس کوارٹر</exemplarCity>
+			</zone>
 			<zone type="Asia/Damascus">
 				<exemplarCity>دمشق</exemplarCity>
 			</zone>
@@ -2219,6 +2218,9 @@
 			</zone>
 			<zone type="America/Denver">
 				<exemplarCity>ڈینور</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity>بیولاہ، شمالی ڈکوٹا</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>نیو سلیم، شمالی ڈکوٹا</exemplarCity>

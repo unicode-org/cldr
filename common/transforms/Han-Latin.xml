@@ -4,11 +4,13 @@
   <version number='$Revision$'/>
   <generation date='$Date$'/>
   <transforms>
-      <transform source='Han' target='Latin' direction='both'>
+      <transform source='Han' target='Latin' direction='forward'>
           <comment># Warning: does not do round-trip mapping!!</comment>
           <comment># Convert CJK characters</comment>
           <tRule>::Han-Spacedhan();</tRule>
-          <comment># Start RAW data for converting CJK characters</comment>
+          <comment># Convert compounds; these are added individually, not derived from Unihan kMandarin</comment>
+           <tRule>藏文→zàngwén;</tRule>
+          <comment># Start RAW data for converting single CJK characters, derived from Unihan kMandarin</comment>
            <tRule>[呵锕阿𠼞𥥩𨉚]→ā;</tRule>
            <tRule>[嗄]→á;</tRule>
            <tRule>[啊]→a;</tRule>

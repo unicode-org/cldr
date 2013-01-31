@@ -1,7 +1,5 @@
 package org.unicode.cldr.util;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -12,8 +10,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
+import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
+import org.unicode.cldr.util.RegexFileParser.VariableProcessor;
 import org.unicode.cldr.util.RegexLookup.Finder;
 
 import com.ibm.icu.impl.Row;
@@ -273,39 +272,38 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
      * starting with # are comments.
      */
     public RegexLookup<T> loadFromFile(Class<?> baseClass, String filename) {
-        try {
-            BufferedReader file = FileUtilities.openFile(baseClass, filename);
-            for (int lineNumber = 0;; ++lineNumber) {
-                String line = file.readLine();
-                if (line == null) {
-                    break;
-                }
-                line = line.trim();
-                if (line.length() == 0 || line.startsWith("#")) {
-                    continue;
-                }
-                if (line.startsWith("%")) {
-                    int pos = line.indexOf("=");
-                    if (pos < 0) {
-                        throw new IllegalArgumentException("Failed to read RegexLookup File " + filename + "\t\t("
-                            + lineNumber + ") " + line);
-                    }
-                    addVariable(line.substring(0, pos), line.substring(pos + 1));
-                    continue;
-                }
+        RegexFileParser parser = new RegexFileParser();
+        parser.setLineParser(new RegexLineParser() {
+            @Override
+            public void parse(String line) {
                 int pos = line.indexOf("; ");
                 if (pos < 0) {
-                    throw new IllegalArgumentException("Failed to read RegexLookup File " + filename + "\t\t("
-                        + lineNumber + ") " + line);
+                    throw new IllegalArgumentException();
                 }
                 String source = line.substring(0, pos).trim();
                 String target = line.substring(pos + 2).trim();
-                add(source, target);
+                try {
+                    @SuppressWarnings("unchecked")
+                    T result = valueTransform == null ? (T) target : valueTransform.transform(target);
+                    add(source, result);
+                } catch (Exception e) {
+                    throw new IllegalArgumentException("Failed to add <" + source + "> => <" + target + ">", e);
+                }
             }
-            return this;
-        } catch (IOException e) {
-            throw new IllegalArgumentException(e);
-        }
+        });
+        parser.setVariableProcessor(new VariableProcessor() {
+            @Override
+            public void add(String variable, String variableName) {
+                addVariable(variable, variableName);
+            }
+
+            @Override
+            public String replace(String str) {
+                 return variables.replace(str);
+            }
+        });
+        parser.parse(baseClass, filename);
+        return this;
     }
 
     public RegexLookup<T> addVariable(String variable, String variableValue) {
@@ -314,26 +312,6 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
         }
         variables.add(variable.trim(), variableValue.trim());
         return this;
-    }
-
-    /**
-     * Add a pattern/value pair, transforming the target according to the constructor valueTransform (if not null).
-     * 
-     * @param stringPattern
-     * @param target
-     * @return this, for chaining
-     */
-    public RegexLookup<T> add(String stringPattern, String target) {
-        try {
-            if (target.contains("%")) {
-                target = variables.replace(target);
-            }
-            @SuppressWarnings("unchecked")
-            T result = valueTransform == null ? (T) target : valueTransform.transform(target);
-            return add(stringPattern, result);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("Failed to add <" + stringPattern + "> => <" + target + ">", e);
-        }
     }
 
     /**
@@ -399,5 +377,12 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
             last = pos + 2;
         }
         return result.toString();
+    }
+
+    /**
+     * @return the number of entries
+     */
+    public int size() {
+        return entries.size();
     }
 }

@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-01-24</span></td>
+			<td><span class="changed">2013-01-31</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -183,7 +183,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<li>5.9 <a href="#Date_Elements">Date Elements</a>
 			<ul class="toc">
 				<li>5.9.1 <a href="#Calendar_Elements">Calendar Elements</a></li>
-				<li>5.9.2 <a href="#Timezone_Names">Time Zone Names</a></li>
+				<li><span class="changed">5.9.2 <a href="#Calendar_Fields">Calendar Fields</a></span></li>
+				<li><span class="changed">5.9.3</span> <a href="#Timezone_Names">Time Zone Names</a></li>
 			</ul>
 			</li>
 			<li>5.10 <a href="#Number_Elements">Number Elements</a><ul class="toc">
@@ -2029,10 +2030,11 @@ The index Separator can be used to separate the index characters if they occur i
 	<p>The measurement element is deprecated in the main LDML files, because the data is more appropriately organized as connected to territories, not to linguistic 
 	data. Instead, the measurementData element in the supplemental data file should be used.</p>
 	<h3>5.9 <a name="Date_Elements">Date Elements</a></h3>
-	<p class="dtd">&lt;!ELEMENT dates (alias | (localizedPatternChars*, dateRangePattern*, calendars?, timeZoneNames?, special*)) &gt;</p>
+	<p class="dtd">&lt;!ELEMENT dates (alias | (localizedPatternChars*, dateRangePattern*, calendars?, <span class="changed">fields?, </span>timeZoneNames?, special*)) &gt;</p>
 	<p>This top-level element contains information regarding the format and parsing of dates and times. The data format is based on the Java/ICU format. Most of 
 	these are fairly self-explanatory, except the<i> week </i>elements<i>,</i> <i>localizedPatternChars</i>, and the meaning of the pattern characters. For information 
 	on this, and more information on other elements and attributes, see <i><a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a></i>.</p>
+
 	<h4>5.9.1 <a name="Calendar_Elements">Calendar Elements</a></h4>
 	<p class="dtd">
 	&lt;!ELEMENT calendars (alias | (default*, calendar*, special*)) &gt;<br>
@@ -2044,6 +2046,8 @@ The index Separator can be used to separate the index characters if they occur i
 	is no universally-accepted numeric designation.</p>
 	<p><b>Note: </b>Use of a default element for calendars is deprecated. The default calendar type for a locale is specified by
 	<i>C.15 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>.</p>
+	<p><span class="changed"><b>Note: </b>Use of a &lt;fields&gt; element under a calendar element is deprecated; instead, a &lt;fields&gt; element
+	should be located just under a &lt;dates&gt; element.</span></p>
 	<p>Many calendars will only differ from the Gregorian Calendar in the year and era values. For example, the Japanese calendar will have many more eras (one 
 	for each Emperor), and the years will be numbered within that era. All calendar data inherits from the Gregorian calendar in the same locale data (if not present 
 	in the chain up to root), so only the differing data will be present. See <i>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></i>.</p>
@@ -2607,7 +2611,13 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
 	<p class="dtd">&lt;!ELEMENT week (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, special*))&gt;</p>
 	<p class="note">The week element is deprecated in the main LDML files, because the data is more appropriately organized as connected to territories, not to 
 	linguistic data. Instead, the similar element in the supplemental data file should be used.</p>
-	<p class="note"><a name="Calendar_Fields">Calendar Fields</a></p>
+	<p><span class="dtd">&lt;!ELEMENT dateRangePattern ( #PCDATA ) &gt;</span> (deprecated)</p>
+	<p>The dateRangePattern allows the specification of a date range, such as &quot;May 7 - Aug. 3&quot;. For 
+	example, here is the format for English:</p>
+	<pre>&lt;dateRangePattern&gt;{0} - {1}&lt;/dateRangePattern&gt;</pre>
+	<p>The dateRangePattern element is deprecated, use intervalFormats instead.</p>
+
+	<h4><span class="changed">5.9.2 <a name="Calendar_Fields">Calendar Fields</a></span></h4>
 	<p class="dtd">&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
 	&lt;!ELEMENT field ( alias | (displayName?, relative*, special*)) &gt;</p>
 	<p>Translations may be supplied for names of calendar fields (elements of a calendar, such as Day, Month, Year, Hour, 
@@ -2615,21 +2625,21 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
 	fields (for example, the day with
 	relative value -1 is &quot;Yesterday&quot;). Where there is not a convenient, customary word or phrase in a particular language for a relative value, it should be omitted.</p>
 	<p>Here are examples for English and German. Notice that the German has more fields than the English does.</p>
-	<pre>&lt;calendar&gt;
-  &lt;fields&gt;
-...
+	<pre><span class="removed">&lt;calendar&gt;
+</span>  &lt;fields&gt;
+   ...
    &lt;field type=&#39;day&#39;&gt;
     &lt;displayName&gt;Day&lt;/displayName&gt;
     &lt;relative type=&#39;-1&#39;&gt;Yesterday&lt;/relative&gt;
     &lt;relative type=&#39;0&#39;&gt;Today&lt;/relative&gt;
     &lt;relative type=&#39;1&#39;&gt;Tomorrow&lt;/relative&gt;
    &lt;/field&gt;
-...
+   ...
   &lt;/fields&gt;
-&lt;/calendars&gt;</pre>
-	<pre>&lt;calendar&gt;
-  &lt;fields&gt;
-...
+<span class="removed">&lt;/calendars&gt;</span></pre>
+	<pre><span class="removed">&lt;calendar&gt;
+</span>  &lt;fields&gt;
+   ...
    &lt;field type=&#39;day&#39;&gt;
     &lt;displayName&gt;Tag&lt;/displayName&gt;
     &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;
@@ -2638,15 +2648,11 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
     &lt;relative type=&#39;1&#39;&gt;Morgen&lt;/relative&gt;
     &lt;relative type=&#39;2&#39;&gt;Übermorgen&lt;/relative&gt;
    &lt;/field&gt;
-...
+   ...
   &lt;/fields&gt;
-&lt;/calendars&gt;</pre>
-	<p><span class="dtd">&lt;!ELEMENT dateRangePattern ( #PCDATA ) &gt;</span> (deprecated)</p>
-	<p>The dateRangePattern allows the specification of a date range, such as &quot;May 7 - Aug. 3&quot;. For 
-	example, here is the format for English:</p>
-	<pre>&lt;dateRangePattern&gt;{0} - {1}&lt;/dateRangePattern&gt;</pre>
-	<p>The dateRangePattern element is deprecated, use intervalFormats instead.</p>
-	<h4>5.9.2 <a name="Timezone_Names">Time Zone Names</a></h4>
+<span class="removed">&lt;/calendars&gt;</span></pre>
+
+	<h4><span class="changed">5.9.3</span> <a name="Timezone_Names">Time Zone Names</a></h4>
 	<p class="dtd">&lt;!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*,
 	gmtZeroFormat*, regionFormat*, fallbackFormat*, fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, 
 	singleCountries*, default*, zone*, metazone*, special*)) &gt;<br>
@@ -2823,7 +2829,7 @@ language may not be in common usage in a particular territory.</p>
 		see <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i> and the zone section of the
 		<i><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</i></p>
 	</blockquote>
-	<h4>Section 5.9.2.1 Metazones </h4>
+	<h4>Section <span class="changed">5.9.3</span>.1 Metazones </h4>
 	<p>A metazone is an grouping of one or more internal TZIDs that 
 	share a common display name in current customary usage, or that have shared a common display name during some particular 
 	time period. For example, the zones <i>Europe/Paris, Europe/Andorra, Europe/Tirane, Europe/Vienna, 
@@ -4238,7 +4244,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 	<p>The following subelement of &lt;metaZones&gt; (<a href="http://unicode.org/cldr/data/common/supplemental/metaZones.xml">metaZones.xml</a>)
 	provides a mapping from a single Unicode time zone id to metazones.  For more information about metazones,
-	See <i>Section 5.9.2 <a href="#Timezone_Names">Time Zone Names</a></i>.</p>
+	See <i>Section <span class="changed">5.9.3</span> <a href="#Timezone_Names">Time Zone Names</a></i>.</p>
 	<pre>&lt;metazoneInfo&gt;
 	&lt;timezone type=&quot;Europe/Andorra&quot;&gt;
 		&lt;usesMetazone mzone=&quot;Europe_Central&quot;/&gt;
@@ -8844,7 +8850,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<td class="noborder" width="730"><i>Various standards define codes that are used as keys or values in Locale Data Markup Language. These include:</i></td>
 		</tr>
 		<tr>
-		  <td class="noborder">[<a name="BCP47">BCP47</a>]</th>
+		  <td class="noborder">[<a name="BCP47">BCP47</a>]</td>
 		  <td class="noborder"><a href="http://www.rfc-editor.org/rfc/bcp/bcp47.txt"> http://www.rfc-editor.org/rfc/bcp/bcp47.txt</a>
 		    <p>The Registry<br>
 		      <a href="http://www.iana.org/assignments/language-subtag-registry">http://www.iana.org/assignments/language-subtag-registry</a></p></td>
@@ -8857,7 +8863,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<a href="http://www.loc.gov/standards/iso639-2/langcodes.html">http://www.loc.gov/standards/iso639-2/langcodes.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ISO1000">ISO1000</a>]</th>
+			<td class="noborder" width="148">[<a name="ISO1000">ISO1000</a>]</td>
 			<td class="noborder" width="730">ISO 1000: SI units and recommendations for the use of their multiples and of certain other units, International Organization for Standardization, 1992.<br>
 			<a href="http://www.iso.org/iso/catalogue_detail?csnumber=5448">http://www.iso.org/iso/catalogue_detail?csnumber=5448</a></td>
 		</tr>
@@ -8967,7 +8973,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<a href="http://www.icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html">http://www.icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ITUE164">ITUE164</a>]</th>
+			<td class="noborder" width="148">[<a name="ITUE164">ITUE164</a>]</td>
 			<td class="noborder" width="730">International Telecommunication Union: List Of ITU Recommendation E.164 Assigned Country Codes<br>
 			available at <a href="http://www.itu.int/opb/publications.aspx?parent=T-SP&amp;view=T-SP2">http://www.itu.int/opb/publications.aspx?parent=T-SP&amp;view=T-SP2</a></td>
 		</tr>
@@ -9043,7 +9049,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Peter Edberg for work on this specification, telephone code data, monthPatterns, cyclicNameSets and contextTransforms.</li>
 		<li>Raymond Wainman and Cibu Johny
           for their work on keyboards.</li>
-		<li>Jennifer Chye for her contributions to the conversion tools.</span></li>
+		<li>Jennifer Chye for her contributions to the conversion tools.</li>
 	</ul>
 <p>Other contributors to CLDR are listed on the <a href="http://www.unicode.org/cldr/">CLDR Project Page</a>.</p>
 	<h2><a name="Modifications">Modifications</a></h2>
@@ -9059,7 +9065,9 @@ decimal?, group?, special*)) &gt;</pre>
       <a href="tr35-collation.html">Collation</a> part of this document.
       The CLDR root collation data files have been moved
       from the UCA data directory into the CLDR repository.</li>
-  <li>The und-u-co-ducet tailoring has been removed.</li>
+    <li>The und-u-co-ducet tailoring has been removed.</li>
+    <li>The &lt;fields&gt; element has been moved from just under the &lt;calendar&gt; element to just under
+      the &lt;dates&gt; element. [ticket <a href="http://unicode.org/cldr/trac/ticket/5512">#5512</a>]</li>
   </ul>
 
   <h3>Revision 29</h3>
@@ -9179,7 +9187,7 @@ decimal?, group?, special*)) &gt;</pre>
 		corrected the statements about when punctuation and symbols cannot be included in exemplar sets, and added a note
 		about use of exemplar sets and number systems to determine character repertoire requirements to support a language.
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/3498">#3498</a>]</li>
-		<li>In <i>Section 5.9.2 <a href="#Timezone_Names">Time Zone Names</a>,</i>
+		<li>In <i>Section <span class="changed">5.9.3</span> <a href="#Timezone_Names">Time Zone Names</a>,</i>
 		added a note recommending use of generic location format in user interfaces for timezone selection,
 		and referring to the Date Field Symbol Table table and Appendix G (where this is also discussed).
 		[ticket <a href="http://unicode.org/cldr/trac/ticket/914">#914</a>]</li>
@@ -9295,7 +9303,7 @@ decimal?, group?, special*)) &gt;</pre>
         	<li>Noted that LRM and RLM can be included in auxiliary or currency exemplars. [ticket #2049]</li>
         	<li>Clarified ordering of encodings in the mapping element for email usage. [ticket #2153]</li>
         </ul></li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.9.2 
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section <span class="changed">5.9.3</span> 
         <a href="#Timezone_Names">Time Zone Names</a>:</i>
         <ul>
         	<li>Note that "GMT", "UT", "UTC" are not allowed as translations of non-GMT timezones. [ticket #1949]</li>
@@ -9389,7 +9397,7 @@ decimal?, group?, special*)) &gt;</pre>
 			<li>Described the format of a date-time format skeleton used with the availableFormats element [ticket #1611].</li>
 			<li>Added descriptions of intervalFormats [ticket #1813].</li>
 		</ul></li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.9.2 <a href="#Timezone_Names">
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section <span class="changed">5.9.3</span> <a href="#Timezone_Names">
 		Time Zone Names</a>,</i> 
 		indicated that timezone IDs are not limited to city names, and corrected/augmented the fallbackFormat examples. [ticket #1604]</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.10.1 <a href="#Number_Symbols">Number Symbols</a>,</i> 

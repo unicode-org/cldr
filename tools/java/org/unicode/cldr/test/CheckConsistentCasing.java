@@ -164,7 +164,6 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         .add("//ldml/dates/calendars/calendar.*/quarters.*format", 16)
         .add("//ldml/dates/calendars/calendar.*/quarters", 17)
         .add("//ldml/.*/relative", 28)
-        .add("//ldml/dates/calendars/calendar.*/fields", 18)
         .add("//ldml/dates/fields", 18)
         .add("//ldml/dates/timeZoneNames/zone.*/exemplarCity", 19)
         .add("//ldml/dates/timeZoneNames/zone.*/short", 20)

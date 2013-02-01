@@ -150,7 +150,7 @@ public class LocaleMapper extends LdmlMapper {
         // some rbPaths (e.g. /calendar/x/DateTimePatterns) have a fixed number
         // of values that must always be present regardless of filtering.
         if (useAltValues || organization != null) {
-            unresolvedFactory = new FilterFactory(factory, organization, useAltValues);
+            unresolvedFactory = FilterFactory.load(factory, organization, useAltValues);
         }
         this.specialFactory = specialFactory;
         this.supplementalDataInfo = supplementalDataInfo;

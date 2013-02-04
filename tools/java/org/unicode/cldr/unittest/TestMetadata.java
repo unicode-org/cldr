@@ -64,19 +64,20 @@ public class TestMetadata extends TestFmwk {
         dtdAttributeOrder.remove("from");
         dtdAttributeOrder.add(dtdAttributeOrder.indexOf("to"), "from");
 
-        checkEquals("Attribute orderings", "CLDRFile", cldrFileAttributeOrder, "DTD", dtdAttributeOrder);
+        checkEquals("Attribute orderings", "CLDRFile.attributeOrdering", cldrFileAttributeOrder, "DTD", dtdAttributeOrder);
 
-        checkEquals("Attribute orderings", "supplemental", metadataAttributeOrder, "DTD", dtdAttributeOrder);
+        checkEquals("Attribute orderings", "supplementalMetadata.xml/supplementalData/metadata/attributeOrder", metadataAttributeOrder, "DTD", dtdAttributeOrder);
     }
 
     private void checkEquals(String title, String firstTitle, Collection<String> cldrFileOrder, String secondTitle,
         Collection<String> dtdAttributeOrder) {
         if (!cldrFileOrder.equals(dtdAttributeOrder)) {
             errln(title + " differ:" + CldrUtility.LINE_SEPARATOR
-                + firstTitle + ": " + cldrFileOrder + CldrUtility.LINE_SEPARATOR
-                + secondTitle + ": " + dtdAttributeOrder + CldrUtility.LINE_SEPARATOR
-                + "to fix, replace in " + firstTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t"
-                + CldrUtility.join(dtdAttributeOrder, " "));
+                + firstTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t" + cldrFileOrder + CldrUtility.LINE_SEPARATOR
+                + secondTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t" + dtdAttributeOrder + CldrUtility.LINE_SEPARATOR
+                + "To fix, replace " + firstTitle + " with" + CldrUtility.LINE_SEPARATOR
+                + "\t" + CldrUtility.join(dtdAttributeOrder, " ") + CldrUtility.LINE_SEPARATOR
+                + "Differences:");
             Differ<String> differ = new Differ<String>(200, 1);
             Iterator<String> oldIt = cldrFileOrder.iterator();
             Iterator<String> newIt = dtdAttributeOrder.iterator();

@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-01-24</span></td>
+			<td><span class="changed">2013-02-05</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -1726,19 +1726,29 @@ Collators are typically internal when they are partial sequences included in oth
 <h4 class="changed">CJK Index Markers</h4>
   <p>Special index markers have been added to the CJK collations for stroke, pinyin, zhuyin, and unihan.
   These markers allow for effective and robust use of indexes for these collations.
-  For example, near the start of the pinyin there is the following:</p>
+  For example, near the start of the pinyin <span class="changed">tailoring</span> there is the following:</p>
   <p>&lt;p&gt; A&lt;/p&gt;&lt;!-- INDEX A --&gt;<br>
     &lt;pc&gt;阿呵𥥩锕𠼞𨉚&lt;/pc&gt;&lt;!-- ā --&gt;</p>
   <p>…</p>
   <p>&lt;pc&gt;翶&lt;/pc&gt;&lt;!-- ao --&gt;<br>
     &lt;p&gt; B&lt;/p&gt;&lt;!-- INDEX B --&gt;</p>
   <p>These indicate the boundaries of &quot;buckets&quot; that can be used for indexing.
-  They are always two characters starting with U+FDD0, and thus will not occur in normal text.
+  They are always two characters starting with <span class="changed">the noncharacter</span> U+FDD0,
+  and thus will not occur in normal text.
   For pinyin the second character is A-Z;
   for unihan it is one of the radicals;
   and for stroke it is a character after U+2800 indicating the number of strokes, such as  ⠁.
   For zhuyin the second character is one of the standard Bopomofo characters
   in the range U+3105 through U+3129.</p>
+
+  <p class="changed">The corresponding bucket label strings are the boundary strings
+  with the leading U+FDD0 removed.
+  For example, the Pinyin boundary string "\uFDD0A" yields the label string "A".</p>
+
+  <p class="changed">However, for stroke order,
+  the label string is the stroke count (second character minus U+2800)
+  as a decimal-digit number followed by &#x5283; (U+5283).
+  For example, the stroke order boundary string "\uFDD0\u2805" yields the label string "5&#x5283;".</p>
 
 <hr>
 	<p class="copyright">Copyright © 2001-2013 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and 

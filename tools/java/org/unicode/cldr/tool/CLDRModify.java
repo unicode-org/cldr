@@ -56,6 +56,7 @@ import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
@@ -1074,7 +1075,6 @@ public class CLDRModify {
             }
         });
 
-
         fixList.add('a', "Fix 0/1", new CLDRFilter() {
             final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
             PluralInfo info;
@@ -1134,17 +1134,49 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('c', "Fix transiton from ZMK to ZMW currency for Zambia", new CLDRFilter() {
+        fixList.add('c', "Fix transiton from an old currency code to a new one", new CLDRFilter() {
             public void handlePath(String xpath) {
-                if (xpath.indexOf("/currency[@type=\"ZMK\"]") < 0 ) {
+                String oldCurrencyCode = "ZMK";
+                String newCurrencyCode = "ZMW";
+                int fromDate = 1968;
+                int toDate = 2012;
+                String leadingParenString = " (";
+                String trailingParenString = ")";
+                String separator = "-";
+                String languageTag = "root";
+
+                if (xpath.indexOf("/currency[@type=\"" + oldCurrencyCode + "\"]") < 0) {
                     return;
                 }
                 String value = cldrFileToFilter.getStringValue(xpath);
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-                String newFullXPath = fullXPath.replace("ZMK", "ZMW");
-                cldrFileToFilter.add(newFullXPath,value);
-                replace(fullXPath, fullXPath, value + " (1968-2012)");
-                
+                String newFullXPath = fullXPath.replace(oldCurrencyCode, newCurrencyCode);
+                cldrFileToFilter.add(newFullXPath, value);
+
+                // Exceptions for locales that use an alternate numbering system or a different format for the dates at
+                // the end.
+                // Add additional ones as necessary
+                String localeID = cldrFileToFilter.getLocaleID();
+                if (localeID.equals("ne")) {
+                    languageTag = "root-u-nu-deva";
+                } else if (localeID.equals("bn")) {
+                    languageTag = "root-u-nu-beng";
+                } else if (localeID.equals("ar")) {
+                    leadingParenString = " - ";
+                    trailingParenString = "";
+                } else if (localeID.equals("fa")) {
+                    languageTag = "root-u-nu-arabext";
+                    separator = Utility.unescape(" \\u062A\\u0627 ");
+                }
+
+                NumberFormat nf = NumberFormat.getInstance(ULocale.forLanguageTag(languageTag));
+                nf.setGroupingUsed(false);
+
+                String tagString = leadingParenString + nf.format(fromDate) + separator + nf.format(toDate)
+                    + trailingParenString;
+
+                replace(fullXPath, fullXPath, value + tagString);
+
             }
         });
 

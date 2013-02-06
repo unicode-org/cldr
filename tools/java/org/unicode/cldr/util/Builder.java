@@ -384,6 +384,14 @@ public final class Builder {
             return this;
         }
 
+        public MBuilder<K, V, M> putAll(K[][] m) {
+            for (K[] pair : m) {
+                put(pair[0], (V)(pair[1]));
+            }
+            keys = null;
+            return this;
+        }
+
         public MBuilder<K, V, M> putAllTransposed(Map<? extends V, ? extends K> m) {
             for (Entry<? extends V, ? extends K> keyValue : m.entrySet()) {
                 put(keyValue.getValue(), keyValue.getKey());

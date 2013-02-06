@@ -1659,18 +1659,18 @@ public class ConvertLanguageData {
         }
     };
 
-    public static class InverseComparator implements Comparator<String> {
-        private Comparator other;
+    public static class InverseComparator<T> implements Comparator<T> {
+        private Comparator<T> other;
 
         public InverseComparator() {
             this.other = null;
         }
 
-        public InverseComparator(Comparator other) {
+        public InverseComparator(Comparator<T> other) {
             this.other = other;
         }
 
-        public int compare(String a, String b) {
+        public int compare(T a, T b) {
             return other == null
                 ? ((Comparable) b).compareTo(a)
                 : other.compare(b, a);

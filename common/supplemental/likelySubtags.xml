@@ -4,6 +4,13 @@
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <likelySubtags>
+    	<!-- Additions from tests. Will need to check that tool generates -->
+		<likelySubtag from="bss" to="bss_Latn_CM"/>
+		<likelySubtag from="gez" to="gez_Ethi_ET"/>
+		<likelySubtag from="ken" to="ken_Latn_CM"/>
+		<likelySubtag from="syr" to="syr_Syrc_SY"/>
+		<likelySubtag from="wa" to="wa_Latn_BE"/>
+		<!-- Generated values -->
 		<likelySubtag from="aa" to="aa_Latn_ET"/>
 		<!--{ Afar; ?; ? } => { Afar; Latin; Ethiopia }-->
 		<likelySubtag from="ab" to="ab_Cyrl_GE"/>
@@ -260,7 +267,7 @@
 		<!--{ Kosraean; ?; ? } => { Kosraean; Latin; Micronesia }-->
 		<likelySubtag from="kpe" to="kpe_Latn_LR"/>
 		<!--{ Kpelle; ?; ? } => { Kpelle; Latin; Liberia }-->
-		<likelySubtag from="kpv" to="kpv_Cyrl_RU"/>
+		<likelySubtag from="kv" to="kv_Cyrl_RU"/>
 		<!--{ Komi-Zyrian; ?; ? } => { Komi-Zyrian; Cyrillic; Russia }-->
 		<likelySubtag from="krc" to="krc_Cyrl_RU"/>
 		<!--{ Karachay-Balkar; ?; ? } => { Karachay-Balkar; Cyrillic; Russia }-->
@@ -408,7 +415,7 @@
 		<!--{ Punjabi; ?; Pakistan } => { Punjabi; Arabic; Pakistan }-->
 		<likelySubtag from="pag" to="pag_Latn_PH"/>
 		<!--{ Pangasinan; ?; ? } => { Pangasinan; Latin; Philippines }-->
-		<likelySubtag from="pap" to="pap_Latn_AN"/>
+		<likelySubtag from="pap" to="pap_Latn_BQ"/>
 		<!--{ Papiamento; ?; ? } => { Papiamento; Latin; Netherlands Antilles }-->
 		<likelySubtag from="pau" to="pau_Latn_PW"/>
 		<!--{ Palauan; ?; ? } => { Palauan; Latin; Palau }-->

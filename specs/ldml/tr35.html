@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-01-31</span></td>
+			<td><span class="changed">2013-02-06</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -1966,6 +1966,9 @@ root</pre>
 		are sufficient for this purpose.</p>
   </blockquote>
 <h4>5.6.4 <a name="IndexLabels"></a>Index Labels</h4>
+  <p class="changed"><em>The elements described in this section are
+  not currently used in CLDR data nor in CLDR implementations.
+  These elements should be considered as "beta" and implementers should not depend on them yet.</em></p>
   <p class="dtd">&lt;!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) &gt;</p>
   <p class="dtd">&lt;!ELEMENT indexSeparator ( #PCDATA ) &gt;</p>
   <p class="dtd">&lt;!ELEMENT compressedIndexSeparator ( #PCDATA ) &gt;<br>
@@ -1976,30 +1979,56 @@ root</pre>
   <p class="dtd">&lt;!ELEMENT indexLabel ( #PCDATA ) &gt;<br>
     &lt;!ATTLIST indexLabel indexSource CDATA #IMPLIED &gt;<br>
   &lt;!ATTLIST indexLabel priority ( 1 | 2 | 3 ) #IMPLIED &gt;</p>
-  <p>The index label elements provide information for modifying the index exemplar characters in display. In particular, they are used to indicate how index exemplar characters can be compressed where screen real estate is limited. For example, <span class="example">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</span> can be represented as <span class="example">A • E • I  • N  • S  •  Z</span>.</p>
-The index Separator can be used to separate the index characters if they occur in free flowing text (instead of, say, on buttons or in cells). The default (root) is a space. Where the index is compressed (by omitting values -- see the priority attribute below), the compressedIndexSeparator can be used instead.<br>
-  <br>
-  The indexRangePattern is used for dynamic configuration. That is, if there are few items in X, Y, and Z, they can be grouped into a single bucket with &lt;indexRangePattern&gt;{0}-{1}&lt;/separator&gt;, giving "X-Z". The indexLabel and either be applied to a single string from the exemplars, or to the result of an indexRangePattern; so the localizer can turn "X-Z" into "XYZ" if desired.<br>
-  <br>
-  The indexLabelBefore and After are used before and after a list. The default (root) value is an ellipsis, as in the example at the top. When displaying index characters with multiple scripts, the main language can be used for all characters from the main script. For other scripts there are two possibilities:<br>
+  <p>The index label elements provide information for modifying the index exemplar characters in display.
+  In particular, they are used to indicate how index exemplar characters can be compressed
+  where screen real estate is limited.
+  For example, <span class="example">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</span>
+  can be represented as <span class="example">A • E • I  • N  • S  •  Z</span>.</p>
+
+  <p>The indexSeparator can be used to separate the index characters
+  if they occur in free flowing text
+  (instead of, say, on buttons or in cells).
+  The default (root) is a space.
+  Where the index is compressed (by omitting values &mdash; see the priority attribute below),
+  the compressedIndexSeparator can be used instead.</p>
+  <p>The indexRangePattern is used for dynamic configuration.
+  That is, if there are few items in X, Y, and Z, they can be grouped into a single bucket
+  with &lt;indexRangePattern&gt;{0}-{1}&lt;/separator&gt;, giving "X-Z".
+  The indexLabel can either be applied to a single string from the exemplars,
+  or to the result of an indexRangePattern; so the localizer can turn "X-Z" into "XYZ" if desired.</p>
+  <p>The indexLabelBefore and indexLabelAfter are used before and after a list.
+  The default (root) value is an ellipsis, as in the example at the top.</p>
+  <p>When displaying index characters with multiple scripts,
+  the main language can be used for all characters from the main script.
+  For other scripts there are two possibilities:</p>
   <ol>
     <li>Use the primary characters from the UCA. This has the disadvantage that many very uncommon characters show up.</li>
-    <li>Use the likely-subtags language for each scripts. For example, if the main language is French, and Cyrillic characters are present, then the likely subtags language for Cyrillic is "ru" (derived by looking up "und-Cyrl"). <br>
-    </li>
+    <li>Use the likely-subtags language for each scripts.
+    For example, if the main language is French, and Cyrillic characters are present,
+    then the likely subtags language for Cyrillic is "ru" (derived by looking up "und-Cyrl").</li>
   </ol>
-  The indexLabel is used to display characters (if it is available). That is, when displaying index characters, if there is an indexLabel, use it instead. For example, for Hungarian, we could have A =&gt; "<strong>A, Á</strong>". The priority is used where not all of the index characters can be displayed. In that case, only the higher priorities (lower numbers) would be displayed.<br>
-  <br>
-  Note that the indexLabels can be used both with contiguous ranges and non-contiguous ranges. For German we might have [A-S Sch Sci St Su T-Z] as the index characters, and the following labels:<br>
-    <br>
-  <span class="example">&lt;indexLabel item="Sci"&gt;S&lt;/indexLabel&gt;<br>
-  &lt;indexLabel item="Su"&gt;S&lt;/indexLabel&gt;</span><br>
-  <br>
-  What that means is that the "S" bucket will include anything [S,Sch), [Sci,St), and [Su,T). That is, items are put into the first display bucket that contains them. That allows for the desired behavior in German (and other languages) of:<br>
-  <ul>
+  <p>The indexLabel is used to display characters (if it is available).
+  That is, when displaying index characters,
+  if there is an indexLabel <span class="changed">with non-empty text contents</span>,
+  <span class="removed">use it</span> <span class="changed">display that text</span> instead.
+  For example, for Hungarian, we could have A =&gt; "<strong>A, Á</strong>".</p>
+  <p>The priority is used where not all of the index characters can be displayed.
+  In that case, only the higher priorities (lower numbers) would be displayed.</p>
+  <p class="removed">Note that the indexLabels can be used both with contiguous ranges and non-contiguous ranges.
+  For German we might have [A-S Sch Sci St Su T-Z] as the index characters, and the following labels:</p>
+  <p class="example removed">
+  &lt;indexLabel item="Sci"&gt;S&lt;/indexLabel&gt;<br>
+  &lt;indexLabel item="Su"&gt;S&lt;/indexLabel&gt;</span></p>
+  <p class="removed">What that means is that the "S" bucket will
+  include anything [S,Sch), [Sci,St), and [Su,T).
+  That is, items are put into the first display bucket that contains them.
+  That allows for the desired behavior in German (and other languages) of:</p>
+  <ul class="removed">
     <li>S (contains Satt, Semel, Szent)</li>
-<li>Sch (contains Scherer, Schoen)</li>
-<li>St (contains Stumpf, Sturr)</li>
-</ul>
+    <li>Sch (contains Scherer, Schoen)</li>
+    <li>St (contains Stumpf, Sturr)</li>
+  </ul>
+
   <h4>5.6.5 Ellipsis</h4>
   <p>The ellipsis element provides patterns for use when truncating strings. There are three versions: initial for removing an initial part of the string (leaving final characters); medial for removing from the center of the string (leaving initial and final characters), and final for removing a final part of the string (leaving initial characters). For example, the following uses the ellipsis character in all three cases (although some languages may have different characters for different positions).</p>
   <p>&lt;ellipsis type=&quot;initial&quot;&gt;…{0}&lt;/ellipsis&gt;<br>

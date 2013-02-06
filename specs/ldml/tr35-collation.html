@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-02-05</span></td>
+			<td><span class="changed">2013-02-06</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -1664,9 +1664,32 @@ Collators are typically internal when they are partial sequences included in oth
     normally Ё is in the Е bucket for Russian,
     but if someone used a variant of Russian collation that distinguished them on a primary level,
     then Ё would show up as its own bucket.</li>
-    <li>The behavior for <em>index characters</em> that have multiple primary weights
+    <li class="changed">If an <em>index character</em> string ends with a single "*" (U+002A),
+    for example "Sch*" and "St*" in German,
+    then there will be a separate bucket for the string minus the "*", for example "Sch" and "St",
+    even if that string does not sort distinctly.</li>
+    <li class="removed">The behavior for <em>index characters</em> that have multiple primary weights
     (such as &quot;sch&quot; in German) is currently undefined and not supported.</li>
+    <li class="changed">An <em>index character</em> can have multiple primary weights,
+    for example "Æ" and "Sch".
+    Names that have the same initial primary weights sort into this <em>index character</em>’s bucket.
+    This can be achieved by using an upper-boundary string that is the concatenation of
+    the <em>index character</em> and U+FFFF, for example "Æ\uFFFF" and "Sch\uFFFF".
+    Names that sort greater than this upper boundary but less than the next index character
+    are redirected to the last preceding single-primary index character (A and S for the examples here).</li>
   </ol>
+  <p class="changed">For example, for index characters <code>[A Æ B R S {Sch*} {St*} T]</code>
+  the following sample names are sorted into an index as shown.</p>
+  <ul class="changed">
+    <li>A &mdash; Adelbert, Afrika</li>
+    <li>Æ &mdash; Æsculap, Aesthet</li>
+    <li>B &mdash; Berlin</li>
+    <li>R &mdash; Rilke</li>
+    <li>S &mdash; Sacher, Seiler, Sultan</li>
+    <li>Sch &mdash; Schiller</li>
+    <li>St &mdash; Steiff</li>
+    <li>T &mdash; Thomas</li>
+  </ul>
   <p>The … items are special:
   each is a bucket for everything else, either less or greater.
   They are inserted at the start and end of the index list, <em>and</em> on script boundaries.

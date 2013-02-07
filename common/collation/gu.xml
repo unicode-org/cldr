@@ -8,7 +8,7 @@
 	</identity>
 	<collations validSubLocales="gu_IN">
 		<collation type="standard" references="M. B. Belsare: Gujarati-English Dictionary ISBN:8120600908">
-			<settings normalization="on" />
+			<settings normalization="on" reorder="Gujr Deva Beng Guru Orya Taml Telu Knda Mlym Sinh"/>
 			<rules>
 				<!--
 					The following tailoring is an adjustment of the DUCET collation
@@ -25,7 +25,7 @@
 		</collation>
 		<collation type="standard" references="http://www.eki.ee/wgrs/rom1_gu.pdf"
 			draft="unconfirmed" alt="proposed">
-			<settings normalization="on" />
+			<settings normalization="on" reorder="Gujr Deva Beng Guru Orya Taml Telu Knda Mlym Sinh"/>
 			<rules>
 
 				<!--

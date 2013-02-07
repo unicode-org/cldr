@@ -8,7 +8,7 @@
 	</identity>
 	<collations validSubLocales="hr_BA hr_HR">
 		<collation type="search" >
-			<settings normalization="on" reorder="Latn Cyrl"/>
+			<settings normalization="on"/>
 			<!-- root search, suppress contractions for Thai, Lao -->
 			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
 			<rules>
@@ -173,6 +173,7 @@
 			</rules>
 		</collation>
 		<collation type="standard">
+			<settings reorder="Latn Cyrl"/>
 			<rules>
 				<reset>C</reset>
 				<p>č</p>

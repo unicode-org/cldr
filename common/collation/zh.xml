@@ -9,6 +9,7 @@
 	<collations validSubLocales="zh_Hans zh_Hans_CN zh_Hans_SG">
 		<default type="pinyin" />
         <collation type='pinyin'>
+        	<settings reorder="Hani"/>
             <rules>
                 <reset before="secondary">a</reset>
                 <s>ā</s>
@@ -2661,6 +2662,7 @@
            </rules>
         </collation>
         <collation type='pinyin' alt='short'>
+        	<settings reorder="Hani"/>
             <rules>
                 <reset before="secondary">a</reset>
                 <s>ā</s>
@@ -5208,6 +5210,7 @@
            </rules>
         </collation>
 		<collation type="gb2312han">
+        	<settings reorder="Latn Hani"/><!-- Latin first to match charset order -->
 			<rules>
 				<reset before="secondary">a</reset>
 				<s>ā</s>
@@ -5297,6 +5300,7 @@
 			</rules>
 		</collation>
 		<collation type='stroke'>
+			<settings reorder="Hani Bopo"/>
             <rules>
                 <reset before="secondary">a</reset>
                 <s>ā</s>
@@ -6946,6 +6950,7 @@
            </rules>
         </collation>
         <collation type='stroke' alt='short'>
+			<settings reorder="Hani Bopo"/>
             <rules>
                 <reset before="secondary">a</reset>
                 <s>ā</s>
@@ -8177,6 +8182,7 @@
            </rules>
         </collation>
         <collation type='zhuyin'>
+			<settings reorder="Hani Bopo"/>
             <rules>
                 <!-- ZHUYIN TONES (SPACING) -->
                 <reset><last_primary_ignorable/></reset>
@@ -10816,6 +10822,7 @@
            </rules>
         </collation>
         <collation type='zhuyin' alt='short'>
+			<settings reorder="Hani Bopo"/>
             <rules>
                 <!-- ZHUYIN TONES (SPACING) -->
                 <reset><last_primary_ignorable/></reset>
@@ -13388,6 +13395,7 @@
            </rules>
         </collation>
 		<collation type="big5han">
+			<settings reorder="Latn Hani Bopo"/><!-- Latin first to match charset order -->
 			<rules>
 				<reset before="secondary">a</reset>
 				<s>ā</s>
@@ -13477,6 +13485,7 @@
 			</rules>
 		</collation>
 		<collation type='unihan'>
+			<settings reorder="Hani Bopo"/>
             <rules>
 				<reset before="secondary">a</reset>
 				<s>ā</s>

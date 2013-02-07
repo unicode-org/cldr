@@ -7,7 +7,7 @@
 		<language type="az" /> 
 	</identity>
 		<collations validSubLocales="az_Latn az_Latn_AZ">
-			<collation type="search" >
+			<collation type="search">
 				<settings normalization="on"/>
 				<!-- root search, suppress contractions for Thai, Lao -->
 				<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
@@ -168,6 +168,7 @@
 				</rules>
 			</collation>
 			<collation type="standard" >
+				<settings reorder="Latn Cyrl"/>
 				<rules>
 					<reset>C</reset>
 					<p>ç</p>

@@ -8,7 +8,7 @@
 	</identity>
 	<collations  validSubLocales="ja_JP">
 		<collation type="standard">
-			<settings strength="tertiary" hiraganaQuaternary="on"  />
+			<settings strength="tertiary" hiraganaQuaternary="on" reorder="Kana Hani"/>
 			<rules>
 				<reset>ヽ</reset> <!-- \u30FD -->
 				<i>ゝ</i> <!-- \u309D -->
@@ -1212,7 +1212,7 @@
 			</rules>
 		</collation>
 		<collation type="unihan">
-			<settings strength="tertiary" hiraganaQuaternary="on"  />
+			<settings strength="tertiary" hiraganaQuaternary="on" reorder="Kana Hani"/>
 			<rules>
 				<reset>ヽ</reset> <!-- \u30FD -->
 				<i>ゝ</i> <!-- \u309D -->

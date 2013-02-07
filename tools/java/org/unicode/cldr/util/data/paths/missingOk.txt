@@ -1,6 +1,6 @@
 %A = ([^"]*+)
 
-//ldml/dates/timeZoneNames/zone[@type="%A"]/exemplarCity ; ok
+//ldml/dates/timeZoneNames/zone[@type="%A"]/exemplarCity ; latin
 //ldml/numbers/currencies/currency[@type="%A"]/symbol ; ok
 //ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="narrow"]/quarter[@type="%A"] ; ok
 #//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="U[SK]"] ; ok
@@ -10,3 +10,13 @@
 #//ldml/dates/timeZoneNames/gmtZeroFormat ; ok
 //ldml/numbers/defaultNumberingSystem ; ok
 //ldml/numbers/otherNumberingSystems/native ; ok
+//ldml/localeDisplayNames/variants/variant[@type="%A"] ; ok
+//ldml/dates/calendars/calendar[@type="%A"]/.*/default ; ok
+//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="day"]/relative[@type="-?2"]; ok
+
+# TODO check why these are not copied into locales
+//ldml/characters/ellipsis ; ok
+//ldml/characters/moreInformation ; ok
+
+# Why are we generating these?
+//ldml/localeDisplayNames/languages/language[@type="(in|iw|ji|jw)"] ; ok

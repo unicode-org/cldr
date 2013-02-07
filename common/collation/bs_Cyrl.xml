@@ -8,6 +8,8 @@
 		<script type="Cyrl" /> 
 	</identity>
 	<collations  validSubLocales="bs_Cyrl_BA">
-		<alias source="sr" path="//ldml/collations"/>
+		<collation type="standard">
+			<rules><import source="sr"/></rules>
+		</collation>
     </collations>
 </ldml>

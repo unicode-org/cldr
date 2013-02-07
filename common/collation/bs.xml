@@ -7,6 +7,11 @@
 		<language type="bs" /> 
 	</identity>
 	<collations validSubLocales="bs_Latn bs_Latn_BA">
-		<alias source="hr" path="//ldml/collations"/>
+		<collation type="search">
+			<rules><import source="hr" type="search"/></rules>
+		</collation>
+		<collation type="standard">
+			<rules><import source="hr"/></rules>
+		</collation>
 	</collations>
 </ldml>

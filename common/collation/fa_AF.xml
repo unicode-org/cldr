@@ -7,7 +7,9 @@
 		<language type="fa" /> 
 		<territory type="AF" /> 
 	</identity>
-		<collations>
-      <alias source="ps" path="//ldml/collations"/>
-		</collations>
+	<collations>
+		<collation type="standard">
+			<rules><import source="ps"/></rules>
+		</collation>
+	</collations>
 </ldml>

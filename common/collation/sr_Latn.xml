@@ -8,6 +8,11 @@
 		<script type="Latn" /> 
 	</identity>
 	<collations validSubLocales="sr_Latn_RS sr_Latn_BA sr_Latn_ME">
-		<alias source="hr" path="//ldml/collations"/>
+		<collation type="search">
+			<rules><import source="hr" type="search"/></rules>
+		</collation>
+		<collation type="standard">
+			<rules><import source="hr"/></rules>
+		</collation>
 	</collations>
 </ldml>

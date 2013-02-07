@@ -245,7 +245,6 @@ public class DisplayAndInputProcessor {
 
             // check specific cases
             if (path.contains("/exemplarCharacters")) {
-                final String iValue = value;
                 // clean up the user's input.
                 // first, fix up the '['
                 value = value.trim();
@@ -274,6 +273,11 @@ public class DisplayAndInputProcessor {
                 if (value.equals("NONE")) {
                     value = "";
                 }
+            }
+
+            // Normalize ellipsis data.
+            if (path.startsWith("//ldml/characters/ellipsis")) {
+                value = value.replace("...", "…");
             }
             return value;
         } catch (RuntimeException e) {

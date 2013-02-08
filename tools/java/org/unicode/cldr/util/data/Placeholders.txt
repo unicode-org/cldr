@@ -114,13 +114,13 @@
 ^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 
-^//ldml/units/unit\[@type="day%A"]/unitPattern\[@count="\d+"] ; optional ; {0}=NUMBER_OF_DAYS 3
-^//ldml/units/unit\[@type="hour%A"]/unitPattern\[@count="\d+"] ; optional ; {0}=NUMBER_OF_HOURS 3
-^//ldml/units/unit\[@type="minute%A"]/unitPattern\[@count="\d+"] ; optional ; {0}=NUMBER_OF_MINUTES 3
-^//ldml/units/unit\[@type="month%A"]/unitPattern\[@count="\d+"] ; optional ; {0}=NUMBER_OF_MONTHS 3
-^//ldml/units/unit\[@type="second%A"]/unitPattern\[@count="\d+"] ; optional ; {0}=NUMBER_OF_SECONDS 3
-^//ldml/units/unit\[@type="week%A"]/unitPattern\[@count="\d+"] ; optional ; {0}=NUMBER_OF_WEEKS 3
-^//ldml/units/unit\[@type="year%A"]/unitPattern\[@count="\d+"] ; optional ; {0}=NUMBER_OF_YEARS 3
+^//ldml/units/unit\[@type="day%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
+^//ldml/units/unit\[@type="hour%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3
+^//ldml/units/unit\[@type="minute%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MINUTES 3
+^//ldml/units/unit\[@type="month%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
+^//ldml/units/unit\[@type="second%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3
+^//ldml/units/unit\[@type="week%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/units/unit\[@type="year%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_YEARS 3
 
 ^//ldml/units/unit\[@type="day%A"]/unitPattern ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/units/unit\[@type="hour%A"]/unitPattern ; {0}=NUMBER_OF_HOURS 3

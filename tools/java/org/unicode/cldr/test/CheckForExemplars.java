@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.XMLSource;
 
@@ -29,6 +30,7 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -114,9 +116,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     private static UnicodeSet ASCII = (UnicodeSet) new UnicodeSet("[\\u0020-\\u007F]").freeze();
 
-    static final Pattern IS_COUNT_ZERO_ONE_TWO = Pattern.compile("/units.*\\[@count=\"(zero|one|two)\"");
-    private Matcher isCountZeroOneTwo = IS_COUNT_ZERO_ONE_TWO.matcher("");
-    private boolean hasSpecialPlurals;
     private PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();
 
     public CheckForExemplars(Factory factory) {
@@ -153,7 +152,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             return this;
         }
         String locale = cldrFile.getLocaleID();
-        hasSpecialPlurals = locale.equals("ar") || locale.startsWith("ar_");
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
         spaceCol.setStrength(Collator.PRIMARY);
@@ -249,9 +247,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         boolean supposedToHaveMessageFormatFields =
             // supposedToBeMessageFormat.reset(path).find()
-            placeholders != null
-                && !(hasSpecialPlurals
-                && isCountZeroOneTwo.reset(path).find());
+            placeholders != null;
 
         if (supposedToHaveMessageFormatFields) {
             if (placeholderBuffer.length() > 0) {
@@ -268,7 +264,20 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                     placeholderBuffer.append(", ").append(placeholder);
                 }
             }
-            if (placeholderBuffer.length() > 0 && placeholderStatus == PlaceholderStatus.REQUIRED) {
+            boolean placeholdersMissing = false;
+            if (placeholderBuffer.length() > 0) {
+                // Check 
+                if (placeholderStatus == PlaceholderStatus.LOCALE_DEPENDENT && path.contains("[@count=")) {
+                    PluralRules rules = PluralRules.forLocale(new ULocale(getCldrFileToCheck().getLocaleID()));
+                    XPathParts parts = new XPathParts();
+                    parts.set(path);
+                    String keyword = parts.getAttributeValue(-1, "count");
+                    placeholdersMissing = rules.getUniqueKeywordValue(keyword) == PluralRules.NO_UNIQUE_VALUE;
+                } else {
+                    placeholdersMissing = placeholderStatus == PlaceholderStatus.REQUIRED;
+                }
+            }
+            if (placeholdersMissing) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.missingPlaceholders)
                     .setMessage("This message pattern is missing placeholder(s){0}. See the English for an example.",

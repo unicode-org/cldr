@@ -13,7 +13,7 @@ import com.ibm.icu.text.Transform;
 public class PatternPlaceholders {
 
     public enum PlaceholderStatus {
-        DISALLOWED, OPTIONAL, REQUIRED
+        DISALLOWED, OPTIONAL, LOCALE_DEPENDENT, REQUIRED
     }
 
     private static class PlaceholderData {
@@ -68,6 +68,9 @@ public class PatternPlaceholders {
                 for (String part : parts) {
                     if (part.equals("optional")) {
                         result.status = PlaceholderStatus.OPTIONAL;
+                        continue;
+                    } else if (part.equals("locale")) {
+                        result.status = PlaceholderStatus.LOCALE_DEPENDENT;
                         continue;
                     }
                     int equalsPos = part.indexOf('=');

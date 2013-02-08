@@ -603,7 +603,7 @@ public class SurveyAjax extends HttpServlet {
         return ret.toString();
     }
 
-    public static boolean has(List<CheckStatus> result, String type) {
+    public static boolean has(List<CheckStatus> result, CheckStatus.Type type) {
         if (result != null) {
             for (CheckStatus s : result) {
                 if (s.getType().equals(type)) {

@@ -12,7 +12,7 @@ import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.util.TimeZone;
 
 public class Containment {
-    static final Relation<String, String> containmentCore = PathHeader.supplementalDataInfo
+    static final Relation<String, String> containmentCore = SupplementalDataInfo.getInstance()
         .getContainmentCore();
     static final Set<String> continents = containmentCore.get("001");
     static final Set<String> subcontinents;
@@ -23,7 +23,7 @@ public class Containment {
         }
         subcontinents = Collections.unmodifiableSet(temp);
     }
-    static final Relation<String, String> containmentFull = PathHeader.supplementalDataInfo
+    static final Relation<String, String> containmentFull = SupplementalDataInfo.getInstance()
         .getTerritoryToContained();
     static final Relation<String, String> containedToContainer = Relation
         .of(new HashMap<String, Set<String>>(),
@@ -76,10 +76,17 @@ public class Containment {
      */
     public static String getContinent(String territory) {
         while (true) {
-            if (territory.equals("001") || territory.equals("ZZ") || continents.contains(territory)) {
+            if (territory == null 
+                || territory.equals("001") 
+                || territory.equals("ZZ") 
+                || continents.contains(territory)) {
                 return territory;
             }
-            territory = getContainer(territory);
+            String newTerritory = getContainer(territory);
+            if (newTerritory == null) {
+                return territory;
+            }
+            territory = newTerritory;
         }
     }
 
@@ -91,8 +98,10 @@ public class Containment {
      */
     public static String getSubcontinent(String territory) {
         while (true) {
-            if (territory.equals("001") || territory.equals("ZZ")
-                || continents.contains(territory) || subcontinents.contains(territory)) {
+            if (territory.equals("001") 
+                || territory.equals("ZZ")
+                || continents.contains(territory) 
+                || subcontinents.contains(territory)) {
                 return territory;
             }
             territory = getContainer(territory);

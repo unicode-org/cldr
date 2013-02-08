@@ -336,6 +336,18 @@ public class DisplayAndInputProcessor {
     static Pattern NEEDS_QUOTE1 = Pattern.compile("(\\s|$)([-\\}\\]\\&])()");
     static Pattern NEEDS_QUOTE2 = Pattern.compile("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
+    public enum DatetimePatternType {NA, STOCK, AVAILABLE, INTERVAL, GMT}
+    
+    public static DatetimePatternType getDatetimePatternType(String path) {
+        return !path.contains("/dates") ? DatetimePatternType.NA
+            : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats")) ? DatetimePatternType.STOCK
+                : path.contains("/dateFormatItem") ? DatetimePatternType.AVAILABLE
+                    : path.contains("/intervalFormatItem") ? DatetimePatternType.INTERVAL
+                        : path.contains("/timeZoneNames/hourFormat") ? DatetimePatternType.GMT
+                            : DatetimePatternType.NA;
+    }
+    
+    // TODO rewire to use above
     public static boolean hasDatetimePattern(String path) {
         return path.indexOf("/dates") >= 0
             && ((path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0)

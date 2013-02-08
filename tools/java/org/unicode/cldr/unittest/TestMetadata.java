@@ -32,15 +32,15 @@ public class TestMetadata extends TestFmwk {
 
         List<String> dtdElementOrder = order.getElementOrder();
         List<String> cldrFileElementOrder = CLDRFile.getElementOrder();
-        checkEquals("Element orderings", "CLDRFile", cldrFileElementOrder, "DTD", dtdElementOrder);
+        checkEquals("LDML element order", "CLDRFile.elementOrdering", cldrFileElementOrder, "DTD", dtdElementOrder);
 
         List<String> metadataElementOrder = testInfo.getSupplementalDataInfo().getElementOrder();
-        checkEquals("Element orderings", "supplemental", metadataElementOrder, "DTD", dtdElementOrder);
+        checkEquals("Metadata element order", "supplementalMetaData/.../elementOrder", metadataElementOrder, "DTD", dtdElementOrder);
 
         // Then Serial Order
         Set<String> cldrFileSerialElements = new TreeSet<String>(CLDRFile.getSerialElements());
         Set<String> metadataSerialElements = new TreeSet<String>(testInfo.getSupplementalDataInfo().getSerialElements());
-        checkEquals("Serial elements", "metadata", metadataSerialElements, "cldrFile", cldrFileSerialElements);
+        checkEquals("Serial Order", "CLDRFile.orderedElements", metadataSerialElements, "cldrFile", cldrFileSerialElements);
 
         // Then Attributes
         List<String> rawDtdAttributeOrder = order.getAttributeOrder();
@@ -66,7 +66,7 @@ public class TestMetadata extends TestFmwk {
 
         checkEquals("Attribute orderings", "CLDRFile.attributeOrdering", cldrFileAttributeOrder, "DTD", dtdAttributeOrder);
 
-        checkEquals("Attribute orderings", "supplementalMetadata.xml/supplementalData/metadata/attributeOrder", metadataAttributeOrder, "DTD", dtdAttributeOrder);
+        checkEquals("Attribute orderings", "supplementalMetadata/../attributeOrder", metadataAttributeOrder, "DTD", dtdAttributeOrder);
     }
 
     private void checkEquals(String title, String firstTitle, Collection<String> cldrFileOrder, String secondTitle,
@@ -75,7 +75,7 @@ public class TestMetadata extends TestFmwk {
             errln(title + " differ:" + CldrUtility.LINE_SEPARATOR
                 + firstTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t" + cldrFileOrder + CldrUtility.LINE_SEPARATOR
                 + secondTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t" + dtdAttributeOrder + CldrUtility.LINE_SEPARATOR
-                + "To fix, replace " + firstTitle + " with" + CldrUtility.LINE_SEPARATOR
+                + "To fix, replace contents of " + firstTitle + " with" + CldrUtility.LINE_SEPARATOR
                 + "\t" + CldrUtility.join(dtdAttributeOrder, " ") + CldrUtility.LINE_SEPARATOR
                 + "Differences:");
             Differ<String> differ = new Differ<String>(200, 1);
@@ -91,21 +91,21 @@ public class TestMetadata extends TestFmwk {
                 if (differ.getACount() != 0 || differ.getBCount() != 0) {
                     final Object start = differ.getA(-1);
                     if (start.toString().length() != 0) {
-                        logln("..." + CldrUtility.LINE_SEPARATOR + "\tSame: " + start);
+                        errln("..." + CldrUtility.LINE_SEPARATOR + "\tSame: " + start);
                     }
                     for (int i = 0; i < differ.getACount(); ++i) {
-                        logln("\t" + firstTitle + ": " + differ.getA(i));
+                        errln("\t" + firstTitle + ": " + differ.getA(i));
                     }
                     for (int i = 0; i < differ.getBCount(); ++i) {
-                        logln("\t" + secondTitle + ": " + differ.getB(i));
+                        errln("\t" + secondTitle + ": " + differ.getB(i));
                     }
                     final Object end = differ.getA(differ.getACount());
                     if (end.toString().length() != 0) {
-                        logln("Same: " + end + CldrUtility.LINE_SEPARATOR + "\t...");
+                        errln("Same: " + end + CldrUtility.LINE_SEPARATOR + "\t...");
                     }
                 }
             }
-            logln("Done with differences");
+            errln("Done with differences");
 
         }
     }

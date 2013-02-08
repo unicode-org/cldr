@@ -831,8 +831,8 @@
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á à â ä b c {ch} d {dd} e é è ê ë f {ff} g {ng} h i í ì î ï l {ll} m n o ó ò ô ö p {ph} r {rh} s t {th} u ú ù û ü w ẃ ẁ ŵ ẅ y ý ỳ ŷ ÿ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[j k q v x z]</exemplarCharacters>
+		<exemplarCharacters>[a á à â ä b c {ch} d {dd} e é è ê ë f {ff} g {ng} h i í ì î ï j l {ll} m n o ó ò ô ö p {ph} r {rh} s t {th} u ú ù û ü w ẃ ẁ ŵ ẅ y ý ỳ ŷ ÿ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[k q v x z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C {CH} D {DD} E F {FF} G {NG} H I J L {LL} M N O P {PH} R {RH} S T {TH} U W Y]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
@@ -3451,8 +3451,8 @@
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="zero">0 mil</pattern>
-					<pattern type="1000" count="one">0 mil</pattern>
-					<pattern type="1000" count="two">0 mil</pattern>
+					<pattern type="1000" count="one">0 fil</pattern>
+					<pattern type="1000" count="two">0 fil</pattern>
 					<pattern type="1000" count="few">0 mil</pattern>
 					<pattern type="1000" count="many">0 mil</pattern>
 					<pattern type="1000" count="other">0 mil</pattern>
@@ -3469,8 +3469,8 @@
 					<pattern type="100000" count="many">000 mil</pattern>
 					<pattern type="100000" count="other">000 mil</pattern>
 					<pattern type="1000000" count="zero">0 miliwn</pattern>
-					<pattern type="1000000" count="one">0 miliwn</pattern>
-					<pattern type="1000000" count="two">0 miliwn</pattern>
+					<pattern type="1000000" count="one">0 filiwn</pattern>
+					<pattern type="1000000" count="two">0 filiwn</pattern>
 					<pattern type="1000000" count="few">0 miliwn</pattern>
 					<pattern type="1000000" count="many">0 miliwn</pattern>
 					<pattern type="1000000" count="other">0 miliwn</pattern>
@@ -3506,9 +3506,9 @@
 					<pattern type="100000000000" count="other">000 biliwn</pattern>
 					<pattern type="1000000000000" count="zero">0 triliwn</pattern>
 					<pattern type="1000000000000" count="one">0 triliwn</pattern>
-					<pattern type="1000000000000" count="two">0 triliwn</pattern>
-					<pattern type="1000000000000" count="few">0 triliwn</pattern>
-					<pattern type="1000000000000" count="many">0 triliwn</pattern>
+					<pattern type="1000000000000" count="two">0 driliwn</pattern>
+					<pattern type="1000000000000" count="few">0 thriliwn</pattern>
+					<pattern type="1000000000000" count="many">0 thriliwn</pattern>
 					<pattern type="1000000000000" count="other">0 triliwn</pattern>
 					<pattern type="10000000000000" count="zero">00 triliwn</pattern>
 					<pattern type="10000000000000" count="one">00 triliwn</pattern>

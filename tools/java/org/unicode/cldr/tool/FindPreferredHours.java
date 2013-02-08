@@ -18,16 +18,17 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.PreferredAndAllowedHour;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
-import org.unicode.cldr.util.With;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSet.ComparisonStyle;
 
 public class FindPreferredHours {
     private static TestInfo INFO = TestInfo.getInstance();
@@ -102,40 +103,10 @@ public class FindPreferredHours {
             return obj instanceof Hours && compareTo((Hours)obj) == 0;
         }
     }
-    static final class PreferredAndAllowedHour implements Comparable<PreferredAndAllowedHour> {
-        public PreferredAndAllowedHour(char preferred, Set<Character> allowed) {
-            if (!allowed.contains(preferred)) {
-                throw new IllegalArgumentException("Allowed (" + allowed + 
-                    ") must contain preferred(" + preferred +
-                    ")");
-            }
-            this.allowed = allowed;
-            this.preferred = preferred;
-        }
-        final char preferred;
-        final Set<Character> allowed;
-        @Override
-        public int compareTo(PreferredAndAllowedHour arg0) {
-            if (preferred < arg0.preferred) return -1;
-            if (preferred > arg0.preferred) return 1;
-            return UnicodeSet.compare(allowed, arg0.allowed, ComparisonStyle.LONGER_FIRST);
-        }
-        @Override
-        public String toString() {
-            // TODO Auto-generated method stub
-            return preferred + ":" + allowed;
-        }
-        @Override
-        public boolean equals(Object obj) {
-            return obj instanceof PreferredAndAllowedHour && compareTo((PreferredAndAllowedHour)obj) == 0;
-        }
-    }
-
     public static void main(String[] args) {
         final Relation<String,Hours> lang2Hours = Relation.of(new TreeMap<String,Set<Hours>>(), TreeSet.class);
         final Factory factory = INFO.getCldrFactory();
         final FormatParser formatDateParser = new FormatParser();
-        final UnicodeSet HOURS = new UnicodeSet("[hHkK]");
         final LikelySubtags likely2Max = new LikelySubtags(INFO.getSupplementalDataInfo());
 
         for (final String locale : factory.getAvailable()) {
@@ -160,7 +131,7 @@ public class FindPreferredHours {
                     if (item instanceof VariableField) {
                         String itemString = item.toString();
                         char c = itemString.charAt(0);
-                        if (HOURS.contains(c)) {
+                        if (PreferredAndAllowedHour.HOURS.contains(c)) {
                             lang2Hours.put(locale, new Hours(type, itemString));
                         }
                     }

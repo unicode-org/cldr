@@ -816,6 +816,7 @@ public class SupplementalDataInfo {
     }
 
     Map<MeasurementType, Map<String, String>> measurementData = new HashMap<MeasurementType, Map<String, String>>();
+    Map<String, PreferredAndAllowedHour> timeData = new HashMap<String, PreferredAndAllowedHour>();
 
     public Relation<String, String> getAlpha3TerritoryMapping() {
         return alpha3TerritoryMapping;
@@ -1007,7 +1008,8 @@ public class SupplementalDataInfo {
 
         deprecated = CldrUtility.protectCollection(deprecated);
         measurementData = CldrUtility.protectCollection(measurementData);
-
+        timeData = CldrUtility.protectCollection(timeData);
+        
         validityInfo = CldrUtility.protectCollection(validityInfo);
     }
 
@@ -1129,7 +1131,11 @@ public class SupplementalDataInfo {
                     if (handleMeasurementData(level2)) {
                         return;
                     }
-                }
+                } else if (level1.equals("timeData")) {
+                    if (handleTimeData(level2)) {
+                        return;
+                    }
+                }        
 
                 // capture elements we didn't look at, since we should cover everything.
                 // this helps for updates
@@ -1159,6 +1165,22 @@ public class SupplementalDataInfo {
             }
             for (String territory : territories.trim().split("\\s+")) {
                 data.put(territory, type);
+            }
+            return true;
+        }
+        
+        private boolean handleTimeData(String level2) {
+            /**
+             *  <hours preferred="H" allowed="H" regions="IL RU"/>
+             */
+            String preferred = parts.getAttributeValue(-1, "preferred");
+            //String[] allowed = parts.getAttributeValue(-1, "allowed").trim().split("\\s+");
+            PreferredAndAllowedHour preferredAndAllowedHour = new PreferredAndAllowedHour(preferred, parts.getAttributeValue(-1, "allowed"));
+            for (String region : parts.getAttributeValue(-1, "regions").trim().split("\\s+")) {
+                PreferredAndAllowedHour oldValue = timeData.put(region, preferredAndAllowedHour);
+                if (oldValue != null) {
+                    throw new IllegalArgumentException("timeData/hours must not have duplicate regions: " + region);
+                }
             }
             return true;
         }
@@ -2984,5 +3006,9 @@ public class SupplementalDataInfo {
             baseToDefaultContent = Collections.unmodifiableMap(p2c); // wo -> wo_Arab_SN
             defaultContentToBase = Collections.unmodifiableMap(c2p); // wo_Arab_SN -> wo
         }
+    }
+
+    public Map<String, PreferredAndAllowedHour> getTimeData() {
+        return timeData;
     }
 }

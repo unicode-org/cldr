@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -25,6 +26,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
@@ -42,6 +44,23 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public static void main(String[] args) {
         new TestSupplementalInfo().run(args);
+    }
+    
+    public void TestTimeData() {
+        Map<String, PreferredAndAllowedHour> timeData = testInfo.getSupplementalDataInfo().getTimeData();
+        Set<String> regionsSoFar = new HashSet<String>();
+        for (Entry<String, PreferredAndAllowedHour> e : timeData.entrySet()) {
+            String region = e.getKey();
+            PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
+            if (!preferredAndAllowedHour.allowed.contains(preferredAndAllowedHour.preferred)) {
+                errln(region + ": " + preferredAndAllowedHour.allowed + "must contain" + preferredAndAllowedHour.preferred);
+            }
+            for (Character c : preferredAndAllowedHour.allowed) {
+                if (!PreferredAndAllowedHour.HOURS.contains(c)) {
+                    errln(region + ": illegal character in " + preferredAndAllowedHour.allowed + ". It contains " + c + " which is not in " + PreferredAndAllowedHour.HOURS);
+                }
+            }
+        }
     }
 
     public void TestAliases() {

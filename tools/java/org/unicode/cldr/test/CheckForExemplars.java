@@ -437,7 +437,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     static final String TEST = "؉";
 
-    private void addMissingMessage(UnicodeSet missing, String warningVsError, Subtype subtype, Subtype subtypeAscii,
+    private void addMissingMessage(UnicodeSet missing, CheckStatus.Type warningVsError, Subtype subtype, Subtype subtypeAscii,
         String qualifier, List<CheckStatus> result) {
         String fixedMissing = prettyPrint.format(missing);
         BitSet scripts = new BitSet();

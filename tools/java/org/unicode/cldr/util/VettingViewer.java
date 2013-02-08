@@ -379,7 +379,7 @@ public class VettingViewer<T> {
                 if (cause instanceof CheckCoverage || cause instanceof CheckNew) {
                     continue;
                 }
-                String statusType = checkStatus.getType();
+                CheckStatus.Type statusType = checkStatus.getType();
                 if (statusType.equals(CheckStatus.errorType)) {
                     // throw away any accumulated warning messages
                     if (result0 == Status.warning) {

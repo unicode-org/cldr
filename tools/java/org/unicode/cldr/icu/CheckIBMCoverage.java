@@ -348,7 +348,7 @@ public class CheckIBMCoverage extends CLDRConverterTool {
             for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext();) {
                 CheckStatus status = (CheckStatus) it3.next();
                 // String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
-                String statusType = status.getType();
+                CheckStatus.Type statusType = status.getType();
 
                 if (statusType.equals(CheckStatus.errorType)) {
                     fw.write(fullPath + " : Untranslated. " + status.getMessage());

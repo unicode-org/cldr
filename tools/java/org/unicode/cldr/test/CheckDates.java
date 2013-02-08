@@ -326,7 +326,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     PathHeader pathHeader = pathHeaderFactory.fromPath(path2);
                     others.add(pathHeader.getHeaderCode());
                 }
-                String statusType = CheckStatus.errorType;
+                CheckStatus.Type statusType = CheckStatus.errorType;
                 result.add(new CheckStatus()
                     .setCause(this)
                     .setMainType(statusType)

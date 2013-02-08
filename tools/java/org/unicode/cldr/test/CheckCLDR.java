@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005, International Business Machines Corporation and        *
+ * Copyright (C) 2005-2013, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -14,14 +14,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
@@ -56,7 +54,6 @@ import com.ibm.icu.text.Transliterator;
  */
 abstract public class CheckCLDR {
     private static CLDRFile displayInformation;
-    public static String finalErrorType = CheckStatus.errorType;
 
     private CLDRFile cldrFileToCheck;
     private boolean skipTest = false;
@@ -312,13 +309,13 @@ abstract public class CheckCLDR {
                 return previous;
             }
             for (CheckStatus item : value.getCheckStatusList()) {
-                String type = item.getType();
-                if (type.equals(CheckStatus.errorType)) {
+                CheckStatus.Type type = item.getType();
+                if (type.equals(CheckStatus.Type.Error)) {
                     if (item.getSubtype() != Subtype.dateSymbolCollision
                         && item.getSubtype() != Subtype.displayCollision) {
                         return ValueStatus.ERROR;
                     }
-                } else if (type.equals(CheckStatus.warningType)) {
+                } else if (type.equals(CheckStatus.Type.Warning)) {
                     previous = ValueStatus.WARNING;
                 }
             }
@@ -469,13 +466,13 @@ abstract public class CheckCLDR {
      * Status value returned from check
      */
     public static class CheckStatus {
-        public static final String
-            alertType = "Comment",
-            warningType = "Warning",
-            errorType = "Error",
-            exampleType = "Example",
-            demoType = "Demo";
+        public static final Type alertType = Type.Comment,
+            warningType = Type.Warning,
+            errorType = Type.Error,
+            exampleType = Type.Example,
+            demoType = Type.Demo;
 
+        public enum Type { Comment, Warning, Error, Example, Demo };
         public enum Subtype {
             none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale,
             incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel,
@@ -507,7 +504,7 @@ abstract public class CheckCLDR {
             static Pattern TO_STRING = Pattern.compile("([A-Z])");
         };
 
-        private String type;
+        private Type type;
         private Subtype subtype = Subtype.none;
         private String messageFormat;
         private Object[] parameters;
@@ -528,11 +525,11 @@ abstract public class CheckCLDR {
             return this;
         }
 
-        public String getType() {
+        public Type getType() {
             return type;
         }
 
-        public CheckStatus setMainType(String type) {
+        public CheckStatus setMainType(CheckStatus.Type type) {
             this.type = type;
             return this;
         }
@@ -672,7 +669,7 @@ abstract public class CheckCLDR {
          *            the list to check (could be null for empty)
          * @return true if any items in result are of errorType
          */
-        public static boolean hasType(List<CheckStatus> result, String type) {
+        public static boolean hasType(List<CheckStatus> result, Type type) {
             if (result == null) return false;
             for (CheckStatus s : result) {
                 if (s.getType().equals(type)) {

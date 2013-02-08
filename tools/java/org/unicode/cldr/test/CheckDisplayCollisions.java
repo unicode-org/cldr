@@ -239,7 +239,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             // as long as the context ( generic/recurring vs. specific time ) is known.
             // ( JCE: 8/7/2012 )
 
-            String thisErrorType = CheckStatus.errorType;
+            CheckStatus.Type thisErrorType = CheckStatus.errorType;
 
             if (path.contains("timeZoneNames") && collidingTypes.size() == 1) {
                 PathHeader pathHeader = pathHeaderFactory.fromPath(path);

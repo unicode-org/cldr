@@ -420,7 +420,7 @@ public class ConsoleCheckCLDR {
             for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext();) {
                 CheckStatus status = it3.next();
                 String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
-                String statusType = status.getType();
+                CheckStatus.Type statusType = status.getType();
 
                 if (errorsOnly) {
                     if (!statusType.equals(status.errorType)) continue;
@@ -534,7 +534,7 @@ public class ConsoleCheckCLDR {
                     for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext();) {
                         CheckStatus status = it3.next();
                         String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
-                        String statusType = status.getType();
+                        CheckStatus.Type statusType = status.getType();
                         if (errorsOnly && !statusType.equals(CheckStatus.errorType)) continue;
                         if (checkOnSubmit) {
                             if (!status.isCheckOnSubmit() || !statusType.equals(status.errorType)) continue;

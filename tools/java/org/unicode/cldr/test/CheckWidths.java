@@ -77,7 +77,7 @@ public class CheckWidths extends CheckCLDR {
             double valueMeasure = measure == Measure.CODE_POINTS
                 ? value.codePointCount(0, value.length())
                 : ApproximateWidth.getWidth(value);
-            String errorType = CheckStatus.warningType;
+            CheckStatus.Type errorType = CheckStatus.warningType;
             switch (limit) {
             case MINIMUM:
                 if (valueMeasure >= warningReference) {

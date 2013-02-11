@@ -391,6 +391,141 @@
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="short">
+							<day type="sun">Do</day>
+							<day type="mon">Sg</day>
+							<day type="tue">Te</day>
+							<day type="wed">Qu</day>
+							<day type="thu">Qi</day>
+							<day type="fri">Sx</day>
+							<day type="sat">Sb</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Domingo</day>
+							<day type="mon">Segunda-feira</day>
+							<day type="tue">Terça-feira</day>
+							<day type="wed">Quarta-feira</day>
+							<day type="thu">Quinta-feira</day>
+							<day type="fri">Sexta-feira</day>
+							<day type="sat">Sábado</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="short">
+							<day type="sun" draft="provisional">Do</day>
+							<day type="mon" draft="provisional">seg</day>
+							<day type="tue" draft="provisional">Te</day>
+							<day type="wed" draft="provisional">Qu</day>
+							<day type="thu" draft="provisional">Qi</day>
+							<day type="fri" draft="provisional">sex</day>
+							<day type="sat" draft="provisional">sáb</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Domingo</day>
+							<day type="mon">Segunda-feira</day>
+							<day type="tue">Terça-feira</day>
+							<day type="wed">Quarta-feira</day>
+							<day type="thu">Quinta-feira</day>
+							<day type="fri">Sexta-feira</day>
+							<day type="sat">Sábado</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="wide">
+							<quarter type="1">1.º trimestre</quarter>
+							<quarter type="2">2.º trimestre</quarter>
+							<quarter type="3">3.º trimestre</quarter>
+							<quarter type="4">4.º trimestre</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">a.m.</dayPeriod>
+							<dayPeriod type="pm">p.m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">a.m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p.m.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1} 'às' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1} 'às' {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="MMMd" draft="contributed">d/MM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d/MM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d 'de' MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d 'de' MMMM</dateFormatItem>
+						<dateFormatItem id="yMMM">MM/y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="contributed">d/MM/y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, d/MM/y</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd">EEEE, d/MM/y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM 'de' y</dateFormatItem>
+						<dateFormatItem id="yMMMMd">d 'de' MMMM 'de' y</dateFormatItem>
+						<dateFormatItem id="yMMMMEd">E, d 'de' MMMM 'de' y</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQQ 'de' y</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ 'de' y</dateFormatItem>
+						<dateFormatItem id="yyMMM">MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMd">d/MM/yy</dateFormatItem>
+						<dateFormatItem id="yyMMMEd">E, d/MM/yy</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a - h a</greatestDifference>
+							<greatestDifference id="h">h-h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="h">h:mm - h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM-MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y-y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

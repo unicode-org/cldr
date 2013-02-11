@@ -24,6 +24,30 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">Son</day>
+							<day type="mon" draft="unconfirmed">Mos</day>
+							<day type="tue" draft="unconfirmed">Bed</day>
+							<day type="wed" draft="unconfirmed">Rar</day>
+							<day type="thu" draft="unconfirmed">Ne</day>
+							<day type="fri" draft="unconfirmed">Hla</day>
+							<day type="sat" draft="unconfirmed">Mok</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">Sontaga</day>
+							<day type="mon" draft="unconfirmed">Mosupalogo</day>
+							<day type="tue" draft="unconfirmed">Labobedi</day>
+							<day type="wed" draft="unconfirmed">Laboraro</day>
+							<day type="thu" draft="unconfirmed">Labone</day>
+							<day type="fri" draft="unconfirmed">Labohlano</day>
+							<day type="sat" draft="unconfirmed">Mokibelo</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

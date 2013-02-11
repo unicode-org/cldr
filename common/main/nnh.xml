@@ -54,6 +54,124 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">lyɛʼɛ́ sẅíŋtè</day>
+							<day type="mon">mvfò lyɛ̌ʼ</day>
+							<day type="tue">mbɔ́ɔntè mvfò lyɛ̌ʼ</day>
+							<day type="wed">tsètsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="thu">mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="fri">mvfò màga lyɛ̌ʼ</day>
+							<day type="sat">màga lyɛ̌ʼ</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">lyɛʼɛ́ sẅíŋtè</day>
+							<day type="mon">mvfò lyɛ̌ʼ</day>
+							<day type="tue">mbɔ́ɔntè mvfò lyɛ̌ʼ</day>
+							<day type="wed">tsètsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="thu">mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="fri">mvfò màga lyɛ̌ʼ</day>
+							<day type="sat">màga lyɛ̌ʼ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">lyɛʼɛ́ sẅíŋtè</day>
+							<day type="mon">mvfò lyɛ̌ʼ</day>
+							<day type="tue">mbɔ́ɔntè mvfò lyɛ̌ʼ</day>
+							<day type="wed">tsètsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="thu">mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="fri">mvfò màga lyɛ̌ʼ</day>
+							<day type="sat">màga lyɛ̌ʼ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">lyɛʼɛ́ sẅíŋtè</day>
+							<day type="mon">mvfò lyɛ̌ʼ</day>
+							<day type="tue">mbɔ́ɔntè mvfò lyɛ̌ʼ</day>
+							<day type="wed">tsètsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="thu">mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="fri">mvfò màga lyɛ̌ʼ</day>
+							<day type="sat">màga lyɛ̌ʼ</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">lyɛʼɛ́ sẅíŋtè</day>
+							<day type="mon">mvfò lyɛ̌ʼ</day>
+							<day type="tue">mbɔ́ɔntè mvfò lyɛ̌ʼ</day>
+							<day type="wed">tsètsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="thu">mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="fri">mvfò màga lyɛ̌ʼ</day>
+							<day type="sat">màga lyɛ̌ʼ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">lyɛʼɛ́ sẅíŋtè</day>
+							<day type="mon">mvfò lyɛ̌ʼ</day>
+							<day type="tue">mbɔ́ɔntè mvfò lyɛ̌ʼ</day>
+							<day type="wed">tsètsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="thu">mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ</day>
+							<day type="fri">mvfò màga lyɛ̌ʼ</day>
+							<day type="sat">màga lyɛ̌ʼ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">mbaʼámbaʼ</dayPeriod>
+							<dayPeriod type="pm">ncwònzém</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE , 'lyɛ'̌ʼ d 'na' MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>'lyɛ'̌ʼ d 'na' MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/yy GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>HH:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1},{0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
+						<dateFormatItem id="yMEd">E , 'lyɛ'̌ʼ d 'na' M, y</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">'lyɛ'̌ʼ d 'na' MMMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E , 'lyɛ'̌ʼ d 'na' MMM, y</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

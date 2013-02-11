@@ -87,6 +87,134 @@
 	</characters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">Бс</day>
+							<day type="mon" draft="unconfirmed">Бн</day>
+							<day type="tue" draft="unconfirmed">Оп</day>
+							<day type="wed" draft="unconfirmed">Сэ</day>
+							<day type="thu" draft="unconfirmed">Чп</day>
+							<day type="fri" draft="unconfirmed">Бэ</day>
+							<day type="sat" draft="unconfirmed">Сб</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">Б</day>
+							<day type="mon" draft="unconfirmed">Б</day>
+							<day type="tue" draft="unconfirmed">О</day>
+							<day type="wed" draft="unconfirmed">С</day>
+							<day type="thu" draft="unconfirmed">Ч</day>
+							<day type="fri" draft="unconfirmed">Б</day>
+							<day type="sat" draft="unconfirmed">С</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">Баскыһыанньа</day>
+							<day type="mon" draft="unconfirmed">Бэнидиэлинньик</day>
+							<day type="tue" draft="unconfirmed">Оптуорунньук</day>
+							<day type="wed" draft="unconfirmed">Сэрэдэ</day>
+							<day type="thu" draft="unconfirmed">Чэппиэр</day>
+							<day type="fri" draft="unconfirmed">Бээтиҥсэ</day>
+							<day type="sat" draft="unconfirmed">Субуота</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">Бс</day>
+							<day type="mon" draft="unconfirmed">Бн</day>
+							<day type="tue" draft="unconfirmed">Оп</day>
+							<day type="wed" draft="unconfirmed">Сэ</day>
+							<day type="thu" draft="unconfirmed">Чп</day>
+							<day type="fri" draft="unconfirmed">Бэ</day>
+							<day type="sat" draft="unconfirmed">Сб</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">Б</day>
+							<day type="mon" draft="unconfirmed">Б</day>
+							<day type="tue" draft="unconfirmed">О</day>
+							<day type="wed" draft="unconfirmed">С</day>
+							<day type="thu" draft="unconfirmed">Ч</day>
+							<day type="fri" draft="unconfirmed">Б</day>
+							<day type="sat" draft="unconfirmed">С</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">Баскыһыанньа</day>
+							<day type="mon" draft="unconfirmed">Бэнидиэлинньик</day>
+							<day type="tue" draft="unconfirmed">Оптуорунньук</day>
+							<day type="wed" draft="unconfirmed">Сэрэдэ</day>
+							<day type="thu" draft="unconfirmed">Чэппиэр</day>
+							<day type="fri" draft="unconfirmed">Бээтиҥсэ</day>
+							<day type="sat" draft="unconfirmed">Субуота</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">1-кы кб</quarter>
+							<quarter type="2" draft="unconfirmed">2-с кб</quarter>
+							<quarter type="3" draft="unconfirmed">3-с кб</quarter>
+							<quarter type="4" draft="unconfirmed">4-с кб</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="unconfirmed">1</quarter>
+							<quarter type="2" draft="unconfirmed">2</quarter>
+							<quarter type="3" draft="unconfirmed">3</quarter>
+							<quarter type="4" draft="unconfirmed">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">1-кы кыбаартал</quarter>
+							<quarter type="2" draft="unconfirmed">2-с кыбаартал</quarter>
+							<quarter type="3" draft="unconfirmed">3-с кыбаартал</quarter>
+							<quarter type="4" draft="unconfirmed">4-с кыбаартал</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">1-кы кб</quarter>
+							<quarter type="2" draft="unconfirmed">2-с кб</quarter>
+							<quarter type="3" draft="unconfirmed">3-с кб</quarter>
+							<quarter type="4" draft="unconfirmed">4-с кб</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">1-кы кыбаартал</quarter>
+							<quarter type="2" draft="unconfirmed">2-с кыбаартал</quarter>
+							<quarter type="3" draft="unconfirmed">3-с кыбаартал</quarter>
+							<quarter type="4" draft="unconfirmed">4-с кыбаартал</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">ЭИ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">ЭК</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">G y 'сыл' MMMM d 'күнэ', EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">G y, MMMM d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">G y, MMM d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">GGGGG yy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

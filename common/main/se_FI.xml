@@ -28,6 +28,32 @@
 	</localeDisplayNames>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">aejlege</day>
+							<day type="mon" draft="unconfirmed">måanta</day>
+							<day type="tue" draft="unconfirmed">däjsta</day>
+							<day type="wed" draft="unconfirmed">gaskevahkoe</day>
+							<day type="thu" draft="unconfirmed">dåarsta</day>
+							<day type="fri" draft="unconfirmed">bearjadahke</day>
+							<day type="sat" draft="unconfirmed">laavadahke</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">S</day>
+							<day type="mon" draft="unconfirmed">M</day>
+							<day type="tue" draft="unconfirmed">D</day>
+							<day type="wed" draft="unconfirmed">G</day>
+							<day type="thu" draft="unconfirmed">D</day>
+							<day type="fri" draft="unconfirmed">B</day>
+							<day type="sat" draft="unconfirmed">L</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

@@ -657,6 +657,136 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">आइत</day>
+							<day type="mon">सोम</day>
+							<day type="tue">मङ्गल</day>
+							<day type="wed">बुध</day>
+							<day type="thu">बिही</day>
+							<day type="fri">शुक्र</day>
+							<day type="sat">शनि</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">१</day>
+							<day type="mon">२</day>
+							<day type="tue">३</day>
+							<day type="wed">४</day>
+							<day type="thu">५</day>
+							<day type="fri">६</day>
+							<day type="sat">७</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">आइत</day>
+							<day type="mon">सोम</day>
+							<day type="tue">मङ्गल</day>
+							<day type="wed">बुध</day>
+							<day type="thu">बिही</day>
+							<day type="fri">शुक्र</day>
+							<day type="sat">शनि</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">आइतबार</day>
+							<day type="mon">सोमबार</day>
+							<day type="tue">मङ्गलबार</day>
+							<day type="wed">बुधबार</day>
+							<day type="thu">बिहीबार</day>
+							<day type="fri">शुक्रबार</day>
+							<day type="sat">शनिबार</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">आइत</day>
+							<day type="mon">सोम</day>
+							<day type="tue">मङ्गल</day>
+							<day type="wed">बुध</day>
+							<day type="thu">बिही</day>
+							<day type="fri">शुक्र</day>
+							<day type="sat">शनि</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">१</day>
+							<day type="mon">२</day>
+							<day type="tue">३</day>
+							<day type="wed">४</day>
+							<day type="thu">५</day>
+							<day type="fri">६</day>
+							<day type="sat">७</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">आइत</day>
+							<day type="mon">सोम</day>
+							<day type="tue">मङ्गल</day>
+							<day type="wed">बुध</day>
+							<day type="thu">बिही</day>
+							<day type="fri">शुक्र</day>
+							<day type="sat">शनि</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">आइतबार</day>
+							<day type="mon">सोमबार</day>
+							<day type="tue">मङ्गलबार</day>
+							<day type="wed">बुधबार</day>
+							<day type="thu">बिहीबार</day>
+							<day type="fri">शुक्रबार</day>
+							<day type="sat">शनिबार</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">पहिलो सत्र</quarter>
+							<quarter type="2">दोस्रो सत्र</quarter>
+							<quarter type="3">तेस्रो सत्र</quarter>
+							<quarter type="4">चौथो सत्र</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">१</quarter>
+							<quarter type="2">२</quarter>
+							<quarter type="3">३</quarter>
+							<quarter type="4">४</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">पहिलो सत्र</quarter>
+							<quarter type="2">दोस्रो सत्र</quarter>
+							<quarter type="3">तेस्रो सत्र</quarter>
+							<quarter type="4">चौथो सत्र</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">पहिलो सत्र</quarter>
+							<quarter type="2">दोस्रो सत्र</quarter>
+							<quarter type="3">तेस्रो सत्र</quarter>
+							<quarter type="4">चौथो सत्र</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">१</quarter>
+							<quarter type="2">२</quarter>
+							<quarter type="3">३</quarter>
+							<quarter type="4">४</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">पहिलो सत्र</quarter>
+							<quarter type="2">दोस्रो सत्र</quarter>
+							<quarter type="3">तेस्रो सत्र</quarter>
+							<quarter type="4">चौथो सत्र</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">पूर्व मध्यान्ह</dayPeriod>
+							<dayPeriod type="pm">उत्तर मध्यान्ह</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

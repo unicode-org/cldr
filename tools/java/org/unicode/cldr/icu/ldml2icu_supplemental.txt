@@ -60,6 +60,10 @@
 //supplementalData/weekData/weekendStart[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 0 ; fallback=7 0
 //supplementalData/weekData/weekendEnd[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 86400000 ; fallback=1 86400000
 
+//supplementalData/timeData/hours[@allowed="(%W)"][@preferred="(%W)"][@regions="(%W)"]
+     ; /timeData/$3/allowed ; values=$1
+     ; /timeData/$3/preferred ; values=$2
+
 # telephoneCodeData.xml
 //supplementalData/telephoneCodeData/codesByTerritory[@territory="(%W)"]/telephoneCountryCode[@code="(%N)"] ; /telephoneCodeData/$1/<$2>/code ; values=$2
 //supplementalData/telephoneCodeData/codesByTerritory[@territory="(%W)"]/telephoneCountryCode[@code="(%N)"][@alt="(%W)"]

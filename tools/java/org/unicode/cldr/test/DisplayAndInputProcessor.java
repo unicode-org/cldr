@@ -3,15 +3,13 @@
 
 package org.unicode.cldr.test;
 
-import java.util.Collections;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
+import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -35,6 +33,8 @@ import com.ibm.icu.util.ULocale;
  */
 public class DisplayAndInputProcessor {
     
+    private static final boolean FIX_YEARS = false;
+
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
@@ -151,7 +151,7 @@ public class DisplayAndInputProcessor {
     }
 
     static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
-    static final DateTimeCanonicalizer dtc = new DateTimeCanonicalizer();
+    static final DateTimeCanonicalizer dtc = new DateTimeCanonicalizer(FIX_YEARS);
 
     /**
      * Process the value for input. The result is a cleaned-up value. For example,
@@ -222,8 +222,8 @@ public class DisplayAndInputProcessor {
             }
 
             // fix date patterns
-            DateTimePatternType datetimePatternType = getDatetimePatternType(path);
-            if (STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(datetimePatternType)) {
+            DateTimePatternType datetimePatternType = DateTimePatternType.fromPath(path);
+            if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(datetimePatternType)) {
                 value = dtc.getCanonicalDatePattern(path, value, datetimePatternType);
             }
 
@@ -335,20 +335,6 @@ public class DisplayAndInputProcessor {
     static Pattern NEEDS_QUOTE1 = Pattern.compile("(\\s|$)([-\\}\\]\\&])()");
     static Pattern NEEDS_QUOTE2 = Pattern.compile("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
-    public enum DateTimePatternType {NA, STOCK, AVAILABLE, INTERVAL, GMT}
-    
-    public static final Set<DateTimePatternType> STOCK_AVAILABLE_INTERVAL_PATTERNS =
-        Collections.unmodifiableSet(EnumSet.of(DateTimePatternType.STOCK, DateTimePatternType.AVAILABLE, DateTimePatternType.INTERVAL));
-
-    public static DateTimePatternType getDatetimePatternType(String path) {
-        return !path.contains("/dates") ? DateTimePatternType.NA
-            : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats")) ? DateTimePatternType.STOCK
-                : path.contains("/dateFormatItem") ? DateTimePatternType.AVAILABLE
-                    : path.contains("/intervalFormatItem") ? DateTimePatternType.INTERVAL
-                        : path.contains("/timeZoneNames/hourFormat") ? DateTimePatternType.GMT
-                            : DateTimePatternType.NA;
-    }
-    
     public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter,
         ExemplarType exemplarType) {
         String value;

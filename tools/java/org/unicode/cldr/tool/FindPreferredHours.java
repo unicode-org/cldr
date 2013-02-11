@@ -1,28 +1,26 @@
 package org.unicode.cldr.tool;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.test.DisplayAndInputProcessor.DateTimePatternType;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
+import org.unicode.cldr.util.With;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
@@ -121,7 +119,7 @@ public class FindPreferredHours {
                 //                if (path.contains("/timeFormats")) {
                 //                    System.out.println(path);
                 //                }
-                DateTimePatternType type = DisplayAndInputProcessor.getDatetimePatternType(path);
+                DateTimePatternType type = DateTimePatternType.fromPath(path);
                 if (type == DateTimePatternType.NA || type == DateTimePatternType.GMT) {
                     continue;
                 }

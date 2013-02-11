@@ -9,6 +9,7 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 
@@ -72,7 +73,7 @@ public class DateOrder implements Comparable<DateOrder> {
             int[] soFar = new int[50];
             int lenSoFar = 0;
             for (String path : resolved) {
-                if (DisplayAndInputProcessor.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(DisplayAndInputProcessor.getDatetimePatternType(path))) {
+                if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(DateTimePatternType.fromPath(path))) {
                     if (path.contains("[@id=\"Ed\"]")) {
                         continue;
                     }

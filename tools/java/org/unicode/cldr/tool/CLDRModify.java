@@ -28,11 +28,13 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
+import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -632,24 +634,65 @@ public class CLDRModify {
             toBeRemoved.add(path);
             System.out.println("%" + localeID + "\t" + reason + "\tRemoving:\t«"
                 + cldrFileToFilter.getStringValue(path) + "»\t at:\t" + path);
+            String oldValueOldPath = cldrFileToFilter.getStringValue(path);
+            showAction(reason, "Removing", oldValueOldPath, null, null, path, path);
         }
 
         public void replace(String oldFullPath, String newFullPath, String newValue) {
             replace(oldFullPath, newFullPath, newValue, "-");
         }
+        
+        public void showAction(String reason, String action, String oldValueOldPath, String oldValueNewPath, 
+                String newValue, String oldFullPath, String newFullPath) {
+            System.out.println("%" + localeID 
+                + "\t" + reason 
+                + "\t" + action 
+                + "\t«" + oldValueOldPath + "»"
+                + (newFullPath.equals(oldFullPath) || oldValueNewPath == null ? "" : oldValueNewPath.equals(oldValueOldPath) ? "/=" : "/«" + oldValueNewPath + "»")
+                + "\t→\t" + (newValue == null ? "∅" : newValue.equals(oldValueOldPath) ? "=" : "«" + newValue + "»")
+                + "\t" + oldFullPath
+                + (newFullPath.equals(oldFullPath) ? "" : "\t→\t" + newFullPath)
+                );
+        }
 
+        /**
+         * There are the following cases, where:
+         * <pre>
+         * pathSame,    new value null:         Removing    v       p
+         * pathSame,    new value not null:     Replacing   v   v'  p
+         * pathChanges, nothing at new path:    Moving      v       p   p'
+         * pathChanges, same value at new path: Replacing   v   v'  p   p'
+         * pathChanges, value changes:          Overriding  v   v'  p   p'
+         * <pre>
+         * @param oldFullPath
+         * @param newFullPath
+         * @param newValue
+         * @param reason
+         */
         public void replace(String oldFullPath, String newFullPath, String newValue, String reason) {
-            if (!oldFullPath.equals(newFullPath)) {
-                remove(oldFullPath, reason);
+
+            String oldValueOldPath = cldrFileToFilter.getStringValue(oldFullPath);
+            boolean pathSame = oldFullPath.equals(newFullPath);
+
+            if (pathSame) {
+                if (newValue == null) {
+                    remove(oldFullPath, reason);
+                } else {
+                    toBeReplaced.add(oldFullPath, newValue);
+                    showAction(reason, "Replacing", oldValueOldPath, null, newValue, oldFullPath, newFullPath);
+                }
+                return;
             }
+            String oldValueNewPath = cldrFileToFilter.getStringValue(newFullPath);
+            toBeRemoved.add(oldFullPath);
             toBeReplaced.add(newFullPath, newValue);
-            String oldValue = cldrFileToFilter.getStringValue(oldFullPath);
-            if (oldValue != null && !newValue.equals(oldValue)) {
-                System.out.println("%" + localeID + "\t" + reason + "\tReplacing:\t«" + oldValue + "»\tby\t«"
-                    + newValue + "»\t at:\t" + newFullPath);
+            
+            if (oldValueNewPath == null) {
+                showAction(reason, "Moving", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
+            } else if (oldValueNewPath.equals(newValue)) {
+                showAction(reason, "Redundant", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
             } else {
-                System.out.println("%" + localeID + "\t" + reason + "\tAdding:\t«" + newValue + "»\t at:\t"
-                    + newFullPath);
+                showAction(reason, "Overriding", oldValueOldPath, oldValueNewPath, newValue, oldFullPath, newFullPath);
             }
         }
 
@@ -1668,6 +1711,61 @@ public class CLDRModify {
             }
 
         });
+
+        fixList.add('y', "fix years to be y (with exceptions)", new CLDRFilter() {
+            DateTimeCanonicalizer dtc = new DateTimeCanonicalizer(true);
+
+            DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
+            DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
+            Map<String, Set<String>> seenSoFar = new HashMap<String, Set<String>>();
+
+            public void handleStart() {
+                seenSoFar.clear();
+            }
+
+            public void handlePath(String xpath) {
+                DateTimePatternType datetimePatternType = DateTimePatternType.fromPath(xpath);
+
+                // check to see if we need to change the value
+
+                if (!DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(datetimePatternType)) {
+                    return;
+                }
+                String oldValue = cldrFileToFilter.getStringValue(xpath);
+                String value = dtc.getCanonicalDatePattern(xpath, oldValue, datetimePatternType);
+                if (value.equals(oldValue)) {
+                    return;
+                }
+
+                // now for cases with IDs, check to see whether we need to change the id.
+                // interval formats are already ok, so just look at available formats.
+                String oldFullPath = cldrFileToFilter.getFullXPath(xpath);
+                String fullPath = oldFullPath;
+                if (xpath.contains("@id")) {
+                    fullparts.set(oldFullPath);
+
+                    Map<String, String> attributes = fullparts.findAttributes("dateFormatItem");
+                    if (attributes != null) {
+                        String oldID = (String) attributes.get("id");
+                        String id = dtc.getCanonicalDatePattern(xpath, oldID, datetimePatternType);
+                        if (!id.equals(oldID)) {
+                            attributes.put("id", id);
+                            fullPath = fullparts.toString();
+                            totalSkeletons.add(id);
+                            //System.out.println(oldID + " => " + id);
+                        }
+                    }
+                }
+                
+                if (value.equals(oldValue) && fullPath.equals(oldFullPath)) {
+                    return;
+                }
+                // made it through the gauntlet, so replace
+
+                replace(xpath, fullPath, value);
+            }
+        });
+
 
         // This should only be applied to specific locales, and the results checked manually afterward.
         // It will only create ranges using the same digits as in root, not script-specific digits.

@@ -16,6 +16,7 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
@@ -397,7 +398,7 @@ public class CheckDates extends FactoryCheckCLDR {
                                 new Object[] { value.substring(0, end), value.substring(end) }));
                 }
             }
-            if (DisplayAndInputProcessor.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(DisplayAndInputProcessor.getDatetimePatternType(path))) {
+            if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(DateTimePatternType.fromPath(path))) {
                 boolean patternBasicallyOk = false;
                 try {
                     if (!path.contains("intervalFormatItem")) {

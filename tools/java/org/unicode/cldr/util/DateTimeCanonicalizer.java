@@ -1,16 +1,34 @@
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.test.DisplayAndInputProcessor.DateTimePatternType;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Set;
 
 import com.ibm.icu.impl.PatternTokenizer;
 import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.text.UnicodeSet;
 
 public class DateTimeCanonicalizer {
-    private static final boolean FIX_YEARS = false; // true to fix the years to y
+    
+    public enum DateTimePatternType {
+        NA, STOCK, AVAILABLE, INTERVAL, GMT;
+
+        public static final Set<DateTimePatternType> STOCK_AVAILABLE_INTERVAL_PATTERNS =
+            Collections.unmodifiableSet(EnumSet.of(DateTimePatternType.STOCK, DateTimePatternType.AVAILABLE, DateTimePatternType.INTERVAL));
+
+        public static DateTimePatternType fromPath(String path) {
+            return !path.contains("/dates") ? DateTimePatternType.NA
+                : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats")) ? DateTimePatternType.STOCK
+                    : path.contains("/dateFormatItem") ? DateTimePatternType.AVAILABLE
+                        : path.contains("/intervalFormatItem") ? DateTimePatternType.INTERVAL
+                            : path.contains("/timeZoneNames/hourFormat") ? DateTimePatternType.GMT
+                                : DateTimePatternType.NA;
+        }
+    }
+    
+    private boolean fixYears = false; // true to fix the years to y
 
     private FormatParser formatDateParser = new FormatParser();
     
@@ -22,12 +40,16 @@ public class DateTimeCanonicalizer {
     //.setEscapeCharacters(new UnicodeSet("[^\\u0020-\\u007E]")) // WARNING: DateFormat doesn't accept \\uXXXX
     .setUsingQuote(true);
 
+    public DateTimeCanonicalizer(boolean fixYears) {
+        this.fixYears = fixYears;
+    }
+
     public String getCanonicalDatePattern(String path, String value, DateTimePatternType datetimePatternType) {
         formatDateParser.set(value);
 
         // ensure that all y fields are single y, except for the stock short, which can be y or yy.
         String newValue;
-        if (FIX_YEARS) {
+        if (fixYears) {
             StringBuilder result = new StringBuilder();
             for (Object item : formatDateParser.getItems()) {
                 String itemString = item.toString();

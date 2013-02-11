@@ -536,6 +536,67 @@
 	</characters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">𐐝𐐲𐑌</day>
+							<day type="mon">𐐣𐐲𐑌</day>
+							<day type="tue">𐐓𐐭𐑆</day>
+							<day type="wed">𐐎𐐯𐑌</day>
+							<day type="thu">𐐛𐐲𐑉</day>
+							<day type="fri">𐐙𐑉𐐴</day>
+							<day type="sat">𐐝𐐰𐐻</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">𐐝𐐲𐑌𐐼𐐩</day>
+							<day type="mon">𐐣𐐲𐑌𐐼𐐩</day>
+							<day type="tue">𐐓𐐭𐑆𐐼𐐩</day>
+							<day type="wed">𐐎𐐯𐑌𐑆𐐼𐐩</day>
+							<day type="thu">𐐛𐐲𐑉𐑆𐐼𐐩</day>
+							<day type="fri">𐐙𐑉𐐴𐐼𐐩</day>
+							<day type="sat">𐐝𐐰𐐻𐐲𐑉𐐼𐐩</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">𐐝</day>
+							<day type="mon">𐐣</day>
+							<day type="tue">𐐓</day>
+							<day type="wed">𐐎</day>
+							<day type="thu">𐐛</day>
+							<day type="fri">𐐙</day>
+							<day type="sat">𐐝</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">𐐗1</quarter>
+							<quarter type="2">𐐗2</quarter>
+							<quarter type="3">𐐗3</quarter>
+							<quarter type="4">𐐗4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">1𐑅𐐻 𐐿𐐶𐐪𐑉𐐻𐐲𐑉</quarter>
+							<quarter type="2">2𐑌𐐼 𐐿𐐶𐐪𐑉𐐻𐐲𐑉</quarter>
+							<quarter type="3">3𐑉𐐼 𐐿𐐶𐐪𐑉𐐻𐐲𐑉</quarter>
+							<quarter type="4">4𐑉𐑃 𐐿𐐶𐐪𐑉𐐻𐐲𐑉</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">𐐈𐐣</dayPeriod>
+							<dayPeriod type="am" alt="variant">𐐰.𐑋.</dayPeriod>
+							<dayPeriod type="pm">𐐑𐐣</dayPeriod>
+							<dayPeriod type="pm" alt="variant">𐐹.𐑋.</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

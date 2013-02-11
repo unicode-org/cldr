@@ -23,6 +23,93 @@
 	</characters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">Aca</day>
+							<day type="mon" draft="unconfirmed">Etl</day>
+							<day type="tue" draft="unconfirmed">Tal</day>
+							<day type="wed" draft="unconfirmed">Arb</day>
+							<day type="thu" draft="unconfirmed">Kam</day>
+							<day type="fri" draft="unconfirmed">Gum</day>
+							<day type="sat" draft="unconfirmed">Sab</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">Acaada</day>
+							<day type="mon" draft="unconfirmed">Etleeni</day>
+							<day type="tue" draft="unconfirmed">Talaata</day>
+							<day type="wed" draft="unconfirmed">Arbaqa</day>
+							<day type="thu" draft="unconfirmed">Kamiisi</day>
+							<day type="fri" draft="unconfirmed">Gumqata</day>
+							<day type="sat" draft="unconfirmed">Sabti</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">A</day>
+							<day type="mon" draft="unconfirmed">E</day>
+							<day type="tue" draft="unconfirmed">T</day>
+							<day type="wed" draft="unconfirmed">A</day>
+							<day type="thu" draft="unconfirmed">K</day>
+							<day type="fri" draft="unconfirmed">G</day>
+							<day type="sat" draft="unconfirmed">S</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">saaku</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">carra</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, MMMM dd, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd-MMM-y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd/MM/yy GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>h:mm:ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>h:mm:ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>h:mm:ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>h:mm a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

@@ -68,6 +68,92 @@
 	</characters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">ৰবি</day>
+							<day type="mon">সোম</day>
+							<day type="tue">মঙ্গল</day>
+							<day type="wed">বুধ</day>
+							<day type="thu">বৃহষ্পতি</day>
+							<day type="fri">শুক্ৰ</day>
+							<day type="sat">শনি</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">দেওবাৰ</day>
+							<day type="mon">সোমবাৰ</day>
+							<day type="tue">মঙ্গলবাৰ</day>
+							<day type="wed">বুধবাৰ</day>
+							<day type="thu">বৃহষ্পতিবাৰ</day>
+							<day type="fri">শুক্ৰবাৰ</day>
+							<day type="sat">শনিবাৰ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="wide">
+							<quarter type="1">প্ৰথম প্ৰহৰ</quarter>
+							<quarter type="2">দ্বিতীয় প্ৰহৰ</quarter>
+							<quarter type="3">তৃতীয় প্ৰহৰ</quarter>
+							<quarter type="4">চতুৰ্থ প্ৰহৰ</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">পূৰ্বাহ্ণ</dayPeriod>
+							<dayPeriod type="pm">অপৰাহ্ণ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, d MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">d MMMM, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">dd-MM-y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">d-M-y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">h.mm.ss a zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">h.mm.ss a z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">h.mm.ss a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">h.mm. a</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

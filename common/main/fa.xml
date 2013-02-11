@@ -1096,6 +1096,342 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">یکشنبه</day>
+							<day type="mon">دوشنبه</day>
+							<day type="tue">سه‌شنبه</day>
+							<day type="wed">چهارشنبه</day>
+							<day type="thu">پنجشنبه</day>
+							<day type="fri">جمعه</day>
+							<day type="sat">شنبه</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">ی</day>
+							<day type="mon">د</day>
+							<day type="tue">س</day>
+							<day type="wed">چ</day>
+							<day type="thu">پ</day>
+							<day type="fri">ج</day>
+							<day type="sat">ش</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">۱ش</day>
+							<day type="mon">۲ش</day>
+							<day type="tue">۳ش</day>
+							<day type="wed">۴ش</day>
+							<day type="thu">۵ش</day>
+							<day type="fri">ج</day>
+							<day type="sat">ش</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">یکشنبه</day>
+							<day type="mon">دوشنبه</day>
+							<day type="tue">سه‌شنبه</day>
+							<day type="wed">چهارشنبه</day>
+							<day type="thu">پنجشنبه</day>
+							<day type="fri">جمعه</day>
+							<day type="sat">شنبه</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">یکشنبه</day>
+							<day type="mon">دوشنبه</day>
+							<day type="tue">سه‌شنبه</day>
+							<day type="wed">چهارشنبه</day>
+							<day type="thu">پنجشنبه</day>
+							<day type="fri">جمعه</day>
+							<day type="sat">شنبه</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">ی</day>
+							<day type="mon">د</day>
+							<day type="tue">س</day>
+							<day type="wed">چ</day>
+							<day type="thu">پ</day>
+							<day type="fri">ج</day>
+							<day type="sat">ش</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">۱ش</day>
+							<day type="mon">۲ش</day>
+							<day type="tue">۳ش</day>
+							<day type="wed">۴ش</day>
+							<day type="thu">۵ش</day>
+							<day type="fri">ج</day>
+							<day type="sat">ش</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">یکشنبه</day>
+							<day type="mon">دوشنبه</day>
+							<day type="tue">سه‌شنبه</day>
+							<day type="wed">چهارشنبه</day>
+							<day type="thu">پنجشنبه</day>
+							<day type="fri">جمعه</day>
+							<day type="sat">شنبه</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">س‌م۱</quarter>
+							<quarter type="2">س‌م۲</quarter>
+							<quarter type="3">س‌م۳</quarter>
+							<quarter type="4">س‌م۴</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">۱</quarter>
+							<quarter type="2">۲</quarter>
+							<quarter type="3">۳</quarter>
+							<quarter type="4">۴</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">سه‌ماههٔ اول</quarter>
+							<quarter type="2">سه‌ماههٔ دوم</quarter>
+							<quarter type="3">سه‌ماههٔ سوم</quarter>
+							<quarter type="4">سه‌ماههٔ چهارم</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">س‌م۱</quarter>
+							<quarter type="2">س‌م۲</quarter>
+							<quarter type="3">س‌م۳</quarter>
+							<quarter type="4">س‌م۴</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">۱</quarter>
+							<quarter type="2">۲</quarter>
+							<quarter type="3">۳</quarter>
+							<quarter type="4">۴</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">سه‌ماههٔ اول</quarter>
+							<quarter type="2">سه‌ماههٔ دوم</quarter>
+							<quarter type="3">سه‌ماههٔ سوم</quarter>
+							<quarter type="4">سه‌ماههٔ چهارم</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="afternoon">عصر</dayPeriod>
+							<dayPeriod type="am">قبل‌ازظهر</dayPeriod>
+							<dayPeriod type="earlyMorning">بامداد</dayPeriod>
+							<dayPeriod type="midDay">بعدازظهر</dayPeriod>
+							<dayPeriod type="morning">صبح</dayPeriod>
+							<dayPeriod type="night">شب</dayPeriod>
+							<dayPeriod type="noon">ظهر</dayPeriod>
+							<dayPeriod type="pm">بعدازظهر</dayPeriod>
+							<dayPeriod type="weeHours">نیمه‌شب</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE d MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>GGGGG y/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>H:mm:ss (zzzz)</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>H:mm:ss (z)</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>H:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>H:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1}، ساعت {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1}، ساعت {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1}،‏ {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1}،‏ {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="GGGGyyyyMMMMd">d MMMM y GGGG</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">H</dateFormatItem>
+						<dateFormatItem id="HHmmZ">HH:mm (Z)</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MEd">E M/d</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d LLL</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d LLL</dateFormatItem>
+						<dateFormatItem id="MMMMd">d LLLL</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E d LLLL</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="yM">y/M</dateFormatItem>
+						<dateFormatItem id="yMd">y/M/d</dateFormatItem>
+						<dateFormatItem id="yMEd">E y/M/d</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yyyyM">yyyy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM yyyy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEEEEd">EEEE d MMMM yyyy</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Day-Of-Week">{1} {0}</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<intervalFormatFallback>{0} تا {1}</intervalFormatFallback>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d تا d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a تا h a</greatestDifference>
+							<greatestDifference id="h">h تا h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">H تا H</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a تا h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm تا h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm تا h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">H:mm تا H:mm</greatestDifference>
+							<greatestDifference id="m">H:mm تا H:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a تا h:mm a (v)</greatestDifference>
+							<greatestDifference id="h">h:mm تا h:mm a (v)</greatestDifference>
+							<greatestDifference id="m">h:mm تا h:mm a (v)</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">H:mm تا H:mm (v)</greatestDifference>
+							<greatestDifference id="m">H:mm تا H:mm (v)</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a تا h a (v)</greatestDifference>
+							<greatestDifference id="h">h تا h a (v)</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">H تا H (v)</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M تا M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">M/d تا M/d</greatestDifference>
+							<greatestDifference id="M">M/d تا M/d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E M/d تا E M/d</greatestDifference>
+							<greatestDifference id="M">E M/d تا E M/d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">LLL تا LLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d تا d LLL</greatestDifference>
+							<greatestDifference id="M">d LLL تا d LLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E d LLL تا E d LLL</greatestDifference>
+							<greatestDifference id="M">E d LLL تا E d LLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y تا y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">yyyy/M تا yyyy/M</greatestDifference>
+							<greatestDifference id="y">yyyy/M تا yyyy/M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">yyyy/M/d تا yyyy/M/d</greatestDifference>
+							<greatestDifference id="M">yyyy/M/d تا yyyy/M/d</greatestDifference>
+							<greatestDifference id="y">yyyy/M/d تا yyyy/M/d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E yyyy/M/d تا E yyyy/M/d</greatestDifference>
+							<greatestDifference id="M">E yyyy/M/d تا E yyyy/M/d</greatestDifference>
+							<greatestDifference id="y">E yyyy/M/d تا E yyyy/M/d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">LLL تا MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y تا MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d تا d MMM y</greatestDifference>
+							<greatestDifference id="M">d LLL تا d MMM y</greatestDifference>
+							<greatestDifference id="y">d MMM y تا d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E d LLL تا E d MMM y</greatestDifference>
+							<greatestDifference id="M">E d LLL تا E d MMM y</greatestDifference>
+							<greatestDifference id="y">E d MMM y تا E d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">LLLL تا MMMM y</greatestDifference>
+							<greatestDifference id="y">MMMM y تا MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

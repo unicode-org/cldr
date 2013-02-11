@@ -66,6 +66,59 @@
 	</characters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">ꑭꆏ</day>
+							<day type="mon">ꆏꋍ</day>
+							<day type="tue">ꆏꑍ</day>
+							<day type="wed">ꆏꌕ</day>
+							<day type="thu">ꆏꇖ</day>
+							<day type="fri">ꆏꉬ</day>
+							<day type="sat">ꆏꃘ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">ꑭꆏꑍ</day>
+							<day type="mon">ꆏꊂꋍ</day>
+							<day type="tue">ꆏꊂꑍ</day>
+							<day type="wed">ꆏꊂꌕ</day>
+							<day type="thu">ꆏꊂꇖ</day>
+							<day type="fri">ꆏꊂꉬ</day>
+							<day type="sat">ꆏꊂꃘ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun">ꆏ</day>
+							<day type="mon">ꋍ</day>
+							<day type="tue">ꑍ</day>
+							<day type="wed">ꌕ</day>
+							<day type="thu">ꇖ</day>
+							<day type="fri">ꉬ</day>
+							<day type="sat">ꃘ</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="wide">
+							<quarter type="1">ꃅꑌ</quarter>
+							<quarter type="2">ꃅꎸ</quarter>
+							<quarter type="3">ꃅꍵ</quarter>
+							<quarter type="4">ꃅꋆ</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">ꎸꄑ</dayPeriod>
+							<dayPeriod type="pm">ꁯꋒ</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

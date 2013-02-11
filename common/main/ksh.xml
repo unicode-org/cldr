@@ -664,6 +664,204 @@
 					</dateFormatLength>
 				</dateFormats>
 			</calendar>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">Su.</day>
+							<day type="mon" draft="unconfirmed">Mo.</day>
+							<day type="tue" draft="unconfirmed">Di.</day>
+							<day type="wed" draft="unconfirmed">Me.</day>
+							<day type="thu" draft="unconfirmed">Du.</day>
+							<day type="fri" draft="unconfirmed">Fr.</day>
+							<day type="sat" draft="unconfirmed">Sa.</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">Su</day>
+							<day type="mon" draft="unconfirmed">Mo</day>
+							<day type="tue" draft="unconfirmed">Di</day>
+							<day type="wed" draft="unconfirmed">Me</day>
+							<day type="thu" draft="unconfirmed">Du</day>
+							<day type="fri" draft="unconfirmed">Fr</day>
+							<day type="sat" draft="unconfirmed">Sa</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">Sunndaach</day>
+							<day type="mon" draft="unconfirmed">Moondaach</day>
+							<day type="tue" draft="unconfirmed">Dinnsdaach</day>
+							<day type="wed" draft="unconfirmed">Metwoch</day>
+							<day type="thu" draft="unconfirmed">Dunnersdaach</day>
+							<day type="fri" draft="unconfirmed">Friidaach</day>
+							<day type="sat" draft="unconfirmed">Samsdaach</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="narrow">
+							<day type="sun" draft="unconfirmed">S</day>
+							<day type="mon" draft="unconfirmed">M</day>
+							<day type="tue" draft="unconfirmed">D</day>
+							<day type="wed" draft="unconfirmed">M</day>
+							<day type="thu" draft="unconfirmed">D</day>
+							<day type="fri" draft="unconfirmed">F</day>
+							<day type="sat" draft="unconfirmed">S</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun" draft="unconfirmed">Su</day>
+							<day type="mon" draft="unconfirmed">Mo</day>
+							<day type="tue" draft="unconfirmed">Di</day>
+							<day type="wed" draft="unconfirmed">Me</day>
+							<day type="thu" draft="unconfirmed">Du</day>
+							<day type="fri" draft="unconfirmed">Fr</day>
+							<day type="sat" draft="unconfirmed">Sa</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">1.Q.</quarter>
+							<quarter type="2" draft="unconfirmed">2.Q.</quarter>
+							<quarter type="3" draft="unconfirmed">3.Q.</quarter>
+							<quarter type="4" draft="unconfirmed">4.Q.</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">1. Quattaal</quarter>
+							<quarter type="2" draft="unconfirmed">2. Quattaal</quarter>
+							<quarter type="3" draft="unconfirmed">3. Quattaal</quarter>
+							<quarter type="4" draft="unconfirmed">4. Quattaal</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">Uhr vörmiddaachs</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">Uhr nommendaachs</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="unconfirmed">Vormittag</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">Nachmittag</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="unconfirmed">EEEE, 'dä' d. MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="unconfirmed">d. MMMM y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="unconfirmed">d. MMM. y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="unconfirmed">d. M. y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d" draft="unconfirmed">d</dateFormatItem>
+						<dateFormatItem id="Ed" draft="unconfirmed">E 'dä' d.</dateFormatItem>
+						<dateFormatItem id="hm" draft="unconfirmed">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm" draft="unconfirmed">H:mm</dateFormatItem>
+						<dateFormatItem id="hms" draft="unconfirmed">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms" draft="unconfirmed">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="M" draft="unconfirmed">L</dateFormatItem>
+						<dateFormatItem id="MEd" draft="unconfirmed">E d. M.</dateFormatItem>
+						<dateFormatItem id="MMM" draft="unconfirmed">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="unconfirmed">d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd" draft="unconfirmed">E d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="unconfirmed">d. MMMM</dateFormatItem>
+						<dateFormatItem id="ms" draft="unconfirmed">mm:ss</dateFormatItem>
+						<dateFormatItem id="y" draft="unconfirmed">y</dateFormatItem>
+						<dateFormatItem id="yM" draft="unconfirmed">Y-MM</dateFormatItem>
+						<dateFormatItem id="yMd" draft="unconfirmed">y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="unconfirmed">E y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yMMM" draft="unconfirmed">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd" draft="unconfirmed">d. MMM. y</dateFormatItem>
+						<dateFormatItem id="yMMMEd" draft="unconfirmed">E d. MMM. y</dateFormatItem>
+						<dateFormatItem id="yMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
+						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQy</dateFormatItem>
+						<dateFormatItem id="yQQQQ" draft="unconfirmed">QQQQ y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d" draft="unconfirmed">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a" draft="unconfirmed">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m" draft="unconfirmed">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M" draft="unconfirmed">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d" draft="unconfirmed">dd. – dd. MM.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M" draft="unconfirmed">LLL–LLL</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="unconfirmed">y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d" draft="unconfirmed">E yyyy-MM-dd – E yyyy-MM-dd</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E yyyy-MM-dd – E yyyy-MM-dd</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E yyyy-MM-dd – E yyyy-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M" draft="unconfirmed">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">MMM. y – MMM. y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d" draft="unconfirmed">E yyyy-MM-dd – E yyyy-MM-dd</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E yyyy-MM-dd – E yyyy-MM-dd</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E yyyy-MM-dd – E yyyy-MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="unconfirmed">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">MMMM y – MMMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

@@ -293,6 +293,11 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
             }
         }
 
+        // Special case exception for generic calendar, since we don't want to expose it in bcp47
+        if (key.equals("ca")) {
+            values.add("generic");
+        }
+
         m.value = key;
         m.pattern = values.toString();
         m.matcher = new CollectionMatcher().set(values);

@@ -47,6 +47,46 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">Son</day>
+							<day type="mon" draft="unconfirmed">Mus</day>
+							<day type="tue" draft="unconfirmed">Bir</day>
+							<day type="wed" draft="unconfirmed">Har</day>
+							<day type="thu" draft="unconfirmed">Ne</day>
+							<day type="fri" draft="unconfirmed">Tlh</day>
+							<day type="sat" draft="unconfirmed">Mug</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">Sonto</day>
+							<day type="mon" draft="unconfirmed">Musumbhunuku</day>
+							<day type="tue" draft="unconfirmed">Ravumbirhi</day>
+							<day type="wed" draft="unconfirmed">Ravunharhu</day>
+							<day type="thu" draft="unconfirmed">Ravumune</day>
+							<day type="fri" draft="unconfirmed">Ravuntlhanu</day>
+							<day type="sat" draft="unconfirmed">Mugqivela</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">K1</quarter>
+							<quarter type="2" draft="unconfirmed">K2</quarter>
+							<quarter type="3" draft="unconfirmed">K3</quarter>
+							<quarter type="4" draft="unconfirmed">K4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">Kotara yo sungula</quarter>
+							<quarter type="2" draft="unconfirmed">Kotara ya vumbirhi</quarter>
+							<quarter type="3" draft="unconfirmed">Kotara ya vunharhu</quarter>
+							<quarter type="4" draft="unconfirmed">Kotara ya vumune</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

@@ -128,6 +128,46 @@
 	</delimiters>
 	<dates>
 		<calendars>
+			<calendar type="generic">
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun" draft="unconfirmed">Caw</day>
+							<day type="mon" draft="unconfirmed">Mvu</day>
+							<day type="tue" draft="unconfirmed">Bin</day>
+							<day type="wed" draft="unconfirmed">Tha</day>
+							<day type="thu" draft="unconfirmed">Sin</day>
+							<day type="fri" draft="unconfirmed">Hla</day>
+							<day type="sat" draft="unconfirmed">Mgq</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="unconfirmed">Cawe</day>
+							<day type="mon" draft="unconfirmed">Mvulo</day>
+							<day type="tue" draft="unconfirmed">Lwesibini</day>
+							<day type="wed" draft="unconfirmed">Lwesithathu</day>
+							<day type="thu" draft="unconfirmed">Lwesine</day>
+							<day type="fri" draft="unconfirmed">Lwesihlanu</day>
+							<day type="sat" draft="unconfirmed">Mgqibelo</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1" draft="unconfirmed">Q1</quarter>
+							<quarter type="2" draft="unconfirmed">Q2</quarter>
+							<quarter type="3" draft="unconfirmed">Q3</quarter>
+							<quarter type="4" draft="unconfirmed">Q4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1" draft="unconfirmed">1 unyangantathu</quarter>
+							<quarter type="2" draft="unconfirmed">2 unyangantathu</quarter>
+							<quarter type="3" draft="unconfirmed">3 unyangantathu</quarter>
+							<quarter type="4" draft="unconfirmed">4 unyangantathu</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+			</calendar>
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">

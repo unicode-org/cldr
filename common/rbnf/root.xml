@@ -8,48 +8,6 @@
     </identity>
     <rbnf>
         <rulesetGrouping type="NumberingSystemRules">
-            <ruleset type="armenian-upper">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
-                <rbnfrule value="0">0;</rbnfrule>
-                <rbnfrule value="1">Ա;</rbnfrule>
-                <rbnfrule value="2">Բ;</rbnfrule>
-                <rbnfrule value="3">Գ;</rbnfrule>
-                <rbnfrule value="4">Դ;</rbnfrule>
-                <rbnfrule value="5">Ե;</rbnfrule>
-                <rbnfrule value="6">Զ;</rbnfrule>
-                <rbnfrule value="7">Է;</rbnfrule>
-                <rbnfrule value="8">Ը;</rbnfrule>
-                <rbnfrule value="9">Թ;</rbnfrule>
-                <rbnfrule value="10">Ժ[→→];</rbnfrule>
-                <rbnfrule value="20">Ի[→→];</rbnfrule>
-                <rbnfrule value="30">Լ[→→];</rbnfrule>
-                <rbnfrule value="40">Խ[→→];</rbnfrule>
-                <rbnfrule value="50">Ծ[→→];</rbnfrule>
-                <rbnfrule value="60">Կ[→→];</rbnfrule>
-                <rbnfrule value="70">Հ[→→];</rbnfrule>
-                <rbnfrule value="80">Ձ[→→];</rbnfrule>
-                <rbnfrule value="90">Ղ[→→];</rbnfrule>
-                <rbnfrule value="100">Ճ[→→];</rbnfrule>
-                <rbnfrule value="200">Մ[→→];</rbnfrule>
-                <rbnfrule value="300">Յ[→→];</rbnfrule>
-                <rbnfrule value="400">Ն[→→];</rbnfrule>
-                <rbnfrule value="500">Շ[→→];</rbnfrule>
-                <rbnfrule value="600">Ո[→→];</rbnfrule>
-                <rbnfrule value="700">Չ[→→];</rbnfrule>
-                <rbnfrule value="800">Պ[→→];</rbnfrule>
-                <rbnfrule value="900">Ջ[→→];</rbnfrule>
-                <rbnfrule value="1000">Ռ[→→];</rbnfrule>
-                <rbnfrule value="2000">Ս[→→];</rbnfrule>
-                <rbnfrule value="3000">Վ[→→];</rbnfrule>
-                <rbnfrule value="4000">Տ[→→];</rbnfrule>
-                <rbnfrule value="5000">Ր[→→];</rbnfrule>
-                <rbnfrule value="6000">Ց[→→];</rbnfrule>
-                <rbnfrule value="7000">Ւ[→→];</rbnfrule>
-                <rbnfrule value="8000">Փ[→→];</rbnfrule>
-                <rbnfrule value="9000">Ք[→→];</rbnfrule>
-                <rbnfrule value="10000">=#,##0=;</rbnfrule>
-            </ruleset>
             <ruleset type="armenian-lower">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
@@ -92,9 +50,51 @@
                 <rbnfrule value="9000">ք[→→];</rbnfrule>
                 <rbnfrule value="10000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="ethiopic">
+            <ruleset type="armenian-upper">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
+                <rbnfrule value="0">0;</rbnfrule>
+                <rbnfrule value="1">Ա;</rbnfrule>
+                <rbnfrule value="2">Բ;</rbnfrule>
+                <rbnfrule value="3">Գ;</rbnfrule>
+                <rbnfrule value="4">Դ;</rbnfrule>
+                <rbnfrule value="5">Ե;</rbnfrule>
+                <rbnfrule value="6">Զ;</rbnfrule>
+                <rbnfrule value="7">Է;</rbnfrule>
+                <rbnfrule value="8">Ը;</rbnfrule>
+                <rbnfrule value="9">Թ;</rbnfrule>
+                <rbnfrule value="10">Ժ[→→];</rbnfrule>
+                <rbnfrule value="20">Ի[→→];</rbnfrule>
+                <rbnfrule value="30">Լ[→→];</rbnfrule>
+                <rbnfrule value="40">Խ[→→];</rbnfrule>
+                <rbnfrule value="50">Ծ[→→];</rbnfrule>
+                <rbnfrule value="60">Կ[→→];</rbnfrule>
+                <rbnfrule value="70">Հ[→→];</rbnfrule>
+                <rbnfrule value="80">Ձ[→→];</rbnfrule>
+                <rbnfrule value="90">Ղ[→→];</rbnfrule>
+                <rbnfrule value="100">Ճ[→→];</rbnfrule>
+                <rbnfrule value="200">Մ[→→];</rbnfrule>
+                <rbnfrule value="300">Յ[→→];</rbnfrule>
+                <rbnfrule value="400">Ն[→→];</rbnfrule>
+                <rbnfrule value="500">Շ[→→];</rbnfrule>
+                <rbnfrule value="600">Ո[→→];</rbnfrule>
+                <rbnfrule value="700">Չ[→→];</rbnfrule>
+                <rbnfrule value="800">Պ[→→];</rbnfrule>
+                <rbnfrule value="900">Ջ[→→];</rbnfrule>
+                <rbnfrule value="1000">Ռ[→→];</rbnfrule>
+                <rbnfrule value="2000">Ս[→→];</rbnfrule>
+                <rbnfrule value="3000">Վ[→→];</rbnfrule>
+                <rbnfrule value="4000">Տ[→→];</rbnfrule>
+                <rbnfrule value="5000">Ր[→→];</rbnfrule>
+                <rbnfrule value="6000">Ց[→→];</rbnfrule>
+                <rbnfrule value="7000">Ւ[→→];</rbnfrule>
+                <rbnfrule value="8000">Փ[→→];</rbnfrule>
+                <rbnfrule value="9000">Ք[→→];</rbnfrule>
+                <rbnfrule value="10000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="ethiopic">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="x.x">←←፡→→→;</rbnfrule>
                 <rbnfrule value="0">ባዶ;</rbnfrule>
                 <rbnfrule value="1">፩;</rbnfrule>
                 <rbnfrule value="2">፪;</rbnfrule>
@@ -114,27 +114,17 @@
                 <rbnfrule value="70">፸[→→];</rbnfrule>
                 <rbnfrule value="80">፹[→→];</rbnfrule>
                 <rbnfrule value="90">፺[→→];</rbnfrule>
-                <rbnfrule value="100" radix="100">፻[→→];</rbnfrule>
-                <rbnfrule value="200" radix="100">←←፻[→→];</rbnfrule>
-                <rbnfrule value="10000" radix="10000">←←፼→%%ethiopic2→;</rbnfrule>
-                <rbnfrule value="1000000" radix="1000000">፻→%%ethiopic3→;</rbnfrule>
-                <rbnfrule value="2000000" radix="1000000">←←፻→%%ethiopic3→;</rbnfrule>
-                <rbnfrule value="100000000" radix="100000000">←←፼→%%ethiopic4→;</rbnfrule>
-                <rbnfrule value="10000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ethiopic2" access="private">
-                <rbnfrule value="0">፻;፻=%ethiopic=;</rbnfrule>
-                <rbnfrule value="100" radix="100">←%ethiopic←፻[→%ethiopic→];</rbnfrule>
-            </ruleset>
-            <ruleset type="ethiopic3" access="private">
-                <rbnfrule value="0">፼፻;፼፻=%ethiopic=;</rbnfrule>
-                <rbnfrule value="100" radix="100">፼←%ethiopic←፻[→%ethiopic→];</rbnfrule>
-                <rbnfrule value="10000" radix="10000">=%ethiopic=;</rbnfrule>
-            </ruleset>
-            <ruleset type="ethiopic4" access="private">
-                <rbnfrule value="0">፻=%%ethiopic3=;</rbnfrule>
-                <rbnfrule value="10000" radix="10000">፻←%ethiopic←፻[→%ethiopic→];</rbnfrule>
-                <rbnfrule value="1000000" radix="1000000">=%ethiopic=;</rbnfrule>
+                <rbnfrule value="100">፻[→→];</rbnfrule>
+                <rbnfrule value="200">←←፻[→→];</rbnfrule>
+                <rbnfrule value="10000">፼[→→];</rbnfrule>
+                <rbnfrule value="20000">←←፼[→→];</rbnfrule>
+                <rbnfrule value="100000000">፼፼[→→];</rbnfrule>
+                <rbnfrule value="200000000">←←፼፼[→→];</rbnfrule>
+                <rbnfrule value="1000000000000">፼፼፼[→→];</rbnfrule>
+                <rbnfrule value="2000000000000">←←፼፼፼[→→];</rbnfrule>
+                <rbnfrule value="10000000000000000">፼፼፼፼[→→];</rbnfrule>
+                <rbnfrule value="20000000000000000">←←፼፼፼፼[→→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
             </ruleset>
             <ruleset type="georgian">
                 <rbnfrule value="-x">−→→;</rbnfrule>

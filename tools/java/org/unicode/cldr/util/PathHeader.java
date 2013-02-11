@@ -135,6 +135,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Transforms(SectionId.Code_Lists),
         Currencies(SectionId.Code_Lists),
         Gregorian(SectionId.Calendars),
+        Generic(SectionId.Calendars),
         Buddhist(SectionId.Calendars),
         Chinese(SectionId.Calendars),
         Coptic(SectionId.Calendars),

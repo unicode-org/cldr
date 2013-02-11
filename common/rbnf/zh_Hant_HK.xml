@@ -139,7 +139,7 @@
             </ruleset>
             <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">負→→;</rbnfrule>
-                <rbnfrule value="x.x">←←點→%%spellout-fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←←點→→→;</rbnfrule>
                 <rbnfrule value="0">零;</rbnfrule>
                 <rbnfrule value="1">一;</rbnfrule>
                 <rbnfrule value="2">二;</rbnfrule>
@@ -163,7 +163,7 @@
             </ruleset>
             <ruleset type="spellout-cardinal-alternate2">
                 <rbnfrule value="-x">負→→;</rbnfrule>
-                <rbnfrule value="x.x">←←點→%%spellout-fraction→;</rbnfrule>
+                <rbnfrule value="x.x">=%spellout-cardinal=;</rbnfrule>
                 <rbnfrule value="0">零;</rbnfrule>
                 <rbnfrule value="1">一;</rbnfrule>
                 <rbnfrule value="2">兩;</rbnfrule>
@@ -188,22 +188,6 @@
             <ruleset type="cardinal-twenties" access="private">
                 <rbnfrule value="1">;</rbnfrule>
                 <rbnfrule value="2">二;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-fraction" access="private">
-                <rbnfrule value="10">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000000000">←0←;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-fraction-digits" access="private">
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="10">←←→→;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">
                 <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>

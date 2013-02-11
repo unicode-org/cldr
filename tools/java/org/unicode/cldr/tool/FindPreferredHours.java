@@ -11,7 +11,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.test.DisplayAndInputProcessor.DatetimePatternType;
+import org.unicode.cldr.test.DisplayAndInputProcessor.DateTimePatternType;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -80,9 +80,9 @@ public class FindPreferredHours {
         .freeze();
 
     static final class Hours implements Comparable<Hours> {
-        final DatetimePatternType type;
+        final DateTimePatternType type;
         final char variable;
-        public Hours(DatetimePatternType type, String variable) {
+        public Hours(DateTimePatternType type, String variable) {
             this.type = type;
             this.variable = variable.charAt(0);
         }
@@ -121,8 +121,8 @@ public class FindPreferredHours {
                 //                if (path.contains("/timeFormats")) {
                 //                    System.out.println(path);
                 //                }
-                DatetimePatternType type = DisplayAndInputProcessor.getDatetimePatternType(path);
-                if (type == DatetimePatternType.NA || type == DatetimePatternType.GMT) {
+                DateTimePatternType type = DisplayAndInputProcessor.getDatetimePatternType(path);
+                if (type == DateTimePatternType.NA || type == DateTimePatternType.GMT) {
                     continue;
                 }
                 String value = cldrFile.getStringValue(path);
@@ -167,7 +167,7 @@ public class FindPreferredHours {
             }
             for (Hours hours : localeAndHours.getValue()) {
                 region2Allowed.put(region, hours.variable);
-                if (hours.type == DatetimePatternType.STOCK) {
+                if (hours.type == DateTimePatternType.STOCK) {
                     Relation<Character, String> items = region2Preferred2locales.get(region);
                     if (items == null) {
                         region2Preferred2locales.put(region, items = Relation.of(new TreeMap<Character, Set<String>>(), TreeSet.class));

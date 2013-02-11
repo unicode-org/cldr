@@ -397,7 +397,7 @@ public class CheckDates extends FactoryCheckCLDR {
                                 new Object[] { value.substring(0, end), value.substring(end) }));
                 }
             }
-            if (DisplayAndInputProcessor.hasDatetimePattern(path)) {
+            if (DisplayAndInputProcessor.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(DisplayAndInputProcessor.getDatetimePatternType(path))) {
                 boolean patternBasicallyOk = false;
                 try {
                     if (!path.contains("intervalFormatItem")) {

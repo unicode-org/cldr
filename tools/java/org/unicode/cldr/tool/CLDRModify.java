@@ -645,7 +645,7 @@ public class CLDRModify {
             toBeReplaced.add(newFullPath, newValue);
             String oldValue = cldrFileToFilter.getStringValue(oldFullPath);
             if (oldValue != null && !newValue.equals(oldValue)) {
-                System.out.println("%" + localeID + "\t" + reason + "\tReplacing:\t«" + oldValue + ">\tby\t«"
+                System.out.println("%" + localeID + "\t" + reason + "\tReplacing:\t«" + oldValue + "»\tby\t«"
                     + newValue + "»\t at:\t" + newFullPath);
             } else {
                 System.out.println("%" + localeID + "\t" + reason + "\tAdding:\t«" + newValue + "»\t at:\t"

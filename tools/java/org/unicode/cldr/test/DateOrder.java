@@ -72,7 +72,7 @@ public class DateOrder implements Comparable<DateOrder> {
             int[] soFar = new int[50];
             int lenSoFar = 0;
             for (String path : resolved) {
-                if (DisplayAndInputProcessor.hasDatetimePattern(path)) {
+                if (DisplayAndInputProcessor.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(DisplayAndInputProcessor.getDatetimePatternType(path))) {
                     if (path.contains("[@id=\"Ed\"]")) {
                         continue;
                     }

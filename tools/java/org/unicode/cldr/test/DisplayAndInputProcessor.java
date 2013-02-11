@@ -3,8 +3,11 @@
 
 package org.unicode.cldr.test;
 
+import java.util.Collections;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,13 +16,13 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.UnicodeSet;
@@ -31,7 +34,7 @@ import com.ibm.icu.util.ULocale;
  * Survey Tool and other tools.
  */
 public class DisplayAndInputProcessor {
-
+    
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
@@ -59,8 +62,6 @@ public class DisplayAndInputProcessor {
     private Collator col;
 
     private Collator spaceCol;
-
-    private FormatParser formatDateParser = new FormatParser();
 
     private PrettyPrinter pp;
 
@@ -150,6 +151,7 @@ public class DisplayAndInputProcessor {
     }
 
     static final UnicodeSet WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
+    static final DateTimeCanonicalizer dtc = new DateTimeCanonicalizer();
 
     /**
      * Process the value for input. The result is a cleaned-up value. For example,
@@ -220,12 +222,9 @@ public class DisplayAndInputProcessor {
             }
 
             // fix date patterns
-            if (hasDatetimePattern(path)) {
-                formatDateParser.set(value);
-                String newValue = formatDateParser.toString();
-                if (!value.equals(newValue)) {
-                    value = newValue;
-                }
+            DateTimePatternType datetimePatternType = getDatetimePatternType(path);
+            if (STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(datetimePatternType)) {
+                value = dtc.getCanonicalDatePattern(path, value, datetimePatternType);
             }
 
             NumericType numericType = NumericType.getNumericType(path);
@@ -336,25 +335,20 @@ public class DisplayAndInputProcessor {
     static Pattern NEEDS_QUOTE1 = Pattern.compile("(\\s|$)([-\\}\\]\\&])()");
     static Pattern NEEDS_QUOTE2 = Pattern.compile("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
-    public enum DatetimePatternType {NA, STOCK, AVAILABLE, INTERVAL, GMT}
+    public enum DateTimePatternType {NA, STOCK, AVAILABLE, INTERVAL, GMT}
     
-    public static DatetimePatternType getDatetimePatternType(String path) {
-        return !path.contains("/dates") ? DatetimePatternType.NA
-            : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats")) ? DatetimePatternType.STOCK
-                : path.contains("/dateFormatItem") ? DatetimePatternType.AVAILABLE
-                    : path.contains("/intervalFormatItem") ? DatetimePatternType.INTERVAL
-                        : path.contains("/timeZoneNames/hourFormat") ? DatetimePatternType.GMT
-                            : DatetimePatternType.NA;
-    }
-    
-    // TODO rewire to use above
-    public static boolean hasDatetimePattern(String path) {
-        return path.indexOf("/dates") >= 0
-            && ((path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0)
-                || path.indexOf("/dateFormatItem") >= 0
-                || path.contains("/intervalFormatItem"));
-    }
+    public static final Set<DateTimePatternType> STOCK_AVAILABLE_INTERVAL_PATTERNS =
+        Collections.unmodifiableSet(EnumSet.of(DateTimePatternType.STOCK, DateTimePatternType.AVAILABLE, DateTimePatternType.INTERVAL));
 
+    public static DateTimePatternType getDatetimePatternType(String path) {
+        return !path.contains("/dates") ? DateTimePatternType.NA
+            : path.contains("/pattern") && (path.contains("/dateFormats") || path.contains("/timeFormats")) ? DateTimePatternType.STOCK
+                : path.contains("/dateFormatItem") ? DateTimePatternType.AVAILABLE
+                    : path.contains("/intervalFormatItem") ? DateTimePatternType.INTERVAL
+                        : path.contains("/timeZoneNames/hourFormat") ? DateTimePatternType.GMT
+                            : DateTimePatternType.NA;
+    }
+    
     public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter,
         ExemplarType exemplarType) {
         String value;

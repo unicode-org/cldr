@@ -496,7 +496,8 @@ abstract public class CheckCLDR {
             valueTooWide,
             valueTooNarrow,
             nameContainsYear,
-            patternCannotContainDigits, patternContainsInvalidCharacters;
+            patternCannotContainDigits, patternContainsInvalidCharacters,
+            illegalNumberingSystem;
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
             }

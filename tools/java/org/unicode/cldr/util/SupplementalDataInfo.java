@@ -68,7 +68,7 @@ public class SupplementalDataInfo {
      * [calendarData/calendar,
      * characters/character-fallback,
      * measurementData/measurementSystem, measurementData/paperSize,
-     * metadata/attributeOrder, metadata/blocking, metadata/coverageAdditions, metadata/deprecated,
+     * metadata/attributeOrder, metadata/blocking, metadata/deprecated,
      * metadata/distinguishing, metadata/elementOrder, metadata/serialElements, metadata/skipDefaultLocale,
      * metadata/suppress, metadata/validity, metazoneInfo/timezone,
      * timezoneData/mapTimezones,

@@ -1373,7 +1373,6 @@ public class ShowLanguages {
                 // "For information on what these goals mean (comprehensive, modern, moderate,...), see the LDML specification "
                 // +
                 // "<a href='http://www.unicode.org/reports/tr35/#Coverage_Levels'>Appendix M: Coverage Levels</a>. " +
-                // "See also the coverageAdditions in <a href='http://www.unicode.org/cldr/data/common/supplemental/supplementalMetadata.xml'>supplemental metadata</a>."
                 // +
                 // "</p>"
                 , true

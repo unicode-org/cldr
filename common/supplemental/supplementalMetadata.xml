@@ -1359,6 +1359,7 @@
             <deprecatedItems type="ldml" elements="orientation" attributes="characters lines"/>
             <deprecatedItems type="ldml" elements="default" attributes="choice"/>
             <deprecatedItems elements="singleCountries"/>
+            <deprecatedItems type="supplementalData" elements="coverageAdditions languageCoverage scriptCoverage territoryCoverage currencyCoverage timezoneCoverage"/>
         </deprecated>
         <distinguishing>
              <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem"/>
@@ -1367,31 +1368,6 @@
         <blocking>
              <blockingItems elements="identity supplementalData cldrTest collation transform"/>
          </blocking>
-        <coverageAdditions>
-            <languageCoverage type="minimal" values="und"/>            
-            <languageCoverage type="basic" values="de en es fr it ja pt ru zh zh_Hans zh_Hant"/>
-            <languageCoverage type="moderate" values="ar hi ko in nl bn tr th pl"/>            
-            <languageCoverage type="modern" values="de_CH de_AT en_AU en_CA en_GB en_US es_419 es_ES fr_CA fr_CH nl_BE pt_BR pt_PT"/> 
-            <!-- <languageCoverage type="moderate" subtype="EU" values="da el fi sv cs et lv lt hu mt sk sl"/> -->
-            <!-- <languageCoverage type="modern" values="sr"/> from languageInfo -->
-            
-            <scriptCoverage type="minimal" values="Zzzz Zxxx"/>
-            <scriptCoverage type="basic" values="Latn Hans Hant Cyrl Arab"/>
-
-            <territoryCoverage type="minimal" values="ZZ"/>
-            <territoryCoverage type="basic" values="BR CN DE GB FR IN IT JP RU US"/>           
-            <territoryCoverage type="moderate" values="ES BE SE TR AT ID SA NO DK PL ZA GR FI IE PT TH HK TW 150 419"/>		
-
-            <currencyCoverage type="minimal" values="XXX"/>
-
-            <timezoneCoverage type="minimal" values="Etc/Unknown"/>
-            <timezoneCoverage type="moderate" values="America/Buenos_Aires America/Rio_Branco America/Campo_Grande America/Sao_Paulo
-                Australia/Perth Australia/Darwin Australia/Brisbane Australia/Adelaide Australia/Sydney Australia/Hobart
-                America/Vancouver America/Edmonton America/Regina America/Winnipeg America/Toronto America/Halifax America/St_Johns
-                America/Tijuana America/Hermosillo America/Chihuahua America/Mexico_City
-                Pacific/Honolulu America/Anchorage America/Los_Angeles America/Phoenix America/Denver America/Chicago 
-                America/Indianapolis America/New_York Etc/Unknown"/>	
-        </coverageAdditions>
         <skipDefaultLocale services="segmentation collation"/>
 		<defaultContent locales="
 			aa_ET af_ZA agq_CM ak_GH am_ET ar_001 as_IN asa_TZ ast_ES az_Cyrl_AZ az_Latn az_Latn_AZ

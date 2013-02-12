@@ -300,30 +300,30 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST blockingItems draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST blockingItems elements NMTOKENS #IMPLIED >
 
-<!ELEMENT coverageAdditions (  languageCoverage*,  scriptCoverage*, territoryCoverage*, currencyCoverage*, timezoneCoverage* ) >
+<!ELEMENT coverageAdditions (  languageCoverage*,  scriptCoverage*, territoryCoverage*, currencyCoverage*, timezoneCoverage* ) ><!-- deprecated. -->
 <!ATTLIST coverageAdditions draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
-<!ELEMENT languageCoverage EMPTY >
+<!ELEMENT languageCoverage EMPTY ><!-- deprecated. -->
 <!ATTLIST languageCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST languageCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST languageCoverage values NMTOKENS #IMPLIED >
 
-<!ELEMENT scriptCoverage EMPTY >
+<!ELEMENT scriptCoverage EMPTY ><!-- deprecated. -->
 <!ATTLIST scriptCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST scriptCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST scriptCoverage values NMTOKENS #IMPLIED >
 
-<!ELEMENT territoryCoverage EMPTY >
+<!ELEMENT territoryCoverage EMPTY ><!-- deprecated. -->
 <!ATTLIST territoryCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST territoryCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST territoryCoverage values NMTOKENS #IMPLIED >
 
-<!ELEMENT currencyCoverage EMPTY >
+<!ELEMENT currencyCoverage EMPTY ><!-- deprecated. -->
 <!ATTLIST currencyCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST currencyCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST currencyCoverage values NMTOKENS #IMPLIED >
 
-<!ELEMENT timezoneCoverage EMPTY >
+<!ELEMENT timezoneCoverage EMPTY ><!-- deprecated. -->
 <!ATTLIST timezoneCoverage draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST timezoneCoverage type NMTOKEN #IMPLIED >
 <!ATTLIST timezoneCoverage values CDATA #IMPLIED > <!-- would be NMTOKENS, but needs to allow / -->

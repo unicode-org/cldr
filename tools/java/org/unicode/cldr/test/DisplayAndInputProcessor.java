@@ -33,7 +33,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class DisplayAndInputProcessor {
     
-    private static final boolean FIX_YEARS = false;
+    private static final boolean FIX_YEARS = true;
 
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 

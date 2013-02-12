@@ -15,12 +15,18 @@
             <type name="gregory" alias="gregorian" description="Gregorian calendar"/>
             <type name="hebrew" description="Traditional Hebrew calendar"/>
             <type name="indian" description="Indian calendar"/>
-            <type name="islamic" description="Astronomical Arabic calendar"/>
-            <type name="islamicc" alias="islamic-civil" description="Civil (algorithmic) Arabic calendar"/>
+            <type name="islamic" description="Islamic calendar"/>
+            <type name="islamicc" alias="islamic-civil" description="Islamic (arithmetic) calendar"/>
             <type name="iso8601" description="ISO calendar (Gregorian calendar using the ISO 8601 calendar week rules)" since="2.0"/>
             <type name="japanese" description="Japanese Imperial calendar"/>
             <type name="persian" description="Persian calendar"/>
             <type name="roc" description="Republic of China calendar"/>
         </key>
+        <key name="cv" description="Calendar algorithm variant"> 
+            <type name="caltab" description="Islamic - Calendrica arithmetic"/> 
+            <type name="mshijri" description="Islamic - Microsoft Hijri calendar"/> 
+            <type name="rgsa" description="Islamic - Saudi Arabia visual sighting"/> 
+            <type name="umalgura" description="Islamic - Umm Al-Qura calendar of Saudi Arabia"/> 
+        </key> 
     </keyword>
 </ldmlBCP47>

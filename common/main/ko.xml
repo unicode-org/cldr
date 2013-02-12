@@ -1323,16 +1323,13 @@
 						<dateFormatItem id="yM">G y. M.</dateFormatItem>
 						<dateFormatItem id="yMd">G y. M. d.</dateFormatItem>
 						<dateFormatItem id="yMEd">G y. M. d. (E)</dateFormatItem>
+						<dateFormatItem id="yMM">G y. MM</dateFormatItem>
 						<dateFormatItem id="yMMM">G y년 MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">G y년 MMM d일</dateFormatItem>
 						<dateFormatItem id="yMMMEd">G y년 MMM d일 (E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
 						<dateFormatItem id="yQQQ">G y년 QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">G y년 QQQQ</dateFormatItem>
-						<dateFormatItem id="yyMM">G yy. M.</dateFormatItem>
-						<dateFormatItem id="yyMMM">G y년 MMM</dateFormatItem>
-						<dateFormatItem id="yyQQQ">G y년 QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyMM">G y. MM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1634,18 +1631,16 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y년</dateFormatItem>
-						<dateFormatItem id="yM">yyyy. M.</dateFormatItem>
-						<dateFormatItem id="yMd">yyyy. M. d.</dateFormatItem>
-						<dateFormatItem id="yMEd">yyyy. M. d. (E)</dateFormatItem>
+						<dateFormatItem id="yM">y. M.</dateFormatItem>
+						<dateFormatItem id="yMd">y. M. d.</dateFormatItem>
+						<dateFormatItem id="yMEd">y. M. d. (E)</dateFormatItem>
+						<dateFormatItem id="yMM">y. MM</dateFormatItem>
 						<dateFormatItem id="yMMM">y년 MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">y년 MMM d일</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y년 MMM d일 (E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y년 MMM d일 EEEE</dateFormatItem>
 						<dateFormatItem id="yQQQ">y년 QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y년 QQQQ</dateFormatItem>
-						<dateFormatItem id="yyMM">yy. M.</dateFormatItem>
-						<dateFormatItem id="yyMMM">yy년 MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMM">yyyy. MM</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} ~ {1}</intervalFormatFallback>
@@ -1713,18 +1708,18 @@
 							<greatestDifference id="y">y년 ~ y년</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">yyyy. M ~ yyyy. M</greatestDifference>
-							<greatestDifference id="y">yyyy. M ~ yyyy. M</greatestDifference>
+							<greatestDifference id="M">y. M ~ y. M</greatestDifference>
+							<greatestDifference id="y">y. M ~ y. M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">yy. M. d. ~ yy. M. d.</greatestDifference>
-							<greatestDifference id="M">yy. M. d. ~ yy. M. d.</greatestDifference>
-							<greatestDifference id="y">yy. M. d. ~ yy. M. d.</greatestDifference>
+							<greatestDifference id="d">y. M. d. ~ y. M. d.</greatestDifference>
+							<greatestDifference id="M">y. M. d. ~ y. M. d.</greatestDifference>
+							<greatestDifference id="y">y. M. d. ~ y. M. d.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">yy. M. d. (E) ~ yy. M. d. (E)</greatestDifference>
-							<greatestDifference id="M">yy. M. d. (E) ~ yy. M. d. (E)</greatestDifference>
-							<greatestDifference id="y">yy. M. d. (E) ~ yy. M. d. (E)</greatestDifference>
+							<greatestDifference id="d">y. M. d. (E) ~ y. M. d. (E)</greatestDifference>
+							<greatestDifference id="M">y. M. d. (E) ~ y. M. d. (E)</greatestDifference>
+							<greatestDifference id="y">y. M. d. (E) ~ y. M. d. (E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y년 M월~M월</greatestDifference>
@@ -1899,7 +1894,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy. M. d.</pattern>
+							<pattern>y. M. d.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1973,18 +1968,16 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y년</dateFormatItem>
-						<dateFormatItem id="yM">yyyy. M.</dateFormatItem>
-						<dateFormatItem id="yMd">yyyy. M. d.</dateFormatItem>
-						<dateFormatItem id="yMEd">yyyy. M. d. (E)</dateFormatItem>
+						<dateFormatItem id="yM">y. M.</dateFormatItem>
+						<dateFormatItem id="yMd">y. M. d.</dateFormatItem>
+						<dateFormatItem id="yMEd">y. M. d. (E)</dateFormatItem>
+						<dateFormatItem id="yMM">y. M.</dateFormatItem>
 						<dateFormatItem id="yMMM">y년 MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">y년 MMM d일</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y년 MMM d일 (E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y년 MMM d일 EEEE</dateFormatItem>
 						<dateFormatItem id="yQQQ">y년 QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y년 QQQQ</dateFormatItem>
-						<dateFormatItem id="yyMM">yy. M.</dateFormatItem>
-						<dateFormatItem id="yyMMM">yy년 MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMM">yyyy. MM</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} ~ {1}</intervalFormatFallback>
@@ -2052,18 +2045,18 @@
 							<greatestDifference id="y">y년 ~ y년</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">yyyy. M ~ yyyy. M</greatestDifference>
-							<greatestDifference id="y">yyyy. M ~ yyyy. M</greatestDifference>
+							<greatestDifference id="M">y. M ~ y. M</greatestDifference>
+							<greatestDifference id="y">y. M ~ y. M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">yy. M. d. ~ yy. M. d.</greatestDifference>
-							<greatestDifference id="M">yy. M. d. ~ yy. M. d.</greatestDifference>
-							<greatestDifference id="y">yy. M. d. ~ yy. M. d.</greatestDifference>
+							<greatestDifference id="d">y. M. d. ~ y. M. d.</greatestDifference>
+							<greatestDifference id="M">y. M. d. ~ y. M. d.</greatestDifference>
+							<greatestDifference id="y">y. M. d. ~ y. M. d.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">yy. M. d. (E) ~ yy. M. d. (E)</greatestDifference>
-							<greatestDifference id="M">yy. M. d. (E) ~ yy. M. d. (E)</greatestDifference>
-							<greatestDifference id="y">yy. M. d. (E) ~ yy. M. d. (E)</greatestDifference>
+							<greatestDifference id="d">y. M. d. (E) ~ y. M. d. (E)</greatestDifference>
+							<greatestDifference id="M">y. M. d. (E) ~ y. M. d. (E)</greatestDifference>
+							<greatestDifference id="y">y. M. d. (E) ~ y. M. d. (E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y년 M월~M월</greatestDifference>
@@ -2362,7 +2355,7 @@
 						<dateFormatItem id="d">d일</dateFormatItem>
 						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
 						<dateFormatItem id="EEEEd">d일 EEEE</dateFormatItem>
-						<dateFormatItem id="Gy">G yy년</dateFormatItem>
+						<dateFormatItem id="Gy">G y년</dateFormatItem>
 						<dateFormatItem id="h">a h시</dateFormatItem>
 						<dateFormatItem id="H">H시</dateFormatItem>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>
@@ -2380,20 +2373,16 @@
 						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">G yy년</dateFormatItem>
-						<dateFormatItem id="yyMM">G yy. M.</dateFormatItem>
-						<dateFormatItem id="yyMMM">G yy년 MMM</dateFormatItem>
-						<dateFormatItem id="yyQQQ">G yy년 QQQ</dateFormatItem>
-						<dateFormatItem id="yyyy">G yy년</dateFormatItem>
-						<dateFormatItem id="yyyyM">G y. M.</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">G y. M. d. (E)</dateFormatItem>
-						<dateFormatItem id="yyyyMM">G y. MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">G y년 MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">G yy년 MMM d일</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">G y년 MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">G yy년 QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">G y년 QQQQ</dateFormatItem>
+						<dateFormatItem id="y">G y년</dateFormatItem>
+						<dateFormatItem id="yM">G y. M.</dateFormatItem>
+						<dateFormatItem id="yMEd">G y. M. d. (E)</dateFormatItem>
+						<dateFormatItem id="yMM">G y. M.</dateFormatItem>
+						<dateFormatItem id="yMMM">G y년 MMM</dateFormatItem>
+						<dateFormatItem id="yMMMd">G y년 MMM d일</dateFormatItem>
+						<dateFormatItem id="yMMMEd">G y년 MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
+						<dateFormatItem id="yQQQ">G y년 QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">G y년 QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -2449,20 +2438,17 @@
 						<dateFormatItem id="MMMEd">MMM d일 (E)</dateFormatItem>
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="yyMM">G yy. M.</dateFormatItem>
-						<dateFormatItem id="yyMMM">G yy년 MMM</dateFormatItem>
-						<dateFormatItem id="yyQQQ">G y년 QQQ</dateFormatItem>
-						<dateFormatItem id="yyyy">G yy년</dateFormatItem>
-						<dateFormatItem id="yyyyM">G y. M.</dateFormatItem>
-						<dateFormatItem id="yyyyMd">G y. M. d.</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">G y. M. d. (E)</dateFormatItem>
-						<dateFormatItem id="yyyyMM">G y. MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">G y년 MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">G yy년 MMM d일</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">G y년 MMM d일 (E)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">G y년 QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">G y년 QQQQ</dateFormatItem>
+						<dateFormatItem id="y">G y년</dateFormatItem>
+						<dateFormatItem id="yM">G y. M.</dateFormatItem>
+						<dateFormatItem id="yMd">G y. M. d.</dateFormatItem>
+						<dateFormatItem id="yMEd">G y. M. d. (E)</dateFormatItem>
+						<dateFormatItem id="yMM">G y. M.</dateFormatItem>
+						<dateFormatItem id="yMMM">G y년 MMM</dateFormatItem>
+						<dateFormatItem id="yMMMd">G y년 MMM d일</dateFormatItem>
+						<dateFormatItem id="yMMMEd">G y년 MMM d일 (E)</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd">G y년 MMM d일 EEEE</dateFormatItem>
+						<dateFormatItem id="yQQQ">G y년 QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">G y년 QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

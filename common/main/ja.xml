@@ -1321,21 +1321,15 @@
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">GGGGy年</dateFormatItem>
 						<dateFormatItem id="yM" draft="contributed">GGGGy年M月</dateFormatItem>
+						<dateFormatItem id="yMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="contributed">GGGGy年M/d(E)</dateFormatItem>
+						<dateFormatItem id="yMM">Gy/MM</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">GGGGy年M月</dateFormatItem>
+						<dateFormatItem id="yMMMd">GGGGy年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="contributed">GGGGy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd" draft="contributed">GGGGy年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">GGGGy QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="contributed">GGGGy第Q四半期</dateFormatItem>
-						<dateFormatItem id="yyyy">GGGGy年</dateFormatItem>
-						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
-						<dateFormatItem id="yyyyMM">Gy/MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">GGGGy年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">GGGGy年M月d日</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">GGGGy年M月d日(E)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEEEEd">GGGGy年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -2038,15 +2032,13 @@
 						<dateFormatItem id="yM">y/M</dateFormatItem>
 						<dateFormatItem id="yMd">y/M/d</dateFormatItem>
 						<dateFormatItem id="yMEd">y/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yMM">y/MM</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yQQQ">y/QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">yQQQQ</dateFormatItem>
-						<dateFormatItem id="yyMMM">y年M月</dateFormatItem>
-						<dateFormatItem id="yyyy">y年</dateFormatItem>
-						<dateFormatItem id="yyyyMM">yyyy/MM</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}～{1}</intervalFormatFallback>
@@ -2114,18 +2106,18 @@
 							<greatestDifference id="y">y年～y年</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">yy/MM～yy/MM</greatestDifference>
-							<greatestDifference id="y">yy/MM～yy/MM</greatestDifference>
+							<greatestDifference id="M">y/MM～y/MM</greatestDifference>
+							<greatestDifference id="y">y/MM～y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">yy/MM/dd～yy/MM/dd</greatestDifference>
-							<greatestDifference id="M">yy/MM/dd～yy/MM/dd</greatestDifference>
-							<greatestDifference id="y">yy/MM/dd～yy/MM/dd</greatestDifference>
+							<greatestDifference id="d">y/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="M">y/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="y">y/MM/dd～y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
-							<greatestDifference id="M">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
-							<greatestDifference id="y">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="d">y/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="M">y/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="y">y/MM/dd(E)～y/MM/dd(E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y年M月～M月</greatestDifference>
@@ -2306,12 +2298,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>yyyy/MM/dd</pattern>
+							<pattern>y/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>yyyy/MM/dd</pattern>
+							<pattern>y/MM/dd</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -2384,15 +2376,13 @@
 						<dateFormatItem id="yM">y/M</dateFormatItem>
 						<dateFormatItem id="yMd">y/M/d</dateFormatItem>
 						<dateFormatItem id="yMEd">y/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yMM">y/MM</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y年M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="yQQQ">y/QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">yQQQQ</dateFormatItem>
-						<dateFormatItem id="yyMMM">y年M月</dateFormatItem>
-						<dateFormatItem id="yyyy">y年</dateFormatItem>
-						<dateFormatItem id="yyyyMM">yyyy/MM</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}～{1}</intervalFormatFallback>
@@ -2460,18 +2450,18 @@
 							<greatestDifference id="y">y年～y年</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">yy/MM～yy/MM</greatestDifference>
-							<greatestDifference id="y">yy/MM～yy/MM</greatestDifference>
+							<greatestDifference id="M">y/MM～y/MM</greatestDifference>
+							<greatestDifference id="y">y/MM～y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">yy/MM/dd～yy/MM/dd</greatestDifference>
-							<greatestDifference id="M">yy/MM/dd～yy/MM/dd</greatestDifference>
-							<greatestDifference id="y">yy/MM/dd～yy/MM/dd</greatestDifference>
+							<greatestDifference id="d">y/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="M">y/MM/dd～y/MM/dd</greatestDifference>
+							<greatestDifference id="y">y/MM/dd～y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
-							<greatestDifference id="M">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
-							<greatestDifference id="y">yy/MM/dd(E)～yy/MM/dd(E)</greatestDifference>
+							<greatestDifference id="d">y/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="M">y/MM/dd(E)～y/MM/dd(E)</greatestDifference>
+							<greatestDifference id="y">y/MM/dd(E)～y/MM/dd(E)</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y年M月～M月</greatestDifference>
@@ -3338,16 +3328,15 @@
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
-						<dateFormatItem id="yyyyMM">Gyy/MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">GyQQQQ</dateFormatItem>
+						<dateFormatItem id="yMd">Gy/M/d</dateFormatItem>
+						<dateFormatItem id="yMEd">Gy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yMM">Gy/MM</dateFormatItem>
+						<dateFormatItem id="yMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMEd">Gy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="yQQQ">Gy/QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">GyQQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -3499,16 +3488,15 @@
 						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
-						<dateFormatItem id="yyyyMM">Gy/MM</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">GyQQQQ</dateFormatItem>
+						<dateFormatItem id="yMd">Gy/M/d</dateFormatItem>
+						<dateFormatItem id="yMEd">Gy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yMM">Gy/MM</dateFormatItem>
+						<dateFormatItem id="yMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yMMMEd">Gy年M月d日(E)</dateFormatItem>
+						<dateFormatItem id="yMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
+						<dateFormatItem id="yQQQ">Gy/QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">GyQQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

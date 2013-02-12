@@ -1733,9 +1733,6 @@ public class CLDRModify {
                 }
                 String oldValue = cldrFileToFilter.getStringValue(xpath);
                 String value = dtc.getCanonicalDatePattern(xpath, oldValue, datetimePatternType);
-                if (value.equals(oldValue)) {
-                    return;
-                }
 
                 // now for cases with IDs, check to see whether we need to change the id.
                 // interval formats are already ok, so just look at available formats.
@@ -1751,8 +1748,28 @@ public class CLDRModify {
                         if (!id.equals(oldID)) {
                             attributes.put("id", id);
                             fullPath = fullparts.toString();
+                            String oldValueNewPath = cldrFileToFilter.getStringValue(fullPath);
+                            if (oldValueNewPath == null) {
+                                // continue on to change path/valud
+                            } else if (oldValueNewPath.equals(value)) {
+                                remove(oldFullPath, 
+                                    "**Just removing\t«" + oldValue + "»"
+                                        + "\t(at id:\t" + oldID + ")"
+                                        + "\tbecause\t«" + value + "»"
+                                        + "\tis already at new id:\t" + id
+                                        + " — ");
+                                return;
+                            } else {
+                                remove(oldFullPath, 
+                                    "**Rejecting change from\t«" + oldValue + "»"
+                                        + "\t(at id:\t" + oldID + ")"
+                                        + "\t=>\t«" + value + "»"
+                                        + "\tbecause\t«" + oldValueNewPath + "»"
+                                        + "\tis already at new id:\t" + id
+                                        + " — ");
+                                return;
+                            }
                             totalSkeletons.add(id);
-                            //System.out.println(oldID + " => " + id);
                         }
                     }
                 }
@@ -1760,6 +1777,7 @@ public class CLDRModify {
                 if (value.equals(oldValue) && fullPath.equals(oldFullPath)) {
                     return;
                 }
+                
                 // made it through the gauntlet, so replace
 
                 replace(xpath, fullPath, value);

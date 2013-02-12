@@ -1350,16 +1350,15 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y. 'g'.</dateFormatItem>
-						<dateFormatItem id="yM">MM.yyyy.</dateFormatItem>
+						<dateFormatItem id="yM">MM.y.</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y.</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d.M.y.</dateFormatItem>
-						<dateFormatItem id="yMMM">yyyy. 'g'. MMM</dateFormatItem>
+						<dateFormatItem id="yMMM">y. 'g'. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">y. 'g'. d. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, y. 'g'. d. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMM">y. 'g'. MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yyyy">y. 'g'.</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -1424,18 +1423,18 @@
 							<greatestDifference id="y">y.–y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM.yyyy.–MM.yyyy.</greatestDifference>
-							<greatestDifference id="y">MM.yyyy.–MM.yyyy.</greatestDifference>
+							<greatestDifference id="M">MM.y.–MM.y.</greatestDifference>
+							<greatestDifference id="y">MM.y.–MM.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd.MM.yyyy.–dd.MM.yyyy.</greatestDifference>
-							<greatestDifference id="M">dd.MM.yy.–dd.MM.yy.</greatestDifference>
-							<greatestDifference id="y">dd.MM.yy.–dd.MM.yy.</greatestDifference>
+							<greatestDifference id="d">dd.MM.y.–dd.MM.y.</greatestDifference>
+							<greatestDifference id="M">dd.MM.y.–dd.MM.y.</greatestDifference>
+							<greatestDifference id="y">dd.MM.y.–dd.MM.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd.MM.yy. – E, dd.MM.yy.</greatestDifference>
-							<greatestDifference id="M">E, dd.MM.yy. – E, dd.MM.yy.</greatestDifference>
-							<greatestDifference id="y">E, dd.MM.yy. – E, dd.MM.yy.</greatestDifference>
+							<greatestDifference id="d">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y. 'gada' MMM–MMM</greatestDifference>
@@ -1452,8 +1451,8 @@
 							<greatestDifference id="y">E, y. 'gada' d. MMM – E, y. 'gada' d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MM.yyyy.–MM.yyyy.</greatestDifference>
-							<greatestDifference id="y">MM.yyyy.–MM.yyyy.</greatestDifference>
+							<greatestDifference id="M">MM.y.–MM.y.</greatestDifference>
+							<greatestDifference id="y">MM.y.–MM.y.</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1772,16 +1771,15 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y. 'g'.</dateFormatItem>
-						<dateFormatItem id="yM">MM.yyyy.</dateFormatItem>
+						<dateFormatItem id="yM">MM.y.</dateFormatItem>
 						<dateFormatItem id="yMd">d.M.y.</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d.M.y.</dateFormatItem>
-						<dateFormatItem id="yMMM">yyyy. 'g'. MMM</dateFormatItem>
+						<dateFormatItem id="yMMM">y. 'g'. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMd">y. 'g'. d. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, y. 'g'. d. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMM">y. 'g'. MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yyyy">y. 'g'.</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -1846,18 +1844,18 @@
 							<greatestDifference id="y">y.–y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM.yyyy.–MM.yyyy.</greatestDifference>
-							<greatestDifference id="y">MM.yyyy.–MM.yyyy.</greatestDifference>
+							<greatestDifference id="M">MM.y.–MM.y.</greatestDifference>
+							<greatestDifference id="y">MM.y.–MM.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd.MM.yyyy.–dd.MM.yyyy.</greatestDifference>
-							<greatestDifference id="M">dd.MM.yy.–dd.MM.yy.</greatestDifference>
-							<greatestDifference id="y">dd.MM.yy.–dd.MM.yy.</greatestDifference>
+							<greatestDifference id="d">dd.MM.y.–dd.MM.y.</greatestDifference>
+							<greatestDifference id="M">dd.MM.y.–dd.MM.y.</greatestDifference>
+							<greatestDifference id="y">dd.MM.y.–dd.MM.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd.MM.yy. – E, dd.MM.yy.</greatestDifference>
-							<greatestDifference id="M">E, dd.MM.yy. – E, dd.MM.yy.</greatestDifference>
-							<greatestDifference id="y">E, dd.MM.yy. – E, dd.MM.yy.</greatestDifference>
+							<greatestDifference id="d">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y. 'gada' MMM–MMM</greatestDifference>
@@ -1874,8 +1872,8 @@
 							<greatestDifference id="y">E, y. 'gada' d. MMM – E, y. 'gada' d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MM.yyyy.–MM.yyyy.</greatestDifference>
-							<greatestDifference id="y">MM.yyyy.–MM.yyyy.</greatestDifference>
+							<greatestDifference id="M">MM.y.–MM.y.</greatestDifference>
+							<greatestDifference id="y">MM.y.–MM.y.</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

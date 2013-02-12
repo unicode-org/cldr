@@ -505,9 +505,6 @@
 						<dateFormatItem id="yMMMMEd">E, d 'de' MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQQ 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ 'de' y</dateFormatItem>
-						<dateFormatItem id="yyMMM">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd">d/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEd">E, d/MM/yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
@@ -702,9 +699,6 @@
 						<dateFormatItem id="yMMMMEd">E, d 'de' MMMM 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQQ 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ 'de' y</dateFormatItem>
-						<dateFormatItem id="yyMMM">MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMd">d/MM/yy</dateFormatItem>
-						<dateFormatItem id="yyMMMEd">E, d/MM/yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
@@ -748,7 +742,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd/MM/yyyy G</pattern>
+							<pattern>dd/MM/y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">

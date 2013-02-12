@@ -55,17 +55,13 @@ public class DateTimeCanonicalizer {
                 String itemString = item.toString();
                 if (item instanceof String) {
                     result.append(tokenizer.quoteLiteral(itemString));
+                } else if (!itemString.startsWith("y")
+                    || (datetimePatternType == DateTimePatternType.STOCK 
+                    && path.contains("short") 
+                    && itemString.equals("yy"))) {
+                    result.append(itemString);
                 } else {
-                    VariableField vf = (VariableField) item;
-                    if (vf.getType() != DateTimePatternGenerator.YEAR
-                        || (
-                            datetimePatternType == DateTimePatternType.STOCK 
-                            && path.contains("short") 
-                            && itemString.equals("yy"))) {
-                        result.append(itemString);
-                    } else {
-                        result.append('y');
-                    }
+                    result.append('y');
                 }
             }
             newValue = result.toString();

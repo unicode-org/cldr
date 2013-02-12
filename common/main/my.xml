@@ -584,14 +584,13 @@
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">yy/M</dateFormatItem>
-						<dateFormatItem id="yMEd">E, yy/M/d</dateFormatItem>
+						<dateFormatItem id="yM">y/M</dateFormatItem>
+						<dateFormatItem id="yMEd">E, y/M/d</dateFormatItem>
 						<dateFormatItem id="yMMM">y MMM</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, y MMM d</dateFormatItem>
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yyQQQ">QQQ yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -656,18 +655,18 @@
 							<greatestDifference id="y">y-y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">yy/M – yy/M</greatestDifference>
-							<greatestDifference id="y">yy/M – yy/M</greatestDifference>
+							<greatestDifference id="M">y/M – y/M</greatestDifference>
+							<greatestDifference id="y">y/M – y/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">yy/M/d – yy/M/d</greatestDifference>
-							<greatestDifference id="M">yy/M/d – yy/M/d</greatestDifference>
-							<greatestDifference id="y">yy/M/d – yy/M/d</greatestDifference>
+							<greatestDifference id="d">y/M/d – y/M/d</greatestDifference>
+							<greatestDifference id="M">y/M/d – y/M/d</greatestDifference>
+							<greatestDifference id="y">y/M/d – y/M/d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">EEEE၊ yy/M/d – EEEE၊ yy/M/d</greatestDifference>
-							<greatestDifference id="M">EEEE၊ yy/M/d – EEEE၊ yy/M/d</greatestDifference>
-							<greatestDifference id="y">EEEE၊ yy/M/d – EEEE၊ yy/M/d</greatestDifference>
+							<greatestDifference id="d">EEEE၊ y/M/d – EEEE၊ y/M/d</greatestDifference>
+							<greatestDifference id="M">EEEE၊ y/M/d – EEEE၊ y/M/d</greatestDifference>
+							<greatestDifference id="y">EEEE၊ y/M/d – EEEE၊ y/M/d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y MMM – y MMM</greatestDifference>
@@ -870,14 +869,13 @@
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">yy/M</dateFormatItem>
-						<dateFormatItem id="yMEd">E, yy/M/d</dateFormatItem>
+						<dateFormatItem id="yM">y/M</dateFormatItem>
+						<dateFormatItem id="yMEd">E, y/M/d</dateFormatItem>
 						<dateFormatItem id="yMMM">y MMM</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, y MMM d</dateFormatItem>
 						<dateFormatItem id="yMMMM">y MMMM</dateFormatItem>
 						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
-						<dateFormatItem id="yyQQQ">QQQ yy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -942,18 +940,18 @@
 							<greatestDifference id="y">y-y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">yy/M – yy/M</greatestDifference>
-							<greatestDifference id="y">yy/M – yy/M</greatestDifference>
+							<greatestDifference id="M">y/M – y/M</greatestDifference>
+							<greatestDifference id="y">y/M – y/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">yy/M/d – yy/M/d</greatestDifference>
-							<greatestDifference id="M">yy/M/d – yy/M/d</greatestDifference>
-							<greatestDifference id="y">yy/M/d – yy/M/d</greatestDifference>
+							<greatestDifference id="d">y/M/d – y/M/d</greatestDifference>
+							<greatestDifference id="M">y/M/d – y/M/d</greatestDifference>
+							<greatestDifference id="y">y/M/d – y/M/d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">EEEE၊ yy/M/d – EEEE၊ yy/M/d</greatestDifference>
-							<greatestDifference id="M">EEEE၊ yy/M/d – EEEE၊ yy/M/d</greatestDifference>
-							<greatestDifference id="y">EEEE၊ yy/M/d – EEEE၊ yy/M/d</greatestDifference>
+							<greatestDifference id="d">EEEE၊ y/M/d – EEEE၊ y/M/d</greatestDifference>
+							<greatestDifference id="M">EEEE၊ y/M/d – EEEE၊ y/M/d</greatestDifference>
+							<greatestDifference id="y">EEEE၊ y/M/d – EEEE၊ y/M/d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y MMM – y MMM</greatestDifference>

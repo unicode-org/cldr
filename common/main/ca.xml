@@ -1296,7 +1296,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="contributed">dd/MM/yyyy GGGGG</pattern>
+							<pattern draft="contributed">dd/MM/y GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1317,8 +1317,8 @@
 						<dateFormatItem id="MMMEd" draft="contributed">E d MMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y" draft="contributed">y G</dateFormatItem>
-						<dateFormatItem id="yM" draft="contributed">MM/yyyy GGGGG</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">E, dd/MM/yyyy GGGGG</dateFormatItem>
+						<dateFormatItem id="yM" draft="contributed">MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yMEd" draft="contributed">E, dd/MM/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="contributed">QQQ y GGGGG</dateFormatItem>
@@ -1762,16 +1762,16 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M/yyyy</dateFormatItem>
-						<dateFormatItem id="yMd">d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yM">M/y</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d.M.y</dateFormatItem>
+						<dateFormatItem id="yMM" draft="contributed">MM/y</dateFormatItem>
 						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="contributed">MM/yyyy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -1836,18 +1836,18 @@
 							<greatestDifference id="y">y-y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM/yy - MM/yy</greatestDifference>
-							<greatestDifference id="y">MM/yy - MM/yy</greatestDifference>
+							<greatestDifference id="M">MM/y - MM/y</greatestDifference>
+							<greatestDifference id="y">MM/y - MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd/MM/yy - dd/MM/yy</greatestDifference>
-							<greatestDifference id="M">dd/MM/yy - dd/MM/yy</greatestDifference>
-							<greatestDifference id="y">dd/MM/yy - dd/MM/yy</greatestDifference>
+							<greatestDifference id="d">dd/MM/y - dd/MM/y</greatestDifference>
+							<greatestDifference id="M">dd/MM/y - dd/MM/y</greatestDifference>
+							<greatestDifference id="y">dd/MM/y - dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E dd/MM/yy - E dd/MM/yy</greatestDifference>
-							<greatestDifference id="M">E dd/MM/yy - E dd/MM/yy</greatestDifference>
-							<greatestDifference id="y">E dd/MM/yy - E dd/MM/yy</greatestDifference>
+							<greatestDifference id="d">E dd/MM/y - E dd/MM/y</greatestDifference>
+							<greatestDifference id="M">E dd/MM/y - E dd/MM/y</greatestDifference>
+							<greatestDifference id="y">E dd/MM/y - E dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">LLL-LLL 'de' y</greatestDifference>
@@ -2120,7 +2120,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd/MM/yyyy</pattern>
+							<pattern>dd/MM/y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -2192,16 +2192,16 @@
 						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm.ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M/yyyy</dateFormatItem>
-						<dateFormatItem id="yMd">d/M/yyyy</dateFormatItem>
+						<dateFormatItem id="yM">M/y</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, d.M.y</dateFormatItem>
+						<dateFormatItem id="yMM" draft="contributed">MM/y</dateFormatItem>
 						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">LLLL 'de' y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-						<dateFormatItem id="yyyyMM" draft="contributed">MM/yyyy</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -2266,18 +2266,18 @@
 							<greatestDifference id="y">y-y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM/yy - MM/yy</greatestDifference>
-							<greatestDifference id="y">MM/yy - MM/yy</greatestDifference>
+							<greatestDifference id="M">MM/y - MM/y</greatestDifference>
+							<greatestDifference id="y">MM/y - MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd/MM/yy - dd/MM/yy</greatestDifference>
-							<greatestDifference id="M">dd/MM/yy - dd/MM/yy</greatestDifference>
-							<greatestDifference id="y">dd/MM/yy - dd/MM/yy</greatestDifference>
+							<greatestDifference id="d">dd/MM/y - dd/MM/y</greatestDifference>
+							<greatestDifference id="M">dd/MM/y - dd/MM/y</greatestDifference>
+							<greatestDifference id="y">dd/MM/y - dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E dd/MM/yy - E dd/MM/yy</greatestDifference>
-							<greatestDifference id="M">E dd/MM/yy - E dd/MM/yy</greatestDifference>
-							<greatestDifference id="y">E dd/MM/yy - E dd/MM/yy</greatestDifference>
+							<greatestDifference id="d">E dd/MM/y - E dd/MM/y</greatestDifference>
+							<greatestDifference id="M">E dd/MM/y - E dd/MM/y</greatestDifference>
+							<greatestDifference id="y">E dd/MM/y - E dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">LLL-LLL 'de' y</greatestDifference>

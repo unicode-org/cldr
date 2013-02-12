@@ -78,20 +78,31 @@ public class CLDRModify {
     // TODO make this into input option.
 
     enum ConfigKeys {
-        locale, action, path, value
+        action, locale, path, value, new_path, new_value
+    }
+    
+    enum ConfigAction {
+        delete, add
     }
 
     static final class ConfigMatch {
         final String exactMatch;
         final Matcher regexMatch; // doesn't have to be thread safe
+        final ConfigAction action;
 
-        public ConfigMatch(String match) {
-            if (match.startsWith("/") && match.endsWith("/")) {
-                regexMatch = Pattern.compile(match.substring(1, match.length() - 1)).matcher("");
+        public ConfigMatch(ConfigKeys key, String match) {
+            if (key == ConfigKeys.action) {
                 exactMatch = null;
+                regexMatch = null;
+                action = ConfigAction.valueOf(match);
+            } else if (match.startsWith("/") && match.endsWith("/")) {
+                exactMatch = null;
+                regexMatch = Pattern.compile(match.substring(1, match.length() - 1)).matcher("");
+                action = null;
             } else {
                 exactMatch = match;
                 regexMatch = null;
+                action = null;
             }
         }
 
@@ -100,6 +111,9 @@ public class CLDRModify {
                 return exactMatch.equals(other);
             }
             return regexMatch.reset(other).find();
+        }
+        public String toString() {
+            return action != null ? action.toString() : exactMatch != null ? exactMatch : regexMatch.toString();
         }
     }
 
@@ -677,6 +691,9 @@ public class CLDRModify {
             if (pathSame) {
                 if (newValue == null) {
                     remove(oldFullPath, reason);
+                } else if (oldValueOldPath == null) {
+                    toBeReplaced.add(oldFullPath, newValue);
+                    showAction(reason, "Adding", oldValueOldPath, null, newValue, oldFullPath, newFullPath);
                 } else {
                     toBeReplaced.add(oldFullPath, newValue);
                     showAction(reason, "Replacing", oldValueOldPath, null, newValue, oldFullPath, newFullPath);
@@ -1923,7 +1940,7 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('k', "fix according to -k config file", new CLDRFilter() {
+        fixList.add('k', "fix according to -k config file. Details on http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config", new CLDRFilter() {
             private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> locale2keyValues;
             private LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = new LinkedHashSet<Map<ConfigKeys, ConfigMatch>>();
 
@@ -1936,7 +1953,7 @@ public class CLDRModify {
                     FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
                         @Override
                         protected boolean handleLine(int lineCount, String line) {
-                            String[] lineParts = line.split("\\s*;\\s*");
+                            String[] lineParts = line.trim().split("\\s*;\\s*");
                             Map<ConfigKeys, ConfigMatch> keyValue = new EnumMap<ConfigKeys, ConfigMatch>(
                                 ConfigKeys.class);
                             for (String linePart : lineParts) {
@@ -1944,12 +1961,14 @@ public class CLDRModify {
                                 if (pos < 0) {
                                     throw new IllegalArgumentException();
                                 }
-                                keyValue.put(ConfigKeys.valueOf(linePart.substring(0, pos).trim()), new ConfigMatch(
-                                    linePart.substring(pos + 1).trim()));
+                                ConfigKeys key = ConfigKeys.valueOf(linePart.substring(0, pos).trim());
+                                if (keyValue.containsKey(key)) {
+                                    throw new IllegalArgumentException("Must not have multiple keys: " + key);                                    
+                                }
+                                keyValue.put(key, new ConfigMatch(key, linePart.substring(pos + 1).trim()));
                             }
                             final ConfigMatch locale = keyValue.get(ConfigKeys.locale);
-                            if (locale == null || keyValue.get(ConfigKeys.action) == null
-                                || (keyValue.get(ConfigKeys.path) == null && keyValue.get(ConfigKeys.value) == null)) {
+                            if (locale == null || keyValue.get(ConfigKeys.action) == null) {
                                 throw new IllegalArgumentException();
                             }
 
@@ -1974,6 +1993,31 @@ public class CLDRModify {
                         keyValues.addAll(localeMatcher.getValue());
                     }
                 }
+                for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
+                    ConfigMatch action = entry.get(ConfigKeys.action);
+                    ConfigMatch locale = entry.get(ConfigKeys.locale);
+                    ConfigMatch pathMatch = entry.get(ConfigKeys.path);
+                    ConfigMatch valueMatch = entry.get(ConfigKeys.value);
+                    ConfigMatch newPath = entry.get(ConfigKeys.new_path);
+                    ConfigMatch newValue = entry.get(ConfigKeys.new_value);
+                    switch (action.action){
+                    case add:
+                        if (pathMatch != null || valueMatch != null || newPath == null || newValue == null) {
+                            throw new IllegalArgumentException("Bad arguments: " + entry);
+                        }
+                        replace(newPath.exactMatch, newPath.exactMatch, newValue.exactMatch, "config");
+                        break;
+                    case delete:
+                        if (newPath != null || newValue != null) {
+                            throw new IllegalArgumentException("Bad arguments: " + entry);
+                        }
+                        break;
+                    default: // fall through
+                    }
+                    if (action.action == ConfigAction.add) {
+                    }
+                    break;
+                }
             }
 
             @Override
@@ -1990,8 +2034,8 @@ public class CLDRModify {
                         continue;
                     }
                     ConfigMatch action = entry.get(ConfigKeys.action);
-                    if (action.matches("delete")) {
-                        remove(xpath);
+                    if (action.action == ConfigAction.delete) {
+                        remove(xpath, "config");
                     } // for now, the only action
                     break;
                 }

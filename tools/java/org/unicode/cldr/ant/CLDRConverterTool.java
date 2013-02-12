@@ -11,13 +11,10 @@ import org.apache.tools.ant.Task;
 import org.unicode.cldr.ant.CLDRBuild.Paths;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CoverageLevel;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.w3c.dom.Node;
 
@@ -165,19 +162,12 @@ public abstract class CLDRConverterTool {
         return main;
     }
 
-    private CoverageLevel coverageLevel = null;
+    private CoverageLevel2 coverageLevel = null;
 
     private void initCoverageLevel(
         String localeName, boolean exemplarsContainA_Z, String supplementalDir) {
-        if (coverageLevel == null) {
-            Factory factory = SimpleFactory.make(supplementalDir, ".*");
-            CLDRFile sd = factory.make(CLDRFile.SUPPLEMENTAL_NAME, true);
-            CLDRFile smd = factory.make(CLDRFile.SUPPLEMENTAL_METADATA, true);
-            coverageLevel = new CoverageLevel(factory);
-            CoverageLevel.init(sd, smd);
-            ArrayList<CheckStatus> errors = new ArrayList<CheckStatus>();
-            coverageLevel.setFile(localeName, exemplarsContainA_Z, null, null, errors);
-        }
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(supplementalDir);
+        coverageLevel = CoverageLevel2.getInstance(sdi,localeName);
     }
 
     /**
@@ -258,7 +248,7 @@ public abstract class CLDRConverterTool {
                     Level cv = Level.get(level.level);
                     // only include the xpaths that have the coverage level at least the coverage
                     // level specified by the locale
-                    if (coverageLevel.getCoverageLevel(xpath).compareTo(cv) <= 0) {
+                    if (coverageLevel.getLevel(xpath).compareTo(cv) <= 0) {
                         String draftVal = attr.get(LDMLConstants.DRAFT);
                         if (level.draft != null) {
                             if (draftVal == null

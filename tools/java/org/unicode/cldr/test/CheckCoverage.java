@@ -17,6 +17,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XMLSource;
 
 /**
@@ -35,7 +36,7 @@ import org.unicode.cldr.util.XMLSource;
 public class CheckCoverage extends FactoryCheckCLDR {
     static final boolean DEBUG = false;
     static final boolean DEBUG_SET = false;
-    private static CoverageLevel coverageLevel;
+    private static CoverageLevel2 coverageLevel;
     private Level requiredLevel;
 
     SupplementalDataInfo supplementalData;
@@ -45,7 +46,6 @@ public class CheckCoverage extends FactoryCheckCLDR {
 
     public CheckCoverage(Factory factory) {
         super(factory);
-        coverageLevel = new CoverageLevel(factory);
     }
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
@@ -88,7 +88,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
         }
 
         // check to see if the level is good enough
-        Level level = coverageLevel.getCoverageLevel(fullPath, path);
+        Level level = coverageLevel.getLevel(path);
 
         if (level == Level.UNDETERMINED) return this; // continue if we don't know what the status is
         if (requiredLevel.compareTo(level) >= 0) {
@@ -109,8 +109,9 @@ public class CheckCoverage extends FactoryCheckCLDR {
         final String localeID = cldrFileToCheck.getLocaleID();
         if (localeID.equals(new LanguageTagParser().set(localeID).getLanguageScript())) {
             supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
-            PluralInfo pluralInfo = supplementalData.getPlurals(localeID);
-            if (pluralInfo == supplementalData.getPlurals("root")) {
+            coverageLevel = CoverageLevel2.getInstance(supplementalData,localeID);
+            PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal,localeID);
+            if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal,"root")) {
                 possibleErrors.add(new CheckStatus()
                     .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingPluralInfo)
                     .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",
@@ -121,7 +122,6 @@ public class CheckCoverage extends FactoryCheckCLDR {
         if (options != null && options.get("CheckCoverage.skip") != null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         if (localeID.equals("root")) return this;
-        coverageLevel.setFile(cldrFileToCheck, options, this, possibleErrors);
 
         // Set to minimal if not in data submission
         if (false && Phase.FINAL_TESTING == getPhase()) {

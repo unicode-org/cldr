@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.LinkedHashSet;
@@ -12,8 +11,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CLDRFile;
@@ -59,7 +57,6 @@ public class GenerateCoverageLevels {
     private static LocaleFilter localeFilter = new LocaleFilter(true);
     private static LocaleFilter nonAliasLocaleFilter = new LocaleFilter(false);
 
-    private static final CoverageLevel coverageLevel = new CoverageLevel(cldrFactory);
     private static final long COLLATION_WEIGHT = 50;
     private static final Level COLLATION_LEVEL = Level.POSIX;
     private static final long PLURALS_WEIGHT = 20;
@@ -67,9 +64,6 @@ public class GenerateCoverageLevels {
     private static final long RBNF_WEIGHT = 20;
     private static final Level RBNF_LEVEL = Level.MODERATE;
 
-    static {
-        coverageLevel.setFile(english, new TreeMap<String, String>(), null, new ArrayList<CheckCLDR.CheckStatus>());
-    }
     static int totalCount = 0;
 
     enum Inheritance {
@@ -97,6 +91,7 @@ public class GenerateCoverageLevels {
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
         Set<R3<Level, String, Inheritance>> items = new TreeSet<R3<Level, String, Inheritance>>(new RowComparator());
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY),locale);
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -105,7 +100,7 @@ public class GenerateCoverageLevels {
             String source = cldrFile.getSourceLocaleID(path, null);
             Inheritance inherited = !source.equals(locale) ? Inheritance.inherited : Inheritance.actual;
 
-            Level level = coverageLevel.getCoverageLevel(fullPath, path);
+            Level level = coverageLevel.getLevel(path);
 
             items.add(Row.of(level, path, inherited));
         }
@@ -499,6 +494,8 @@ public class GenerateCoverageLevels {
         Status status = new Status();
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY),locale);
+        
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -510,7 +507,7 @@ public class GenerateCoverageLevels {
                 ? Inheritance.inherited
                 : Inheritance.actual;
 
-            Level level = coverageLevel.getCoverageLevel(fullPath, path);
+            Level level = coverageLevel.getLevel(fullPath);
             if (inherited == Inheritance.actual) {
                 levelData.found.add(level, 1);
             } else {

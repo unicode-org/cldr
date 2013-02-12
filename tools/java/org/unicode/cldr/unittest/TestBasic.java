@@ -19,7 +19,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CoverageLevel;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
@@ -250,7 +250,6 @@ public class TestBasic extends TestFmwk {
             .add("([^]])\\[", "$1\t[")
             .add("([^]])/", "$1\t/")
             .add("/", "\t");
-        CoverageLevel coverageLevel = new CoverageLevel(cldrFactory);
         List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
         Map<String, String> options = new HashMap<String, String>();
 
@@ -260,9 +259,8 @@ public class TestBasic extends TestFmwk {
             CLDRFile file = cldrFactory.make(locale, resolved);
             if (file.isNonInheriting())
                 continue;
-
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(testInfo.getSupplementalDataInfo(),locale);
             logln(locale + "\t-\t" + english.getName(locale));
-            coverageLevel.setFile(file, options, null, possibleErrors);
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {
                 String path = it.next();
@@ -271,7 +269,7 @@ public class TestBasic extends TestFmwk {
                 }
                 // collect abstracted paths
                 String abstractPath = abstractPathTransform.transform(path);
-                Level level = coverageLevel.getCoverageLevel(file.getFullXPath(path));
+                Level level = coverageLevel.getLevel(path);
                 if (level == Level.OPTIONAL) {
                     level = Level.COMPREHENSIVE;
                 }

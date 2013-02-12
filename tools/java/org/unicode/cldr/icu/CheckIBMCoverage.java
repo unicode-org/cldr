@@ -17,7 +17,6 @@ import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCoverage;
-import org.unicode.cldr.test.CoverageLevel;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
@@ -259,7 +258,6 @@ public class CheckIBMCoverage extends CLDRConverterTool {
     private int processFile(String fileName, boolean pretty) throws IOException {
         int index = fileName.indexOf(".");
         String locale = fileName.substring(0, index);
-        // String logFile = destDir+File.separator+locale.concat(".log");
         StandardCodes sc = StandardCodes.make();
         String group = sc.getGroup(locale, "IBM");
         if (group == null) {
@@ -273,7 +271,6 @@ public class CheckIBMCoverage extends CLDRConverterTool {
         return out;
     }
 
-    // private static final String SETTINGS = "//ldml/collations/collation[@type=\"standard\"]/settings";
     private static final String RULES = "//ldml/collations/collation[@type=\"standard\"]/rules";
     private static final String COLLATIONS = "//ldml/collations";
 
@@ -292,12 +289,6 @@ public class CheckIBMCoverage extends CLDRConverterTool {
                 fw.write(COLLATIONS + " : Found but not valid according to validSublocales attribute");
                 fw.write("\n");
             }
-            // settings may or may not be present.. but rules must be present
-            // Node settings = LDMLUtilities.getNode(node, SETTINGS);
-            // if( settings == null ){
-            // fw.write(SETTINGS+" : Not found. Required for POSIX level coverage" );
-            // fw.write("\n");
-            // }
 
             Node rules = LDMLUtilities.getNode(node, RULES);
             if (rules == null) {
@@ -315,7 +306,6 @@ public class CheckIBMCoverage extends CLDRConverterTool {
         Factory cldrFactory = Factory.make(sourceDir, "xml");
         CheckCoverage coverage = new CheckCoverage(cldrFactory);
         CLDRFile file = cldrFactory.make(locale, true);
-        CoverageLevel covLevel = new CoverageLevel(cldrFactory);
         List<CheckStatus> result = new ArrayList<CheckStatus>();
         Map<String, String> options = new HashMap<String, String>();
         options.put("CoverageLevel.localeType", group);
@@ -323,7 +313,6 @@ public class CheckIBMCoverage extends CLDRConverterTool {
         options.put("submission", "true");
         printInfo("Processing file " + locale);
         coverage.setCldrFileToCheck(file, options, result);
-        covLevel.setFile(file, options, null, result);
         CLDRFile resolved = coverage.getResolvedCldrFileToCheck();
         Set<String> paths = new TreeSet<String>(CLDRFile.ldmlComparator);
         com.ibm.icu.dev.util.CollectionUtilities.addAll(resolved.iterator(), paths);
@@ -340,11 +329,7 @@ public class CheckIBMCoverage extends CLDRConverterTool {
                 System.out.println(fullPath);
             }
             result.clear();
-            if (level.compareTo(Level.POSIX) == 0) {
-                covLevel.checkPosixCoverage(path, fullPath, value, options, result, file, resolved);
-            } else {
-                coverage.check(path, fullPath, value, options, result);
-            }
+            coverage.check(path, fullPath, value, options, result);
             for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext();) {
                 CheckStatus status = (CheckStatus) it3.next();
                 // String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(

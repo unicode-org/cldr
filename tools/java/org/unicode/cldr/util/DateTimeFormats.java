@@ -403,7 +403,7 @@ public class DateTimeFormats {
         int slashPos = skeleton.indexOf('/');
         if (slashPos >= 0) {
             String mainSkeleton = skeleton.substring(0, slashPos);
-            DateIntervalFormat dateIntervalFormat = new DateIntervalFormat(mainSkeleton, dateIntervalInfo, generator,
+            DateIntervalFormat dateIntervalFormat = new DateIntervalFormat(mainSkeleton, dateIntervalInfo,
                 icuServiceBuilder.getDateFormat(calendarID, generator.getBestPattern(mainSkeleton)));
             String diffString = skeleton.substring(slashPos + 1).replace('j', 'H');
             int diffNumber = find(CALENDAR_FIELD_TO_PATTERN_LETTER, diffString);

@@ -17,7 +17,7 @@
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">minus →→;</rbnfrule>
-                <rbnfrule value="x.x">←← przecinek →%%spellout-fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←← przecinek →→;</rbnfrule>
                 <rbnfrule value="0">zero;</rbnfrule>
                 <rbnfrule value="1">jeden;</rbnfrule>
                 <rbnfrule value="2">dwa;</rbnfrule>
@@ -135,28 +135,19 @@
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-fraction" access="private">
-                <rbnfrule value="10">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="10000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="100000000">←%%spellout-fraction-digits←;</rbnfrule>
-                <rbnfrule value="1000000000">←%%spellout-fraction-digits←;</rbnfrule>
+                <rbnfrule value="10">←%%spellout-fraction-digits←←;</rbnfrule>
+                <rbnfrule value="100">←%%spellout-fraction-digits←←;</rbnfrule>
+                <rbnfrule value="1000">←%%spellout-fraction-digits←←;</rbnfrule>
+                <rbnfrule value="10000">←%%spellout-fraction-digits←←;</rbnfrule>
+                <rbnfrule value="100000">←%%spellout-fraction-digits←←;</rbnfrule>
+                <rbnfrule value="1000000">←%%spellout-fraction-digits←←;</rbnfrule>
+                <rbnfrule value="10000000">←%%spellout-fraction-digits←←;</rbnfrule>
+                <rbnfrule value="100000000">←%%spellout-fraction-digits←←;</rbnfrule>
+                <rbnfrule value="1000000000">←%%spellout-fraction-digits←←;</rbnfrule>
                 <rbnfrule value="10000000000">←0←;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-fraction-digits" access="private">
-                <rbnfrule value="0">zero;</rbnfrule>
-                <rbnfrule value="1">jeden;</rbnfrule>
-                <rbnfrule value="2">dwa;</rbnfrule>
-                <rbnfrule value="3">trzy;</rbnfrule>
-                <rbnfrule value="4">cztery;</rbnfrule>
-                <rbnfrule value="5">pięć;</rbnfrule>
-                <rbnfrule value="6">sześć;</rbnfrule>
-                <rbnfrule value="7">siedem;</rbnfrule>
-                <rbnfrule value="8">osiem;</rbnfrule>
-                <rbnfrule value="9">dziewięć;</rbnfrule>
+                <rbnfrule value="0">=%spellout-cardinal-masculine=;</rbnfrule>
                 <rbnfrule value="10">←← →→;</rbnfrule>
             </ruleset>
         </rulesetGrouping>

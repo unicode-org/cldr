@@ -16,7 +16,7 @@
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="-x">ដក​→→;</rbnfrule>
-                <rbnfrule value="x.x">←←​ចុច​→%%spellout-fraction→;</rbnfrule>
+                <rbnfrule value="x.x">←←​ចុច​→→→;</rbnfrule>
                 <rbnfrule value="0">សូន្យ;</rbnfrule>
                 <rbnfrule value="1">មួយ;</rbnfrule>
                 <rbnfrule value="2">ពីរ;</rbnfrule>
@@ -43,22 +43,6 @@
                 <rbnfrule value="1000000">←←​លាន[​→→];</rbnfrule>
                 <rbnfrule value="10000000000">←←​ពាន់​កោដិ[​→→];</rbnfrule>
                 <rbnfrule value="1000000000000">=#,##0=;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-fraction" access="private">
-                <rbnfrule value="10">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="100">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="1000">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="10000">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="100000">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="1000000">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="10000000">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="100000000">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="1000000000">←%%spellout-fraction-digits←←;</rbnfrule>
-                <rbnfrule value="10000000000">←0←;</rbnfrule>
-            </ruleset>
-            <ruleset type="spellout-fraction-digits" access="private">
-                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
-                <rbnfrule value="10">←←​→→;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal">
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>

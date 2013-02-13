@@ -1660,7 +1660,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>dd.MM.yy GGGGG</pattern>
+							<pattern>dd.MM.yy G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1711,6 +1711,10 @@
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">ccc, d</dateFormatItem>
+						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">LLL y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y 'г'. G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
@@ -1725,18 +1729,18 @@
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">ccc, d MMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
-						<dateFormatItem id="yLLLL">LLLL y</dateFormatItem>
-						<dateFormatItem id="yM" draft="contributed">MM.y</dateFormatItem>
-						<dateFormatItem id="yMd">dd.MM.y</dateFormatItem>
-						<dateFormatItem id="yMEd">ccc, d.MM.y 'г'.</dateFormatItem>
-						<dateFormatItem id="yMM" draft="contributed">MM.y</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">LLL y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y 'г'.</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">E, d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">LLLL y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y 'г'.</dateFormatItem>
-						<dateFormatItem id="yQQQQ">QQQQ y 'г'.</dateFormatItem>
+						<dateFormatItem id="y" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="contributed">MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">dd.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">ccc, d.MM.y 'г'. G</dateFormatItem>
+						<dateFormatItem id="yyyyMM" draft="contributed">MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="contributed">LLL y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y 'г'. G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="contributed">LLLL y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y 'г'. G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y 'г'. G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} - {1}</intervalFormatFallback>
@@ -1801,39 +1805,39 @@
 							<greatestDifference id="M" draft="contributed">LLLL-LLLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="contributed">y-y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">y-y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="contributed">MM.y - MM.y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MM.y - MM.y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">MM.y - MM.y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">MM.y - MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d" draft="contributed">dd.MM.y - dd.MM.y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">dd.MM.y - dd.MM.y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">dd.MM.y - dd.MM.y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">dd.MM.y - dd.MM.y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">dd.MM.y - dd.MM.y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">dd.MM.y - dd.MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="contributed">ccc, dd.MM.y - ccc, dd.MM.y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">ccc, dd.MM.y - ccc, dd.MM.y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">ccc, dd.MM.y - ccc, dd.MM.y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">ccc, dd.MM.y - ccc, dd.MM.y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">ccc, dd.MM.y - ccc, dd.MM.y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">ccc, dd.MM.y - ccc, dd.MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="contributed">LLL-LLL y 'г'.</greatestDifference>
-							<greatestDifference id="y" draft="contributed">LLL y - LLL y 'г'.</greatestDifference>
+							<greatestDifference id="M" draft="contributed">LLL-LLL y 'г'. G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">LLL y - LLL y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d" draft="contributed">d-d MMM y 'г'.</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM - d MMM y 'г'.</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y - d MMM y 'г'.</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d-d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d MMM - d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d MMM y - d MMM y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="contributed">ccc, d - ccc, d MMM y 'г'.</greatestDifference>
-							<greatestDifference id="M" draft="contributed">ccc, d MMM - ccc, d MMM y 'г'.</greatestDifference>
-							<greatestDifference id="y" draft="contributed">ccc, d MMM y - ccc, d MMM y 'г'.</greatestDifference>
+							<greatestDifference id="d" draft="contributed">ccc, d - ccc, d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">ccc, d MMM - ccc, d MMM y 'г'. G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">ccc, d MMM y - ccc, d MMM y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="contributed">LLLL-LLLL y 'г'.</greatestDifference>
-							<greatestDifference id="y" draft="contributed">LLLL y - LLLL y 'г'.</greatestDifference>
+							<greatestDifference id="M" draft="contributed">LLLL-LLLL y 'г'. G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">LLLL y - LLLL y 'г'. G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -2142,6 +2146,10 @@
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">ccc, d</dateFormatItem>
+						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">LLL y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y 'г'. G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>

@@ -109,7 +109,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
     public static final String GEN_VERSION = "23";
-    private static Collection<String> extraPaths = null;
+    
+    private Collection<String> extraPaths = null;
 
     private boolean locked;
     XMLSource dataSource; // TODO(jchye): make private
@@ -465,7 +466,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (xpath.contains("[@count=")) {
             return getCountPathWithFallback(xpath, Count.other, winning);
         }
-        if (getExtraPaths().contains(xpath)) {
+        if (getRawExtraPaths().contains(xpath)) {
             return xpath;
         }
         return null;
@@ -2920,14 +2921,55 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
     }
 
+    /**
+     * Returns the extra paths, skipping those that are already represented in the locale.
+     * @return
+     */
     public Collection<String> getExtraPaths() {
+        return getExtraPaths(new HashSet<String>());
+    }
+    
+    /**
+     * Returns the extra paths, skipping those that are already represented in the locale.
+     * @return
+     */
+    public Collection<String> getExtraPaths(Collection<String> toAddTo) {
+        for (String item : getRawExtraPaths()) {
+            if (dataSource.getValueAtPath(item) == null) { // don't use getStringValue, since it recurses.
+                toAddTo.add(item);
+            }
+        }
+        return toAddTo;
+    }
+
+    /**
+     * Returns the extra paths, skipping those that are already represented in the locale.
+     * @return
+     */
+    public Collection<String> getExtraPaths(String prefix, Collection<String> toAddTo) {
+        for (String item : getRawExtraPaths()) {
+            if (item.startsWith(prefix) && dataSource.getValueAtPath(item) == null) { // don't use getStringValue, since it recurses.
+                toAddTo.add(item);
+            }
+        }
+        return toAddTo;
+    }
+
+    // extraPaths contains the raw extra paths. 
+    // It requires filtering in those cases where we don't want duplicate paths.
+    /**
+     * Returns the raw extra paths, irrespective of what paths are already represented in the locale.
+     * @return
+     */
+    public Collection<String> getRawExtraPaths() {
         if (extraPaths == null) {
-            extraPaths = getExtraPaths(new HashSet<String>());
+            extraPaths = Collections.unmodifiableCollection(getRawExtraPathsPrivate(new HashSet<String>()));
+            System.out.println(getLocaleID() + " extras " + extraPaths.size());
         }
         return extraPaths;
     }
-
-    public Collection<String> getExtraPaths(Collection<String> toAddTo) {
+    
+    private Collection<String> getRawExtraPathsPrivate(Collection<String> toAddTo) {
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
         Set<String> codes = StandardCodes.make().getAvailableCodes("currency");
         // units
@@ -2937,12 +2979,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             for (Count count : pluralCounts) {
                 for (String unit : new String[] { "year", "month", "week", "day", "hour", "minute", "second" }) {
                     for (String when : new String[] { "", "-past", "-future" }) {
-                        addUnlessValueEmpty("//ldml/units/unit[@type=\"" + unit + when + "\"]/unitPattern[@count=\""
-                            + count + "\"]", toAddTo);
+                        toAddTo.add("//ldml/units/unit[@type=\"" + unit + when + "\"]/unitPattern[@count=\""
+                            + count + "\"]");
                     }
                     for (String alt : new String[] { "", "[@alt=\"short\"]" }) {
-                        addUnlessValueEmpty("//ldml/units/unit[@type=\"" + unit + "\"]/unitPattern[@count=\"" + count
-                            + "\"]" + alt, toAddTo);
+                        toAddTo.add("//ldml/units/unit[@type=\"" + unit + "\"]/unitPattern[@count=\"" + count
+                            + "\"]" + alt);
                     }
                 }
 
@@ -2964,11 +3006,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                         "1000", "10000", "100000", "1000000", "10000000", "100000000", "1000000000",
                         "10000000000", "100000000000", "1000000000000", "10000000000000", "100000000000000" }) {
                         for (String width : new String[] { "short", "long" }) {
-                            addUnlessValueEmpty("//ldml/numbers/decimalFormats[@numberSystem=\"" +
+                            toAddTo.add("//ldml/numbers/decimalFormats[@numberSystem=\"" +
                                 numberSystem + "\"]/decimalFormatLength[@type=\"" +
                                 width + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" +
                                 type + "\"][@count=\"" +
-                                count + "\"]", toAddTo);
+                                count + "\"]");
                         }
                     }
                 }
@@ -3019,24 +3061,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return toAddTo;
     }
 
-    private boolean addUnlessValueEmpty(final String path, Collection<String> toAddTo) {
-        String value = getWinningValue(path);
-        if (value != null && value.length() == 0) {
-            return false;
-        } else {
-            toAddTo.add(path);
-            return true;
-        }
-    }
-
-    public Collection<String> getExtraPaths(String prefix, Collection<String> toAddTo) {
-        for (String item : getExtraPaths()) {
-            if (item.startsWith(prefix)) {
-                toAddTo.add(item);
-            }
-        }
-        return toAddTo;
-    }
+// This code never worked right, since extraPaths is static.
+//    private boolean addUnlessValueEmpty(final String path, Collection<String> toAddTo) {
+//        String value = getWinningValue(path);
+//        if (value != null && value.length() == 0) {
+//            return false;
+//        } else {
+//            toAddTo.add(path);
+//            return true;
+//        }
+//    }
 
     private Matcher typeValueMatcher = Pattern.compile("\\[@type=\"([^\"]*)\"\\]").matcher("");
 

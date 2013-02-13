@@ -2964,7 +2964,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public Collection<String> getRawExtraPaths() {
         if (extraPaths == null) {
             extraPaths = Collections.unmodifiableCollection(getRawExtraPathsPrivate(new HashSet<String>()));
-            System.out.println(getLocaleID() + " extras " + extraPaths.size());
+            if (DEBUG) {
+                System.out.println(getLocaleID() + "\textras: " + extraPaths.size());
+            }
         }
         return extraPaths;
     }
@@ -2988,26 +2990,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     }
                 }
 
-                // do units now, but only if pattern is not empty
-
-                final String currencyPattern = "//ldml/numbers/currencyFormats/unitPattern[@count=\"" + count + "\"]";
-                String value = getWinningValue(currencyPattern);
-                if (value != null && value.length() == 0) {
-                    continue;
-                }
-                toAddTo.add(currencyPattern);
                 for (String unit : codes) {
                     toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + unit + "\"]/displayName[@count=\""
                         + count + "\"]");
                 }
 
                 for (String numberSystem : XMLSource.getNumberSystems()) {
+                    String numberSystemString = "[@numberSystem=\"" + numberSystem + "\"]";
+                    final String currencyPattern = "//ldml/numbers/currencyFormats" + numberSystemString +
+                        "/unitPattern[@count=\"" + count + "\"]";
+                    toAddTo.add(currencyPattern);
+                    if (DEBUG) {
+                        System.out.println(getLocaleID() + "\t" + currencyPattern);
+                    }
+
                     for (String type : new String[] {
                         "1000", "10000", "100000", "1000000", "10000000", "100000000", "1000000000",
                         "10000000000", "100000000000", "1000000000000", "10000000000000", "100000000000000" }) {
                         for (String width : new String[] { "short", "long" }) {
-                            toAddTo.add("//ldml/numbers/decimalFormats[@numberSystem=\"" +
-                                numberSystem + "\"]/decimalFormatLength[@type=\"" +
+                            toAddTo.add("//ldml/numbers/decimalFormats" + 
+                                numberSystemString + "/decimalFormatLength[@type=\"" +
                                 width + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" +
                                 type + "\"][@count=\"" +
                                 count + "\"]");

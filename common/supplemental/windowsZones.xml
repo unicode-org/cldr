@@ -6,7 +6,7 @@
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7dc0101" typeVersion="2012j">
+		<mapTimezones otherVersion="7dd0000" typeVersion="2012j">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -169,7 +169,7 @@
 
 			<!-- (UTC-03:00) Brasilia -->
 			<mapZone other="E. South America Standard Time" territory="001" type="America/Sao_Paulo"/>
-			<mapZone other="E. South America Standard Time" territory="BR" type="America/Sao_Paulo"/>
+			<mapZone other="E. South America Standard Time" territory="BR" type="America/Sao_Paulo America/Araguaina"/>
 
 			<!-- (UTC-03:00) Buenos Aires -->
 			<mapZone other="Argentina Standard Time" territory="001" type="America/Buenos_Aires"/>
@@ -178,7 +178,7 @@
 			<!-- (UTC-03:00) Cayenne, Fortaleza -->
 			<mapZone other="SA Eastern Standard Time" territory="001" type="America/Cayenne"/>
 			<mapZone other="SA Eastern Standard Time" territory="AQ" type="Antarctica/Rothera"/>
-			<mapZone other="SA Eastern Standard Time" territory="BR" type="America/Fortaleza America/Araguaina America/Belem America/Maceio America/Recife America/Santarem"/>
+			<mapZone other="SA Eastern Standard Time" territory="BR" type="America/Fortaleza America/Belem America/Maceio America/Recife America/Santarem"/>
 			<mapZone other="SA Eastern Standard Time" territory="FK" type="Atlantic/Stanley"/>
 			<mapZone other="SA Eastern Standard Time" territory="GF" type="America/Cayenne"/>
 			<mapZone other="SA Eastern Standard Time" territory="SR" type="America/Paramaribo"/>
@@ -319,10 +319,6 @@
 			<mapZone other="Namibia Standard Time" territory="001" type="Africa/Windhoek"/>
 			<mapZone other="Namibia Standard Time" territory="NA" type="Africa/Windhoek"/>
 
-			<!-- (UTC+02:00) Amman -->
-			<mapZone other="Jordan Standard Time" territory="001" type="Asia/Amman"/>
-			<mapZone other="Jordan Standard Time" territory="JO" type="Asia/Amman"/>
-
 			<!-- (UTC+02:00) Athens, Bucharest -->
 			<mapZone other="GTB Standard Time" territory="001" type="Europe/Bucharest"/>
 			<mapZone other="GTB Standard Time" territory="GR" type="Europe/Athens"/>
@@ -378,6 +374,10 @@
 			<!-- (UTC+02:00) Jerusalem -->
 			<mapZone other="Israel Standard Time" territory="001" type="Asia/Jerusalem"/>
 			<mapZone other="Israel Standard Time" territory="IL" type="Asia/Jerusalem"/>
+
+			<!-- (UTC+03:00) Amman -->
+			<mapZone other="Jordan Standard Time" territory="001" type="Asia/Amman"/>
+			<mapZone other="Jordan Standard Time" territory="JO" type="Asia/Amman"/>
 
 			<!-- (UTC+03:00) Baghdad -->
 			<mapZone other="Arabic Standard Time" territory="001" type="Asia/Baghdad"/>

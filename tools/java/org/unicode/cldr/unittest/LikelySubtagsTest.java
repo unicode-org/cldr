@@ -19,7 +19,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class LikelySubtagsTest extends TestFmwk {
 
-    private static final boolean ENABLE_REGION_TEST = true;
+    private static final boolean ENABLE_REGION_TEST = false;
 
     public static void main(String[] args) {
         new LikelySubtagsTest().run(args);

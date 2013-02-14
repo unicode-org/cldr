@@ -1199,14 +1199,6 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             { "unihan", "collation" },
             { "vaii", "numbers" },
             { "zhuyin", "collation" } };
-        static Set<String> numberSystems = new LinkedHashSet<String>();
-        static {
-            for (String[] i : ResolvingSource.typeDisplayNames) {
-                if ("numbers".equals(i[1])) {
-                    numberSystems.add(i[0]);
-                }
-            }
-        }
 
         private static final boolean SKIP_SINGLEZONES = false;
         private static XMLSource constructedItems = new SimpleXMLSource(CODE_FALLBACK_ID);
@@ -1456,7 +1448,4 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
      */
     public abstract void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result);
 
-    static Set<String> getNumberSystems() {
-        return ResolvingSource.numberSystems;
-    }
 }

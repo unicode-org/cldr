@@ -2995,7 +2995,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                         + count + "\"]");
                 }
 
-                for (String numberSystem : XMLSource.getNumberSystems()) {
+                for (String numberSystem : supplementalData.getNumericNumberingSystems()) {
                     String numberSystemString = "[@numberSystem=\"" + numberSystem + "\"]";
                     final String currencyPattern = "//ldml/numbers/currencyFormats" + numberSystemString +
                         "/unitPattern[@count=\"" + count + "\"]";

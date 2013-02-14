@@ -27,6 +27,7 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.util.Relation;
@@ -400,10 +401,14 @@ public class SupplementalDataInfo {
         }
     }
 
-    public static class NumberingSystemsInfo {
-        public Set<String> getAvailableNumberingSystems() {
-            return null;
-        }
+    public static class NumberingSystemInfo {
+        public enum NumberingSystemType { algorithmic, numeric, unknown };
+        
+        public String name;
+        public NumberingSystemType type;
+        public String digits;
+        public String rules;
+ 
     }
 
     /**
@@ -1259,9 +1264,15 @@ public class SupplementalDataInfo {
         }
 
         private void handleNumberingSystems() {
-            String name = parts.getAttributeValue(-1, "id");
-            String digits = parts.getAttributeValue(-1, "digits");
-            numberingSystems.put(name, digits);
+            NumberingSystemInfo ns = new NumberingSystemInfo();
+            ns.name = parts.getAttributeValue(-1, "id");
+            ns.digits = parts.getAttributeValue(-1, "digits");
+            ns.rules = parts.getAttributeValue(-1,"rules");
+            ns.type = NumberingSystemType.valueOf(parts.getAttributeValue(-1,"type"));
+            numberingSystems.put(ns.name, ns);
+            if ( ns.type == NumberingSystemType.numeric ) {
+                numericSystems.add(ns.name);
+            }
         }
 
         private void handleCoverageLevels() {
@@ -1704,7 +1715,8 @@ public class SupplementalDataInfo {
     private Map<String, List<String>> calendarPreferences = new HashMap<String, List<String>>();
     private Map<String, CoverageVariableInfo> localeSpecificVariables = new TreeMap<String, CoverageVariableInfo>();
     private VariableReplacer coverageVariables = new VariableReplacer();
-    private Map<String, String> numberingSystems = new HashMap<String, String>();
+    private Map<String, NumberingSystemInfo> numberingSystems = new HashMap<String, NumberingSystemInfo>();
+    private Set<String> numericSystems = new TreeSet<String>();
     private Set<String> defaultContentLocales;
     public Map<CLDRLocale, CLDRLocale> baseToDefaultContent; // wo -> wo_Arab_SN
     public Map<CLDRLocale, CLDRLocale> defaultContentToBase; // wo_Arab_SN -> wo
@@ -1933,8 +1945,16 @@ public class SupplementalDataInfo {
         return numberingSystems.keySet();
     }
 
+    public Set<String> getNumericNumberingSystems() {
+        return numericSystems;
+    }
+
     public String getDigits(String numberingSystem) {
-        return numberingSystems.get(numberingSystem);
+        return numberingSystems.get(numberingSystem).digits;
+    }
+    
+    public NumberingSystemType getNumberingSystemType(String numberingSystem) {
+        return numberingSystems.get(numberingSystem).type;
     }
 
     public SortedSet<CoverageLevelInfo> getCoverageLevelInfo() {

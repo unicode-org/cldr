@@ -1,0 +1,10 @@
+//ldml/(identity|posix/messages)|/(default|alias|commonlyUsed) ; skip
+//ldml/localeDisplayNames/(languages|scripts|territories)/.*[@alt="variant"\] ; skip
+//ldml/localeDisplayNames/territories/territory.*[@alt="short"\] ; skip
+//supplementalData/references/reference ; skip
+//supplementalData/gender/personList[@type="([^"]*)"] ; value ; $1
+
+
+# SKIP for now, until we can canonicalize better
+//ldml/characters/exemplarCharacters ; warning
+

@@ -171,9 +171,17 @@ public final class FileUtilities {
             BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
             return bufferedReader;
         } catch (Exception e) {
-            throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
-                + (class1 == null ? null : class1.getCanonicalName())
-                , e);
+            String className = class1 == null ? null : class1.getCanonicalName();
+            String canonicalName = null;
+            try {
+                String relativeFileName = getRelativeFileName(class1, "../util/");
+                canonicalName = new File(relativeFileName).getCanonicalPath();
+            } catch (Exception e1) {
+                throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
+                    + className , e);
+            }
+            throw new IllegalArgumentException("Couldn't open file: " + canonicalName
+                + className, e);
         }
     }
 

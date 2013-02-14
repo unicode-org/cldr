@@ -149,6 +149,8 @@ public class CldrUtility {
     public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
 
+    public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg "/Users/markdavis/workspace/icu4c/source/data/";
+
     /**
      * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
      * @see DEFAULT_SUPPLEMENTAL_DIRECTORY

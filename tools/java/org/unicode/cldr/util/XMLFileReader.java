@@ -14,8 +14,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.Stack;
 
+import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
@@ -27,6 +31,8 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
+
+import com.ibm.icu.dev.util.Relation;
 
 /**
  * Convenience class to make reading XML data files easier. The main method is read();
@@ -357,6 +363,29 @@ public class XMLFileReader {
             System.out.println(Integer.toHexString(x) + ",");
             return x;
         }
+    }
+    
+    public static Relation<String, String> loadPathValues(String filename, Relation<String,String> data) {
+            try {
+                new XMLFileReader()
+                    .setHandler(new PathValueHandler(data))
+                    .read(filename, -1, true);
+                return data;
+            } catch (Exception e) {
+                throw new IllegalArgumentException(filename, e);
+            }
+    }
+    
+    static final class PathValueHandler extends SimpleHandler {
+        Relation<String,String> data = Relation.of(new LinkedHashMap<String,Set<String>>(), LinkedHashSet.class);
 
+        public PathValueHandler(Relation<String, String> data) {
+            super();
+            this.data = data;
+        }
+        @Override
+        public void handlePathValue(String path, String value) {
+            data.put(path, value);
+        }
     }
 }

@@ -1043,73 +1043,6 @@
 				</dateFormats>
 			</calendar>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Su.</day>
-							<day type="mon">Mä.</day>
-							<day type="tue">Zi.</day>
-							<day type="wed">Mi.</day>
-							<day type="thu">Du.</day>
-							<day type="fri">Fr.</day>
-							<day type="sat">Sa.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Sunntig</day>
-							<day type="mon">Määntig</day>
-							<day type="tue">Ziischtig</day>
-							<day type="wed">Mittwuch</day>
-							<day type="thu">Dunschtig</day>
-							<day type="fri">Friitig</day>
-							<day type="sat">Samschtig</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">D</day>
-							<day type="wed">M</day>
-							<day type="thu">D</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1. Quartal</quarter>
-							<quarter type="2">2. Quartal</quarter>
-							<quarter type="3">3. Quartal</quarter>
-							<quarter type="4">4. Quartal</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">v.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">n.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">vorm.</dayPeriod>
-							<dayPeriod type="pm">nam.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">Vormittag</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">Namittag</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1132,28 +1065,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

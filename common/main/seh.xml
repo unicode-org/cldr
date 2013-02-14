@@ -294,39 +294,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Dim</day>
-							<day type="mon">Pos</day>
-							<day type="tue">Pir</day>
-							<day type="wed">Tat</day>
-							<day type="thu">Nai</day>
-							<day type="fri">Sha</day>
-							<day type="sat">Sab</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Dimingu</day>
-							<day type="mon">Chiposi</day>
-							<day type="tue">Chipiri</day>
-							<day type="wed">Chitatu</day>
-							<day type="thu">Chinai</day>
-							<day type="fri">Chishanu</day>
-							<day type="sat">Sabudu</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">D</day>
-							<day type="mon">P</day>
-							<day type="tue">C</day>
-							<day type="wed">T</day>
-							<day type="thu">N</day>
-							<day type="fri">S</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -349,28 +316,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

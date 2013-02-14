@@ -179,39 +179,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Dim</day>
-							<day type="mon">Ten</day>
-							<day type="tue">Tal</day>
-							<day type="wed">Ala</day>
-							<day type="thu">Ara</day>
-							<day type="fri">Arj</day>
-							<day type="sat">Sib</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Dimas</day>
-							<day type="mon">Teneŋ</day>
-							<day type="tue">Talata</day>
-							<day type="wed">Alarbay</day>
-							<day type="thu">Aramisay</day>
-							<day type="fri">Arjuma</day>
-							<day type="sat">Sibiti</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">D</day>
-							<day type="mon">T</day>
-							<day type="tue">T</day>
-							<day type="wed">A</day>
-							<day type="thu">A</day>
-							<day type="fri">A</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -234,28 +201,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

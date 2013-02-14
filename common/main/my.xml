@@ -458,71 +458,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">နွေ</day>
-							<day type="mon">လာ</day>
-							<day type="tue">ဂါ</day>
-							<day type="wed">ဟူး</day>
-							<day type="thu">တေး</day>
-							<day type="fri">ကြာ</day>
-							<day type="sat">နေ</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">တနင်္ဂနွေ</day>
-							<day type="mon">တနင်္လာ</day>
-							<day type="tue">အင်္ဂါ</day>
-							<day type="wed">ဗုဒ္ဓဟူး</day>
-							<day type="thu">ကြာသပတေး</day>
-							<day type="fri">သောကြာ</day>
-							<day type="sat">စနေ</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">တ</day>
-							<day type="mon">တ</day>
-							<day type="tue">အ</day>
-							<day type="wed">ဗ</day>
-							<day type="thu">က</day>
-							<day type="fri">သ</day>
-							<day type="sat">စ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">ပ-စိတ်</quarter>
-							<quarter type="2">ဒု-စိတ်</quarter>
-							<quarter type="3">တ-စိတ်</quarter>
-							<quarter type="4">စ-စိတ်</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">ပထမ သုံးလပတ်</quarter>
-							<quarter type="2">ဒုတိယ သုံးလပတ်</quarter>
-							<quarter type="3">တတိယ သုံးလပတ်</quarter>
-							<quarter type="4">စတုတ္ထ သုံးလပတ်</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">ပ</quarter>
-							<quarter type="2">ဒု</quarter>
-							<quarter type="3">တ</quarter>
-							<quarter type="4">စ</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">နံနက်</dayPeriod>
-							<dayPeriod type="pm">ညနေ</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -545,28 +480,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

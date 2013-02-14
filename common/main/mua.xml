@@ -296,63 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Cya</day>
-							<day type="mon">Cla</day>
-							<day type="tue">Czi</day>
-							<day type="wed">Cko</day>
-							<day type="thu">Cka</day>
-							<day type="fri">Cga</day>
-							<day type="sat">Cze</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Com'yakke</day>
-							<day type="mon">Comlaaɗii</day>
-							<day type="tue">Comzyiiɗii</day>
-							<day type="wed">Comkolle</day>
-							<day type="thu">Comkaldǝɓlii</day>
-							<day type="fri">Comgaisuu</day>
-							<day type="sat">Comzyeɓsuu</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">Y</day>
-							<day type="mon">L</day>
-							<day type="tue">Z</day>
-							<day type="wed">O</day>
-							<day type="thu">A</day>
-							<day type="fri">G</day>
-							<day type="sat">E</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">F1</quarter>
-							<quarter type="2">F2</quarter>
-							<quarter type="3">F3</quarter>
-							<quarter type="4">F4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Tai fĩi sai ma tǝn kee zah</quarter>
-							<quarter type="2">Tai fĩi sai zah lǝn gwa ma kee</quarter>
-							<quarter type="3">Tai fĩi sai zah lǝn sai ma kee</quarter>
-							<quarter type="4">Tai fĩi sai ma coo kee zah 'na</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">comme</dayPeriod>
-							<dayPeriod type="pm">lilli</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -375,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

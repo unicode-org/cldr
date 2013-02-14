@@ -90,36 +90,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">Яшб</day>
-							<day type="mon" draft="unconfirmed">Дшб</day>
-							<day type="tue" draft="unconfirmed">Сшб</day>
-							<day type="wed" draft="unconfirmed">Чшб</day>
-							<day type="thu" draft="unconfirmed">Пшб</day>
-							<day type="fri" draft="unconfirmed">Ҷмъ</day>
-							<day type="sat" draft="unconfirmed">Шнб</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">Якшанбе</day>
-							<day type="mon" draft="unconfirmed">Душанбе</day>
-							<day type="tue" draft="unconfirmed">Сешанбе</day>
-							<day type="wed" draft="unconfirmed">Чоршанбе</day>
-							<day type="thu" draft="unconfirmed">Панҷшанбе</day>
-							<day type="fri" draft="unconfirmed">Ҷумъа</day>
-							<day type="sat" draft="unconfirmed">Шанбе</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">пе. чо.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">па. чо.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -142,28 +112,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="unconfirmed">HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>

@@ -71,74 +71,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">ਐਤ.</day>
-							<day type="mon">ਸੋਮ.</day>
-							<day type="tue">ਮੰਗਲ.</day>
-							<day type="wed">ਬੁਧ.</day>
-							<day type="thu">ਵੀਰ.</day>
-							<day type="fri">ਸ਼ੁਕਰ.</day>
-							<day type="sat">ਸ਼ਨੀ.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">ਐਤਵਾਰ</day>
-							<day type="mon">ਸੋਮਵਾਰ</day>
-							<day type="tue">ਮੰਗਲਵਾਰ</day>
-							<day type="wed">ਬੁਧਵਾਰ</day>
-							<day type="thu">ਵੀਰਵਾਰ</day>
-							<day type="fri">ਸ਼ੁੱਕਰਵਾਰ</day>
-							<day type="sat">ਸ਼ਨੀਚਰਵਾਰ</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">ਐ</day>
-							<day type="mon">ਸੋ</day>
-							<day type="tue">ਮੰ</day>
-							<day type="wed">ਬੁੱ</day>
-							<day type="thu">ਵੀ</day>
-							<day type="fri">ਸ਼ੁੱ</day>
-							<day type="sat">ਸ਼</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">ਐਤਵਾਰ</day>
-							<day type="mon">ਸੋਮਵਾਰ</day>
-							<day type="tue">ਮੰਗਲਵਾਰ</day>
-							<day type="wed">ਬੁਧਵਾਰ</day>
-							<day type="thu">ਵੀਰਵਾਰ</day>
-							<day type="fri">ਸ਼ੁੱਕਰਵਾਰ</day>
-							<day type="sat">ਸ਼ਨੀਚਰਵਾਰ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="wide">
-							<quarter type="1">ਇਕ ਚੌਥਾਈ</quarter>
-							<quarter type="2">ਅੱਧਾ</quarter>
-							<quarter type="3">ਪੌਣਾ</quarter>
-							<quarter type="4">ਪੂਰਾ</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="wide">
-							<quarter type="1">ਇਕ ਚੌਥਾਈ</quarter>
-							<quarter type="2">ਅੱਧਾ</quarter>
-							<quarter type="3">ਪੌਣਾ</quarter>
-							<quarter type="4">ਪੂਰਾ</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">ਪੂਰਵ ਦੁਪਹਿਰ</dayPeriod>
-							<dayPeriod type="pm">ਬਾਅਦ ਦੁਪਹਿਰ</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -161,28 +93,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>

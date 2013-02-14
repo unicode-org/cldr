@@ -296,63 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Yan</day>
-							<day type="mon">San</day>
-							<day type="tue">Kraḍ</day>
-							<day type="wed">Kuẓ</day>
-							<day type="thu">Sam</day>
-							<day type="fri">Sḍis</day>
-							<day type="sat">Say</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Yanass</day>
-							<day type="mon">Sanass</day>
-							<day type="tue">Kraḍass</day>
-							<day type="wed">Kuẓass</day>
-							<day type="thu">Samass</day>
-							<day type="fri">Sḍisass</day>
-							<day type="sat">Sayass</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">Y</day>
-							<day type="mon">S</day>
-							<day type="tue">K</day>
-							<day type="wed">K</day>
-							<day type="thu">S</day>
-							<day type="fri">S</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Kḍg1</quarter>
-							<quarter type="2">Kḍg2</quarter>
-							<quarter type="3">Kḍg3</quarter>
-							<quarter type="4">Kḍg4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">akraḍaggur amenzu</quarter>
-							<quarter type="2">akraḍaggur wis-sin</quarter>
-							<quarter type="3">akraḍaggur wis-kraḍ</quarter>
-							<quarter type="4">akraḍaggur wis-kuẓ</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">n tufat</dayPeriod>
-							<dayPeriod type="pm">n tmeddit</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -375,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">M</dateFormatItem>

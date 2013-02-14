@@ -351,52 +351,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Àìkú</day>
-							<day type="mon">Ajé</day>
-							<day type="tue">Ìsẹ́gun</day>
-							<day type="wed">Ọjọ́rú</day>
-							<day type="thu">Ọjọ́bọ</day>
-							<day type="fri">Ẹtì</day>
-							<day type="sat">Àbámẹ́ta</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Ọjọ́ Àìkú</day>
-							<day type="mon">Ọjọ́ Ajé</day>
-							<day type="tue">Ọjọ́ Ìsẹ́gun</day>
-							<day type="wed">Ọjọ́rú</day>
-							<day type="thu">Ọjọ́bọ</day>
-							<day type="fri">Ọjọ́ Ẹtì</day>
-							<day type="sat">Ọjọ́ Àbámẹ́ta</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Kọ́tà Kínní</quarter>
-							<quarter type="2">Kọ́tà Kejì</quarter>
-							<quarter type="3">Kọ́à Keta</quarter>
-							<quarter type="4">Kọ́tà Kẹrin</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">Àárọ̀</dayPeriod>
-							<dayPeriod type="pm">Ọ̀sán</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -419,28 +373,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

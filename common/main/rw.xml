@@ -133,44 +133,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">cyu.</day>
-							<day type="mon">mbe.</day>
-							<day type="tue">kab.</day>
-							<day type="wed">gtu.</day>
-							<day type="thu">kan.</day>
-							<day type="fri">gnu.</day>
-							<day type="sat">gnd.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Ku cyumweru</day>
-							<day type="mon">Kuwa mbere</day>
-							<day type="tue">Kuwa kabiri</day>
-							<day type="wed">Kuwa gatatu</day>
-							<day type="thu">Kuwa kane</day>
-							<day type="fri">Kuwa gatanu</day>
-							<day type="sat">Kuwa gatandatu</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">I1</quarter>
-							<quarter type="2">I2</quarter>
-							<quarter type="3">I3</quarter>
-							<quarter type="4">I4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">igihembwe cya mbere</quarter>
-							<quarter type="2">igihembwe cya kabiri</quarter>
-							<quarter type="3">igihembwe cya gatatu</quarter>
-							<quarter type="4">igihembwe cya kane</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -193,28 +155,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>

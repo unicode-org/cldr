@@ -30,28 +30,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">ی.</day>
-							<day type="mon" draft="unconfirmed">د.</day>
-							<day type="tue" draft="unconfirmed">س.</day>
-							<day type="wed" draft="unconfirmed">چ.</day>
-							<day type="thu" draft="unconfirmed">پ.</day>
-							<day type="fri" draft="unconfirmed">ج.</day>
-							<day type="sat" draft="unconfirmed">ش.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">یکشنبه</day>
-							<day type="mon" draft="unconfirmed">دوشنبه</day>
-							<day type="tue" draft="unconfirmed">سه‌شنبه</day>
-							<day type="wed" draft="unconfirmed">چهارشنبه</day>
-							<day type="thu" draft="unconfirmed">پنجشنبه</day>
-							<day type="fri" draft="unconfirmed">جمعه</day>
-							<day type="sat" draft="unconfirmed">شنبه</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -74,28 +52,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="unconfirmed">H:mm:ss (zzzz)</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="unconfirmed">H:mm:ss (z)</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="unconfirmed">H:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="unconfirmed">H:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="unconfirmed">M/d</dateFormatItem>

@@ -32,29 +32,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="wide">
-							<day type="sun">اتوار</day>
-							<day type="mon">پیر</day>
-							<day type="tue">منگل</day>
-							<day type="wed">بُدھ</day>
-							<day type="thu">جمعرات</day>
-							<day type="fri">جمعہ</day>
-							<day type="sat">ہفتہ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="wide">
-							<quarter type="1">چوتھاي پہلاں</quarter>
-							<quarter type="2">چوتھاي دوجا</quarter>
-							<quarter type="3">چوتھاي تيجا</quarter>
-							<quarter type="4">چوتھاي چوتھا</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -77,28 +54,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="HHmmss">HH:mm:ss</dateFormatItem>

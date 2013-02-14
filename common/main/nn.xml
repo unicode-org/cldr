@@ -1102,80 +1102,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">sø.</day>
-							<day type="mon">må.</day>
-							<day type="tue">ty.</day>
-							<day type="wed">on.</day>
-							<day type="thu">to.</day>
-							<day type="fri">fr.</day>
-							<day type="sat">la.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">søndag</day>
-							<day type="mon">måndag</day>
-							<day type="tue">tysdag</day>
-							<day type="wed">onsdag</day>
-							<day type="thu">torsdag</day>
-							<day type="fri">fredag</day>
-							<day type="sat">laurdag</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">søn</day>
-							<day type="mon" draft="unconfirmed">mån</day>
-							<day type="tue" draft="unconfirmed">tys</day>
-							<day type="wed" draft="unconfirmed">ons</day>
-							<day type="thu" draft="unconfirmed">tor</day>
-							<day type="fri" draft="unconfirmed">fre</day>
-							<day type="sat" draft="unconfirmed">lau</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">O</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">L</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1. kvartal</quarter>
-							<quarter type="2">2. kvartal</quarter>
-							<quarter type="3">3. kvartal</quarter>
-							<quarter type="4">4. kvartal</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">f.m.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">e.m.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">formiddag</dayPeriod>
-							<dayPeriod type="pm">ettermiddag</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1198,28 +1124,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>'kl'. HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d.</dateFormatItem>

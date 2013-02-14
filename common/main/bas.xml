@@ -293,63 +293,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">nɔy</day>
-							<day type="mon">nja</day>
-							<day type="tue">uum</day>
-							<day type="wed">ŋge</day>
-							<day type="thu">mbɔ</day>
-							<day type="fri">kɔɔ</day>
-							<day type="sat">jon</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">ŋgwà nɔ̂y</day>
-							<day type="mon">ŋgwà njaŋgumba</day>
-							<day type="tue">ŋgwà ûm</day>
-							<day type="wed">ŋgwà ŋgê</day>
-							<day type="thu">ŋgwà mbɔk</day>
-							<day type="fri">ŋgwà kɔɔ</day>
-							<day type="sat">ŋgwà jôn</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">n</day>
-							<day type="mon">n</day>
-							<day type="tue">u</day>
-							<day type="wed">ŋ</day>
-							<day type="thu">m</day>
-							<day type="fri">k</day>
-							<day type="sat">j</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">K1s3</quarter>
-							<quarter type="2">K2s3</quarter>
-							<quarter type="3">K3s3</quarter>
-							<quarter type="4">K4s3</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Kèk bisu i soŋ iaâ</quarter>
-							<quarter type="2">Kèk i ńyonos biɓaà i soŋ iaâ</quarter>
-							<quarter type="3">Kèk i ńyonos biaâ i soŋ iaâ</quarter>
-							<quarter type="4">Kèk i ńyonos binâ i soŋ iaâ</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">I bikɛ̂glà</dayPeriod>
-							<dayPeriod type="pm">I ɓugajɔp</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -372,28 +315,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

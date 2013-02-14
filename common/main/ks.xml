@@ -978,55 +978,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">آتھوار</day>
-							<day type="mon">ژٔنٛدٕروار</day>
-							<day type="tue">بوٚموار</day>
-							<day type="wed">بودوار</day>
-							<day type="thu">برٛٮ۪سوار</day>
-							<day type="fri">جُمہ</day>
-							<day type="sat">بٹوار</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">اَتھوار</day>
-							<day type="mon">ژٔنٛدرٕروار</day>
-							<day type="tue">بوٚموار</day>
-							<day type="wed">بودوار</day>
-							<day type="thu">برٛٮ۪سوار</day>
-							<day type="fri">جُمہ</day>
-							<day type="sat">بٹوار</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">ا</day>
-							<day type="mon">ژ</day>
-							<day type="tue">ب</day>
-							<day type="wed">ب</day>
-							<day type="thu">ب</day>
-							<day type="fri">ج</day>
-							<day type="sat">ب</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">ژۄباگ</quarter>
-							<quarter type="2">دوٚیِم ژۄباگ</quarter>
-							<quarter type="3">ترٛیِم ژۄباگ</quarter>
-							<quarter type="4">ژوٗرِم ژۄباگ</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">گۄڑنیُک ژۄباگ</quarter>
-							<quarter type="2">دوٚیِم ژۄباگ</quarter>
-							<quarter type="3">ترٛیِم ژۄباگ</quarter>
-							<quarter type="4">ژوٗرِم ژۄباگ</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1049,28 +1000,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>

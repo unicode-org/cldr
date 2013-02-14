@@ -296,55 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Alah</day>
-							<day type="mon">Alats</day>
-							<day type="tue">Tal</day>
-							<day type="wed">Alar</day>
-							<day type="thu">Alak</day>
-							<day type="fri">Zom</day>
-							<day type="sat">Asab</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Alahady</day>
-							<day type="mon">Alatsinainy</day>
-							<day type="tue">Talata</day>
-							<day type="wed">Alarobia</day>
-							<day type="thu">Alakamisy</day>
-							<day type="fri">Zoma</day>
-							<day type="sat">Asabotsy</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">A</day>
-							<day type="mon">A</day>
-							<day type="tue">T</day>
-							<day type="wed">A</day>
-							<day type="thu">A</day>
-							<day type="fri">Z</day>
-							<day type="sat">A</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">T1</quarter>
-							<quarter type="2">T2</quarter>
-							<quarter type="3">T3</quarter>
-							<quarter type="4">T4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Telovolana voalohany</quarter>
-							<quarter type="2">Telovolana faharoa</quarter>
-							<quarter type="3">Telovolana fahatelo</quarter>
-							<quarter type="4">Telovolana fahefatra</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -367,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">M</dateFormatItem>

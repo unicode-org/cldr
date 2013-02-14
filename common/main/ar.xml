@@ -1139,55 +1139,6 @@
 						<era type="0">التقويم البوذي</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE، d MMMM، y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM، y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>dd‏/MM‏/y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d‏/M‏/y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">E، d</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d/‏M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yM">M‏/y G</dateFormatItem>
-						<dateFormatItem id="yMd">d/‏M/‏y G</dateFormatItem>
-						<dateFormatItem id="yMEd">E، d/‏M/‏y G</dateFormatItem>
-						<dateFormatItem id="yMM">MM‏/y G</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E، d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y G</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="coptic">
 				<months>
@@ -1264,116 +1215,15 @@
 				</months>
 			</calendar>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">الأحد</day>
-							<day type="mon">الاثنين</day>
-							<day type="tue">الثلاثاء</day>
-							<day type="wed">الأربعاء</day>
-							<day type="thu">الخميس</day>
-							<day type="fri">الجمعة</day>
-							<day type="sat">السبت</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">الأحد</day>
-							<day type="mon">الاثنين</day>
-							<day type="tue">الثلاثاء</day>
-							<day type="wed">الأربعاء</day>
-							<day type="thu">الخميس</day>
-							<day type="fri">الجمعة</day>
-							<day type="sat">السبت</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">الأحد</day>
-							<day type="mon">الاثنين</day>
-							<day type="tue">الثلاثاء</day>
-							<day type="wed">الأربعاء</day>
-							<day type="thu">الخميس</day>
-							<day type="fri">الجمعة</day>
-							<day type="sat">السبت</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun">الأحد</day>
-							<day type="mon">الاثنين</day>
-							<day type="tue">الثلاثاء</day>
-							<day type="wed">الأربعاء</day>
-							<day type="thu">الخميس</day>
-							<day type="fri">الجمعة</day>
-							<day type="sat">السبت</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">ح</day>
-							<day type="mon">ن</day>
-							<day type="tue">ث</day>
-							<day type="wed">ر</day>
-							<day type="thu">خ</day>
-							<day type="fri">ج</day>
-							<day type="sat">س</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">الأحد</day>
-							<day type="mon">الاثنين</day>
-							<day type="tue">الثلاثاء</day>
-							<day type="wed">الأربعاء</day>
-							<day type="thu">الخميس</day>
-							<day type="fri">الجمعة</day>
-							<day type="sat">السبت</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">الأحد</day>
-							<day type="mon">الاثنين</day>
-							<day type="tue">الثلاثاء</day>
-							<day type="wed">الأربعاء</day>
-							<day type="thu">الخميس</day>
-							<day type="fri">الجمعة</day>
-							<day type="sat">السبت</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="narrow">
-							<quarter type="1">١</quarter>
-							<quarter type="2">٢</quarter>
-							<quarter type="3">٣</quarter>
-							<quarter type="4">٤</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">الربع الأول</quarter>
-							<quarter type="2">الربع الثاني</quarter>
-							<quarter type="3">الربع الثالث</quarter>
-							<quarter type="4">الربع الرابع</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">١</quarter>
-							<quarter type="2">٢</quarter>
-							<quarter type="3">٣</quarter>
-							<quarter type="4">٤</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">ص</dayPeriod>
-							<dayPeriod type="pm">م</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE، d MMMM، y</pattern>
+							<pattern>EEEE، d MMMM، y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM، y</pattern>
+							<pattern>d MMMM، y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1387,28 +1237,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -1433,6 +1261,10 @@
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM، y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E، d MMM، y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1442,24 +1274,23 @@
 						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
 						<dateFormatItem id="Md">d/‏M</dateFormatItem>
 						<dateFormatItem id="MEd">E، d/M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E، d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E، d MMMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M‏/y</dateFormatItem>
-						<dateFormatItem id="yMd">d‏/M‏/y</dateFormatItem>
-						<dateFormatItem id="yMEd">E، d/‏M/‏y</dateFormatItem>
-						<dateFormatItem id="yMM">MM‏/y</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM، y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E، d MMM، y</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">M‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d‏/M‏/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E، d/‏M/‏y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM، y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E، d MMM، y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -1524,39 +1355,39 @@
 							<greatestDifference id="M">LLLL–LLLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y–y</greatestDifference>
+							<greatestDifference id="y">y–y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M‏/y – M‏/y</greatestDifference>
-							<greatestDifference id="y">M‏/y – M‏/y</greatestDifference>
+							<greatestDifference id="M">M‏/y – M‏/y G</greatestDifference>
+							<greatestDifference id="y">M‏/y – M‏/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d‏/M‏/y – d‏/M‏/y</greatestDifference>
-							<greatestDifference id="M">d‏/M‏/y – d‏/M‏/y</greatestDifference>
-							<greatestDifference id="y">d‏/M‏/y – d‏/M‏/y</greatestDifference>
+							<greatestDifference id="d">d‏/M‏/y – d‏/M‏/y G</greatestDifference>
+							<greatestDifference id="M">d‏/M‏/y – d‏/M‏/y G</greatestDifference>
+							<greatestDifference id="y">d‏/M‏/y – d‏/M‏/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E، dd‏/MM‏/y – E، dd‏/MM‏/y</greatestDifference>
-							<greatestDifference id="M">E، d‏/M‏/y – E، d‏/M‏/y</greatestDifference>
-							<greatestDifference id="y">E، d‏/M‏/y – E، d‏/M‏/y</greatestDifference>
+							<greatestDifference id="d">E، dd‏/MM‏/y – E، dd‏/MM‏/y G</greatestDifference>
+							<greatestDifference id="M">E، d‏/M‏/y – E، d‏/M‏/y G</greatestDifference>
+							<greatestDifference id="y">E، d‏/M‏/y – E، d‏/M‏/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM – MMM، y</greatestDifference>
-							<greatestDifference id="y">MMM، y – MMM، y</greatestDifference>
+							<greatestDifference id="M">MMM – MMM، y G</greatestDifference>
+							<greatestDifference id="y">MMM، y – MMM، y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d–d MMM، y</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM، y</greatestDifference>
-							<greatestDifference id="y">d MMM، y – d MMM، y</greatestDifference>
+							<greatestDifference id="d">d–d MMM، y G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM، y G</greatestDifference>
+							<greatestDifference id="y">d MMM، y – d MMM، y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E، d – E، d MMM، y</greatestDifference>
-							<greatestDifference id="M">E، d MMM – E، d MMM، y</greatestDifference>
-							<greatestDifference id="y">E، d MMM، y – E، d MMM، y</greatestDifference>
+							<greatestDifference id="d">E، d – E، d MMM، y G</greatestDifference>
+							<greatestDifference id="M">E، d MMM – E، d MMM، y G</greatestDifference>
+							<greatestDifference id="y">E، d MMM، y – E، d MMM، y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM – MMMM، y</greatestDifference>
-							<greatestDifference id="y">MMMM، y – MMMM، y</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM، y G</greatestDifference>
+							<greatestDifference id="y">MMMM، y – MMMM، y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1817,6 +1648,10 @@
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM، y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E، d MMM، y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -2068,57 +1903,6 @@
 						<era type="0">هـ</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE، d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM، y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d‏/M‏/y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">d E</dateFormatItem>
-						<dateFormatItem id="h">h a</dateFormatItem>
-						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d/‏M</dateFormatItem>
-						<dateFormatItem id="MEd">E، d/M</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E، d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E، d MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M‏/y</dateFormatItem>
-						<dateFormatItem id="yMEd">E، d/‏M/‏y</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E، d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
@@ -2361,56 +2145,6 @@
 						<era type="235">هيسي</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE، d MMMM، y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM، y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>dd‏/MM‏/y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d‏/M‏/y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">E، d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d‏/M</dateFormatItem>
-						<dateFormatItem id="MEd">E، d‏/M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yM">M‏/y G</dateFormatItem>
-						<dateFormatItem id="yMd">d‏/M‏/y G</dateFormatItem>
-						<dateFormatItem id="yMEd">E، d‏/M‏/y G</dateFormatItem>
-						<dateFormatItem id="yMM">MM‏/y G</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E، d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y G</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -2445,57 +2179,6 @@
 						<era type="1">جمهورية الصي</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE، d MMMM، y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM، y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>dd‏/MM‏/y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>d‏/M‏/y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">E، d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d‏/M</dateFormatItem>
-						<dateFormatItem id="MEd">E، d‏/M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd‏/MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yM">M‏/y G</dateFormatItem>
-						<dateFormatItem id="yMd">d‏/M‏/y G</dateFormatItem>
-						<dateFormatItem id="yMEd">E، d‏/M‏/y G</dateFormatItem>
-						<dateFormatItem id="yMM">MM‏/y G</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E، d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y G</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>

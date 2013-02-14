@@ -296,63 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">dew</day>
-							<day type="mon">aaɓ</day>
-							<day type="tue">maw</day>
-							<day type="wed">nje</day>
-							<day type="thu">naa</day>
-							<day type="fri">mwd</day>
-							<day type="sat">hbi</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">dewo</day>
-							<day type="mon">aaɓnde</day>
-							<day type="tue">mawbaare</day>
-							<day type="wed">njeslaare</day>
-							<day type="thu">naasaande</day>
-							<day type="fri">mawnde</day>
-							<day type="sat">hoore-biir</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">d</day>
-							<day type="mon">a</day>
-							<day type="tue">m</day>
-							<day type="wed">n</day>
-							<day type="thu">n</day>
-							<day type="fri">m</day>
-							<day type="sat">h</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">T1</quarter>
-							<quarter type="2">T2</quarter>
-							<quarter type="3">T3</quarter>
-							<quarter type="4">T4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Termes 1</quarter>
-							<quarter type="2">Termes 2</quarter>
-							<quarter type="3">Termes 3</quarter>
-							<quarter type="4">Termes 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">subaka</dayPeriod>
-							<dayPeriod type="pm">kikiiɗe</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -375,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">M</dateFormatItem>

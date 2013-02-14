@@ -265,48 +265,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">ᏆᏍᎬ</day>
-							<day type="mon">ᏉᏅᎯ</day>
-							<day type="tue">ᏔᎵᏁ</day>
-							<day type="wed">ᏦᎢᏁ</day>
-							<day type="thu">ᏅᎩᏁ</day>
-							<day type="fri">ᏧᎾᎩ</day>
-							<day type="sat">ᏈᏕᎾ</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">ᎤᎾᏙᏓᏆᏍᎬ</day>
-							<day type="mon">ᎤᎾᏙᏓᏉᏅᎯ</day>
-							<day type="tue">ᏔᎵᏁᎢᎦ</day>
-							<day type="wed">ᏦᎢᏁᎢᎦ</day>
-							<day type="thu">ᏅᎩᏁᎢᎦ</day>
-							<day type="fri">ᏧᎾᎩᎶᏍᏗ</day>
-							<day type="sat">ᎤᎾᏙᏓᏈᏕᎾ</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">Ꮖ</day>
-							<day type="mon">Ꮙ</day>
-							<day type="tue">Ꮤ</day>
-							<day type="wed">Ꮶ</day>
-							<day type="thu">Ꮕ</day>
-							<day type="fri">Ꮷ</day>
-							<day type="sat">Ꭴ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">ᏌᎾᎴ</dayPeriod>
-							<dayPeriod type="noon">ᎢᎦ</dayPeriod>
-							<dayPeriod type="pm">ᏒᎯᏱᎢᏗᏢ</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -329,28 +287,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>

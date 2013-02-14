@@ -1112,104 +1112,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">ned.</day>
-							<day type="mon">pon.</day>
-							<day type="tue">tor.</day>
-							<day type="wed">sre.</day>
-							<day type="thu">čet.</day>
-							<day type="fri">pet.</day>
-							<day type="sat">sob.</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="contributed">ned.</day>
-							<day type="mon" draft="contributed">pon.</day>
-							<day type="tue" draft="contributed">tor.</day>
-							<day type="wed" draft="contributed">sre.</day>
-							<day type="thu" draft="contributed">čet.</day>
-							<day type="fri" draft="contributed">pet.</day>
-							<day type="sat" draft="contributed">sob.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">nedelja</day>
-							<day type="mon">ponedeljek</day>
-							<day type="tue">torek</day>
-							<day type="wed">sreda</day>
-							<day type="thu">četrtek</day>
-							<day type="fri">petek</day>
-							<day type="sat">sobota</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun">ned</day>
-							<day type="mon">pon</day>
-							<day type="tue">tor</day>
-							<day type="wed">sre</day>
-							<day type="thu">čet</day>
-							<day type="fri">pet</day>
-							<day type="sat">sob</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">n</day>
-							<day type="mon">p</day>
-							<day type="tue">t</day>
-							<day type="wed">s</day>
-							<day type="thu">č</day>
-							<day type="fri">p</day>
-							<day type="sat">s</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="contributed">ned.</day>
-							<day type="mon" draft="contributed">pon.</day>
-							<day type="tue" draft="contributed">tor.</day>
-							<day type="wed" draft="contributed">sre.</day>
-							<day type="thu" draft="contributed">čet.</day>
-							<day type="fri" draft="contributed">pet.</day>
-							<day type="sat" draft="contributed">sob.</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1. četrtletje</quarter>
-							<quarter type="2">2. četrtletje</quarter>
-							<quarter type="3">3. četrtletje</quarter>
-							<quarter type="4">4. četrtletje</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">dop.</dayPeriod>
-							<dayPeriod type="pm">pop.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1232,28 +1134,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>

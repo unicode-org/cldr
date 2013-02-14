@@ -1236,62 +1236,11 @@
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="contributed">EEEE, d MMMM, y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="contributed">d MMMM, y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<!-- per cldrbug 2835, add, matches gregorian + G -->
-						<dateFormat>
-							<pattern>dd.MM.y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">E, d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="h">hh a</dateFormatItem>
-						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d.MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
-						<dateFormatItem id="MMdd">d.MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yM">MM.y G</dateFormatItem>
-						<dateFormatItem id="yMd">d.MM.y G</dateFormatItem>
-						<dateFormatItem id="yMEd">E, d.MM.y G</dateFormatItem>
-						<dateFormatItem id="yMM">MM.y G</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">LLL y G</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMM">LLLL y G</dateFormatItem>
-						<dateFormatItem id="yQQQ">G y QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">G y QQQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
+				<eras>
+					<eraAbbr>
+						<era type="0">BE</era>
+					</eraAbbr>
+				</eras>
 			</calendar>
 			<calendar type="chinese">
 				<months>
@@ -1494,141 +1443,6 @@
 				</months>
 			</calendar>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">niedz.</day>
-							<day type="mon">pon.</day>
-							<day type="tue">wt.</day>
-							<day type="wed">śr.</day>
-							<day type="thu">czw.</day>
-							<day type="fri">pt.</day>
-							<day type="sat">sob.</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">N</day>
-							<day type="mon">P</day>
-							<day type="tue">W</day>
-							<day type="wed">Ś</day>
-							<day type="thu">C</day>
-							<day type="fri">P</day>
-							<day type="sat">S</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="contributed">niedz.</day>
-							<day type="mon" draft="contributed">pon.</day>
-							<day type="tue" draft="contributed">wt.</day>
-							<day type="wed" draft="contributed">śr.</day>
-							<day type="thu" draft="contributed">czw.</day>
-							<day type="fri" draft="contributed">pt.</day>
-							<day type="sat" draft="contributed">sob.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">niedziela</day>
-							<day type="mon">poniedziałek</day>
-							<day type="tue">wtorek</day>
-							<day type="wed">środa</day>
-							<day type="thu">czwartek</day>
-							<day type="fri">piątek</day>
-							<day type="sat">sobota</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="contributed">niedz.</day>
-							<day type="mon" draft="contributed">pon.</day>
-							<day type="tue" draft="contributed">wt.</day>
-							<day type="wed" draft="contributed">śr.</day>
-							<day type="thu" draft="contributed">czw.</day>
-							<day type="fri" draft="contributed">pt.</day>
-							<day type="sat" draft="contributed">sob.</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">N</day>
-							<day type="mon">P</day>
-							<day type="tue">W</day>
-							<day type="wed">Ś</day>
-							<day type="thu">C</day>
-							<day type="fri">P</day>
-							<day type="sat">S</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="contributed">niedz.</day>
-							<day type="mon" draft="contributed">pon.</day>
-							<day type="tue" draft="contributed">wt.</day>
-							<day type="wed" draft="contributed">śr.</day>
-							<day type="thu" draft="contributed">czw.</day>
-							<day type="fri" draft="contributed">pt.</day>
-							<day type="sat" draft="contributed">sob.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="contributed">niedziela</day>
-							<day type="mon" draft="contributed">poniedziałek</day>
-							<day type="tue" draft="contributed">wtorek</day>
-							<day type="wed" draft="contributed">środa</day>
-							<day type="thu" draft="contributed">czwartek</day>
-							<day type="fri" draft="contributed">piątek</day>
-							<day type="sat" draft="contributed">sobota</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">I kwartał</quarter>
-							<quarter type="2">II kwartał</quarter>
-							<quarter type="3">III kwartał</quarter>
-							<quarter type="4">IV kwartał</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">1 kw.</quarter>
-							<quarter type="2" draft="contributed">2 kw.</quarter>
-							<quarter type="3" draft="contributed">3 kw.</quarter>
-							<quarter type="4" draft="contributed">4 kw.</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="contributed">I kwartał</quarter>
-							<quarter type="2" draft="contributed">II kwartał</quarter>
-							<quarter type="3" draft="contributed">III kwartał</quarter>
-							<quarter type="4" draft="contributed">IV kwartał</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="afternoon">po południu</dayPeriod>
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="earlyMorning">nad ranem</dayPeriod>
-							<dayPeriod type="evening">wieczorem</dayPeriod>
-							<dayPeriod type="lateMorning">przed południem</dayPeriod>
-							<dayPeriod type="morning">rano</dayPeriod>
-							<dayPeriod type="night">w nocy</dayPeriod>
-							<dayPeriod type="noon">w południe</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1647,32 +1461,10 @@
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>dd.MM.y GGGGG</pattern>
+							<pattern>dd.MM.y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -1697,6 +1489,10 @@
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">hh a</dateFormatItem>
 						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
 						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
@@ -1712,17 +1508,18 @@
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">MM.y</dateFormatItem>
-						<dateFormatItem id="yMd">d.MM.y</dateFormatItem>
-						<dateFormatItem id="yMEd">E, d.MM.y</dateFormatItem>
-						<dateFormatItem id="yMM">MM.y</dateFormatItem>
-						<dateFormatItem id="yMMM">LLL y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMM">LLLL y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">LLL y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">LLLL y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -1784,39 +1581,39 @@
 							<greatestDifference id="M" draft="contributed">E, d MMM - E, d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y–y</greatestDifference>
+							<greatestDifference id="y">y–y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="contributed">MM.y - MM.y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MM.y - MM.y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">MM.y - MM.y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">MM.y - MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d" draft="contributed">dd-dd.MM.y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">dd.MM-dd.MM.y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">dd.MM.y-dd.MM.y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">dd-dd.MM.y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">dd.MM-dd.MM.y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">dd.MM.y-dd.MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="contributed">E, dd.MM.y - E, dd.MM.y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, dd.MM.y - E, dd.MM.y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E, dd.MM.y - E, dd.MM.y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">E, dd.MM.y - E, dd.MM.y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, dd.MM.y - E, dd.MM.y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, dd.MM.y - E, dd.MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="contributed">LLL-LLL y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">LLL y - LLL y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">LLL-LLL y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">LLL y - LLL y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d" draft="contributed">d-d MMM y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d MMM - d MMM y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d MMM y - d MMM y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d-d MMM y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d MMM - d MMM y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d MMM y - d MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="contributed">E, d - E, d MMM y</greatestDifference>
-							<greatestDifference id="M" draft="contributed">E, d MMM - E, d MMM y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">E, d MMM y - E, d MMM y</greatestDifference>
+							<greatestDifference id="d" draft="contributed">E, d - E, d MMM y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">E, d MMM - E, d MMM y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">E, d MMM y - E, d MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="contributed">LLLL-LLLL y</greatestDifference>
-							<greatestDifference id="y" draft="contributed">LLLL y - LLLL y</greatestDifference>
+							<greatestDifference id="M" draft="contributed">LLLL-LLLL y G</greatestDifference>
+							<greatestDifference id="y" draft="contributed">LLLL y - LLLL y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -2461,75 +2258,19 @@
 						</monthWidth>
 					</monthContext>
 				</months>
-				<dateFormats>
-					<!-- per cldrbug 2835, copied from buddhist -->
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, d MMMM, y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM, y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd.MM.y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">E, d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="h">hh a</dateFormatItem>
-						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
-						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d.MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
-						<dateFormatItem id="MMdd">d.MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yM" draft="contributed">MM.y</dateFormatItem>
-						<dateFormatItem id="yMd">dd.MM.y G</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">E, d.MM.y</dateFormatItem>
-						<dateFormatItem id="yMM">MM.y G</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">LLL y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">E, d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">LLLL y</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">G y QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ" draft="contributed">G y QQQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
+				<!-- need some non-empty element here to make inheritance work,
+				     this copy of generic dateFormats above is smaller than root japanese eras -->
 				<dateFormats>
-					<!-- per cldrbug 2835, copied from buddhist -->
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM, y G</pattern>
+							<pattern>EEEE, d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM, y G</pattern>
+							<pattern>d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -2543,39 +2284,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<dateTimeFormats>
-					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">E, d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="h">hh a</dateFormatItem>
-						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d.MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
-						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yM">M.y G</dateFormatItem>
-						<dateFormatItem id="yMd">dd.MM.y G</dateFormatItem>
-						<dateFormatItem id="yMEd">E, dd.MM.y G</dateFormatItem>
-						<dateFormatItem id="yMM">MM.y G</dateFormatItem>
-						<dateFormatItem id="yMMM">LLL y G</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMM">LLLL y G</dateFormatItem>
-						<dateFormatItem id="yQQQ">G y QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">G y QQQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="persian">
 				<months>
@@ -2662,62 +2370,6 @@
 						<era type="1" draft="contributed">ROC</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<!-- per cldrbug 2835, copied from buddhist -->
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, d MMMM, y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM, y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd.MM.y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">E, d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="h">hh a</dateFormatItem>
-						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">d.MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, d.MM</dateFormatItem>
-						<dateFormatItem id="MMdd">dd.MM</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yM">M.y G</dateFormatItem>
-						<dateFormatItem id="yMd">d.MM.y G</dateFormatItem>
-						<dateFormatItem id="yMEd">E, d.MM.y G</dateFormatItem>
-						<dateFormatItem id="yMM">MM/y G</dateFormatItem>
-						<dateFormatItem id="yMMM">LLL y G</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="yMMMM">LLLL y G</dateFormatItem>
-						<dateFormatItem id="yQQQ">G y QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">G y QQQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>

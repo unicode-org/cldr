@@ -294,63 +294,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Sabi</day>
-							<day type="mon">Bala</day>
-							<day type="tue">Kubi</day>
-							<day type="wed">Kusa</day>
-							<day type="thu">Kuna</day>
-							<day type="fri">Kuta</day>
-							<day type="sat">Muka</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Sabiiti</day>
-							<day type="mon">Balaza</day>
-							<day type="tue">Owokubili</day>
-							<day type="wed">Owokusatu</day>
-							<day type="thu">Olokuna</day>
-							<day type="fri">Olokutaanu</day>
-							<day type="sat">Olomukaaga</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">B</day>
-							<day type="tue">B</day>
-							<day type="wed">S</day>
-							<day type="thu">K</day>
-							<day type="fri">K</day>
-							<day type="sat">M</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Ebisera ebyomwaka ebisoka</quarter>
-							<quarter type="2">Ebisera ebyomwaka ebyokubiri</quarter>
-							<quarter type="3">Ebisera ebyomwaka ebyokusatu</quarter>
-							<quarter type="4">Ebisera ebyomwaka ebyokuna</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">Munkyo</dayPeriod>
-							<dayPeriod type="pm">Eigulo</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -373,28 +316,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

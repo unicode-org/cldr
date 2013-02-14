@@ -1283,32 +1283,32 @@
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">mo1</month>
-							<month type="2">mo2</month>
-							<month type="3">mo3</month>
-							<month type="4">mo4</month>
-							<month type="5">mo5</month>
-							<month type="6">mo6</month>
-							<month type="7">mo7</month>
-							<month type="8">mo8</month>
-							<month type="9">mo9</month>
-							<month type="10">mo10</month>
-							<month type="11">mo11</month>
-							<month type="12">mo12</month>
+							<month type="1">Mo1</month>
+							<month type="2">Mo2</month>
+							<month type="3">Mo3</month>
+							<month type="4">Mo4</month>
+							<month type="5">Mo5</month>
+							<month type="6">Mo6</month>
+							<month type="7">Mo7</month>
+							<month type="8">Mo8</month>
+							<month type="9">Mo9</month>
+							<month type="10">Mo10</month>
+							<month type="11">Mo11</month>
+							<month type="12">Mo12</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">month1</month>
-							<month type="2">month2</month>
-							<month type="3">month3</month>
-							<month type="4">month4</month>
-							<month type="5">month5</month>
-							<month type="6">month6</month>
-							<month type="7">month7</month>
-							<month type="8">month8</month>
-							<month type="9">month9</month>
-							<month type="10">month10</month>
-							<month type="11">month11</month>
-							<month type="12">month12</month>
+							<month type="1">Month1</month>
+							<month type="2">Month2</month>
+							<month type="3">Month3</month>
+							<month type="4">Month4</month>
+							<month type="5">Month5</month>
+							<month type="6">Month6</month>
+							<month type="7">Month7</month>
+							<month type="8">Month8</month>
+							<month type="9">Month9</month>
+							<month type="10">Month10</month>
+							<month type="11">Month11</month>
+							<month type="12">Month12</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1509,88 +1509,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Sun</day>
-							<day type="mon">Mon</day>
-							<day type="tue">Tue</day>
-							<day type="wed">Wed</day>
-							<day type="thu">Thu</day>
-							<day type="fri">Fri</day>
-							<day type="sat">Sat</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">Su</day>
-							<day type="mon">Mo</day>
-							<day type="tue">Tu</day>
-							<day type="wed">We</day>
-							<day type="thu">Th</day>
-							<day type="fri">Fr</day>
-							<day type="sat">Sa</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Sunday</day>
-							<day type="mon">Monday</day>
-							<day type="tue">Tuesday</day>
-							<day type="wed">Wednesday</day>
-							<day type="thu">Thursday</day>
-							<day type="fri">Friday</day>
-							<day type="sat">Saturday</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">W</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1st quarter</quarter>
-							<quarter type="2">2nd quarter</quarter>
-							<quarter type="3">3rd quarter</quarter>
-							<quarter type="4">4th quarter</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">a</dayPeriod>
-							<dayPeriod type="noon">n</dayPeriod>
-							<dayPeriod type="pm">p</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="am" alt="variant">a.m.</dayPeriod>
-							<dayPeriod type="noon">noon</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-							<dayPeriod type="pm" alt="variant">p.m.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1613,28 +1531,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -2168,6 +2064,32 @@
 						<era type="0">AH</era>
 					</eraAbbr>
 				</eras>
+			</calendar>
+			<calendar type="japanese">
+				<!-- need some non-empty element here to make inheritance work,
+				     this copy of generic dateFormats above is smaller than root japanese eras -->
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, MMMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>MMMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>MMM d, y G</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>M/d/y GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 			</calendar>
 			<calendar type="roc">
 				<eras>

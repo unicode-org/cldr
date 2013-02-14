@@ -1120,98 +1120,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">יום א׳</day>
-							<day type="mon">יום ב׳</day>
-							<day type="tue">יום ג׳</day>
-							<day type="wed">יום ד׳</day>
-							<day type="thu">יום ה׳</day>
-							<day type="fri">יום ו׳</day>
-							<day type="sat">שבת</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">א'</day>
-							<day type="mon">ב'</day>
-							<day type="tue">ג'</day>
-							<day type="wed">ד'</day>
-							<day type="thu">ה'</day>
-							<day type="fri">ו׳</day>
-							<day type="sat">ש׳</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="contributed">א'</day>
-							<day type="mon" draft="contributed">ב'</day>
-							<day type="tue" draft="contributed">ג'</day>
-							<day type="wed" draft="contributed">ד'</day>
-							<day type="thu" draft="contributed">ה'</day>
-							<day type="fri" draft="contributed">ו'</day>
-							<day type="sat" draft="contributed">ש'</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">יום ראשון</day>
-							<day type="mon">יום שני</day>
-							<day type="tue">יום שלישי</day>
-							<day type="wed">יום רביעי</day>
-							<day type="thu">יום חמישי</day>
-							<day type="fri">יום שישי</day>
-							<day type="sat">יום שבת</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">א׳</day>
-							<day type="mon">ב׳</day>
-							<day type="tue">ג׳</day>
-							<day type="wed">ד׳</day>
-							<day type="thu">ה׳</day>
-							<day type="fri">ו</day>
-							<day type="sat">ש</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun" draft="contributed">א'</day>
-							<day type="mon" draft="contributed">ב'</day>
-							<day type="tue" draft="contributed">ג'</day>
-							<day type="wed" draft="contributed">ד'</day>
-							<day type="thu" draft="contributed">ה'</day>
-							<day type="fri" draft="contributed">ו'</day>
-							<day type="sat" draft="contributed">ש'</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">רבעון 1</quarter>
-							<quarter type="2">רבעון 2</quarter>
-							<quarter type="3">רבעון 3</quarter>
-							<quarter type="4">רבעון 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">ר1</quarter>
-							<quarter type="2">ר2</quarter>
-							<quarter type="3">ר3</quarter>
-							<quarter type="4">ר4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">לפנה״צ</dayPeriod>
-							<dayPeriod type="pm">אחה״צ</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -1234,28 +1142,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -1280,6 +1166,10 @@
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E ה-d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d בMMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d בMMM y G</dateFormatItem>
 						<dateFormatItem id="h">‏h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1289,25 +1179,22 @@
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d בMMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d בMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d בMMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E, d בMMMM</dateFormatItem>
-						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M.y</dateFormatItem>
-						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
-						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
-						<dateFormatItem id="yMM">MM/y</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d בMMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d בMMM y</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ" draft="contributed">y QQQQ</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">M.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d.M.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d/M/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMM">MM/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d בMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d בMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ" draft="contributed">G y QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="contributed">G y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
@@ -1656,6 +1543,10 @@
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E ה-d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d בMMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d בMMM y G</dateFormatItem>
 						<dateFormatItem id="h">‏h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1665,13 +1556,9 @@
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
-						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d בMMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d בMMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d בMMMM</dateFormatItem>
-						<dateFormatItem id="MMMMEd">E, d בMMMM</dateFormatItem>
-						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M.y</dateFormatItem>
@@ -2066,18 +1953,6 @@
 						<era type="0">שנת היג׳רה</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d בMMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="contributed">d בMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>

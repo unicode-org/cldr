@@ -296,63 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Cpr</day>
-							<day type="mon">Ctt</day>
-							<day type="tue">Cmn</day>
-							<day type="wed">Cmt</day>
-							<day type="thu">Ars</day>
-							<day type="fri">Icm</day>
-							<day type="sat">Est</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Chumapiri</day>
-							<day type="mon">Chumatato</day>
-							<day type="tue">Chumaine</day>
-							<day type="wed">Chumatano</day>
-							<day type="thu">Aramisi</day>
-							<day type="fri">Ichuma</day>
-							<day type="sat">Esabato</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">C</day>
-							<day type="mon">C</day>
-							<day type="tue">C</day>
-							<day type="wed">C</day>
-							<day type="thu">A</day>
-							<day type="fri">I</day>
-							<day type="sat">E</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">E1</quarter>
-							<quarter type="2">E2</quarter>
-							<quarter type="3">E3</quarter>
-							<quarter type="4">E4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Erobo entang'ani</quarter>
-							<quarter type="2">Erobo yakabere</quarter>
-							<quarter type="3">Erobo yagatato</quarter>
-							<quarter type="4">Erobo yakane</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">Ma/Mo</dayPeriod>
-							<dayPeriod type="pm">Mambia/Mog</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -375,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

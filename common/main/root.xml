@@ -51,13 +51,13 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -75,7 +75,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
@@ -91,18 +91,18 @@
 							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">month1</month>
-							<month type="2">month2</month>
-							<month type="3">month3</month>
-							<month type="4">month4</month>
-							<month type="5">month5</month>
-							<month type="6">month6</month>
-							<month type="7">month7</month>
-							<month type="8">month8</month>
-							<month type="9">month9</month>
-							<month type="10">month10</month>
-							<month type="11">month11</month>
-							<month type="12">month12</month>
+							<month type="1">Month1</month>
+							<month type="2">Month2</month>
+							<month type="3">Month3</month>
+							<month type="4">Month4</month>
+							<month type="5">Month5</month>
+							<month type="6">Month6</month>
+							<month type="7">Month7</month>
+							<month type="8">Month8</month>
+							<month type="9">Month9</month>
+							<month type="10">Month10</month>
+							<month type="11">Month11</month>
+							<month type="12">Month12</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -158,13 +158,13 @@
 					</monthPatternContext>
 				</monthPatterns>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<!-- chinese eras are computed, and don't fall back to gregorian -->
 				<cyclicNameSets>
@@ -308,7 +308,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
@@ -525,13 +525,13 @@
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -549,7 +549,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
@@ -634,13 +634,13 @@
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -658,7 +658,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
@@ -708,18 +708,18 @@
 							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">month1</month>
-							<month type="2">month2</month>
-							<month type="3">month3</month>
-							<month type="4">month4</month>
-							<month type="5">month5</month>
-							<month type="6">month6</month>
-							<month type="7">month7</month>
-							<month type="8">month8</month>
-							<month type="9">month9</month>
-							<month type="10">month10</month>
-							<month type="11">month11</month>
-							<month type="12">month12</month>
+							<month type="1">Month1</month>
+							<month type="2">Month2</month>
+							<month type="3">Month3</month>
+							<month type="4">Month4</month>
+							<month type="5">Month5</month>
+							<month type="6">Month6</month>
+							<month type="7">Month7</month>
+							<month type="8">Month8</month>
+							<month type="9">Month9</month>
+							<month type="10">Month10</month>
+							<month type="11">Month11</month>
+							<month type="12">Month12</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -746,101 +746,21 @@
 					</monthContext>
 				</months>
 				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<alias source="locale" path="../dayWidth[@type='wide']"/>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<alias source="locale" path="../../dayContext[@type='stand-alone']/dayWidth[@type='narrow']"/>
-						</dayWidth>
-						<dayWidth type="short">
-							<alias source="locale" path="../dayWidth[@type='abbreviated']"/>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">sun</day>
-							<day type="mon">mon</day>
-							<day type="tue">tue</day>
-							<day type="wed">wed</day>
-							<day type="thu">thu</day>
-							<day type="fri">fri</day>
-							<day type="sat">sat</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='abbreviated']"/>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">T</day>
-							<day type="wed">W</day>
-							<day type="thu">T</day>
-							<day type="fri">F</day>
-							<day type="sat">S</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='short']"/>
-						</dayWidth>
-						<dayWidth type="wide">
-							<alias source="locale" path="../../dayContext[@type='format']/dayWidth[@type='wide']"/>
-						</dayWidth>
-					</dayContext>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<alias source="locale" path="../quarterWidth[@type='wide']"/>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<alias source="locale" path="../../quarterContext[@type='stand-alone']/quarterWidth[@type='narrow']"/>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<alias source="locale" path="../../quarterContext[@type='format']/quarterWidth[@type='abbreviated']"/>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<alias source="locale" path="../../quarterContext[@type='format']/quarterWidth[@type='wide']"/>
-						</quarterWidth>
-					</quarterContext>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<alias source="locale" path="../dayPeriodWidth[@type='wide']"/>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<alias source="locale" path="../dayPeriodWidth[@type='abbreviated']"/>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<alias source="locale" path="../dayPeriodContext[@type='format']"/>
-					</dayPeriodContext>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
 						<alias source="locale" path="../eraAbbr"/>
 					</eraNames>
 					<eraAbbr>
-						<era type="0">era0</era>
-						<era type="1">era1</era>
+						<era type="0">ERA0</era>
+						<era type="1">ERA1</era>
 					</eraAbbr>
 					<eraNarrow>
 						<alias source="locale" path="../eraAbbr"/>
@@ -869,26 +789,7 @@
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
@@ -1062,18 +963,18 @@
 							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">month1</month>
-							<month type="2">month2</month>
-							<month type="3">month3</month>
-							<month type="4">month4</month>
-							<month type="5">month5</month>
-							<month type="6">month6</month>
-							<month type="7">month7</month>
-							<month type="8">month8</month>
-							<month type="9">month9</month>
-							<month type="10">month10</month>
-							<month type="11">month11</month>
-							<month type="12">month12</month>
+							<month type="1">Month1</month>
+							<month type="2">Month2</month>
+							<month type="3">Month3</month>
+							<month type="4">Month4</month>
+							<month type="5">Month5</month>
+							<month type="6">Month6</month>
+							<month type="7">Month7</month>
+							<month type="8">Month8</month>
+							<month type="9">Month9</month>
+							<month type="10">Month10</month>
+							<month type="11">Month11</month>
+							<month type="12">Month12</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -1111,13 +1012,13 @@
 							<alias source="locale" path="../dayWidth[@type='abbreviated']"/>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">sun</day>
-							<day type="mon">mon</day>
-							<day type="tue">tue</day>
-							<day type="wed">wed</day>
-							<day type="thu">thu</day>
-							<day type="fri">fri</day>
-							<day type="sat">sat</day>
+							<day type="sun">Sun</day>
+							<day type="mon">Mon</day>
+							<day type="tue">Tue</day>
+							<day type="wed">Wed</day>
+							<day type="thu">Thu</day>
+							<day type="fri">Fri</day>
+							<day type="sat">Sat</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
@@ -1456,13 +1357,13 @@
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -1482,7 +1383,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
@@ -1536,13 +1437,13 @@
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -1559,7 +1460,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
@@ -1624,13 +1525,13 @@
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -1650,7 +1551,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
@@ -1687,13 +1588,13 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -2184,7 +2085,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
@@ -2238,13 +2139,13 @@
 					</monthContext>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -2261,7 +2162,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
@@ -2272,13 +2173,13 @@
 					<alias source="locale" path="../../calendar[@type='gregorian']/months"/>
 				</months>
 				<days>
-					<alias source="locale" path="../../calendar[@type='generic']/days"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/days"/>
 				</days>
 				<quarters>
-					<alias source="locale" path="../../calendar[@type='generic']/quarters"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/quarters"/>
 				</quarters>
 				<dayPeriods>
-					<alias source="locale" path="../../calendar[@type='generic']/dayPeriods"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
 				</dayPeriods>
 				<eras>
 					<eraNames>
@@ -2297,7 +2198,7 @@
 					<alias source="locale" path="../../calendar[@type='generic']/dateFormats"/>
 				</dateFormats>
 				<timeFormats>
-					<alias source="locale" path="../../calendar[@type='generic']/timeFormats"/>
+					<alias source="locale" path="../../calendar[@type='gregorian']/timeFormats"/>
 				</timeFormats>
 				<dateTimeFormats>
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>

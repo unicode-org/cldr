@@ -293,55 +293,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">SAN</day>
-							<day type="mon">ORK</day>
-							<day type="tue">OKB</day>
-							<day type="wed">OKS</day>
-							<day type="thu">OKN</day>
-							<day type="fri">OKT</day>
-							<day type="sat">OMK</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Sande</day>
-							<day type="mon">Orwokubanza</day>
-							<day type="tue">Orwakabiri</day>
-							<day type="wed">Orwakashatu</day>
-							<day type="thu">Orwakana</day>
-							<day type="fri">Orwakataano</day>
-							<day type="sat">Orwamukaaga</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">K</day>
-							<day type="tue">R</day>
-							<day type="wed">S</day>
-							<day type="thu">N</day>
-							<day type="fri">T</day>
-							<day type="sat">M</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">KWOTA 1</quarter>
-							<quarter type="2">KWOTA 2</quarter>
-							<quarter type="3">KWOTA 3</quarter>
-							<quarter type="4">KWOTA 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -364,28 +315,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

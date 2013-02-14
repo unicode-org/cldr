@@ -81,28 +81,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">LP</day>
-							<day type="mon">P1</day>
-							<day type="tue">P2</day>
-							<day type="wed">P3</day>
-							<day type="thu">P4</day>
-							<day type="fri">P5</day>
-							<day type="sat">P6</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Lāpule</day>
-							<day type="mon">Poʻakahi</day>
-							<day type="tue">Poʻalua</day>
-							<day type="wed">Poʻakolu</day>
-							<day type="thu">Poʻahā</day>
-							<day type="fri">Poʻalima</day>
-							<day type="sat">Poʻaono</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -125,28 +103,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>

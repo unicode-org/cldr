@@ -293,47 +293,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">ሰ/ዓ</day>
-							<day type="mon" draft="unconfirmed">ሰኖ</day>
-							<day type="tue" draft="unconfirmed">ታላሸ</day>
-							<day type="wed" draft="unconfirmed">ኣረር</day>
-							<day type="thu" draft="unconfirmed">ከሚሽ</day>
-							<day type="fri" draft="unconfirmed">ጅምዓ</day>
-							<day type="sat" draft="unconfirmed">ሰ/ን</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">ሰንበት ዓባይ</day>
-							<day type="mon" draft="unconfirmed">ሰኖ</day>
-							<day type="tue" draft="unconfirmed">ታላሸኖ</day>
-							<day type="wed" draft="unconfirmed">ኣረርባዓ</day>
-							<day type="thu" draft="unconfirmed">ከሚሽ</day>
-							<day type="fri" draft="unconfirmed">ጅምዓት</day>
-							<day type="sat" draft="unconfirmed">ሰንበት ንኢሽ</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">ሰ</day>
-							<day type="mon" draft="unconfirmed">ሰ</day>
-							<day type="tue" draft="unconfirmed">ታ</day>
-							<day type="wed" draft="unconfirmed">ኣ</day>
-							<day type="thu" draft="unconfirmed">ከ</day>
-							<day type="fri" draft="unconfirmed">ጅ</day>
-							<day type="sat" draft="unconfirmed">ሰ</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">ቀደም ሰርምዕል</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">ሓቆ ስርምዕል</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -356,28 +315,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 			</calendar>
 			<calendar type="gregorian">
 				<months>

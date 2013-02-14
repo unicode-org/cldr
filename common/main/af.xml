@@ -730,95 +730,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">So</day>
-							<day type="mon">Ma</day>
-							<day type="tue">Di</day>
-							<day type="wed">Wo</day>
-							<day type="thu">Do</day>
-							<day type="fri">Vr</day>
-							<day type="sat">Sa</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">So.</day>
-							<day type="mon">Ma.</day>
-							<day type="tue">Di.</day>
-							<day type="wed">Wo.</day>
-							<day type="thu">Do.</day>
-							<day type="fri">Vr.</day>
-							<day type="sat">Sa.</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Sondag</day>
-							<day type="mon">Maandag</day>
-							<day type="tue">Dinsdag</day>
-							<day type="wed">Woensdag</day>
-							<day type="thu">Donderdag</day>
-							<day type="fri">Vrydag</day>
-							<day type="sat">Saterdag</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">S</day>
-							<day type="mon">M</day>
-							<day type="tue">D</day>
-							<day type="wed">W</day>
-							<day type="thu">D</day>
-							<day type="fri">V</day>
-							<day type="sat">S</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">So.</day>
-							<day type="mon">Ma.</day>
-							<day type="tue">Di.</day>
-							<day type="wed">Wo.</day>
-							<day type="thu">Do.</day>
-							<day type="fri">Vr.</day>
-							<day type="sat">Sa.</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1ste kwartaal</quarter>
-							<quarter type="2">2de kwartaal</quarter>
-							<quarter type="3">3de kwartaal</quarter>
-							<quarter type="4">4de kwartaal</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="narrow">
-							<quarter type="1">1</quarter>
-							<quarter type="2">2</quarter>
-							<quarter type="3">3</quarter>
-							<quarter type="4">4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">vm.</dayPeriod>
-							<dayPeriod type="pm">nm.</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -841,28 +752,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>

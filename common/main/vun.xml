@@ -296,63 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Jpi</day>
-							<day type="mon">Jtt</day>
-							<day type="tue">Jnn</day>
-							<day type="wed">Jtn</day>
-							<day type="thu">Alh</day>
-							<day type="fri">Iju</day>
-							<day type="sat">Jmo</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Jumapilyi</day>
-							<day type="mon">Jumatatuu</day>
-							<day type="tue">Jumanne</day>
-							<day type="wed">Jumatanu</day>
-							<day type="thu">Alhamisi</day>
-							<day type="fri">Ijumaa</day>
-							<day type="sat">Jumamosi</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">J</day>
-							<day type="mon">J</day>
-							<day type="tue">J</day>
-							<day type="wed">J</day>
-							<day type="thu">A</day>
-							<day type="fri">I</day>
-							<day type="sat">J</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">R1</quarter>
-							<quarter type="2">R2</quarter>
-							<quarter type="3">R3</quarter>
-							<quarter type="4">R4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Robo 1</quarter>
-							<quarter type="2">Robo 2</quarter>
-							<quarter type="3">Robo 3</quarter>
-							<quarter type="4">Robo 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">utuko</dayPeriod>
-							<dayPeriod type="pm">kyiukonyi</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -375,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

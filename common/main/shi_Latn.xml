@@ -297,52 +297,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">asa</day>
-							<day type="mon">ayn</day>
-							<day type="tue">asi</day>
-							<day type="wed">akṛ</day>
-							<day type="thu">akw</day>
-							<day type="fri">asim</day>
-							<day type="sat">asiḍ</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">asamas</day>
-							<day type="mon">aynas</day>
-							<day type="tue">asinas</day>
-							<day type="wed">akṛas</day>
-							<day type="thu">akwas</day>
-							<day type="fri">asimwas</day>
-							<day type="sat">asiḍyas</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">ak 1</quarter>
-							<quarter type="2">ak 2</quarter>
-							<quarter type="3">ak 3</quarter>
-							<quarter type="4">ak 4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">akṛaḍyur 1</quarter>
-							<quarter type="2">akṛaḍyur 2</quarter>
-							<quarter type="3">akṛaḍyur 3</quarter>
-							<quarter type="4">akṛaḍyur 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">tifawt</dayPeriod>
-							<dayPeriod type="pm">tadggʷat</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -365,28 +319,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">M</dateFormatItem>

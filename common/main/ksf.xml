@@ -296,63 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">sɔ́n</day>
-							<day type="mon">lǝn</day>
-							<day type="tue">maa</day>
-							<day type="wed">mɛk</day>
-							<day type="thu">jǝǝ</day>
-							<day type="fri">júm</day>
-							<day type="sat">sam</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">sɔ́ndǝ</day>
-							<day type="mon">lǝndí</day>
-							<day type="tue">maadí</day>
-							<day type="wed">mɛkrɛdí</day>
-							<day type="thu">jǝǝdí</day>
-							<day type="fri">júmbá</day>
-							<day type="sat">samdí</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">s</day>
-							<day type="mon">l</day>
-							<day type="tue">m</day>
-							<day type="wed">m</day>
-							<day type="thu">j</day>
-							<day type="fri">j</day>
-							<day type="sat">s</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">i1</quarter>
-							<quarter type="2">i2</quarter>
-							<quarter type="3">i3</quarter>
-							<quarter type="4">i4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">id́ɛ́n kǝbǝk kǝ ntɔ́ntɔ́</quarter>
-							<quarter type="2">idɛ́n kǝbǝk kǝ kǝbɛ́ɛ</quarter>
-							<quarter type="3">idɛ́n kǝbǝk kǝ kǝráá</quarter>
-							<quarter type="4">idɛ́n kǝbǝk kǝ kǝnin</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">sárúwá</dayPeriod>
-							<dayPeriod type="pm">cɛɛ́nko</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -375,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

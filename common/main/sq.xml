@@ -293,47 +293,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Die</day>
-							<day type="mon">Hën</day>
-							<day type="tue">Mar</day>
-							<day type="wed">Mër</day>
-							<day type="thu">Enj</day>
-							<day type="fri">Pre</day>
-							<day type="sat">Sht</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">e diel</day>
-							<day type="mon">e hënë</day>
-							<day type="tue">e martë</day>
-							<day type="wed">e mërkurë</day>
-							<day type="thu">e enjte</day>
-							<day type="fri">e premte</day>
-							<day type="sat">e shtunë</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">D</day>
-							<day type="mon">H</day>
-							<day type="tue">M</day>
-							<day type="wed">M</day>
-							<day type="thu">E</day>
-							<day type="fri">P</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">PD</dayPeriod>
-							<dayPeriod type="pm">MD</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -356,28 +315,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h.mm.ss.a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h.mm.ss.a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h.mm.ss.a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h.mm.a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>

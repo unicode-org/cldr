@@ -370,63 +370,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">eye</day>
-							<day type="mon">ybo</day>
-							<day type="tue">mbl</day>
-							<day type="wed">mst</day>
-							<day type="thu">min</day>
-							<day type="fri">mtn</day>
-							<day type="sat">mps</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">eyenga</day>
-							<day type="mon">mokɔlɔ mwa yambo</day>
-							<day type="tue">mokɔlɔ mwa míbalé</day>
-							<day type="wed">mokɔlɔ mwa mísáto</day>
-							<day type="thu">mokɔlɔ ya mínéi</day>
-							<day type="fri">mokɔlɔ ya mítáno</day>
-							<day type="sat">mpɔ́sɔ</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">e</day>
-							<day type="mon">y</day>
-							<day type="tue">m</day>
-							<day type="wed">m</day>
-							<day type="thu">m</day>
-							<day type="fri">m</day>
-							<day type="sat">p</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">SM1</quarter>
-							<quarter type="2">SM2</quarter>
-							<quarter type="3">SM3</quarter>
-							<quarter type="4">SM4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">sánzá mísáto ya yambo</quarter>
-							<quarter type="2">sánzá mísáto ya míbalé</quarter>
-							<quarter type="3">sánzá mísáto ya mísáto</quarter>
-							<quarter type="4">sánzá mísáto ya mínei</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">ntɔ́ngɔ́</dayPeriod>
-							<dayPeriod type="pm">mpókwa</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -449,28 +392,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

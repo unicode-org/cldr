@@ -558,69 +558,6 @@
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">нд</day>
-							<day type="mon">пн</day>
-							<day type="tue">аў</day>
-							<day type="wed">ср</day>
-							<day type="thu">чц</day>
-							<day type="fri">пт</day>
-							<day type="sat">сб</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">нядзеля</day>
-							<day type="mon">панядзелак</day>
-							<day type="tue">аўторак</day>
-							<day type="wed">серада</day>
-							<day type="thu">чацвер</day>
-							<day type="fri">пятніца</day>
-							<day type="sat">субота</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">н</day>
-							<day type="mon">п</day>
-							<day type="tue">а</day>
-							<day type="wed">с</day>
-							<day type="thu">ч</day>
-							<day type="fri">п</day>
-							<day type="sat">с</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">1-шы кв.</quarter>
-							<quarter type="2">2-гі кв.</quarter>
-							<quarter type="3">3-ці кв.</quarter>
-							<quarter type="4">4-ты кв.</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">1-шы квартал</quarter>
-							<quarter type="2">2-гі квартал</quarter>
-							<quarter type="3">3-ці квартал</quarter>
-							<quarter type="4">4-ты квартал</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">да палудня</dayPeriod>
-							<dayPeriod type="pm">пасля палудня</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">раніцы</dayPeriod>
-							<dayPeriod type="pm">вечара</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -643,28 +580,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH.mm.ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH.mm.ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH.mm.ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH.mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>

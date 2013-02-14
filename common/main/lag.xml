@@ -295,63 +295,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Píili</day>
-							<day type="mon">Táatu</day>
-							<day type="tue">Íne</day>
-							<day type="wed">Táano</day>
-							<day type="thu">Alh</day>
-							<day type="fri">Ijm</day>
-							<day type="sat">Móosi</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Jumapíiri</day>
-							<day type="mon">Jumatátu</day>
-							<day type="tue">Jumaíne</day>
-							<day type="wed">Jumatáano</day>
-							<day type="thu">Alamíisi</day>
-							<day type="fri">Ijumáa</day>
-							<day type="sat">Jumamóosi</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">P</day>
-							<day type="mon">T</day>
-							<day type="tue">E</day>
-							<day type="wed">O</day>
-							<day type="thu">A</day>
-							<day type="fri">I</day>
-							<day type="sat">M</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">Ncho 1</quarter>
-							<quarter type="2">Ncho 2</quarter>
-							<quarter type="3">Ncho 3</quarter>
-							<quarter type="4">Ncho 4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Ncholo ya 1</quarter>
-							<quarter type="2">Ncholo ya 2</quarter>
-							<quarter type="3">Ncholo ya 3</quarter>
-							<quarter type="4">Ncholo ya 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">TOO</dayPeriod>
-							<dayPeriod type="pm">MUU</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -374,28 +317,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

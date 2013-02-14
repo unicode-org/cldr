@@ -296,63 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Alh</day>
-							<day type="mon">Ati</day>
-							<day type="tue">Ata</day>
-							<day type="wed">Ala</day>
-							<day type="thu">Alm</day>
-							<day type="fri">Alz</day>
-							<day type="sat">Asi</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Alhadi</day>
-							<day type="mon">Atinni</day>
-							<day type="tue">Atalaata</day>
-							<day type="wed">Alarba</day>
-							<day type="thu">Alhamiisa</day>
-							<day type="fri">Alzuma</day>
-							<day type="sat">Asibti</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">H</day>
-							<day type="mon">T</day>
-							<day type="tue">T</day>
-							<day type="wed">L</day>
-							<day type="thu">L</day>
-							<day type="fri">L</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">A1</quarter>
-							<quarter type="2">A2</quarter>
-							<quarter type="3">A3</quarter>
-							<quarter type="4">A4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">Arrubu 1</quarter>
-							<quarter type="2">Arrubu 2</quarter>
-							<quarter type="3">Arrubu 3</quarter>
-							<quarter type="4">Arrubu 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">Adduha</dayPeriod>
-							<dayPeriod type="pm">Aluula</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -375,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">M</dateFormatItem>

@@ -296,63 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">sɔ́n</day>
-							<day type="mon">mɔ́n</day>
-							<day type="tue">smb</day>
-							<day type="wed">sml</day>
-							<day type="thu">smn</day>
-							<day type="fri">fúl</day>
-							<day type="sat">sér</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">sɔ́ndɔ</day>
-							<day type="mon">mɔ́ndi</day>
-							<day type="tue">sɔ́ndɔ məlú mə́bɛ̌</day>
-							<day type="wed">sɔ́ndɔ məlú mə́lɛ́</day>
-							<day type="thu">sɔ́ndɔ məlú mə́nyi</day>
-							<day type="fri">fúladé</day>
-							<day type="sat">séradé</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">s</day>
-							<day type="mon">m</day>
-							<day type="tue">s</day>
-							<day type="wed">s</day>
-							<day type="thu">s</day>
-							<day type="fri">f</day>
-							<day type="sat">s</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">nno</quarter>
-							<quarter type="2">nnb</quarter>
-							<quarter type="3">nnl</quarter>
-							<quarter type="4">nnny</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">nsámbá ngɔn asú</quarter>
-							<quarter type="2">nsámbá ngɔn bɛ̌</quarter>
-							<quarter type="3">nsámbá ngɔn lála</quarter>
-							<quarter type="4">nsámbá ngɔn nyina</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">kíkíríg</dayPeriod>
-							<dayPeriod type="pm">ngəgógəle</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -375,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

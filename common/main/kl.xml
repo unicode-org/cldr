@@ -358,93 +358,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">sab</day>
-							<day type="mon">ata</day>
-							<day type="tue">mar</day>
-							<day type="wed">pin</day>
-							<day type="thu">sis</day>
-							<day type="fri">tal</day>
-							<day type="sat">arf</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">sabaat</day>
-							<day type="mon">ataasinngorneq</day>
-							<day type="tue">marlunngorneq</day>
-							<day type="wed">pingasunngorneq</day>
-							<day type="thu">sisamanngorneq</day>
-							<day type="fri">tallimanngorneq</day>
-							<day type="sat">arfininngorneq</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">S</day>
-							<day type="mon" draft="unconfirmed">A</day>
-							<day type="tue" draft="unconfirmed">M</day>
-							<day type="wed" draft="unconfirmed">P</day>
-							<day type="thu" draft="unconfirmed">S</day>
-							<day type="fri" draft="unconfirmed">T</day>
-							<day type="sat" draft="unconfirmed">A</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">S1</quarter>
-							<quarter type="2" draft="unconfirmed">S2</quarter>
-							<quarter type="3" draft="unconfirmed">S3</quarter>
-							<quarter type="4" draft="unconfirmed">S4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="unconfirmed">S1</quarter>
-							<quarter type="2" draft="unconfirmed">S2</quarter>
-							<quarter type="3" draft="unconfirmed">S3</quarter>
-							<quarter type="4" draft="unconfirmed">S4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">ukiup sisamararterutaa 1</quarter>
-							<quarter type="2" draft="unconfirmed">ukiup sisamararterutaa 2</quarter>
-							<quarter type="3" draft="unconfirmed">ukiup sisamararterutaa 3</quarter>
-							<quarter type="4" draft="unconfirmed">ukiup sisamararterutaa 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">S1</quarter>
-							<quarter type="2" draft="unconfirmed">S2</quarter>
-							<quarter type="3" draft="unconfirmed">S3</quarter>
-							<quarter type="4" draft="unconfirmed">S4</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1" draft="unconfirmed">S1</quarter>
-							<quarter type="2" draft="unconfirmed">S2</quarter>
-							<quarter type="3" draft="unconfirmed">S3</quarter>
-							<quarter type="4" draft="unconfirmed">S4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">ukiup sisamararterutaa 1</quarter>
-							<quarter type="2" draft="unconfirmed">ukiup sisamararterutaa 2</quarter>
-							<quarter type="3" draft="unconfirmed">ukiup sisamararterutaa 3</quarter>
-							<quarter type="4" draft="unconfirmed">ukiup sisamararterutaa 4</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="unconfirmed">u.t.</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">u.k.</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">ulloqeqqata-tungaa</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">ulloqeqqata-kingorna</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -467,28 +380,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="unconfirmed">h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>

@@ -296,55 +296,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">kar</day>
-							<day type="mon">ntɛ</day>
-							<day type="tue">tar</day>
-							<day type="wed">ara</day>
-							<day type="thu">ala</day>
-							<day type="fri">jum</day>
-							<day type="sat">sib</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">kari</day>
-							<day type="mon">ntɛnɛ</day>
-							<day type="tue">tarata</day>
-							<day type="wed">araba</day>
-							<day type="thu">alamisa</day>
-							<day type="fri">juma</day>
-							<day type="sat">sibiri</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">K</day>
-							<day type="mon">N</day>
-							<day type="tue">T</day>
-							<day type="wed">A</day>
-							<day type="thu">A</day>
-							<day type="fri">J</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">KS1</quarter>
-							<quarter type="2">KS2</quarter>
-							<quarter type="3">KS3</quarter>
-							<quarter type="4">KS4</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">kalo saba fɔlɔ</quarter>
-							<quarter type="2">kalo saba filanan</quarter>
-							<quarter type="3">kalo saba sabanan</quarter>
-							<quarter type="4">kalo saba naaninan</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -367,28 +318,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="M">M</dateFormatItem>

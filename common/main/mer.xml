@@ -295,57 +295,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">KIU</day>
-							<day type="mon">MRA</day>
-							<day type="tue">WAI</day>
-							<day type="wed">WET</day>
-							<day type="thu">WEN</day>
-							<day type="fri">WTN</day>
-							<day type="sat">JUM</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Kiumia</day>
-							<day type="mon">Muramuko</day>
-							<day type="tue">Wairi</day>
-							<day type="wed">Wethatu</day>
-							<day type="thu">Wena</day>
-							<day type="fri">Wetano</day>
-							<day type="sat">Jumamosi</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">K</day>
-							<day type="mon">M</day>
-							<day type="tue">W</day>
-							<day type="wed">W</day>
-							<day type="thu">W</day>
-							<day type="fri">W</day>
-							<day type="sat">J</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="wide">
-							<quarter type="1">Ĩmwe kĩrĩ inya</quarter>
-							<quarter type="2">Ijĩrĩ kĩrĩ inya</quarter>
-							<quarter type="3">Ithatũ kĩrĩ inya</quarter>
-							<quarter type="4">Inya kĩrĩ inya</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">RŨ</dayPeriod>
-							<dayPeriod type="pm">ŨG</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -368,28 +317,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

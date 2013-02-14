@@ -295,47 +295,6 @@
 	<dates>
 		<calendars>
 			<calendar type="generic">
-				<days>
-					<dayContext type="format">
-						<dayWidth type="abbreviated">
-							<day type="sun">Kwe</day>
-							<day type="mon">Dwo</day>
-							<day type="tue">Ben</day>
-							<day type="wed">Wuk</day>
-							<day type="thu">Yaw</day>
-							<day type="fri">Fia</day>
-							<day type="sat">Mem</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">Kwesida</day>
-							<day type="mon">Dwowda</day>
-							<day type="tue">Benada</day>
-							<day type="wed">Wukuda</day>
-							<day type="thu">Yawda</day>
-							<day type="fri">Fida</day>
-							<day type="sat">Memeneda</day>
-						</dayWidth>
-					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">K</day>
-							<day type="mon">D</day>
-							<day type="tue">B</day>
-							<day type="wed">W</day>
-							<day type="thu">Y</day>
-							<day type="fri">F</day>
-							<day type="sat">M</day>
-						</dayWidth>
-					</dayContext>
-				</days>
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">AN</dayPeriod>
-							<dayPeriod type="pm">EW</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -358,28 +317,6 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>

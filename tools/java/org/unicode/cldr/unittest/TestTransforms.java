@@ -5,10 +5,13 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
 
+import org.unicode.cldr.draft.CompoundTransform;
 import org.unicode.cldr.util.CLDRTransforms;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.RuleBasedTransliterator;
 import com.ibm.icu.text.Transliterator;
 
 public class TestTransforms extends TestFmwk {
@@ -136,6 +139,32 @@ public class TestTransforms extends TestFmwk {
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
+    }
+
+    public void TestCasing() {
+        register();
+        String greekSource = "ΟΔΌΣ Οδός Σο ΣΟ oΣ ΟΣ σ ἕξ";
+        // Transliterator.DEBUG = true;
+        Transliterator elTitle = checkString("el-Title", "Οδός Οδός Σο Σο Oς Ος Σ Ἕξ", greekSource);
+        Transliterator elLower = checkString("el-Lower", "οδός οδός σο σο oς ος σ ἕξ", greekSource);
+        Transliterator elUpper = checkString("el-Upper", "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ", greekSource);
+
+        String turkishSource = "Isiİ İsıI";
+        Transliterator trTitle = checkString("tr-Title", "Isii İsıı", turkishSource);
+        Transliterator trLower = checkString("tr-Lower", "ısii isıı", turkishSource);
+        Transliterator trUpper = checkString("tr-Upper", "ISİİ İSII", turkishSource);
+    }
+
+    private Transliterator checkString(String id, String expected, String source) {
+        Transliterator elLower = Transliterator.getInstance(id);
+        if (!assertEquals(id, expected, elLower.transform(source))) {
+            showTransliterator(elLower);
+        }
+        return elLower;
+    }
+
+    private void showTransliterator(Transliterator t) {
+        org.unicode.cldr.test.TestTransforms.showTransliterator("", t, 999);
     }
 
     public void TestZZZ() {

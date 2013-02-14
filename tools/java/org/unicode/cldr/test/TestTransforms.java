@@ -62,7 +62,7 @@ public class TestTransforms {
         CLDRTransforms.verifyNullFilter("halfwidth-fullwidth");
     }
 
-    static void showTransliterator(String prefix, Transliterator t, int limit) {
+    public static void showTransliterator(String prefix, Transliterator t, int limit) {
         System.out.println(prefix + "ID:\t" + t.getID());
         System.out.println(prefix + "Class:\t" + t.getClass().getName());
         if (t.getFilter() != null) System.out.println(prefix + "Filter:\t" + t.getFilter());

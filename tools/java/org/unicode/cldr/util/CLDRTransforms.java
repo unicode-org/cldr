@@ -27,6 +27,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.TestTransforms;
+
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Transliterator;
@@ -284,6 +286,12 @@ public class CLDRTransforms {
         try {
             Transliterator t = Transliterator.createFromRules(id, ruleString, direction);
             overridden.add(id);
+            Transliterator oldTranslit = null;
+            if (showProgress != null) {
+                try {
+                    oldTranslit = Transliterator.getInstance(id);
+                } catch (Exception e) {}
+            }
             Transliterator.unregister(id);
             Transliterator.registerInstance(t);
             // if (false) { // for paranoid testing
@@ -298,7 +306,14 @@ public class CLDRTransforms {
             // }
             // verifyNullFilter("halfwidth-fullwidth");
             if (showProgress != null) {
-                append("Registered new Transliterator: " + id + '\n');
+                append("Registered new Transliterator: " + id 
+                    + (oldTranslit == null ? "" : "\told:\t" + oldTranslit.getID())
+                    + '\n');
+                if (id.startsWith("el-")) {
+                    TestTransforms.showTransliterator("", t, 999);
+                    Transliterator t2 = Transliterator.getInstance(id);
+                    TestTransforms.showTransliterator("", t2, 999);
+                }
             }
         } catch (RuntimeException e) {
             if (showProgress != null) {

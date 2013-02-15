@@ -236,10 +236,10 @@
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.00=;</rbnfrule>
                 <rbnfrule value="0">00;</rbnfrule>
-                <rbnfrule value="1">=%%GREEK-NUMERAL-MAJUSCULES=´;</rbnfrule>
+                <rbnfrule value="1">=%%greek-numeral-majuscules=´;</rbnfrule>
                 <rbnfrule value="1000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="GREEK-NUMERAL-MAJUSCULES" access="private">
+            <ruleset type="greek-numeral-majuscules" access="private">
                 <rbnfrule value="1">Α;</rbnfrule>
                 <rbnfrule value="2">Β;</rbnfrule>
                 <rbnfrule value="3">Γ;</rbnfrule>
@@ -309,54 +309,54 @@
                 <rbnfrule value="8">ח׳;</rbnfrule>
                 <rbnfrule value="9">ט׳;</rbnfrule>
                 <rbnfrule value="10">י׳;</rbnfrule>
-                <rbnfrule value="11">י[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="11">י[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="15">ט״ו;</rbnfrule>
                 <rbnfrule value="16">ט״ז;</rbnfrule>
-                <rbnfrule value="17">י[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="17">י[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="20">כ׳;</rbnfrule>
-                <rbnfrule value="21">כ[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="21">כ[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="30">ל׳;</rbnfrule>
-                <rbnfrule value="31">ל[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="31">ל[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="40">מ׳;</rbnfrule>
-                <rbnfrule value="41">מ[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="41">מ[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="50">נ׳;</rbnfrule>
-                <rbnfrule value="51">נ[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="51">נ[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="60">ס׳;</rbnfrule>
-                <rbnfrule value="61">ס[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="61">ס[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="70">ע׳;</rbnfrule>
-                <rbnfrule value="71">ע[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="71">ע[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="80">פ׳;</rbnfrule>
-                <rbnfrule value="81">פ[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="81">פ[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="90">צ׳;</rbnfrule>
-                <rbnfrule value="91">צ[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="91">צ[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="100">ק׳;</rbnfrule>
-                <rbnfrule value="101">ק[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="101">ק[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="200">ר׳;</rbnfrule>
-                <rbnfrule value="201">ר[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="201">ר[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="300">ש׳;</rbnfrule>
-                <rbnfrule value="301">ש[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="301">ש[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="400">ת׳;</rbnfrule>
-                <rbnfrule value="401">ת[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="401">ת[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="500">ת״ק;</rbnfrule>
-                <rbnfrule value="501">תק[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="501">תק[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="600">ת״ר;</rbnfrule>
-                <rbnfrule value="601">תר[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="601">תר[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="700">ת״ש;</rbnfrule>
-                <rbnfrule value="701">תש[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="701">תש[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="800">ת״ת;</rbnfrule>
-                <rbnfrule value="801">תת[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="801">תת[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="900">תת״ק;</rbnfrule>
-                <rbnfrule value="901">תתק[→%%hebrew_final→];</rbnfrule>
+                <rbnfrule value="901">תתק[→%%hebrew-final→];</rbnfrule>
                 <rbnfrule value="1000">אלף;</rbnfrule>
-                <rbnfrule value="1001">←%%hebrew_thousands←[→→];</rbnfrule>
+                <rbnfrule value="1001">←%%hebrew-thousands←[→→];</rbnfrule>
                 <rbnfrule value="2000">אלפיים;</rbnfrule>
-                <rbnfrule value="2001">←%%hebrew_thousands←[→→];</rbnfrule>
+                <rbnfrule value="2001">←%%hebrew-thousands←[→→];</rbnfrule>
                 <rbnfrule value="3000">←← אלפים;</rbnfrule>
-                <rbnfrule value="3001">←%%hebrew_thousands←[→→];</rbnfrule>
+                <rbnfrule value="3001">←%%hebrew-thousands←[→→];</rbnfrule>
                 <rbnfrule value="1000000">אלף אלפים;</rbnfrule>
                 <rbnfrule value="1000001">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="hebrew_final" access="private">
+            <ruleset type="hebrew-final" access="private">
                 <rbnfrule value="0">אפס;</rbnfrule>
                 <rbnfrule value="1">״א;</rbnfrule>
                 <rbnfrule value="2">״ב;</rbnfrule>
@@ -368,28 +368,28 @@
                 <rbnfrule value="8">״ח;</rbnfrule>
                 <rbnfrule value="9">״ט;</rbnfrule>
                 <rbnfrule value="10">״י;</rbnfrule>
-                <rbnfrule value="11">י״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="11">י״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="15">ט״ו;</rbnfrule>
                 <rbnfrule value="16">ט״ז;</rbnfrule>
-                <rbnfrule value="17">י״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="17">י״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="20">״כ;</rbnfrule>
-                <rbnfrule value="21">כ״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="21">כ״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="30">״ל;</rbnfrule>
-                <rbnfrule value="31">ל״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="31">ל״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="40">״מ;</rbnfrule>
-                <rbnfrule value="41">מ״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="41">מ״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="50">״נ;</rbnfrule>
-                <rbnfrule value="51">נ״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="51">נ״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="60">״ס;</rbnfrule>
-                <rbnfrule value="61">ס״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="61">ס״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="70">״ע;</rbnfrule>
-                <rbnfrule value="71">ע״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="71">ע״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="80">״פ;</rbnfrule>
-                <rbnfrule value="81">פ״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="81">פ״[→%%hebrew-digit→];</rbnfrule>
                 <rbnfrule value="90">״צ;</rbnfrule>
-                <rbnfrule value="91">צ״[→%%hebrew_digit→];</rbnfrule>
+                <rbnfrule value="91">צ״[→%%hebrew-digit→];</rbnfrule>
             </ruleset>
-            <ruleset type="hebrew_digit" access="private">
+            <ruleset type="hebrew-digit" access="private">
                 <rbnfrule value="0">אפס;</rbnfrule>
                 <rbnfrule value="1">א;</rbnfrule>
                 <rbnfrule value="2">ב;</rbnfrule>
@@ -401,21 +401,14 @@
                 <rbnfrule value="8">ח;</rbnfrule>
                 <rbnfrule value="9">ט;</rbnfrule>
             </ruleset>
-            <ruleset type="hebrew_thousands" access="private">
+            <ruleset type="hebrew-thousands" access="private">
                 <rbnfrule value="0">=%hebrew=;</rbnfrule>
-                <rbnfrule value="10">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="20">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="30">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="40">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="50">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="60">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="70">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="80">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="90">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="100">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="200">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="300">=%hebrew=;=%hebrew=׳;</rbnfrule>
-                <rbnfrule value="400">=%hebrew=;=%hebrew=׳;</rbnfrule>
+                <rbnfrule value="10">=%hebrew=[׳];</rbnfrule>
+                <rbnfrule value="100">=%hebrew=[׳];</rbnfrule>
+                <rbnfrule value="200">=%hebrew=[׳];</rbnfrule>
+                <rbnfrule value="300">=%hebrew=[׳];</rbnfrule>
+                <rbnfrule value="400">=%hebrew=;</rbnfrule>
+                <rbnfrule value="401">=%hebrew=׳;</rbnfrule>
             </ruleset>
             <ruleset type="roman-lower">
                 <rbnfrule value="-x">−→→;</rbnfrule>
@@ -527,10 +520,10 @@
                 <rbnfrule value="200">←←௱[→→];</rbnfrule>
                 <rbnfrule value="1000">௲[→→];</rbnfrule>
                 <rbnfrule value="2000">←←௲[→→];</rbnfrule>
-                <rbnfrule value="1000000" radix="100000">←←௱௲[→%%tamil_thousands→];</rbnfrule>
+                <rbnfrule value="1000000" radix="100000">←←௱௲[→%%tamil-thousands→];</rbnfrule>
                 <rbnfrule value="100000000">=#,##,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="tamil_thousands" access="private">
+            <ruleset type="tamil-thousands" access="private">
                 <rbnfrule value="0">=%tamil=;</rbnfrule>
                 <rbnfrule value="1000">←←௲[→→];</rbnfrule>
             </ruleset>

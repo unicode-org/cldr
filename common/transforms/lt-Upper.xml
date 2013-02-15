@@ -8,9 +8,9 @@
 			<comment># Copyright (C) 2011-2013, Apple Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
 			<comment># Remove \u0307 following soft-dotteds (i, j, and the like), with possible intervening non-230 marks.</comment>
 			<tRule>::NFD();</tRule>
-			<tRule>[:Soft_Dotted:] [\u0315-\u033C]* { \u0307 → ;</tRule>
-			<tRule>::NFC();</tRule>
+			<tRule>[:Soft_Dotted:] [^[:ccc=Not_Reordered:][:ccc=Above:]]* { \u0307 → ;</tRule>
 			<tRule>::Any-Upper();</tRule>
+			<tRule>::NFC();</tRule>
 		</transform>
 	</transforms>
 </supplementalData>

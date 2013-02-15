@@ -153,14 +153,27 @@ public class TestTransforms extends TestFmwk {
         Transliterator trTitle = checkString("tr-Title", "Isii İsıı", turkishSource);
         Transliterator trLower = checkString("tr-Lower", "ısii isıı", turkishSource);
         Transliterator trUpper = checkString("tr-Upper", "ISİİ İSII", turkishSource);
+        Transliterator azTitle = checkString("az-Title", "Isii İsıı", turkishSource);
+        Transliterator azLower = checkString("az-Lower", "ısii isıı", turkishSource);
+        Transliterator azUpper = checkString("az-Upper", "ISİİ İSII", turkishSource);
+        
+        String lituanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
+        Transliterator ltTitle = checkString("lt-Title", "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lituanianSource);
+        Transliterator ltLower = checkString("lt-Lower", "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lituanianSource);
+        Transliterator ltUpper = checkString("lt-Upper", "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈", lituanianSource);
+
     }
 
     private Transliterator checkString(String id, String expected, String source) {
         Transliterator elLower = Transliterator.getInstance(id);
-        if (!assertEquals(id, expected, elLower.transform(source))) {
-            showTransliterator(elLower);
+        return checkString(id, expected, source, elLower);
+    }
+
+    private Transliterator checkString(String id, String expected, String source, Transliterator translit) {
+        if (!assertEquals(id, expected, translit.transform(source))) {
+            showTransliterator(translit);
         }
-        return elLower;
+        return translit;
     }
 
     private void showTransliterator(Transliterator t) {

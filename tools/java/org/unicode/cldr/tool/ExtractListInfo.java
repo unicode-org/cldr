@@ -8,7 +8,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 
 public class ExtractListInfo {
-    static final String[] paths = {
+    public static final String[] paths = {
         "//ldml/listPatterns/listPattern/listPatternPart[@type=\"2\"]",
         "//ldml/listPatterns/listPattern/listPatternPart[@type=\"start\"]",
         "//ldml/listPatterns/listPattern/listPatternPart[@type=\"middle\"]",

@@ -375,8 +375,9 @@ public class LocaleMapper extends LdmlMapper {
             if (validRbPaths != null && !validRbPaths.contains(rbPath)) continue;
             CldrArray valueList = getCldrArray(rbPath, pathValueMap);
             List<String> values = info.processValues(arguments, cldrFile, xpath);
+            String baseXPath = info.processXPath(arguments, xpath);
             String groupKey = info.processGroupKey(arguments);
-            valueList.add(xpath, values, groupKey);
+            valueList.put(baseXPath, values, groupKey);
         }
     }
 

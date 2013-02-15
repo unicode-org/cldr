@@ -221,7 +221,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             DayPeriodsMapper mapper = new DayPeriodsMapper(sourceDir);
             icuData = mapper.fillFromCldr();
         } else {
-            SupplementalMapper mapper = new SupplementalMapper(sourceDir, cldrVersion);
+            SupplementalMapper mapper = SupplementalMapper.create(sourceDir, cldrVersion);
             icuData = mapper.fillFromCldr(type.toString());
         }
         writeIcuData(icuData, destinationDir);

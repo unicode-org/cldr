@@ -32,7 +32,14 @@ import com.ibm.icu.text.UnicodeSet;
 
 public abstract class LdmlMapper {
     private static final Pattern SEMI = Pattern.compile("\\s*+;\\s*+");
+    private static final Pattern FUNCTION_PATTERN = Pattern.compile("\\&(\\w++)\\(([^\\)]++)\\)");
+    private static final Pattern QUOTES = Pattern.compile("\"([^\"]++)\"");
+    private static final UnicodeSet SPACE_CHARACTERS = new UnicodeSet(
+        "[\\u0000\\uFEFF[:pattern_whitespace:]]");
+    // Matches arguments with or without enclosing quotes.
+    private static final Pattern ARGUMENT = Pattern.compile("[<\"]?\\$(\\d)[\">]?");
 
+    private Map<String, Function> functionMap = new HashMap<String, Function>();
     private String converterFile;
     private Map<String, RegexResult> unprocessedMatchers;
     private Map<String, String> xpathVariables;
@@ -49,22 +56,63 @@ public abstract class LdmlMapper {
     }
 
     /**
-     * A wrapper class for storing and working with the unprocessed values of a RegexResult.
+     * Wrapper class for functions that need to be performed on CLDR values as
+     * part of the ICU conversion,
      */
-    public static class PathValueInfo {
-        private static final Pattern QUOTES = Pattern.compile("\"([^\"]++)\"");
-        private static final UnicodeSet SPACE_CHARACTERS = new UnicodeSet(
-            "[\\u0000\\uFEFF[:pattern_whitespace:]]");
+    protected static abstract class Function {
+        int maxArgs;
 
+        /**
+         * @param maxArgs
+         *      the maximum number of args that can be passed to this function,
+         *      or a negative number if there is no limit.
+         */
+        protected Function(int maxArgs) {
+            this.maxArgs = maxArgs;
+        }
+
+        /**
+         * Processes a comma-delimited list of arguments.
+         * @param arg
+         * @return
+         */
+        public String process(String arg) {
+            String[] args = arg.split(",");
+            if (maxArgs > -1 && args.length > maxArgs) {
+                throw new IllegalArgumentException("Function has too many args: expected " 
+                    + maxArgs + " but got (" + arg + ")");
+            }
+            return run(args);
+        }
+
+        /**
+         * Runs the function on a list of arguments.
+         * @return the resultant string
+         */
+        protected abstract String run(String... args);
+    }
+
+    /**
+     * A wrapper class for storing and working with the unprocessed path-value pairs of a RegexResult.
+     */
+    protected class PathValueInfo {
         private String rbPath;
         private String valueArg;
         private String groupKey;
+        private String baseXPath;
         private int splitRbPathArg;
 
-        public PathValueInfo(String rbPath, String valueArg, String groupKey, int splitRbPathArg) {
+        /**
+         * @param rbPath the rbPath expression to be used for this set of path-value pairs.
+         * @param instructions any special instructions to be carried out on this set of path-value pairs
+         * @param splitRbPathArg if applicable, the number of the argument in the rbPath
+         *      expression that needs to be split to create multiple rbPaths, each with the same value
+         */
+        public PathValueInfo(String rbPath, Map<String, String> instructions, int splitRbPathArg) {
             this.rbPath = rbPath;
-            this.valueArg = valueArg;
-            this.groupKey = groupKey;
+            this.valueArg = instructions.get("values");
+            this.groupKey = instructions.get("group");
+            this.baseXPath = instructions.get("base_xpath");
             this.splitRbPathArg = splitRbPathArg;
         }
 
@@ -100,6 +148,14 @@ public abstract class LdmlMapper {
             // Split single args using spaces.
             String processedValue = processValue(valueArg, xpath, cldrFile, arguments);
             return splitValues(processedValue);
+        }
+
+        public String processXPath(String[] arguments, String xpath) {
+            if (baseXPath != null) {
+                return processString(baseXPath, arguments);
+            } else {
+                return xpath;
+            }
         }
 
         private List<String> splitValues(String unsplitValues) {
@@ -138,6 +194,22 @@ public abstract class LdmlMapper {
 
         private String processValue(String value, String xpath, CLDRFile cldrFile, String[] arguments) {
             value = processString(value, arguments);
+            Matcher matcher = FUNCTION_PATTERN.matcher(value);
+            if (matcher.find()) {
+                int index = 0;
+                StringBuffer buffer = new StringBuffer();
+                do {
+                    buffer.append(value.substring(index, matcher.start()));
+                    String fnName = matcher.group(1);
+                    String fnArgs = matcher.group(2);
+                    String result = functionMap.get(fnName).process(fnArgs);
+                    buffer.append(result);
+                    index = matcher.end();
+                } while (matcher.find());
+                buffer.append(value.substring(index));
+                //System.out.println(value + " to " + buffer.toString());
+                value = buffer.toString();
+            }
             if (value.contains("{value}")) {
                 value = value.replace("{value}", getStringValue(cldrFile, xpath));
             }
@@ -177,9 +249,7 @@ public abstract class LdmlMapper {
         }
     }
 
-    static class RegexResult implements Iterable<PathValueInfo> {
-        // Matches arguments with or without enclosing quotes.
-        private static final Pattern ARGUMENT = Pattern.compile("[<\"]?\\$(\\d)[\">]?");
+    class RegexResult implements Iterable<PathValueInfo> {
 
         private Set<PathValueInfo> unprocessed;
 
@@ -187,10 +257,9 @@ public abstract class LdmlMapper {
             unprocessed = new HashSet<PathValueInfo>();
         }
 
-        public void add(String rbPath, String rawValues, String groupKey,
+        public void add(String rbPath, Map<String, String> instructions,
             int splitRbPathArg) {
-            unprocessed.add(new PathValueInfo(rbPath, rawValues, groupKey,
-                splitRbPathArg));
+            unprocessed.add(new PathValueInfo(rbPath, instructions, splitRbPathArg));
         }
 
         @Override
@@ -207,14 +276,8 @@ public abstract class LdmlMapper {
             map = new HashMap<String, R2<List<String>, String>>();
         }
 
-        public void add(String key, List<String> values, String groupKey) {
-            R2<List<String>, String> existing = map.get(key);
-            if (existing == null) {
-                map.put(key, new R2<List<String>, String>(values, groupKey));
-            } else {
-                existing.get0().addAll(values);
-            }
-
+        public void put(String key, List<String> values, String groupKey) {
+            map.put(key, new R2<List<String>, String>(values, groupKey));
         }
 
         public void add(String key, String[] values, String groupKey) {
@@ -222,13 +285,13 @@ public abstract class LdmlMapper {
             for (String value : values) {
                 list.add(value);
             }
-            add(key, list, groupKey);
+            put(key, list, groupKey);
         }
 
         public void add(String key, String value, String groupKey) {
             List<String> list = new ArrayList<String>();
             list.add(value);
-            add(key, list, groupKey);
+            put(key, list, groupKey);
         }
 
         public void addAll(CldrArray otherArray) {
@@ -297,6 +360,11 @@ public abstract class LdmlMapper {
             return new FullMatcher(source);
         }
     };
+
+    protected Map<String, Function> addFunction(String fnName, Function function) {
+        functionMap.put(fnName, function);
+        return functionMap;
+    }
 
     /**
      * Checks if two strings match a specified pattern.
@@ -520,7 +588,7 @@ public abstract class LdmlMapper {
         RegexResult regexResult) {
         String rbPath = content[1];
         // Find arguments in rbPath.
-        Matcher matcher = RegexResult.ARGUMENT.matcher(rbPath);
+        Matcher matcher = ARGUMENT.matcher(rbPath);
         int splitRbPathArg = -1;
         while (matcher.find()) {
             char startChar = rbPath.charAt(matcher.start());
@@ -533,22 +601,18 @@ public abstract class LdmlMapper {
             }
         }
 
-        // Parse special instructions.
-        String value = null;
-        String groupKey = null;
+        // Parse remaining special instructions.
+        Map<String, String> instructions = new HashMap<String, String>();
         for (int i = 2; i < content.length; i++) {
-            String instruction = content[i];
-            if (instruction.startsWith("values=")) {
-                value = instruction.substring(7);
-            } else if (instruction.startsWith("group=")) {
-                groupKey = instruction.substring(6);
-            } else if (instruction.startsWith("fallback=")) {
+            String[] instruction = content[i].split("=", 2);
+            if (instruction[0].equals("fallback")) {
                 // WARNING: fallback might backfire if more than one type of xpath for the same rbpath
-                String fallbackValue = instruction.substring(9);
-                addFallback(xpathMatcher, rbPath, fallbackValue);
+                addFallback(xpathMatcher, rbPath, instruction[1]);
+            } else {
+                instructions.put(instruction[0], instruction[1]);
             }
         }
-        regexResult.add(rbPath, value, groupKey, splitRbPathArg);
+        regexResult.add(rbPath, instructions, splitRbPathArg);
     }
 
     /**
@@ -599,7 +663,7 @@ public abstract class LdmlMapper {
         }
 
         // Create rb matcher.
-        Matcher matcher = RegexResult.ARGUMENT.matcher(rbPath);
+        Matcher matcher = ARGUMENT.matcher(rbPath);
         StringBuffer rbPattern = new StringBuffer();
         int lastIndex = 0;
         List<Integer> argsUsed = new ArrayList<Integer>();
@@ -653,7 +717,7 @@ public abstract class LdmlMapper {
                         }
                         valueList.add(value);
                     }
-                    values.add(fallbackXpath, valueList, null);
+                    values.put(fallbackXpath, valueList, null);
                 }
             }
         }

@@ -2,7 +2,6 @@ package org.unicode.cldr.icu;
 
 import java.io.File;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -16,6 +15,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
+
 import com.ibm.icu.util.Calendar;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -38,8 +38,6 @@ public class SupplementalMapper extends LdmlMapper {
     private static final Map<String, String> enumMap = Builder.with(new HashMap<String, String>())
         .put("sun", "1").put("mon", "2").put("tues", "3").put("wed", "4")
         .put("thu", "5").put("fri", "6").put("sat", "7").get();
-    private static final Pattern DATE_PATH = Pattern.compile("/CurrencyMap/.*/(from|to):intvector");
-    private static final Pattern NUMBERING_SYSTEMS_DESC = Pattern.compile("/numberingSystems/\\w++/desc");
     private static final NumberFormat numberFormat = NumberFormat.getInstance();
     static {
         numberFormat.setMinimumIntegerDigits(4);
@@ -99,10 +97,35 @@ public class SupplementalMapper extends LdmlMapper {
      *            the version of CLDR for output purposes. Only used
      *            in supplementalData conversion.
      */
-    public SupplementalMapper(String inputDir, String cldrVersion) {
+    private SupplementalMapper(String inputDir, String cldrVersion) {
         super("ldml2icu_supplemental.txt");
         this.inputDir = inputDir;
         this.cldrVersion = cldrVersion;
+    }
+
+    public static SupplementalMapper create(String inputDir, String cldrVersion) {
+        SupplementalMapper mapper = new SupplementalMapper(inputDir, cldrVersion);
+        // Handlers for functions in regex file.
+        mapper.addFunction("date", new Function(2) {
+            /**
+             * args[0] = value
+             * args[0] = type (i.e. from/to)
+             */
+            @Override
+            protected String run(String... args) {
+                return getSeconds(args[0], args[1]);
+            }
+        });
+        mapper.addFunction("algorithm", new Function(1) {
+            @Override
+            protected String run(String... args) {
+                // Insert % into numberingSystems descriptions.
+                String value = args[0];
+                int percentPos = value.lastIndexOf('/') + 1;
+                return value.substring(0, percentPos) + '%' + value.substring(percentPos);
+            }
+        });
+        return mapper;
     }
 
     /**
@@ -161,6 +184,7 @@ public class SupplementalMapper extends LdmlMapper {
                 List<String> values = info.processValues(arguments, cldrFile, xpath);
                 // Check if there are any arguments that need splitting for the rbPath.
                 String groupKey = info.processGroupKey(arguments);
+                String baseXPath = info.processXPath(arguments, fullPath);
                 boolean splitNeeded = false;
                 int argIndex = info.getSplitRbPathArg();
                 if (argIndex != -1) {
@@ -171,7 +195,7 @@ public class SupplementalMapper extends LdmlMapper {
                         for (String splitArg : splitArgs) {
                             newArgs[argIndex] = splitArg;
                             String rbPath = info.processRbPath(newArgs);
-                            processValues(fullPath, rbPath, values, groupKey, pathValueMap);
+                            processValues(baseXPath, rbPath, values, groupKey, pathValueMap);
                         }
                         splitNeeded = true;
                     }
@@ -179,7 +203,7 @@ public class SupplementalMapper extends LdmlMapper {
                 // No splitting required, process as per normal.
                 if (!splitNeeded) {
                     String rbPath = info.processRbPath(arguments);
-                    processValues(fullPath, rbPath, values, groupKey, pathValueMap);
+                    processValues(baseXPath, rbPath, values, groupKey, pathValueMap);
                 }
             }
             fifoCounter++;
@@ -202,36 +226,12 @@ public class SupplementalMapper extends LdmlMapper {
      */
     private void processValues(String xpath, String rbPath, List<String> values,
         String groupKey, Map<String, CldrArray> pathValueMap) {
-        List<String> processedValues = new ArrayList<String>();
         // The fifo counter needs to be formatted with leading zeros for sorting.
         if (rbPath.contains("<FIFO>")) {
             rbPath = rbPath.replace("<FIFO>", '<' + numberFormat.format(fifoCounter) + '>');
         }
-        if (NUMBERING_SYSTEMS_DESC.matcher(rbPath).matches()
-            && xpath.contains("algorithmic")) {
-            // Hack to insert % into numberingSystems descriptions.
-            String value = values.get(0);
-            int percentPos = value.lastIndexOf('/') + 1;
-            value = value.substring(0, percentPos) + '%' + value.substring(percentPos);
-            processedValues.add(value);
-        } else if (isDatePath(rbPath)) {
-            // e.g. rbPath = "/CurrencyMap/AD/from:intvector"
-            String type = rbPath.substring(rbPath.lastIndexOf('/') + 1, rbPath.lastIndexOf(':'));
-            String[] dateValues = getSeconds(values.get(0), type);
-            processedValues.add(dateValues[0]);
-            processedValues.add(dateValues[1]);
-        } else {
-            processedValues = values;
-        }
         CldrArray cldrArray = getCldrArray(rbPath, pathValueMap);
-        cldrArray.add(xpath, processedValues, groupKey);
-    }
-
-    /**
-     * Checks if the given path should be treated as a date path.
-     */
-    private static boolean isDatePath(String rbPath) {
-        return DATE_PATH.matcher(rbPath).matches();
+        cldrArray.put(xpath, values, groupKey);
     }
 
     /**
@@ -240,7 +240,7 @@ public class SupplementalMapper extends LdmlMapper {
      * @param dateStr
      * @return
      */
-    private String[] getSeconds(String dateStr, String type) {
+    private static String getSeconds(String dateStr, String type) {
         long millis;
         try {
             millis = getMilliSeconds(dateStr, type);
@@ -251,7 +251,6 @@ public class SupplementalMapper extends LdmlMapper {
 
         int top = (int) ((millis & 0xFFFFFFFF00000000L) >>> 32); // top
         int bottom = (int) ((millis & 0x00000000FFFFFFFFL)); // bottom
-        String[] result = { top + "", bottom + "" };
 
         if (NewLdml2IcuConverter.DEBUG) {
             long bot = 0xffffffffL & bottom;
@@ -263,7 +262,7 @@ public class SupplementalMapper extends LdmlMapper {
             }
         }
 
-        return result;
+        return top + " " + bottom;
     }
 
     /**
@@ -274,7 +273,7 @@ public class SupplementalMapper extends LdmlMapper {
      * @return
      * @throws ParseException
      */
-    private long getMilliSeconds(String dateStr, String type)
+    private static long getMilliSeconds(String dateStr, String type)
             throws ParseException {
         int count = countHyphens(dateStr);
         SimpleDateFormat format = new SimpleDateFormat();

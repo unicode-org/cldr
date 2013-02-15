@@ -9,7 +9,7 @@
 # Greedy word match
 %G=[\s\w\-]+
 # Number match
-%N=\d++
+%N=[\d]++
 
 # supplementalData.xml
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@iso4217="(%W)"]
@@ -19,19 +19,19 @@
      ; /CurrencyMap/$1/<FIFO>/tender ; values=false
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@iso4217="(%W)"]
      ; /CurrencyMap/$1/<FIFO>/id ; values=$3
-     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2
+     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=&date($2, from)
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@iso4217="(%W)"][@tender="false"]
      ; /CurrencyMap/$1/<FIFO>/id ; values=$3
-     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2
+     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=&date($2, from)
      ; /CurrencyMap/$1/<FIFO>/tender ; values=false
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@to="(%W)"][@iso4217="(%W)"]
      ; /CurrencyMap/$1/<FIFO>/id ; values=$4
-     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2
-     ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=$3
+     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=&date($2, from)
+     ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=&date($3, to)
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@from="(%W)"][@to="(%W)"][@iso4217="(%W)"][@tender="false"]
      ; /CurrencyMap/$1/<FIFO>/id ; values=$4
-     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=$2
-     ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=$3
+     ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=&date($2, from)
+     ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=&date($3, to)
      ; /CurrencyMap/$1/<FIFO>/tender ; values=false
 //supplementalData/currencyData/fractions/info[@iso4217="(%W)"][@digits="(%N)"][@rounding="(%N)"] ; /CurrencyMeta/$1:intvector ; values=$2 $3
 
@@ -93,7 +93,7 @@
 # numberingSystems.txt
 //supplementalData/numberingSystems/numberingSystem[@type="algorithmic"][@id="(%W)"][@rules="(%A)"]
      ; /numberingSystems/$1/algorithmic:int ; values=1
-     ; /numberingSystems/$1/desc ; values=$2
+     ; /numberingSystems/$1/desc ; values=&algorithm($2)
      ; /numberingSystems/$1/radix:int ; values=10
 
 //supplementalData/numberingSystems/numberingSystem[@type="numeric"][@id="(%W)"][@digits="(%A)"]

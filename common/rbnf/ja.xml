@@ -11,6 +11,16 @@
             <ruleset type="spellout-numbering-year">
                 <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1">元;</rbnfrule>
+                <rbnfrule value="2">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="1000">=%%spellout-numbering-year-digits=;</rbnfrule>
+                <rbnfrule value="10000">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering-year-digits" access="private">
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="10">←←→→→;</rbnfrule>
+                <rbnfrule value="100">←←→→→;</rbnfrule>
+                <rbnfrule value="1000">←←→→→;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>

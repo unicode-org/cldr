@@ -342,7 +342,7 @@ function toggleView(middleElem) {
 </script>
 </head>
 <body style="padding: 1em;">
-<h2>Number Formatter Tester</h2>
+<h2>Number Format Tester</h2>
 
 <form action='<%= request.getRequestURI() %>' method="post">
 <table style="border: solid black 1px; width: 100%;">
@@ -447,7 +447,8 @@ else {
 }
 %>
 <hr />
-        <div style="float: left;"><a href="http://www.unicode.org/">Unicode</a> | <a href="http://cldr.unicode.org/">CLDR</a></div>
+        <div style="float: left;"><a href="http://www.unicode.org/">Unicode</a> | <a href="http://cldr.unicode.org/">CLDR</a>
+        | <a href="http://unicode.org/cldr/trac/newticket?component=survey&summary=Feedback+for+Number+Format+Tester+<%selectedLocale.toString()%>+<%type%>">Feedback or corrections to the displayed rules</a></div>
 <div style="float: right; font-size: 60%;"><span class="notselected">Powered by
 <a href="http://www.icu-project.org/">ICU</a> <%= trimVersion(com.ibm.icu.util.VersionInfo.ICU_VERSION.toString()) %></span></div>
 </body>

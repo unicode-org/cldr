@@ -12,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckConsistentCasing.CasingType;
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
@@ -32,6 +33,11 @@ import com.ibm.icu.text.UnicodeSet;
  * @author jchye
  */
 public class CasingInfo {
+    private static final Options options = new Options(
+        "This program is used to generate casing files for locales.")
+        .add("locales", ".*", "A regex of the locales to generate casing information for")
+        .add("summary", null, "generates a summary of the casing for all locales that had casing generated for this run");
+
     private Map<String, Map<String, CasingType>> casing;
     private Map<String, Boolean> localeUsesCasing;
     private File casingDir;
@@ -93,11 +99,11 @@ public class CasingInfo {
     /**
      * Calculates casing information about all languages from the locale data.
      */
-    private void generateCasingInformation() {
+    private void generateCasingInformation(String localePattern) {
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
         Set<String> defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
         String sourceDirectory = CldrUtility.checkValidDirectory(CldrUtility.MAIN_DIRECTORY);
-        Factory cldrFactory = Factory.make(sourceDirectory, ".*");
+        Factory cldrFactory = Factory.make(sourceDirectory, localePattern);
         Set<String> locales = new LinkedHashSet<String>(cldrFactory.getAvailable());
         locales.removeAll(defaultContentLocales); // Skip all default content locales
         UnicodeSet allCaps = new UnicodeSet("[:Lu:]");
@@ -215,8 +221,9 @@ public class CasingInfo {
      */
     public static void main(String[] args) {
         CasingInfo casingInfo = new CasingInfo();
-        casingInfo.generateCasingInformation();
-        if (args.length > 0) {
+        options.parse(args, true);
+        casingInfo.generateCasingInformation(options.get("locales").getValue());
+        if (options.get("summary").doesOccur()) {
             casingInfo.createCasingSummary(args[0]);
         }
         // Create all casing files needed for CLDR checks.

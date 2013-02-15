@@ -8,16 +8,23 @@
 	</identity>
 	<metadata>
 		<casingData>
-			<casingItem type="day-format-except-narrow">titlecase</casingItem>
-			<casingItem type="day-standalone-except-narrow">titlecase</casingItem>
-			<casingItem type="era-abbr">titlecase</casingItem>
-			<casingItem type="era-name">titlecase</casingItem>
-			<casingItem type="era-narrow">titlecase</casingItem>
+			<casingItem type="day-format-except-narrow">lowercase</casingItem>
+			<casingItem type="day-standalone-except-narrow">lowercase</casingItem>
+			<casingItem type="day-format-narrow">titlecase</casingItem>
+			<casingItem type="day-standalone-narrow">titlecase</casingItem>
+			<casingItem type="era-abbr">lowercase</casingItem>
+			<casingItem type="era-name">lowercase</casingItem>
+			<casingItem type="era-narrow">lowercase</casingItem>
 			<casingItem type="language">titlecase</casingItem>
-			<casingItem type="month-format-except-narrow">titlecase</casingItem>
-			<casingItem type="month-standalone-except-narrow">titlecase</casingItem>
+			<casingItem type="month-format-except-narrow">lowercase</casingItem>
+			<casingItem type="month-standalone-except-narrow">lowercase</casingItem>
+			<casingItem type="month-format-narrow">titlecase</casingItem>
+			<casingItem type="month-standalone-narrow">titlecase</casingItem>
 			<casingItem type="symbol">lowercase</casingItem>
 			<casingItem type="territory">titlecase</casingItem>
+			<casingItem type="script">lowercase</casingItem>
+			<casingItem type="day-format-except-narrow">lowercase</casingItem>
+			<casingItem type="day-narrow">titlecase</casingItem>
 		</casingData>
 	</metadata>
 </ldml>

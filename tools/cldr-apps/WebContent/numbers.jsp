@@ -448,7 +448,7 @@ else {
 %>
 <hr />
         <div style="float: left;"><a href="http://www.unicode.org/">Unicode</a> | <a href="http://cldr.unicode.org/">CLDR</a>
-        | <a href="http://unicode.org/cldr/trac/newticket?component=survey&summary=Feedback+for+Number+Format+Tester+<%=selectedLocale.toString()%>+<%=type%>">Feedback or corrections to the displayed rules</a></div>
+        | <a href="http://unicode.org/cldr/trac/newticket?component=survey&amp;summary=Feedback+for+Number+Format+Tester+<%=type%>&amp;locale=<%=selectedLocale.toString()%>">Feedback or corrections to the displayed rules</a></div>
 <div style="float: right; font-size: 60%;"><span class="notselected">Powered by
 <a href="http://www.icu-project.org/">ICU</a> <%= trimVersion(com.ibm.icu.util.VersionInfo.ICU_VERSION.toString()) %></span></div>
 </body>

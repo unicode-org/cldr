@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -324,6 +325,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
             pw.println("<!DOCTYPE " + dtdType + " SYSTEM \"" + dtdDir + dtdType + ".dtd\">");
         }
+        
+        pw.println("<!-- Copyright \u00A9 1991-" + Calendar.getInstance().get(Calendar.YEAR) + " Unicode, Inc. -->");
+        pw.println("<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->");
+        pw.println("<!-- For terms of use, see http://www.unicode.org/copyright.html -->");
+       
         if (options.containsKey("COMMENT")) {
             pw.println("<!-- " + options.get("COMMENT") + " -->");
         }

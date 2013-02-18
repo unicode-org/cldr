@@ -47,6 +47,7 @@ import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -532,7 +533,8 @@ public class ConvertLanguageData {
         }
 
         RowData(List<String> row) throws ParseException {
-            countryCode = row.get(COUNTRY_CODE);
+            countryCode = fixCountryCode(row.get(COUNTRY_CODE));
+            
             if (!countryCodes.contains(countryCode)) {
                 System.err.println("WRONG COUNTRY CODE: " + row);
             }
@@ -563,7 +565,7 @@ public class ConvertLanguageData {
             if (languageCode1.startsWith("*") || languageCode1.startsWith("\u00A7")) {
                 languageCode1 = languageCode1.substring(1);
             }
-            languageCode = languageCode1;
+            languageCode = fixLanguageCode(languageCode1);
 
             if (doneCountries.contains(countryCode) == false) {
                 // showDiff(countryGdp1, countryGdp);
@@ -1031,9 +1033,6 @@ public class ConvertLanguageData {
 
     private static Set<RowData> getExcelData(List<String> failures, Map<String, RowData> localeToRowData)
         throws IOException {
-        System.out.println();
-        System.out.println("Get Excel Data");
-        System.out.println();
 
         LanguageTagParser ltp = new LanguageTagParser();
 
@@ -1877,11 +1876,11 @@ public class ConvertLanguageData {
         // }
         // }
 
-        Map<String, String> nameToTerritoryCode = new TreeMap();
-        for (String territoryCode : sc.getGoodAvailableCodes("territory")) {
-            nameToTerritoryCode.put(sc.getData("territory", territoryCode).toLowerCase(), territoryCode);
-        }
-        nameToTerritoryCode.put("iran", nameToTerritoryCode.get("iran, islamic republic of")); //
+//        Map<String, String> nameToTerritoryCode = new TreeMap();
+//        for (String territoryCode : sc.getGoodAvailableCodes("territory")) {
+//            nameToTerritoryCode.put(sc.getData("territory", territoryCode).toLowerCase(), territoryCode);
+//        }
+//        nameToTerritoryCode.put("iran", nameToTerritoryCode.get("iran, islamic republic of")); //
 
         BasicLanguageData languageData = new BasicLanguageData();
 
@@ -1947,10 +1946,9 @@ public class ConvertLanguageData {
                 String[] territoryList = parts[4].split("\\s*[;,-]\\s*");
                 for (String territoryName : territoryList) {
                     if (territoryName.equals("ISO/DIS 639") || territoryName.equals("3")) continue;
-                    String territoryCode = nameToTerritoryCode.get(territoryName.toLowerCase());
+                    String territoryCode = CountryCodeConverter.getCodeFromName(territoryName);
                     if (territoryCode == null) {
-                        System.out.println("*ERROR*	Territory <" + territoryName + "> for <" + languageSubtag
-                            + "> not found in " + nameToTerritoryCode.keySet());
+                        System.out.println("*ERROR*	Territory <" + territoryName + "> for <" + languageSubtag + "> not found");
                     } else {
                         territories.add(territoryCode);
                     }
@@ -2101,4 +2099,37 @@ public class ConvertLanguageData {
         pf.setMaximumFractionDigits(roundDigits + 2);
         return pf.format(d);
     }
+    
+    private static String fixLanguageCode(String languageCode) {
+        int bar = languageCode.indexOf('_');
+        String script = "";
+        if (bar >= 0) {
+            script = languageCode.substring(bar);
+            languageCode = languageCode.substring(0, bar);
+        }
+        R2<List<String>, String> replacement = supplementalData.getLocaleAliasInfo().get("language").get(languageCode);
+        if (replacement != null) {
+            String replacementCode = replacement.get0().get(0);
+            languageCode = replacementCode;
+            System.out.println("*** ERROR, deprecated language code: " + languageCode + " => " + replacementCode);
+        }
+        if (!sc.getAvailableCodes("language").contains(languageCode)) {
+            System.out.println("*** ERROR, bad language code: " + languageCode);
+        }
+        return languageCode + script;
+    }
+    
+    private static String fixCountryCode(String countryCode) {
+        R2<List<String>, String> replacement = supplementalData.getLocaleAliasInfo().get("territory").get(countryCode);
+        if (replacement != null) {
+            String replacementCode = replacement.get0().get(0);
+            countryCode = replacementCode;
+            System.out.println("*** ERROR, deprecated territory code: " + countryCode + " => " + replacementCode);
+        }
+        if (!sc.getAvailableCodes("territory").contains(countryCode)) {
+            System.out.println("*** ERROR, bad territory code: " + countryCode);
+        }
+        return countryCode;
+    }
+
 }

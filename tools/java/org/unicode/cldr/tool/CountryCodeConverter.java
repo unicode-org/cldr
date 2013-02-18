@@ -15,13 +15,19 @@ import com.ibm.icu.util.ULocale;
 
 public class CountryCodeConverter {
 
-    private static final boolean SHOW_SKIP = false;
+    private static final boolean SHOW_SKIP = CldrUtility.getProperty("SHOW_SKIP", false);
 
     private static Map<String, String> nameToCountryCode = new TreeMap(new UTF16.StringComparator(true, true, 0));
 
     public static String getCodeFromName(String display) {
         String trial = display.trim().toLowerCase(Locale.ENGLISH);
+        if (trial.startsWith("\"") && trial.endsWith("\"")) {
+            trial = trial.substring(1,trial.length()-2);
+        }
         String result = nameToCountryCode.get(trial);
+        if ("skip".equals(result)) {
+            return null;
+        }
         if (result == null) {
             trial = reverseComma(display);
             if (trial != null) {
@@ -32,7 +38,8 @@ public class CountryCodeConverter {
             }
         }
         if (SHOW_SKIP && result == null) {
-            System.out.println("Missing code for: " + display);
+            System.out.println("Missing code; add to external/alternate_country_names.txt a line like:" +
+            		"\t<code>;\t<name>;\t" + display);
         }
         return result;
     }

@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -20,14 +22,14 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 public class AddPopulationData {
-    static boolean SHOW_SKIP = CldrUtility.getProperty("SHOW_SKIP", false);
+    static boolean ADD_POP = CldrUtility.getProperty("ADD_POP", false);
     static boolean SHOW_ALTERNATE_NAMES = CldrUtility.getProperty("SHOW_ALTERNATE_NAMES", false);
 
     enum WBLine {
         // "Afghanistan","AFG","GNI, PPP (current international $)","NY.GNP.MKTP.PP.CD","..","..","13144920451.3325","16509662130.816","18932631964.8727","22408872945.1924","25820670505.2627","30783369469.7509","32116190092.1429","..",
 
         Country_Name, Country_Code, Series_Name, Series_Code,
-        YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008, YR2009, YR2010;
+        YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008, YR2009, YR2010, YR2011;
         String get(String[] pieces) {
             return pieces[ordinal()];
         }
@@ -77,10 +79,18 @@ public class AddPopulationData {
         outliers.addAll(factbook_gdp.keySet());
         outliers.addAll(worldbank_gdp.keySet());
         outliers.addAll(un_literacy.keySet());
-        outliers.removeAll(Arrays.asList(ULocale.getISOCountries()));
-        System.out.println("Probable Mistakes");
-        for (String country : outliers) {
-            showCountryData(country);
+        for (Iterator<String> it = outliers.iterator(); it.hasNext();) {
+            if (StandardCodes.isCountry(it.next())) {
+                it.remove();
+            }
+        }
+        outliers.remove("AN");
+        if (outliers.size() != 0) {
+            System.out.println("Mistakes: data for non-UN codes");
+            for (String country : outliers) {
+                showCountryData(country);
+            }
+            throw new IllegalArgumentException("Mistakes: data for non-country codes");
         }
         Set<String> altNames = new TreeSet<String>();
         String oldCode = "";
@@ -193,6 +203,13 @@ public class AddPopulationData {
                 if (code == null) {
                     return false;
                 }
+                if (!StandardCodes.isCountry(code)) {
+                    if (ADD_POP) {
+                        System.out.println("Skipping factbook info for: " + code);
+                    }
+                    return false;
+                }
+                code = code.toUpperCase(Locale.ENGLISH);
                 String valueString = FBLine.Value.get(pieces).trim();
                 if (valueString.startsWith("$")) {
                     valueString = valueString.substring(1);
@@ -200,7 +217,9 @@ public class AddPopulationData {
                 valueString = valueString.replace(",", "");
                 double value = Double.parseDouble(valueString.trim());
                 factbookGdp.add(code, value);
-                // System.out.println(Arrays.asList(pieces));
+                if (ADD_POP) {
+                    System.out.println("Factbook gdp:\t" + code + "\t" + value);
+                }
                 return true;
             }
         });
@@ -287,7 +306,6 @@ public class AddPopulationData {
                     }
                     String trialCode = codeMatcher.group(1);
                     code = CountryCodeConverter.getCodeFromName(trialCode);
-                    System.out.println(trialCode + "\t" + code);
                     if (code == null) {
                         throw new IllegalArgumentException("bad country: change countryToCode()\t" + trialCode + "\t"
                             + code);
@@ -311,6 +329,12 @@ public class AddPopulationData {
                 if (code == null) {
                     throw new IllegalArgumentException("Bad code: " + code);
                 }
+                if (!StandardCodes.isCountry(code)) {
+                    if (ADD_POP) {
+                        System.out.println("Skipping factbook info for: " + code);
+                    }
+                    return false;
+                }
                 if (!m.reset(line).matches()) {
                     throw new IllegalArgumentException("mismatched line: " + code);
                 }
@@ -319,10 +343,17 @@ public class AddPopulationData {
                 final String percentString = m.group(1);
                 final double percent = number.parse(percentString).doubleValue();
                 if (factbook_literacy.getCount(code) != 0) {
+                    if (code.equals("PS") || code.equals("RS")) {
+                        // skip message, special case
+                    } else {
                     System.out.println("Duplicate literacy in FactBook: " + code);
+                    }
                     return false;
                 }
                 factbook_literacy.add(code, percent);
+                if (ADD_POP) {
+                    System.out.println("Factbook literacy:\t" + code + "\t" + percent);
+                }
                 code = null;
                 return true;
             }
@@ -361,6 +392,12 @@ public class AddPopulationData {
                 if (country == null) {
                     return false;
                 }
+                if (!StandardCodes.isCountry(country)) {
+                    if (ADD_POP) {
+                        System.out.println("Skipping worldbank info for: " + country);
+                    }
+                    return false;
+                }
                 double value;
                 try {
                     value = Double.parseDouble(last);
@@ -383,16 +420,25 @@ public class AddPopulationData {
         FileUtilities.handleFile("external/un_literacy.csv", new FileUtilities.LineHandler() {
             public boolean handle(String line) {
                 // Afghanistan,2000, ,28,43,13,,34,51,18
+                // "Country or area","Year",,"Adult (15+) literacy rate",,,,,,"         Youth (15-24) literacy rate",,,,
+                // ,,,Total,Men,Women,,Total,Men,Women
+                // "Albania",2008,,96,,97,,95,,99,,99,,99
                 String[] pieces = splitCommaSeparated(line);
-                if (pieces.length != 10 || !DIGITS.containsAll(pieces[1])) {
+                if (pieces.length != 14 || pieces[1].length() == 0 || !DIGITS.containsAll(pieces[1])) {
                     return false;
                 }
                 String code = CountryCodeConverter.getCodeFromName(pieces[0]);
                 if (code == null) {
                     return false;
                 }
+                if (!StandardCodes.isCountry(code)) {
+                    if (ADD_POP) {
+                        System.out.println("Skipping UN info for: " + code);
+                    }
+                    return false;
+                }
                 String totalLiteracy = pieces[3];
-                if (totalLiteracy.equals("�") || totalLiteracy.isEmpty()) {
+                if (totalLiteracy.equals("�") || totalLiteracy.equals("…")|| totalLiteracy.isEmpty()) {
                     return true;
                 }
                 double percent = Double.parseDouble(totalLiteracy);
@@ -434,7 +480,7 @@ public class AddPopulationData {
                 }
             }
             if (myErrors.length() != 0) {
-                throw new IllegalArgumentException("Missing Country values, edit external/other_country_data to fix:"
+                throw new IllegalArgumentException("Missing Country values, the following and add to external/other_country_data to fix:"
                     + myErrors);
             }
         } catch (IOException e) {

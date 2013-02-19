@@ -1154,6 +1154,64 @@
 					</eraAbbr>
 				</eras>
 			</calendar>
+			<calendar type="chinese">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d. MMMM U</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d. MMMM U</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>dd.MM U</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd.MM.yy</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Gy">U</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM U</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d. MMM U</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d. MMM U</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">HH 'Uhr'</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d.M.</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.M.</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">U</dateFormatItem>
+						<dateFormatItem id="yyyy">U</dateFormatItem>
+						<dateFormatItem id="yyyyM">M.y</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d.M.y</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d.M.y</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM U</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d. MMM U</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d. MMM U</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM U</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ U</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ U</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">

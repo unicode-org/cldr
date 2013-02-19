@@ -1321,7 +1321,7 @@
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
-						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
+						<dateFormatItem id="MEEEEd">M/dEEEE</dateFormatItem>
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
@@ -1332,6 +1332,7 @@
 						<dateFormatItem id="yyyyM" draft="contributed">GGGGy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMEd" draft="contributed">GGGGy年M/d(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd" draft="contributed">GGGGy年M/dEEEE</dateFormatItem>
 						<dateFormatItem id="yyyyMM">Gy/MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM" draft="contributed">GGGGy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">GGGGy年M月d日</dateFormatItem>
@@ -1543,13 +1544,22 @@
 						<dateFormatItem id="GyMMM">U年MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">U年MMMd日</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">U年MMMd日(E)</dateFormatItem>
+						<dateFormatItem id="GyMMMEEEEd">U年MMMd日EEEE</dateFormatItem>
+						<dateFormatItem id="h">aK時</dateFormatItem>
+						<dateFormatItem id="H">H時</dateFormatItem>
+						<dateFormatItem id="hm">aK:mm</dateFormatItem>
+						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="hms">aK:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">MMM</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
+						<dateFormatItem id="MEEEEd">M/dEEEE</dateFormatItem>
 						<dateFormatItem id="MMMd">MMMd日</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMMd日(E)</dateFormatItem>
 						<dateFormatItem id="MMMEEEEd">MMMd日EEEE</dateFormatItem>
 						<dateFormatItem id="y">U年</dateFormatItem>
+						<dateFormatItem id="yMd">U年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyy">U年</dateFormatItem>
 						<dateFormatItem id="yyyyM">U年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMd">U年M月d日</dateFormatItem>
@@ -1920,6 +1930,7 @@
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
+						<dateFormatItem id="MEEEEd">M/dEEEE</dateFormatItem>
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
@@ -1930,6 +1941,7 @@
 						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd">Gy/M/dEEEE</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
@@ -2265,7 +2277,7 @@
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
-						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
+						<dateFormatItem id="MEEEEd">M/dEEEE</dateFormatItem>
 						<dateFormatItem id="MMM">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
@@ -2275,6 +2287,7 @@
 						<dateFormatItem id="yM">y/M</dateFormatItem>
 						<dateFormatItem id="yMd">y/M/d</dateFormatItem>
 						<dateFormatItem id="yMEd">y/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yMEEEEd">y/M/dEEEE</dateFormatItem>
 						<dateFormatItem id="yMM">y/MM</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
@@ -3226,14 +3239,17 @@
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
+						<dateFormatItem id="MEEEEd">M/dEEEE</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">M月</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="MMMEEEEd">M月d日EEEE</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">Gy/M/d(E)</dateFormatItem>
+						<dateFormatItem id="yyyyMEEEEd">Gy/M/dEEEE</dateFormatItem>
 						<dateFormatItem id="yyyyMM">Gy/MM</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>

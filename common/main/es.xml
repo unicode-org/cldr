@@ -1252,6 +1252,40 @@
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Gy">y</dateFormatItem>
+						<dateFormatItem id="GyMMM">M-y</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d-M-y</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d-M-y</dateFormatItem>
+						<dateFormatItem id="h">hh a</dateFormatItem>
+						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
+						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
+						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d-M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d-M</dateFormatItem>
+						<dateFormatItem id="MMM">L</dateFormatItem>
+						<dateFormatItem id="MMMd">d-M</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d-M</dateFormatItem>
+						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="yyyy">y</dateFormatItem>
+						<dateFormatItem id="yyyyM">M-y</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d-M-y</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d-M-y</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">M-y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d-M-y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d-M-y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">M-y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="generic">
 				<dateFormats>
@@ -1313,8 +1347,6 @@
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
-						<dateFormatItem id="MMd">d/MM</dateFormatItem>
-						<dateFormatItem id="MMdd" draft="contributed">dd/MM</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMdd">dd-MMM</dateFormatItem>

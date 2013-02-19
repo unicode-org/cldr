@@ -133,27 +133,10 @@
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d/M/yyGGGGG</pattern>
+							<pattern>d/M/yGGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="contributed">ah:mm:ss [zzzz]</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="contributed">ah:mm:ss [z]</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>ahh:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -179,7 +162,9 @@
 						<dateFormatItem id="Ed" draft="contributed">d E</dateFormatItem>
 						<dateFormatItem id="Md" draft="contributed">d/M</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E, d/M</dateFormatItem>
-						<dateFormatItem id="yM" draft="provisional">M/y</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="contributed">M/yGGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMd" draft="contributed">d/M/yGGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMEd" draft="contributed">E, d/M/yGGGGG</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>

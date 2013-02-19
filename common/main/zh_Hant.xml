@@ -1286,65 +1286,6 @@
 						<era type="0" draft="contributed">佛曆</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<!-- per cldrbug 2835, copied from roc -->
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>Gy年M月d日EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>Gy年M月d日</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>Gy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>Gy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<!-- per cldrbug 2835, added from gregorian and adjusted for G -->
-					<availableFormats>
-						<dateFormatItem id="d">d日</dateFormatItem>
-						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
-						<dateFormatItem id="Gy">Gy年</dateFormatItem>
-						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="h">ah時</dateFormatItem>
-						<dateFormatItem id="H">H時</dateFormatItem>
-						<dateFormatItem id="hm">ah:mm</dateFormatItem>
-						<dateFormatItem id="Hm">H:mm</dateFormatItem>
-						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">M月</dateFormatItem>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
-						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
-						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
-						<dateFormatItem id="MMMMdd">M月dd日</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">Gy年</dateFormatItem>
-						<dateFormatItem id="yM">Gy/M</dateFormatItem>
-						<dateFormatItem id="yMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yMEd">Gy/M/d（E）</dateFormatItem>
-						<dateFormatItem id="yMM">Gy/MM</dateFormatItem>
-						<dateFormatItem id="yMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="yMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="yMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yQQQ">Gy年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">Gy年QQQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<months>
@@ -1538,6 +1479,7 @@
 						<dateFormatItem id="MMMd">MMMd日</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMMd日E</dateFormatItem>
 						<dateFormatItem id="y">U年</dateFormatItem>
+						<dateFormatItem id="yMd">U年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyy">U年</dateFormatItem>
 						<dateFormatItem id="yyyyM">U年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMd">U年M月d日</dateFormatItem>
@@ -1900,7 +1842,6 @@
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
 						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
-						<dateFormatItem id="MMMMdd">M月dd日</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">Gy年</dateFormatItem>
 						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
@@ -1910,7 +1851,6 @@
 						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="contributed">Gy年M月</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy年QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
@@ -2659,64 +2599,6 @@
 						<era type="0" draft="contributed">伊斯蘭曆</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<!-- per cldrbug 2835, copied from roc -->
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>Gy年M月d日EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>Gy年M月d日</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>Gy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>Gy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<!-- per cldrbug 2835, copied from japanese -->
-					<availableFormats>
-						<dateFormatItem id="d">d日</dateFormatItem>
-						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
-						<dateFormatItem id="Gy" draft="contributed">Gy年</dateFormatItem>
-						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="h">ah時</dateFormatItem>
-						<dateFormatItem id="H">H時</dateFormatItem>
-						<dateFormatItem id="hm">ah:mm</dateFormatItem>
-						<dateFormatItem id="Hm">H:mm</dateFormatItem>
-						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">M月</dateFormatItem>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
-						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
-						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
-						<dateFormatItem id="MMMMdd">M月dd日</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">Gy年</dateFormatItem>
-						<dateFormatItem id="yM">Gy/M</dateFormatItem>
-						<dateFormatItem id="yMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yMEd">Gy/M/d（E）</dateFormatItem>
-						<dateFormatItem id="yMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="yMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="yMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yQQQ">Gy年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">Gy年QQQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
@@ -2960,29 +2842,6 @@
 						<era type="235">平成</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<!-- per cldrbug 2835, copied from roc -->
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>Gy年M月d日EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>Gy年M月d日</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>Gy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>Gy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -3034,6 +2893,7 @@
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">Gy年QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -3141,61 +3001,6 @@
 						<era type="1">民國</era>
 					</eraAbbr>
 				</eras>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>Gy年M月d日EEEE</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>Gy年M月d日</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>Gy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>Gy/M/d</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<!-- per cldrbug 2835, a few additions -->
-						<dateFormatItem id="d">d日</dateFormatItem>
-						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
-						<dateFormatItem id="Gy">Gy年</dateFormatItem>
-						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="h">ah時</dateFormatItem>
-						<dateFormatItem id="H">H時</dateFormatItem>
-						<dateFormatItem id="hm">ah:mm</dateFormatItem>
-						<dateFormatItem id="Hm" draft="contributed">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hms" draft="contributed">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">M月</dateFormatItem>
-						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
-						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
-						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
-						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">Gy/M/d（E）</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">Gy QQQ</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>

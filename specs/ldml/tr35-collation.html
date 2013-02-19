@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-02-06</span></td>
+			<td><span class="changed">2013-02-19</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -667,8 +667,20 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 <br>
 [normalization off]			</code></td>
 			<td rowspan="2">If <strong>on</strong>, then the normal [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm is used.
-			If <strong>off</strong>, then all strings that are in [<a href="tr35.html#FCD">FCD</a>] will sort correctly, but 
-			others will not necessarily sort correctly. So should only be set <strong>off</strong> if the the strings to be compared are in FCD. <em>Note that the default for CLDR locales may be different than  in the UCA. The rules for particular locales have it set to <strong>on</strong>: those locales whose exemplar characters (in forms commonly interchanged) would be affected by normalization.</em></td>
+			If <strong>off</strong>, then all strings that are in [<a href="tr35.html#FCD">FCD</a>]
+			<span class="changed">and do not contain any composite combining marks</span>
+			will sort correctly,
+			but others will not necessarily sort correctly.<br>
+			So should only be set <strong>off</strong> if the the strings to be compared are in FCD
+			<span class="changed">and do not contain any composite combining marks</span>.
+			<span class="changed">Composite combining marks are: { U+0344, U+0F73, U+0F75, U+0F81 }
+			<a href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5B%3A%5Elccc%3D0%3A%5D%26%5B%3AtoNFD%3D%2F..%2F%3A%5D&abb=on&g=">[[:^lccc=0:]&amp;[:toNFD=/../:]]</a>
+			(These characters must be decomposed for discontiguous contractions to work properly.
+			Use of these characters is discouraged by the Unicode Standard.)</span><br>
+			<em>Note that the default for CLDR locales may be different than in the UCA.
+			The rules for particular locales have it set to <strong>on</strong>:
+			those locales whose exemplar characters (in forms commonly interchanged)
+			would be affected by normalization.</em></td>
 		</tr>
 		<tr>
 		  <td>false</td>

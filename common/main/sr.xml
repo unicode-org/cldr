@@ -49,9 +49,9 @@
 			<language type="aus">Аустралијски језик</language>
 			<language type="av">Аварски</language>
 			<language type="awa">Авадхи</language>
-			<language type="ay">ајмара</language>
+			<language type="ay">Ајмара</language>
 			<language type="az">Азербејџански</language>
-			<language type="az" alt="short" draft="contributed">азерски</language>
+			<language type="az" alt="short" draft="contributed">Азерски</language>
 			<language type="ba">Башкир</language>
 			<language type="bad">Банда</language>
 			<language type="bai">Бамилеке</language>
@@ -159,7 +159,7 @@
 			<language type="fat">Фанти</language>
 			<language type="ff">Фулах</language>
 			<language type="fi">Фински</language>
-			<language type="fil">Тагалог</language>
+			<language type="fil">Филипински</language>
 			<language type="fiu">Угро-фински</language>
 			<language type="fj">Фиджијски</language>
 			<language type="fo">Фарски</language>
@@ -302,7 +302,7 @@
 			<language type="mdf">Мокша</language>
 			<language type="mdr">Мандар</language>
 			<language type="men">Менде</language>
-			<language type="mfe" draft="contributed">морисјен</language>
+			<language type="mfe" draft="contributed">Морисјен</language>
 			<language type="mg">Малагасијски</language>
 			<language type="mga">Средњи ирски</language>
 			<language type="mh">Маршалски</language>
@@ -1122,9 +1122,9 @@
 			<measurementSystemName type="US">САД</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language">{0}</codePattern>
-			<codePattern type="script">{0}</codePattern>
-			<codePattern type="territory">{0}</codePattern>
+			<codePattern type="language">Језик: {0}</codePattern>
+			<codePattern type="script">Скрипт: {0}</codePattern>
+			<codePattern type="territory">Регион: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -1335,7 +1335,7 @@
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">y M - M</greatestDifference>
-							<greatestDifference id="y">y M - M</greatestDifference>
+							<greatestDifference id="y">M.y - M.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
 							<greatestDifference id="d">d.M.y. - d.M.y.</greatestDifference>
@@ -1348,7 +1348,7 @@
 							<greatestDifference id="y">E, d.M.y. - E, d.M.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="contributed">MMM-MMM y.</greatestDifference>
+							<greatestDifference id="M">MMM-MMM y.</greatestDifference>
 							<greatestDifference id="y">MMM y. - MMM y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
@@ -1777,7 +1777,7 @@
 							<greatestDifference id="y">E, d.M.y. - E, d.M.y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="contributed">MMM-MMM y.</greatestDifference>
+							<greatestDifference id="M">MMM-MMM y.</greatestDifference>
 							<greatestDifference id="y">MMM y. - MMM y.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
@@ -3474,7 +3474,7 @@
 			</metazone>
 			<metazone type="Afghanistan">
 				<long>
-					<standard draft="contributed">Авганистан</standard>
+					<standard>Авганистан време</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Central">
@@ -3522,30 +3522,30 @@
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic>Централно време</generic>
-					<standard>Централно стандардно време</standard>
-					<daylight>Централно летње рачунање времена</daylight>
+					<generic>Северноамерички Централно време</generic>
+					<standard>Северноамерички Централно стандардно време</standard>
+					<daylight>Северноамерички Централно летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic>Источно време</generic>
-					<standard>Источно стандардно време</standard>
-					<daylight>Источно летње рачунање времена</daylight>
+					<generic>Северноамерички Источно време</generic>
+					<standard>Северноамерички Источно стандардно време</standard>
+					<daylight>Северноамерички Источно летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
-					<generic>Планинско време</generic>
-					<standard>Планинско стандардно време</standard>
-					<daylight>Планинско летње рачунање времена</daylight>
+					<generic>Северноамерички Планинско време</generic>
+					<standard>Северноамерички Планинско стандардно време</standard>
+					<daylight>Северноамерички Планинско летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
-					<generic>Пацифичко време</generic>
-					<standard>Пацифичко стандардно време</standard>
-					<daylight>Пацифичко летње рачунање времена</daylight>
+					<generic>Северноамерички Пацифичко време</generic>
+					<standard>Северноамерички Пацифичко стандардно време</standard>
+					<daylight>Северноамерички Пацифичко летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Anadyr">
@@ -3885,7 +3885,7 @@
 				<long>
 					<generic>Хонг Конг време</generic>
 					<standard>Хонг Конг стандардно време</standard>
-					<daylight>Хонгконшко летње рачунање времена</daylight>
+					<daylight>Хонг Конг летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hovd">
@@ -3957,7 +3957,7 @@
 				<long>
 					<generic>Петропавловско-камчатско време</generic>
 					<standard>Петропавловско-камчатско стандардно време</standard>
-					<daylight>Петропавловско-камчатско летње рачунање вемена</daylight>
+					<daylight>Петропавловско-камчатско летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -3972,7 +3972,7 @@
 			</metazone>
 			<metazone type="Korea">
 				<long>
-					<generic>Кореја време</generic>
+					<generic>Корејско време</generic>
 					<standard>Корејско стандардно време</standard>
 					<daylight>Корејско летње рачунање времена</daylight>
 				</long>
@@ -4015,7 +4015,7 @@
 				<long>
 					<generic>Макао време</generic>
 					<standard>Макао стандардно време</standard>
-					<daylight>Макао летње рачунање вемена</daylight>
+					<daylight>Макао летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
@@ -4027,7 +4027,7 @@
 				<long>
 					<generic>Магадан време</generic>
 					<standard>Магадан стандардно време</standard>
-					<daylight>Магадан летње рачунање вемена</daylight>
+					<daylight>Магадан летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Malaysia">
@@ -4157,7 +4157,7 @@
 			</metazone>
 			<metazone type="Palau">
 				<long>
-					<standard draft="contributed">Палау</standard>
+					<standard>Палау време</standard>
 				</long>
 			</metazone>
 			<metazone type="Papua_New_Guinea">
@@ -4195,7 +4195,7 @@
 				<long>
 					<generic>Сен Пјер и Микелон време</generic>
 					<standard>Сен Пјер и Микелон стандардно време</standard>
-					<daylight>Сен Пјер и Микелон летње рачунање вемена</daylight>
+					<daylight>Сен Пјер и Микелон летње рачунање времена</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
@@ -4205,7 +4205,7 @@
 			</metazone>
 			<metazone type="Ponape">
 				<long>
-					<standard>Понапе време</standard>
+					<standard>Понпеи време</standard>
 				</long>
 			</metazone>
 			<metazone type="Qyzylorda">
@@ -4279,7 +4279,7 @@
 			<metazone type="Taipei">
 				<long>
 					<generic>Таипеи време</generic>
-					<standard>Таипеи стандардно веме</standard>
+					<standard>Таипеи стандардно време</standard>
 					<daylight>Таипеи летње рачунање времена</daylight>
 				</long>
 			</metazone>
@@ -4302,7 +4302,7 @@
 			</metazone>
 			<metazone type="Truk">
 				<long>
-					<standard>Трук време</standard>
+					<standard>Чуук време</standard>
 				</long>
 			</metazone>
 			<metazone type="Turkmenistan">

@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
@@ -46,6 +47,11 @@ public class CLDRFileTransformer {
          * @return the locale that used for conversion
          */
         public String getInputLocale() { return inputLocale; }
+
+        /**
+         * @return the locale that used for conversion
+         */
+        public String getOutputLocale() { return this.toString(); }
 
         /**
          * @return the filename of the transform used to make the conversion
@@ -103,11 +109,13 @@ public class CLDRFileTransformer {
     public CLDRFile transform(LocaleTransform localeTransform) {
         Transliterator transliterator = loadTransliterator(localeTransform);
         CLDRFile input = factory.make(localeTransform.getInputLocale(), false);
+        CLDRFile output = factory.make(localeTransform.getOutputLocale(), false);
         XMLSource outputSource = new SimpleXMLSource(localeTransform.toString());
         for (String xpath : input) {
             String fullPath = input.getFullXPath(xpath);
             String value = input.getStringValue(xpath);
-            value = transformValue(transliterator, localeTransform.getInputChars(), xpath, value);
+            String oldValue = output.getStringValue(xpath);
+            value = transformValue(transliterator, localeTransform.getInputChars(), xpath, value, oldValue);
             outputSource.putValueAtPath(fullPath, value);
         }
         return new CLDRFile(outputSource);
@@ -116,16 +124,13 @@ public class CLDRFileTransformer {
     /**
      * Transforms a CLDRFile value into another form.
      */
-    private String transformValue(Transliterator transliterator, UnicodeSet inputChars, String path, String value) {
+    private String transformValue(Transliterator transliterator, UnicodeSet inputChars, String path, String value, String oldValue) {
         String transliterated;
         // TODO: Don't transform dates/patterns.
+        // For now, don't try to transliterate the exemplar characters - use the ones from the original locale.
+        // In the future, we can probably control this better with a config file - similar to CLDRModify's config file.
         if (path.contains("exemplarCharacters")) {
-            UnicodeSet oldExemplars = new UnicodeSet(value);
-            UnicodeSet newExemplars = new UnicodeSet();
-            for (String ch : oldExemplars) {
-                newExemplars.add(transliterator.transliterate(ch));
-            }
-            transliterated = newExemplars.toString();
+            transliterated = oldValue;
         } else {
             transliterated = transliterator.transliterate(value);
         }
@@ -140,10 +145,15 @@ public class CLDRFileTransformer {
         CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CldrUtility.COMMON_DIRECTORY + "transforms/");
         for (LocaleTransform localeTransform : LocaleTransform.values()) {
             CLDRFile output = transformer.transform(localeTransform);
-            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, output.getLocaleID() + ".xml");
+            String outputDir = CldrUtility.GEN_DIRECTORY + "main" + File.separator;
+            String outputFile = output.getLocaleID() + ".xml";
+            PrintWriter out = BagFormatter.openUTF8Writer(outputDir,outputFile);
+            System.out.println("Generating locale file: " + outputDir + outputFile);
             output.write(out);
             out.close();
         }
-        System.out.println("Untransformed characters: " + transformer.unconverted);
+        if (!transformer.unconverted.isEmpty()) {
+            System.out.println("Untransformed characters: " + transformer.unconverted);
+        }
     }
 }

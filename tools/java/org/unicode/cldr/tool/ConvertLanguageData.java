@@ -91,8 +91,9 @@ public class ConvertLanguageData {
 
     static Map<String, String> defaultContent = new TreeMap<String, String>();
 
-    static CLDRFile english;
-    static Factory cldrFactory;
+    static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    static CLDRFile english = cldrFactory.make("en", true);
+    
     static Set<String> skipLocales = new HashSet<String>(
         Arrays
             .asList("sh sh_BA sh_CS sh_YU characters supplementalData supplementalData-old supplementalData-old2 supplementalData-old3 supplementalMetadata root"
@@ -113,9 +114,8 @@ public class ConvertLanguageData {
             oldFile = BagFormatter.openUTF8Reader(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
             CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<languageData>\\s*"), Log.getLog(), false);
 
-            cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            
             Set<String> available = cldrFactory.getAvailable();
-            english = cldrFactory.make("en", true);
 
             Set<String> cldrParents = getCldrParents(available);
 

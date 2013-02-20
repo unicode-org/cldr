@@ -26,6 +26,7 @@ import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
@@ -489,8 +490,8 @@ public class GenerateMaximalLocales {
         Log.println("\t\t/>");
 
         // Log.println("</supplementalData>");
-        CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*/>\\s*"), null, false);
-        CldrUtility.copyUpTo(oldFile, null, Log.getLog(), false);
+        CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*/>\\s*(<!--.*)?"), null, true); // skip to matching >
+        CldrUtility.copyUpTo(oldFile, null, Log.getLog(), true); // copy the rest
 
         Log.close();
         oldFile.close();
@@ -1585,9 +1586,9 @@ public class GenerateMaximalLocales {
             return result;
         }
         try {
-            Set<BasicLanguageData> data = supplementalData.getBasicLanguageData(locale);
+            Map<Type, BasicLanguageData> data = supplementalData.getBasicLanguageDataMap(locale);
             if (data != null) {
-                for (BasicLanguageData datum : data) {
+                for (BasicLanguageData datum : data.values()) {
                     final Set<String> scripts = datum.getScripts();
                     if (scripts.size() == 0) {
                         continue;

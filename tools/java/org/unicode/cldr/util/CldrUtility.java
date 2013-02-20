@@ -1203,9 +1203,10 @@ public class CldrUtility {
     /**
      * Copy up to matching line (not included). If output is null, then just skip until.
      * 
-     * @param oldFile
-     * @param readUntilPattern
-     * @param output
+     * @param oldFile file to copy
+     * @param readUntilPattern pattern to search for. If null, goes to end of file.
+     * @param output into to copy into. If null, just skips in the input.
+     * @param includeMatchingLine inclde the matching line when copying.
      * @throws IOException
      */
     public static void copyUpTo(BufferedReader oldFile, final Pattern readUntilPattern,

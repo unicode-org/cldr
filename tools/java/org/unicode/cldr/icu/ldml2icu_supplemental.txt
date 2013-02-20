@@ -74,7 +74,7 @@
 
 //supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]/languagePopulation[@type="(%W)"][@writingPercent="(%N)"][@populationPercent="(%N)"]([@references="%W"])?
     ; /territoryInfo/$1/territoryF:intvector ; values=&exp($2) &exp($3,-2) &exp($4) ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]
-    ; /territoryInfo/$1/$5/writingPercent:int ; values=$6
+    ; /territoryInfo/$1/$5/writingShareF:int ; values=&exp($6,-2)
     ; /territoryInfo/$1/$5/populationShareF:int ; values=&exp($7,-2)
 
 //supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]/languagePopulation[@type="(%W)"][@populationPercent="(%N)"][@officialStatus="(%W)"]([@references="%W"])?
@@ -84,7 +84,7 @@
 
 //supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]/languagePopulation[@type="(%W)"][@writingPercent="(%N)"][@populationPercent="(%N)"][@officialStatus="(%W)"]([@references="%W"])?
     ; /territoryInfo/$1/territoryF:intvector ; values=&exp($2) &exp($3,-2) &exp($4) ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]
-    ; /territoryInfo/$1/$5/writingPercent:int ; values=$6
+    ; /territoryInfo/$1/$5/writingShareF:int ; values=&exp($6,-2)
     ; /territoryInfo/$1/$5/populationShareF:int ; values=&exp($7,-2)
     ; /territoryInfo/$1/$5/officialStatus ; values=$8
 

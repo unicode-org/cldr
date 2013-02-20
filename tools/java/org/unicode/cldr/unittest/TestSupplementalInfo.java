@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -29,6 +30,8 @@ import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -42,10 +45,12 @@ import com.ibm.icu.impl.Utility;
 public class TestSupplementalInfo extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
 
+    private static final boolean SKIP_SOME_SCRIPT_TESTS = true;
+
     public static void main(String[] args) {
         new TestSupplementalInfo().run(args);
     }
-    
+
     public void TestTimeData() {
         Map<String, PreferredAndAllowedHour> timeData = testInfo.getSupplementalDataInfo().getTimeData();
         Set<String> regionsSoFar = new HashSet<String>();
@@ -313,8 +318,36 @@ public class TestSupplementalInfo extends TestFmwk {
         LanguageTagParser ltp = new LanguageTagParser();
         for (String language : languages) {
             String base = ltp.set(language).getLanguage();
+            String script = ltp.getScript();
             baseToLanguages.put(base, language);
+
+            if (SKIP_SOME_SCRIPT_TESTS) {
+                continue;
+            }
+            // add basic data, basically just for wo!
+            // if there are primary scripts, they must include script (if not empty)
+            Set<String> primaryScripts = Collections.emptySet();
+            Map<Type, BasicLanguageData> basicData = testInfo.getSupplementalDataInfo().getBasicLanguageDataMap(base);
+            if (basicData != null) {
+                BasicLanguageData s = basicData.get(BasicLanguageData.Type.primary);
+                if (s != null) {
+                    primaryScripts = s.getScripts();
+                }
+            }
+
+            // do some consistency tests; if there is a script, it must be in primaryScripts
+            if (!script.isEmpty() && !primaryScripts.contains(script)) {
+                errln(base + ": Script found in territory data (" + script + ") is not in primary scripts :\t" + primaryScripts);
+            }
+
+            // if there are multiple primary scripts, they will be in baseToLanguages
+            if (primaryScripts.size() > 1) {
+                for (String script2 : primaryScripts) {
+                    baseToLanguages.put(base, base + "_" + script2);
+                }
+            }
         }
+
         // the invariants are that if we have a base, we must not have a script.
         // and if we don't have a base, we must have two items
         for (String base : baseToLanguages.keySet()) {
@@ -323,7 +356,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (languagesForBase.size() > 1) {
                     errln("Cannot have base alone with other scripts:\t" + languagesForBase);
                 }
-            } else {
+            } else if (!SKIP_SOME_SCRIPT_TESTS) {
                 if (languagesForBase.size() == 1) {
                     errln("Cannot have only one script for language:\t" + languagesForBase);
                 }

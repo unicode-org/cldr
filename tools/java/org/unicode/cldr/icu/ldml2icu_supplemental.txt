@@ -9,7 +9,7 @@
 # Greedy word match
 %G=[\s\w\-]+
 # Number match
-%N=[\d]++
+%N=[\d\.]++
 
 # supplementalData.xml
 //supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@iso4217="(%W)"]
@@ -63,6 +63,30 @@
 //supplementalData/timeData/hours[@allowed="(%W)"][@preferred="(%W)"][@regions="(%W)"]
      ; /timeData/$3/allowed ; values=$1
      ; /timeData/$3/preferred ; values=$2
+
+//supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]
+# GDP, literacy fraction, population
+    ; /territoryInfo/$1/territory:intvector ; values=&exp($2) &exp($3,-2) $4 ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]
+
+//supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]/languagePopulation[@type="(%W)"][@populationPercent="(%N)"]([@references="%W"])?
+    ; /territoryInfo/$1/territory:intvector ; values=&exp($2) &exp($3,-2) $4 ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]
+    ; /territoryInfo/$1/$5/populationShare:int ; values=&exp($6,-2)
+
+//supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]/languagePopulation[@type="(%W)"][@writingPercent="(%N)"][@populationPercent="(%N)"]([@references="%W"])?
+    ; /territoryInfo/$1/territory:intvector ; values=&exp($2) &exp($3,-2) $4 ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]
+    ; /territoryInfo/$1/$5/writingPercent:int ; values=$6
+    ; /territoryInfo/$1/$5/populationShare:int ; values=&exp($7,-2)
+
+//supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]/languagePopulation[@type="(%W)"][@populationPercent="(%N)"][@officialStatus="(%W)"]([@references="%W"])?
+    ; /territoryInfo/$1/territory:intvector ; values=&exp($2) &exp($3,-2) $4 ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]
+    ; /territoryInfo/$1/$5/populationShare:int ; values=&exp($6,-2)
+    ; /territoryInfo/$1/$5/officialStatus ; values=$7
+
+//supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]/languagePopulation[@type="(%W)"][@writingPercent="(%N)"][@populationPercent="(%N)"][@officialStatus="(%W)"]([@references="%W"])?
+    ; /territoryInfo/$1/territory:intvector ; values=&exp($2) &exp($3,-2) $4 ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]
+    ; /territoryInfo/$1/$5/writingPercent:int ; values=$6
+    ; /territoryInfo/$1/$5/populationShare:int ; values=&exp($7,-2)
+    ; /territoryInfo/$1/$5/officialStatus ; values=$8
 
 # telephoneCodeData.xml
 //supplementalData/telephoneCodeData/codesByTerritory[@territory="(%W)"]/telephoneCountryCode[@code="(%N)"] ; /telephoneCodeData/$1/<$2>/code ; values=$2

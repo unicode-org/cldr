@@ -109,7 +109,7 @@ public class SupplementalMapper extends LdmlMapper {
         mapper.addFunction("date", new Function(2) {
             /**
              * args[0] = value
-             * args[0] = type (i.e. from/to)
+             * args[1] = type (i.e. from/to)
              */
             @Override
             protected String run(String... args) {
@@ -123,6 +123,43 @@ public class SupplementalMapper extends LdmlMapper {
                 String value = args[0];
                 int percentPos = value.lastIndexOf('/') + 1;
                 return value.substring(0, percentPos) + '%' + value.substring(percentPos);
+            }
+        });
+        // Converts a number into a special integer that represents the number in
+        // normalized scientific notation for ICU's RB parser.
+        // Resultant integers are in the form -?xxyyyyyy, where xx is the exponent
+        // offset by 50 and yyyyyy is the coefficient to 5 decimal places, e.g.
+        // 14660000000000 -> 1.466E13 -> 63146600
+        // 0.0001 -> 1E-4 -> 46100000
+        // -123.456 -> -1.23456E-2 -> -48123456
+        // args[0] = number to be converted
+        // args[2] = an (optional) additional exponent offset,
+        //           e.g. -2 for converting percentages into fractions.
+        mapper.addFunction("exp", new Function(2) {
+            @Override
+            protected String run(String... args) {
+                double value = Double.parseDouble(args[0]);
+                if (value == 0) {
+                    return "0";
+                }
+                int exponent = 50;
+                if (args.length == 2) {
+                    exponent += Integer.parseInt(args[1]);
+                }
+                String sign = value >= 0 ? "" : "-";
+                value = Math.abs(value);
+                while(value >= 10) {
+                    value /= 10;
+                    exponent++;
+                }
+                while(value < 1) {
+                    value *= 10;
+                    exponent--;
+                }
+                if (exponent < 0 || exponent > 99) {
+                    throw new IllegalArgumentException("Exponent out of bounds: " + exponent);
+                }
+                return sign + exponent + Math.round(value * 100000);
             }
         });
         return mapper;

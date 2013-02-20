@@ -2021,6 +2021,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return
      */
     public static int typeNameToCode(String type) {
+        if (type.equalsIgnoreCase("region")) {
+            type = "territory";
+        }
         for (int i = 0; i < LIMIT_TYPES; ++i) {
             if (type.equalsIgnoreCase(getNameName(i))) return i;
         }

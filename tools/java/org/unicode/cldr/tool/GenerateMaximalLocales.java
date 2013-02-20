@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.BitSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
@@ -12,6 +13,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
@@ -28,6 +30,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -470,6 +473,8 @@ public class GenerateMaximalLocales {
             if (SHOW_ADD) System.out.println("Can't find maximized: " + locale + "=" + maximized
                 + "\tin\t" + debugStuff);
         }
+        
+        showDefaultContentDifferencesAndFix(defaultLocaleContent);
 
         Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
         BufferedReader oldFile = BagFormatter.openUTF8Reader(CldrUtility.SUPPLEMENTAL_DIRECTORY,
@@ -1719,6 +1724,44 @@ public class GenerateMaximalLocales {
             if (script != null) {
                 localeToScriptCache.put(language, script);
             }
+        }
+    }
+    static void showDefaultContentDifferencesAndFix(Set<String> defaultLocaleContent) {
+        Set<String> errors = new LinkedHashSet<String>();
+        Map<String, String> oldDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(ConvertLanguageData.supplementalData.getDefaultContentLocales(), errors);
+        if (!errors.isEmpty()) {
+            System.out.println(CollectionUtilities.join(errors, "\n"));
+            errors.clear();
+        }
+        Map<String, String> newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent, errors);
+        if (!errors.isEmpty()) {
+            System.out.println(CollectionUtilities.join(errors, "\n"));
+            errors.clear();
+        }
+        Set<String> changes = new TreeSet<String>();
+        for (String parent : Builder.with(new TreeSet<String>()).addAll(newDefaultContent.keySet()).addAll(oldDefaultContent.keySet()).get()) {
+            String oldValue = oldDefaultContent.get(parent);
+            String newValue = newDefaultContent.get(parent);
+            if (CldrUtility.equals(oldValue, newValue)) {
+                continue;
+            }
+            String message;
+            if (oldValue == null) {
+                message = "Adding " + ConvertLanguageData.getLanguageCodeAndName(parent) + " => " + ConvertLanguageData.getLanguageCodeAndName(newValue);
+            } else if (newValue == null) {
+                message = "Suppressing removal of " + ConvertLanguageData.getLanguageCodeAndName(parent) + " => " + ConvertLanguageData.getLanguageCodeAndName(oldValue);
+                defaultLocaleContent.add(oldValue);
+            } else {
+                message = "Suppressing change of " + ConvertLanguageData.getLanguageCodeAndName(parent) + " => " + ConvertLanguageData.getLanguageCodeAndName(oldValue) + " to " + ConvertLanguageData.getLanguageCodeAndName(newValue);
+                defaultLocaleContent.remove(newValue);
+                defaultLocaleContent.add(oldValue);
+            }
+            changes.add("*WARNING*   Default Content Change: " + message);
+        }
+        System.out.println(CollectionUtilities.join(changes, "\n"));
+        newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent, errors);
+        if (!errors.isEmpty()) {
+            System.out.println("***New Errors: " + CollectionUtilities.join(changes, "\n"));
         }
     }
 }

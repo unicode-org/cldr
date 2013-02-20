@@ -219,9 +219,9 @@ public class LikelySubtags {
         if (max != null) {
             script = new LanguageTagParser().set(max).getScript();
         } else {
-            Set<BasicLanguageData> data = supplementalDataInfo.getBasicLanguageData(code);
+            Map<Type, BasicLanguageData> data = supplementalDataInfo.getBasicLanguageDataMap(code);
             if (data != null) {
-                for (BasicLanguageData item : data) {
+                for (BasicLanguageData item : data.values()) {
                     Set<String> scripts = item.getScripts();
                     if (scripts == null || scripts.size() == 0) continue;
                     script = scripts.iterator().next();

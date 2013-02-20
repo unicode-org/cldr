@@ -469,4 +469,9 @@ public class LanguageTagParser {
         this.extensions.putAll(newExtensions);
         return this;
     }
+
+    public static String getSimpleParent(String s) {
+        int lastBar = s.lastIndexOf('_');
+        return lastBar >= 0 ? s.substring(0,lastBar) : "";
+    }
 }

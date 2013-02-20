@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -27,9 +28,11 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Row;
@@ -310,6 +313,13 @@ public class SupplementalDataInfo {
                     + CldrUtility.join(territories, " ") + "\"")
                 + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
+        
+        public String toString() {
+            return "[" + type 
+                + (scripts.isEmpty() ? "" : "; scripts=" + CollectionUtilities.join(scripts, " ")) 
+                + (scripts.isEmpty() ? "" : "; territories=" + CollectionUtilities.join(territories, " "))
+                + "]";
+        }
 
         public int compareTo(BasicLanguageData o) {
             int result;
@@ -320,6 +330,16 @@ public class SupplementalDataInfo {
             if (0 != (result = IterableComparator.compareIterables(territories, o.territories)))
                 return result;
             return 0;
+        }
+        
+        public boolean equals(Object input) {
+            return compareTo((BasicLanguageData) input) == 0;
+        }
+
+        @Override
+        public int hashCode() {
+            // TODO Auto-generated method stub
+            return ((type.ordinal() * 37 + scripts.hashCode()) * 37) + territories.hashCode();
         }
 
         public BasicLanguageData addScript(String script) {
@@ -751,8 +771,8 @@ public class SupplementalDataInfo {
     transient private Relation<String, Pair<Boolean, Pair<Double, String>>> languageToTerritories2 =
         Relation.of(new TreeMap<String, Set<Pair<Boolean, Pair<Double, String>>>>(), TreeSet.class);
 
-    private Relation<String, BasicLanguageData> languageToBasicLanguageData = Relation.of(
-        new TreeMap<String, Set<BasicLanguageData>>(), TreeSet.class);
+    private Map<String, Map<BasicLanguageData.Type, BasicLanguageData>> languageToBasicLanguageData = 
+        new TreeMap<String, Map<BasicLanguageData.Type, BasicLanguageData>>();
 
     // private Map<String, BasicLanguageData> languageToBasicLanguageData2 = new
     // TreeMap();
@@ -838,6 +858,10 @@ public class SupplementalDataInfo {
      */
     public Map<String, Map<String, R2<List<String>, String>>> getLocaleAliasInfo() {
         return typeToTagToReplacement;
+    }
+
+    public R2<List<String>, String> getDeprecatedInfo(String type, String code) {
+        return typeToTagToReplacement.get(type).get(code);
     }
 
     public static SupplementalDataInfo getInstance(File supplementalDirectory) {
@@ -964,7 +988,7 @@ public class SupplementalDataInfo {
         containmentCore.freeze();
         containmentNonDeprecated.freeze();
 
-        languageToBasicLanguageData.freeze();
+        CldrUtility.protectCollection(languageToBasicLanguageData);
         for (String language : languageToTerritories2.keySet()) {
             for (Pair<Boolean, Pair<Double, String>> pair : languageToTerritories2.getAll(language)) {
                 languageToTerritories.put(language, pair.getSecond().getSecond());
@@ -1660,7 +1684,14 @@ public class SupplementalDataInfo {
                     : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
                 .setTerritories(parts.getAttributeValue(2, "territories"));
-            languageToBasicLanguageData.put(language, languageData);
+            Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
+            if (map == null) {
+                languageToBasicLanguageData.put(language, map = new EnumMap<Type, BasicLanguageData>(BasicLanguageData.Type.class));
+            }
+            if (map.containsKey(languageData.type)) {
+                throw new IllegalArgumentException("Duplicate value:\t" + parts);
+            }
+            map.put(languageData.type, languageData);
         }
 
         private boolean failsRangeCheck(String path, double input, double min, double max) {
@@ -1766,7 +1797,15 @@ public class SupplementalDataInfo {
     }
 
     public Set<BasicLanguageData> getBasicLanguageData(String language) {
-        return languageToBasicLanguageData.getAll(language);
+        Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
+        if (map == null) {
+            throw new IllegalArgumentException("Bad language code: " + language);
+        }
+        return new LinkedHashSet<BasicLanguageData>(map.values());
+    }
+    
+    public Map<Type, BasicLanguageData> getBasicLanguageDataMap(String language) {
+        return languageToBasicLanguageData.get(language);
     }
 
     public Set<String> getBasicLanguageDataLanguages() {
@@ -1859,6 +1898,21 @@ public class SupplementalDataInfo {
      */
     public Set<String> getDefaultContentLocales() {
         return defaultContentLocales;
+    }
+    
+    public static Map<String,String> makeLocaleToDefaultContents(Set<String> defaultContents, Set<String> errors) {
+        Map<String,String> result = new LinkedHashMap<String,String>();
+        for (String s : defaultContents) {
+            String simpleParent = LanguageTagParser.getSimpleParent(s);
+            String oldValue = result.get(simpleParent);
+            if (oldValue != null) {
+                errors.add("*** Error: Default contents cannot contain two children for the same parent:\t" 
+                    + oldValue + ", " + s + "; keeping " + oldValue);
+                continue;
+            }
+            result.put(simpleParent, s);
+        }
+        return result;
     }
 
     /**
@@ -2112,9 +2166,9 @@ public class SupplementalDataInfo {
     }
 
     private Set<String> getTargetScripts(String language) {
-        Set<BasicLanguageData> langData = getBasicLanguageData(language);
         Set<String> targetScripts = new HashSet<String>();
-        if (langData != null) {
+        try {
+            Set<BasicLanguageData> langData = getBasicLanguageData(language);
             Iterator<BasicLanguageData> ldi = langData.iterator();
             while (ldi.hasNext()) {
                 BasicLanguageData bl = ldi.next();
@@ -2123,7 +2177,10 @@ public class SupplementalDataInfo {
                     targetScripts.addAll(addScripts);
                 }
             }
+        } catch (Exception e) {
+            // fall through
         }
+
         if (targetScripts.size() == 0) {
             targetScripts.add("Zzzz"); // Unknown Script
         }
@@ -2131,9 +2188,9 @@ public class SupplementalDataInfo {
     }
 
     private Set<String> getTargetTerritories(String language) {
-        Set<BasicLanguageData> langData = getBasicLanguageData(language);
         Set<String> targetTerritories = new HashSet<String>();
-        if (langData != null) {
+        try {
+            Set<BasicLanguageData> langData = getBasicLanguageData(language);
             Iterator<BasicLanguageData> ldi = langData.iterator();
             while (ldi.hasNext()) {
                 BasicLanguageData bl = ldi.next();
@@ -2142,6 +2199,8 @@ public class SupplementalDataInfo {
                     targetTerritories.addAll(addTerritories);
                 }
             }
+        } catch (Exception e) {
+            // fall through
         }
         if (targetTerritories.size() == 0) {
             targetTerritories.add("ZZ");

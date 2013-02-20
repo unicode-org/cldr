@@ -694,10 +694,10 @@ public class ZoneParser {
                 if (line.length() == 0)
                     continue;
                 List<String> pieces = CldrUtility.splitList(line, '\t', true);
-                String country = (String) pieces.get(0);
-                String latLong = (String) pieces.get(1);
-                String tzid = (String) pieces.get(2);
-                String ntzid = (String) FIX_UNSTABLE_TZIDS.get(tzid);
+                String country = pieces.get(0);
+                String latLong = pieces.get(1);
+                String tzid = pieces.get(2);
+                String ntzid = FIX_UNSTABLE_TZIDS.get(tzid);
                 if (ntzid != null)
                     tzid = ntzid;
                 String comment = pieces.size() < 4 ? null : (String) pieces.get(3);

@@ -35,6 +35,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -1250,5 +1251,11 @@ public class CldrUtility {
         ConcurrentHashMap<K, V> result = newConcurrentHashMap();
         result.putAll(source);
         return result;
+    }
+
+    public static boolean equals(Object a, Object b) {
+        return a == b ? true 
+            : a == null || b == null ? false
+                : a.equals(b);
     }
 }

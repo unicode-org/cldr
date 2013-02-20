@@ -70,7 +70,7 @@ public class AddPopulationData {
             + "\t" + "UN Literacy"
             );
 
-        for (String country : ULocale.getISOCountries()) {
+        for (String country : StandardCodes.make().getGoodCountries()) {
             showCountryData(country);
         }
         Set<String> outliers = new TreeSet<String>();
@@ -84,7 +84,7 @@ public class AddPopulationData {
                 it.remove();
             }
         }
-        outliers.remove("AN");
+//        outliers.remove("AN");
         if (outliers.size() != 0) {
             System.out.println("Mistakes: data for non-UN codes");
             for (String country : outliers) {

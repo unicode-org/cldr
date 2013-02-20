@@ -21,6 +21,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PluralSnapshot;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.Timer;
@@ -118,7 +119,7 @@ public class Misc {
         }
         System.out.println(Locale.SIMPLIFIED_CHINESE);
         System.out.println(Locale.TRADITIONAL_CHINESE);
-        for (String s : ULocale.getISOCountries()) {
+        for (String s : StandardCodes.make().getGoodCountries()) {
             System.out.println(s + "\t" + ULocale.getDisplayCountry("und-" + s, ULocale.ENGLISH));
         }
     }

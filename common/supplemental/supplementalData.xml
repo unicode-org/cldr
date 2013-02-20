@@ -2096,7 +2096,7 @@ XXX Code for transations where no currency is involved
 		<territory type="AM" gdp="18950000000" literacyPercent="99.6" population="2970500">	<!--Armenia-->
 			<languagePopulation type="hy" populationPercent="98" officialStatus="official"/>	<!--Armenian-->
 			<languagePopulation type="az_Latn" populationPercent="5.3"/>	<!--Azerbaijani (Latin)-->
-			<languagePopulation type="ku" populationPercent="3.3"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Latn" populationPercent="3.3"/>	<!--Kurdish (Latin)-->
 		</territory>
 		<territory type="AO" gdp="126200000000" literacyPercent="70.1" population="18056100">	<!--Angola-->
 			<languagePopulation type="pt" populationPercent="67" officialStatus="official"/>	<!--Portuguese-->
@@ -2138,11 +2138,11 @@ XXX Code for transations where no currency is involved
 		<territory type="AZ" gdp="98160000000" literacyPercent="99.8" population="9493600">	<!--Azerbaijan-->
 			<languagePopulation type="az_Latn" populationPercent="89" officialStatus="official" references="R1120"/>	<!--Azerbaijani (Latin)-->
 			<languagePopulation type="az_Cyrl" populationPercent="9.9" officialStatus="official" references="R1121"/>	<!--Azerbaijani (Cyrillic)-->
-			<languagePopulation type="ku" populationPercent="0.24"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Latn" populationPercent="0.24"/>	<!--Kurdish (Latin)-->
 		</territory>
 		<territory type="BA" gdp="32080000000" literacyPercent="97.9" population="3879300">	<!--Bosnia and Herzegovina-->
-			<languagePopulation type="bs" populationPercent="99" officialStatus="official"/>	<!--Bosnian-->
 			<languagePopulation type="bs_Cyrl" writingPercent="5" populationPercent="99" officialStatus="official" references="R1083"/>	<!--Bosnian (Cyrillic)-->
+			<languagePopulation type="bs_Latn" populationPercent="99" officialStatus="official"/>	<!--Bosnian (Latin)-->
 			<languagePopulation type="hr" populationPercent="12" officialStatus="official"/>	<!--Croatian-->
 			<languagePopulation type="sr_Cyrl" populationPercent="10" officialStatus="official"/>	<!--Serbian (Cyrillic)-->
 			<languagePopulation type="sr_Latn" writingPercent="5" populationPercent="10" officialStatus="official" references="R1003"/>	<!--Serbian (Latin)-->
@@ -2403,7 +2403,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="tr" populationPercent="2.5"/>	<!--Turkish-->
 			<languagePopulation type="hr" populationPercent="0.79"/>	<!--Croatian-->
 			<languagePopulation type="it" populationPercent="0.66"/>	<!--Italian-->
-			<languagePopulation type="ku" populationPercent="0.66"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Latn" populationPercent="0.66"/>	<!--Kurdish (Latin)-->
 			<languagePopulation type="ru" populationPercent="0.44"/>	<!--Russian-->
 			<languagePopulation type="el" populationPercent="0.38"/>	<!--Greek-->
 			<languagePopulation type="ksh" populationPercent="0.3" references="R1174"/>	<!--Colognian-->
@@ -2556,7 +2556,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="hy" populationPercent="7" references="R1038"/>	<!--Armenian-->
 			<languagePopulation type="ab" populationPercent="2.2" officialStatus="official_regional"/>	<!--Abkhazian-->
 			<languagePopulation type="os" populationPercent="2.2" officialStatus="official_regional"/>	<!--Ossetic-->
-			<languagePopulation type="ku" populationPercent="0.89"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Latn" populationPercent="0.89"/>	<!--Kurdish (Latin)-->
 		</territory>
 		<territory type="GF" gdp="1551000000" literacyPercent="83" population="199509">	<!--French Guiana-->
 			<languagePopulation type="fr" populationPercent="77" officialStatus="official" references="R1019"/>	<!--French-->
@@ -3466,7 +3466,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="SY" gdp="107600000000" literacyPercent="79.6" population="22530700">	<!--Syria-->
 			<languagePopulation type="ar" populationPercent="80" officialStatus="official"/>	<!--Arabic-->
-			<languagePopulation type="ku" populationPercent="8"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Latn" populationPercent="8"/>	<!--Kurdish (Latin)-->
 			<languagePopulation type="fr" populationPercent="5.9" officialStatus="official" references="R1088"/>	<!--French-->
 			<languagePopulation type="hy" populationPercent="1.8"/>	<!--Armenian-->
 			<languagePopulation type="syr" writingPercent="5" populationPercent="0.084" references="R1017"/>	<!--Syriac-->
@@ -3525,7 +3525,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="tk" populationPercent="70" officialStatus="official"/>	<!--Turkmen-->
 			<languagePopulation type="ru" populationPercent="12"/>	<!--Russian-->
 			<languagePopulation type="uz_Latn" populationPercent="9"/>	<!--Uzbek (Latin)-->
-			<languagePopulation type="ku" populationPercent="0.41"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Latn" populationPercent="0.41"/>	<!--Kurdish (Latin)-->
 		</territory>
 		<territory type="TN" gdp="104400000000" literacyPercent="74.3" population="10732900">	<!--Tunisia-->
 			<languagePopulation type="ar" populationPercent="90" officialStatus="official"/>	<!--Arabic-->
@@ -3537,7 +3537,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="TR" gdp="1125000000000" literacyPercent="87.4" population="79749500">	<!--Turkey-->
 			<languagePopulation type="tr" populationPercent="93" officialStatus="official" references="R1206"/>	<!--Turkish-->
-			<languagePopulation type="ku" populationPercent="5.5"/>	<!--Kurdish-->
+			<languagePopulation type="ku_Latn" populationPercent="5.5"/>	<!--Kurdish (Latin)-->
 			<languagePopulation type="zza" populationPercent="1.4"/>	<!--Zaza-->
 			<languagePopulation type="kbd" populationPercent="0.77"/>	<!--Kabardian-->
 			<languagePopulation type="az_Latn" populationPercent="0.74"/>	<!--Azerbaijani (Latin)-->

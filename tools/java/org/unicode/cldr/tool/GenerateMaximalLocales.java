@@ -4,8 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.BitSet;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -589,7 +592,7 @@ public class GenerateMaximalLocales {
     private static final double MIN_UNOFFICIAL_LANGUAGE_SIZE = 10000000;
     private static final double MIN_UNOFFICIAL_LANGUAGE_PROPORTION = 0.20;
     private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 100000;
-    private static final double UNOFFICIAL_SCALE_DOWN = 1.0;
+    private static final double UNOFFICIAL_SCALE_DOWN = 0.2;
 
     // Many of the overrides below can be removed once the language/pop/country data is updated.
     private static final Map<String, String> LANGUAGE_OVERRIDES = CldrUtility.asMap(new String[][] {
@@ -741,11 +744,11 @@ public class GenerateMaximalLocales {
                     } else if (literatePopulation >= MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE && cldrLocales.contains(locale)) {
                         // ok, skip
                     } else {
-                        if (SHOW_ADD)
-                            System.out.println("Skipping:\t" + writtenLanguage + "\t" + region + "\t"
-                                + english.getName(locale)
-                                + "\t-- too small:\t" + number.format(literatePopulation));
-                        continue;
+//                        if (SHOW_ADD)
+//                            System.out.println("Skipping:\t" + writtenLanguage + "\t" + region + "\t"
+//                                + english.getName(locale)
+//                                + "\t-- too small:\t" + number.format(literatePopulation));
+//                        continue;
                     }
                     order *= UNOFFICIAL_SCALE_DOWN;
                     if (SHOW_ADD)
@@ -768,6 +771,16 @@ public class GenerateMaximalLocales {
                 maxData.add(language, script, region, order);
             }
         }
+        
+        for (String[] additions : new String[][] {
+            {"bss", "Latn", "CM"},
+            {"gez", "Ethi", "ET"},
+            {"ken", "Latn", "CM"},
+            {"syr", "Syrc", "SY"},
+            {"wa", "Latn", "BE"}
+        }) {
+            maxData.add(additions[0], additions[1], additions[2], 1.0);
+        }
 
         // add others, with English default
         for (String region : otherTerritories) {
@@ -783,20 +796,49 @@ public class GenerateMaximalLocales {
         // higherThanAny += 1; // lower slightly for next one
         // }
 
+        // get a reverse mapping, so that we can add the aliases
+        
+        Map<String, R2<List<String>, String>> languageAliases = SupplementalDataInfo.getInstance().getLocaleAliasInfo().get("language");
+        for (Entry<String, R2<List<String>, String>> str : languageAliases.entrySet()) {
+            String reason = str.getValue().get1();
+            if ("overlong".equals(reason) || "macrolanguage".equals(reason)) {
+                continue;
+            }
+            List<String> replacements = str.getValue().get0();
+            if (replacements == null) {
+                continue;
+            }
+            String goodLanguage = replacements.get(0);
+            
+            String badLanguage = str.getKey();
+            if (badLanguage.contains("_")) {
+                continue;
+            }
+            Set<R3<Double, String, String>> goodLanguageData = maxData.languages.getAll(goodLanguage);
+            if (goodLanguageData == null) {
+                continue;
+            }
+            R3<Double, String, String> value = goodLanguageData.iterator().next();
+            final String script = value.get1();
+            final String region = value.get2();
+            maxData.add(badLanguage, script, region, 1.0);
+            System.out.println("Adding aliases: " + badLanguage + ", " + script + ", " +region + ", " + reason);           
+        }
+        
         // now, get the best for each one
         for (String language : maxData.languages.keySet()) {
             R3<Double, String, String> value = maxData.languages.getAll(language).iterator().next();
             final Comparable script = value.get1();
             final Comparable region = value.get2();
-            add(language, language + "_" + script + "_" + region, toMaximized, "L->SR", Override.REPLACE_EXISTING);
+            add(language, language + "_" + script + "_" + region, toMaximized, "L->SR", Override.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String language : maxData.languagesToScripts.keySet()) {
             String script = maxData.languagesToScripts.get(language).getKeysetSortedByCount(true).iterator().next();
-            add(language, language + "_" + script, toMaximized, "L->S", Override.REPLACE_EXISTING);
+            add(language, language + "_" + script, toMaximized, "L->S", Override.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String language : maxData.languagesToRegions.keySet()) {
             String region = maxData.languagesToRegions.get(language).getKeysetSortedByCount(true).iterator().next();
-            add(language, language + "_" + region, toMaximized, "L->R", Override.REPLACE_EXISTING);
+            add(language, language + "_" + region, toMaximized, "L->R", Override.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (String script : maxData.scripts.keySet()) {
@@ -804,15 +846,15 @@ public class GenerateMaximalLocales {
             final Comparable language = value.get1();
             final Comparable region = value.get2();
             add("und_" + script, language + "_" + script + "_" + region, toMaximized, "S->LR",
-                Override.REPLACE_EXISTING);
+                Override.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String script : maxData.scriptsToLanguages.keySet()) {
             String language = maxData.scriptsToLanguages.get(script).getKeysetSortedByCount(true).iterator().next();
-            add("und_" + script, language + "_" + script, toMaximized, "S->L", Override.REPLACE_EXISTING);
+            add("und_" + script, language + "_" + script, toMaximized, "S->L", Override.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String script : maxData.scriptsToRegions.keySet()) {
             String region = maxData.scriptsToRegions.get(script).getKeysetSortedByCount(true).iterator().next();
-            add("und_" + script, "und_" + script + "_" + region, toMaximized, "S->R", Override.REPLACE_EXISTING);
+            add("und_" + script, "und_" + script + "_" + region, toMaximized, "S->R", Override.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (String region : maxData.regions.keySet()) {
@@ -820,15 +862,15 @@ public class GenerateMaximalLocales {
             final Comparable language = value.get1();
             final Comparable script = value.get2();
             add("und_" + region, language + "_" + script + "_" + region, toMaximized, "R->LS",
-                Override.REPLACE_EXISTING);
+                Override.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String region : maxData.regionsToLanguages.keySet()) {
             String language = maxData.regionsToLanguages.get(region).getKeysetSortedByCount(true).iterator().next();
-            add("und_" + region, language + "_" + region, toMaximized, "R->L", Override.REPLACE_EXISTING);
+            add("und_" + region, language + "_" + region, toMaximized, "R->L", Override.REPLACE_EXISTING, SHOW_ADD);
         }
         for (String region : maxData.regionsToScripts.keySet()) {
             String script = maxData.regionsToScripts.get(region).getKeysetSortedByCount(true).iterator().next();
-            add("und_" + region, "und_" + script + "_" + region, toMaximized, "R->S", Override.REPLACE_EXISTING);
+            add("und_" + region, "und_" + script + "_" + region, toMaximized, "R->S", Override.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (R2<String, String> languageScript : maxData.languageScripts.keySet()) {
@@ -837,7 +879,7 @@ public class GenerateMaximalLocales {
             final Comparable script = languageScript.get1();
             final Comparable region = value.get1();
             add(language + "_" + script, language + "_" + script + "_" + region, toMaximized, "LS->R",
-                Override.REPLACE_EXISTING);
+                Override.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (R2<String, String> scriptRegion : maxData.scriptRegions.keySet()) {
@@ -846,7 +888,7 @@ public class GenerateMaximalLocales {
             final Comparable region = scriptRegion.get1();
             final Comparable language = value.get1();
             add("und_" + script + "_" + region, language + "_" + script + "_" + region, toMaximized, "SR->L",
-                Override.REPLACE_EXISTING);
+                Override.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (R2<String, String> languageRegion : maxData.languageRegions.keySet()) {
@@ -855,7 +897,7 @@ public class GenerateMaximalLocales {
             final Comparable region = languageRegion.get1();
             final Comparable script = value.get1();
             add(language + "_" + region, language + "_" + script + "_" + region, toMaximized, "LR->S",
-                Override.REPLACE_EXISTING);
+                Override.REPLACE_EXISTING, SHOW_ADD);
         }
 
         // get the script info from metadata as fallback
@@ -866,12 +908,12 @@ public class GenerateMaximalLocales {
             String likelyLanguage = i.likelyLanguage;
             String originCountry = i.originCountry;
             add("und_" + script, likelyLanguage + "_" + script + "_" + originCountry, toMaximized, "S->LR",
-                Override.KEEP_EXISTING);
+                Override.KEEP_EXISTING, SHOW_ADD);
         }
 
         // add overrides
         for (String key : LANGUAGE_OVERRIDES.keySet()) {
-            add(key, LANGUAGE_OVERRIDES.get(key), toMaximized, "OVERRIDE", Override.REPLACE_EXISTING);
+            add(key, LANGUAGE_OVERRIDES.get(key), toMaximized, "OVERRIDE", Override.REPLACE_EXISTING, true);
         }
     }
 
@@ -1020,20 +1062,23 @@ public class GenerateMaximalLocales {
         KEEP_EXISTING, REPLACE_EXISTING
     }
 
-    private static void add(String key, String value, Map<String, String> toAdd, String kind, Override override) {
+    private static void add(String key, String value, Map<String, String> toAdd, String kind, Override override, boolean showAction) {
         if (key.equals(DEBUG_ADD_KEY)) {
             System.out.println("*debug*");
         }
         String oldValue = toAdd.get(key);
         if (oldValue == null) {
-            if (SHOW_ADD) {
-                System.out.println("Adding:\t" + key + "\t=>\t" + value + "\t\t" + kind);
+            if (showAction) {
+                System.out.println("Adding:\t" + key + "\t=>\t" + value + "\t\t\t\t" + kind);
             }
         } else if (override == Override.KEEP_EXISTING || value.equals(oldValue)) {
+//            if (showAction) {
+//                System.out.println("Skipping:\t" + key + "\t=>\t" + value + "\t\t\t\t" + kind);
+//            }
             return;
         } else {
-            if (SHOW_ADD) {
-                System.out.println("Replacing:\t" + key + "\t=>\t" + oldValue);
+            if (showAction) {
+                System.out.println("Replacing:\t" + key + "\t=>\t" + value + "\t, was\t" + oldValue  + "\t\t" + kind);
             }
         }
         toAdd.put(key, value);
@@ -1228,6 +1273,10 @@ public class GenerateMaximalLocales {
      */
 
     private static void printLikelySubtags(Map<String, String> fluffup) throws IOException {
+        Map<String, String> oldLikely = SupplementalDataInfo.getInstance().getLikelySubtags();
+        Set<String> changes = compareMapsAndFixNew(oldLikely, fluffup);
+        System.out.println(CollectionUtilities.join(changes, "\n"));
+
         PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
             "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
         String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
@@ -1739,10 +1788,19 @@ public class GenerateMaximalLocales {
             System.out.println(CollectionUtilities.join(errors, "\n"));
             errors.clear();
         }
+        Set<String> changes = compareMapsAndFixNew(oldDefaultContent, newDefaultContent);
+        System.out.println(CollectionUtilities.join(changes, "\n"));
+        newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent, errors);
+        if (!errors.isEmpty()) {
+            System.out.println("***New Errors: " + CollectionUtilities.join(errors, "\n"));
+        }
+    }
+
+    private static Set<String> compareMapsAndFixNew(Map<String, String> oldContent, Map<String, String> newContent) {
         Set<String> changes = new TreeSet<String>();
-        for (String parent : Builder.with(new TreeSet<String>()).addAll(newDefaultContent.keySet()).addAll(oldDefaultContent.keySet()).get()) {
-            String oldValue = oldDefaultContent.get(parent);
-            String newValue = newDefaultContent.get(parent);
+        for (String parent : Builder.with(new TreeSet<String>()).addAll(newContent.keySet()).addAll(oldContent.keySet()).get()) {
+            String oldValue = oldContent.get(parent);
+            String newValue = newContent.get(parent);
             if (CldrUtility.equals(oldValue, newValue)) {
                 continue;
             }
@@ -1751,18 +1809,14 @@ public class GenerateMaximalLocales {
                 message = "Adding " + ConvertLanguageData.getLanguageCodeAndName(parent) + " => " + ConvertLanguageData.getLanguageCodeAndName(newValue);
             } else if (newValue == null) {
                 message = "Suppressing removal of " + ConvertLanguageData.getLanguageCodeAndName(parent) + " => " + ConvertLanguageData.getLanguageCodeAndName(oldValue);
-                defaultLocaleContent.add(oldValue);
+                newContent.put(parent, oldValue);
             } else {
                 message = "Suppressing change of " + ConvertLanguageData.getLanguageCodeAndName(parent) + " => " + ConvertLanguageData.getLanguageCodeAndName(oldValue) + " to " + ConvertLanguageData.getLanguageCodeAndName(newValue);
-                defaultLocaleContent.remove(newValue);
-                defaultLocaleContent.add(oldValue);
+                newContent.remove(newValue);
+                newContent.put(parent, oldValue);
             }
             changes.add("*WARNING*   Default Content Change: " + message);
         }
-        System.out.println(CollectionUtilities.join(changes, "\n"));
-        newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent, errors);
-        if (!errors.isEmpty()) {
-            System.out.println("***New Errors: " + CollectionUtilities.join(changes, "\n"));
-        }
+        return changes;
     }
 }

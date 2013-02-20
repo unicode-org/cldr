@@ -119,7 +119,7 @@ public class SupplementalDataInfo {
     /**
      * Population data for different languages.
      */
-    public static final class PopulationData implements Freezable<Object> {
+    public static final class PopulationData implements Freezable<PopulationData> {
         private double population = Double.NaN;
 
         private double literatePopulation = Double.NaN;
@@ -205,12 +205,12 @@ public class SupplementalDataInfo {
             return frozen;
         }
 
-        public Object freeze() {
+        public PopulationData freeze() {
             frozen = true;
             return this;
         }
 
-        public Object cloneAsThawed() {
+        public PopulationData cloneAsThawed() {
             throw new UnsupportedOperationException("not yet implemented");
         }
 
@@ -229,8 +229,7 @@ public class SupplementalDataInfo {
     /**
      * Simple language/script/region information
      */
-    public static class BasicLanguageData implements
-        Comparable<BasicLanguageData>, Freezable<Object> {
+    public static class BasicLanguageData implements Comparable<BasicLanguageData>, Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         };
@@ -372,7 +371,7 @@ public class SupplementalDataInfo {
             return frozen;
         }
 
-        public Object freeze() {
+        public BasicLanguageData freeze() {
             frozen = true;
             if (scripts != Collections.EMPTY_SET) {
                 scripts = Collections.unmodifiableSet(scripts);
@@ -383,7 +382,7 @@ public class SupplementalDataInfo {
             return this;
         }
 
-        public Object cloneAsThawed() {
+        public BasicLanguageData cloneAsThawed() {
             throw new UnsupportedOperationException();
         }
 
@@ -1900,8 +1899,8 @@ public class SupplementalDataInfo {
         return defaultContentLocales;
     }
     
-    public static Map<String,String> makeLocaleToDefaultContents(Set<String> defaultContents, Set<String> errors) {
-        Map<String,String> result = new LinkedHashMap<String,String>();
+    public static Map<String,String> makeLocaleToDefaultContents(Set<String> defaultContents, 
+        Map<String, String> result, Set<String> errors) {
         for (String s : defaultContents) {
             String simpleParent = LanguageTagParser.getSimpleParent(s);
             String oldValue = result.get(simpleParent);

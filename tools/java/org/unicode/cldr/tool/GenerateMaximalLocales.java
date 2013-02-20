@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.BitSet;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -103,7 +105,7 @@ public class GenerateMaximalLocales {
 
         minimize(toMaximized);
         Map<String, String> oldLikely = SupplementalDataInfo.getInstance().getLikelySubtags();
-        Set<String> changes = compareMapsAndFixNew(oldLikely, toMaximized, "ms_Arab", "ms_Arab_MY");
+        Set<String> changes = compareMapsAndFixNew("*WARNING* Likely Subtags: ", oldLikely, toMaximized, "ms_Arab", "ms_Arab_ID");
         System.out.println(CollectionUtilities.join(changes, "\n"));
 
         if (OUTPUT_STYLE == OutputStyle.C_ALT) {
@@ -1298,7 +1300,9 @@ public class GenerateMaximalLocales {
             + "</supplementalData>";
         out.println(header);
         boolean first = true;
-        for (String printingLocale : fluffup.keySet()) {
+        Set<String> keys = new TreeSet<String>(new LocaleStringComparator());
+        keys.addAll(fluffup.keySet());
+        for (String printingLocale : keys) {
             String printingTarget = fluffup.get(printingLocale);
             String comment = printingName(printingLocale, spacing) + spacing + "=>" + spacing
                 + printingName(printingTarget, spacing);
@@ -1781,29 +1785,29 @@ public class GenerateMaximalLocales {
     }
     static void showDefaultContentDifferencesAndFix(Set<String> defaultLocaleContent) {
         Set<String> errors = new LinkedHashSet<String>();
-        Map<String, String> oldDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(ConvertLanguageData.supplementalData.getDefaultContentLocales(), errors);
+        Map<String, String> oldDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(ConvertLanguageData.supplementalData.getDefaultContentLocales(), new TreeMap<String,String>(), errors);
         if (!errors.isEmpty()) {
             System.out.println(CollectionUtilities.join(errors, "\n"));
             errors.clear();
         }
-        Map<String, String> newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent, errors);
+        Map<String, String> newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent, new TreeMap<String,String>(), errors);
         if (!errors.isEmpty()) {
             System.out.println(CollectionUtilities.join(errors, "\n"));
             errors.clear();
         }
-        Set<String> changes = compareMapsAndFixNew(oldDefaultContent, newDefaultContent);
+        Set<String> changes = compareMapsAndFixNew("*WARNING* Default Content: ", oldDefaultContent, newDefaultContent, "ms_Arab", "ms_Arab_ID");
         System.out.println(CollectionUtilities.join(changes, "\n"));
         defaultLocaleContent.clear();
         defaultLocaleContent.addAll(newDefaultContent.values());
-        newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent, errors);
+        newDefaultContent = SupplementalDataInfo.makeLocaleToDefaultContents(defaultLocaleContent, new TreeMap<String,String>(), errors);
         if (!errors.isEmpty()) {
             System.out.println("***New Errors: " + CollectionUtilities.join(errors, "\n"));
         }
     }
 
-    private static Set<String> compareMapsAndFixNew(Map<String, String> oldContent, 
-        Map<String, String> newContent,
-        String... allowedOverrideValues) {
+    private static Set<String> compareMapsAndFixNew(String title, 
+        Map<String, String> oldContent,
+        Map<String, String> newContent, String... allowedOverrideValues) {
         Map<String,String> allowedOverrideValuesTest = new HashMap<String,String>();
         for (int i = 0; i < allowedOverrideValues.length; i+=2) {
             allowedOverrideValuesTest.put(allowedOverrideValues[i], allowedOverrideValues[i+1]);
@@ -1832,8 +1836,39 @@ public class GenerateMaximalLocales {
                     newContent.remove(newValue);
                     newContent.put(parent, oldValue);
             }
-            changes.add("*WARNING*   Default Content Change: " + message);
+            changes.add(title + message);
         }
         return changes;
+    }
+    
+    public static class LocaleStringComparator implements Comparator<String> {
+        LanguageTagParser ltp0 = new LanguageTagParser();
+        LanguageTagParser ltp1 = new LanguageTagParser();
+        public int compare(String arg0, String arg1) {
+            ltp0.set(arg0);
+            ltp1.set(arg1);
+            String s0 = ltp0.getLanguage();
+            String s1 = ltp1.getLanguage();
+            int result = s0.compareTo(s1);
+            if (result != 0) {
+                return s0.equals("und") ? 1
+                    : s1.equals("und") ? -1
+                        : result;
+            }
+            s0 = ltp0.getScript();
+            s1 = ltp1.getScript();
+            result = s0.compareTo(s1);
+            if (result != 0) {
+                return result;
+            }
+            s0 = ltp0.getRegion();
+            s1 = ltp1.getRegion();
+            result = s0.compareTo(s1);
+            if (result != 0) {
+                return result;
+            }
+            return arg0.compareTo(arg1); // just in case
+        }
+        
     }
 }

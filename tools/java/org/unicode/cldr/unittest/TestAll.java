@@ -21,6 +21,7 @@ public class TestAll extends TestGroup {
             new String[] {
                 "org.unicode.cldr.unittest.TestCanonicalIds",
                 "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
+                "org.unicode.cldr.unittest.TestLocalCurrency",
                 "org.unicode.cldr.unittest.TestLocale",
                 "org.unicode.cldr.unittest.TestBasic",
                 "org.unicode.cldr.unittest.TestSupplementalInfo",

@@ -1,4 +1,7 @@
 # ScriptMetadata.txt
+# Copyright © 1991-2013 Unicode, Inc.
+# CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+# For terms of use, see http://www.unicode.org/copyright.html
 #
 # This file provides general information about scripts that may be useful to implementations processing text.
 # The information is the best currently available, and may change between versions of CLDR.
@@ -17,6 +20,7 @@
 #		Below 32 the ranking is not statistically significant.
 # 2 - Sample Character:
 #		A sample character for use in "Last Resort" style fonts.
+#               For printing the combining mark for Zinh in a chart, U+25CC can be prepended.
 #		See http://unicode.org/policies/lastresortfont_eula.html
 # 3 - Origin country:
 #		The approximate area where the script originated, expressed as a BCP47 region code.

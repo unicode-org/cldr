@@ -229,7 +229,7 @@ public class SupplementalDataInfo {
     /**
      * Simple language/script/region information
      */
-    public static class BasicLanguageData implements Comparable<BasicLanguageData>, Freezable<BasicLanguageData> {
+    public static class BasicLanguageData implements Comparable<BasicLanguageData>, com.ibm.icu.util.Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         };

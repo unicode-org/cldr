@@ -441,28 +441,16 @@ public class GenerateEnums {
             }
             currencyCodes.add(code);
         }
-        String validCurrencies = supplementalMetadata.getStringValue(
-            "//supplementalData/metadata/validity/variable[@id=\"$currency\"]",
-            true).trim();
-        validCurrencyCodes = new TreeSet(Arrays.asList(validCurrencies
-            .split("\\s+")));
 
-        values = supplementalMetadata.getStringValue(
-            "//supplementalData/metadata/validity/variable[@id=\"$script\"]", true)
-            .trim();
-        String[] validScripts = values.split("\\s+");
-        for (int i = 0; i < validScripts.length; ++i) {
-            scripts.add(validScripts[i]);
+        validCurrencyCodes = new TreeSet<String>();
+        Set<String> bcp47CurrencyCodes = supplementalDataInfo.getBcp47Keys().getAll("cu");
+        for (String code : bcp47CurrencyCodes) {
+            validCurrencyCodes.add(code.toUpperCase());
         }
 
-        values = supplementalMetadata.getStringValue(
-            "//supplementalData/metadata/validity/variable[@id=\"$language\"]",
-            true).trim();
-        String[] validLanguages = values.split("\\s+");
-        for (int i = 0; i < validLanguages.length; ++i) {
-            languages.add(validLanguages[i]);
-        }
-
+        scripts = supplementalDataInfo.getCLDRScriptCodes();
+        languages = supplementalDataInfo.getCLDRLanguageCodes();
+        
         // Set availableCodes = new TreeSet(sc.getAvailableCodes("territory"));
         // availableCodes.add("003");
         // for (Iterator it = availableCodes.iterator(); it.hasNext();) {

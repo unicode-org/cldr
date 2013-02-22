@@ -1229,4 +1229,14 @@ public class StandardCodes {
         if (COUNTRY.containsAll(territory)) return true;
         return false;
     }
+    
+    public boolean isLstregPrivateUse(String type, String code) {
+        Map<String, String> lStregData = getLStreg().get(type).get(code);
+        return lStregData.get("Description").equalsIgnoreCase("private use");
+    }
+
+    public boolean isLstregDeprecated(String type, String code) {
+        Map<String, String> lStregData = getLStreg().get(type).get(code);
+        return lStregData.get("Deprecated") != null;
+    }
 }

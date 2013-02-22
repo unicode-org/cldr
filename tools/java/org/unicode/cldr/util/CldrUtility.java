@@ -1259,4 +1259,21 @@ public class CldrUtility {
             : a == null || b == null ? false
                 : a.equals(b);
     }
+    
+    public static String getDoubleLink(String code) {
+        final String anchorSafe = TransliteratorUtilities.toHTML.transliterate(code).replace(" ", "_");
+        return "<a name='" + anchorSafe + "' href='#" + anchorSafe + "'>";
+    }
+    
+    public static String getDoubleLinkedText(String anchor, String anchorText) {
+        return getDoubleLink(anchor) + TransliteratorUtilities.toHTML.transliterate(anchorText).replace("_", " ") + "</a>";
+    }
+
+    public static String getDoubleLinkedText(String anchor) {
+        return getDoubleLinkedText(anchor, anchor);
+    }
+
+    public static String getDoubleLinkMsg() {
+        return "<a name=''{0}'' href=''#{0}''>{0}</a>";
+    }
 }

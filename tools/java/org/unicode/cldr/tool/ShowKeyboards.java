@@ -272,7 +272,7 @@ public class ShowKeyboards {
                 Keyboard keyboard = Keyboard.getKeyboard(keyboardId, errors);
                 showErrors(errors);
                 Set<String> names = keyboard.getNames();
-                out.println("<h2>" + getLinkedName(keyboardId, keyboardId) + (names.size() == 0 ? "" : " " + names)
+                out.println("<h2>" + CldrUtility.getDoubleLinkedText(keyboardId, keyboardId) + (names.size() == 0 ? "" : " " + names)
                     + "</h2>");
 
                 Transforms transforms = keyboard.getTransforms().get(TransformType.SIMPLE);
@@ -454,7 +454,7 @@ public class ShowKeyboards {
 
             // System.out.println();
             final String localeName = testInfo.getEnglish().getName(key, true);
-            final String linkedLocaleName = getLinkedName(key, localeName);
+            final String linkedLocaleName = CldrUtility.getDoubleLinkedText(key, localeName);
             final ULocale uLocale = ULocale.forLanguageTag(key);
             String script = uLocale.getScript();
             String writtenLanguage = uLocale.getLanguage() + (script.isEmpty() ? "" : "_" + script);
@@ -552,10 +552,6 @@ public class ShowKeyboards {
             }
         }
         out.println(t.toTable());
-    }
-
-    public static String getLinkedName(String anchor, String anchorText) {
-        return "<a name='" + anchor + "' href='#" + anchor + "'>" + anchorText + "</a>";
     }
 
     static PrettyPrinter prettyPrinter = new PrettyPrinter()
@@ -660,7 +656,7 @@ public class ShowKeyboards {
                 }
                 final TreeMap<String, IdSet> charToKeyboard = charToKeyboards[script];
                 final String scriptName = UScript.getName(script);
-                final String linkedScriptName = getLinkedName(UScript.getShortName(script), scriptName);
+                final String linkedScriptName = CldrUtility.getDoubleLinkedText(UScript.getShortName(script), scriptName);
                 if (charToKeyboard.size() == 0) {
                     missingScripts.add(scriptName);
                     continue;

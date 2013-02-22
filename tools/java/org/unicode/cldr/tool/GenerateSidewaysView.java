@@ -205,19 +205,12 @@ public class GenerateSidewaysView {
 
             String header = path.getHeader();
             if (!header.equals(oldHeader) && !header.equals("null")) {
-                final String htmlHeader = toHTML.transliterate(header).replace(" ", "_");
-                out.println("<tr><th colSpan='2' class='pathHeader'><a " +
-                    "name=\"" + htmlHeader + "\"" +
-                    "href=\"#" + htmlHeader + "\"" +
-                    ">" + htmlHeader.replace("_", " ") + "</a></th><tr>");
+                out.println("<tr><th colSpan='2' class='pathHeader'>" + CldrUtility.getDoubleLinkedText(header) + "</th><tr>");
                 oldHeader = header;
             }
             String anchorId = Long.toHexString(StringId.getId(path.getOriginalPath()));
             out.println("<tr>" +
-                "<th class='path'><a " +
-                "name=\"" + anchorId + "\"" +
-                "href=\"#" + anchorId + "\"" +
-                ">Code: ‹" + anchor + "›</a></th>" +
+                "<th class='path'>" + CldrUtility.getDoubleLinkedText(anchorId, anchor) + "</th>" +
                 "<th class='path'>" + toHTML.transliterate(englishValue) + "</a></th>" +
                 "<tr>");
             Map<String, Set<String>> value_locales = path_value_locales.get(path);

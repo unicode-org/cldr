@@ -397,9 +397,11 @@ public class SupplementalDataInfo {
      * Information about currency digits and rounding.
      */
     public static class CurrencyNumberInfo {
-        int digits;
-        int rounding;
-        double roundingIncrement;
+        public final int digits;
+        public final int rounding;
+        public final double roundingIncrement;
+        public final int cashRounding;
+        public final double cashRoundingIncrement;
 
         public int getDigits() {
             return digits;
@@ -413,20 +415,29 @@ public class SupplementalDataInfo {
             return roundingIncrement;
         }
 
-        public CurrencyNumberInfo(int digits, int rounding) {
+        public CurrencyNumberInfo(int digits, int rounding, int cashRounding) {
             this.digits = digits;
             this.rounding = rounding;
             roundingIncrement = rounding * Math.pow(10.0, -digits);
+            this.cashRounding = cashRounding;
+            cashRoundingIncrement = cashRounding * Math.pow(10.0, -digits);
         }
     }
 
     public static class NumberingSystemInfo {
         public enum NumberingSystemType { algorithmic, numeric, unknown };
         
-        public String name;
-        public NumberingSystemType type;
-        public String digits;
-        public String rules;
+        public final String name;
+        public final NumberingSystemType type;
+        public final String digits;
+        public final String rules;
+        
+        public NumberingSystemInfo(XPathParts parts) {
+            name = parts.getAttributeValue(-1, "id");
+            digits = parts.getAttributeValue(-1, "digits");
+            rules = parts.getAttributeValue(-1,"rules");
+            type = NumberingSystemType.valueOf(parts.getAttributeValue(-1,"type"));
+        }
  
     }
 
@@ -1287,11 +1298,7 @@ public class SupplementalDataInfo {
         }
 
         private void handleNumberingSystems() {
-            NumberingSystemInfo ns = new NumberingSystemInfo();
-            ns.name = parts.getAttributeValue(-1, "id");
-            ns.digits = parts.getAttributeValue(-1, "digits");
-            ns.rules = parts.getAttributeValue(-1,"rules");
-            ns.type = NumberingSystemType.valueOf(parts.getAttributeValue(-1,"type"));
+            NumberingSystemInfo ns = new NumberingSystemInfo(parts);
             numberingSystems.put(ns.name, ns);
             if ( ns.type == NumberingSystemType.numeric ) {
                 numericSystems.add(ns.name);
@@ -1614,10 +1621,13 @@ public class SupplementalDataInfo {
 
         private boolean handleCurrencyData(String level2) {
             if (level2.equals("fractions")) {
-                // <info iso4217="ADP" digits="0" rounding="0"/>
+                // <info iso4217="ADP" digits="0" rounding="0" cashRounding="5"/>
                 currencyToCurrencyNumberInfo.put(parts.getAttributeValue(3, "iso4217"),
-                    new CurrencyNumberInfo(Integer.parseInt(parts.getAttributeValue(3, "digits")),
-                        Integer.parseInt(parts.getAttributeValue(3, "rounding"))));
+                    new CurrencyNumberInfo(
+                        parseIntegerOrNull(parts.getAttributeValue(3, "digits")),
+                        parseIntegerOrNull(parts.getAttributeValue(3, "rounding")),
+                        parseIntegerOrNull(parts.getAttributeValue(3, "cashRounding")))
+                        );
                 return true;
             }
             /*
@@ -1733,6 +1743,10 @@ public class SupplementalDataInfo {
         sb.append(")");
         return sb.toString();
 
+    }
+
+    public int parseIntegerOrNull(String attributeValue) {
+        return attributeValue == null ? 0 : Integer.parseInt(attributeValue);
     }
 
     Set<String> skippedElements = new TreeSet<String>();
@@ -2795,7 +2809,7 @@ public class SupplementalDataInfo {
         return localeToDayPeriodInfo.keySet();
     }
 
-    private static CurrencyNumberInfo DEFAULT_NUMBER_INFO = new CurrencyNumberInfo(2, 0);
+    private static CurrencyNumberInfo DEFAULT_NUMBER_INFO = new CurrencyNumberInfo(2, 0, 0);
 
     public CurrencyNumberInfo getCurrencyNumberInfo(String currency) {
         CurrencyNumberInfo result = currencyToCurrencyNumberInfo.get(currency);

@@ -341,7 +341,7 @@ public class DateTimeFormats {
      */
     public void addTable(DateTimeFormats comparison, Appendable output) {
         try {
-            output.append("<h2><a href='#Patterns' name='Patterns'>Patterns</a></h2>\n<table class='dtf-table'>");
+            output.append("<h2>" + CldrUtility.getDoubleLinkedText("Patterns") + "</h2>\n<table class='dtf-table'>");
             Diff diff = new Diff();
             boolean is24h = generator.getDefaultHourFormatChar() == 'H';
             showRow(output, RowStyle.header, FIELDS_TITLE, "Skeleton", "English Example", "Native Example", false);
@@ -458,9 +458,9 @@ public class DateTimeFormats {
         switch (rowStyle) {
         case separator:
             String link = name.replace(' ', '_');
-            output.append("<th colSpan='3' class='dtf-sep'><a href='#").append(link).append("' name='").append(link)
-                .append("'>")
-                .append(name).append("</a></th>");
+            output.append("<th colSpan='3' class='dtf-sep'>")
+            .append(CldrUtility.getDoubleLinkedText(link, name))
+            .append("</th>");
             break;
         case header:
         case normal:
@@ -469,10 +469,7 @@ public class DateTimeFormats {
             if (name.equals(FIELDS_TITLE)) {
                 output.append("<th class='dtf-th'>").append(name).append("</a></th>");
             } else {
-                output.append("<th class='dtf-left'><a " +
-                    "href='#" + skeleton + "' " +
-                    "name='" + skeleton + "' " +
-                    ">").append(name).append("</a></th>");
+                output.append("<th class='dtf-left'>" + CldrUtility.getDoubleLinkedText(skeleton, name) + "</th>");
             }
             // .append(startCell).append(skeleton).append(endCell)
             output.append(startCell).append(english).append(endCell)
@@ -539,15 +536,15 @@ public class DateTimeFormats {
         // ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="stand-alone"]/quarterWidth[@type="wide"]/quarter[@type="1"]
         // ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="stand-alone"]/dayWidth[@type="abbreviated"]/day[@type="sun"]
         try {
-            output.append("<h2><a href='#Weekdays' name='Weekdays'>Weekdays</a></h2>\n");
+            output.append("<h2>" + CldrUtility.getDoubleLinkedText("Weekdays") + "</h2>\n");
             addDateSubtable(
                 "//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/days/dayContext[@type=\"FORMAT\"]/dayWidth[@type=\"WIDTH\"]/day[@type=\"TYPE\"]",
                 english, output, "sun", "mon", "tue", "wed", "thu", "fri", "sat");
-            output.append("<h2><a href='#Months' name='Months'>Months</a></h2>\n");
+            output.append("<h2>" + CldrUtility.getDoubleLinkedText("Months") + "</h2>\n");
             addDateSubtable(
                 "//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/months/monthContext[@type=\"FORMAT\"]/monthWidth[@type=\"WIDTH\"]/month[@type=\"TYPE\"]",
                 english, output, "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
-            output.append("<h2><a href='#Quarters' name='Quarters'>Quarters</a></h2>\n");
+            output.append("<h2>" + CldrUtility.getDoubleLinkedText("Quarters") + "</h2>\n");
             addDateSubtable(
                 "//ldml/dates/calendars/calendar[@type=\"CALENDAR\"]/quarters/quarterContext[@type=\"FORMAT\"]/quarterWidth[@type=\"WIDTH\"]/quarter[@type=\"TYPE\"]",
                 english, output, "1", "2", "3", "4");

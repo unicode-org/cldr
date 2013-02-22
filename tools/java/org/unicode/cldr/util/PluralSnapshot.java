@@ -301,11 +301,13 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                     fullLocales.put(name, localeId);
                 }
                 out.print("<tr><td rowSpan='2'>" + ss.count +
-                    "</td><td class='l' colSpan='121' title=>");
+                    "</td><td class='l' colSpan='121'>");
                 int count = 0;
                 for (Entry<String, String> entry : fullLocales.entrySet()) {
-                    out.print("<span title='" + entry.getValue() + "'>"
-                        + (count == 0 ? "" : ", ") + entry.getKey()
+                    String code = entry.getValue();
+                    out.print("<span title='" + code + "'>"
+                        + (count == 0 ? "" : ", ") 
+                        + CldrUtility.getDoubleLinkedText(code + "-comp", entry.getKey())
                         + "</span>");
                     count++;
                 }

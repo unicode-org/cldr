@@ -19,8 +19,6 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class LikelySubtagsTest extends TestFmwk {
 
-    private static final boolean ENABLE_REGION_TEST = false;
-
     public static void main(String[] args) {
         new LikelySubtagsTest().run(args);
     }
@@ -77,7 +75,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestMissingInfoForRegion() {
-        if (!ENABLE_REGION_TEST) {
+        if (TestInfo.isCldrVersionBefore(23,0,0,1)) {
             return;
         }
         Map<String, String> likely = TestInfo.getInstance().getSupplementalDataInfo().getLikelySubtags();

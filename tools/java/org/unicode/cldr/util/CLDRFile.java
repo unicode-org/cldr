@@ -61,6 +61,7 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 
 /**
  * This is a class that represents the contents of a CLDR file, as <key,value> pairs,
@@ -115,7 +116,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     private boolean locked;
     XMLSource dataSource; // TODO(jchye): make private
-    private String dtdVersion;
 
     private File supplementalDirectory;
 
@@ -1444,9 +1444,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     // if (!isSupplemental) ldmlComparator.addAttribute(attribute); // must do BEFORE put
                     // ldmlComparator.addValue(value);
                     // special fix to remove version
+                    // <!ATTLIST version number CDATA #REQUIRED >
+                    // <!ATTLIST version cldrVersion CDATA #FIXED "23" >
                     if (attribute.equals("cldrVersion")
                         && (qName.equals("version"))) {
-                        target.dtdVersion = value;
+                        ((SimpleXMLSource)target.dataSource).setDtdVersionInfo(VersionInfo.getInstance(value));
                     } else {
                         putAndFixDeprecatedAttribute(qName, attribute, value);
                     }
@@ -2700,7 +2702,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     public String getDtdVersion() {
-        return dtdVersion;
+        return dataSource.getDtdVersionInfo().toString();
+    }
+    
+    public VersionInfo getDtdVersionInfo() {
+        return dataSource.getDtdVersionInfo();
     }
 
     public String getStringValue(String path, boolean ignoreOtherLeafAttributes) {

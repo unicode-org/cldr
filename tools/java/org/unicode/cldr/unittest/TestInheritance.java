@@ -14,8 +14,11 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.GenerateMaximalLocales;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -27,6 +30,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -394,6 +398,37 @@ public class TestInheritance extends TestFmwk {
             }
         }
 
+    }
+
+    public void TestBasicLanguageDataAgainstScriptMetadata() {
+        // the invariants are:
+        // if there is primary data, the script must be there
+        // otherwise it must be in the secondary
+        if (TestInfo.isCldrVersionBefore(23,0,0,1)) {
+            return;
+        }
+        main:
+            for (String script : ScriptMetadata.getScripts()) {
+                Info info = ScriptMetadata.getInfo(script);
+                String language = info.likelyLanguage;
+                if (language.equals("und")) {
+                    continue;
+                }
+                Map<Type, BasicLanguageData> data = dataInfo.getBasicLanguageDataMap(language);
+                if (data == null) {
+                    warnln("ScriptMetadata has " + language + " for " + script + "," +
+                    		" but " + language + " is missing in language_script.txt");
+                    continue;
+                }
+                for (BasicLanguageData entry : data.values()) {
+                    if (entry.getScripts().contains(script)) {
+                        continue main;
+                    }
+                    continue;
+                }
+                warnln("ScriptMetadata has " + language + " for " + script + "," +
+                		" but " + language + " doesn't have "  + script +  " in language_script.txt");
+            }
     }
 
     public void TestCldrFileConsistency() {

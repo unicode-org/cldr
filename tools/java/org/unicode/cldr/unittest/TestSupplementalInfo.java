@@ -45,8 +45,6 @@ import com.ibm.icu.impl.Utility;
 public class TestSupplementalInfo extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
 
-    private static final boolean SKIP_SOME_SCRIPT_TESTS = true;
-
     public static void main(String[] args) {
         new TestSupplementalInfo().run(args);
     }
@@ -321,9 +319,10 @@ public class TestSupplementalInfo extends TestFmwk {
             String script = ltp.getScript();
             baseToLanguages.put(base, language);
 
-            if (SKIP_SOME_SCRIPT_TESTS) {
+            if (TestInfo.isCldrVersionBefore(23,0,0,1)) {
                 continue;
             }
+
             // add basic data, basically just for wo!
             // if there are primary scripts, they must include script (if not empty)
             Set<String> primaryScripts = Collections.emptySet();
@@ -356,11 +355,10 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (languagesForBase.size() > 1) {
                     errln("Cannot have base alone with other scripts:\t" + languagesForBase);
                 }
-            } else if (!SKIP_SOME_SCRIPT_TESTS) {
+            } else if (!TestInfo.isCldrVersionBefore(23,0,0,1)) {
                 if (languagesForBase.size() == 1) {
                     errln("Cannot have only one script for language:\t" + languagesForBase);
                 }
-
             }
         }
     }

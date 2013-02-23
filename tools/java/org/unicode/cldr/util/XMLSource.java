@@ -29,6 +29,7 @@ import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.VersionInfo;
 
 /**
  * Overall process is described in
@@ -49,6 +50,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
     private LinkedHashMap<String, List<String>> reverseAliases;
     protected boolean locked;
     transient String[] fixedPath = new String[1];
+    
     // Listeners are stored using weak references so that they can be garbage collected.
     private List<WeakReference<Listener>> listeners = new ArrayList<WeakReference<Listener>>();
 
@@ -673,6 +675,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             return sources.get(getLocaleID());
         }
 
+        
         /*
          * If there is an alias, then inheritance gets tricky.
          * If there is a path //ldml/xyz/.../uvw/alias[@path=...][@source=...]
@@ -1368,6 +1371,11 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             }
             return false;
         }
+
+        @Override
+        public VersionInfo getDtdVersionInfo() {
+            return currentSource.getDtdVersionInfo();
+        }
     }
 
     /**
@@ -1448,4 +1456,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
      */
     public abstract void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result);
 
+    public VersionInfo getDtdVersionInfo() {
+        return null;
+    }
 }

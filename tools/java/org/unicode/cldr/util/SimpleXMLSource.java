@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.util.VersionInfo;
 
 public class SimpleXMLSource extends XMLSource {
     private Map<String, String> xpath_value = CldrUtility.newConcurrentHashMap();
@@ -17,6 +18,7 @@ public class SimpleXMLSource extends XMLSource {
     private Comments xpath_comments = new Comments(); // map from paths to comments.
     private Relation<String, String> VALUE_TO_PATH = null;
     private Object VALUE_TO_PATH_MUTEX = new Object();
+    private VersionInfo dtdVersionInfo;
 
     public SimpleXMLSource(String localeID) {
         this.setLocaleID(localeID);
@@ -138,5 +140,13 @@ public class SimpleXMLSource extends XMLSource {
                 }
             }
         }
+    }
+    
+    public void setDtdVersionInfo(VersionInfo dtdVersionInfo) {
+        this.dtdVersionInfo = dtdVersionInfo;
+    }
+    
+    public VersionInfo getDtdVersionInfo() {
+        return dtdVersionInfo;
     }
 }

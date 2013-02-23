@@ -50,6 +50,7 @@ import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.util.VersionInfo;
 
 /**
  * @author srl
@@ -1077,6 +1078,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         // return null;
         // }
 
+        @Override
+        public VersionInfo getDtdVersionInfo() {
+            return delegate.getDtdVersionInfo();
+        }
     }
 
     // Database stuff here.

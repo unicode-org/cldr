@@ -303,7 +303,6 @@ public class CLDRModify {
                  * }
                  */
                 Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
-                System.out.format(locales.size() + " Locales:\t%s\n", locales.toString());
                 if (mergeFactory != null) {
                     Set<String> temp = new TreeSet<String>(mergeFactory.getAvailable());
                     Set<String> locales3 = new TreeSet<String>();
@@ -323,6 +322,7 @@ public class CLDRModify {
 
                 long lastTime = System.currentTimeMillis();
                 int spin = 0;
+                System.out.format(locales.size() + " Locales:\t%s\n", locales.toString());
                 for (String test : locales) {
                     spin++;
                     if (SHOW_PROCESSING) {

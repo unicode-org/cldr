@@ -1985,6 +1985,9 @@ public class CLDRModify {
                     @Override
                     public void handleStart() {
                         super.handleStart();
+                        if (!options[FIX].doesOccur || !options[FIX].value.equals("k")) {
+                            return;
+                        }
                         if (locale2keyValues == null) {
                             locale2keyValues = new HashMap<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>>();
                             String configFileName = options[KONFIG].value;

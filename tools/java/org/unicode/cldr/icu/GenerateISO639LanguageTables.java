@@ -34,11 +34,19 @@ public class GenerateISO639LanguageTables {
             languagesOnThisLine++;
         }
     }
-    
+    private static void generateStructLocaleTxt() {
+        System.out.println("    Languages{");
+        for (String language : Iso639Data.getAvailable()) {
+            System.out.println("        "+language+"{\"\"}");
+        }
+        System.out.println("    }");        
+    }    
     public static void main(String[] args) {
         generateLanguageTable(2);
         System.out.println();
         generateLanguageTable(3);
+        System.out.println();
+        generateStructLocaleTxt();
     }
 
 }

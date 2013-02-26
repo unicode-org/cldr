@@ -282,8 +282,7 @@ public class SupplementalMapper extends LdmlMapper {
         try {
             millis = getMilliSeconds(dateStr, type);
         } catch (ParseException ex) {
-            System.err.println("Could not parse date: " + dateStr);
-            return null;
+            throw new IllegalArgumentException("Could not parse date: " + dateStr, ex);
         }
 
         int top = (int) ((millis & 0xFFFFFFFF00000000L) >>> 32); // top

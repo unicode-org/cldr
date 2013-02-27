@@ -487,10 +487,10 @@ $Date$
 
 
 <!-- START_DEPRECATED -->
-<!ELEMENT monthNames ( alias | (month*, special*)) >
+<!ELEMENT monthNames ( alias | (month*, special*)) > <!-- deprecated -->
 <!ATTLIST monthNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
-<!ELEMENT monthAbbr ( alias | (month*, special*)) >
+<!ELEMENT monthAbbr ( alias | (month*, special*)) > <!-- deprecated -->
 <!ATTLIST monthAbbr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!-- END_DEPRECATED-->
 
@@ -553,40 +553,40 @@ $Date$
 
 <!-- START_DEPRECATED-->
 
-<!ELEMENT dayAbbr ( alias | (day*, special*)) >
+<!ELEMENT dayAbbr ( alias | (day*, special*)) > <!-- deprecated -->
 <!ATTLIST dayAbbr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
-<!ELEMENT dayNames ( alias | (day*, special*)) >
+<!ELEMENT dayNames ( alias | (day*, special*)) > <!-- deprecated -->
 <!ATTLIST dayNames draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 
-<!ELEMENT week (alias | (minDays*, firstDay*, weekendStart*, weekendEnd*, special*)) >
+<!ELEMENT week (alias | (minDays*, firstDay*, weekendStart*, weekendEnd*, special*)) > <!-- deprecated, use supplemental weekData -->
 <!ATTLIST week draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST week standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST week references CDATA #IMPLIED >
 <!ATTLIST week alt NMTOKENS #IMPLIED >
 <!ATTLIST week validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT minDays (special*) >
+<!ELEMENT minDays (special*) > <!-- deprecated in ldml, use supplemental -->
 <!ATTLIST minDays count ( 1 | 2 | 3 | 4 | 5 | 6 | 7 ) #REQUIRED >
 <!ATTLIST minDays draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST minDays references CDATA #IMPLIED >
 <!ATTLIST minDays alt NMTOKENS #IMPLIED >
 
-<!ELEMENT firstDay (special*) >
+<!ELEMENT firstDay (special*) > <!-- deprecated in ldml, use supplemental -->
 <!ATTLIST firstDay day NMTOKEN #REQUIRED >
 <!ATTLIST firstDay draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST firstDay references CDATA #IMPLIED >
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
 
-<!ELEMENT weekendStart (special*) >
+<!ELEMENT weekendStart (special*) > <!-- deprecated in ldml, use supplemental -->
 <!ATTLIST weekendStart day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
 <!ATTLIST weekendStart time CDATA "00:00" > <!-- the "time" attribute is deprecated everywhere. -->
 <!ATTLIST weekendStart draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST weekendStart references CDATA #IMPLIED >
 <!ATTLIST weekendStart alt NMTOKENS #IMPLIED >
 
-<!ELEMENT weekendEnd (special*) >
+<!ELEMENT weekendEnd (special*) > <!-- deprecated in ldml, use supplemental -->
 <!ATTLIST weekendEnd day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
 <!ATTLIST weekendEnd time CDATA "24:00" > <!-- the "time" attribute is deprecated everywhere. -->
 <!ATTLIST weekendEnd draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -861,7 +861,7 @@ $Date$
 <!ATTLIST preferenceOrdering draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST preferenceOrdering references CDATA #IMPLIED >
 
-<!ELEMENT singleCountries EMPTY >
+<!ELEMENT singleCountries EMPTY > <!-- deprecated -->
 <!ATTLIST singleCountries list CDATA #REQUIRED >
 <!ATTLIST singleCountries alt NMTOKENS #IMPLIED >
 <!ATTLIST singleCountries draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -1362,12 +1362,12 @@ $Date$
 <!ATTLIST nostr alt NMTOKENS #IMPLIED >
 
 <!-- START_DEPRECATED -->
-<!ELEMENT yesexpr ( #PCDATA ) >
+<!ELEMENT yesexpr ( #PCDATA ) > <!-- deprecated. -->
 <!ATTLIST yesexpr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST yesexpr references CDATA #IMPLIED >
 <!ATTLIST yesexpr alt NMTOKENS #IMPLIED >
 
-<!ELEMENT noexpr ( #PCDATA ) >
+<!ELEMENT noexpr ( #PCDATA ) > <!-- deprecated. -->
 <!ATTLIST noexpr draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST noexpr references CDATA #IMPLIED >
 <!ATTLIST noexpr alt NMTOKENS #IMPLIED >

@@ -1334,10 +1334,11 @@ For terms of use, see http://www.unicode.org/copyright.html
         <deprecated>
             <!-- items deprecated in ldml.dtd, ldmlSupplemental.dtd -->
             <deprecatedItems attributes="draft" values="true false"/>
-            <deprecatedItems elements="monthNames monthAbbr dayNames dayAbbr localizedPatternChars week minDays firstDay weekendStart weekendEnd yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
+            <deprecatedItems elements="monthNames monthAbbr dayNames dayAbbr localizedPatternChars week yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
+            <deprecatedItems type="ldml" elements="minDays firstDay weekendStart weekendEnd"/>
             <deprecatedItems attributes="standard time"/> <!-- 'count' was probably in a different dtd -->
             <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND POLYTONI"/>
-            <deprecatedItems elements="abbreviationFallback default hoursFormat localizedPatternChars mapping measurementSystem preferenceOrdering" attributes="type"/>
+            <deprecatedItems elements="abbreviationFallback default hoursFormat localizedPatternChars mapping preferenceOrdering" attributes="type"/>
             <deprecatedItems elements="inList" attributes="casing"/>
             <deprecatedItems elements="symbol" attributes="choice"/>
             <deprecatedItems type="supplementalData" elements="alternate"/>

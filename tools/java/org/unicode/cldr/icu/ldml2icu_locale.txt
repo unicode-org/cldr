@@ -132,7 +132,8 @@
 //ldml/numbers/currencies/currency[@type="(%W)"]/symbol ; /Currencies/$1 ; fallback=$1
 //ldml/numbers/currencies/currency[@type="(%W)"]/displayName ; /Currencies/$1 ; fallback=$1
 //ldml/numbers/currencies/currency[@type="(%W)"]/pattern[@type="standard"]; /Currencies/$1/ ; fallback=//ldml/numbers/currencyFormats[@numberSystem="%D"]/currencyFormatLength/currencyFormat[@type="standard"]/pattern[@type="standard"]
-//ldml/numbers/currencies/currency[@type="(%W)"]/(decimal|group) ; /Currencies/$1/
+//ldml/numbers/currencies/currency[@type="(%W)"]/decimal ; /Currencies/$1/ ; fallback=//ldml/numbers/symbols[@numberSystem="%D"]/decimal
+//ldml/numbers/currencies/currency[@type="(%W)"]/group ; /Currencies/$1/ ; fallback=//ldml/numbers/symbols[@numberSystem="%D"]/group
 
 
 //ldml/numbers/currencyFormats[@numberSystem="%D"]/currencySpacing/(%W)/(%W)   ; /currencySpacing/$1/$2

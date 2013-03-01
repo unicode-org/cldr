@@ -23,6 +23,7 @@ import org.unicode.cldr.util.CldrUtility.Output;
 import com.ibm.icu.util.GregorianCalendar;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
 
@@ -382,12 +383,13 @@ public class SupplementalMapper extends LdmlMapper {
      * Iterating through this XMLSource will return the xpaths in the order
      * that they were parsed from the XML file.
      */
-    private class LinkedXMLSource extends XMLSource {
+    private class LinkedXMLSource extends SimpleXMLSource {
         private Map<String, String> xpath_value;
         private Map<String, String> xpath_fullXPath;
         private Comments comments;
 
         public LinkedXMLSource() {
+            super("");
             xpath_value = new LinkedHashMap<String, String>();
             xpath_fullXPath = new HashMap<String, String>();
             comments = new Comments();

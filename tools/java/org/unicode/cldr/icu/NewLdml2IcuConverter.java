@@ -293,7 +293,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         long totalTime = System.currentTimeMillis();
         NewLdml2IcuConverter converter = new NewLdml2IcuConverter();
         converter.processArgs(args);
-        System.out.println("Total time taken: " + (System.currentTimeMillis() - totalTime));
+        System.out.println("Total time taken: " + (System.currentTimeMillis() - totalTime)+"ms");
     }
 
 }

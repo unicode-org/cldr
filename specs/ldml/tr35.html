@@ -47,7 +47,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Editors</td>
-			<td>Mark Davis (<a href="mailto:markdavis@google.com">markdavis@google.com</a>) 
+			<td><a href="https://plus.google.com/114199149796022210033?rel=author">Mark Davis</a> (<a href="mailto:markdavis@google.com">markdavis@google.com</a>) 
 			and other CLDR committee members</td>
 		</tr>
 		<tr>
@@ -117,7 +117,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	a list of current Unicode Technical Reports see [<a href="#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="#Versions">Versions</a>]. 
 	</i></p>
 
-<h2 class="changed"><a name="Parts">Parts</a></h2>
+<h2 class="changed"><a name="Parts" href="#Parts">Parts</a></h2>
   <p class="changed">The LDML specification is split into several parts by topic,
   with one HTML document per part.
   This is intended to make it easier to read about each topic’s relevant parts of the specification.</p>
@@ -130,7 +130,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <li>Part 6: <a href="tr35-info.html">Information</a> (supplemental data)</li>
   </ul>
 
-<h2><a name="Contents"><span class="changed">Core:</span> Contents</a></h2>
+<h2><a name="Contents" href="#Contents"><span class="changed">Core:</span> Contents</a></h2>
 	<ul class="toc">
 		<li>1 <a href="#Introduction">Introduction</a><ul class="toc">
 		<li>1.1 <a href="#Conformance">Conformance</a></li>
@@ -260,7 +260,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		<li><a href="#Acknowledgments">Acknowledgments</a></li>
 		<li><a href="#Modifications">Modifications</a></li>
 	</ul>
-<h2>1 <a name="Introduction">Introduction</a></h2>
+<h2><a name="Introduction" href="#Introduction">1 Introduction</a></h2>
 	<p>Not long ago, computer systems were like separate worlds, isolated from one another. The internet and related events have changed all that. A single system 
 	can be built of many different components, hardware and software, all needing to work together. Many different technologies have been important in bridging 
 	the gaps; in the internationalization arena, Unicode has provided a lingua franca for communicating textual data. 
@@ -289,7 +289,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	the locale data used on different systems and validating the data, to produce with a useful, common, consistent base of locale data.</p>
 	<p>For more information, see the Common Locale Data Repository project page [<a href="#localeProject">LocaleProject</a>].</p>
 	<p>As LDML is an interchange format, it was designed for ease of maintenance and simplicity of transformation into other formats, above efficiency of run-time lookup and use. Implementations should consider converting LDML data into a more compact format prior to use.</p>
-	<h3>1.1 <a name="Conformance">Conformance</a></h3>
+	<h3><a name="Conformance" href="#Conformance">1.1 Conformance</a></h3>
 	<p>There are many ways to use the Unicode LDML format and the data in CLDR, 
 	and the Unicode Consortium does not restrict the ways in which the format or data are used. 
 	However, an implementation may also claim conformance to LDML or to CLDR, as follows:</p>
@@ -333,7 +333,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
       subtag values as given in Unicode Technical Standard #35: Unicode Locale Data Markup Language (LDML), 
       excluding grouping codes.</i></p>
     </blockquote>
-	<h2>2 <a name="Locale">What is a Locale?</a></h2>
+	<h2><a name="Locale" href="#Locale">2 What is a Locale?</a></h2>
 	<p>Before diving into the XML structure, it is helpful to describe the model behind the structure. People do not have to subscribe to this model to use data 
 	in LDML, but they do need to understand it so that the data can be correctly translated into whatever model their implementation uses.</p>
 	<p>The first issue is basic: <i>what is a locale?</i> In this model, a locale is an identifier (id) that refers to a set of user preferences that tend to be 
@@ -359,13 +359,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	<p>We will speak of data as being &quot;in locale X&quot;. That does not imply that a locale <i>is</i> a collection of data; it is simply shorthand for &quot;the set of data 
 	associated with the locale id X&quot;. Each individual piece of data is called a <i>resource </i>or <i>field</i>, and a tag indicating the key of the resource is 
 	called a <i>resource tag.</i></p>
-<h2><a name="Identifiers"></a>3
-    <a name="Unicode_Language_and_Locale_Identifiers">
-    Unicode Language and Locale Identifiers</a></h2>
+<h2><a name="Unicode_Language_and_Locale_Identifiers" href="#Unicode_Language_and_Locale_Identifiers">
+    3 Unicode Language and Locale Identifiers</a><a name="Identifiers" href="#Identifiers"></a></h2>
 	<p>Unicode LDML uses stable identifiers based on [<a href="#BCP47">BCP47</a>] for distinguishing among languages, locales, regions, currencies, time 
 	zones, transforms, and so on. There are many systems for identifiers for these entities. The Unicode LDML identifiers may not match the identifiers used
 	on a particular target system. If so, some process of identifier translation may be required when using LDML data.</p>
-	<p>A <i><a name="Unicode_language_identifier">Unicode language identifier</a></i> has the 
+	<p>A <i><a name="Unicode_language_identifier" href="#Unicode_language_identifier">Unicode language identifier</a></i> has the 
     following structure (provided in either EBNF (Perl-based) or ABNF [<a href="#RFC5234">RFC5234</a>]):</p>
 	<table border="0">
 	  <tr>
@@ -398,7 +397,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	&quot;es-419&quot; (Latin American Spanish), and &quot;uz-Cyrl&quot; (Uzbek in Cyrillic) are all 
   Unicode language identifiers.</p>
 <p>&nbsp;</p>
-	<p>A <i><a name="Unicode_locale_identifier">Unicode locale identifier</a></i> is composed of a Unicode language identifier plus 
+	<p>A <i><a name="Unicode_locale_identifier" href="#Unicode_locale_identifier">Unicode locale identifier</a></i> is composed of a Unicode language identifier plus 
     (optional) locale extensions. It has the following 
     structure:    </p>
 	<table border="0">
@@ -528,7 +527,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	following table. Note that some private-use BCP 47 field values are  given 
 	specific meanings in CLDR.</p>
 	<table>
-<caption><a name="Language_Locale_Field_Definitions">Language/Locale Field Definitions</a></caption>
+<caption><a name="Language_Locale_Field_Definitions" href="#Language_Locale_Field_Definitions">Language/Locale Field Definitions</a></caption>
 		<tr>
 			<th>Field</th>
 			<th>Allowable Characters</th>
@@ -731,7 +730,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
   <p>The BCP47 form is the canonical form, and recommended. Other aliases are included for  backwards compatibility.<p>
 
 <table>
-		<caption><a name="Key_Type_Definitions">Key/Type Definitions</a></caption>
+		<caption><a name="Key_Type_Definitions" href="#Key_Type_Definitions">Key/Type Definitions</a></caption>
 		<tr>
 			<th>category</th>
 			<th>key<br>(old key name)</th>
@@ -928,7 +927,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 	<p>Additional keys or types might be added in future versions.  Implementations of LDML should be robust
 	to handle any syntactically valid key or type values.</p>
 
-	<h3>3.1 <a name="Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a></h3>
+	<h3><a name="Unknown_or_Invalid_Identifiers" href="#Unknown_or_Invalid_Identifiers">3.1 Unknown or Invalid Identifiers</a></h3>
 	<p>The following identifiers are used to indicate an unknown or invalid code in 
 	Unicode language and locale identifiers. For Unicode identifiers, the region 
 	code uses a private use ISO 3166 code, and Time Zone code uses an 
@@ -970,7 +969,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 	</table>
 	<p>When only the script or region are known, then a locale ID will use &quot;und&quot; as the language subtag portion. Thus the locale tag &quot;und_Grek&quot; represents the Greek 
 	script; &quot;und_US&quot; represents the US territory.</p>
-	<h4>3.1.1 <a name="Numeric_Codes">Numeric Codes</a></h4>
+	<h4><a name="Numeric_Codes" href="#Numeric_Codes">3.1.1 Numeric Codes</a></h4>
 	<p>For region codes, ISO and the UN establish a mapping to three-letter codes and numeric codes. However, this does not extend to the private use codes, which 
 	are the codes 900-999 (total: 100), and AAA, QMA-QZZ, XAA-XZZ, and ZZZ (total: 1092). 
 	Unicode identifiers supply a standard mapping to these: for the numeric codes, it 
@@ -1015,12 +1014,12 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 		</tr>
 	</table>
 
-	<h3>3.2 <a name="BCP_47_Conformance">BCP 47 Conformance</a></h3>
+	<h3><a name="BCP_47_Conformance" href="#BCP_47_Conformance">3.2 BCP 47 Conformance</a></h3>
 	<p>Unicode language and locale identifiers inherit the design and the repertoire
 	of subtags from [<a href="#BCP47">BCP47</a>] Language Tags.  There are some
 	extensions and restrictions made for the use of identifiers in CLDR.</p>
 
-	<h4>3.2.1 <a name="u_Extension">-u- and -t- Extensions</a></h4>
+	<h4><a name="u_Extension" href="#u_Extension">3.2.1 -u- and -t- Extensions</a></h4>
 	<p>[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for extending language tags
 	for use in various applications by extension subtags. Each extension subtag is identified by
 	a single alphanumeric character subtag assigned by IANA.  The Unicode consortium has registered the character 'u' for Unicode locale extensions, and the character 't' for Transformed Content extensions.</p>
@@ -1051,7 +1050,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 	  subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of
   BCP 47 language tag. For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].</p>
 
-<h4>3.2.2 <a name="BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a></h4>
+<h4><a name="BCP_47_Language_Tag_Conversion" href="#BCP_47_Language_Tag_Conversion">3.2.2 BCP 47 Language Tag Conversion</a></h4>
 	<p>A Unicode language/locale identifier can be converted to a valid [<a href="#BCP47">BCP 47</a>]
 	language tag by performing the following transformation.
 	<ol>
@@ -1092,7 +1091,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 	<p><b>Note:</b> In some rare cases, BCP 47 language tags cannot be converted to valid Unicode language/locale identifiers, such as certain
     [<a href="#BCP47">BCP 47</a>] grandfathered tags. </p>
 
-	<h3>3.3 <a name="Relation_to_OpenI18n">Relation to 
+	<h3><a name="Relation_to_OpenI18n" href="#Relation_to_OpenI18n">3.3 Relation to 
     OpenI18n</a></h3>
 	<p>The locale id format generally follows the description in the <i>OpenI18N Locale Naming Guideline</i> [<a href="#NamingGuideline">NamingGuideline</a>], with 
 	some enhancements. The main differences from the those guidelines are that the locale id:</p>
@@ -1104,12 +1103,12 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">is a superset of [<a href="#BCP47">BCP47</a>] codes.</li>
 	</ol>
 
-	<h3>3.4 <a name="Compatibility_with_Older_Identifiers"></a>Compatibility with Older Identifiers</h3>
+	<h3><a name="Compatibility_with_Older_Identifiers" href="#Compatibility_with_Older_Identifiers">3.4 Compatibility with Older Identifiers</a></h3>
 	<p>LDML version before 1.7.2 used slightly different syntax for variant subtags and locale
 	extensions.  Implementations of LDML may provide backward compatible identifier support as described in
 	following sections.</p>
 
-	<h4>3.4.1 <a name="Legacy_Variants"></a>Legacy Variants</h4>
+	<h4><a name="Legacy_Variants" href="#Legacy_Variants">3.4.1 Legacy Variants</a></h4>
 	<p>Old LDML specification allowed codes other than registered [<a href="#BCP47">BCP47</a>] variant
 	subtags used in Unicode language and locale identifiers for representing variations of locale data.
 	Unicode locale identifiers including such variant codes can be converted to the new [<a href="#BCP47">BCP47</a>]
@@ -1158,7 +1157,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 		</tr>
   </table>
 
-	<h4>3.4.2 <a name="Old_Locale_Extension_Syntax"></a>Old Locale Extension Syntax</h4>
+	<h4><a name="Old_Locale_Extension_Syntax" href="#Old_Locale_Extension_Syntax">3.4.2 Old Locale Extension Syntax</a></h4>
 	<p>LDML 1.7 or older specification used different syntax for representing unicode
 	locale extensions.  The previous definition of Unicode locale extensions had the following structure:        
     <table border="0">
@@ -1211,7 +1210,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 	<p>For more information about the key/type definitions and their old code mappings,
 	see Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
 
-	<h2>4 <a name="Locale_Inheritance">Locale Inheritance</a></h2>
+	<h2><a name="Locale_Inheritance" href="#Locale_Inheritance">4 Locale Inheritance</a></h2>
 	<p>The XML format relies on an inheritance model, whereby the resources are collected into <i>bundles</i>, and the bundles organized into a tree. Data for the 
 	many Spanish locales does not need to be duplicated across all of the countries having Spanish as a national language. Instead, common data is collected in 
 	the Spanish language locale, and territory locales only need to supply differences. The parent of all of the language locales is a generic locale known as
@@ -1334,7 +1333,7 @@ root</pre>
 	<pre>&lt;field type="day"&gt;
   &lt;relative type="-2"&gt;∅∅∅&lt;/relative&gt;
 </pre>
-<h3>4.1 <a name="Multiple_Inheritance">Multiple Inheritance</a></h3>
+<h3><a name="Multiple_Inheritance" href="#Multiple_Inheritance">4.1 Multiple Inheritance</a></h3>
 	<p>In clearly specified instances, resources may inherit from within the same locale. For example, currency format symbols inherit from the number format symbols; 
 	the Buddhist calendar inherits from the Gregorian calendar. This <i>only</i> happens where documented in this specification. In these special cases, the inheritance 
 	functions as normal, up to the root. If the data is not found along that path, then a second search is made, logically changing the element/attribute to the 
@@ -1342,7 +1341,7 @@ root</pre>
 	<p>For example, for the locale &quot;en_US&quot; the month data in &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; inherits first from &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; 
 	in &quot;en&quot;, then in &quot;root&quot;. If not found there, then it inherits from &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt; in &quot;en_US&quot;, then &quot;en&quot;, then 
 	in &quot;root&quot;.</p>
-	<h2>5 <a name="XML_Format">XML Format</a></h2>
+	<h2><a name="XML_Format" href="#XML_Format">5 XML Format</a></h2>
 	<p>There are two kinds of data that can be expressed in LDML: language-dependent data and supplementary data. In either case, data can be split across multiple 
 	files, which can be in multiple directory trees.</p>
 	<p>For example, the language-dependent data for Japanese in CLDR is present in the following files:</p>
@@ -1428,9 +1427,9 @@ root</pre>
 		<li>references</li>
 		<li>validSubLocales</li>
 	</ul>
-	<h3>5.1 <a name="Common_Elements">Common Elements</a></h3>
+	<h3><a name="Common_Elements" href="#Common_Elements">5.1 Common Elements</a></h3>
 	<p>At any level in any element, two special elements are allowed.</p>
-	<p class="element2">&lt;<a name="special">special</a> xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
+	<p class="element2">&lt;<a name="special" href="#special">special</a> xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
 	<p>This element is designed to allow for arbitrary additional annotation and data that is product-specific. It has one required attribute, which specifies the 
 	XML <a href="http://www.w3.org/TR/REC-xml-names/">namespace</a> of the special data. For example, the following used the version 1.0 POSIX special element.</p>
 	<pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.0/ldml.dtd</span>&quot; [
@@ -1497,7 +1496,7 @@ root</pre>
   &lt;/timeFormatLength&gt;
 </pre>
 	<p>In this case, the &lt;default&gt; is inherited from fr, and has the value &quot;medium&quot;. It thus refers to this new &quot;medium&quot; pattern in this resource bundle.</p>
-	<h4>5.1.1 <a name="Escaping_Characters">Escaping Characters</a></h4>
+	<h4><a name="Escaping_Characters" href="#Escaping_Characters">5.1.1 Escaping Characters</a></h4>
 	<p>Unfortunately, XML does not have the capability to contain all Unicode code points. Due to this, in certain instances extra syntax is required to represent 
 	those code points that cannot be otherwise represented in element content. These escapes are only allowed in certain elements, according to the DTD.</p>
 	<table>
@@ -1511,7 +1510,7 @@ root</pre>
 			<td><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
 		</tr>
 	</table>
-	<h4>5.1.2 <a name="Text_Directionality">Text Directionality</a></h4>
+	<h4><a name="Text_Directionality" href="#Text_Directionality">5.1.2 Text Directionality</a></h4>
 	<p>The content of certain elements, such as date or number formats, may consist of several sub-elements with an inherent order (for 
 	example, the year, month, and day for dates). In some cases, the order of these sub-elements may be changed depending on the bidirectional context in which 
 	the element is embedded.</p>
@@ -1519,7 +1518,7 @@ root</pre>
 	element content. In such a case, the overall order of the sub-elements may change depending on the surrounding text.</p>
 	<p>Element content whose display may be affected in this way should include an explicit direction mark, such as U+200E LEFT-TO-RIGHT 
 	MARK or U+200F RIGHT-TO-LEFT MARK, at the beginning or end of the element content, or both.</p>
-	<h3>5.2 <a name="Common_Attributes">Common Attributes</a></h3>
+	<h3><a name="Common_Attributes" href="#Common_Attributes">5.2 Common Attributes</a></h3>
 	<p class="element2">&lt;... type=&quot;<span style="color: blue">stroke</span>&quot; ...&gt;</p>
 	<p>The attribute <i>type</i> is also used to indicate an alternate resource that can be selected with a matching type=option in the locale id modifiers, or 
 	be referenced by a default element. For example:</p>
@@ -1548,7 +1547,7 @@ root</pre>
     Vetting Process</a> on the CLDR website.</p>
 	<p>Normally draft attributes should only occur on &quot;leaf&quot; elements. For a more formal description of how elements are inherited, and what their draft status 
 	is, see <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></i>.</p>
-	<p>&lt;... <a name="alt_attribute">alt</a>=&quot;<i>descriptor</i>&quot; ...&gt;</p>
+	<p>&lt;... <a name="alt_attribute" href="#alt_attribute">alt</a>=&quot;<i>descriptor</i>&quot; ...&gt;</p>
 	<p>This attribute labels an alternative value for an element. The <i>descriptor</i> indicates what kind of alternative it is, and takes one of the following 
 	forms: </p>
 	<ul>
@@ -1590,7 +1589,7 @@ root</pre>
 	<p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
 	...<br>
 	&lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;</code></p>
-	<p>&lt;... <a name="references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
+	<p>&lt;... <a name="references_attribute" href="#references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
 	<p>The value of this attribute is a token representing a reference for the information in the element, including standards 
 	that it may conform to. See Section 5.13
 	<a href="#Reference_Elements">&lt;references&gt;</a>. (In older versions of CLDR, the value of the attribute was freeform text. That format is deprecated.)</p>
@@ -1601,7 +1600,7 @@ root</pre>
 	<p>This attribute was originally intended for use in marking display names whose capitalization differed from what was indicated by the
 	now-deprecated &lt;inText&gt; element (perhaps, for example, because the names included a proper noun). It was never supported in the dtd and is not needed for use
 	with the new &lt;contextTransforms&gt; element.</p>
-	<h4>5.2.1 <a name="Date_Ranges">Date and Date Ranges</a></h4>
+	<h4><a name="Date_Ranges" href="#Date_Ranges">5.2.1 Date and Date Ranges</a></h4>
 	<p>When attribute specify date ranges, it is usually done with 
 	attributes <i>from</i> and <i>to</i>. The <i>from</i> attribute specifies the starting point, 
 	and the <i>to</i> attribute specifies the end point. The deprecated
@@ -1646,7 +1645,7 @@ root</pre>
 	no known end point.</p>
 	<p>The dates and times are specified in local time, unless otherwise 
 	noted. (In particular, the metazone values are in UTC (also known as GMT).</p>
-	<h3>5.3 <a name="Identity_Elements">Identity Elements</a></h3>
+	<h3><a name="Identity_Elements" href="#Identity_Elements">5.3 Identity Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT identity (alias | (version, generation?, language, script?, territory?, variant?, special*) ) &gt;</p>
 	<p>The identity element contains information identifying the target locale for this data, and general information about the version of this data.</p>
 	<p class="element2">&lt;version number=&quot;<u>$</u>Revision: 1.227 <u>$</u>&quot;&gt;</p>
@@ -1674,10 +1673,10 @@ root</pre>
 	the language element, along with any of the optional script, territory, and variant elements,
 	must identify a known, stable locale identifier.  Otherwise, it is an error.</p>
 
-	<h4>5.3.1 <a name="Fallback_Elements">Fallback Elements</a></h4>
+	<h4><a name="Fallback_Elements" href="#Fallback_Elements">5.3.1 Fallback Elements</a></h4>
   <p class="dtd">&lt;!ELEMENT fallback (#PCDATA) &gt;</p>
 	<p>The fallback element is deprecated. Implementations should use instead the information in <em>C.18 <a href="#LanguageMatching">Language Matching</a></em> for doing language fallback.</p>
-  <h3>5.4 <a name="Display_Name_Elements">Display Name Elements</a></h3>
+  <h3><a name="Display_Name_Elements" href="#Display_Name_Elements">5.4 Display Name Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT localeDisplayNames (alias | (localeDisplayPattern?, languages?, scripts?, territories?, variants?,
 	keys?, types?, transformNames?, measurementSystemNames?, codePatterns?, special*)) 
 	&gt;</p>
@@ -1806,7 +1805,7 @@ root</pre>
 	<blockquote>
 		<p>&lt;codePattern type=&quot;<span style="color: blue">language</span>&quot;&gt;<span style="color: blue">Language: {0}</span>&lt;/type&gt;</p>
 	</blockquote>
-<h3>5.5 <a name="Layout_Elements">Layout Elements</a></h3>
+<h3><a name="Layout_Elements" href="#Layout_Elements">5.5 Layout Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT layout ( alias | (orientation*, inList*, inText*, special*) ) &gt;</p>
 	<p>This top-level element specifies general layout features. It currently only has one possible element (other than &lt;special&gt;, which is always permitted).</p>
 	<p class="element2">&lt;orientation lines=&quot;<span style="color: blue">top-to-bottom</span>&quot; characters=&quot;<span style="color: blue">left-to-right</span>&quot; /&gt;</p>
@@ -1861,7 +1860,7 @@ root</pre>
 		<li>mixed : a mixture of upper and lower case is permitted. generally used when the correct value is unknown.<br>
 		</li>
 	</ul>
-	<h3>5.6 <a name="Character_Elements">Character Elements</a></h3>
+	<h3><a name="Character_Elements" href="#Character_Elements">5.6 Character Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT characters (alias | (exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, special*)) &gt;</p>
 	<p>The &lt;characters&gt; element provides optional information about characters that are in common use in the locale, and information that can be helpful in picking 
 	resources or data appropriate for the locale, such as when choosing among character encodings that are typically used to transmit data in the language of the 
@@ -1909,7 +1908,7 @@ root</pre>
   <pre>&lt;exemplarCharacters type=&quot;index&quot;&gt;[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]&lt;/exemplarCharacters&gt;</pre>
   <p>The display of the index characters can be modified with the Index labels elements, discussed in Section 5.6.4.</p>
 
-<h4>5.6.1 <a name="ExemplarSyntax"></a>Exemplar Syntax</h4>
+<h4><a name="ExemplarSyntax" href="#ExemplarSyntax">5.6.1 Exemplar Syntax</a></h4>
 	<p>In all of the exemplar characters, the list of characters is in the <a href="#Unicode_Sets">Unicode Set</a> format, which allows boolean combinations of sets of letters, including those specified 
     </p>
 	<p>Sequences of characters that act like a single letter in the language — especially in collation — are included within braces, such as [a-z á é í ó ú ö ü 
@@ -1938,7 +1937,7 @@ root</pre>
 		<li>The sets are normally restricted to those letters with a specific <a href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script </a>character property 
 		(that is, not the values Common or Inherited) or required <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a> 
 		characters (such as a non-joiner), or combining marks, or the <a href="http://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt">Word_Break</a> 
-		properties <a name="Katakana">Katakana</a>, <a name="ALetter">ALetter</a>, or <a name="MidLetter">MidLetter</a>.</li>
+		properties <a name="Katakana" href="#Katakana">Katakana</a>, <a name="ALetter" href="#ALetter">ALetter</a>, or <a name="MidLetter" href="#MidLetter">MidLetter</a>.</li>
 		<li>The auxiliary set should not overlap with the main set. There is one exception to this: Hangul Syllables and CJK Ideographs can overlap between the 
 		sets.</li>
 		<li>Any <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a>s should be in the auxiliary set , or, if they are only needed for currency formatting, in the currency set. These can include characters such as
@@ -1965,7 +1964,7 @@ root</pre>
 		[<a href="http://www.unicode.org/reports/tr41/#UTS22">UTS22</a>]), they 
 		are sufficient for this purpose.</p>
   </blockquote>
-<h4>5.6.4 <a name="IndexLabels"></a>Index Labels</h4>
+<h4><a name="IndexLabels" href="#IndexLabels">5.6.4 Index Labels</a></h4>
   <p class="changed"><em>The elements described in this section are
   not currently used in CLDR data nor in CLDR implementations.
   These elements should be considered as "beta" and implementers should not depend on them yet.</em></p>
@@ -2039,7 +2038,7 @@ root</pre>
   <p>&lt;moreInformation&gt;?&lt;/moreInformation&gt;<br>
   </p>
 <br>
-<h3>5.7 <a name="Delimiter_Elements">Delimiter Elements</a></h3>
+<h3><a name="Delimiter_Elements" href="#Delimiter_Elements">5.7 Delimiter Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT delimiters (alias | (quotationStart*, quotationEnd*, alternateQuotationStart*, alternateQuotationEnd*, special*)) &gt;</p>
 	<p>The delimiters supply common delimiters for bracketing quotations. The quotation marks are used with simple quoted text, such as:</p>
 	<blockquote>
@@ -2054,17 +2053,17 @@ root</pre>
 	<code>&lt;quotationEnd&gt;</code><span style="color: blue">”</span><code>&lt;/quotationEnd&gt;</code><br>
 	<code>&lt;alternateQuotationStart&gt;</code><span style="color: blue">‘</span><code>&lt;/alternateQuotationStart&gt;</code><br>
 	<code>&lt;alternateQuotationEnd&gt;</code><span style="color: blue">’</span><code>&lt;/alternateQuotationEnd&gt;</code></p>
-	<h3>5.8 <a name="Measurement_Elements">Measurement Elements (deprecated)</a></h3>
+	<h3><a name="Measurement_Elements" href="#Measurement_Elements">5.8 Measurement Elements (deprecated)</a></h3>
 	<p class="dtd">&lt;!ELEMENT measurement (alias | (measurementSystem?, paperSize?, special*)) &gt;</p>
 	<p>The measurement element is deprecated in the main LDML files, because the data is more appropriately organized as connected to territories, not to linguistic 
 	data. Instead, the measurementData element in the supplemental data file should be used.</p>
-	<h3>5.9 <a name="Date_Elements">Date Elements</a></h3>
+	<h3><a name="Date_Elements" href="#Date_Elements">5.9 Date Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT dates (alias | (localizedPatternChars*, dateRangePattern*, calendars?, <span class="changed">fields?, </span>timeZoneNames?, special*)) &gt;</p>
 	<p>This top-level element contains information regarding the format and parsing of dates and times. The data format is based on the Java/ICU format. Most of 
 	these are fairly self-explanatory, except the<i> week </i>elements<i>,</i> <i>localizedPatternChars</i>, and the meaning of the pattern characters. For information 
 	on this, and more information on other elements and attributes, see <i><a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a></i>.</p>
 
-	<h4>5.9.1 <a name="Calendar_Elements">Calendar Elements</a></h4>
+	<h4><a name="Calendar_Elements" href="#Calendar_Elements">5.9.1 Calendar Elements</a></h4>
 	<p class="dtd">
 	&lt;!ELEMENT calendars (alias | (default*, calendar*, special*)) &gt;<br>
 	&lt;!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*,
@@ -2080,7 +2079,7 @@ root</pre>
 	<p>Many calendars will only differ from the Gregorian Calendar in the year and era values. For example, the Japanese calendar will have many more eras (one 
 	for each Emperor), and the years will be numbered within that era. All calendar data inherits from the Gregorian calendar in the same locale data (if not present 
 	in the chain up to root), so only the differing data will be present. See <i>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></i>.</p>
-	<p><b><a name="months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></b></p>
+	<p><b><a name="months_days_quarters_eras" href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></b></p>
 	<p class="dtd">
 	&lt;!ELEMENT months ( alias | (default*, monthContext*, special*)) &gt;<br>
 	&lt;!ELEMENT monthContext ( alias | (default*, monthWidth*, special*)) &gt;<br>
@@ -2288,7 +2287,7 @@ root</pre>
        &lt;/eraNarrow&gt;
     &lt;/eras&gt;
 </pre>
- 	<p><b><a name="monthPatterns_cyclicNameSets">&lt;monthPatterns&gt;, &lt;cyclicNameSets&gt;</a></b></p>
+ 	<p><b><a name="monthPatterns_cyclicNameSets" href="#monthPatterns_cyclicNameSets">&lt;monthPatterns&gt;, &lt;cyclicNameSets&gt;</a></b></p>
 	<p class="dtd">&lt;!ELEMENT monthPatterns ( alias | (monthPatternContext*, special*)) &gt;<br>
 	&lt;!ELEMENT monthPatternContext ( alias | (monthPatternWidth*, special*)) &gt;<br>
 	&lt;!ATTLIST monthPatternContext type ( format | stand-alone | numeric ) #REQUIRED &gt;<br>
@@ -2374,7 +2373,7 @@ root</pre>
         &lt;/cyclicNameSet&gt;
     &lt;/cyclicNameSets&gt;
 </pre>
- 	<p><b><a name="dayPeriods">&lt;dayPeriods&gt;</a></b></p>
+ 	<p><b><a name="dayPeriods" href="#dayPeriods">&lt;dayPeriods&gt;</a></b></p>
     <p>The former am/pm elements have been deprecated, and replaced by the more flexible dayPeriods. </p>
   <p class="dtd">&lt;!ELEMENT dayPeriods ( alias | (dayPeriodContext*) ) &gt;</p>
   <p class="dtd">&lt;!ELEMENT dayPeriodContext (alias | dayPeriodWidth*) &gt;<br>
@@ -2403,7 +2402,7 @@ root</pre>
       &lt;/dayPeriodContext&gt;
     &lt;/dayPeriods&gt;
 </pre>
-	<p><b><a name="dateFormats">&lt;dateFormats&gt;</a></b></p>
+	<p><b><a name="dateFormats" href="#dateFormats">&lt;dateFormats&gt;</a></b></p>
 	<p class="dtd">
 	&lt;!ELEMENT dateFormats (alias | (default*, dateFormatLength*, special*)) &gt;<br>
 	&lt;!ELEMENT dateFormatLength (alias | (default*, dateFormat*, special*)) &gt;<br>
@@ -2432,7 +2431,7 @@ root</pre>
 	defined in <i><a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a>.</i> These patterns are intended primarily for display of isolated date and
     time strings in user-interface elements, rather than for date and time strings in the middle of
     running text, so capitalization and grammatical form should be chosen appropriately.</p>
-	<p><b><a name="timeFormats">&lt;timeFormats&gt;</a></b></p>
+	<p><b><a name="timeFormats" href="#timeFormats">&lt;timeFormats&gt;</a></b></p>
 	<p class="dtd">
 	&lt;!ELEMENT timeFormats (alias | (default*, timeFormatLength*, special*)) &gt;<br>
 	&lt;!ELEMENT timeFormatLength (alias | (default*, timeFormat*, special*)) &gt;<br>
@@ -2461,7 +2460,7 @@ is the format that should be used when formatting a specific time for presentati
 When formatting a time referring to a recurring time (such as a meeting in a calendar),
 applications should substitute the generic non-location format (v or vvvv) for the time zone in the time format pattern.
 See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i> for a complete description of available time zone formats and their uses.</p>
-	<p><b><a name="dateTimeFormats">&lt;dateTimeFormats&gt;</a></b></p>
+	<p><b><a name="dateTimeFormats" href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a></b></p>
 	<p>Date/Time formats have the following form:</p>
 	<pre>     &lt;dateTimeFormats&gt;
        &lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;
@@ -2636,7 +2635,7 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
       <li>Otherwise, format the start and end datetime 
       using the fallback pattern.</li>
     </ol>
-	<p><a name="week">&lt;week&gt;</a></p>
+	<p><a name="week" href="#week">&lt;week&gt;</a></p>
 	<p class="dtd">&lt;!ELEMENT week (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, special*))&gt;</p>
 	<p class="note">The week element is deprecated in the main LDML files, because the data is more appropriately organized as connected to territories, not to 
 	linguistic data. Instead, the similar element in the supplemental data file should be used.</p>
@@ -2646,7 +2645,7 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
 	<pre>&lt;dateRangePattern&gt;{0} - {1}&lt;/dateRangePattern&gt;</pre>
 	<p>The dateRangePattern element is deprecated, use intervalFormats instead.</p>
 
-	<h4><span class="changed">5.9.2 <a name="Calendar_Fields">Calendar Fields</a></span></h4>
+	<h4><a name="Calendar_Fields" href="#Calendar_Fields"><span class="changed">5.9.2 Calendar Fields</span></a></h4>
 	<p class="dtd">&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
 	&lt;!ELEMENT field ( alias | (displayName?, relative*, special*)) &gt;</p>
 	<p>Translations may be supplied for names of calendar fields (elements of a calendar, such as Day, Month, Year, Hour, 
@@ -2681,7 +2680,7 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
   &lt;/fields&gt;
 <span class="removed">&lt;/calendars&gt;</span></pre>
 
-	<h4><span class="changed">5.9.3</span> <a name="Timezone_Names">Time Zone Names</a></h4>
+	<h4><span class="changed">5.9.3</span> <a name="Timezone_Names" href="#Timezone_Names">Time Zone Names</a></h4>
 	<p class="dtd">&lt;!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*,
 	gmtZeroFormat*, regionFormat*, fallbackFormat*, fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, 
 	singleCountries*, default*, zone*, metazone*, special*)) &gt;<br>
@@ -2932,7 +2931,7 @@ language may not be in common usage in a particular territory.</p>
 	and the parent locale has this value such that it would normally be inherited, the inheritance of this value can be explicitly
 	disabled by use of the &#39;no inheritance marker&#39; as the value, which is 3 simultaneous empty set characters
 	( U+2205 ).</p>
-	<h3>5.10 <a name="Number_Elements">Number Elements</a></h3>
+	<h3><a name="Number_Elements" href="#Number_Elements">5.10 Number Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*, otherNumberingSystems*, symbols*, decimalFormats*,
 	scientificFormats*, percentFormats*, currencyFormats*, currencies?, special*)) &gt;</p>
 	<p>The numbers element supplies information for formatting and parsing numbers and currencies. It has the following sub-elements: 
@@ -2972,7 +2971,7 @@ language may not be in common usage in a particular territory.</p>
 	For more information 
 	on numbering systems and their definitions, see <i>Section 
 <a href="#Numbering_Systems">Numbering Systems</a></i>. </p>
-	<h4>5.10.1 <a name="Number_Symbols">Number Symbols</a></h4>
+	<h4><a name="Number_Symbols" href="#Number_Symbols">5.10.1 Number Symbols</a></h4>
 	<p class="dtd">&lt;!ELEMENT symbols (alias | (decimal*, group*, list*,
 	percentSign*, nativeZeroDigit*, patternDigit*,
 	plusSign*, minusSign*, exponential*, 
@@ -3062,7 +3061,7 @@ language may not be in common usage in a particular territory.</p>
 <p>To format a number N, the greatest type less than or equal to N is used, with the appropriate  plural category. N is divided by the type, after removing the number of zeros in the pattern, less 1. APIs supporting this format should provide control over the number of significant or fraction digits.</p>
 <p>Thus N=12345 matches <code>&lt;pattern type=&quot;10000&quot; count=&quot;other&quot;&gt;00 K&lt;/pattern&gt;</code>. N is divided by 1000 (obtained from10000 after removing &quot;00&quot; and restoring one &quot;0&quot;. The result is formatted according to the normal decimal pattern. With no fractional digits, that yields &quot;12 K&quot;.</p>
 <p>The short format is designed for UI environments where space is at a premium, and should ideally result in a formatted string no more than about 6 em wide (with no fractional digits). </p>
-<h4>5.10.2 <a name="Currencies">Currencies</a></h4>
+<h4><a name="Currencies" href="#Currencies">5.10.2 Currencies</a></h4>
 	<p class="dtd">
 	&lt;!ELEMENT currencies (alias | (default?, currency*, special*)) &gt;<br>
 	&lt;!ELEMENT currency (alias | (((pattern+, displayName*, symbol*) | (displayName+, symbol*, pattern*) | (symbol+, pattern*))?,
@@ -3199,7 +3198,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		<a href="#Supplemental_Data">Appendix C: Supplemental Data</a></i>.</p>
 	</blockquote>
 	<p>For background information on currency names, see [<a href="#CurrencyInfo">CurrencyInfo</a>].</p>
-<h3>5.11 <a name="Unit_Elements">Unit Elements</a></h3>
+<h3><a name="Unit_Elements" href="#Unit_Elements">5.11 Unit Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT units (alias | (unit*, special*)) &gt;<br>
 	&lt;!ELEMENT unit (alias | (unitPattern*, special*)) &gt;<br>
 	&lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;<br>
@@ -3229,7 +3228,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<p>While for English this may seem overly complex, for some other languages different plural forms are used for different unit
   types; the plural forms for certain unit types may not use all of the plural-form tags defined for the language.</p>
 	<p>The explicit values 0 and 1 are added because even in languages without separate plural categories in <i>Appendix C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a></i>, there are often special forms used with 0 and 1, such as &quot;no books&quot; or &quot;a book&quot; (vs 0 books and 1 book). In some languages, there is less need for these forms with units, even where they are used with other constructions. In those cases, the 0/1 forms can be omitted. Alternatively, where the category forms (such as zero or one) are completely covered by 0/1 (as in Arabic), those category forms may be omitted.</p>
-<h3>5.12 <a name="POSIX_Elements">POSIX Elements</a></h3>
+<h3><a name="POSIX_Elements" href="#POSIX_Elements">5.12 POSIX Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT posix (alias | (messages*, special*)) &gt;<br>
 	&lt;!ELEMENT messages (alias | ( yesstr*, nostr*)) &gt;</p>
 	<p>The following are included for compatibility with POSIX.</p>
@@ -3259,7 +3258,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<br>
 	<code>noexpr &quot;^([nN][oO]?)&quot;</code><br>
 	This would match n,N,no,nO,No,NO.</p>
-	<h3>5.13 <a name="Reference_Elements">Reference Element</a></h3>
+	<h3><a name="Reference_Elements" href="#Reference_Elements">5.13 Reference Element</a></h3>
 	<p>(Use only in supplemental data; deprecated for ldml.dtd and locale data)</p>
 	<p class="dtd">&lt;!ELEMENT references ( reference* ) &gt;<br>
 	&lt;!ELEMENT reference ( #PCDATA ) &gt;<br>
@@ -3275,7 +3274,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
   <p class="changed">See the
   <a href="tr35-collation.html#Collation_Tailorings">Unicode LDML: Collation</a> document.</p>
 
-<h3>5.15 <a name="Segmentations">Segmentations</a></h3>
+<h3><a name="Segmentations" href="#Segmentations">5.15 Segmentations</a></h3>
 	<p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] 
   notation, but adapted to be machine-readable. It uses a list of variables (representing character classes) and a list of rules. Each must have an id attribute.</p>
 	<p>The rules in <i>root</i> implement the segmentations found in [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] and [<a href="http://www.unicode.org/reports/tr41/#UAX14">UAX14</a>],
@@ -3330,7 +3329,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 &lt;variable id=&quot;$ALetter&quot;&gt;($ALetter $X)&lt;/variable&gt;
 ...</pre>
 	</blockquote>
-	<h4>5.15.1 <a name="Segmentation_Inheritance">Segmentation Inheritance</a></h4>
+	<h4><a name="Segmentation_Inheritance" href="#Segmentation_Inheritance">5.15.1 Segmentation Inheritance</a></h4>
 	<p>Variables and rules both inherit from the parent. </p>
 	<p><b>Variables: </b>The child&#39;s variable list is logically appended to the parent&#39;s, and evaluated in that order. For example:</p>
 	<p><font color="#0000FF"><code>// in parent</code></font><code><br>
@@ -3346,7 +3345,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	just requires using an intermediate number. For example, to insert a rule before id=&quot;10.1&quot; and after id=&quot;10.2&quot;, just use id=&quot;10.15&quot;. To delete a rule, use empty 
 	contents, such as:</p>
 	<p><code>&lt;rule id=&quot;3&quot;/&gt;</code><font color="#0000FF"><code> // deletes rule 3</code></font></p>
-	<h3>5.16 <a name="Transforms">Transforms</a></h3>
+	<h3><a name="Transforms" href="#Transforms">5.16 Transforms</a></h3>
 	<p>Transforms provide a set of rules for transforming text via a specialized set of context-sensitive matching rules. They are commonly used for transliterations 
 	or transcriptions, but also other transformations such as full-width to half-width (for <i>katakana</i> characters). The rules can be simple one-to-one relationships 
 	between characters, or involve more complicated mappings. Here is an example:</p>
@@ -3558,7 +3557,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	For more information on Transliteration, see
 	<a href="http://cldr.unicode.org/index/cldr-spec/transliteration-guidelines">
 	Transliteration Guidelines</a>.</p>
-	<h3>5.17 <a name="Rule-Based_Number_Formatting">
+	<h3><a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">5.17 
 	Rule-Based Number Formatting</a></h3>
 	<p class="dtd">&lt;!ELEMENT rbnf ( alias | 
 	rulesetGrouping*) &gt;<br>
@@ -3603,7 +3602,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	used for formatting year numbers in formal documents, such as &quot;nineteen 
 	hundred seventy-six&quot; instead of &quot;one thousand nine hundred seventy-six&quot;.</p>
 	<div>
-<h3>5.18 <a name="ListPatterns"></a>List Patterns</h3>
+<h3><a name="ListPatterns" href="#ListPatterns">5.18 List Patterns</a></h3>
 <p class="dtd">&lt;!ELEMENT listPatterns (alias | (listPattern*, special*)) &gt;</p>
 <p class="dtd">&lt;!ELEMENT listPattern (alias | (listPatternPart*, special*)) &gt;<br>
     &lt;!ATTLIST listPattern type (NMTOKEN) #IMPLIED &gt;</p>
@@ -3629,7 +3628,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
   <p>Thus a list (a,b,c,...m, n) is formatted as: start(a,middle(b,middle(c,middle(...end(m, n))...)))</p>
 </div>
 
-<h3>5.19 <a name="Context_Transform_Elements"></a>ContextTransform Elements</h3>
+<h3><a name="Context_Transform_Elements" href="#Context_Transform_Elements">5.19 ContextTransform Elements</a></h3>
 	<p class="dtd">
 	&lt;!ELEMENT contextTransforms ( alias | (contextTransformUsage*, special*)) &gt;<br>
 	&lt;!ELEMENT contextTransformUsage ( alias | (contextTransform*, special*)) &gt;<br>
@@ -3706,7 +3705,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		<tr><td>tense</td><td>units/unit[type=*-(past|future)]/unitPattern[count=*] relative unit names; dates/calendars/calendar[type=*]/fields/field[type=*]/relative relative field names</td></tr>
 		<tr><td>unit-pattern</td><td>units/unit[type=*]/unitPattern[count=*] unit names</td></tr>
 	</table>
-<h3>5.20 <a name="Metadata_Elements"></a>Metadata Elements</h3>
+<h3><a name="Metadata_Elements" href="#Metadata_Elements">5.20 Metadata Elements</a></h3>
 	<p class="dtd">
 	&lt;!ELEMENT metadata (casingData?) &gt;<br>
 	&lt;!ELEMENT casingData (casingItem*) &gt;<br>
@@ -3721,7 +3720,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<li>lowercase</li>
 	<li>titlecase</li>
 	</ul>
-    <h3>5.21 <a name="Alias_Elements">Alias Elements</a></h3>
+    <h3><a name="Alias_Elements" href="#Alias_Elements">5.21 Alias Elements</a></h3>
       <p class="dtd">&lt;!ELEMENT alias (special*) &gt;<br>
       &lt;!ATTLIST alias source NMTOKEN #REQUIRED &gt;<br>
       &lt;!ATTLIST alias path CDATA #IMPLIED&gt;</p>
@@ -3808,7 +3807,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
         (including inheritance and multiple inheritance) can be followed indefinitely without terminating.</p>
 
 
-<h2>Appendix A: <a name="Sample_Special_Elements">Sample Special Elements</a></h2>
+<h2><a name="Sample_Special_Elements" href="#Sample_Special_Elements">Appendix A: Sample Special Elements</a></h2>
 	<p>The elements in this section are <i><b>not</b></i> part of the Locale Data Markup Language 1.0 specification. Instead, they are special elements used for 
 	application-specific data to be stored in the Common Locale Repository. They may change or be removed future versions of this document, and are present her 
 	more as examples of how to extend the format. (Some of these items may move into a future version of the Locale Data Markup Language specification.)</p>
@@ -3841,7 +3840,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		<p><b>Note: </b>While the CLDR specification guarantees backwards compatibility, the definition of specials is up to other organizations. Any assurance 
 		of backwards compatibility is up to those organizations.</p>
 	</blockquote>
-	<h3>A.1 <a name="OpenOffice">openoffice.org</a></h3>
+	<h3><a name="OpenOffice" href="#OpenOffice">A.1 openoffice.org</a></h3>
 	<p>A number of the elements above can have extra information for openoffice.org, such as the following example:</p>
 	<pre>    &lt;special xmlns:openOffice=&quot;<span style="color: blue">http://www.openoffice.org</span>&quot;&gt;
         &lt;openOffice:search&gt;
@@ -3851,7 +3850,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
         &lt;/openOffice:search&gt;
     &lt;/special&gt;
 </pre>
-	<h2>Appendix B: <a name="Transmitting_Locale_Information">Transmitting Locale Information</a></h2>
+	<h2><a name="Transmitting_Locale_Information" href="#Transmitting_Locale_Information">Appendix B: Transmitting Locale Information</a></h2>
 	<p>In a world of on-demand software components, with arbitrary connections between those components, it is important to get a sense of where localization should 
 	be done, and how to transmit enough information so that it can be done at that appropriate place. End-users need to get messages localized to their languages, 
 	messages that not only contain a translation of text, but also contain variables such as date, time, number formats, and currencies formatted according to the 
@@ -3882,7 +3881,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<p>Even though localization should be done as close to the end-user as possible, there will be cases where different components need to be aware of whatever 
 	settings are appropriate for doing the localization. Thus information such as a locale code or 
 	time zone needs to be communicated between different components.</p>
-	<h3>B.1 <a name="Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></h3>
+	<h3><a name="Message_Formatting_and_Exceptions" href="#Message_Formatting_and_Exceptions">B.1 Message Formatting and Exceptions</a></h3>
 	<p>Windows (<a href="http://msdn.microsoft.com/en-us/library/ms679351.aspx">FormatMessage</a>,
 	<a href="http://msdn.microsoft.com/en-us/library/aa331875.aspx">String.Format</a>), Java (<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/MessageFormat.html">MessageFormat</a>) 
 	and ICU (<a href="http://www.icu-project.org/apiref/icu4c/classMessageFormat.html">MessageFormat</a>,
@@ -3902,7 +3901,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<p>In addition, exceptions are often caught at a higher level; they do not end up being displayed to any end-user at all. By avoiding the localization at the 
 	throw site, it the cost of doing formatting, when that formatting is not really necessary. In fact, in many running programs most of the exceptions that are 
 	thrown at a low level never end up being presented to an end-user, so this can have considerable performance benefits.</p>
-	<h2>Appendix C: <a name="Supplemental_Data">Supplemental Data</a></h2>
+	<h2><a name="Supplemental_Data" href="#Supplemental_Data">Appendix C: Supplemental Data</a></h2>
 	<p>The following represents the format for supplemental information. This is information that is important for 
 	internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is 
 	not localizable, nor is it overridden by locale data. The current CLDR 
@@ -3913,7 +3912,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	</i>and<i> Appendix N: <a href="#Transform_Rules">Transform Rules</a></i>). The split is just 
 	for convenience: logically, they are treated as though they were a single file. Future versions 
 	of CLDR may split the data in a different fashion.</p>
-	<h3>C.1 <a name="Supplemental_Currency_Data">Supplemental Currency Data</a></h3>
+	<h3><a name="Supplemental_Currency_Data" href="#Supplemental_Currency_Data">C.1 Supplemental Currency Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT currencyData ( fractions*, region+ ) &gt;<br>
 	&lt;!ELEMENT fractions ( info+ ) &gt;<br>
 	<br>
@@ -4028,7 +4027,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<li>CS now terminates on Jun 3, 2006 (following the UN info) </li>
 		</ul>
 	</blockquote>
-	<h3>C.2 <a name="Supplemental_Territory_Containment">Supplemental Territory Containment</a></h3>
+	<h3><a name="Supplemental_Territory_Containment" href="#Supplemental_Territory_Containment">C.2 Supplemental Territory Containment</a></h3>
 	<p class="dtd">&lt;!ELEMENT territoryContainment ( group* ) &gt;<br>
 	&lt;!ELEMENT group EMPTY &gt;<br>
 	&lt;!ATTLIST group type NMTOKEN #REQUIRED &gt;<br>
@@ -4060,7 +4059,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
     <p>When the containment relationship itself is a grouping, it is marked with the attribute <span class="attribute">status</span>=&quot;<span class="attributeValue">grouping</span>&quot;, like this:</p>
     <pre>&lt;group type=&quot;150&quot; contains=&quot;EU&quot; status=&quot;grouping&quot;/&gt; &lt;!--Europe --&gt;</pre>
 	<p>That is, the type value isn’t a grouping, but if you filter out groupings you can drop this containment. In the example above, EU is a grouping, and contained in 150.</p>
-	<h3>C.3 <a name="Supplemental_Language_Data">Supplemental Language Data</a></h3>
+	<h3><a name="Supplemental_Language_Data" href="#Supplemental_Language_Data">C.3 Supplemental Language Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT languageData ( language* ) &gt;<br>
 	&lt;!ELEMENT language EMPTY &gt;<br>
 	&lt;!ATTLIST language type NMTOKEN #REQUIRED &gt;<br>
@@ -4084,7 +4083,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	attribute is set to secondary. </p>
 	<pre>		&lt;language type=&quot;fr&quot; scripts=&quot;Latn&quot; territories=&quot;IT US&quot; alt=&quot;secondary&quot; /&gt;
                 ...</pre>
-	<h3>C.4 <a name="Supplemental_Territory_Information">Supplemental Territory Information</a></h3>
+	<h3><a name="Supplemental_Territory_Information" href="#Supplemental_Territory_Information">C.4 Supplemental Territory Information</a></h3>
 	<p class="dtd">&lt;!ELEMENT territory ( languagePopulation* ) &gt;<br>
 	&lt;!ATTLIST territory type NMTOKEN #REQUIRED &gt;<br>
 	&lt;!ATTLIST territory gdp NMTOKEN #REQUIRED &gt;<br>
@@ -4111,7 +4110,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<p>The percentages may add up to more than 100% due to multilingual 
 	populations, or may be less than 100% due to illiteracy or because the data has not yet been 
 	gathered or processed. Languages with a small population may be omitted. </p>
-	<h3>C.5 <a name="Supplemental_Calendar_Data">Supplemental Calendar Data</a></h3>
+	<h3><a name="Supplemental_Calendar_Data" href="#Supplemental_Calendar_Data">C.5 Supplemental Calendar Data</a></h3>
 	<pre class="dtd">&lt;!ELEMENT calendarData ( calendar* ) &gt;
 &lt;!ELEMENT calendar ( calendarSystem?, eras? ) &gt;
 &lt;!ATTLIST calendar type NMTOKENS #REQUIRED &gt;
@@ -4171,7 +4170,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	unless it is a well-recognized part of the day.</p>
 	<p class="note">The weekendStart day defaults to &quot;sat&quot;, and weekendEnd day defaults to &quot;sun&quot;.
 	&nbsp;For more information, see <i>Section 5.2.1 <a href="#Date_Ranges">Dates and Date Ranges</a></i>.</p>
-	<h3>C.6 <a name="Measurement_System_Data">Measurement System Data</a></h3>
+	<h3><a name="Measurement_System_Data" href="#Measurement_System_Data">C.6 Measurement System Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT measurementData ( measurementSystem*, paperSize* ) &gt;<br>
 	<br>
 	&lt;!ELEMENT measurementSystem EMPTY &gt;<br>
@@ -4201,7 +4200,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<p>For both measurementSystem entries and paperSize entries, later entries for specific territories such as &quot;US&quot; will override the
 	value assigned to that territory by earlier entries for more inclusive territories such as &quot;001&quot;.</p>
 	<p>The measurement information was formerly in the main LDML file, and had a somewhat different format.</p>
-	<h3>C.7 <a name="Supplemental_Timezone_Data">Supplemental Time Zone Data</a></h3>
+	<h3><a name="Supplemental_Timezone_Data" href="#Supplemental_Timezone_Data">C.7 Supplemental Time Zone Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT windowsZones (mapTimezones?) &gt;<br>
 	&lt;!ELEMENT metaZones (metazoneInfo?, mapTimezones?) &gt;<br>
 	<br>
@@ -4282,7 +4281,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	the territory. The territory "ZZ" is used when a Unicode time zone ID is not associated with a specific territory.
 	</p>
 
-	<h3>C.8 <a name="Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></h3>
+	<h3><a name="Supplemental_Character_Fallback_Data" href="#Supplemental_Character_Fallback_Data">C.8 Supplemental Character Fallback Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT characters ( character-fallback*) &gt;<br>
 	<br>
 	&lt;!ELEMENT character-fallback ( character* ) &gt;<br>
@@ -4320,7 +4319,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">the explicit <i>substitutes</i> value (in order)</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em"><code>toNFKC</code>(<i>value</i>)</li>
 	</ul>
-	<h3>C.9 <a name="Supplemental_Code_Mapping">Supplemental Code Mapping</a></h3>
+	<h3><a name="Supplemental_Code_Mapping" href="#Supplemental_Code_Mapping">C.9 Supplemental Code Mapping</a></h3>
 	<p class="dtd">&lt;!ELEMENT languageCodes EMPTY &gt;<br>
 	&lt;!ATTLIST languageCodes type NMTOKEN #REQUIRED&gt;<br>
 	&lt;!ATTLIST languageCodes alpha3 NMTOKEN #REQUIRED&gt;<br>
@@ -4346,7 +4345,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 &lt;territoryCodes type=&quot;GB&quot; numeric=&quot;826&quot; alpha3=&quot;GBR&quot; fips10=&quot;UK&quot; internet=&quot;UK GB&quot;/&gt;
 ...
 &lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;</pre>
-	<h3>C.10 <a name="Likely_Subtags">Likely Subtags</a></h3>
+	<h3><a name="Likely_Subtags" href="#Likely_Subtags">C.10 Likely Subtags</a></h3>
 	<p class="dtd">&lt;!ELEMENT likelySubtag EMPTY &gt;<br>
 	&lt;!ATTLIST likelySubtag from NMTOKEN #REQUIRED&gt;<br>
 	&lt;!ATTLIST likelySubtag to NMTOKEN #REQUIRED&gt;</p>
@@ -4469,7 +4468,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<p>A variant of this favors the script over the region, thus using 
 	{language, language_script, language_region} in the above. If that variant is used, then the 
 	result in this example would be zh_Hant instead of zh_TW.</p>
-<h3>C.11 <a name="Language_Plural_Rules">Language Plural Rules</a></h3>
+<h3><a name="Language_Plural_Rules" href="#Language_Plural_Rules">C.11 Language Plural Rules</a></h3>
 	<p class="dtd">&lt;!ELEMENT plurals (pluralRules*) &gt;<br>
     &lt;!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED &gt;  &lt;!-- default is cardinal --&gt;<br>
 	<br>
@@ -4585,7 +4584,7 @@ range         = value'..'value</pre>
 		<li>5.11 <a href="#Unit_Elements">Unit Elements</a></li>
 	</ul>
 	<p>There are two extra values that can be used with count attributes: 0 and 1. These are used for the explicit values, and may or may not be the same as the forms for &quot;zero&quot; and &quot;one&quot;.</p>
-<h3>C.12 <a name="Telephone_Code_Data">Telephone Code Data</a></h3>
+<h3><a name="Telephone_Code_Data" href="#Telephone_Code_Data">C.12 Telephone Code Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT telephoneCodeData ( codesByTerritory* ) &gt;<br>
 	<br>
 	&lt;!ELEMENT codesByTerritory ( telephoneCountryCode+ ) &gt;<br>
@@ -4621,7 +4620,7 @@ range         = value'..'value</pre>
 &lt;codesByTerritory territory=&quot;CA&quot;&gt;
 	&lt;telephoneCountryCode code=&quot;1&quot;/&gt; &lt;!-- North America Numbering Plan --&gt;
 &lt;/codesByTerritory&gt;</pre>
-	<h3>C.13 <a name="Numbering_Systems">Numbering Systems</a></h3>
+	<h3><a name="Numbering_Systems" href="#Numbering_Systems">C.13 Numbering Systems</a></h3>
 	<p class="dtd">&lt;!ELEMENT numberingSystems ( numberingSystem* ) &gt;<br>
 	&lt;!ELEMENT numberingSystem EMPTY &gt;<br>
 	&lt;!ATTLIST numberingSystem id NMTOKEN #REQUIRED &gt;<br>
@@ -4671,7 +4670,7 @@ range         = value'..'value</pre>
 &lt;!-- An algorithmic system. Traditional Chinese Numerals --&gt; 
 </pre>
   For general information about the numbering system data, including the BCP47 identifiers, see <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a>.</em>
-<h3>C.14 <a name="Postal_Code_Validation">Postal Code Validation</a></h3>
+<h3><a name="Postal_Code_Validation" href="#Postal_Code_Validation">C.14 Postal Code Validation</a></h3>
 	<p class="dtd">&lt;!ELEMENT postalCodeData (postCodeRegex*) &gt;<br>
 	&lt;!ELEMENT postCodeRegex (#PCDATA) &gt;<br>
 	&lt;!ATTLIST postCodeRegex territoryId NMTOKEN #REQUIRED&gt;<br></p>
@@ -4684,7 +4683,7 @@ range         = value'..'value</pre>
 	<pre>&lt;postCodeRegex territoryId=&quot;US&quot; &gt;\d{5}([ \-]\d{4})?&lt;/postCodeRegex&gt;</pre>
 	<p>The most complicated currently is the UK.</p>
 
-	<h3>C.15 <a name="Calendar_Preference_Data">Calendar Preference Data</a></h3>
+	<h3><a name="Calendar_Preference_Data" href="#Calendar_Preference_Data">C.15 Calendar Preference Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT calendarPreferenceData ( calendarPreference* ) &gt;<br>
 	&lt;!ELEMENT calendarPreference EMPTY &gt;<br>
 	&lt;!ATTLIST calendarPreference territories NMTOKENS #REQUIRED &gt;<br>
@@ -4696,7 +4695,7 @@ range         = value'..'value</pre>
 	<p>The calendarPreference element above indicates both Buddhist calendar and Gregorian calendar are
 	commonly used in Thailand and Buddhist calendar is most preferred.</p>
 
-	<h3>C.16 <a name="BCP47_Keyword_Mapping">BCP 47 Keyword Mapping</a></h3>
+	<h3><a name="BCP47_Keyword_Mapping" href="#BCP47_Keyword_Mapping">C.16 BCP 47 Keyword Mapping</a></h3>
 
 	<p><b>Note:</b> <i>This data is deprecated and replaced with
 	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
@@ -4730,7 +4729,7 @@ range         = value'..'value</pre>
         ...
     &lt;/mapTypes&gt;</pre>
   <div>
-    <h4>C.17 <a name="DayPeriodRules"></a>DayPeriod Rules </h4>
+    <h4><a name="DayPeriodRules" href="#DayPeriodRules">C.17 DayPeriod Rules </a></h4>
   <p class="dtd">&lt;!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) &gt;</p>
   <p class="dtd">&lt;!ELEMENT dayPeriodRules (dayPeriodRule*) &gt;<br>
     &lt;!ATTLIST dayPeriodRules locales NMTOKENS #REQUIRED &gt;</p>
@@ -4778,7 +4777,7 @@ range         = value'..'value</pre>
     <li>When parsing, if the hour is present the dayperiod is checked for consistency. If there is no hour, the center of the first matching dayPeriodRule is chosen (starting from 0:00).</li>
     <li>If rounding is done -- including the rounding done by the time format -- then it needs to be done before the dayperiod is computed, so that the correct format is shown.</li>
     </ol>
-  <h4>C.18 <a name="LanguageMatching"></a>Language Matching</h4>
+  <h4><a name="LanguageMatching" href="#LanguageMatching">C.18 Language Matching</a></h4>
   <p class="dtd">&lt;!ELEMENT languageMatching ( languageMatches* ) &gt;<br>
     &lt;!ELEMENT languageMatches ( languageMatch* ) &gt;<br>
     &lt;!ATTLIST languageMatches type NMTOKEN #REQUIRED &gt;<br>
@@ -4859,7 +4858,7 @@ range         = value'..'value</pre>
   <p class="example"><br>
   &lt;languageMatch desired=&quot;*-*-*&quot; supported=&quot;*-*-*&quot; percent=&quot;96&quot;/&gt;<br>
   &lt;!-- [Default value - must be at end!] Normally there are small differences across regions.--&gt; </p>
-  <h4>C.19 <a name="Parent_Locales"></a>Parent Locales</h4>
+  <h4><a name="Parent_Locales" href="#Parent_Locales">C.19 Parent Locales</a></h4>
   <p class="dtd">&lt;!ELEMENT parentLocales ( parentLocale* ) &gt;<br>
   &lt;!ELEMENT parentLocale EMPTY &gt;<br>
   &lt;!ATTLIST parentLocale parent CDATA #REQUIRED &gt;<br>
@@ -4880,7 +4879,7 @@ range         = value'..'value</pre>
   when referring to main locale data, but for collation data, the parent locale would still be &quot;zh&quot;, 
   even though the parentLocale element is present for that locale.</p>
 
-<h4>C.20 <a name="List_Gender"></a>Gender of Lists</h4>
+<h4><a name="List_Gender" href="#List_Gender">C.20 </a>Gender of Lists</h4>
   <p class="dtd">  &lt;!-- Gender List support --&gt; <br>
   &lt;!ELEMENT gender ( personList+ ) &gt; <br>
   &lt;!ELEMENT personList EMPTY &gt; <br>
@@ -4927,7 +4926,7 @@ range         = value'..'value</pre>
   The data will be in <tt>genderList.xml</tt>, where the locales belonging
   to each of these types are enumerated.
 
-<h2>Appendix D: <a name="Language_and_Locale_IDs">Unicode Language and Locale IDs</a></h2>
+<h2><a name="Language_and_Locale_IDs" href="#Language_and_Locale_IDs">Appendix D: Unicode Language and Locale IDs</a></h2>
 	<p>People have very slippery notions of what distinguishes a language code 
 	versus a locale code. The problem is that both are somewhat nebulous concepts.</p>
 	<p>In practice, many people use [<a href="#BCP47">BCP47</a>] 
@@ -4962,7 +4961,7 @@ range         = value'..'value</pre>
 	codes should always accompany any currency amounts; otherwise the data is ambiguous, and software is forced to use the user&#39;s territory to guess at the currency. 
 	For some informal discussion of this, see
 	<a href="http://source.icu-project.org/repos/icu/icuhtml/trunk/design/jit_localization.html">JIT Localization</a>.)</p>
-	<h3>D.1 <a name="Written_Language">Written Language</a></h3>
+	<h3><a name="Written_Language" href="#Written_Language">D.1 Written Language</a></h3>
 	<p>Criteria for what makes a written language should be purely pragmatic; <i>what would copy-editors say? </i>If one gave them text like the following, they 
 	would respond that is far from acceptable English for publication, and ask for it to be redone:</p>
 	<ol>
@@ -4987,7 +4986,7 @@ range         = value'..'value</pre>
 	<p>Note that the language of locale data may differ from the language of localized software or web sites, when those latter are not localized into the user&#39;s 
 	preferred language. In such cases, the kind of incongruous juxtapositions described above may well appear, but this situation is usually preferable to forcing 
 	unfamiliar date or number formats on the user as well.</p>
-	<h2>Appendix E: <a name="Unicode_Sets">Unicode Sets</a></h2>
+	<h2><a name="Unicode_Sets" href="#Unicode_Sets">Appendix E: Unicode Sets</a></h2>
 	<p>A UnicodeSet is a set of Unicode characters (and possibly strings) determined by a pattern, following <i>UTS #18: Unicode Regular Expressions</i>
 	[<a href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], 
 	Level 1 and RL2.5, including the syntax where given. For an example of a concrete implementation of this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].</p>
@@ -5154,7 +5153,7 @@ range         = value'..'value</pre>
 			this is <b>[:General_Category=Letter:]</b>. </td>
 		</tr>
 	</table>
-	<h2>Appendix F: <a name="Date_Format_Patterns">Date Format Patterns</a></h2>
+	<h2><a name="Date_Format_Patterns" href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a></h2>
 	<p>A date pattern is a string of characters, where specific strings of characters are replaced 
 	with date and time data from a calendar when formatting or used to generate data for a calendar 
 	when parsing. The following 
@@ -5227,7 +5226,7 @@ range         = value'..'value</pre>
 		<p>Note: the counter-intuitive use of 5 letters for the narrow form of weekdays and months is forced by backwards compatibility.</p>
 	</blockquote>
 	<table cellspacing="0" cellpadding="2" border="1">
-		<caption><a name="Date_Field_Symbol_Table">Date Field Symbol Table</a></caption>
+		<caption><a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></caption>
 		<tr>
 			<th>Field</th>
 			<th style="text-align: center">Sym.</th>
@@ -5768,7 +5767,7 @@ range         = value'..'value</pre>
 	</table>
 	<p>All non-letter character represent themselves in a pattern, except for the single quote. It is used to &#39;escape&#39; letters. Two single quotes in a row, whether 
 	inside or outside a quoted sequence, represent a &#39;real&#39; single quote.</p>
-	<h3>F.1 <a name="Localized_Pattern_Characters">Localized Pattern Characters</a> (deprecated)</h3>
+	<h3><a name="Localized_Pattern_Characters" href="#Localized_Pattern_Characters">F.1 Localized Pattern Characters (deprecated)</a></h3>
 	<p>These are characters that can be used when displaying a date pattern to an end user. This can occur, for example, when a spreadsheet allows users to specify 
 	date patterns. Whatever is in the string is substituted one-for-one with the characters &quot;<span class="tx">GyMdkHmsSEDFwWahKzYe&quot;, with the above meanings</span>. 
 	Thus, for example, if &quot;J&quot; is to be used instead of &quot;Y&quot; to mean Year, then the string would be: &quot;<span class="tx">GyMdkHmsSEDFwWahKz<u>J</u>e&quot;.</span></p>
@@ -5801,7 +5800,7 @@ range         = value'..'value</pre>
 		<dt><b>weekendStart, weekendEnd</b> </dt>
 		<dd>Indicates the day and time that the weekend starts or ends. As with firstDay, keywords are used instead of numbers.</dd>
 	</dl>
-	<h2>Appendix G: <a name="Number_Format_Patterns">Number Format Patterns</a></h2>
+	<h2><a name="Number_Format_Patterns" href="#Number_Format_Patterns">Appendix G: Number Format Patterns</a></h2>
 	<h3>G.1 Number Patterns</h3>
 	<p>The <a href="#NumberElements">NumberElements</a> resource affects how these patterns are interpreted in a localized context. Here are some examples, based 
 	on the French locale. The &quot;.&quot; shows where the decimal point should go. The &quot;,&quot; shows where the thousands separator should go. A &quot;0&quot; indicates zero-padding: 
@@ -6025,7 +6024,7 @@ range         = value'..'value</pre>
 	is the only value for which the prefixes and suffixes are not used. </p>
 	<p>Infinity is represented as a single character, typically <font size="3">∞ </font><code>(\u221E)</code>, with the positive or negative prefixes and suffixes 
 	applied. The infinity character is determined by the localized number symbols. </p>
-	<h3>G.4 <a name="sci">Scientific Notation</a></h3>
+	<h3><a name="sci" href="#sci">G.4 Scientific Notation</a></h3>
 	<p>Numbers in scientific notation are expressed as the product of a mantissa and a power of ten, for example, 1234 can be expressed as 1.234 x 10<sup>3</sup>. 
 	The mantissa is typically in the half-open interval [1.0, 10.0) or sometimes [0.0, 1.0), but it need not be. In a pattern, the exponent character immediately 
 	followed by one or more digit characters indicates scientific notation. Example: &quot;0.###E0&quot; formats the number 1234 as &quot;1.234E3&quot;. </p>
@@ -6044,7 +6043,7 @@ range         = value'..'value</pre>
 		is &quot;12.3E3&quot;. See the section on significant digits for more details. </li>
 		<li>Exponential patterns may not contain grouping separators. </li>
 	</ul>
-	<h3>G.5 <a name="sigdig">Significant Digits</a></h3>
+	<h3><a name="sigdig" href="#sigdig">G.5 Significant Digits</a></h3>
 	<p>There are two ways of controlling how many digits are shows: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction 
 	digit counts are described above. When a formatter is using significant digits counts, the number of integer and fraction digits is not specified directly, 
 	and the formatter settings for these counts are ignored. Instead, the formatter uses however many integer and fraction digits are required to display the specified 
@@ -6168,12 +6167,12 @@ range         = value'..'value</pre>
 		<dt><b>scientificFormats</b> </dt>
 		<dd>Pattern for use with scientific (exponent) formatting. </dd>
 	</dl>
-	<h3>G.7 <a name="Quoting_Rules">Quoting Rules</a></h3>
+	<h3><a name="Quoting_Rules" href="#Quoting_Rules">G.7 Quoting Rules</a></h3>
 	<blockquote>
 		<p>Single quotes, (<b>&#39;</b>), enclose bits of the pattern that should be treated literally. Inside a quoted string, two single quotes (&#39;&#39;) are replaced 
 		with a single one (&#39;). For example: <tt><u>&#39;X &#39;</u>#<u>&#39; Q &#39;</u></tt> -&gt; <b>X 1939 Q </b>(Literal strings <u>underlined</u>.)</p>
 	</blockquote>
-	<h3>G.8 <a name="NumberElements">Number Elements</a></h3>
+	<h3><a name="NumberElements" href="#NumberElements">G.8 Number Elements</a></h3>
 	<blockquote>
 		<p>Localized symbols used in number formatting and parsing.</p>
 	</blockquote>
@@ -6218,7 +6217,7 @@ range         = value'..'value</pre>
 		<dd>This is used as the grouping separator in currency formatting/parsing, instead of the DecimalSeparator from the <a href="#NumberElements">NumberElements</a> 
 		list. This item is optional in the CLDR. </dd>
 	</dl>
-	<h2>Appendix H: <a name="Choice_Patterns">Choice Patterns</a></h2>
+	<h2><a name="Choice_Patterns" href="#Choice_Patterns">Appendix H: Choice Patterns</a></h2>
 	<p>A choice pattern is a string that chooses among a number of strings, based on numeric value. It has the following form:</p>
 	<p>&lt;choice_pattern&gt; = &lt;choice&gt; ( &#39;|&#39; &lt;choice&gt; )*<br>
 	&lt;choice&gt; = &lt;number&gt;&lt;relation&gt;&lt;string&gt;<br>
@@ -6251,7 +6250,7 @@ range         = value'..'value</pre>
 		</tr>
 	</table>
 	<p>Quoting is done using &#39; characters, as in date or number formats.</p>
-	<h2>Appendix I: <a name="Inheritance_and_Validity">Inheritance and Validity</a></h2>
+	<h2><a name="Inheritance_and_Validity" href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></h2>
 	<p>The following describes in more detail how to determine the exact inheritance of elements, and the validity of a given element in LDML.</p>
 	<h3>I.1 Definitions</h3>
 	<p><i>Blocking</i> elements are those whose subelements do not inherit from parent locales. For example, a &lt;collation&gt; element is a blocking element: everything 
@@ -6581,7 +6580,7 @@ range         = value'..'value</pre>
 	<p>For identifiers, such as language codes, script codes, region codes, variant codes, types, keywords, currency symbols or currency display names, the default 
 	value is the identifier itself whenever if no value is found in the root. Thus if there is no display name for the region code &#39;QA&#39; in root, then the display 
 	name is simply &#39;QA&#39;. </p>
-	<h2>Appendix J: <a name="Time_Zone_Fallback">Time Zone Display Names</a></h2>
+	<h2><a name="Time_Zone_Fallback" href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a></h2>
 	<p>There are three main types of formats for zone identifiers: GMT, generic (wall time), and standard/daylight. Standard and daylight are equivalent to a particular 
 	offset from GMT, and can be represented by a GMT offset as a fallback. In general, this is not true for the generic format, which is used for picking
 	timezones or for conveying a timezone for specifying a recurring time (such as a meeting in a calendar). For either purpose, a GMT offset would lose information.</p>
@@ -6758,9 +6757,9 @@ range         = value'..'value</pre>
 		&lt;mapZone other=&quot;America_Pacific&quot; territory=&quot;MX&quot; type=&quot;America/Tijuana&quot;/&gt;</font></p>
 	</blockquote>
 
-	<p class="removed"><a name="fallbackFormat"><strong>fallbackRegionFormat:</strong></a> a formatting string such as &quot;{1} Time ({0})&quot;, where {1} is the country and {0} is a city.</p>
+	<p class="removed"><a name="fallbackFormat" href="#fallbackFormat"><strong>fallbackRegionFormat:</strong></a> a formatting string such as &quot;{1} Time ({0})&quot;, where {1} is the country and {0} is a city.</p>
 
-	<p><a name="fallbackFormat"><b>fallbackFormat</b>:</a> a formatting string such as &quot;{1} ({0})&quot;, 
+	<p><a name="fallbackFormat" href="#fallbackFormat"><b>fallbackFormat</b>:</a> a formatting string such as &quot;{1} ({0})&quot;, 
 	where {1} is the metazone, and {0} is the country or city.</p>
 
 	<p><b>regionFormat:</b> a formatting string such as &quot;{0} Time&quot;, where {0} is the country or city.</p>
@@ -6998,8 +6997,7 @@ range         = value'..'value</pre>
       </ul></li>
 	</ol>
   <p><b>Note: </b>As with the <em>regionFormat</em>, exceptional cases need to be explicitly translated. </p>
-<h3 style="background-color: rgb(255, 255, 255);">
-<font color="#000000"><i><b>Parsing</b></i></font></h3>
+<h3>Parsing</h3>
 	<p>In parsing, an implementation will be able to either determine the zone id, or a simple offset from GMT for anything formatting according to the above process.</p>
 	<p>The following is a sample process for how this might be done. It is 
 	only a sample; implementations may use different methods for parsing.</p>
@@ -7115,7 +7113,7 @@ range         = value'..'value</pre>
 		<p><b>Note: </b>The hoursFormat, preferenceOrdering, and abbreviationFallback 
 		items used in earlier versions of this appendix are deprecated. </p>
 	</blockquote>
-	<h2><a name="Valid_Attribute_Values">Appendix K: Valid Attribute Values</a></h2>
+	<h2><a name="Valid_Attribute_Values" href="#Valid_Attribute_Values">Appendix K: Valid Attribute Values</a></h2>
 	<p>The valid attribute values, as well as other validity information is contained in the supplementalMetadata.xml file.
 	(Some, but not all, of this information could have been represented in XML Schema or a DTD.) Most of this is primarily for internal tool use.</p>
 	<p><i>The following specify the ordering of elements / attributes in the file:</i></p>
@@ -7177,7 +7175,7 @@ exclude=&quot;true&quot;
 elements=&quot;default measurementSystem mapping abbreviationFallback preferenceOrdering&quot; 
 attributes=&quot;type&quot;/&gt;</pre>
 	</blockquote>
-	<h2>Appendix L: <a name="Canonical_Form">Canonical Form</a></h2>
+	<h2><a name="Canonical_Form" href="#Canonical_Form">Appendix L: Canonical Form</a></h2>
 	<p>The following are restrictions on the format of LDML files to allow for easier parsing and comparison of files. </p>
 	<p>Peer elements have consistent order. That is, if the DTD or this specification requires the following order in an element foo:</p>
 	<pre>&lt;foo&gt;
@@ -7298,17 +7296,17 @@ decimal?, group?, special*)) &gt;</pre>
 	it will be appended, with a line-break between.) If there is no place to attach the node (for example, as a result of processing that removes the attachment 
 	node), the comment and its node&#39;s [<a href="#XPath">XPath</a>] will be appended to the final comment in the document.</p>
 	<p>Multiline comments will have leading tabs stripped, so any indentation should be done with spaces.</p>
-	<h3>L.5 <a name="Element_Order_Table">Element Order Table</a></h3>
+	<h3><a name="Element_Order_Table" href="#Element_Order_Table">L.5 Element Order Table</a></h3>
 	<p>The order of attributes is given by the elementOrder table in the supplemental metadata.</p>
-	<h3>L.6 <a name="Attribute_Order_Table">Attribute Order Table</a></h3>
+	<h3><a name="Attribute_Order_Table" href="#Attribute_Order_Table">L.6 Attribute Order Table</a></h3>
 	<p>The order of attributes is given by the attributeOrder table in the supplemental metadata.</p>
-	<h3>L.7 <a name="Value_Order_Table">Value Order Table</a></h3>
+	<h3><a name="Value_Order_Table" href="#Value_Order_Table">L.7 Value Order Table</a></h3>
 	<p>The order of attribute values is given by the order of the values in the attributeValues elements that have the attribute order=&quot;given&quot;. Numeric values are 
 	sorted in numeric order, while tzids are ordered by country, then longitude, then latitude.</p>
-	<h3>L.8 <a name="Defaulted_Values_Table">Defaulted Values Table</a></h3>
+	<h3><a name="Defaulted_Values_Table" href="#Defaulted_Values_Table">L.8 Defaulted Values Table</a></h3>
 	<p>The defaulted attributes are given by the <i>suppress</i> table in the supplemental metadata. There is one special value _q; that is used on serial elements 
 	internally to preserve ordering.</p>
-	<h2><a name="Coverage_Levels">Appendix M: Coverage Levels</a></h2>
+	<h2><a name="Coverage_Levels" href="#Coverage_Levels">Appendix M: Coverage Levels</a></h2>
   <p>The following describes the coverage levels used for the current version of CLDR. This list will change between releases of CLDR. Each level adds to what is in the lower level.</p>
 	<table border="1" cellpadding="0" cellspacing="1">
 		<tr>
@@ -7493,7 +7491,7 @@ decimal?, group?, special*)) &gt;</pre>
 		</ul>
 		</li>
 	</ul>
-	<h2>Appendix N: <a name="Transform_Rules">Transform Rules</a></h2>
+	<h2><a name="Transform_Rules" href="#Transform_Rules">Appendix N: Transform Rules</a></h2>
 	<p class="dtd">&lt;!ELEMENT transforms ( transform*) &gt;<br>
 	&lt;!ELEMENT transform ((comment | tRule)*) &gt;<br>
 	&lt;!ATTLIST transform source CDATA #IMPLIED &gt;<br>
@@ -7885,7 +7883,7 @@ decimal?, group?, special*)) &gt;</pre>
 	<p>Note how the irrelevant rules (the inverse filter rule and the rules containing ←) are omitted (ignored, actually) in the forward direction, and notice how 
 	things are reversed: the transform rules are inverted and happen in the opposite order, and the groups of conversion rules are also executed in the opposite 
 	relative order (although the rules within each group are executed in the same order). </p>
-	<h2><a name="Lenient_Parsing">Appendix O: Lenient Parsing</a></h2>
+	<h2><a name="Lenient_Parsing" href="#Lenient_Parsing">Appendix O: Lenient Parsing</a></h2>
 	<h3>O.1 Motivation</h3>
 	<p>User input is frequently messy. Attempting to parse it by matching it exactly against a pattern is likely to be unsuccessful, even when the meaning of the 
 	input is clear to a human being. For example, for a date pattern of &quot;MM/dd/yy&quot;, the input &quot;June 1, 2006&quot; will fail.</p>
@@ -8002,7 +8000,7 @@ decimal?, group?, special*)) &gt;</pre>
 		</ul>
 		</li>
 	</ul>
-	<h2>Appendix P. <a name="Appendix_Supplemental_Metadata">Supplemental Metadata</a></h2>
+	<h2><a name="Appendix_Supplemental_Metadata" href="#Appendix_Supplemental_Metadata">Appendix P. Supplemental Metadata</a></h2>
 	<p>The supplemental metadata contains information about the CLDR file itself, used to test 
 	validity and provide information for locale inheritance. A number of these elements are 
 	described in </p>
@@ -8082,7 +8080,7 @@ decimal?, group?, special*)) &gt;</pre>
 	</table>
 	<p>In each case, multiple items are space-delimited.</p>
 	<p>Where particular values are deprecated (such as territory codes like SU for Soviet Union), the names for such codes may be removed from the common/main translated data after some period of time. However, typically supplemental information for deprecated codes is retained, such as containment, likely subtags, older currency codes usage, etc. The English name may also be retained, for debugging purposes.</p>
-<h3>P.3 <a name="Default_Content">Default Content</a></h3>
+<h3><a name="Default_Content" href="#Default_Content">P.3 Default Content</a></h3>
 	<pre class="dtd">&lt;!ELEMENT defaultContent EMPTY &gt;
 &lt;!ATTLIST defaultContent locales NMTOKENS #IMPLIED &gt;</pre>
 	<p>In CLDR, locales without territory information (or where needed, 
@@ -8102,7 +8100,7 @@ decimal?, group?, special*)) &gt;</pre>
 	pushed out to the locales that inherit from it, then the new default content locale&#39;s data moved 
 	into the base. There are tools in CLDR to perform this operation.</p>
 
-	<h2>Appendix Q. <a name="Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></h2>
+	<h2><a name="Locale_Extension_Key_and_Type_Data" href="#Locale_Extension_Key_and_Type_Data">Appendix Q. Unicode BCP 47 Extension Data</a></h2>
 	<p>The Unicode Consortium has registered and is the maintaining authority for two BCP 47 language tag extensions: the extension 'u' for Unicode locale extension [<a href="#RFC6067">RFC6067</a>]
 	and extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of
 	valid Unicode locale key, type and attribute subtags used by the 'u' extension and valid  subtags used by 't' extension.
@@ -8274,7 +8272,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>type "aumqi" is valid for key "tz", supported by CLDR 1.8.1
 		or later versions.</li>
 	</ul>
-	<h4><a name="Numbering System Data">Q.1.1 Numbering System Data</a><br>
+	<h4><a name="Numbering System Data" href="#Numbering System Data">Q.1.1 Numbering System Data</a><br>
 	</h4>
 	<p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/bcp47/number.xml">bcp47/number.xml</a>.<br>
   </p>
@@ -8322,10 +8320,10 @@ decimal?, group?, special*)) &gt;</pre>
 	  <dd>Alternative name, not limited in number of characters.         Aliases are intended for       compatibility, not  to provide all possible       alternate names or            designations.  <em>(Optional)</em></dd>
   </dl>
   <p>For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].</p>
-  <h2><a name="Property_Data"></a>Appendix R. Property Data</h2>
+  <h2><a name="Property_Data" href="#Property_Data">Appendix R. Property Data</a></h2>
   <p>Some data in CLDR does not use an XML format, but rather a semicolon-delimited format derived from that of the Unicode Character Database. That is because the data is more likely to be parsed by implementations that already parse UCD data. Those files are present in the common/properties directory.
   <p>Each file has a header that explains the format and usage of the data.
-  <h2><a name="Keyboards"></a>Appendix S. Keyboards</h2>
+  <h2><a name="Keyboards" href="#Keyboards">Appendix S. Keyboards</a></h2>
   <p>The CLDR keyboard format provides for the communication of keyboard mapping data between different modules, and the comparison of data across different vendors and platforms. The standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.</p>
   <p>For example, a web-based virtual keyboard may transform text in the following way. Suppose the user types a key that produces a &quot;W&quot; on a qwerty keyboard. A web-based tool using an azerty virtual keyboard can map that text (&quot;W&quot;) to the text that would have resulted from typing a key on an azerty keyboard, by transforming &quot;W&quot; to &quot;Z&quot;. Such transforms are in fact performed in existing web applications.</p>
   <p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p>
@@ -8333,7 +8331,7 @@ decimal?, group?, special*)) &gt;</pre>
   <pre>&lt;keyboard locale=&quot;en-t-k0-osx&quot;&gt;<br>	&lt;version platform=&quot;10.4&quot; number=&quot;$Revision$&quot; /&gt;<br>	&lt;generation date=&quot;$Date$&quot; /&gt;<br>	&lt;names&gt;<br>		&lt;name value=&quot;U.S.&quot; /&gt;<br>	&lt;/names&gt;<br>	&lt;keyMap&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;1&quot; /&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;q&quot; /&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;w&quot; /&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;e&quot; longPress=&quot;é è ê ë&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;keyMap modifiers=&quot;caps&quot;&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;1&quot; /&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;Q&quot; /&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;W&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;keyMap modifiers=&quot;opt&quot;&gt;<br>		&lt;map iso=&quot;E00&quot; to=&quot;`&quot; /&gt;<br>		&lt;map iso=&quot;E01&quot; to=&quot;¡&quot; /&gt; &lt;!-- key=1 --&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;œ&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;∑&quot; /&gt; &lt;!-- key=W --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;` &quot; to=&quot;`&quot; /&gt;<br>		&lt;transform from=&quot;`a&quot; to=&quot;à&quot; /&gt;<br>		&lt;transform from=&quot;`A&quot; to=&quot;À&quot; /&gt;<br>		&lt;transform from=&quot;´ &quot; to=&quot;´&quot; /&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;˜ &quot; to=&quot;˜&quot; /&gt;<br>		&lt;transform from=&quot;˜a&quot; to=&quot;ã&quot; /&gt;<br>		&lt;transform from=&quot;˜A&quot; to=&quot;Ã&quot; /&gt;<br>		…<br>	&lt;/transforms&gt;<br>&lt;/keyboard&gt;</pre>
   <p>And its associated platform file (which includes the hardware mapping):</p>
   <pre>&lt;platform id=&quot;osx&quot;&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;0&quot; iso=&quot;C01&quot; /&gt;<br>		&lt;map keycode=&quot;1&quot; iso=&quot;C02&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;B01&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;B02&quot; /&gt;<br>		&lt;map keycode=&quot;12&quot; iso=&quot;D01&quot; /&gt;<br>		&lt;map keycode=&quot;13&quot; iso=&quot;D02&quot; /&gt;<br>		&lt;map keycode=&quot;18&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;50&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
-  <h3><a name="Goals_and_Nongoals"></a>Goals and Nongoals</h3>
+  <h3><a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Nongoals</a></h3>
   <p>Some goals of this format are:</p>
   <ol class="c6" start="1">
     <li>Make the XML as readable as possible.</li>
@@ -8348,7 +8346,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li>More sophisticated transforms, such as for Indic character rearrangement. It is anticipated that these would be added to a future version, after working out a reasonable representation.</li>
   </ol>
   <p>Note: During development, it was considered whether RAlt (=AltGr) with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to identify them.</p>
-  <h3><a name="Definitions"></a>Definitions</h3>
+  <h3><a name="Definitions" href="#Definitions">Definitions</a></h3>
   <p>Keyboard: The physical keyboard.</p>
   <p>Key: A key on a physical keyboard.</p>
   <p>Modifier: A key that is held to change the behavior of a keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but is not limited to: Ctrl, Alt, Option, Command and Caps Lock.</p>
@@ -8363,14 +8361,14 @@ decimal?, group?, special*)) &gt;</pre>
   <p>Key map: The basic mapping between ISO positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.</p>
   <p>Transform:  A transform is simply a combination of key presses that gets transformed into one (or more) final characters. For example, in most latin keyboards hitting the "^" dead-key followed by the "e" key produces "ê".</p>
   <p>Layout: A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and one or more transforms.</p>
-  <h3><a name="File_and_Dir_Structure"></a>File and Directory Structure</h3>
+  <h3><a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a></h3>
   <p>Each platform has its own directory, where a "platform" is a designation for a set of keyboards available from a particular source, such as Windows or Chromeos. This directory name is the platform name (see Table 2 located further in the document). Within this directory there are two types of files:</p>
   <ol class="c6" start="1">
     <li>A single platform file (see XML structure for Platform file), this file includes a mapping of hardware key codes to the ISO layout positions. This file is also open to expansion for any configuration elements that are valid across the whole platform and that are not layout specific. This file is simply called _platform.xml.</li>
     <li>Multiple layout files named by their locale identifiers. (eg. lt-t-k0-chromeos.xml or ne-t-k0-windows.xml). </li>
   </ol>
-  <h3><a name="Element_Heirarchy_Layout_File"></a>Element Hierarchy - Layout File</h3>
-  <h4><a name="Element_Keyboard"></a>Element: keyboard</h4>
+  <h3><a name="Element_Heirarchy_Layout_File" href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout File</a></h3>
+  <h4><a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a></h4>
   <p>This is the top level element. All other elements defined below are under this element.</p>
   <p>Syntax</p>
   <p>&lt;keyboard locale=&quot;{locale ID}&quot;&gt;</p>
@@ -8387,7 +8385,7 @@ decimal?, group?, special*)) &gt;</pre>
   …
 &lt;/keyboard&gt;</pre>
   <hr>
-  <h4><a name="Element_version"></a>Element: version</h4>
+  <h4><a name="Element_version" href="#Element_version">Element: version</a></h4>
   <p>Element used to keep track of the source data version.<br>
     <br>
     Syntax</p>
@@ -8406,7 +8404,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p>…</p>
   <p>&lt;/keyboard&gt;</p>
   <hr>
-  <h4><a name="Element_generation"></a>Element: generation</h4>
+  <h4><a name="Element_generation" href="#Element_generation">Element: generation</a></h4>
   <p>Element used to keep track of the generation date of the data.<br>
     <br>
     Syntax</p>
@@ -8421,7 +8419,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p>…</p>
   <p>&lt;/keyboard&gt;</p>
   <hr>
-  <h4><a name="Element_names"></a>Element: names</h4>
+  <h4><a name="Element_names" href="#Element_names">Element: names</a></h4>
   <p>Element used to store any names given to the layout by the platform.<br>
     <br>
     Syntax</p>
@@ -8429,7 +8427,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p>{set of name elements}</p>
   <p>&lt;/names&gt;<br>
   </p>
-  <h4><a name="Element_name"></a>Element: name</h4>
+  <h4><a name="Element_name" href="#Element_name">Element: name</a></h4>
   <p>A single name given to the layout by the platform.<br>
     <br>
     Syntax</p>
@@ -8446,7 +8444,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p>…</p>
   <p>&lt;/keyboard&gt;</p>
   <hr>
-  <h4><a name="Element_settings"></a>Element: settings</h4>
+  <h4><a name="Element_settings" href="#Element_settings">Element: settings</a></h4>
   <p>An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice on the platform. However, an implementation using the data may customize the behavior. For example, for transformFailures the implementation could ignore the setting, or modify the text buffer in some other way (such as by emitting backspaces).<br>
     <br>
     Syntax</p>
@@ -8484,7 +8482,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li>During a transform, hide the contents of the buffer as the user is typing.</li>
   </ol>
   <hr>
-  <h4><a name="Element_keyMap"></a>Element: keyMap</h4>
+  <h4><a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a></h4>
   <p>This element defines the group of mappings for all the keys that use the same set of modifier keys. It contains one or more map elements.</p>
   <p>Syntax</p>
   <p>&lt;keyMap [modifiers=&quot;{Set of Modifier Combinations}&quot;]&gt;</p>
@@ -8551,7 +8549,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p>&lt;keyMap modifiers=&quot;shift caps&quot; fallback=&quot;true&quot; /&gt;</p>
   <p>Caps-Lock must be ON OR Shift must be ON. Is also the fallback key map.</p>
   <p>If the modifiers attribute is not present on a keyMap then that particular key map is the base map.</p>
-  <h4><a name="Element_map"></a>Element: map</h4>
+  <h4><a name="Element_map" href="#Element_map">Element: map</a></h4>
   <p>This element defines a mapping between the base character and the output for a particular set of active modifier keys. This element must have the keyMap element as its parent.</p>
   <p>If a map element for a particular ISO layout position has not been defined then if this key is pressed, no output is produced.</p>
   <p>Syntax</p>
@@ -8581,7 +8579,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p>Examples</p>
   <pre>&lt;keyboard locale=&quot;fr-BE-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers=&quot;shift&quot;&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;A&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;Z&quot; /&gt; &lt;!-- key=W --&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;E&quot; /&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;R&quot; /&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;T&quot; /&gt;<br>		&lt;map iso=&quot;D06&quot; to=&quot;Y&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;ps-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers='altR+caps? ctrl+alt+caps?'&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;\u{200e}&quot; /&gt; &lt;!-- key=R base=ق --&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;\u{200f}&quot; /&gt; &lt;!-- key=T base=ف --&gt;<br>		&lt;map iso=&quot;D08&quot; to=&quot;\u{670}&quot; /&gt; &lt;!-- key=I base=ه to= ٰ --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;</pre>
   <hr>
-  <h4><a name="Element_transforms"></a>Element: transforms</h4>
+  <h4><a name="Element_transforms" href="#Element_transforms">Element: transforms</a></h4>
   <p>This element defines a group of one or more transform elements associated with this keyboard layout. This is used to support dead-keys using a straightforward structure that works for all the keyboards tested, and that results in readable source data.</p>
   <p>There can be multiple &lt;transforms&gt; elements; at this point the "simple" one is defined.</p>
   <p>Syntax</p>
@@ -8590,7 +8588,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p>&lt;/transforms&gt;</p>
   <p>Attribute: type (required)</p>
   <p>The value is "simple" for the transforms listed below. People have legitimate needs for more complex transforms, and  more sophisticated types of transforms may be added over time. (Doing the more sophisticated transforms would take much more time, since it would require a thorough survey of the major keyboard mechanisms that use them, development of  a unified mechanism that handles all the requirements, and coding to ensure sure programmatically mapping those mechanisms into the standard is possible, and so on.)</p>
-  <h4><a name="Element_transform"></a>Element: transform</h4>
+  <h4><a name="Element_transform" href="#Element_transform">Element: transform</a></h4>
   <p>This element must have the transforms element as its parent. This element represents a single transform that may be performed using the keyboard layout. A transform is simply a combination of key presses that gets transformed into one (or more) final characters. For example, in most French keyboards hitting the "^" dead-key followed by the "e" key produces "ê".</p>
   <p>Syntax</p>
   <p>&lt;transform from="{combination of characters}" to="{output}"&gt;</p>
@@ -8659,15 +8657,15 @@ decimal?, group?, special*)) &gt;</pre>
   <p>Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the \u{...} notation.</p>
   <p>Examples</p>
   <pre>&lt;keyboard locale=&quot;fr-CA-t-k0-CSA-osx&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;´e&quot; to=&quot;é&quot; /&gt;<br>		&lt;transform from=&quot;´E&quot; to=&quot;É&quot; /&gt;<br>		&lt;transform from=&quot;´i&quot; to=&quot;í&quot; /&gt;<br>		&lt;transform from=&quot;´I&quot; to=&quot;Í&quot; /&gt;<br>		&lt;transform from=&quot;´o&quot; to=&quot;ó&quot; /&gt;<br>		&lt;transform from=&quot;´O&quot; to=&quot;Ó&quot; /&gt;<br>		&lt;transform from=&quot;´u&quot; to=&quot;ú&quot; /&gt;<br>		&lt;transform from=&quot;´U&quot; to=&quot;Ú&quot; /&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;nl-BE-t-k0-chromeos&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;\u{30c}a&quot; to=&quot;ǎ&quot; /&gt; &lt;!-- ̌a → ǎ --&gt;<br>		&lt;transform from=&quot;\u{30c}A&quot; to=&quot;Ǎ&quot; /&gt; &lt;!-- ̌A → Ǎ --&gt;<br>		&lt;transform from=&quot;\u{30a}a&quot; to=&quot;å&quot; /&gt; &lt;!-- ̊a → å --&gt;<br>		&lt;transform from=&quot;\u{30a}A&quot; to=&quot;Å&quot; /&gt; &lt;!-- ̊A → Å --&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;</pre>
-  <h3><a name="Element_Heirarchy_Platform_File"></a>Element Hierarchy - Platform File</h3>
+  <h3><a name="Element_Heirarchy_Platform_File" href="#Element_Heirarchy_Platform_File">Element Hierarchy - Platform File</a></h3>
   <p>There is a separate XML structure for platform-specific configuration elements. The most notable component is a mapping between the hardware key codes to the ISO layout positions for that platform.</p>
-  <h4><a name="Element_platform"></a>Element: platform</h4>
+  <h4><a name="Element_platform" href="#Element_platform">Element: platform</a></h4>
   <p>This is the top level element. This element contains a set of elements defined below. A document shall only contain a single instance of this element.</p>
   <p>Syntax</p>
   <p>&lt;platform&gt;</p>
   <p>{platform-specific elements}</p>
   <p>&lt;/platform&gt;</p>
-  <h4><a name="Element_hardwareMap"></a>Element: hardwareMap</h4>
+  <h4><a name="Element_hardwareMap" href="#Element_hardwareMap">Element: hardwareMap</a></h4>
   <p>This element must have a platform element as its parent. This element contains a set of map elements defined below. A document shall only contain a single instance of this element.</p>
   <p>Syntax</p>
   <pre>&lt;platform&gt;
@@ -8675,7 +8673,7 @@ decimal?, group?, special*)) &gt;</pre>
         {a set of map elements}
     &lt;/hardwareMap&gt;
 &lt;/platform&gt;</pre>
-  <h4><a name="Element_map"></a>Element: map</h4>
+  <h4><a name="Element_map" href="#Element_map">Element: map</a></h4>
   <p>This element must have a hardwareMap element as its parent. This element maps between a hardware keycode and the corresponding ISO layout position of the key.</p>
   <p>Syntax</p>
   <p>&lt;map keycode=&quot;{hardware keycode}&quot; iso=&quot;{ISO layout position}&quot;/&gt;</p>
@@ -8685,7 +8683,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p>The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. (See the definition at the beginning of the document for a diagram).</p>
   <p>Examples</p>
   <pre>&lt;platform&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;2&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;3&quot; iso=&quot;E02&quot; /&gt;<br>		&lt;map keycode=&quot;4&quot; iso=&quot;E03&quot; /&gt;<br>		&lt;map keycode=&quot;5&quot; iso=&quot;E04&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;E05&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;E06&quot; /&gt;<br>		&lt;map keycode=&quot;41&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
-  <h3><a name="Invariants"></a>Invariants</h3>
+  <h3><a name="Invariants" href="#Invariants">Invariants</a></h3>
   <p>Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.</p>
   <ol>
     <li>For a given platform, every map[@iso] value must be in the hardwareMap if there is one (_keycodes.xml)</li>
@@ -8789,7 +8787,7 @@ decimal?, group?, special*)) &gt;</pre>
       </tr>
     </tbody>
   </table>
-  <h3><a name="Data_Sources"></a>Data Sources</h3>
+  <h3><a name="Data_Sources" href="#Data_Sources">Data Sources</a></h3>
   <p>Here is a list of the data sources used to generate the initial key map layouts:</p>
   <table cellpadding="0" cellspacing="0" border='1'>
     <tbody>
@@ -8821,9 +8819,9 @@ decimal?, group?, special*)) &gt;</pre>
       </tr>
     </tbody>
   </table>
-  <h3><a name="Keyboard_IDs"></a>Keyboard IDs</h3>
+  <h3><a name="Keyboard_IDs" href="#Keyboard_IDs">Keyboard IDs</a></h3>
   <p>There is a set of subtags that help identify the keyboards. Each of these are used after the "t-k0" subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.</p>
-  <h4><a name="Principles_for_Keyboard_Ids"></a>Principles for Keyboard Ids</h4>
+  <h4><a name="Principles_for_Keyboard_Ids" href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a></h4>
   <p>The following are the design principles for the ids.</p>
   <ol>
     <li>BCP47 compliant.
@@ -8848,7 +8846,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li>In some cases, there are multiple subtags, like en-US-t-k0-chromeos-intl-altgr.xml</li>
     <li>Otherwise, platform names are used as a guide.</li>
   </ol>
-  <h3><a name="Platform_Behaviors_in_Edge_Cases"></a>Platform Behaviors in Edge Cases</h3>
+  <h3><a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a></h3>
   <table cellpadding="0" cellspacing="0" border="1">
     <tbody>
       <tr>
@@ -8982,79 +8980,79 @@ decimal?, group?, special*)) &gt;</pre>
       <th>Section in new part</th>
     </tr>
     <tr>
-      <td>5.14 <a name="Collation_Elements">Collation Elements</a></td>
+      <td>5.14 <a name="Collation_Elements" href="#Collation_Elements">Collation Elements</a></td>
       <td>3 <a href="tr35-collation.html#Collation_Tailorings">Collation Tailorings</a></td>
     </tr>
     <tr>
-      <td>5.14.1 <a name="Collation_Version">Version</a></td>
+      <td>5.14.1 <a name="Collation_Version" href="#Collation_Version">Version</a></td>
       <td>3.1 <a href="tr35-collation.html#Collation_Version">Version</a></td>
     </tr>
     <tr>
-      <td>5.14.2 <a name="Collation_Element">Collation Element</a></td>
+      <td>5.14.2 <a name="Collation_Element" href="#Collation_Element">Collation Element</a></td>
       <td>3.2 <a href="tr35-collation.html#Collation_Element">Collation Element</a></td>
     </tr>
     <tr>
-      <td>5.14.3 <a name="Setting_Options">Setting Options</a></td>
+      <td>5.14.3 <a name="Setting_Options" href="#Setting_Options">Setting Options</a></td>
       <td>3.3 <a href="tr35-collation.html#Setting_Options">Setting Options</a></td>
     </tr>
     <tr>
-      <td>Table <a name="Collation_Settings">Collation Settings</a></td>
+      <td>Table <a name="Collation_Settings" href="#Collation_Settings">Collation Settings</a></td>
       <td>Table <a href="tr35-collation.html#Collation_Settings">Collation Settings</a></td>
     </tr>
     <tr>
-      <td>5.14.4 <a name="Rules">Collation Rule Syntax</a></td>
+      <td>5.14.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a></td>
       <td>3.4 <a href="tr35-collation.html#Rules">Collation Rule Syntax</a></td>
     </tr>
     <tr>
-      <td>5.14.5 <a name="Orderings">Orderings</a></td>
+      <td>5.14.5 <a name="Orderings" href="#Orderings">Orderings</a></td>
       <td>3.5 <a href="tr35-collation.html#Orderings">Orderings</a></td>
     </tr>
     <tr>
-      <td>5.14.6 <a name="Contractions">Contractions</a></td>
+      <td>5.14.6 <a name="Contractions" href="#Contractions">Contractions</a></td>
       <td>3.6 <a href="tr35-collation.html#Contractions">Contractions</a></td>
     </tr>
     <tr>
-      <td>5.14.7 <a name="Expansions">Expansions</a></td>
+      <td>5.14.7 <a name="Expansions" href="#Expansions">Expansions</a></td>
       <td>3.7 <a href="tr35-collation.html#Expansions">Expansions</a></td>
     </tr>
     <tr>
-      <td>5.14.8 <a name="Context_Before">Context Before</a></td>
+      <td>5.14.8 <a name="Context_Before" href="#Context_Before">Context Before</a></td>
       <td>3.8 <a href="tr35-collation.html#Context_Before">Context Before</a></td>
     </tr>
     <tr>
-      <td>5.14.9 <a name="Placing_Characters_Before_Others">Placing Characters Before Others</a></td>
+      <td>5.14.9 <a name="Placing_Characters_Before_Others" href="#Placing_Characters_Before_Others">Placing Characters Before Others</a></td>
       <td>3.9 <a href="tr35-collation.html#Placing_Characters_Before_Others">Placing Characters Before Others</a></td>
     </tr>
     <tr>
-      <td>5.14.10 <a name="Logical_Reset_Positions">Logical Reset Positions</a></td>
+      <td>5.14.10 <a name="Logical_Reset_Positions" href="#Logical_Reset_Positions">Logical Reset Positions</a></td>
       <td>3.10 <a href="tr35-collation.html#Logical_Reset_Positions">Logical Reset Positions</a></td>
     </tr>
     <tr>
-      <td>5.14.11 <a name="Special_Purpose_Commands">Special-Purpose Commands</a></td>
+      <td>5.14.11 <a name="Special_Purpose_Commands" href="#Special_Purpose_Commands">Special-Purpose Commands</a></td>
       <td>3.11 <a href="tr35-collation.html#Special_Purpose_Commands">Special-Purpose Commands</a></td>
     </tr>
     <tr>
-      <td>5.14.12 <a name="Script_Reordering">Collation Reordering</a></td>
+      <td>5.14.12 <a name="Script_Reordering" href="#Script_Reordering">Collation Reordering</a></td>
       <td>3.12 <a href="tr35-collation.html#Script_Reordering">Collation Reordering</a></td>
     </tr>
     <tr>
-      <td>5.14.13 <a name="Case_Parameters">Case Parameters</a></td>
+      <td>5.14.13 <a name="Case_Parameters" href="#Case_Parameters">Case Parameters</a></td>
       <td>3.13 <a href="tr35-collation.html#Case_Parameters">Case Parameters</a></td>
     </tr>
     <tr>
-      <td>Definition: <a name="UncasedExceptions">UncasedExceptions</a></td>
+      <td>Definition: <a name="UncasedExceptions" href="#UncasedExceptions">UncasedExceptions</a></td>
       <td>Definition: <a href="tr35-collation.html#UncasedExceptions">UncasedExceptions</a></td>
     </tr>
     <tr>
-      <td>Definition: <a name="LowerExceptions">LowerExceptions</a></td>
+      <td>Definition: <a name="LowerExceptions" href="#LowerExceptions">LowerExceptions</a></td>
       <td>Definition: <a href="tr35-collation.html#LowerExceptions">LowerExceptions</a></td>
     </tr>
     <tr>
-      <td>Definition: <a name="UpperExceptions">UpperExceptions</a></td>
+      <td>Definition: <a name="UpperExceptions" href="#UpperExceptions">UpperExceptions</a></td>
       <td>Definition: <a href="tr35-collation.html#UpperExceptions">UpperExceptions</a></td>
     </tr>
     <tr>
-      <td>5.14.14 <a name="Visibility">Visibility</a></td>
+      <td>5.14.14 <a name="Visibility" href="#Visibility">Visibility</a></td>
       <td>3.14 <a href="tr35-collation.html#Visibility">Visibility</a></td>
     </tr>
   </table>
@@ -9088,7 +9086,7 @@ decimal?, group?, special*)) &gt;</pre>
   </table>
 
 <hr>
-	<h2><a name="References">References</a></h2>
+	<h2><a name="References" href="#References">References</a></h2>
 	<table cellpadding="4" cellspacing="0" class="noborder" border="0">
 		<tr>
 			<th class="noborder" width="148">Ancillary Information</th>
@@ -9098,47 +9096,47 @@ decimal?, group?, special*)) &gt;</pre>
 &nbsp;</i></td>
 		</tr>
 		<tr>
-			<td width="148">[<a name="Bugs">Bugs</a>]</td>
-			<td width="730">CLDR Bug Reporting form<br>
+			<td class="noborder" width="148">[<a name="Bugs" href="#Bugs">Bugs</a>]</td>
+			<td class="noborder" width="730">CLDR Bug Reporting form<br>
 			<a href="http://cldr.unicode.org/index/bug-reports">
 			http://cldr.unicode.org/index/bug-reports</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Charts">Charts</a>]</td>
+			<td class="noborder" width="148">[<a name="Charts" href="#Charts">Charts</a>]</td>
 			<td class="noborder" width="730">The online code charts can be found at <a href="http://unicode.org/charts/">http://unicode.org/charts/</a> An index 
 			to character names with links to the corresponding chart is found at <a href="http://unicode.org/charts/charindex.html">http://unicode.org/charts/charindex.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="DUCET">DUCET</a>]</td>
+			<td class="noborder" width="148">[<a name="DUCET" href="#DUCET">DUCET</a>]</td>
 			<td class="noborder" width="730">The Default Unicode Collation Element Table (DUCET)<br>
 			For the base-level collation, of which all the collation tables in this document are tailorings.<br>
 			<a href="http://unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">http://unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="FAQ">FAQ</a>]</td>
+			<td class="noborder" width="148">[<a name="FAQ" href="#FAQ">FAQ</a>]</td>
 			<td class="noborder" valign="top" width="730">Unicode Frequently Asked Questions<br>
 			<a href="http://unicode.org/faq/">http://unicode.org/faq/<br>
 			</a><i>For answers to common questions on technical issues.</i></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="FCD">FCD</a>]</td>
+			<td class="noborder" width="148">[<a name="FCD" href="#FCD">FCD</a>]</td>
 			<td class="noborder" width="730">As defined in UTN #5 Canonical Equivalences in Applications<br>
 			<a href="http://unicode.org/notes/tn5/">http://unicode.org/notes/tn5/</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Glossary">Glossary</a>]</td>
+			<td class="noborder" width="148">[<a name="Glossary" href="#Glossary">Glossary</a>]</td>
 			<td class="noborder" width="730">Unicode Glossary<a href="http://unicode.org/glossary/"><br>
 			http://unicode.org/glossary/<br>
 			</a><i>For explanations of terminology used in this and other documents.</i></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="JavaChoice">JavaChoice</a>]</td>
+			<td class="noborder" width="148">[<a name="JavaChoice" href="#JavaChoice">JavaChoice</a>]</td>
 			<td class="noborder" width="730">Java ChoiceFormat<br>
 			<a href="http://docs.oracle.com/javase/1.4.2/docs/api/java/text/ChoiceFormat.html">
 			http://docs.oracle.com/javase/1.4.2/docs/api/java/text/ChoiceFormat.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Olson">Olson</a>]</td>
+			<td class="noborder" width="148">[<a name="Olson" href="#Olson">Olson</a>]</td>
 			<td class="noborder" width="730">The <i>TZ</i>ID Database (aka Olson timezone database)<br>
 			  Time zone and daylight savings information.<br>
 			  <a href="ftp://www.iana.org/time-zones">ftp://www.iana.org/time-zones</a><br>
@@ -9146,20 +9144,20 @@ decimal?, group?, special*)) &gt;</pre>
 			<a href="ftp://ftp.iana.org/tz/releases/">ftp://ftp.iana.org/tz/releases/</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Reports">Reports</a>]</td>
+			<td class="noborder" width="148">[<a name="Reports" href="#Reports">Reports</a>]</td>
 			<td class="noborder" width="730">Unicode Technical Reports<br>
 			<a href="http://unicode.org/reports/">http://unicode.org/reports/<br>
 			</a><i>For information on the status and development process for technical reports, and for a list of technical reports.</i></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Unicode">Unicode</a>]</td>
+			<td class="noborder" width="148">[<a name="Unicode" href="#Unicode">Unicode</a>]</td>
 			<td class="noborder" width="730">
 				The Unicode Consortium. The Unicode Standard, Version 6.2.0, 
 				(Mountain View, CA: The Unicode Consortium, 2012. ISBN 978-1-936213-07-8)<br>
 				<a href="http://www.unicode.org/versions/Unicode6.2.0/">http://www.unicode.org/versions/Unicode6.2.0/</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Versions">Versions</a>]</td>
+			<td class="noborder" width="148">[<a name="Versions" href="#Versions">Versions</a>]</td>
 			<td class="noborder" width="730">Versions 
 			of the Unicode Standard<br>
 			<a href="http://www.unicode.org/versions/">
@@ -9169,7 +9167,7 @@ decimal?, group?, special*)) &gt;</pre>
 			Technical Reports.</i> </td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="XPath">XPath</a>]</td>
+			<td class="noborder" width="148">[<a name="XPath" href="#XPath">XPath</a>]</td>
 			<td class="noborder" width="730"><a href="http://www.w3.org/TR/xpath/">
 			http://www.w3.org/TR/xpath/</a> </td>
 		</tr>
@@ -9178,32 +9176,32 @@ decimal?, group?, special*)) &gt;</pre>
 			<td class="noborder" width="730"><i>Various standards define codes that are used as keys or values in Locale Data Markup Language. These include:</i></td>
 		</tr>
 		<tr>
-		  <td class="noborder">[<a name="BCP47">BCP47</a>]</td>
+		  <td class="noborder">[<a name="BCP47" href="#BCP47">BCP47</a>]</td>
 		  <td class="noborder"><a href="http://www.rfc-editor.org/rfc/bcp/bcp47.txt"> http://www.rfc-editor.org/rfc/bcp/bcp47.txt</a>
 		    <p>The Registry<br>
 		      <a href="http://www.iana.org/assignments/language-subtag-registry">http://www.iana.org/assignments/language-subtag-registry</a></p></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ISO639">ISO639</a>]</td>
+			<td class="noborder" width="148">[<a name="ISO639" href="#ISO639">ISO639</a>]</td>
 			<td class="noborder" width="730">ISO Language Codes<br>
 			<a href="http://www.loc.gov/standards/iso639-2/">http://www.loc.gov/standards/iso639-2/</a><br>
 			Actual List<br>
 			<a href="http://www.loc.gov/standards/iso639-2/langcodes.html">http://www.loc.gov/standards/iso639-2/langcodes.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ISO1000">ISO1000</a>]</td>
+			<td class="noborder" width="148">[<a name="ISO1000" href="#ISO1000">ISO1000</a>]</td>
 			<td class="noborder" width="730">ISO 1000: SI units and recommendations for the use of their multiples and of certain other units, International Organization for Standardization, 1992.<br>
 			<a href="http://www.iso.org/iso/catalogue_detail?csnumber=5448">http://www.iso.org/iso/catalogue_detail?csnumber=5448</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ISO3166">ISO3166</a>]</td>
+			<td class="noborder" width="148">[<a name="ISO3166" href="#ISO3166">ISO3166</a>]</td>
 			<td class="noborder" width="730">ISO Region Codes<br>
 			<a href="http://www.iso.org/iso/country_codes">http://www.iso.org/iso/country_codes</a><br>
 			Actual List<br>
 			<a href="http://www.iso.org/iso/country_codes/iso_3166_code_lists/english_country_names_and_code_elements.htm">http://www.iso.org/iso/country_codes/iso_3166_code_lists/english_country_names_and_code_elements.htm</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ISO4217">ISO4217</a>]</td>
+			<td class="noborder" width="148">[<a name="ISO4217" href="#ISO4217">ISO4217</a>]</td>
 			<td class="noborder" width="730">ISO Currency Codes<br>
 			<a href="http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm">http://www.iso.org/iso/support/faqs/faqs_widely_used_standards/widely_used_standards_other/currency_codes/currency_codes_list-1.htm</a>
 			<p><i>(Note that as of this point, there are significant problems with this list. The supplemental data file contains the best compendium of currency 
@@ -9211,31 +9209,31 @@ decimal?, group?, special*)) &gt;</pre>
 			</td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ISO15924">ISO15924</a>]</td>
+			<td class="noborder" width="148">[<a name="ISO15924" href="#ISO15924">ISO15924</a>]</td>
 			<td class="noborder" width="730">ISO Script Codes<br>
 			<a href="http://www.unicode.org/iso15924/standard/index.html">http://www.unicode.org/iso15924/standard/index.html</a><br>
 			Actual List<br>
 			<a href="http://www.unicode.org/iso15924/codelists.html">http://www.unicode.org/iso15924/codelists.html</a></td>
 		</tr>
 		<tr>
-		  <td class="noborder" width="148">[<a name="LOCODE"></a>LOCODE]</td>
+		  <td class="noborder" width="148">[<a name="LOCODE" href="#LOCODE">LOCODE</a>]</td>
 		  <td class="noborder" width="730">
 	        United Nations Code for Trade and Transport Locations", commonly known as "UN/LOCODE"<br>
 		    <a href="http://www.unece.org/cefact/locode/">http://www.unece.org/cefact/locode/</a><br>
 	      Download at: <a href="http://www.unece.org/cefact/codesfortrade/codes_index.htm"> http://www.unece.org/cefact/codesfortrade/codes_index.htm</a></td>
 	  </tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="RFC6067">RFC6067</a>]</td>
+			<td class="noborder" width="148">[<a name="RFC6067" href="#RFC6067">RFC6067</a>]</td>
 			<td class="noborder" width="730">BCP 47 Extension U<br>
 			<a href="http://www.ietf.org/rfc/rfc6067.txt">http://www.ietf.org/rfc/rfc6067.txt</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="RFC6497">RFC6497</a>]</td>
+			<td class="noborder" width="148">[<a name="RFC6497" href="#RFC6497">RFC6497</a>]</td>
 			<td class="noborder" width="730">BCP 47 Extension T - Transformed Content<br>
 			<a href="http://www.ietf.org/rfc/rfc6497.txt">http://www.ietf.org/rfc/rfc6497.txt</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="UNM49">UNM49</a>]</td>
+			<td class="noborder" width="148">[<a name="UNM49" href="#UNM49">UNM49</a>]</td>
 			<td class="noborder" width="730">UN M.49: UN Statistics Division<p>Country or area &amp; region codes<br>
 			<a href="http://unstats.un.org/unsd/methods/m49/m49.htm">http://unstats.un.org/unsd/methods/m49/m49.htm</a> </p>
 			<p>Composition of macro geographical (continental) regions, geographical sub-regions, and selected economic and other groupings<br>
@@ -9243,7 +9241,7 @@ decimal?, group?, special*)) &gt;</pre>
 			</td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="XMLSchema">XML Schema</a>]</td>
+			<td class="noborder" width="148">[<a name="XMLSchema" href="#XMLSchema">XML Schema</a>]</td>
 			<td class="noborder" width="730">W3C XML Schema<br>
 			<a href="http://www.w3.org/XML/Schema">http://www.w3.org/XML/Schema</a></td>
 		</tr>
@@ -9252,108 +9250,108 @@ decimal?, group?, special*)) &gt;</pre>
 			<td class="noborder" width="730"><i>The following are general references from the text:</i></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ByType">ByType</a>]</td>
+			<td class="noborder" width="148">[<a name="ByType" href="#ByType">ByType</a>]</td>
 			<td class="noborder" width="730">CLDR Comparison Charts<br>
 			<a href="http://www.unicode.org/cldr/comparison_charts.html">http://www.unicode.org/cldr/comparison_charts.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Calendars">Calendars</a>]</td>
+			<td class="noborder" width="148">[<a name="Calendars" href="#Calendars">Calendars</a>]</td>
 			<td class="noborder" width="730">Calendrical Calculations: The Millennium Edition by Edward M. Reingold, Nachum Dershowitz; Cambridge University Press; 
 			Book and CD-ROM edition (July 1, 2001); ISBN: 0521777526. Note that the algorithms given in this book are copyrighted.</td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="Comparisons">Comparisons</a>]</td>
+			<td class="noborder" width="148">[<a name="Comparisons" href="#Comparisons">Comparisons</a>]</td>
 			<td class="noborder" width="730">Comparisons between locale data from different sources<br>
 			<a href="http://unicode.org/cldr/data/diff/">http://unicode.org/cldr/data/diff/</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="CurrencyInfo">CurrencyInfo</a>]</td>
+			<td class="noborder" width="148">[<a name="CurrencyInfo" href="#CurrencyInfo">CurrencyInfo</a>]</td>
 			<td class="noborder" width="730">UNECE Currency Data<br>
 			<a href="http://www.unece.org/etrades/unedocs/repository/codelists/xml/CurrencyCodeList.xml">http://www.unece.org/etrades/unedocs/repository/codelists/xml/CurrencyCodeList.xml</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="DataFormats">DataFormats</a>]</td>
+			<td class="noborder" width="148">[<a name="DataFormats" href="#DataFormats">DataFormats</a>]</td>
 			<td class="noborder" width="730">CLDR Data Formats<br>
 			<a href="http://unicode.org/cldr/data_formats.html">http://unicode.org/cldr/data_formats.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="LDML">Example</a>]</td>
+			<td class="noborder" width="148">[<a name="LDML" href="#LDML">Example</a>]</td>
 			<td class="noborder" width="730">A sample in Locale Data Markup Language<br>
 			<a href="http://unicode.org/cldr/dtd/1.1/ldml-example.xml">http://unicode.org/cldr/dtd/1.1/ldml-example.xml</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ICUCollation">ICUCollation</a>]</td>
+			<td class="noborder" width="148">[<a name="ICUCollation" href="#ICUCollation">ICUCollation</a>]</td>
 			<td class="noborder" width="730">ICU rule syntax<br>
 			<a href="http://www.icu-project.org/userguide/Collate_Customization.html">http://www.icu-project.org/userguide/Collate_Customization.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ICUTransforms">ICUTransforms</a>]</td>
+			<td class="noborder" width="148">[<a name="ICUTransforms" href="#ICUTransforms">ICUTransforms</a>]</td>
 			<td class="noborder" width="730">Transforms<br>
 			<a href="http://www.icu-project.org/userguide/Transformations.html">http://www.icu-project.org/userguide/Transformations.html</a><br>
 			Transforms Demo<br>
 			<a href="http://demo.icu-project.org/icu-bin/translit/">http://demo.icu-project.org/icu-bin/translit/</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ICUUnicodeSet">ICUUnicodeSet</a>]</td>
+			<td class="noborder" width="148">[<a name="ICUUnicodeSet" href="#ICUUnicodeSet">ICUUnicodeSet</a>]</td>
 			<td class="noborder" width="730">ICU UnicodeSet<br>
 			<a href="http://www.icu-project.org/userguide/unicodeSet.html">http://www.icu-project.org/userguide/unicodeSet.html<br>
 			</a>API<br>
 			<a href="http://www.icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html">http://www.icu-project.org/apiref/icu4j/com/ibm/icu/text/UnicodeSet.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="ITUE164">ITUE164</a>]</td>
+			<td class="noborder" width="148">[<a name="ITUE164" href="#ITUE164">ITUE164</a>]</td>
 			<td class="noborder" width="730">International Telecommunication Union: List Of ITU Recommendation E.164 Assigned Country Codes<br>
 			available at <a href="http://www.itu.int/opb/publications.aspx?parent=T-SP&amp;view=T-SP2">http://www.itu.int/opb/publications.aspx?parent=T-SP&amp;view=T-SP2</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="LocaleExplorer">LocaleExplorer</a>]</td>
+			<td class="noborder" width="148">[<a name="LocaleExplorer" href="#LocaleExplorer">LocaleExplorer</a>]</td>
 			<td class="noborder" width="730">ICU Locale Explorer<br>
 			<a href="http://demo.icu-project.org/icu-bin/locexp">http://demo.icu-project.org/icu-bin/locexp</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="localeProject">LocaleProject</a>]</td>
+			<td class="noborder" width="148">[<a name="localeProject" href="#localeProject">LocaleProject</a>]</td>
 			<td class="noborder" width="730">Common Locale Data Repository Project<br>
 			<a href="http://unicode.org/cldr/">http://unicode.org/cldr/</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="NamingGuideline">NamingGuideline</a>]</td>
+			<td class="noborder" width="148">[<a name="NamingGuideline" href="#NamingGuideline">NamingGuideline</a>]</td>
 			<td class="noborder" width="730">OpenI18N Locale Naming Guideline<br>
 			formerly at http://www.openi18n.org/docs/text/LocNameGuide-V10.txt</td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="RBNF">RBNF</a>]</td>
+			<td class="noborder" width="148">[<a name="RBNF" href="#RBNF">RBNF</a>]</td>
 			<td class="noborder" width="730">Rule-Based Number Format<br>
 			<a href="http://www.icu-project.org/apiref/icu4c/classRuleBasedNumberFormat.html">http://www.icu-project.org/apiref/icu4c/classRuleBasedNumberFormat.html#_details</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="RBBI">RBBI</a>]</td>
+			<td class="noborder" width="148">[<a name="RBBI" href="#RBBI">RBBI</a>]</td>
 			<td class="noborder" width="730">Rule-Based Break Iterator<br>
 			<a href="http://www.icu-project.org/userguide/boundaryAnalysis.html">http://www.icu-project.org/userguide/boundaryAnalysis.html</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="RFC5234">RFC5234</a>]</td>
+			<td class="noborder" width="148">[<a name="RFC5234" href="#RFC5234">RFC5234</a>]</td>
 			<td class="noborder" width="730">RFC5234 Augmented BNF for Syntax Specifications: ABNF<br>
 			<a href="http://www.ietf.org/rfc/rfc5234.txt">http://www.ietf.org/rfc/rfc5234.txt</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="UCAChart">UCAChart</a>]</td>
+			<td class="noborder" width="148">[<a name="UCAChart" href="#UCAChart">UCAChart</a>]</td>
 			<td class="noborder" width="730">Collation Chart<a href="http://unicode.org/charts/collation/"><br>
 			http://unicode.org/charts/collation/</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="UTCInfo">UTCInfo</a>]</td>
+			<td class="noborder" width="148">[<a name="UTCInfo" href="#UTCInfo">UTCInfo</a>]</td>
 			<td class="noborder" width="730">NIST Time and Frequency Division Home Page<br>
 			<a href="http://tf.nist.gov/">http://tf.nist.gov/<br>
 			</a>U.S. Naval Observatory: What is Universal Time?<br>
 			<a href="http://aa.usno.navy.mil/faq/docs/UT.php">http://aa.usno.navy.mil/faq/docs/UT.php</a></td>
 		</tr>
 		<tr>
-			<td class="noborder" width="148">[<a name="WindowsCulture">WindowsCulture</a>]</td>
+			<td class="noborder" width="148">[<a name="WindowsCulture" href="#WindowsCulture">WindowsCulture</a>]</td>
 			<td class="noborder" width="730">Windows Culture Info (with&nbsp; mappings from [<a href="#BCP47">BCP47</a>]-style codes to LCIDs)<br>
 			<a href="http://msdn.microsoft.com/en-us/library/system.globalization.cultureinfo(vs.71).aspx">http://msdn2.microsoft.com/en-us/library/system.globalization.cultureinfo(vs.71).aspx</a></td>
 		</tr>
 	</table>
-<h2><a name="Acknowledgments">Acknowledgments</a></h2>
+<h2><a name="Acknowledgments" href="#Acknowledgments">Acknowledgments</a></h2>
 	<p>Special thanks to the following people for their continuing overall contributions to the CLDR 
 	project, and for their specific contributions in the following areas. 
 	These descriptions only touch on the many contributions that they have made.</p>
@@ -9380,7 +9378,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Jennifer Chye for her contributions to the conversion tools.</li>
 	</ul>
 <p>Other contributors to CLDR are listed on the <a href="http://www.unicode.org/cldr/">CLDR Project Page</a>.</p>
-	<h2><a name="Modifications">Modifications</a></h2>
+	<h2><a name="Modifications" href="#Modifications">Modifications</a></h2>
 	<p>The following summarizes modifications from the previous revision of this document. Some of the modification
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
 	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>

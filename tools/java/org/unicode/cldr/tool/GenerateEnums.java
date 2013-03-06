@@ -450,7 +450,7 @@ public class GenerateEnums {
 
         scripts = supplementalDataInfo.getCLDRScriptCodes();
         languages = supplementalDataInfo.getCLDRLanguageCodes();
-        
+
         // Set availableCodes = new TreeSet(sc.getAvailableCodes("territory"));
         // availableCodes.add("003");
         // for (Iterator it = availableCodes.iterator(); it.hasNext();) {

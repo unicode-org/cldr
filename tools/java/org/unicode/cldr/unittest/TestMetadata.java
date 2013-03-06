@@ -35,12 +35,14 @@ public class TestMetadata extends TestFmwk {
         checkEquals("LDML element order", "CLDRFile.elementOrdering", cldrFileElementOrder, "DTD", dtdElementOrder);
 
         List<String> metadataElementOrder = testInfo.getSupplementalDataInfo().getElementOrder();
-        checkEquals("Metadata element order", "supplementalMetaData/.../elementOrder", metadataElementOrder, "DTD", dtdElementOrder);
+        checkEquals("Metadata element order", "supplementalMetaData/.../elementOrder", metadataElementOrder, "DTD",
+            dtdElementOrder);
 
         // Then Serial Order
         Set<String> cldrFileSerialElements = new TreeSet<String>(CLDRFile.getSerialElements());
         Set<String> metadataSerialElements = new TreeSet<String>(testInfo.getSupplementalDataInfo().getSerialElements());
-        checkEquals("Serial Order", "CLDRFile.orderedElements", metadataSerialElements, "cldrFile", cldrFileSerialElements);
+        checkEquals("Serial Order", "CLDRFile.orderedElements", metadataSerialElements, "cldrFile",
+            cldrFileSerialElements);
 
         // Then Attributes
         List<String> rawDtdAttributeOrder = order.getAttributeOrder();
@@ -64,9 +66,11 @@ public class TestMetadata extends TestFmwk {
         dtdAttributeOrder.remove("from");
         dtdAttributeOrder.add(dtdAttributeOrder.indexOf("to"), "from");
 
-        checkEquals("Attribute orderings", "CLDRFile.attributeOrdering", cldrFileAttributeOrder, "DTD", dtdAttributeOrder);
+        checkEquals("Attribute orderings", "CLDRFile.attributeOrdering", cldrFileAttributeOrder, "DTD",
+            dtdAttributeOrder);
 
-        checkEquals("Attribute orderings", "supplementalMetadata/../attributeOrder", metadataAttributeOrder, "DTD", dtdAttributeOrder);
+        checkEquals("Attribute orderings", "supplementalMetadata/../attributeOrder", metadataAttributeOrder, "DTD",
+            dtdAttributeOrder);
     }
 
     private void checkEquals(String title, String firstTitle, Collection<String> cldrFileOrder, String secondTitle,
@@ -74,7 +78,8 @@ public class TestMetadata extends TestFmwk {
         if (!cldrFileOrder.equals(dtdAttributeOrder)) {
             errln(title + " differ:" + CldrUtility.LINE_SEPARATOR
                 + firstTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t" + cldrFileOrder + CldrUtility.LINE_SEPARATOR
-                + secondTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t" + dtdAttributeOrder + CldrUtility.LINE_SEPARATOR
+                + secondTitle + ":" + CldrUtility.LINE_SEPARATOR + "\t" + dtdAttributeOrder
+                + CldrUtility.LINE_SEPARATOR
                 + "To fix, replace contents of " + firstTitle + " with" + CldrUtility.LINE_SEPARATOR
                 + "\t" + CldrUtility.join(dtdAttributeOrder, " ") + CldrUtility.LINE_SEPARATOR
                 + "Differences:");

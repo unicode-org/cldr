@@ -290,7 +290,8 @@ public class CLDRTransforms {
             if (showProgress != null) {
                 try {
                     oldTranslit = Transliterator.getInstance(id);
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
             }
             Transliterator.unregister(id);
             Transliterator.registerInstance(t);
@@ -306,7 +307,7 @@ public class CLDRTransforms {
             // }
             // verifyNullFilter("halfwidth-fullwidth");
             if (showProgress != null) {
-                append("Registered new Transliterator: " + id 
+                append("Registered new Transliterator: " + id
                     + (oldTranslit == null ? "" : "\told:\t" + oldTranslit.getID())
                     + '\n');
                 if (id.startsWith("el-")) {

@@ -75,7 +75,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestMissingInfoForRegion() {
-        if (TestInfo.isCldrVersionBefore(23,0,0,1)) {
+        if (TestInfo.isCldrVersionBefore(23, 0, 0, 1)) {
             return;
         }
         Map<String, String> likely = TestInfo.getInstance().getSupplementalDataInfo().getLikelySubtags();

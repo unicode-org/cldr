@@ -306,7 +306,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                 for (Entry<String, String> entry : fullLocales.entrySet()) {
                     String code = entry.getValue();
                     out.print("<span title='" + code + "'>"
-                        + (count == 0 ? "" : ", ") 
+                        + (count == 0 ? "" : ", ")
                         + CldrUtility.getDoubleLinkedText(code + "-comp", entry.getKey())
                         + "</span>");
                     count++;

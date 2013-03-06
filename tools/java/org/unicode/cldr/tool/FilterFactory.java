@@ -15,15 +15,16 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.RegexFileParser;
+import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.util.ULocale;
+
 /**
  * Factory for filtering CLDRFiles by organization and replacing certain values.
  * Organization coverage data is in org/unicode/cldr/util/data/Locales.txt.
@@ -160,7 +161,8 @@ public class FilterFactory extends Factory {
         }
 
         /**
-         * @param locale the locale to be matched
+         * @param locale
+         *            the locale to be matched
          * @return true if the locale matches the locale filter in this entry.
          */
         public boolean localeMatches(String locale) {
@@ -174,7 +176,9 @@ public class FilterFactory extends Factory {
      */
     private abstract class Modifier {
         protected List<ModifierEntry> entries = new ArrayList<ModifierEntry>();
+
         public abstract void modifyFile(CLDRFile file);
+
         public abstract Modifier filterLocale(String locale);
 
         /**
@@ -238,7 +242,7 @@ public class FilterFactory extends Factory {
             // Replace values.
             for (ModifierEntry entry : entries) {
                 String filteringPath = entry.options.get("xpath");
-                if (filteringPath != null && isValidXPath(filteringPath)){
+                if (filteringPath != null && isValidXPath(filteringPath)) {
                     // For non-regex XPaths, look them up directly.
                     String value = file.getStringValue(filteringPath);
                     if (value != null) {
@@ -328,7 +332,7 @@ public class FilterFactory extends Factory {
                 String newValue = contents[2];
                 // Process remaining options.
                 Map<String, String> options = new HashMap<String, String>();
-                for (int i = 3 ; i < contents.length ; i++) {
+                for (int i = 3; i < contents.length; i++) {
                     String rawLine = contents[i];
                     int pos = rawLine.indexOf('=');
                     if (pos < 0) {
@@ -364,6 +368,7 @@ public class FilterFactory extends Factory {
     }
 
     private Pattern XPATH_PATTERN = Pattern.compile("/(/\\w++(\\[@\\w++=\"[^\"()%\\\\]+\"])*)++");
+
     /**
      * @param path
      * @return true if path is a valid XPath and not a regex.
@@ -374,6 +379,7 @@ public class FilterFactory extends Factory {
 
     /**
      * Converts an xpath into a proper regex pattern.
+     * 
      * @param path
      * @return
      */
@@ -383,7 +389,7 @@ public class FilterFactory extends Factory {
 
     private static final Options options = new Options(
         "Filters CLDR XML files according to orgnizational coverage levels and an " +
-        "input file of replacement values/xpaths.")
+            "input file of replacement values/xpaths.")
         .add("org", 'o', ".*", "google", "The organization that the filtering is for")
         .add("locales", 'l', ".*", ".*", "A regular expression indicating the locales to be filtered");
 

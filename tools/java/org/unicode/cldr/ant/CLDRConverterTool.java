@@ -167,7 +167,7 @@ public abstract class CLDRConverterTool {
     private void initCoverageLevel(
         String localeName, boolean exemplarsContainA_Z, String supplementalDir) {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(supplementalDir);
-        coverageLevel = CoverageLevel2.getInstance(sdi,localeName);
+        coverageLevel = CoverageLevel2.getInstance(sdi, localeName);
     }
 
     /**

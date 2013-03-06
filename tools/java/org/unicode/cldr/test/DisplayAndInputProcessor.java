@@ -9,12 +9,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckExemplars.ExemplarType;
-import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
+import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
@@ -332,6 +332,7 @@ public class DisplayAndInputProcessor {
         }
         return value;
     }
+
     private static Map<Integer, Integer> ARABIC_PRESENTATION_FORMS_MAP =
         Builder.with(new HashMap<Integer, Integer>())
             .put(0xFB50, 0x0671)
@@ -591,16 +592,16 @@ public class DisplayAndInputProcessor {
         int cp;
         while ((cp = it.nextCodePoint()) != UCharacterIterator.DONE) {
             switch (UCharacter.UnicodeBlock.of(cp).getID()) {
-                case UCharacter.UnicodeBlock.ARABIC_PRESENTATION_FORMS_A_ID:
-                case UCharacter.UnicodeBlock.ARABIC_PRESENTATION_FORMS_B_ID:
-                    Integer result = ARABIC_PRESENTATION_FORMS_MAP.get(cp);
-                    if (result != null) {
-                        cp = result;
-                    }
-                    buffer.appendCodePoint(cp);
-                    break;
-                default:
-                    buffer.appendCodePoint(cp);
+            case UCharacter.UnicodeBlock.ARABIC_PRESENTATION_FORMS_A_ID:
+            case UCharacter.UnicodeBlock.ARABIC_PRESENTATION_FORMS_B_ID:
+                Integer result = ARABIC_PRESENTATION_FORMS_MAP.get(cp);
+                if (result != null) {
+                    cp = result;
+                }
+                buffer.appendCodePoint(cp);
+                break;
+            default:
+                buffer.appendCodePoint(cp);
             }
         }
         value = buffer.toString();

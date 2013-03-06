@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.BuildIcuCompactDecimalFormat.CurrencyStyle;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 
 import com.ibm.icu.text.DateFormat;

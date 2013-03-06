@@ -27,7 +27,6 @@ import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.TimeZone;
 
 public class VerifyZones {
-    
 
     final static Options myOptions = new Options();
 
@@ -137,7 +136,7 @@ public class VerifyZones {
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.organization, args, true);
 
-        //String organization = MyOptions.organization.option.getValue();
+        // String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();
         String timezoneFilterString = MyOptions.timezoneFilter.option.getValue();
         Matcher timezoneFilter = timezoneFilterString == null ? null : Pattern.compile(timezoneFilterString)
@@ -145,8 +144,6 @@ public class VerifyZones {
 
         Factory factory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
-
-
 
         for (String localeID : factory2.getAvailableLanguages()) {
             CLDRFile cldrFile = factory2.make(localeID, true);
@@ -159,9 +156,8 @@ public class VerifyZones {
                 "<link rel='stylesheet' type='text/css' href='index.css'>\n" +
                 "</head><body><h1>" + title + "</h1>");
 
-            
             showZones(timezoneFilter, englishCldrFile, cldrFile, out);
-            
+
             out.println("</body></html>");
             out.close();
         }
@@ -245,13 +241,16 @@ public class VerifyZones {
         // }
     }
 
-    public static void showZones(Matcher timezoneFilter, 
+    public static void showZones(Matcher timezoneFilter,
         CLDRFile englishCldrFile, CLDRFile nativeCdrFile,
         Appendable out) throws IOException {
-        TablePrinter tablePrinter = new TablePrinter() // .setCaption("Timezone Formats")
-        .setTableAttributes("class='dtf-table'")
-        .addColumn("Metazone").setHeaderCell(true).setSpanRows(true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
-        .addColumn("Region: TZID").setHeaderCell(true).setSpanRows(true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'")
+        TablePrinter tablePrinter = new TablePrinter()
+            // .setCaption("Timezone Formats")
+            .setTableAttributes("class='dtf-table'")
+            .addColumn("Metazone").setHeaderCell(true).setSpanRows(true).setHeaderAttributes("class='dtf-th'")
+            .setCellAttributes("class='dtf-s'")
+            .addColumn("Region: TZID").setHeaderCell(true).setSpanRows(true).setHeaderAttributes("class='dtf-th'")
+            .setCellAttributes("class='dtf-s'")
         // .addColumn("Region: City").setHeaderCell(true).setSpanRows(true)
         // .addColumn("Region/City").setSpanRows(true)
         ;
@@ -260,14 +259,14 @@ public class VerifyZones {
             tablePrinter.addColumn(s.toString()
                 + "<br>" + s.type.toString(daylight)
                 + "<br>" + s.location
-                + "<br>" + s.length).setSpanRows(true).setHeaderAttributes("class='dtf-th'").setCellAttributes("class='dtf-s'");
+                + "<br>" + s.length).setSpanRows(true).setHeaderAttributes("class='dtf-th'")
+                .setCellAttributes("class='dtf-s'");
             if (s == Format.z) {
                 daylight = true; // reset for final 2 items
             }
         }
         ZoneFormats englishZoneFormats = new ZoneFormats().set(englishCldrFile);
         addZones(englishZoneFormats, nativeCdrFile, timezoneFilter, tablePrinter);
-
 
         out.append(tablePrinter.toString() + "\n");
     }
@@ -320,8 +319,8 @@ public class VerifyZones {
                 String nativeTerritory = cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode2);
                 String nativeCity = nativeZoneFormats.getExemplarCity(tzid);
                 output.addRow()
-                .addCell(metazoneInfo)
-                .addCell(marker + englishTerritory + ": " + tzid.replace("/", "/\u200B"))
+                    .addCell(metazoneInfo)
+                    .addCell(marker + englishTerritory + ": " + tzid.replace("/", "/\u200B"))
                 // .addCell(englishTerritory + ": " + englishZoneFormats.getExemplarCity(tzid))
                 // .addCell(nativeTerritory + "<br><br>" + nativeCity)
                 ;

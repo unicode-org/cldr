@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -48,23 +47,24 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     static final String[][][] supplementalMap = {
-        //        {{"characters.xml"},{""}},
-        //{{"coverageLevels.xml"},{""}},
-        //{{"dayPeriods.xml"},{""}},
-        {{"genderList"},{"genderList"}},
-        //        {{"languageInfo.xml"},{""}},
-        //        {{"likelySubtags.xml"},{""}},
-        //        {{"metaZones.xml"},{""}},
-        //        {{"numberingSystems.xml"},{""}},
-        {{"plurals", "ordinals"},{"plurals"}},
-        //        {{"postalCodeData.xml"},{""}},
-        {{"supplementalData"},{"supplementalData"}},
-        //        {{"supplementalMetadata.xml"},{""}},
-        //        {{"telephoneCodeData.xml"},{""}},
-        //        {{"windowsZones.xml"},{""}},
+        // {{"characters.xml"},{""}},
+        // {{"coverageLevels.xml"},{""}},
+        // {{"dayPeriods.xml"},{""}},
+        { { "genderList" }, { "genderList" } },
+        // {{"languageInfo.xml"},{""}},
+        // {{"likelySubtags.xml"},{""}},
+        // {{"metaZones.xml"},{""}},
+        // {{"numberingSystems.xml"},{""}},
+        { { "plurals", "ordinals" }, { "plurals" } },
+        // {{"postalCodeData.xml"},{""}},
+        { { "supplementalData" }, { "supplementalData" } },
+        // {{"supplementalMetadata.xml"},{""}},
+        // {{"telephoneCodeData.xml"},{""}},
+        // {{"windowsZones.xml"},{""}},
     };
 
-    /* currencyNumericCodes.txt
+    /*
+     * currencyNumericCodes.txt
      * dayPeriods.txt
      * genderList.txt
      * icudata.rc
@@ -91,12 +91,11 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     enum ExclusionType {
-        SKIP, 
+        SKIP,
         WARNING,
-        VALUE
-        ;
-        public static Transform<String, Pair<ExclusionType,String>> TRANSFORM = new Transform<String, Pair<ExclusionType,String>>() {
-            public Pair<ExclusionType,String> transform(String source) {
+        VALUE;
+        public static Transform<String, Pair<ExclusionType, String>> TRANSFORM = new Transform<String, Pair<ExclusionType, String>>() {
+            public Pair<ExclusionType, String> transform(String source) {
                 String value = null;
                 if (source.contains(";")) {
                     String[] split = source.split("\\s*;\\s*");
@@ -109,10 +108,10 @@ public class TestLdml2ICU extends TestFmwk {
         };
     }
 
-    static final RegexLookup<Pair<ExclusionType,String>> exclusions = 
+    static final RegexLookup<Pair<ExclusionType, String>> exclusions =
         RegexLookup.of(ExclusionType.TRANSFORM)
-        .setPatternTransform(RegexLookup.RegexFinderTransformPath)
-        .loadFromFile(TestLdml2ICU.class, "../util/data/testLdml2Icu.txt");
+            .setPatternTransform(RegexLookup.RegexFinderTransformPath)
+            .loadFromFile(TestLdml2ICU.class, "../util/data/testLdml2Icu.txt");
 
     public void TestEnglish() {
         checkLocale("en");
@@ -127,8 +126,8 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     public void TestSupplemental() {
-        for (String[][] cldrVsIcu: supplementalMap) {
-            Relation<String,String> cldrData = Relation.of(new TreeMap<String,Set<String>>(), LinkedHashSet.class);
+        for (String[][] cldrVsIcu : supplementalMap) {
+            Relation<String, String> cldrData = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
             for (String cldr : cldrVsIcu[0]) {
                 XMLFileReader.loadPathValues(CldrUtility.SUPPLEMENTAL_DIRECTORY + cldr + ".xml", cldrData);
             }
@@ -137,7 +136,7 @@ public class TestLdml2ICU extends TestFmwk {
         }
     }
 
-    //static final Pattern SKIP = Pattern.compile("^//ldml/(identity|posix/messages)|/(default|alias|commonlyUsed)$");
+    // static final Pattern SKIP = Pattern.compile("^//ldml/(identity|posix/messages)|/(default|alias|commonlyUsed)$");
 
     static final SupplementalDataInfo supp = info.getSupplementalDataInfo();
 
@@ -145,9 +144,11 @@ public class TestLdml2ICU extends TestFmwk {
         // /Users/markdavis/Documents/workspace/icu/source/data/locales/en.txt
 
         CLDRFile plain = factory.make(locale, false);
-        Relation<String, String> plainData = putDataIntoMap(plain, plain.iterator("", CLDRFile.ldmlComparator), Relation.of(new TreeMap<String,Set<String>>(), LinkedHashSet.class));
+        Relation<String, String> plainData = putDataIntoMap(plain, plain.iterator("", CLDRFile.ldmlComparator),
+            Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class));
         CLDRFile resolved = factory.make(locale, true);
-        Relation<String, String> resolvedData = putDataIntoMap(plain, resolved.iterator(), Relation.of(new TreeMap<String,Set<String>>(), LinkedHashSet.class));
+        Relation<String, String> resolvedData = putDataIntoMap(plain, resolved.iterator(),
+            Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class));
         IcuValues icu = new IcuValues(locale);
 
         checkValues(plainData, resolvedData, icu);
@@ -157,14 +158,13 @@ public class TestLdml2ICU extends TestFmwk {
         XPathParts parts = new XPathParts();
 
         // show(supp.getDeprecationInfo());
-        //        Matcher skipper = SKIP.matcher("");
+        // Matcher skipper = SKIP.matcher("");
         Set<String> seen = new HashSet<String>();
-
 
         for (Entry<String, String> entry : plainData.entrySet()) {
             String xpath = entry.getKey();
             String value = entry.getValue();
-            //Pair<ExclusionType, String> exclusionInfo = exclusions.get(xpath);
+            // Pair<ExclusionType, String> exclusionInfo = exclusions.get(xpath);
             Output<Finder> matcher = new Output<Finder>();
             Pair<ExclusionType, String> exclusionInfo = exclusions.get(xpath, null, null, matcher, null);
             ExclusionType exclusionType = null;
@@ -177,13 +177,13 @@ public class TestLdml2ICU extends TestFmwk {
                     value = RegexLookup.replace(exclusionInfo.getSecond(), arguments);
                 }
             }
-            //            if (skipper.reset(xpath).find()) {
-            //                continue;
-            //            }
+            // if (skipper.reset(xpath).find()) {
+            // continue;
+            // }
             boolean inICU = value.isEmpty() || icu.contains(value);
-            //            if (supp.hasDeprecatedItem("ldml", parts.set(xpath))) {
-            //                warnln("CLDR has deprecated path, with value <" + value + "> for " + xpath);
-            //            } else 
+            // if (supp.hasDeprecatedItem("ldml", parts.set(xpath))) {
+            // warnln("CLDR has deprecated path, with value <" + value + "> for " + xpath);
+            // } else
             if (!inICU) {
                 if (exclusionType == ExclusionType.WARNING) {
                     warnln("ICU missing CLDR value <" + value + "> for " + xpath);
@@ -204,8 +204,7 @@ public class TestLdml2ICU extends TestFmwk {
             String icuValue = s.getKey();
             Set<String> icuLocation = s.getValue();
             if (icuValue.startsWith("meta:")
-                || icuValue.startsWith("set") && icuLocation.contains("misc/plurals.txt")
-                ) {
+                || icuValue.startsWith("set") && icuLocation.contains("misc/plurals.txt")) {
                 // TODO document why this is done
                 continue;
             }
@@ -213,7 +212,8 @@ public class TestLdml2ICU extends TestFmwk {
         }
     }
 
-    private Relation<String, String> putDataIntoMap(CLDRFile plain, Iterator<String> it, Relation<String,String> plainData) {
+    private Relation<String, String> putDataIntoMap(CLDRFile plain, Iterator<String> it,
+        Relation<String, String> plainData) {
         for (; it.hasNext();) {
             String key = it.next();
             plainData.put(key, plain.getStringValue(key));
@@ -236,25 +236,26 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     static class IcuValues {
-        // others: brkitr, misc, rbnf, translit, 
+        // others: brkitr, misc, rbnf, translit,
         static final Pattern quotedPattern = Pattern.compile("\"([^\"]*)\"");
         Matcher matcher = quotedPattern.matcher("");
 
-        final Relation<String,String> values;
+        final Relation<String, String> values;
 
         static final String[] dirs = { "locales/", "lang/", "curr/", "region/", "zone/" };
 
         public IcuValues(String locale) {
-            Relation<String,String> valuesToSource = Relation.of(new HashMap<String,Set<String>>(), LinkedHashSet.class);
+            Relation<String, String> valuesToSource = Relation.of(new HashMap<String, Set<String>>(),
+                LinkedHashSet.class);
             for (String dir : dirs) {
                 addData(dir, locale, valuesToSource);
             }
             values = (Relation<String, String>) valuesToSource.freeze();
         }
 
-
         public IcuValues(String dir, String... fileBases) {
-            Relation<String,String> valuesToSource = Relation.of(new HashMap<String,Set<String>>(), LinkedHashSet.class);
+            Relation<String, String> valuesToSource = Relation.of(new HashMap<String, Set<String>>(),
+                LinkedHashSet.class);
             for (String fileBase : fileBases) {
                 addData(dir, fileBase, valuesToSource);
             }
@@ -282,7 +283,7 @@ public class TestLdml2ICU extends TestFmwk {
         }
 
         public Relation<String, String> getAllBut(Set<String> resolved) {
-            Relation<String,String> result = Relation.of(new TreeMap<String,Set<String>>(), LinkedHashSet.class);
+            Relation<String, String> result = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
             for (Entry<String, Set<String>> entry : values.keyValuesSet()) {
                 if (resolved.contains(entry.getKey())) {
                     continue;

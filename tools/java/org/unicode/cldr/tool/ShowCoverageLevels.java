@@ -23,7 +23,7 @@ public class ShowCoverageLevels {
 
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
-            CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(testInfo.getSupplementalDataInfo(),locale);
+            CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(testInfo.getSupplementalDataInfo(), locale);
             for (String path : cldrFileToCheck) {
                 String fullPath = cldrFileToCheck.getFullXPath(path);
                 if (fullPath == null) {

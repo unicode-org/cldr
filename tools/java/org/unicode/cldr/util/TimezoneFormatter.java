@@ -199,14 +199,7 @@ public class TimezoneFormatter extends UFormat {
     }
 
     /**
-     * <<<<<<< .mine
      * Formatting based on pattern and date.
-     * =======
-     * Convenience routine for formatting based on daylight or not, and the offset
-     * 
-     * @param skipExact
-     *            TODO
-     *            >>>>>>> .r7860
      */
     public String getFormattedZone(String zoneid, String pattern, long date) {
         Format format = Format.valueOf(pattern);
@@ -527,15 +520,8 @@ public class TimezoneFormatter extends UFormat {
     private transient final Map country_zone = new HashMap();
 
     /**
-     * <<<<<<< .mine
-     * Returns zoneid. In case of an offset, returns "Etc/GMT+/-HH" or "Etc/GMT+/-HHmm". Remember that Olson IDs have
-     * reversed signs!
-     * 
-     * =======
      * Returns zoneid. In case of an offset, returns "Etc/GMT+/-HH" or "Etc/GMT+/-HHmm".
      * Remember that Olson IDs have reversed signs!
-     * 
-     * >>>>>>> .r7860
      */
     public String parse(String inputText, ParsePosition parsePosition) {
         long[] offsetMillisOutput = new long[1];

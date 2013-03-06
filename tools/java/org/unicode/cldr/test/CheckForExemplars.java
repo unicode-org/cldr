@@ -21,9 +21,9 @@ import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.PatternPlaceholders;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.lang.UScript;
@@ -185,7 +185,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         return this;
     }
 
-    private UnicodeSet safeGetExemplars(String type, List<CheckStatus> possibleErrors, CLDRFile resolvedFile, boolean[] ok) {
+    private UnicodeSet safeGetExemplars(String type, List<CheckStatus> possibleErrors, CLDRFile resolvedFile,
+        boolean[] ok) {
         UnicodeSet result = null;
         try {
             result = resolvedFile.getExemplarSet(type, CLDRFile.WinningChoice.WINNING);
@@ -266,7 +267,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             boolean placeholdersMissing = false;
             if (placeholderBuffer.length() > 0) {
-                // Check 
+                // Check
                 if (placeholderStatus == PlaceholderStatus.LOCALE_DEPENDENT && path.contains("[@count=")) {
                     PluralRules rules = PluralRules.forLocale(new ULocale(getCldrFileToCheck().getLocaleID()));
                     XPathParts parts = new XPathParts();
@@ -437,7 +438,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     static final String TEST = "؉";
 
-    private void addMissingMessage(UnicodeSet missing, CheckStatus.Type warningVsError, Subtype subtype, Subtype subtypeAscii,
+    private void addMissingMessage(UnicodeSet missing, CheckStatus.Type warningVsError, Subtype subtype,
+        Subtype subtypeAscii,
         String qualifier, List<CheckStatus> result) {
         String fixedMissing = prettyPrint.format(missing);
         BitSet scripts = new BitSet();

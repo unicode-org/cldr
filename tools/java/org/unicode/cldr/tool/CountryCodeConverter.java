@@ -22,7 +22,7 @@ public class CountryCodeConverter {
     public static String getCodeFromName(String display) {
         String trial = display.trim().toLowerCase(Locale.ENGLISH);
         if (trial.startsWith("\"") && trial.endsWith("\"")) {
-            trial = trial.substring(1,trial.length()-2);
+            trial = trial.substring(1, trial.length() - 2);
         }
         String result = nameToCountryCode.get(trial);
         if ("skip".equals(result)) {
@@ -39,7 +39,7 @@ public class CountryCodeConverter {
         }
         if (SHOW_SKIP && result == null) {
             System.out.println("Missing code; add to external/alternate_country_names.txt a line like:" +
-            		"\t<code>;\t<name>;\t" + display);
+                "\t<code>;\t<name>;\t" + display);
         }
         return result;
     }

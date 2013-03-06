@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -84,7 +83,7 @@ public class AddPopulationData {
                 it.remove();
             }
         }
-//        outliers.remove("AN");
+        // outliers.remove("AN");
         if (outliers.size() != 0) {
             System.out.println("Mistakes: data for non-UN codes");
             for (String country : outliers) {
@@ -346,7 +345,7 @@ public class AddPopulationData {
                     if (code.equals("PS") || code.equals("RS")) {
                         // skip message, special case
                     } else {
-                    System.out.println("Duplicate literacy in FactBook: " + code);
+                        System.out.println("Duplicate literacy in FactBook: " + code);
                     }
                     return false;
                 }
@@ -438,7 +437,7 @@ public class AddPopulationData {
                     return false;
                 }
                 String totalLiteracy = pieces[3];
-                if (totalLiteracy.equals("�") || totalLiteracy.equals("…")|| totalLiteracy.isEmpty()) {
+                if (totalLiteracy.equals("�") || totalLiteracy.equals("…") || totalLiteracy.isEmpty()) {
                     return true;
                 }
                 double percent = Double.parseDouble(totalLiteracy);
@@ -480,8 +479,9 @@ public class AddPopulationData {
                 }
             }
             if (myErrors.length() != 0) {
-                throw new IllegalArgumentException("Missing Country values, the following and add to external/other_country_data to fix:"
-                    + myErrors);
+                throw new IllegalArgumentException(
+                    "Missing Country values, the following and add to external/other_country_data to fix:"
+                        + myErrors);
             }
         } catch (IOException e) {
         }

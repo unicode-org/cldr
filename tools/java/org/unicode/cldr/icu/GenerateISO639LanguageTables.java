@@ -5,9 +5,9 @@ import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class GenerateISO639LanguageTables {
-    
-    private static SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-    
+
+    private static SupplementalDataInfo sdi = SupplementalDataInfo
+        .getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
     private static void generateLanguageTable(int size) {
         String tag = "LANGUAGES";
@@ -29,8 +29,9 @@ public class GenerateISO639LanguageTables {
             if (size == 2) {
                 System.out.print("\"" + language + "\", ");
             } else {
-                
-                System.out.print("\"" + ( Iso639Data.toAlpha3(language) != null ? Iso639Data.toAlpha3(language) : language ) + "\", ");
+
+                System.out.print("\""
+                    + (Iso639Data.toAlpha3(language) != null ? Iso639Data.toAlpha3(language) : language) + "\", ");
             }
             if (language.length() == 2 && size == 2) {
                 System.out.print(" ");
@@ -38,13 +39,15 @@ public class GenerateISO639LanguageTables {
             languagesOnThisLine++;
         }
     }
+
     private static void generateStructLocaleTxt() {
         System.out.println("    Languages{");
         for (String language : sdi.getCLDRLanguageCodes()) {
-            System.out.println("        "+language+"{\"\"}");
+            System.out.println("        " + language + "{\"\"}");
         }
-        System.out.println("    }");        
-    }    
+        System.out.println("    }");
+    }
+
     public static void main(String[] args) {
         generateLanguageTable(2);
         System.out.println();

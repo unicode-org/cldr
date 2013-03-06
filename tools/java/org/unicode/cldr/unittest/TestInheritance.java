@@ -88,22 +88,22 @@ public class TestInheritance extends TestFmwk {
             String simpleParent = LocaleIDParser.getSimpleParent(localeID);
             parent2default.put(simpleParent, localeID);
             default2parent.put(localeID, simpleParent);
-            //            if (!available.contains(simpleParent)) {
-            //                // verify that base language has locale in CLDR (we don't want others)
-            //                errln("Default contents contains locale not in CLDR:\t" + simpleParent);
-            //            }
+            // if (!available.contains(simpleParent)) {
+            // // verify that base language has locale in CLDR (we don't want others)
+            // errln("Default contents contains locale not in CLDR:\t" + simpleParent);
+            // }
         }
 
         // get likely
         Map<String, String> likely2Maximized = likelySubtags.getToMaximized();
-        for (Entry<String,String> likelyAndMaximized : likely2Maximized.entrySet()) {
+        for (Entry<String, String> likelyAndMaximized : likely2Maximized.entrySet()) {
             checkLocale(likelyAndMaximized.getKey(), true);
             checkLocale(likelyAndMaximized.getValue(), true);
         }
-        Map<String, String> exceptionDcLikely = new HashMap<String,String>();
-        Map<String, String> exceptionLikelyDc = new HashMap<String,String>();
+        Map<String, String> exceptionDcLikely = new HashMap<String, String>();
+        Map<String, String> exceptionLikelyDc = new HashMap<String, String>();
         for (String[] s : new String[][] {
-            {"ar_001", "ar_Arab_EG"},
+            { "ar_001", "ar_Arab_EG" },
         }) {
             exceptionDcLikely.put(s[0], s[1]);
             exceptionLikelyDc.put(s[1], s[0]);
@@ -122,7 +122,7 @@ public class TestInheritance extends TestFmwk {
         Set<String> skip = Builder.with(new HashSet<String>()).addAll("in", "iw", "mo", "no", "root", "sh", "tl")
             .freeze();
 
-        // for each base we have to have, 
+        // for each base we have to have,
         // if multiscript, we have default contents for base+script, base+script+region;
         // otherwise base+region.
         for (String base : base2locales.keySet()) {
@@ -130,10 +130,10 @@ public class TestInheritance extends TestFmwk {
                 continue;
             }
             String defaultContent = parent2default.get(base);
-            //            Set<String> likely = base2likely.get(base);
-            //            if (likely == null) {
-            //                errln("Missing likely subtags for: " + base + "  " + suggestLikelySubtagFor(base));
-            //            }
+            // Set<String> likely = base2likely.get(base);
+            // if (likely == null) {
+            // errln("Missing likely subtags for: " + base + "  " + suggestLikelySubtagFor(base));
+            // }
             if (defaultContent == null) {
                 errln("Missing default content for: " + base + "  " + suggestLikelySubtagFor(base));
                 continue;
@@ -175,12 +175,12 @@ public class TestInheritance extends TestFmwk {
         Map<String, String> likely2Maximized, Map<String, String> exceptionLikelyDc) {
         // Now check invariants for all LikelySubtags implications for Default Contents
         // a) suppose likely max for la_Scrp => la_Scrp_RG
-        //      Then default contents la_Scrp => la_Scrp_RG 
+        // Then default contents la_Scrp => la_Scrp_RG
         // b) suppose likely max for la_RG => la_Scrp_RG
-        //      Then we can draw no conclusions // was default contents la_Scrp => la_Scrp_RG 
+        // Then we can draw no conclusions // was default contents la_Scrp => la_Scrp_RG
         // c) suppose likely max for la => la_Scrp_RG
-        //      Then default contents la => la_Scrp && la_Scrp => la_Scrp_RG
-        //        or default contents la => la_RG && ! la_Scrp => la_Scrp_RG
+        // Then default contents la => la_Scrp && la_Scrp => la_Scrp_RG
+        // or default contents la => la_RG && ! la_Scrp => la_Scrp_RG
 
         TreeSet<String> additionalDefaultContents = new TreeSet<String>();
 
@@ -222,14 +222,14 @@ public class TestInheritance extends TestFmwk {
                     consistent = likelyMax.equals(dc);
                 } else if (!sourceRegion.isEmpty()) { // a
                     caseNumber = "b";
-                    //consistent = likelyMax.equals(dcFromLangScript);
+                    // consistent = likelyMax.equals(dcFromLangScript);
                 } else { // c
                     caseNumber = "c";
                     if (dc == null) {
                         if (EXPECT_EQUALITY) {
                             String expected = base2scripts.get(source) == null
                                 ? likelyMaxLang + "_" + likelyMaxRegion
-                                    : likelyMaxLang + "_" + likelyMaxScript;
+                                : likelyMaxLang + "_" + likelyMaxScript;
                             errln("Default contents null for " + source + ", expected:\t" + expected);
                             additionalDefaultContents.add(expected);
                         }
@@ -240,19 +240,18 @@ public class TestInheritance extends TestFmwk {
                     String dcRegion = ltp.getRegion();
                     consistent = likelyLangScript.equals(dc) && likelyMax.equals(dcFromLangScript)
                         || dcScript.isEmpty() && !likelyMax.equals(dcFromLangScript);
-                    //                    || dcScript.isEmpty() && dcRegion.equals(likelyMaxRegion) && dcFromLangScript == null;
+                    // || dcScript.isEmpty() && dcRegion.equals(likelyMaxRegion) && dcFromLangScript == null;
                 }
             }
             if (!consistent) {
                 errln("default contents inconsistent with likely subtag: (" + caseNumber + ")"
-                    + "\n\t" + source +  " => (ls) " + likelyMax
+                    + "\n\t" + source + " => (ls) " + likelyMax
                     + "\n\t" + source + " => (dc) " + dc
-                    + "\n\t" + likelyLangScript +  " => (dc) " + dcFromLangScript
-                    );
+                    + "\n\t" + likelyLangScript + " => (dc) " + dcFromLangScript);
             }
         }
         if (additionalDefaultContents.size() != 0) {
-            errln("Suggested additions to supplementalMetadata/../defaultContent:\n" + 
+            errln("Suggested additions to supplementalMetadata/../defaultContent:\n" +
                 CollectionUtilities.join(additionalDefaultContents, " "));
         }
     }
@@ -260,13 +259,13 @@ public class TestInheritance extends TestFmwk {
     private void verifyDefaultContentsImplicationsForLikelySubtags(LanguageTagParser ltp,
         Map<String, String> parent2default, Map<String, String> likely2Maximized, Map<String, String> exceptionDcLikely) {
         // Now check invariants for all Default Contents implications for LikelySubtags
-        // a) suppose default contents la => la_Scrp. 
-        //      Then the likely contents for la => la_Scrp_*
-        // b) suppose default contents la => la_RG. 
-        //      Then the likely contents for la => la_*_RG
+        // a) suppose default contents la => la_Scrp.
+        // Then the likely contents for la => la_Scrp_*
+        // b) suppose default contents la => la_RG.
+        // Then the likely contents for la => la_*_RG
         // c) suppose default contents la_Scrp => la_Scrp_RG.
-        //      Then the likely contents of la_Scrp => la_Scrp_RG OR likely contents for la => la_*_*
-        for (Entry<String,String> parentAndDefault : parent2default.entrySet()) {
+        // Then the likely contents of la_Scrp => la_Scrp_RG OR likely contents for la => la_*_*
+        for (Entry<String, String> parentAndDefault : parent2default.entrySet()) {
             String source = parentAndDefault.getKey();
             String dc = parentAndDefault.getValue();
             String likelyMax = likely2Maximized.get(source);
@@ -282,7 +281,7 @@ public class TestInheritance extends TestFmwk {
             // there cannot be a sourceRegion
 
             String dcScript = ltp.set(dc).getScript();
-            String dcRegion= ltp.getRegion();
+            String dcRegion = ltp.getRegion();
 
             String likelyMaxLang = "", likelyMaxScript = "", likelyMaxRegion = "";
             if (likelyMax != null) {
@@ -305,10 +304,10 @@ public class TestInheritance extends TestFmwk {
                 consistent = dc.equals(likelyMax) || likelyMax2 != null;
             }
             if (!consistent) {
-                errln("likely subtag inconsistent with default contents: " 
+                errln("likely subtag inconsistent with default contents: "
                     + "\n\t" + source + " =>( dc) " + dc
-                    + "\n\t" + source +  " => (ls) " + likelyMax
-                    + (source.equals(sourceLang) ? "" : "\n\t" + sourceLang +  " => (ls) " + likelyMax2));
+                    + "\n\t" + source + " => (ls) " + likelyMax
+                    + (source.equals(sourceLang) ? "" : "\n\t" + sourceLang + " => (ls) " + likelyMax2));
             }
         }
     }
@@ -404,31 +403,30 @@ public class TestInheritance extends TestFmwk {
         // the invariants are:
         // if there is primary data, the script must be there
         // otherwise it must be in the secondary
-        if (TestInfo.isCldrVersionBefore(23,0,0,1)) {
+        if (TestInfo.isCldrVersionBefore(23, 0, 0, 1)) {
             return;
         }
-        main:
-            for (String script : ScriptMetadata.getScripts()) {
-                Info info = ScriptMetadata.getInfo(script);
-                String language = info.likelyLanguage;
-                if (language.equals("und")) {
-                    continue;
-                }
-                Map<Type, BasicLanguageData> data = dataInfo.getBasicLanguageDataMap(language);
-                if (data == null) {
-                    warnln("ScriptMetadata has " + language + " for " + script + "," +
-                    		" but " + language + " is missing in language_script.txt");
-                    continue;
-                }
-                for (BasicLanguageData entry : data.values()) {
-                    if (entry.getScripts().contains(script)) {
-                        continue main;
-                    }
-                    continue;
-                }
-                warnln("ScriptMetadata has " + language + " for " + script + "," +
-                		" but " + language + " doesn't have "  + script +  " in language_script.txt");
+        main: for (String script : ScriptMetadata.getScripts()) {
+            Info info = ScriptMetadata.getInfo(script);
+            String language = info.likelyLanguage;
+            if (language.equals("und")) {
+                continue;
             }
+            Map<Type, BasicLanguageData> data = dataInfo.getBasicLanguageDataMap(language);
+            if (data == null) {
+                warnln("ScriptMetadata has " + language + " for " + script + "," +
+                    " but " + language + " is missing in language_script.txt");
+                continue;
+            }
+            for (BasicLanguageData entry : data.values()) {
+                if (entry.getScripts().contains(script)) {
+                    continue main;
+                }
+                continue;
+            }
+            warnln("ScriptMetadata has " + language + " for " + script + "," +
+                " but " + language + " doesn't have " + script + " in language_script.txt");
+        }
     }
 
     public void TestCldrFileConsistency() {
@@ -467,176 +465,175 @@ public class TestInheritance extends TestFmwk {
     static SupplementalDataInfo info = SupplementalDataInfo.getInstance();
     LanguageTagParser ltp = new LanguageTagParser();
 
-    //    public void TestAliases() {
-    //        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcher);
-    //        Set<String> allLocales = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*").getAvailable();
+    // public void TestAliases() {
+    // Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcher);
+    // Set<String> allLocales = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*").getAvailable();
     //
-    //        LanguageTagCanonicalizer languageTagCanonicalizer = new LanguageTagCanonicalizer();
+    // LanguageTagCanonicalizer languageTagCanonicalizer = new LanguageTagCanonicalizer();
     //
-    //        Set<String> defaultContents = info.getDefaultContentLocales();
+    // Set<String> defaultContents = info.getDefaultContentLocales();
     //
-    //        Map<String, String> likelySubtags = info.getLikelySubtags();
+    // Map<String, String> likelySubtags = info.getLikelySubtags();
     //
-    //        XPathParts xpp = new XPathParts();
+    // XPathParts xpp = new XPathParts();
     //
-    //        // get the top level aliases, and verify that they are consistent with
-    //        // maximization
-    //        Map<String, String> topLevelAliases = new TreeMap<String, String>();
-    //        Set<String> crossScriptSet = new TreeSet<String>();
-    //        Set<String> aliasPaths = new TreeSet<String>();
-    //        Set<String> locales = factory.getAvailable();
+    // // get the top level aliases, and verify that they are consistent with
+    // // maximization
+    // Map<String, String> topLevelAliases = new TreeMap<String, String>();
+    // Set<String> crossScriptSet = new TreeSet<String>();
+    // Set<String> aliasPaths = new TreeSet<String>();
+    // Set<String> locales = factory.getAvailable();
     //
-    //        // get the languages that need scripts
-    //        // TODO broaden to beyond CLDR
-    //        Set<String> needScripts = new TreeSet<String>();
-    //        for (String locale : locales) {
-    //            String script = ltp.set(locale).getScript();
-    //            if (script.length() != 0) {
-    //                needScripts.add(ltp.getLanguage());
-    //            }
-    //        }
+    // // get the languages that need scripts
+    // // TODO broaden to beyond CLDR
+    // Set<String> needScripts = new TreeSet<String>();
+    // for (String locale : locales) {
+    // String script = ltp.set(locale).getScript();
+    // if (script.length() != 0) {
+    // needScripts.add(ltp.getLanguage());
+    // }
+    // }
     //
-    //        logln("Languages that have scripts:\t" + needScripts);
+    // logln("Languages that have scripts:\t" + needScripts);
     //
-    //        for (String locale : locales) {
+    // for (String locale : locales) {
     //
-    //            // get alias locale
-    //            String aliasLocale = locale;
-    //            String explicitAlias = null;
-    //            String aliasPathNew = null;
-    //            CLDRFile cldrFileToCheck = factory.make(locale, false);
-    //            aliasPaths.clear();
-    //            // examples:
-    //            // in: <alias source="id" path="//ldml"/>
-    //            // ar_IR: <alias source="az_Arab_IR" path="//ldml"/>
+    // // get alias locale
+    // String aliasLocale = locale;
+    // String explicitAlias = null;
+    // String aliasPathNew = null;
+    // CLDRFile cldrFileToCheck = factory.make(locale, false);
+    // aliasPaths.clear();
+    // // examples:
+    // // in: <alias source="id" path="//ldml"/>
+    // // ar_IR: <alias source="az_Arab_IR" path="//ldml"/>
     //
-    //            cldrFileToCheck.getPaths("//ldml/alias", null, aliasPaths);
-    //            if (aliasPaths.size() != 0) {
-    //                String aliasPath = aliasPaths.iterator().next();
-    //                String fullPath = cldrFileToCheck.getFullXPath(aliasPath);
-    //                explicitAlias = aliasLocale = xpp.set(fullPath).getAttributeValue(1, "source");
-    //                String aliasParent = LocaleIDParser.getParent(aliasLocale);
-    //                if (!aliasParent.equals("root")) {
-    //                    topLevelAliases.put(locale, aliasParent);
-    //                }
-    //                aliasPathNew = xpp.set(fullPath).getAttributeValue(1, "path");
-    //                if ("//ldml/".equals(aliasPathNew)) {
-    //                    errln("Bad alias path:\t" + fullPath);
-    //                }
-    //            }
+    // cldrFileToCheck.getPaths("//ldml/alias", null, aliasPaths);
+    // if (aliasPaths.size() != 0) {
+    // String aliasPath = aliasPaths.iterator().next();
+    // String fullPath = cldrFileToCheck.getFullXPath(aliasPath);
+    // explicitAlias = aliasLocale = xpp.set(fullPath).getAttributeValue(1, "source");
+    // String aliasParent = LocaleIDParser.getParent(aliasLocale);
+    // if (!aliasParent.equals("root")) {
+    // topLevelAliases.put(locale, aliasParent);
+    // }
+    // aliasPathNew = xpp.set(fullPath).getAttributeValue(1, "path");
+    // if ("//ldml/".equals(aliasPathNew)) {
+    // errln("Bad alias path:\t" + fullPath);
+    // }
+    // }
     //
-    //            checkAliasValues(cldrFileToCheck, allLocales);
+    // checkAliasValues(cldrFileToCheck, allLocales);
     //
-    //            // get canonicalized
-    //            String canonicalizedLocale = languageTagCanonicalizer.transform(locale);
-    //            if (!locale.equals(canonicalizedLocale)) {
-    //                logln("Locale\t" + locale + " => " + canonicalizedLocale);
-    //            }
+    // // get canonicalized
+    // String canonicalizedLocale = languageTagCanonicalizer.transform(locale);
+    // if (!locale.equals(canonicalizedLocale)) {
+    // logln("Locale\t" + locale + " => " + canonicalizedLocale);
+    // }
     //
-    //            String base = ltp.set(canonicalizedLocale).getLanguage();
-    //            String script = ltp.getScript();
-    //            if (canonicalizedLocale.equals(base)) { // eg, id, az
-    //                continue;
-    //            }
+    // String base = ltp.set(canonicalizedLocale).getLanguage();
+    // String script = ltp.getScript();
+    // if (canonicalizedLocale.equals(base)) { // eg, id, az
+    // continue;
+    // }
     //
-    //            // see if the locale's default script is the same as the base locale's
+    // // see if the locale's default script is the same as the base locale's
     //
-    //            String maximized = maximize(likelySubtags, canonicalizedLocale);
-    //            if (maximized == null) {
-    //                errln("Missing likely subtags for:\t" + locale + "  " + suggestLikelySubtagFor(locale));
-    //                continue;
-    //            }
-    //            String maximizedScript = ltp.set(maximized).getScript();
+    // String maximized = maximize(likelySubtags, canonicalizedLocale);
+    // if (maximized == null) {
+    // errln("Missing likely subtags for:\t" + locale + "  " + suggestLikelySubtagFor(locale));
+    // continue;
+    // }
+    // String maximizedScript = ltp.set(maximized).getScript();
     //
-    //            String minimized = minimize(likelySubtags, canonicalizedLocale);
+    // String minimized = minimize(likelySubtags, canonicalizedLocale);
     //
-    //            String baseMaximized = maximize(likelySubtags, base);
-    //            String baseScript = ltp.set(baseMaximized).getScript();
+    // String baseMaximized = maximize(likelySubtags, base);
+    // String baseScript = ltp.set(baseMaximized).getScript();
     //
-    //            if (script.length() != 0 && !script.equals(baseScript)) {
-    //                crossScriptSet.add(ltp.set(locale).getLanguageScript());
-    //            }
+    // if (script.length() != 0 && !script.equals(baseScript)) {
+    // crossScriptSet.add(ltp.set(locale).getLanguageScript());
+    // }
     //
-    //            // Finally, put together the expected alias for comparison.
-    //            // It is the "best" alias, in that the default-content locales are skipped in favor of their parents
+    // // Finally, put together the expected alias for comparison.
+    // // It is the "best" alias, in that the default-content locales are skipped in favor of their parents
     //
-    //            String expectedAlias =
-    //                !baseScript.equals(maximizedScript) ? minimized :
-    //                    !locale.equals(canonicalizedLocale) ? canonicalizedLocale :
-    //                        // needScripts.contains(base) ? ltp.getLanguageScript() :
-    //                        locale;
+    // String expectedAlias =
+    // !baseScript.equals(maximizedScript) ? minimized :
+    // !locale.equals(canonicalizedLocale) ? canonicalizedLocale :
+    // // needScripts.contains(base) ? ltp.getLanguageScript() :
+    // locale;
     //
-    //            if (!equals(aliasLocale, expectedAlias)) {
-    //                String aliasMaximized = maximize(likelySubtags, aliasLocale);
-    //                String expectedMaximized = maximize(likelySubtags, expectedAlias);
-    //                if (!equals(aliasMaximized, expectedMaximized)) {
-    //                    errln("For locale:\t" + locale
-    //                        + ",\tbase-script:\t" + baseScript
-    //                        + ",\texpected alias Locale != actual alias Locale:\t"
-    //                        + expectedAlias + ", " + aliasLocale);
-    //                } else if (explicitAlias == null) {
-    //                    // skip, we don't care in this case
-    //                    // but we emit warnings if the other conditions are true. The aliasing could be simpler.
-    //                } else if (equals(expectedAlias, locale)) {
-    //                    logln("Warning; alias could be omitted. For locale:\t" + locale
-    //                        + ",\tbase-script:\t" + baseScript
-    //                        + ",\texpected alias Locale != actual alias Locale:\t"
-    //                        + expectedAlias + ", " + aliasLocale);
-    //                } else {
-    //                    logln("Warning; alias could be minimized. For locale:\t" + locale
-    //                        + ",\tbase-script:\t" + baseScript
-    //                        + ",\texpected alias Locale != actual alias Locale:\t"
-    //                        + expectedAlias + ", " + aliasLocale);
-    //                }
-    //            }
-    //        }
+    // if (!equals(aliasLocale, expectedAlias)) {
+    // String aliasMaximized = maximize(likelySubtags, aliasLocale);
+    // String expectedMaximized = maximize(likelySubtags, expectedAlias);
+    // if (!equals(aliasMaximized, expectedMaximized)) {
+    // errln("For locale:\t" + locale
+    // + ",\tbase-script:\t" + baseScript
+    // + ",\texpected alias Locale != actual alias Locale:\t"
+    // + expectedAlias + ", " + aliasLocale);
+    // } else if (explicitAlias == null) {
+    // // skip, we don't care in this case
+    // // but we emit warnings if the other conditions are true. The aliasing could be simpler.
+    // } else if (equals(expectedAlias, locale)) {
+    // logln("Warning; alias could be omitted. For locale:\t" + locale
+    // + ",\tbase-script:\t" + baseScript
+    // + ",\texpected alias Locale != actual alias Locale:\t"
+    // + expectedAlias + ", " + aliasLocale);
+    // } else {
+    // logln("Warning; alias could be minimized. For locale:\t" + locale
+    // + ",\tbase-script:\t" + baseScript
+    // + ",\texpected alias Locale != actual alias Locale:\t"
+    // + expectedAlias + ", " + aliasLocale);
+    // }
+    // }
+    // }
     //
-    //        // check the LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES value and make sure it matches what is in the files in main/
+    // // check the LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES value and make sure it matches what is in the files in main/
     //
-    //        if (!topLevelAliases.equals(LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES) 
-    //            && locales.equals(allLocales)) {
-    //            String diff = showDifferences(LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES, topLevelAliases);
-    //            if (!diff.isEmpty()) {
-    //                errln("LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES ≠ topLevelAliases: " + diff);
-    //            }
-    //            StringBuilder result = new StringBuilder(
-    //                "Suggest changing LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES to:\n");
-    //            for (Entry<String, String> entry : topLevelAliases.entrySet()) {
-    //                result.append("\t.put(\"")
-    //                .append(entry.getKey())
-    //                .append("\", \"")
-    //                .append(entry.getValue())
-    //                .append("\")\n");
-    //            }
-    //            errln(result.toString());
-    //        } else {
-    //            logln("Top Level Aliases:\t" + topLevelAliases);
-    //        }
+    // if (!topLevelAliases.equals(LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES)
+    // && locales.equals(allLocales)) {
+    // String diff = showDifferences(LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES, topLevelAliases);
+    // if (!diff.isEmpty()) {
+    // errln("LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES ≠ topLevelAliases: " + diff);
+    // }
+    // StringBuilder result = new StringBuilder(
+    // "Suggest changing LocaleIDParser.TOP_LEVEL_ALIAS_LOCALES to:\n");
+    // for (Entry<String, String> entry : topLevelAliases.entrySet()) {
+    // result.append("\t.put(\"")
+    // .append(entry.getKey())
+    // .append("\", \"")
+    // .append(entry.getValue())
+    // .append("\")\n");
+    // }
+    // errln(result.toString());
+    // } else {
+    // logln("Top Level Aliases:\t" + topLevelAliases);
+    // }
     //
-    //        // verify that they are the same as what we would get if we were to maximize
-    //        // all the locales and check against default_contents
+    // // verify that they are the same as what we would get if we were to maximize
+    // // all the locales and check against default_contents
     //
-    //        for (String locale : defaultContents) {
-    //            CLDRFile cldrFileToCheck = null;
-    //            try {
-    //                cldrFileToCheck = factory.make(locale, false);
-    //            } catch (Exception e) {}
-    //            if (cldrFileToCheck == null) {
-    //                logln("Present in default contents but has no XML file:\t" + locale);
-    //                continue;
-    //            }
-    //            logln("Locale:\t" + locale);
-    //            // verify empty, except for identity elements and alias
-    //            for (String path : cldrFileToCheck) {
-    //                if (path.contains("/identity/")) {
-    //                    continue;
-    //                }
-    //                errln("Default content locale not empty:\t" + locale + ", " + path);
-    //                break;
-    //            }
-    //        }
-    //    }
-
+    // for (String locale : defaultContents) {
+    // CLDRFile cldrFileToCheck = null;
+    // try {
+    // cldrFileToCheck = factory.make(locale, false);
+    // } catch (Exception e) {}
+    // if (cldrFileToCheck == null) {
+    // logln("Present in default contents but has no XML file:\t" + locale);
+    // continue;
+    // }
+    // logln("Locale:\t" + locale);
+    // // verify empty, except for identity elements and alias
+    // for (String path : cldrFileToCheck) {
+    // if (path.contains("/identity/")) {
+    // continue;
+    // }
+    // errln("Default content locale not empty:\t" + locale + ", " + path);
+    // break;
+    // }
+    // }
+    // }
 
     Matcher aliasMatcher = Pattern.compile("//ldml.*/alias.*").matcher("");
 
@@ -727,7 +724,8 @@ public class TestInheritance extends TestFmwk {
     // TODO move this into central utilities
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
-    private static final Map<String, Map<String, R2<List<String>, String>>> DEPRECATED_INFO = dataInfo.getLocaleAliasInfo();
+    private static final Map<String, Map<String, R2<List<String>, String>>> DEPRECATED_INFO = dataInfo
+        .getLocaleAliasInfo();
 
     private void checkLocale(String localeID, boolean allowDeprecated) {
         // verify that the localeID is valid
@@ -757,7 +755,8 @@ public class TestInheritance extends TestFmwk {
             // "language" -> "sh" -> <{"sr_Latn"}, reason>
             R2<List<String>, String> deprecatedInfo = DEPRECATED_INFO.get(subtagType).get(subtag);
             if (deprecatedInfo != null) {
-                errln("Locale " + localeID + " contains deprecated " + showCode(subtagType, subtag) + " " + deprecatedInfo.get1()
+                errln("Locale " + localeID + " contains deprecated " + showCode(subtagType, subtag) + " "
+                    + deprecatedInfo.get1()
                     + "; suggest " + showName(deprecatedInfo.get0(), subtagType));
             }
         }
@@ -778,7 +777,6 @@ public class TestInheritance extends TestFmwk {
     private String showName(String subtagType, String subtag) {
         return subtag + " (" + getName(subtagType, subtag) + ")";
     }
-
 
     private String getName(String subtagType, String subtag) {
         Map<String, String> data = STANDARD_CODES.getLangData(subtagType, subtag);
@@ -801,7 +799,7 @@ public class TestInheritance extends TestFmwk {
     }
 
     // TODO move this into central utilities
-    private <K,V> String showDifferences(Map<K, V> a, Map<K, V> b) {
+    private <K, V> String showDifferences(Map<K, V> a, Map<K, V> b) {
         StringBuilder result = new StringBuilder();
         Set<K> keys = new LinkedHashSet<K>();
         keys.addAll(a.keySet());
@@ -814,7 +812,7 @@ public class TestInheritance extends TestFmwk {
             } else {
                 V aKey = a.get(key);
                 V bKey = b.get(key);
-                if (!equals(aKey,bKey)) {
+                if (!equals(aKey, bKey)) {
                     result.append(key).append("→‹").append(a.get(key)).append("›,‹").append(b.get(key)).append("›; ");
                 }
             }

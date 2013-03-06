@@ -314,6 +314,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
                     inconsistentItems.toString()));
         }
     }
+
     /**
      * This method builds a decimal format (based on whether the pattern is for currencies or not)
      * and tests samples.

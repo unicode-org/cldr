@@ -141,11 +141,11 @@ public class SimpleXMLSource extends XMLSource {
             }
         }
     }
-    
+
     public void setDtdVersionInfo(VersionInfo dtdVersionInfo) {
         this.dtdVersionInfo = dtdVersionInfo;
     }
-    
+
     public VersionInfo getDtdVersionInfo() {
         return dtdVersionInfo;
     }

@@ -21,8 +21,8 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexLookup;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.RegexLookup.Finder;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -44,8 +44,6 @@ public class TestCoverageLevel extends TestFmwk {
         // new TestCoverageLevel().getOrgs();
         // new TestCoverageLevel().run(args);
     }
-
-
 
     private static void getStarred(String locale, boolean longForm) {
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(
@@ -247,7 +245,6 @@ public class TestCoverageLevel extends TestFmwk {
             return result + (extra.isEmpty() ? "" : "\t" + extra);
         }
     }
-
 
     RegexLookup<Level> exceptions = RegexLookup.of(null, new Transform<String, Level>() {
         public Level transform(String source) {

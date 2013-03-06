@@ -205,7 +205,8 @@ public class GenerateSidewaysView {
 
             String header = path.getHeader();
             if (!header.equals(oldHeader) && !header.equals("null")) {
-                out.println("<tr><th colSpan='2' class='pathHeader'>" + CldrUtility.getDoubleLinkedText(header) + "</th><tr>");
+                out.println("<tr><th colSpan='2' class='pathHeader'>" + CldrUtility.getDoubleLinkedText(header)
+                    + "</th><tr>");
                 oldHeader = header;
             }
             String anchorId = Long.toHexString(StringId.getId(path.getOriginalPath()));

@@ -19,7 +19,6 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.Stack;
 
-import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.ErrorHandler;
@@ -87,7 +86,7 @@ public class XMLFileReader {
         try {
             InputStream fis = new FileInputStream(fileName);
             // fis = new DebuggingInputStream(fis);
-            return read(fileName, new InputStreamReader(fis,Charset.forName("UTF-8")), handlers, validating);
+            return read(fileName, new InputStreamReader(fis, Charset.forName("UTF-8")), handlers, validating);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fileName).initCause(e);
         }
@@ -364,25 +363,26 @@ public class XMLFileReader {
             return x;
         }
     }
-    
-    public static Relation<String, String> loadPathValues(String filename, Relation<String,String> data) {
-            try {
-                new XMLFileReader()
-                    .setHandler(new PathValueHandler(data))
-                    .read(filename, -1, true);
-                return data;
-            } catch (Exception e) {
-                throw new IllegalArgumentException(filename, e);
-            }
+
+    public static Relation<String, String> loadPathValues(String filename, Relation<String, String> data) {
+        try {
+            new XMLFileReader()
+                .setHandler(new PathValueHandler(data))
+                .read(filename, -1, true);
+            return data;
+        } catch (Exception e) {
+            throw new IllegalArgumentException(filename, e);
+        }
     }
-    
+
     static final class PathValueHandler extends SimpleHandler {
-        Relation<String,String> data = Relation.of(new LinkedHashMap<String,Set<String>>(), LinkedHashSet.class);
+        Relation<String, String> data = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
         public PathValueHandler(Relation<String, String> data) {
             super();
             this.data = data;
         }
+
         @Override
         public void handlePathValue(String path, String value) {
             data.put(path, value);

@@ -64,8 +64,8 @@ public abstract class LdmlMapper {
 
         /**
          * @param maxArgs
-         *      the maximum number of args that can be passed to this function,
-         *      or a negative number if there is no limit.
+         *            the maximum number of args that can be passed to this function,
+         *            or a negative number if there is no limit.
          */
         protected Function(int maxArgs) {
             this.maxArgs = maxArgs;
@@ -73,13 +73,14 @@ public abstract class LdmlMapper {
 
         /**
          * Processes a comma-delimited list of arguments.
+         * 
          * @param arg
          * @return
          */
         public String process(String arg) {
             String[] args = arg.split(",");
             if (maxArgs > -1 && args.length > maxArgs) {
-                throw new IllegalArgumentException("Function has too many args: expected " 
+                throw new IllegalArgumentException("Function has too many args: expected "
                     + maxArgs + " but got (" + arg + ")");
             }
             return run(args);
@@ -87,6 +88,7 @@ public abstract class LdmlMapper {
 
         /**
          * Runs the function on a list of arguments.
+         * 
          * @return the resultant string
          */
         protected abstract String run(String... args);
@@ -103,10 +105,13 @@ public abstract class LdmlMapper {
         private int splitRbPathArg;
 
         /**
-         * @param rbPath the rbPath expression to be used for this set of path-value pairs.
-         * @param instructions any special instructions to be carried out on this set of path-value pairs
-         * @param splitRbPathArg if applicable, the number of the argument in the rbPath
-         *      expression that needs to be split to create multiple rbPaths, each with the same value
+         * @param rbPath
+         *            the rbPath expression to be used for this set of path-value pairs.
+         * @param instructions
+         *            any special instructions to be carried out on this set of path-value pairs
+         * @param splitRbPathArg
+         *            if applicable, the number of the argument in the rbPath
+         *            expression that needs to be split to create multiple rbPaths, each with the same value
          */
         public PathValueInfo(String rbPath, Map<String, String> instructions, int splitRbPathArg) {
             this.rbPath = rbPath;
@@ -207,7 +212,7 @@ public abstract class LdmlMapper {
                     index = matcher.end();
                 } while (matcher.find());
                 buffer.append(value.substring(index));
-                //System.out.println(value + " to " + buffer.toString());
+                // System.out.println(value + " to " + buffer.toString());
                 value = buffer.toString();
             }
             if (value.contains("{value}")) {

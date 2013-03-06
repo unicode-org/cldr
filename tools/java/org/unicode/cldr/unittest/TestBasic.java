@@ -259,7 +259,7 @@ public class TestBasic extends TestFmwk {
             CLDRFile file = cldrFactory.make(locale, resolved);
             if (file.isNonInheriting())
                 continue;
-            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(testInfo.getSupplementalDataInfo(),locale);
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(testInfo.getSupplementalDataInfo(), locale);
             logln(locale + "\t-\t" + english.getName(locale));
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {

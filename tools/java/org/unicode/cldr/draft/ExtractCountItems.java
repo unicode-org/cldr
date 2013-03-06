@@ -18,10 +18,10 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.Relation;
 
@@ -66,7 +66,8 @@ public class ExtractCountItems {
         Map<String, Map<String, SampleData>> defectiveLocales = new LinkedHashMap();
 
         for (String locale : factory.getAvailableLanguages()) {
-            Map<String, Level> locale_status = StandardCodes.make().getLocaleTypes().get("google"); // later, make parameter
+            Map<String, Level> locale_status = StandardCodes.make().getLocaleTypes().get("google"); // later, make
+                                                                                                    // parameter
             if (locale_status == null) continue;
             Level level = locale_status.get(locale);
             if (level == null) continue;
@@ -90,7 +91,7 @@ public class ExtractCountItems {
             if (sampleData == null) {
                 // try currencies
                 sampleData = getSamples(cldr, keywordCount, "//ldml/numbers/currencies/currency", data);
-            }      
+            }
             if (sampleData == null) {
                 defectiveLocales.put(locale, data);
                 continue;
@@ -113,13 +114,13 @@ public class ExtractCountItems {
             for (String s : keywords) {
                 realKeywords.add(Count.valueOf(s));
             }
-            Set<Pair<Count,Count>> missingPairs = new HashSet();
+            Set<Pair<Count, Count>> missingPairs = new HashSet();
             for (Count i : realKeywords) {
                 for (Count j : realKeywords) {
                     if (i.compareTo(j) >= 0) {
                         continue;
                     }
-                    missingPairs.add(new Pair(i,j));
+                    missingPairs.add(new Pair(i, j));
                 }
             }
             showMinimalPairs(missingPairs, entry.getValue());
@@ -142,7 +143,7 @@ public class ExtractCountItems {
                     it.remove();
                 }
             }
-        }  
+        }
         System.out.println("Missing minimal pairs: " + missingPairs);
     }
 
@@ -151,7 +152,7 @@ public class ExtractCountItems {
             if (!path.contains("@count")) {
                 continue;
             }
-            if (path.contains("//ldml/numbers/decimalFormats") || path.contains("//ldml/numbers/currencyFormats") 
+            if (path.contains("//ldml/numbers/decimalFormats") || path.contains("//ldml/numbers/currencyFormats")
                 || path.contains("@alt=\"short\"")) {
                 continue;
             }

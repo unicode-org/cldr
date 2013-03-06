@@ -109,9 +109,9 @@ public class CheckCoverage extends FactoryCheckCLDR {
         final String localeID = cldrFileToCheck.getLocaleID();
         if (localeID.equals(new LanguageTagParser().set(localeID).getLanguageScript())) {
             supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
-            coverageLevel = CoverageLevel2.getInstance(supplementalData,localeID);
-            PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal,localeID);
-            if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal,"root")) {
+            coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
+            PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
+            if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, "root")) {
                 possibleErrors.add(new CheckStatus()
                     .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.missingPluralInfo)
                     .setMessage("Missing Plural Information - see supplemental plural charts to file bug.",

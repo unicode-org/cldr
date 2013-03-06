@@ -204,7 +204,6 @@ public class SupplementalDataParser {
         return null;
     }
 
-
     //
     // Currency
     //

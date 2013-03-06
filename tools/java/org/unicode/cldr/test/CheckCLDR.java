@@ -472,7 +472,10 @@ abstract public class CheckCLDR {
             exampleType = Type.Example,
             demoType = Type.Demo;
 
-        public enum Type { Comment, Warning, Error, Example, Demo };
+        public enum Type {
+            Comment, Warning, Error, Example, Demo
+        };
+
         public enum Subtype {
             none, noUnproposedVariant, deprecatedAttribute, illegalPlural, invalidLocale,
             incorrectCasing, valueAlwaysOverridden, nullChildFile, internalError, coverageLevel,

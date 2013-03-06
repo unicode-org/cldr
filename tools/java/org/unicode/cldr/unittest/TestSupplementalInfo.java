@@ -56,11 +56,13 @@ public class TestSupplementalInfo extends TestFmwk {
             String region = e.getKey();
             PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
             if (!preferredAndAllowedHour.allowed.contains(preferredAndAllowedHour.preferred)) {
-                errln(region + ": " + preferredAndAllowedHour.allowed + "must contain" + preferredAndAllowedHour.preferred);
+                errln(region + ": " + preferredAndAllowedHour.allowed + "must contain"
+                    + preferredAndAllowedHour.preferred);
             }
             for (Character c : preferredAndAllowedHour.allowed) {
                 if (!PreferredAndAllowedHour.HOURS.contains(c)) {
-                    errln(region + ": illegal character in " + preferredAndAllowedHour.allowed + ". It contains " + c + " which is not in " + PreferredAndAllowedHour.HOURS);
+                    errln(region + ": illegal character in " + preferredAndAllowedHour.allowed + ". It contains " + c
+                        + " which is not in " + PreferredAndAllowedHour.HOURS);
                 }
             }
         }
@@ -319,7 +321,7 @@ public class TestSupplementalInfo extends TestFmwk {
             String script = ltp.getScript();
             baseToLanguages.put(base, language);
 
-            if (TestInfo.isCldrVersionBefore(23,0,0,1)) {
+            if (TestInfo.isCldrVersionBefore(23, 0, 0, 1)) {
                 continue;
             }
 
@@ -336,7 +338,8 @@ public class TestSupplementalInfo extends TestFmwk {
 
             // do some consistency tests; if there is a script, it must be in primaryScripts
             if (!script.isEmpty() && !primaryScripts.contains(script)) {
-                errln(base + ": Script found in territory data (" + script + ") is not in primary scripts :\t" + primaryScripts);
+                errln(base + ": Script found in territory data (" + script + ") is not in primary scripts :\t"
+                    + primaryScripts);
             }
 
             // if there are multiple primary scripts, they will be in baseToLanguages
@@ -355,7 +358,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (languagesForBase.size() > 1) {
                     errln("Cannot have base alone with other scripts:\t" + languagesForBase);
                 }
-            } else if (!TestInfo.isCldrVersionBefore(23,0,0,1)) {
+            } else if (!TestInfo.isCldrVersionBefore(23, 0, 0, 1)) {
                 if (languagesForBase.size() == 1) {
                     errln("Cannot have only one script for language:\t" + languagesForBase);
                 }

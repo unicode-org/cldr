@@ -365,7 +365,7 @@ public class TablePrinter {
     static final UnicodeSet BIDI = new UnicodeSet("[[:bc=R:][:bc=AL:]]");
     static final char RLE = '\u202B';
     static final char PDF = '\u202C';
-    
+
     private String format(Comparable comparable) {
         if (comparable == null) {
             return null;

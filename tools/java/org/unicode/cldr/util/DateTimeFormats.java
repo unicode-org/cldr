@@ -459,8 +459,8 @@ public class DateTimeFormats {
         case separator:
             String link = name.replace(' ', '_');
             output.append("<th colSpan='3' class='dtf-sep'>")
-            .append(CldrUtility.getDoubleLinkedText(link, name))
-            .append("</th>");
+                .append(CldrUtility.getDoubleLinkedText(link, name))
+                .append("</th>");
             break;
         case header:
         case normal:

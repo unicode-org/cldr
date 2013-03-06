@@ -12,7 +12,6 @@ import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Shaping;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
-import org.unicode.cldr.util.With;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -35,12 +34,13 @@ public class TestScriptMetadata extends TestFmwk {
         BitSet bitset = new BitSet();
         for (String script : ScriptMetadata.getScripts()) {
             Info info0 = ScriptMetadata.getInfo(script);
-            assertEquals("Sample must be single character", 1, info0.sampleChar.codePointCount(0, info0.sampleChar.length()));
+            assertEquals("Sample must be single character", 1,
+                info0.sampleChar.codePointCount(0, info0.sampleChar.length()));
             int scriptCode = UScript.getScriptExtensions(info0.sampleChar.codePointAt(0), bitset);
             assertTrue("Must have single, valid script " + scriptCode, scriptCode >= 0);
         }
     }
-    
+
     public void TestBasic() {
         Info info0 = ScriptMetadata.getInfo(UScript.LATIN);
         if (ScriptMetadata.errors.size() != 0) {

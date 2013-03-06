@@ -126,7 +126,7 @@ final public class ListFormat {
 
     private String format2(String pattern, Object a, Object b) {
         // TODO: make slightly faster by using single pass.
-        //return pattern.replace("{0}", a.toString()).replace("{1}", b.toString());
+        // return pattern.replace("{0}", a.toString()).replace("{1}", b.toString());
         return pattern.replace("{1}", b.toString()).replace("{0}", a.toString());
     }
 

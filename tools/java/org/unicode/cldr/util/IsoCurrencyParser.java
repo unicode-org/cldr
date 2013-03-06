@@ -8,9 +8,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.XMLFileReader;
-
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Utility;
 
@@ -36,12 +33,12 @@ public class IsoCurrencyParser {
      * in the language subtag registry.
      */
     private static final Map<String, String> COUNTRY_CORRECTIONS = CldrUtility.asMap(new String[][] {
-        { Utility.unescape("R\u00C9UNION"), "RE"},
-        { Utility.unescape("\u00C5LAND ISLANDS"), "AX"}, 
+        { Utility.unescape("R\u00C9UNION"), "RE" },
+        { Utility.unescape("\u00C5LAND ISLANDS"), "AX" },
         { "BOLIVIA, PLURINATIONAL STATE OF", "BO" },
         { "CONGO, THE DEMOCRATIC REPUBLIC OF", "CD" },
-        { Utility.unescape("C\u00D4TE D\u2019IVOIRE"), "CI"},
-        { Utility.unescape("CURA\u00C7AO"), "CW"},
+        { Utility.unescape("C\u00D4TE D\u2019IVOIRE"), "CI" },
+        { Utility.unescape("CURA\u00C7AO"), "CW" },
         { "HEARD ISLAND AND McDONALD ISLANDS", "HM" },
         { Utility.unescape("INTERNATIONAL MONETARY FUND (IMF)\u00A0"), "ZZ" },
         { "IRAN, ISLAMIC REPUBLIC OF", "IR" },
@@ -55,7 +52,7 @@ public class IsoCurrencyParser {
         { Utility.unescape("LAO PEOPLE\u2019S DEMOCRATIC REPUBLIC"), "LA" },
         { "MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF", "MK" },
         { "MEMBER COUNTRIES OF THE AFRICAN DEVELOPMENT BANK GROUP", "ZZ" },
-        { "MOLDOVA, REPUBLIC OF", "MD"},
+        { "MOLDOVA, REPUBLIC OF", "MD" },
         { "PALESTINIAN TERRITORY, OCCUPIED", "PS" },
         { "SISTEMA UNITARIO DE COMPENSACION REGIONAL DE PAGOS \"SUCRE\"", "ZZ" },
         { "VENEZUELA, BOLIVARIAN REPUBLIC OF", "VE" },
@@ -178,8 +175,8 @@ public class IsoCurrencyParser {
 
     public class ISOCurrencyHandler extends XMLFileReader.SimpleHandler {
 
-        // This Set represents the entries in ISO4217 which we know to be bad.  I have sent e-mail
-        // to the ISO 4217 Maintenance agency attempting to get them removed.  Once that happens,
+        // This Set represents the entries in ISO4217 which we know to be bad. I have sent e-mail
+        // to the ISO 4217 Maintenance agency attempting to get them removed. Once that happens,
         // we can remove these as well.
         // SVC - El Salvador Colon - not used anymore ( uses USD instead )
         // ZWL - Last Zimbabwe Dollar - abandoned due to hyper-inflation.
@@ -227,7 +224,8 @@ public class IsoCurrencyParser {
                     }
                 }
 
-                if (type.equals("MINOR_UNIT") && alphabetic_code.length() > 0 && !KNOWN_BAD_ISO_DATA_CODES.contains(alphabetic_code)) {
+                if (type.equals("MINOR_UNIT") && alphabetic_code.length() > 0
+                    && !KNOWN_BAD_ISO_DATA_CODES.contains(alphabetic_code)) {
                     Data data = new Data(country_code, currency_name, numeric_code, minor_unit);
                     codeList.put(alphabetic_code, data);
                     countryToCodes.put(data.getCountryCode(), alphabetic_code);

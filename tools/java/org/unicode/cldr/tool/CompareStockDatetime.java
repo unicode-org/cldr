@@ -18,20 +18,20 @@ public class CompareStockDatetime {
         TestInfo info = TestInfo.getInstance();
         Factory cldrFactory = info.getCldrFactory();
         String[][] data = {
-            {"date", "full"},
-            {"date", "long"},
-            {"date", "medium"},
-            {"date", "short"},
-            {"time", "full"},
-            {"time", "long"},
-            {"time", "medium"},
-            {"time", "short"},
+            { "date", "full" },
+            { "date", "long" },
+            { "date", "medium" },
+            { "date", "short" },
+            { "time", "full" },
+            { "time", "long" },
+            { "time", "medium" },
+            { "time", "short" },
         };
-        
-        Map<String,Relation<String,String>> lengthToSkeletonToLocales = new TreeMap();
+
+        Map<String, Relation<String, String>> lengthToSkeletonToLocales = new TreeMap();
         // new Relation(new TreeMap(), TreeSet.class);
         Set<String> defaultContentLocales = info.getSupplementalDataInfo().getDefaultContentLocales();
-        
+
         DateTimePatternGenerator dtpg = DateTimePatternGenerator.getEmptyInstance();
         for (String locale : cldrFactory.getAvailableLanguages()) {
             if (defaultContentLocales.contains(locale)) {
@@ -55,7 +55,7 @@ public class CompareStockDatetime {
                     lengthToSkeletonToLocales.put(key, skeletonToLocales = new Relation(new TreeMap(), TreeSet.class));
                 }
                 skeletonToLocales.put(skeleton, locale);
-                //System.out.println(key + "\t" + skeleton + "\t" + locale);
+                // System.out.println(key + "\t" + skeleton + "\t" + locale);
             }
         }
         System.out.println();

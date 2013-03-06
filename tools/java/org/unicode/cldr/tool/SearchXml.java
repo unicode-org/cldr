@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.LinkedHashMap;
@@ -62,10 +61,10 @@ public class SearchXml {
     private static final PathStarrer pathStarrer = new PathStarrer();
 
     final static Options myOptions = new Options()
-    .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
-    .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
-    .add("path", ".*", null,
-        "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
+        .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
+        .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
+        .add("path", ".*", null,
+            "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
         .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
         .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
         .add("count", null, null, "only count items")
@@ -74,10 +73,9 @@ public class SearchXml {
         .add("unique", null, null, "only unique lines")
         .add("groups", null, null,
             "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
-            .add("Verbose", null, null, "verbose output")
-            .add("recursive", null, null, "recurse directories")
-            .add("Star", null, null, "get statistics on starred paths")
-            ;
+        .add("Verbose", null, null, "verbose output")
+        .add("recursive", null, null, "recurse directories")
+        .add("Star", null, null, "get statistics on starred paths");
 
     public static void main(String[] args) throws IOException {
         double startTime = System.currentTimeMillis();
@@ -236,7 +234,7 @@ public class SearchXml {
         }
         System.out.println("\t" + DiffInfo.DiffInfoHeader);
         DIFF_INFO.showValues("TOTAL");
-        
+
         for (String error : ERRORS) {
             System.err.println(error);
         }
@@ -273,17 +271,17 @@ public class SearchXml {
     static DiffInfo DIFF_INFO = new DiffInfo();
 
     static class DiffInfo {
-        static final String DiffInfoHeader = 
+        static final String DiffInfoHeader =
             "\tSame" +
-            "\tDeletions" +
-            "\tAdditions" +
-            "\tChanges";
+                "\tDeletions" +
+                "\tAdditions" +
+                "\tChanges";
 
         int additionCount = 0;
         int deletionCount = 0;
         int changed2Values = 0;
         int sameCount = 0;
-        
+
         public void showValues(String title) {
             System.out.println(title +
                 "\t" + sameCount +
@@ -297,8 +295,7 @@ public class SearchXml {
             DIFF_INFO.sameCount += sameCount;
         }
     }
-    
-    
+
     /**
      * @author markdavis
      * @param fileName
@@ -407,14 +404,14 @@ public class SearchXml {
                     if (!countOnly) {
                         String data = groups
                             ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
-                                : value + "\t" + path;
-                            if (!unique) {
-                                System.out.println(
-                                    (recursive ? filePath + "\t" : "")
+                            : value + "\t" + path;
+                        if (!unique) {
+                            System.out.println(
+                                (recursive ? filePath + "\t" : "")
                                     + file + "\t" + data);
-                            } else {
-                                uniqueData.add(data, 1);
-                            }
+                        } else {
+                            uniqueData.add(data, 1);
+                        }
                     }
                 }
             }
@@ -428,7 +425,6 @@ public class SearchXml {
             diffInfo.showValues(title);
         }
     }
-
 
     static Set<String> defaultContent = SupplementalDataInfo.getInstance().getDefaultContentLocales();
 

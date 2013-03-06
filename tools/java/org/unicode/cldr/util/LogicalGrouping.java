@@ -30,7 +30,7 @@ public class LogicalGrouping {
         "Pierre_Miquelon", "Qyzylorda", "Sakhalin", "Samara", "Samarkand", "Samoa", "Shevchenko", "Sverdlovsk",
         "Taipei", "Tashkent", "Tbilisi", "Tonga", "Turkey", "Turkmenistan", "Uralsk", "Uruguay", "Uzbekistan",
         "Vanuatu", "Vladivostok", "Volgograd", "Yakutsk", "Yekaterinburg", "Yerevan", "Yukon" };
-    
+
     public static final List<String> metazonesDSTList = Arrays.asList(metazonesUsingDST);
 
     public static final String[] days = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };

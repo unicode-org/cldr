@@ -136,7 +136,7 @@ public class CoverageLevel2 {
     }
 
     public Level getLevel(String path) {
-        if ( path == null ) {
+        if (path == null) {
             return Level.UNDETERMINED;
         }
         synchronized (lookup) { // synchronize on the class, since the Matchers are changed during the matching process

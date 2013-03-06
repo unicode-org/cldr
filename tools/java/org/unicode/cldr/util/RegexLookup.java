@@ -55,10 +55,10 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
         public boolean find(String item, Object context) {
             try {
                 return matcher.reset(item).find();
-            } catch(StringIndexOutOfBoundsException e) {
+            } catch (StringIndexOutOfBoundsException e) {
                 // We don't know what causes this error (cldrbug 5051) so
                 // make the exception message more detailed.
-                throw new IllegalArgumentException("Matching error caused by pattern: [" 
+                throw new IllegalArgumentException("Matching error caused by pattern: ["
                     + matcher.toString() + "] on text: [" + item + "]", e);
             }
         }
@@ -299,7 +299,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
 
             @Override
             public String replace(String str) {
-                 return variables.replace(str);
+                return variables.replace(str);
             }
         });
         parser.parse(baseClass, filename);

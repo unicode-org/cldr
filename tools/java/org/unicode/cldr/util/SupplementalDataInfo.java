@@ -229,7 +229,8 @@ public class SupplementalDataInfo {
     /**
      * Simple language/script/region information
      */
-    public static class BasicLanguageData implements Comparable<BasicLanguageData>, com.ibm.icu.util.Freezable<BasicLanguageData> {
+    public static class BasicLanguageData implements Comparable<BasicLanguageData>,
+        com.ibm.icu.util.Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         };
@@ -312,10 +313,10 @@ public class SupplementalDataInfo {
                     + CldrUtility.join(territories, " ") + "\"")
                 + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
-        
+
         public String toString() {
-            return "[" + type 
-                + (scripts.isEmpty() ? "" : "; scripts=" + CollectionUtilities.join(scripts, " ")) 
+            return "[" + type
+                + (scripts.isEmpty() ? "" : "; scripts=" + CollectionUtilities.join(scripts, " "))
                 + (scripts.isEmpty() ? "" : "; territories=" + CollectionUtilities.join(territories, " "))
                 + "]";
         }
@@ -330,7 +331,7 @@ public class SupplementalDataInfo {
                 return result;
             return 0;
         }
-        
+
         public boolean equals(Object input) {
             return compareTo((BasicLanguageData) input) == 0;
         }
@@ -425,20 +426,22 @@ public class SupplementalDataInfo {
     }
 
     public static class NumberingSystemInfo {
-        public enum NumberingSystemType { algorithmic, numeric, unknown };
-        
+        public enum NumberingSystemType {
+            algorithmic, numeric, unknown
+        };
+
         public final String name;
         public final NumberingSystemType type;
         public final String digits;
         public final String rules;
-        
+
         public NumberingSystemInfo(XPathParts parts) {
             name = parts.getAttributeValue(-1, "id");
             digits = parts.getAttributeValue(-1, "digits");
-            rules = parts.getAttributeValue(-1,"rules");
-            type = NumberingSystemType.valueOf(parts.getAttributeValue(-1,"type"));
+            rules = parts.getAttributeValue(-1, "rules");
+            type = NumberingSystemType.valueOf(parts.getAttributeValue(-1, "type"));
         }
- 
+
     }
 
     /**
@@ -781,7 +784,7 @@ public class SupplementalDataInfo {
     transient private Relation<String, Pair<Boolean, Pair<Double, String>>> languageToTerritories2 =
         Relation.of(new TreeMap<String, Set<Pair<Boolean, Pair<Double, String>>>>(), TreeSet.class);
 
-    private Map<String, Map<BasicLanguageData.Type, BasicLanguageData>> languageToBasicLanguageData = 
+    private Map<String, Map<BasicLanguageData.Type, BasicLanguageData>> languageToBasicLanguageData =
         new TreeMap<String, Map<BasicLanguageData.Type, BasicLanguageData>>();
 
     // private Map<String, BasicLanguageData> languageToBasicLanguageData2 = new
@@ -1048,7 +1051,7 @@ public class SupplementalDataInfo {
         deprecated = CldrUtility.protectCollection(deprecated);
         measurementData = CldrUtility.protectCollection(measurementData);
         timeData = CldrUtility.protectCollection(timeData);
-        
+
         validityInfo = CldrUtility.protectCollection(validityInfo);
     }
 
@@ -1174,7 +1177,7 @@ public class SupplementalDataInfo {
                     if (handleTimeData(level2)) {
                         return;
                     }
-                }        
+                }
 
                 // capture elements we didn't look at, since we should cover everything.
                 // this helps for updates
@@ -1207,14 +1210,15 @@ public class SupplementalDataInfo {
             }
             return true;
         }
-        
+
         private boolean handleTimeData(String level2) {
             /**
-             *  <hours preferred="H" allowed="H" regions="IL RU"/>
+             * <hours preferred="H" allowed="H" regions="IL RU"/>
              */
             String preferred = parts.getAttributeValue(-1, "preferred");
-            //String[] allowed = parts.getAttributeValue(-1, "allowed").trim().split("\\s+");
-            PreferredAndAllowedHour preferredAndAllowedHour = new PreferredAndAllowedHour(preferred, parts.getAttributeValue(-1, "allowed"));
+            // String[] allowed = parts.getAttributeValue(-1, "allowed").trim().split("\\s+");
+            PreferredAndAllowedHour preferredAndAllowedHour = new PreferredAndAllowedHour(preferred,
+                parts.getAttributeValue(-1, "allowed"));
             for (String region : parts.getAttributeValue(-1, "regions").trim().split("\\s+")) {
                 PreferredAndAllowedHour oldValue = timeData.put(region, preferredAndAllowedHour);
                 if (oldValue != null) {
@@ -1300,7 +1304,7 @@ public class SupplementalDataInfo {
         private void handleNumberingSystems() {
             NumberingSystemInfo ns = new NumberingSystemInfo(parts);
             numberingSystems.put(ns.name, ns);
-            if ( ns.type == NumberingSystemType.numeric ) {
+            if (ns.type == NumberingSystemType.numeric) {
                 numericSystems.add(ns.name);
             }
         }
@@ -1627,7 +1631,7 @@ public class SupplementalDataInfo {
                         parseIntegerOrNull(parts.getAttributeValue(3, "digits")),
                         parseIntegerOrNull(parts.getAttributeValue(3, "rounding")),
                         parseIntegerOrNull(parts.getAttributeValue(3, "cashRounding")))
-                        );
+                    );
                 return true;
             }
             /*
@@ -1695,7 +1699,8 @@ public class SupplementalDataInfo {
                 .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
-                languageToBasicLanguageData.put(language, map = new EnumMap<Type, BasicLanguageData>(BasicLanguageData.Type.class));
+                languageToBasicLanguageData.put(language, map = new EnumMap<Type, BasicLanguageData>(
+                    BasicLanguageData.Type.class));
             }
             if (map.containsKey(languageData.type)) {
                 throw new IllegalArgumentException("Duplicate value:\t" + parts);
@@ -1816,7 +1821,7 @@ public class SupplementalDataInfo {
         }
         return new LinkedHashSet<BasicLanguageData>(map.values());
     }
-    
+
     public Map<Type, BasicLanguageData> getBasicLanguageDataMap(String language) {
         return languageToBasicLanguageData.get(language);
     }
@@ -1912,14 +1917,14 @@ public class SupplementalDataInfo {
     public Set<String> getDefaultContentLocales() {
         return defaultContentLocales;
     }
-    
-    public static Map<String,String> makeLocaleToDefaultContents(Set<String> defaultContents, 
+
+    public static Map<String, String> makeLocaleToDefaultContents(Set<String> defaultContents,
         Map<String, String> result, Set<String> errors) {
         for (String s : defaultContents) {
             String simpleParent = LanguageTagParser.getSimpleParent(s);
             String oldValue = result.get(simpleParent);
             if (oldValue != null) {
-                errors.add("*** Error: Default contents cannot contain two children for the same parent:\t" 
+                errors.add("*** Error: Default contents cannot contain two children for the same parent:\t"
                     + oldValue + ", " + s + "; keeping " + oldValue);
                 continue;
             }
@@ -2019,7 +2024,7 @@ public class SupplementalDataInfo {
     public String getDigits(String numberingSystem) {
         return numberingSystems.get(numberingSystem).digits;
     }
-    
+
     public NumberingSystemType getNumberingSystemType(String numberingSystem) {
         return numberingSystems.get(numberingSystem).type;
     }

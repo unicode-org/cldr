@@ -178,7 +178,7 @@ public final class FileUtilities {
                 canonicalName = new File(relativeFileName).getCanonicalPath();
             } catch (Exception e1) {
                 throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
-                    + className , e);
+                    + className, e);
             }
             throw new IllegalArgumentException("Couldn't open file: " + canonicalName
                 + className, e);

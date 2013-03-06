@@ -36,7 +36,8 @@ public class CasingInfo {
     private static final Options options = new Options(
         "This program is used to generate casing files for locales.")
         .add("locales", ".*", "A regex of the locales to generate casing information for")
-        .add("summary", null, "generates a summary of the casing for all locales that had casing generated for this run");
+        .add("summary", null,
+            "generates a summary of the casing for all locales that had casing generated for this run");
 
     private Map<String, Map<String, CasingType>> casing;
     private Map<String, Boolean> localeUsesCasing;
@@ -66,7 +67,7 @@ public class CasingInfo {
         // recurse over the locale's parents until something is found.
         if (!casing.containsKey(localeID)) {
             // Synchronize writes to casing map in an attempt to avoid NPEs (cldrbug 5051).
-            synchronized(casing) {
+            synchronized (casing) {
                 loadFromXml(localeID);
                 if (!casing.containsKey(localeID)) {
                     String parentID = LocaleIDParser.getSimpleParent(localeID);

@@ -29,7 +29,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
-import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Iso639Data.Type;
 
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -41,7 +40,6 @@ import com.ibm.icu.text.UnicodeSet;
  * tzids
  */
 public class StandardCodes {
-    
 
     public enum CodeType {
         language, script, territory, extlang, grandfathered, redundant, variant, currency, tzid;
@@ -52,9 +50,9 @@ public class StandardCodes {
             return CodeType.valueOf(name);
         }
     }
-    
+
     private static final Set<CodeType> TypeSet = Collections.unmodifiableSet(EnumSet.allOf(CodeType.class));
-    
+
     private static final Set<String> TypeStringSet;
     static {
         LinkedHashSet<String> foo = new LinkedHashSet<String>();
@@ -70,16 +68,16 @@ public class StandardCodes {
 
     private static StandardCodes singleton;
 
-    private EnumMap<CodeType, Map<String, List<String>>> type_code_data 
-    = new EnumMap<CodeType,Map<String, List<String>>>(CodeType.class);
+    private EnumMap<CodeType, Map<String, List<String>>> type_code_data = new EnumMap<CodeType, Map<String, List<String>>>(
+        CodeType.class);
 
-    private EnumMap<CodeType, Map<String, List<String>>> type_name_codes 
-    = new EnumMap<CodeType,Map<String, List<String>>>(CodeType.class);
+    private EnumMap<CodeType, Map<String, List<String>>> type_name_codes = new EnumMap<CodeType, Map<String, List<String>>>(
+        CodeType.class);
 
-    private EnumMap<CodeType, Map<String, String>> type_code_preferred 
-    = new EnumMap<CodeType,Map<String, String>>(CodeType.class);
+    private EnumMap<CodeType, Map<String, String>> type_code_preferred = new EnumMap<CodeType, Map<String, String>>(
+        CodeType.class);
 
-    private Map<String,Set<String>> country_modernCurrency = new TreeMap<String,Set<String>>();
+    private Map<String, Set<String>> country_modernCurrency = new TreeMap<String, Set<String>>();
 
     private Map<CodeType, Set<String>> goodCodes = new TreeMap<CodeType, Set<String>>();
 
@@ -230,7 +228,7 @@ public class StandardCodes {
     public Set<String> getAvailableCodes(String type) {
         return getAvailableCodes(CodeType.from(type));
     }
-    
+
     /**
      * Get all the available codes for a given type
      * 
@@ -245,65 +243,67 @@ public class StandardCodes {
     public Set<String> getGoodAvailableCodes(String stringType) {
         return getGoodAvailableCodes(CodeType.from(stringType));
     }
+
     /**
      * Get all the available "real" codes for a given type, excluding private use,
      * but including some deprecated codes. Use SupplementalDataInfo getLocaleAliases to
-     * exclude others. 
+     * exclude others.
      * 
      * @param type
      * @return
      */
     public Set<String> getGoodAvailableCodes(CodeType type) {
         Set<String> result = goodCodes.get(type);
-        if (result == null) {synchronized (goodCodes) {
-            Map<String, List<String>> code_name = getCodeData(type);
-            SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
-            if (code_name == null)
-                return null;
-            result = new TreeSet<String>(code_name.keySet());
-            switch (type) {
-            case currency: 
-                for (Iterator<String> it = result.iterator(); it.hasNext();) {
-                    String code = (String) it.next();
-                    List<String> data = getFullData(type, code);
-                    if ("X".equals(data.get(3))) {
-                        // System.out.println("Removing: " + code);
-                        it.remove();
+        if (result == null) {
+            synchronized (goodCodes) {
+                Map<String, List<String>> code_name = getCodeData(type);
+                SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
+                if (code_name == null)
+                    return null;
+                result = new TreeSet<String>(code_name.keySet());
+                switch (type) {
+                case currency:
+                    for (Iterator<String> it = result.iterator(); it.hasNext();) {
+                        String code = (String) it.next();
+                        List<String> data = getFullData(type, code);
+                        if ("X".equals(data.get(3))) {
+                            // System.out.println("Removing: " + code);
+                            it.remove();
+                        }
+                    }
+                    break;
+                case language:
+                    return sd.getCLDRLanguageCodes();
+                case script:
+                    return sd.getCLDRScriptCodes();
+                case tzid:
+                    break; // nothing special
+                default:
+                    for (Iterator<String> it = result.iterator(); it.hasNext();) {
+                        String code = (String) it.next();
+                        if (code.equals("root") || code.equals("QO"))
+                            continue;
+                        List<String> data = getFullData(type, code);
+                        if (data.size() < 3) {
+                            if (DEBUG)
+                                System.out.println(code + "\t" + data);
+                        }
+                        if ("PRIVATE USE".equalsIgnoreCase(data.get(0))
+                            || (!data.get(2).equals("") && !data.get(2).equals("--"))) {
+                            // System.out.println("Removing: " + code);
+                            it.remove();
+                        }
                     }
                 }
-                break;
-            case language:
-                return sd.getCLDRLanguageCodes();
-            case script:
-                return sd.getCLDRScriptCodes();
-            case tzid:
-                break; // nothing special
-            default:
-                for (Iterator<String> it = result.iterator(); it.hasNext();) {
-                    String code = (String) it.next();
-                    if (code.equals("root") || code.equals("QO"))
-                        continue;
-                    List<String> data = getFullData(type, code);
-                    if (data.size() < 3) {
-                        if (DEBUG)
-                            System.out.println(code + "\t" + data);
-                    }
-                    if ("PRIVATE USE".equalsIgnoreCase(data.get(0))
-                        || (!data.get(2).equals("") && !data.get(2).equals("--"))) {
-                        // System.out.println("Removing: " + code);
-                        it.remove();
-                    }
-                }
+                result = Collections.unmodifiableSet(result);
+                goodCodes.put(type, result);
             }
-            result = Collections.unmodifiableSet(result);
-            goodCodes.put(type, result);
-        }
         }
         return result;
     }
 
     private static Set<String> GOOD_COUNTRIES;
-    
+
     public Set<String> getGoodCountries() {
         synchronized (goodCodes) {
             if (GOOD_COUNTRIES == null) {
@@ -318,7 +318,7 @@ public class StandardCodes {
         }
         return GOOD_COUNTRIES;
     }
-        
+
     /**
      * Gets the modern currency.
      */
@@ -392,7 +392,7 @@ public class StandardCodes {
         Level status = locale_status.get("*");
         if (status != null && status != Level.UNDETERMINED) return status;
         return Level.UNDETERMINED;
-    } 
+    }
 
     /**
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
@@ -1095,21 +1095,21 @@ public class StandardCodes {
 
     ZoneParser zoneParser = new ZoneParser();
 
-//    static public final Set<String> MODERN_SCRIPTS = Collections
-//        .unmodifiableSet(new TreeSet(
-//            // "Bali " +
-//            // "Bugi " +
-//            // "Copt " +
-//            // "Hano " +
-//            // "Osma " +
-//            // "Qaai " +
-//            // "Sylo " +
-//            // "Syrc " +
-//            // "Tagb " +
-//            // "Tglg " +
-//            Arrays
-//                .asList("Hans Hant Jpan Hrkt Kore Arab Armn Bali Beng Bopo Cans Cham Cher Cyrl Deva Ethi Geor Grek Gujr Guru Hani Hang Hebr Hira Knda Kana Kali Khmr Laoo Latn Lepc Limb Mlym Mong Mymr Talu Nkoo Olck Orya Saur Sinh Tale Taml Telu Thaa Thai Tibt Tfng Vaii Yiii"
-//                    .split("\\s+"))));
+    // static public final Set<String> MODERN_SCRIPTS = Collections
+    // .unmodifiableSet(new TreeSet(
+    // // "Bali " +
+    // // "Bugi " +
+    // // "Copt " +
+    // // "Hano " +
+    // // "Osma " +
+    // // "Qaai " +
+    // // "Sylo " +
+    // // "Syrc " +
+    // // "Tagb " +
+    // // "Tglg " +
+    // Arrays
+    // .asList("Hans Hant Jpan Hrkt Kore Arab Armn Bali Beng Bopo Cans Cham Cher Cyrl Deva Ethi Geor Grek Gujr Guru Hani Hang Hebr Hira Knda Kana Kali Khmr Laoo Latn Lepc Limb Mlym Mong Mymr Talu Nkoo Olck Orya Saur Sinh Tale Taml Telu Thaa Thai Tibt Tfng Vaii Yiii"
+    // .split("\\s+"))));
 
     // updated to http://www.unicode.org/reports/tr31/tr31-9.html#Specific_Character_Adjustments
 
@@ -1229,7 +1229,7 @@ public class StandardCodes {
         if (COUNTRY.containsAll(territory)) return true;
         return false;
     }
-    
+
     public boolean isLstregPrivateUse(String type, String code) {
         Map<String, String> lStregData = getLStreg().get(type).get(code);
         return lStregData.get("Description").equalsIgnoreCase("private use");

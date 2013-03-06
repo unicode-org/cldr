@@ -160,7 +160,7 @@ public class TestCanonicalIds extends TestFmwk {
             }
             long deprecationYear = Integer.parseInt(m.group(1));
             if (CURRENT_YEAR - deprecationYear <= 5) {
-                logln("Region "+value+" is deprecated but less than 5 years...");
+                logln("Region " + value + " is deprecated but less than 5 years...");
                 return true;
             }
         } else if (type == Type.language) {
@@ -181,7 +181,7 @@ public class TestCanonicalIds extends TestFmwk {
             }
             long deprecationYear = Integer.parseInt(m.group(1));
             if (CURRENT_YEAR - deprecationYear <= 5) {
-                logln("Language "+value+" is deprecated but less than 5 years...");
+                logln("Language " + value + " is deprecated but less than 5 years...");
                 return true;
             }
         }

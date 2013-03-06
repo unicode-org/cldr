@@ -272,7 +272,8 @@ public class ShowKeyboards {
                 Keyboard keyboard = Keyboard.getKeyboard(keyboardId, errors);
                 showErrors(errors);
                 Set<String> names = keyboard.getNames();
-                out.println("<h2>" + CldrUtility.getDoubleLinkedText(keyboardId, keyboardId) + (names.size() == 0 ? "" : " " + names)
+                out.println("<h2>" + CldrUtility.getDoubleLinkedText(keyboardId, keyboardId)
+                    + (names.size() == 0 ? "" : " " + names)
                     + "</h2>");
 
                 Transforms transforms = keyboard.getTransforms().get(TransformType.SIMPLE);
@@ -656,7 +657,8 @@ public class ShowKeyboards {
                 }
                 final TreeMap<String, IdSet> charToKeyboard = charToKeyboards[script];
                 final String scriptName = UScript.getName(script);
-                final String linkedScriptName = CldrUtility.getDoubleLinkedText(UScript.getShortName(script), scriptName);
+                final String linkedScriptName = CldrUtility.getDoubleLinkedText(UScript.getShortName(script),
+                    scriptName);
                 if (charToKeyboard.size() == 0) {
                     missingScripts.add(scriptName);
                     continue;

@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.util.Iterator;
-import java.util.MissingResourceException;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -24,18 +23,18 @@ public class TestCLDRFile {
         simpleTest();
         resolutionTest();
     }
-    
+
     public static Factory getAllFactory() {
         File mainDir = new File(CldrUtility.MAIN_DIRECTORY);
-        if(!mainDir.isDirectory()) {
+        if (!mainDir.isDirectory()) {
             throw new IllegalArgumentException("MAIN_DIRECTORY is not a directory: " + CldrUtility.MAIN_DIRECTORY);
         }
         File seedDir = new File(CldrUtility.SEED_DIRECTORY);
-        if(!seedDir.isDirectory()) {
+        if (!seedDir.isDirectory()) {
             throw new IllegalArgumentException("SEED_DIRECTORY is not a directory: " + CldrUtility.SEED_DIRECTORY);
         }
-        File dirs[] = { mainDir , seedDir };
-        return SimpleFactory.make(dirs, ".*", DraftStatus.approved);        
+        File dirs[] = { mainDir, seedDir };
+        return SimpleFactory.make(dirs, ".*", DraftStatus.approved);
     }
 
     private static void testExtraPaths() {

@@ -35,7 +35,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -122,7 +121,7 @@ public class CldrUtility {
 
     /**
      * @deprecated Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc).
-     * If it must be used, add a comment next to the usage to explain why it is needed.
+     *             If it must be used, add a comment next to the usage to explain why it is needed.
      */
     public static final String UTIL_DATA_DIR = FileUtilities.getRelativeFileName(
         CldrUtility.class, "data/");
@@ -150,7 +149,8 @@ public class CldrUtility {
     public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
 
-    public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg "/Users/markdavis/workspace/icu4c/source/data/";
+    public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
+                                                                                                                  // "/Users/markdavis/workspace/icu4c/source/data/";
 
     /**
      * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
@@ -913,12 +913,12 @@ public class CldrUtility {
      *            a name residing in the org/unicode/cldr/util/data/ directory, or loading from a jar will break.
      */
     public static BufferedReader getUTF8Data(String name) {
-         if(new File(name).isAbsolute()) {
-             throw new IllegalArgumentException(
-                 "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
-                 +name+"'.");
-         }
-         
+        if (new File(name).isAbsolute()) {
+            throw new IllegalArgumentException(
+                "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
+                    + name + "'.");
+        }
+
         return FileUtilities.openFile(CldrUtility.class, "data/" + name);
     }
 
@@ -929,11 +929,11 @@ public class CldrUtility {
      *            a name residing in the org/unicode/cldr/util/data/ directory, or loading from a jar will break.
      */
     public static InputStream getInputStream(String name) {
-         if(new File(name).isAbsolute()) {
-             throw new IllegalArgumentException(
-                 "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
-                 +name+"'.");
-         }
+        if (new File(name).isAbsolute()) {
+            throw new IllegalArgumentException(
+                "Path must be relative to org/unicode/cldr/util/data  such as 'file.txt' or 'casing/file.txt', but got '"
+                    + name + "'.");
+        }
         return getInputStream(CldrUtility.class, "data/" + name);
     }
 
@@ -1203,10 +1203,14 @@ public class CldrUtility {
     /**
      * Copy up to matching line (not included). If output is null, then just skip until.
      * 
-     * @param oldFile file to copy
-     * @param readUntilPattern pattern to search for. If null, goes to end of file.
-     * @param output into to copy into. If null, just skips in the input.
-     * @param includeMatchingLine inclde the matching line when copying.
+     * @param oldFile
+     *            file to copy
+     * @param readUntilPattern
+     *            pattern to search for. If null, goes to end of file.
+     * @param output
+     *            into to copy into. If null, just skips in the input.
+     * @param includeMatchingLine
+     *            inclde the matching line when copying.
      * @throws IOException
      */
     public static void copyUpTo(BufferedReader oldFile, final Pattern readUntilPattern,
@@ -1255,18 +1259,19 @@ public class CldrUtility {
     }
 
     public static boolean equals(Object a, Object b) {
-        return a == b ? true 
+        return a == b ? true
             : a == null || b == null ? false
                 : a.equals(b);
     }
-    
+
     public static String getDoubleLink(String code) {
         final String anchorSafe = TransliteratorUtilities.toHTML.transliterate(code).replace(" ", "_");
         return "<a name='" + anchorSafe + "' href='#" + anchorSafe + "'>";
     }
-    
+
     public static String getDoubleLinkedText(String anchor, String anchorText) {
-        return getDoubleLink(anchor) + TransliteratorUtilities.toHTML.transliterate(anchorText).replace("_", " ") + "</a>";
+        return getDoubleLink(anchor) + TransliteratorUtilities.toHTML.transliterate(anchorText).replace("_", " ")
+            + "</a>";
     }
 
     public static String getDoubleLinkedText(String anchor) {

@@ -1018,7 +1018,6 @@ public class Misc {
         }
     }
 
-
     // static PrintWriter log;
 
     private static void printSupplementalData(String locale) throws IOException {

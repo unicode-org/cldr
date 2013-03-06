@@ -117,7 +117,7 @@ public class IcuTextWriter {
             List<String[]> values = icuData.get(path);
             try {
                 wasSingular = appendValues(path, values, labels.length, out);
-            } catch(NullPointerException npe) {
+            } catch (NullPointerException npe) {
                 System.err.println("Null value encountered in " + path);
             }
             out.flush();

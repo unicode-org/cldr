@@ -386,7 +386,7 @@ public final class Builder {
 
         public MBuilder<K, V, M> putAll(K[][] m) {
             for (K[] pair : m) {
-                put(pair[0], (V)(pair[1]));
+                put(pair[0], (V) (pair[1]));
             }
             keys = null;
             return this;

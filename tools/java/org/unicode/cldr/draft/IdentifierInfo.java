@@ -12,7 +12,7 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
- * This class analyzes a possible identifier for script and identifier status. 
+ * This class analyzes a possible identifier for script and identifier status.
  * Use it by calling setIdentifierProfile then setIdentifier.
  * At this point:
  * <ol>

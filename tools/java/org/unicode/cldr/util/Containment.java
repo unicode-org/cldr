@@ -76,9 +76,9 @@ public class Containment {
      */
     public static String getContinent(String territory) {
         while (true) {
-            if (territory == null 
-                || territory.equals("001") 
-                || territory.equals("ZZ") 
+            if (territory == null
+                || territory.equals("001")
+                || territory.equals("ZZ")
                 || continents.contains(territory)) {
                 return territory;
             }
@@ -98,9 +98,9 @@ public class Containment {
      */
     public static String getSubcontinent(String territory) {
         while (true) {
-            if (territory.equals("001") 
+            if (territory.equals("001")
                 || territory.equals("ZZ")
-                || continents.contains(territory) 
+                || continents.contains(territory)
                 || subcontinents.contains(territory)) {
                 return territory;
             }

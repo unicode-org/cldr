@@ -91,7 +91,8 @@ public class GenerateCoverageLevels {
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
         Set<R3<Level, String, Inheritance>> items = new TreeSet<R3<Level, String, Inheritance>>(new RowComparator());
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY),locale);
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(
+            SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -494,8 +495,9 @@ public class GenerateCoverageLevels {
         Status status = new Status();
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY),locale);
-        
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(
+            SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
+
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;

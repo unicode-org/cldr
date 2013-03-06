@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -50,7 +49,7 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
     private LinkedHashMap<String, List<String>> reverseAliases;
     protected boolean locked;
     transient String[] fixedPath = new String[1];
-    
+
     // Listeners are stored using weak references so that they can be garbage collected.
     private List<WeakReference<Listener>> listeners = new ArrayList<WeakReference<Listener>>();
 
@@ -675,7 +674,6 @@ public abstract class XMLSource implements Freezable, Iterable<String> {
             return sources.get(getLocaleID());
         }
 
-        
         /*
          * If there is an alias, then inheritance gets tricky.
          * If there is a path //ldml/xyz/.../uvw/alias[@path=...][@source=...]

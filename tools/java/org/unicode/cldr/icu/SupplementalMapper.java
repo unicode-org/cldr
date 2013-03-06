@@ -15,12 +15,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
-
-import com.ibm.icu.util.Calendar;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility.Output;
-import com.ibm.icu.util.GregorianCalendar;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -29,6 +26,8 @@ import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.GregorianCalendar;
 import com.ibm.icu.util.TimeZone;
 
 /**
@@ -47,7 +46,10 @@ public class SupplementalMapper extends LdmlMapper {
     private int fifoCounter;
     private String inputDir;
     private String cldrVersion;
-    private enum DateFieldType { from, to };
+
+    private enum DateFieldType {
+        from, to
+    };
 
     /**
      * Comparator for sorting LDML supplementalData xpaths.
@@ -115,7 +117,7 @@ public class SupplementalMapper extends LdmlMapper {
              */
             @Override
             protected String run(String... args) {
-                DateFieldType dft = args[1].contains("from") ? DateFieldType.from : DateFieldType.to ;
+                DateFieldType dft = args[1].contains("from") ? DateFieldType.from : DateFieldType.to;
                 return getSeconds(args[0], dft);
             }
         });
@@ -137,7 +139,7 @@ public class SupplementalMapper extends LdmlMapper {
         // -123.456 -> -1.23456E-2 -> -48123456
         // args[0] = number to be converted
         // args[2] = an (optional) additional exponent offset,
-        //           e.g. -2 for converting percentages into fractions.
+        // e.g. -2 for converting percentages into fractions.
         mapper.addFunction("exp", new Function(2) {
             @Override
             protected String run(String... args) {
@@ -151,11 +153,11 @@ public class SupplementalMapper extends LdmlMapper {
                 }
                 String sign = value >= 0 ? "" : "-";
                 value = Math.abs(value);
-                while(value >= 10) {
+                while (value >= 10) {
                     value /= 10;
                     exponent++;
                 }
-                while(value < 1) {
+                while (value < 1) {
                     value *= 10;
                     exponent--;
                 }
@@ -307,13 +309,15 @@ public class SupplementalMapper extends LdmlMapper {
     /**
      * Parses a string date and normalizes it depending on what type of date it
      * is.
+     * 
      * @param dateStr
-     * @param type whether the date is a from or a to
+     * @param type
+     *            whether the date is a from or a to
      * @return
      * @throws ParseException
      */
     private static long getMilliSeconds(String dateStr, DateFieldType type)
-            throws ParseException {
+        throws ParseException {
         int count = countHyphens(dateStr);
         SimpleDateFormat format = new SimpleDateFormat();
         if (count == 2) {
@@ -331,29 +335,29 @@ public class SupplementalMapper extends LdmlMapper {
         calendar.setTime(date);
         // Fix dates with the month or day missing.
         if (count < 2) {
-            if (count == 0) {  // yyyy
+            if (count == 0) { // yyyy
                 setDateField(calendar, Calendar.MONTH, type);
             }
             setDateField(calendar, Calendar.DAY_OF_MONTH, type);
         }
         String finalPattern = "yyyy-MM-dd HH:mm:ss.SSS";
         switch (type) {
-            case from :  {
-                // Set the times for to fields to the beginning of the day.
-                calendar.set(Calendar.HOUR_OF_DAY, 0);
-                calendar.set(Calendar.MINUTE, 0);
-                calendar.set(Calendar.SECOND, 0);
-                calendar.set(Calendar.MILLISECOND, 0);
-                break;
-            }
-            case to : {
-                // Set the times for to fields to the end of the day.
-                calendar.set(Calendar.HOUR_OF_DAY, 23);
-                calendar.set(Calendar.MINUTE, 59);
-                calendar.set(Calendar.SECOND, 59);
-                calendar.set(Calendar.MILLISECOND, 999);
-                break;
-            }
+        case from: {
+            // Set the times for to fields to the beginning of the day.
+            calendar.set(Calendar.HOUR_OF_DAY, 0);
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.MILLISECOND, 0);
+            break;
+        }
+        case to: {
+            // Set the times for to fields to the end of the day.
+            calendar.set(Calendar.HOUR_OF_DAY, 23);
+            calendar.set(Calendar.MINUTE, 59);
+            calendar.set(Calendar.SECOND, 59);
+            calendar.set(Calendar.MILLISECOND, 999);
+            break;
+        }
         }
         format.applyPattern(finalPattern);
         return calendar.getTimeInMillis();
@@ -361,23 +365,26 @@ public class SupplementalMapper extends LdmlMapper {
 
     /**
      * Sets a field in a calendar to either the first or last value of the field.
+     * 
      * @param calendar
-     * @param field the calendar field to be set
-     * @param type from/to date field type
+     * @param field
+     *            the calendar field to be set
+     * @param type
+     *            from/to date field type
      */
     private static void setDateField(Calendar calendar, int field, DateFieldType type) {
         int value;
         switch (type) {
-            case to: {
-                value = calendar.getActualMaximum(field);
-                break;
-            }
-            default: {
-                value = calendar.getActualMinimum(field);
-                break;
-            }
+        case to: {
+            value = calendar.getActualMaximum(field);
+            break;
         }
-        calendar.set(field,  value);
+        default: {
+            value = calendar.getActualMinimum(field);
+            break;
+        }
+        }
+        calendar.set(field, value);
     }
 
     /**
@@ -466,4 +473,3 @@ public class SupplementalMapper extends LdmlMapper {
         }
     }
 }
-

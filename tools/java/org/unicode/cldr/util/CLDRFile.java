@@ -1474,7 +1474,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 if (currentFullXPath.equals("//ldml") || currentFullXPath.equals("//supplementalData")) {
                     target.setInitialComment(comment);
                 } else {
-                    target.addComment(currentFullXPath, comment, XPathParts.Comments.CommentType.PREBLOCK);   
+                    target.addComment(currentFullXPath, comment, XPathParts.Comments.CommentType.PREBLOCK);
                 }
                 comment = null;
             }

@@ -18,7 +18,7 @@ import org.unicode.cldr.util.ZoneParser;
  * Simple program to generate the valid tzids for supplementalMetadata.xml
  */
 public class GenerateSupplementalZoneData {
-  
+
     /**
      * Count the data.
      * 
@@ -36,7 +36,7 @@ public class GenerateSupplementalZoneData {
 
         StringBuffer tzbuf = new StringBuffer();
         boolean first = true;
-        for ( String z : tzids ) {
+        for (String z : tzids) {
             if (!first) {
                 tzbuf.append(' ');
             } else {
@@ -44,7 +44,7 @@ public class GenerateSupplementalZoneData {
             }
             tzbuf.append(z);
         }
-        
+
         String sep = CldrUtility.LINE_SEPARATOR + "                ";
         String broken = CldrUtility.breakLines(tzbuf, sep, Pattern.compile(
             "((?:[-+_A-Za-z0-9]+[/])+[-+_A-Za-z0-9])[-+_A-Za-z0-9]*").matcher(""),
@@ -53,5 +53,3 @@ public class GenerateSupplementalZoneData {
             + CldrUtility.LINE_SEPARATOR + "            </variable>");
     }
 }
-
- 

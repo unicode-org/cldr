@@ -10,7 +10,6 @@
 
 package org.unicode.cldr.util;
 
-import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Set;
 import java.util.regex.Pattern;

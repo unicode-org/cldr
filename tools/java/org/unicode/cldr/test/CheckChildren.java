@@ -27,7 +27,7 @@ public class CheckChildren extends FactoryCheckCLDR {
         if (immediateChildren == null) return this; // skip - test isn't even relevant
         if (isSkipTest()) return this; // disabled
         if (fullPath == null) return this; // skip paths that we don't have
-        if (value == null) return this; // skip null values 
+        if (value == null) return this; // skip null values
         String winningValue = this.getCldrFileToCheck().getWinningValue(fullPath);
         if (!value.equals(winningValue)) {
             return this; // only run this test against winning values.

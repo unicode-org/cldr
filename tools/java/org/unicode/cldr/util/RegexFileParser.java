@@ -8,6 +8,7 @@ import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 /**
  * Parses a file of regexes for use in RegexLookup or any other class that requires
  * a list of regexes.
+ * 
  * @author jchye
  */
 public class RegexFileParser {
@@ -27,6 +28,7 @@ public class RegexFileParser {
      */
     public interface VariableProcessor {
         public void add(String variable, String variableName);
+
         public String replace(String str);
     }
 
@@ -54,8 +56,11 @@ public class RegexFileParser {
 
     /**
      * Parses the specified text file.
-     * @param a class relative to filename
-     * @param filename the name of the text file to be parsed
+     * 
+     * @param a
+     *            class relative to filename
+     * @param filename
+     *            the name of the text file to be parsed
      */
     public void parse(Class<?> baseClass, String filename) {
         BufferedReader reader = FileUtilities.openFile(baseClass, filename);

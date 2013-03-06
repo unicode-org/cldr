@@ -2,8 +2,6 @@
 
 package org.unicode.cldr.unittest;
 
-import java.util.Arrays;
-
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 
@@ -56,11 +54,11 @@ public class TestAll extends TestGroup {
             }
             return INSTANCE;
         }
-        
+
         public static boolean isCldrVersionBefore(int... version) {
             return TestInfo.getInstance().getEnglish().getDtdVersionInfo().compareTo(getVersion(version)) < 0;
         }
-        
+
         public static VersionInfo getVersion(int... versionInput) {
             int[] version = new int[4];
             for (int i = 0; i < versionInput.length; ++i) {

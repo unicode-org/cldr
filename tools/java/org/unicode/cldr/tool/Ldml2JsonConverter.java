@@ -1,15 +1,5 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.impl.Utility;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,6 +12,16 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.XPathParts;
+
+import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.impl.Utility;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON

@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7dd0000" typeVersion="2012j">
+		<mapTimezones otherVersion="7dd0000" typeVersion="2013a">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -264,7 +264,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="W. Europe Standard Time" territory="AD" type="Europe/Andorra"/>
 			<mapZone other="W. Europe Standard Time" territory="AT" type="Europe/Vienna"/>
 			<mapZone other="W. Europe Standard Time" territory="CH" type="Europe/Zurich"/>
-			<mapZone other="W. Europe Standard Time" territory="DE" type="Europe/Berlin"/>
+			<mapZone other="W. Europe Standard Time" territory="DE" type="Europe/Berlin Europe/Busingen"/>
 			<mapZone other="W. Europe Standard Time" territory="GI" type="Europe/Gibraltar"/>
 			<mapZone other="W. Europe Standard Time" territory="IT" type="Europe/Rome"/>
 			<mapZone other="W. Europe Standard Time" territory="LI" type="Europe/Vaduz"/>
@@ -599,7 +599,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+10:00) Yakutsk -->
 			<mapZone other="Yakutsk Standard Time" territory="001" type="Asia/Yakutsk"/>
-			<mapZone other="Yakutsk Standard Time" territory="RU" type="Asia/Yakutsk"/>
+			<mapZone other="Yakutsk Standard Time" territory="RU" type="Asia/Yakutsk Asia/Khandyga"/>
 
 			<!-- (UTC+11:00) Solomon Is., New Caledonia -->
 			<mapZone other="Central Pacific Standard Time" territory="001" type="Pacific/Guadalcanal"/>
@@ -612,7 +612,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+11:00) Vladivostok -->
 			<mapZone other="Vladivostok Standard Time" territory="001" type="Asia/Vladivostok"/>
-			<mapZone other="Vladivostok Standard Time" territory="RU" type="Asia/Vladivostok Asia/Sakhalin"/>
+			<mapZone other="Vladivostok Standard Time" territory="RU" type="Asia/Vladivostok Asia/Sakhalin Asia/Ust-Nera"/>
 
 			<!-- (UTC+12:00) Auckland, Wellington -->
 			<mapZone other="New Zealand Standard Time" territory="001" type="Pacific/Auckland"/>

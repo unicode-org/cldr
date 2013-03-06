@@ -919,6 +919,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Asia/Katmandu">
 				<usesMetazone mzone="Nepal"/>
 			</timezone>
+			<timezone type="Asia/Khandyga">
+				<usesMetazone to="2003-12-31 15:00" mzone="Yakutsk"/>
+				<usesMetazone to="2011-09-12 13:00" from="2003-12-31 15:00" mzone="Vladivostok"/>
+				<usesMetazone from="2011-09-12 13:00" mzone="Yakutsk"/>
+			</timezone>
 			<timezone type="Asia/Krasnoyarsk">
 				<usesMetazone mzone="Krasnoyarsk"/>
 			</timezone>
@@ -1041,6 +1046,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone to="1980-04-30 18:00" mzone="Urumqi"/>
 				<usesMetazone from="1980-04-30 18:00" mzone="China"/>
 			</timezone>
+			<timezone type="Asia/Ust-Nera">
+				<usesMetazone to="1981-03-31 15:00" mzone="Yakutsk"/>
+				<usesMetazone from="1981-03-31 15:00" to="2011-09-12 12:00" mzone="Magadan"/>
+				<usesMetazone from="2011-09-12 12:00" mzone="Vladivostok"/>
+			</timezone>
 			<timezone type="Asia/Vientiane">
 				<usesMetazone mzone="Indochina"/>
 			</timezone>
@@ -1158,6 +1168,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Europe_Eastern"/>
 			</timezone>
 			<timezone type="Europe/Budapest">
+				<usesMetazone mzone="Europe_Central"/>
+			</timezone>
+			<timezone type="Europe/Busingen">
 				<usesMetazone mzone="Europe_Central"/>
 			</timezone>
 			<timezone type="Europe/Chisinau">
@@ -1823,6 +1836,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<primaryZones>
 		<primaryZone iso3166="CL">America/Santiago</primaryZone>
 		<primaryZone iso3166="CN">Asia/Shanghai</primaryZone>
+		<primaryZone iso3166="DE">Europe/Berlin</primaryZone>
 		<primaryZone iso3166="EC">America/Guayaquil</primaryZone>
 		<primaryZone iso3166="ES">Europe/Madrid</primaryZone>
 		<primaryZone iso3166="MH">Pacific/Majuro</primaryZone>

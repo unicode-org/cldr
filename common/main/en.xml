@@ -1121,6 +1121,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="collation">Sort Order</key>
 			<key type="colNormalization">Normalized Sorting</key>
 			<key type="colNumeric">Numeric Sorting</key>
+			<key type="colReorder">Script/Block Reordering</key>
 			<key type="colStrength">Sorting Strength</key>
 			<key type="currency">Currency</key>
 			<key type="numbers">Numbers</key>
@@ -1137,7 +1138,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="bali" key="numbers">Balinese Digits</type>
 			<type type="beng" key="numbers">Bengali Digits</type>
 			<type type="big5han" key="collation">Traditional Chinese Sort Order - Big5</type>
+			<type type="brah" key="numbers">Brahmi Digits</type>
 			<type type="buddhist" key="calendar">Buddhist Calendar</type>
+			<type type="cakm" key="numbers">Chakma Digits</type>
 			<type type="cham" key="numbers">Cham Digits</type>
 			<type type="chinese" key="calendar">Chinese Calendar</type>
 			<type type="coptic" key="calendar">Coptic Calendar</type>
@@ -1168,6 +1171,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="indian" key="calendar">Indian National Calendar</type>
 			<type type="islamic" key="calendar">Islamic Calendar</type>
 			<type type="islamic-civil" key="calendar">Islamic-Civil Calendar</type>
+			<type type="iso8601" key="calendar">ISO-8601 Calendar</type>
 			<type type="japanese" key="calendar">Japanese Calendar</type>
 			<type type="java" key="numbers">Javanese Digits</type>
 			<type type="jpan" key="numbers">Japanese Numerals</type>
@@ -1198,10 +1202,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="non-ignorable" key="colAlternate">Sort Symbols</type>
 			<type type="olck" key="numbers">Ol Chiki Digits</type>
 			<type type="orya" key="numbers">Oriya Digits</type>
+			<type type="osma" key="numbers">Osmanya Digits</type>
 			<type type="persian" key="calendar">Persian Calendar</type>
 			<type type="phonebook" key="collation">Phonebook Sort Order</type>
 			<type type="phonetic" key="collation">Phonetic Sort Order</type>
 			<type type="pinyin" key="collation">Pinyin Sort Order</type>
+			<type type="posix" key="va">POSIX Compliant Locale</type>
 			<type type="primary" key="colStrength">Sort Base Letters Only</type>
 			<type type="quaternary" key="colStrength">Sort Accents/Case/Width/Kana</type>
 			<type type="reformed" key="collation">Reformed Sort Order</type>
@@ -1213,8 +1219,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="searchjl" key="collation">Search By Hangul Initial Consonant</type>
 			<type type="secondary" key="colStrength">Sort Accents</type>
 			<type type="shifted" key="colAlternate">Sort Ignoring Symbols</type>
+			<type type="shrd" key="numbers">Sharada Digits</type>
+			<type type="sora" key="numbers">Sora Sompeng Digits</type>
+			<type type="standard" key="collation">Standard Sort Order</type>
 			<type type="stroke" key="collation">Stroke Sort Order</type>
 			<type type="sund" key="numbers">Sundanese Digits</type>
+			<type type="takr" key="numbers">Takri Digits</type>
 			<type type="talu" key="numbers">New Tai Lue Digits</type>
 			<type type="taml" key="numbers">Traditional Tamil Numerals</type>
 			<type type="tamldec" key="numbers">Tamil Digits</type>

@@ -101,7 +101,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="30" match="localeDisplayNames/territories/territory[@type='%territory30']"/>
 		<coverageLevel value="30" match="localeDisplayNames/types/type[@type='${Calendar-List}'][@key='calendar']"/>
 		<coverageLevel value="30" match="localeDisplayNames/types/type[@type='gregorian'][@key='calendar']"/>
-		<coverageLevel inLanguage="hi" value="30" match="localeDisplayNames/types/type[@type='direct'][@key='collation']"/>
+		<coverageLevel value="30" match="localeDisplayNames/types/type[@type='standard'][@key='collation']"/>
 		<coverageLevel inLanguage="%phonebookCollationLanguages" value="30" match="localeDisplayNames/types/type[@type='phonebook'][@key='collation']"/>
 		<coverageLevel inLanguage="%traditionalCollationLanguages" value="30" match="localeDisplayNames/types/type[@type='traditional'][@key='collation']"/>
 		<coverageLevel inLanguage="%CJK_Languages" value="30" match="localeDisplayNames/types/type[@type='unihan'][@key='collation']"/>

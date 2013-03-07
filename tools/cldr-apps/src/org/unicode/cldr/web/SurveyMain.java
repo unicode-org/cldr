@@ -906,7 +906,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String q = ctx.field("q");
         boolean tblsel = false;
         printAdminMenu(ctx, "/AdminSql");
-        ctx.println("<h1>SQL Console ("+ DBUtils.getDBKind() + ")</h1>");
+        ctx.println("<h1>SQL Console (" + DBUtils.getDBKind() + ")</h1>");
         ctx.println("Welcome to " + DBUtils.db_driver);
 
         if ((dbUtils.dbDir == null) || (isBusted != null)) { // This may or may
@@ -2024,10 +2024,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         printUserTableWithHelp(ctx, "/LocaleCoverage");
 
-        
         showAddUser(ctx);
 
-        ctx.println("        <i>Showing only votes cast after "+ SurveyMain.getVotesAfterDate() +"</i><br/>");
+        ctx.println("        <i>Showing only votes cast after " + SurveyMain.getVotesAfterDate() + "</i><br/>");
         ctx.print("<br>");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool in</b></a><hr>");
         String org = ctx.session.user.org;
@@ -2050,7 +2049,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             missingLocalesForOrg = "default"; // ?!
         }
 
-        if(org==null) {
+        if (org == null) {
             ctx.println("<h4>Showing coverage for all organizations</h4>");
         } else {
             ctx.println("<h4>Showing coverage for: " + org + "</h4>");
@@ -2098,10 +2097,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         try {
             conn = dbUtils.getDBConnection();
-            psMySubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=? and last_mod > " + votesAfter + "",
-                    ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            psnSubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=? and locale=? and last_mod > " + votesAfter + "",
-                    ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            psMySubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=? and last_mod > "
+                    + votesAfter + "", ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            psnSubmit = conn.prepareStatement(
+                    "select COUNT(submitter) from cldr_votevalue where submitter=? and locale=? and last_mod > " + votesAfter
+                            + "", ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 
             synchronized (reg) {
                 java.sql.ResultSet rs = reg.list(org, conn);
@@ -2177,13 +2177,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                                               // to
                         for (int j = 0; j < theirLocales.length; j++) {
                             Set<CLDRLocale> subSet = intGroups.get(theirLocales[j]); // Is
-                                                                                                             // it
-                                                                                                             // an
-                                                                                                             // interest
-                                                                                                             // group?
-                                                                                                             // (de,
-                                                                                                             // fr,
-                                                                                                             // ..)
+                                                                                     // it
+                                                                                     // an
+                                                                                     // interest
+                                                                                     // group?
+                                                                                     // (de,
+                                                                                     // fr,
+                                                                                     // ..)
                             if (subSet != null) {
                                 theirSet.addAll(subSet); // add all sublocs
                             } else if (allLocs.contains(theirLocales[j])) {
@@ -2263,38 +2263,40 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // fileBase);
         // }
 
-//        if (!badSet.isEmpty()) {
-//            ctx.println("<B>Locales not in CLDR but assigned to vetters:</b> <br>");
-//            int n = 0;
-//            boolean first = true;
-//            Set<CLDRLocale> subSet = new TreeSet<CLDRLocale>();
-//            for (CLDRLocale li : badSet) {
-//                if (li.toString().indexOf('_') >= 0) {
-//                    n++;
-//                    subSet.add(li);
-//                    continue;
-//                }
-//                if (first == false) {
-//                    ctx.print(" ");
-//                } else {
-//                    first = false;
-//                }
-//                ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>" + li.toString()
-//                        + "</tt>");
-//            }
-//            ctx.println("<br>");
-//            if (n > 0) {
-//                ctx.println("Note: "
-//                        + n
-//                        + " locale(s) were specified that were sublocales. This is no longer supported, specify the top level locale (en, not en_US or en_Shaw): <br><font size=-1>");
-//                if (isUnofficial())
-//                    for (CLDRLocale li : subSet) {
-//                        ctx.print(" <tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'><font size=-1>"
-//                                + li.toString() + "</font></tt>");
-//                    }
-//                ctx.println("</font><br>");
-//            }
-//        }
+        // if (!badSet.isEmpty()) {
+        // ctx.println("<B>Locales not in CLDR but assigned to vetters:</b> <br>");
+        // int n = 0;
+        // boolean first = true;
+        // Set<CLDRLocale> subSet = new TreeSet<CLDRLocale>();
+        // for (CLDRLocale li : badSet) {
+        // if (li.toString().indexOf('_') >= 0) {
+        // n++;
+        // subSet.add(li);
+        // continue;
+        // }
+        // if (first == false) {
+        // ctx.print(" ");
+        // } else {
+        // first = false;
+        // }
+        // ctx.print("<tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'>"
+        // + li.toString()
+        // + "</tt>");
+        // }
+        // ctx.println("<br>");
+        // if (n > 0) {
+        // ctx.println("Note: "
+        // + n
+        // +
+        // " locale(s) were specified that were sublocales. This is no longer supported, specify the top level locale (en, not en_US or en_Shaw): <br><font size=-1>");
+        // if (isUnofficial())
+        // for (CLDRLocale li : subSet) {
+        // ctx.print(" <tt style='border: 1px solid gray; margin: 1px; padding: 1px;' class='codebox'><font size=-1>"
+        // + li.toString() + "</font></tt>");
+        // }
+        // ctx.println("</font><br>");
+        // }
+        // }
 
         // Now, calculate coverage of requested locales for this organization
         // sc.getGroup(locale,missingLocalesForOrg);
@@ -2329,41 +2331,47 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
         }
 
-//        if (!languagesNotInCLDR.isEmpty()) {
-//            ctx.println("<p class='hang'>" + ctx.iconHtml("stop", "locales missing from CLDR") + "<B>Required by "
-//                    + missingLocalesForOrg + " but not in CLDR: </b>");
-//            boolean first = true;
-//            for (Iterator<CLDRLocale> li = languagesNotInCLDR.iterator(); li.hasNext();) {
-//                if (first == false) {
-//                    ctx.print(", ");
-//                } else {
-//                    first = false;
-//                }
-//                String lang = li.next().toString();
-//                showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg), lang);
-//            }
-//            ctx.println("<br>");
-//            ctx.printHelpLink("/LocaleMissing", "Locale is missing from CLDR");
-//            ctx.println("</p><br>");
-//        }
-//
-//        if (!languagesMissing.isEmpty()) {
-//            ctx.println("<p class='hang'>" + ctx.iconHtml("stop", "locales without vetters") + "<B>Required by "
-//                    + missingLocalesForOrg + " but no vetters: </b>");
-//            boolean first = true;
-//            for (Iterator<CLDRLocale> li = languagesMissing.iterator(); li.hasNext();) {
-//                if (first == false) {
-//                    ctx.print(", ");
-//                } else {
-//                    first = false;
-//                }
-//                String lang = li.next().toString();
-//                showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg), lang);
-//            }
-//            ctx.println("<br>");
-//            // ctx.printHelpLink("/LocaleMissing","Locale is missing from CLDR");
-//            ctx.println("</p><br>");
-//        }
+        // if (!languagesNotInCLDR.isEmpty()) {
+        // ctx.println("<p class='hang'>" + ctx.iconHtml("stop",
+        // "locales missing from CLDR") + "<B>Required by "
+        // + missingLocalesForOrg + " but not in CLDR: </b>");
+        // boolean first = true;
+        // for (Iterator<CLDRLocale> li = languagesNotInCLDR.iterator();
+        // li.hasNext();) {
+        // if (first == false) {
+        // ctx.print(", ");
+        // } else {
+        // first = false;
+        // }
+        // String lang = li.next().toString();
+        // showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg),
+        // lang);
+        // }
+        // ctx.println("<br>");
+        // ctx.printHelpLink("/LocaleMissing", "Locale is missing from CLDR");
+        // ctx.println("</p><br>");
+        // }
+        //
+        // if (!languagesMissing.isEmpty()) {
+        // ctx.println("<p class='hang'>" + ctx.iconHtml("stop",
+        // "locales without vetters") + "<B>Required by "
+        // + missingLocalesForOrg + " but no vetters: </b>");
+        // boolean first = true;
+        // for (Iterator<CLDRLocale> li = languagesMissing.iterator();
+        // li.hasNext();) {
+        // if (first == false) {
+        // ctx.print(", ");
+        // } else {
+        // first = false;
+        // }
+        // String lang = li.next().toString();
+        // showCoverageLanguage(ctx, sc.getGroup(lang, missingLocalesForOrg),
+        // lang);
+        // }
+        // ctx.println("<br>");
+        // // ctx.printHelpLink("/LocaleMissing","Locale is missing from CLDR");
+        // ctx.println("</p><br>");
+        // }
 
         ctx.println("Locales in <b>bold</b> have assigned vetters.<br><table summary='Locale Coverage' border=1 class='list'>");
         int n = 0;
@@ -6515,18 +6523,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             loadLocalesSet();
         return localeListSet;
     }
-    
+
     /**
-     * Get a list of all top level locales. 
+     * Get a list of all top level locales.
+     * 
      * @return
      */
     public static final synchronized Set<CLDRLocale> getTopLocalesSet() {
-        if(topLocalesSet == null) {
+        if (topLocalesSet == null) {
             Set<CLDRLocale> s = new HashSet<CLDRLocale>();
-            for(CLDRLocale l : getLocalesSet()) {
+            for (CLDRLocale l : getLocalesSet()) {
                 CLDRLocale par = l.getParent();
-                if(par==null ||  // root
-                        par.getParent()==null) { // child of root
+                if (par == null || // root
+                        par.getParent() == null) { // child of root
                     s.add(l);
                 }
             }
@@ -6614,78 +6623,81 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public boolean isValidLocale(CLDRLocale locale) {
         return getLocalesSet().contains(locale);
     }
-//
-//    /*
-//     * returns a map of String localegroup -> Set [ User interestedUser, ... ]
-//     */
-//    protected Map getIntUsers(Map intGroups) {
-//        Map m = new HashMap();
-//        Connection conn = null;
-//        try {
-//            conn = dbUtils.getDBConnection();
-//            synchronized (reg) {
-//                java.sql.ResultSet rs = reg.list(null, conn);
-//                if (rs == null) {
-//                    return m;
-//                }
-//                while (rs.next()) {
-//                    int theirLevel = rs.getInt(2);
-//                    if (theirLevel > UserRegistry.VETTER) {
-//                        continue; // will not receive notice.
-//                    }
-//
-//                    int theirId = rs.getInt(1);
-//                    UserRegistry.User u = reg.getInfo(theirId);
-//                    // String theirName = rs.getString(3);
-//                    // String theirEmail = rs.getString(4);
-//                    // String theirOrg = rs.getString(5);
-//                    String theirLocales = rs.getString(6);
-//                    String theirIntlocs = rs.getString(7);
-//
-//                    String localeArray[] = UserRegistry.tokenizeLocale(theirLocales);
-//
-//                    if ((theirId <= UserRegistry.TC) || (localeArray.length == 0)) { // all
-//                                                                                     // locales
-//                        localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
-//                    }
-//
-//                    if (localeArray.length == 0) {
-//                        for (Iterator li = intGroups.keySet().iterator(); li.hasNext();) {
-//                            String group = (String) li.next();
-//                            Set v = (Set) m.get(group);
-//                            if (v == null) {
-//                                v = new HashSet();
-//                                m.put(group, v);
-//                            }
-//                            v.add(u);
-//                            // SurveyLog.logger.warning(group + " - " + u.email
-//                            // +
-//                            // " (ALL)");
-//                        }
-//                    } else {
-//                        for (int i = 0; i < localeArray.length; i++) {
-//                            String group = localeArray[i];
-//                            Set v = (Set) m.get(group);
-//                            if (v == null) {
-//                                v = new HashSet();
-//                                m.put(group, v);
-//                            }
-//                            v.add(u);
-//                            // SurveyLog.logger.warning(group + " - " + u.email
-//                            // + "");
-//                        }
-//                    }
-//                }
-//            }
-//        } catch (SQLException se) {
-//            busted("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
-//            throw new RuntimeException("SQL error querying users for getIntUsers - " + DBUtils.unchainSqlException(se));
-//
-//        } finally {
-//            DBUtils.close(conn);
-//        }
-//        return m;
-//    }
+
+    //
+    // /*
+    // * returns a map of String localegroup -> Set [ User interestedUser, ... ]
+    // */
+    // protected Map getIntUsers(Map intGroups) {
+    // Map m = new HashMap();
+    // Connection conn = null;
+    // try {
+    // conn = dbUtils.getDBConnection();
+    // synchronized (reg) {
+    // java.sql.ResultSet rs = reg.list(null, conn);
+    // if (rs == null) {
+    // return m;
+    // }
+    // while (rs.next()) {
+    // int theirLevel = rs.getInt(2);
+    // if (theirLevel > UserRegistry.VETTER) {
+    // continue; // will not receive notice.
+    // }
+    //
+    // int theirId = rs.getInt(1);
+    // UserRegistry.User u = reg.getInfo(theirId);
+    // // String theirName = rs.getString(3);
+    // // String theirEmail = rs.getString(4);
+    // // String theirOrg = rs.getString(5);
+    // String theirLocales = rs.getString(6);
+    // String theirIntlocs = rs.getString(7);
+    //
+    // String localeArray[] = UserRegistry.tokenizeLocale(theirLocales);
+    //
+    // if ((theirId <= UserRegistry.TC) || (localeArray.length == 0)) { // all
+    // // locales
+    // localeArray = UserRegistry.tokenizeLocale(theirIntlocs);
+    // }
+    //
+    // if (localeArray.length == 0) {
+    // for (Iterator li = intGroups.keySet().iterator(); li.hasNext();) {
+    // String group = (String) li.next();
+    // Set v = (Set) m.get(group);
+    // if (v == null) {
+    // v = new HashSet();
+    // m.put(group, v);
+    // }
+    // v.add(u);
+    // // SurveyLog.logger.warning(group + " - " + u.email
+    // // +
+    // // " (ALL)");
+    // }
+    // } else {
+    // for (int i = 0; i < localeArray.length; i++) {
+    // String group = localeArray[i];
+    // Set v = (Set) m.get(group);
+    // if (v == null) {
+    // v = new HashSet();
+    // m.put(group, v);
+    // }
+    // v.add(u);
+    // // SurveyLog.logger.warning(group + " - " + u.email
+    // // + "");
+    // }
+    // }
+    // }
+    // }
+    // } catch (SQLException se) {
+    // busted("SQL error querying users for getIntUsers - " +
+    // DBUtils.unchainSqlException(se));
+    // throw new RuntimeException("SQL error querying users for getIntUsers - "
+    // + DBUtils.unchainSqlException(se));
+    //
+    // } finally {
+    // DBUtils.close(conn);
+    // }
+    // return m;
+    // }
 
     public static final com.ibm.icu.text.Transliterator hexXML = com.ibm.icu.text.Transliterator
             .getInstance("[^\\u0009\\u000A\\u0020-\\u007E\\u00A0-\\u00FF] Any-Hex/XML");
@@ -7245,24 +7257,28 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
-     * Return a string, in SQL date format, that describes a day *prior* to the start of vetting for the current release. This can be the last day of the 'beta' phase. 
-     * Votes on or before this day (midnight, DB server time) will be ignored for statistics/coverage purposes.
-     * Defaults to 1970-01-01 if "CLDR_NEWVERSION_AFTER" is not set.
-     * Result will be wrapped in either TIMESTAMP("...") or DATETIME("...") as appropriate for the current DB server
+     * Return a string, in SQL date format, that describes a day *prior* to the
+     * start of vetting for the current release. This can be the last day of the
+     * 'beta' phase. Votes on or before this day (midnight, DB server time) will
+     * be ignored for statistics/coverage purposes. Defaults to 1970-01-01 if
+     * "CLDR_NEWVERSION_AFTER" is not set. Result will be wrapped in either
+     * TIMESTAMP("...") or DATETIME("...") as appropriate for the current DB
+     * server
+     * 
      * @return
      */
     public static String getSQLVotesAfter() {
         return DBUtils.DB_SQL_LAST_MOD_TYPE + ("('") + getVotesAfterString() + ("')");
     }
-    
+
     public static String getVotesAfterString() {
         return CLDRConfig.getInstance().getProperty("CLDR_NEWVERSION_AFTER", "1970-01-01 00:00:00");
     }
-    
+
     public static Date getVotesAfterDate() {
         return new Date(Timestamp.valueOf(getVotesAfterString()).getTime());
     }
-    
+
     Pattern ALLOWED_EMPTY = Pattern.compile("//ldml/fallback(?![a-zA-Z])");
 
     // TODO move to central location

@@ -69,21 +69,22 @@ public class DBUtils {
     public static String CLDR_DB_SHUTDOWNSUFFIX = null;
     public static boolean db_Derby = false;
     public static boolean db_Mysql = false;
-    
+
     /**
      * Return a string as to which SQL flavor is in use.
+     * 
      * @return
      */
     public static final String getDBKind() {
-        if(db_Derby) {
+        if (db_Derby) {
             return "Derby";
-        } else if(db_Mysql) {
+        } else if (db_Mysql) {
             return "MySql";
         } else {
             return "Unknown";
         }
     }
-    
+
     // === DB workarounds :( - derby by default
     public static String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
     public static String DB_SQL_VARCHARXPATH = "varchar(1024)";
@@ -342,7 +343,7 @@ public class DBUtils {
             s.setBytes(which, u8);
         }
     }
-    
+
     static int sqlCount(Connection conn, PreparedStatement ps) throws SQLException {
         int rv = -1;
         ResultSet rs = ps.executeQuery();
@@ -355,7 +356,7 @@ public class DBUtils {
 
     static int sqlCount(WebContext ctx, Connection conn, PreparedStatement ps) {
         try {
-            return sqlCount(conn,ps);
+            return sqlCount(conn, ps);
         } catch (SQLException se) {
             String complaint = " Couldn't query count - " + unchainSqlException(se) + " -  ps";
             System.err.println(complaint);
@@ -394,7 +395,7 @@ public class DBUtils {
             try {
                 rs = s.executeQuery(str);
             } catch (SQLException se) {
-                SurveyLog.logException(se, "Error [SQL was: "+str+"]");
+                SurveyLog.logException(se, "Error [SQL was: " + str + "]");
                 throw se; // rethrow
             }
             ArrayList<String[]> al = new ArrayList<String[]>();

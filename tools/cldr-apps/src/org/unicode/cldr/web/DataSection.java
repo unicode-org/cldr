@@ -1764,7 +1764,8 @@ public class DataSection implements JSONString {
                     pathCode = ph.getCode();
                 }
 
-                return new JSONObject().put("xpath", xpath)
+                return new JSONObject()
+                        .put("xpath", xpath)
                         .put("xpid", xpathId)
                         .put("xpstrid", sm.xpt.getStringIDString(xpath))
                         .put("winningValue", winningValue)
@@ -1774,18 +1775,13 @@ public class DataSection implements JSONString {
                         .put("displayInExample", displayInExample)
                         // .put("showstatus",
                         // (ph!=null)?ph.getSurveyToolStatus():null)
-                        .put("statusAction", getStatusAction())
-                        .put("prettyPath", getPrettyPath())
-                        .put("code", pathCode)
+                        .put("statusAction", getStatusAction()).put("prettyPath", getPrettyPath()).put("code", pathCode)
                         .put("extraAttributes", getNonDistinguishingAttributes()).put("coverageValue", coverageValue)
                         .put("hasErrors", hasErrors).put("hasWarnings", hasWarnings).put("confirmStatus", confirmStatus)
                         .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
-                        .put("winningVhash", winningVhash)
-                        .put("ourVote", ourVote)
-                        .put("voteVhash", voteVhash)
+                        .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
                         .put("voteResolver", SurveyAjax.JSONWriter.wrap(ballotBox.getResolver(xpath))).put("items", itemsJson)
-                        .put("forumPosts", sm.fora.postCountFor(locale,getXpathId()))
-                        .toString();
+                        .put("forumPosts", sm.fora.postCountFor(locale, getXpathId())).toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in toJSONString of " + this);
                 throw new JSONException(t);

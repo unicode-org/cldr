@@ -661,9 +661,10 @@ public class UserRegistry {
             }
 
             if (ret == null) { // synchronized(conn) {
-            // System.err.println("go fish for id " + id);
-            // queryIdStmt = conn.prepareStatement("SELECT name,org,email from "
-            // + CLDR_USERS +" where id=?");
+                // System.err.println("go fish for id " + id);
+                // queryIdStmt =
+                // conn.prepareStatement("SELECT name,org,email from "
+                // + CLDR_USERS +" where id=?");
                 ResultSet rs = null;
                 PreparedStatement pstmt = null;
                 Connection conn = DBUtils.getInstance().getDBConnection();
@@ -837,7 +838,7 @@ public class UserRegistry {
             // close out the RS
             DBUtils.close(rs, pstmt, conn);
         } // end try
-        // } // end synch(conn)
+          // } // end synch(conn)
     } // end get
 
     public UserRegistry.User get(String email) {
@@ -1105,11 +1106,12 @@ public class UserRegistry {
                 logger.severe("Error: " + n + " records updated!");
             } else {
                 msg = msg + " [locales set]";
-                
-                if(!normalizedLocales.equals(newLocales)) {
-                    msg = msg + " <br>You requested: <strike>" + newLocales + "</strike> <br> Valid locale list: " + prettyPrintLocale(normalizedLocales) + "<br>";
+
+                if (!normalizedLocales.equals(newLocales)) {
+                    msg = msg + " <br>You requested: <strike>" + newLocales + "</strike> <br> Valid locale list: "
+                            + prettyPrintLocale(normalizedLocales) + "<br>";
                 }
-                
+
                 msg = msg + updateIntLocs(theirId, conn);
                 /*
                  * if(intLocs) { return updateIntLocs(theirId); }
@@ -1739,6 +1741,7 @@ public class UserRegistry {
 
     /**
      * Tokenize a string, but return an array of CLDRLocales
+     * 
      * @param localeList
      * @return
      */
@@ -1747,41 +1750,43 @@ public class UserRegistry {
             // System.err.println("TKL: null input");
             return new CLDRLocale[0];
         }
-        
+
         String s[] = tokenizeLocale(localeList);
         CLDRLocale l[] = new CLDRLocale[s.length];
-        for(int j=0;j<s.length;j++) {
-            l[j]=CLDRLocale.getInstance(s[j]);
+        for (int j = 0; j < s.length; j++) {
+            l[j] = CLDRLocale.getInstance(s[j]);
         }
         return l;
     }
-    
+
     /**
      * Tokenize a list, and validate it against actual locales
+     * 
      * @param localeList
      * @return
      */
     static Set<CLDRLocale> tokenizeValidCLDRLocale(String localeList) {
         Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
-        if(localeList==null || localeList.equals("all")) return s; // empty
+        if (localeList == null || localeList.equals("all"))
+            return s; // empty
         Set<CLDRLocale> topLocs = SurveyMain.getTopLocalesSet();
         CLDRLocale locs[] = tokenizeCLDRLocale(localeList);
-        for(CLDRLocale l : locs) {
-            if(!topLocs.contains(l)) {
+        for (CLDRLocale l : locs) {
+            if (!topLocs.contains(l)) {
                 continue;
             }
             s.add(l);
         }
-        if(s.isEmpty() && localeList.trim().length()>0) {
+        if (s.isEmpty() && localeList.trim().length() > 0) {
             s.add(CLDRLocale.getInstance("und")); // don't set it to 'all'
         }
         return s;
     }
-    
+
     static String validateLocaleList(String list) {
         StringBuilder sb = new StringBuilder();
-        for(CLDRLocale l : tokenizeValidCLDRLocale(list)) {
-            if(sb.length()>0) {
+        for (CLDRLocale l : tokenizeValidCLDRLocale(list)) {
+            if (sb.length() > 0) {
                 sb.append(' ');
             }
             sb.append(l.getBaseName());
@@ -1798,17 +1803,16 @@ public class UserRegistry {
         String ret = "";
         if ((localeList == null) || (localeList.isEmpty())) {
             // System.err.println("TKL: null output");
-            ret = ("<i title='"+localeList+"'>all locales</i>");
-        } else if(localeArray.isEmpty()) {
-            if(localeList.equals("all")) {
-                ret = ("<i title='"+localeList+"'>all locales</i>");
+            ret = ("<i title='" + localeList + "'>all locales</i>");
+        } else if (localeArray.isEmpty()) {
+            if (localeList.equals("all")) {
+                ret = ("<i title='" + localeList + "'>all locales</i>");
             } else {
-                ret = ("<i style='font-size: smaller' title='"+localeList+"'>no locales</i>");
+                ret = ("<i style='font-size: smaller' title='" + localeList + "'>no locales</i>");
             }
-        }    else {
+        } else {
             for (CLDRLocale l : localeArray) {
-                ret = ret + " <tt class='codebox' title='" + l.getDisplayName() + "'>" + l.getBaseName()
-                        + "</tt> ";
+                ret = ret + " <tt class='codebox' title='" + l.getDisplayName() + "'>" + l.getBaseName() + "</tt> ";
             }
         }
         // return ret + " [" + localeList + "]";

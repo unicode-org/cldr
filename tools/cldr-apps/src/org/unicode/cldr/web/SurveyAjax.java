@@ -568,7 +568,7 @@ public class SurveyAjax extends HttpServlet {
                         r.put("ret", str);
 
                         send(r, out);
-                    } else if(what.equals(WHAT_FORUM_FETCH)) {
+                    } else if (what.equals(WHAT_FORUM_FETCH)) {
                         JSONWriter r = newJSONStatus(sm);
                         r.put("what", what);
 
@@ -577,7 +577,7 @@ public class SurveyAjax extends HttpServlet {
                         String xp = sm.xpt.getById(id);
                         r.put("loc", loc);
                         r.put("xpath", xpath);
-                        r.put("ret",mySession.sm.fora.toJSON(mySession,locale,id));
+                        r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
 
                         send(r, out);
                     } else {

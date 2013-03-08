@@ -449,11 +449,11 @@ public class TimezoneFormatter extends UFormat {
         }
     }
 
-    private boolean noTimezoneChangeWithin184Days(BasicTimeZone timeZone, long date) {
+    public boolean noTimezoneChangeWithin184Days(BasicTimeZone timeZone, long date) {
         // TODO Fix this to look at the real times
         TimeZoneTransition startTransition = timeZone.getPreviousTransition(date, true);
         if (startTransition == null) {
-            System.out.println("No transition for " + timeZone.getID() + " on " + new Date(date));
+            //System.out.println("No transition for " + timeZone.getID() + " on " + new Date(date));
             return true;
         }
         if (!atLeast184Days(startTransition.getTime(), date)) {

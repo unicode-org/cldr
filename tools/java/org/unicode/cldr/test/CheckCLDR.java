@@ -500,7 +500,9 @@ abstract public class CheckCLDR {
             valueTooNarrow,
             nameContainsYear,
             patternCannotContainDigits, patternContainsInvalidCharacters,
-            illegalNumberingSystem;
+            illegalNumberingSystem,
+            unexpectedOrderOfEraYear;
+            
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
             }

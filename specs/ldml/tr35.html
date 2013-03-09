@@ -1809,10 +1809,19 @@ root</pre>
 <h3><a name="Layout_Elements" href="#Layout_Elements">5.5 Layout Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT layout ( alias | (orientation*, inList*, inText*, special*) ) &gt;</p>
 	<p>This top-level element specifies general layout features. It currently only has one possible element (other than &lt;special&gt;, which is always permitted).</p>
-	<p class="element2">&lt;orientation lines=&quot;<span style="color: blue">top-to-bottom</span>&quot; characters=&quot;<span style="color: blue">left-to-right</span>&quot; /&gt;</p>
-	<p>The lines and characters attributes specify the default general ordering of lines within a page, and characters within a line. The values are:</p>
+	<p class="dtd">
+		<span class="changed">
+		&lt;!ELEMENT orientation ( characterOrder*, lineOrder*, special* ) &gt;<br>
+		&lt;!ELEMENT characterOrder ( #PCDATA ) &gt;<br>
+		&lt;!ELEMENT lineOrder ( #PCDATA ) &gt;
+		</span>
+	</p>
+	<p class="changed">The lineOrder and characterOrder elements specify the default general ordering of lines within a page, and characters within a line. The possible values are:</p>
 	<table>
-		<caption>Orientation Attributes</caption>
+		<tr>
+			<th class="changed">Direction</th>
+			<th class="changed">Value</th>
+		</tr>
 		<tr>
 			<td rowspan="2">Vertical</td>
 			<td>top-to-bottom</td>
@@ -1828,7 +1837,7 @@ root</pre>
 			<td>right-to-left</td>
 		</tr>
 	</table>
-	<p>If the lines value is one of the vertical attributes, then the characters value must be one of the horizontal attributes, and vice versa. For example, for 
+	<p>If the <span class="changed">value of lineOrder is one of the vertical values, then the value of characterOrder must be one of the horizontal values</span>, and vice versa. For example, for 
 	English the lines are top-to-bottom, and the characters are left-to-right. For Mongolian (in the Mongolian Script) the lines are right-to-left, and the characters 
 	are top to bottom. This does not override the ordering behavior of bidirectional text; it does, however, supply the paragraph direction for that text (for more 
 	information, see <i>UAX #9: The Bidirectional Algorithm</i> [<a href="http://www.unicode.org/reports/tr41/#UAX9">UAX9</a>]).</p>

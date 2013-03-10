@@ -138,6 +138,14 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <li>6 <a href="#Postal_Code_Validation">Postal Code Validation</a></li>
     <li>7 <a href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
     <li>8 <a href="#Coverage_Levels">Coverage Levels</a></li>
+    <li>9 <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>
+      <ul class="toc">
+         <li>9.1 <a href="#Supplemental_Alias_Information">Supplemental Alias Information</a></li>
+         <li>9.2 <a href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information</a></li>
+         <li>9.3 <a href="#Default_Content">Default Content</a></li>
+      </ul>
+    </li>
+    <li>Appendix I-A <a href="#Metadata_Elements">Locale Metadata Element</a></li>
   </ul>
 
 <h2>Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a></h2>
@@ -154,6 +162,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	</i>and<i> Appendix N: <a href="tr35.html#Transform_Rules">Transform Rules</a></i>). The split is just 
 	for convenience: logically, they are treated as though they were a single file. Future versions 
 	of CLDR may split the data in a different fashion.</p>
+
+        <p class="changed">Additionally, <a href="#Metadata_Elements">Appendix Info-A</a> presents information about
+          metadata that is maintained on a per-locale basis. It is included in this section because it is not intended
+          to be used as part of the locale itself.</p>
 
 <h2>1 <a name="Territory_Data" href="#Territory_Data">Territory Data</a></h2>
 
@@ -560,6 +572,143 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		</ul>
 		</li>
 	</ul>
+        <!-- end section 8 -->
+
+
+        <!-- begin section 9 supplemental metadata -->
+	<h2><a name="Appendix_Supplemental_Metadata" href="#Appendix_Supplemental_Metadata">9 Supplemental Metadata</a></h2>
+
+        <p class="changed">Note that this section discusses the <code>&lt;metadata&gt;</code> element within the <code>&lt;supplementalData&gt;</code>
+          element. For the per-locale metadata used in tests and the Survey Tool, see <a href="#Metadata_Elements">Appendix Info-A: Locale Metadata Element</a>.</p>
+
+        <p class="reviewnote">The following text was moved here from the main document.</p>
+
+	<p>The supplemental metadata contains information about the CLDR file itself, used to test 
+	validity and provide information for locale inheritance. A number of these elements are 
+	described in </p>
+	<ul class="toc">
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix I: <a href="#Inheritance_and_Validity">Inheritance and Validity</a></li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix K: <a href="#Valid_Attribute_Values">Valid Attribute Values</a></li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix L: <a href="#Canonical_Form">Canonical Form</a></li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix M: <a href="#Coverage_Levels">Coverage Levels</a></li>
+	</ul>
+	<h3><a name="Supplemental_Alias_Information" href="#Supplemental_Alias_Information">9.1 Supplemental Alias Information</a></h3>
+	<p class="dtd">&lt;!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, 
+	variantAlias*, zoneAlias* ) &gt;<br>
+	<br>
+	&lt;!ELEMENT languageAlias EMPTY &gt;<br>
+	&lt;!ATTLIST languageAlias type NMTOKEN #IMPLIED &gt;<br>
+	&lt;!ATTLIST languageAlias replacement NMTOKEN #IMPLIED &gt;<br>
+	<br>
+	&lt;!ELEMENT scriptAlias EMPTY &gt;<br>
+	&lt;!ATTLIST scriptAlias type NMTOKEN #IMPLIED &gt;<br>
+	&lt;!ATTLIST scriptAlias replacement NMTOKEN #IMPLIED &gt;<br>
+	<br>
+	&lt;!ELEMENT territoryAlias EMPTY &gt;<br>
+	&lt;!ATTLIST territoryAlias type NMTOKEN #IMPLIED &gt;<br>
+	&lt;!ATTLIST territoryAlias replacement NMTOKENS #IMPLIED &gt;<br>
+	<br>
+	&lt;!ELEMENT variantAlias EMPTY &gt;<br>
+	&lt;!ATTLIST variantAlias type NMTOKEN #IMPLIED &gt;<br>
+	&lt;!ATTLIST variantAlias replacement NMTOKEN #IMPLIED &gt;<br>
+	<br>
+	&lt;!ELEMENT zoneAlias EMPTY &gt;<br>
+	&lt;!ATTLIST zoneAlias type CDATA #IMPLIED &gt;<br>
+	&lt;!ATTLIST zoneAlias replacement CDATA #IMPLIED &gt;<br>
+&nbsp;</p>
+	<p>This element provides information as to parts of locale IDs that should be substituted when accessing CLDR data. This logical substitution should be done 
+	to both the locale id, and to any lookup for display names of languages, territories, 
+	and so on. As with the display names, the language type and replacement may 
+	be any prefix of a valid locale id, such as &quot;no_NO&quot;.</p>
+  <pre>&lt;alias&gt;
+  &lt;languageAlias type=&quot;in&quot; replacement=&quot;id&quot;&gt;
+  &lt;languageAlias type=&quot;sh&quot; replacement=&quot;sr&quot;&gt;
+  &lt;languageAlias type=&quot;sh_YU&quot; replacement=&quot;sr_Latn_YU&quot;&gt;
+...
+  &lt;territoryAlias type=&quot;BU&quot; replacement=&quot;MM&quot;&gt;
+...
+&lt;/alias&gt;</pre>
+	<h3><a name="Supplemental_Deprecated_Information" href="#Supplemental_Deprecated_Information">9.2 Supplemental Deprecated Information</a></h3>
+	<pre class="dtd">&lt;!ELEMENT deprecated ( deprecatedItems* ) &gt;
+&lt;!ATTLIST deprecated draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;
+
+&lt;!ELEMENT deprecatedItems EMPTY &gt;
+&lt;!ATTLIST deprecatedItems draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;
+&lt;!ATTLIST deprecatedItems type ( standard | supplemental | ldml | supplementalData | ldmlBCP47 ) #IMPLIED &gt; &lt;!-- standard | supplemental are deprecated --&gt;
+&lt;!ATTLIST deprecatedItems elements NMTOKENS #IMPLIED &gt;
+&lt;!ATTLIST deprecatedItems attributes NMTOKENS #IMPLIED &gt;
+&lt;!ATTLIST deprecatedItems values CDATA #IMPLIED &gt;</pre>
+	<p>The deprecated items can be used to indicate elements, attributes, and attribute values that are deprecated. This means 
+	that the items are valid, but that their usage is strongly discouraged. When the same deprecatedItems element contains combinations of elements, attributes, 
+  and values, then the &quot;least significant&quot; items are only deprecated if they occur with the &quot;more significant&quot; items. For example:</p>
+	<table border="1" cellpadding="0" cellspacing="1" style="margin-top: 1.5em; margin-bottom: 0.5em" id="table23">
+		<caption>Deprecated Items</caption>
+		<tr>
+			<td width="50%"><code>&lt;deprecatedItems elements=&quot;A B&quot;&gt;</code></td>
+			<td width="50%">A and B are deprecated</td>
+		</tr>
+		<tr>
+			<td width="50%"><code>&lt;deprecatedItems attributes=&quot;C D&quot;&gt;</code></td>
+			<td width="50%">C and D are deprecated on all elements</td>
+		</tr>
+		<tr>
+			<td width="50%"><code>&lt;deprecatedItems elements=&quot;A B&quot; attributes=&quot;C D&quot;&gt;</code></td>
+			<td width="50%">C and D are deprecated, but only if they occur on elements A or B.</td>
+		</tr>
+		<tr>
+			<td width="50%"><code>&lt;deprecatedItems elements=&quot;A B&quot; attributes=&quot;C D&quot; values=&quot;E&quot;&gt;</code></td>
+			<td width="50%">E is deprecated, but only if it is a value of C in an element A or B</td>
+		</tr>
+	</table>
+	<p>In each case, multiple items are space-delimited.</p>
+	<p>Where particular values are deprecated (such as territory codes like SU for Soviet Union), the names for such codes may be removed from the common/main translated data after some period of time. However, typically supplemental information for deprecated codes is retained, such as containment, likely subtags, older currency codes usage, etc. The English name may also be retained, for debugging purposes.</p>
+        <h3><a name="Default_Content" href="#Default_Content">9.3 Default Content</a></h3>
+	<pre class="dtd">&lt;!ELEMENT defaultContent EMPTY &gt;
+          &lt;!ATTLIST defaultContent locales NMTOKENS #IMPLIED &gt;</pre>
+	<p>In CLDR, locales without territory information (or where needed, 
+	  script information) provide data appropriate for what is called the <i>default content locale</i>. 
+	  For example, the <i>en</i> locale contains data appropriate for <i>en-US</i>, while the <i>zh</i> 
+	  locale contains content for <i>zh-Hans-CN</i>, and the <i>zh-Hant</i> locale contains content 
+	  for <i>zh-Hant-TW</i>. The default content locales themselves thus inherit all of their 
+	  contents, and are empty.</p>
+	<p>The choice of content is typically based on the largest literate 
+	  population of the possible choices. Thus if an implementation only provides the base language 
+	  (such as<i> en</i>), it will still get a complete and consistent set of data appropriate for a 
+	  locale which is reasonably likely to be the one meant.<i> </i>Where other information is 
+	  available, such as independent country information, that information can always be used to pick 
+	  a different locale (such as <i>en-CA</i> for a website targeted at Canadian users).</p>
+	<p>If an implementation is to use a different default locale, then the 
+	  data needs to be <i>pivoted</i>; all of the data from the CLDR for the current default locale 
+	  pushed out to the locales that inherit from it, then the new default content locale&#39;s data moved 
+	  into the base. There are tools in CLDR to perform this operation.</p>
+
+        <!-- end section 9 supp metadata -->
+
+
+        <!-- begin section Info-A the metadata element -->
+        <h2><a name="Metadata_Elements" href="#Metadata_Elements">Appendix Info-A <span class="changed">Locale</span> Metadata Element<strike class="removed">s</strike></a></h2>
+
+        <p class="changed">Note: This Appendix refers to the per-locale <code>&lt;metadata&gt;</code> element, containing metadata about a particular locale.
+          This is in contrast to the <a href="#Appendix_Supplemental_Metadata"><em>Supplemental</em> Metadata</a>, which is in the supplemental tree and is not specific
+          to a locale.</p>
+
+        <p class="reviewnote">The following text was moved here from the main document.</p>
+
+	<p class="dtd">
+	&lt;!ELEMENT metadata (casingData?) &gt;<br>
+	&lt;!ELEMENT casingData (casingItem*) &gt;<br>
+	&lt;!ELEMENT casingItem ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST casingItem type CDATA #REQUIRED &gt;<br>
+	</p>
+	<p>The &lt;metadata&gt; element contains metadata about the locale for use by the Survey Tool or other tools in
+	checking locale data; this data is not intended for export as part of the locale itself.</p>
+	<p>The &lt;casingItem&gt; element specifies the capitalization intended for the majority of the data in a given category with the locale. The purpose is so that warnings can be issued to translators that anything deviating from that capitalization should be carefully reviewed. Its type attribute has one of the values used for the &lt;contextTransformUsage&gt; element above, with the exception of the special
+	value "all"; its value is one of the following:</p>
+	<ul>
+	<li>lowercase</li>
+	<li>titlecase</li>
+	</ul>
+        <!-- end section Info-A metadta element -->
 
 
 <hr>

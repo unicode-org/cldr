@@ -386,9 +386,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 
     <h2>8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a></h2>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
-
-  <p>The following describes the coverage levels used for the current version of CLDR. This list will change between releases of CLDR. Each level adds to what is in the lower level.</p>
+    <p>The following describes the coverage levels used for the current version of CLDR. This list will change between releases of CLDR. Each level adds to what is in the lower level.</p>
 	<table border="1" cellpadding="0" cellspacing="1">
 		<tr>
 			<th nowrap><div align="right">Level</div></th>
@@ -402,47 +400,50 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		<tr>
 		  <td nowrap><div align="right">10</div></td>
 		  <td>core</td>
-		  <td>See <a href="http://cldr.unicode.org/index/cldr-spec/minimaldata">http://cldr.unicode.org/index/cldr-spec/minimaldata</a></td>
+		  <td><span class="changed">The CLDR "core" data, which is defined as the basic information about the language and writing system that is required before other information can be added using the CLDR survey tool.</span>
+		  See <a href="http://cldr.unicode.org/index/cldr-spec/minimaldata">http://cldr.unicode.org/index/cldr-spec/minimaldata</a></td>
 	  </tr>
 		<tr>
 		  <td nowrap><div align="right">20</div></td>
 		  <td>posix</td>
-		  <td>what is required for POSIX generation; for example, only one 
-		    country name, only one currency symbol, and so on.</td>
+		  <td><span class="changed">The minimum amount of data necessary in order to create a POSIX style locale from CLDR data. </span>
+                    For example, only one country name, only one currency symbol, and so on.</td>
 	  </tr>
 		<tr>
 		  <td nowrap><div align="right">30</div></td>
 		  <td>minimal</td>
-		  <td>names for the  languages, scripts, and territories associated with the language, numbering systems used in those languages, date and number formats, plus a few key values such as the values in Section 3.1 <a href="tr35.html#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a>.</td>
+		  <td><span class="changed">The minimum amount of locale data deemed necessary to create a "viable" locale in CLDR.  Contains </span>names for the languages, scripts, and territories associated with the language, numbering systems used in those languages, date and number formats, plus a few key values such as the values in <span class="removed">Section 3.1 </span><a href="tr35.html#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a>.
+                  <span class="changed">See <a href="http://cldr.unicode.org/index/cldr-spec/minimaldata">http://cldr.unicode.org/index/cldr-spec/minimaldata</a> for a detailed list of the minimal data requirements.</span></td>
 	  </tr>
 		<tr>
 		  <td nowrap><div align="right">40</div></td>
 		  <td>basic</td>
-		  <td>data for most prominent languages and countries.</td>
+		  <td><span class="changed">Contains data associated with the </span>most prominent languages and countries.</td>
 	  </tr>
 		<tr>
 		  <td nowrap><div align="right">60</div></td>
 		  <td>moderate</td>
-		  <td><p>delimiters, ellipses formats, core currency symbols</p></td>
+		  <td><span class="changed">Contains more types of data and more language and territory names than the basic level.  If the language
+                  is associated with an EU country, then the moderate level attempts to complete the data as it pertains to all EU member countries.</span></td>
 	  </tr>
 		<tr>
 		  <td nowrap><div align="right">80</div></td>
 		  <td>modern</td>
-		  <td>other fields  in normal modern use, including all country names, and currencies in use.</td>
+		  <td><span class="changed">Contains all </span>fields in normal modern use, including all country names, and currencies in use.</td>
 	  </tr>
 		<tr>
 		  <td nowrap><div align="right">100</div></td>
 		  <td>comprehensive</td>
-		  <td>complete localizations (or valid inheritance) for every possible field</td>
+		  <td><span class="changed">Contains </span>complete localizations (or valid inheritance) for every possible field.</td>
 	  </tr>
 		<tr>
 		  <td nowrap><div align="right">101</div></td>
 		  <td>optional</td>
-		  <td>fields that are not typically in use, or are deprecated.</td>
+		  <td>Fields that are not typically in use, or are deprecated.</td>
 	  </tr>
 	</table>
-	<p>Levels 40 through 80 are based on the  definitions and specifications listed in <strong>8.1-8.4</strong>.
-    However, these principles have been refined, and do not completely reflect the data that is actually used for coverage determination, which is in the <strong>coverageLevels.xml</strong> file. For a view of the trunk version of this file, see <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/coverageLevels.xml">coverageLevels.xml</a>. </p>
+	<p>Levels 40 through 80 are based on the definitions and specifications listed in <strong>8.1-8.4</strong>.
+However, these principles <span class="changed">are continually being refined by the CLDR technical committee,</span> and so do not completely reflect the data that is actually used for coverage determination, which is in the <strong>coverageLevels.xml</strong> file. For a view of the trunk version of this file, see <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/coverageLevels.xml">coverageLevels.xml</a>. </p>
 	<p class="dtd">&lt;!ELEMENT coverageLevels ( coverageVariable*, coverageLevel* ) &gt;<br>
     &lt;!ELEMENT coverageLevel EMPTY &gt;<br>
     &lt;!ATTLIST coverageLevel inLanguage CDATA #IMPLIED &gt;<br>

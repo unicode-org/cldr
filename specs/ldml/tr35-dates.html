@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-02-27</span></td>
+			<td><span class="changed">2013-03-10</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -94,10 +94,9 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	for the exchange of structured locale data. This format is used in the 
 	<a href="http://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p>
 
-	<p class="changed">This is a partial document, describing
-	only those parts of the LDML that are relevant for
-	date, time, and time zone formatting.
-	For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p>
+	<p class="changed">This is a partial document, describing only those parts of the LDML that
+	are relevant for date, time, and time zone formatting. For the other parts of the LDML see the
+	<a href="tr35.html">main LDML document</a> and the links above.</p>
 	
 	<h3><i>Status</i></h3>
 
@@ -125,27 +124,109 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
 <h2><a name="Contents"><span class="changed">Dates:</span> Contents</a></h2>
   <ul class="toc changed">
-    <li>1 <a href="#TBD_Part_Introduction">TBD: Part Introduction</a></li>
-    <li>2 <a href="#TBD_Section">TBD: Section</a>
+    <li>1 <a href="#Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a></li>
+    <li>2 <a href="#Calendar_And_Fields_Elements">Calendar and Fields Elements</a>
     <ul class="toc">
-      <li>2.1 <a href="#TBD_Subsection">TBD: Subsection</a></li>
+      <li>2.1 <a href="#Calendar_Elements">Calendar Elements</a></li>
+      <li>2.2 <a href="#Calendar_Fields">Calendar Fields</a></li>
     </ul>
     </li>
+    <li>3 <a href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>
+    <ul class="toc">
+      <li>3.1 <a href="#Calendar_Data">Calendar Data</a></li>
+      <li>3.2 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></li>
+      <li>3.3 <a href="#Week_Data">Week Data</a></li>
+      <li>3.4 <a href="#Time_Data">Time Data</a></li>
+      <li>3.5 <a href="#Day_Period_Rules">Day Period Rules</a></li>
+    </ul>
+    </li>
+    <li>4 <a href="#Time_Zone_Names">Time Zone Names</a></li>
+    <li>5 <a href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>
+    <ul class="toc">
+      <li>5.1 <a href="#Metazones">Metazones</a></li>
+      <li>5.2 <a href="#Primary_Zones">Primary Zones</a></li>
+      <li>5.3 <a href="#Windows_Zones">Windows Zones</a></li>
+    </ul>
+    </li>
+    <li>6 <a href="#Using_Time_Zone_Names">Using Time Zone Names</a></li>
+    <li>7 <a href="#Date_Format_Patterns">Date Format Patterns</a></li>
+    <li>8 <a href="#Lenient_Parsing">Lenient Parsing</a></li>
   </ul>
 
-<h2>1 <a name="TBD_Part_Introduction">TBD: Part Introduction</a></h2>
+<h2 class="changed">1 <a name="Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a></h2>
+
+  <p class="dtd">&lt;!ELEMENT dates (alias | (localizedPatternChars*, dateRangePattern*, calendars?,
+  <span class="changed">fields?, </span>timeZoneNames?, special*)) &gt;</p>
+  <p><span class="changed">The LDML top-level &lt;dates&gt;</span> element contains information regarding the
+  format and parsing of dates and times<span class="changed">, the formatting of date/time intervals, and the
+  the naming of various calendar elements.</span></p>
+  <ul class="changed">
+  	<li>The &lt;localizedPatternChars&gt; and &lt;dateRangePattern&gt; elements are deprecated and no longer used.</li>
+  	<li>The &lt;calendars&gt; and &lt;fields&gt; elements are described in section 2 <a href="#Calendar_And_Fields_Elements">Calendar and Fields Elements</a>.</li>
+  	<li>The &lt;timeZoneNames&gt; element is described in section 4 <a href="#Time_Zone_Names">Time Zone Names</a>.</li>
+  	<li>The formats use pattern characters described in section 7 <a href="#Date_Format_Patterns">Date Format Patterns</a>.</li>
+  </ul>
+
+  <p class="dtd">&lt;!ELEMENT supplementalData ( …, calendarData?, calendarPreferenceData?, weekData?,
+  <span class="changed">timeData?, </span>…, timezoneData?, …, metazoneInfo?, …, dayPeriodRuleSet?,
+  metaZones?, <span class="changed">primaryZones?, </span>windowsZones?, …) &gt;</p>
+  <p class="changed">The relevant top-level supplemental elements are listed above.></p>
+  <ul class="changed">
+  	<li>The &lt;calendarData&gt;, &lt;calendarPreferenceData&gt;, &lt;weekData&gt;, &lt;timeData&gt;, and &lt;dayPeriodRuleSet&gt;
+  	elements are described in section 3 <a href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>.</li>
+  	<li>The &lt;timezoneData&gt; element is deprecated and no longer used; the &lt;metazoneInfo&gt; element
+  	is deprecated at this level, and is now only used as a sub-element of &lt;metaZones&gt;.</li>
+  	<li>The &lt;metaZones&gt;, &lt;primaryZones&gt;, and &lt;windowsZones&gt; elements are described in
+  	section 5 <a href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>.</li>
+  </ul>
+
+<h2 class="changed">2 <a name="Calendar_And_Fields_Elements">Calendar and Fields Elements</a></h2>
+
+<h3>2.1 <a name="Calendar_Elements">Calendar Elements</a></h3>
   <p class="changed">TBD</p>
 
+<h3>2.2 <a name="Calendar_Fields">Calendar Fields</a></h3>
   <p class="changed">TBD</p>
 
-<h2>2 <a name="TBD_Section">TBD: Section</a></h2>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
+<h2 class="changed">3 <a name="Supplemental_Calendar_Data">Supplemental Calendar Data</a></h2>
 
+<h3>3.1 <a name="Calendar_Data">Calendar Data</a></h3>
   <p class="changed">TBD</p>
 
+<h3>3.2 <a name="Calendar_Preference_Data">Calendar Preference Data</a></h3>
   <p class="changed">TBD</p>
 
-<h3>2.1 <a name="TBD_Subsection">TBD: Subsection</a></h3>
+<h3 class="changed">3.3 <a name="Week_Data">Week Data</a></h3>
+  <p class="changed">TBD</p>
+
+<h3 class="changed">3.4 <a name="Time_Data">Time Data</a></h3>
+  <p class="changed">TBD</p>
+
+<h3 class="changed">3.5 <a name="Day_Period_Rules">Day Period Rules</a></h3>
+  <p class="changed">TBD</p>
+
+<h2>4 <a name="Time_Zone_Names">Time Zone Names</a></h2>
+  <p class="changed">TBD</p>
+
+<h2>5 <a name="Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a></h2>
+  <p class="changed">TBD</p>
+
+<h3>5.1 <a name="Metazones">Metazones</a></h3>
+  <p class="changed">TBD</p>
+
+<h3>5.2 <a name="Primary_Zones">Primary Zones</a></h3>
+  <p class="changed">TBD</p>
+
+<h3>5.3 <a name="Windows_Zones">Windows Zones</a></h3>
+  <p class="changed">TBD</p>
+
+<h2 class="changed">6 <a name="Using_Time_Zone_Names">Using Time Zone Names</a></h2>
+  <p class="changed">TBD</p>
+
+<h2>7 <a name="Date_Format_Patterns">Date Format Patterns</a></h2>
+  <p class="changed">TBD</p>
+
+<h2>8 <a name="Lenient_Parsing">Lenient Parsing</a></h2>
   <p class="changed">TBD</p>
 
 <hr>

@@ -252,7 +252,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	  </li>
 		<li>Appendix D: <a href="#Language_and_Locale_IDs">Language and Locale IDs</a></li>
 		<li>Appendix E: <a href="#Unicode_Sets">Unicode Sets</a></li>
-		<li>Appendix F: <a href="#Date_Format_Patterns">Date Format Patterns</a></li>
+		<li>Appendix F: <a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a>
+                          <span class="changed">See the <a href="tr35-dates.html#Date_Format_Patterns">Unicode LDML: Dates</a> document.</span></li>
 		<li>Appendix G: <a href="tr35-numbers.html#Number_Format_Patterns">Number Format Patterns</a>
                           <span class="changed">See the <a href="tr35-numbers.html#Number_Format_Patterns">Unicode LDML: Numbers</a> document.</span></li>
 		<li>Appendix H: <a href="#Choice_Patterns">Choice Patterns</a></li>
@@ -322,7 +323,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		documents in accordance with the descriptions in those sections.<ul>
 			<li>For example, an implementation that claims conformance to 
 			the date format patterns must interpret the characters in such patterns according to
-			<a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</li>
+			<a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</li>
 		</ul>
 		</li>
 		<li>Declare which types of CLDR data that it uses.<ul>
@@ -2083,7 +2084,7 @@ root</pre>
 	<p class="dtd">&lt;!ELEMENT dates (alias | (localizedPatternChars*, dateRangePattern*, calendars?, <span class="changed">fields?, </span>timeZoneNames?, special*)) &gt;</p>
 	<p>This top-level element contains information regarding the format and parsing of dates and times. The data format is based on the Java/ICU format. Most of 
 	these are fairly self-explanatory, except the<i> week </i>elements<i>,</i> <i>localizedPatternChars</i>, and the meaning of the pattern characters. For information 
-	on this, and more information on other elements and attributes, see <i><a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a></i>.</p>
+	on this, and more information on other elements and attributes, see <i><a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a></i>.</p>
 
 	<h4><a name="Calendar_Elements" href="#Calendar_Elements">5.9.1 Calendar Elements</a></h4>
 	<p class="dtd">
@@ -2450,7 +2451,7 @@ root</pre>
       &lt;/dateFormatLength&gt;
     &lt;dateFormats&gt;</pre>
 	<p>The patterns for date formats and time formats are 
-	defined in <i><a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a>.</i> These patterns are intended primarily for display of isolated date and
+	defined in <i><a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a>.</i> These patterns are intended primarily for display of isolated date and
     time strings in user-interface elements, rather than for date and time strings in the middle of
     running text, so capitalization and grammatical form should be chosen appropriately.</p>
 	<p><b><a name="timeFormats" href="#timeFormats">&lt;timeFormats&gt;</a></b></p>
@@ -2540,7 +2541,7 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
 	<p>The dateTimeFormat element works like the dateFormats and timeFormats, except 
 	that the pattern is of the form &quot;{1} {0}&quot;, where {0} is replaced by the time format, and {1} is replaced by the date format, with results such as &quot;8/27/06 7:31 
 	AM&quot;. Except for the substitution markers {0} and {1}, text in the dateTimeFormat is interpreted as part of a date/time pattern, and is subject
-	to the same rules described in <a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a>. This includes the need to enclose ASCII letters in single quotes if they
+	to the same rules described in <a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a>. This includes the need to enclose ASCII letters in single quotes if they
 	are intended to represent literal text.</p>
 	<p class="dtd">
 	&lt;!ELEMENT availableFormats (alias | (dateFormatItem*, special*))&gt;<br>
@@ -2560,7 +2561,7 @@ See <i><a href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a>.</i
     particular:</p>
 	<ul>
       <li>The fields are from the
-      <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a> in <i>
+      <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a> in <i>
       <a href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a></i>.</li>
       <li>The canonical order is from top to bottom in that table; that is, &quot;yM&quot; not &quot;My&quot;.</li>
       <li>Only one field of each type is allowed; that is &quot;Hh&quot; is not valid.</li>
@@ -2877,7 +2878,7 @@ language may not be in common usage in a particular territory.</p>
 		<p class="note"><b>Note: </b>User interfaces for time zone selection can use the
 		&quot;generic location format&quot; for time zone names to obtain the most useful ordering of names in a menu or list;
 		see <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i> and the zone section of the
-		<i><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</i></p>
+		<i><a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</i></p>
 	</blockquote>
 	<h4>Section <span class="changed">5.9.3</span>.1 Metazones </h4>
 	<p>A metazone is an grouping of one or more internal TZIDs that 
@@ -2944,7 +2945,7 @@ language may not be in common usage in a particular territory.</p>
 	also <i>Section 5.2.1 <a href="#Date_Ranges">Dates and Date Ranges</a></i>).</p>
 	<p>Metazones are used with the &#39;z&#39;, &#39;zzzz&#39;, &#39;v&#39;, &#39;vvvv&#39;, and &#39;V&#39;
 	date time pattern characters, and not with the &#39;Z&#39;, &#39;ZZZZ&#39;, &#39;VVVV&#39; 
-	pattern characters. For more information, see Appendix F: <a href="#Date_Format_Patterns">Date Format Patterns</a>.</p>
+	pattern characters. For more information, see <a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a>.</p>
 	<p>The commonlyUsed element is now deprecated, which effectively makes the semantics of the 
 	&#39;z&#39; and &#39;V&#39; formatting patterns to be identical.  The CLDR committee has found it nearly impossible 
 	to obtain accurate and reliable data regarding which time zone abbreviations may be understood in a given territory, and therefore
@@ -4370,653 +4371,6 @@ language may not be in common usage in a particular territory.</p>
 			this is <b>[:General_Category=Letter:]</b>. </td>
 		</tr>
 	</table>
-	<h2><a name="Date_Format_Patterns" href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a></h2>
-	<p>A date pattern is a string of characters, where specific strings of characters are replaced 
-	with date and time data from a calendar when formatting or used to generate data for a calendar 
-	when parsing. The following 
-	are examples:</p>
-	<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
-		<tr>
-			<th width="50%">Pattern</th>
-			<th width="50%">Result (in a particular locale)</th>
-		</tr>
-		<tr>
-			<td width="50%">yyyy.MM.dd G &#39;at&#39; HH:mm:ss zzz</td>
-			<td width="50%">1996.07.10 AD at 15:08:56 PDT</td>
-		</tr>
-		<tr>
-			<td width="50%">EEE, MMM d, &#39;&#39;yy</td>
-			<td width="50%">Wed, July 10, &#39;96</td>
-		</tr>
-		<tr>
-			<td width="50%">h:mm a</td>
-			<td width="50%">12:08 PM</td>
-		</tr>
-		<tr>
-			<td width="50%">hh &#39;o&#39;&#39;clock&#39; a, zzzz</td>
-			<td width="50%">12 o&#39;clock PM, Pacific Daylight Time</td>
-		</tr>
-		<tr>
-			<td width="50%">K:mm a, z</td>
-			<td width="50%">0:00 PM, PST</td>
-		</tr>
-		<tr>
-			<td width="50%">yyyyy.MMMM.dd GGG hh:mm aaa</td>
-			<td width="50%">01996.July.10 AD 12:08 PM</td>
-		</tr>
-	</table>
-	<p><i>When parsing using a pattern, a lenient parse should 
-	be used; see <a href="#Lenient_Parsing">Lenient Parsing</a>.</i></p>
-	<p>The Date Field Symbol Table below contains the characters used in 
-	patterns to show the appropriate formats for a given locale, such as yyyy for the year. Characters may be used multiple times. For example, if y is used for the year, &#39;yy&#39; might produce &#39;99&#39;, whereas &#39;yyyy&#39; produces &#39;1999&#39;. For most numerical 
-	fields, the number of characters specifies the field width. For example, if h is the hour, &#39;h&#39; might produce &#39;5&#39;, but &#39;hh&#39; produces &#39;05&#39;. For some characters, 
-	the count specifies whether an abbreviated or full form should be used, but may have other choices, as given below.</p>
-	<p class="dtd">&lt;!ATTLIST pattern numbers CDATA 
-	#IMPLIED &gt;</p>
-	<p>The numbers attribute is used to indicate that numeric 
-	quantities in the pattern are to be rendered using a numbering system other 
-	than then default numbering system defined for the given locale. The 
-	attribute can be in one of two forms. If the alternate numbering system is 
-	intended to apply to ALL numeric quantities in the pattern, then simply use 
-	the numbering system ID as found in <a href="tr35-numbers.html#Numbering_Systems">Numbering Systems</a>. 
-	To apply the alternate numbering system only to a single field, the syntax 
-	&quot;&lt;letter&gt;=&lt;numberingSystem&gt;&quot; can be used one or more times, separated by 
-	semicolons.</p>
-	<p class="xmlExample">Examples:<br>
-	&lt;pattern numbers=&quot;hebr&quot;&gt;dd/mm/yyyy&lt;/pattern&gt;<br>
-	&lt;!-- Use Hebrew numerals to represent numbers in the Hebrew calendar, where 
-	&quot;latn&quot; numbering system is the default --&gt;<br>
-	<br>
-	&lt;pattern numbers=&quot;y=hebr&quot;&gt;dd/mm/yyyy&lt;/pattern&gt;<br>
-	&lt;!-- Same as above, except that ONLY the year value would be rendered in 
-	Hebrew --&gt;<br>
-	<br>
-	&lt;pattern numbers=&quot;d=thai;m=hans;y=deva&quot;&gt;dd/mm/yyyy&lt;/pattern&gt;<br>
-	&lt;!-- Illustrates use of multiple numbering systems for a single pattern. --&gt;
-	</p>
-	<p>In patterns, two single quotes represents a literal single quote, either inside or outside single quotes. Text within single quotes is not interpreted in any way (except 
-	for two adjacent single quotes). Otherwise all ASCII letter from a to z and A to Z are reserved as syntax characters, and require quoting if they are to represent 
-	literal characters. In addition, certain ASCII punctuation characters may become variable in the future (for 
-	example, &quot;:&quot; being interpreted as the time separator and 
-	&#39;/&#39; as a date separator, and replaced by respective locale-sensitive characters in display).</p>
-	<blockquote>
-		<p>Note: the counter-intuitive use of 5 letters for the narrow form of weekdays and months is forced by backwards compatibility.</p>
-	</blockquote>
-	<table cellspacing="0" cellpadding="2" border="1">
-		<caption><a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></caption>
-		<tr>
-			<th>Field</th>
-			<th style="text-align: center">Sym.</th>
-			<th style="text-align: center">No.</th>
-			<th>Example</th>
-			<th>Description</th>
-		</tr>
-		<tr>
-			<th rowspan="3" style="vertical-align: top; text-align: left">era</th>
-			<td style="text-align: center; vertical-align: top" rowspan="3">G</td>
-			<td style="text-align: center; vertical-align: top">1..3</td>
-			<td style="vertical-align: top; text-align: left">AD</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left">Era - Replaced with the Era string for the current date. One to three letters for the 
-			abbreviated form, four letters for the long form, five for the narrow form.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">Anno Domini</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">5</td>
-			<td style="vertical-align: top; text-align: left">A</td>
-		</tr>
-		<tr>
-			<th rowspan="6">year</th>
-			<td style="text-align: center">y</td>
-			<td style="text-align: center">1..n</td>
-			<td>1996</td>
-			<td>Year. Normally the length specifies the padding, but for two letters it also specifies the maximum length. Example:<div align="center">
-				<center>
-				<table border="0" cellpadding="2" cellspacing="0">
-					<tr>
-						<th>Year</th>
-						<th style="text-align: right">y</th>
-						<th style="text-align: right">yy</th>
-						<th style="text-align: right">yyy</th>
-						<th style="text-align: right">yyyy</th>
-						<th style="text-align: right">yyyyy</th>
-					</tr>
-					<tr>
-						<td>AD 1</td>
-						<td style="text-align: right">1</td>
-						<td style="text-align: right">01</td>
-						<td style="text-align: right">001</td>
-						<td style="text-align: right">0001</td>
-						<td style="text-align: right">00001</td>
-					</tr>
-					<tr>
-						<td>AD 12</td>
-						<td style="text-align: right">12</td>
-						<td style="text-align: right">12</td>
-						<td style="text-align: right">012</td>
-						<td style="text-align: right">0012</td>
-						<td style="text-align: right">00012</td>
-					</tr>
-					<tr>
-						<td>AD 123</td>
-						<td style="text-align: right">123</td>
-						<td style="text-align: right">23</td>
-						<td style="text-align: right">123</td>
-						<td style="text-align: right">0123</td>
-						<td style="text-align: right">00123</td>
-					</tr>
-					<tr>
-						<td>AD 1234</td>
-						<td style="text-align: right">1234</td>
-						<td style="text-align: right">34</td>
-						<td style="text-align: right">1234</td>
-						<td style="text-align: right">1234</td>
-						<td style="text-align: right">01234</td>
-					</tr>
-					<tr>
-						<td>AD 12345</td>
-						<td style="text-align: right">12345</td>
-						<td style="text-align: right">45</td>
-						<td style="text-align: right">12345</td>
-						<td style="text-align: right">12345</td>
-						<td style="text-align: right">12345</td>
-					</tr>
-				</table>
-				</center></div>
-			</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">Y</td>
-			<td style="text-align: center">1..n</td>
-			<td>1997</td>
-			<td>Year (in &quot;Week of Year&quot; based calendars). Normally the length specifies the padding, but for two letters it also specifies the maximum length. This year designation is used in ISO year-week calendar as defined by ISO 8601, but can be used in non-Gregorian based calendar systems where week date processing is desired. May not always be the same value as calendar year.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">u</td>
-			<td style="text-align: center">1..n</td>
-			<td>4601</td>
-			<td>Extended year. This is a single number designating the year of this calendar system, encompassing all supra-year fields. For example, for the Julian 
-			calendar system, year numbers are positive, with an era of BCE or CE. An extended year value for the Julian calendar system assigns positive values 
-			to CE years and negative values to BCE years, with 1 BCE being year 0.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top" rowspan="3">U</td>
-			<td style="text-align: center; vertical-align: top">1..3</td>
-			<td style="vertical-align: top; text-align: left">甲子</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left">Cyclic year name. Calendars such as the Chinese lunar calendar (and related calendars)
-			and the Hindu calendars use 60-year cycles of year names. Use one through three letters for the abbreviated name, four for the full name, or five for the narrow name
-			(currently the data only provides abbreviated names, which will be used for all requested name widths). If the calendar does not provide cyclic year name data, or if the
-			year value to be formatted is out of the range of years for which cyclic name data is provided, then numeric formatting is used (behaves like 'y').</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">(currently also 甲子)</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">5</td>
-			<td style="vertical-align: top; text-align: left">(currently also 甲子)</td>
-		</tr>
-		<tr>
-			<th rowspan="6" style="vertical-align: top; text-align: left">quarter</th>
-			<td style="text-align: center; vertical-align: top" rowspan="3">Q</td>
-			<td style="text-align: center; vertical-align: top">1..2</td>
-			<td style="vertical-align: top; text-align: left">02</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left">Quarter - Use one or two for the numerical quarter, three for the abbreviation, or four 
-			for the full name.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">3</td>
-			<td style="vertical-align: top; text-align: left">Q2</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">2nd quarter</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top" rowspan="3">q</td>
-			<td style="text-align: center; vertical-align: top">1..2</td>
-			<td style="vertical-align: top; text-align: left">02</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> Quarter - Use one or two for the numerical quarter, three for the abbreviation, 
-			or four for the full name.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">3</td>
-			<td style="vertical-align: top; text-align: left">Q2</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">2nd quarter</td>
-		</tr>
-		<tr>
-			<th rowspan="9" style="vertical-align: top; text-align: left">month</th>
-			<td rowspan="4" style="text-align: center; vertical-align: top">M</td>
-			<td style="text-align: center; vertical-align: top">1..2</td>
-			<td style="vertical-align: top; text-align: left">09</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left">Month - Use one or two for the numerical month, three for the abbreviation, four for 
-			the full name, or five for the narrow name.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">3</td>
-			<td style="vertical-align: top; text-align: left">Sept</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">September</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">5</td>
-			<td style="vertical-align: top; text-align: left">S</td>
-		</tr>
-		<tr>
-			<td rowspan="4" style="text-align: center; vertical-align: top">L</td>
-			<td style="text-align: center; vertical-align: top">1..2</td>
-			<td style="vertical-align: top; text-align: left">09</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> Month - Use one or two for the numerical month, three for the abbreviation, 
-			or four for the full name, or 5 for the narrow name.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">3</td>
-			<td style="vertical-align: top; text-align: left">Sept</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">September</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">5</td>
-			<td style="vertical-align: top; text-align: left">S</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">l</td>
-			<td style="text-align: center">1</td>
-			<td>(nothing)</td>
-			<td>This pattern character is deprecated, and should be ignored in patterns. It was originally intended to be used in combination with M
-			to indicate placement of the symbol for leap month in the Chinese calendar. Placement of that marker is now specified using locale-specific &lt;monthPatterns&gt;
-			data, and formatting and parsing of that marker should be handled as part of supporting the regular M and L pattern characters.</td>
-		</tr>
-		<tr>
-			<th rowspan="2">week</th>
-			<td style="text-align: center">w</td>
-			<td style="text-align: center">1..2</td>
-			<td>27</td>
-			<td>Week of Year.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">W</td>
-			<td style="text-align: center">1</td>
-			<td>3</td>
-			<td>Week of Month</td>
-		</tr>
-		<tr>
-			<th rowspan="4">day</th>
-			<td style="text-align: center">d</td>
-			<td style="text-align: center">1..2</td>
-			<td>1</td>
-			<td>Date - Day of the month</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">D</td>
-			<td style="text-align: center">1..3</td>
-			<td>345</td>
-			<td>Day of year</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">F</td>
-			<td style="text-align: center">1</td>
-			<td>2</td>
-			<td>Day of Week in Month. The example is for the 2nd Wed in July</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">g</td>
-			<td style="text-align: center">1..n</td>
-			<td>2451334</td>
-			<td>Modified Julian day. This is different from the conventional Julian day number in two regards. First, it demarcates days at local zone midnight, 
-			rather than noon GMT. Second, it is a local number; that is, it depends on the local time zone. It can be thought of as a single number that encompasses 
-			all the date-related fields.</td>
-		</tr>
-		<tr>
-			<th rowspan="14" style="vertical-align: top; text-align: left">week<br>
-			day</th>
-			<td rowspan="4" style="text-align: center; vertical-align: top">E</td>
-			<td style="text-align: center; vertical-align: top">1..3</td>
-			<td style="vertical-align: top; text-align: left">Tues</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left">Day of week - Use one through three letters for the short day, or four for the full name, 
-			five for the narrow name, or six for the short name.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">Tuesday</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">5</td>
-			<td style="vertical-align: top; text-align: left">T</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">6</td>
-			<td style="vertical-align: top; text-align: left">Tu</td>
-		</tr>
-		<tr>
-			<td rowspan="5" style="text-align: center; vertical-align: top">e</td>
-			<td style="text-align: center; vertical-align: top">1..2</td>
-			<td style="vertical-align: top; text-align: left">2</td>
-			<td rowspan="5" style="vertical-align: top; text-align: left">Local day of week. Same as E except adds a numeric value that will depend on the local 
-			starting day of the week, using one or two letters. For this example, Monday is the first day of the week.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">3</td>
-			<td style="vertical-align: top; text-align: left">Tues</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">Tuesday</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">5</td>
-			<td style="vertical-align: top; text-align: left">T</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">6</td>
-			<td style="vertical-align: top; text-align: left">Tu</td>
-		</tr>
-		<tr>
-			<td rowspan="5" style="text-align: center; vertical-align: top">c</td>
-			<td style="text-align: center; vertical-align: top">1</td>
-			<td style="vertical-align: top; text-align: left">2</td>
-			<td rowspan="5" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> local day of week - Use one letter for the local numeric value (same 
-			as &#39;e&#39;), three for the short day, four for the full name, five for the narrow name, or six for the short name. </td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">3</td>
-			<td style="vertical-align: top; text-align: left">Tues</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">4</td>
-			<td style="vertical-align: top; text-align: left">Tuesday</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">5</td>
-			<td style="vertical-align: top; text-align: left">T</td>
-		</tr>
-		<tr>
-			<td style="text-align: center; vertical-align: top">6</td>
-			<td style="vertical-align: top; text-align: left">Tu</td>
-		</tr>
-		<tr>
-			<th>period</th>
-			<td style="text-align: center">a</td>
-			<td style="text-align: center">1</td>
-			<td>AM</td>
-			<td>AM or PM</td>
-		</tr>
-		<tr>
-			<th rowspan="5">hour</th>
-			<td style="text-align: center">h</td>
-			<td style="text-align: center">1..2</td>
-			<td>11</td>
-			<td>Hour [1-12]. When used in skeleton data or in a skeleton passed in an API for flexible data pattern generation,
-			it should match the 12-hour-cycle format preferred by the locale (h or K); it should not match a 24-hour-cycle format (H or k). Use hh for zero padding.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">H</td>
-			<td style="text-align: center">1..2</td>
-			<td>13</td>
-			<td>Hour [0-23]. When used in skeleton data or in a skeleton passed in an API for flexible data pattern generation,
-			it should match the 24-hour-cycle format preferred by the locale (H or k); it should not match a 12-hour-cycle format (h or K). Use HH for zero padding.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">K</td>
-			<td style="text-align: center">1..2</td>
-			<td>0</td>
-			<td>Hour [0-11]. When used in a skeleton, only matches K or h, see above. Use KK for zero padding.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">k</td>
-			<td style="text-align: center">1..2</td>
-			<td>24</td>
-			<td>Hour [1-24]. When used in a skeleton, only matches k or H, see above. Use kk for zero padding.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">j</td>
-			<td style="text-align: center">1..2</td>
-			<td>n/a</td>
-			<td>This is a special-purpose symbol. It must not occur in pattern or skeleton data. Instead, it is reserved for use
-			in skeletons passed to APIs doing flexible date pattern generation. In such a context, it requests
-			the preferred hour format for the locale (h, H, K, or k), as determined by whether h, H, K, or k
-			is used in the standard short time format for the locale. In the implementation of such an API, 'j' must
-			be replaced by h, H, K, or k before beginning a match against availableFormats data. Note that use of 'j' in
-			a skeleton passed to an API is the only way to have a skeleton request a locale's preferred time cycle type (12-hour or 24-hour).</td>
-		</tr>
-		<tr>
-			<th>minute</th>
-			<td style="text-align: center">m</td>
-			<td style="text-align: center">1..2</td>
-			<td>59</td>
-			<td>Minute. Use one or two for zero padding.</td>
-		</tr>
-		<tr>
-			<th rowspan="3">second</th>
-			<td style="text-align: center">s</td>
-			<td style="text-align: center">1..2</td>
-			<td>12</td>
-			<td>Second. Use one or two for zero padding.</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">S</td>
-			<td style="text-align: center">1..n</td>
-			<td>3456</td>
-			<td>Fractional Second - truncates (like other time fields) to the count of letters.
-			(example shows display using pattern SSSS for seconds value 12.34567)</td>
-		</tr>
-		<tr>
-			<td style="text-align: center">A</td>
-			<td style="text-align: center">1..n</td>
-			<td>69540000</td>
-			<td>Milliseconds in day. This field behaves <i>exactly</i> like a composite of all time-related fields, not including the zone fields. As such, it also 
-			reflects discontinuities of those fields on DST transition days. On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump 
-			backward. This reflects the fact that is must be combined with the offset field to obtain a unique local time value.</td>
-		</tr>
-		<tr class="changed">
-			<th rowspan="23">zone</th>
-			<td rowspan="2" style="text-align: center">z</td>
-			<td style="text-align: center">1..3</td>
-			<td>PDT</td>
-			<td>The <i>short specific non-location format</i>.
-			Where that is unavailable, falls back to the <i>short localized GMT format</i> ("O").</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">4</td>
-			<td>Pacific Daylight Time</td>
-			<td>The <i>long specific non-location format</i>.
-			Where that is unavailable, falls back to the <i>long localized GMT format</i> ("OOOO").</td>
-		</tr>
-		<tr class="changed">
-			<td rowspan="3" style="text-align: center">Z</td>
-			<td style="text-align: center">1..3</td>
-			<td>-0800</td>
-			<td>The <i>ISO8601 basic format</i> with hours, minutes and optional seconds fields.
-			The format is equivalent to RFC 822 zone format (when optional seconds field is absent).
-			This is equivalent to the "xxxx" specifier.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">4</td>
-			<td>GMT-8:00</td>
-			<td>The <i>long localized GMT format</i>.
-			This is equivalent to the "OOOO" specifier.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">5</td>
-			<td>-08:00<br>
-			-07:52:58</td>
-			<td>The <i>ISO8601 extended format</i> with hours, minutes and optional seconds fields.
-			The ISO8601 UTC indicator "Z" is used when local time offset is 0.
-			This is equivalent to the "XXXXX" specifier.</td>
-		</tr>
-		<tr class="changed">
-			<td rowspan="2" style="text-align: center">O</td>
-			<td style="text-align: center">1</td>
-			<td>GMT-8</td>
-			<td>The <i>short localized GMT format</i>.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">4</td>
-			<td>GMT-08:00</td>
-			<td>The <i>long localized GMT format</i>.</td>
-		</tr>
-		<tr class="changed">
-			<td rowspan="2" style="text-align: center">v</td>
-			<td style="text-align: center">1</td>
-			<td>PT</td>
-			<td>The <i>short generic non-location format</i>.
-			Where that is unavailable, falls back to the <i>generic location format</i> ("VVVV"),
-			then the <i>short localized GMT format</i> as the final fallback.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">4</td>
-			<td>Pacific Time</td>
-			<td>The <i>long generic non-location format</i>.
-			Where that is unavailable, falls back to <i>generic location format</i> ("VVVV").
-		</tr>
-		<tr class="changed">
-			<td rowspan="4" style="text-align: center">V</td>
-			<td style="text-align: center">1</td>
-			<td>uslax</td>
-			<td>The short time zone ID.
-			Where that is unavailable, the special short time zone ID <i>unk</i> (Unknown Zone) is used.<br>
-			<i><b>Note</b>: This specifier was originally used for a variant of the short specific non-location format,
-			but it was deprecated in the later version of this specification. In CLDR 23, the definition of
-			the specifier was changed to designate a short time zone ID.</i></td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">2</td>
-			<td>America/Los_Angeles</td>
-			<td>The long time zone ID.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">3</td>
-			<td>Los Angeles</td>
-			<td>The exemplar city (location) for the time zone.
-			Where that is unavailable, the localized exemplar city name for the special zone <i>Etc/Unknown</i> is used
-			as the fallback (for example, "Unknown City"). </td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">4</td>
-			<td>Los Angeles Time</td>
-			<td>The <i>generic location format</i>.
-			Where that is unavailable, falls back to the <i>long localized GMT format</i> ("OOOO";
-			Note: Fallback is only necessary with a GMT-style Time Zone ID, like Etc/GMT-830.)<br>
-			This is especially useful when presenting possible timezone choices for user selection, 
-			since the naming is more uniform than the "v" format.</td>
-		</tr>
-		<tr class="changed">
-			<td rowspan="5" style="text-align: center">X</td>
-			<td style="text-align: center">1</td>
-			<td>-08<br>
-			+0530<br>
-			Z</td>
-			<td>The <i>ISO8601 basic format</i> with hours field and optional minutes field.
-			The ISO8601 UTC indicator "Z" is used when local time offset is 0.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">2</td>
-			<td>-0800<br>
-			Z</td>
-			<td>The <i>ISO8601 basic format</i> with hours and minutes fields.
-			The ISO8601 UTC indicator "Z" is used when local time offset is 0.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">3</td>
-			<td>-08:00<br>
-			Z</td>
-			<td>The <i>ISO8601 extended format</i> with hours and minutes fields.
-			The ISO8601 UTC indicator "Z" is used when local time offset is 0.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">4</td>
-			<td>-0800<br>
-			-075258<br>
-			Z</td>
-			<td>The <i>ISO8601 basic format</i> with hours, minutes and optional seconds fields.
-			(Note: The seconds field is not supported by the ISO8601 specification.)
-			The ISO8601 UTC indicator "Z" is used when local time offset is 0.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">5</td>
-			<td>-08:00<br>
-			-07:52:58<br>
-			Z</td>
-			<td>The <i>ISO8601 extended format</i> with hours, minutes and optional seconds fields.
-			(Note: The seconds field is not supported by the ISO8601 specification.)
-			The ISO8601 UTC indicator "Z" is used when local time offset is 0.</td>
-		</tr>
-		<tr class="changed">
-			<td rowspan="5" style="text-align: center">x</td>
-			<td style="text-align: center">1</td>
-			<td>-08<br>
-			+0530</td>
-			<td>The <i>ISO8601 basic format</i> with hours field and optional minutes field.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">2</td>
-			<td>-0800</td>
-			<td>The <i>ISO8601 basic format</i> with hours and minutes fields.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">3</td>
-			<td>-08:00</td>
-			<td>The <i>ISO8601 extended format</i> with hours and minutes fields.</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">4</td>
-			<td>-0800<br>
-			-075258</td>
-			<td>The <i>ISO8601 basic format</i> with hours, minutes and optional seconds fields.
-			(Note: The seconds field is not supported by the ISO8601 specification.)</td>
-		</tr>
-		<tr class="changed">
-			<td style="text-align: center">5</td>
-			<td>-08:00<br>
-			-07:52:58</td>
-			<td>The <i>ISO8601 extended format</i> with hours, minutes and optional seconds fields.
-			(Note: The seconds field is not supported by the ISO8601 specification.)</td>
-		</tr>
-	</table>
-	<p>All non-letter character represent themselves in a pattern, except for the single quote. It is used to &#39;escape&#39; letters. Two single quotes in a row, whether 
-	inside or outside a quoted sequence, represent a &#39;real&#39; single quote.</p>
-	<h3><a name="Localized_Pattern_Characters" href="#Localized_Pattern_Characters">F.1 Localized Pattern Characters (deprecated)</a></h3>
-	<p>These are characters that can be used when displaying a date pattern to an end user. This can occur, for example, when a spreadsheet allows users to specify 
-	date patterns. Whatever is in the string is substituted one-for-one with the characters &quot;<span class="tx">GyMdkHmsSEDFwWahKzYe&quot;, with the above meanings</span>. 
-	Thus, for example, if &quot;J&quot; is to be used instead of &quot;Y&quot; to mean Year, then the string would be: &quot;<span class="tx">GyMdkHmsSEDFwWahKz<u>J</u>e&quot;.</span></p>
-	<p>This element is deprecated. It is recommended instead that a more sophisticated UI be used for localization, such as using icons to represent the different 
-	formats (and lengths) in the <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</p>
-	<h3>F.2 AM / PM</h3>
-	<p>Even for countries where the customary date format only has a 24 hour format, both the am and pm localized strings must be present and must be distinct from 
-	one another. Note that as long as the 24 hour format is used, these strings will normally never be used, but for testing and unusual circumstances they must 
-	be present.</p>
-	<h3>F.3 Eras</h3>
-	<p>There are only two values for an era in a Gregorian calendar, &quot;BC&quot; and &quot;AD&quot;. These values can be translated into other languages, like &quot;a.C.&quot; and and &quot;d.C.&quot; 
-	for Spanish, but there are no other eras in the Gregorian calendar. Other calendars have a different numbers of eras. Care should be taken when translating 
-	the era names for a specific calendar.</p>
-	<h3>F.4 Week of Year</h3>
-	<p>Values calculated for the Week of Year field range from 1 to 53 for the Gregorian calendar (they may have different ranges for other calendars). Week 1 for 
-	a year is the first week that contains at least the specified minimum number of days from that year. Weeks between week 1 of one year and week 1 of the following 
-	year are numbered sequentially from 2 to 52 or 53 (if needed). For example, January 1, 1998 was a Thursday. If the first day of the week is MONDAY and the minimum 
-	days in a week is 4 (these are the values reflecting ISO 8601 and many national standards), then week 1 of 1998 starts on December 29, 1997, and ends on January 
-	4, 1998. However, if the first day of the week is SUNDAY, then week 1 of 1998 starts on January 4, 1998, and ends on January 10, 1998. The first three days 
-	of 1998 are then part of week 53 of 1997.</p>
-	<p>Values are similarly calculated for the Week of Month.</p>
-	<h3>F.5 Week Elements</h3>
-	<dl>
-		<dt><b>firstDay</b> </dt>
-		<dd>A number indicating which day of the week is considered the &#39;first&#39; day, for calendar purposes. Because the ordering of days may vary between calendar, 
-		keywords are used for this value, such as sun, mon,... These values will be replaced by the localized name when they are actually used. </dd>
-		<dt><b>minDays (Minimal Days in First Week)</b> </dt>
-		<dd>Minimal days required in the first week of a month or year. For example, if the first week is defined as one that contains at least one day, this value 
-		will be 1. If it must contain a full seven days before it counts as the first week, then the value would be 7. </dd>
-		<dt><b>weekendStart, weekendEnd</b> </dt>
-		<dd>Indicates the day and time that the weekend starts or ends. As with firstDay, keywords are used instead of numbers.</dd>
-	</dl>
 	<h2><a name="Choice_Patterns" href="#Choice_Patterns">Appendix H: Choice Patterns</a></h2>
 	<p>A choice pattern is a string that chooses among a number of strings, based on numeric value. It has the following form:</p>
 	<p>&lt;choice_pattern&gt; = &lt;choice&gt; ( &#39;|&#39; &lt;choice&gt; )*<br>
@@ -6578,47 +5932,6 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Especially in cases of ambiguity, the user&#39;s input should be echoed back, properly formatted according to the locale, before it is actually used for 
 		anything.</li>
 	</ul>
-	<h3>O.4 Parsing Dates and Times</h3>
-	<p>Lenient parsing of date and time strings is more complicated, due to the large number of possible fields and formats. The fields fall into two categories: 
-	numeric fields (hour, day of month, year, numeric month, and so on) and symbolic fields (era, quarter, month, weekday, AM/PM, time zone). In addition, the user may 
-	type in a date or time in a form that is significantly different from the normal format for the locale, and the application must use the locale information 
-	to figure out what the user meant. Input may well consist of nothing but a string of numbers with separators, 
-	for example, &quot;09/05/02 09:57:33&quot;.</p>
-	<p>The input can be separated into tokens: numbers, symbols, and literal strings. Some care must be taken due to ambiguity, 
-	for example, in the Japanese locale the 
-	symbol for March is &quot;3 月&quot;, which looks like a number followed by a literal. To avoid these problems, symbols should be checked first, and spaces should be ignored 
-	(except to delimit the tokens of the input string).</p>
-	<p>The meaning of symbol fields should be easy to determine; the problem is determining the meaning of the numeric fields. Disambiguation will likely be most 
-	successful if it is based on heuristics. Here are some rules that can help:</p>
-	<ul>
-		<li>Always try the format string expected for the input text first. This is the only way to disambiguate 03/07 (March 2007, a credit card expiration date) 
-		from 03/07 (March 7, a birthday).</li>
-		<li>Attempt to match fields and literals against those in the format string, using loose matching of the tokens.</li>
-		<li>When matching symbols, try the narrow, abbreviated, and full-width 
-		forms, including standalone forms if they are unique. You may want to 
-		allow prefix matches too, or diacritic-insensitive, again, as long as 
-		they are unique. For example, for a month, accept 9, 09, S, Se, Sep, 
-		Sept, Sept., and so on.
-			<ul>
-			<li>Note: While parsing of narrow date values (e.g. month or day names) may be required in order to obtain minimum
-			information from a formatted date (for instance, the only month information may be in a narrow form), the results are not guaranteed;
-			parsing of an ambiguous formatted date string may produce a result that differs from the date originally used to create the formatted string.</li>
-			</ul>
-		</li>
-		<li>When a field or literal is encountered that is not compatible with the pattern:
-		<ul>
-			<li>Synchronization is not necessary for symbolic fields, since they are self-identifying. Wait until a numeric field or literal is encountered before 
-			attempting to resynchronize.</li>
-			<li>Ignore whether the input token is symbolic or numeric, if it is compatible with the current field in the pattern.</li>
-			<li>Look forward or backward in the current format string for a literal that matches the one most recently encountered. See if you can resynchronize 
-			from that point. Use the value of the numeric field to resynchronize as well, if possible (for 
-			example, a number larger than the largest month cannot be a 
-			month)</li>
-			<li>If that fails, use other format strings from the locale (including those in &lt;availableFormats&gt;) to try to match the previous or next symbol or literal 
-			(again, using a loose match).</li>
-		</ul>
-		</li>
-	</ul>
 	<h2><a name="Locale_Extension_Key_and_Type_Data" href="#Locale_Extension_Key_and_Type_Data">Appendix Q. Unicode BCP 47 Extension Data</a></h2>
 	<p>The Unicode Consortium has registered and is the maintaining authority for two BCP 47 language tag extensions: the extension 'u' for Unicode locale extension [<a href="#RFC6067">RFC6067</a>]
 	and extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of
@@ -6989,16 +6302,16 @@ decimal?, group?, special*)) &gt;</pre>
       <td>3.5 <a href="tr35-dates.html#Day_Period_Rules">Day Period Rules</a></td>
     </tr>
     <tr>
-      <td>Appendix F: Date Format Patterns</td>
+      <td><a name="Date_Format_Patterns" href="#Date_Format_Patterns">Appendix F: Date Format Patterns</a></td>
       <td>7 <a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a></td>
     </tr>
     <tr>
-      <td>Date Field Symbol Table</td>
-      <td></td>
+      <td><a name="Date_Field_Symbol_Table" href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></td>
+      <td>7 <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a></td>
     </tr>
     <tr>
-      <td>F.1 Localized Pattern Characters (deprecated)</td>
-      <td></td>
+      <td><a name="Localized_Pattern_Characters" href="#Localized_Pattern_Characters">F.1 Localized Pattern Characters (deprecated)</a></td>
+      <td>7 <a href="tr35-dates.html#Localized_Pattern_Characters">7.1 Localized Pattern Characters (deprecated)</a></td>
     </tr>
     <tr>
       <td>Appendix J: Time Zone Display Names</td>
@@ -7013,8 +6326,8 @@ decimal?, group?, special*)) &gt;</pre>
       <td></td>
     </tr>
     <tr>
-      <td>Appendix O: Lenient Parsing</td>
-      <td></td>
+      <td>O.4 Parsing Dates and Times</td>
+      <td>8 <a href="tr35-dates.html#Parsing_Dates_Times">Parsing Dates and Times</a></td>
     </tr>
   </table>
 

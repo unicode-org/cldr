@@ -148,8 +148,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <li>6 <a href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>
     <ul class="toc">
       <li>6.1 <a href="#Metazones">Metazones</a></li>
-      <li>6.2 <a href="#Primary_Zones">Primary Zones</a></li>
-      <li>6.3 <a href="#Windows_Zones">Windows Zones</a></li>
+      <li>6.2 <a href="#Windows_Zones">Windows Zones</a></li>
+      <li>6.3 <a href="#Primary_Zones">Primary Zones</a></li>
     </ul>
     </li>
     <li>7 <a href="#Using_Time_Zone_Names">Using Time Zone Names</a></li>
@@ -838,9 +838,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   and &quot;Jan 10, 2008 – Feb. 12, 2009&quot; are as follows:</p>
 
   <p class="example">&lt;intervalFormatItem id=&quot;yMMMd&quot;&gt;<br>
-&nbsp; &lt;greatestDifference id=&quot;M&quot;&gt;MMM d – MMM d, yyyy&lt;/greatestDifference&gt;<br>
-&nbsp; &lt;greatestDifference id=&quot;d&quot;&gt;MMM d–d, yyyy&lt;/greatestDifference&gt;<br>
-&nbsp; &lt;greatestDifference id=&quot;y&quot;&gt;MMM d, yyyy – MMM d, yyyy&lt;/greatestDifference&gt;<br>
+  &lt;greatestDifference id=&quot;M&quot;&gt;MMM d – MMM d, yyyy&lt;/greatestDifference&gt;<br>
+  &lt;greatestDifference id=&quot;d&quot;&gt;MMM d–d, yyyy&lt;/greatestDifference&gt;<br>
+  &lt;greatestDifference id=&quot;y&quot;&gt;MMM d, yyyy – MMM d, yyyy&lt;/greatestDifference&gt;<br>
     &lt;/intervalFormatItem&gt;</p>
 
   <p>To format a start and end datetime, given a particular &quot;skeleton&quot;:</p>
@@ -1060,7 +1060,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     …
 </pre>
 
-<h3 class="changed">4.5 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day Period Rules</a></h3>
+<h3>4.5 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day Period Rules</a></h3>
 
   <p class="dtd">
     &lt;!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) &gt;
@@ -1128,8 +1128,34 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 
   <p class="dtd">
     &lt;!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*,
-    fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special*)) &gt;<br>
-    &lt;!ELEMENT zone (alias | ( long*, short*, commonlyUsed*, exemplarCity*, special*)) &gt;
+    fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special*)) &gt;
+  </p>
+  <p class="dtd">
+    <span class="changed">&lt;!ELEMENT hourFormat ( #PCDATA ) &gt;</span><br>
+    <span class="changed">&lt;!ELEMENT gmtFormat ( #PCDATA ) &gt;</span><br>
+    <span class="changed">&lt;!ELEMENT gmtZeroFormat ( #PCDATA ) &gt;</span><br>
+    <span class="changed">&lt;!ELEMENT regionFormat ( #PCDATA ) &gt;</span><br>
+    <span class="changed">&lt;!ELEMENT fallbackFormat ( #PCDATA ) &gt;</span>
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT zone (alias | ( long*, short*, commonlyUsed*, exemplarCity*, special*)) &gt;<br>
+    <span class="changed">&lt;!ATTLIST zone type CDATA #REQUIRED &gt;</span>
+  </p>
+  <p class="dtd">
+    <span class="changed">&lt;!ELEMENT metazone (alias | ( long*, short*, commonlyUsed*, special*)) &gt;</span><br>
+    <span class="changed">&lt;!ATTLIST metazone type CDATA #REQUIRED &gt;</span>
+  </p>
+  <p class="dtd">
+    <span class="changed">&lt;!ELEMENT long (alias | (generic*, standard*, daylight*, special*)) &gt;</span><br>
+    <span class="changed">&lt;!ELEMENT short (alias | (generic*, standard*, daylight*, special*)) &gt;</span>
+  </p>
+  <p class="dtd">
+    <span class="changed">&lt;!ELEMENT generic ( #PCDATA ) &gt;</span><br>
+    <span class="changed">&lt;!ELEMENT standard ( #PCDATA ) &gt;</span><br>
+    <span class="changed">&lt;!ELEMENT daylight ( #PCDATA ) &gt;</span>
+  </p>
+  <p class="dtd">
+    <span class="changed">&lt;!ELEMENT exemplarCity ( #PCDATA ) &gt;</span>
   </p>
 
   <p>The time zone IDs (tzid) are language-independent, and follow the <i>TZ time zone database</i> [<a href="tr35.html#Olson">Olson</a>]
@@ -1163,6 +1189,10 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     <li>&lt;abbreviationFallback&gt;</li>
     <li>&lt;preferenceOrdering&gt;, a preference ordering among modern zones; use metazones instead.</li>
     <li>&lt;singleCountries&gt;, use <a href="#Primary_Zones">Primary Zones</a></li>
+  </ul>
+  <p class="changed"><b>Deprecated subelements of &lt;zone&gt; and &lt;metazone&gt;:</b></p>
+  <ul class="changed">
+    <li>&lt;commonlyUsed&gt;, formerly used to indicate whether a zone was commonly used it the locale.</li>
   </ul>
 
   <p>The following is an example of time zone data. Although this is an example of possible data, in most cases only the
@@ -1214,12 +1244,13 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   or, too uncommon. CLDR time zone IDs follow the <a href="tr35.html#Olson">Olson</a> naming conventions.</p>
 
   <blockquote>
-		<p class="note"><b>Note: </b>CLDR does not allow "GMT", "UT", or "UTC" as translations (short or long) of time zones other than
-		GMT itself.</p>
+    <p class="note"><b>Note: </b>CLDR does not allow "GMT", "UT", or "UTC" as translations (short or long) of
+    time zones other than GMT itself.</p>
   </blockquote>
   <blockquote>
-		<p class="note"><b>Note: </b>Transmitting &quot;14:30&quot; with no other context is incomplete unless it contains information about the time zone. Ideally one would 
-		transmit neutral-format date/time information, commonly in UTC (GMT), and localize as close to the user as possible. (For more about UTC, see [<a href="tr35.html#UTCInfo">UTCInfo</a>].)</p>
+    <p class="note"><b>Note: </b>Transmitting &quot;14:30&quot; with no other context is incomplete unless it contains
+    information about the time zone. Ideally one would transmit neutral-format date/time information, commonly in UTC (GMT),
+    and localize as close to the user as possible. (For more about UTC, see [<a href="tr35.html#UTCInfo">UTCInfo</a>].)</p>
   </blockquote>
 
   <p class="note">The conversion from local time into UTC depends on the particular time zone rules, which will
@@ -1228,9 +1259,10 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   The data includes rules for matching the laws for time changes in different countries. For example, for the US it is:</p>
 
   <blockquote>
-		<p class="note">&quot;During the period commencing at 2 o&#39;clock antemeridian on the first Sunday of April of each year and ending at 2 o&#39;clock antemeridian on 
-		the last Sunday of October of each year, the standard time of each zone established by sections 261 to 264 of this title, as modified by section 265 of 
-		this title, shall be advanced one hour...&quot; (United States Law - 15 U.S.C. §6(IX)(260-7)).</p>
+    <p class="note">&quot;During the period commencing at 2 o&#39;clock antemeridian on the <span class="changed">second Sunday of March</span> of
+    each year and ending at 2 o&#39;clock antemeridian on the <span class="changed">first Sunday of November</span> of each year, the standard time
+    of each zone established by sections 261 to 264 of this title, as modified by section 265 of this title, shall be
+    advanced one hour...&quot; (United States Law - 15 U.S.C. §6(IX)(260-7)<span class="changed">, as amended by Energy Policy Act of 2005</span>).</p>
   </blockquote>
 
   <p class="note">Each region that has a different time zone or daylight savings time rules, either now or at any time
@@ -1315,7 +1347,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		</tr>
 		<tr class="removed">
 			<td>singleCountries</td>
-			<td>list=&quot;America/Godthab America/Santiago America/Guayaquil Europe/Madrid Pacific/Auckland&nbsp; Pacific/Tahiti Europe/Lisbon...&quot;</td>
+			<td>list=&quot;America/Godthab America/Santiago America/Guayaquil Europe/Madrid Pacific/Auckland Pacific/Tahiti Europe/Lisbon...&quot;</td>
 			<td>uses country name alone</td>
 		</tr>
 
@@ -1402,6 +1434,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   date time pattern characters, and not with the &#39;Z&#39;, &#39;ZZZZ&#39;, &#39;VVVV&#39; pattern characters.
   For more information, see <a href="#Date_Format_Patterns">Date Format Patterns</a>.</p>
 
+  <p class="reviewnote">The following may need updating.</p>
   <p>The commonlyUsed element is now deprecated, which effectively makes the semantics of the &#39;z&#39; and
   &#39;V&#39; formatting patterns to be identical. The CLDR committee has found it nearly impossible to obtain
   accurate and reliable data regarding which time zone abbreviations may be understood in a given territory,
@@ -1413,9 +1446,10 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 
 <h2>6 <a name="Supplemental_Time_Zone_Data" href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a></h2>
 
+<h3>6.1 <a name="Metazones" href="#Metazones">Metazones</a></h3>
+
   <p class="dtd">
 	&lt;!ELEMENT metaZones (metazoneInfo?, mapTimezones?) &gt;<br>
-    &lt;!ELEMENT windowsZones (mapTimezones?) &gt;
   </p>
   <p class="dtd">
 	&lt;!ELEMENT metazoneInfo (timezone*) &gt;
@@ -1472,6 +1506,12 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	....
 </pre>
 
+<h3>6.2 <a name="Windows_Zones" href="#Windows_Zones">Windows Zones</a></h3>
+
+  <p class="dtd">
+    &lt;!ELEMENT windowsZones (mapTimezones?) &gt;
+  </p>
+
   <p>The &lt;mapTimezones&gt; element can be also used to provide mappings between Unicode time zone IDs and
 	other time zone IDs.  This example specifies a mapping from Windows TZIDs to Unicode time zone IDs
 	(<a href="http://unicode.org/cldr/data/common/supplemental/windowsZones.xml">windowsZones.xml</a>).</p>
@@ -1501,10 +1541,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	the territory. The territory "ZZ" is used when a Unicode time zone ID is not associated with a specific territory.
 	</p>
 
-<h3>6.1 <a name="Metazones" href="#Metazones">Metazones</a></h3>
-  <p class="changed">TBD</p>
-
-<h3 class="changed">6.2 <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a></h3>
+<h3 class="changed">6.3 <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a></h3>
 
   <p class="dtd"><span class="changed">
     &lt;!ELEMENT primaryZones ( primaryZone* ) &gt;<br>
@@ -1529,15 +1566,13 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   element under each locale’s &lt;timeZoneNames&gt; element. However, that approach had 
   inheritance issues, and the data is not really locale-specific anyway.</p>
 
-<h3>6.3 <a name="Windows_Zones" href="#Windows_Zones">Windows Zones</a></h3>
-  <p class="changed">TBD</p>
-
 <h2 class="changed">7 <a name="Using_Time_Zone_Names" href="#Using_Time_Zone_Names">Using Time Zone Names</a></h2>
 
   <p>There are three main types of formats for zone identifiers: GMT, generic (wall time), and standard/daylight.
   Standard and daylight are equivalent to a particular offset from GMT, and can be represented by a GMT offset as
   a fallback. In general, this is not true for the generic format, which is used for picking timezones or for
-  conveying a timezone for specifying a recurring time (such as a meeting in a calendar). For either purpose, a GMT offset would lose information.</p>
+  conveying a timezone for specifying a recurring time (such as a meeting in a calendar). For either purpose,
+  a GMT offset would lose information.</p>
 
 <h3>Time Zone Format Terminology</h3>
 
@@ -1575,7 +1610,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   </ul>
   <blockquote>
 			<p class="note">Note: A generic location format is constructed by a part of time zone ID
-			representing an exemplar city name <span class="removed">and</span><span class="changed">or</span> its country as the final fallback. However, there are
+			representing an exemplar city name <span class="removed">and</span><span class="changed">or</span>
+			its country as the final fallback. However, there are
 			Unicode time zones which are not associated with any locations, such as "Etc/GMT+5" and "PST8PDT".
 			The date format pattern "vvvv" specifies the generic location format, but it displays
 			localized GMT format for them. Some of these time zones observe daylight saving time, so
@@ -1637,85 +1673,81 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		<li>&quot;-08:00&quot;<span class="changed"> (extended)</span>
 		<li>&quot;Z&quot;<span class="changed"> (UTC)</span></li>
   </ul>
-  <blockquote class="changed"><p class="note">Note: This specification extends the original ISO 8601 formats and some format specifiers append seconds field
-	when necessary.</p></blockquote>
+  <blockquote class="changed">
+    <p class="note">Note: This specification extends the original ISO 8601 formats and some format specifiers append seconds field
+	when necessary.</p>
+  </blockquote>
 
   <p><b>Raw Offset</b> - an offset from GMT that does not include any daylight savings behavior. For 
 	example, the raw offset for Pacific Time is -8, even though the <i>observed offset</i> may be -8 
 	or -7.</p>
 
   <p><b>Metazone</b> - a collection of time zones that share the same behavior and same name during some 
-	period. They may differ in 
-		daylight behavior (whether they have it and when).</p>
+	period. They may differ in daylight behavior (whether they have it and when).</p>
 
   <p>For example, the TZID America/Cambridge_Bay is in the following 
 	metazones during various periods:</p>
   <blockquote>
 		<p><font size="2">&lt;timezone type=&quot;America/Cambridge_Bay&quot;&gt;<br>
-&nbsp; &lt;usesMetazone to=&quot;1999-10-31 08:00&quot; mzone=&quot;America_Mountain&quot;/&gt;<br>
-&nbsp; &lt;usesMetazone to=&quot;2000-10-29 07:00&quot; from=&quot;1999-10-31 08:00&quot; mzone=&quot;America_Central&quot;/&gt;<br>
-&nbsp; &lt;usesMetazone to=&quot;2000-11-05 05:00&quot; from=&quot;2000-10-29 07:00&quot; mzone=&quot;America_Eastern&quot;/&gt;<br>
-&nbsp; &lt;usesMetazone to=&quot;2001-04-01 09:00&quot; from=&quot;2000-11-05 05:00&quot; mzone=&quot;America_Central&quot;/&gt;<br>
-&nbsp; &lt;usesMetazone from=&quot;2001-04-01 09:00&quot; mzone=&quot;America_Mountain&quot;/&gt;<br>
+  &lt;usesMetazone to=&quot;1999-10-31 08:00&quot; mzone=&quot;America_Mountain&quot;/&gt;<br>
+  &lt;usesMetazone to=&quot;2000-10-29 07:00&quot; from=&quot;1999-10-31 08:00&quot; mzone=&quot;America_Central&quot;/&gt;<br>
+  &lt;usesMetazone to=&quot;2000-11-05 05:00&quot; from=&quot;2000-10-29 07:00&quot; mzone=&quot;America_Eastern&quot;/&gt;<br>
+  &lt;usesMetazone to=&quot;2001-04-01 09:00&quot; from=&quot;2000-11-05 05:00&quot; mzone=&quot;America_Central&quot;/&gt;<br>
+  &lt;usesMetazone from=&quot;2001-04-01 09:00&quot; mzone=&quot;America_Mountain&quot;/&gt;<br>
 		&lt;/timezone&gt;</font></p>
   </blockquote>
 
-  <p>Zones may join or leave a metazone over 
-		time. The data relating between zones and metazones is in the supplemental information; the 
-	locale data is restricted to translations of metazones and zones.</p>
+  <p>Zones may join or leave a metazone over time. The data relating between zones and metazones is in the
+    supplemental information; the locale data is restricted to translations of metazones and zones.</p>
   <blockquote><b>Invariants:</b>
   <ul>
-		<li>At any given 
-		point in time, each zone belongs to <span class="removed">exactly</span><span class="changed">no more than</span> one metazone.</li>
-		<li class="changed">At a given point in time, a zone may not belong to any metazones.</li>
-		<li><i>Except for daylight 
-		savings</i>, at any given time, all zones in a metazone have the same offset at that time.</li>
+    <li>At any given point in time, each zone belongs to <span class="removed">exactly</span>
+      <span class="changed">no more than</span> one metazone.</li>
+    <li class="changed">At a given point in time, a zone may not belong to any metazones.</li>
+    <li><i>Except for daylight savings</i>, at any given time, all zones in a metazone have the
+      same offset at that time.</li>
   </ul></blockquote>
 
   <p><b>Golden Zone</b> - the TZDB zone that exemplifies a metazone. 
 	For example, America/New_York is the golden zone for the metazone America_Eastern:</p>
   <blockquote>
-		<p><font size="2">&lt;mapZone other=&quot;America_Eastern&quot; territory=&quot;001&quot; 
-		type=&quot;America/New_York&quot;/&gt;</font></p>
+    <p><font size="2">&lt;mapZone other=&quot;America_Eastern&quot; territory=&quot;001&quot; 
+      type=&quot;America/New_York&quot;/&gt;</font></p>
   </blockquote>
   <blockquote><b>Invariants:</b>
-	<ul>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">The golden zones 
-		are those in mapZone supplemental data under the territory &quot;001&quot;.</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Every metazone has exactly one golden zone.</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Each zone has 
-		at most one metazone for which it is golden.</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">The golden zone is in that metazone 
-		during the entire life of the metazone. (The raw offset of the golden zone may change over 
-		time.)</li>
-		<li>Each other zone must have the same raw offset as the golden 
-		zone, for the entire period that it is in the metazone. (It might not have the same offset 
-		when daylight savings is in effect.)</li>
-		<li>A golden zone in mapTimezones (metaZones.xml) must have 
-		reverse mapping in metazoneInfo (metaZones.xml)</li>
+  <ul>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">The golden zones 
+      are those in mapZone supplemental data under the territory &quot;001&quot;.</li>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">Every metazone has exactly one golden zone.</li>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">Each zone has at most one metazone for which it
+      is golden.</li>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">The golden zone is in that metazone during the
+      entire life of the metazone. (The raw offset of the golden zone may change over time.)</li>
+    <li>Each other zone must have the same raw offset as the golden zone, for the entire period that it
+      is in the metazone. (It might not have the same offset when daylight savings is in effect.)</li>
+    <li>A golden zone in mapTimezones (metaZones.xml) must have reverse mapping in metazoneInfo (metaZones.xml)</li>
   </ul></blockquote>
 
   <p><b>Preferred Zone</b> - for a given TZID, the &quot;best&quot; zone out of a metazone for a given country or language.</p>
   <blockquote><b>Invariants:</b>
-	<ul>
-		<li>The preferred zone for a given country XX 
-		are those in mapZone supplemental data under the territory XX.</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Every metazone has 
-		at most one preferred zone for a given territory XX.</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Each zone has 
-		at most one metazone for which it is preferred for a territory XX.</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">The preferred zone 
-		for a given metazone and territory XX is in a metazone M during any time when any other zone 
-		in XX is also in M</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">A preferred 
-		zone in mapTimezones (metaZones.xml) must have reverse mapping in metazoneInfo (metaZones.xml)</li>
+  <ul>
+    <li>The preferred zone for a given country XX are those in mapZone supplemental data under the
+      territory XX.</li>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">Every metazone has at most one preferred zone for
+      a given territory XX.</li>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">Each zone has at most one metazone for which it is
+      preferred for a territory XX.</li>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">The preferred zone for a given metazone and
+      territory XX is in a metazone M during any time when any other zone in XX is also in M</li>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">A preferred zone in mapTimezones (metaZones.xml)
+      must have reverse mapping in metazoneInfo (metaZones.xml)</li>
   </ul></blockquote>
 
-  <p>For example, for America_Pacific the preferred zone for Canada is 
-	America/Vancouver, and the preferred zone for Mexico is America/Tijuana. The golden zone is 
-	America/Los_Angeles, which is also also the preferred zone for any other country.</p>
+  <p>For example, for America_Pacific the preferred zone for Canada is  America/Vancouver, and the preferred
+    zone for Mexico is America/Tijuana. The golden zone is America/Los_Angeles, which is also also the
+    preferred zone for any other country.</p>
   <blockquote>
-		<p><font size="2">&lt;mapZone other=&quot;America_Pacific&quot; territory=&quot;001&quot; 
+    <p><font size="2">&lt;mapZone other=&quot;America_Pacific&quot; territory=&quot;001&quot; 
 		type=&quot;America/Los_Angeles&quot;/&gt;<br>
 		&lt;mapZone other=&quot;America_Pacific&quot; territory=&quot;CA&quot; type=&quot;America/Vancouver&quot;/&gt;<br>
 		&lt;mapZone other=&quot;America_Pacific&quot; territory=&quot;MX&quot; type=&quot;America/Tijuana&quot;/&gt;</font></p>
@@ -1732,32 +1764,32 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 
 <h3>Goals</h3>
 
-	<p>The timezones are designed so that:</p>
-	<blockquote>
-		For any given locale, every <i>time </i>round trips with all 
-		patterns <span class="removed">Z, ZZZZ, z, zzzz, v, vvvv, V, VVVV</span>(but not necessarily every timezone). That is, 
-		given a time and a format pattern with a zone string, you can format, then parse, and get 
-		back the same time.<p>Note that the round-tripping is not just important for parsing; it 
-		provides for formatting dates and times in an unambiguous way for users. It is also 
-		important for testing.<br>
-		<br>
-		There are exceptions to the above for transition times.</p>
-		<ul>
-			<li>With generic<span class="changed"> format, time zone ID or exemplar city name</span>, during the transition when the local time maps to two possible GMT times.
-			<ul>
-				<li>For example, Java works as follows, favoring standard time:</li>
-				<li>Source: Sun Nov 04 01:30:00 PDT 2007&nbsp;&nbsp;&nbsp; </li>
-				<li>=&gt; Formatted: &quot;Sunday, November 4, 2007 1:30:00 AM&quot; </li>
-				<li>=&gt; Parsed: Sun Nov 04 01:30:00 PST 2007</li>
-			</ul>
-			</li>
-			<li>When the timezone changes offset, say from GMT+4 to GMT+5, there can also be a gap. </li>
-		</ul>
-		<p>The <span class="changed">V/VV/VVV/</span>VVVV format will roundtrip not only the time, but the canonical timezone.</p>
-	</blockquote>
+  <p>The timezones are designed so that:</p>
+  <blockquote>
+    <p>For any given locale, every <i>time </i>round trips with all patterns
+      <span class="removed">Z, ZZZZ, z, zzzz, v, vvvv, V, VVVV</span>(but not necessarily every timezone).
+      That is, given a time and a format pattern with a zone string, you can format, then parse, and get 
+      back the same time.<p>Note that the round-tripping is not just important for parsing; it provides for
+      formatting dates and times in an unambiguous way for users. It is also important for testing.<br>
+    <br>
+    There are exceptions to the above for transition times.</p>
+    <ul>
+      <li>With generic<span class="changed"> format, time zone ID or exemplar city name</span>, during the
+        transition when the local time maps to two possible GMT times.
+      <ul>
+        <li>For example, Java works as follows, favoring standard time:</li>
+        <li>Source: Sun Nov 04 01:30:00 PDT 2007</li>
+        <li>=&gt; Formatted: &quot;Sunday, November 4, 2007 1:30:00 AM&quot;</li>
+        <li>=&gt; Parsed: Sun Nov 04 01:30:00 PST 2007</li>
+      </ul>
+      </li>
+      <li>When the timezone changes offset, say from GMT+4 to GMT+5, there can also be a gap.</li>
+    </ul>
+    <p>The <span class="changed">V/VV/VVV/</span>VVVV format will roundtrip not only the time, but the canonical timezone.</p>
+  </blockquote>
 
-  <p>When the data for a given format is not available, a fallback format 
-	is used. The fallback order is given in the following by a list.</p>
+  <p>When the data for a given format is not available, a fallback format  is used. The fallback order
+    is given in the following by a list.</p>
   <ol>
 		<li><b>Specifics</b>
 		<ul>
@@ -1805,7 +1837,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<li class="changed">VV - long time zone ID (no fallback necessary, because this is the input)</li>
 			<li class="changed">VVV - exemplar city
 				<ul>
-					<li class="changed">falling back to the localized exemplar city for the unknown zone (Etc/Unknown), for example "Unknown City" for English</li>
+					<li class="changed">falling back to the localized exemplar city for the unknown zone
+					 (Etc/Unknown), for example "Unknown City" for English</li>
 				</ul>
 			</li>
 			<li>VVVV - generic location
@@ -1822,7 +1855,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   is &quot;Hora de {0}&quot;. The fallback format in the examples is &quot;{1} ({0})&quot;, which is what is in root.</p>
 
   <ol>
-		<li>In <b>all</b> cases, first canonicalize the <i>TZ</i> ID according to the &lt;timezoneData&gt; table in supplemental data. Use that canonical TZID in each of the following steps.<ul>
+		<li>In <b>all</b> cases, first canonicalize the <i>TZ</i> ID according to the &lt;timezoneData&gt;
+		  table in supplemental data. Use that canonical TZID in each of the following steps.<ul>
 			<li>America/Atka → America/Adak</li>
 			<li>Australia/ACT → Australia/Sydney</li>
 		</ul>
@@ -1836,8 +1870,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">For the localized GMT format, 
 		use the gmtFormat (such as &quot;GMT{0}&quot; or &quot;HMG{0}&quot;) with the hourFormat (such as &quot;+HH:mm;-HH:mm&quot; 
 		or &quot;+HH.mm;-HH.mm&quot;).<ul>
-			<li style="margin-top: 0.5em; margin-bottom: 0.5em">America/Los_Angeles → &quot;GMT-08:00&quot; //&nbsp; standard time</li>
-			<li style="margin-top: 0.5em; margin-bottom: 0.5em">America/Los_Angeles → &quot;HMG-07:00&quot; //&nbsp; daylight time</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">America/Los_Angeles → &quot;GMT-08:00&quot; // standard time</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">America/Los_Angeles → &quot;HMG-07:00&quot; // daylight time</li>
 			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Etc/GMT+3 → &quot;GMT-03.00&quot; // note that <i>TZ</i> tzids have inverse polarity!</li>
 		</ul>
 		<p><b>Note:</b> The digits should be whatever are appropriate for the locale used to format the time zone, not necessarily from the western digits, 0..9. 
@@ -1865,17 +1899,21 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		</li>
 		<li>For the non-location formats (generic or specific):
 		<ol>
-		  <li>if there is an explicit translation for the TZID in &lt;timeZoneNames&gt; according to type (generic, standard, or daylight) in the resolved locale, return it.
+		  <li>if there is an explicit translation for the TZID in &lt;timeZoneNames&gt; according to type
+		    (generic, standard, or daylight) in the resolved locale, return it.
 		  <ol>
-		    <li>If the requested type is not available, but another type is, and there is a <strong>Type Fallback</strong> then return that other type.
+		    <li>If the requested type is not available, but another type is, and there is a
+		      <strong>Type Fallback</strong> then return that other type.
 		    <ul>
 		      <li>Examples:
 		      <ul>
-		          <li>America/Los_Angeles → <span class="removed">"Heure du Pacifique (ÉUA)"</span><span class="changed">"heure du Pacifique"</span> // generic</li>
+		          <li>America/Los_Angeles → <span class="removed">"Heure du Pacifique (ÉUA)"</span>
+		            <span class="changed">"heure du Pacifique"</span> // generic</li>
 		          <li>America/Los_Angeles → "<span class="changed">アメリカ</span>太平洋標準時" // standard</li>
 		          <li>America/Los_Angeles → "Yhdysvaltain Tyynenmeren kesäaika" // daylight</li>
 		          <li>Europe/Dublin  → "Am Samhraidh na hÉireann" // daylight</li>
-		          <li>Note: This translation may not at all be literal: it would be what is most recognizable for people using the target language.</li>
+		          <li>Note: This translation may not at all be literal: it would be what is most
+		            recognizable for people using the target language.</li>
 	          </ul></li>
 		    </ul></li>
 		  </ol></li>
@@ -1886,10 +1924,14 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		  </ol></li>
 		  <li>Otherwise do the following:
 		  <ol>
-		    <li>Get the country for the current locale. If there is none, use the most likely country based on the likelySubtags data. If there is none, use &ldquo;001&rdquo;.</li>
-		    <li>Get the preferred zone for the metazone for the country; if there is none for the country, use the preferred zone for the metazone for &ldquo;001&rdquo;.</li>
-		    <li>If that preferred zone is the same as the requested zone, use the metazone format. For example, "Pacific Time" for Vancouver if the locale is en_CA, or for Los Angeles if locale is en_US.</li>
-		    <li>Otherwise, if the zone is the preferred zone for its country but not for the country of the locale, use the metazone format + country in the <em>fallbackFormat</em>.</li>
+		    <li>Get the country for the current locale. If there is none, use the most likely country based
+		      on the likelySubtags data. If there is none, use &ldquo;001&rdquo;.</li>
+		    <li>Get the preferred zone for the metazone for the country; if there is none for the country,
+		      use the preferred zone for the metazone for &ldquo;001&rdquo;.</li>
+		    <li>If that preferred zone is the same as the requested zone, use the metazone format. For example,
+		      "Pacific Time" for Vancouver if the locale is en_CA, or for Los Angeles if locale is en_US.</li>
+		    <li>Otherwise, if the zone is the preferred zone for its country but not for the country of the locale,
+		      use the metazone format + country in the <em>fallbackFormat</em>.</li>
 		    <li>Otherwise, use the metazone format + city in the <em>fallbackFormat</em>.
 			<ul>
 		      <li>Examples:
@@ -1903,7 +1945,10 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		</ol></li>
 		<li>For the generic location format:
 		<ol>
-			<li>From <span class="removed">&lt;timezoneData&gt;</span><span class="changed">the TZDB</span> get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone or if the zone id is in the <span class="removed"><em>singleCountries</em></span><span class="changed">&lt;primaryZones&gt;</span> list, format the country name with the <em>regionFormat</em>, and return it.
+			<li>From <span class="removed">&lt;timezoneData&gt;</span><span class="changed">the TZDB</span> get
+			  the country code for the zone, and determine whether there is only one timezone in the country.
+			If there is only one timezone or if the zone id is in the <span class="removed"><em>singleCountries</em></span>
+			  <span class="changed">&lt;primaryZones&gt;</span> list, format the country name with the <em>regionFormat</em>, and return it.
 			<ul>
 		    	<li>Examples:
 					<ul>
@@ -1940,10 +1985,12 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	    <li>If the generic type exists, use it.</li>
 	    <li>Otherwise if the standard type exists, use it.</li>
       </ol></li>
-	  <li>Otherwise if the generic type is needed, but not available, and the offset and daylight offset do not change within 184 day +/- interval around the exact formatted time, use the standard type.
+	  <li>Otherwise if the generic type is needed, but not available, and the offset and daylight offset
+	    do not change within 184 day +/- interval around the exact formatted time, use the standard type.
 	  <ol>
 	    <li>Example: "Mountain Standard Time" for Phoenix</li>
-	    <li>Note: 184 is the smallest number that is at least 6 months AND the smallest number that is more than 1/2 year (Gregorian).</li>
+	    <li>Note: 184 is the smallest number that is at least 6 months AND the smallest number that is
+	      more than 1/2 year (Gregorian).</li>
       </ol></li>
 	</ol>
 	<p><strong>Composition</strong></p>
@@ -1964,7 +2011,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	  <ul>
 	    <li>CU (country code)→ "CU" <em>// no localized country name for Cuba</em></li>
       </ul></li>
-	  <li>If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.
+	  <li>If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID,
+	    stripping off the prefix and turning _ into space.
 	  <ul>
 	    <li>America/Los_Angeles → "Los Angeles" <em>// no localized exemplar city</em></li>
       </ul></li>
@@ -1988,7 +2036,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   <ol style="background-color: rgb(255, 255, 255);">
 		<li><font color="#000000">Start with a string S.</font> 
 		</li>
-		<li><font color="#000000">If S matches <span class="removed">the RFC 822 GMT format or </span>ISO 8601 time zone format, 
+		<li><font color="#000000">If S matches <span class="removed">the RFC 822 GMT format or </span>
+		  ISO 8601 time zone format, 
 		return it.</font>
 		<ul>
 			<li>For example, &quot;-0800&quot; (RFC 822),
@@ -2001,8 +2050,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<li>Matching should be lenient. Thus 
 			allow for the number formats like: 03, 3, 330, 3:30, 33045 or 3:30:45. Allow +, -, or 
 			nothing. Allow spaces after GMT, +/-, and before number. Allow non-Latin numbers. Allow
-			UTC or UT (per RFC 788) as synonyms for GMT ("GMT", "UT", "UTC" are global formats, always allowed in parsing regardless of locale).
-			</li>
+			UTC or UT (per RFC 788) as synonyms for GMT ("GMT", "UT", "UTC" are global formats,
+			always allowed in parsing regardless of locale).</li>
 			<li>For example, &quot;GMT+3&quot; or &quot;UT+3&quot; or &quot;HPG+3&quot; =&gt; 
 			Etc/GMT-3</li>
 			<li>When parsing, the absence of a numeric offset should be interpreted as offset 0,
@@ -2193,8 +2242,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center; vertical-align: top" rowspan="3">G</td>
 			<td style="text-align: center; vertical-align: top">1..3</td>
 			<td style="vertical-align: top; text-align: left">AD</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left">Era - Replaced with the Era string for the current date. One to three letters for the 
-			abbreviated form, four letters for the long form, five for the narrow form.</td>
+			<td rowspan="3" style="vertical-align: top; text-align: left">Era - Replaced with the Era string for the current
+			date. One to three letters for the abbreviated form, four letters for the long form, five for the narrow form.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">4</td>
@@ -2209,7 +2258,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center">y</td>
 			<td style="text-align: center">1..n</td>
 			<td>1996</td>
-			<td>Year. Normally the length specifies the padding, but for two letters it also specifies the maximum length. Example:<div align="center">
+			<td>Year. Normally the length specifies the padding, but for two letters it also specifies the maximum length.
+			Example:<div align="center">
 				<center>
 				<table border="0" cellpadding="2" cellspacing="0">
 					<tr>
@@ -2268,24 +2318,30 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center">Y</td>
 			<td style="text-align: center">1..n</td>
 			<td>1997</td>
-			<td>Year (in &quot;Week of Year&quot; based calendars). Normally the length specifies the padding, but for two letters it also specifies the maximum length. This year designation is used in ISO year-week calendar as defined by ISO 8601, but can be used in non-Gregorian based calendar systems where week date processing is desired. May not always be the same value as calendar year.</td>
+			<td>Year (in &quot;Week of Year&quot; based calendars). Normally the length specifies the padding,
+			  but for two letters it also specifies the maximum length. This year designation is used in ISO
+			  year-week calendar as defined by ISO 8601, but can be used in non-Gregorian based calendar systems
+			  where week date processing is desired. May not always be the same value as calendar year.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center">u</td>
 			<td style="text-align: center">1..n</td>
 			<td>4601</td>
-			<td>Extended year. This is a single number designating the year of this calendar system, encompassing all supra-year fields. For example, for the Julian 
-			calendar system, year numbers are positive, with an era of BCE or CE. An extended year value for the Julian calendar system assigns positive values 
-			to CE years and negative values to BCE years, with 1 BCE being year 0.</td>
+			<td>Extended year. This is a single number designating the year of this calendar system, encompassing
+			  all supra-year fields. For example, for the Julian calendar system, year numbers are positive, with
+			  an era of BCE or CE. An extended year value for the Julian calendar system assigns positive values 
+			  to CE years and negative values to BCE years, with 1 BCE being year 0.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top" rowspan="3">U</td>
 			<td style="text-align: center; vertical-align: top">1..3</td>
 			<td style="vertical-align: top; text-align: left">甲子</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left">Cyclic year name. Calendars such as the Chinese lunar calendar (and related calendars)
-			and the Hindu calendars use 60-year cycles of year names. Use one through three letters for the abbreviated name, four for the full name, or five for the narrow name
-			(currently the data only provides abbreviated names, which will be used for all requested name widths). If the calendar does not provide cyclic year name data, or if the
-			year value to be formatted is out of the range of years for which cyclic name data is provided, then numeric formatting is used (behaves like 'y').</td>
+			<td rowspan="3" style="vertical-align: top; text-align: left">Cyclic year name. Calendars such as the
+			  Chinese lunar calendar (and related calendars) and the Hindu calendars use 60-year cycles of year names.
+			  Use one through three letters for the abbreviated name, four for the full name, or five for the narrow name
+			  (currently the data only provides abbreviated names, which will be used for all requested name widths).
+			  If the calendar does not provide cyclic year name data, or if the year value to be formatted is out of the
+			  range of years for which cyclic name data is provided, then numeric formatting is used (behaves like 'y').</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">4</td>
@@ -2300,8 +2356,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center; vertical-align: top" rowspan="3">Q</td>
 			<td style="text-align: center; vertical-align: top">1..2</td>
 			<td style="vertical-align: top; text-align: left">02</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left">Quarter - Use one or two for the numerical quarter, three for the abbreviation, or four 
-			for the full name.</td>
+			<td rowspan="3" style="vertical-align: top; text-align: left">Quarter - Use one or two for the numerical
+			  quarter, three for the abbreviation, or four  for the full name.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">3</td>
@@ -2315,8 +2371,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center; vertical-align: top" rowspan="3">q</td>
 			<td style="text-align: center; vertical-align: top">1..2</td>
 			<td style="vertical-align: top; text-align: left">02</td>
-			<td rowspan="3" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> Quarter - Use one or two for the numerical quarter, three for the abbreviation, 
-			or four for the full name.</td>
+			<td rowspan="3" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> Quarter - Use one or two
+			  for the numerical quarter, three for the abbreviation, or four for the full name.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">3</td>
@@ -2331,8 +2387,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td rowspan="4" style="text-align: center; vertical-align: top">M</td>
 			<td style="text-align: center; vertical-align: top">1..2</td>
 			<td style="vertical-align: top; text-align: left">09</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left">Month - Use one or two for the numerical month, three for the abbreviation, four for 
-			the full name, or five for the narrow name.</td>
+			<td rowspan="4" style="vertical-align: top; text-align: left">Month - Use one or two for the numerical
+			  month, three for the abbreviation, four for  the full name, or five for the narrow name.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">3</td>
@@ -2350,8 +2406,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td rowspan="4" style="text-align: center; vertical-align: top">L</td>
 			<td style="text-align: center; vertical-align: top">1..2</td>
 			<td style="vertical-align: top; text-align: left">09</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> Month - Use one or two for the numerical month, three for the abbreviation, 
-			or four for the full name, or 5 for the narrow name.</td>
+			<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> Month - Use one or two
+			  for the numerical month, three for the abbreviation, or four for the full name, or 5 for the narrow name.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">3</td>
@@ -2369,9 +2425,10 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center">l</td>
 			<td style="text-align: center">1</td>
 			<td>(nothing)</td>
-			<td>This pattern character is deprecated, and should be ignored in patterns. It was originally intended to be used in combination with M
-			to indicate placement of the symbol for leap month in the Chinese calendar. Placement of that marker is now specified using locale-specific &lt;monthPatterns&gt;
-			data, and formatting and parsing of that marker should be handled as part of supporting the regular M and L pattern characters.</td>
+			<td>This pattern character is deprecated, and should be ignored in patterns. It was originally intended
+			  to be used in combination with M to indicate placement of the symbol for leap month in the Chinese calendar.
+			  Placement of that marker is now specified using locale-specific &lt;monthPatterns&gt; data, and formatting
+			  and parsing of that marker should be handled as part of supporting the regular M and L pattern characters.</td>
 		</tr>
 		<tr>
 			<th rowspan="2">week</th>
@@ -2409,9 +2466,10 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center">g</td>
 			<td style="text-align: center">1..n</td>
 			<td>2451334</td>
-			<td>Modified Julian day. This is different from the conventional Julian day number in two regards. First, it demarcates days at local zone midnight, 
-			rather than noon GMT. Second, it is a local number; that is, it depends on the local time zone. It can be thought of as a single number that encompasses 
-			all the date-related fields.</td>
+			<td>Modified Julian day. This is different from the conventional Julian day number in two regards.
+			  First, it demarcates days at local zone midnight, rather than noon GMT. Second, it is a local number;
+			  that is, it depends on the local time zone. It can be thought of as a single number that encompasses 
+			  all the date-related fields.</td>
 		</tr>
 		<tr>
 			<th rowspan="14" style="vertical-align: top; text-align: left">week<br>
@@ -2419,8 +2477,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td rowspan="4" style="text-align: center; vertical-align: top">E</td>
 			<td style="text-align: center; vertical-align: top">1..3</td>
 			<td style="vertical-align: top; text-align: left">Tues</td>
-			<td rowspan="4" style="vertical-align: top; text-align: left">Day of week - Use one through three letters for the short day, or four for the full name, 
-			five for the narrow name, or six for the short name.</td>
+			<td rowspan="4" style="vertical-align: top; text-align: left">Day of week - Use one through three letters
+			  for the short day, or four for the full name, five for the narrow name, or six for the short name.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">4</td>
@@ -2438,8 +2496,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td rowspan="5" style="text-align: center; vertical-align: top">e</td>
 			<td style="text-align: center; vertical-align: top">1..2</td>
 			<td style="vertical-align: top; text-align: left">2</td>
-			<td rowspan="5" style="vertical-align: top; text-align: left">Local day of week. Same as E except adds a numeric value that will depend on the local 
-			starting day of the week, using one or two letters. For this example, Monday is the first day of the week.</td>
+			<td rowspan="5" style="vertical-align: top; text-align: left">Local day of week. Same as E except adds
+			  a numeric value that will depend on the local  starting day of the week, using one or two letters.
+			  For this example, Monday is the first day of the week.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">3</td>
@@ -2461,8 +2520,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td rowspan="5" style="text-align: center; vertical-align: top">c</td>
 			<td style="text-align: center; vertical-align: top">1</td>
 			<td style="vertical-align: top; text-align: left">2</td>
-			<td rowspan="5" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> local day of week - Use one letter for the local numeric value (same 
-			as &#39;e&#39;), three for the short day, four for the full name, five for the narrow name, or six for the short name. </td>
+			<td rowspan="5" style="vertical-align: top; text-align: left"><b>Stand-Alone</b> local day of week -
+			  Use one letter for the local numeric value (same as &#39;e&#39;), three for the short day, four for
+			  the full name, five for the narrow name, or six for the short name. </td>
 		</tr>
 		<tr>
 			<td style="text-align: center; vertical-align: top">3</td>
@@ -2492,15 +2552,17 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center">h</td>
 			<td style="text-align: center">1..2</td>
 			<td>11</td>
-			<td>Hour [1-12]. When used in skeleton data or in a skeleton passed in an API for flexible data pattern generation,
-			it should match the 12-hour-cycle format preferred by the locale (h or K); it should not match a 24-hour-cycle format (H or k). Use hh for zero padding.</td>
+			<td>Hour [1-12]. When used in skeleton data or in a skeleton passed in an API for flexible date
+			  pattern generation, it should match the 12-hour-cycle format preferred by the locale (h or K);
+			  it should not match a 24-hour-cycle format (H or k). Use hh for zero padding.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center">H</td>
 			<td style="text-align: center">1..2</td>
 			<td>13</td>
-			<td>Hour [0-23]. When used in skeleton data or in a skeleton passed in an API for flexible data pattern generation,
-			it should match the 24-hour-cycle format preferred by the locale (H or k); it should not match a 12-hour-cycle format (h or K). Use HH for zero padding.</td>
+			<td>Hour [0-23]. When used in skeleton data or in a skeleton passed in an API for flexible date
+			  pattern generation, it should match the 24-hour-cycle format preferred by the locale (H or k);
+			  it should not match a 12-hour-cycle format (h or K). Use HH for zero padding.</td>
 		</tr>
 		<tr>
 			<td style="text-align: center">K</td>
@@ -2518,12 +2580,13 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center">j</td>
 			<td style="text-align: center">1..2</td>
 			<td>n/a</td>
-			<td>This is a special-purpose symbol. It must not occur in pattern or skeleton data. Instead, it is reserved for use
-			in skeletons passed to APIs doing flexible date pattern generation. In such a context, it requests
-			the preferred hour format for the locale (h, H, K, or k), as determined by whether h, H, K, or k
-			is used in the standard short time format for the locale. In the implementation of such an API, 'j' must
-			be replaced by h, H, K, or k before beginning a match against availableFormats data. Note that use of 'j' in
-			a skeleton passed to an API is the only way to have a skeleton request a locale's preferred time cycle type (12-hour or 24-hour).</td>
+			<td>This is a special-purpose symbol. It must not occur in pattern or skeleton data. Instead, it
+			  is reserved for use in skeletons passed to APIs doing flexible date pattern generation. In such a
+			  context, it requests the preferred hour format for the locale (h, H, K, or k), as determined by
+			  whether h, H, K, or k is used in the standard short time format for the locale. In the implementation
+			  of such an API, 'j' must be replaced by h, H, K, or k before beginning a match against
+			  availableFormats data. Note that use of 'j' in a skeleton passed to an API is the only way to have a
+			  skeleton request a locale's preferred time cycle type (12-hour or 24-hour).</td>
 		</tr>
 		<tr>
 			<th>minute</th>
@@ -2550,9 +2613,10 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td style="text-align: center">A</td>
 			<td style="text-align: center">1..n</td>
 			<td>69540000</td>
-			<td>Milliseconds in day. This field behaves <i>exactly</i> like a composite of all time-related fields, not including the zone fields. As such, it also 
-			reflects discontinuities of those fields on DST transition days. On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump 
-			backward. This reflects the fact that is must be combined with the offset field to obtain a unique local time value.</td>
+			<td>Milliseconds in day. This field behaves <i>exactly</i> like a composite of all time-related fields,
+			  not including the zone fields. As such, it also reflects discontinuities of those fields on DST transition
+			  days. On a day of DST onset, it will jump forward. On a day of DST cessation, it will jump backward.
+			  This reflects the fact that is must be combined with the offset field to obtain a unique local time value.</td>
 		</tr>
 		<tr class="changed">
 			<th rowspan="23">zone</th>

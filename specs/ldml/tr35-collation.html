@@ -191,7 +191,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <!-- TODO: merge the previous remaining paragraph (Starting with CLDR 1.9, ...) with the following one. -->
   <p>The root locale ordering is tailored in the following ways:</p>
 
-  <h3><a name="grouping_classes_of_characters" href="#grouping_classes_of_characters"></a>Grouping classes of characters</h3>
+  <h3><a name="grouping_classes_of_characters" href="#grouping_classes_of_characters">Grouping classes of characters</a></h3>
   <p>As of Version 6.1.0, the DUCET puts characters into the following ordering:</p>
   <ul>
     <li>First &quot;common characters&quot;: whitespace, punctuation,
@@ -228,7 +228,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     </li>
   </ol>
 
-  <h3><a name="non_variable_symbols" href="#non_variable_symbols"></a>Non-variable symbols</h3>
+  <h3><a name="non_variable_symbols" href="#non_variable_symbols">Non-variable symbols</a></h3>
   <p>There are multiple <a href="http://www.unicode.org/reports/tr10/#Variable_Weighting">Variable-Weighting</a> options
   in the UCA for symbols and punctuation, including <em>non-ignorable</em> and <em>shifted</em>. 
   With the <em>shifted</em> option, almost all symbols and punctuation are ignored—except at a fourth level. 
@@ -243,14 +243,14 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <li><a href="http://www.unicode.org/charts/collation/">http://www.unicode.org/charts/collation/</a></li>
   </ul>
 
-  <h3><a name="tibetan_contractions" href="#tibetan_contractions"></a>Additional contractions for Tibetan</h3>
+  <h3><a name="tibetan_contractions" href="#tibetan_contractions">Additional contractions for Tibetan</a></h3>
   <p>Ten contractions are added for Tibetan:
   Two to fulfill <a href="http://www.unicode.org/reports/tr10/#WF5">well-formedness condition 5</a>,
   and eight more to preserve the default order for Tibetan.
   For details see <i>UTS #10, Section 3.6.4,
   <a href="http://www.unicode.org/reports/tr10/#Well_Formed_DUCET">Well-Formedness of the DUCET</a></i>.</p>
 
-  <h3><a name="tailored_noncharacter_weights" href="#tailored_noncharacter_weights"></a>Tailored noncharacter weights</h3>
+  <h3><a name="tailored_noncharacter_weights" href="#tailored_noncharacter_weights">Tailored noncharacter weights</a></h3>
   <p>U+FFFE and U+FFFF have special tailorings<span class="removed"> as well</span>:</p>
   <blockquote>
     <p><strong>U+FFFF: </strong>This code point is tailored to have a
@@ -1616,16 +1616,16 @@ A known limitation of the tailoring is that where the source string is a contrac
   </li>
   <li>Apply that case-value to the first collation element in the tailoring, according to &quot;<strong>Compute Modified Collation Elements</strong>&quot;. The case values and weights in an expansion are unaffected.</li>
 </ol>
-<p><strong><a name="UncasedExceptions" href="#UncasedExceptions"></a>UncasedExceptions:</strong> is  the set of letter modifiers</p>
+<p><strong><a name="UncasedExceptions" href="#UncasedExceptions">UncasedExceptions</a>:</strong> is  the set of letter modifiers</p>
 <ul>
   <li>[:General_Category=Lm:]</li>
 </ul>
-<p><strong><a name="LowerExceptions" href="#LowerExceptions"></a>LowerExceptions:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
+<p><strong><a name="LowerExceptions" href="#LowerExceptions">LowerExceptions</a>:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
 <ul>
   <li>[ぁァ ぃィ ぅゥ ぇェ ぉォ ゕヵ ㇰ ゖヶ ㇱ ㇲ っッ ㇳ-ㇺ ゃャ ゅュ ょョ ㇻ-ㇿ ゎヮ]</li>
   <li>[℩]</li>
 </ul>
-<p><strong><a name="UpperExceptions" href="#UpperExceptions"></a>UpperExceptions:</strong> is  the set of non-small letters where script=Hiragana or Katakana, minus the iteration mark, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
+<p><strong><a name="UpperExceptions" href="#UpperExceptions">UpperExceptions</a>:</strong> is  the set of non-small letters where script=Hiragana or Katakana, minus the iteration mark, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
 <ul>
   <li>[あいうえお-ぢつ-もやゆよ-ろわ-ゔアイウエオ-ヂツ-モヤユヨ-ロワ-ヴヷ-ヺ 𛀀𛀁]</li>
   <li>[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>

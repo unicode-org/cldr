@@ -118,20 +118,12 @@ public class CountItems {
     public static void main(String[] args) throws Exception {
         double deltaTime = System.currentTimeMillis();
         try {
-            ShowZoneEquivalences.getZoneEquivalences();
-            if (true) return;
-
             String methodName = System.getProperty("method");
-            CldrUtility.callMethod(methodName, CountItems.class);
-            // countItems();
-
-            // getZoneEquivalences();
-            // if (true) return;
-
-            // getPatternBlocks();
-            // showExemplars();
-            // genSupplementalZoneData(false);
-            // showZoneInfo();
+            if (methodName != null) {
+                CldrUtility.callMethod(methodName, CountItems.class);
+            } else {
+                ShowZoneEquivalences.getZoneEquivalences();
+            }
         } finally {
             deltaTime = System.currentTimeMillis() - deltaTime;
             System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
@@ -270,11 +262,11 @@ public class CountItems {
         String broken = CldrUtility.breakLines(list.toString(), sep, Pattern.compile(
             "([A-Z])[A-Z][A-Z]").matcher(""), 80);
         assert (list.toString().equals(broken.replace(sep, " ")));
-        System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">"
-            + broken + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
+        //System.out.println("\t\t\t<variable id=\"$currency\" type=\"choice\">"
+        //    + broken + CldrUtility.LINE_SEPARATOR + "\t\t\t</variable>");
         Set<String> isoTextFileCodes = StandardCodes.make().getAvailableCodes(
             "currency");
-        Set temp = new TreeSet(codeList.keySet());
+        Set<String> temp = new TreeSet<String>(codeList.keySet());
         temp.removeAll(isoTextFileCodes);
         if (temp.size() != 0) {
             throw new IllegalArgumentException("Missing from ISO4217.txt file: " + temp);

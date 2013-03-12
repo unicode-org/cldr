@@ -33,7 +33,7 @@ public class Ldml2JsonConverter {
     private static final String MAIN = "main";
 
     private static final Options options = new Options(
-        "Usage: LDML2ICUConverter [OPTIONS] [FILES]\n" +
+        "Usage: LDML2JsonConverter [OPTIONS] [FILES]\n" +
             "This program converts CLDR data to the JSON format.\n" +
             "Please refer to the following options. \n" +
             "\texample: org.unicode.cldr.tool.Ldml2JsonConverter -c xxx -d yyy")

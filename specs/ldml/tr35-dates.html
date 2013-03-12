@@ -1053,7 +1053,26 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   <i><a href="tr35.html#Date_Ranges">Dates and Date Ranges</a></i>.</p>
 
 <h3 class="changed">4.4 <a name="Time_Data" href="#Time_Data">Time Data</a></h3>
-  <p class="changed">TBD</p>
+
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT timeData ( hours* ) &gt;<br>
+    &lt;!ELEMENT hours EMPTY &gt;<br>
+    &lt;!ATTLIST hours preferred NMTOKEN #REQUIRED &gt;<br>
+    &lt;!ATTLIST hours allowed NMTOKENS #REQUIRED &gt;<br>
+    &lt;!ATTLIST hours regions NMTOKENS #REQUIRED &gt;
+  </span></p>
+
+  <p class="changed">This element is for data that indicates, for various regions, the preferred time cycle in the region,
+  as well as all time cycles that are considered acceptable in the region. The defaults are those specified for region 001.
+  For example:</p>
+
+<pre class="changed">&lt;timeData&gt;
+    &lt;hours preferred="H" allowed="H h" regions="001 …"/&gt;
+    &lt;hours preferred="H" allowed="H K h" regions="JP"/&gt;
+    &lt;hours preferred="H" allowed="H" regions="IL RU"/&gt;
+    &lt;hours preferred="h" allowed="H h" regions="AE AG AL … US … ZW"/&gt;
+    …
+</pre>
 
 <h3 class="changed">4.5 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day Period Rules</a></h3>
 

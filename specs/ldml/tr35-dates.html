@@ -665,7 +665,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   that should be used when formatting a specific time for presentation. When formatting a time referring to a
   recurring time (such as a meeting in a calendar), applications should substitute the generic non-location
   format (v or vvvv) for the time zone in the time format pattern.
-  See <i><a href="tr35.html#Time_Zone_Fallback">Time Zone Display Names</a>.</i> for a complete description of
+  See <i><a href="#Using_Time_Zone_Names">Using Time Zone Names</a>.</i> for a complete description of
   available time zone formats and their uses.</p>
 
 <h3>2.6 <a name="dateTimeFormats" href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a></h3>
@@ -1120,7 +1120,281 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     </ol>
 
 <h2>5 <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone Names</a></h2>
-  <p class="changed">TBD</p>
+
+  <p class="dtd">
+    &lt;!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*,
+    fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special*)) &gt;<br>
+    &lt;!ELEMENT zone (alias | ( long*, short*, commonlyUsed*, exemplarCity*, special*)) &gt;
+  </p>
+
+  <p>The time zone IDs (tzid) are language-independent, and follow the <i>TZ time zone database</i> [<a href="tr35.html#Olson">Olson</a>]
+  and naming conventions. However, the display names for those IDs can vary by locale. The generic time is so-called <i>wall-time</i>;
+  what clocks use when they are correctly switched from standard to daylight time at the mandated time of the year.</p>
+
+  <p>Unfortunately, the canonical tzid&#39;s (those in zone.tab) are not stable: may change in each release of the <i>TZ</i> 
+  Time Zone database. In CLDR, however, stability of identifiers is very important. So the canonical IDs in CLDR are kept stable
+  as described in <a href="tr35.html#Canonical_Form">Canonical Form</a>.</p>
+
+  <p>The <i>TZ time zone database</i> can have multiple IDs that refer to the same entity. It does contain information on
+  equivalence relationships between these IDs, such as Asia/Calcutta" and "Asia/Kolkata". It does not remove IDs (with a few
+  known exceptions), but it may change the "canonical" ID which is in the file zone.tab.</p>
+
+  <p>For lookup purposes specifications such as CLDR need a stable canonical ID, one that does not change from release to release.
+  The stable ID is maintained as the first alias item <i>type</i> element in the file bcp47/timezone.xml, such as:</p>
+  <pre>&lt;type name=&quot;inccu&quot; alias=&quot;Asia/Calcutta Asia/Kolkata&quot;/&gt;</pre>
+
+  <p>That file also contains the short ID used in keywords. In versions of CLDR previous to 1.8, the alias information
+  (but not the short ID) was in supplementalData.xml under the zoneItem, such as:</p>
+  <pre>&lt;zoneItem type=&quot;Asia/Calcutta&quot; territory=&quot;IN&quot; aliases=&quot;Asia/Kolkata&quot;/&gt;</pre>
+
+  <p>This element was deprecated after the introduction of bcp47/timezone.xml, because the information became redundant
+  (or was contained in the <i>TZ time zone database</i>).</p>
+
+  <p>The following is an example of time zone data. Although this is an example of possible data, in most cases only the
+  exemplarCity needs translation. And that does not even need to be present, if a country only has a single time one.
+  As always, the <i>type</i> field for each zone is the identification of that zone. It is not to be translated.</p>
+<pre>&lt;zone type=&quot;<span style="color: blue">America/Los_Angeles</span>&quot;&gt;
+    &lt;long&gt;
+        &lt;generic&gt;<span style="color: blue">Pacific Time</span>&lt;/generic&gt;
+        &lt;standard&gt;<span style="color: blue">Pacific Standard Time</span>&lt;/standard&gt;
+        &lt;daylight&gt;<span style="color: blue">Pacific Daylight Time</span>&lt;/daylight&gt;
+    &lt;/long&gt;
+    &lt;short&gt;
+        &lt;generic&gt;<span style="color: blue">PT</span>&lt;/generic&gt;
+        &lt;standard&gt;<span style="color: blue">PST</span>&lt;/standard&gt;
+        &lt;daylight&gt;<span style="color: blue">PDT</span>&lt;/daylight&gt;
+    &lt;/short&gt;
+    &lt;exemplarCity&gt;<span style="color: blue">San Francisco</span>&lt;/exemplarCity&gt;
+&lt;/zone&gt;
+
+&lt;zone type=&quot;<span style="color: blue">Europe/London</span>&quot;&gt;
+     &lt;long&gt;
+        &lt;generic&gt;<span style="color: blue">British Time</span>&lt;/generic&gt;
+        &lt;standard&gt;<span style="color: blue">British Standard Time</span>&lt;/standard&gt;
+        &lt;daylight&gt;<span style="color: blue">British Daylight Time</span>&lt;/daylight&gt;
+    &lt;/long&gt;
+    &lt;exemplarCity&gt;<span style="color: blue">York</span>&lt;/exemplarCity&gt;
+&lt;/zone&gt;\
+</pre>
+
+  <p>In a few cases, some time zone IDs do not designate a city, as in:</p>
+<pre>&lt;zone type=&quot;<span style="color: blue">America/Puerto_Rico</span>&quot;&gt;
+    ...
+&lt;/zone&gt;
+
+&lt;zone type=&quot;<span style="color: blue">America/Guyana</span>&quot;&gt;
+    ...
+&lt;/zone&gt;
+
+&lt;zone type=&quot;<span style="color: blue">America/Cayman</span>&quot;&gt;
+    ...
+&lt;/zone&gt;
+
+&lt;zone type=&quot;<span style="color: blue">America/St_Vincent</span>&quot;&gt;
+    ...
+&lt;/zone&gt;
+</pre>
+
+  <p>They may designate countries or territories; their actual capital city may be a name that is too common,
+  or, too uncommon. CLDR time zone IDs follow the <a href="tr35.html#Olson">Olson</a> naming conventions.</p>
+
+  <blockquote>
+		<p class="note"><b>Note: </b>CLDR does not allow "GMT", "UT", or "UTC" as translations (short or long) of time zones other than
+		GMT itself.</p>
+  </blockquote>
+  <blockquote>
+		<p class="note"><b>Note: </b>Transmitting &quot;14:30&quot; with no other context is incomplete unless it contains information about the time zone. Ideally one would 
+		transmit neutral-format date/time information, commonly in UTC (GMT), and localize as close to the user as possible. (For more about UTC, see [<a href="tr35.html#UTCInfo">UTCInfo</a>].)</p>
+  </blockquote>
+
+  <p class="note">The conversion from local time into UTC depends on the particular time zone rules, which will
+  vary by location. The standard data used for converting local time (sometimes called <i>wall time</i>) to UTC
+  and back is the <i>TZ Data</i> [<a href="tr35.html#Olson">Olson</a>], used by Linux, UNIX, Java, ICU, and others. 
+  The data includes rules for matching the laws for time changes in different countries. For example, for the US it is:</p>
+
+  <blockquote>
+		<p class="note">&quot;During the period commencing at 2 o&#39;clock antemeridian on the first Sunday of April of each year and ending at 2 o&#39;clock antemeridian on 
+		the last Sunday of October of each year, the standard time of each zone established by sections 261 to 264 of this title, as modified by section 265 of 
+		this title, shall be advanced one hour...&quot; (United States Law - 15 U.S.C. §6(IX)(260-7)).</p>
+  </blockquote>
+
+  <p class="note">Each region that has a different time zone or daylight savings time rules, either now or at any time
+  back to 1970, is given a unique internal ID, such as <code>Europe/Paris</code>. (Some IDs are also distinguished on the
+  basis of differences before 1970.) As with currency codes, these are internal codes. A localized string associated with
+  these is provided for users (such as in the Windows<i> Control Panels&gt;Date/Time&gt;Time Zone</i>).</p>
+
+  <p class="note">Unfortunately, laws change over time, and will continue to change in the future, both for the boundaries
+  of time zone regions and the rules for daylight savings. Thus the <i>TZ</i> data is continually being augmented.
+  Any two implementations using the same version of the <i>TZ</i> data will get the same results for the same IDs (assuming
+  a correct implementation). However, if implementations use different versions of the data they may get different results.
+  So if precise results are required then both the <i>TZ</i> ID and the <i>TZ</i> data version must be transmitted between
+  the different implementations.</p>
+
+  <p class="note">For more information, see [<a href="tr35.html#DataFormats">Data Formats</a>].</p>
+
+  <p>The following subelements of time zoneNames are used to control the fallback process described in
+  <a href="#Using_Time_Zone_Names">Using Time Zone Names</a>.</p>
+
+  <table cellspacing="0" cellpadding="4" border="1">
+		<tr>
+			<th>Element Name</th>
+			<th>Data Examples</th>
+			<th>Results/Comment</th>
+		</tr>
+		<tr>
+			<td rowspan="2">hourFormat</td>
+			<td rowspan="2">&quot;+HHmm;-HHmm&quot;</td>
+			<td>&quot;+1200&quot;</td>
+		</tr>
+		<tr>
+			<td>&quot;-1200&quot;</td>
+		</tr>
+		<tr>
+			<td>hoursFormat (deprecated)</td>
+			<td>&quot;{0}/{1}&quot;</td>
+			<td>&quot;-0800/-0700&quot;</td>
+		</tr>
+		<tr>
+			<td rowspan="2">gmtFormat</td>
+			<td>&quot;GMT{0}&quot;</td>
+			<td>&quot;GMT-0800&quot;</td>
+		</tr>
+		<tr>
+			<td>&quot;{0}ВпГ&quot;</td>
+			<td>&quot;-0800ВпГ&quot;</td>
+		</tr>
+		<tr>
+			<td>gmtZeroFormat</td>
+			<td>&quot;GMT&quot;</td>
+			<td>Specifies how GMT/UTC with no explicit offset (implied 0
+			offset) should be represented.</td>
+		</tr>
+		<tr>
+			<td rowspan="2">regionFormat</td>
+			<td>&quot;{0} Time&quot;</td>
+			<td>&quot;Japan Time&quot;</td>
+		</tr>
+		<tr>
+			<td>&quot;Tiempo de {0}&quot;</td>
+			<td>&quot;Tiempo de Japón&quot;</td>
+		</tr>
+		<tr>
+			<td>fallbackFormat</td>
+			<td>&quot;{1} ({0})&quot;</td>
+			<td>&quot;Pacific Time (Canada)&quot;</td>
+		</tr>
+		<tr class="removed">
+		  <td>fallbackRegionFormat</td>
+		  <td>&quot;{0} Time ({1})&quot;</td>
+		  <td>United States Time (New York)</td>
+	  </tr>
+		<tr>
+	    <td>abbreviationFallback (deprecated)</td>
+			<td>type=&quot;GMT&quot;</td>
+			<td>causes any &quot;long&quot; match to be skipped in Time Zone fallbacks</td>
+		</tr>
+		<tr>
+			<td>preferenceOrdering (deprecated)</td>
+			<td>type=&quot;America/Mexico_City America/Chihuahua America/New_York&quot;</td>
+			<td>a preference ordering among modern zones</td>
+		</tr>
+		<tr>
+			<td>singleCountries</td>
+			<td>list=&quot;America/Godthab America/Santiago America/Guayaquil Europe/Madrid Pacific/Auckland&nbsp; Pacific/Tahiti Europe/Lisbon...&quot;</td>
+			<td>uses country name alone</td>
+		</tr>
+
+  </table>
+
+  <p>When referring to the abbreviated (short) form of the time zone  name, there are often situations where
+  the location-based (city or country) time zone  designation for a particular language may not be in common
+  usage in a particular territory.</p>
+
+  <blockquote>
+		<p class="note"><b>Note: </b>User interfaces for time zone selection can use the
+		&quot;generic location format&quot; for time zone names to obtain the most useful ordering of names in a menu or list;
+		see <i><a href="#Using_Time_Zone_Names">Using Time Zone Names</a></i> and the zone section of the
+		<i><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</i></p>
+  </blockquote>
+
+<h3>Metazones</h3>
+
+  <p>A metazone is an grouping of one or more internal TZIDs that share a common display name in current
+  customary usage, or that have shared a common display name during some particular time period.
+  For example, the zones <i>Europe/Paris, Europe/Andorra, Europe/Tirane, Europe/Vienna, Europe/Sarajevo,
+  Europe/Brussels, Europe/Zurich, Europe/Prague, Europe/Berlin</i>, and so on are often simply designated
+  <i>Central European Time</i> (or translated equivalent).</p>
+
+  <p>A metazone&#39;s display fields become a secondary fallback if an appropriate data field cannot be
+  found in the explicit time zone data. The <i>usesMetazone</i> field indicates that the target metazone
+  is active for a particular time. This also provides a mechanism to effectively deal with situations where the
+  time zone in use has changed for some reason. For example, consider the TZID &quot;America/Indiana/Knox&quot;,
+  which observed Central time (GMT-6:00) prior to October 27, 1991, and has currently observed Central time
+  since April 2, 2006, but has observed Eastern time ( GMT-5:00 ) between these two dates. This is denoted as follows
+  (in the supplemental data file <a href="http://unicode.org/cldr/data/common/supplemental/metaZones.xml">metaZones.xml</a>).</p>
+
+<pre>&lt;timezone type=&quot;America/Indiana/Knox&quot;&gt;
+  &lt;usesMetazone to=&quot;1991-10-27 07:00&quot; mzone=&quot;America_Central&quot;/&gt;
+  &lt;usesMetazone to=&quot;2006-04-02 07:00&quot; from=&quot;1991-10-27 07:00&quot; mzone=&quot;America_Eastern&quot;/&gt;
+  &lt;usesMetazone from=&quot;2006-04-02 07:00&quot; mzone=&quot;America_Central&quot;/&gt;
+&lt;/timezone&gt;</pre>
+	<p>Note that the dates and times are specified in UTC, not local time.</p>
+	<p>The metazones can then have translations in different locale files, 
+	such as the following.</p>
+	<pre>&lt;metazone type=&quot;America_Central&quot;&gt; 
+  &lt;long&gt; 
+    &lt;generic&gt;Central Time&lt;/generic&gt; 
+    &lt;standard&gt;Central Standard Time&lt;/standard&gt; 
+    &lt;daylight&gt;Central Daylight Time&lt;/daylight&gt; 
+  &lt;/long&gt; 
+  &lt;short&gt; 
+    &lt;generic&gt;CT&lt;/generic&gt; 
+    &lt;standard&gt;CST&lt;/standard&gt; 
+    &lt;daylight&gt;CDT&lt;/daylight&gt; 
+  &lt;/short&gt; 
+&lt;/metazone&gt; 
+&lt;metazone type=&quot;America_Eastern&quot;&gt; 
+  &lt;long&gt; 
+    &lt;generic&gt;Eastern Time&lt;/generic&gt; 
+    &lt;standard&gt;Eastern Standard Time&lt;/standard&gt; 
+    &lt;daylight&gt;Eastern Daylight Time&lt;/daylight&gt; 
+  &lt;/long&gt; 
+  &lt;short&gt; 
+    &lt;generic&gt;ET&lt;/generic&gt; 
+    &lt;standard&gt;EST&lt;/standard&gt; 
+    &lt;daylight&gt;EDT&lt;/daylight&gt; 
+  &lt;/short&gt; 
+&lt;/metazone&gt;</pre>
+	<pre>&lt;metazone type=&quot;America_Eastern&quot;&gt;
+  &lt;long&gt;
+    &lt;generic&gt;Heure de l’Est&lt;/generic&gt;
+    &lt;standard&gt;Heure normale de l’Est&lt;/standard&gt;
+    &lt;daylight&gt;Heure avancée de l’Est&lt;/daylight&gt;
+  &lt;/long&gt;
+  &lt;short&gt;
+    &lt;generic&gt;HE&lt;/generic&gt;
+    &lt;standard&gt;HNE&lt;/standard&gt;
+    &lt;daylight&gt;HAE&lt;/daylight&gt;
+  &lt;/short&gt;
+&lt;/metazone&gt;
+</pre>
+
+  <p>When formatting a date and time value using this data, an application can properly be able to display
+  &quot;Eastern Time&quot; for dates between 1991-10-27 and 2006-04-02, but display &quot;Central Time&quot;
+  for current dates. (See also <i><a href="tr35.html#Date_Ranges">Dates and Date Ranges</a></i>).</p>
+
+  <p>Metazones are used with the &#39;z&#39;, &#39;zzzz&#39;, &#39;v&#39;, &#39;vvvv&#39;, and &#39;V&#39;
+  date time pattern characters, and not with the &#39;Z&#39;, &#39;ZZZZ&#39;, &#39;VVVV&#39; pattern characters.
+  For more information, see <a href="#Date_Format_Patterns">Date Format Patterns</a>.</p>
+
+  <p>The commonlyUsed element is now deprecated, which effectively makes the semantics of the &#39;z&#39; and
+  &#39;V&#39; formatting patterns to be identical. The CLDR committee has found it nearly impossible to obtain
+  accurate and reliable data regarding which time zone abbreviations may be understood in a given territory,
+  and therefore has changed to a simpler approach.  Thus, if the short metazone form is available in a given locale,
+  it is to be used for formatting regardless of the value of commonlyUsed. If a given short metazone form is known
+  NOT to be understood in a given locale and the parent locale has this value such that it would normally be inherited,
+  the inheritance of this value can be explicitly disabled by use of the &#39;no inheritance marker&#39; as the value,
+  which is 3 simultaneous empty set characters ( U+2205 ).</p>
 
 <h2>6 <a name="Supplemental_Time_Zone_Data" href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a></h2>
   <p class="changed">TBD</p>
@@ -1135,7 +1409,571 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   <p class="changed">TBD</p>
 
 <h2 class="changed">7 <a name="Using_Time_Zone_Names" href="#Using_Time_Zone_Names">Using Time Zone Names</a></h2>
-  <p class="changed">TBD</p>
+
+  <p>There are three main types of formats for zone identifiers: GMT, generic (wall time), and standard/daylight.
+  Standard and daylight are equivalent to a particular offset from GMT, and can be represented by a GMT offset as
+  a fallback. In general, this is not true for the generic format, which is used for picking timezones or for
+  conveying a timezone for specifying a recurring time (such as a meeting in a calendar). For either purpose, a GMT offset would lose information.</p>
+
+<h3>Time Zone Format Terminology</h3>
+
+  <p>The following terminology defines more precisely the formats that are used.</p>
+
+  <p><b>Generic 
+		non-location format: </b>Reflects &quot;wall 
+		time&quot; (what is on a clock on the wall): used for recurring events, meetings, or anywhere people do 
+	not want to be overly 
+		specific. For example, &quot;10 am Pacific Time&quot; will be GMT-8 in the winter, and GMT-7 in the 
+	summer.</p>
+  <ul>
+		<li>&quot;Pacific Time&quot;<span class="changed"> (long)</span></li>
+		<li>&quot;PT&quot;<span class="changed"> (short)</span></li>
+  </ul>
+
+  <p><b>Generic 
+		partial location format: </b>Reflects &quot;wall 
+		time&quot;: used as a fallback format when the generic non-location format is not specific 
+	enough.</p>
+  <ul>
+		<li>&quot;Pacific Time (Canada)&quot;<span class="changed"> (long)</span></li>
+		<li>&quot;<span class="removed">Pacific Time</span><span class="changed">PT</span> (Whitehorse)&quot;<span class="changed"> (short)</span></li>
+  </ul>
+
+  <p><b>Generic 
+		location format:</b> Reflects &quot;wall 
+		time&quot;: a primary function of this format type is to represent a time zone in a list or menu
+		for user selection of time zone, since the naming is more uniform than the generic non-location format
+		and zones for the same country will be grouped together (and could be organized hierarchically
+		by country if desired). It is also a fallback format when there is no translation for the generic non-location format.</p>
+  <ul>
+		<li>&quot;<span class="removed">United States (Los Angeles)</span><span class="changed">Los Angeles</span> Time&quot;</li>
+		<li>&quot;Italy Time&quot;. </li>
+  </ul>
+  <blockquote>
+			<p class="note">Note: A generic location format is constructed by a part of time zone ID
+			representing an exemplar city name <span class="removed">and</span><span class="changed">or</span> its country as the final fallback. However, there are
+			Unicode time zones which are not associated with any locations, such as "Etc/GMT+5" and "PST8PDT".
+			The date format pattern "vvvv" specifies the generic location format, but it displays
+			localized GMT format for them. Some of these time zones observe daylight saving time, so
+			the result (localized GMT format) may change depending on input date. For generating a list
+			for user selection of time zone with format "vvvv", these non-location zones should be excluded.</p>
+  </blockquote>
+
+  <p><b>Specific 
+		non-location format:</b> Reflects a specific standard or daylight time, which may or may not 
+	be the wall time. For example, &quot;10 am Pacific Standard Time&quot; will be GMT-8 in the winter and in 
+	the summer.</p>
+  <ul>
+		<li>&quot;Pacific Standard Time&quot;<span class="changed"> (long)</span></li>
+		<li>&quot;PST&quot;<span class="changed"> (short)</span></li>
+		<li>&quot;Pacific Daylight Time&quot;<span class="changed"> (long)</span></li>
+		<li>&quot;PDT&quot;<span class="changed"> (short)</span></li>
+  </ul>
+
+  <p><b>Localized GMT format:</b> A constant, specific offset from GMT (or UTC), which may be in a translated form.
+	There are two styles for this. The first is used when there is an explicit non-zero offset
+	from GMT; this style is specified by the &lt;gmtFormat&gt; element<span class="changed"> and &lt;hourFormat&gt; element.
+	The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format
+	is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and
+	seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:</span></p>
+  <ul>
+		<li class="removed">&quot;HMG+03.30&quot;</li>
+		<li>&quot;GMT+03:30&quot;<span class="changed"> (long)</span></li>
+		<li class="changed">&quot;GMT+3:30&quot; (short)</li>
+		<li class="changed">&quot;UTC-03.00&quot; (long)</li>
+		<li class="changed">&quot;UTC-3&quot; (short)</li>
+		<li>&quot;Гриинуич+03:30&quot;<span class="changed"> (long)</span></li>
+  </ul>
+
+  <p>Otherwise (when the offset from GMT is zero, referring to GMT itself) the style specified
+	by the &lt;gmtZeroFormat&gt; element is used:</p>
+  <ul>
+		<li class="removed">&quot;HMG&quot;</li>
+		<li>&quot;GMT&quot;</li>
+		<li class="changed">&quot;UTC&quot;</li>
+		<li>&quot;Гриинуич&quot;</li>
+  </ul>
+
+  <p class="removed"><b>RFC 822 GMT 
+		format:</b> A constant, specific offset from GMT (or UTC), which always has the same format.</p>
+  <ul class="removed">
+		<li>&quot;-0800&quot; </li>
+  </ul>
+
+  <p><b>ISO 8601 time zone format<span class="changed">s</span>:</b>
+	<span class="removed">A constant, specific offset from UTC, which always has the same format except UTC itself (&quot;Z&quot;).</span>
+	<span class="changed">The formats based on the ISO 8601 local time difference from UTC, or the UTC indicator (&quot;Z&quot; -
+	only when the local time offset is 0 and the specifier X* is used).
+	The ISO 8601 basic format does not use a separator character between hours and minutes field, while the extended format
+	uses colon (':') as the separator. The ISO 8601 basic format with hours and minutes fields is equivalent to RFC 822 zone format.
+	</span></p>
+  <ul>
+		<li class="changed">&quot;-0800&quot; (basic)</li>
+		<li class="changed">&quot;-08&quot; (basic - short)</li>
+		<li>&quot;-08:00&quot;<span class="changed"> (extended)</span>
+		<li>&quot;Z&quot;<span class="changed"> (UTC)</span></li>
+  </ul>
+  <blockquote class="changed"><p class="note">Note: This specification extends the original ISO 8601 formats and some format specifiers append seconds field
+	when necessary.</p></blockquote>
+
+  <p><b>Raw Offset</b> - an offset from GMT that does not include any daylight savings behavior. For 
+	example, the raw offset for Pacific Time is -8, even though the <i>observed offset</i> may be -8 
+	or -7.</p>
+
+  <p><b>Metazone</b> - a collection of time zones that share the same behavior and same name during some 
+	period. They may differ in 
+		daylight behavior (whether they have it and when).</p>
+
+  <p>For example, the TZID America/Cambridge_Bay is in the following 
+	metazones during various periods:</p>
+  <blockquote>
+		<p><font size="2">&lt;timezone type=&quot;America/Cambridge_Bay&quot;&gt;<br>
+&nbsp; &lt;usesMetazone to=&quot;1999-10-31 08:00&quot; mzone=&quot;America_Mountain&quot;/&gt;<br>
+&nbsp; &lt;usesMetazone to=&quot;2000-10-29 07:00&quot; from=&quot;1999-10-31 08:00&quot; mzone=&quot;America_Central&quot;/&gt;<br>
+&nbsp; &lt;usesMetazone to=&quot;2000-11-05 05:00&quot; from=&quot;2000-10-29 07:00&quot; mzone=&quot;America_Eastern&quot;/&gt;<br>
+&nbsp; &lt;usesMetazone to=&quot;2001-04-01 09:00&quot; from=&quot;2000-11-05 05:00&quot; mzone=&quot;America_Central&quot;/&gt;<br>
+&nbsp; &lt;usesMetazone from=&quot;2001-04-01 09:00&quot; mzone=&quot;America_Mountain&quot;/&gt;<br>
+		&lt;/timezone&gt;</font></p>
+  </blockquote>
+
+  <p>Zones may join or leave a metazone over 
+		time. The data relating between zones and metazones is in the supplemental information; the 
+	locale data is restricted to translations of metazones and zones.</p>
+  <blockquote><b>Invariants:</b>
+  <ul>
+		<li>At any given 
+		point in time, each zone belongs to <span class="removed">exactly</span><span class="changed">no more than</span> one metazone.</li>
+		<li class="changed">At a given point in time, a zone may not belong to any metazones.</li>
+		<li><i>Except for daylight 
+		savings</i>, at any given time, all zones in a metazone have the same offset at that time.</li>
+  </ul></blockquote>
+
+  <p><b>Golden Zone</b> - the TZDB zone that exemplifies a metazone. 
+	For example, America/New_York is the golden zone for the metazone America_Eastern:</p>
+  <blockquote>
+		<p><font size="2">&lt;mapZone other=&quot;America_Eastern&quot; territory=&quot;001&quot; 
+		type=&quot;America/New_York&quot;/&gt;</font></p>
+  </blockquote>
+  <blockquote><b>Invariants:</b>
+	<ul>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">The golden zones 
+		are those in mapZone supplemental data under the territory &quot;001&quot;.</li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Every metazone has exactly one golden zone.</li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Each zone has 
+		at most one metazone for which it is golden.</li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">The golden zone is in that metazone 
+		during the entire life of the metazone. (The raw offset of the golden zone may change over 
+		time.)</li>
+		<li>Each other zone must have the same raw offset as the golden 
+		zone, for the entire period that it is in the metazone. (It might not have the same offset 
+		when daylight savings is in effect.)</li>
+		<li>A golden zone in mapTimezones (metaZones.xml) must have 
+		reverse mapping in metazoneInfo (metaZones.xml)</li>
+  </ul></blockquote>
+
+  <p><b>Preferred Zone</b> - for a given TZID, the &quot;best&quot; zone out of a metazone for a given country or language.</p>
+  <blockquote><b>Invariants:</b>
+	<ul>
+		<li>The preferred zone for a given country XX 
+		are those in mapZone supplemental data under the territory XX.</li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Every metazone has 
+		at most one preferred zone for a given territory XX.</li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Each zone has 
+		at most one metazone for which it is preferred for a territory XX.</li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">The preferred zone 
+		for a given metazone and territory XX is in a metazone M during any time when any other zone 
+		in XX is also in M</li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">A preferred 
+		zone in mapTimezones (metaZones.xml) must have reverse mapping in metazoneInfo (metaZones.xml)</li>
+  </ul></blockquote>
+
+  <p>For example, for America_Pacific the preferred zone for Canada is 
+	America/Vancouver, and the preferred zone for Mexico is America/Tijuana. The golden zone is 
+	America/Los_Angeles, which is also also the preferred zone for any other country.</p>
+  <blockquote>
+		<p><font size="2">&lt;mapZone other=&quot;America_Pacific&quot; territory=&quot;001&quot; 
+		type=&quot;America/Los_Angeles&quot;/&gt;<br>
+		&lt;mapZone other=&quot;America_Pacific&quot; territory=&quot;CA&quot; type=&quot;America/Vancouver&quot;/&gt;<br>
+		&lt;mapZone other=&quot;America_Pacific&quot; territory=&quot;MX&quot; type=&quot;America/Tijuana&quot;/&gt;</font></p>
+  </blockquote>
+
+  
+  <p class="reviewnote">Can't remove the following, it is a link target.</p>
+  <p class="removed"><a name="fallbackFormat" href="#fallbackFormat"><strong>fallbackRegionFormat:</strong></a>
+  a formatting string such as &quot;{1} Time ({0})&quot;, where {1} is the country and {0} is a city.</p>
+
+  <p><a name="fallbackFormat" href="#fallbackFormat"><b>fallbackFormat</b>:</a> a formatting string such as
+  &quot;{1} ({0})&quot;, where {1} is the metazone, and {0} is the country or city.</p>
+
+  <p><b>regionFormat:</b> a formatting string such as &quot;{0} Time&quot;, where {0} is the country or city.</p>
+
+<h3>Goals</h3>
+
+	<p>The timezones are designed so that:</p>
+	<blockquote>
+		For any given locale, every <i>time </i>round trips with all 
+		patterns <span class="removed">Z, ZZZZ, z, zzzz, v, vvvv, V, VVVV</span>(but not necessarily every timezone). That is, 
+		given a time and a format pattern with a zone string, you can format, then parse, and get 
+		back the same time.<p>Note that the round-tripping is not just important for parsing; it 
+		provides for formatting dates and times in an unambiguous way for users. It is also 
+		important for testing.<br>
+		<br>
+		There are exceptions to the above for transition times.</p>
+		<ul>
+			<li>With generic<span class="changed"> format, time zone ID or exemplar city name</span>, during the transition when the local time maps to two possible GMT times.
+			<ul>
+				<li>For example, Java works as follows, favoring standard time:</li>
+				<li>Source: Sun Nov 04 01:30:00 PDT 2007&nbsp;&nbsp;&nbsp; </li>
+				<li>=&gt; Formatted: &quot;Sunday, November 4, 2007 1:30:00 AM&quot; </li>
+				<li>=&gt; Parsed: Sun Nov 04 01:30:00 PST 2007</li>
+			</ul>
+			</li>
+			<li>When the timezone changes offset, say from GMT+4 to GMT+5, there can also be a gap. </li>
+		</ul>
+		<p>The <span class="changed">V/VV/VVV/</span>VVVV format will roundtrip not only the time, but the canonical timezone.</p>
+	</blockquote>
+
+  <p>When the data for a given format is not available, a fallback format 
+	is used. The fallback order is given in the following by a list.</p>
+  <ol>
+		<li><b>Specifics</b>
+		<ul>
+			<li>z - [short form] specific non-location
+				<ul>
+					<li>falling back to <span class="changed">short </span>localized GMT </li>
+				</ul>
+			</li>
+			<li>zzzz - [long form] specific non-location
+				<ul>
+					<li>falling back to <span class="changed">long </span>localized GMT </li>
+				</ul>
+			<li class="changed">Z/ZZZZZ/X+/x+ - ISO 8601 formats (no fallback necessary)</li>
+			<li class="changed">ZZZZ/O+ - Localized GMT formats (no fallback necessary)</li>
+			<li class="removed">Z - RFC 822 (no fallback necessary) </li>
+			<li class="removed">ZZZZ - Localized GMT (no fallback necessary) </li>
+			<li class="removed">ZZZZZ - ISO 8601 (no fallback necessary) </li>
+			<li class="removed">V - specific non-location<ul>
+			<li class="removed">falling back to localized GMT </li>
+		</ul>
+			</li>
+		</ul>
+		</li>
+		<li><b>Generics</b>
+		<ul>
+			<li>v - [short form] generic non-location<br>
+			<i>(however, the rules are more complicated, see #5 below)</i>
+				<ul>
+					<li>falling back to generic location</li>
+					<li>falling back to <span class="changed">short </span>localized GMT </li>
+				</ul>
+			</li>
+			<li>vvvv - [long form] generic non-location<br>
+			<i>(however, the rules are more complicated, see #5 below)</i>
+				<ul>
+					<li>falling back to generic location</li>
+					<li>falling back to <span class="changed">long </span>localized GMT </li>
+				</ul>
+			</li>
+			<li class="changed">V - short time zone ID
+				<ul>
+					<li class="changed">falling back to the special ID "unk" (Unknown)</li>
+				</ul>
+			</li>
+			<li class="changed">VV - long time zone ID (no fallback necessary, because this is the input)</li>
+			<li class="changed">VVV - exemplar city
+				<ul>
+					<li class="changed">falling back to the localized exemplar city for the unknown zone (Etc/Unknown), for example "Unknown City" for English</li>
+				</ul>
+			</li>
+			<li>VVVV - generic location
+				<ul>
+					<li>falling back to <span class="changed">long </span>localized GMT</li>
+				</ul>
+		</ul>
+		</li>
+  </ol>
+
+  <p>The following process is used for the particular formats, with the fallback rules as above.</p>
+
+  <p>Some of the examples are drawn from real data, while others are for illustration. For illustration the region format
+  is &quot;Hora de {0}&quot;. The fallback format in the examples is &quot;{1} ({0})&quot;, which is what is in root.</p>
+
+  <ol>
+		<li>In <b>all</b> cases, first canonicalize the <i>TZ</i> ID according to the &lt;timezoneData&gt; table in supplemental data. Use that canonical TZID in each of the following steps.<ul>
+			<li>America/Atka → America/Adak</li>
+			<li>Australia/ACT → Australia/Sydney</li>
+		</ul>
+		</li>
+		<li class="removed">For RFC 822 GMT format (&quot;Z&quot;) return the results according to the RFC.
+			<ul>
+				<li class="removed">America/Los_Angeles → &quot;-0800&quot;</li>
+			</ul>
+			<p class="removed"><b>Note: </b>The digits in this case are always from the western digits, 0..9.</p>
+		</li>
+		<li style="margin-top: 0.5em; margin-bottom: 0.5em">For the localized GMT format, 
+		use the gmtFormat (such as &quot;GMT{0}&quot; or &quot;HMG{0}&quot;) with the hourFormat (such as &quot;+HH:mm;-HH:mm&quot; 
+		or &quot;+HH.mm;-HH.mm&quot;).<ul>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">America/Los_Angeles → &quot;GMT-08:00&quot; //&nbsp; standard time</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">America/Los_Angeles → &quot;HMG-07:00&quot; //&nbsp; daylight time</li>
+			<li style="margin-top: 0.5em; margin-bottom: 0.5em">Etc/GMT+3 → &quot;GMT-03.00&quot; // note that <i>TZ</i> tzids have inverse polarity!</li>
+		</ul>
+		<p><b>Note:</b> The digits should be whatever are appropriate for the locale used to format the time zone, not necessarily from the western digits, 0..9. 
+		For example, they might be from ०..९.</p>
+		</li>
+		<li>For ISO 8601 time zone format <span class="removed">(&quot;ZZZZZ&quot;) </span>return the results according to the ISO 8601 specification.
+			<ul>
+				<li class="changed">America/Los_Angeles →
+					<ul>
+						<li>"-08" ("X","x")</li>
+						<li>"-0800" ("Z","XX","XXXX","xx","xxxx")</li>
+						<li>"-08:00" ("ZZZZZ","XXX","XXXXX","xxx","xxxxx")</li>
+					</ul>
+				</li>
+				<li class="changed">Etc/GMT →
+					<ul>
+						<li>"Z" ("ZZZZZ", "X", "XX", "XXX", "XXXX", "XXXXX")</li>
+						<li>"+00" ("x")</li>
+						<li>"+0000" ("Z", "xx", "xxxx")</li>
+						<li>"+00:00" ("xxx", "xxxxx")</li>
+					</ul>
+				</li>
+			</ul>
+			<p><b>Note: </b>The digits in this case are always from the western digits, 0..9.</p>
+		</li>
+		<li>For the non-location formats (generic or specific):
+		<ol>
+		  <li>if there is an explicit translation for the TZID in &lt;timeZoneNames&gt; according to type (generic, standard, or daylight) in the resolved locale, return it.
+		  <ol>
+		    <li>If the requested type is not available, but another type is, and there is a <strong>Type Fallback</strong> then return that other type.
+		    <ul>
+		      <li>Examples:
+		      <ul>
+		          <li>America/Los_Angeles → <span class="removed">"Heure du Pacifique (ÉUA)"</span><span class="changed">"heure du Pacifique"</span> // generic</li>
+		          <li>America/Los_Angeles → "<span class="changed">アメリカ</span>太平洋標準時" // standard</li>
+		          <li>America/Los_Angeles → "Yhdysvaltain Tyynenmeren kesäaika" // daylight</li>
+		          <li>Europe/Dublin  → "Am Samhraidh na hÉireann" // daylight</li>
+		          <li>Note: This translation may not at all be literal: it would be what is most recognizable for people using the target language.</li>
+	          </ul></li>
+		    </ul></li>
+		  </ol></li>
+		  <li>Otherwise, get the requested metazone format according to type (generic, standard, daylight).
+		  <ol>
+		    <li>If the requested type is not available, but another type is, get the format according to <strong>Type Fallback</strong>.</li>
+		    <li>If there is no format for the type, fall back.</li>
+		  </ol></li>
+		  <li>Otherwise do the following:
+		  <ol>
+		    <li>Get the country for the current locale. If there is none, use the most likely country based on the likelySubtags data. If there is none, use &ldquo;001&rdquo;.</li>
+		    <li>Get the preferred zone for the metazone for the country; if there is none for the country, use the preferred zone for the metazone for &ldquo;001&rdquo;.</li>
+		    <li>If that preferred zone is the same as the requested zone, use the metazone format. For example, "Pacific Time" for Vancouver if the locale is en_CA, or for Los Angeles if locale is en_US.</li>
+		    <li>Otherwise, if the zone is the preferred zone for its country but not for the country of the locale, use the metazone format + country in the <em>fallbackFormat</em>.</li>
+		    <li>Otherwise, use the metazone format + city in the <em>fallbackFormat</em>.
+			<ul>
+		      <li>Examples:
+		        <ul>
+		          <li><span class="changed">"</span>Pacific Time (Canada)" // for the zone Vancouver in the locale en_MX.</li>
+		          <li>"Mountain Time (Phoenix)"</li>
+		          <li>"Pacific Time (Whitehorse)"</li>
+	           </ul></li>
+			</ul></li>
+		  </ol></li>
+		</ol></li>
+		<li>For the generic location format:
+		<ol>
+			<li>From <span class="removed">&lt;timezoneData&gt;</span><span class="changed">the TZDB</span> get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone or if the zone id is in the <span class="removed"><em>singleCountries</em></span><span class="changed">&lt;primaryZones&gt;</span> list, format the country name with the <em>regionFormat</em>, and return it.
+			<ul>
+		    	<li>Examples:
+					<ul>
+						<li>Europe/Rome → IT → "Italy Time" // for English</li>
+						<li class="changed">Asia/Shanghai → CN → "China Time" // Asia/Shanghai is the <em>primaryZone</em> for China</li>
+						<li>Africa/Monrovia → LR → "Hora de Liberja"</li>
+						<li>America/Havana → CU → "Hora de CU" // if CU is not localized</li>
+					</ul>
+				</li>
+			</ul>
+
+			</li>
+			<li>Otherwise format the exemplar city with the <em>regionFormat</em>, and return it.
+			<ol>
+				<li>America/Buenos_Aires → "Buenos Aires Time"</li>
+			</ol>
+			</li>
+		</ol>
+		</li>
+  </ol>
+
+  <blockquote>
+	  <p> <strong>Note:</strong> If a language does require grammatical changes when composing strings, then the
+	  <em>regionFormat</em> should either use a neutral format such as &quot;Heure: {0}&quot;, or put all
+	  exceptional cases in explicitly translated strings.</p>
+  </blockquote>
+
+  <p><strong>Type Fallback</strong></p>
+
+  <p>When a specified type (generic, standard, daylight) does not exist:</p>
+  <ol>
+	  <li>If the daylight type does not exist, then the metazone doesn&rsquo;t require daylight support. For all three types:
+	  <ol>
+	    <li>If the generic type exists, use it.</li>
+	    <li>Otherwise if the standard type exists, use it.</li>
+      </ol></li>
+	  <li>Otherwise if the generic type is needed, but not available, and the offset and daylight offset do not change within 184 day +/- interval around the exact formatted time, use the standard type.
+	  <ol>
+	    <li>Example: "Mountain Standard Time" for Phoenix</li>
+	    <li>Note: 184 is the smallest number that is at least 6 months AND the smallest number that is more than 1/2 year (Gregorian).</li>
+      </ol></li>
+	</ol>
+	<p><strong>Composition</strong></p>
+	<p>In composing the metazone + city or <span class="removed">metazone + </span>country:</p>
+	<ol>
+	  <li>Use the <em>fallbackFormat</em> <span class="changed">"{1} ({0})"</span>, where:
+	  <ul>
+	    <li>{1} will be the metazone</li>
+	    <li>{0} will be a qualifier (city or country)</li>
+	    <li>Example: 
+	    <ul>
+	      <li>metazone = Pacific Time</li>
+	      <li>city = Phoenix</li>
+	      <li>→ "Pacific Time (Phoenix)"</li>
+        </ul></li>
+      </ul></li>
+	  <li>If the localized country name is not available, use the code:
+	  <ul>
+	    <li>CU (country code)→ "CU" <em>// no localized country name for Cuba</em></li>
+      </ul></li>
+	  <li>If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID, stripping off the prefix and turning _ into space.
+	  <ul>
+	    <li>America/Los_Angeles → "Los Angeles" <em>// no localized exemplar city</em></li>
+      </ul></li>
+  </ol>
+
+  <p><b>Note: </b>As with the <em>regionFormat</em>, exceptional cases need to be explicitly translated. </p>
+
+<h3>Parsing</h3>
+
+  <p>In parsing, an implementation will be able to either determine the zone id, or a simple offset from
+  GMT for anything formatting according to the above process.</p>
+
+  <p>The following is a sample process for how this might be done. It is only a sample; implementations
+  may use different methods for parsing.</p>
+
+  <p>The sample describes the parsing of a zone as if it were an isolated string. In 
+	implementations, the zone may be mixed in with other data (like the time), so the parsing 
+	actually has to look for the longest match, and then allow the remaining text to be parsed for 
+	other content. That requires certain adaptions to the following process.</p>
+	
+  <ol style="background-color: rgb(255, 255, 255);">
+		<li><font color="#000000">Start with a string S.</font> 
+		</li>
+		<li><font color="#000000">If S matches <span class="removed">the RFC 822 GMT format or </span>ISO 8601 time zone format, 
+		return it.</font>
+		<ul>
+			<li>For example, &quot;-0800&quot; (RFC 822),
+			&quot;-08:00&quot; (ISO 8601) =&gt; Etc/GMT+8</li>
+		</ul>
+		</li>
+		<li>If S matches the English or localized 
+		GMT format, return the corresponding TZID
+		<ul>
+			<li>Matching should be lenient. Thus 
+			allow for the number formats like: 03, 3, 330, 3:30, 33045 or 3:30:45. Allow +, -, or 
+			nothing. Allow spaces after GMT, +/-, and before number. Allow non-Latin numbers. Allow
+			UTC or UT (per RFC 788) as synonyms for GMT ("GMT", "UT", "UTC" are global formats, always allowed in parsing regardless of locale).
+			</li>
+			<li>For example, &quot;GMT+3&quot; or &quot;UT+3&quot; or &quot;HPG+3&quot; =&gt; 
+			Etc/GMT-3</li>
+			<li>When parsing, the absence of a numeric offset should be interpreted as offset 0,
+			whether in localized or global formats. For example, &quot;GMT&quot; or &quot;UT&quot; or &quot;UTC+0&quot; or
+			&quot;HPG&quot; =&gt; Etc/GMT</li>
+		</ul>
+		</li>
+		<li><font color="#000000">If S matches the fallback format, 
+		extract P = {0} [ie, the part in parens in the root format] and N = {1}.<br>
+		If S does not match, set P = &quot;&quot; and N = S<br>
+		If N matches the region format, then M = {0} from that format, otherwise M = N.</font>
+		<ul>
+			<li><font color="#000000">For example, &quot;United States (Los 
+			Angeles) Time&quot; =&gt; N = &quot;United States Time&quot;, M = &quot;United States&quot;, P = &quot;Los Angeles&quot;.</font>
+			</li>
+			<li><font color="#000000">For example, &quot;United States Time&quot; =&gt; N = 
+			&quot;United States Time&quot;, M = &quot;United States&quot;, P = &quot;&quot;.</font> </li>
+			<li><font color="#000000">For example, &quot;United States&quot; =&gt; N = M = 
+			&quot;United States&quot;, P = &quot;&quot;.</font> </li>
+		</ul>
+		</li>
+		<li><font color="#000000">If P, N, or M is a localized country, 
+		set C to that value. If C has only one zone, return it.</font>
+		<ul>
+			<li><font color="#000000">For example, &quot;Italy Time (xxx)&quot; or &quot;xxx 
+			(Italy)&quot; =&gt; Europe/Rome</font> </li>
+			<li><font color="#000000">For example, &quot;xxx (Canada)&quot; or &quot;Canada Time 
+			(xxx)&quot; =&gt; Sets C = CA and continues</font> </li>
+		</ul>
+		</li>
+		<li><font color="#000000">If P is a localized <span class="removed">TZID</span><span class="changed">exemplar city name</span> (and not 
+		metazone), return it.</font>
+		<ul>
+			<li><font color="#000000">For example, &quot;xxxx (Phoenix)&quot; or &quot;Phoenix 
+			(xxx)&quot; =&gt; America/Phoenix</font> </li>
+		</ul>
+		</li>
+		<li><font color="#000000">If N, or M is a localized <span class="removed">TZID</span><span class="changed">time zone name</span> (and not 
+		metazone), return it.</font>
+		<ul>
+			<li><font color="#000000">For example, &quot;Pacific Standard Time (xxx)&quot; =&gt; 
+			&quot;America/Los_Angeles&quot; // this is only if &quot;Pacific Standard Time&quot; is not a metazone 
+			localization.</font></li>
+		</ul>
+		</li>
+		<li><font color="#000000">If N or M is a localized metazone</font><ul>
+			<li><font color="#000000">If it corresponds to only one TZID, 
+			return it.</font> </li>
+			<li><font color="#000000">If C is set, look up the Metazone + 
+			Country =&gt; TZID mapping, and return that value if it exists</font></li>
+			<li><font color="#000000">Get the locale&#39;s language, and get 
+			the default country from that. Look up the Metazone + DefaultCountry =&gt; TZID mapping, 
+			and return that value if it exists.</font> </li>
+			<li><font color="#000000">Otherwise, lookup Metazone + 001 =&gt; 
+			TZID and return it (that will always exist)</font> </li>
+		</ul>
+		</li>
+		<li><font color="#000000">If you get this far, return an error.</font></li>
+  </ol>
+
+  <blockquote>
+		<p><b>Note: </b>This CLDR date parsing recommendation does not fully handle all
+		RFC 788 date/time formats, nor is it intended to.</p>
+  </blockquote>
+
+  <p>Parsing can be more lenient than the above, allowing for different spacing, punctuation, or other variation.
+  A stricter parse would check for consistency between the xxx portions above and the rest, so 
+  &quot;Pacific Standard Time (India)&quot; would give an error.</p>
+
+  <p>Using this process, a correct parse will roundtrip the location format (VVVV) back to the canonical zoneid.</p>
+  <ul>
+		<li>Australia/ACT → Australia/Sydney → “Sydney (Australia)” → Australia/Sydney</li>
+  </ul>
+
+  <p>The GMT formats (Z and ZZZZ) will return back an offset, and thus lose the original canonical zone id.</p>
+  <ul>
+		<li>Australia/ACT → Australia/Sydney → &quot;GMT+11:00&quot; → GMT+11</li>
+  </ul>
+
+  <p>The daylight and standard time formats, and the non-location 
+	formats (z, zzzz, v, and vvvv) may either roundtrip back to the original canonical zone id, 
+	to a zone in the same metazone that time, or to just an offset, depending on the available 
+	translation data. Thus:</p>
+
+  <ul>
+		<li>Australia/ACT → Australia/Sydney → &quot;GMT+11:00&quot; → GMT+11</li>
+		<li>PST8PDT → America/Los_Angeles → “PST” → America/Los_Angeles</li>
+		<li>America/Vancouver → “Pacific Time (Canada)” → 
+		America/Vancouver</li>
+  </ul>
+  <blockquote>
+		<p><b>Note: </b>The hoursFormat, preferenceOrdering, and abbreviationFallback 
+		items used in earlier versions of this appendix are deprecated. </p>
+  </blockquote>
 
 <h2>8 <a name="Date_Format_Patterns" href="#Date_Format_Patterns">Date Format Patterns</a></h2>
 

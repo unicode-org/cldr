@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-03-10</span></td>
+			<td><span class="changed">2013-03-11</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -125,87 +125,820 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <h2><a name="Contents"><span class="changed">Dates:</span> Contents</a></h2>
   <ul class="toc changed">
     <li>1 <a href="#Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a></li>
-    <li>2 <a href="#Calendar_And_Fields_Elements">Calendar and Fields Elements</a>
+    <li>2 <a href="#Calendar_Elements">Calendar Elements</a>
     <ul class="toc">
-      <li>2.1 <a href="#Calendar_Elements">Calendar Elements</a></li>
-      <li>2.2 <a href="#Calendar_Fields">Calendar Fields</a></li>
+      <li>2.1 <a href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></li>
+      <li>2.2 <a href="#monthPatterns_cyclicNameSets">&lt;monthPatterns&gt;, &lt;cyclicNameSets&gt;</a></li>
+      <li>2.3 <a href="#dayPeriods">&lt;dayPeriods&gt;</a></li>
+      <li>2.4 <a href="#dateFormats">&lt;dateFormats&gt;</a></li>
+      <li>2.5 <a href="#timeFormats">&lt;timeFormats&gt;</a></li>
+      <li>2.6 <a href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a></li>
+    </ul>
+    <li>3 <a href="#Calendar_Fields">Calendar Fields</a></li>
+    <li>4 <a href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>
+    <ul class="toc">
+      <li>4.1 <a href="#Calendar_Data">Calendar Data</a></li>
+      <li>4.2 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></li>
+      <li>4.3 <a href="#Week_Data">Week Data</a></li>
+      <li>4.4 <a href="#Time_Data">Time Data</a></li>
+      <li>4.5 <a href="#Day_Period_Rules">Day Period Rules</a></li>
     </ul>
     </li>
-    <li>3 <a href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>
+    <li>5 <a href="#Time_Zone_Names">Time Zone Names</a></li>
+    <li>6 <a href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>
     <ul class="toc">
-      <li>3.1 <a href="#Calendar_Data">Calendar Data</a></li>
-      <li>3.2 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></li>
-      <li>3.3 <a href="#Week_Data">Week Data</a></li>
-      <li>3.4 <a href="#Time_Data">Time Data</a></li>
-      <li>3.5 <a href="#Day_Period_Rules">Day Period Rules</a></li>
+      <li>6.1 <a href="#Metazones">Metazones</a></li>
+      <li>6.2 <a href="#Primary_Zones">Primary Zones</a></li>
+      <li>6.3 <a href="#Windows_Zones">Windows Zones</a></li>
     </ul>
     </li>
-    <li>4 <a href="#Time_Zone_Names">Time Zone Names</a></li>
-    <li>5 <a href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>
+    <li>7 <a href="#Using_Time_Zone_Names">Using Time Zone Names</a></li>
+    <li>8 <a href="#Date_Format_Patterns">Date Format Patterns</a>
     <ul class="toc">
-      <li>5.1 <a href="#Metazones">Metazones</a></li>
-      <li>5.2 <a href="#Primary_Zones">Primary Zones</a></li>
-      <li>5.3 <a href="#Windows_Zones">Windows Zones</a></li>
+      <li><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></li>
     </ul>
     </li>
-    <li>6 <a href="#Using_Time_Zone_Names">Using Time Zone Names</a></li>
-    <li>7 <a href="#Date_Format_Patterns">Date Format Patterns</a></li>
-    <li>8 <a href="#Parsing_Dates_Times">Parsing Dates and Times</a></li>
+    <li>9 <a href="#Parsing_Dates_Times">Parsing Dates and Times</a></li>
   </ul>
 
-<h2 class="changed">1 <a name="Overview_Dates_Element_Supplemental" href="#Overview_Dates_Element_Supplemental">Overview: Dates Element, Supplemental Date and Calendar Information</a></h2>
+<h2 class="changed">1 <a name="Overview_Dates_Element_Supplemental" href="#Overview_Dates_Element_Supplemental">Overview:
+Dates Element, Supplemental Date and Calendar Information</a></h2>
 
-  <p class="dtd">&lt;!ELEMENT dates (alias | (localizedPatternChars*, dateRangePattern*, calendars?,
-  <span class="changed">fields?, </span>timeZoneNames?, special*)) &gt;</p>
+  <p class="dtd">
+    &lt;!ELEMENT dates (alias | (localizedPatternChars*, dateRangePattern*, calendars?, <span class="changed">fields?, </span>timeZoneNames?, special*)) &gt;
+  </p>
+
   <p><span class="changed">The LDML top-level &lt;dates&gt;</span> element contains information regarding the
   format and parsing of dates and times<span class="changed">, the formatting of date/time intervals, and the
   the naming of various calendar elements.</span></p>
   <ul class="changed">
   	<li>The &lt;localizedPatternChars&gt; and &lt;dateRangePattern&gt; elements are deprecated and no longer used.</li>
-  	<li>The &lt;calendars&gt; and &lt;fields&gt; elements are described in section 2 <a href="#Calendar_And_Fields_Elements">Calendar and Fields Elements</a>.</li>
-  	<li>The &lt;timeZoneNames&gt; element is described in section 4 <a href="#Time_Zone_Names">Time Zone Names</a>.</li>
-  	<li>The formats use pattern characters described in section 7 <a href="#Date_Format_Patterns">Date Format Patterns</a>.</li>
+  	<li>The &lt;calendars&gt; element is described in section 2 <a href="#Calendar_Elements">Calendar Elements</a>.</li>
+  	<li>The &lt;fields&gt; element is described in section 3 <a href="#Calendar_Fields">Calendar Fields</a>.</li>
+  	<li>The &lt;timeZoneNames&gt; element is described in section 5 <a href="#Time_Zone_Names">Time Zone Names</a>.</li>
+  	<li>The formats use pattern characters described in section 8 <a href="#Date_Format_Patterns">Date Format Patterns</a>.</li>
   </ul>
 
-  <p class="dtd">&lt;!ELEMENT supplementalData ( …, calendarData?, calendarPreferenceData?, weekData?,
-  <span class="changed">timeData?, </span>…, timezoneData?, …, metazoneInfo?, …, dayPeriodRuleSet?,
-  metaZones?, <span class="changed">primaryZones?, </span>windowsZones?, …) &gt;</p>
+  <p class="dtd">
+    &lt;!ELEMENT supplementalData ( …, calendarData?, calendarPreferenceData?, weekData?, <span class="changed">timeData?, </span>…,
+    timezoneData?, …, metazoneInfo?, …, dayPeriodRuleSet?, metaZones?, <span class="changed">primaryZones?, </span>windowsZones?, …) &gt;
+  </p>
+
   <p class="changed">The relevant top-level supplemental elements are listed above.</p>
   <ul class="changed">
   	<li>The &lt;calendarData&gt;, &lt;calendarPreferenceData&gt;, &lt;weekData&gt;, &lt;timeData&gt;, and &lt;dayPeriodRuleSet&gt;
-  	elements are described in section 3 <a href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>.</li>
+  	elements are described in section 4 <a href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>.</li>
   	<li>The &lt;timezoneData&gt; element is deprecated and no longer used; the &lt;metazoneInfo&gt; element
   	is deprecated at this level, and is now only used as a sub-element of &lt;metaZones&gt;.</li>
   	<li>The &lt;metaZones&gt;, &lt;primaryZones&gt;, and &lt;windowsZones&gt; elements are described in
-  	section 5 <a href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>.</li>
+  	section 6 <a href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>.</li>
   </ul>
 
-<h2 class="changed">2 <a name="Calendar_And_Fields_Elements" href="#Calendar_And_Fields_Elements">Calendar and Fields Elements</a></h2>
+<h2>2 <a name="Calendar_Elements" href="#Calendar_Elements">Calendar Elements</a></h2>
 
-<h3>2.1 <a name="Calendar_Elements" href="#Calendar_Elements">Calendar Elements</a></h3>
-  <p class="changed">TBD</p>
+  <p class="dtd">
+    &lt;!ELEMENT calendars (alias | (default*, calendar*, special*)) &gt;<br>
+    &lt;!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*,
+    dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))&gt;<br>
+    <span class="changed">&lt;!ATTLIST calendar type NMTOKEN #REQUIRED &gt;</span>
+  </p>
 
-<h3>2.2 <a name="Calendar_Fields" href="#Calendar_Fields">Calendar Fields</a></h3>
-  <p class="changed">TBD</p>
+  <p>The <span class="changed">&lt;calendars&gt;</span> element contains multiple &lt;calendar&gt; elements,
+  each of which specifies the fields used for formatting and parsing dates and times according to the
+  <span class="changed">calendar specified by the type attribute (e.g. "gregorian", "buddhist", "islamic").
+  The behaviors for different calendars in a locale may share certain aspects, such as the names for
+  weekdays. They differ in other respects;</span> for example, the Japanese calendar <span class="changed">is
+  similar to the Gregorian calendar but has</span> many more eras (one for each Emperor), and years are
+  numbered within each era. All calendar data inherits either from the Gregorian calendar
+  <span class="changed">or other calendars</span> in the same locale (and if not present there then
+  from the parent up to root), <span class="changed">or else inherits directly from the parent locale for
+  certain calendars, so only data that differs from what would be inherited needs to be supplied.</span>
+  See <i><a href="tr35.html#Multiple_Inheritance">Multiple Inheritance</a></i>.</p>
 
-<h2 class="changed">3 <a name="Supplemental_Calendar_Data" href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a></h2>
+  <p class="changed">Each calendar provides—directly or indirectly—two general types of data:</p>
+  <ul class="changed">
+    <li>Calendar symbols, such as names for eras, months, weekdays, and dayPeriods. Names for weekdays and
+    dayPeriods are typically inherited from the Gregorian calendar data in the same locale; symbols for eras
+    and months should be provided for each calendar, except that the "Gregorian-like" Buddhist, Japanese,
+    and Minguo (ROC) calendars also inherit their month names from the Gregorian data in the same locale.</li>
+    <li>Format data for dates, times, and date-time intervals. Most non-Gregorian calendars inherit format
+    data from "generic" calendar format data in the same locale (which in turn inherits from Gregorian); the
+    primary difference between Gregorian and "generic" format data is that the latter usually includes era
+    with years.</li>
+  </ul>
+  <p class="changed">Calendars that use cyclicNameSets and monthPatterns have additional symbols and distinct
+  formats, and typically inherit these items (along with month names) from their parent locales, instead of
+  inheriting them from Gregorian or generic data in the same locale.</p>
+  
+  <p><span class="changed"><b>Deprecated items: </b>For &lt;calendars&gt;, the &lt;default&gt; element is deprecated;</span>
+  the default calendar type for a locale is specified by <i><a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>.
+  <span class="changed">For the &lt;calendar&gt; element, the following are deprecated:</span></p>
+  <ul class="changed">
+    <li>monthNames and monthAbbr; month name forms are specified in the &lt;months&gt; element</li>
+    <li>dayNames and dayAbbr; weekday name forms are specified in the &lt;days&gt; element</li>
+    <li>am and pm; these are now included as part of the &lt;dayPeriods&gt; element</li>
+    <li>&lt;fields&gt; is deprecated at this location; instead, a &lt;fields&gt; element should be located
+    just under a &lt;dates&gt; element. See <a href="#Calendar_Fields">Calendar Fields</a>.</li>
+  </ul>
+ 
+<h3>2.1 <a name="months_days_quarters_eras" href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></h3>
 
-<h3>3.1 <a name="Calendar_Data" href="#Calendar_Data">Calendar Data</a></h3>
+  <p class="dtd">
+	&lt;!ELEMENT months ( alias | (default*, monthContext*, special*)) &gt;<br>
+	&lt;!ELEMENT monthContext ( alias | (default*, monthWidth*, special*)) &gt;<br>
+	&lt;!ATTLIST monthContext type ( format | stand-alone ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT monthWidth ( alias | (month*, special*)) &gt;<br>
+	&lt;!ATTLIST monthWidth type ( abbreviated| narrow | wide) #REQUIRED &gt;<br>
+	&lt;!ELEMENT month ( #PCDATA | cp )* &gt;<br>
+	&lt;!ATTLIST month type ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 ) #REQUIRED &gt;<br>
+	&lt;!ATTLIST month yeartype ( standard | leap ) #IMPLIED &gt;
+  </p>
+  <p class="dtd">
+	&lt;!ELEMENT days ( alias | (default*, dayContext*, special*)) &gt;<br>
+	&lt;!ELEMENT dayContext ( alias | (default*, dayWidth*, special*)) &gt;<br>
+	&lt;!ATTLIST dayContext type ( format | stand-alone ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT dayWidth ( alias | (day*, special*)) &gt;<br>
+	&lt;!ATTLIST dayWidth type NMTOKEN #REQUIRED &gt;<br>
+	&lt;!ELEMENT day ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED &gt;
+  </p>
+  <p class="dtd">
+	&lt;!ELEMENT quarters ( alias | (default*, quarterContext*, special*)) &gt;<br>
+	&lt;!ELEMENT quarterContext ( alias | (default*, quarterWidth*, special*)) &gt;<br>
+	&lt;!ATTLIST quarterContext type ( format | stand-alone ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT quarterWidth ( alias | (quarter*, special*)) &gt;<br>
+	&lt;!ATTLIST quarterWidth type NMTOKEN #REQUIRED &gt;<br>
+	&lt;!ELEMENT quarter ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST quarter type ( 1 | 2 | 3 | 4 ) #REQUIRED &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT eras   (alias | (eraNames?, eraAbbr?, eraNarrow?, special*)) &gt;<br>
+	&lt;!ELEMENT eraNames ( alias | (era*, special*) ) &gt;<br>
+	&lt;!ELEMENT eraAbbr ( alias | (era*, special*) ) &gt;<br>
+	&lt;!ELEMENT eraNarrow ( alias | (era*, special*) ) &gt;<br>
+  </p>
 
-<pre class="dtd">&lt;!ELEMENT calendarData ( calendar* )&gt;
-&lt;!ELEMENT calendar ( calendarSystem?, eras? )&gt;
-&lt;!ATTLIST calendar type NMTOKENS #REQUIRED&gt;
-&lt;!ATTLIST calendar territories NMTOKENS #IMPLIED &gt; &lt;!-- deprecated, replaced by calendarPreferenceData --&gt;
+  <p class="changed">The month and quarter names are identified numerically, starting at 1. The weekday names
+  are identified with short strings, since there is no universally-accepted numeric designation.</p>
 
-&lt;!ELEMENT calendarSystem EMPTY&gt;
-&lt;!ATTLIST calendarSystem type (solar | lunar | lunisolar | other) #REQUIRED&gt;
+  <p>Month, day, and quarter names may vary along two axes: the width and the context. The context is either
+  <i>format</i> (the default), the form used within a date format string (such as &quot;Saturday, November 12<sup>th</sup>&quot;,
+  or <i>stand-alone</i>, the form used independently, such as in calendar headers. The width can be
+  <i>wide</i> (the default), <i>abbreviated</i>, or <i>narrow</i>; for days only, the width can also be <i>short,</i>
+  which is ideally between the abbreviated and narrow widths, but must be no longer than abbreviated and
+  no shorter than narrow (if short day names are not explicitly specified, abbreviated day names are used instead).
+  Note that for &lt;monthPattern&gt;, described in the next section:</p>
+  <ul>
+    <li>There is an additional context type <i>numeric</i></li>
+    <li>When the context type is numeric, the width has a special type <i>all</i></li>
+  </ul>
 
-&lt;!ELEMENT eras ( era* )&gt;
+  <p>The format values must be distinct for the wide, abbreviated, and short widths.
+	However, values for the narrow width in either format or stand-alone contexts, as well as  values for other widths in stand-alone contexts, need not be distinct;
+	they might only be distinguished by context. For example, &quot;S&quot; may be used both for Saturday and for Sunday.
+	The narrow width is typically 
+	used in calendar headers; it must be the shortest possible width, no more than one character (or grapheme cluster, or exemplar set element)
+	in stand-alone values, and the shortest possible widths (in terms of grapheme clusters) in format values.
+	The short width (if present) is often the shortest unambiguous form.</p>
 
-&lt;!ELEMENT era EMPTY&gt;
-&lt;!ATTLIST era type NMTOKENS #REQUIRED&gt;
-&lt;!ATTLIST era start CDATA #IMPLIED&gt;
-&lt;!ATTLIST era end CDATA #IMPLIED&gt;</pre>
+  <p>Era names should be distinct within each of the widths, including narrow; there is less disambiguating information
+	for them, and they are more likely to be used in a format that requires parsing.</p>
+
+  <p>The most important distinction to make between format and stand-alone forms is a grammatical distinction, for languages that require it.
+	For example, many languages require that a month name without an associated day number be in the basic <i>nominative</i> form, while a month name with an associated day
+	number should be in a different grammatical form: <i>genitive</i>, <i>partitive</i>, etc. Another common type of distinction between format and stand-alone involves
+	capitalization; however, this can be controlled separately and more precisely using the &lt;contextTransforms&gt; element as described in
+	<i><a href="tr35.html#Context_Transform_Elements">ContextTransform Elements</a></i>.</p>
+
+  <p>Due to aliases in root, the forms inherit 
+    &quot;sideways&quot;. (See <i><a href="tr35.html#Multiple_Inheritance">Multiple Inheritance</a></i>.) 
+    For example, if the abbreviated format data for Gregorian does not exist in 
+    a language X (in the chain up to root), then it inherits from the wide 
+    format data in that same language X.</p>
+
+	<pre id="line369">&lt;monthContext type=&quot;format&quot;&gt;
+	&lt;default choice=&quot;wide&quot;/&gt;
+	&lt;monthWidth type=&quot;abbreviated&quot;&gt;
+		&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;
+	&lt;/monthWidth&gt;
+	&lt;monthWidth type=&quot;narrow&quot;&gt;
+		&lt;alias source=&quot;locale&quot; path=&quot;../../monthContext[@type=&#39;<b>stand-alone</b>&#39;]/monthWidth[@type=&#39;narrow&#39;]&quot;/&gt;
+	&lt;/monthWidth&gt;
+	&lt;monthWidth type=&quot;wide&quot;&gt;
+		&lt;month type=&quot;1&quot;&gt;1&lt;/month&gt;
+		...
+		&lt;month type=&quot;12&quot;&gt;12&lt;/month&gt;
+	&lt;/monthWidth&gt;
+&lt;/monthContext&gt;
+&lt;monthContext type=&quot;stand-alone&quot;&gt;
+	&lt;monthWidth type=&quot;abbreviated&quot;&gt;
+		&lt;alias source=&quot;locale&quot; path=&quot;../../monthContext[@type=&#39;<b>format</b>&#39;]/monthWidth[@type=&#39;abbreviated&#39;]&quot;/&gt;
+	&lt;/monthWidth&gt;
+	&lt;monthWidth type=&quot;narrow&quot;&gt;
+		&lt;month type=&quot;1&quot;&gt;1&lt;/month&gt;
+		...
+		&lt;month type=&quot;12&quot;&gt;12&lt;/month&gt;
+	&lt;/monthWidth&gt;
+	&lt;monthWidth type=&quot;wide&quot;&gt;
+		&lt;alias source=&quot;locale&quot; path=&quot;../../monthContext[@type=&#39;<b>format</b>&#39;]/monthWidth[@type=&#39;wide&#39;]&quot;/&gt;
+	&lt;/monthWidth&gt;
+&lt;/monthContext&gt;</pre>
+
+  <p>The older monthNames, dayNames, and monthAbbr, dayAbbr are maintained for backwards compatibility. They are equivalent to: using the months element with 
+	the context type=&quot;<span style="color: blue">format</span>&quot; and the width type=&quot;<span style="color: blue">wide</span>&quot; (for ...Names) and type=&quot;<span style="color: blue">narrow</span>&quot; 
+	(for ...Abbr), respectively. The minDays, firstDay, weekendStart, and weekendEnd elements are also deprecated; there are new elements in supplemental data for 
+	this data.</p>
+
+  <p>The yeartype attribute for months is used to distinguish alternate month names that would be displayed for certain calendars during leap years.  The practical example of this usage occurs in the Hebrew calendar, where the 7th month &quot;Adar&quot; occurs in non-leap years, with the 6th month being skipped, but in leap years there are two months named &quot;Adar I&quot; and &quot;Adar II&quot;.  There are currently only two defined year types, standard (the implied default) and leap.</p>
+
+  <p class="example">Example:</p>
+	<pre>  &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt;
+    &lt;months&gt;
+      &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
+  &nbsp;&nbsp;  &lt;monthContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
+     &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
+     &nbsp;&nbsp;  &lt;monthWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">January</span>&lt;/month&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">February</span>&lt;/month&gt;
+...
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">November</span>&lt;/month&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">December</span>&lt;/month&gt;
+    &nbsp;&nbsp;  &lt;/monthWidth&gt;
+    &nbsp;&nbsp;  &lt;monthWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Jan</span>&lt;/month&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Feb</span>&lt;/month&gt;
+...
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">Nov</span>&lt;/month&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">Dec</span>&lt;/month&gt;
+    &nbsp;&nbsp;  &lt;/monthWidth&gt;
+   &nbsp;&nbsp;  &lt;monthContext type=&quot;<span style="color: blue">stand-alone</span>&quot;&gt;
+     &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
+     &nbsp;&nbsp;  &lt;monthWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Januaria</span>&lt;/month&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Februaria</span>&lt;/month&gt;
+...
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">Novembria</span>&lt;/month&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">Decembria</span>&lt;/month&gt;
+    &nbsp;&nbsp;  &lt;/monthWidth&gt;
+    &nbsp;&nbsp;  &lt;monthWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">J</span>&lt;/month&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">F</span>&lt;/month&gt;
+...
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">N</span>&lt;/month&gt;
+        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">D</span>&lt;/month&gt;
+    &nbsp;&nbsp;  &lt;/monthWidth&gt;
+   &nbsp;&nbsp;  &lt;/monthContext&gt;
+&nbsp;&nbsp;  &lt;/months&gt;
+
+&nbsp;&nbsp;  &lt;days&gt;
+  &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
+  &nbsp;&nbsp;  &lt;dayContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
+     &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
+     &nbsp;&nbsp;  &lt;dayWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Sunday</span>&lt;/day&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">Monday</span>&lt;/day&gt;
+...
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">Friday</span>&lt;/day&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Saturday</span>&lt;/day&gt;
+    &nbsp;&nbsp;  &lt;/dayWidth&gt;
+    &nbsp;&nbsp;  &lt;dayWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Sun</span>&lt;/day&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">Mon</span>&lt;/day&gt;
+...
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">Fri</span>&lt;/day&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Sat</span>&lt;/day&gt;
+    &nbsp;&nbsp;  &lt;/dayWidth&gt;
+    &nbsp;&nbsp;  &lt;dayWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Su</span>&lt;/day&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">M</span>&lt;/day&gt;
+...
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">F</span>&lt;/day&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Sa</span>&lt;/day&gt;
+    &nbsp;&nbsp;  &lt;/dayWidth&gt;
+  &nbsp;&nbsp;  &lt;/dayContext&gt;
+  &nbsp;&nbsp;  &lt;dayContext type=&quot;<span style="color: blue">stand-alone</span>&quot;&gt;
+    &nbsp;&nbsp;  &lt;dayWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">S</span>&lt;/day&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">M</span>&lt;/day&gt;
+...
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">F</span>&lt;/day&gt;
+        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">S</span>&lt;/day&gt;
+    &nbsp;&nbsp;  &lt;/dayWidth&gt;
+  &nbsp;&nbsp;  &lt;/dayContext&gt;
+&nbsp;&nbsp;  &lt;/days&gt;
+
+&nbsp;&nbsp;  &lt;quarters&gt;
+  &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
+  &nbsp;&nbsp;  &lt;quarterContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
+     &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">abbreviated</span>&quot;/&gt;
+     &nbsp;&nbsp;  &lt;quarterWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Q1</span>&lt;/quarter&gt;
+        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Q2</span>&lt;/quarter&gt;
+        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">3</span>&quot;&gt;<span style="color: blue">Q3</span>&lt;/quarter&gt;
+        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">4</span>&quot;&gt;<span style="color: blue">Q4</span>&lt;/quarter&gt;
+    &nbsp;&nbsp;  &lt;/quarterWidth&gt;
+    &nbsp;&nbsp;  &lt;quarterWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
+        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">1st quarter</span>&lt;/quarter&gt;
+        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">2nd quarter</span>&lt;/quarter&gt;
+        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">3</span>&quot;&gt;<span style="color: blue">3rd quarter</span>&lt;/quarter&gt;
+        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">4</span>&quot;&gt;<span style="color: blue">4th quarter</span>&lt;/quarter&gt;
+    &nbsp;&nbsp;  &lt;/quarterWidth&gt;
+  &nbsp;&nbsp;  &lt;/quarterContext&gt;
+&nbsp;&nbsp;  &lt;/quarters&gt;
+
+    <s>&lt;am&gt;<span style="color: blue">AM</span>&lt;/am&gt; deprecated
+    &lt;pm&gt;<span style="color: blue">PM</span>&lt;/pm&gt; deprecated
+</s>
+    &lt;eras&gt;
+       &lt;eraAbbr&gt;
+        &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">BC</span>&lt;/era&gt;
+        &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">AD</span>&lt;/era&gt;
+       &lt;/eraAbbr&gt;
+       &lt;eraNames&gt;
+        &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">Before Christ</span>&lt;/era&gt;
+        &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Anno Domini</span>&lt;/era&gt;
+       &lt;/eraNames&gt;
+       &lt;eraNarrow&gt;
+        &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">B</span>&lt;/era&gt;
+        &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">A</span>&lt;/era&gt;
+       &lt;/eraNarrow&gt;
+    &lt;/eras&gt;
+</pre>
+
+<h3>2.2 <a name="monthPatterns_cyclicNameSets" href="#monthPatterns_cyclicNameSets">&lt;monthPatterns&gt;, &lt;cyclicNameSets&gt;</a></h3>
+
+  <p class="dtd">
+    &lt;!ELEMENT monthPatterns ( alias | (monthPatternContext*, special*)) &gt;<br>
+	&lt;!ELEMENT monthPatternContext ( alias | (monthPatternWidth*, special*)) &gt;<br>
+	&lt;!ATTLIST monthPatternContext type ( format | stand-alone | numeric ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT monthPatternWidth ( alias | (monthPattern*, special*)) &gt;<br>
+	&lt;!ATTLIST monthPatternWidth type ( abbreviated| narrow | wide | all ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT monthPattern ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST monthPattern type ( leap | standardAfterLeap | combined ) #REQUIRED &gt;<br>
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT cyclicNameSets ( alias | (cyclicNameSet*, special*)) &gt;<br>
+	&lt;!ELEMENT cyclicNameSet ( alias | (cyclicNameContext*, special*)) &gt;<br>
+	&lt;!ATTLIST cyclicNameSet type ( years | months | days | dayParts | zodiacs ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT cyclicNameContext ( alias | (cyclicNameWidth*, special*)) &gt;<br>
+	&lt;!ATTLIST cyclicNameContext type ( format | stand-alone ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT cyclicNameWidth ( alias | (cyclicName*, special*)) &gt;<br>
+	&lt;!ATTLIST cyclicNameWidth type ( abbreviated | narrow | wide ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT cyclicName ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST cyclicName type NMTOKEN #REQUIRED &gt;<br>
+  </p>
+
+  <p>The Chinese lunar calendar can insert a leap month after nearly any month of its year;
+	when this happens, the month takes the name of the preceding month plus a special marker. The Hindu lunar calendars
+	can insert a leap month before any one or two months of the year; when this happens, not only does the leap month
+	take the name of the following month plus a special marker, the following month also takes a special marker.
+	Moreover, in the Hindu calendar sometimes a month is skipped, in which case the preceding month takes a special
+	marker plus the names of both months. The &lt;monthPatterns&gt; element structure supports these special kinds
+	of month names. It parallels the &lt;months&gt; element structure, with various contexts and widths, but with
+	some differences:</p>
+  <ul>
+	<li>Since the month markers may be applied to numeric months as well, there is an additional
+	monthPatternContext type "numeric" for this case. When the numeric context is used, there is no need for different
+	widths, so the monthPatternWidth type is "all" for this case.</li>
+	<li>The monthPattern element itself is a pattern showing how to create the modified month name
+	from the standard month name(s). The three types of possible pattern are for "leap", "standardAfterLeap", and
+	"combined".</li>
+	<li>The &lt;monthPatterns&gt; element is not present for calendars that do not need it.</li>
+  </ul>
+
+  <p>The Chinese and Hindu lunar calendars also use a 60-name cycle for designating years. The Chinese
+	lunar calendars can also use that cycle for months and days, and can use 12-name cycles for designating day subdivisions or
+	zodiac names associated with years. The &lt;cyclicNameSets&gt; element structure supports these special kinds
+	of name cycles; a cyclicNameSet can be provided for types "year", "month", "day", "dayParts", or "zodiacs". For each
+	cyclicNameSet, there is a context and width structure similar to that for day names. For a given context and width, a set
+	of cyclicName elements provides the actual names.</p>
+  <p>Example:</p>
+<pre>
+    &lt;monthPatterns&gt;
+        &lt;monthPatternContext type="format"&gt;
+            &lt;monthPatternWidth type="wide"&gt;
+                &lt;monthPattern type="leap"&gt;闰{0}&lt;/monthPattern&gt;
+            &lt;/monthPatternWidth&gt;
+        &lt;/monthPatternContext&gt;
+        &lt;monthPatternContext type="stand-alone"&gt;
+            &lt;monthPatternWidth type="narrow"&gt;
+                &lt;monthPattern type="leap"&gt;闰{0}&lt;/monthPattern&gt;
+            &lt;/monthPatternWidth&gt;
+        &lt;/monthPatternContext&gt;
+        &lt;monthPatternContext type="numeric"&gt;
+            &lt;monthPatternWidth type="all"&gt;
+                &lt;monthPattern type="leap"&gt;闰{0}&lt;/monthPattern&gt;
+            &lt;/monthPatternWidth&gt;
+        &lt;/monthPatternContext&gt;
+    &lt;/monthPatterns&gt;
+    &lt;cyclicNameSets&gt;
+        &lt;cyclicNameSet type="years"&gt;
+            &lt;cyclicNameContext type="format"&gt;
+                &lt;cyclicNameWidth type="abbreviated"&gt;
+                    &lt;cyclicName type="1"&gt;甲子&lt;/cyclicName&gt;
+                    &lt;cyclicName type="2"&gt;乙丑&lt;/cyclicName&gt;
+                    ...
+                    &lt;cyclicName type="59"&gt;壬戌&lt;/cyclicName&gt;
+                    &lt;cyclicName type="60"&gt;癸亥&lt;/cyclicName&gt;
+                &lt;/cyclicNameWidth&gt;
+            &lt;/cyclicNameContext&gt;
+        &lt;/cyclicNameSet&gt;
+        &lt;cyclicNameSet type="zodiacs"&gt;
+            &lt;cyclicNameContext type="format"&gt;
+                &lt;cyclicNameWidth type="abbreviated"&gt;
+                    &lt;cyclicName type="1"&gt;鼠&lt;/cyclicName&gt;
+                    &lt;cyclicName type="2"&gt;牛&lt;/cyclicName&gt;
+                    ...
+                    &lt;cyclicName type="11"&gt;狗&lt;/cyclicName&gt;
+                    &lt;cyclicName type="12"&gt;猪&lt;/cyclicName&gt;
+                &lt;/cyclicNameWidth&gt;
+            &lt;/cyclicNameContext&gt;
+        &lt;/cyclicNameSet&gt;
+    &lt;/cyclicNameSets&gt;
+</pre>
+
+<h3>2.3 <a name="dayPeriods" href="#dayPeriods">&lt;dayPeriods&gt;</a></h3>
+
+  <p>The former am/pm elements have been deprecated, and replaced by the more flexible dayPeriods. </p>
+
+  <p class="dtd">
+    &lt;!ELEMENT dayPeriods ( alias | (dayPeriodContext*) ) &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT dayPeriodContext (alias | dayPeriodWidth*) &gt;<br>
+    &lt;!ATTLIST dayPeriodContext type NMTOKEN #REQUIRED &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT dayPeriodWidth (alias | dayPeriod*) &gt;<br>
+    &lt;!ATTLIST dayPeriodWidth type NMTOKEN #REQUIRED &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT dayPeriod ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST dayPeriod type NMTOKEN #REQUIRED &gt;
+  </p>
+
+  <p>These behave like months, days, and so on in terms of having context and width. Each locale has an associated
+  dayPeriodRuleSet in the supplemental data, rules that specify when the day periods start and end for that locale.
+  Each type in the rules needs to have a translation in a <span class="element">dayPeriod</span>. For more information,
+  see <em><a href="#Day_Period_Rules">Day Period Rules</a></em>.</p>
+
+  <p>The dayPeriod names should be distinct within each of the context/width combinations, including narrow;
+  as with era names, there is less disambiguating information for them, and they are more likely to be used in a format that requires
+  parsing. In some unambiguous cases, it is acceptable for certain overlapping dayPeriods to be the same, such as the names for "am"
+  and "morning", or the names for "pm" and "afternoon".</p>
+
+  <p class="example">Example:</p>
+<pre>
+    &lt;dayPeriods&gt;
+      &lt;dayPeriodContext type=&quot;format&quot;&gt;
+        &lt;dayPeriodWidth type=&quot;wide&quot;&gt;
+          &lt;dayPeriod type=&quot;am&quot;&gt;AM&lt;/dayPeriod&gt;
+          &lt;dayPeriod type=&quot;noon&quot;&gt;noon&lt;/dayPeriod&gt;
+          &lt;dayPeriod type=&quot;pm&quot;&gt;PM&lt;/dayPeriod&gt;
+        &lt;/dayPeriodWidth&gt;
+      &lt;/dayPeriodContext&gt;
+    &lt;/dayPeriods&gt;
+</pre>
+
+<h3>2.4 <a name="dateFormats" href="#dateFormats">&lt;dateFormats&gt;</a></h3>
+
+  <p class="dtd">
+	&lt;!ELEMENT dateFormats (alias | (default*, dateFormatLength*, special*)) &gt;<br>
+	&lt;!ELEMENT dateFormatLength (alias | (default*, dateFormat*, special*)) &gt;<br>
+	&lt;!ATTLIST dateFormatLength type ( full | long | medium | short ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT dateFormat (alias | (pattern*, displayName*, special*)) &gt;
+  </p>
+
+  <p>Date formats have the following form:</p>
+	<pre>    &lt;dateFormats&gt;
+      &lt;default type=”<span style="color: blue">medium</span>”/&gt;
+      &lt;dateFormatLength type=”<span style="color: blue">full</span>”&gt;
+        &lt;dateFormat&gt;
+          &lt;pattern&gt;<span style="color: blue">EEEE, MMMM d, yyyy</span>&lt;/pattern&gt;
+        &lt;/dateFormat&gt;
+       &lt;/dateFormatLength&gt;
+     &lt;dateFormatLength type=&quot;<span style="color: blue">medium</span>&quot;&gt;
+       &lt;default type=&quot;<span style="color: blue">DateFormatsKey2</span>&quot;&gt;
+       &lt;dateFormat type=&quot;<span style="color: blue">DateFormatsKey2</span>&quot;&gt;
+        &lt;pattern&gt;<span style="color: blue">MMM d, yyyy</span>&lt;/pattern&gt;
+       &lt;/dateFormat&gt;
+       &lt;dateFormat type=&quot;<span style="color: blue">DateFormatsKey3</span>&quot;&gt;
+         &lt;pattern&gt;<span style="color: blue">MMM dd, yyyy</span>&lt;/pattern&gt;
+        &lt;/dateFormat&gt;
+      &lt;/dateFormatLength&gt;
+    &lt;dateFormats&gt;</pre>
+	<p>The patterns for date formats and time formats are 
+	defined in <i><a href="#Date_Format_Patterns">Date Format Patterns</a>.</i> These patterns are intended primarily for display of isolated date and
+    time strings in user-interface elements, rather than for date and time strings in the middle of
+    running text, so capitalization and grammatical form should be chosen appropriately.</p>
+
+<h3>2.5 <a name="timeFormats" href="#timeFormats">&lt;timeFormats&gt;</a></h3>
+
+  <p class="dtd">
+	&lt;!ELEMENT timeFormats (alias | (default*, timeFormatLength*, special*)) &gt;<br>
+	&lt;!ELEMENT timeFormatLength (alias | (default*, timeFormat*, special*)) &gt;<br>
+	&lt;!ATTLIST timeFormatLength type ( full | long | medium | short ) #REQUIRED &gt;<br>
+	&lt;!ELEMENT timeFormat (alias | (pattern*, displayName*, special*)) &gt;
+  </p>
+
+  <p>Time formats have the following form:</p>
+	<pre>     &lt;timeFormats&gt;
+       &lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;
+       &lt;timeFormatLength type=”<span style="color: blue">full</span>”&gt;
+         &lt;timeFormat&gt;
+           &lt;displayName&gt;<span style="color: blue">DIN 5008 (EN 28601)</span>&lt;/displayName&gt;
+           &lt;pattern&gt;<span style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt;
+         &lt;/timeFormat&gt;
+       &lt;/timeFormatLength&gt;
+       &lt;timeFormatLength type=&quot;<span style="color: blue">medium</span>&quot;&gt;
+         &lt;timeFormat&gt;
+           &lt;pattern&gt;<span style="color: blue">h:mm:ss a</span>&lt;/pattern&gt;
+         &lt;/timeFormat&gt;
+       &lt;/timeFormatLength&gt;
+     &lt;/timeFormats&gt;</pre>
+
+  <p>The preference of 12 hour versus 24 hour for the locale should be derived from the short timeFormat.
+  If the hour symbol is &quot;h&quot; or &quot;K&quot; (of various lengths) then the format is 12 hour;
+  otherwise it is 24 hour.</p>
+
+  <p>Time formats use the specific non-location format (z or zzzz) for the time zone name. This is the format
+  that should be used when formatting a specific time for presentation. When formatting a time referring to a
+  recurring time (such as a meeting in a calendar), applications should substitute the generic non-location
+  format (v or vvvv) for the time zone in the time format pattern.
+  See <i><a href="tr35.html#Time_Zone_Fallback">Time Zone Display Names</a>.</i> for a complete description of
+  available time zone formats and their uses.</p>
+
+<h3>2.6 <a name="dateTimeFormats" href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a></h3>
+
+  <p>Date/Time formats have the following form:</p>
+	<pre>     &lt;dateTimeFormats&gt;
+       &lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;
+       &lt;dateTimeFormatLength type=”<span style="color: blue">full</span>”&gt;
+         &lt;dateTimeFormat&gt;
+            &lt;pattern&gt;<span style="color: blue">{0} {1}</span>&lt;/pattern&gt;
+         &lt;/dateTimeFormat&gt;
+       &lt;/dateTimeFormatLength&gt;
+       &lt;availableFormats&gt;
+         &lt;dateFormatItem id=&quot;Hm&quot;&gt;<span style="color: blue">HH:mm</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;Hms&quot;&gt;<span style="color: blue">HH:mm:ss</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;M&quot;&gt;<span style="color: blue">L</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;MEd&quot;&gt;<span style="color: blue">E, M/d</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;MMM&quot;&gt;<span style="color: blue">LLL</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;MMMEd&quot;&gt;<span style="color: blue">E, MMM d</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;MMMMEd&quot;&gt;<span style="color: blue">E, MMMM d</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;MMMMd&quot;&gt;<span style="color: blue">MMMM d</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;MMMd&quot;&gt;<span style="color: blue">MMM d</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;Md&quot;&gt;<span style="color: blue">M/d</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;d&quot;&gt;<span style="color: blue">d</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;hm&quot;&gt;<span style="color: blue">h:mm a</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;ms&quot;&gt;<span style="color: blue">mm:ss</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;y&quot;&gt;<span style="color: blue">yyyy</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;yM&quot;&gt;<span style="color: blue">M/yyyy</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;yMEd&quot;&gt;<span style="color: blue">EEE, M/d/yyyy</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;yMMM&quot;&gt;<span style="color: blue">MMM yyyy</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;yMMMEd&quot;&gt;<span style="color: blue">EEE, MMM d, yyyy</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;yMMMM&quot;&gt;<span style="color: blue">MMMM yyyy</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;yQ&quot;&gt;<span style="color: blue">Q yyyy</span>&lt;/dateFormatItem&gt; 
+         &lt;dateFormatItem id=&quot;yQQQ&quot;&gt;<span style="color: blue">QQQ yyyy</span>&lt;/dateFormatItem&gt; 
+         . . .
+       &lt;/availableFormats&gt;
+       &lt;appendItems&gt;
+         &lt;appendItem request=&quot;<span style="color: blue">G</span>&quot;&gt;<span style="color: blue">{0} {1}</span>&lt;/appendItem&gt;
+         &lt;appendItem request=&quot;<span style="color: blue">w</span>&quot;&gt;<span style="color: blue">{0} ({2}: {1})</span>&lt;/appendItem&gt;
+         . . .
+       &lt;/appendItems&gt;
+     &lt;/dateTimeFormats&gt;</pre>
+	<pre>  &lt;/calendar&gt;
+
+  &lt;calendar type=&quot;<span style="color: blue">buddhist</span>&quot;&gt;
+    &lt;eras&gt;
+      &lt;eraAbbr&gt;
+        &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">BE</span>&lt;/era&gt;
+      &lt;/eraAbbr&gt;
+    &lt;/eras&gt;
+  &lt;/calendar&gt;</pre>
+
+  <p>These formats allow for date and time formats to be composed in various ways.</p>
+
+  <p class="dtd">
+	&lt;!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special*)) &gt;<br>
+	&lt;!ELEMENT dateTimeFormatLength (alias | (default*, dateTimeFormat*, special*))&gt;<br>
+	&lt;!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED &gt;<br>
+	&lt;!ELEMENT dateTimeFormat (alias | (pattern*, displayName*, special*))&gt;
+  </p>
+
+  <p>The dateTimeFormat element works like the dateFormats and timeFormats, except that the pattern is of the
+  form &quot;{1} {0}&quot;, where {0} is replaced by the time format, and {1} is replaced by the date format,
+  with results such as &quot;8/27/06 7:31 AM&quot;. Except for the substitution markers {0} and {1}, text in
+  the dateTimeFormat is interpreted as part of a date/time pattern, and is subject to the same rules described
+  in <a href="#Date_Format_Patterns">Date Format Patterns</a>. This includes the need to enclose ASCII letters
+  in single quotes if they are intended to represent literal text.</p>
+
+  <p class="dtd">
+	&lt;!ELEMENT availableFormats (alias | (dateFormatItem*, special*))&gt;<br>
+	&lt;!ELEMENT dateFormatItem ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST dateFormatItem id CDATA #REQUIRED &gt;
+  </p>
+
+  <p>The availableFormats element and its subelements provide a more flexible formatting mechanism than the
+  predefined list of patterns represented by dateFormatLength, timeFormatLength, and dateTimeFormatLength.
+  Instead, there is an open-ended list of patterns (represented by dateFormatItem elements as well as the
+  predefined patterns mentioned above) that can be matched against a requested set of calendar fields and
+  field lengths. Software can look through the list and find the pattern that best matches the original request,
+  based on the desired calendar fields and lengths. For example, the full month and year may be needed for a
+  calendar application; the request is MMMMyyyy, but the best match may be &quot;yyyy MMMM&quot; or even
+  &quot;G yy MMMM&quot;, depending on the locale and calendar.</p>
+
+  <p>For some calendars, such as Japanese, a displayed year must have an associated era, so for these calendars
+  dateFormatItem patterns with a year field should also include an era field. When matching availableFormats
+  patterns: If a client requests a format string containing a year, and all the availableFormats patterns with
+  a year also contain an era, then include the era as part of the result.</p>
+
+  <p>The id attribute is a so-called &quot;skeleton&quot;, containing only field information, and in a canonical
+  order. Examples are &quot;yyyyMMMM&quot; for year + full month, or &quot;MMMd&quot; for abbreviated month + day.
+  In particular:</p>
+  <ul>
+      <li>The fields are from the
+      <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a> in <i>
+      <a href="#Date_Format_Patterns">Date Format Patterns</a></i>.</li>
+      <li>The canonical order is from top to bottom in that table; that is, &quot;yM&quot; not &quot;My&quot;.</li>
+      <li>Only one field of each type is allowed; that is &quot;Hh&quot; is not valid.</li>
+      <li>The &#39;a&#39; field is not allowed in the skeleton.</li>
+  </ul>
+
+  <p>In order to support user overrides of default locale behavior, data should be supplied for both 12-hour-cycle
+  time formats (using h or K) and 24-hour-cycle time formats (using H or k), even if one of those styles is not
+  commonly used; the locale's actual preference for 12-hour or 24-hour time cycle is determined from the hour character
+  used in the locale's standard short time format. Thus skeletons using h or K should have patterns that only use
+  h or K for hours, while skeletons using H or k should have patterns that only use H or k for hours.</p>
+
+  <p class="dtd">
+	&lt;!ELEMENT appendItems (alias | (appendItem*, special*))&gt;<br>
+	&lt;!ELEMENT appendItem ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST appendItem request CDATA &gt;
+  </p>
+
+  <p>In case the best match does not include all the requested calendar fields, the appendItems element describes how
+  to append needed fields to one of the existing formats. Each appendItem element covers a single calendar field.
+  In the pattern, {0} represents the format string, {1} the data content of the field, and {2} the display name of
+  the field (see <a href="#Calendar_Fields">Calendar Fields</a>).</p>
+
+  <p class="dtd">
+    &lt;!ELEMENT intervalFormats (alias | (intervalFormatFallback*, intervalFormatItem*, special*)) &gt;<br>
+    <br>
+    &lt;!ELEMENT intervalFormatFallback ( #PCDATA ) &gt;<br>
+    <br>
+    &lt;!ELEMENT intervalFormatItem (alias | (greatestDifference*, special*)) &gt;<br>
+    &lt;!ATTLIST intervalFormatItem id NMTOKEN #REQUIRED &gt;<br>
+    <br>
+    &lt;!ELEMENT greatestDifference ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST greatestDifference id NMTOKEN #REQUIRED &gt;
+  </p>
+
+  <p>Interval formats allow for software to format intervals like &quot;Jan 10-12, 2008&quot; as a shorter
+  and more natural format than &quot;Jan 10, 2008 - Jan 12, 2008&quot;. They are designed to take a
+  &quot;skeleton&quot; pattern (like the one used in availableFormats) plus start and end datetime, 
+  and use that information to produce a localized format.</p>
+
+  <p>The data supplied in CLDR requires the software to determine the calendar field with the greatest
+  difference before using the format pattern. For example, the greatest difference in
+  &quot;Jan 10-12, 2008&quot; is the day field, while the greatest difference in
+  &quot;Jan 10 - Feb 12, 2008&quot; is the month field. This is used to pick the exact pattern.
+  The pattern is then designed to be broken up into two pieces by determining the first repeating field.
+  For example, &quot;MMM d-d, y&quot; would be broken up into &quot;MMM d-&quot; and &quot;d, y&quot;.
+  The two parts are formatted with the first and second datetime, as described in more detail below.</p>
+
+  <p>In case there is no matching pattern, the intervalFormatFallback defines the fallback pattern.
+  The fallback pattern is of the form &quot;{0} - {1}&quot; or &quot;{1} - {0}&quot;, where {0} is
+  replaced by the start datetime, and {1} is replaced by the end datetime. The fallback pattern determines
+  the default order of the interval pattern. &quot;{0} - {1}&quot; means the first part of the interval
+  patterns in current local are formatted with the start datetime, while &quot;{1} - {0}&quot; means the
+  first part of the interval patterns in current locale are formatted with the end datetime.</p>
+
+  <p>The id attribute of intervalFormatItem is the &quot;skeleton&quot; pattern (like the one used in
+  availableFormats) on which the format pattern is based. The id attribute of greatestDifference is the
+  calendar field letter, for example &#39;M&#39;, which is the greatest difference between start and end
+  datetime.</p>
+
+  <p>The greatest difference defines a specific interval pattern of start and end datetime on a
+  &quot;skeleton&quot; and a greatestDifference. As stated above, the interval pattern is designed to be
+  broken up into two pieces. Each piece is similar to the pattern defined in date format. Also, each
+  interval pattern could override the default order defined in fallback pattern. If an interval pattern
+  starts with &quot;latestFirst:&quot;, the first part of this particular interval pattern is formatted
+  with the end datetime. If an interval pattern starts with &quot;earliestFirst:&quot;, the first part
+  of this particular interval pattern is formatted with the start datetime. Otherwise, the order is the 
+  same as the order defined in intervalFormatFallback.</p>
+
+  <p> For example, the English rules that produce &quot;Jan 10–12, 2008&quot;, &quot;Jan 10 – Feb 12, 2008&quot;,
+  and &quot;Jan 10, 2008 – Feb. 12, 2009&quot; are as follows:</p>
+
+  <p class="example">&lt;intervalFormatItem id=&quot;yMMMd&quot;&gt;<br>
+&nbsp; &lt;greatestDifference id=&quot;M&quot;&gt;MMM d – MMM d, yyyy&lt;/greatestDifference&gt;<br>
+&nbsp; &lt;greatestDifference id=&quot;d&quot;&gt;MMM d–d, yyyy&lt;/greatestDifference&gt;<br>
+&nbsp; &lt;greatestDifference id=&quot;y&quot;&gt;MMM d, yyyy – MMM d, yyyy&lt;/greatestDifference&gt;<br>
+    &lt;/intervalFormatItem&gt;</p>
+
+  <p>To format a start and end datetime, given a particular &quot;skeleton&quot;:</p>
+  <ol>
+      <li>Look for the intervalFormatItem element that 
+      matches the &quot;skeleton&quot;, starting in the current locale and then following 
+      the locale fallback chain up to, but not including root (better results are obtained by following steps 2-6 below
+      with locale- or language- specific data than by using matching intervalFormats from root).</li>
+      <li>If no match was found from the previous 
+      step, check what the closest match is in the fallback locale chain, as in availableFormats. That is, this allows for adjusting the string value 
+      field&#39;s width, including adjusting between &quot;MMM&quot; and &quot;MMMM&quot;, and using 
+      different variants of the same field, such as &#39;v&#39; and &#39;z&#39;.</li>
+      <li>If a match is found from previous steps, 
+      compute the calendar field with the greatest difference between start and 
+      end datetime. If there is no difference among any of the fields in the 
+      pattern, format as a single date using availableFormats, and return.</li>
+      <li>Otherwise, look for greatestDifference 
+      element that matches this particular greatest difference.</li>
+      <li>If there is a match, use the pieces of the 
+      corresponding pattern to format the start and end datetime, as above.</li>
+      <li>Otherwise, format the start and end datetime 
+      using the fallback pattern.</li>
+  </ol>
+
+  <p><a name="week" href="#week">&lt;week&gt;</a></p>
+  <p class="dtd">
+    &lt;!ELEMENT week (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, special*))&gt;
+  </p>
+  <p class="note">The week element is deprecated in the main LDML files, because the data is more appropriately
+  organized as connected to territories, not to linguistic data. Instead, the similar element in the supplemental
+  data file should be used.</p>
+
+  <p>
+    <span class="dtd">&lt;!ELEMENT dateRangePattern ( #PCDATA ) &gt;</span> (deprecated)
+  </p>
+  <p>The dateRangePattern allows the specification of a date range, such as &quot;May 7 - Aug. 3&quot;. For example,
+  here is the format for English:</p>
+  <pre>&lt;dateRangePattern&gt;{0} - {1}&lt;/dateRangePattern&gt;</pre>
+  <p>The dateRangePattern element is deprecated, use intervalFormats instead.</p>
+
+<h2>3 <a name="Calendar_Fields" href="#Calendar_Fields">Calendar Fields</a></h2>
+
+  <p class="dtd">
+    &lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
+	&lt;!ELEMENT field ( alias | (displayName?, relative*, special*)) &gt;
+  </p>
+
+ <p>Translations may be supplied for names of calendar fields (elements of a calendar, such as Day, Month,
+	Year, Hour, and so on), and for relative values for those fields (for example, the day with
+	relative value -1 is &quot;Yesterday&quot;). Where there is not a convenient, customary word or phrase
+	in a particular language for a relative value, it should be omitted.</p>
+
+  <p>Here are examples for English and German. Notice that the German has more fields than the English does.</p>
+  <pre><span class="removed">&lt;calendar&gt;
+</span>  &lt;fields&gt;
+   ...
+   &lt;field type=&#39;day&#39;&gt;
+    &lt;displayName&gt;Day&lt;/displayName&gt;
+    &lt;relative type=&#39;-1&#39;&gt;Yesterday&lt;/relative&gt;
+    &lt;relative type=&#39;0&#39;&gt;Today&lt;/relative&gt;
+    &lt;relative type=&#39;1&#39;&gt;Tomorrow&lt;/relative&gt;
+   &lt;/field&gt;
+   ...
+  &lt;/fields&gt;
+<span class="removed">&lt;/calendars&gt;</span></pre>
+	<pre><span class="removed">&lt;calendar&gt;
+</span>  &lt;fields&gt;
+   ...
+   &lt;field type=&#39;day&#39;&gt;
+    &lt;displayName&gt;Tag&lt;/displayName&gt;
+    &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;
+    &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;
+    &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;
+    &lt;relative type=&#39;1&#39;&gt;Morgen&lt;/relative&gt;
+    &lt;relative type=&#39;2&#39;&gt;Übermorgen&lt;/relative&gt;
+   &lt;/field&gt;
+   ...
+  &lt;/fields&gt;
+<span class="removed">&lt;/calendars&gt;</span></pre>
+
+<h2 class="changed">4 <a name="Supplemental_Calendar_Data" href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a></h2>
+
+<h3>4.1 <a name="Calendar_Data" href="#Calendar_Data">Calendar Data</a></h3>
+
+  <p class="dtd">
+    &lt;!ELEMENT calendarData ( calendar* )&gt;<br>
+    &lt;!ELEMENT calendar ( calendarSystem?, eras? )&gt;<br>
+    &lt;!ATTLIST calendar type NMTOKENS #REQUIRED&gt;<br>
+    &lt;!ATTLIST calendar territories NMTOKENS #IMPLIED &gt; &lt;!-- deprecated, replaced by calendarPreferenceData --&gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT calendarSystem EMPTY&gt;<br>
+    &lt;!ATTLIST calendarSystem type (solar | lunar | lunisolar | other) #REQUIRED&gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT eras ( era* )&gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT era EMPTY&gt;<br>
+    &lt;!ATTLIST era type NMTOKENS #REQUIRED&gt;<br>
+    &lt;!ATTLIST era start CDATA #IMPLIED&gt;<br>
+    &lt;!ATTLIST era end CDATA #IMPLIED&gt;
+  </p>
 
   <p>The &lt;calendarData&gt; <span class="changed">element now</span> provides <span class="changed">only</span> locale-independent data
   about calendar <span class="changed">behaviors via its &lt;calendar&gt; subelements, which for each calendar can specify the astronomical
@@ -229,12 +962,14 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   calendar preference by territory, but this is now given by the <i><a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>
   below.</span></p>
 
-<h3>3.2 <a name="Calendar_Preference_Data" href="#Calendar_Preference_Data">Calendar Preference Data</a></h3>
+<h3>4.2 <a name="Calendar_Preference_Data" href="#Calendar_Preference_Data">Calendar Preference Data</a></h3>
 
-  <p class="dtd">&lt;!ELEMENT calendarPreferenceData ( calendarPreference* ) &gt;<br>
-  &lt;!ELEMENT calendarPreference EMPTY &gt;<br>
-  &lt;!ATTLIST calendarPreference territories NMTOKENS #REQUIRED &gt;<br>
-  &lt;!ATTLIST calendarPreference ordering NMTOKENS #REQUIRED &gt;<br></p>
+  <p class="dtd">
+    &lt;!ELEMENT calendarPreferenceData ( calendarPreference* ) &gt;<br>
+    &lt;!ELEMENT calendarPreference EMPTY &gt;<br>
+    &lt;!ATTLIST calendarPreference territories NMTOKENS #REQUIRED &gt;<br>
+    &lt;!ATTLIST calendarPreference ordering NMTOKENS #REQUIRED &gt;
+  </p>
 
   <p>The calendarPreference element provides a list of commonly used calendar types in a territory.
   The ordering attribute indicates the list of calendar types in preferred order. The first calendar
@@ -255,25 +990,27 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <p><span class="changed">The calendars in common use for a locale should typically</span> be shown in UIs that provide
   a choice of calendars. (An &#39;Other...&#39; button could give access to the other available calendars.)</p>
 
-<h3 class="changed">3.3 <a name="Week_Data" href="#Week_Data">Week Data</a></h3>
+<h3 class="changed">4.3 <a name="Week_Data" href="#Week_Data">Week Data</a></h3>
 
-<pre class="dtd">&lt;!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd* )&gt;
-
-&lt;!ELEMENT minDays EMPTY&gt;
-&lt;!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED&gt;
-&lt;!ATTLIST minDays territories NMTOKENS #REQUIRED&gt;
-
-&lt;!ELEMENT firstDay EMPTY &gt;
-&lt;!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;
-&lt;!ATTLIST firstDay territories NMTOKENS #REQUIRED&gt;
-
-&lt;!ELEMENT weekendStart EMPTY&gt;
-&lt;!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;
-&lt;!ATTLIST weekendStart territories NMTOKENS #REQUIRED&gt;
-
-&lt;!ELEMENT weekendEnd EMPTY&gt;
-&lt;!ATTLIST weekendEnd day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;
-&lt;!ATTLIST weekendEnd territories NMTOKENS #REQUIRED&gt;</pre>
+  <p class="dtd">
+    &lt;!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd* )&gt;<br>
+    <br>
+    &lt;!ELEMENT minDays EMPTY&gt;<br>
+    &lt;!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED&gt;<br>
+    &lt;!ATTLIST minDays territories NMTOKENS #REQUIRED&gt;<br>
+    <br>
+    &lt;!ELEMENT firstDay EMPTY &gt;<br>
+    &lt;!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;<br>
+    &lt;!ATTLIST firstDay territories NMTOKENS #REQUIRED&gt;<br>
+    <br>
+    &lt;!ELEMENT weekendStart EMPTY&gt;<br>
+    &lt;!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;<br>
+    &lt;!ATTLIST weekendStart territories NMTOKENS #REQUIRED&gt;<br>
+    <br>
+    &lt;!ELEMENT weekendEnd EMPTY&gt;<br>
+    &lt;!ATTLIST weekendEnd day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;<br>
+    &lt;!ATTLIST weekendEnd territories NMTOKENS #REQUIRED&gt;
+  </p>
 
   <p><span class="changed">These values provide territory-specific information needed for week-of-year and week-of-month
   calculations, as well as information on conventions for first day of the week and for weekends. In each case, </span>
@@ -308,23 +1045,29 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   to &quot;sat&quot;, and weekendEnd day defaults to &quot;sun&quot;. For more information, see
   <i><a href="tr35.html#Date_Ranges">Dates and Date Ranges</a></i>.</p>
 
-<h3 class="changed">3.4 <a name="Time_Data" href="#Time_Data">Time Data</a></h3>
+<h3 class="changed">4.4 <a name="Time_Data" href="#Time_Data">Time Data</a></h3>
   <p class="changed">TBD</p>
 
-<h3 class="changed">3.5 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day Period Rules</a></h3>
+<h3 class="changed">4.5 <a name="Day_Period_Rules" href="#Day_Period_Rules">Day Period Rules</a></h3>
 
-  <p class="dtd">&lt;!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) &gt;</p>
+  <p class="dtd">
+    &lt;!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) &gt;
+  </p>
 
-  <p class="dtd">&lt;!ELEMENT dayPeriodRules (dayPeriodRule*) &gt;<br>
-    &lt;!ATTLIST dayPeriodRules locales NMTOKENS #REQUIRED &gt;</p>
+  <p class="dtd">
+    &lt;!ELEMENT dayPeriodRules (dayPeriodRule*) &gt;<br>
+    &lt;!ATTLIST dayPeriodRules locales NMTOKENS #REQUIRED &gt;
+  </p>
 
-  <p class="dtd">&lt;!ELEMENT dayPeriodRule EMPTY &gt;<br>
+  <p class="dtd">
+    &lt;!ELEMENT dayPeriodRule EMPTY &gt;<br>
     &lt;!ATTLIST dayPeriodRule type NMTOKEN #REQUIRED &gt;<br>
     &lt;!ATTLIST dayPeriodRule at NMTOKEN #IMPLIED &gt;<br>
     &lt;!ATTLIST dayPeriodRule after NMTOKEN #IMPLIED &gt;<br>
     &lt;!ATTLIST dayPeriodRule from NMTOKEN #IMPLIED &gt;<br>
     &lt;!ATTLIST dayPeriodRule before NMTOKEN #IMPLIED &gt;<br>
-    &lt;!ATTLIST dayPeriodRule to NMTOKEN #IMPLIED &gt;</p>
+    &lt;!ATTLIST dayPeriodRule to NMTOKEN #IMPLIED &gt;
+  </p>
 
   <p>Each locale should have a set of day period rules, which determine the periods during a day if used with
   a 12 hour format. If locales are not defined in dayPeriods.xml, dayPeriods fallback to AM/PM. Here are the
@@ -369,25 +1112,25 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     the dayperiod is computed, so that the correct format is shown.</li>
     </ol>
 
-<h2>4 <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone Names</a></h2>
+<h2>5 <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone Names</a></h2>
   <p class="changed">TBD</p>
 
-<h2>5 <a name="Supplemental_Time_Zone_Data" href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a></h2>
+<h2>6 <a name="Supplemental_Time_Zone_Data" href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a></h2>
   <p class="changed">TBD</p>
 
-<h3>5.1 <a name="Metazones" href="#Metazones">Metazones</a></h3>
+<h3>6.1 <a name="Metazones" href="#Metazones">Metazones</a></h3>
   <p class="changed">TBD</p>
 
-<h3>5.2 <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a></h3>
+<h3>6.2 <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a></h3>
   <p class="changed">TBD</p>
 
-<h3>5.3 <a name="Windows_Zones" href="#Windows_Zones">Windows Zones</a></h3>
+<h3>6.3 <a name="Windows_Zones" href="#Windows_Zones">Windows Zones</a></h3>
   <p class="changed">TBD</p>
 
-<h2 class="changed">6 <a name="Using_Time_Zone_Names" href="#Using_Time_Zone_Names">Using Time Zone Names</a></h2>
+<h2 class="changed">7 <a name="Using_Time_Zone_Names" href="#Using_Time_Zone_Names">Using Time Zone Names</a></h2>
   <p class="changed">TBD</p>
 
-<h2>7 <a name="Date_Format_Patterns" href="#Date_Format_Patterns">Date Format Patterns</a></h2>
+<h2>8 <a name="Date_Format_Patterns" href="#Date_Format_Patterns">Date Format Patterns</a></h2>
 
   <p>A date pattern is a string of characters, <span class="changed">in which</span> specific <span class="changed">substrings</span> of
   characters are replaced with date and time data from a calendar when formatting, or used to generate data
@@ -432,7 +1175,9 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   might produce &#39;5&#39;, but &#39;hh&#39; produces &#39;05&#39;. For some characters, the count specifies
   whether an abbreviated or full form should be used, but may have other choices, as given below.</p>
 
-  <p class="dtd">&lt;!ATTLIST pattern numbers CDATA #IMPLIED &gt;</p>
+  <p class="dtd">
+    &lt;!ATTLIST pattern numbers CDATA #IMPLIED &gt;
+  </p>
 
   <p>The numbers attribute is used to indicate that numeric  quantities in the pattern are to be rendered using a
   numbering system other than then default numbering system defined for the given locale. The attribute can be in
@@ -1011,7 +1756,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	It is used to &#39;escape&#39; letters. Two single quotes in a row, whether inside or outside a
 	quoted sequence, represent a &#39;real&#39; single quote.</p>
 
-<h3><a name="Localized_Pattern_Characters" href="#Localized_Pattern_Characters">7.1 Localized Pattern Characters (deprecated)</a></h3>
+<h3>8.1 <a name="Localized_Pattern_Characters" href="#Localized_Pattern_Characters">Localized Pattern Characters (deprecated)</a></h3>
 
     <p>These are characters that can be used when displaying a date pattern to an end user. This can occur,
     for example, when a spreadsheet allows users to specify date patterns. Whatever is in the string is substituted
@@ -1023,18 +1768,18 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	such as using icons to represent the different formats (and lengths) in the
 	<a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</p>
 
-<h3>7.2 AM / PM</h3>
+<h3>8.2 <a name="Date_Patterns_AM_PM" href="#Date_Patterns_AM_PM">AM / PM</a></h3>
 	<p>Even for countries where the customary date format only has a 24 hour format, both the am and pm localized
 	strings must be present and must be distinct from one another. Note that as long as the 24 hour format is used,
 	these strings will normally never be used, but for testing and unusual circumstances they must be present.</p>
 
-<h3>7.3 Eras</h3>
+<h3>8.3 <a name="Date_Patterns_Eras" href="#Date_Patterns_Eras">Eras</a></h3>
 	<p>There are only two values for an era in a Gregorian calendar, &quot;BC&quot; and &quot;AD&quot;. These values
 	can be translated into other languages, like &quot;a.C.&quot; and and &quot;d.C.&quot; for Spanish, but there are
 	no other eras in the Gregorian calendar. Other calendars have a different numbers of eras. Care should be taken
 	when translating the era names for a specific calendar.</p>
 
-<h3>7.4 Week of Year</h3>
+<h3>8.4 <a name="Date_Patterns_Week_Of_Year" href="#Date_Patterns_Eras">Week of Year</a></h3>
 	<p>Values calculated for the Week of Year field range from 1 to 53 for the Gregorian calendar (they may have
 	different ranges for other calendars). Week 1 for a year is the first week that contains at least the specified
 	minimum number of days from that year. Weeks between week 1 of one year and week 1 of the following year are
@@ -1046,7 +1791,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
 	<p>Values are similarly calculated for the Week of Month.</p>
 
-<h3>7.5 Week Elements</h3>
+<h3>8.5 <a name="Date_Patterns_Week_Elements" href="#Date_Patterns_Eras">Week Elements</a></h3>
 	<dl>
       <dt><b>firstDay</b></dt>
       <dd>A number indicating which day of the week is considered the &#39;first&#39; day, for calendar purposes.
@@ -1062,7 +1807,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
       <dd>Indicates the day and time that the weekend starts or ends. As with firstDay, keywords are used instead of numbers.</dd>
 	</dl>
 
-<h2>8 <a name="Parsing_Dates_Times" href="#Parsing_Dates_Times">Parsing Dates and Times</a></h2>
+<h2>9 <a name="Parsing_Dates_Times" href="#Parsing_Dates_Times">Parsing Dates and Times</a></h2>
 
   <p class="changed">For general information on lenient parsing, see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>
   in the core specification. This section provides additional information specific to parsing of dates and times.</p>

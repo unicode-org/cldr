@@ -308,7 +308,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	For example, many languages require that a month name without an associated day number be in the basic <i>nominative</i> form, while a month name with an associated day
 	number should be in a different grammatical form: <i>genitive</i>, <i>partitive</i>, etc. Another common type of distinction between format and stand-alone involves
 	capitalization; however, this can be controlled separately and more precisely using the &lt;contextTransforms&gt; element as described in
-	<i><a href="tr35.html#Context_Transform_Elements">ContextTransform Elements</a></i>.</p>
+	<i><a href="tr35-general.html#Context_Transform_Elements">ContextTransform Elements</a></i>.</p>
 
   <p>Due to aliases in root, the forms inherit 
     &quot;sideways&quot;. (See <i><a href="tr35.html#Multiple_Inheritance">Multiple Inheritance</a></i>.) 
@@ -784,13 +784,16 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   the field (see <a href="#Calendar_Fields">Calendar Fields</a>).</p>
 
   <p class="dtd">
-    &lt;!ELEMENT intervalFormats (alias | (intervalFormatFallback*, intervalFormatItem*, special*)) &gt;<br>
-    <br>
-    &lt;!ELEMENT intervalFormatFallback ( #PCDATA ) &gt;<br>
-    <br>
+    &lt;!ELEMENT intervalFormats (alias | (intervalFormatFallback*, intervalFormatItem*, special*)) &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT intervalFormatFallback ( #PCDATA ) &gt;
+  </p>
+  <p class="dtd">
     &lt;!ELEMENT intervalFormatItem (alias | (greatestDifference*, special*)) &gt;<br>
-    &lt;!ATTLIST intervalFormatItem id NMTOKEN #REQUIRED &gt;<br>
-    <br>
+    &lt;!ATTLIST intervalFormatItem id NMTOKEN #REQUIRED &gt;
+  </p>
+  <p class="dtd">
     &lt;!ELEMENT greatestDifference ( #PCDATA ) &gt;<br>
     &lt;!ATTLIST greatestDifference id NMTOKEN #REQUIRED &gt;
   </p>
@@ -993,20 +996,24 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 <h3 class="changed">4.3 <a name="Week_Data" href="#Week_Data">Week Data</a></h3>
 
   <p class="dtd">
-    &lt;!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd* )&gt;<br>
-    <br>
+    &lt;!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd* )&gt;
+  </p>
+  <p class="dtd">
     &lt;!ELEMENT minDays EMPTY&gt;<br>
     &lt;!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED&gt;<br>
-    &lt;!ATTLIST minDays territories NMTOKENS #REQUIRED&gt;<br>
-    <br>
+    &lt;!ATTLIST minDays territories NMTOKENS #REQUIRED&gt;
+  </p>
+  <p class="dtd">
     &lt;!ELEMENT firstDay EMPTY &gt;<br>
     &lt;!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;<br>
-    &lt;!ATTLIST firstDay territories NMTOKENS #REQUIRED&gt;<br>
-    <br>
+    &lt;!ATTLIST firstDay territories NMTOKENS #REQUIRED&gt;
+  </p>
+  <p class="dtd">
     &lt;!ELEMENT weekendStart EMPTY&gt;<br>
     &lt;!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;<br>
-    &lt;!ATTLIST weekendStart territories NMTOKENS #REQUIRED&gt;<br>
-    <br>
+    &lt;!ATTLIST weekendStart territories NMTOKENS #REQUIRED&gt;
+  </p>
+  <p class="dtd">
     &lt;!ELEMENT weekendEnd EMPTY&gt;<br>
     &lt;!ATTLIST weekendEnd day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED&gt;<br>
     &lt;!ATTLIST weekendEnd territories NMTOKENS #REQUIRED&gt;

@@ -843,7 +843,8 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 			<td><i>ISO 4217 code,</i><p><i>plus others in common use</i></td>
 			<td><p>Codes that are or have been valid in ISO 4217, plus certain additional codes that are or have been in common use.
 			  The full list of codes, with descriptions, is available in the common/main/en.xml file for each release of CLDR.
-			  The list of countries and time periods associated with each currency value is in the common/supplemental/supplementalData.xml file under the &lt;currencyData&gt; element.</p>
+			  The list of countries and time periods associated with each currency value is <span class="changed">under the &lt;currencyData&gt;
+			  element in a file in common/supplemental/ (currently the supplementalData.xml file)</span>.</p>
 			  <p>The XXX code is given a broader interpretation as Unknown or Invalid Currency. </p>
 			  <p>For more information, see <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>.
 			</td>
@@ -1349,7 +1350,7 @@ root</pre>
 	files is treated as if it was in a single file.</p>
 	<p>Supplemental data relating to Japan or the Japanese writing system can be found in:</p>
 	<ul>
-		<li>common/supplemental/supplementalData.xml</li>
+		<li><span class="changed">Files in </span>common/supplemental/<span class="changed"> such as </span>supplementalData.xml</li>
 		<li>common/transforms/Hiragana-Katakana.xml</li>
 		<li>common/transforms/Hiragana-Latin.xml</li>
 		<li>...</li>

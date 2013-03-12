@@ -219,7 +219,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<li>C.4 <a href="tr35-info.html#Supplemental_Territory_Information">Supplemental Territory Information</a></li>
 			<li>C.5 <a href="tr35-dates.html#Supplemental_Calendar_Data">Supplemental Calendar Data</a></li>
 			<li>C.6 <a href="#Measurement_System_Data">Measurement System Data</a></li>
-			<li>C.7 <a href="#Supplemental_Timezone_Data">Supplemental Time Zone Data</a></li>
+			<li>C.7 <a href="tr35-dates.html#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a></li>
 			<li>C.8 <a href="tr35-info.html#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
 			<li>C.9 <a href="tr35-info.html#Supplemental_Code_Mapping">Supplemental Code Mapping</a></li>
 			<li>C.10 <a href="#Likely_Subtags">Likely Subtags</a></li>
@@ -1857,87 +1857,6 @@ root</pre>
 
         <p class="reviewnote">TODO: remove Appendix C after all parts are moved.</p>
 
-	<h3><a name="Supplemental_Timezone_Data" href="#Supplemental_Timezone_Data">C.7 Supplemental Time Zone Data</a></h3>
-	<p class="dtd">&lt;!ELEMENT windowsZones (mapTimezones?) &gt;<br>
-	&lt;!ELEMENT metaZones (metazoneInfo?, mapTimezones?) &gt;<br>
-	<br>
-	&lt;!ELEMENT metazoneInfo (timezone*) &gt;<br>
-	<br>
-	&lt;!ELEMENT timezone (usesMetazone*) &gt;<br>
-	&lt;!ATTLIST timezone type CDATA #REQUIRED &gt;<br>
-
-	&lt;!ELEMENT usesMetazone EMPTY &gt;<br>
-	&lt;!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED &gt;<br>
-	&lt;!ATTLIST usesMetazone from CDATA #IMPLIED &gt;<br>
-	&lt;!ATTLIST usesMetazone to CDATA #IMPLIED &gt;<br>
-	<br>
-	&lt;!ELEMENT mapTimezones ( mapZone* ) &gt;<br>
-	&lt;!ATTLIST mapTimezones type NMTOKEN #IMPLIED &gt;<br>
-	&lt;!ATTLIST mapTimezones typeVersion CDATA #IMPLIED &gt;<br>
-	&lt;!ATTLIST mapTimezones otherVersion CDATA #IMPLIED &gt;<br>
-	&lt;!ATTLIST mapTimezones references CDATA #IMPLIED &gt;<br>
-	<br>
-	&lt;!ELEMENT mapZone EMPTY &gt;<br>
-	&lt;!ATTLIST mapZone type CDATA #REQUIRED &gt;<br>
-	&lt;!ATTLIST mapZone other CDATA #REQUIRED &gt;<br>
-	&lt;!ATTLIST mapZone territory CDATA #IMPLIED &gt;<br>
-	&lt;!ATTLIST mapZone references CDATA #IMPLIED &gt;<br></p>
-
-	<div>
-
-	<p>The following subelement of &lt;metaZones&gt; (<a href="http://unicode.org/cldr/data/common/supplemental/metaZones.xml">metaZones.xml</a>)
-	provides a mapping from a single Unicode time zone id to metazones.  For more information about metazones,
-	See <i><a href="tr35-dates.html#Time_Zone_Names">Time Zone Names</a></i>.</p>
-	<pre>&lt;metazoneInfo&gt;
-	&lt;timezone type=&quot;Europe/Andorra&quot;&gt;
-		&lt;usesMetazone mzone=&quot;Europe_Central&quot;/&gt;
-	&lt;/timezone&gt;
-	....
-	&lt;timezone type=&quot;Asia/Yerevan&quot;&gt;
-		&lt;usesMetazone to=&quot;1991-09-22 20:00&quot; mzone=&quot;Yerevan&quot;/&gt;
-		&lt;usesMetazone from=&quot;1991-09-22 20:00&quot; mzone=&quot;Armenia&quot;/&gt;
-	&lt;/timezone&gt;
-	....</pre>
-
-	<p>The following subelement of &lt;metaZones&gt; specifies a mapping from a metazone to
-	golden zones for each territory.  For more information about golden zones, see
-	<i><a href="tr35-dates.html#Using_Time_Zone_Names">Using Time Zone Names</a></i>.</p>
-	<pre>&lt;mapTimezones type=&quot;metazones&quot;&gt;
-	&lt;mapZone other=&quot;Acre&quot; territory=&quot;001&quot; type=&quot;America/Rio_Branco&quot;/&gt;
-	&lt;mapZone other=&quot;Afghanistan&quot; territory=&quot;001&quot; type=&quot;Asia/Kabul&quot;/&gt;
-	&lt;mapZone other=&quot;Africa_Central&quot; territory=&quot;001&quot; type=&quot;Africa/Maputo&quot;/&gt;
-	&lt;mapZone other=&quot;Africa_Central&quot; territory=&quot;BI&quot; type=&quot;Africa/Bujumbura&quot;/&gt;
-	&lt;mapZone other=&quot;Africa_Central&quot; territory=&quot;BW&quot; type=&quot;Africa/Gaborone&quot;/&gt;
-	....</pre>
-
-	<p>The &lt;mapTimezones&gt; element can be also used to provide mappings between Unicode time zone IDs and
-	other time zone IDs.  This example specifies a mapping from Windows TZIDs to Unicode time zone IDs
-	(<a href="http://unicode.org/cldr/data/common/supplemental/windowsZones.xml">windowsZones.xml</a>).</p>
-	<pre>&lt;mapTimezones otherVersion="07dc0000" typeVersion="2011n"&gt;
-	....
-	&lt;!-- (UTC-08:00) Baja California --&gt;
-	&lt;mapZone other="Pacific Standard Time (Mexico)" territory="001" type="America/Santa_Isabel"/&gt;
-	&lt;mapZone other="Pacific Standard Time (Mexico)" territory="MX" type="America/Santa_Isabel"/&gt;
-
-	&lt;!-- (UTC-08:00) Pacific Time (US &amp; Canada) --&gt;
-	&lt;mapZone other="Pacific Standard Time" territory="001" type="America/Los_Angeles"/&gt;
-	&lt;mapZone other="Pacific Standard Time" territory="CA" type="America/Vancouver America/Dawson America/Whitehorse"/&gt;
-	&lt;mapZone other="Pacific Standard Time" territory="MX" type="America/Tijuana"/&gt;
-	&lt;mapZone other="Pacific Standard Time" territory="US" type="America/Los_Angeles"/&gt;
-	&lt;mapZone other="Pacific Standard Time" territory="ZZ" type="PST8PDT"/&gt;
-	....</pre>
-	</div>
-	<p>The attributes otherVersion and typeVersion in &lt;mapTimezones&gt; specify the
-	versions of two systems. In the example above, otherVersion="07dc0000" specifies the version of Windows time zone
-	and typeVersion="2011n" specifies the version of Unicode time zone IDs. The attribute territory="001" in
-	&lt;mapZone&gt; element indicates the Unicode time zone ID specified by the type attribute is used as the default
-	mapping for the Windows TZID. For each unique Windows TZID, there must be exactly one &lt;mapZone&gt; element with
-	territory="001". &lt;mapZone&gt; elements other than territory="001" specify territory specific mappings. When multiple
-	Unicode time zone IDs are available for a single territory, the value of the type attribute will be a list of
-	Unicode time zone IDs delimited by space. In this case, the first entry represents the default mapping for
-	the territory. The territory "ZZ" is used when a Unicode time zone ID is not associated with a specific territory.
-	</p>
-
 	<h3><a name="Likely_Subtags" href="#Likely_Subtags">C.10 Likely Subtags</a></h3>
 	<p class="dtd">&lt;!ELEMENT likelySubtag EMPTY &gt;<br>
 	&lt;!ATTLIST likelySubtag from NMTOKEN #REQUIRED&gt;<br>
@@ -2984,17 +2903,19 @@ decimal?, group?, special*)) &gt;</pre>
 	<p>The defaulted attributes are given by the <i>suppress</i> table in the supplemental metadata. There is one special value _q; that is used on serial elements 
 	internally to preserve ordering.</p>
 
-	<h2><a href="#Coverage_Levels">Appendix M: Coverage Levels was moved to Information</a></h2>
+<h2><a href="#Coverage_Levels">Appendix M: Coverage Levels was moved to Information</a></h2>
         <p class="reviewnote">TODO: remove this appendix, renumber</p>
 
-	<h2><a name="Lenient_Parsing" href="#Lenient_Parsing">Appendix O: Lenient Parsing</a></h2>
-	<h3>O.1 Motivation</h3>
+<h2><a name="Lenient_Parsing" href="#Lenient_Parsing">Appendix O: Lenient Parsing</a></h2>
+
+<h3>O.1 Motivation</h3>
 	<p>User input is frequently messy. Attempting to parse it by matching it exactly against a pattern is likely to be unsuccessful, even when the meaning of the 
 	input is clear to a human being. For example, for a date pattern of &quot;MM/dd/yy&quot;, the input &quot;June 1, 2006&quot; will fail.</p>
 	<p>The goal of lenient parsing is to accept user input whenever it is possible to decipher what the user intended. Doing so requires using patterns as data 
 	to guide the parsing process, rather than an exact template that must be matched. This informative section suggests some heuristics that may be useful for lenient 
 	parsing of dates, times, and numbers.</p>
-	<h3>O.2 Loose Matching</h3>
+
+<h3>O.2 Loose Matching</h3>
 	<p>Loose matching ignores attributes of the strings being compared that are not important to matching. It involves the following steps:</p>
 	<ul>
 		<li>Remove &quot;.&quot; from currency symbols and other fields used for matching, and also from the input string unless:
@@ -3026,8 +2947,12 @@ decimal?, group?, special*)) &gt;</pre>
 	the specific heuristics below. For example, if the input number text is &quot; - NA f. 1,000.00&quot;, then it is mapped to &quot;-naf1,000.00&quot; before processing. The currency 
 	signs are also transformed, so &quot;NA f.&quot; is converted to &quot;naf&quot; for purposes of matching. As with other Unicode algorithms, this is a logical statement of the 
 	process; actual implementations can optimize, such as by applying the transform incrementally during matching.</p>
-	<h3><a href="tr35-numbers.html#Parsing_Numbers">O.3 Parsing Numbers</a></h3>
-	<h2><a name="Locale_Extension_Key_and_Type_Data" href="#Locale_Extension_Key_and_Type_Data">Appendix Q. Unicode BCP 47 Extension Data</a></h2>
+
+<h3><a href="tr35-numbers.html#Parsing_Numbers">O.3 Parsing Numbers</a></h3>
+
+<h3><a href="tr35-dates.html#Parsing_Dates_Times">O.4 Parsing Dates and Times</a></h3>
+
+<h2><a name="Locale_Extension_Key_and_Type_Data" href="#Locale_Extension_Key_and_Type_Data">Appendix Q. Unicode BCP 47 Extension Data</a></h2>
 	<p>The Unicode Consortium has registered and is the maintaining authority for two BCP 47 language tag extensions: the extension 'u' for Unicode locale extension [<a href="#RFC6067">RFC6067</a>]
 	and extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of
 	valid Unicode locale key, type and attribute subtags used by the 'u' extension and valid  subtags used by 't' extension.
@@ -3457,7 +3382,7 @@ decimal?, group?, special*)) &gt;</pre>
       <td>4 <a href="tr35-dates.html#Supplemental_Calendar_Data">Supplemental Calendar Data</a></td>
     </tr>
     <tr>
-      <td>C.7 Supplemental Time Zone Data</td>
+      <td><a name="Supplemental_Timezone_Data" href="#Supplemental_Timezone_Data">C.7 Supplemental Time Zone Data</a></td>
       <td>6 <a href="tr35-dates.html#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a></td>
     </tr>
     <tr>

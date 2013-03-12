@@ -2864,7 +2864,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     <li>Attempt to match fields and literals against those in the format string, using loose matching of the tokens.</li>
     <li>When matching symbols, try the narrow, abbreviated, and full-width forms, including standalone forms if they are unique.
     You may want to allow prefix matches too, or diacritic-insensitive, again, as long as  they are unique. For example, for a
-    month, accept 9, 09, S, Se, Sep, Sept, Sept., and so on.
+    month, accept 9, 09, S, Se, Sep, Sept, Sept., and so on.<span class="changed"> For abbreviated symbols (e.g. names of eras,
+    months, weekdays), allow matches both with and without an abbreviation marker such as period (or whatever else may be
+    customary in the locale); abbreviated forms in the CLDR data may or may not have such a marker.</span>
     <ul>
       <li>Note: While parsing of narrow date values (e.g. month or day names) may be required in order to obtain minimum
       information from a formatted date (for instance, the only month information may be in a narrow form), the results are not

@@ -149,7 +149,6 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   </ul>
 
 <h2>Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a></h2>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
 
 	<p>The following represents the format for <span class="changed">additional</span> supplemental 
         information. This is information that is important for 
@@ -170,7 +169,6 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <h2>1 <a name="Territory_Data" href="#Territory_Data">Territory Data</a></h2>
 
 <h3>1.1 <a name="Supplemental_Territory_Containment" href="#Supplemental_Territory_Containment">Supplemental Territory Containment</a></h3>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
 	<p class="dtd">&lt;!ELEMENT territoryContainment ( group* ) &gt;<br>
 	&lt;!ELEMENT group EMPTY &gt;<br>
 	&lt;!ATTLIST group type NMTOKEN #REQUIRED &gt;<br>
@@ -204,7 +202,6 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <p>That is, the type value isn’t a grouping, but if you filter out groupings you can drop this containment. In the example above, EU is a grouping, and contained in 150.</p>
 
 <h3>1.2 <a name="Supplemental_Territory_Information" href="#Supplemental_Territory_Information">Supplemental Territory Information</a></h3>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
 
 	<p class="dtd">&lt;!ELEMENT territory ( languagePopulation* ) &gt;<br>
 	&lt;!ATTLIST territory type NMTOKEN #REQUIRED &gt;<br>
@@ -234,7 +231,6 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	gathered or processed. Languages with a small population may be omitted. </p>
 
     <h2>2 <a name="Supplemental_Language_Data" href="#Supplemental_Language_Data">Supplemental Language Data</a></h2>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
 
 	<p class="dtd">&lt;!ELEMENT languageData ( language* ) &gt;<br>
 	&lt;!ELEMENT language EMPTY &gt;<br>
@@ -261,7 +257,6 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
                 ...</pre>
 
     <h2>4 <a name="Supplemental_Code_Mapping" href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></h2>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
 
 	<p class="dtd">&lt;!ELEMENT languageCodes EMPTY &gt;<br>
 	&lt;!ATTLIST languageCodes type NMTOKEN #REQUIRED&gt;<br>
@@ -290,7 +285,6 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 &lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;</pre>
 
     <h2>5 <a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone Code Data</a></h2>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
 
 	<p class="dtd">&lt;!ELEMENT telephoneCodeData ( codesByTerritory* ) &gt;<br>
 	<br>
@@ -329,7 +323,6 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 &lt;/codesByTerritory&gt;</pre>
 
     <h2>6 <a name="Postal_Code_Validation" href="#Postal_Code_Validation">Postal Code Validation</a></h2>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
 
 	<p class="dtd">&lt;!ELEMENT postalCodeData (postCodeRegex*) &gt;<br>
 	&lt;!ELEMENT postCodeRegex (#PCDATA) &gt;<br>
@@ -344,7 +337,6 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<p>The most complicated currently is the UK.</p>
 
     <h2>7 <a name="Supplemental_Character_Fallback_Data" href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></h2>
-  <p class="reviewnote">The following text was moved here from the main document.</p>
 	<p class="dtd">&lt;!ELEMENT characters ( character-fallback*) &gt;<br>
 	<br>
 	&lt;!ELEMENT character-fallback ( character* ) &gt;<br>
@@ -582,8 +574,7 @@ However, these principles <span class="changed">are continually being refined by
         <p class="changed">Note that this section discusses the <code>&lt;metadata&gt;</code> element within the <code>&lt;supplementalData&gt;</code>
           element. For the per-locale metadata used in tests and the Survey Tool, see <a href="#Metadata_Elements">10: Locale Metadata Element</a>.</p>
 
-        <p class="reviewnote">The following text was moved here from the main document.</p>
-
+      
 	<p>The supplemental metadata contains information about the CLDR file itself, used to test 
 	validity and provide information for locale inheritance. A number of these elements are 
 	described in </p>
@@ -693,8 +684,7 @@ However, these principles <span class="changed">are continually being refined by
           This is in contrast to the <a href="#Appendix_Supplemental_Metadata"><em>Supplemental</em> Metadata</a>, which is in the supplemental tree and is not specific
           to a locale.</p>
 
-        <p class="reviewnote">The following text was moved here from the main document.</p>
-
+      
 	<p class="dtd">
 	&lt;!ELEMENT metadata (casingData?) &gt;<br>
 	&lt;!ELEMENT casingData (casingItem*) &gt;<br>

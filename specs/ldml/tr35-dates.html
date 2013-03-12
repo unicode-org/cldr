@@ -1508,8 +1508,30 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 <h3>6.1 <a name="Metazones" href="#Metazones">Metazones</a></h3>
   <p class="changed">TBD</p>
 
-<h3>6.2 <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a></h3>
-  <p class="changed">TBD</p>
+<h3 class="changed">6.2 <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a></h3>
+
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT primaryZones ( primaryZone* ) &gt;<br>
+    &lt;!ELEMENT primaryZone ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST primaryZone iso3166 NMTOKEN #REQUIRED &gt;
+  </span></p>
+
+  <p class="changed">This element is for data that is used to format a time zone’s generic location name.
+  Each &lt;primaryZone&gt; element specifies the dominant zone for a region; this zone should use the
+  region name for its generic location name even though there are other canonical zones available in the
+  same region. For example, Asia/Shanghai is displayed as "China Time", instead of "Shanghai Time".
+  Sample data:</p>
+
+<pre class="changed">&lt;primaryZones&gt;
+    &lt;primaryZone iso3166="CL"&gt;America/Santiago&lt;/primaryZone&gt;
+    &lt;primaryZone iso3166="CN"&gt;Asia/Shanghai&lt;/primaryZone&gt;
+    &lt;primaryZone iso3166="DE"&gt;Europe/Berlin&lt;/primaryZone&gt;
+    …
+</pre>
+
+  <p class="changed">This information was previously specified by the LDML &lt;singleCountries&gt;
+  element under each locale’s &lt;timeZoneNames&gt; element. However, that approach had 
+  inheritance issues, and the data is not really locale-specific anyway.</p>
 
 <h3>6.3 <a name="Windows_Zones" href="#Windows_Zones">Windows Zones</a></h3>
   <p class="changed">TBD</p>

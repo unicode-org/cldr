@@ -143,6 +143,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     </ul></li>
     <li>5 <a href="#Language_Plural_Rules">Language Plural Rules</a></li>
     <li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a></li>
+    <li>7 <a href="#Parsing_Numbers">Parsing Numbers</a></li>
   </ul>
 
 <h2><a name="Numbering_Systems" href="#Numbering_Systems">Section 1: Numbering Systems</a></h2>
@@ -1001,7 +1002,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 			<li>CS now terminates on Jun 3, 2006 (following the UN info) </li>
 		</ul>
 	</blockquote>
-<h3><a name="Language_Plural_Rules" href="#Language_Plural_Rules">Section 5 - Language Plural Rules</a></h3>
+<h2><a name="Language_Plural_Rules" href="#Language_Plural_Rules">Section 5 - Language Plural Rules</a></h2>
 	<p class="dtd">&lt;!ELEMENT plurals (pluralRules*) &gt;<br>
     &lt;!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED &gt;  &lt;!-- default is cardinal --&gt;<br>
 	<br>
@@ -1072,7 +1073,7 @@ range         = value'..'value</pre>
 	<li>To detect an integer in a rule, use <strong>n mod 1 is 0</strong>. Conversely, for a fraction use: <strong>n mod 1 is not 0</strong>.</li>
 	</ul>
 <p>Examples:</p>
-	<table border>
+	<table border="1">
 		<tr>
 			<td nowrap>
 				one: n is 1<br>
@@ -1117,7 +1118,7 @@ range         = value'..'value</pre>
 		<li>The main document section 5.11 <a href="tr35.html#Unit_Elements">Unit Elements</a></li>
 	</ul>
 	<p>There are two extra values that can be used with count attributes: 0 and 1. These are used for the explicit values, and may or may not be the same as the forms for &quot;zero&quot; and &quot;one&quot;.</p>
-	<h3><a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Section 6: Rule-Based Number Formatting</a></h3>
+	<h2><a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Section 6: Rule-Based Number Formatting</a></h2>
 	<p class="dtd">&lt;!ELEMENT rbnf ( alias | rulesetGrouping*) &gt;<br>
 	<br>
 	&lt;!ELEMENT rulesetGrouping ( alias | ruleset*) &gt;<br>
@@ -1159,6 +1160,45 @@ range         = value'..'value</pre>
 	postfix values for number formatting. Alternate radix values are typically 
 	used for formatting year numbers in formal documents, such as &quot;nineteen 
 	hundred seventy-six&quot; instead of &quot;one thousand nine hundred seventy-six&quot;.</p>
+	
+    <h2><a name="Parsing_Numbers" href="#Parsing_Numbers">Section 7 - Parsing Numbers</a></h2>
+    <p>The following elements are relevant to determining the value of a parsed number:</p>
+    <ul>
+        <li>A possible prefix or suffix, indicating sign</li>
+        <li>A possible currency symbol or code</li>
+        <li>Decimal digits</li>
+        <li>A possible decimal separator</li>
+        <li>A possible exponent</li>
+        <li>A possible percent or per mille character</li>
+    </ul>
+    <p>Other characters should either be ignored, or indicate the end of input, depending on the application. The key point is to disambiguate the sets of characters 
+    that might serve in more than one position, based on context. For example, a period might be either the decimal separator, or part of a currency symbol (for 
+    example, 
+    &quot;NA f.&quot;). Similarly, an &quot;E&quot; could be an exponent indicator, or a currency symbol (the Swaziland Lilangeni uses &quot;E&quot; in the &quot;en&quot; locale). An apostrophe might 
+    be the decimal separator, or might be the grouping separator.</p>
+    <p>Here is a set of heuristic rules that may be helpful:</p>
+    <ul>
+        <li>Any character with the decimal digit property is unambiguous and should be accepted.<p><b>Note:</b> In some environments, applications may independently 
+        wish to restrict the decimal digit set to prevent security problems. See [<a href="http://www.unicode.org/reports/tr41/#UTR36">UTR36</a>].</p>
+        </li>
+        <li>The exponent character can only be interpreted as such if it occurs after at least one digit, and if it is followed by at least one digit, with only 
+        an optional sign in between. A regular expression may be helpful here.</li>
+        <li>For the sign, decimal separator, percent, and per mille, use a set of all possible characters that can serve those functions. For example, the decimal 
+        separator set could include all of [.,&#39;]. (The actual set of characters can be derived from the number symbols in the By-Type charts <a href="tr35.html#ByType">[ByType]</a>, 
+        which list all of the values in CLDR.) To disambiguate, the decimal separator for the locale must be removed from the &quot;ignore&quot; set, and the grouping separator 
+        for the locale must be removed from the decimal separator set. The same principle applies to all sets and symbols: any symbol must appear in at most one 
+        set.</li>
+        <li>Since there are a wide variety of currency symbols and codes, this should be tried before the less ambiguous elements. It may be helpful to develop 
+        a set of characters that can appear in a symbol or code, based on the currency symbols in the locale.</li>
+        <li>Otherwise, a character should be ignored unless it is in the &quot;stop&quot; set. This includes even characters that are meaningful for formatting, 
+        for example, the 
+        grouping separator.</li>
+        <li>If more than one sign, currency symbol, exponent, or percent/per mille occurs in the input, the first found should be used.</li>
+        <li>A currency symbol in the input should be interpreted as the longest match found in the set of possible currency symbols.</li>
+        <li>Especially in cases of ambiguity, the user&#39;s input should be echoed back, properly formatted according to the locale, before it is actually used for 
+        anything.</li>
+    </ul>
+	
 <hr>
 	<p class="copyright">Copyright © 2001-2013 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and 
 	assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use 

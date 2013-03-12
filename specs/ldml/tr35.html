@@ -3810,43 +3810,7 @@ decimal?, group?, special*)) &gt;</pre>
 	the specific heuristics below. For example, if the input number text is &quot; - NA f. 1,000.00&quot;, then it is mapped to &quot;-naf1,000.00&quot; before processing. The currency 
 	signs are also transformed, so &quot;NA f.&quot; is converted to &quot;naf&quot; for purposes of matching. As with other Unicode algorithms, this is a logical statement of the 
 	process; actual implementations can optimize, such as by applying the transform incrementally during matching.</p>
-	<h3>O.3 Parsing Numbers</h3>
-	<p>The following elements are relevant to determining the value of a parsed number:</p>
-	<ul>
-		<li>A possible prefix or suffix, indicating sign</li>
-		<li>A possible currency symbol or code</li>
-		<li>Decimal digits</li>
-		<li>A possible decimal separator</li>
-		<li>A possible exponent</li>
-		<li>A possible percent or per mille character</li>
-	</ul>
-	<p>Other characters should either be ignored, or indicate the end of input, depending on the application. The key point is to disambiguate the sets of characters 
-	that might serve in more than one position, based on context. For example, a period might be either the decimal separator, or part of a currency symbol (for 
-	example, 
-	&quot;NA f.&quot;). Similarly, an &quot;E&quot; could be an exponent indicator, or a currency symbol (the Swaziland Lilangeni uses &quot;E&quot; in the &quot;en&quot; locale). An apostrophe might 
-	be the decimal separator, or might be the grouping separator.</p>
-	<p>Here is a set of heuristic rules that may be helpful:</p>
-	<ul>
-		<li>Any character with the decimal digit property is unambiguous and should be accepted.<p><b>Note:</b> In some environments, applications may independently 
-		wish to restrict the decimal digit set to prevent security problems. See [<a href="http://www.unicode.org/reports/tr41/#UTR36">UTR36</a>].</p>
-		</li>
-		<li>The exponent character can only be interpreted as such if it occurs after at least one digit, and if it is followed by at least one digit, with only 
-		an optional sign in between. A regular expression may be helpful here.</li>
-		<li>For the sign, decimal separator, percent, and per mille, use a set of all possible characters that can serve those functions. For example, the decimal 
-		separator set could include all of [.,&#39;]. (The actual set of characters can be derived from the number symbols in the By-Type charts <a href="#ByType">[ByType]</a>, 
-		which list all of the values in CLDR.) To disambiguate, the decimal separator for the locale must be removed from the &quot;ignore&quot; set, and the grouping separator 
-		for the locale must be removed from the decimal separator set. The same principle applies to all sets and symbols: any symbol must appear in at most one 
-		set.</li>
-		<li>Since there are a wide variety of currency symbols and codes, this should be tried before the less ambiguous elements. It may be helpful to develop 
-		a set of characters that can appear in a symbol or code, based on the currency symbols in the locale.</li>
-		<li>Otherwise, a character should be ignored unless it is in the &quot;stop&quot; set. This includes even characters that are meaningful for formatting, 
-		for example, the 
-		grouping separator.</li>
-		<li>If more than one sign, currency symbol, exponent, or percent/per mille occurs in the input, the first found should be used.</li>
-		<li>A currency symbol in the input should be interpreted as the longest match found in the set of possible currency symbols.</li>
-		<li>Especially in cases of ambiguity, the user&#39;s input should be echoed back, properly formatted according to the locale, before it is actually used for 
-		anything.</li>
-	</ul>
+	<h3><a href="tr35-numbers.html#Parsing_Numbers">O.3 Parsing Numbers</a></h3>
 	<h2><a name="Locale_Extension_Key_and_Type_Data" href="#Locale_Extension_Key_and_Type_Data">Appendix Q. Unicode BCP 47 Extension Data</a></h2>
 	<p>The Unicode Consortium has registered and is the maintaining authority for two BCP 47 language tag extensions: the extension 'u' for Unicode locale extension [<a href="#RFC6067">RFC6067</a>]
 	and extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of

@@ -172,7 +172,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   format and parsing of dates and times<span class="changed">, the formatting of date/time intervals, and the
   the naming of various calendar elements.</span></p>
   <ul class="changed">
-  	<li>The &lt;localizedPatternChars&gt; and &lt;dateRangePattern&gt; elements are deprecated and no longer used.</li>
+  	<li>The &lt;localizedPatternChars&gt; and &lt;dateRangePattern&gt; elements are deprecated and no longer used;
+  	  &lt;dateRangePattern&gt; is replaced by &lt;intervalFormats&gt;.</li>
   	<li>The &lt;calendars&gt; element is described in section 2 <a href="#Calendar_Elements">Calendar Elements</a>.</li>
   	<li>The &lt;fields&gt; element is described in section 3 <a href="#Calendar_Fields">Calendar Fields</a>.</li>
   	<li>The &lt;timeZoneNames&gt; element is described in section 5 <a href="#Time_Zone_Names">Time Zone Names</a>.</li>
@@ -233,11 +234,14 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   <p><span class="changed"><b>Deprecated items: </b>For &lt;calendars&gt;, the &lt;default&gt; element is deprecated;</span>
   the default calendar type for a locale is specified by <i><a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>.
   <span class="changed">For the &lt;calendar&gt; element, the following are deprecated:</span></p>
-  <ul class="changed">
-    <li>monthNames and monthAbbr; month name forms are specified in the &lt;months&gt; element</li>
-    <li>dayNames and dayAbbr; weekday name forms are specified in the &lt;days&gt; element</li>
-    <li>am and pm; these are now included as part of the &lt;dayPeriods&gt; element</li>
-    <li>&lt;fields&gt; is deprecated at this location; instead, a &lt;fields&gt; element should be located
+  <ul>
+    <li class="changed">&lt;monthNames&gt; and &lt;monthAbbr&gt;; month name forms are specified in the &lt;months&gt; element</li>
+    <li class="changed">&lt;dayNames&gt; and &lt;dayAbbr&gt;; weekday name forms are specified in the &lt;days&gt; element</li>
+    <li><a name="week" href="#week">&lt;week&gt;</a> is deprecated in the main LDML files, because the data is more
+      appropriately organized as connected to territories, not to linguistic data. Use the <span class="changed">supplemental
+      &lt;weekData&gt; element</span> instead.
+    <li class="changed">&lt;am&gt; and &lt;pm&gt;; these are now included as part of the &lt;dayPeriods&gt; element</li>
+    <li class="changed">&lt;fields&gt; is deprecated at this location; instead, a &lt;fields&gt; element should be located
     just under a &lt;dates&gt; element. See <a href="#Calendar_Fields">Calendar Fields</a>.</li>
   </ul>
  
@@ -355,100 +359,97 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	<pre>  &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt;
     &lt;months&gt;
       &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
-  &nbsp;&nbsp;  &lt;monthContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
-     &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
-     &nbsp;&nbsp;  &lt;monthWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">January</span>&lt;/month&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">February</span>&lt;/month&gt;
+      &lt;monthContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
+         &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
+         &lt;monthWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
+            &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">January</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">February</span>&lt;/month&gt;
 ...
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">November</span>&lt;/month&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">December</span>&lt;/month&gt;
-    &nbsp;&nbsp;  &lt;/monthWidth&gt;
-    &nbsp;&nbsp;  &lt;monthWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Jan</span>&lt;/month&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Feb</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">November</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">December</span>&lt;/month&gt;
+        &lt;/monthWidth&gt;
+        &lt;monthWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
+            &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Jan</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Feb</span>&lt;/month&gt;
 ...
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">Nov</span>&lt;/month&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">Dec</span>&lt;/month&gt;
-    &nbsp;&nbsp;  &lt;/monthWidth&gt;
-   &nbsp;&nbsp;  &lt;monthContext type=&quot;<span style="color: blue">stand-alone</span>&quot;&gt;
-     &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
-     &nbsp;&nbsp;  &lt;monthWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Januaria</span>&lt;/month&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Februaria</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">Nov</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">Dec</span>&lt;/month&gt;
+        &lt;/monthWidth&gt;
+       &lt;monthContext type=&quot;<span style="color: blue">stand-alone</span>&quot;&gt;
+         &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
+         &lt;monthWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
+            &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Januaria</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Februaria</span>&lt;/month&gt;
 ...
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">Novembria</span>&lt;/month&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">Decembria</span>&lt;/month&gt;
-    &nbsp;&nbsp;  &lt;/monthWidth&gt;
-    &nbsp;&nbsp;  &lt;monthWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">J</span>&lt;/month&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">F</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">Novembria</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">Decembria</span>&lt;/month&gt;
+        &lt;/monthWidth&gt;
+        &lt;monthWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
+            &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">J</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">F</span>&lt;/month&gt;
 ...
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">N</span>&lt;/month&gt;
-        &nbsp;&nbsp;  &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">D</span>&lt;/month&gt;
-    &nbsp;&nbsp;  &lt;/monthWidth&gt;
-   &nbsp;&nbsp;  &lt;/monthContext&gt;
-&nbsp;&nbsp;  &lt;/months&gt;
+            &lt;month type=&quot;<span style="color: blue">11</span>&quot;&gt;<span style="color: blue">N</span>&lt;/month&gt;
+            &lt;month type=&quot;<span style="color: blue">12</span>&quot;&gt;<span style="color: blue">D</span>&lt;/month&gt;
+        &lt;/monthWidth&gt;
+       &lt;/monthContext&gt;
+    &lt;/months&gt;
 
-&nbsp;&nbsp;  &lt;days&gt;
-  &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
-  &nbsp;&nbsp;  &lt;dayContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
-     &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
-     &nbsp;&nbsp;  &lt;dayWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Sunday</span>&lt;/day&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">Monday</span>&lt;/day&gt;
+    &lt;days&gt;
+      &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
+      &lt;dayContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
+         &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
+         &lt;dayWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
+            &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Sunday</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">Monday</span>&lt;/day&gt;
 ...
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">Friday</span>&lt;/day&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Saturday</span>&lt;/day&gt;
-    &nbsp;&nbsp;  &lt;/dayWidth&gt;
-    &nbsp;&nbsp;  &lt;dayWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Sun</span>&lt;/day&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">Mon</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">Friday</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Saturday</span>&lt;/day&gt;
+        &lt;/dayWidth&gt;
+        &lt;dayWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
+            &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Sun</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">Mon</span>&lt;/day&gt;
 ...
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">Fri</span>&lt;/day&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Sat</span>&lt;/day&gt;
-    &nbsp;&nbsp;  &lt;/dayWidth&gt;
-    &nbsp;&nbsp;  &lt;dayWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Su</span>&lt;/day&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">M</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">Fri</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Sat</span>&lt;/day&gt;
+        &lt;/dayWidth&gt;
+        &lt;dayWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
+            &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Su</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">M</span>&lt;/day&gt;
 ...
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">F</span>&lt;/day&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Sa</span>&lt;/day&gt;
-    &nbsp;&nbsp;  &lt;/dayWidth&gt;
-  &nbsp;&nbsp;  &lt;/dayContext&gt;
-  &nbsp;&nbsp;  &lt;dayContext type=&quot;<span style="color: blue">stand-alone</span>&quot;&gt;
-    &nbsp;&nbsp;  &lt;dayWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">S</span>&lt;/day&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">M</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">F</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">Sa</span>&lt;/day&gt;
+        &lt;/dayWidth&gt;
+      &lt;/dayContext&gt;
+      &lt;dayContext type=&quot;<span style="color: blue">stand-alone</span>&quot;&gt;
+        &lt;dayWidth type=&quot;<span style="color: blue">narrow</span>&quot;&gt;
+            &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">S</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">M</span>&lt;/day&gt;
 ...
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">F</span>&lt;/day&gt;
-        &nbsp;&nbsp;  &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">S</span>&lt;/day&gt;
-    &nbsp;&nbsp;  &lt;/dayWidth&gt;
-  &nbsp;&nbsp;  &lt;/dayContext&gt;
-&nbsp;&nbsp;  &lt;/days&gt;
+            &lt;day type=&quot;<span style="color: blue">fri</span>&quot;&gt;<span style="color: blue">F</span>&lt;/day&gt;
+            &lt;day type=&quot;<span style="color: blue">sat</span>&quot;&gt;<span style="color: blue">S</span>&lt;/day&gt;
+        &lt;/dayWidth&gt;
+      &lt;/dayContext&gt;
+    &lt;/days&gt;
 
-&nbsp;&nbsp;  &lt;quarters&gt;
-  &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
-  &nbsp;&nbsp;  &lt;quarterContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
-     &nbsp;&nbsp;  &lt;default type=&quot;<span style="color: blue">abbreviated</span>&quot;/&gt;
-     &nbsp;&nbsp;  &lt;quarterWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Q1</span>&lt;/quarter&gt;
-        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Q2</span>&lt;/quarter&gt;
-        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">3</span>&quot;&gt;<span style="color: blue">Q3</span>&lt;/quarter&gt;
-        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">4</span>&quot;&gt;<span style="color: blue">Q4</span>&lt;/quarter&gt;
-    &nbsp;&nbsp;  &lt;/quarterWidth&gt;
-    &nbsp;&nbsp;  &lt;quarterWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
-        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">1st quarter</span>&lt;/quarter&gt;
-        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">2nd quarter</span>&lt;/quarter&gt;
-        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">3</span>&quot;&gt;<span style="color: blue">3rd quarter</span>&lt;/quarter&gt;
-        &nbsp;&nbsp;  &lt;quarter type=&quot;<span style="color: blue">4</span>&quot;&gt;<span style="color: blue">4th quarter</span>&lt;/quarter&gt;
-    &nbsp;&nbsp;  &lt;/quarterWidth&gt;
-  &nbsp;&nbsp;  &lt;/quarterContext&gt;
-&nbsp;&nbsp;  &lt;/quarters&gt;
+    &lt;quarters&gt;
+      &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
+      &lt;quarterContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
+         &lt;default type=&quot;<span style="color: blue">abbreviated</span>&quot;/&gt;
+         &lt;quarterWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
+            &lt;quarter type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Q1</span>&lt;/quarter&gt;
+            &lt;quarter type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Q2</span>&lt;/quarter&gt;
+            &lt;quarter type=&quot;<span style="color: blue">3</span>&quot;&gt;<span style="color: blue">Q3</span>&lt;/quarter&gt;
+            &lt;quarter type=&quot;<span style="color: blue">4</span>&quot;&gt;<span style="color: blue">Q4</span>&lt;/quarter&gt;
+        &lt;/quarterWidth&gt;
+        &lt;quarterWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
+            &lt;quarter type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">1st quarter</span>&lt;/quarter&gt;
+            &lt;quarter type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">2nd quarter</span>&lt;/quarter&gt;
+            &lt;quarter type=&quot;<span style="color: blue">3</span>&quot;&gt;<span style="color: blue">3rd quarter</span>&lt;/quarter&gt;
+            &lt;quarter type=&quot;<span style="color: blue">4</span>&quot;&gt;<span style="color: blue">4th quarter</span>&lt;/quarter&gt;
+        &lt;/quarterWidth&gt;
+      &lt;/quarterContext&gt;
+    &lt;/quarters&gt;
 
-    <s>&lt;am&gt;<span style="color: blue">AM</span>&lt;/am&gt; deprecated
-    &lt;pm&gt;<span style="color: blue">PM</span>&lt;/pm&gt; deprecated
-</s>
     &lt;eras&gt;
        &lt;eraAbbr&gt;
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">BC</span>&lt;/era&gt;
@@ -657,7 +658,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
        &lt;/timeFormatLength&gt;
      &lt;/timeFormats&gt;</pre>
 
-  <p>The preference of 12 hour versus 24 hour for the locale should be derived from the short timeFormat.
+  <p>The preference of 12 hour versus 24 hour for the locale <span class="changed">can</span> be derived
+  from the short timeFormat <span class="changed">or from <a href="#Time_Data">Time Data</a></span>.
   If the hour symbol is &quot;h&quot; or &quot;K&quot; (of various lengths) then the format is 12 hour;
   otherwise it is 24 hour.</p>
 
@@ -862,22 +864,6 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
       <li>Otherwise, format the start and end datetime 
       using the fallback pattern.</li>
   </ol>
-
-  <p><a name="week" href="#week">&lt;week&gt;</a></p>
-  <p class="dtd">
-    &lt;!ELEMENT week (alias | (minDays?, firstDay?, weekendStart?, weekendEnd?, special*))&gt;
-  </p>
-  <p class="note">The week element is deprecated in the main LDML files, because the data is more appropriately
-  organized as connected to territories, not to linguistic data. Instead, the similar element in the supplemental
-  data file should be used.</p>
-
-  <p>
-    <span class="dtd">&lt;!ELEMENT dateRangePattern ( #PCDATA ) &gt;</span> (deprecated)
-  </p>
-  <p>The dateRangePattern allows the specification of a date range, such as &quot;May 7 - Aug. 3&quot;. For example,
-  here is the format for English:</p>
-  <pre>&lt;dateRangePattern&gt;{0} - {1}&lt;/dateRangePattern&gt;</pre>
-  <p>The dateRangePattern element is deprecated, use intervalFormats instead.</p>
 
 <h2>3 <a name="Calendar_Fields" href="#Calendar_Fields">Calendar Fields</a></h2>
 
@@ -1169,6 +1155,16 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   <p>This element was deprecated after the introduction of bcp47/timezone.xml, because the information became redundant
   (or was contained in the <i>TZ time zone database</i>).</p>
 
+  <p class="changed"><b>Deprecated &lt;timeZoneNames&gt; subelements:</b></p>
+  <ul class="changed">
+    <li>&lt;hoursFormat&gt; e.g. &quot;{0}/{1}&quot; for &quot;-0800/-0700&quot;</li>
+    <li><a name="fallbackRegionFormat" href="#fallbackRegionFormat">&lt;fallbackRegionFormat&gt;</a> (deprecated),
+      e.g. &quot;{0} Time ({1})&quot; for &quot;United States Time (New York)&quot;</li>
+    <li>&lt;abbreviationFallback&gt;</li>
+    <li>&lt;preferenceOrdering&gt;, a preference ordering among modern zones; use metazones instead.</li>
+    <li>&lt;singleCountries&gt;, use <a href="#Primary_Zones">Primary Zones</a></li>
+  </ul>
+
   <p>The following is an example of time zone data. Although this is an example of possible data, in most cases only the
   exemplarCity needs translation. And that does not even need to be present, if a country only has a single time one.
   As always, the <i>type</i> field for each zone is the identification of that zone. It is not to be translated.</p>
@@ -1268,7 +1264,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		<tr>
 			<td>&quot;-1200&quot;</td>
 		</tr>
-		<tr>
+		<tr class="removed">
 			<td>hoursFormat (deprecated)</td>
 			<td>&quot;{0}/{1}&quot;</td>
 			<td>&quot;-0800/-0700&quot;</td>
@@ -1307,17 +1303,17 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		  <td>&quot;{0} Time ({1})&quot;</td>
 		  <td>United States Time (New York)</td>
 	  </tr>
-		<tr>
-	    <td>abbreviationFallback (deprecated)</td>
+		<tr class="removed">
+	    	<td>abbreviationFallback (deprecated)</td>
 			<td>type=&quot;GMT&quot;</td>
 			<td>causes any &quot;long&quot; match to be skipped in Time Zone fallbacks</td>
 		</tr>
-		<tr>
+		<tr class="removed">
 			<td>preferenceOrdering (deprecated)</td>
 			<td>type=&quot;America/Mexico_City America/Chihuahua America/New_York&quot;</td>
 			<td>a preference ordering among modern zones</td>
 		</tr>
-		<tr>
+		<tr class="removed">
 			<td>singleCountries</td>
 			<td>list=&quot;America/Godthab America/Santiago America/Guayaquil Europe/Madrid Pacific/Auckland&nbsp; Pacific/Tahiti Europe/Lisbon...&quot;</td>
 			<td>uses country name alone</td>
@@ -1726,9 +1722,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   </blockquote>
 
   
-  <p class="reviewnote">Can't remove the following, it is a link target.</p>
-  <p class="removed"><a name="fallbackFormat" href="#fallbackFormat"><strong>fallbackRegionFormat:</strong></a>
-  a formatting string such as &quot;{1} Time ({0})&quot;, where {1} is the country and {0} is a city.</p>
+  <p class="removed"><strong>fallbackRegionFormat:</strong> a formatting string such as
+  &quot;{1} Time ({0})&quot;, where {1} is the country and {0} is a city.</p>
 
   <p><a name="fallbackFormat" href="#fallbackFormat"><b>fallbackFormat</b>:</a> a formatting string such as
   &quot;{1} ({0})&quot;, where {1} is the metazone, and {0} is the country or city.</p>
@@ -2098,9 +2093,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		<li>America/Vancouver → “Pacific Time (Canada)” → 
 		America/Vancouver</li>
   </ul>
-  <blockquote>
+  <blockquote class="removed">
 		<p><b>Note: </b>The hoursFormat, preferenceOrdering, and abbreviationFallback 
-		items used in earlier versions of this appendix are deprecated. </p>
+		items used in earlier versions of this appendix are deprecated.</p>
   </blockquote>
 
 <h2>8 <a name="Date_Format_Patterns" href="#Date_Format_Patterns">Date Format Patterns</a></h2>

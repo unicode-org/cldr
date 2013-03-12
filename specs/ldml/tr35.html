@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-03-11</span></td>
+			<td><span class="changed">2013-03-12</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -3411,8 +3411,8 @@ decimal?, group?, special*)) &gt;</pre>
       <td>7 <a href="tr35-dates.html#Using_Time_Zone_Names">Using Time Zone Names</a></td>
     </tr>
     <tr>
-      <td><a name="fallbackFormat" href="#fallbackFormat"><strong>fallbackRegionFormat:</strong></a></td>
-      <td><a href="tr35-dates.html#fallbackFormat"><strong>fallbackRegionFormat:</strong></a></td>
+      <td><a name="fallbackRegionFormat" href="#fallbackRegionFormat"><strong>fallbackRegionFormat:</strong></a></td>
+      <td><a href="tr35-dates.html#fallbackRegionFormat">&lt;fallbackRegionFormat&gt;</a></td>
     </tr>
     <tr>
       <td><a name="fallbackFormat" href="#fallbackFormat"><b>fallbackFormat</b>:</a></td>
@@ -3991,30 +3991,32 @@ decimal?, group?, special*)) &gt;</pre>
           for their work on keyboards.</li>
 		<li>Jennifer Chye for her contributions to the conversion tools.</li>
 	</ul>
-<p>Other contributors to CLDR are listed on the <a href="http://www.unicode.org/cldr/">CLDR Project Page</a>.</p>
-	<h2><a name="Modifications" href="#Modifications">Modifications</a></h2>
+  <p>Other contributors to CLDR are listed on the <a href="http://www.unicode.org/cldr/">CLDR Project Page</a>.</p>
+
+  <h2><a name="Modifications" href="#Modifications">Modifications</a></h2>
 	<p>The following summarizes modifications from the previous revision of this document. Some of the modification
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
 	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>
 
-<h3><span class="changed">Revision 30</span></h3>
+  <h3><span class="changed">Revision 30</span></h3>
   <ul class="changed">
     <li>Updated for Version 23.</li>
     <li>This document has been split into multiple <a href="#Parts">parts</a>.</li>
-    <li>UCA CollationAuxiliary.html has been merged into the
-      <a href="tr35-collation.html">Collation</a> part of this document.
-      The CLDR root collation data files have been moved
-      from the UCA data directory into the CLDR repository.</li>
+    <li>UCA CollationAuxiliary.html has been merged into the <a href="tr35-collation.html">Collation</a>
+      part of this document. The CLDR root collation data files have been moved from the UCA data directory
+      into the CLDR repository.</li>
     <li>The und-u-co-ducet tailoring has been removed.</li>
     <li>Index exemplar characters with multiple primary weights are now supported.</li>
     <li>The &lt;fields&gt; element has been moved from just under the &lt;calendar&gt; element to just under
       the &lt;dates&gt; element. [ticket <a href="http://unicode.org/cldr/trac/ticket/5512">#5512</a>]</li>
-    <li>Updated time zone format patterns and description in Appendix F: <a href="#Date_Format_Patterns">Date Format Patterns</a> and Appendix J:
-    <a href="#Time_Zone_Fallback">Time Zone Display Names</a> to incorporate some new time zone format types and related changes.</li>
+    <li>Updated time zone format patterns and description in
+      <a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a> and
+      <a href="tr35-dates.html#Using_Time_Zone_Names">Using Time Zone Names</a> to incorporate some new time
+      zone format types and related changes.</li>
     <li>Documented the new supplemental &lt;timeData&gt; element, see <a href="tr35-dates.html#Time_Data">Time Data</a>.
-    [tickets <a href="http://unicode.org/cldr/trac/ticket/5488">#5488</a>, <a href="http://unicode.org/cldr/trac/ticket/5789">#5789</a>]</li>
+      [tickets <a href="http://unicode.org/cldr/trac/ticket/5488">#5488</a>, <a href="http://unicode.org/cldr/trac/ticket/5789">#5789</a>]</li>
     <li>Documented the new supplemental &lt;primaryZones&gt; element, see <a href="tr35-dates.html#Primary_Zones">Primary Zones</a>.
-    [tickets <a href="http://unicode.org/cldr/trac/ticket/5439">#5439</a>, <a href="http://unicode.org/cldr/trac/ticket/5788">#5788</a>]</li>
+      [tickets <a href="http://unicode.org/cldr/trac/ticket/5439">#5439</a>, <a href="http://unicode.org/cldr/trac/ticket/5788">#5788</a>]</li>
   </ul>
 
   <h3>Revision 29</h3>

@@ -217,7 +217,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<li>C.2 <a href="tr35-info.html#Supplemental_Territory_Containment">Supplemental Territory Containment</a></li>
 			<li>C.3 <a href="tr35-info.html#Supplemental_Language_Data">Supplemental Language Data</a></li>
 			<li>C.4 <a href="tr35-info.html#Supplemental_Territory_Information">Supplemental Territory Information</a></li>
-			<li>C.5 <a href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a></li>
+			<li>C.5 <a href="tr35-dates.html#Supplemental_Calendar_Data">Supplemental Calendar Data</a></li>
 			<li>C.6 <a href="#Measurement_System_Data">Measurement System Data</a></li>
 			<li>C.7 <a href="#Supplemental_Timezone_Data">Supplemental Time Zone Data</a></li>
 			<li>C.8 <a href="tr35-info.html#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
@@ -227,9 +227,9 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			<li>C.12 <a href="tr35-info.html#Telephone_Code_Data">Telephone Code Data</a></li>
 			<li>C.13 <a href="tr35-numbers.html#Numbering_Systems">Numbering Systems</a></li>
 			<li>C.14 <a href="tr35-info.html#Postal_Code_Validation">Postal Code Validation</a></li>
-			<li>C.15 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></li>
+			<li>C.15 <a href="tr35-dates.html#Calendar_Preference_Data">Calendar Preference Data</a></li>
 			<li>C.16 <a href="#BCP47_Keyword_Mapping">BCP 47 Keyword Mapping</a></li>
-			<li>C.17 <a href="#DayPeriodRules">DayPeriod Rules</a></li>
+			<li>C.17 <a href="tr35-dates.html#Day_Period_Rules">Day Period Rules</a></li>
 			<li>C.18 <a href="#LanguageMatching">Language Matching</a></li>
 			<li>C.19 <a href="#Parent_Locales">Parent Locales</a></li>
 			<li>C.20 <a href="#List_Gender">Gender of Lists</a></li>
@@ -2076,7 +2076,7 @@ root</pre>
 	calendar. The month and quarter names are identified numerically, starting at 1. The day (of the week) names are identified with short strings, since there 
 	is no universally-accepted numeric designation.</p>
 	<p><b>Note: </b>Use of a default element for calendars is deprecated. The default calendar type for a locale is specified by
-	<i>C.15 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>.</p>
+	<i><a href="tr35-dates.html#Calendar_Preference_Data">Calendar Preference Data</a></i>.</p>
 	<p><span class="changed"><b>Note: </b>Use of a &lt;fields&gt; element under a calendar element is deprecated; instead, a &lt;fields&gt; element
 	should be located just under a &lt;dates&gt; element.</span></p>
 	<p>Many calendars will only differ from the Gregorian Calendar in the year and era values. For example, the Japanese calendar will have many more eras (one 
@@ -2388,7 +2388,7 @@ root</pre>
   <p>These behave like months, days, and so on in terms of having context and width. Each locale has an associated
   dayPeriodRuleSet in the supplemental data, rules that specify when the day periods start and end for that locale.
   Each type in the rules needs to have a translation in a <span class="element">dayPeriod</span>. For more information,
-  see <em>Section C.17 <a href="#DayPeriodRules">DayPeriod Rules</a></em>.</p>
+  see <em><a href="tr35-dates.html#Day_Period_Rules">Day Period Rules</a></em>.</p>
   <p>The dayPeriod names should be distinct within each of the context/width combinations, including narrow;
   as with era names, there is less disambiguating information for them, and they are more likely to be used in a format that requires
   parsing. In some unambiguous cases, it is acceptable for certain overlapping dayPeriods to be the same, such as the names for "am"
@@ -3582,66 +3582,6 @@ language may not be in common usage in a particular territory.</p>
 
         <p class="reviewnote">TODO: remove Appendix C after all parts are moved.</p>
 
-	<h3><a name="Supplemental_Calendar_Data" href="#Supplemental_Calendar_Data">C.5 Supplemental Calendar Data</a></h3>
-	<pre class="dtd">&lt;!ELEMENT calendarData ( calendar* ) &gt;
-&lt;!ELEMENT calendar ( calendarSystem?, eras? ) &gt;
-&lt;!ATTLIST calendar type NMTOKENS #REQUIRED &gt;
-&lt;!ATTLIST calendar territories NMTOKENS #IMPLIED &gt; &lt;!-- territories are deprecated.  use ordering attribute in calendarPreference element instead. --&gt;
-
-&lt;!ELEMENT calendarSystem EMPTY &gt;
-&lt;!ATTLIST calendarSystem type (solar | lunar | lunisolar | other) #REQUIRED &gt;
-
-&lt;!ELEMENT eras ( era* ) &gt;
-
-&lt;!ELEMENT era EMPTY &gt;
-&lt;!ATTLIST era type NMTOKENS #REQUIRED &gt;
-&lt;!ATTLIST era start CDATA #IMPLIED &gt;
-&lt;!ATTLIST era end CDATA #IMPLIED &gt;
-
-&lt;!ELEMENT weekData ( minDays*, firstDay*, weekendStart*, weekendEnd* ) &gt;
-
-&lt;!ELEMENT minDays EMPTY &gt;
-&lt;!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED &gt;
-&lt;!ATTLIST minDays territories NMTOKENS #REQUIRED &gt;
-
-&lt;!ELEMENT firstDay EMPTY &gt;
-&lt;!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED &gt;
-&lt;!ATTLIST firstDay territories NMTOKENS #REQUIRED &gt;
-
-&lt;!ELEMENT weekendStart EMPTY &gt;
-&lt;!ATTLIST weekendStart day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED &gt;
-&lt;!ATTLIST weekendStart territories NMTOKENS #REQUIRED &gt;
-
-&lt;!ELEMENT weekendEnd EMPTY &gt;
-&lt;!ATTLIST weekendEnd day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED &gt;
-&lt;!ATTLIST weekendEnd territories NMTOKENS #REQUIRED &gt;</pre>
-	<p>The calendar data provides locale-independent data about calendars and usage. Example:</p>
-	<pre>&lt;calendarData&gt;
-  &lt;!-- gregorian is assumed, so these are all in addition --&gt;
-  &lt;calendar type=&quot;japanese&quot; territories=&quot;JP&quot;/&gt;
-  &lt;calendar type=&quot;islamic-civil&quot; territories=&quot;AE BH DJ DZ EG EH ER IL IQ JO KM KW
-     LB LY MA MR OM PS QA SA SD SY TD TN YE AF IR&quot;/&gt;
-  ...</pre>
-	<p>The common values provide a list of the calendars that are in common use, and thus should be shown in UIs that provide choice of calendars. (An &#39;Other...&#39; 
-	button could give access to the other available calendars.)</p>
-	<p><b>Note: </b>The territories attribute in the calendar element is deprecated.
-	Calendar types used by each territory is provided by <i>C.15 <a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>.</p>
-	<pre>&lt;weekData&gt;
-  &lt;minDays count=&quot;1&quot; territories=&quot;001&quot;/&gt;
-  &lt;minDays count=&quot;4&quot; territories=&quot;AT BE CA CH DE DK FI FR IT LI LT LU MC MT NL NO SE SK&quot;/&gt;
-  &lt;minDays count=&quot;4&quot; territories=&quot;CD&quot; draft=&quot;true&quot;/&gt;
-  &lt;firstDay day=&quot;mon&quot; territories=&quot;001&quot;/&gt;
-...</pre>
-	<p class="note">These values provide information on how a calendar is used in a particular territory. It may also be used in computing week boundaries for other 
-	purposes. The default is provided by the element with territories=&quot;001&quot;. </p>
-	<p class="note">The minDays indicates the minimum number of days to count as the first week (of a month or year).</p>
-	<p> The day indicated by firstDay is the one that should be shown as the first day of the week in a calendar view. This is not necessarily
-	the same as the first day after the weekend (or the first work day of the week), which should be determined from the weekend information. Currently, day-of-week
-	numbering is based on firstDay (that is, day 1 is the day specified by firstDay), but in the future we may add a way to specify this separately.</p>
-	<p>What is meant by the weekend varies from country to country. It is typically when most non-retail businesses are closed. The time should not be specified 
-	unless it is a well-recognized part of the day.</p>
-	<p class="note">The weekendStart day defaults to &quot;sat&quot;, and weekendEnd day defaults to &quot;sun&quot;.
-	&nbsp;For more information, see <i>Section 5.2.1 <a href="#Date_Ranges">Dates and Date Ranges</a></i>.</p>
 	<h3><a name="Measurement_System_Data" href="#Measurement_System_Data">C.6 Measurement System Data</a></h3>
 	<p class="dtd">&lt;!ELEMENT measurementData ( measurementSystem*, paperSize* ) &gt;<br>
 	<br>
@@ -3877,18 +3817,6 @@ language may not be in common usage in a particular territory.</p>
 	{language, language_script, language_region} in the above. If that variant is used, then the 
 	result in this example would be zh_Hant instead of zh_TW.</p>
 
-	<h3><a name="Calendar_Preference_Data" href="#Calendar_Preference_Data">C.15 Calendar Preference Data</a></h3>
-	<p class="dtd">&lt;!ELEMENT calendarPreferenceData ( calendarPreference* ) &gt;<br>
-	&lt;!ELEMENT calendarPreference EMPTY &gt;<br>
-	&lt;!ATTLIST calendarPreference territories NMTOKENS #REQUIRED &gt;<br>
-	&lt;!ATTLIST calendarPreference ordering NMTOKENS #REQUIRED &gt;<br></p>
-	<p>The calendarPreference element provides a list of commonly used calendar types in a territory.
-	The ordering attribute indicates the list of calendar types in preferred order.  The first calendar type in the
-	list is the default calendar type for the territory.  For example:</p>
-	<pre>&lt;calendarPreference territories="TH" ordering="buddhist gregorian"/&gt;</pre>
-	<p>The calendarPreference element above indicates both Buddhist calendar and Gregorian calendar are
-	commonly used in Thailand and Buddhist calendar is most preferred.</p>
-
 	<h3><a name="BCP47_Keyword_Mapping" href="#BCP47_Keyword_Mapping">C.16 BCP 47 Keyword Mapping</a></h3>
 
 	<p><b>Note:</b> <i>This data is deprecated and replaced with
@@ -3923,57 +3851,6 @@ language may not be in common usage in a particular territory.</p>
         ...
     &lt;/mapTypes&gt;</pre>
   <div>
-    <h4><a name="DayPeriodRules" href="#DayPeriodRules">C.17 DayPeriod Rules </a></h4>
-  <p class="dtd">&lt;!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) &gt;</p>
-  <p class="dtd">&lt;!ELEMENT dayPeriodRules (dayPeriodRule*) &gt;<br>
-    &lt;!ATTLIST dayPeriodRules locales NMTOKENS #REQUIRED &gt;</p>
-  <p class="dtd">&lt;!ELEMENT dayPeriodRule EMPTY &gt;<br>
-    &lt;!ATTLIST dayPeriodRule type NMTOKEN #REQUIRED &gt;<br>
-    &lt;!ATTLIST dayPeriodRule at NMTOKEN #IMPLIED &gt;<br>
-    &lt;!ATTLIST dayPeriodRule after NMTOKEN #IMPLIED &gt;<br>
-    &lt;!ATTLIST dayPeriodRule from NMTOKEN #IMPLIED &gt;<br>
-    &lt;!ATTLIST dayPeriodRule before NMTOKEN #IMPLIED &gt;<br>
-    &lt;!ATTLIST dayPeriodRule to NMTOKEN #IMPLIED &gt;</p>
-  <p>Each locale should have a set of day period rules, which determine the periods during a day if used with a 12 hour format. If locales are not defined in dayPeriods.xml, dayPeriods fallback to AM/PM. Here are the requirements for a rule set:</p>
-  <ol>
-    <li>"from" and "to" are closed intervals(inclusive). </li>
-    <li>"after" and "before" are open intervals(exclusive).</li>
-    <li>"at" means starting time and end time are the same.</li>
-    <li>There must be exactly one of {at, from, after} and exactly one of {at, to, before} for each dayPeriodRule.<br>
-    </li>
-    <li>The set of dayPeriodRule's need to completely cover the 24 hours in a day (from 0:00 before 24:00), with <strong>no</strong> overlaps between each dayPeriodRule.</li>
-    <li>Both hh:mm [period name] and hh [period name] can be parsed uniquely to HH:mm [period name].
-    <ol>
-      <li>For example, you can't have &lt;dayPeriod type = "morning" from="0:00" to="12:00"/&gt; because "12 {morning}" would be ambiguous.</li>
-    </ol>
-    </li>
-    <li>One dayPeriodRule can cross midnight. For example:
-    <ol>
-      <li>&lt;dayPeriodRule type="night" from="20:00" before="5:00"/&gt;</li>
-      <li>However, this should be avoided unless the alternative is awkward, because of ambiguities. While the use of the dayPeriods without hours is not recommended, they can be used. And if the user sees "Tuesday night" they may not think that that includes 1:00 am Tuesday. <br>
-      </li>
-    </ol>
-    </li>
-    <li>dayPeriodRule's with the same type are only allowed if they are not adjacent. Example:
-    <ul>
-      <li>&lt;dayPeriod type = "twilight" from="5:00" to="7:00"/&gt;</li>
-      <li>&lt;dayPeriod type = "twilight" from="17:00" to="19:00"/&gt;</li>
-    </ul>
-    </li>
-    <li>24:00 is <em>only</em> allowed in <em>before</em>="24:00". A term for midnight should be avoided in the rules, because of ambiguity problems in most languages.
-    <ol>
-      <li><em>"Tuesday midnight" generally means at the end of the day on Tuesday (24:00)<br>
-      </em></li>
-      <li><em>Most software does not format anything for 24:00, only for 00:00. And you don't want 00:00 Tuesday (the start of the day) to be formatted as midnight, meaning the end of the day.<br>
-      </em></li>
-    </ol>
-    </li>
-    <li>When parsing, if the hour is present the dayperiod is checked for consistency. If there is no hour, the center of the first matching dayPeriodRule is chosen (starting from 0:00).</li>
-    <li>If rounding is done -- including the rounding done by the time format -- then it needs to be done before the dayperiod is computed, so that the correct format is shown.</li>
-    </ol>
-
-
-
 
   <h4><a name="LanguageMatching" href="#LanguageMatching">C.18 Language Matching</a></h4>
   <p class="dtd">&lt;!ELEMENT languageMatching ( languageMatches* ) &gt;<br>
@@ -6266,19 +6143,19 @@ decimal?, group?, special*)) &gt;</pre>
       <td>4 <a href="tr35-dates.html#Time_Zone_Names">Time Zone Names</a></td>
     </tr>
     <tr>
-      <td>C.5 Supplemental Calendar Data</td>
-      <td>3.1 <a href="tr35-dates.html#Calendar_Data">Calendar Data</a>, 3.3 <a href="tr35-dates.html#Week_Data">Week Data</a></td>
+      <td><a name="Supplemental_Calendar_Data" href="#Supplemental_Calendar_Data">C.5 Supplemental Calendar Data</a></td>
+      <td>3 <a href="tr35-dates.html#Supplemental_Calendar_Data">Supplemental Calendar Data</a></td>
     </tr>
     <tr>
       <td>C.7 Supplemental Time Zone Data</td>
       <td>5 <a href="tr35-dates.html#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a></td>
     </tr>
     <tr>
-      <td>C.15 Calendar Preference Data</td>
+      <td><a name="Calendar_Preference_Data" href="#Calendar_Preference_Data">C.15 Calendar Preference Data</a></td>
       <td>3.2 <a href="tr35-dates.html#Calendar_Preference_Data">Calendar Preference Data</a></td>
     </tr>
     <tr>
-      <td>C.17 DayPeriod Rules</td>
+      <td><a name="DayPeriodRules" href="#DayPeriodRules">C.17 DayPeriod Rules</a></td>
       <td>3.5 <a href="tr35-dates.html#Day_Period_Rules">Day Period Rules</a></td>
     </tr>
     <tr>

@@ -1231,7 +1231,26 @@ root</pre>
     script or region level, the &quot;primary&quot; child locale will be empty, since its 
     parent will contain all of the appropriate resources for it. For more 
     information see <i>CLDR Information : Section 9.3 <a href="tr35-info.html#Default_Content">Default Content</a>.</i></p>
-	<p>&nbsp;If a language has more than one script in 
+
+    <p class="changed">Certain data items depend only on the region specified in a locale id, and are obtained from supplemental
+    data rather than through locale resources. For example:</p>
+    <ul class="changed">
+      <li>The currency for the specified region (see
+        <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>)</li>
+      <li>The measurement system for the specified region (see
+        <a href="tr35-general.html#Measurement_System_Data">Measurement System Data</a>)</li>
+      <li>The week conventions for the specified region (see
+        <a href="tr35-dates.html#Week_Data">Week Data</a>)</li>
+    </ul>
+    <p class="changed">These items will be correct for the specified region regardless of whether a locale bundle actually exists
+    with the same combination of language and region as in the locale id. For example, suppose data is requested for the locale id
+    "fr_US" and there is no bundle for that combination. Data obtained via locale inheritance, such as currency patterns and
+    currency symbols, will be obtained from the parent locale "fr". However, currency amounts would be formatted by default using
+    US dollars, just displayed in the manner governed by the locale "fr". When a locale id does not specify a region, the
+    region-specific items such as those above are obtained from the likely region for the locale (obtained via
+    <a href="#Likely_Subtags">Likely Subtags</a>).</p>
+
+	<p>If a language has more than one script in 
     customary modern use, then the CLDR file structure in common/main follows 
     the following model:</p>
 	<blockquote>
@@ -4024,6 +4043,10 @@ decimal?, group?, special*)) &gt;</pre>
     <li>Updated <a href="tr35-dates.html#Parsing_Dates_Times">Parsing Dates and Times</a> to suggest that
       matching of abbreviated symbols should be tolerant of the presence or absence of an abbreviation marker
       such as period. [ticket <a href="http://unicode.org/cldr/trac/ticket/5631">#5631</a>]</li>
+    <li>Updated <a href="#Locale_Inheritance">Locale Inheritance</a> to explain that certain data items are
+      derived directly from the region specified in a locale id (or the likely region if none specified),
+      using data in supplemental, instead of via inheritance through the locale bundle. 
+      [ticket <a href="http://unicode.org/cldr/trac/ticket/5606">#5606</a>]</li>
   </ul>
 
   <h3>Revision 29</h3>

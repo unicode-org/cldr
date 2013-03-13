@@ -1855,11 +1855,14 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   is &quot;Hora de {0}&quot;. The fallback format in the examples is &quot;{1} ({0})&quot;, which is what is in root.</p>
 
   <ol>
-		<li>In <b>all</b> cases, first canonicalize the <i>TZ</i> ID according to the &lt;timezoneData&gt;
-		  table in supplemental data. Use that canonical TZID in each of the following steps.<ul>
-			<li>America/Atka → America/Adak</li>
-			<li>Australia/ACT → Australia/Sydney</li>
-		</ul>
+		<li>In <b>all</b> cases, first canonicalize the <i>TZ</i> ID according to the <span class="removed">&lt;timezoneData&gt;
+		  table in supplemental data</span><span class="changed">Unicode Locale Extension <i>type</i> mapping data (See
+		  <a href="tr35.html#Time_Zone_Identifiers">Time Zone Identifiers</a> for more details).</span>.
+		  Use that canonical TZID in each of the following steps.
+			<ul>
+				<li>America/Atka → America/Adak</li>
+				<li>Australia/ACT → Australia/Sydney</li>
+			</ul>
 		</li>
 		<li class="removed">For RFC 822 GMT format (&quot;Z&quot;) return the results according to the RFC.
 			<ul>

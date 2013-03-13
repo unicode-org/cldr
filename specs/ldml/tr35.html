@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-03-12</span></td>
+			<td><span class="changed">2013-03-13</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -785,7 +785,12 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 
 		<tr>
 			<td>"search"</td>
-			<td>A special collation type dedicated for string search.</td>
+			<td>A special collation type dedicated for string search.<span class="changed"> Typically this adds or removes primary
+			equivalences, and may also make additional characters ignorable or change secondary equivalences, in order to reflect
+			the matching behavior desired for searching in the corresponding language. For example, in Czech, the distinction between
+			‘a’ and ‘á’ is secondary for normal collation, but primary for search; a search for ‘a’ should not match ‘á’ and vice versa.
+			A search collator is normally used with strength set to PRIMARY or SECONDARY (should be SECONDARY if using “asymmetric”
+			search as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section Asymmetric Search).</span></td>
 		</tr>
 
 		<tr>
@@ -819,7 +824,8 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			<td>Special collation type for a modified string search in which a pattern consisting of a sequence
 			of Hangul initial consonants (jamo lead consonants) will match a sequence of Hangul syllable characters whose initial
 			consonants match the pattern. The jamo lead consonants can be represented using conjoining or compatibility jamo. This
-			search collator is best used at SECONDARY strength with an "asymmetric" search of the sort obtained, for example, using
+			search collator is best used at SECONDARY strength with an "asymmetric" search <span class="changed">as described in the
+			[<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section Asymmetric Search and</span> obtained, for example, using
 			ICU4C's usearch facility with attribute USEARCH_ELEMENT_COMPARISON set to value USEARCH_PATTERN_BASE_WEIGHT_IS_WILDCARD;
 			this ensures that a full Hangul syllable in the search pattern will only match the same syllable in the searched text
 			(instead of matching any syllable with the same initial consonant), while a Hangul initial consonant in the search pattern
@@ -4083,6 +4089,8 @@ decimal?, group?, special*)) &gt;</pre>
       table and <a href="tr35-dates.html#Using_Time_Zone_Names">Using Time Zone Names</a> to refer to the
       new section.
       [ticket <a href="http://unicode.org/cldr/trac/ticket/5793">#5793</a>]</li>
+    <li>Improved the description of collation type "search".
+      [ticket <a href="http://unicode.org/cldr/trac/ticket/5331">#5331</a>]</li>
   </ul>
 
   <h3>Revision 29</h3>

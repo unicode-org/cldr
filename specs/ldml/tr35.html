@@ -785,12 +785,17 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 
 		<tr>
 			<td>"search"</td>
-			<td>A special collation type dedicated for string search.<span class="changed"> Typically this adds or removes primary
-			equivalences, and may also make additional characters ignorable or change secondary equivalences, in order to reflect
-			the matching behavior desired for searching in the corresponding language. For example, in Czech, the distinction between
-			‘a’ and ‘á’ is secondary for normal collation, but primary for search; a search for ‘a’ should not match ‘á’ and vice versa.
+			<td>A special collation type dedicated for string search<span class="changed">—it is not used to determine the relative
+			order of two strings, but only to determine whether they should be considered equivalent for the specified strength, using
+			the string search matching rules appropriate for the language. Compared to the normal collator for the language, this may
+			add or remove primary equivalences, may make additional characters ignorable or change secondary equivalences, and may modify
+			contractions to allow matching within them, depending on the desired behavior. For example, in Czech, the distinction between
+			‘a’ and ‘á’ is secondary for normal collation, but primary for search; a search for ‘a’ should never match ‘á’ and vice versa.
 			A search collator is normally used with strength set to PRIMARY or SECONDARY (should be SECONDARY if using “asymmetric”
-			search as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section Asymmetric Search).</span></td>
+			search as described in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] section Asymmetric Search). The
+			search collator in root supplies matching rules that are appropriate for most languages (and which are different than the
+			root collation behavior); language-specific search collators may be provided to override the matching rules for a given
+			language as necessary</span>.</td>
 		</tr>
 
 		<tr>

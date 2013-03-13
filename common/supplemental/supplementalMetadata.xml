@@ -403,6 +403,9 @@ For terms of use, see http://www.unicode.org/copyright.html
             <attributeValues elements="firstDay weekendEnd weekendStart" attributes="day" order="given">sun mon tue wed thu fri sat</attributeValues>
             <attributeValues elements="generation" attributes="date">$genDate</attributeValues>
             <attributeValues elements="group" attributes="contains type">$territory</attributeValues>
+            <attributeValues elements="hours" attributes="allowed" type="list">H K h</attributeValues>
+            <attributeValues elements="hours" attributes="preferred" type="choice">H h</attributeValues>
+            <attributeValues elements="hours" attributes="regions" type="list">$territory</attributeValues>
             <attributeValues elements="info" attributes="digits" type="regex">[0-9]+</attributeValues>
             <attributeValues elements="info" attributes="iso4217" type="bcp47">cu</attributeValues>
             <attributeValues elements="info" attributes="rounding" type="regex">[0-9]+</attributeValues>

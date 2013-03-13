@@ -1082,7 +1082,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   </p>
 
   <p>Each locale should have a set of day period rules, which determine the periods during a day if used with
-  a 12 hour format. If locales are not defined in dayPeriods.xml, dayPeriods fallback to AM/PM. Here are the
+  a 12 hour format. If locales are not <span class="changed">listed</span><strike class="removed">defined in dayPeriods.xml</strike>, dayPeriods fallback to AM/PM. Here are the
   requirements for a rule set:</p>
   <ol>
     <li>"from" and "to" are closed intervals (inclusive).</li>
@@ -1167,7 +1167,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   as described in <a href="tr35.html#Canonical_Form">Canonical Form</a>.</p>
 
   <p>The <i>TZ time zone database</i> can have multiple IDs that refer to the same entity. It does contain information on
-  equivalence relationships between these IDs, such as Asia/Calcutta" and "Asia/Kolkata". It does not remove IDs (with a few
+  equivalence relationships between these IDs, such as <span class="changed">"</span>Asia/Calcutta" and "Asia/Kolkata". It does not remove IDs (with a few
   known exceptions), but it may change the "canonical" ID which is in the file zone.tab.</p>
 
   <p>For lookup purposes specifications such as CLDR need a stable canonical ID, one that does not change from release to release.
@@ -1175,7 +1175,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   <pre>&lt;type name=&quot;inccu&quot; alias=&quot;Asia/Calcutta Asia/Kolkata&quot;/&gt;</pre>
 
   <p>That file also contains the short ID used in keywords. In versions of CLDR previous to 1.8, the alias information
-  (but not the short ID) was in supplementalData.xml under the zoneItem, such as:</p>
+    (but not the short ID) was in <span class="changed">Supplemental Data</span><strike class="removed">supplementalData.xml</strike> under the zoneItem, such as:</p>
   <pre>&lt;zoneItem type=&quot;Asia/Calcutta&quot; territory=&quot;IN&quot; aliases=&quot;Asia/Kolkata&quot;/&gt;</pre>
 
   <p>This element was deprecated after the introduction of bcp47/timezone.xml, because the information became redundant
@@ -1378,7 +1378,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   time zone in use has changed for some reason. For example, consider the TZID &quot;America/Indiana/Knox&quot;,
   which observed Central time (GMT-6:00) prior to October 27, 1991, and has currently observed Central time
   since April 2, 2006, but has observed Eastern time ( GMT-5:00 ) between these two dates. This is denoted as follows
-  (in the supplemental data file <a href="http://unicode.org/cldr/data/common/supplemental/metaZones.xml">metaZones.xml</a>).</p>
+  <strike class="removed">(in the supplemental data file <a href="http://unicode.org/cldr/data/common/supplemental/metaZones.xml">metaZones.xml</a>).</strike></p>
 
 <pre>&lt;timezone type=&quot;America/Indiana/Knox&quot;&gt;
   &lt;usesMetazone to=&quot;1991-10-27 07:00&quot; mzone=&quot;America_Central&quot;/&gt;
@@ -1479,7 +1479,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	&lt;!ATTLIST mapZone references CDATA #IMPLIED &gt;
   </p>
 
-  <p>The following subelement of &lt;metaZones&gt; (<a href="http://unicode.org/cldr/data/common/supplemental/metaZones.xml">metaZones.xml</a>)
+  <p>The following subelement of &lt;metaZones&gt; <strike class="removed">(<a href="http://unicode.org/cldr/data/common/supplemental/metaZones.xml">metaZones.xml</a>)</strike>
 	provides a mapping from a single Unicode time zone id to metazones.  For more information about metazones,
 	See <i><a href="tr35-dates.html#Time_Zone_Names">Time Zone Names</a></i>.</p>
 <pre>&lt;metazoneInfo&gt;
@@ -1514,7 +1514,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 
   <p>The &lt;mapTimezones&gt; element can be also used to provide mappings between Unicode time zone IDs and
 	other time zone IDs.  This example specifies a mapping from Windows TZIDs to Unicode time zone IDs
-	(<a href="http://unicode.org/cldr/data/common/supplemental/windowsZones.xml">windowsZones.xml</a>).</p>
+	<strike class="removed">(<a href="http://unicode.org/cldr/data/common/supplemental/windowsZones.xml">windowsZones.xml</a>)</strike>.</p>
 <pre>&lt;mapTimezones otherVersion="07dc0000" typeVersion="2011n"&gt;
 	....
 	&lt;!-- (UTC-08:00) Baja California --&gt;
@@ -1725,7 +1725,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
       entire life of the metazone. (The raw offset of the golden zone may change over time.)</li>
     <li>Each other zone must have the same raw offset as the golden zone, for the entire period that it
       is in the metazone. (It might not have the same offset when daylight savings is in effect.)</li>
-    <li>A golden zone in mapTimezones (metaZones.xml) must have reverse mapping in metazoneInfo (metaZones.xml)</li>
+    <li>A golden zone in mapTimezones <strike class="removed">(metaZones.xml)</strike> must have reverse mapping in metazoneInfo <strike class="removed">(metaZones.xml)</strike></li>
   </ul></blockquote>
 
   <p><b>Preferred Zone</b> - for a given TZID, the &quot;best&quot; zone out of a metazone for a given country or language.</p>
@@ -1739,8 +1739,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
       preferred for a territory XX.</li>
     <li style="margin-top: 0.5em; margin-bottom: 0.5em">The preferred zone for a given metazone and
       territory XX is in a metazone M during any time when any other zone in XX is also in M</li>
-    <li style="margin-top: 0.5em; margin-bottom: 0.5em">A preferred zone in mapTimezones (metaZones.xml)
-      must have reverse mapping in metazoneInfo (metaZones.xml)</li>
+    <li style="margin-top: 0.5em; margin-bottom: 0.5em">A preferred zone in mapTimezones <strike class="removed">(metaZones.xml)</strike>
+      must have reverse mapping in metazoneInfo <strike class="removed">(metaZones.xml)</strike></li>
   </ul></blockquote>
 
   <p>For example, for America_Pacific the preferred zone for Canada is  America/Vancouver, and the preferred

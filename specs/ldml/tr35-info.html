@@ -157,12 +157,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	data can be viewed in the
 	<a href="http://www.unicode.org/cldr/data/charts/supplemental/index.html">Supplemental Charts</a>.
 	</p>
-	<p>The data in CLDR is split into multiple files: supplementalData.xml, supplementalMetadata.xml, characters.xml, likelySubtags.xml, ordinals.xml, plurals.xml, telephoneCodeData.xml, genderList.xml, plus transforms (see <i>Section 5.16 <a href="tr35.html#Transforms">Transforms</a>
+	<p>The data in CLDR is <span class="changed">presently</span> split into multiple files: supplementalData.xml, supplementalMetadata.xml, characters.xml, likelySubtags.xml, ordinals.xml, plurals.xml, telephoneCodeData.xml, genderList.xml, plus transforms (see <i>Section 5.16 <a href="tr35.html#Transforms">Transforms</a>
 	</i>and<i> Appendix N: <a href="tr35.html#Transform_Rules">Transform Rules</a></i>). The split is just 
 	for convenience: logically, they are treated as though they were a single file. Future versions 
-	of CLDR may split the data in a different fashion.</p>
+	of CLDR may split the data in a different fashion. <span class="changed">Do not depend on any specific XML filename or path for supplemental data.</span></p>
 
-        <p class="changed">Note that <a href="#Metadata_Elements">Chapeter 10</a> presents information about
+        <p class="changed">Note that <a href="#Metadata_Elements">Chapter 10</a> presents information about
           metadata that is maintained on a per-locale basis. It is included in this section because it is not intended
           to be used as part of the locale itself.</p>
 
@@ -435,7 +435,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	  </tr>
 	</table>
 	<p>Levels 40 through 80 are based on the definitions and specifications listed in <strong>8.1-8.4</strong>.
-However, these principles <span class="changed">are continually being refined by the CLDR technical committee,</span> and so do not completely reflect the data that is actually used for coverage determination, which is in the <strong>coverageLevels.xml</strong> file. For a view of the trunk version of this file, see <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/coverageLevels.xml">coverageLevels.xml</a>. </p>
+However, these principles <span class="changed">are continually being refined by the CLDR technical committee,</span> and so do not completely reflect the data that is actually used for coverage determination, <span class="changed">which is under the XPath <strong>//supplementalData/CoverageLevels</strong></span>. For a view of the trunk version of this <span class="changed">data</span><strike class="removed">file</strike>, see <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/coverageLevels.xml">coverageLevels.xml</a>. <span class="changed">(As described in the <a href="tr35-info.html#Supplemental_Data">introduction to Supplemental Data</a>, the specific XML filename may change.)</span> </p>
 	<p class="dtd">&lt;!ELEMENT coverageLevels ( coverageVariable*, coverageLevel* ) &gt;<br>
     &lt;!ELEMENT coverageLevel EMPTY &gt;<br>
     &lt;!ATTLIST coverageLevel inLanguage CDATA #IMPLIED &gt;<br>
@@ -470,8 +470,8 @@ However, these principles <span class="changed">are continually being refined by
 	<h3>8.1 Definitions</h3>
 	<ul>
 		<li><i>Target-Language</i> is the language under consideration. </li>
-		<li><i>Target-Territories</i> is the list of territories found by looking up <i>Target-Language</i> in the &lt;languageData&gt; elements in
-		<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">supplementalData.xml</a> </li>
+		<li><i>Target-Territories</i> is the list of territories found by looking up <i>Target-Language</i> in the &lt;languageData&gt; elements in <span class="changed"><a href="tr35-info.html#Supplemental_Language_Data">Supplemental Language Data</a>.</span><strike class="removed">
+		<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">supplementalData.xml</a></strike> </li>
 		<li><i>Language-List</i> is <i>Target-Language</i>, plus
 		<ul>
 			<li><b>basic: </b>Chinese, English, French, German, Italian, Japanese, Portuguese, Russian, Spanish, Unknown (de, en, es, fr, it, ja, pt, ru, zh, und</li>
@@ -482,7 +482,7 @@ However, these principles <span class="changed">are continually being refined by
 		</ul>
 		</li>
 		<li><i>Target-Scripts </i>is the list of scripts in which <i>Target-Language</i> can be customarily written (found by looking up <i>Target-Language</i> 
-		in the &lt;languageData&gt; elements in <a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">supplementalData.xml</a>)<i>,</i> plus Unknown (Zzzz)<i>.</i></li>
+		in the &lt;languageData&gt; elements in <span class="changed"><a href="tr35-info.html#Supplemental_Language_Data">Supplemental Language Data</a>.</span><strike class="removed"><a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">supplementalData.xml</a></strike>)<i>,</i> plus Unknown (Zzzz)<i>.</i></li>
 		<li><i>Script-List</i> is the <i>Target-Scripts</i> plus the major scripts used for multiple languages<ul>
 			<li>Latin, Simplified Chinese, Traditional Chinese, Cyrillic, Arabic (Latn, Hans, Hant, Cyrl, Arab)</li>
 		</ul>
@@ -496,11 +496,12 @@ However, these principles <span class="changed">are continually being refined by
 			Latvia, Slovenia, Slovakia, Malta (LU, CZ, HU, ES, LT, LV, SI, SK, MT).</li>
 			<li style="margin-top: 0.5em; margin-bottom: 0.5em"><b>modern:</b> all current ISO 3166 territories, plus the  UN 
 			M.49 [<a href="tr35.html#UNM49">UNM49</a>] regions in
-			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">supplementalData.xml</a></li>
+                          <span class="changed"><a href="tr35-info.html#Supplemental_Territory_Containment">Supplemental Territory Containment</a>.</span><strike class="removed">
+			<a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">supplementalData.xml</a></strike></li>
 		</ul>
 		</li>
 		<li><i>Currency-List</i> is the list of current official currencies used in any of the territories in <i>Territory-List</i>, found by looking at the region 
-		elements in <a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">supplementalData.xml</a>, plus Unknown (XXX).</li>
+		elements in <span class="changed"><a href="tr35-info.html#Supplemental_Territory_Containment">Supplemental Territory Containment</a>.</span><strike class="removed"><a href="http://unicode.org/cldr/data/common/supplemental/supplementalData.xml">supplementalData.xml</a></strike>, plus Unknown (XXX).</li>
 		<li><i>Calendar-List</i> is the set of calendars in customary use in any of <i>Target-Territories</i>, plus Gregorian. </li>
 		<li><em>Number-System-List</em> is the set of number systems in customary use in the language.</li>
   </ul>

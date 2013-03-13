@@ -575,14 +575,14 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 					<td><code>knn</code></td>
 				</tr>
 			</table>
-			<p>For a full list, see <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a>.
+			<p><strike class="changed">For a full list, see <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a>.</strike>
 			If a language subtag matches the type attribute of a languageAlias element, then the replacement value is used instead. For example, because
 			"swh" occurs in <tt>&lt;languageAlias type="swh" replacement="sw"/&gt;</tt>, "sw" must be used instead of "swh". Thus Unicode language identifiers
 			use &quot;ar-EG&quot; for Standard Arabic (Egypt), not &quot;arb-EG&quot;; they use &quot;zh-TW&quot; for Mandarin Chinese 
 			(Taiwan), not &quot;cmn-TW&quot;.</p>
 			<p>The private use codes from <code>qfz..qtz</code> will never be given specific semantics in Unicode 
 			identifiers, and are thus safe for use for other purposes by other applications.            </p>
-			<p>The <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a> provides data for normalizing language/locale codes, including mapping overlong  codes like &quot;eng-840&quot; or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.  For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</p></td>
+			<p>The <strike class="changed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed">CLDR</span> provides data for normalizing language/locale codes, including mapping overlong  codes like &quot;eng-840&quot; or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;.  <strike class="removed">For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</strike></p></td>
 		</tr>
 		<tr>
 			<td>unicode_script_subtag<p>(also known as a <i>Unicode 
@@ -674,7 +674,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			</table>
 			<p>The private use subtags from XA..XZ will never  be given specific semantics in Unicode identifiers, and are thus safe for use for other purposes by 
 			other applications.</p>
-			<p>The <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a> provides data for normalizing territory/region codes, including mapping overlong  codes like &quot;eng-840&quot; or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;. For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</p>
+			<p>The <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed">CLDR</span> provides data for normalizing territory/region codes, including mapping overlong  codes like &quot;eng-840&quot; or &quot;eng-USA&quot; to the correct code &quot;en-US&quot;. <strike class="removed">For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</strike></p>
 			<p>Special Codes:</p>
 			<ul>
 			  <li>The territory code 'UK' has a special status in ISO, and is used for the domain name instead of GB. It is thus recognized by CLDR as being an alternate (unnormalized) form of 'GB'.</li>
@@ -687,7 +687,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 			variant code)</i></td>
 			<td>ASCII letters</td>
 			<td>[<a href="#BCP47">BCP47</a>] subtag values marked as <b>Type: variant</b>
-		    <p>The <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a> provides data for normalizing variant codes.  For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</p></td>
+		    <p>The <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed">CLDR</span> provides data for normalizing variant codes.  <strike class="removed">For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</strike></p></td>
 		</tr>
 		<tr>
 			<td><i>attribute</i></td>
@@ -843,8 +843,8 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 			<td><i>ISO 4217 code,</i><p><i>plus others in common use</i></td>
 			<td><p>Codes that are or have been valid in ISO 4217, plus certain additional codes that are or have been in common use.
 			  The full list of codes, with descriptions, is available in the common/main/en.xml file for each release of CLDR.
-			  The list of countries and time periods associated with each currency value is <span class="changed">under the &lt;currencyData&gt;
-			  element in a file in common/supplemental/ (currently the supplementalData.xml file)</span>.</p>
+			  The list of countries and time periods associated with each currency value is <strike class="removed"><span class="changed">under the &lt;currencyData&gt;
+			  element in a file in common/supplemental/ (currently the supplementalData.xml file)</span>.</strike><span class="changed">available.</span></p>
 			  <p>The XXX code is given a broader interpretation as Unknown or Invalid Currency. </p>
 			  <p>For more information, see <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>.
 			</td>
@@ -903,7 +903,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 			such as &quot;usnavajo&quot; for &quot;America/Shiprock Navajo&quot;, or &quot;utcw01&quot; for &quot;Etc/GMT+1&quot;.</p>
 		    <p class="removed">There is a special code &quot;unk&quot; for an Unknown or Invalid Timezone.
 		    This can be expressed in TZDB syntax as &quot;Etc/Unknown&quot; although it is not defined in [<a href="#Olson">Olson</a>].</p>
-		    <p>The <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a> provides data for normalizing timezone codes.  For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</p>
+		    <p>The <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed">CLDR</span> provides data for normalizing timezone codes. <strike class="removed"> For a summary, see <a href="http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/aliases.html">Aliases Chart</a>.</strike></p>
 		    </td>
 		</tr>
 
@@ -1068,10 +1068,10 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 		<li>Replace the BCP 47 primary language subtag "und" with "root" if no script, region, or variant
 		subtags are  present</li>
 		<li>If the BCP 47 primary language subtag matches the <i>type</i> attribute of a <i>languageAlias</i>
-		element in <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a>,
+		element in <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed"><a href="tr35-info.html#Supplemental_Data">Supplemental Data</a></span>,
 		replace the language subtag with the <i>replacement</i> value.</li>
 		<li>If the BCP 47 region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i>
-		element in <a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a>,
+		element in <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed"><a href="tr35-info.html#Supplemental_Data">Supplemental Data</a></span>,
 		replace the language subtag with the <i>replacement</i> value. (When multiple <i>replacement</i> values are available, use the
 		first one)</li>
 	</ol>
@@ -3143,7 +3143,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>type "aumqi" is valid for key "tz", supported by CLDR 1.8.1
 		or later versions.</li>
 	</ul>
-	<h4><a name="Numbering System Data" href="#Numbering System Data">Q.1.1 Numbering System Data</a><br>
+	<h4><a name="Numbering System Data" href="#Numbering%20System%20Data">Q.1.1 Numbering System Data</a><br>
 	</h4>
 	<p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/bcp47/number.xml">bcp47/number.xml</a>.<br>
   </p>
@@ -4121,7 +4121,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li>Disallowed isolated &quot;n&quot; in plural rules in C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>. Reworded some of the syntax notes for clarity.</li>
     <li>Moved collation Key/Type information to <em>Section 5.14.3 <a href="http://unicode.org/reports/tr35/#Setting_Options">Setting Options</a></em>.</li>
     <li>Clarified that the BCP47 key/value identifiers are the canonical (and preferred) identifiers.</li>
-    <li>Added <em>Section Q.1.1 <a href="#Numbering System Data">Numbering System Data</a></em>.</li>
+    <li>Added <em>Section Q.1.1 <a href="#Numbering%20System%20Data">Numbering System Data</a></em>.</li>
     <li>Added description of deprecated="true" in Appendix Q.</li>
   </ul>
   <p>Revision 26 being a proposed update, only changes between revisions 25 and 27 are summarized here.</p>

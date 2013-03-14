@@ -39,7 +39,8 @@ class LdmlConvertRules {
         "numbers:scientificFormats:numberSystem",
         "territoryContainment:group:status",
         "decimalFormat:pattern:count",
-        "unit:unitPattern:count"
+        "unit:unitPattern:count",
+        "pluralRules:pluralRule:count"
     };
 
     /**

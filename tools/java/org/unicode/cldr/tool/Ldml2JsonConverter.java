@@ -757,7 +757,11 @@ public class Ldml2JsonConverter {
         value = escapeValue(value);
 
         if (attrAsValueMap.isEmpty()) {
-            out.add(indent(level) + "\"" + objName + "\": \"" + value + "\"");
+            if (value.isEmpty()) {
+                out.add(indent(level) + "\"" + objName + "\": {}");
+            } else {
+                out.add(indent(level) + "\"" + objName + "\": \"" + value + "\"");
+            }
             return;
         }
 

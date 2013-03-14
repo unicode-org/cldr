@@ -2623,14 +2623,14 @@ root</pre>
 			<td><strong>For</strong></td>
 			<td><strong>Comment</strong></td>
 		</tr>
-      <tr>
-        <td rowspan="3">de_CH<br>
-        <em>no keyword</em></td>
-  <td>de_CH</td>
-  <td>default collation type</td>
-  <td>finds &quot;B&quot;</td>
-  </tr>
-<tr>
+        <tr>
+            <td rowspan="3">de_CH<br>
+              <em>no keyword</em></td>
+            <td>de_CH</td>
+            <td>default collation type</td>
+            <td>finds &quot;B&quot;</td>
+        </tr>
+        <tr>
 			<td>de_CH</td>
 			<td>collation type=B</td>
 			<td>not found</td>
@@ -2642,7 +2642,7 @@ root</pre>
 		</tr>
 		<tr>
 			<td rowspan="4">de<br>
-	        <em>no keyword</em></td>
+	          <em>no keyword</em></td>
 			<td>de</td>
 			<td>default collation type</td>
 			<td>not found</td>
@@ -2673,12 +2673,12 @@ root</pre>
 		  <td>de</td>
 		  <td>collation type=standard</td>
 		  <td>not found</td>
-	  </tr>
+	    </tr>
 		<tr>
 		  <td>root</td>
 		  <td>collation type=standard</td>
 		  <td><i>found</i></td>
-	  </tr>
+	    </tr>
 		<tr>
 			<td rowspan="6">de@collation=foobar</td>
 			<td>de</td>
@@ -2689,44 +2689,144 @@ root</pre>
 		  <td>root</td>
 		  <td>collation type=foobar</td>
 		  <td>not found, starts looking for default</td>
-	  </tr>
+	    </tr>
 		<tr>
 		  <td>de</td>
 		  <td>default collation type</td>
 		  <td>not found</td>
-	  </tr>
+	    </tr>
 		<tr>
 		  <td>root</td>
 		  <td>default collation type</td>
 		  <td>finds &quot;standard&quot;</td>
-	  </tr>
+	    </tr>
 		<tr>
 		  <td>de</td>
 		  <td>collation type=standard</td>
 		  <td>not found</td>
-	  </tr>
+	    </tr>
 		<tr>
 		  <td>root</td>
 		  <td>collation type=standard</td>
 		  <td><i>found</i></td>
 		</tr>
-		<tr>
-		  <td rowspan="3"><span class="removed">de_DE@collation=ducet</span><br><span class="changed">en_US@collation=search</span></td>
-		  <td><span class="removed">de_DE</span> <span class="changed">en_US</span></td>
-		  <td>collation type=<span class="removed">ducet</span> <span class="changed">search</span></td>
+		<tr class="removed">
+		  <td rowspan="3">de_DE@collation=ducet</td>
+		  <td>de_DE</td>
+		  <td>collation type=ducet</td>
 		  <td>not found</td>
-	  </tr>
-			<tr>
-			<td><span class="removed">de</span> <span class="changed">en</span></td>
-			<td>collation type=<span class="removed">ducet</span> <span class="changed">search</span></td>
+	    </tr>
+        <tr class="removed">
+			<td>de</td>
+			<td>collation type=ducet</td>
 			<td>not found</td>
 		</tr>
-		<tr>
+		<tr class="removed">
 			<td>root</td>
-			<td>collation type=<span class="removed">ducet</span> <span class="changed">search</span></td>
+			<td>collation type=ducet</td>
 			<td><i>found</i></td>
 		</tr>
-</table>
+    </table>
+
+    <p class="changed">Examples of &quot;search&quot; collator lookup; 'de' has a
+      language-specific version, but 'en' does not:</p>
+    <table border="1" cellpadding="0" cellspacing="0">
+        <tr class="changed">
+            <td><strong>User Input</strong></td>
+            <td><strong>Lookup in Locale</strong></td>
+            <td><strong>For</strong></td>
+            <td><strong>Comment</strong></td>
+        </tr>
+        <tr class="changed">
+            <td rowspan="2">de_CH@collation=search</td>
+            <td>de_CH</td>
+            <td>collation type=search</td>
+            <td>not found</td>
+        </tr>
+        <tr class="changed">
+            <td>de</td>
+            <td>collation type=search</td>
+            <td><i>found</i></td>
+        </tr>
+        <tr class="changed">
+            <td rowspan="3">en_US@collation=search</td>
+            <td>en_US</td>
+            <td>collation type=search</td>
+            <td>not found</td>
+        </tr>
+        <tr class="changed">
+            <td>en</td>
+            <td>collation type=search</td>
+            <td>not found</td>
+        </tr>
+        <tr class="changed">
+            <td>root</td>
+            <td>collation type=search</td>
+            <td><i>found</i></td>
+        </tr>
+    </table>
+
+    <p class="changed">Examples of lookup for Chinese collation types. Note:</p>
+    <ul class="changed">
+      <li>All of the Chinese-specific collation types are provided in the 'zh' locale</li>
+      <li>For 'zh' the &lt;default&gt; element specifies &quot;pinyin&quot;; for 'zh_Hant' the &lt;default&gt;
+        element specifies &quot;stroke&quot;. However any of the available Chinese collation types can be
+        explicitly requested for any Chinese locale.</li>
+    </ul>
+    <table border="1" cellpadding="0" cellspacing="0">
+        <tr class="changed">
+            <td><strong>User Input</strong></td>
+            <td><strong>Lookup in Locale</strong></td>
+            <td><strong>For</strong></td>
+            <td><strong>Comment</strong></td>
+        </tr>
+		<tr class="changed">
+			<td rowspan="3">zh_Hant<br>
+	          <em>no keyword</em></td>
+			<td>zh_Hant</td>
+			<td>default collation type</td>
+			<td>finds &quot;stroke&quot;</td>
+		</tr>
+		<tr class="changed">
+			<td>zh_Hant</td>
+			<td>collation type=stroke</td>
+			<td>not found</td>
+		</tr>
+		<tr class="changed">
+			<td>zh</td>
+			<td>collation type=stroke</td>
+			<td><i>found</i></td>
+		</tr>
+		<tr class="changed">
+			<td rowspan="3">zh_Hant_HK@collation=pinyin</td>
+			<td>zh_Hant_HK</td>
+			<td>collation type=pinyin</td>
+			<td>not found</td>
+		</tr>
+		<tr class="changed">
+			<td>zh_Hant</td>
+			<td>collation type=pinyin</td>
+			<td>not found</td>
+		</tr>
+		<tr class="changed">
+			<td>zh</td>
+			<td>collation type=pinyin</td>
+			<td><i>found</i></td>
+		</tr>
+		<tr class="changed">
+			<td rowspan="2">zh<br>
+	          <em>no keyword</em></td>
+			<td>zh</td>
+			<td>default collation type</td>
+			<td>finds &quot;pinyin&quot;</td>
+		</tr>
+		<tr class="changed">
+			<td>zh</td>
+			<td>collation type=pinyin</td>
+			<td><i>found</i></td>
+		</tr>
+    </table>
+
 	<blockquote>
 		<p><b>Note: </b>It is an invariant that the default in root for a given element must<br>
 	  always be a value that exists in root. So you can not have the following in root:</p>

@@ -683,7 +683,7 @@ public class Ldml2JsonConverter {
             CLDRFile file = cldrFactory.make(filename, resolve && dirName.equals(MAIN),
                 minimalDraftStatus);
             String outputFile = dirName.equals(MAIN) ?
-                filename.toLowerCase().replaceAll("_", "-") + ".json" :
+                filename.replaceAll("_", "-") + ".json" :
                 filename + ".json";
             String outputDirname = outputDir + dirName;
             convertCldrFile(file, outputDirname, outputFile);

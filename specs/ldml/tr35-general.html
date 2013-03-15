@@ -21,6 +21,15 @@
 
 li, p           { margin-top: 0.5em; margin-bottom: 0.5em }
 h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
+h2 a:link, h3 a:link, h4 a:link, h5 a:link, p[class="caption"] a:link, caption a:link,
+h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, p[class="caption"] a:visited, caption a:visited {
+    color:black; 
+    text-decoration:none
+    }
+h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, p[class="caption"] a:hover, caption a:hover {
+    color: red; 
+    text-decoration:underline
+    }
 -->
 </style>
 </head>
@@ -38,12 +47,13 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	</tr>
 </table>
 <div class="body">
-	<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
-	<h1 style="text-align: center">Unicode Locale Data Markup Language (LDML)<span class="changed">: General</span></h1>
+	<h2 style="text-align: center">Unicode Technical Standard #35</h2>
+	<h1 style="text-align: center">Unicode Locale Data Markup Language (LDML)<br>
+	Part 2: General</h1>
 	<table border="1" cellpadding="2" cellspacing="0" class="wide">
 		<tr>
 			<td>Version</td>
-			<td><span class="changed">23</span></td>
+			<td>23</td>
 		</tr>
 		<tr>
 			<td>Editors</td>
@@ -52,17 +62,17 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td><span class="changed">2013-02-27</span></td>
+			<td>2013-03-15</td>
 		</tr>
 		<tr>
 			<td>This Version</td>
 			<td>
-			<a href="http://www.unicode.org/reports/tr35/tr35-30/tr35.html" class="changed">http://www.unicode.org/reports/tr35/tr35-30/tr35.html</a></td>
+			<a href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
 		</tr>
 		<tr>
 			<td>Previous Version</td>
 			<td>
-			<a href="http://www.unicode.org/reports/tr35/tr35-29.html" class="changed">http://www.unicode.org/reports/tr35/tr35-29.html</a></td>
+			<a href="http://www.unicode.org/reports/tr35/tr35-29.html">http://www.unicode.org/reports/tr35/tr35-29.html</a></td>
 		</tr>
 		<tr>
 			<td>Latest Version</td>
@@ -82,38 +92,38 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>DTDs</td>
-			<td><a class="changed" href="http://unicode.org/cldr/dtd/23/">http://unicode.org/cldr/dtd/23/</a></td>
+			<td><a href="http://unicode.org/cldr/dtd/23/">http://unicode.org/cldr/dtd/23/</a></td>
 		</tr>
 		<tr>
 			<td>Revision</td>
-			<td><a class="changed" href="tr35.html#Modifications">30</a></td>
+			<td><a href="tr35.html#Modifications">31</a></td>
 		</tr>
 	</table>
 	<h3><i>Summary</i></h3>
-	<p>This document describes <span class="changed">parts of</span> an XML format (<i>vocabulary</i>)
+	<p>This document describes parts of an XML format (<i>vocabulary</i>)
 	for the exchange of structured locale data. This format is used in the 
 	<a href="http://unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p>
 
-	<p class="changed">This is a partial document, describing
+	<p>This is a partial document, describing
 	general parts of the LDML:
 	display names &amp; transforms, etc.
 	For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p>
 	
 	<h3><i>Status</i></h3>
 
-	   <!-- NOT YET APPROVED -->
+	  <!-- NOT YET APPROVED
 	  <p><i class="changed">This is a<b><font color="#ff3333"> draft </font></b>document which 
       may be updated, replaced, or superseded by other documents at any time. 
       Publication does not imply endorsement by the Unicode Consortium. This is 
       not a stable document; it is inappropriate to cite this document as other 
       than a work in progress.</i></p>
-      <!-- END NOT YET APPROVED -->
-	  <!-- APPROVED
+       END NOT YET APPROVED -->
+	  <!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 	<blockquote>
 		<p><i><b>A Unicode Technical Standard (UTS)</b> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</i></p>
@@ -123,8 +133,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>]. 
 	</i></p>
 
-<h2><a name="Contents"><span class="changed">General:</span> Contents</a></h2>
-  <ul class="toc changed">
+<h2><a name="Contents">Contents of Part 2, General</a></h2>
+  <ul class="toc">
     <li>1 <a href="#Display_Name_Elements">Display Name Elements</a></li>
     <li>2 <a href="#Layout_Elements">Layout Elements</a></li>
     <li>3 <a href="#Character_Elements">Character Elements</a>
@@ -330,20 +340,18 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   permitted).</p>
 
   <p class="dtd">
-    <span class="changed">
     &lt;!ELEMENT orientation ( characterOrder*, lineOrder*, special* ) &gt;<br>
     &lt;!ELEMENT characterOrder ( #PCDATA ) &gt;<br>
     &lt;!ELEMENT lineOrder ( #PCDATA ) &gt;
-    </span>
   </p>
 
-  <p class="changed">The lineOrder and characterOrder elements specify the default general ordering of lines within a page, and characters within a line.
+  <p>The lineOrder and characterOrder elements specify the default general ordering of lines within a page, and characters within a line.
   The possible values are:</p>
 
   <table>
     <tr>
-      <th class="changed">Direction</th>
-      <th class="changed">Value</th>
+      <th>Direction</th>
+      <th>Value</th>
     </tr>
     <tr>
       <td rowspan="2">Vertical</td>
@@ -361,7 +369,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     </tr>
   </table>
 
-  <p>If the <span class="changed">value of lineOrder is one of the vertical values, then the value of characterOrder must be one of the horizontal values</span>, and vice
+  <p>If the value of lineOrder is one of the vertical values, then the value of characterOrder must be one of the horizontal values, and vice
   versa. For example, for English the lines are top-to-bottom, and the characters are left-to-right. For Mongolian (in the Mongolian Script) the lines are
   right-to-left, and the characters are top to bottom. This does not override the ordering behavior of bidirectional text; it does, however, supply the
   paragraph direction for that text (for more information, see <i>UAX #9: The Bidirectional Algorithm</i>
@@ -461,8 +469,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <a href="tr35-numbers.html#Numbering_Systems">Numbering Systems</a></i>).</p>
 
   <p>The <em>index</em> characters are a set of characters for use as a UI "index", that is, a list of clickable characters (or character sequences)
-  that allow the user to see a segment of a larger "target" list. <span class="changed">For details see the
-  <a href="tr35-collation.html#Collation_Indexes">Unicode LDML: Collation</a> document.</span></p>
+  that allow the user to see a segment of a larger "target" list. For details see the
+  <a href="tr35-collation.html#Collation_Indexes">Unicode LDML: Collation</a> document.</p>
 
   <p>Here is a sample of the XML structure:</p>
 
@@ -548,7 +556,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <h3>3.3 <a name="IndexLabels" href="#IndexLabels">Index Labels</a></h3>
   <p class="reviewnote">The following text was moved here from the main document.</p>
 
-  <p class="changed"><em>The elements described in this section are not currently used in CLDR data nor in CLDR implementations. These elements should be
+  <p><em>The elements described in this section are not currently used in CLDR data nor in CLDR implementations. These elements should be
   considered as "beta" and implementers should not depend on them yet.</em></p>
 
   <p class="dtd">&lt;!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) &gt;</p>
@@ -592,27 +600,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     then the likely subtags language for Cyrillic is "ru" (derived by looking up "und-Cyrl").</li>
   </ol>
 
-  <p>The indexLabel is used to display characters (if it is available). That is, when displaying index characters, if there is an indexLabel
-  <span class="changed">with non-empty text contents</span>, <span class="removed">use it</span> <span class="changed">display that text</span> instead.
+  <p>The indexLabel is used to display characters (if it is available). That is, when displaying index characters, if there is an indexLabel with non-empty text contents, display that text instead.
   For example, for Hungarian, we could have A =&gt; "<strong>A, Á</strong>".</p>
 
   <p>The priority is used where not all of the index characters can be displayed. In that case, only the higher priorities (lower numbers) would be
   displayed.</p>
 
-  <p class="removed">Note that the indexLabels can be used both with contiguous ranges and non-contiguous ranges.
-  For German we might have [A-S Sch Sci St Su T-Z] as the index characters, and the following labels:</p>
-  <p class="example removed">
-  &lt;indexLabel item="Sci"&gt;S&lt;/indexLabel&gt;<br>
-  &lt;indexLabel item="Su"&gt;S&lt;/indexLabel&gt;</p>
-  <p class="removed">What that means is that the "S" bucket will
-  include anything [S,Sch), [Sci,St), and [Su,T).
-  That is, items are put into the first display bucket that contains them.
-  That allows for the desired behavior in German (and other languages) of:</p>
-  <ul class="removed">
-    <li>S (contains Satt, Semel, Szent)</li>
-    <li>Sch (contains Scherer, Schoen)</li>
-    <li>St (contains Stumpf, Sturr)</li>
-  </ul>
 
 <h3>3.4 <a name="Ellipsis" href="#Ellipsis">Ellipsis</a></h3>
   <p class="reviewnote">The following text was moved here from the main document.</p>
@@ -1718,8 +1711,6 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
      <li><b>maleTaints:</b> If all the elements of the lists are female, "female" form is used, otherwise the "male" form is used.</li>
   </ol>
-
-  <p class="removed">The data will be in <tt>genderList.xml</tt>, where the locales belonging to each of these types are enumerated.</p>
 
 
 <h2>12 <a name="Context_Transform_Elements" href="#Context_Transform_Elements">ContextTransform Elements</a></h2>

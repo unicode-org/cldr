@@ -718,7 +718,7 @@ public class Ldml2JsonConverter {
      * @param out
      *            The ArrayList to hold all output lines.
      * @param node
-     *            The CldrNodo being written.
+     *            The CldrNode being written.
      * @param value
      *            The value part for this element.
      * @param level

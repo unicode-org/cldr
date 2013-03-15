@@ -272,7 +272,7 @@ class LdmlConvertRules {
      */
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
-        "pluralRule"
+        "pluralRules"
     };
 
     /**

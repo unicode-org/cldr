@@ -21,6 +21,15 @@
 
 li, p           { margin-top: 0.5em; margin-bottom: 0.5em }
 h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
+h2 a:link, h3 a:link, h4 a:link, h5 a:link, p[class="caption"] a:link,
+h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, p[class="caption"] a:visited {
+    color:black; 
+    text-decoration:none
+    }
+h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, p[class="caption"] a:hover {
+    color: red; 
+    text-decoration:underline
+    }
 -->
 </style>
 </head>
@@ -118,11 +127,9 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	</i></p>
 
 <h2 class="changed"><a name="Parts" href="#Parts">Parts</a></h2>
-  <p class="changed">The LDML specification is split into several parts by topic,
-  with one HTML document per part.
-  This is intended to make it easier to read about each topic’s relevant parts of the specification.</p>
+  <p class="changed">The LDML specification is divided into the following parts:</p>
   <ul class="toc changed">
-    <li>Part 1: Core specification (this document)</li>
+    <li>Part 1: Core specification (languages, locales, basic structure)</li>
     <li>Part 2: <a href="tr35-general.html">General</a> (display names &amp; transforms, etc.)</li>
     <li>Part 3: <a href="tr35-numbers.html">Numbers</a> (number &amp; currency formatting)</li>
     <li>Part 4: <a href="tr35-dates.html">Dates</a> (date, time, time zone formatting)</li>
@@ -131,7 +138,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <li>Part 7: <a href="tr35-keyboards.html">Keyboards</a> (keyboard mappings)</li>
   </ul>
 
-  <h2><a name="Contents" href="#Contents"><span class="changed">Core:</span> Contents</a></h2>
+  <h2><a name="Contents" href="#Contents">Contents<span class="changed"> of Part 1: Core</span></a></h2>
   <ul class="toc">
    <li>1 <a href="#Introduction">Introduction</a>
     <ul class="toc">

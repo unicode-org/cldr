@@ -167,7 +167,7 @@ public class CollationMapMaker {
          * @param toRemove
          * @param addIdentity
          *            TODO
-         * @param source
+         * @param old
          * @return
          */
         Folder removeEquals(Folder toRemove, boolean addIdentity) {

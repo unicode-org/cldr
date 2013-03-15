@@ -48,8 +48,8 @@ public class GenerateItemCounts {
     private static String[] DIRECTORIES = {
         // MUST be oldest first!
         // "cldr-archive/cldr-21.0",
-        "cldr-archive/cldr-22.0",
         "cldr-archive/cldr-22.1",
+        "cldr-archive/cldr-23.0",
     };
 
     static boolean doChanges = true;
@@ -97,7 +97,7 @@ public class GenerateItemCounts {
             Relation<String, String> oldPath2value = null;
             for (String dir : DIRECTORIES) {
                 // if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
-                String fulldir = new File(CldrUtility.EXTERNAL_DIRECTORY + "/" + dir).getCanonicalPath();
+                String fulldir = new File(CldrUtility.ARCHIVE_DIRECTORY + "/" + dir).getCanonicalPath();
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
                 String fileKey = dir.replace("/", "_");
                 PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, prefix + "count_" + fileKey + ".txt");

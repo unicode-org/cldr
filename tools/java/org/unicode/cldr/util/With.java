@@ -133,7 +133,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * looked at,
      * such as when an iterator over codepoints is aborted partway.
      * 
-     * @param source
+     * @param old
      * @return
      */
     public static With<CharSequence> codePoints(CharSequence... charSequences) {
@@ -195,7 +195,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * Creates an iterable from a simple iterator.
      * 
      * @param <T>
-     * @param source
+     * @param old
      * @return
      */
     public static <T> Iterable<T> in(SimpleIterator<T>... sources) {

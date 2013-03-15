@@ -145,6 +145,7 @@ public class CldrUtility {
         getPath(BASE_DIRECTORY, "../cldr-tmp2/")));
     // external data
     public static final String EXTERNAL_DIRECTORY = getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../");
+    public static final String ARCHIVE_DIRECTORY = getPath(CldrUtility.getProperty("ARCHIVE", BASE_DIRECTORY));
     public static final String UCD_DIRECTORY = getPath(EXTERNAL_DIRECTORY, "data/UCD/6.2.0-Update");
     public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));

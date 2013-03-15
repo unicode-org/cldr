@@ -1430,10 +1430,10 @@ The data above indicates:
 		</tr>
 	</table>
 
-	<p>For more information about the key/type definitions and their old code mappings,
+	<p class="removed">For more information about the key/type definitions and their old code mappings,
 	see <a href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Unicode BCP 47 Extension Data</a>.
 
-  <h4><a name="Relation_to_OpenI18n" href="#Relation_to_OpenI18n">3.8.3 Relation to OpenI18n</a></h4>
+<h4><a name="Relation_to_OpenI18n" href="#Relation_to_OpenI18n">3.8.3 Relation to OpenI18n</a></h4>
     <p>The locale id format generally follows the description in the <i>OpenI18N Locale Naming Guideline</i> [<a href="#NamingGuideline">NamingGuideline</a>], with 
       some enhancements. The main differences from the those guidelines are that the locale id:</p>
     <ol type="a">
@@ -1980,13 +1980,13 @@ root</pre>
     <td><i>found</i></td>
   </tr>
   <tr>
-    <td>de@collation=A</td>
+    <td>de<span class="changed">_u_co_</span>A</td>
     <td>de</td>
     <td>collation type=A</td>
     <td><i>found</i></td>
   </tr>
   <tr>
-    <td rowspan="2">de@collation=standard</td>
+    <td rowspan="2">de<span class="changed">_u_co_</span>standard</td>
     <td>de</td>
     <td>collation type=standard</td>
     <td>not found</td>
@@ -1997,7 +1997,7 @@ root</pre>
     <td><i>found</i></td>
   </tr>
   <tr>
-    <td rowspan="6">de@collation=foobar</td>
+    <td rowspan="6">de<span class="changed">_u_co_</span>foobar</td>
     <td>de</td>
     <td>collation type=foobar</td>
     <td>not found</td>
@@ -2054,7 +2054,7 @@ root</pre>
     <td><strong>Comment</strong></td>
   </tr>
   <tr class="changed">
-    <td rowspan="2">de_CH@collation=search</td>
+    <td rowspan="2">de_CH_u_co_search</td>
     <td>de_CH</td>
     <td>collation type=search</td>
     <td>not found</td>
@@ -2065,7 +2065,7 @@ root</pre>
     <td><i>found</i></td>
   </tr>
   <tr class="changed">
-    <td rowspan="3">en_US@collation=search</td>
+    <td rowspan="3">en_US_u_co_search</td>
     <td>en_US</td>
     <td>collation type=search</td>
     <td>not found</td>
@@ -2113,7 +2113,7 @@ root</pre>
     <td><i>found</i></td>
   </tr>
   <tr class="changed">
-    <td rowspan="3">zh_Hant_HK@collation=pinyin</td>
+    <td rowspan="3">zh_Hant_HK_u_co_pinyin</td>
     <td>zh_Hant_HK</td>
     <td>collation type=pinyin</td>
     <td>not found</td>

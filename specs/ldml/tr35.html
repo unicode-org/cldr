@@ -133,79 +133,147 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
   <h2><a name="Contents" href="#Contents"><span class="changed">Core:</span> Contents</a></h2>
   <ul class="toc">
-    <li>1 <a href="#Introduction">Introduction</a>
-      <ul class="toc">
-        <li>1.1 <a href="#Conformance">Conformance</a></li>
-      </ul>
-    </li>
-    <li>2 <a href="#Locale">What is a Locale?</a></li>
-    <li>3 <a href="#Unicode_Language_and_Locale_Identifiers">Unicode Language and Locale Identifiers</a>
-      <ul class="toc">
-        <li>3.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a></li>
-        <li>3.2 <a href="#BCP_47_Conformance">BCP 47 Conformance</a>
-          <ul class="toc">
-            <li>3.2.1 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></li>
-            <li>3.2.2 <a href="#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a></li>
-          </ul>
-        </li>
-        <li>3.3 <a href="#Relation_to_OpenI18n">Relation to OpenI18n</a></li>
-        <li>3.4 <a href="#Compatibility_with_Older_Identifiers">Compatibility with Older Identifiers</a>
-          <ul class="toc">
-            <li>3.4.1 <a href="#Legacy_Variants">Legacy Variants</a></li>
-            <li>3.4.2 <a href="#Old_Locale_Extension_Syntax">Old Locale Extension Syntax</a></li>
-          </ul>
-        <li>3.5 <a href="#Transmitting_Locale_Information">Transmitting Locale Information</a>
-          <ul class="toc">
-            <li>3.5.1 <a href="#Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></li>
-          </ul>
-        </li>
-        <li>3.6 <a href="#Language_and_Locale_IDs">Language and Locale IDs</a></li>
-      </ul>
-    </li>
-    <li>4 <a href="#Locale_Inheritance">Locale Inheritance and Matching</a>
-      <ul class="toc">
-        <li>4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></li>
-        <li>4.2 <a href="#Parent_Locales">Parent Locales</a></li>
-        <li>4.3 <a href="#Inheritance_and_Validity">Inheritance and Validity</a></li>
-        <li>4.4 <a href="#Likely_Subtags">Likely Subtags</a></li>
-        <li>4.5 <a href="#LanguageMatching">Language Matching</a></li>
-      </ul>
-    </li>
-    <li></li>
-    <li>5 <a href="#XML_Format">XML Format</a>
-      <ul class="toc">
-        <li>5.1 <a href="#Common_Elements">Common Elements</a>
-          <ul class="toc">
-            <li>5.1.1 <a href="#Escaping_Characters">Escaping Characters</a></li>
-            <li>5.1.2 <a href="#Text_Directionality">Text Directionality</a></li>
-          </ul>
-        </li>
-        <li>5.2 <a href="#Common_Attributes">Common Attributes</a>
-          <ul class="toc">
-            <li>5.2.1 <a href="#Date_Ranges">Dates and Date Ranges</a></li>
-            <li>5.2.2 <a href="#Unicode_Sets">Unicode Sets</a></li>
-          </ul>
-        </li>
-        <li>5.3 <a href="#Identity_Elements">Identity Elements</a>
-          <ul class="toc">
-            <li>5.3.1 <a href="#Fallback_Elements">Fallback Elements</a></li>
-          </ul>
-        </li>
-        <li>5.4 <a href="#Alias_Elements">Alias Elements</a></li>
-        <li>5.5 <a href="#Sample_Special_Elements">Special Elements</a> </li>
-        <li>5.6 <a href="#Valid_Attribute_Values">Valid Attribute Values</a></li>
-        <li>5.7 <a href="#Canonical_Form">Canonical Form</a></li>
-    </ul>
-    <li>6 <a href="#Lenient_Parsing">Lenient Parsing</a></li>
-    <li>7 <a href="#Property_Data">Property Data</a></li>
-    <li>8 Deprecated Structure</li>
+   <li>1 <a href="#Introduction">Introduction</a>
     <ul class="toc">
-      <li>8.1 <a href="#BCP47_Keyword_Mapping">BCP 47 Keyword Mapping</a></li>
-      <li>8.2 <a href="#Choice_Patterns">Choice Patterns</a></li>
+     <li>1.1 <a href="#Conformance">Conformance</a></li>
     </ul>
-      <li><a href="#References">References</a></li>
-      <li><a href="#Acknowledgments">Acknowledgments</a></li>
-      <li><a href="#Modifications">Modifications</a></li>
+   </li>
+   <li>2 <a href="#Locale">What is a Locale?</a></li>
+   <li>3 <a href="#Unicode_Language_and_Locale_Identifiers">Unicode Language and Locale Identifiers</a>
+    <ul class="toc">
+     <li>3.1 <a href="#Unicode_language_identifier">Unicode Language Identifier </a></li>
+     <li>3.2 <a href="#Unicode_locale_identifier">Unicode Locale Identifier</a></li>
+     <li>3.3 <a href="#BCP_47_Conformance">BCP 47 Conformance</a>
+      <ul class="toc">
+       <li>3.3.1 <a href="#BCP_47_Language_Tag_Conversion">BCP 47 Language Tag Conversion</a></li>
+      </ul>
+     </li>
+     <li>3.4 <a href="#Field_Definitions">Field Definitions</a></li>
+     <li>3.5 <a href="#Key_And_Type_Definitions_">Key And Type Definitions </a></li>
+     <li>3.6 <a href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a>
+      <ul class="toc">
+       <li>3.6.1 <a href="#Numeric_Codes">Numeric Codes</a></li>
+      </ul>
+     </li>
+     <li>3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>
+      <ul class="toc">
+       <li>3.7.1 <a href="#Unicode_Locale_Extension_Data_Files">Unicode Locale Extension Data Files</a>
+        <ul class="toc">
+         <li>3.7.1.1 <a href="#Numbering System Data">Numbering System Data </a></li>
+         <li>3.7.1.2 <a href="#Time_Zone_Identifiers">Time Zone Identifiers</a></li>
+        </ul>
+       </li>
+       <li>3.7.2 <a href="#Transformed_Content_Data_File">Transformed Content Data File</a></li>
+      </ul>
+     </li>
+     <li>3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility with Older Identifiers</a>
+      <ul class="toc">
+       <li>3.8.1 <a href="#Legacy_Variants">Legacy Variants</a></li>
+       <li>3.8.2 <a href="#Old_Locale_Extension_Syntax">Old Locale Extension Syntax</a></li>
+       <li>3.8.3 <a href="#Relation_to_OpenI18n">Relation to OpenI18n</a></li>
+      </ul>
+     </li>
+     <li>3.9 <a href="#Transmitting_Locale_Information">Transmitting Locale Information</a>
+      <ul class="toc">
+       <li>3.9.1 <a href="#Message_Formatting_and_Exceptions">Message Formatting and Exceptions</a></li>
+      </ul>
+     </li>
+     <li>3.10 <a href="#Language_and_Locale_IDs">Unicode Language and Locale IDs</a>
+      <ul class="toc">
+       <li>3.10.1 <a href="#Written_Language">Written Language</a></li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li>4 <a href="#Locale_Inheritance">Locale Inheritance and Matching</a>
+    <ul class="toc">
+     <li>4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a>
+      <ul class="toc">
+       <li>4.1.1 <a href="#Parent_Locales">Parent Locales</a></li>
+      </ul>
+     </li>
+     <li>4.2 <a href="#Inheritance_and_Validity">Inheritance and Validity</a>
+      <ul class="toc">
+       <li>4.2.1 <a href="#Definitions">Definitions</a></li>
+       <li>4.2.2 <a href="#Resolved_Data_File">Resolved Data File</a></li>
+       <li>4.2.3 <a href="#Valid_Data">Valid Data</a></li>
+       <li>4.2.4 <a href="#Checking_for_Draft_Status">Checking for Draft Status</a></li>
+       <li>4.2.5 <a href="#Keyword_and_Default_Resolution">Keyword and Default Resolution</a></li>
+      </ul>
+     </li>
+     <li>4.3 <a href="#Likely_Subtags">Likely Subtags</a></li>
+     <li>4.4 <a href="#LanguageMatching">Language Matching</a></li>
+    </ul>
+   </li>
+   <li>5 <a href="#XML_Format">XML Format</a>
+    <ul class="toc">
+     <li>5.1 <a href="#Common_Elements">Common Elements</a>
+      <ul class="toc">
+       <li>5.1.1 <a href="#special">Element special</a>
+        <ul class="toc">
+         <li>5.1.1.1 <a href="#Sample_Special_Elements">Sample Special Elements</a></li>
+        </ul>
+       </li>
+       <li>5.1.2 <a href="#Alias_Elements">Element alias</a></li>
+       <li>5.1.3 <a href="#Element_displayName">Element displayName</a></li>
+       <li>5.1.4 <a href="#Escaping_Characters">Element cp</a></li>
+      </ul>
+     </li>
+     <li>5.2 <a href="#Common_Attributes">Common Attributes</a>
+      <ul class="toc">
+       <li>5.2.1 <a href="#Attribute_type">Attribute type</a></li>
+       <li>5.2.2 <a href="#Attribute_draft">Attribute draft</a></li>
+       <li>5.2.3 <a href="#alt_attribute">Attribute alt</a></li>
+      </ul>
+     </li>
+     <li>5.3 <a href="#Common_Structures">Common Structures</a>
+      <ul class="toc">
+       <li>5.3.1 <a href="#Date_Ranges">Date and Date Ranges</a></li>
+       <li>5.3.2 <a href="#Text_Directionality">Text Directionality</a></li>
+       <li>5.3.3 <a href="#Unicode_Sets">Unicode Sets</a>
+        <ul class="toc">
+         <li>5.3.3.1 <a href="#Single_Quote">Single Quote</a></li>
+         <li>5.3.3.2 <a href="#Backslash_Escapes">Backslash Escapes</a></li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+     <li>5.4 <a href="#Identity_Elements">Identity Elements</a></li>
+     <li>5.5 <a href="#Valid_Attribute_Values">Valid Attribute Values</a></li>
+     <li>5.6 <a href="#Canonical_Form">Canonical Form</a>
+      <ul class="toc">
+       <li>5.6.1 <a href="#Content">Content</a></li>
+       <li>5.6.2 <a href="#Ordering">Ordering</a></li>
+       <li>5.6.3 <a href="#Comments">Comments</a></li>
+       <li>5.6.4 <a href="#Canonicalization">Canonicalization</a></li>
+       <li>5.6.5 <a href="#Element_Order_Table">Element Order Table</a></li>
+       <li>5.6.6 <a href="#Attribute_Order_Table">Attribute Order Table</a></li>
+       <li>5.6.7 <a href="#Value_Order_Table">Value Order Table</a></li>
+       <li>5.6.8 <a href="#Defaulted_Values_Table">Defaulted Values Table</a></li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li>6 <a href="#Property_Data">Property Data</a></li>
+   <li>7 <a href="#Lenient_Parsing">Lenient Parsing</a>
+    <ul class="toc">
+     <li>7.1 <a href="#Motivation">Motivation</a></li>
+     <li>7.2 <a href="#Loose_Matching">Loose Matching</a></li>
+    </ul>
+   </li>
+   <li>8 <a href="#Deprecated_Structure">Deprecated Structure </a>
+    <ul class="toc">
+     <li>8.1 <a href="#Fallback_Elements">Element fallback</a></li>
+     <li>8.2 <a href="#BCP47_Keyword_Mapping">BCP 47 Keyword Mapping</a></li>
+     <li>8.3 <a href="#Choice_Patterns">Choice Patterns</a></li>
+     <li>8.4 <a href="#Element_default">Element default</a></li>
+     <li>8.5 <a href="#Attribute_standard">Attribute standard</a></li>
+    </ul>
+   </li>
+   <li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a></li>
+   <li><a href="#References">References</a></li>
+   <li><a href="#Acknowledgments">Acknowledgments</a></li>
+   <li><a href="#Modifications">Modifications</a></li>
   </ul>
 <h2><a name="Introduction" href="#Introduction">1 Introduction</a></h2>
 	<p>Not long ago, computer systems were like separate worlds, isolated from one another. The internet and related events have changed all that. A single system 
@@ -302,7 +370,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	use in systems and internationalization libraries for basic services. The main difference among locales is in terms of language; there may also be some differences 
 	according to different countries or regions. However, the line between <i>locales</i> and <i>languages</i>, as commonly used in the industry, are rather fuzzy. 
 	Note also that the vast majority of the locale data in CLDR is in fact language data; all non-linguistic data is separated out into a separate tree. For more 
-	information, see <i><a href="#Language_and_Locale_IDs">Appendix D: Language and Locale IDs</a></i>.</p>
+	information, see <i><a href="#Language_and_Locale_IDs">Section 3.10 Language and Locale IDs</a></i>.</p>
 	<p>We will speak of data as being &quot;in locale X&quot;. That does not imply that a locale <i>is</i> a collection of data; it is simply shorthand for &quot;the set of data 
 	associated with the locale id X&quot;. Each individual piece of data is called a <i>resource </i>or <i>field</i>, and a tag indicating the key of the resource is 
 	called a <i>resource tag.</i></p>
@@ -311,7 +379,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	<p>Unicode LDML uses stable identifiers based on [<a href="#BCP47">BCP47</a>] for distinguishing among languages, locales, regions, currencies, time 
 	zones, transforms, and so on. There are many systems for identifiers for these entities. The Unicode LDML identifiers may not match the identifiers used
 	on a particular target system. If so, some process of identifier translation may be required when using LDML data.</p>
-	<p>A <i><a name="Unicode_language_identifier" href="#Unicode_language_identifier">Unicode language identifier</a></i> has the 
+	<h3><i><a name="Unicode_language_identifier" href="#Unicode_language_identifier">3.1 Unicode Language Identifier</a></i> </h3>
+	<p>A <i>Unicode language identifier</i> has the 
     following structure (provided in either EBNF (Perl-based) or ABNF [<a href="#RFC5234">RFC5234</a>]):</p>
 	<table border="0">
 	  <tr>
@@ -343,10 +412,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <p>For example, &quot;en-US&quot; (American English), &quot;en_GB&quot; (British English), 
 	&quot;es-419&quot; (Latin American Spanish), and &quot;uz-Cyrl&quot; (Uzbek in Cyrillic) are all 
   Unicode language identifiers.</p>
-<p>&nbsp;</p>
-	<p>A <i><a name="Unicode_locale_identifier" href="#Unicode_locale_identifier">Unicode locale identifier</a></i> is composed of a Unicode language identifier plus 
+  <h3><i><a name="Unicode_locale_identifier" href="#Unicode_locale_identifier">3.2 Unicode Locale Identifier</a></i></h3>
+	<p>A <i>Unicode locale identifier</i> is composed of a Unicode language identifier plus 
     (optional) locale extensions. It has the following 
-    structure:    </p>
+</p>
 	<table border="0">
       <tr>
         <th>&nbsp;</th>
@@ -433,7 +502,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	identifier, and accesses
 	<span class="st">language</span>-based data. Except where it would be unclear, this document uses the term &quot;locale&quot; data loosely to encompass 
 	both types of data: for more information, see
-<i><a href="#Language_and_Locale_IDs">Appendix D: Language and Locale IDs</a></i>.	</p>
+<i><a href="#Language_and_Locale_IDs">Section 3.10 Language and Locale IDs</a></i>.	</p>
 	<p>Although not shown in the syntax above, Unicode locale identifiers may also have [<a href="#BCP47">BCP47</a>] extensions (other than &quot;u&quot;)
 	and private use subtags; these are not, however, relevant to their use in Unicode.</p>
 	<p></p>
@@ -442,22 +511,6 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	called the <i>base language code</i>. For example, the base language code 
 	for &quot;en-US&quot; (American English) is &quot;en&quot; (English). The <i>type</i> may also
 	be referred to as a <i>value</i> or <i>key-value</i>.</p>
-	<p>The Unicode locale identifier is based on [<a href="#BCP47">BCP47</a>]. However, it differs in the
-	following ways:</p>
-	<ul>
-		<li>It does not allow for the full syntax of [<a href="#BCP47">BCP47</a>]:<ul>
-			<li>No irregular or 
-    		BCP47 grandfathered tags are allowed</li>
-			<li>No extlang subtags are allowed</li>
-		</ul>
-		</li>
-		<li>It allows for certain additions:<ul>
-			<li>For field separator characters, the "_" character can be used as well as the "-" used in [<a href="#BCP47">BCP47</a>].</li>
-			<li>"root" to indicate the generic locale used as the parent of all languages in the CLDR data model.</li>
-			<li>Defined semantics of certain private use codes, and some "macrolanguage" codes.</li>
-		</ul>
-		</li>
-	</ul>
 	<p>The identifiers can vary in case and in the 
     separator characters. The &quot;-&quot; and &quot;_&quot; separators are 
     treated as equivalent. All identifier field values are case-insensitive.
@@ -466,10 +519,63 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 	especially when a Unicode locale identifier is used for locale data exchange in software
 	protocols.  The recommendation is that: the region subtag is in uppercase, the script subtag
   is in title case, and all other subtags are in lowercase.</p>
-	<p><b>Note:</b> The current version of CLDR uses upper case letters for variant subtags
-	in its file names for backward compatibility reasons.  This might be changed in future
-	CLDR releases.
-	</p>
+    <p><b>Note:</b> The current version of CLDR uses upper case letters for variant subtags
+      in its file names for backward compatibility reasons.  This might be changed in future
+      CLDR releases. </p>
+    <h3><a name="BCP_47_Conformance" href="#BCP_47_Conformance">3.3 BCP 47 Conformance</a></h3>
+    <p>Unicode language and locale identifiers inherit the design and the repertoire
+      of subtags from [<a href="#BCP47">BCP47</a>] Language Tags.  There are some
+      extensions and restrictions made for the use of the Unicode locale identifier in CLDR:</p>
+    <ul>
+      <li>It does not allow for the full syntax of [<a href="#BCP47">BCP47</a>]:
+        <ul>
+          <li>No irregular or 
+            BCP47 grandfathered tags are allowed</li>
+          <li>No extlang subtags are allowed</li>
+        </ul>
+      </li>
+      <li>It allows for certain additions:
+        <ul>
+          <li>For field separator characters, the "_" character can be used as well as the "-" used in [<a href="#BCP47">BCP47</a>].</li>
+          <li>"root" to indicate the generic locale used as the parent of all languages in the CLDR data model.</li>
+          <li>Defined semantics of certain private use codes, and some "macrolanguage" codes. </li>
+        </ul>
+      </li>
+  </ul>
+<h4><a name="BCP_47_Language_Tag_Conversion" href="#BCP_47_Language_Tag_Conversion">3.3.1 BCP 47 Language Tag Conversion</a></h4>
+    <p>A Unicode language/locale identifier can be converted to a valid [<a href="#BCP47">BCP 47</a>]
+      language tag by performing the following transformation.
+    <ol>
+      <li>Replace the "_" separators with "-"</li>
+      <li>Replace the special language identifier "root" with the BCP 47 primary language tag "und"</li>
+    </ol>
+For example,
+<blockquote> <code>en_US</code> → <code>en-US</code><br>
+  <code>de_DE_u_co_phonebk</code> → <code>de-DE-u-co-phonebk</code><br>
+  <code>root</code> → <code>und</code><br>
+  <code>root_u_cu_usd</code> → <code>und-u-cu-usd</code></blockquote>
+<p>A valid [<a href="#BCP47">BCP 47</a>]
+  language tag can be converted to a valid Unicode language/locale identifier by performing the following transformation.
+<ol>
+  <li>Canonicalize the language tag (afterwards, there will be no extlang subtag)</li>
+  <li>Replace the BCP 47 primary language subtag "und" with "root" if no script, region, or variant
+    subtags are  present</li>
+  <li>If the BCP 47 primary language subtag matches the <i>type</i> attribute of a <i>languageAlias</i> element in <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed"><a href="tr35-info.html#Supplemental_Data">Supplemental Data</a></span>,
+    replace the language subtag with the <i>replacement</i> value.</li>
+  <li>If the BCP 47 region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i> element in <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed"><a href="tr35-info.html#Supplemental_Data">Supplemental Data</a></span>,
+    replace the language subtag with the <i>replacement</i> value. (When multiple <i>replacement</i> values are available, use the
+    first one)</li>
+</ol>
+For example,
+<blockquote> <code>en-US</code> → <code>en-US</code> (no changes)<br>
+  <code>und</code> → <code>root</code><br>
+  <code>und-US</code> → <code>und-US</code> (no changes, because region subtag is present)<br>
+  <code>und-u-cu-USD</code> → <code>root-u-cu-usd</code><br>
+  <code>cmn-TW</code> → <code>zh-TW</code> (language alias)<br>
+  <code>sr-CS</code> → <code>sr-RS</code> (territory alias) </blockquote>
+<p><b>Note:</b> In some rare cases, BCP 47 language tags cannot be converted to valid Unicode language/locale identifiers, such as certain
+  [<a href="#BCP47">BCP 47</a>] grandfathered tags.</p>
+<h3><a name="Field_Definitions" href="#Field_Definitions">3.4 Field Definitions</a></h3>
 	<p>Unicode language and locale identifier field values are provided in the 
 	following table. Note that some private-use BCP 47 field values are  given 
 	specific meanings in CLDR.</p>
@@ -673,11 +779,11 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 	is called a <i>territory locale</i> (or <i>country locale</i>).</p>
 	<p>The following chart contains a set  of key values that are  currently available, with a description or sampling of type values.  Each category is associated with an XML file in the bcp47 directory. For the complete
 	list of valid keys and types defined for Unicode locale extensions, see
-	Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
-  <p>The BCP47 form is the canonical form, and recommended. Other aliases are included for  backwards compatibility.<p>
-
-<table>
-		<caption><a name="Key_Type_Definitions" href="#Key_Type_Definitions">Key/Type Definitions</a></caption>
+	<a href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Unicode BCP 47 Extension Data</a>.
+  <p>The BCP47 form is the canonical form, and recommended. Other aliases are included for  backwards compatibility.
+  <h3><a name="Key_And_Type_Definitions_" href="#Key_And_Type_Definitions_">3.5 Key And Type Definitions </a></h3>
+  <table>
+<caption><a name="Key_Type_Definitions" href="#Key_Type_Definitions">Key/Type Definitions</a></caption>
 		<tr>
 			<th>category</th>
 			<th>key<br>(old key name)</th>
@@ -860,8 +966,8 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 			<td>Time zone</td>
 			<td><i>Unicode short time zone IDs</i></td>
 			<td><p>Short identifiers defined in terms of a TZ time zone database [<a href="#Olson">Olson</a>] identifier in the file common/bcp47/timezone.xml file.</p>
-			<p class="changed">For more information, see <a href="#Time_Zone_Identifiers">Time Zone Identifiers</a>.
-			<p class="removed">The format of that file is specified in  Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Keys and Types</a>.
+			<p class="changed">For more information, see <a href="#Time_Zone_Identifiers">Section 3.7.1.2 Time Zone Identifiers</a>.
+			<p class="removed">The format of that file is specified in<a href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Locale Extension Keys and Types</a>.
 			The short identifiers use UN [LOCODE] codes where possible. Identifiers of length not equal to 5 are used where there is no corresponding LOCODE,
 			such as &quot;usnavajo&quot; for &quot;America/Shiprock Navajo&quot;, or &quot;utcw01&quot; for &quot;Etc/GMT+1&quot;.</p>
 		    <p class="removed">There is a special code &quot;unk&quot; for an Unknown or Invalid Timezone.
@@ -880,13 +986,13 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 		</tr>
   </table>
 
-	<p>For more information on the allowed keys and types, see the specific elements below, and Appendix Q: 
-<a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type DataUnicode BCP 47 Extension Data</a>.</p>
+	<p>For more information on the allowed keys and types, see the specific elements below, and  
+<a href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Locale Extension Key and Type Data</a>.</p>
 
 	<p>Additional keys or types might be added in future versions.  Implementations of LDML should be robust
 	to handle any syntactically valid key or type values.</p>
 
-	<h3><a name="Unknown_or_Invalid_Identifiers" href="#Unknown_or_Invalid_Identifiers">3.1 Unknown or Invalid Identifiers</a></h3>
+	<h3><a name="Unknown_or_Invalid_Identifiers" href="#Unknown_or_Invalid_Identifiers">3.6 Unknown or Invalid Identifiers</a></h3>
 	<p>The following identifiers are used to indicate an unknown or invalid code in 
 	Unicode language and locale identifiers. For Unicode identifiers, the region 
 	code uses a private use ISO 3166 code, and Time Zone code uses an 
@@ -928,7 +1034,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 	</table>
 	<p>When only the script or region are known, then a locale ID will use &quot;und&quot; as the language subtag portion. Thus the locale tag &quot;und_Grek&quot; represents the Greek 
 	script; &quot;und_US&quot; represents the US territory.</p>
-	<h4><a name="Numeric_Codes" href="#Numeric_Codes">3.1.1 Numeric Codes</a></h4>
+	<h4><a name="Numeric_Codes" href="#Numeric_Codes">3.6.1 Numeric Codes</a></h4>
 	<p>For region codes, ISO and the UN establish a mapping to three-letter codes and numeric codes. However, this does not extend to the private use codes, which 
 	are the codes 900-999 (total: 100), and AAA, QMA-QZZ, XAA-XZZ, and ZZZ (total: 1092). 
 	Unicode identifiers supply a standard mapping to these: for the numeric codes, it 
@@ -972,18 +1078,13 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 			<td><code>900..949</code></td>
 		</tr>
 	</table>
-
-	<h3><a name="BCP_47_Conformance" href="#BCP_47_Conformance">3.2 BCP 47 Conformance</a></h3>
-	<p>Unicode language and locale identifiers inherit the design and the repertoire
-	of subtags from [<a href="#BCP47">BCP47</a>] Language Tags.  There are some
-	extensions and restrictions made for the use of identifiers in CLDR.</p>
-	<h4><a name="Locale_Extension_Key_and_Type_Data" href="#Locale_Extension_Key_and_Type_Data">3.2.1 Unicode BCP 47 Extension Data</a><a name="u_Extension" href="#u_Extension"></a></h4>
+  <h3><a name="Locale_Extension_Key_and_Type_Data" href="#Locale_Extension_Key_and_Type_Data">3.7 Unicode BCP 47 Extension Data</a><a name="u_Extension"></a></h3>
 	<p>[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for extending language tags
 	for use in various applications by extension subtags. Each extension subtag is identified by
-	a single alphanumeric character subtag assigned by IANA.  </p>
+a single alphanumeric character subtag assigned by IANA.  </p>
 	<p>The Unicode Consortium has registered and is the maintaining authority for two BCP 47 language tag extensions: the extension 'u' for Unicode locale extension [<a href="#RFC6067">RFC6067</a>]
       and extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of
-    valid Unicode locale key, type and attribute subtags used by the 'u' extension and valid  subtags used by 't' extension. </p>
+</p>
 
 	<p>These
 	subtags are all in lowercase (that is the canonical casing for these subtags), however,
@@ -991,11 +1092,11 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 	  in length of two to eight that meet the rule <code>extension</code> in the [<a href="#BCP47">BCP47</a>]
 </p>
 	<p><strong>The -u- Extension.</strong> The syntax of 'u' extension subtags is defined by the rule <code>unicode_locale_extensions</code>
-	  in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>, except the separator of
+	  in <a href="#Unicode_locale_identifier">Section 3.2 Unicode locale identifier</a>, except the separator of
 	  subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of
   BCP 47 language tag.  </p>
 <p>A 'u' extension may contain multiple <code>attribute</code>s or <code>keyword</code>s
-	as defined in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>.
+	as defined in <a href="#Unicode_locale_identifier">Section 3.2 Unicode locale identifier</a>.
 	Although the order of <code>attribute</code>s or <code>keyword</code>s does not matter,
 	this specification defines the canonical form as below:
 <ul>
@@ -1007,7 +1108,7 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
   <p>For example, the canonical form of 'u' extension "u-foo-bar-nu-thai-ca-buddhist" is
     "u-bar-foo-ca-buddhist-nu-thai".  The attributes "foo" and "bar" in this example are provided only for illustration; no attribute subtags are defined
     by the current CLDR specification. </p>
-	<p><strong>The -t- Extension.</strong> The syntax of 't' extension subtags is defined by the rule <code>unicode_locale_extensions</code> in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>, except the separator of
+	<p><strong>The -t- Extension.</strong> The syntax of 't' extension subtags is defined by the rule <code>unicode_locale_extensions</code> in <a href="#Unicode_locale_identifier">Section 3.7 Unicode locale identifier</a>, except the separator of
 	  subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of
   BCP 47 language tag. For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].  </p>
 	<p>The 'u' extension data is stored in multiple XML files located under
@@ -1039,11 +1140,11 @@ see <a href="tr35-collation.html#Setting_Options">Setting Options</a></i></td></
 &lt;!ATTLIST attribute deprecated ( true | false ) "false"&gt;</pre>
   <p>The extension attribute in &lt;key&gt; element specifies the BCP 47 language tag extension type. The default value of
       the extension attribute is "u" (Unicode locale extension). The &lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.</p>
-    <h5>3.2.1.1 Unicode Locale Extension Data Files</h5>
+    <h4><a name="Unicode_Locale_Extension_Data_Files" href="#Unicode_Locale_Extension_Data_Files">3.7.1 Unicode Locale Extension Data Files</a></h4>
     <p>In the Unicode locale extension 'u' data files, the common attributes
       for the &lt;key&gt;, &lt;type&gt; and &lt;attribute&gt; elements are as follows:
       
-    <blockquote>Note: There are no values defined for the locale extension attribute in the current CLDR release.</blockquote>
+<blockquote>Note: There are no values defined for the locale extension attribute in the current CLDR release.</blockquote>
     <dl>
       <dt><b>name</b></dt>
       <dd>
@@ -1156,8 +1257,7 @@ The data above indicates:
   <li>type "aumqi" is valid for key "tz", supported by CLDR 1.8.1
     or later versions.</li>
 </ul>
-<h5><a name="Numbering System Data" href="#Numbering%20System%20Data">3.2.1.2 Numbering System Data</a><br>
-</h5>
+<h5><a name="Numbering System Data" href="#Numbering System Data">3.7.1.1 Numbering System Data </a></h5>
 <p>LDML supports multiple numbering systems. The identifiers for those numbering systems are defined in the file <strong>bcp47/number.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/bcp47/number.xml">bcp47/number.xml</a>.<br>
 </p>
 <p>Details about those numbering systems are defined in <strong>supplemental/numberingSystems.xml</strong>. For example, for the 'trunk' version of the data see <a href="http://unicode.org/cldr/trac/browser/trunk/common/supplemental/numberingSystems.xml">supplemental/numberingSystems.xml</a>.<br>
@@ -1173,7 +1273,7 @@ The data above indicates:
     </ol>
   </li>
 </ol>
-<h5 class="changed"><a name="Time_Zone_Identifiers" href="#Time_Zone_Identifiers">3.2.1.4 Time Zone Identifiers</a></h5>
+<h5><a name="Time_Zone_Identifiers" href="#Time_Zone_Identifiers">3.7.1.2 Time Zone Identifiers</a></h5>
 <div class="changed">
   <p><b>Short Time Zone Identifiers</b></p>
   <p>LDML inherits time zone IDs from the tz database [<a href="#Olson">Olson</a>]. Because these IDs from the tz database do not satisfy the BCP 47
@@ -1195,7 +1295,7 @@ The data above indicates:
   <p>Above &lt;type&gt; element defines the short time zone ID "inccu" (for the use in the Unicode locale extension), corresponding <em>CLDR canonical
     "long" ID</em> "Asia/Culcutta", and an alias "Asia/Kolkata".</p>
 </div>
-<h3>3.2.1.5 Transformed Content Data File</h3>
+<h4><a name="Transformed_Content_Data_File" href="#Transformed_Content_Data_File">3.7.2 Transformed Content Data File</a></h4>
 <p>In the transformed content 't' data file, the name attribute in a &lt;key&gt; element
   defines a valid field separator subtag. The name attribute in an enclosed &lt;type&gt; element defines a valid
   field subtag for the field separator subtag. For example:
@@ -1226,65 +1326,12 @@ The data above indicates:
   <dd>Alternative name, not limited in number of characters.         Aliases are intended for       compatibility, not  to provide all possible       alternate names or            designations. <em>(Optional)</em></dd>
 </dl>
 <p>For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].</p>
-<h4><a name="BCP_47_Language_Tag_Conversion" href="#BCP_47_Language_Tag_Conversion">3.2.2 BCP 47 Language Tag Conversion</a></h4>
-	<p>A Unicode language/locale identifier can be converted to a valid [<a href="#BCP47">BCP 47</a>]
-	language tag by performing the following transformation.
-	<ol>
-		<li>Replace the "_" separators with "-"</li>
-		<li>Replace the special language identifier "root" with the BCP 47 primary language tag "und"</li>
-	</ol>
-	For example,
-	<blockquote>
-	<code>en_US</code> → <code>en-US</code><br>
-	<code>de_DE_u_co_phonebk</code> → <code>de-DE-u-co-phonebk</code><br>
-	<code>root</code> → <code>und</code><br>
-	<code>root_u_cu_usd</code> → <code>und-u-cu-usd</code>
-	</blockquote>
-
-	<p>A valid [<a href="#BCP47">BCP 47</a>]
-	language tag can be converted to a valid Unicode language/locale identifier by performing the following transformation.
-	<ol>
-		<li>Canonicalize the language tag (afterwards, there will be no extlang subtag)</li>
-		<li>Replace the BCP 47 primary language subtag "und" with "root" if no script, region, or variant
-		subtags are  present</li>
-		<li>If the BCP 47 primary language subtag matches the <i>type</i> attribute of a <i>languageAlias</i>
-		element in <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed"><a href="tr35-info.html#Supplemental_Data">Supplemental Data</a></span>,
-		replace the language subtag with the <i>replacement</i> value.</li>
-		<li>If the BCP 47 region subtag matches the <i>type</i> attribute of a <i>territoryAlias</i>
-		element in <strike class="removed"><a href="http://unicode.org/repos/cldr/trunk/common/supplemental/supplementalMetadata.xml">supplementalMetadata.xml</a></strike><span class="changed"><a href="tr35-info.html#Supplemental_Data">Supplemental Data</a></span>,
-		replace the language subtag with the <i>replacement</i> value. (When multiple <i>replacement</i> values are available, use the
-		first one)</li>
-	</ol>
-	For example,
-	<blockquote>
-	<code>en-US</code> → <code>en-US</code> (no changes)<br>
-	<code>und</code> → <code>root</code><br>
-	<code>und-US</code> → <code>und-US</code> (no changes, because region subtag is present)<br>
-	<code>und-u-cu-USD</code> → <code>root-u-cu-usd</code><br>
-	<code>cmn-TW</code> → <code>zh-TW</code> (language alias)<br>
-	<code>sr-CS</code> → <code>sr-RS</code> (territory alias)
-	</blockquote>
-	<p><b>Note:</b> In some rare cases, BCP 47 language tags cannot be converted to valid Unicode language/locale identifiers, such as certain
-    [<a href="#BCP47">BCP 47</a>] grandfathered tags. </p>
-
-	<h3><a name="Relation_to_OpenI18n" href="#Relation_to_OpenI18n">3.3 Relation to 
-    OpenI18n</a></h3>
-	<p>The locale id format generally follows the description in the <i>OpenI18N Locale Naming Guideline</i> [<a href="#NamingGuideline">NamingGuideline</a>], with 
-	some enhancements. The main differences from the those guidelines are that the locale id:</p>
-	<ol type="a">
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">does not include a charset (since the data in LDML format always provides a representation of all Unicode characters. The repository is stored in UTF-8, 
-		although that can be transcoded to other encodings as well.),</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">adds the ability to have a variant, as in Java</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">adds the ability to discriminate the written language by script (or script variant).</li>
-		<li style="margin-top: 0.5em; margin-bottom: 0.5em">is a superset of [<a href="#BCP47">BCP47</a>] codes.</li>
-	</ol>
-
-	<h3><a name="Compatibility_with_Older_Identifiers" href="#Compatibility_with_Older_Identifiers">3.4 Compatibility with Older Identifiers</a></h3>
+<h3><a name="Compatibility_with_Older_Identifiers" href="#Compatibility_with_Older_Identifiers">3.8 Compatibility with Older Identifiers</a></h3>
 	<p>LDML version before 1.7.2 used slightly different syntax for variant subtags and locale
 	extensions.  Implementations of LDML may provide backward compatible identifier support as described in
 	following sections.</p>
 
-	<h4><a name="Legacy_Variants" href="#Legacy_Variants">3.4.1 Legacy Variants</a></h4>
+	<h4><a name="Legacy_Variants" href="#Legacy_Variants">3.8.1 Legacy Variants</a></h4>
 	<p>Old LDML specification allowed codes other than registered [<a href="#BCP47">BCP47</a>] variant
 	subtags used in Unicode language and locale identifiers for representing variations of locale data.
 	Unicode locale identifiers including such variant codes can be converted to the new [<a href="#BCP47">BCP47</a>]
@@ -1333,7 +1380,7 @@ The data above indicates:
 		</tr>
   </table>
 
-	<h4><a name="Old_Locale_Extension_Syntax" href="#Old_Locale_Extension_Syntax">3.4.2 Old Locale Extension Syntax</a></h4>
+	<h4><a name="Old_Locale_Extension_Syntax" href="#Old_Locale_Extension_Syntax">3.8.2 Old Locale Extension Syntax</a></h4>
 	<p>LDML 1.7 or older specification used different syntax for representing unicode
 	locale extensions.  The previous definition of Unicode locale extensions had the following structure:        
     <table border="0">
@@ -1384,9 +1431,19 @@ The data above indicates:
 	</table>
 
 	<p>For more information about the key/type definitions and their old code mappings,
-	see Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
+	see <a href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Unicode BCP 47 Extension Data</a>.
 
-<h3><a name="Transmitting_Locale_Information" href="#Transmitting_Locale_Information">3.5 Transmitting Locale Information</a></h3>
+  <h4><a name="Relation_to_OpenI18n" href="#Relation_to_OpenI18n">3.8.3 Relation to OpenI18n</a></h4>
+    <p>The locale id format generally follows the description in the <i>OpenI18N Locale Naming Guideline</i> [<a href="#NamingGuideline">NamingGuideline</a>], with 
+      some enhancements. The main differences from the those guidelines are that the locale id:</p>
+    <ol type="a">
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em">does not include a charset (since the data in LDML format always provides a representation of all Unicode characters. The repository is stored in UTF-8, 
+        although that can be transcoded to other encodings as well.),</li>
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em">adds the ability to have a variant, as in Java</li>
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em">adds the ability to discriminate the written language by script (or script variant).</li>
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em">is a superset of [<a href="#BCP47">BCP47</a>] codes.    </li>
+    </ol>
+<h3><a name="Transmitting_Locale_Information" href="#Transmitting_Locale_Information">3.9 Transmitting Locale Information</a></h3>
     <p>In a world of on-demand software components, with arbitrary connections between those components, it is important to get a sense of where localization should 
       be done, and how to transmit enough information so that it can be done at that appropriate place. End-users need to get messages localized to their languages, 
       messages that not only contain a translation of text, but also contain variables such as date, time, number formats, and currencies formatted according to the 
@@ -1416,7 +1473,7 @@ The data above indicates:
     <p>Even though localization should be done as close to the end-user as possible, there will be cases where different components need to be aware of whatever 
       settings are appropriate for doing the localization. Thus information such as a locale code or 
       time zone needs to be communicated between different components.</p>
-    <h4><a name="Message_Formatting_and_Exceptions" href="#Message_Formatting_and_Exceptions">3.5.1 Message Formatting and Exceptions</a></h4>
+    <h4><a name="Message_Formatting_and_Exceptions" href="#Message_Formatting_and_Exceptions">3.9.1 Message Formatting and Exceptions</a></h4>
     <p>Windows (<a href="http://msdn.microsoft.com/en-us/library/ms679351.aspx">FormatMessage</a>, <a href="http://msdn.microsoft.com/en-us/library/aa331875.aspx">String.Format</a>), Java (<a href="http://java.sun.com/j2se/1.4.2/docs/api/java/text/MessageFormat.html">MessageFormat</a>) 
       and ICU (<a href="http://www.icu-project.org/apiref/icu4c/classMessageFormat.html">MessageFormat</a>, <a href="http://www.icu-project.org/apiref/icu4c/umsg_8h.html">umsg</a>) all provide methods of formatting variables (dates, times, etc) and inserting them 
       at arbitrary positions in a string. This avoids the manual string concatenation that causes severe problems for localization. The question is, where to do this? 
@@ -1434,7 +1491,7 @@ The data above indicates:
     <p>In addition, exceptions are often caught at a higher level; they do not end up being displayed to any end-user at all. By avoiding the localization at the 
       throw site, it the cost of doing formatting, when that formatting is not really necessary. In fact, in many running programs most of the exceptions that are 
       thrown at a low level never end up being presented to an end-user, so this can have considerable performance benefits.</p>
-    <h3><a name="Language_and_Locale_IDs" href="#Language_and_Locale_IDs">3.6 Unicode Language and Locale IDs</a></h3>
+    <h3><a name="Language_and_Locale_IDs" href="#Language_and_Locale_IDs">3.10 Unicode Language and Locale IDs</a></h3>
     <p>People have very slippery notions of what distinguishes a language code 
       versus a locale code. The problem is that both are somewhat nebulous concepts.</p>
     <p>In practice, many people use [<a href="#BCP47">BCP47</a>] 
@@ -1467,7 +1524,7 @@ The data above indicates:
       appear in the territory-based bundles. Continuing the example, <i>en_US</i> would have USD → $, while <i>en_AU</i> would have AUD → $. (In protocols, the currency 
       codes should always accompany any currency amounts; otherwise the data is ambiguous, and software is forced to use the user&#39;s territory to guess at the currency. 
       For some informal discussion of this, see <a href="http://source.icu-project.org/repos/icu/icuhtml/trunk/design/jit_localization.html">JIT Localization</a>.)</p>
-    <h4><a name="Written_Language" href="#Written_Language">3.6.1 Written Language</a></h4>
+    <h4><a name="Written_Language" href="#Written_Language">3.10.1 Written Language</a></h4>
     <p>Criteria for what makes a written language should be purely pragmatic; <i>what would copy-editors say? </i>If one gave them text like the following, they 
       would respond that is far from acceptable English for publication, and ask for it to be redone:</p>
     <ol>
@@ -1619,11 +1676,11 @@ root</pre>
     more flexible; changes in the view of the &quot;best&quot; match between the input 
     request and the output bundle are more tolerant, when represent overall 
     improvements for users. For more information, see <i>
-    <a href="#Fallback_Elements">Section 5.3.1 Fallback_Elements</a></i>.</p>
+    <a href="#Fallback_Elements">Section 8.1 Element fallback</a></i>.</p>
 	<p>Where the LDML inheritance relationship does not match a target system, such as POSIX, the data logically should be fully resolved in converting to a format 
 	for use by that system, by adding <i>all</i> inherited data to each locale data set.</p>
-	<p>For a more complete description of how inheritance applies to data, and the use of keywords, see <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance 
-	and Validity</a></i>.</p>
+	<p>For a more complete description of how inheritance applies to data, and the use of keywords, see <i><a href="#Inheritance_and_Validity">Section 4.2 Inheritance 
+</a></i>.</p>
 	<p>The locale data does not contain general character properties that are derived from the <i>Unicode Character Database</i> [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>]. 
 	That data being common across locales, it is not duplicated in the bundles. Constructing a POSIX locale from the CLDR data requires use of UCD data. In addition, 
 	POSIX locales may also specify the character encoding, which requires the data to be transformed into that target encoding.</p>
@@ -1643,7 +1700,7 @@ root</pre>
 	in &quot;en&quot;, then in &quot;root&quot;. If not found there, then it inherits from &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt; in &quot;en_US&quot;, then &quot;en&quot;, then 
 	in &quot;root&quot;.</p>
   <p class="example"></p>
-    <h4><a name="Parent_Locales" href="#Parent_Locales">4.2 Parent Locales</a></h4>
+    <h4><a name="Parent_Locales" href="#Parent_Locales">4.1.1 Parent Locales</a></h4>
     <p class="dtd">&lt;!ELEMENT parentLocales ( parentLocale* ) &gt;<br>
   &lt;!ELEMENT parentLocale EMPTY &gt;<br>
   &lt;!ATTLIST parentLocale parent CDATA #REQUIRED &gt;<br>
@@ -1663,19 +1720,19 @@ root</pre>
       Thus, for a locale like zh_Hant in the example above, the parentLocale element would dictate the parent as &quot;root&quot;
       when referring to main locale data, but for collation data, the parent locale would still be &quot;zh&quot;, 
       even though the parentLocale element is present for that locale.</p>
-  <h3><a name="Inheritance_and_Validity" href="#Inheritance_and_Validity">4.3 Inheritance and Validity</a></h3>
+  <h3><a name="Inheritance_and_Validity" href="#Inheritance_and_Validity">4.2 Inheritance and Validity</a></h3>
 <p>The following describes in more detail how to determine the exact inheritance of elements, and the validity of a given element in LDML.</p>
-<h4>4.2.1 Definitions</h4>
+<h4><a name="Definitions" href="#Definitions">4.2.1 Definitions</a></h4>
 <p><i>Blocking</i> elements are those whose subelements do not inherit from parent locales. For example, a &lt;collation&gt; element is a blocking element: everything 
   in a &lt;collation&gt; element is treated as a single lump of data, as far as inheritance is concerned. 
-  For more information, see <a href="#Valid_Attribute_Values">Appendix K: Valid Attribute Values</a>.</p>
+  For more information, see <a href="#Valid_Attribute_Values">Section 5.5 Valid Attribute Values</a>.</p>
 <p>Attributes that serve to distinguish multiple elements at the same level are called <i>distinguishing</i> attributes. 
   For example, the <i>type</i> attribute distinguishes different elements in lists of 
   translations, such as:</p>
 <pre>&lt;language type=&quot;aa&quot;&gt;Afar&lt;/language&gt;
 &lt;language type=&quot;ab&quot;&gt;Abkhazian&lt;/language&gt;</pre>
 <p>Distinguishing attributes affect inheritance; two elements with different distinguishing 
-  attributes are treated as different for purposes of inheritance. For more information, see <a href="#Valid_Attribute_Values">Appendix K: Valid Attribute Values</a>. 
+  attributes are treated as different for purposes of inheritance. For more information, see <a href="#Valid_Attribute_Values">Section 5.5 Valid Attribute Values</a>. 
   Other attributes are called nondistinguishing (or informational) attributes. These carry 
   separate information, and do not affect inheritance.</p>
 <p>For any element in an XML file, <i>an element chain</i> is a resolved [<a href="#XPath">XPath</a>] leading from the root to an element, with attributes on each element in alphabetical 
@@ -1738,7 +1795,7 @@ root</pre>
 <blockquote>
   <p>&lt;root, de, de_DE, de_DE_xxx&gt;</p>
 </blockquote>
-<h4>4.2.2 Resolved Data File</h4>
+<h4><a name="Resolved_Data_File" href="#Resolved_Data_File">4.2.2 Resolved Data File</a></h4>
 <p>To produce fully resolved locale data file from CLDR for a locale ID L, you start with L, and successively add unique items from the parent locales until 
   you get up to root. More formally, this can be expressed as the following procedure.</p>
 <ol>
@@ -1766,7 +1823,7 @@ root</pre>
   <li>The identity element and its children are unaffected by resolution.</li>
   <li>The LDML data must be constructed so as to avoid circularity in step 2.2.</li>
 </ul>
-<h4>4.2.3 <b>Valid Data</b></h4>
+<h4><a name="Valid_Data" href="#Valid_Data">4.2.3 Valid Data</a></h4>
 <p>The attribute <i>draft=&quot;x&quot; </i>in LDML means that the data has not been approved by the 
   subcommittee. (For more information, see <a href="http://cldr.unicode.org/index/process">Process</a>). However, some data 
   that is not explicitly marked as <i>draft </i>may be implicitly <i>draft</i>, either because it inherits 
@@ -1798,7 +1855,7 @@ root</pre>
   &nbsp;&lt;numbers/&gt;<br>
   &nbsp;&lt;collations/&gt;<br>
   &lt;/ldml&gt;</code></p>
-<p>However, normally the draft attributes should be canonicalized, which means they are pushed down to leaf nodes as described in <i><a href="#Canonical_Form">Appendix L: Canonical 
+<p>However, normally the draft attributes should be canonicalized, which means they are pushed down to leaf nodes as described in <i><a href="#Canonical_Form">Section 5.6 Canonical 
   Form</a></i>.    If an LDML file  does has draft attributes that are not on leaf nodes, the file should be interpreted as if it were the canonicalized version of that file.</p>
 <p>The attribute <i>validSubLocales</i> allows sublocales in a given tree to be treated as though a file for them were present when there 
   is not one. It only has an effect for locales that inherit from the current file where a file is missing, and the elements would </p>
@@ -1826,7 +1883,7 @@ root</pre>
   &lt;/ldml&gt;</code></p>
 <p>More formally, here is how to determine whether data for an element chain E is implicitly or explicitly draft, given a locale L. Sections 1, 2, and 4 are 
   simply formalizations of what is in LDML already. Item 3 adds the new element.</p>
-<h4>4.2.4 Checking for Draft Status</h4>
+<h4><a name="Checking_for_Draft_Status" href="#Checking_for_Draft_Status">4.2.4 Checking for Draft Status</a></h4>
 <ol>
   <li><b>Parent Locale Inheritance</b>
     <ol>
@@ -1869,7 +1926,7 @@ root</pre>
 </ol>
 <p>The validSubLocales in the most specific (farthest from root file) locale file &quot;wins&quot; through the full resolution step (data from more specific files replacing 
   data from less specific ones).</p>
-<h4>4.2.5 Keyword and Default Resolution</h4>
+<h4><a name="Keyword_and_Default_Resolution" href="#Keyword_and_Default_Resolution">4.2.5 Keyword and Default Resolution</a></h4>
 <p>When accessing data based on keywords, the following process is used. Consider the following example:</p>
 <ul>
   <li>The locale &#39;de&#39; has collation types A, B, C, and no &lt;default&gt; element</li>
@@ -2228,7 +2285,7 @@ root</pre>
   result in this example would be zh_Hant instead of zh_TW.</p>
 <pre></pre>
 <div>
-  <h4><a name="LanguageMatching" href="#LanguageMatching">C.18 Language Matching</a></h4>
+  <h3><a name="LanguageMatching" href="#LanguageMatching">4.4 Language Matching</a></h3>
   <p class="dtd">&lt;!ELEMENT languageMatching ( languageMatches* ) &gt;<br>
     &lt;!ELEMENT languageMatches ( languageMatch* ) &gt;<br>
     &lt;!ATTLIST languageMatches type NMTOKEN #REQUIRED &gt;<br>
@@ -2335,31 +2392,31 @@ Language Matching can also be used to get fallback data elements. In many cases,
 	<span class="dtd">&lt;!ELEMENT ldml (identity, (alias |(fallback*, localeDisplayNames?, layout?, </span>contextTransforms?, 
 	<span class="dtd">characters?, delimiters?, measurement?, dates?, numbers?, units?,
 	listPatterns?, collations?, posix?, segmentations?, rbnf?, </span>metadata?, 
-	<span class="dtd">references?, special*))) &gt;</span><p>That element contains the following elements:</p>
+	<span class="dtd">references?, special*))) &gt;</span><p class="removed">That element contains the following elements:</p>
 	<ul>
-		<li><a href="#Identity_Elements">&lt;identity&gt;</a></li>
-		<li><a href="#Fallback_Elements">&lt;fallback&gt;</a></li>
-		<li><a href="#Display_Name_Elements">&lt;localeDisplayNames&gt;</a></li>
-		<li><a href="#Layout_Elements">&lt;layout&gt;</a></li>
-		<li><a href="#Context_Transform_Elements">&lt;contextTransforms&gt;</a></li>
-		<li><a href="#Character_Elements">&lt;characters&gt;</a></li>
-		<li><a href="#Delimiter_Elements">&lt;delimiters&gt;</a></li>
-		<li><a href="#Measurement_Elements">&lt;measurement&gt;</a></li>
-		<li><a href="tr35-dates.html#Overview_Dates_Element_Supplemental">&lt;dates&gt;</a></li>
-		<li><a href="tr35-numbers.html#Number_Elements">&lt;numbers&gt;</a></li>
-		<li><a href="#Unit_Elements">&lt;units&gt;</a></li>
-		<li><a href="#ListPatterns">&lt;listPatterns&gt;</a></li>
-		<li><a href="tr35-collation.html#Collation_Tailorings">&lt;collations&gt;</a></li>
-		<li><a href="#POSIX_Elements">&lt;posix&gt;</a></li>
-		<li><a href="#Segmentations">&lt;segmentations&gt;</a></li>
-		<li><a href="tr35-numbers.html#Rule-Based_Number_Formatting">&lt;rbnf&gt;</a></li>
-		<li><a href="#Metadata_Elements">&lt;metadata&gt;</a></li>
-		<li><a href="#Reference_Elements">&lt;references&gt;</a></li>
+		<li class="removed"><a href="#Identity_Elements">&lt;identity&gt;</a></li>
+		<li class="removed"><a href="#Fallback_Elements">&lt;fallback&gt;</a></li>
+		<li class="removed"><a href="#Display_Name_Elements">&lt;localeDisplayNames&gt;</a></li>
+		<li class="removed"><a href="#Layout_Elements">&lt;layout&gt;</a></li>
+		<li class="removed"><a href="#Context_Transform_Elements">&lt;contextTransforms&gt;</a></li>
+		<li class="removed"><a href="#Character_Elements">&lt;characters&gt;</a></li>
+		<li class="removed"><a href="#Delimiter_Elements">&lt;delimiters&gt;</a></li>
+		<li class="removed"><a href="#Measurement_Elements">&lt;measurement&gt;</a></li>
+		<li class="removed"><a href="tr35-dates.html#Overview_Dates_Element_Supplemental">&lt;dates&gt;</a></li>
+		<li class="removed"><a href="tr35-numbers.html#Number_Elements">&lt;numbers&gt;</a></li>
+		<li class="removed"><a href="#Unit_Elements">&lt;units&gt;</a></li>
+		<li class="removed"><a href="#ListPatterns">&lt;listPatterns&gt;</a></li>
+		<li class="removed"><a href="tr35-collation.html#Collation_Tailorings">&lt;collations&gt;</a></li>
+		<li class="removed"><a href="#POSIX_Elements">&lt;posix&gt;</a></li>
+		<li class="removed"><a href="#Segmentations">&lt;segmentations&gt;</a></li>
+		<li class="removed"><a href="tr35-numbers.html#Rule-Based_Number_Formatting">&lt;rbnf&gt;</a></li>
+		<li class="removed"><a href="#Metadata_Elements">&lt;metadata&gt;</a></li>
+		<li class="removed"><a href="#Reference_Elements">&lt;references&gt;</a></li>
 	</ul>
-	<p>The structure of each of these elements and their contents will be described below. The first few elements have little structure, while dates, numbers, and 
+	<p class="removed">The structure of each of these elements and their contents will be described below. The first few elements have little structure, while dates, numbers, and 
 	collations are more involved.</p>
 	<p>The XML structure is stable over releases. Elements and attributes may be deprecated: they are retained in the DTD but their usage is strongly discouraged. 
-	In most cases, an alternate structure is provided for expressing the information.</p>
+  In most cases, an alternate structure is provided for expressing the information.</p>
 	<p>In general, all translatable text in this format is in element contents, while attributes are reserved for types and non-translated information (such as 
 	numbers or dates). The reason that attributes are not used for translatable text is that spaces are not preserved, and we cannot predict where spaces may be 
 	significant in translated material.</p>
@@ -2371,7 +2428,7 @@ Language Matching can also be used to get fallback data elements. In many cases,
 		[<a href="#XPath">XPath</a>].</li>
 	</ol>
 	<p>Rule elements do not have this restriction, but also do not inherit, except as an entire block. The structure elements are listed in serialElements 
-	in the supplemental metadata. See also <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></i>.
+	in the supplemental metadata. See also <i><a href="#Inheritance_and_Validity">Section 4.2 Inheritance and Validity</a></i>.
 	For more technical details, see
 	<a href="http://cldr.unicode.org/development/updating-dtds">Updating-DTDs</a>.</p>
 	<p>Note that the data in examples given below is purely illustrative, and 
@@ -2398,10 +2455,10 @@ Language Matching can also be used to get fallback data elements. In many cases,
 	</ul>
 	<h3><a name="Common_Elements" href="#Common_Elements">5.1 Common Elements</a></h3>
 	<p>At any level in any element, two special elements are allowed.</p>
-	<p class="element2">&lt;<a name="special" href="#special">special</a> xmlns:yyy=&quot;<span style="color: blue">xxx</span>&quot;&gt;</p>
-  <p>This element is designed to allow for arbitrary additional annotation and data that is product-specific. It has one required attribute, which specifies the 
+	<h4><a name="special" href="#special">5.1.1 Element special</a></h4>
+  <p>This element is designed to allow for arbitrary additional annotation and data that is product-specific. It has one required attribute <span class="attribute">xmlns</span>, which specifies the 
 	XML <a href="http://www.w3.org/TR/REC-xml-names/">namespace</a> of the special data. For example, the following used the version 1.0 POSIX special element.</p>
-	<pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.0/ldml.dtd</span>&quot; [
+  <pre>&lt;!DOCTYPE ldml SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.0/ldml.dtd</span>&quot; [
     &lt;!ENTITY % posix SYSTEM &quot;<span style="color: blue">http://unicode.org/cldr/dtd/1.0/ldmlPOSIX.dtd</span>&quot;&gt;
 <span style="color: blue">%posix;</span>
 ]&gt;
@@ -2418,10 +2475,10 @@ Language Matching can also be used to get fallback data elements. In many cases,
     &lt;/special&gt;
 &lt;/ldml&gt;
 </pre>
-    <h4><a name="Sample_Special_Elements" href="#Sample_Special_Elements">5.1.1 Sample Special Elements</a></h4>
+    <h5><a name="Sample_Special_Elements" href="#Sample_Special_Elements">5.1.1.1 Sample Special Elements</a></h5>
     <p>The elements in this section are <i><b>not</b></i> part of the Locale Data Markup Language 1.0 specification. Instead, they are special elements used for 
       application-specific data to be stored in the Common Locale Repository. They may change or be removed future versions of this document, and are present her 
-      more as examples of how to extend the format. (Some of these items may move into a future version of the Locale Data Markup Language specification.)</p>
+    more as examples of how to extend the format. (Some of these items may move into a future version of the Locale Data Markup Language specification.)</p>
     <ul>
       <li><a href="http://unicode.org/cldr/dtd/1.1/ldmlICU.dtd">http://unicode.org/cldr/dtd/1.1/ldmlICU.dtd</a></li>
       <li><a href="http://unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd">http://unicode.org/cldr/dtd/1.1/ldmlOpenOffice.dtd</a></li>
@@ -2450,19 +2507,105 @@ Language Matching can also be used to get fallback data elements. In many cases,
       <p><b>Note: </b>While the CLDR specification guarantees backwards compatibility, the definition of specials is up to other organizations. Any assurance 
         of backwards compatibility is up to those organizations.</p>
     </blockquote>
-    <h5><a name="OpenOffice" href="#OpenOffice">5.1.1.1 openoffice.org</a></h5>
-    <p>A number of the elements above can have extra information for openoffice.org, such as the following example:</p>
+  <p>A number of the elements above can have extra information for <a name="OpenOffice" href="#OpenOffice">openoffice.org</a>, such as the following example:</p>
     <pre>    &lt;special xmlns:openOffice=&quot;<span style="color: blue">http://www.openoffice.org</span>&quot;&gt;
         &lt;openOffice:search&gt;
             &lt;openOffice:searchOptions&gt;
                 &lt;openOffice:transliterationModules&gt;<span style="color: blue">IGNORE_CASE</span>&lt;/openOffice:transliterationModules&gt;
             &lt;/openOffice:searchOptions&gt;
         &lt;/openOffice:search&gt;
-    &lt;/special&gt;</pre>
-<p><span class="changed">The alias element is a common element, but one whose usage is restricted to the root locale.</span> See <em>5.21 <a href="#Alias_Elements">Alias Elements</a></em> for more information.</p>
-<p class="dtd">&lt;displayName&gt;</p>
+    &lt;/special&gt;
+</pre>
+  <h4><a name="Alias_Elements" href="#Alias_Elements">5.1.2 Element alias</a></h4>
+<p class="dtd">&lt;!ELEMENT alias (special*) &gt;<br>
+  &lt;!ATTLIST alias source NMTOKEN #REQUIRED &gt;<br>
+  &lt;!ATTLIST alias path CDATA #IMPLIED&gt;</p>
+<p>The contents of any element in root can be replaced by an alias,
+  which points to the path where the data can be found.</p>
+<p>Aliases will only ever appear in root with the form //ldml/.../alias[@source=&quot;locale&quot;][@path=&quot;...&quot;].</p>
+<p>Consider the following example in root:</p>
+<pre>
+      &lt;calendar type=&quot;gregorian&quot;&gt;<br> &lt;months&gt;<br>      &lt;default choice=&quot;format&quot;/&gt;<br>      &lt;monthContext type=&quot;format&quot;&gt;<br>            &lt;default choice=&quot;wide&quot;/&gt;<br>            &lt;monthWidth type=&quot;abbreviated&quot;&gt;<br>             <strong>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type='wide']&quot;/&gt;</strong><br>                      &lt;/monthWidth&gt;</pre>
+<p>If the locale &quot;de_DE&quot; is being accessed for a month name for format/abbreviated, then a resource bundle at &quot;de_DE&quot; will be searched for a resource element at the that path. If not found there, then the 
+  resource bundle at &quot;de&quot; will be searched, and so on. When the alias is found in root, then the search is restarted, but searching for format/<strong>wide</strong> element instead of format/abbreviated.</p>
+<p>If the <b>path</b> attribute is present, then its value is an [<a href="#XPath">XPath</a>] that points to a different node in the tree. For example:</p>
+<pre>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;</pre>
+<p>The default value if the path is not present is the same position in the tree. All of the attributes in the 
+  [<a href="#XPath">XPath</a>] must be <i>distinguishing</i> elements. 
+  For more details, see <a href="#Inheritance_and_Validity">Section 4.2 Inheritance and Validity</a>.</p>
+<p>There is a special value for the source attribute, the constant <b>source=&quot;locale&quot;</b>. This special value is equivalent to the 
+  locale being resolved. For example, consider the following example, where locale data for &#39;de&#39; is being resolved:</p>
+<div align="center">
+  <center>
+    <table border="1" cellpadding="0" cellspacing="1">
+      <caption>
+        Inheritance with source=&quot;locale&quot;
+        </caption>
+      <tr>
+        <th>Root</th>
+        <th>de</th>
+        <th bgcolor="#C0C0C0">Resolved</th>
+      </tr>
+      <tr>
+        <td><code>&lt;x&gt;<br>
+          &nbsp; &lt;a&gt;1&lt;/a&gt;<br>
+          &nbsp; &lt;b&gt;2&lt;/b&gt;<br>
+          &nbsp; &lt;c&gt;3&lt;/c&gt;<br>
+          <br>
+          &lt;/x&gt;</code></td>
+        <td><code>&lt;x&gt;<br>
+          &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
+          &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
+          <br>
+          &nbsp;&lt;d&gt;14&lt;/d&gt;<br>
+          &lt;/x&gt;</code></td>
+        <td bgcolor="#C0C0C0"><code>&lt;x&gt;<br>
+          &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
+          &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
+          &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;c&gt;3&lt;/c&gt;</span></span></span><br>
+          &nbsp;&lt;d&gt;14&lt;/d&gt;<br>
+          &lt;/x&gt;</code></td>
+      </tr>
+      <tr>
+        <td><code>&lt;y&gt;<br>
+          &nbsp;&lt;alias source=&quot;locale&quot; path=&quot;../x&quot;&gt;<br>
+          &lt;/y&gt;</code></td>
+        <td><code>&lt;y&gt;<br>
+          <br>
+          &nbsp;&lt;b&gt;22&lt;/b&gt;<br>
+          <br>
+          <br>
+          &nbsp;&lt;e&gt;25&lt;/e&gt;<br>
+          &lt;/y&gt;</code></td>
+        <td bgcolor="#C0C0C0"><code>&lt;y&gt;<br>
+          &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;a&gt;11&lt;/a&gt;</span></span></span><br>
+          &nbsp;&lt;b&gt;22&lt;/b&gt;<br>
+          &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;c&gt;3&lt;/c&gt;</span></span></span><br>
+          &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;d&gt;14&lt;/d&gt;</span></span></span><br>
+          &nbsp;&lt;e&gt;25&lt;/e&gt;<br>
+          &lt;/y&gt;</code></td>
+      </tr>
+    </table>
+  </center>
+</div>
+<p>The first row shows the inheritance within the &lt;x&gt; element, whereby &lt;c&gt; is inherited from root. The second shows the inheritance within the &lt;y&gt; element, 
+  whereby &lt;a&gt;, &lt;c&gt;, and &lt;d&gt; are inherited also from root, but from an alias there. The alias in root is logically replaced not by the elements in root itself, 
+  but by elements in the &#39;target&#39; locale.</p>
+<p>For more details on data resolution, see <a href="#Inheritance_and_Validity">Section 4.2 Inheritance and Validity</a>.</p>
+<p>Aliases must be  resolved recursively. An alias may point to another path that results in another alias being found, and so on. For example, looking up Thai buddhist abbreviated months for the locale <strong>xx-YY</strong> may result in the following chain of aliases being followed:</p>
+<blockquote>
+  <p>../../calendar[@type=&quot;buddhist&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;abbreviated&quot;] </p>
+  <p> xx-YY → xx → root // finds alias that changes path to:</p>
+  <p>../../calendar[@type=&quot;gregorian&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;abbreviated&quot;] </p>
+  <p> xx-YY → xx → root // finds alias that changes path to:</p>
+  <p>../../calendar[@type=&quot;gregorian&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;wide&quot;] </p>
+  <p>xx-YY → xx // finds value here</p>
+</blockquote>
+<p>It is an error to have a circular chain of aliases. That is, a collection of LDML XML documents must not have situations where a sequence of alias lookups 
+  (including inheritance and multiple inheritance) can be followed indefinitely without terminating.</p>
+<h4><a name="Element_displayName" href="#Element_displayName">5.1.3 Element displayName</a></h4>
 	<p>Many elements can have a display name. This is a translated name that can be presented to users when discussing the particular service. For example, a number 
-	format, used to format numbers using the conventions of that locale, can have translated name for presentation in GUIs.</p>
+format, used to format numbers using the conventions of that locale, can have translated name for presentation in GUIs.</p>
 	<pre>  &lt;numberFormat&gt;
     &lt;displayName&gt;<span style="color: blue">Prozentformat</span>&lt;/displayName&gt;
 ...
@@ -2471,41 +2614,7 @@ Language Matching can also be used to get fallback data elements. In many cases,
 	time zones, where parsing results would give the same GMT offset, the standard and daylight display names can be the same across different 
 	time zone IDs.) Any 
 	translations should follow customary practice for the locale in question. For more information, see [<a href="#DataFormats">Data Formats</a>].</p>
-	<p class="dtd">&lt;default choice=&quot;<span style="color: blue">someID</span>&quot;/&gt;</p>
-	<p>In some cases, a number of elements are present. The default element can be used to indicate which of them is the default, in the absence of other information. 
-	The value of the choice attribute is to match the value of the type attribute for the selected item.</p>
-	<pre>&lt;timeFormats&gt;
-  &lt;default choice=&quot;<span style="color: red">medium</span>&quot; /&gt; 
-  &lt;timeFormatLength type=&quot;<span style="color: blue">full</span>&quot;&gt;
-    &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
-      &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt; 
-    &lt;/timeFormat&gt;
-  &lt;/timeFormatLength&gt;
-  &lt;timeFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
-    &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
-      &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt; 
-    &lt;/timeFormat&gt;
-  &lt;/timeFormatLength&gt;
-  &lt;timeFormatLength type=&quot;<span style="color: red">medium</span>&quot;&gt;
-    &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
-      &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a</span>&lt;/pattern&gt; 
-    &lt;/timeFormat&gt;
-  &lt;/timeFormatLength&gt;
-...</pre>
-	<p>Like all other elements, the &lt;default&gt; element is inherited. Thus, it can also refer to inherited resources. For example, suppose that the above resources 
-	are present in fr, and that in fr_BE we have the following:</p>
-	<pre>&lt;timeFormats&gt;
-  &lt;default choice=&quot;<span style="color: red">long</span>&quot;/&gt;
-&lt;/timeFormats&gt;</pre>
-	<p>In that case, the default time format for fr_BE would be the inherited &quot;long&quot; resource from fr. Now suppose that we had in fr_CA:</p>
-	<pre>  &lt;timeFormatLength type=&quot;<span style="color:red">medium</span>&quot;&gt;
-    &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
-      &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">...</span>&lt;/pattern&gt; 
-    &lt;/timeFormat&gt;
-  &lt;/timeFormatLength&gt;
-</pre>
-	<p>In this case, the &lt;default&gt; is inherited from fr, and has the value &quot;medium&quot;. It thus refers to this new &quot;medium&quot; pattern in this resource bundle.</p>
-	<h4><a name="Escaping_Characters" href="#Escaping_Characters">5.1.1 Escaping Characters</a></h4>
+<h4><a name="Escaping_Characters" href="#Escaping_Characters">5.1.4 Element cp</a></h4>
 	<p>Unfortunately, XML does not have the capability to contain all Unicode code points. Due to this, in certain instances extra syntax is required to represent 
 	those code points that cannot be otherwise represented in element content. These escapes are only allowed in certain elements, according to the DTD.</p>
 	<table>
@@ -2519,18 +2628,10 @@ Language Matching can also be used to get fallback data elements. In many cases,
 			<td><code>&lt;cp hex=&quot;0&quot;&gt;</code></td>
 		</tr>
 	</table>
-	<h4><a name="Text_Directionality" href="#Text_Directionality">5.1.2 Text Directionality</a></h4>
-	<p>The content of certain elements, such as date or number formats, may consist of several sub-elements with an inherent order (for 
-	example, the year, month, and day for dates). In some cases, the order of these sub-elements may be changed depending on the bidirectional context in which 
-	the element is embedded.</p>
-	<p>For example, short date formats in languages such as Arabic may contain neutral or weak characters at the beginning or end of the 
-	element content. In such a case, the overall order of the sub-elements may change depending on the surrounding text.</p>
-	<p>Element content whose display may be affected in this way should include an explicit direction mark, such as U+200E LEFT-TO-RIGHT 
-	MARK or U+200F RIGHT-TO-LEFT MARK, at the beginning or end of the element content, or both.</p>
-	<h3><a name="Common_Attributes" href="#Common_Attributes">5.2 Common Attributes</a></h3>
-	<p class="element2">&lt;... type=&quot;<span style="color: blue">stroke</span>&quot; ...&gt;</p>
+  <h3><a name="Common_Attributes" href="#Common_Attributes">5.2 Common Attributes</a></h3>
+	<h4><a name="Attribute_type" href="#Attribute_type">5.2.1 Attribute type</a></h4>
 	<p>The attribute <i>type</i> is also used to indicate an alternate resource that can be selected with a matching type=option in the locale id modifiers, or 
-	be referenced by a default element. For example:</p>
+  be referenced by a default element. For example:</p>
 	<pre>&lt;ldml&gt;
   ...
   &lt;currencies&gt;
@@ -2538,9 +2639,9 @@ Language Matching can also be used to get fallback data elements. In many cases,
     &lt;currency type=&quot;<span style="color: blue">preEuro</span>&quot;&gt;<span style="color: blue">...</span>&lt;/currency&gt;
   &lt;/currencies&gt;
 &lt;/ldml&gt;</pre>
-	<p class="element2">&lt;... draft=&quot;<span style="color: #0000FF">unconfirmed</span>&quot; ...&gt;</p>
+	<h4><a name="Attribute_draft" href="#Attribute_draft">5.2.2 Attribute draft</a></h4>
 	<p>If this attribute is present, it indicates the status of all the data in this element and any subelements (unless they have a contrary <i>draft</i> value), 
-	as per the following:</p>
+  as per the following:</p>
 	<ul>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em"><i>approved:</i> fully approved by the technical committee (equals the CLDR 1.3 value 
 		of <i>false</i>, or an absent <i>draft</i> attribute). This does not mean that the data is guaranteed to be error-free—this is the best judgment of the 
@@ -2555,14 +2656,14 @@ Language Matching can also be used to get fallback data elements. In many cases,
     given release, see <a href="http://cldr.unicode.org/index/process#TOC-Data-Submission-and-Vetting-Process">Data Submission and 
     Vetting Process</a> on the CLDR website.</p>
 	<p>Normally draft attributes should only occur on &quot;leaf&quot; elements. For a more formal description of how elements are inherited, and what their draft status 
-	is, see <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></i>.</p>
-	<p>&lt;... <a name="alt_attribute" href="#alt_attribute">alt</a>=&quot;<i>descriptor</i>&quot; ...&gt;</p>
-	<p>This attribute labels an alternative value for an element. The <i>descriptor</i> indicates what kind of alternative it is, and takes one of the following 
-	forms: </p>
+	is, see <i><a href="#Inheritance_and_Validity">Section 4.2 Inheritance and Validity</a></i>.</p>
+	<h4><a name="alt_attribute" href="#alt_attribute">5.2.3 Attribute alt</a></h4>
+	<p>This attribute labels an alternative value for an element. The <span class="changed">value is a </span><i>descriptor</i> indicates what kind of alternative it is, and takes one of the following 
+</p>
 	<ul>
 		<li><i>variantname</i> meaning that the value is a variant of the normal value, and may be used in its place in certain circumstances. If a variant value 
 		is absent for a particular locale, the normal value is used. The variant mechanism should only be used when such a fallback is acceptable.</li>
-		<li><span style="color: blue">proposed</span>, optionally followed by a number, indicating that the value is a proposed replacement for an existing value.</li>
+<li><span style="color: blue">proposed</span>, optionally followed by a number, indicating that the value is a proposed replacement for an existing value.</li>
 		<li><i>variantname</i><span style="color: blue">-proposed</span>, optionally followed by a number, indicating that the value is a proposed replacement variant 
 		value.</li>
 	</ul>
@@ -2580,28 +2681,17 @@ Language Matching can also be used to get fallback data elements. In many cases,
 ...</pre>
 	<p>The  values for <i>variantname</i> at this time include &quot;<span style="color: blue">variant</span>&quot;, &quot;<span style="color: blue">list</span>&quot;, &quot;<span style="color: blue">email</span>&quot;, 
 	&quot;<span style="color: blue">www</span>&quot;, &quot;<span class="attributeValue">short</span>&quot;, and &quot;<span style="color : blue">secondary</span>&quot;.</p>
-	<p>&lt;... validSubLocales=&quot;de_AT de_CH de_DE&quot; ...&gt;</p>
+	<p>Attribute validSubLocales</p>
 	<p>The attribute <i>validSubLocales</i> allows sublocales in a given tree to be treated as though a file for them were present when there 
 	is not one. It can 
 	be applied to any element. It only has an effect for locales that inherit from the current file where a file is missing, and the elements would 
 	not otherwise 
 	be draft.</p>
-	<p>For a more complete description of how draft applies to data, see <i><a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a></i>.</p>
-	<p class="element2">&lt;... standard=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
-	<blockquote>
-		<p class="element2"><b>Note: </b>This attribute is deprecated. Instead, use a reference element with the attribute standard=&quot;true&quot;. See Section 5.13
-		<a href="#Reference_Elements">&lt;references&gt;.</a></p>
-	</blockquote>
-	<p>The value of this attribute is a list of strings representing standards: international, national, organization, or vendor standards. The presence of this 
-	attribute indicates that the data in this element is compliant with the indicated standards. Where possible, for uniqueness, the string should be a URL that 
-	represents that standard. The strings are separated by commas; leading or trailing spaces on each string are not significant. Examples:</p>
-	<p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
-	...<br>
-	&lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;</code></p>
-	<p>&lt;... <a name="references_attribute" href="#references_attribute">references</a>=&quot;<span style="color: blue">...</span>&quot; ...&gt;</p>
-	<p>The value of this attribute is a token representing a reference for the information in the element, including standards 
-	that it may conform to. See Section 5.13
-	<a href="#Reference_Elements">&lt;references&gt;</a>. (In older versions of CLDR, the value of the attribute was freeform text. That format is deprecated.)</p>
+	<p>For a more complete description of how draft applies to data, see <i><a href="#Inheritance_and_Validity">Section 4.2 Inheritance and Validity</a></i>.</p>
+	<p class="element2">Attribute <a name="references_attribute" href="#references_attribute">references</a></p>
+<p>The value of this attribute is a token representing a reference for the information in the element, including standards 
+	that it may conform to.
+&lt;references&gt;. (In older versions of CLDR, the value of the attribute was freeform text. That format is deprecated.)</p>
 	<p><i>Example:</i></p>
 	<p class="example">&lt;territory type=&quot;UM&quot; references=&quot;R222&quot;&gt;USAs yttre öar&lt;/territory&gt;</p>
 	<p>The reference element may be inherited. Thus, for example, R222 may be used in sv_SE.xml even though it is not defined there, if it is defined in sv.xml.</p>
@@ -2609,7 +2699,8 @@ Language Matching can also be used to get fallback data elements. In many cases,
 	<p>This attribute was originally intended for use in marking display names whose capitalization differed from what was indicated by the
 	now-deprecated &lt;inText&gt; element (perhaps, for example, because the names included a proper noun). It was never supported in the dtd and is not needed for use
 	with the new &lt;contextTransforms&gt; element.</p>
-	<h4><a name="Date_Ranges" href="#Date_Ranges">5.2.1 Date and Date Ranges</a></h4>
+<h3><a name="Common_Structures" href="#Common_Structures">5.3 Common Structures</a></h3>
+<h4><a name="Date_Ranges" href="#Date_Ranges">5.3.1 Date and Date Ranges</a></h4>
 	<p>When attribute specify date ranges, it is usually done with 
 	attributes <i>from</i> and <i>to</i>. The <i>from</i> attribute specifies the starting point, 
 	and the <i>to</i> attribute specifies the end point. The deprecated
@@ -2654,14 +2745,22 @@ Language Matching can also be used to get fallback data elements. In many cases,
 	no known end point.</p>
 	<p>The dates and times are specified in local time, unless otherwise 
 	noted. (In particular, the metazone values are in UTC (also known as GMT).</p>
-	<pre></pre>
-    <h4><a name="Unicode_Sets" href="#Unicode_Sets">5.2.2 Unicode Sets</a></h4>
-    <p>A UnicodeSet is a set of Unicode characters (and possibly strings) determined by a pattern, following <i>UTS #18: Unicode Regular Expressions</i> [<a href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], 
-      Level 1 and RL2.5, including the syntax where given. For an example of a concrete implementation of this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].</p>
+<h4><a name="Text_Directionality" href="#Text_Directionality">5.3.2 Text Directionality</a></h4>
+    <p>The content of certain elements, such as date or number formats, may consist of several sub-elements with an inherent order (for 
+      example, the year, month, and day for dates). In some cases, the order of these sub-elements may be changed depending on the bidirectional context in which 
+      the element is embedded.</p>
+  <p>For example, short date formats in languages such as Arabic may contain neutral or weak characters at the beginning or end of the 
+      element content. In such a case, the overall order of the sub-elements may change depending on the surrounding text.</p>
+    <p>Element content whose display may be affected in this way should include an explicit direction mark, such as U+200E LEFT-TO-RIGHT 
+      MARK or U+200F RIGHT-TO-LEFT MARK, at the beginning or end of the element content, or both.</p>
+<pre></pre>
+<h4><a name="Unicode_Sets" href="#Unicode_Sets">5.3.3 Unicode Sets</a></h4>
+    <p><span class="changed">Some attribute values or element contents use UnicodeSet notation. A UnicodeSet represents</span> a set of Unicode characters (and possibly strings) determined by a pattern, following <i>UTS #18: Unicode Regular Expressions</i> [<a href="http://www.unicode.org/reports/tr41/#UTS18">UTS18</a>], 
+  Level 1 and RL2.5, including the syntax where given. For an example of a concrete implementation of this, see [<a href="#ICUUnicodeSet">ICUUnicodeSet</a>].</p>
     <p>Patterns are a series of characters bounded by square brackets that contain lists of characters and Unicode property sets. Lists are a sequence of characters 
       that may have ranges indicated by a &#39;-&#39; between two characters, as in &quot;a-z&quot;. The sequence specifies the range of all characters from the left to the right, 
       in Unicode order. For example, <b>[a c d-f m]</b> is equivalent to <b>[a c d e f m]</b>. Whitespace can be freely used for clarity, as <b>[a c d-f m]</b> means 
-      the same as <b>[acd-fm]</b>.</p>
+  the same as <b>[acd-fm]</b>.</p>
     <p>Unicode property sets are specified by any Unicode property and a value of that property, such as <b>[:General_Category=Letter:]</b>. The property names 
       are defined by the PropertyAliases.txt file and the property values by the PropertyValueAliases.txt file. For more information, see
       [<a href="http://unicode.org/reports/tr41/#UAX44">UAX44</a>]. 
@@ -2707,10 +2806,10 @@ Language Matching can also be used to get fallback data elements. In many cases,
     <p>A multi-character string can be in a Unicode set, to represent a tailored grapheme cluster for a particular language. The syntax uses curly braces for that 
       case.</p>
   <p>In Unicode Sets, there are two ways to quote syntax characters and whitespace:</p>
-    <h5>5.2.2.1 Single Quote</h5>
+    <h5><a name="Single_Quote" href="#Single_Quote">5.3.3.1 Single Quote</a></h5>
     <p>Two single quotes represents a single quote, either inside or outside single quotes. Text within single quotes is not interpreted in any way (except for 
       two adjacent single quotes). It is taken as literal text (special characters become non-special).</p>
-    <h5>5.2.2.2 Backslash Escapes</h5>
+    <h5><a name="Backslash_Escapes" href="#Backslash_Escapes">5.3.3.2 Backslash Escapes</a></h5>
     <p>Outside of single quotes, certain backslashed characters have special meaning:</p>
     <table>
       <tr>
@@ -2818,7 +2917,7 @@ Language Matching can also be used to get fallback data elements. In many cases,
           this is <b>[:General_Category=Letter:]</b>. </td>
       </tr>
     </table>
-  <h3><a name="Identity_Elements" href="#Identity_Elements">5.3 Identity Elements</a></h3>
+  <h3><a name="Identity_Elements" href="#Identity_Elements">5.4 Identity Elements</a></h3>
 	<p class="dtd">&lt;!ELEMENT identity (alias | (version, generation?, language, script?, territory?, variant?, special*) ) &gt;</p>
 	<p>The identity element contains information identifying the target locale for this data, and general information about the version of this data.</p>
 	<p class="element2">&lt;version number=&quot;<u>$</u>Revision: 1.227 <u>$</u>&quot;&gt;</p>
@@ -2845,92 +2944,7 @@ Language Matching can also be used to get fallback data elements. In many cases,
     <a href="#Unicode_Language_and_Locale_Identifiers">Section 3, Unicode Language and Locale Identifiers</a></i>,
 	the language element, along with any of the optional script, territory, and variant elements,
 	must identify a known, stable locale identifier.  Otherwise, it is an error.</p>
-<h3><a name="Alias_Elements" href="#Alias_Elements">5.21 Alias Elements</a></h3>
-      <p class="dtd">&lt;!ELEMENT alias (special*) &gt;<br>
-      &lt;!ATTLIST alias source NMTOKEN #REQUIRED &gt;<br>
-      &lt;!ATTLIST alias path CDATA #IMPLIED&gt;</p>
-      <p>The contents of any element in root can be replaced by an alias,
-      which points to the path where the data can be found.</p>
-      <p>Aliases will only ever appear in root with the form //ldml/.../alias[@source=&quot;locale&quot;][@path=&quot;...&quot;].</p>
-      <p>Consider the following example in root:</p>
-      <pre>
-      &lt;calendar type=&quot;gregorian&quot;&gt;<br> &lt;months&gt;<br>      &lt;default choice=&quot;format&quot;/&gt;<br>      &lt;monthContext type=&quot;format&quot;&gt;<br>            &lt;default choice=&quot;wide&quot;/&gt;<br>            &lt;monthWidth type=&quot;abbreviated&quot;&gt;<br>             <strong>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type='wide']&quot;/&gt;</strong><br>                      &lt;/monthWidth&gt;</pre>
-      <p>If the locale &quot;de_DE&quot; is being accessed for a month name for format/abbreviated, then a resource bundle at &quot;de_DE&quot; will be searched for a resource element at the that path. If not found there, then the 
-    resource bundle at &quot;de&quot; will be searched, and so on. When the alias is found in root, then the search is restarted, but searching for format/<strong>wide</strong> element instead of format/abbreviated.</p>
-
-      <p>If the <b>path</b> attribute is present, then its value is an [<a href="#XPath">XPath</a>] that points to a different node in the tree. For example:</p>
-      <pre>&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;</pre>
-      <p>The default value if the path is not present is the same position in the tree. All of the attributes in the 
-      [<a href="#XPath">XPath</a>] must be <i>distinguishing</i> elements. 
-      For more details, see <a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</p>
-      <p>There is a special value for the source attribute, the constant <b>source=&quot;locale&quot;</b>. This special value is equivalent to the 
-      locale being resolved. For example, consider the following example, where locale data for &#39;de&#39; is being resolved:</p>
-      <div align="center">
-          <center>
-          <table border="1" cellpadding="0" cellspacing="1">
-              <caption>Inheritance with source=&quot;locale&quot;</caption>
-              <tr>
-                  <th>Root</th>
-                  <th>de</th>
-                  <th bgcolor="#C0C0C0">Resolved</th>
-              </tr>
-              <tr>
-                  <td><code>&lt;x&gt;<br>
-  &nbsp; &lt;a&gt;1&lt;/a&gt;<br>
-  &nbsp; &lt;b&gt;2&lt;/b&gt;<br>
-  &nbsp; &lt;c&gt;3&lt;/c&gt;<br>
-                  <br>
-                  &lt;/x&gt;</code></td>
-                  <td><code>&lt;x&gt;<br>
-  &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
-  &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
-                  <br>
-  &nbsp;&lt;d&gt;14&lt;/d&gt;<br>
-                  &lt;/x&gt;</code></td>
-                  <td bgcolor="#C0C0C0"><code>&lt;x&gt;<br>
-  &nbsp;&lt;a&gt;11&lt;/a&gt;<br>
-  &nbsp;&lt;b&gt;12&lt;/b&gt;<br>
-  &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;c&gt;3&lt;/c&gt;</span></span></span><br>
-  &nbsp;&lt;d&gt;14&lt;/d&gt;<br>
-                  &lt;/x&gt;</code></td>
-              </tr>
-              <tr>
-                  <td><code>&lt;y&gt;<br>
-  &nbsp;&lt;alias source=&quot;locale&quot; path=&quot;../x&quot;&gt;<br>
-                  &lt;/y&gt;</code></td>
-                  <td><code>&lt;y&gt;<br>
-                  <br>
-  &nbsp;&lt;b&gt;22&lt;/b&gt;<br>
-                  <br>
-                  <br>
-  &nbsp;&lt;e&gt;25&lt;/e&gt;<br>
-                  &lt;/y&gt;</code></td>
-                  <td bgcolor="#C0C0C0"><code>&lt;y&gt;<br>
-  &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;a&gt;11&lt;/a&gt;</span></span></span><br>
-  &nbsp;&lt;b&gt;22&lt;/b&gt;<br>
-  &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;c&gt;3&lt;/c&gt;</span></span></span><br>
-  &nbsp;<span style="background-color: #FFFF00"><span class="inherited"><span style="font-weight: 400; ">&lt;d&gt;14&lt;/d&gt;</span></span></span><br>
-  &nbsp;&lt;e&gt;25&lt;/e&gt;<br>
-                  &lt;/y&gt;</code></td>
-              </tr>
-          </table>
-          </center></div>
-      <p>The first row shows the inheritance within the &lt;x&gt; element, whereby &lt;c&gt; is inherited from root. The second shows the inheritance within the &lt;y&gt; element, 
-      whereby &lt;a&gt;, &lt;c&gt;, and &lt;d&gt; are inherited also from root, but from an alias there. The alias in root is logically replaced not by the elements in root itself, 
-      but by elements in the &#39;target&#39; locale.</p>
-      <p>For more details on data resolution, see <a href="#Inheritance_and_Validity">Appendix I: Inheritance and Validity</a>.</p>
-    <p>Aliases must be  resolved recursively. An alias may point to another path that results in another alias being found, and so on. For example, looking up Thai buddhist abbreviated months for the locale <strong>xx-YY</strong> may result in the following chain of aliases being followed:</p>
-  <blockquote>
-      <p>../../calendar[@type=&quot;buddhist&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;abbreviated&quot;] </p>
-      <p> xx-YY → xx → root // finds alias that changes path to:</p>
-      <p>../../calendar[@type=&quot;gregorian&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;abbreviated&quot;] </p>
-      <p> xx-YY → xx → root // finds alias that changes path to:</p>
-      <p>../../calendar[@type=&quot;gregorian&quot;]/months/monthContext[@type=&quot;format&quot;]/monthWidth[@type=&quot;wide&quot;] </p>
-      <p>xx-YY → xx // finds value here</p>
-    </blockquote>
-    <p>It is an error to have a circular chain of aliases. That is, a collection of LDML XML documents must not have situations where a sequence of alias lookups 
-        (including inheritance and multiple inheritance) can be followed indefinitely without terminating.</p>
-<h2><a name="Valid_Attribute_Values" href="#Valid_Attribute_Values">5.6 Valid Attribute Values</a></h2>
+<h3><a name="Valid_Attribute_Values" href="#Valid_Attribute_Values">5.5 Valid Attribute Values</a></h3>
   <p>The valid attribute values, as well as other validity information is contained in the supplementalMetadata.xml file.
     (Some, but not all, of this information could have been represented in XML Schema or a DTD.) Most of this is primarily for internal tool use.</p>
   <p><i>The following specify the ordering of elements / attributes in the file:</i></p>
@@ -2990,7 +3004,7 @@ japanese arabic civil-arabic thai-buddhist persian roc&lt;/variable&gt;</pre>
   elements=&quot;default measurementSystem mapping abbreviationFallback preferenceOrdering&quot; 
   attributes=&quot;type&quot;/&gt;
 </pre>
-  <h2><a name="Canonical_Form" href="#Canonical_Form">5.7 Canonical Form</a></h2>
+  <h3><a name="Canonical_Form" href="#Canonical_Form">5.6 Canonical Form</a></h3>
   <p>The following are restrictions on the format of LDML files to allow for easier parsing and comparison of files. </p>
   <p>Peer elements have consistent order. That is, if the DTD or this specification requires the following order in an element foo:</p>
   <pre>&lt;foo&gt;
@@ -3008,7 +3022,7 @@ decimal?, group?, special*)) &gt;</pre>
   <p><a href="http://www.w3.org/TR/REC-xml/">XML</a> files can have a wide variation in textual form, while representing precisely the same data. By putting the 
     LDML files in the repository into a canonical form, this allows us to use the simple diff tools used widely (and in CVS) to detect differences when vetting 
     changes, without those tools being confused. This is not a requirement on other uses of LDML; just simply a way to manage repository data more easily.</p>
-  <h3>5.7.1 Content</h3>
+  <h4><a name="Content" href="#Content">5.6.1 Content</a></h4>
   <ol>
     <li>All start elements are on their own line, indented by <i>depth</i> tabs.</li>
     <li>All end elements (except for leaf nodes) are on their own line, indented by <i>depth</i> tabs. </li>
@@ -3027,8 +3041,7 @@ decimal?, group?, special*)) &gt;</pre>
         <li>no &#39;&amp;#x61;&#39;, it would be just &#39;a&#39;</li>
       </ul>
     </li>
-    <li>All attributes with defaulted values are suppressed. See <i>Appendix 
-      L.8, <a href="#Defaulted_Values_Table">Defaulted Values Table</a>.</i></li>
+    <li>All attributes with defaulted values are suppressed. See <i><a href="#Defaulted_Values_Table">Section 5.6.8 Defaulted Values Table</a>.</i></li>
     <li>The draft and alt=&quot;proposed.*&quot; attributes are only on leaf elements.</li>
     <li>The tzid are canonicalized in the following way:
       <ol>
@@ -3059,7 +3072,7 @@ decimal?, group?, special*)) &gt;</pre>
 		&lt;/currencyFormats&gt;
 	&lt;/numbers&gt;
 &lt;/ldml&gt;</pre>
-  <h3>5.7.2 Ordering</h3>
+  <h4><a name="Ordering" href="#Ordering">5.6.2 Ordering</a></h4>
   <ol>
     <li>Element names are ordered by the <a href="http://www.unicode.org/cldr/data/docs/design/ldml_canonical_form.html#Element_Order_Table">Element Order Table</a></li>
     <li>Attribute names are ordered by the <a href="http://www.unicode.org/cldr/data/docs/design/ldml_canonical_form.html#Attribute_Order_Table">Attribute Order 
@@ -3079,9 +3092,9 @@ decimal?, group?, special*)) &gt;</pre>
       sorted order by attribute pair). If not identical, go to the second 
       pair, and so on.</li>
     <li>Any future additions to the DTD must be structured so as to allow compatibility with this ordering.</li>
-    <li>See also Appendix K: <a href="#Valid_Attribute_Values">Valid Attribute Values</a></li>
+    <li>See also <a href="#Valid_Attribute_Values">Section 5.5 Valid Attribute Values</a></li>
   </ol>
-  <h3>5.7.3 Comments</h3>
+  <h4><a name="Comments" href="#Comments">5.6.3 Comments</a></h4>
   <ol>
     <li>Comments are of the form &lt;!-- <i>stuff</i> --&gt;.</li>
     <li>They are logically attached to a node. There are 4 kinds:
@@ -3105,7 +3118,7 @@ decimal?, group?, special*)) &gt;</pre>
 	&lt;!-- Note: the following is known to be sparse,
 		and needs to be improved in the future --&gt;
 	&lt;zone type=&quot;Asia/Jerusalem&quot;&gt;</pre>
-  <h3><b>5.7.4 Canonicalization</b></h3>
+  <h4><a name="Canonicalization" href="#Canonicalization">5.6.4 Canonicalization</a></h4>
   <p>The process of canonicalization is fairly straightforward, except for comments. Inline comments will have any linebreaks replaced by a space. There may be 
     cases where the attachment node is not permitted, such as the following.</p>
   <pre>		&lt;/dayWidth&gt;
@@ -3116,24 +3129,27 @@ decimal?, group?, special*)) &gt;</pre>
     it will be appended, with a line-break between.) If there is no place to attach the node (for example, as a result of processing that removes the attachment 
     node), the comment and its node&#39;s [<a href="#XPath">XPath</a>] will be appended to the final comment in the document.</p>
   <p>Multiline comments will have leading tabs stripped, so any indentation should be done with spaces.</p>
-  <h3><a name="Element_Order_Table" href="#Element_Order_Table">5.7.5 Element Order Table</a></h3>
+  <h4><a name="Element_Order_Table" href="#Element_Order_Table">5.6.5 Element Order Table</a></h4>
   <p>The order of attributes is given by the elementOrder table in the supplemental metadata.</p>
-  <h3><a name="Attribute_Order_Table" href="#Attribute_Order_Table">5.7.6 Attribute Order Table</a></h3>
+  <h4><a name="Attribute_Order_Table" href="#Attribute_Order_Table">5.6.6 Attribute Order Table</a></h4>
   <p>The order of attributes is given by the attributeOrder table in the supplemental metadata.</p>
-  <h3><a name="Value_Order_Table" href="#Value_Order_Table">5.7.7 Value Order Table</a></h3>
+  <h4><a name="Value_Order_Table" href="#Value_Order_Table">5.6.7 Value Order Table</a></h4>
   <p>The order of attribute values is given by the order of the values in the attributeValues elements that have the attribute order=&quot;given&quot;. Numeric values are 
     sorted in numeric order, while tzids are ordered by country, then longitude, then latitude.</p>
-  <h3><a name="Defaulted_Values_Table" href="#Defaulted_Values_Table">5.7.8 Defaulted Values Table</a></h3>
+  <h4><a name="Defaulted_Values_Table" href="#Defaulted_Values_Table">5.6.8 Defaulted Values Table</a></h4>
   <p>The defaulted attributes are given by the <i>suppress</i> table in the supplemental metadata. There is one special value _q; that is used on serial elements 
     internally to preserve ordering.</p>
-  <h2><a name="Lenient_Parsing" href="#Lenient_Parsing">6 Lenient Parsing</a></h2>
-  <h3>6.1 Motivation</h3>
+  <h2><a name="Property_Data" href="#Property_Data">6 Property Data</a></h2>
+  <p>Some data in CLDR does not use an XML format, but rather a semicolon-delimited format derived from that of the Unicode Character Database. That is because the data is more likely to be parsed by implementations that already parse UCD data. Those files are present in the common/properties directory.
+  <p>Each file has a header that explains the format and usage of the data.  
+  <h2><a name="Lenient_Parsing" href="#Lenient_Parsing">7 Lenient Parsing</a></h2>
+  <h3><a name="Motivation" href="#Motivation">7.1 Motivation</a></h3>
   <p>User input is frequently messy. Attempting to parse it by matching it exactly against a pattern is likely to be unsuccessful, even when the meaning of the 
     input is clear to a human being. For example, for a date pattern of &quot;MM/dd/yy&quot;, the input &quot;June 1, 2006&quot; will fail.</p>
   <p>The goal of lenient parsing is to accept user input whenever it is possible to decipher what the user intended. Doing so requires using patterns as data 
     to guide the parsing process, rather than an exact template that must be matched. This informative section suggests some heuristics that may be useful for lenient 
     parsing of dates, times, and numbers.</p>
-  <h3>6.2 Loose Matching</h3>
+  <h3><a name="Loose_Matching" href="#Loose_Matching">7.2 Loose Matching</a></h3>
   <p>Loose matching ignores attributes of the strings being compared that are not important to matching. It involves the following steps:</p>
   <ul>
     <li>Remove &quot;.&quot; from currency symbols and other fields used for matching, and also from the input string unless:
@@ -3163,19 +3179,15 @@ decimal?, group?, special*)) &gt;</pre>
   <p>Loose matching involves (logically) applying the above transform to both the input text and to each of the field elements used in matching, before applying 
     the specific heuristics below. For example, if the input number text is &quot; - NA f. 1,000.00&quot;, then it is mapped to &quot;-naf1,000.00&quot; before processing. The currency 
     signs are also transformed, so &quot;NA f.&quot; is converted to &quot;naf&quot; for purposes of matching. As with other Unicode algorithms, this is a logical statement of the 
-    process; actual implementations can optimize, such as by applying the transform incrementally during matching.</p>
-    <h2><a name="Property_Data" href="#Property_Data">7 Property Data</a></h2>
-  <p>Some data in CLDR does not use an XML format, but rather a semicolon-delimited format derived from that of the Unicode Character Database. That is because the data is more likely to be parsed by implementations that already parse UCD data. Those files are present in the common/properties directory.
-  <p>Each file has a header that explains the format and usage of the data.
-      
+    process; actual implementations can optimize, such as by applying the transform incrementally during matching.  </p>
   <h2><a name="Deprecated_Structure" href="#Deprecated_Structure">8 Deprecated Structure</a>  </h2>
   <p class="changed">The following structure was present in previous versions of CLDR. While valid LDML, it is discouraged, and no longer used in CLDR.</p>
-  <h3><a name="Fallback_Elements" href="#Fallback_Elements">8.1 Fallback Elements</a></h3>
+  <h3><a name="Fallback_Elements" href="#Fallback_Elements">8.1 Element fallback</a></h3>
   <p class="dtd">&lt;!ELEMENT fallback (#PCDATA) &gt;</p>
-  <p>The fallback element is deprecated. Implementations should use instead the information in <em>C.18 <a href="#LanguageMatching">Language Matching</a></em> for doing language fallback.</p>
+  <p>The fallback element is deprecated. Implementations should use instead the information in <em><a href="#LanguageMatching">Section 4.4 Language Matching</a></em> for doing language fallback.</p>
 <h3><a name="BCP47_Keyword_Mapping" href="#BCP47_Keyword_Mapping">8.2 BCP 47 Keyword Mapping</a></h3>
 
-	<p><b>Note:</b> <i>This structure is deprecated and replaced with	<a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a>.
+	<p><b>Note:</b> <i>This structure is deprecated and replaced with	<a href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Unicode BCP 47 Extension Data</a>.
 	</i></p>
 
   <p class="dtd">&lt;!ELEMENT bcp47KeywordMappings ( mapKeys?, mapTypes* ) &gt;<br>
@@ -3190,8 +3202,7 @@ decimal?, group?, special*)) &gt;</pre>
 	&lt;!ATTLIST typeMap bcp47 NMTOKEN #REQUIRED &gt;<br></p>
 	<p>
 	This section defines mappings between old Unicode locale identifier key/type 
-	values and their BCP 47 'u' extension subtag representations.  The 'u' extension syntax described in section <i>
-	Section 3.2.1 <a href="#u_Extension">-u- and -t- Extensions</a></i> restricts a key to two ASCII alphanumerics and
+	values and their BCP 47 'u' extension subtag representations.  The 'u' extension syntax described in  <a href="#Locale_Extension_Key_and_Type_Data">Section 3.7 Unicode BCP 47 Extension Data</a> restricts a key to two ASCII alphanumerics and
 	a type to three to eight ASCII alphanumerics.  A key or a type which does not meet that syntax 
 	requirement is converted according to the mapping data defined by the mapKeys or mapTypes elements.  For example,
 	a keyword "collation=phonebook" is converted to BCP 47 'u' extension subtags "co-phonebk" by the mapping data below:</p>
@@ -3240,8 +3251,52 @@ decimal?, group?, special*)) &gt;</pre>
 		</tr>
 	</table>
 	<p>Quoting is done using &#39; characters, as in date or number formats.</p>
+	<h3><a name="Element_default" href="#Element_default">8.4 Element default</a></h3>
+	<p><b>Note:</b> <i>This structure is deprecated except when used for &lt;collation&gt;.</i></p>
+    <p>In some cases, a number of elements are present. The default element can be used to indicate which of them is the default, in the absence of other information. 
+      The value of the choice attribute is to match the value of the type attribute for the selected item.</p>
+    <pre>&lt;timeFormats&gt;
+  &lt;default choice=&quot;<span style="color: red">medium</span>&quot; /&gt; 
+  &lt;timeFormatLength type=&quot;<span style="color: blue">full</span>&quot;&gt;
+    &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
+      &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt; 
+    &lt;/timeFormat&gt;
+  &lt;/timeFormatLength&gt;
+  &lt;timeFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
+    &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
+      &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a z</span>&lt;/pattern&gt; 
+    &lt;/timeFormat&gt;
+  &lt;/timeFormatLength&gt;
+  &lt;timeFormatLength type=&quot;<span style="color: red">medium</span>&quot;&gt;
+    &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
+      &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">h:mm:ss a</span>&lt;/pattern&gt; 
+    &lt;/timeFormat&gt;
+  &lt;/timeFormatLength&gt;
+...</pre>
+    <p>Like all other elements, the &lt;default&gt; element is inherited. Thus, it can also refer to inherited resources. For example, suppose that the above resources 
+      are present in fr, and that in fr_BE we have the following:</p>
+    <pre>&lt;timeFormats&gt;
+  &lt;default choice=&quot;<span style="color: red">long</span>&quot;/&gt;
+&lt;/timeFormats&gt;</pre>
+    <p>In that case, the default time format for fr_BE would be the inherited &quot;long&quot; resource from fr. Now suppose that we had in fr_CA:</p>
+  <pre>  &lt;timeFormatLength type=&quot;<span style="color:red">medium</span>&quot;&gt;
+    &lt;timeFormat type=&quot;<span style="color: blue">standard</span>&quot;&gt;
+      &lt;pattern type=&quot;<span style="color: blue">standard</span>&quot;&gt;<span style="color: blue">...</span>&lt;/pattern&gt; 
+    &lt;/timeFormat&gt;
+  &lt;/timeFormatLength&gt;
+    </pre>
+  <p>In this case, the &lt;default&gt; is inherited from fr, and has the value &quot;medium&quot;. It thus refers to this new &quot;medium&quot; pattern in this resource bundle.  </p>
+  <h3><a name="Attribute_standard" href="#Attribute_standard">8.5 Attribute standard</a></h3>
+    <p class="element2"><b>Note: </b>This attribute is deprecated. Instead, use a reference element with the attribute standard=&quot;true&quot;.</p>
+<p>The value of this attribute is a list of strings representing standards: international, national, organization, or vendor standards. The presence of this 
+      attribute indicates that the data in this element is compliant with the indicated standards. Where possible, for uniqueness, the string should be a URL that 
+      represents that standard. The strings are separated by commas; leading or trailing spaces on each string are not significant. Examples:</p>
+  <p><code>&lt;collation standard=&quot;<span style="color: blue">MSA 200:2002</span>&quot;&gt;<br>
+      ...<br>
+  &lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;</code></p>
+    <p>&nbsp;</p>
 <hr>
-<h2 class="changed">Links to Other Parts</h2>
+<h2 class="changed"><a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">9 Links to Other Parts</a></h2>
   <p class="changed">The LDML specification is split into several <a href="#Parts">parts</a> by topic,
   with one HTML document per part.
   The following tables provide redirects for links to specific topics.

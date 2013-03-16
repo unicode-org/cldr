@@ -1222,9 +1222,9 @@ public class WebContext implements Cloneable, Appendable {
      * Print the coverage level for a certain locale.
      */
     public void showCoverageLevel() {
-        String itsLevel = getEffectiveCoverageLevel(getLocale().toString());
+        String itsLevel = getEffectiveCoverageLevel();
         String recLevel = getRecommendedCoverageLevel();
-        String def = sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
+        String def = getRequiredCoverageLevel();
         if (def.equals(COVLEV_RECOMMENDED)) {
             print("Coverage Level: <tt class='codebox'>" + itsLevel.toString() + "</tt><br>");
         } else {
@@ -1247,7 +1247,7 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     public String getEffectiveCoverageLevel(String locale) {
-        String level = sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
+        String level = getRequiredCoverageLevel();
         if ((level == null) || (level.equals(COVLEV_RECOMMENDED)) || (level.equals("default"))) {
             // fetch from org
             level = session.getOrgCoverageLevel(locale);
@@ -1351,15 +1351,31 @@ public class WebContext implements Cloneable, Appendable {
      * @see SurveyMain#basicOptionsMap()
      */
     public Map<String, String> getOptionsMap(Map<String, String> options) {
-        String def = sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
+        String def = getRequiredCoverageLevel();
         options.put("CheckCoverage.requiredLevel", def);
 
-        String org = getEffectiveCoverageLevel(getLocale().toString());
+        String org = getEffectiveCoverageLevel();
         if (org != null) {
             options.put("CoverageLevel.localeType", org);
         }
 
         return options;
+    }
+
+    /**
+     * @return
+     */
+    public String getEffectiveCoverageLevel() {
+        String org = getEffectiveCoverageLevel(getLocale().toString());
+        return org;
+    }
+
+    /**
+     * @return
+     */
+    public String getRequiredCoverageLevel() {
+        String def = sm.getListSetting(this, SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
+        return def;
     }
 
     // DataPod functions

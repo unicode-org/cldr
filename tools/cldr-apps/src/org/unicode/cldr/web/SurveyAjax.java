@@ -10,6 +10,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -41,6 +42,7 @@ import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 
 /**
  * Servlet implementation class SurveyAjax
@@ -178,6 +180,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_STATS_BYDAY = "stats_byday";
     public static final String WHAT_RECENT_ITEMS = "recent_items";
     public static final String WHAT_FORUM_FETCH = "forum_fetch";
+    public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, "dummy" }; // list
                                                                               // of
@@ -578,6 +581,72 @@ public class SurveyAjax extends HttpServlet {
                         r.put("loc", loc);
                         r.put("xpath", xpath);
                         r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
+
+                        send(r, out);
+                    } else if (what.equals(WHAT_POSS_PROBLEMS)) {
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("what", what);
+
+                        CLDRLocale locale = CLDRLocale.getInstance(loc);
+
+                        r.put("loc", loc);
+                        
+
+                        String eff = request.getParameter("eff");
+                        String req = request.getParameter("req");
+                        
+                        
+                        UserLocaleStuff uf = sm.getUserFile(mySession, locale);
+                        Map<String, String> optMap = SurveyMain.basicOptionsMap();
+                        if(!"null".equals(req)) {
+                            optMap.put("CheckCoverage.requiredLevel", req);
+                        }
+                        if(!"null".equals(eff)) {
+                            optMap.put("CheckCoverage.localeType", eff);
+                        }
+                        CheckCLDR checkCldr = uf.getCheck(eff, optMap);
+
+                        List<CheckStatus> checkCldrResult = (List) uf.hash.get(SurveyMain.CHECKCLDR_RES + eff);
+                        
+                        
+
+                        if(checkCldrResult==null) {
+                            r.put("possibleProblems", new JSONArray());
+                        } else {
+                            r.put("possibleProblems", JSONWriter.wrap(checkCldrResult));
+                        }
+                        
+//                        if ((checkCldrResult != null) && (!checkCldrResult.isEmpty())
+//                                && (/* true || */(checkCldr != null) )) {
+//                            ctx.println("<div style='border: 1px dashed olive; padding: 0.2em; background-color: cream; overflow: auto;'>");
+//                            ctx.println("<b>Possible problems with locale:</b><br>");
+//                            for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
+//                                CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+//                                try {
+//                                    if (!status.getType().equals(status.exampleType)) {
+//                                        String cls = shortClassName(status.getCause());
+//                                        ctx.printHelpLink("/" + cls, "<!-- help with -->" + cls, true);
+//                                        ctx.println(": ");
+//                                        printShortened(ctx, status.toString(), LARGER_MAX_CHARS);
+//                                        ctx.print("<br>");
+//                                    } else {
+//                                        ctx.println("<i>example available</i><br>");
+//                                    }
+//                                } catch (Throwable t) {
+//                                    String result;
+//                                    try {
+//                                        result = status.toString();
+//                                    } catch (Throwable tt) {
+//                                        tt.printStackTrace();
+//                                        result = "(Error reading error: " + tt + ")";
+//                                    }
+//                                    ctx.println("Error reading status item: <br><font size='-1'>" + result + "<br> - <br>" + t.toString()
+//                                            + "<hr><br>");
+//                                }
+//                            }
+//                            ctx.println("</div>");
+//                        }
+                    
 
                         send(r, out);
                     } else {

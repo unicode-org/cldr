@@ -3831,10 +3831,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         WebContext baseContext = (WebContext) ctx.clone();
 
-        if (ctx.getLocale() != null) {
-            getSTFactory().make(ctx.getLocale(), false); // spin up STFactory
-        }
-
+        // Don't spin up a factory here.
+        
         // print 'shopping cart'
         if (!shortHeader(ctx)) {
 
@@ -4464,21 +4462,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             doMain(ctx);
             return;
         }
-        UserLocaleStuff uf = null;
         synchronized (ctx.session) {
-            uf = ctx.getUserFile();
-
-            CLDRFile cf = uf.cldrfile;
-            if (cf == null) {
-                throw new InternalError("CLDRFile is null!");
-            }
-            XMLSource ourSrc = uf.dbSource; // TODO: remove. debuggin'
-            if (ourSrc == null) {
-                throw new InternalError("oursrc is null! - " + (USER_FILE + CLDRDBSRC) + " @ " + ctx.getLocale());
-            }
             // Set up checks
-            CheckCLDR checkCldr = (CheckCLDR) uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()),
-                    ctx.getOptionsMap(basicOptionsMap())); // make it happen
 
             if (ctx.hasField(QUERY_EXAMPLE)) {
                 ctx.println("<h3>" + ctx.getLocale() + " " + ctx.getLocale().getDisplayName() + " / " + which + " Example</h3>");
@@ -4486,45 +4471,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 // short menu.
                 ctx.includeFragment(STEPSMENU_TOP_JSP);
             } else {
+                // does not need check
                 printLocaleTreeMenu(ctx, which);
             }
 
             // check for errors
-            {
-                List checkCldrResult = (List) uf.hash.get(CHECKCLDR_RES
-                        + ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
-
-                if ((checkCldrResult != null) && (!checkCldrResult.isEmpty())
-                        && (/* true || */(checkCldr != null) && (xMAIN.equals(which)))) {
-                    ctx.println("<div style='border: 1px dashed olive; padding: 0.2em; background-color: cream; overflow: auto;'>");
-                    ctx.println("<b>Possible problems with locale:</b><br>");
-                    for (Iterator it3 = checkCldrResult.iterator(); it3.hasNext();) {
-                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                        try {
-                            if (!status.getType().equals(status.exampleType)) {
-                                String cls = shortClassName(status.getCause());
-                                ctx.printHelpLink("/" + cls, "<!-- help with -->" + cls, true);
-                                ctx.println(": ");
-                                printShortened(ctx, status.toString(), LARGER_MAX_CHARS);
-                                ctx.print("<br>");
-                            } else {
-                                ctx.println("<i>example available</i><br>");
-                            }
-                        } catch (Throwable t) {
-                            String result;
-                            try {
-                                result = status.toString();
-                            } catch (Throwable tt) {
-                                tt.printStackTrace();
-                                result = "(Error reading error: " + tt + ")";
-                            }
-                            ctx.println("Error reading status item: <br><font size='-1'>" + result + "<br> - <br>" + t.toString()
-                                    + "<hr><br>");
-                        }
-                    }
-                    ctx.println("</div>");
-                }
-            }
+            ctx.includeFragment("possibleProblems.jsp");
 
             // Find which pod they want, and show it.
             // NB keep these sections in sync with DataPod.xpathToPodBase()
@@ -4561,6 +4513,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 doMain(subCtx);
             }
         }
+    }
+
+    /**
+     * @param ctx
+     * @param uf
+     * @return
+     */
+    private CheckCLDR getCheck(WebContext ctx, UserLocaleStuff uf) {
+        return (CheckCLDR) uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()),
+                ctx.getOptionsMap(basicOptionsMap()));
     }
 
     private static Pattern reportSuffixPattern = Pattern.compile("^[0-9a-z]([0-9a-z_]*)$");
@@ -5153,18 +5115,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @see WebContext#getUserFile()
      */
     public UserLocaleStuff getUserFile(CookieSession session, CLDRLocale locale) {
-        // has this locale been invalidated?
-        // UserLocaleStuff uf = null;
-        UserLocaleStuff uf = null; // getOldUserFile(session, locale);
-        // if(uf!=null && !uf.isValid()) {
-        // uf.close();
-        // uf = null;
-        // }
-        // if(uf == null) {
-        uf = new UserLocaleStuff(locale);
-        // session.putByLocale(USER_FILE_KEY, locale.toString(),uf);
-        // uf.register(); // register with lcr
-        // }
+        UserLocaleStuff uf = null;
+        uf = new UserLocaleStuff(locale); // always open a new
         uf.open(); // incr count.
 
         return uf;
@@ -5172,35 +5124,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     XMLSource makeDBSource(CLDRLocale locale) {
         return makeDBSource(locale, true, false);
-        // return getSTFactory().makeSource(locale.getBaseName());
-        // XMLSource dbSource = getDBSourceFactory().getInstance(locale);
-        // return dbSource;
     }
 
     XMLSource makeDBSource(CLDRLocale locale, boolean finalData) {
         return makeDBSource(locale);
-        // XMLSource dbSource = getDBSourceFactory().getInstance(locale,
-        // finalData);
-        // return dbSource;
     }
 
     XMLSource makeDBSource(CLDRLocale locale, boolean finalData, boolean resolved) {
         return getSTFactory().makeSource(locale.getBaseName(), resolved);
-        // // HACK: CLDRDBSourceFactory has a "final data" source version so we
-        // have
-        // // to create the XMLSources for resolution directly here. The factory
-        // // should really be split into two factories.
-        // if (resolved) {
-        // List<XMLSource> sources = new ArrayList<XMLSource>();
-        // CLDRLocale curLocale = locale;
-        // while(curLocale != null) {
-        // sources.add(getDBSourceFactory().getInstance(curLocale, finalData));
-        // curLocale = curLocale.getParent();
-        // }
-        // return Factory.makeResolvingSource(sources);
-        // } else {
-        // return getDBSourceFactory().getInstance(locale, finalData);
-        // }
     }
 
     static CLDRFile makeCLDRFile(XMLSource dbSource) {

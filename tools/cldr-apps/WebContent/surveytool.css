@@ -1,4 +1,4 @@
-/* Copyright (c) 2004-2012 IBM and others. All Rights Reserved. */
+/* Copyright (c) 2004-2013 IBM and others. All Rights Reserved. */
 
 /* @override 
 	http://127.0.0.1:8080/cldr-apps/surveytool.css
@@ -16,6 +16,7 @@
 	http://10.0.0.158:8080/cldr-apps/surveytool.css
 	http://st.unicode.org:8080/cldr-apps/surveytool.css
 	http://st.unicode.org/cldr-apps/surveytool.css
+	http://naf:8080/cldr-apps/surveytool.css
 */
 
 span.age {
@@ -2262,6 +2263,37 @@ textarea.errorMessage {
 	height: 10em;
 }
 
+
+div.possibleProblems {
+	border: 1px dashed olive;
+	padding: 0.2em;
+	background-color: cream;
+	overflow: auto;
+}
+
+div.possibleProblems h3 {
+	margin:  0;
+}
+
+
+div.possibleProblems div {
+	display: block;
+}
+
+div.possibleProblems div p {
+	margin-top: .2em;
+	margin-bottom: .2em;
+	padding-left:  0.5em;
+	font-size:  larger;
+	list-style-type: square;
+	display:  list-item;
+	list-style-position: inside;
+}
+
+div.possibleProblems div p img {
+	padding-right:  0.25em;
+}
+
 body.disconnected div#progress button#progress-refresh {
 	display: block !important;
 }
@@ -2496,4 +2528,3 @@ div.voterList .voterOrg {
 	color: white !important;
 	background-color: navy !important;
 }
-

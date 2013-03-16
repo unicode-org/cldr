@@ -1,4 +1,4 @@
-// survey.js  -Copyright (C) 2012 IBM Corporation and Others. All Rights Reserved.
+// survey.js  -Copyright (C) 2012-2013 IBM Corporation and Others. All Rights Reserved.
 // move anything that's not dynamically generated here.
 
 // These need to be available @ bootstrap time.
@@ -2692,6 +2692,81 @@ function showRows(container,xpath,session,coverage) {
 //	console.log("Wrote shower " + theDiv.id + " as " + shower);
   });
 }
+
+console.log("loading SPP");
+
+function showPossibleProblems(container,loc, session, effectiveCov, requiredCov) {
+	 surveyCurrentLocale = loc;
+	 dojo.ready(function(){
+		var theDiv = dojo.byId(container);
+
+		theDiv.stui = loadStui();
+		theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
+		theDiv.appendChild(theDiv.theLoadingMessage);
+		
+		    var errorHandler = function(err, ioArgs){
+		    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+		        showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+		    };
+		    var loadHandler = function(json){
+		        try {
+		        	//showLoader(theDiv.loader,stui.loading2);
+		        	theDiv.removeChild(theDiv.theLoadingMessage);
+		        	if(!json) {
+		        		console.log("!json");
+				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
+		        	} else if(json.err) {
+		        		console.log("json.err!" + json.err);
+		        		showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+		        		handleDisconnect("while loading",json);
+				    } else if(!json.possibleProblems) {
+		        		console.log("!json.possibleProblems");
+				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+		        		handleDisconnect("while loading- no possibleProblems result",json);
+		        	} else {
+		        		stdebug("json.possibleProblems OK..");
+		        		//showLoader(theDiv.loader, "loading..");
+		        		if(json.dataLoadTime) {
+		        			updateIf("dynload", json.dataLoadTime);
+		        		}
+//		        		showInPop2("", null, null, null, true); /* show the box the first time */
+		        		// UPDATE ERR SECTION
+		        		// @@
+		        		
+		        		if(json.possibleProblems.length > 0) {
+			        		theDiv.className = "possibleProblems";
+			        		
+			        		var h3 = createChunk(stui_str("possibleProblems"), "h3");
+			        		theDiv.appendChild(h3);
+			        		
+			        		var div3 = document.createElement("div");
+			        		var newHtml = "";
+			        		newHtml += testsToHtml(json.possibleProblems);
+			        		div3.innerHTML = newHtml;
+			        		theDiv.appendChild(div3);
+		        		}
+		        	}
+		        	
+		           }catch(e) {
+		               console.log("Error in ajax post [surveyAjax]  " + e.message + " / " + e.name );
+				        handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
+//					        showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
+//				               console.log("Error in ajax post [showRows]  " + e.message);
+		           }
+		    };
+		    
+		    var xhrArgs = {
+		            url: contextPath + "/SurveyAjax?what=possibleProblems&_="+surveyCurrentLocale+"&s="+session+"&eff="+effectiveCov+"&req="+requiredCov+  cacheKill(),
+		            handleAs:"json",
+		            load: loadHandler,
+		            error: errorHandler
+		        };
+		    //window.xhrArgs = xhrArgs;
+//			    console.log('xhrArgs = ' + xhrArgs);
+		    queueXhr(xhrArgs);
+	  });
+	}
+
 
 function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);

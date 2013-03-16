@@ -29,6 +29,8 @@ define({
 			htmlothers: "Others",
 			htmlchange: "Change",
 			htmlnoopinion: "Abstain",
+			
+			possibleProblems: "Possible problems with this locale:",
 
 			flyoverst: "Status Icon",
 			flyoverdraft: "Draft Icon",

@@ -341,6 +341,9 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
             + CLDRFile.GEN_VERSION + "\"\\]"),
 
+        // Transform underscore to hyphen-minus in language keys
+        new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\])", "$1-$2"),
+        
         // Separate "ellipsis" from its type as another layer.
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
             "$1/$2$3"),

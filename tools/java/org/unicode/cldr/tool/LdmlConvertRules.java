@@ -30,6 +30,7 @@ class LdmlConvertRules {
     private static final String[] NAME_PART_DISTINGUISHING_ATTR_LIST = {
         // common/main
         "monthWidth:month:yeartype",
+        "dateFormat:pattern:numbers",
         "currencyFormats:unitPattern:count",
         "currency:displayName:count",
         "numbers:symbols:numberSystem",
@@ -343,10 +344,13 @@ class LdmlConvertRules {
 
         // Transform underscore to hyphen-minus in language keys
         new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\])", "$1-$2"),
-        
+
         // Separate "ellipsis" from its type as another layer.
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
             "$1/$2$3"),
+
+        // Remove unnecessary dateFormat/pattern 
+        new PathTransformSpec("(.*)/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)", "$1$5"),
 
         // Separate "metazone" from its type as another layer.
         new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$",

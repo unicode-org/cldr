@@ -30,6 +30,7 @@ import com.ibm.icu.impl.Utility;
  * @author shanjian / emmons
  */
 public class Ldml2JsonConverter {
+    private static boolean DEBUG = false;
     private static final String MAIN = "main";
 
     private static final Options options = new Options(
@@ -109,13 +110,24 @@ public class Ldml2JsonConverter {
      * @return The transformed path.
      */
     private String transformPath(String pathStr) {
+        if (DEBUG) {
+            System.out.println(" IN pathStr : " + pathStr);
+        }
         Matcher m;
         for (int i = 0; i < LdmlConvertRules.PATH_TRANSFORMATIONS.length; i++) {
             m = LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern.matcher(pathStr);
             if (m.matches()) {
-                return m.replaceFirst(
+                String result = m.replaceFirst(
                     LdmlConvertRules.PATH_TRANSFORMATIONS[i].replacement);
+                if (DEBUG) {
+                    System.out.println("OUT pathStr : " + result);
+                }
+                return result;
+
             }
+        }
+        if (DEBUG) {
+            System.out.println("OUT pathStr : " + pathStr);
         }
         return pathStr;
     }

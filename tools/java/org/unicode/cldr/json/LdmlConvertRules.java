@@ -1,4 +1,4 @@
-package org.unicode.cldr.tool;
+package org.unicode.cldr.json;
 
 import java.util.Arrays;
 import java.util.HashSet;

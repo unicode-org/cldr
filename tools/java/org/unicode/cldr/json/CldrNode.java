@@ -1,8 +1,9 @@
-package org.unicode.cldr.tool;
+package org.unicode.cldr.json;
 
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * CldrNode represent a Element in XML as it appears in a CldrItem's path.

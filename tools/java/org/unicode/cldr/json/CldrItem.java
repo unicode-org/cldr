@@ -1,9 +1,10 @@
-package org.unicode.cldr.tool;
+package org.unicode.cldr.json;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 /**
  * A object to present a CLDR XML item.

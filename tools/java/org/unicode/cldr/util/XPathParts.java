@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2012, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2013, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -451,6 +451,12 @@ public class XPathParts {
         attribute = attribute.intern();
         // AttributeComparator.add(attribute);
         e.putAttribute(attribute, value);
+        return this;
+    }
+    
+    public XPathParts removeAttribute(String elementName, String attributeName) {
+        Map<String, String> m = findAttributes(elementName);
+        m.remove(attributeName);
         return this;
     }
 

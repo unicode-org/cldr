@@ -41,6 +41,11 @@ class LdmlConvertRules {
         "territoryContainment:group:status",
         "decimalFormat:pattern:count",
         "unit:unitPattern:count",
+        "weekData:minDays:territories",
+        "weekData:firstDay:territories",
+        "weekData:weekendStart:territories",
+        "weekData:weekendEnd:territories",
+        "supplementalData:plurals:type",
         "pluralRules:pluralRule:count"
     };
 
@@ -149,10 +154,6 @@ class LdmlConvertRules {
         "territoryContainment:group:contains",
         "calendar:calendarSystem:type",
         "calendarPreferenceData:calendarPreference:ordering",
-        "firstDay:firstDay:day",
-        "minDays:minDays:territories",
-        "weekendStart:weekendStart:day",
-        "weekendEnd:weekendEnd:day",
         "measurementData:measurementSystem:type",
         "codesByterritory:telephoneCountryCode:code",
 
@@ -222,11 +223,13 @@ class LdmlConvertRules {
      */
     public static class SplittableAttributeSpec {
         public String element;
-        public Pattern pattern;
+        public String attribute;
+        public String attrAsValueAfterSplit;
 
-        SplittableAttributeSpec(String el, String attr) {
+        SplittableAttributeSpec(String el, String attr, String av) {
             element = el;
-            pattern = Pattern.compile("(.*\\[@" + attr + "=\")([^\"]*)(\"\\].*)");
+            attribute = attr;
+            attrAsValueAfterSplit = av;
         }
     }
 
@@ -247,13 +250,14 @@ class LdmlConvertRules {
      * <weekendStart day="thu" territories="IR"/>
      */
     public static final SplittableAttributeSpec[] SPLITTABLE_ATTRS = {
-        new SplittableAttributeSpec("/measurementSystem", "territories"),
-        new SplittableAttributeSpec("/calendarPreference", "territories"),
-        new SplittableAttributeSpec("/pluralRules", "locales"),
-        new SplittableAttributeSpec("/weekendStart", "territories"),
-        new SplittableAttributeSpec("/weekendEnd", "territories"),
-        new SplittableAttributeSpec("/firstDay", "territories"),
-        new SplittableAttributeSpec("/dayPeriodRules", "locales")
+        new SplittableAttributeSpec("measurementSystem", "territories", null),
+        new SplittableAttributeSpec("calendarPreference", "territories", null),
+        new SplittableAttributeSpec("pluralRules", "locales", null),
+        new SplittableAttributeSpec("minDays", "territories", "count"),
+        new SplittableAttributeSpec("firstDay", "territories", "day"),
+        new SplittableAttributeSpec("weekendStart", "territories", "day"),
+        new SplittableAttributeSpec("weekendEnd", "territories", "day"),
+        new SplittableAttributeSpec("dayPeriodRules", "locales", null)
     };
 
     /**
@@ -349,8 +353,9 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
             "$1/$2$3"),
 
-        // Remove unnecessary dateFormat/pattern 
-        new PathTransformSpec("(.*)/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)", "$1$5"),
+        // Remove unnecessary dateFormat/pattern
+        new PathTransformSpec(
+            "(.*)/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)", "$1$5"),
 
         // Separate "metazone" from its type as another layer.
         new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$",
@@ -377,13 +382,13 @@ class LdmlConvertRules {
         // The purpose for following transformation is to keep the element name
         // and still use distinguishing attribute inside. Element name is repeated
         // for attribute identification to work.
-        new PathTransformSpec("(.*/firstDay)(.*)", "$1/firstDay$2"),
+        //new PathTransformSpec("(.*/firstDay)(.*)", "$1/firstDay$2"),
 
-        new PathTransformSpec("(.*/minDays)(.*)", "$1/minDays$2"),
+        //new PathTransformSpec("(.*/minDays)(.*)", "$1/minDays$2"),
 
-        new PathTransformSpec("(.*/weekendStart)(.*)", "$1/weekendStart$2"),
+        //new PathTransformSpec("(.*/weekendStart)(.*)", "$1/weekendStart$2"),
 
-        new PathTransformSpec("(.*/weekendEnd)(.*)", "$1/weekendEnd$2"),
+        //new PathTransformSpec("(.*/weekendEnd)(.*)", "$1/weekendEnd$2"),
 
         new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),
 

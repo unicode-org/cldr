@@ -1215,6 +1215,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 || elementName.equals("mapZone") && (attribute.equals("other") || attribute.equals("territory"))
                 || elementName.equals("postCodeRegex") && attribute.equals("territoryId")
                 || elementName.equals("calendarPreference") && attribute.equals("territories")
+                || elementName.equals("minDays") && attribute.equals("territories")
                 || elementName.equals("firstDay") && attribute.equals("territories")
                 || elementName.equals("weekendStart") && attribute.equals("territories")
                 || elementName.equals("weekendEnd") && attribute.equals("territories")
@@ -1229,6 +1230,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 (attribute.equals("alpha3") || attribute.equals("numeric") || attribute.equals("type"))
                 || elementName.equals("group") && attribute.equals("status")
                 || elementName.equals("plurals") && attribute.equals("type")
+                || elementName.equals("pluralRules") && attribute.equals("locales")
                 || elementName.equals("hours") && attribute.equals("regions");
         case keyboard:
         case platform:

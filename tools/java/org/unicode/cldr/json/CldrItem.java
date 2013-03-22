@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.json.LdmlConvertRules.SplittableAttributeSpec;
+import org.unicode.cldr.util.XPathParts;
 
 /**
  * A object to present a CLDR XML item.
  */
 public class CldrItem implements Comparable<CldrItem> {
+
+    private static boolean DEBUG = false;
 
     /**
      * Split the path to an array of string, each string represent a segment.
@@ -80,13 +84,13 @@ public class CldrItem implements Comparable<CldrItem> {
     private String sortKey;
 
     CldrItem(String path, String fullPath, String value) {
-        // for pluralRules, attribute "locales" should be treated as distinguishing
-        // attribute
-        if (path.startsWith("//supplementalData/plurals/pluralRules")) {
-            int start = fullPath.indexOf("[@locales=");
-            int end = fullPath.indexOf("]", start);
-            path = path.substring(0, 38) + fullPath.substring(start, end + 1) +
-                path.substring(38);
+
+        if (DEBUG && path.contains("weekData")) {
+            System.out.println("---");
+            System.out.println("    PATH => " + path);
+            System.out.println("FULLPATH => " + fullPath);
+            System.out.println("   VALUE => " + value);
+            System.out.println("---");
         }
 
         this.path = path;
@@ -202,27 +206,41 @@ public class CldrItem implements Comparable<CldrItem> {
      * @return Array of CldrItem if it can be split, otherwise null.
      */
     public CldrItem[] split() {
-        for (int i = 0; i < LdmlConvertRules.SPLITTABLE_ATTRS.length; i++) {
-            int pos = path.indexOf(LdmlConvertRules.SPLITTABLE_ATTRS[i].element);
-            if (pos < 0) {
-                continue;
-            }
+        XPathParts xpp = new XPathParts();
+        XPathParts fullxpp = new XPathParts();
+        XPathParts newxpp = new XPathParts();
+        XPathParts newfullxpp = new XPathParts();
+        xpp.set(path);
+        fullxpp.set(fullPath);
+        for (SplittableAttributeSpec s : LdmlConvertRules.SPLITTABLE_ATTRS) {
 
-            Pattern pattern = LdmlConvertRules.SPLITTABLE_ATTRS[i].pattern;
-            Matcher m = pattern.matcher(path);
-            Matcher fullPathMatch = pattern.matcher(fullPath);
-            if (m.matches()) {
-                if (!fullPathMatch.matches()) {
-                    System.out.println("FullPath does not match while path matches.");
-                    continue;
-                }
+
+            if (xpp.containsElement(s.element) && xpp.containsAttribute(s.attribute)) {
                 ArrayList<CldrItem> list = new ArrayList<CldrItem>();
-                String[] words = m.group(2).split(" ");
+                String wordString = xpp.findAttributeValue(s.element, s.attribute);
+                String[] words = null;
+                if (wordString == null || wordString.length() == 0) {
+                    System.out.println("we're going down...");
+                } else {
+                    words = wordString.trim().split("\\s+");
+                }
                 for (String word : words) {
-                    String newPath = m.group(1) + word + m.group(3);
-                    String newFullPath = fullPathMatch.group(1) + word
-                        + fullPathMatch.group(3);
-                    list.add(new CldrItem(newPath, newFullPath, value));
+                    newxpp.set(xpp);
+                    newfullxpp.set(fullxpp);
+                    newxpp.setAttribute(s.element, s.attribute, word);
+                    newfullxpp.setAttribute(s.element, s.attribute, word);
+                    if (s.attrAsValueAfterSplit != null) {
+                        String newValue = fullxpp.findAttributeValue(s.element, s.attrAsValueAfterSplit);
+                        newxpp.removeAttribute(s.element,s.attrAsValueAfterSplit);
+                        newfullxpp.removeAttribute(s.element,s.attrAsValueAfterSplit);
+                        newxpp.removeAttribute(s.element,s.attribute);
+                        newfullxpp.removeAttribute(s.element,s.attribute);
+                        newxpp.addElement(word);
+                        newfullxpp.addElement(word);
+                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), newValue));
+                    } else {
+                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), value));
+                    }
                 }
                 return list.toArray(new CldrItem[list.size()]);
             }

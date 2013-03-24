@@ -2,11 +2,11 @@ package org.unicode.cldr.json;
 
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.unicode.cldr.json.LdmlConvertRules.SplittableAttributeSpec;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.ZoneParser;
 
 /**
  * A object to present a CLDR XML item.
@@ -78,11 +78,6 @@ public class CldrItem implements Comparable<CldrItem> {
      */
     private String value;
 
-    /**
-     * The key used for sorting.
-     */
-    private String sortKey;
-
     CldrItem(String path, String fullPath, String value) {
 
         if (DEBUG && path.contains("weekData")) {
@@ -101,8 +96,6 @@ public class CldrItem implements Comparable<CldrItem> {
         } else {
             this.value = value;
         }
-
-        sortKey = null;
     }
 
     public String getFullPath() {
@@ -114,22 +107,10 @@ public class CldrItem implements Comparable<CldrItem> {
     }
 
     /**
-     * The pre-compiled regex pattern for removing attributes in path.
-     */
-    private static final Pattern reAttr = Pattern.compile("\\[@_q=\"\\d*\"\\]");
-
-    /**
      * Obtain the sortKey string, construct it if not yet.
      * 
      * @return sort key string.
      */
-    public String getSortKey() {
-        if (sortKey == null) {
-            Matcher m = reAttr.matcher(path);
-            sortKey = m.replaceAll("");
-        }
-        return sortKey;
-    }
 
     public String getValue() {
         return value;
@@ -214,7 +195,6 @@ public class CldrItem implements Comparable<CldrItem> {
         fullxpp.set(fullPath);
         for (SplittableAttributeSpec s : LdmlConvertRules.SPLITTABLE_ATTRS) {
 
-
             if (xpp.containsElement(s.element) && xpp.containsAttribute(s.attribute)) {
                 ArrayList<CldrItem> list = new ArrayList<CldrItem>();
                 String wordString = xpp.findAttributeValue(s.element, s.attribute);
@@ -231,10 +211,10 @@ public class CldrItem implements Comparable<CldrItem> {
                     newfullxpp.setAttribute(s.element, s.attribute, word);
                     if (s.attrAsValueAfterSplit != null) {
                         String newValue = fullxpp.findAttributeValue(s.element, s.attrAsValueAfterSplit);
-                        newxpp.removeAttribute(s.element,s.attrAsValueAfterSplit);
-                        newfullxpp.removeAttribute(s.element,s.attrAsValueAfterSplit);
-                        newxpp.removeAttribute(s.element,s.attribute);
-                        newfullxpp.removeAttribute(s.element,s.attribute);
+                        newxpp.removeAttribute(s.element, s.attrAsValueAfterSplit);
+                        newfullxpp.removeAttribute(s.element, s.attrAsValueAfterSplit);
+                        newxpp.removeAttribute(s.element, s.attribute);
+                        newfullxpp.removeAttribute(s.element, s.attribute);
                         newxpp.addElement(word);
                         newfullxpp.addElement(word);
                         list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), newValue));
@@ -268,6 +248,23 @@ public class CldrItem implements Comparable<CldrItem> {
 
     @Override
     public int compareTo(CldrItem otherItem) {
-        return getSortKey().compareTo(otherItem.getSortKey());
+        XPathParts thisxpp = new XPathParts();
+        XPathParts otherxpp = new XPathParts();
+        thisxpp.set(path);
+        otherxpp.set(otherItem.path);
+        if ( thisxpp.containsElement("zone") && otherxpp.containsElement("zone")) {
+            String[] thisZonePieces = thisxpp.findAttributeValue("zone", "type").split("/");
+            String[] otherZonePieces = otherxpp.findAttributeValue("zone", "type").split("/");
+            int result = ZoneParser.regionalCompare.compare(thisZonePieces[0],otherZonePieces[0]);
+            if ( result != 0 ) {
+                return result;
+            }
+            result = thisZonePieces[1].compareTo(otherZonePieces[1]);
+            if ( result != 0 ) {
+                return result;
+            }            
+        }
+        return CLDRFile.ldmlComparator.compare(path, otherItem.path);
+        //return path.compareTo(otherItem.path);
     }
 }

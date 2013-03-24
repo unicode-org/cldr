@@ -573,7 +573,7 @@ public class ZoneParser {
         }
     };
 
-    private static MapComparator<String> regionalCompare = new MapComparator<String>();
+    public static MapComparator<String> regionalCompare = new MapComparator<String>();
     static {
         regionalCompare.add("America");
         regionalCompare.add("Atlantic");

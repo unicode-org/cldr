@@ -1,27 +1,37 @@
 package org.unicode.cldr.unittest;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.ant.CLDRBuild.CoverageLevel;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleFactory;
 
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.Output;
 
-public class TestCLDRFile {
+public class TestCLDRFile extends TestFmwk {
     public static void main(String[] args) {
-        testExtraPaths();
-        TestTimeZonePath();
-        testDraftFilter();
-        simpleTest();
-        resolutionTest();
+        new TestCLDRFile().run(args);
     }
 
     public static Factory getAllFactory() {
@@ -37,7 +47,7 @@ public class TestCLDRFile {
         return SimpleFactory.make(dirs, ".*", DraftStatus.approved);
     }
 
-    private static void testExtraPaths() {
+    public void testExtraPaths() {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
         for (String locale : new String[] { "en", "ar", "ja" }) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
@@ -54,13 +64,13 @@ public class TestCLDRFile {
         }
     }
 
-    private static void testDraftFilter() {
+    public void testDraftFilter() {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
         checkLocale(cldrFactory.make("root", true));
         checkLocale(cldrFactory.make("ee", true));
     }
 
-    public static void checkLocale(CLDRFile cldr) {
+    public void checkLocale(CLDRFile cldr) {
         Matcher m = Pattern.compile("gregorian.*eras").matcher("");
         for (Iterator<String> it = cldr.iterator("", new UTF16.StringComparator()); it.hasNext();) {
             String path = it.next();
@@ -78,7 +88,7 @@ public class TestCLDRFile {
         }
     }
 
-    public static void TestTimeZonePath() {
+    public void testTimeZonePath() {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         String tz = "Pacific/Midway";
         CLDRFile cldrFile = cldrFactory.make("lv", true);
@@ -88,7 +98,7 @@ public class TestCLDRFile {
         System.out.println(retVal);
     }
 
-    private static void simpleTest() {
+    public void testSimple() {
         double deltaTime = System.currentTimeMillis();
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
@@ -123,7 +133,7 @@ public class TestCLDRFile {
         System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
     }
 
-    private static void resolutionTest() {
+    public void testResolution() {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile german = cldrFactory.make("de", true);
         // Test direct lookup.
@@ -145,6 +155,80 @@ public class TestCLDRFile {
         id = german.getSourceLocaleID(xpath, null);
         if (!id.equals("root")) {
             throw new RuntimeException("Expected root but was " + id + " for " + xpath);
+        }
+    }
+
+    static final NumberFormat percent = NumberFormat.getPercentInstance();
+    static final class Size {
+        int items;
+        int chars;
+        public void add(String topValue) {
+            items++;
+            chars += topValue.length();
+        }
+        public String over(Size base) {
+            return "items: " + items + "(" + percent.format(items/(0.0+base.items)) + "); " +
+            		"chars: " + chars + "(" + percent.format(chars/(0.0+base.chars)) + ")";
+        }
+    }
+    
+    public void testGeorgeBailey() {
+        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        PathHeader.Factory phf = PathHeader.getFactory(cldrFactory.make("en", true));
+        for (String locale : Arrays.asList("de", "de_AT", "en", "nl")) {
+            CLDRFile cldrFile = cldrFactory.make(locale, true);
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+
+            //CLDRFile parentFile = cldrFactory.make(LocaleIDParser.getParent(locale), true);
+            CLDRFile cldrFileUnresolved = cldrFactory.make(locale, false);
+            Status status = new Status();
+            Output<String> localeWhereFound = new Output<String>();
+            Output<String> pathWhereFound = new Output<String>();
+
+            Map<String,String> diff = new TreeMap<String,String>(CLDRFile.ldmlComparator);
+            
+            Size countSuperfluous = new Size();
+            Size countExtraLevel = new Size();
+            Size countOrdinary = new Size();
+            
+            for (String path : cldrFile.fullIterable()) {
+                String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound );
+                String topValue = cldrFileUnresolved.getStringValue(path);
+                String resolvedValue = cldrFile.getStringValue(path);
+
+                // if there is a value, then either it is at the top level or it is the bailey value.
+
+                if (resolvedValue != null) {
+                    if (topValue != null) {
+                        assertEquals("top≠resolved\t" + locale + "\t" + phf.fromPath(path), topValue, resolvedValue);
+                    } else {
+                        String locale2 = cldrFile.getSourceLocaleID(path, status);
+                        assertEquals("bailey value≠\t" + locale + "\t" + phf.fromPath(path), resolvedValue, baileyValue);
+                        assertEquals("bailey locale≠\t" + locale + "\t" + phf.fromPath(path), locale2, localeWhereFound.value);
+                        assertEquals("bailey path≠\t" + locale + "\t" + phf.fromPath(path), status.pathWhereFound, pathWhereFound.value);
+                    }
+                }
+
+                if (topValue != null) {
+                    if (CldrUtility.equals(topValue, baileyValue)) {
+                        countSuperfluous.add(topValue);
+                    } else if (coverageLevel.getLevel(path).compareTo(Level.MODERN) > 0) {
+                        countExtraLevel.add(topValue);
+                    }                        
+                    countOrdinary.add(topValue);
+
+                    
+//                    String parentValue = parentFile.getStringValue(path);
+//                    if (!CldrUtility.equals(parentValue, baileyValue)) {
+//                        diff.put(path, "parent=" + parentValue + ";\tbailey=" + baileyValue);
+//                    }
+                }
+            }
+            warnln("Superfluous (" + locale + "):\t" + countSuperfluous.over(countOrdinary));
+            warnln(">Modern (" + locale + "):\t" + countExtraLevel.over(countOrdinary));
+            for (Entry<String, String> entry : diff.entrySet()) {
+                System.out.println(locale + "\t" + phf.fromPath(entry.getKey()) + ";\t" + entry.getValue());
+            }
         }
     }
 }

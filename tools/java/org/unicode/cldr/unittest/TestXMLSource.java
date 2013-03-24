@@ -16,7 +16,7 @@ public class TestXMLSource extends TestFmwk {
         Map<String, String> valueMap = CldrUtility.newConcurrentHashMap();
 
         @Override
-        public Object freeze() {
+        public XMLSource freeze() {
             return null;
         }
 
@@ -65,7 +65,7 @@ public class TestXMLSource extends TestFmwk {
     public static void main(String[] args) {
         new TestXMLSource().run(args);
     }
-
+    
     public void TestGetPathsWithValue() {
         XMLSource source = new DummyXMLSource();
         source.putValueAtDPath("//ldml/foo", "x");

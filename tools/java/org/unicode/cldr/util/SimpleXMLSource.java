@@ -77,12 +77,12 @@ public class SimpleXMLSource extends XMLSource {
         return Collections.unmodifiableSet(xpath_value.keySet()).iterator();
     }
 
-    public Object freeze() {
+    public XMLSource freeze() {
         locked = true;
         return this;
     }
 
-    public Object cloneAsThawed() {
+    public XMLSource cloneAsThawed() {
         SimpleXMLSource result = (SimpleXMLSource) super.cloneAsThawed();
         result.xpath_comments = (Comments) result.xpath_comments.clone();
         result.xpath_fullXPath = CldrUtility.newConcurrentHashMap(result.xpath_fullXPath);

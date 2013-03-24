@@ -419,7 +419,7 @@ public class SupplementalMapper extends LdmlMapper {
         }
 
         @Override
-        public Object freeze() {
+        public XMLSource freeze() {
             locked = true;
             return this;
         }

@@ -60,6 +60,7 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 
@@ -462,6 +463,22 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         return result;
     }
+
+    /**
+     * Get GeorgeBailey value: that is, what the value would be if it were not directly contained in the file. 
+     * A non-resolving CLDRFile will always return null.
+     */
+    public String getBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
+        String result = dataSource.getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+        if (result == null && dataSource.isResolving()) {
+            final String fallbackPath = getFallbackPath(xpath, false);
+            if (fallbackPath != null) {
+                result = dataSource.getBaileyValue(fallbackPath, pathWhereFound, localeWhereFound);
+            }
+        }
+        return result;
+    }
+
 
     /**
      * Only call if xpath doesn't exist in the current file.

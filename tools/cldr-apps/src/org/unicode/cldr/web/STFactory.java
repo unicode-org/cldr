@@ -77,7 +77,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @see com.ibm.icu.util.Freezable#freeze()
          */
         @Override
-        public Object freeze() {
+        public XMLSource freeze() {
             readonly();
             return null;
         }
@@ -952,7 +952,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @see com.ibm.icu.util.Freezable#freeze()
          */
         @Override
-        public Object freeze() {
+        public XMLSource freeze() {
             readonly();
             return null;
         }

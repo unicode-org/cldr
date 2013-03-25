@@ -164,7 +164,7 @@ public class CldrUtility {
     public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY, "supplemental/");
 
     public static final boolean BETA = false;
-    public static final String CHART_DISPLAY_VERSION = "23";
+    public static final String CHART_DISPLAY_VERSION = "24";
     public static final String CHART_DIRECTORY = getPath(AUX_DIRECTORY + "charts/", CHART_DISPLAY_VERSION);
     public static final String LOG_DIRECTORY = getPath(TMP_DIRECTORY, "logs/");
 

@@ -1,5 +1,5 @@
 exports.config = function(config){
-	//	summary:
+	// summary:
 	//		This module provides bootstrap configuration for running dojo in node.js
 
 	// any command line arguments with the load flag are pushed into deps
@@ -15,7 +15,7 @@ exports.config = function(config){
 	var fs = require("fs");
 
 	// make sure global require exists
-	//if (typeof global.require=="undefined") {
+	//if (typeof global.require=="undefined"){
 	//	global.require= {};
 	//}
 
@@ -40,12 +40,12 @@ exports.config = function(config){
 		config.hasCache[p] = hasCache[p];
 	}
 
-	var vm = require('vm');
-
+	var vm = require('vm'),
+		path = require('path');
 
 	// reset some configuration switches with node-appropriate values
 	var nodeConfig = {
-		baseUrl: __dirname.match(/(.+)[\/\\]_base$/)[1],
+		baseUrl: path.dirname(process.argv[1]),
 		commandLineArgs:args,
 		deps:deps,
 		timeout:0,

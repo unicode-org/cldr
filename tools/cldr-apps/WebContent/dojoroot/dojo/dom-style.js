@@ -1,11 +1,11 @@
 /*
-	Copyright (c) 2004-2011, The Dojo Foundation All Rights Reserved.
+	Copyright (c) 2004-2012, The Dojo Foundation All Rights Reserved.
 	Available via Academic Free License >= 2.1 OR the modified BSD license.
 	see: http://dojotoolkit.org/license for details
 */
 
 //>>built
-define("dojo/dom-style",["./_base/sniff","./dom"],function(_1,_2){
+define("dojo/dom-style",["./sniff","./dom"],function(_1,_2){
 var _3,_4={};
 if(_1("webkit")){
 _3=function(_5){
@@ -23,7 +23,7 @@ return s||{};
 }else{
 if(_1("ie")&&(_1("ie")<9||_1("quirks"))){
 _3=function(_6){
-return _6.nodeType==1?_6.currentStyle:{};
+return _6.nodeType==1&&_6.currentStyle?_6.currentStyle:{};
 };
 }else{
 _3=function(_7){
@@ -72,7 +72,7 @@ catch(e){
 return f?{}:null;
 }
 };
-var _10=_1("ie")<9||(_1("ie")&&_1("quirks"))?function(_11){
+var _10=_1("ie")<9||(_1("ie")<10&&_1("quirks"))?function(_11){
 try{
 return af(_11).Opacity/100;
 }
@@ -82,7 +82,7 @@ return 1;
 }:function(_12){
 return _3(_12).opacity;
 };
-var _13=_1("ie")<9||(_1("ie")&&_1("quirks"))?function(_14,_15){
+var _13=_1("ie")<9||(_1("ie")<10&&_1("quirks"))?function(_14,_15){
 var ov=_15*100,_16=_15==1;
 _14.style.zoom=_16?"":1;
 if(!af(_14)){

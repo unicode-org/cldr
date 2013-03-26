@@ -1,9 +1,28 @@
 <%@page import="com.ibm.icu.lang.UCharacter"%>
+<!--  st_top.jsp -->
 <%@ include file="/WEB-INF/jspf/stcontext.jspf" %><%
-   String title = (ctx==null)?"?":((String)ctx.get("TITLE"));
+   String title;
+   String bodyClass;
+   boolean isScrollingContent = false;
+   if(ctx==null) {
+	   title = "?";
+	   bodyClass = "stUnknown";
+   } else {
+       title = (String) ctx.get("TITLE");
+	   if(ctx.getPageId()!=null) {
+		   bodyClass = "claro";
+		   isScrollingContent = true;
+	   } else {
+		   bodyClass = "stNormalPage";
+		   isScrollingContent = false;
+	   }
+   }
 %>
-<!--  st_top.jsp --></head>
-<body>
+</head>
+<body class='<%= bodyClass %>'>
+<%
+if(ctx!=null) {
+%>
 	<div id="toparea">
     <img id="stlogo" width="44" height="48" src='<%= WebContext.context(request, "STLogo"+".png") %>' title="[ST Logo]" alt="[ST Logo]" />
     <div id="toptitle" title='Phase: <%= ctx.sm.phase().toString() %>'>
@@ -59,5 +78,8 @@
         <span class='normal-title'><%= title %></span>
     </div>
     </div>
+<%
+}
+%>
 <%@ include file="/WEB-INF/tmpl/stnotices.jspf" %>
 <!-- end st_top.jsp -->

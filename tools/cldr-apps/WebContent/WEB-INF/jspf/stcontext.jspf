@@ -1,12 +1,11 @@
  <%--  Don't include this more than once per actual JSP.  --%>
-
-<%@ page import="org.unicode.cldr.web.*" %>
-<%@ page import="org.unicode.cldr.util.*" %>
-<%@ page import="java.util.*" %>
-<%@ page import="com.ibm.icu.text.*" %>
-<%@ page import="com.ibm.icu.util.*" %>
-<%@ taglib prefix="st" tagdir="/WEB-INF/tags/st" %> 
-
+<%@ page import="org.unicode.cldr.web.*"
+ %><%@ page import="org.unicode.cldr.util.*" 
+ %><%@ page import="org.unicode.cldr.tool.*" 
+ %><%@ page import="java.util.*"
+ %><%@ page import="com.ibm.icu.text.*"
+ %><%@ page import="com.ibm.icu.util.*" 
+ %><%@ taglib prefix="st" tagdir="/WEB-INF/tags/st" %>
 <% 
 	JspWebContext ctx = WebContext.fromRequest(request,response,out);
 

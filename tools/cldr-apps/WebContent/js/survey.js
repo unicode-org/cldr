@@ -3,15 +3,46 @@
 
 // These need to be available @ bootstrap time.
 
+/**
+ * @module survey.js - SurveyTool main JavaScript stuff
+ */
+ 
+
+// TODO: replace with AMD [?] loading
 dojo.require("dojo.i18n");
 dojo.require("dojo.string");
 dojo.requireLocalization("surveyTool", "stui");
 
-var stui = {online: "Online", 		error_restart: "(May be due to SurveyTool restart on server)", 	error: "Disconnected: Error", "details": "Details...", disconnected: "Disconnected", startup: "Starting up..."};
+/**
+ * Global items 
+ * @class GLOBAL
+ */
 
+
+/**
+ * Are we on IE?
+ * @property onIE
+ */
 var onIE =  (navigator && navigator.appName && navigator.appName == 'Microsoft Internet Explorer');
 
+/**
+ * SurveyToolUI (localization) object. Preloaded with a few strings while we wait for the resources to load.
+ *
+ * @property stui
+ */
+var stui = {
+            online: "Online",
+            error_restart: "(May be due to SurveyTool restart on server)", 	
+            error: "Disconnected: Error", "details": "Details...", 
+            disconnected: "Disconnected", 
+            startup: "Starting up..."
+           };
 
+
+/**
+ * SurveyToolUI string loading function
+ * @method stui_str
+ */
 stui_str = function(x) {
     if(stui && stui[x]) {
     	return stui[x];
@@ -19,6 +50,16 @@ stui_str = function(x) {
     	return x;
     }
 };
+
+/**
+ * Create a DOM object with the specified text, tag, and HTML class. 
+ * Applies (classname)+"_desc" as a tooltip (title).
+ * @method createChunk
+ * @param {String} text textual content of the new object, or null for none
+ * @param {String} tag which element type to create, or null for "span"
+ * @param {String} className CSS className, or null for none.
+ * @return {Object} new DOM object 
+ */
 function createChunk(text, tag, className) {
 	if(!tag) {
 		tag="span";
@@ -33,6 +74,13 @@ function createChunk(text, tag, className) {
 	}
 	return chunk;
 }
+
+/**
+ * Create a DOM object referring to a user.
+ * @method createUser
+ * @param {JSON} user - user struct
+ * @return {Object} new DOM object
+ */
 function createUser(user) {
 	var div = createChunk(null,"div","adminUserUser");
 	div.appendChild(createChunk(stui_str("userlevel_"+user.userlevelname),"i","userlevel_"+user.userlevelname));
@@ -54,9 +102,10 @@ function stStopPropagation(e) {
 	}
 }
 
-function replaceHash(hash) {
-	window.location.replace("#"+hash);
+window.replaceHash = function() {
+	window.location.replace("#"+"x@" + surveyCurrentId);
 }
+
 var disconnected = false;
 
 var stdebug_enabled=(window.location.search.indexOf('&stdebug=')>-1);
@@ -131,59 +180,6 @@ function removeAllChildNodes(td) {
 	}
 }
 
-function readyToSubmit(fieldhash) {
-//    var ch_input = document.getElementById('ch_'+fieldhash);
-//    var submit_btn = document.getElementById('submit_'+fieldhash);
-//    var cancel_btn = document.getElementById('cancel_'+fieldhash);
-    
-//    ch_input.disabled='1';
-//    submit_btn.style.display='block';
-//    cancel_btn.style.display='block';
-}
-
-function hideSubmit(fieldhash) {
-//    var ch_input = document.getElementById('ch_'+fieldhash);
-//    var submit_btn = document.getElementById('submit_'+fieldhash);
-    var cancel_btn = document.getElementById('cancel_'+fieldhash);
-
-//    submit_btn.style.display='none';
-    cancel_btn.style.display='none';
-//    ch_input.disabled=null;
-}
-
-// @deprecated
-function isubmit(fieldhash,xpid,locale,session) {
-    var ch_input = document.getElementById('ch_'+fieldhash);
-//    var submit_btn = document.getElementById('submit_'+fieldhash);
-//    var cancel_btn = document.getElementById('cancel_'+fieldhash);
-    
-    if(!ch_input) {
-    	console.log("Not a field hash: submit " + fieldhash);
-    	return;
-    }
-    hideSubmit(fieldhash);
-    ch_input.disabled=null;
-    do_change(fieldhash, ch_input.value, '', xpid,locale,session,'submit');
-}
-
-function icancel(fieldhash,xpid,locale,session) {
-    var ch_input = document.getElementById('ch_'+fieldhash);
-//    var chtd_input = document.getElementById('chtd_'+fieldhash);
-//    var submit_btn = document.getElementById('submit_'+fieldhash);
-    var cancel_btn = document.getElementById('cancel_'+fieldhash);
-    
-    if(!ch_input) {
-        console.log("Not a field hash: submit " + fieldhash);
-        return;
-    }
-    cancel_btn.style.display='none';
-//    submit_btn.style.display='none';
-    ch_input.disabled=null;
-//    chtd_input.style.width='25%';
-    ch_input.className='inputboxbig';
-    alreadyVerifyValue[fieldhash]=null;
-}
-
 var timerID = -1;
 
 function updateIf(id, txt) {
@@ -193,8 +189,15 @@ function updateIf(id, txt) {
     }
 }
 
-// work around IE8 problem
-
+/** 
+ * Add an event listener function to the object.
+ * @method listenFor
+ * @param {DOM} what object to listen to
+ * @param {String} what event, bare name such as 'click'
+ * @param {Function} fn function, of the form:  function(e) { 	doSomething();  	stStopPropagation(e);  	return false; }
+ * @param {String} ievent IE name of an event, if not 'on'+what
+ * @return {DOM} returns the object what
+ */
 function listenFor(what, event, fn, ievent) {
 	if(!(what._stlisteners)) {
 		what._stlisteners={};
@@ -219,18 +222,11 @@ function listenFor(what, event, fn, ievent) {
 		what.attachEvent(ievent,fn);
 	}
 	what._stlisteners[event]=fn;
+
+	return what;
 }
-//function unListen(what, event, ievent) {
-//	if(what.removeEventListener) {
-//		what.removeEventListener(event,false);
-//	} else {
-//		if(!ievent) {
-//			ievent = "on"+event;
-//		}
-//		what.attachEvent(ievent,fn);
-//	}
-//}
-// ?!!!!
+
+// Add Object.keys if missing
 if(!Object.keys) {
 	Object.keys = function(x) {
 		var r = [];
@@ -346,36 +342,6 @@ function handleChangedLocaleStamp(stamp,name) {
 	stdebug("Reloaded due to change: " + stamp);
     surveyNextLocaleStamp = stamp;
 }
-
-////    updateStatusBox({err: err.message, err_name: err.name, disconnected: true});
-/*
- * {
-"status": {
-"memfree": 378.6183984375,
-"lockOut": false,
-"pages": 16,
-"specialHeader": "Welcome to SurveyTool@oc7426272865.ibm.com. Please edit /home/srl/apache-tomcat-7.0.8/cldr/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely.",
-"dbopen": 0,
-"users": 1,
-"uptime": "uptime: 49:47",
-"isUnofficial": true,
-"memtotal": 492.274,
-"sysprocs": 8,
-"isSetup": true,
-"sysload": 0.33,
-"dbused": 1439,
-"guests": 0,
-"surveyRunningStamp": 1331941056940
-},
-"isSetup": "0",
-"err": "",
-"visitors": "",
-"SurveyOK": "1",
-"uptime": "",
-"isBusted": "0",
-"progress": "(obsolete-progress)"
-}
- */
 
 var progressWord = null;
 var ajaxWord = null;
@@ -510,23 +476,6 @@ function updateStatusBox(json) {
 		updateProgressWord("ok");
 	}
 	
-	/* 
-"memfree": 378.6183984375,
-"lockOut": false,
-"pages": 16,
-"specialHeader": "Welcome to SurveyTool@oc7426272865.ibm.com. Please edit /home/srl/apache-tomcat-7.0.8/cldr/cldr.properties to change CLDR_HEADER (to change this message), or comment it out entirely.",
-"dbopen": 0,
-"users": 1,
-"uptime": "uptime: 49:47",
-"isUnofficial": true,
-"memtotal": 492.274,
-"sysprocs": 8,
-"isSetup": true,
-"sysload": 0.33,
-"dbused": 1439,
-"guests": 0,
-"surveyRunningStamp": 1331941056940
-	 */
 	if(json.status) {
 		if(!updateParts) {
 			var visitors = dojo.byId("visitors");
@@ -671,9 +620,10 @@ function resetTimerSpeed(speed) {
 //	timerID = setInterval(updateStatus, timerSpeed);
 }
 
-// set up window
-// TODO: make optional
-listenFor(window,'load',setTimerOn);
+// set up window. Let Dojo call us, otherwise dojo won't load.
+dojo.ready(function(){
+	setTimerOn();
+});
 
 var statusActionTable = {
     ALLOW: 									   { vote: true, ticket: false, change: true  }, 
@@ -707,215 +657,6 @@ function getTestKind(testResults) {
     }
     return theKind;
 }
-
-function updateTestResults(fieldhash, testResults, what) {
-    var e_div = document.getElementById('e_'+fieldhash);
-    var v_td = document.getElementById('i_'+fieldhash);
-    var v_tr = document.getElementById('r_'+fieldhash);
-    var v_tr2 = document.getElementById('r2_'+fieldhash);
-    var newHtml = "";
-    e_div.className="";
-    v_td.className="v_warn";
-    if(v_tr!=null) {
-            v_tr.className="";
-    }
-    v_tr2.className="tr_warn";
-    newHtml = "";
-    
-    if(testResults)
-    for(var i=0;i<testResults.length;i++) {
-        var tr = testResults[i];
-        newHtml += "<p class='tr_"+tr.type+"' title='"+tr.type+"'>";
-        if(tr.type == 'Warning') {
-            newHtml += warnIcon;
-            //what='warn';
-        } else if(tr.type == 'Error') {
-            v_tr2.className="tr_err";
-            newHtml += stopIcon;
-            what='error';
-        }
-        newHtml += testResults[i].message;
-        newHtml += "</p>";
-    }
-    e_div.innerHTML = newHtml;
-    return what;
-}
-
-
-//@deprecated
-function refreshRow(fieldhash, xpid, locale, session) {
-    var v_tr = document.getElementById('r_'+fieldhash);
-    var e_div = document.getElementById('e_'+fieldhash);
-    var what = WHAT_GETROW;
-    var ourUrl = contextPath + "/RefreshRow.jsp?what="+what+"&xpath="+xpid +"&_="+locale+"&fhash="+fieldhash+"&vhash="+''+"&s="+session;
-    var ourUrlVI =  ourUrl+"&voteinfo=t";
-    //console.log("refreshRow('" + fieldhash +"','"+value+"','"+vhash+"','"+xpid+"','"+locale+"','"+session+"')");
-    //console.log(" url = " + ourUrl);
-    var errorHandler = function(err, ioArgs){
-        console.log('Error in refreshRow: ' + err + ' response ' + ioArgs.xhr.responseText);
-        v_tr.className="tr_err";
-        v_tr.innerHTML = "<td class='v_error' colspan=8>" + stopIcon + " Couldn't reload this row- please refresh the page. <br>Error: " + err+"</td>";
-        removeAllChildNodes(e_div);
-//        var st_err =  document.getElementById('st_err');
-//        wasBusted = true;
-//        st_err.className = "ferrbox";
-//        st_err.innerHTML="Disconnected from Survey Tool while processing a field: "+err.name + " <br> " + err.message;
-//        updateIf('progress','<hr><i>(disconnected from Survey Tool)</i></hr>');
-//        updateIf('uptime','down');
-//        updateIf('visitors','nobody');
-    };
-    var loadHandler = function(text){
-        try {
-//             var newHtml = "";
-             if(text) {
-                 v_tr.className='topbar';
-                 v_tr.innerHTML = text;
-                 removeAllChildNodes(e_div);
-                 e_div.className="";
-             } else {
-                 v_tr.className='';
-                 v_tr.innerHTML = "<td colspan=4>" + stopIcon + " Couldn't reload this row- please refresh the page.</td>";
-             }
-           }catch(e) {
-               console.log("Error in ajax get ",e.message);
-               console.log(" response: " + text);
-               e_div.innerHTML = "<i>JavaScript Error: " + e.message + "</i>";
-           }
-    };
-    var xhrArgs = {
-            url: ourUrl+cacheKill(),
-            handleAs:"text",
-            load: loadHandler,
-            error: errorHandler
-        };
-    //window.xhrArgs = xhrArgs;
-    //console.log('xhrArgs = ' + xhrArgs);
-    dojo.xhrGet(xhrArgs);
-    
-    var voteinfo_div = document.getElementById('voteresults_'+fieldhash);
-    if(voteinfo_div) {
-    	voteinfo_div.innerHTML="<i>Updating...</i>";
-	    var loadHandlerVI = function(text){
-	        try {
-//	             var newHtml = "";
-	             if(text) {
-	                 voteinfo_div.innerHTML = text;
-	                 voteinfo_div.className="";
-	             } else {
-	                 voteinfo_div.className='';
-	                 voteinfo_div.innerHTML = "<td colspan=4>" + stopIcon + " Couldn't reload this row- please refresh the page.</td>";
-	             }
-	           }catch(e) {
-	               console.log("Error in ajax get ",e.message);
-	               console.log(" response: " + text);
-	               voteinfo_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
-	           }
-	    };
-        var xhrArgsVI = {
-                url: ourUrlVI + cacheKill(),
-                handleAs:"text",
-                load: loadHandlerVI,
-                error: errorHandler
-            };
-        //console.log('urlVI = ' + ourUrlVI);
-	    dojo.xhrGet(xhrArgsVI);
-    }
-    
-}
-
-// for validating CLDR data values
-// do_change(hash, value, xpid, locale)
-// divs:    e_HASH = div under teh item
-//           v_HASH - the entire td
-function do_change(fieldhash, value, vhash,xpid, locale, session,what) {
-	var e_div = document.getElementById('e_'+fieldhash);
-//	var v_td = document.getElementById('i_'+fieldhash);
-    var v_tr = document.getElementById('r_'+fieldhash);
-    var v_tr2 = document.getElementById('r2_'+fieldhash);
-    alreadyVerifyValue[fieldhash]=null;
-    if(what==null) {
-		 what = WHAT_SUBMIT;
-	}
-	if((!vhash || vhash.length==0) && (!value || value.length==0)) {
-		return;
-	}
-	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+xpid +"&_="+locale+"&fhash="+fieldhash+"&vhash="+vhash+"&s="+session;
-	//console.log("do_change('" + fieldhash +"','"+value+"','"+vhash+"','"+xpid+"','"+locale+"','"+session+"')");
-//	console.log(" what = " + what);
-//	console.log(" url = " + ourUrl);
-    hideSubmit(fieldhash);
-	e_div.innerHTML = '<i>Checking...</i>';
-	e_div.className="";
-	if(v_tr!=null) {
-	    v_tr.className="tr_checking";
-	}
-    v_tr2.className="tr_checking";
-//    var st_err =  document.getElementById('st_err');
-    var errorHandler = function(err, ioArgs){
-    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-    	removeAllChildNodes(e_div);
-        e_div.className="";
-//      v_td.className="v_warn";
-        v_tr.className="";
-        v_tr2.className="tr_err";
-//        var st_err =  document.getElementById('st_err');
-//        wasBusted = true;
-//        st_err.className = "ferrbox";
-//        st_err.innerHTML="Disconnected from Survey Tool while processing a field: "+err.name + " <br> " + err.message;
-//        updateIf('progress','<hr><i>(disconnected from Survey Tool)</i></hr>');
-//        updateIf('uptime','down');
-//        updateIf('visitors','nobody');
-    };
-    var loadHandler = function(json){
-        try {
-             var newHtml = "";
-             if(json.err && json.err.length >0) {
-                 v_tr.className="tr_err";
-                 v_tr2.className="tr_err";
-                 newHtml = stopIcon + " Could not check value. Try reloading the page.<br>"+json.err;
-                 e_div.innerHTML = newHtml;
-             } else if(json.testResults && json.testResults.length == 0) {
-            	 if(what == 'verify') {
-	                 e_div.className="";
-                     v_tr.className="tr_submit";
-                     v_tr2.className="tr_submit";
-	                 e_div.innerHTML = newHtml;
-                     readyToSubmit(fieldhash);
-            	 } else {
-                     e_div.className="";
-                     v_tr.className="tr_submit";
-                     v_tr2.className="tr_submit";
-                     newHtml = "<i>Vote Accepted:</i>";
-                     e_div.innerHTML = newHtml;
-            	 }
-             } else {
-                 var update = updateTestResults(fieldhash,json.testResults,what);
-                 if (update == 'verify') {
-                	 readyToSubmit(fieldhash);
-                 }
-             }
-             if(json.submitResultRaw) {
-                 e_div.innerHTML = e_div.innerHTML + "<b>Updating...</b><!-- <br><b>SUBMIT RESULTS:</b> <tt>" + json.submitResultRaw+"</tt> <b>Refreshing row...</b> -->";
-                 refreshRow(fieldhash, xpid, locale, session);
-             }
-           }catch(e) {
-               console.log("Error in ajax post [do_change]  ",e.message);
-               e_div.innerHTML = "<i>Internal Error: " + e.message + "</i>";
-           }
-    };
-    var xhrArgs = {
-            url: ourUrl+cacheKill(),
-            postData: value,
-            handleAs:"json",
-            load: loadHandler,
-            error: errorHandler
-        };
-    //window.xhrArgs = xhrArgs;
-//    console.log('xhrArgs = ' + xhrArgs);
-    dojo.xhrPost(xhrArgs);
-}
-
-
 
 function cloneAnon(i) {
 	if(i==null) return null;
@@ -976,24 +717,10 @@ function getTagChildren(tr) {
 
 function showLoader(loaderDiv, text) {
 	updateAjaxWord(text);
-//	updateIf("progress_ajax",text);
-//	console.log("Load: " + text);
-//	return;
-//	
-//	var para = loaderDiv.getElementsByTagName("p");
-//	if(para) {
-//		para=para[0];
-//	} else {
-//		para = loaderDiv;
-//	}
-//	para.innerHTML = text;
-//	loaderDiv.style.display="";
 }
 
 function hideLoader(loaderDiv) {
 	updateAjaxWord(null);
-//	updateIf("progress_ajax","");
-//	loaderDiv.style.display="none";
 }
 
 function wireUpButton(button, tr, theRow, vHash,box) {
@@ -1061,12 +788,6 @@ function showInPop(str,tr, theObj, fn, immediate) {
 }
 
 function listenToPop(str, tr, theObj, fn) {
-//	listenFor(theObj, "mouseover",
-//			function(e) {
-//				showInPop(str, tr, theObj, fn, false);
-//				stStopPropagation(e);
-//				return false;
-//			});
 	listenFor(theObj, "click",
 			function(e) {
 				showInPop(str, tr, theObj, fn, true);
@@ -1228,17 +949,17 @@ function appendForumStuff(tr, theRow, forumDiv) {
 dojo.ready(function() {
 	var unShow = null;
 //	var lastShown = null;
-	var pucontent = dojo.byId("pu-content");
-	var puouter=pucontent;
-	var pubody=pucontent;
-	var nudgeh=0;
+	var pucontent = dojo.byId("itemInfo");
+
 //	var nudgev=0;
 //	var nudgehpost=0;
 //	var nudgevpost=0;
 //	var hardleft = 10;
 //	var hardtop = 10;
 //	var pupeak_height = pupeak.offsetHeight;
-	if(!pubody) return;
+	if(!pucontent) return;
+
+	//pucontent.className = "oldFloater";
 	var hideInterval=null;
 	
 	function setLastShown(obj) {
@@ -1257,11 +978,11 @@ dojo.ready(function() {
 		setLastShown(null);
 	}
 	
-//	listenFor(pubody, "mouseover", function() {
+//	listenFor(pucontent, "mouseover", function() {
 //		clearTimeout(hideInterval);
 //		hideInterval=null;
 //	});
-//	listenFor(pubody, "mouseout", hidePopHandler);
+//	listenFor(pucontent, "mouseout", hidePopHandler);
 	
 	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate) {
 //		if(hideIfLast&&lastShown==hideIfLast) {
@@ -1279,12 +1000,13 @@ dojo.ready(function() {
 //		if(hideIfLast && lastShown==hideIfLast) {
 //			lastShown=null;
 //			
-//			puouter.style.display="none";
+//			pucontent.style.display="none";
 //			
 //			return;
 //		}
 		if(tr && tr.sethash) {
-			replaceHash(tr.sethash);
+			surveyCurrentId = tr.sethash;
+			replaceHash();
 		}
 		setLastShown(hideIfLast);
 
@@ -1323,7 +1045,9 @@ dojo.ready(function() {
 			showForumStuff(td, forumDiv, tr); // give a chance to update anything else
 			td.appendChild(forumDiv);
 		}
+
 		
+		// SRL suspicious
 		removeAllChildNodes(pucontent);
 		pucontent.appendChild(td);
 //		if(stdebug_enabled) {
@@ -1351,7 +1075,7 @@ dojo.ready(function() {
 ////			var loc = getAbsolutePosition(hideIfLast);
 ////			var newTopPeak = (loc.top+((hideIfLast.offsetHeight)/2)-8);
 ////			//if(newTop<hardtop) newTop=hardtop;
-////			//puouter.style.top = (newTop+nudgevpost)+"px";
+////			//pucontent.style.top = (newTop+nudgevpost)+"px";
 ////			newLeftPeak = (loc.left);
 ////			
 ////			pupeak.style.left = (newLeftPeak-pupeak.offsetWidth) + "px";
@@ -1366,7 +1090,7 @@ dojo.ready(function() {
 ////				} else {
 ////					bodyTop = (loc.top+hideIfLast.offsetHeight+nudgeh);
 ////				}
-////				pubody.style.top = bodyTop+"px";
+////				pucontent.style.top = bodyTop+"px";
 ////				pupeak.style.height = (bodyTop-newTopPeak) + "px";
 ////			}			
 ////			if(newLeft<hardleft) {
@@ -1375,7 +1099,7 @@ dojo.ready(function() {
 ////			} else {
 ////				pupeak.style.left = "0px";
 ////			}
-////			puouter.style.left = (newLeft+nudgehpost)+"px";
+////			pucontent.style.left = (newLeft+nudgehpost)+"px";
 //			pupeak.style.display="none";
 //		} else {
 //			pupeak.style.display="none";
@@ -1383,7 +1107,7 @@ dojo.ready(function() {
 ////			pupeak.style.top = "0px";
 ////			stdebug("Note: showPop with no td");
 //		}
-		puouter.style.display="block"; // show
+		//pucontent.style.display="block"; // show
 	};
 	if(false) {
 		window.showInPop = window.showInPop2;
@@ -1409,8 +1133,9 @@ dojo.ready(function() {
 		}
 		hideInterval=setTimeout(function() {
 			if(false) {
-				puouter.style.display="none";
+				//pucontent.style.display="none";
 			} else {
+				// SRL suspicious
 				removeAllChildNodes(pucontent);
 //				pupeak.style.display="none";
 			}
@@ -1423,19 +1148,15 @@ dojo.ready(function() {
 	};
 });
 
-//function appendItem(div,value, pClass) {
-//	var text = document.createTextNode(value);
-//	var span = document.createElement("span");
-//	span.appendChild(text);
-//	if(pClass) {
-//		span.className = pClass;
-//	} else {
-//		span.className = "value";
-//	}
-//	div.appendChild(span);
-//	return span;
-//}
-
+/**
+ * Append just an editable span representing a candidate voting item
+ * @method appendItem
+ * @param div {DOM} div to append to
+ * @param value {String} string value
+ * @param pClass {String} html class for the voting item
+ * @param tr {DOM} ignored, but the tr the span belongs to
+ * @return {DOM} the new span
+ */
 function appendItem(div,value, pClass, tr) {
 	var text = document.createTextNode(value?value:stui.str("no value"));
 	var span = document.createElement("span");
@@ -1721,8 +1442,18 @@ function appendExample(parent, text) {
 	return div;
 }
 
+var spanSerial = 0;
 
-
+/**
+ * Append a Vetting item ( vote button, etc ) to the row.
+ * @method AddVitem
+ * @param {DOM} td cell to append into
+ * @param {DOM} tr which row owns the items
+ * @param {JSON} theRow JSON content of this row's data
+ * @param {JSON} item JSON of the specific item we are adding
+ * @param {String} vHash     stringid of the item
+ * @param {DOM} newButton     button prototype object
+ */
 function addVitem(td, tr,theRow,item,vHash,newButton) {
 //	var canModify = tr.theTable.json.canModify;
 	var div = document.createElement("div");
@@ -1740,9 +1471,13 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 		wireUpButton(newButton,tr,theRow,vHash);
 		div.appendChild(newButton);
 	}
-	var span = appendItem(div,item.value,item.pClass,tr);
+    var subSpan = document.createElement("span");
+    subSpan.className = "subSpan";
+	var span = appendItem(subSpan,item.value,item.pClass,tr);
+	div.appendChild(subSpan);
 	
 	span.dir = tr.theTable.json.dir;
+	
 	if(item.isOldValue==true && !isWinner) {
 		addIcon(div,"i-star");
 	}
@@ -1750,6 +1485,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 		addIcon(div,"i-vote");
 	}
 
+    // wire up the onclick
 	td.showFn = item.showFn = showItemInfoFn(theRow,item,vHash,newButton,div);
 	div.popParent = tr;
 	listenToPop(null, tr, div, td.showFn);
@@ -1761,6 +1497,42 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 		var example = appendExample(div,item.example);
 //		example.popParent = tr;
 //		listenToPop(null,tr,example,td.showFn);
+	}
+	
+	if(tr.theTable.json.canModify) {
+	    var oldClassName = span.className = span.className + " editableHere";
+	    ///span.title = span.title  + " " + stui_str("clickToChange");
+	    var ieb = null;
+    	    var spanId = span.id = "v_"+(spanSerial++); // bump the #, probably leaks something in dojo?
+	    var editInPlace = function(e) {
+	        require(["dojo/ready", "dijit/InlineEditBox", "dijit/form/TextBox", "dijit/registry"],
+	        function(ready, InlineEditBox, TextBox) {
+	            ready(function(){
+	            if(!ieb) {
+	                ieb = new InlineEditBox({editor: TextBox, autoSave: true, 
+	                    onChange: function (newValue) {
+	                                  //  console.log("Destroyed -> "+ newValue);
+	                                   // remove dojo stuff..
+	                                   //removeAllChildNodes(subSpan);
+	                                   // reattach the span
+	                                   //subSpan.appendChild(span);
+	                                   //span.className = oldClassName;
+	                               tr.inputTd = td; // cause the proposed item to show up in the right box
+                       				handleWiredClick(tr,theRow,"",{value: newValue},newButton); 
+	                                   //ieb.destroy();
+	                               }
+	                   }, spanId);
+	                       console.log("Minted  " + spanId);
+	                   } else {
+	                       console.log("Leaving alone " + spanId);
+	                   }
+	            });
+	        });
+	    	stStopPropagation(e);
+	    	return false;
+	    };
+	    
+	    listenFor(td, "mouseover", editInPlace);
 	}
 }
 
@@ -1957,7 +1729,7 @@ function updateRow(tr, theRow) {
 //			p.appendChild(createChunk(
 //					stui.sub("lastReleaseStatus1_msg",
 //							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
-//					, "b", /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "  lastReleaseStatus1"));
+//					, "b", /* "g"+theRow.voteResolver.lastReleaseStatus+ */ "  lastReleaseStatus1"));
 
 			
 			tr.voteDiv.appendChild(kdiv);
@@ -1987,7 +1759,7 @@ function updateRow(tr, theRow) {
 		tr.xpstrid = theRow.xpstrid;
 		if(tr.xpstrid) {
 			tr.id = "r@"+tr.xpstrid;
-			tr.sethash = "x@"+tr.xpstrid;
+			tr.sethash = tr.xpstrid;
 		}
 	}
 	var children = getTagChildren(tr);
@@ -2020,7 +1792,7 @@ function updateRow(tr, theRow) {
 //		children[config.proposedcell].className = 'd-win';
 //	}
 	
-	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus;
+	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
 	if(!children[config.statuscell].isSetup) {
 		listenToPop("", tr, children[config.statuscell]);
 
@@ -2178,7 +1950,7 @@ function updateRow(tr, theRow) {
 	} else {
 		tr.myProposal=null; // not needed
 	}
-
+/*
 	if(!children[config.changecell].isSetup) {
 		removeAllChildNodes(children[config.changecell]);
 		tr.inputTd = children[config.changecell]; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
@@ -2229,7 +2001,7 @@ function updateRow(tr, theRow) {
 			children[config.changecell].theButton.className="ichoice-o";
 		}
 	}
-			
+	*/		
 	
 	if(canModify) {
 		removeAllChildNodes(children[config.nocell]); // no opinion
@@ -2428,7 +2200,7 @@ function insertRows(theDiv,xpath,session,json) {
 		theTable.toAdd = toAdd;
 
 		if(!json.canModify) {
-				theTable.theadChildren[theTable.config.changecell].style.display=theTable.theadChildren[theTable.config.nocell].style.display="none";
+				theTable.theadChildren[theTable.config.nocell].style.display="none";
 		}
 		theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
 		theDiv.appendChild(theTable.sortMode);
@@ -2463,8 +2235,19 @@ function insertRows(theDiv,xpath,session,json) {
 		theDiv.appendChild(doInsertTable);
 		if(theDiv.theLoadingMessage) {
 			theDiv.theLoadingMessage.style.display="none";
+			theDiv.removeChild(theDiv.theLoadingMessage);
+			theDiv.theLoadingMessage=null;
+		}
+	} else {
+		theTable.style.display = '';
+		if(theDiv.theLoadingMessage) {
+			theDiv.theLoadingMessage.style.display="none";
+			theDiv.removeChild(theDiv.theLoadingMessage);
+			theDiv.theLoadingMessage=null;
 		}
 	}
+
+	
 	hideLoader(theDiv.loader);
 }
 
@@ -2571,7 +2354,8 @@ function appendInputBox(parent, which) {
 
 function scrollToItem(tr) {
 //	window.location.hash=tr.id; // scroll!
-	window.scrollTo(0,getAbsolutePosition(tr).top-50);
+//	window.scrollTo(0,getAbsolutePosition(tr).top-50);
+	console.log("scrollToitemem - whatto do with split pane? "); // TODO fix
 }
 
 // interpret the #hash to see if we need to do something...
@@ -2596,16 +2380,55 @@ function processHash() {
 			}
 		}
 	}
-	window.processHash = function(){};
+	window.processHash = function(){}; // only process one time.
 }
-////////
-/// showRows() ..
+
+/**
+ * This is now the 'old' method of showing rows.
+ * @method showRows
+ * @param {Node} container container div for stuff
+ * @param {String} xpath xpath to show (or xpathid)
+ * @param {String} session session string
+ * @param {String} coverage coverage string
+ * @author srl
+ */
 function showRows(container,xpath,session,coverage) {
  dojo.ready(function(){
+	 
 	if(!coverage) coverage="";
 	var theDiv = dojo.byId(container);
+	
+	var topstuff = dojo.byId("topstuff");
+	
+	if(topstuff) {
+		var body = document.getElementsByTagName("body")[0];
+		
+		// reparent
+		function reparent(id) {
+			var what = dojo.byId(id);
+			if(what && what.parentNode == body) {
+				body.removeChild(what);
+				topstuff.appendChild(what);
+			}
+		}
+		reparent("progress");		
+		reparent("usertable");		
+		reparent("toparea");		
+		reparent("sectionmenu");		
+		reparent("footer");		
+	}
+	
+	var pucontent = dojo.byId("itemInfo");
+	theDiv.pucontent = pucontent;
 
 	theDiv.stui = loadStui();
+	
+	if(theDiv.theLoadingMessage) {
+		theDiv.theLoadingMessage.style.display="none";
+		theDiv.removeChild(theDiv.theLoadingMessage);
+		theDiv.theLoadingMessage=null;
+	}
+
 	theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
 	theDiv.appendChild(theDiv.theLoadingMessage);
 	
@@ -2693,7 +2516,317 @@ function showRows(container,xpath,session,coverage) {
   });
 }
 
-console.log("loading SPP");
+var surveyCurrentId = null;
+var _thePages = null;
+
+/**
+ * Utilities for the 'v.jsp' (new dispatcher) page
+ * @method showV
+ */
+function showV() {
+	// REQUIRES
+	require([
+	         "dojo/ready",
+	         "dojo/dom",
+	         "dojo/parser", 
+	         "dijit/DropDownMenu",
+	         "dijit/form/DropDownButton",
+	         "dijit/MenuItem",
+	         "dijit/form/TextBox",
+	         "dijit/form/Button",
+	         "dijit/CheckedMenuItem",
+	         "dijit/registry",
+	         "dijit/PopupMenuItem",
+	         "dijit/form/Select",
+	         "dojo/domReady!"
+	         ],
+	         // HANDLES
+	         function(
+	        		 ready,
+	        		 dom,
+	        		 parser,
+	        		 DropDownMenu,
+	        		 DropDownButton,
+	        		 MenuItem,
+	        		 TextBox,
+	        		 Button,
+	        		 CheckedMenuItem,
+	        		 registry,
+	        		 PopupMenuItem,
+	        		 Select
+	         ) {
+
+		// one time.
+		// processHash
+		{
+			var hash = window.location.hash;
+			if(hash) {
+				var pieces = hash.substr(1).split("/");
+				if(pieces.length > 1 && pieces[0].length==0) {
+					// locale based
+					surveyCurrentLocale = pieces[1];
+					if(pieces.length>2) {
+						surveyCurrentPage = pieces[2];
+						if(pieces.length>3){
+							surveyCurrentId = pieces[3];
+						}
+					}
+				}
+			}
+			window.processHash = function(){}; // only process one time.
+		}
+		
+		// TODO - rewrite using AMD
+		function myLoad(url, message, handler) {
+			var errorHandler = function(err, ioArgs){
+				console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+				showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " for " + message + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+			};
+			var loadHandler = function(json){
+				try {
+					handler(json);
+				}catch(e) {
+					console.log("Error in ajax post ["+message+"]  " + e.message + " / " + e.name );
+					handleDisconnect("Exception while  loading: " + message + " - "  + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
+				}
+			};
+			var xhrArgs = {
+					url: url,
+					handleAs:"json",
+					load: loadHandler,
+					error: errorHandler
+			};
+			queueXhr(xhrArgs);
+		}
+		
+		/**
+		 * @method replaceHash
+		 */
+		window.replaceHash = function() {
+			var theId = window.surveyCurrentId;
+			if(theId == null) theId = '';
+			window.location.hash = '#/' + window.surveyCurrentLocale + '/' + window.surveyCurrentPage + '/' + theId;
+			updateIf("title-item", theId);
+		};
+		
+		/**
+		 * Update the #hash and menus to the current settings.
+		 * @method updateHashAndMenus
+		 */
+		function updateHashAndMenus() {
+			replaceHash(); // update the hash
+			updateIf("title-locale", surveyCurrentLocaleName);
+			
+			/**
+			 * Just update the titles of the menus. Internal to updateHashAndMenus
+			 * @method updateMenuTitles
+			 */
+			function updateMenuTitles(menuMap) {
+				if(!menuMap) {
+					updateIf("title-section", "-");
+					updateIf("title-page", surveyCurrentPage); 
+				} else {
+					var mySection = menuMap.pageToSection[surveyCurrentPage];
+					var myPage = mySection.pageMap[surveyCurrentPage];
+					surveyCurrentSection = mySection.id;
+					updateIf("title-section", mySection.name);
+					updateIf("title-page", myPage.name);
+				}
+			}
+			
+			/**
+			 * @method updateMenus
+			 */
+			function updateMenus(menuMap) {
+				updateMenuTitles(menuMap);
+
+				// first, update display names
+				var mySection = menuMap.pageToSection[surveyCurrentPage];
+				var myPage = mySection.pageMap[surveyCurrentPage];
+				
+				
+				// update menus under 'page' - peer pages
+				var menuPage = registry.byId("menu-page");
+				menuPage.destroyDescendants(false);
+				for(var k in mySection.pages) { // use given order
+					(function(aPage) {
+				        var pageMenu = new CheckedMenuItem({
+				            label: aPage.name,
+				            checked:   (aPage.id == surveyCurrentPage),
+				        //    iconClass:"dijitEditorIcon dijitEditorIconSave",
+				            onClick: function(){ 
+				            									surveyCurrentId = ''; // no id if jumping pages
+				            									surveyCurrentPage = aPage.id;
+				            									updateMenuTitles(menuMap);
+				            									reloadV();
+				            							},
+				        	// TODO: disabled via coverage
+				        });
+				        menuPage.addChild(pageMenu);
+					})(mySection.pages[k]);
+
+				}
+				
+				var menuSection = registry.byId("menu-section");
+				menuSection.destroyDescendants(false);
+				for(var j in menuMap.sections) {
+					(function (aSection){
+						var dropDown = new DropDownMenu();
+						for(var k in aSection.pages) { // use given order
+							(function(aPage) {
+						        var pageMenu = new CheckedMenuItem({
+						            label: aPage.name,
+						            checked:   (aPage.id == surveyCurrentPage),
+						        //    iconClass:"dijitEditorIcon dijitEditorIconSave",
+						            onClick: function(){ 
+						            									surveyCurrentId = ''; // no id if jumping pages
+						            									surveyCurrentPage = aPage.id;
+						            									updateMenuTitles(menuMap);
+						            									reloadV();
+						            							},
+						        	// TODO: disabled via coverage
+						        });
+						        dropDown.addChild(pageMenu);
+							})(aSection.pages[k]);
+
+						}
+						var sectionMenuItem = new PopupMenuItem({
+							label: aSection.name,
+							popup: dropDown,
+							// TODO: disabled via coverage
+						});
+						menuSection.addChild(sectionMenuItem);
+					})(menuMap.sections[j]);
+				}
+			}
+			
+			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {
+				// show the raw IDs while loading.
+				updateIf("title-section", surveyCurrentSection); // only use of SCS
+				updateIf("title-page", surveyCurrentPage);
+				
+				var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus"+cacheKill();
+				myLoad(url, "menus for " + surveyCurrentLocale, function(json) {
+					var menus = json.menus;
+					// set up some hashes
+					menus.sectionMap = {};
+					menus.pageToSection = {};
+					for(var k in menus.sections) {
+						menus.sectionMap[menus.sections[k].id] = menus.sections[k];
+						menus.sections[k].pageMap = {};
+						for(var j in menus.sections[k].pages) {
+							menus.sections[k].pageMap[menus.sections[k].pages[j].id] = menus.sections[k].pages[j];
+							menus.pageToSection[menus.sections[k].pages[j].id] = menus.sections[k];
+						}
+					}
+					updateMenus(menus);
+					_thePages = menus;
+				});
+			} else {
+				// go ahead and update
+				updateMenus(_thePages);
+			}
+			
+		}
+
+		
+		function reloadV() {
+
+
+			var theDiv = dojo.byId("DynamicDataSection");
+
+			var pucontent = dojo.byId("itemInfo");
+			theDiv.pucontent = pucontent;
+
+			theDiv.stui = loadStui();
+
+			if(theDiv.theLoadingMessage) {
+				theDiv.theLoadingMessage.style.display="none";
+				theDiv.removeChild(theDiv.theLoadingMessage);
+				theDiv.theLoadingMessage=null;
+			}
+
+			theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
+			theDiv.appendChild(theDiv.theLoadingMessage);
+
+			// now, load. Use a show-er function for indirection.
+			var shower = null;
+			var theTable = theDiv.theTable;
+			shower = function() {
+				updateHashAndMenus();
+
+				if(!theTable) {
+					var theTableList = theDiv.getElementsByTagName("table");
+					if(theTableList) {
+						theTable = theTableList[0];
+						theDiv.theTable = theTable;
+					}
+				} else {
+					theTable.style.display='none';
+				}
+
+				var theLoader = theDiv.loader;
+				if(!theLoader) {
+					theLoader =  cloneAnon(dojo.byId("proto-loading"));
+					theDiv.appendChild(theLoader);
+					theDiv.loader = theLoader;
+				}
+
+				showLoader(theDiv.loader, theDiv.stui.loading);
+
+				var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
+				console.log("vrows: " + url);
+				myLoad(url, "(loading vrows)", function(json) {
+						showLoader(theDiv.loader,stui.loading2);
+						if(!json) {
+							console.log("!json");
+							showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
+						} else if(json.err) {
+							console.log("json.err!" + json.err);
+							showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+							handleDisconnect("while loading",json);
+						} else if(!json.section) {
+							console.log("!json.section");
+							showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+							handleDisconnect("while loading- no section",json);
+						} else if(!json.section.rows) {
+							console.log("!json.section.rows");
+							showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
+							handleDisconnect("while loading- no rows",json);
+						} else {
+							stdebug("json.section.rows OK..");
+							showLoader(theDiv.loader, "loading..");
+							if(json.dataLoadTime) {
+								updateIf("dynload", json.dataLoadTime);
+							}
+
+							surveyCurrentSection = '';
+							surveyCurrentPage = json.pageId;
+							surveyCurrentLocaleName = json.localeDisplayName;
+							updateHashAndMenus();
+
+							showInPop2("", null, null, null, true); /* show the box the first time */
+							doUpdate(theDiv.id, function() {
+								showLoader(theDiv.loader,stui.loading3);
+								insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
+								processHash(theDiv);
+							});
+						}
+				});
+			}; // end shower
+
+			shower(); // first load
+			theDiv.shower = shower;
+			showers[theDiv.id]=shower;
+
+		}  // end reloadV
+
+		ready(function(){
+			reloadV(); // call it
+		});
+
+	});  // end require()
+} // end showV
 
 function showPossibleProblems(container,loc, session, effectiveCov, requiredCov) {
 	 surveyCurrentLocale = loc;
@@ -2828,7 +2961,9 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 			}
 			return; // nothing entered.
 		}
-		tr.inputTd.className="d-change"; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
+//		if(tr.inputTd) {
+//    		tr.inputTd.className="d-change"; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
+//    	}
 	} else {
 		valToShow=button.value;
 	}
@@ -2881,7 +3016,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
 					refreshRow2(tr,theRow,vHash,function(theRow){
-						tr.inputTd.className="d-change"; // TODO: use  inputTd=(getTagChildren(tr)[tr.theTable.config.changecell])
+//						tr.inputTd.className="d-change"; // TODO: use  inputTd=(getTagChildren(tr)[tr.theTable.config.changecell])
 
 						// submit went through. Now show the pop.
 						button.className='ichoice-o';

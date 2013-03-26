@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2012, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2013, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -192,6 +192,39 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             return cphase;
         }
     };
+    
+    public enum ReportMenu {
+        PRIORITY_ITEMS("Priority Items", SurveyMain.R_VETTING),
+        DATE_TIME("Date/Time", "r_datetime&calendar=gregorian"),
+        ZONES("Zones", "r_zones"),
+        NUMBERS("Numbers", "r_compact");
+        
+        private String display;
+        private String url;
+        
+        private ReportMenu(String d, String u) {
+            display=d;
+            url=u;
+        }
+        
+        public String urlStub() {
+            return url;
+        }
+        
+        public String urlQuery() {
+            return SurveyMain.QUERY_SECTION + "=" + urlStub();
+        }
+        public String urlFull(String base, String locale) {
+            return base + "?_=" + locale + "&" + urlQuery();
+        }
+        public String urlFull(String base) {
+            return base + "?" +  urlQuery();
+        }
+        
+        public String display() {
+            return display;
+        }
+    };
 
     // ===== Configuration state
     private static Phase currentPhase = Phase.SUBMIT;
@@ -327,7 +360,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String QUERY_TERRITORY = "territory";
     public static final String QUERY_ZONE = "zone";
     public static final String QUERY_PASSWORD = "pw";
-    static final String QUERY_PASSWORD_ALT = "uid";
+    public static final String QUERY_PASSWORD_ALT = "uid";
     public static final String QUERY_EMAIL = "email";
     public static final String QUERY_SESSION = "s";
     public static final String QUERY_LOCALE = "_";
@@ -501,7 +534,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /**
      * IP blacklist
      */
-    Hashtable<String, Object> BAD_IPS = new Hashtable<String, Object>();
+    static Hashtable<String, Object> BAD_IPS = new Hashtable<String, Object>();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         if (!ensureStartup(request, response)) {
@@ -1386,9 +1419,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * print the header of the thing
      */
     public void printHeader(WebContext ctx, String title) {
-        ctx.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">");
-        ctx.println("<html>");
-        ctx.println("<head>");
+        ctx.includeFragment("st_header.jsp");
         title = UCharacter.toTitleCase(SurveyMain.BASELINE_LOCALE.toLocale(), title, null);
         /*
          * if(showedComplaint == false) { showedComplaint = true;
@@ -1485,7 +1516,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /*
-     * 
      */
     public JSONObject statusJSON() throws JSONException {
         Runtime r = Runtime.getRuntime();
@@ -1598,50 +1628,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public void printFooter(WebContext ctx) {
-        ctx.println("<hr>");
-        ctx.print("<div style='float: right; font-size: 60%;'>");
-        ctx.print(getCurrev());
-        ctx.print("<span class='notselected'>validate <a href='http://jigsaw.w3.org/css-validator/check/referer'>css</a>, "
-                + "<a href='http://validator.w3.org/check?uri=referer'>html</a></span>");
-        ctx.print(" \u00b7 <span id='visitors'>");
-        ctx.print(getGuestsAndUsers());
-        ctx.print("</span> \u00b7 ");
-        ctx.print(" served in " + ctx.reqTimer + " <span id='dynload'></span></div>");
-        ctx.println("<a href='http://www.unicode.org'>Unicode</a> | <a href='" + URL_CLDR + "'>Common Locale Data Repository</a>");
-        if (ctx.request != null)
-            try {
-                Map m = new TreeMap(ctx.getParameterMap());
-                m.remove("sql");
-                m.remove("pw");
-                m.remove(QUERY_PASSWORD_ALT);
-                m.remove("email");
-                m.remove("dump");
-                m.remove("s");
-                m.remove("udump");
-                String u = "";
-                for (Enumeration e = ctx.request.getParameterNames(); e.hasMoreElements();) {
-                    String k = e.nextElement().toString();
-                    String v;
-                    if (k.equals("sql") || k.equals("pw") || k.equals("email") || k.equals("dump") || k.equals("s")
-                            || k.equals("udump")) {
-                        v = "";
-                    } else {
-                        v = ctx.request.getParameterValues(k)[0];
-                    }
-                    u = u + "|" + k + "=" + v;
-                }
-                ctx.println("| <a " + (isUnofficial() ? "title" : "href") + "='" + bugFeedbackUrl("Feedback on URL ?" + u)
-                        + "'>Report Problem in Tool</a>");
-            } catch (Throwable t) {
-                SurveyLog.logException(t, ctx);
-                SurveyLog.logger.warning(t.toString());
-                t.printStackTrace();
-            }
-        if (!SurveyMain.isUnofficial()) {
-            ctx.println(ShowData.ANALYTICS);
-        }
-        ctx.println("</body>");
-        ctx.println("</html>");
+        ctx.includeFragment("st_footer.jsp");
     }
 
     public static String getGuestsAndUsers() {
@@ -1716,162 +1703,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
 
-    /**
-     * set the session.
-     */
-    String setSession(WebContext ctx) {
-        String message = null;
-        // get the context
-        CookieSession mySession = null;
-        String myNum = ctx.field(QUERY_SESSION);
-        // get the uid
-        String password = ctx.field(QUERY_PASSWORD);
-        if (password.isEmpty()) {
-            password = ctx.field(QUERY_PASSWORD_ALT);
-        }
-        boolean letmein = vap.equals(ctx.field("letmein"));
-        String email = ctx.field(QUERY_EMAIL);
-        if ("admin@".equals(email) && vap.equals(password)) {
-            letmein = true; /*
-                             * don't require the DB password from admin, VAP is
-                             * ok
-                             */
-        }
-
-        {
-            String myEmail = ctx.getCookieValue(QUERY_EMAIL);
-            String myPassword = ctx.getCookieValue(QUERY_PASSWORD);
-            if (myEmail != null && (email == null || email.isEmpty())) {
-                email = myEmail;
-                if (myPassword != null && (password == null || password.isEmpty())) {
-                    password = myPassword;
-                }
-            }
-        }
-        UserRegistry.User user;
-        // /*srl*/ SurveyLog.logger.warning("isBusted: " + isBusted + ", reg: "
-        // + reg);
-
-        // SurveyLog.logger.warning("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
-
-        user = reg.get(password, email, ctx.userIP(), letmein);
-        if (user != null) {
-            user.touch();
-        }
-        // SurveyLog.logger.warning("user= "+user);
-
-        if (ctx.request == null && ctx.session != null) {
-            return "using canned session"; // already set - for testing
-        }
-
-        HttpSession httpSession = ctx.request.getSession(true);
-        boolean idFromSession = false;
-        if (myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
-            httpSession.removeAttribute(SURVEYTOOL_COOKIE_SESSION);
-        }
-        if (user != null) {
-            mySession = CookieSession.retrieveUser(user.email);
-            if (mySession != null) {
-                if (null == CookieSession.retrieve(mySession.id)) {
-                    mySession = null; // don't allow dead sessions to show up
-                                      // via the user list.
-                } else {
-                    // message =
-                    // "<i id='sessionMessage'>Reconnecting to your previous session.</i>";
-                    myNum = mySession.id;
-                }
-            }
-        }
-
-        // Retreive a number from the httpSession if present
-        if ((httpSession != null) && (mySession == null) && ((myNum == null) || (myNum.length() == 0))) {
-            String aNum = (String) httpSession.getAttribute(SURVEYTOOL_COOKIE_SESSION);
-            if ((aNum != null) && (aNum.length() > 0)) {
-                myNum = aNum;
-                idFromSession = true;
-            }
-        }
-
-        if ((mySession == null) && (myNum != null) && (myNum.length() > 0)) {
-            mySession = CookieSession.retrieve(myNum);
-            if (mySession == null) {
-                idFromSession = false;
-            }
-            if ((mySession == null) && (!myNum.equals(SURVEYTOOL_COOKIE_NONE))) {
-                // message =
-                // "<i id='sessionMessage'>(Sorry, This session has expired. ";
-                if (user == null) {
-                    message = "You may have to log in again. ";
-                }
-                // message = message + ")</i><br>";
-            }
-        }
-        if ((idFromSession == false) && (httpSession != null) && (mySession != null)) { // can
-                                                                                        // we
-                                                                                        // elide
-                                                                                        // the
-                                                                                        // 's'?
-            String aNum = (String) httpSession.getAttribute(SURVEYTOOL_COOKIE_SESSION);
-            if ((aNum != null) && (mySession.id.equals(aNum))) {
-                idFromSession = true; // it would have matched.
-            } else {
-                // ctx.println("[Confused? cs="+aNum +", s=" + mySession.id +
-                // "]");
-            }
-        }
-        // Can go from anon -> logged in.
-        // can NOT go from one logged in account to another.
-        if ((mySession != null) && (mySession.user != null) && (user != null) && (mySession.user.id != user.id)) {
-            mySession = null; // throw it out.
-        }
-
-        if (mySession == null && user == null) {
-            mySession = CookieSession.checkForAbuseFrom(ctx.userIP(), BAD_IPS, ctx.request.getHeader("User-Agent"));
-            if (mySession != null) {
-                ctx.println("<h1>Note: Your IP, " + ctx.userIP() + " has been throttled for making " + BAD_IPS.get(ctx.userIP())
-                        + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag.</h1>");
-                ctx.flush();
-                // try {
-                // Thread.sleep(15000);
-                // } catch(InterruptedException ie) {
-                // }
-                ctx.session = null;
-                // ctx.println("Now, go away.");
-                return "Bad IP.";
-            }
-        }
-        if (mySession == null) {
-            mySession = new CookieSession(user == null, ctx.userIP());
-            if (!myNum.equals(SURVEYTOOL_COOKIE_NONE)) {
-                // ctx.println("New session: " + mySession.id + "<br>");
-            }
-            idFromSession = false;
-        }
-        ctx.session = mySession;
-
-        if (!idFromSession) { // suppress 's' if cookie was valid
-            ctx.addQuery(QUERY_SESSION, mySession.id);
-        } else {
-            // ctx.println("['s' suppressed]");
-        }
-
-        if (httpSession != null) {
-            httpSession.setAttribute(SURVEYTOOL_COOKIE_SESSION, mySession.id);
-            httpSession.setMaxInactiveInterval(CookieSession.USER_TO / 1000);
-        }
-
-        if (user != null) {
-            ctx.session.setUser(user); // this will replace any existing session
-                                       // by this user.
-            ctx.session.user.ip = ctx.userIP();
-        } else {
-            if ((email != null) && (email.length() > 0) && (ctx.session.user == null)) {
-                message = "<strong id='sessionMessage'>" + (ctx.iconHtml("stop", "failed login") + "login failed.</strong><br>");
-            }
-        }
-        CookieSession.reap();
-        return message;
-    }
+    
 
     // protected void printMenu(WebContext ctx, String which, String menu,
     // String title, String key) {
@@ -3671,7 +3503,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         setLocale(ctx);
 
-        String sessionMessage = setSession(ctx);
+        String sessionMessage = ctx.setSession();
 
         if (ctx.session == null) {
             return;
@@ -3725,27 +3557,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             || ph.getSurveyToolStatus() == SurveyToolStatus.DEPRECATED) {
                         whyBad = "PathHeader status: " + ph.getSurveyToolStatus().name();
                     } else {
-                        StringBuilder redirTo = new StringBuilder(ctx.base());
-                        redirTo.append("?_=" + ctx.field("_"));
-                        PageId newPage = ph.getPageId();
-                        redirTo.append("&x=" + newPage.name());
-                        // if(ph.getPageId()!=pageId) .. don't care
-                        String ecl = ctx.getEffectiveCoverageLevel(ctx.getLocale().toString());
-                        Level l = Level.valueOf(ecl.toUpperCase());
-                        Level need = Level.fromLevel(getSupplementalDataInfo().getCoverageValue(xpath,
-                                ctx.getLocale().toULocale()));
-                        // if( (need.getLevel()!=l.getLevel() ||
-                        // newPage!=ctx.getPageId()) &&
-                        // (ph.getSurveyToolStatus()==SurveyToolStatus.READ_WRITE
-                        // ||
-                        // ph.getSurveyToolStatus()==SurveyToolStatus.READ_ONLY)
-                        // &&
-                        // need.getLevel()<101) {
-                        if (need.getLevel() > l.getLevel()) {
-                            redirTo.append("&p_covlev=" + need.name().toLowerCase());
-                        }
-                        redirTo.append("#x@" + strid + "@redir");
-                        ctx.response.sendRedirect(redirTo.toString());
+                        ctx.response.sendRedirect(ctx.vurl(CLDRLocale.getInstance(ctx.field("_")), ph.getPageId(), strid, null));
                         return; // exit
                         // }
                     }
@@ -5364,16 +5176,22 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         showPathList(ctx, PathUtilities.LOCALEDISPLAYNAMES + which, typeToSubtype(which), true /* simple */);
     }
 
+    /**
+     * This is the bottleneck function for all "main" display pages.
+     * @param ctx session (contains locale and coverage level, etc)
+     * @param xpath xpath to use
+     * @param typeToSubtype (ignored)
+     * @param b (ignored)
+     */
     private void showPathList(WebContext ctx, String xpath, String typeToSubtype, boolean b) {
-        // if(ctx.canModify()) {
-        ctx.println("       <div id='DynamicDataSection'><noscript>"
-                + ctx.iconHtml("stop", "sorry")
-                + "JavaScript is required.</noscript></div>       <script type='text/javascript'>     showRows('DynamicDataSection', '"
-                + xpath + "', '" + ctx.session.id + "','" + ctx.getEffectiveCoverageLevel(ctx.getLocale())
-                + "');       </script>");
-        // } else {
-        // showPathListOld(ctx,xpath,typeToSubtype,b);
-        // }
+        if(ctx.hasField("OLD") && isUnofficial()) {
+            ctx.includeFragment("DynamicDataSection.jsp");
+            ctx.println("<script type='text/javascript'>     showRows('DynamicDataSection', '"
+                    + xpath + "', '" + ctx.session.id + "','" + ctx.getEffectiveCoverageLevel(ctx.getLocale())
+                    + "');       </script>");
+        } else {
+            ctx.println("<script type='text/javascript'>window.location=' " + ctx.vurl(ctx.getLocale(), ctx.getPageId(), null, null) + "/'+window.location.hash.substring(1);</script>");
+        }
     }
 
     private void showPathList(WebContext ctx, String xpath, PageId pageId) {

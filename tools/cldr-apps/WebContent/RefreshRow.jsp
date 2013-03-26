@@ -7,7 +7,11 @@
 			String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
 			CLDRLocale l;
 			ctx.setLocale(l=CLDRLocale.getInstance(loc));
-			String xpath = WebContext.decodeFieldString(request.getParameter(SurveyForum.F_XPATH));
+            String xpath = WebContext.decodeFieldString(request.getParameter(SurveyForum.F_XPATH));
+            String strid = WebContext.decodeFieldString(request.getParameter("strid"));
+            if(strid!=null&&strid.isEmpty()) strid=null;
+            String sectionName = WebContext.decodeFieldString(request.getParameter("x"));
+            if(sectionName!=null&&sectionName.isEmpty()) sectionName=null;
 			String voteinfo = request.getParameter("voteinfo");
 			String vhash = request.getParameter("vhash");
 			String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
@@ -49,11 +53,19 @@
 				}
 				return;
 			}
+			if(xpath!=null && xpath.isEmpty()) {
+				xpath = null;
+			}
 			String xp = xpath;
 			XPathMatcher matcher = null;
-			PathHeader.PageId pageId = WebContext.getPageId(xp);
+			String pageIdStr = xp;
+			if(xp == null && sectionName!=null)  {
+				pageIdStr = sectionName;
+			}
 			
-			if(pageId == null ) {
+			PathHeader.PageId pageId = WebContext.getPageId(pageIdStr);
+			
+			if(pageId == null && xpath != null ) {
 				try {
 					int id = Integer.parseInt(xpath);
 					xp = mySession.sm.xpt.getById(id);
@@ -64,6 +76,14 @@
 	
 				}
 			}
+			if(pageId == null && xpath == null && strid!=null) {
+				// needs to be 'section containing..''
+				xp = mySession.sm.xpt.getByStringID(strid);
+                if(xp!=null) {
+                    matcher = XPathMatcher.getMatcherForString(xp);
+                }
+			}
+			
 			ctx.session = mySession;
 			ctx.sm = ctx.session.sm;
 			ctx.setServletPath(ctx.sm.defaultServletPath);
@@ -86,11 +106,13 @@
                                 coverage.toString(),
                                 WebContext.LoadingShow.dontShowLoading);
                         section.setUserAndFileForVotelist(mySession.user,null);
-                    } else {
+                    } else if (xp!=null) {
 					    baseXp = XPathTable.xpathToBaseXpath(xp);
 						section = ctx.getSection(baseXp,matcher,
 								coverage.toString(),
 								WebContext.LoadingShow.dontShowLoading);
+                    } else {
+                    	throw new IllegalArgumentException("no xpath, section, or id given");
                     }
 				} catch (Throwable t) {
 					SurveyLog.logException(t,"on loading " + locale+":"+ baseXp);
@@ -103,12 +125,12 @@
 					return;
 				}
 
-				if (request.getParameter("json") != null) {
+				if (request.getParameter("json") != null) { // JSON (new) mode
 					request.setCharacterEncoding("UTF-8");
 					response.setCharacterEncoding("UTF-8");
 					response.setContentType("application/json");
 					JSONObject dsets = new JSONObject();
-					if(pageId==null) {
+					if(pageId==null) { // requested an xp, not a pageid?
 						for (String n : SortMode.getSortModesFor(xp)) {
 							dsets.put(
 									n,
@@ -117,15 +139,19 @@
 						}
 						//DataSection.DisplaySet ds = section.getDisplaySet(ctx, matcher);
 						dsets.put("default", SortMode.getSortMode(ctx, section));
+						pageId = section.getPageId();
 					} else {
 					    dsets.put("default",PathHeaderSort.name);
-					    dsets.put(PathHeaderSort.name,section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name),null));
+					    dsets.put(PathHeaderSort.name,section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name),null)); // the section creates the sort
 					}
-					
+							
 					try {
 						JSONWriter r = new JSONWriter(out).object()
 								.key("stro").value(STFactory.isReadOnlyLocale(ctx.getLocale()))
+								.key("baseXpath").value(baseXp)
+                                .key("pageId").value((pageId!=null)?pageId.name():null)
 								.key("section").value(section)
+								.key("localeDisplayName").value(ctx.getLocale().getDisplayName())
 								.key("displaySets").value(dsets)
 								.key("dir").value(ctx.getDirectionForLocale())
 								.key("canModify").value(ctx.canModify())

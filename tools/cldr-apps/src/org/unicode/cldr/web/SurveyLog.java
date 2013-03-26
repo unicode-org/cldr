@@ -1,5 +1,5 @@
 /**
- * 
+ * Copyright (C) 2013 IBM Corporation and Others All Rights Reserved.
  */
 package org.unicode.cldr.web;
 
@@ -173,7 +173,7 @@ public class SurveyLog {
     // return lastTimePost;
     // }
 
-    static void logException(Throwable t, WebContext ctx) {
+    public static void logException(Throwable t, WebContext ctx) {
         logException(t, "(exception)", ctx);
     }
 

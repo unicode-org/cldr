@@ -138,15 +138,12 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
 %>
 	      <br><b>Review:</b> 
-	      <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=<%= SurveyMain.R_VETTING %>" 
-	      					class="notselected">Priority Items</a></label>
-	      | <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_datetime&calendar=gregorian"
-	                        class="notselected">Date/Time</a></label>
-	      | <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_zones"
-	                        class="notselected">Zones</a></label>
-	      | <label class='menutop-other'><a href="<%= ctx.base() %>?_=<%= ctx.getLocale() %>&amp;<%= SurveyMain.QUERY_SECTION %>=r_compact"
-	                        class="notselected">Numbers</a></label>
-        </p>
+	      <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) { %>
+	      <label class='menutop-other'><a href="<%= m.urlFull(ctx.base(), ctx.getLocale().getBaseName()).replace("&", "&amp;")%>" class="<%=
+	    		     request.getQueryString().contains(m.urlQuery())?"selected":"notselected"
+	               %>"><%= m.display() %></a></label> 
+	      <% } %>
+        <br />
         <%
         	/* END NON JAVASCRIPT */
 			out.flush();

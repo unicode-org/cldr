@@ -39,9 +39,17 @@
 		</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+	    <servlet-name>v</servlet-name>
+	    <jsp-file>/v.jsp</jsp-file>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>SurveyMain</servlet-name>
 		<url-pattern>/survey/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>v</servlet-name>
+	    <url-pattern>/v</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>/index.jsp</welcome-file>

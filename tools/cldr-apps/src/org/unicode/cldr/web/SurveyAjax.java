@@ -181,6 +181,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_RECENT_ITEMS = "recent_items";
     public static final String WHAT_FORUM_FETCH = "forum_fetch";
     public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
+    public static final Object WHAT_GET_MENUS = "menus";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, "dummy" }; // list
                                                                               // of
@@ -278,6 +279,18 @@ public class SurveyAjax extends HttpServlet {
                 JSONObject query;
                 query = DBUtils.queryToJSON(q1, u.id);
                 r.put("mine", query);
+                send(r, out);
+            } else if (what.equals(WHAT_GET_MENUS)) {
+                
+                JSONWriter r = newJSONStatus(sm);
+                r.put("what", what);
+
+                CLDRLocale locale = CLDRLocale.getInstance(loc);
+                r.put("loc", loc);
+                SurveyMenus menus = sm.getSTFactory().getSurveyMenus();
+                
+                r.put("menus",menus.toJSON(locale));
+
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
                 JSONWriter r = newJSONStatus(sm);

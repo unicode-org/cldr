@@ -20,6 +20,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.Vector;
 
@@ -30,6 +31,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
@@ -570,6 +572,15 @@ public class WebContext implements Cloneable, Appendable {
             outQuery = outQuery + "&amp;" + k + "=" + v;
         }
     }
+    
+    /**
+     * Copy from request queries to output query
+     */
+    public void addAllParametersAsQuery() {
+        for(Entry<String, String[]> e : request.getParameterMap().entrySet()) {
+            addQuery(e.getKey(),e.getValue()[0]);
+        }
+    }
 
     /**
      * Add a boolean parameter to the output URL as 't' or 'f'
@@ -650,6 +661,14 @@ public class WebContext implements Cloneable, Appendable {
             return base() + "?" + outQuery;
         }
     }
+    
+    /**
+     * Return the raw query string, or null
+     * @return
+     */
+    public String query() {
+        return outQuery;
+    }
 
     /**
      * Returns the string that must be appended to the URL to start the next
@@ -672,6 +691,37 @@ public class WebContext implements Cloneable, Appendable {
         } else {
             return context() + theServletPath;
         }
+    }
+    
+    /**
+     * Get the new '/v' viewing URL. Note that this will include a fragment, do NOT append to the result (pass in something in queryAppend)
+     * @param loc locale to view.
+     * @param page pageID to view. Example:  PageId.Africa (shouldn't be null- yet)
+     * @param strid strid to view. Example: "12345678" or null
+     * @param queryAppend  this will be appended as the query. Example: "?email=foo@bar"
+     * @return
+     */
+    public String vurl(CLDRLocale loc, PageId page, String strid, String queryAppend) {
+        StringBuilder sb = new StringBuilder(request.getContextPath());
+        sb.append("/v");
+        if(queryAppend!=null && !queryAppend.isEmpty()) {
+            sb.append(queryAppend);
+        }
+        sb.append('#'); // hash
+ 
+        // locale
+        sb.append('/');
+        sb.append(loc.getBaseName());
+        
+        // page
+        sb.append('/');
+        sb.append(page.name());
+        
+        if(strid!=null && !strid.isEmpty()) {
+            sb.append('/');
+            sb.append(strid);
+        }
+        return sb.toString();
     }
 
     public void setServletPath(String path) {
@@ -1963,9 +2013,7 @@ public class WebContext implements Cloneable, Appendable {
             WebContext nuCtx = (WebContext) clone();
             nuCtx.setQuery(SurveyMain.PREF_NOJAVASCRIPT, "t");
             println("<noscript><h1>");
-            println("<a href='" + nuCtx.url() + "'>");
-            println(iconHtml("warn", "JavaScript disabled") + "JavaScript is disabled. Please click here to continue.");
-            println("</a>");
+            println(iconHtml("warn", "JavaScript disabled") + "JavaScript is disabled. Please enable JavaScript..");
             println("</h1></noscript>");
         }
     }
@@ -2134,6 +2182,165 @@ public class WebContext implements Cloneable, Appendable {
             checkedPage = true;
         }
         return pageId;
+    }
+
+    /**
+     * set the session.
+     */
+    public String setSession() {
+        if(this.session!=null) return "Internal error - session already set.";
+        
+        String message = null;
+        // get the context
+        CookieSession mySession = null;
+        String myNum = field(SurveyMain.QUERY_SESSION);
+        // get the uid
+        String password = field(SurveyMain.QUERY_PASSWORD);
+        if (password.isEmpty()) {
+            password = field(SurveyMain.QUERY_PASSWORD_ALT);
+        }
+        boolean letmein = SurveyMain.vap.equals(field("letmein"));
+        String email = field(SurveyMain.QUERY_EMAIL);
+        if ("admin@".equals(email) && SurveyMain.vap.equals(password)) {
+            letmein = true; /*
+                             * don't require the DB password from admin, VAP is
+                             * ok
+                             */
+        }
+    
+        {
+            String myEmail = getCookieValue(SurveyMain.QUERY_EMAIL);
+            String myPassword = getCookieValue(SurveyMain.QUERY_PASSWORD);
+            if (myEmail != null && (email == null || email.isEmpty())) {
+                email = myEmail;
+                if (myPassword != null && (password == null || password.isEmpty())) {
+                    password = myPassword;
+                }
+            }
+        }
+        User user;
+        // /*srl*/ SurveyLog.logger.warning("isBusted: " + isBusted + ", reg: "
+        // + reg);
+    
+        // SurveyLog.logger.warning("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
+    
+        user = CookieSession.sm.reg.get(password, email, userIP(), letmein);
+        if (user != null) {
+            user.touch();
+        }
+        // SurveyLog.logger.warning("user= "+user);
+    
+        if (request == null && session != null) {
+            return "using canned session"; // already set - for testing
+        }
+    
+        HttpSession httpSession = request.getSession(true);
+        boolean idFromSession = false;
+        if (myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
+            httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
+        }
+        if (user != null) {
+            mySession = CookieSession.retrieveUser(user.email);
+            if (mySession != null) {
+                if (null == CookieSession.retrieve(mySession.id)) {
+                    mySession = null; // don't allow dead sessions to show up
+                                      // via the user list.
+                } else {
+                    // message =
+                    // "<i id='sessionMessage'>Reconnecting to your previous session.</i>";
+                    myNum = mySession.id;
+                }
+            }
+        }
+    
+        // Retreive a number from the httpSession if present
+        if ((httpSession != null) && (mySession == null) && ((myNum == null) || (myNum.length() == 0))) {
+            String aNum = (String) httpSession.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
+            if ((aNum != null) && (aNum.length() > 0)) {
+                myNum = aNum;
+                idFromSession = true;
+            }
+        }
+    
+        if ((mySession == null) && (myNum != null) && (myNum.length() > 0)) {
+            mySession = CookieSession.retrieve(myNum);
+            if (mySession == null) {
+                idFromSession = false;
+            }
+            if ((mySession == null) && (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE))) {
+                // message =
+                // "<i id='sessionMessage'>(Sorry, This session has expired. ";
+                if (user == null) {
+                    message = "You may have to log in again. ";
+                }
+                // message = message + ")</i><br>";
+            }
+        }
+        if ((idFromSession == false) && (httpSession != null) && (mySession != null)) { // can
+                                                                                        // we
+                                                                                        // elide
+                                                                                        // the
+                                                                                        // 's'?
+            String aNum = (String) httpSession.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
+            if ((aNum != null) && (mySession.id.equals(aNum))) {
+                idFromSession = true; // it would have matched.
+            } else {
+                // ctx.println("[Confused? cs="+aNum +", s=" + mySession.id +
+                // "]");
+            }
+        }
+        // Can go from anon -> logged in.
+        // can NOT go from one logged in account to another.
+        if ((mySession != null) && (mySession.user != null) && (user != null) && (mySession.user.id != user.id)) {
+            mySession = null; // throw it out.
+        }
+    
+        if (mySession == null && user == null) {
+            mySession = CookieSession.checkForAbuseFrom(userIP(), SurveyMain.BAD_IPS, request.getHeader("User-Agent"));
+            if (mySession != null) {
+                println("<h1>Note: Your IP, " + userIP() + " has been throttled for making " + SurveyMain.BAD_IPS.get(userIP())
+                        + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag.</h1>");
+                flush();
+                // try {
+                // Thread.sleep(15000);
+                // } catch(InterruptedException ie) {
+                // }
+                session = null;
+                // ctx.println("Now, go away.");
+                return "Bad IP.";
+            }
+        }
+        if (mySession == null) {
+            mySession = new CookieSession(user == null, userIP());
+            if (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
+                // ctx.println("New session: " + mySession.id + "<br>");
+            }
+            idFromSession = false;
+        }
+        session = mySession;
+    
+        if (!idFromSession) { // suppress 's' if cookie was valid
+            addQuery(SurveyMain.QUERY_SESSION, mySession.id);
+        } else {
+            // ctx.println("['s' suppressed]");
+        }
+    
+        if (httpSession != null) {
+            httpSession.setAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION, mySession.id);
+            httpSession.setMaxInactiveInterval(CookieSession.USER_TO / 1000);
+        }
+    
+        if (user != null) {
+            session.setUser(user); // this will replace any existing session
+                                       // by this user.
+            session.user.ip = userIP();
+        } else {
+            if ((email != null) && (email.length() > 0) && (session.user == null)) {
+                message = "<strong id='sessionMessage'>" + (iconHtml("stop", "failed login") + "login failed.</strong><br>");
+            }
+        }
+        CookieSession.reap();
+        return message;
     }
 
     public static PageId getPageId(String pageField) {

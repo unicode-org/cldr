@@ -1,6 +1,7 @@
 package org.unicode.cldr.web;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -10,6 +11,10 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONString;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
@@ -20,6 +25,7 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.web.SurveyMenus.Section.Page;
 
 import com.ibm.icu.dev.util.Relation;
 
@@ -156,6 +162,7 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             }
 
             Map<CLDRLocale, Integer> levs = new HashMap<CLDRLocale, Integer>();
+
         }
 
         @Override
@@ -164,4 +171,54 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
         }
     }
 
+    public JSONObject toJSON(CLDRLocale forLoc) throws JSONException {
+        JSONArray sectionsJ = new JSONArray();
+        
+        for(Section s : sections) {
+            JSONObject sectionJ  = new JSONObject()
+                .put("id", s.getSection().name())
+                .put("name", s.getSection().toString())
+                .put("status", s.getStatus());
+            
+            JSONArray pagesJ = new JSONArray();
+            
+            for(Page p : s) {
+                JSONObject pageJ = new JSONObject()
+                    .put("id", p.getKey().name())
+                    .put("name", p.getKey().toString());
+                if(forLoc!=null) {
+                    pageJ.put("levs", new JSONObject().put(forLoc.getBaseName(),
+                            Integer.toString(p.getCoverageLevel(forLoc))));
+                }
+                pagesJ.put(pageJ);
+            }
+            
+            sectionJ.put("pages", pagesJ);
+            
+            sectionsJ.put(sectionJ);
+        }
+        
+        JSONObject ret = new JSONObject()
+            .put("sections", sectionsJ)
+            .put("levels", levelsJSON());
+        if(forLoc!=null) {
+            ret.put("loc", forLoc.getBaseName());
+        }
+        return ret;
+    }
+
+    /**
+     * TODO: move this into Level, once JSON libs are integrated into core
+     * @return
+     * @throws JSONException
+     */
+    private static JSONObject levelsJSON() throws JSONException {
+        JSONObject levels = new JSONObject();
+        for (Level l : Level.values()) {
+            levels.put(l.name(), new JSONObject().put("name", l.toString()).put("level", Integer.toString(l.getLevel())));
+        }
+        return levels;
+    }
+    
+    
 }

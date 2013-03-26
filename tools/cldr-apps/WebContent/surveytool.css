@@ -1,23 +1,8 @@
-/* Copyright (c) 2004-2013 IBM and others. All Rights Reserved. */
-
 /* @override 
 	http://127.0.0.1:8080/cldr-apps/surveytool.css
-	http://nestor.priv:8080/cldr-apps/surveytool.css
-	http://tintin.priv:8080/cldr-apps/surveytool.css
-	http://nestor.local:8080/cldr-apps/surveytool.css
-	http://unicode.org/cldr/apps/surveytool.css
-	http://kwanyin.unicode.org/cldr-apps/surveytool.css
-	http://localhost:8080/cldr-apps/surveytool.css
-	http://10.0.0.112:8080/cldr-apps/surveytool.css
-	http://naf.priv:8080/cldr-apps/surveytool.css
-	http://127.0.0.1:8081/cldr-apps/surveytool.css
-	http://st.unicode.org/smoketest/surveytool.css
-	http://10.0.0.148:8080/cldr-apps/surveytool.css
-	http://10.0.0.158:8080/cldr-apps/surveytool.css
-	http://st.unicode.org:8080/cldr-apps/surveytool.css
-	http://st.unicode.org/cldr-apps/surveytool.css
-	http://naf:8080/cldr-apps/surveytool.css
-*/
+	http://naf.:8080/cldr-apps/surveytool.css */
+/* Copyright (c) 2004-2013 IBM and others. All Rights Reserved. */
+/* Made with CSSEdit and Espresso2 */
 
 span.age {
 	font-weight: bold;
@@ -1231,13 +1216,16 @@ div#toparea img#stlogo {
 }
 
 #toptitle {
+	font-size: medium;
+}
+
+#toparea #toptitle {
 	padding-top: 0;
 	margin-top: 0;
 	margin-bottom: 0;
 	line-height: 2.5em;
 	font-weight: normal;
 	padding-bottom:  0;
-	font-size: medium;
 }
 
 #toptitle span.title-cldr {
@@ -1624,14 +1612,17 @@ div.topnotices div.unofficial {
 	display: none;
 }
 
-div.topnotices #betanotice {
-    background-color: yellow;
-    padding:  2px;
-    padding-top:  3px;
-	box-shadow: 1px 1px 1px gray;
+body > div.topnotices #betanotice {
 }
 
-div.topnotices div.beta {
+body > div.topnotices div.beta {
+clear: right;
+position: fixed;
+left: 0;
+top: 0;
+z-index: 0;
+}
+div.beta {
 	/*
 -webkit-transform: rotate(-90deg);
 	-webkit-transform-origin: right bottom;
@@ -1643,16 +1634,15 @@ div.topnotices div.beta {
 -khtml-transform-origin: right bottom;
 */
 /* filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
+    opacity: 0.9;
 	float: right;
 	font-size: smaller;
-	clear: right;
-	position: fixed;
-	left: 0;
-	top: 0;
-	opacity: 0.9;
-	z-index: 0;
 	margin-top:  2px;
 	margin-left:  2px;
+background-color: yellow;
+padding:  2px;
+padding-top:  3px;
+box-shadow: 1px 1px 1px gray;
 }
 
 div.debugJsp {
@@ -1735,13 +1725,17 @@ span#visitors td.remain {
 	border: none !important;
 }
 
+
 div#progress {
+	background-color: #e0f4ea;
+}
+
+body > div#progress {
 	position: fixed;
 	top: 0;
 	right: 0;
 	margin-left: 0.2em;
 	margin-bottom: 0.2em;
-	background-color: #e0f4ea;
 	padding-top: 2px;
 	padding-left:  0.2em;
 	padding-bottom: 0.2em;
@@ -2115,6 +2109,10 @@ h3.voteInfo_key_title {
     text-align: center;
 }
 
+.d-no, .d-status {
+    width:  32px;
+}
+
 /*.d-vo-false:hover, .d-vo-true:hover,
 .d-st-warn:hover, .d-st-stop:hover, .d-st-okay:hover {
 	border: 2px solid navy;
@@ -2125,8 +2123,12 @@ h3.voteInfo_key_title {
 
 .d-item {
 	border: 2px solid white;
+	display:  inline-box;
 }
 
+.d-item span span {
+     display:  inline !important;
+}
 /*.d-item:hover {
 	border: 2px solid navy;
 	background: url(zoom.png) no-repeat right center;
@@ -2385,6 +2387,9 @@ td.d-change-warn, td.d-win-warn, .d-item-warn {
 	background: #fbfea1 url(warn.png) no-repeat left bottom !important;
 }
 
+td.d-win {
+}
+
 /* @end */
 
 /* @group Popup */
@@ -2410,7 +2415,6 @@ div#pu-peak {
 	text-align: right;
 	z-index: 6;
 }
-
 
 
 div#pu-content {
@@ -2527,4 +2531,79 @@ div.voterList .voterOrg {
 .rolloverspan:hover {
 	color: white !important;
 	background-color: navy !important;
+}
+
+#itemInfo {
+	width:  10em;
+}
+
+.stSplitPane .scrollingContent {
+/*	width: 100%;*/
+}
+
+body.claro > table#usertable,
+body.claro > div#toparea,
+body.claro > div#sectionmenu,
+body.claro > div#footer {
+	display:  none;
+}
+
+#topstuff {
+}
+
+#topstuff #toptitle > span::after{
+    content: "»";
+}
+
+span#title-item::after {
+    content:  "" !important;
+}
+
+#st-menubar  {
+    width: 40em;
+    display:  inline-block;
+}
+
+#botstuff > div#progress {
+}
+
+#toptitle > span > .dijitButtonNode {
+    text-decoration: underline !important;
+    background-color: inherit !important;
+    border:  none !important;
+	color: #358cc3;
+}
+
+html.claro, body.claro {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow:hidden;
+}
+
+#borderContainer {
+	top:  0;
+    height: 100%;
+}
+
+span.editableHere {
+    padding:  2px;
+}
+.titlePart {
+}
+
+.titlePart::before {
+}
+
+#title-page {
+    font-weight: bold;
+}
+
+#title-item {
+    font-family: "Courier New", Courier, mono;
+}
+
+span.editableHere:hover {
+    background-color: yellow;
+    border:  1px solid black;
 }

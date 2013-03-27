@@ -858,7 +858,7 @@ public class DBUtils {
     }
 
     @SuppressWarnings("rawtypes")
-    private Map[] resultToArrayAssoc(ResultSet rs) throws SQLException {
+    private static Map[] resultToArrayAssoc(ResultSet rs) throws SQLException {
         ResultSetMetaData rsm = rs.getMetaData();
         ArrayList<Map<String, Object>> al = new ArrayList<Map<String, Object>>();
         while (rs.next()) {
@@ -867,7 +867,7 @@ public class DBUtils {
         return al.toArray(new Map[al.size()]);
     }
 
-    private Map<String, Object> assocOfResult(ResultSet rs, ResultSetMetaData rsm) throws SQLException {
+    private static Map<String, Object> assocOfResult(ResultSet rs, ResultSetMetaData rsm) throws SQLException {
         Map<String, Object> m = new HashMap<String, Object>(rsm.getColumnCount());
 
         for (int i = 1; i <= rsm.getColumnCount(); i++) {
@@ -1142,6 +1142,53 @@ public class DBUtils {
             close(rs, s, conn);
         }
     }
+    
+    /**
+     * query to an array associative maps
+     * @param string
+     * @param args
+     * @return
+     * @throws SQLException
+     * @throws IOException
+     */
+    public static Map[] queryToArrayAssoc(String string, Object... args) throws SQLException, IOException {
+        Connection conn = null;
+        PreparedStatement s = null;
+        ResultSet rs = null;
+        try {
+            conn = getInstance().getDBConnection();
+            s = DBUtils.prepareForwardReadOnly(conn, string);
+            setArgs(s, args);
+            rs = s.executeQuery();
+            return resultToArrayAssoc(rs);
+        } finally {
+            close(rs, s, conn);
+        }
+    }
+
+    /**
+     * query to an array of arrays of objects
+     * @param string
+     * @param args
+     * @return
+     * @throws SQLException
+     * @throws IOException
+     */
+    public static Object[][] queryToArrayArrayObj(String string, Object... args) throws SQLException, IOException {
+        Connection conn = null;
+        PreparedStatement s = null;
+        ResultSet rs = null;
+        try {
+            conn = getInstance().getDBConnection();
+            s = DBUtils.prepareForwardReadOnly(conn, string);
+            setArgs(s, args);
+            rs = s.executeQuery();
+            return resultToArrayArrayObj(rs);
+        } finally {
+            close(rs, s, conn);
+        }
+    }
+
 
     public static String getDbBrokenMessage() {
         final File homeFile = CLDRConfigImpl.homeFile;

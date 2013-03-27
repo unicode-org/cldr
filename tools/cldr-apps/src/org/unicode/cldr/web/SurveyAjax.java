@@ -285,10 +285,13 @@ public class SurveyAjax extends HttpServlet {
                 JSONWriter r = newJSONStatus(sm);
                 r.put("what", what);
 
+                SurveyMenus menus = sm.getSTFactory().getSurveyMenus();
+
+                if(loc== null || loc.isEmpty()) {
+                    throw new IllegalArgumentException("loc parameter cannot be empty");
+                }
                 CLDRLocale locale = CLDRLocale.getInstance(loc);
                 r.put("loc", loc);
-                SurveyMenus menus = sm.getSTFactory().getSurveyMenus();
-                
                 r.put("menus",menus.toJSON(locale));
 
                 send(r, out);
@@ -660,6 +663,58 @@ public class SurveyAjax extends HttpServlet {
 //                            ctx.println("</div>");
 //                        }
                     
+
+                        send(r, out);
+                    } else if(what.equals("oldvotes")) {
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("what", what);
+
+                        JSONObject oldvotes = new JSONObject();
+                        
+                        String votesAfterSQL = SurveyMain.getSQLVotesAfter();
+                        String votesAfterString = SurveyMain.getVotesAfterString();
+
+                        oldvotes.put("votesafter", votesAfterString);
+                        
+                        if(loc == null ||loc.isEmpty()) {
+                            oldvotes.put("locales",
+                                                    DBUtils.queryToJSON(   "select distinct locale,count(*) as count from " + STFactory.CLDR_VBV + " where submitter=? and last_mod < ? and value is not null", mySession.user.id, votesAfterSQL));
+                        } else {
+                            CLDRLocale locale = CLDRLocale.getInstance(loc);
+                            oldvotes.put("locale",locale);
+                            oldvotes.put("localeDisplayName",locale.getDisplayName());
+                            oldvotes.put("dir",sm.getDirectionalityFor(locale));
+                            STFactory fac = sm.getSTFactory();
+                            CLDRFile file = fac.make(loc, false);
+                            String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < ? and value is not null";
+                            Map rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id, votesAfterSQL);
+//                            System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+
+                            int uncontested = 0;
+                            JSONArray contested = new JSONArray();
+                            
+                            
+                            for(Map m : rows) {
+                                String value = m.get("value").toString();
+                                if(value==null) continue; // ignore unvotes.
+                                int xp = (Integer)m.get("xpath");
+                                String xpathString = sm.xpt.getById(xp);
+                                String xpathStringHash = sm.xpt.getStringIDString(xp);
+                                
+                                String curValue = file.getStringValue(xpathString);
+                                if(value.equals(curValue)) {
+                                    uncontested++;
+                                } else {
+                                    JSONObject aRow = new JSONObject().put("strid", xpathStringHash).put("myValue", value).put("winValue", curValue).put("pathHeader", fac.getPathHeader(xpathString).toString());
+                                    contested.put(aRow);
+                                }
+                            }
+                            
+                            oldvotes.put("contested", contested);
+                            oldvotes.put("uncontested", uncontested);
+                        }
+                        
+                        r.put("oldvotes", oldvotes);
 
                         send(r, out);
                     } else {

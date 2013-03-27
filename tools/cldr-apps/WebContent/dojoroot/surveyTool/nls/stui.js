@@ -169,7 +169,12 @@ define({
            StatusAction_FORBID_ERRORS:    "Item had errors.",
            StatusAction_FORBID_READONLY:  "Read-only.",
            StatusAction_FORBID_COVERAGE:  "Outside of coverage.",
-                        
+           
+           // v.jsp
+           v_bad_special_msg:  "Bad URL (mistyped?), unknown special action: \"${special}\"",
+           v_oldvotes_title: "Old Votes - from before ${votesafter}",
+           v_oldvotes_uncontested: "Uncontested Vote Count: ${uncontested}, Contested Vote Count: ${contested}",
+           v_oldvotes_locale_list_help: "Locales that have old votes.. clicky clicky",
 			"": ""})
 //		"mt-MT": false
 	

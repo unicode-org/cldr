@@ -12,7 +12,11 @@ if(SurveyMain.isBusted!=null) {
     %><a href="<%= request.getContextPath() + "/survey" %>">Survey Tool</a> is offline.<%
     return;
 } else if(sm==null || !SurveyMain.isSetup) {
-        %>Attempting to start SurveyTool..
+        %>
+        <div id='st_err'></div>
+        <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
+        
+        Attempting to start SurveyTool..
         
         <%
             String url = request.getContextPath() + request.getServletPath(); // TODO add query
@@ -31,19 +35,23 @@ if(SurveyMain.isBusted!=null) {
             <h1>
                 JavaScript is required.
             </h1></noscript>
-              If you are not redirected in a few seconds, you can click: <a id='redir' href='<%= url %>'>here.</a>
+              If you are not redirected in a few seconds, you can click: <a id='redir' href='<%= url %>'>here</a> to retry, or <a id='redir2' href='<%= survURL %>'>here</a>.
               <script type="application/javascript">
                             document.getElementById("redir").href = '<%= url %>' + document.location.search +  document.location.hash;
-              </script>
+
+                               dojo.ready(function(){
+                                   dojo.xhrGet({url: '<%= survURL %>', load: function() {                                          window.location.search='?'+window.location.search.substr(1)+'&';  }  }); 
+                               });
+
+                            
+                            </script>
             <%
             
             if(sm!=null) {
         %>
                 <%= sm.startupThread.htmlStatus() %>
                 <hr>
-                <!--  attempt to start via iframe -->
-                        <iframe 'src="<%= survURL %>" width=10 height=10 %></iframe>
-                
+                                
         <%
             }
         return;
@@ -67,7 +75,7 @@ if(false) { // if we need to redirect for some reason..
 	       </script>
      </head>
 	 <body>
-	   If you are not redirected, please click: <a href='<%= url %>'>here</a>
+	   If you are not redirected, please click: <a href='<%= url %>'>here</a>, or <a id='redir2' href='<%= survURL %>'>here</a> (may lose your place).
 	 <%
  }
 %>

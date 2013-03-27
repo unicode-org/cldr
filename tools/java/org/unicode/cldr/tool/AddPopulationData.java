@@ -28,7 +28,7 @@ public class AddPopulationData {
         // "Afghanistan","AFG","GNI, PPP (current international $)","NY.GNP.MKTP.PP.CD","..","..","13144920451.3325","16509662130.816","18932631964.8727","22408872945.1924","25820670505.2627","30783369469.7509","32116190092.1429","..",
 
         Country_Name, Country_Code, Series_Name, Series_Code,
-        YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008, YR2009, YR2010, YR2011;
+        YR2000, YR2001, YR2002, YR2003, YR2004, YR2005, YR2006, YR2007, YR2008, YR2009, YR2010, YR2011, YR2012;
         String get(String[] pieces) {
             return pieces[ordinal()];
         }
@@ -118,11 +118,12 @@ public class AddPopulationData {
     }
 
     private static void showCountryData(String country) {
+        number.setMaximumFractionDigits(0);
         System.out.println(country
             + "\t" + ULocale.getDisplayCountry("und-" + country, "en")
-            + "\t" + getPopulation(country)
-            + "\t" + getGdp(country)
-            + "\t" + getLiteracy(country)
+            + "\t" + number.format(getPopulation(country))
+            + "\t" + number.format(getGdp(country))
+            + "\t" + percent.format(getLiteracy(country)/100)
             );
     }
 
@@ -226,6 +227,7 @@ public class AddPopulationData {
 
     static final NumberFormat dollars = NumberFormat.getCurrencyInstance(ULocale.US);
     static final NumberFormat number = NumberFormat.getNumberInstance(ULocale.US);
+    static final NumberFormat percent = NumberFormat.getPercentInstance(ULocale.US);
 
     static class MyLineHandler implements FileUtilities.LineHandler {
         CountryData countryData;

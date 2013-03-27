@@ -314,16 +314,12 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public void TestPopulation() {
         Set<String> languages = testInfo.getSupplementalDataInfo().getLanguagesForTerritoriesPopulationData();
-        Relation<String, String> baseToLanguages = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> baseToLanguages = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
         for (String language : languages) {
             String base = ltp.set(language).getLanguage();
             String script = ltp.getScript();
             baseToLanguages.put(base, language);
-
-            if (TestInfo.isCldrVersionBefore(23, 0, 0, 1)) {
-                continue;
-            }
 
             // add basic data, basically just for wo!
             // if there are primary scripts, they must include script (if not empty)
@@ -358,7 +354,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (languagesForBase.size() > 1) {
                     errln("Cannot have base alone with other scripts:\t" + languagesForBase);
                 }
-            } else if (!TestInfo.isCldrVersionBefore(23, 0, 0, 1)) {
+            } else {
                 if (languagesForBase.size() == 1) {
                     errln("Cannot have only one script for language:\t" + languagesForBase);
                 }

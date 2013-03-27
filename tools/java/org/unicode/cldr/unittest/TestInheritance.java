@@ -403,9 +403,6 @@ public class TestInheritance extends TestFmwk {
         // the invariants are:
         // if there is primary data, the script must be there
         // otherwise it must be in the secondary
-        if (TestInfo.isCldrVersionBefore(23, 0, 0, 1)) {
-            return;
-        }
         main: for (String script : ScriptMetadata.getScripts()) {
             Info info = ScriptMetadata.getInfo(script);
             String language = info.likelyLanguage;
@@ -414,7 +411,7 @@ public class TestInheritance extends TestFmwk {
             }
             Map<Type, BasicLanguageData> data = dataInfo.getBasicLanguageDataMap(language);
             if (data == null) {
-                warnln("ScriptMetadata has " + language + " for " + script + "," +
+                logln("Warning: ScriptMetadata has " + language + " for " + script + "," +
                     " but " + language + " is missing in language_script.txt");
                 continue;
             }
@@ -424,7 +421,7 @@ public class TestInheritance extends TestFmwk {
                 }
                 continue;
             }
-            warnln("ScriptMetadata has " + language + " for " + script + "," +
+            logln("Warning: ScriptMetadata has " + language + " for " + script + "," +
                 " but " + language + " doesn't have " + script + " in language_script.txt");
         }
     }

@@ -111,7 +111,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-    public static final String GEN_VERSION = "23";
+    public static final String GEN_VERSION = "24";
 
     private Collection<String> extraPaths = null;
 
@@ -1469,7 +1469,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     // ldmlComparator.addValue(value);
                     // special fix to remove version
                     // <!ATTLIST version number CDATA #REQUIRED >
-                    // <!ATTLIST version cldrVersion CDATA #FIXED "23" >
+                    // <!ATTLIST version cldrVersion CDATA #FIXED "24" >
                     if (attribute.equals("cldrVersion")
                         && (qName.equals("version"))) {
                         ((SimpleXMLSource) target.dataSource).setDtdVersionInfo(VersionInfo.getInstance(value));

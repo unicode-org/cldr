@@ -67,6 +67,8 @@ public class PathHeader implements Comparable<PathHeader> {
 
     /**
      * The Section for a path. Don't change these without committee buy-in.
+     * The 'name' may be 'Code_Lists' and the toString is 'Code Lists'
+     * toString gives the human name
      */
     public enum SectionId {
         Code_Lists("Code Lists"),
@@ -123,6 +125,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
     /**
      * The Page for a path (within a Section). Don't change these without committee buy-in.
+     * the name is for example WAsia where toString gives Western Asia
      */
     public enum PageId {
         Languages(SectionId.Code_Lists),
@@ -187,14 +190,27 @@ public class PathHeader implements Comparable<PathHeader> {
             PageIdNames.add(this, alternateNames);
         }
 
+        /**
+         * Construct a pageId given a string
+         * @param name
+         * @return
+         */
         public static PageId forString(String name) {
             return PageIdNames.forString(name);
         }
 
+        /**
+         * Returns the page id
+         * @return a page ID, such as 'Languages'
+         */
         public String toString() {
             return PageIdNames.toString(this);
         }
 
+        /**
+         * Get the containing section id, such as 'Code Lists'
+         * @return the containing section ID
+         */
         public SectionId getSectionId() {
             return sectionId;
         }

@@ -304,7 +304,7 @@
         <echo message="Test argument:   ${runcheck.arg}"/>
         <java classname="org.unicode.cldr.unittest.web.TestAll" fork="yes" failonerror="true" classpathref="project.class.path">
             <arg line="${runcheck.arg}"/>
-            <jvmarg line="${runcheck.jvmarg} -DCLDR_WEB_TESTS=true -Djava.awt.headless=true"/>
+            <jvmarg line="${runcheck.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true"/>
         </java>
    </target>
 

@@ -36,37 +36,20 @@ to finish on the current code base.
   MD: catalina-ant.jar is in apache-tomcat-XXX/server/lib/
   MD: In eclipse, the Ant lib directory is in eclipse/plugins/org.appache.ant_XXX/lib
      Note: doesn't use anything Tomcat-specific, I'm just not familiar with other environments.
-* Apache Derby 10.2.2.0+  http://db.apache.org/derby/
-* International Classes for Unicode, for Java  (icu4j) plus Utilities,
-  3.6+   (Note: Should update to 3.8)
-  RECOMMENDED: use pre-built binaries
-  - for CLDR 1.4 see http://unicode.org/Public/cldr/1.4/tools/readme.txt
-     ( cldr-utilities-1_4.jar is in that directory, and ICU4J 3.6 is available from
-       http://icu.sourceforge.net/download/ )
-  If building ICU from source: 
-    See the readme inside of cldr's  cldr/tools/java/readme.txt
-* Xalan http://xalan.apache.org
-* JavaMail 1.4+  http://java.sun.com/products/javamail/
-  - may need Java Beans Activation Framework  activation.jar to install mail - http://java.sun.com/products/javabeans/jaf/
-  - however, mail.jar is enough to compile and run survey tool without email (SMTP) support.
-* https://rome.dev.java.net/ Rome 0.9+  download the jar and place in cldr's org/unicode/cldr/web/data/jars/ directory
-* http://www.jdom.org  JDOM 1.0 download jar and place in cldr's org/unicode/cldr/web/data/jars/ directory
+* All other requirements are now included.
+* Database (If not Apache Derby, which is included, also tested with MySQL)
 
-2. Setting up jars for tomcat
- - put the following jars from the following projects into tomcat's  "lib/" directory:
-    Derby:  derby.jar
-    ICU4J:    icu4j*.jar   cldr-utilities*.jar
-    xalan: xalan.jar, xercesImpl.jar, xml-apis.jar
-    JavaMail:   mail.jar   ( may need activation.jar also )
-    JDOM: jdom.jar
+2. <obviated>
 
 3. Setting up your build environment
 
- - follow the general requirements for building CLDR - should be able to do "ant jar" to produce cldr.jar
- - set CATALINA_HOME to your Tomcat install directory
+ - copy build-sample.properties to build.properties
+ - edit build.properties
+  - set CATALINA_HOME to your Tomcat install directory
+  - edit others as needed
 
 4. Test Building of SurveyTool
- - you can use "ant web" to test compilation 
+ - you can use "ant web" to test compilation  and "ant check" to run unit tests
 
 5. Build cldr-apps.war
  - "ant war" will produce cldr-apps.war 

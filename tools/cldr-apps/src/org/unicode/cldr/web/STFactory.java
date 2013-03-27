@@ -395,7 +395,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 VoteResolver<String> resolver = null; // save recalculating
                                                       // this.
                 Set<String> hitXpaths = new HashSet<String>();
-                ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
+                ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale + " - cutoff = " + SurveyMain.getSQLVotesAfter()) : null;
                 Connection conn = null;
                 PreparedStatement ps = null;
                 PreparedStatement ps2 = null;
@@ -1085,7 +1085,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     // Database stuff here.
-    static final String CLDR_VBV = "cldr_votevalue";
+    public static final String CLDR_VBV = "cldr_votevalue";
     static final String CLDR_VBV_ALT = "cldr_votevalue_alt";
 
     // private static final String SOME_KEY =
@@ -1312,7 +1312,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     private PreparedStatement openQueryByLocale(Connection conn) throws SQLException {
         setupDB();
-        return DBUtils.prepareForwardReadOnly(conn, "SELECT xpath,submitter,value FROM " + CLDR_VBV + " WHERE locale = ?");
+        final String votesAfter = SurveyMain.getSQLVotesAfter();
+        return DBUtils.prepareForwardReadOnly(conn, "SELECT xpath,submitter,value FROM " + CLDR_VBV + " WHERE locale = ? and last_mod > " + votesAfter);
     }
 
     private synchronized final void setupDB() {
@@ -1499,6 +1500,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * where cldr_votevalue.value is not null;
      */
     public CLDRFile makeProposedFile(CLDRLocale locale) {
+        final String votesAfter = SurveyMain.getSQLVotesAfter();
+
         Connection conn = null;
         PreparedStatement ps = null; // all for mysql, or 1st step for derby
         ResultSet rs = null;
@@ -1507,7 +1510,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             conn = DBUtils.getInstance().getDBConnection();
 
             ps = DBUtils.prepareStatementWithArgsFRO(conn, "select xpath,submitter,value from " + CLDR_VBV
-                    + " where locale=? and value IS NOT NULL", locale);
+                    + " where locale=? and value IS NOT NULL and last_mod > " + SurveyMain.getSQLVotesAfter(), locale);
 
             rs = ps.executeQuery();
             XPathParts xpp = new XPathParts(null, null);

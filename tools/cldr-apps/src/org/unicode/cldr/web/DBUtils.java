@@ -36,6 +36,7 @@ import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
 
 import com.ibm.icu.text.UnicodeSet;
@@ -1111,8 +1112,12 @@ public class DBUtils {
                 item.put(XPathTable.getStringIDString(xpath)); // add
                                                                // XPATH_STRHASH
                                                                // column
-                item.put(CookieSession.sm.getSTFactory().getPathHeader(xpath).toString()); // add
-                                                                                           // XPATH_CODE
+                PathHeader ph = CookieSession.sm.getSTFactory().getPathHeader(xpath);
+                if(ph!=null) {
+                    item.put(ph.toString()); // add XPATH_CODE
+                } else {
+                    item.put("");
+                }
             }
             if (haslocale >= 0 && locale_name != null) {
                 item.put(locale_name); // add XPATH_STRHASH column

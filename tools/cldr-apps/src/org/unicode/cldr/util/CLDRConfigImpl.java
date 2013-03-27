@@ -30,9 +30,17 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     private Properties survprops;
 
     CLDRConfigImpl() {
-        if (System.getProperty("CLDR_WEB_TESTS") != null) {
-            throw new InternalError("CLDR_WEB_TESTS set - exitting.");
+        // TODO remove this after some time- just warn people about the old message
+        final String cwt = System.getProperty("CLDR_WEB_TESTS");
+        if (cwt != null && cwt.equals("true")) {
+            throw new InternalError("Error: CLDR_WEB_TESTS is obsolete - please set the CLDR_ENVIRONMENT to UNITTEST instead -  ( -DCLDR_ENVIRONMENT=UNITTEST ). Anyways, exitting.");
         }
+
+        final String env = System.getProperty("CLDR_ENVIRONMENT");
+        if (env != null && env.equals(Environment.UNITTEST.name())) {
+            throw new InternalError("-DCLDR_ENVIRONMENT="+env + " - exitting!");
+        }
+
         System.err.println(getClass().getName() + ".cldrHome=" + cldrHome);
         if (cldrHomeSet == false) {
             System.err.println("[cldrHome not set] stack=\n" + StackTracker.currentStack() + "\n CLDRHOMESET = " + cldrHomeSet);
@@ -49,7 +57,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             return;
         if (!cldrHomeSet) {
             RuntimeException t = new RuntimeException(
-                    "CLDRConfigImpl used before SurveyMain.init() called! (check static ordering).  Set -DCLDR_WEB_TESTS=true if you are in the test cases.");
+                    "CLDRConfigImpl used before SurveyMain.init() called! (check static ordering).  Set -DCLDR_ENVIRONMENT=UNITTEST if you are in the test cases.");
             // SurveyLog.logException(t);
             throw t;
         }

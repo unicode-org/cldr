@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011 IBM Corporation and Others. All Rights Reserved.
+ * Copyright (C) 2011-2013 IBM Corporation and Others. All Rights Reserved.
  */
 //##header J2SE15
 
@@ -21,11 +21,13 @@ import org.apache.tomcat.dbcp.pool.impl.GenericKeyedObjectPool;
 import org.apache.tomcat.dbcp.pool.impl.GenericObjectPool;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
@@ -99,9 +101,14 @@ public class TestAll extends TestGroup {
     }
 
     public static String[] doResetDb(String[] args) {
+        if (CLDRConfig.getInstance().getEnvironment() != Environment.UNITTEST) {
+            throw new InternalError("Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS (replaces old -DCLDR_WEB_TESTS");
+        }
+
+        // TODO remove this after some time- just warn people about the old message
         final String cwt = System.getProperty("CLDR_WEB_TESTS");
-        if (cwt == null || !cwt.equals("true")) {
-            throw new InternalError("Error: must set -DCLDR_WEB_TESTS=true");
+        if (cwt != null && cwt.equals("true")) {
+            throw new InternalError("Error: CLDR_WEB_TESTS is obsolete - please set the CLDR_ENVIRONMENT to UNITTEST or LOCAL (or don't set it) -  ( -DCLDR_ENVIRONMENT=UNITTEST");
         }
 
         if (CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {

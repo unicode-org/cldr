@@ -124,6 +124,10 @@ import com.ibm.icu.util.ULocale;
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
 
+    public static final String NEWVERSION_EPOCH = "1970-01-01 00:00:00";
+
+    public static final String CLDR_NEWVERSION_AFTER = "CLDR_NEWVERSION_AFTER";
+
     public static Stamp surveyRunningStamp = Stamp.getInstance();
 
     public static final String QUERY_SAVE_COOKIE = "save_cookie";
@@ -1846,7 +1850,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public void doCoverage(WebContext ctx) {
         boolean showCodes = false; // ctx.prefBool(PREF_SHOWCODES);
-        String votesAfter = SurveyMain.getSQLVotesAfter();
+        final String votesAfter = SurveyMain.getSQLVotesAfter();
         printHeader(ctx, "Locale Coverage");
 
         if (!UserRegistry.userIsVetter(ctx.session.user)) {
@@ -7021,7 +7025,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public static String getVotesAfterString() {
-        return CLDRConfig.getInstance().getProperty("CLDR_NEWVERSION_AFTER", "1970-01-01 00:00:00");
+        return CLDRConfig.getInstance().getProperty(SurveyMain.CLDR_NEWVERSION_AFTER, SurveyMain.NEWVERSION_EPOCH);
     }
 
     public static Date getVotesAfterDate() {

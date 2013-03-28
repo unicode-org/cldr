@@ -525,6 +525,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Makasar; ?; ? } => { Makasar; Latin; Indonesia }-->
 		<likelySubtag from="man" to="man_Latn_GN"/>
 		<!--{ Mandingo; ?; ? } => { Mandingo; Latin; Guinea }-->
+		<likelySubtag from="man_GM" to="man_Latn_GM"/>
+		<!--{ Mandingo; ?; Gambia } => { Mandingo; Latin; Gambia }-->
+		<likelySubtag from="man_Latn" to="man_Latn_GM"/>
+		<!--{ Mandingo; Latin; ? } => { Mandingo; Latin; Gambia }-->
 		<likelySubtag from="mas" to="mas_Latn_KE"/>
 		<!--{ Masai; ?; ? } => { Masai; Latin; Kenya }-->
 		<likelySubtag from="mdf" to="mdf_Cyrl_RU"/>
@@ -887,6 +891,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Umbundu; ?; ? } => { Umbundu; Latin; Angola }-->
 		<likelySubtag from="unr" to="unr_Beng_IN"/>
 		<!--{ Mundari; ?; ? } => { Mundari; Bengali; India }-->
+		<likelySubtag from="unr_NP" to="unr_Deva_NP"/>
+		<!--{ Mundari; ?; Nepal } => { Mundari; Devanagari; Nepal }-->
+		<likelySubtag from="unr_Deva" to="unr_Deva_NP"/>
+		<!--{ Mundari; Devanagari; ? } => { Mundari; Devanagari; Nepal }-->
 		<likelySubtag from="unx" to="unx_Beng_IN"/>
 		<!--{ Munda; ?; ? } => { Munda; Bengali; India }-->
 		<likelySubtag from="ur" to="ur_Arab_PK"/>

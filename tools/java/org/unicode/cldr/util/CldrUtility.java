@@ -17,6 +17,7 @@ import java.io.PrintWriter;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -1281,5 +1282,15 @@ public class CldrUtility {
 
     public static String getDoubleLinkMsg() {
         return "<a name=''{0}'' href=''#{0}''>{0}</a>";
+    }
+    
+    public static String getCopyrightString() {
+        // now do the rest
+        return "Copyright \u00A9 1991-"
+            + Calendar.getInstance().get(Calendar.YEAR)
+            + " Unicode, Inc." + CldrUtility.LINE_SEPARATOR
+            + "CLDR data files are interpreted according to the LDML specification "
+            + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
+            + "For terms of use, see http://www.unicode.org/copyright.html";
     }
 }

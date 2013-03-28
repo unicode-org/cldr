@@ -371,12 +371,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
         // now do the rest
-        final String COPYRIGHT_STRING = "Copyright \u00A9 1991-"
-            + Calendar.getInstance().get(Calendar.YEAR)
-            + " Unicode, Inc.\n"
-            + "CLDR data files are interpreted according to the LDML specification "
-            + "(http://unicode.org/reports/tr35/)\n"
-            + "For terms of use, see http://www.unicode.org/copyright.html";
+        final String COPYRIGHT_STRING = CldrUtility.getCopyrightString();
 
         String initialComment = dataSource.getXpathComments().getInitialComment();
         if (!initialComment.contains("Copyright") || !initialComment.contains("Unicode")) {

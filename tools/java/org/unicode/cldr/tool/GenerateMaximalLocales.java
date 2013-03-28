@@ -351,7 +351,7 @@ public class GenerateMaximalLocales {
 
         // now list them
 
-        Set<String> others = new TreeSet();
+        Set<String> others = new TreeSet<String>();
         others.addAll(standardCodes.getGoodAvailableCodes("language"));
         others.removeAll(languageToReason.keySet());
         System.out.println("\nIncluded Languages:\t" + languageToReason.keySet().size());
@@ -361,7 +361,7 @@ public class GenerateMaximalLocales {
     }
 
     private static void showLanguages(Set<String> others, Map<String, Set<RowData>> languageToReason) {
-        Set<String> sorted = new TreeSet(Collator.getInstance(ULocale.ENGLISH));
+        Set<String> sorted = new TreeSet<String>(Collator.getInstance(ULocale.ENGLISH));
         for (String language : others) {
             sorted.add(getLanguageName(language, languageToReason));
         }
@@ -656,12 +656,9 @@ public class GenerateMaximalLocales {
         { "und_LR", "en_Latn_LR" },
         { "und_PH", "fil_Latn_PH" },
         { "und_SS", "en_Latn_SS" },
-        { "und_Vaii", "vai_Vaii_LR" },
         { "trv", "trv_Latn_TW" },
         { "twq", "twq_Latn_NE" },
         { "tzm", "tzm_Latn_MA" },
-        { "vai", "vai_Vaii_LR" },
-        { "wae", "wae_Latn_CH" },
         { "yav", "yav_Latn_CM" },
         { "zh_Hani", "zh_Hans_CN" },
         { "und_Bopo", "zh_Bopo_TW" },
@@ -676,7 +673,6 @@ public class GenerateMaximalLocales {
         { "ckb_IQ", "ckb_Arab_IQ" },
         { "ckb_IR", "ckb_Arab_IR" },
         { "es", "es_Latn_ES" },
-        { "gsw", "gsw_Latn_CH" },
         { "ku", "ku_Latn_TR" },
         { "ku_Arab", "ku_Arab_IQ" },
         { "ku_Latn", "ku_Latn_TR" },
@@ -1292,6 +1288,12 @@ public class GenerateMaximalLocales {
             : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>" + CldrUtility.LINE_SEPARATOR
                 + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">"
                 + CldrUtility.LINE_SEPARATOR
+                + "<!--"
+                + CldrUtility.LINE_SEPARATOR
+                + CldrUtility.getCopyrightString()
+                + CldrUtility.LINE_SEPARATOR
+                + "-->"
+                + CldrUtility.LINE_SEPARATOR
                 + "<supplementalData>" + CldrUtility.LINE_SEPARATOR
                 + "    <version number=\"$" +
                 "Revision$\"/>" + CldrUtility.LINE_SEPARATOR
@@ -1313,7 +1315,7 @@ public class GenerateMaximalLocales {
             if (OUTPUT_STYLE == OutputStyle.XML) {
                 out.println("\t\t<likelySubtag from=\"" + printingLocale +
                     "\" to=\"" + printingTarget + "\"" +
-                    "/>" + "\n\t\t" + "<!--" + comment + "-->");
+                    "/>" + CldrUtility.LINE_SEPARATOR +"\t\t" + "<!--" + comment + "-->");
             } else {
                 if (first) {
                     first = false;

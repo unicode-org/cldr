@@ -257,7 +257,8 @@ class LdmlConvertRules {
         new SplittableAttributeSpec("firstDay", "territories", "day"),
         new SplittableAttributeSpec("weekendStart", "territories", "day"),
         new SplittableAttributeSpec("weekendEnd", "territories", "day"),
-        new SplittableAttributeSpec("dayPeriodRules", "locales", null)
+        new SplittableAttributeSpec("dayPeriodRules", "locales", null),
+        new SplittableAttributeSpec("personList", "locales", "type")
     };
 
     /**
@@ -277,7 +278,7 @@ class LdmlConvertRules {
      */
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
-        "pluralRules"
+        "pluralRules", "personList"
     };
 
     /**

@@ -80,7 +80,7 @@ public class CldrItem implements Comparable<CldrItem> {
 
     CldrItem(String path, String fullPath, String value) {
 
-        if (DEBUG && path.contains("weekData")) {
+        if (DEBUG) {
             System.out.println("---");
             System.out.println("    PATH => " + path);
             System.out.println("FULLPATH => " + fullPath);
@@ -194,16 +194,11 @@ public class CldrItem implements Comparable<CldrItem> {
         xpp.set(path);
         fullxpp.set(fullPath);
         for (SplittableAttributeSpec s : LdmlConvertRules.SPLITTABLE_ATTRS) {
-
-            if (xpp.containsElement(s.element) && xpp.containsAttribute(s.attribute)) {
+            if (fullxpp.containsElement(s.element) && fullxpp.containsAttribute(s.attribute)) {
                 ArrayList<CldrItem> list = new ArrayList<CldrItem>();
-                String wordString = xpp.findAttributeValue(s.element, s.attribute);
+                String wordString = fullxpp.findAttributeValue(s.element, s.attribute);
                 String[] words = null;
-                if (wordString == null || wordString.length() == 0) {
-                    System.out.println("we're going down...");
-                } else {
-                    words = wordString.trim().split("\\s+");
-                }
+                words = wordString.trim().split("\\s+");
                 for (String word : words) {
                     newxpp.set(xpp);
                     newfullxpp.set(fullxpp);
@@ -235,7 +230,9 @@ public class CldrItem implements Comparable<CldrItem> {
      */
     public boolean needsSort() {
         for (String item : LdmlConvertRules.ELEMENT_NEED_SORT) {
-            if (path.indexOf("/" + item + "[@") > 0) {
+            XPathParts xpp = new XPathParts();
+            xpp.set(path);
+            if (xpp.containsElement(item)) {
                 return true;
             }
         }

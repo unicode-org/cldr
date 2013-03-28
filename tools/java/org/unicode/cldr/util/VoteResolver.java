@@ -86,8 +86,8 @@ public class VoteResolver<T> {
         // adobe, afrigen, apple, bangor_univ, bhutan, breton, cherokee, georgia_isi, gnome, google, guest, ibm, india,
         // iran_hci, kendra,
         // kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika,
-        // wikimedia, yahoo;
-        adobe, afrigen, apple, bangor_univ, bhutan, breton, cherokee, georgia_isi, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, wikimedia, yahoo;
+        // welsh_lc, wikimedia, yahoo;
+        adobe, afrigen, apple, bangor_univ, bhutan, breton, cherokee, georgia_isi, gnome, google, guest, ibm, india, iran_hci, kendra, kotoistus, lao_dpt, openinstitute, openoffice_org, oracle, pakistan, sil, srilanka, sun, surveytool, utilika, welsh_lc, wikimedia, yahoo;
         // Not used (but keep in to avoid breakage): sun
         // Please update Locales.txt for default coverage when adding an organization here.
 

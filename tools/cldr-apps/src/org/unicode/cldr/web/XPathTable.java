@@ -782,6 +782,16 @@ public class XPathTable {
     public static final String getStringIDString(String byId) {
         return Long.toHexString(getStringID(byId));
     }
+    
+    /**
+     * Turn a strid into an xpath id
+     * @param sid
+     * @return
+     */
+    public final int getXpathIdFromStringId(String sid) {
+        return getByXpath(getByStringID(sid));
+    }
+    
 
     public String getByStringID(String id) {
         if(id==null) return null;
@@ -834,5 +844,4 @@ public class XPathTable {
         writeXpathFragment(out, xpathSet);
         out.println("</xpathTable>");
     }
-
 }

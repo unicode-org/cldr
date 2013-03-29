@@ -2643,7 +2643,7 @@ function showV() {
 		/**
 		 * @param postData optional - makes this a POST
 		 */
-		function myLoad(url, message, handler, postData) {
+		function myLoad(url, message, handler, postData, headers) {
 			console.log("Loading " + url + " for " + message);
 			var errorHandler = function(err, ioArgs){
 				console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
@@ -2662,7 +2662,8 @@ function showV() {
 					handleAs:"json",
 					load: loadHandler,
 					error: errorHandler,
-					postData: postData
+					postData: postData,
+					headers: headers
 			};
 			queueXhr(xhrArgs);
 		}
@@ -2932,32 +2933,37 @@ function showV() {
 								ul.className = "oldvotes_list";
 								var data = json.oldvotes.locales.data;
 								var header = json.oldvotes.locales.header;
-								for(var k in data) {
-									var li = document.createElement("li");
+								
+								if(data.length > 0) {
+									for(var k in data) {
+										var li = document.createElement("li");
+										
+										var link = createChunk(data[k][header.LOCALE_NAME],"a");
+										link.href = "#"+data[k][header.LOCALE];
+										(function(loc,link) {
+											return (function() {
+												var clicky;
+											listenFor(link, "click", clicky = function(e) {
+												surveyCurrentLocale = loc;
+												reloadV();
+												stStopPropagation(e);
+												return false;
+											});
+											link.onclick = clicky;
+											}); })(data[k][header.LOCALE],link)();
+										li.appendChild(link);
+										li.appendChild(createChunk(" "));
+										li.appendChild(createChunk(data[k][header.COUNT]));
+										
+										ul.appendChild(li);
+									}
 									
-									var link = createChunk(data[k][header.LOCALE_NAME],"a");
-									link.href = "#"+data[k][header.LOCALE];
-									(function(loc,link) {
-										return (function() {
-											var clicky;
-										listenFor(link, "click", clicky = function(e) {
-											surveyCurrentLocale = loc;
-											reloadV();
-											stStopPropagation(e);
-											return false;
-										});
-										link.onclick = clicky;
-										}); })(data[k][header.LOCALE],link)();
-									li.appendChild(link);
-									li.appendChild(createChunk(" "));
-									li.appendChild(createChunk(data[k][header.COUNT]));
+									theDiv.appendChild(ul);
 									
-									ul.appendChild(li);
+									theDiv.appendChild(createChunk(stui.str("v_oldvotes_locale_list_help"),"i")); // TODO fix
+								} else {
+									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old"),"i")); // TODO fix
 								}
-								
-								theDiv.appendChild(ul);
-								
-								theDiv.appendChild(createChunk(stui.str("v_oldvotes_locale_list_help"),"i")); // TODO fix
 							} else {
 								surveyCurrentLocale=json.oldvotes.locale;
 								updateHashAndMenus();
@@ -2972,88 +2978,91 @@ function showV() {
 								loclink.href='#';
 								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName,"h3","v-title2"));
 
-								theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested,  contested: json.oldvotes.contested.length }),"p","info"));
-								
-								if(json.oldvotes.contested.length > 0) {
-									
-									var t = document.createElement("table");
-									t.id = 'oldVotesAcceptList';
-									var th = document.createElement("thead");
-									var tb = document.createElement("tbody");
-									{
-										var tr = document.createElement("tr");
-										tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
-										tr.appendChild(createChunk(stui.str("v_oldvotes_winning"),"th","v-win"));
-										tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
-										var accept;
-										tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));										
-										accept.appendChild(createLinkToFn("v_oldvotes_all", function() {
-											for(var k in json.oldvotes.contested) {
-												var row = json.oldvotes.contested[k];
-												row.box.checked = true;
-											}
-										}));
-										accept.appendChild(createLinkToFn("v_oldvotes_none", function() {
-											for(var k in json.oldvotes.contested) {
-												var row = json.oldvotes.contested[k];
-												row.box.checked = false;
-											}
-										}));
-										th.appendChild(tr);
-									}
-									t.appendChild(th);
-									for(var k in json.oldvotes.contested) {
-										var row = json.oldvotes.contested[k];
-										var tr = document.createElement("tr");
-										var tdp;
-										tr.appendChild(tdp = createChunk(row.pathHeader,"td","v-path"));
-										var td0 = createChunk("","td","v-win");
-										if(row.winValue) {
-											var span0 = appendItem(td0, row.winValue, "winner");
-											span0.dir = json.oldvotes.dir;
-										} else {
-											//tr.appendChild(createChunk("","td","v-win"));
-										}
-										tr.appendChild(td0);
-										var td1 = createChunk("","td","v-mine");
-										var label  = createChunk("","label","");
-										//label["for"] ='c_'+row.strid;
-										var span1 = appendItem(label, row.myValue, "value");
-										td1.appendChild(label);
-										span1.dir = json.oldvotes.dir;
-										tr.appendChild(td1);
-										var td2 = createChunk("","td","v-accept");
-										var box = createChunk("","input","");
-										//box.name='c_'+row.strid;
-										box.type="checkbox";
-										row.box = box; // backlink
-										td2.appendChild(box);
-										tr.appendChild(td2);
-										
-										(function(tr,box,tdp){return function(){
-											listenFor(tr, "click", function(e) {
-												
-												box.checked = !box.checked;
-												
-												stStopPropagation(e);
-												return false;
-											});
-											listenFor(tdp, "click", function(e) {
-												
-												//box.checked = !box.checked;
-												
-												stStopPropagation(e);
-												return false;
-											});
-										};})(tr,box,tdp)();
-											
-										tb.appendChild(tr);
-									}
-									t.appendChild(tb);
-									theDiv.appendChild(t);
-
+								if(json.oldvotes.contested.length > 0 || json.oldvotes.uncontested > 0) {
 									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested,  contested: json.oldvotes.contested.length }),"p","info"));
-									
+
+									if(json.oldvotes.contested.length > 0) {
+
+										var t = document.createElement("table");
+										t.id = 'oldVotesAcceptList';
+										var th = document.createElement("thead");
+										var tb = document.createElement("tbody");
+										{
+											var tr = document.createElement("tr");
+											tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
+											tr.appendChild(createChunk(stui.str("v_oldvotes_winning"),"th","v-win"));
+											tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
+											var accept;
+											tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));										
+											accept.appendChild(createLinkToFn("v_oldvotes_all", function() {
+												for(var k in json.oldvotes.contested) {
+													var row = json.oldvotes.contested[k];
+													row.box.checked = true;
+												}
+											}));
+											accept.appendChild(createLinkToFn("v_oldvotes_none", function() {
+												for(var k in json.oldvotes.contested) {
+													var row = json.oldvotes.contested[k];
+													row.box.checked = false;
+												}
+											}));
+											th.appendChild(tr);
+										}
+										t.appendChild(th);
+										for(var k in json.oldvotes.contested) {
+											var row = json.oldvotes.contested[k];
+											var tr = document.createElement("tr");
+											var tdp;
+											tr.appendChild(tdp = createChunk(row.pathHeader,"td","v-path"));
+											var td0 = createChunk("","td","v-win");
+											if(row.winValue) {
+												var span0 = appendItem(td0, row.winValue, "winner");
+												span0.dir = json.oldvotes.dir;
+											} else {
+												//tr.appendChild(createChunk("","td","v-win"));
+											}
+											tr.appendChild(td0);
+											var td1 = createChunk("","td","v-mine");
+											var label  = createChunk("","label","");
+											//label["for"] ='c_'+row.strid;
+											var span1 = appendItem(label, row.myValue, "value");
+											td1.appendChild(label);
+											span1.dir = json.oldvotes.dir;
+											tr.appendChild(td1);
+											var td2 = createChunk("","td","v-accept");
+											var box = createChunk("","input","");
+											//box.name='c_'+row.strid;
+											box.type="checkbox";
+											row.box = box; // backlink
+											td2.appendChild(box);
+											tr.appendChild(td2);
+
+											(function(tr,box,tdp){return function(){
+												listenFor(tr, "click", function(e) {
+
+													box.checked = !box.checked;
+
+													stStopPropagation(e);
+													return false;
+												});
+												listenFor(tdp, "click", function(e) {
+
+													//box.checked = !box.checked;
+
+													stStopPropagation(e);
+													return false;
+												});
+											};})(tr,box,tdp)();
+
+											tb.appendChild(tr);
+										}
+										t.appendChild(tb);
+										theDiv.appendChild(t);
+
+										theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested,  contested: json.oldvotes.contested.length }),"p","info"));
+									} else {
+										theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_contested"),"i",""));
+									}
 									var submit = BusyButton({
 //										id: 'oldVotesSubmit',
 										label: stui.str("v_submit"),
@@ -3061,41 +3070,44 @@ function showV() {
 									});
 
 									submit.placeAt(theDiv);
-									
-									var confirmList= []; // these will be revoted with current params
-									var deleteList = []; // these will be deleted
-									
-									
+
+
 									submit.on("click",function(e) {
+										var confirmList= []; // these will be revoted with current params
+										var deleteList = []; // these will be deleted
+
 										// explicit confirm/delete list -  save us desync hassle
-										for(var kk in rows ) {
-											if(rows[kk].box.checked) {
-												confirmList.push(rows[kk].strid);
+										for(var kk in json.oldvotes.contested ) {
+											if(json.oldvotes.contested[kk].box.checked) {
+												confirmList.push(json.oldvotes.contested[kk].strid);
 											} else {
-												deleteList.push(rows[kk].strid);
+												deleteList.push(json.oldvotes.contested[kk].strid);
 											}
 										}
-										
+
 										var saveList = {
 												locale: surveyCurrentLocale,
 												confirmList: confirmList,
 												deleteList: deleteList
 										};
 
-										var url = contextPath + "/SurveyAjax?what=oldvotesSubmit&_="+surveyCurrentLocale+"&s="+surveySessionId+"&"+cacheKill();
+										console.log(saveList.toString());
+										console.log("Submitting " + confirmList.length + " for confirm and " + deleteList.length + " for deletion");
+
+										var url = contextPath + "/SurveyAjax?what=oldvotes&_="+surveyCurrentLocale+"&s="+surveySessionId+"&doSubmit=true&"+cacheKill();
 										myLoad(url, "(submitting oldvotes " + surveyCurrentLocale + ")", function(json) {
 											showLoader(theDiv.loader,stui.loading2);
-											if(!verifyJson(json, 'oldvotesSubmit')) {
+											if(!verifyJson(json, 'oldvotes')) {
 												handleDisconnect("Error submitting votes!", json, "Error");
 												return;
 											} else {
 												reloadV();
 											}
-										}, saveList);
+										},  JSON.stringify(saveList), { "Content-Type": "application/json"} );
 									});
 
 								} else {
-									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_uncontested"),"i",""));
+									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old_here"),"i",""));
 								}
 							}
 						}

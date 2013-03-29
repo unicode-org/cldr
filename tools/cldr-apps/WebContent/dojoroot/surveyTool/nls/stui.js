@@ -182,8 +182,10 @@ define({
            v_oldvotes_accept: "Accept?",
            v_oldvotes_all: "Choose All",
            v_oldvotes_none: "Choose None",
-           v_oldvotes_no_uncontested: "No uncontested votes.",
-           v_submit: "Vote for checked, permanently delete unchecked [WORK IN PROGRESS]",
+           v_oldvotes_no_contested: "No contested votes.",
+           v_oldvotes_no_old_here: "No old votes to import. You're done with this locale!",
+           v_oldvotes_no_old: "No old votes to import. You're done with old votes!!",
+           v_submit: "Vote for uncontested+ checked, permanently delete unchecked [WORK IN PROGRESS]",
            v_submit_busy: "Submitting...",
 			"": ""})
 //		"mt-MT": false

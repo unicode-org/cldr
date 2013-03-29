@@ -81,4 +81,18 @@ public interface BallotBox<T> {
      * @return
      */
     public boolean hadVotesSometimeThisRelease(int xpid);
+
+    /**
+     * remove vote. same as voting for null
+     * @param user
+     * @param xpath
+     */
+    public void unvoteFor(User user, String xpath);
+
+    /**
+     * re-vote for the current vote. Error if no current vote.
+     * @param user
+     * @param xpath
+     */
+    public void revoteFor(User user, String xpath);
 }

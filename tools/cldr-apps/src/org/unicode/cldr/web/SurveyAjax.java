@@ -3,6 +3,8 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -43,6 +46,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
+import org.unicode.cldr.web.UserRegistry.User;
 
 /**
  * Servlet implementation class SurveyAjax
@@ -678,7 +682,7 @@ public class SurveyAjax extends HttpServlet {
                         
                         if(loc == null ||loc.isEmpty()) {
                             oldvotes.put("locales",
-                                                    DBUtils.queryToJSON(   "select  locale,count(*) as count from " + STFactory.CLDR_VBV + " where submitter=? and last_mod < ? and value is not null  group by locale order by locale", mySession.user.id, votesAfterSQL));
+                                                    DBUtils.queryToJSON(   "select  locale,count(*) as count from " + STFactory.CLDR_VBV + " where submitter=? and last_mod < "+votesAfterSQL+" and value is not null  group by locale order by locale", mySession.user.id));
                         } else {
                             CLDRLocale locale = CLDRLocale.getInstance(loc);
                             oldvotes.put("locale",locale);
@@ -686,32 +690,139 @@ public class SurveyAjax extends HttpServlet {
                             oldvotes.put("dir",sm.getDirectionalityFor(locale));
                             STFactory fac = sm.getSTFactory();
                             CLDRFile file = fac.make(loc, false);
-                            String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < ? and value is not null";
-                            Map rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id, votesAfterSQL);
-//                            System.out.println("Running >> " + sqlStr + " -> " + rows.length);
-
-                            int uncontested = 0;
-                            JSONArray contested = new JSONArray();
                             
-                            
-                            for(Map m : rows) {
-                                String value = m.get("value").toString();
-                                if(value==null) continue; // ignore unvotes.
-                                int xp = (Integer)m.get("xpath");
-                                String xpathString = sm.xpt.getById(xp);
-                                String xpathStringHash = sm.xpt.getStringIDString(xp);
-                                
-                                String curValue = file.getStringValue(xpathString);
-                                if(value.equals(curValue)) {
-                                    uncontested++;
-                                } else {
-                                    JSONObject aRow = new JSONObject().put("strid", xpathStringHash).put("myValue", value).put("winValue", curValue).put("pathHeader", fac.getPathHeader(xpathString).toString());
-                                    contested.put(aRow);
+                            if(null!= request.getParameter("doSubmit")) {
+                                // submit time.
+                                System.out.println("User " + mySession.user.toString() + "  is migrating old votes .  loc="+locale+", val="+val);
+                                JSONObject list = new JSONObject(val);
+                                if(list.getString("locale").equals(locale+"snork")) {
+                                    throw new IllegalArgumentException("Sanity error- locales " + locale + " and " + list.getString("locale") +" do not match");
                                 }
+                                
+                                BallotBox<User> box = fac.ballotBoxForLocale(locale);
+                                
+                                int deletions= 0;
+                                int confirmations= 0;
+                                int uncontested = 0;
+                                
+                                JSONArray confirmList = list.getJSONArray("confirmList");
+                                JSONArray deleteList = list.getJSONArray("deleteList");
+
+                                Set<String> deleteSet = new HashSet<String>();
+                                Set<String> confirmSet = new HashSet<String>();
+                                
+                                // deletions
+                                for(int i =0 ; i < confirmList.length(); i++) {
+                                    String strid = confirmList.getString(i);
+                                    //String xp = sm.xpt.getByStringID(strid);
+                                    //box.unvoteFor(mySession.user,xp);
+                                    //deletions++;
+                                    confirmSet.add(strid);
+                                }
+
+                                // confirmations
+                                for(int i =0 ; i < deleteList.length(); i++) {
+                                    String strid = deleteList.getString(i);
+                                    //String xp = sm.xpt.getByStringID(strid);
+                                    //box.revoteFor(mySession.user,xp);
+                                    //confirmations++;
+                                    deleteSet.add(strid);
+                                }
+
+                                
+                                // now, get all
+                                {
+                                    String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < "+votesAfterSQL+" and value is not null";
+                                    Map rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
+                                   System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+        
+                                    JSONArray contested = new JSONArray();
+                                    
+                                    for(Map m : rows) {
+                                        String value = m.get("value").toString();
+                                        if(value==null) continue; // ignore unvotes.
+                                        int xp = (Integer)m.get("xpath");
+                                        String xpathString = sm.xpt.getById(xp);
+                                       // String xpathStringHash = sm.xpt.getStringIDString(xp);
+                                        
+                                        String curValue = file.getStringValue(xpathString);
+                                        if(value.equals(curValue)) {
+                                            box.voteForValue(mySession.user, xpathString,value);
+                                            uncontested++;
+                                        } else {
+                                            String strid = sm.xpt.getStringIDString(xp);
+                                            if(deleteSet.contains(strid)) {
+                                                box.unvoteFor(mySession.user, xpathString);
+                                                deletions++;
+                                            } else if(confirmSet.contains(strid)) {
+                                                box.voteForValue(mySession.user, xpathString, value);
+                                                confirmations++;
+                                            } else {
+                                                System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                oldvotes.put("didUnvotes", deletions);
+                                oldvotes.put("didRevotes", confirmations);
+                                oldvotes.put("didUncontested", uncontested);
+                                System.out.println("User "  +mySession.user + " " + locale + " - delete:"+deletions+", confirm:"+confirmations+", uncontestedconfirm:"+uncontested);
+                                oldvotes.put("ok",true);
+                                /*
+                                Connection conn = null;
+                                PreparedStatement ps1=null,ps2 = null;
+                                try {
+                                    conn = DBUtils.getInstance().getDBConnection();
+
+                                    conn.setAutoCommit(false); //  make this one txn
+                                    
+                                    
+                                    ps1 = DBUtils.prepareStatementWithArgs(conn, "delete from  " + STFactory.CLDR_VBV + " where submitter=? and locale=? and xpath=?" , mySession.user.id, locale, -2); 
+                                    // delete
+                                    for(int i =0 ; i < confirmList.length(); i++) {
+                                        String strid = confirmList.getString(i);
+                                        ps1.setInt(3, sm.xpt.getXpathIdFromStringId(strid));
+                                        deletions += ps1.executeUpdate();
+                                    }
+                                    
+                                    ps2 = DBUtils.prepareStatementWithArgs(conn, "update " + STFactory.CLDR_VBV + " set last_mod = CURRENT_TIMESTAMP" +
+                                                    " where submitter=? and locale=? and xpath=? and last_mod < ", mySession.user.id, locale, -2, votesAfterSQL);
+                                    
+                                    conn.commit();
+                                } finally {
+                                    DBUtils.close(ps1,ps2,conn);
+                                }*/
+                                
+                            } else {
+                                
+                                String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < "+votesAfterSQL+" and value is not null";
+                                Map rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
+                            System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+    
+                                int uncontested = 0;
+                                JSONArray contested = new JSONArray();
+                                
+                                
+                                for(Map m : rows) {
+                                    String value = m.get("value").toString();
+                                    if(value==null) continue; // ignore unvotes.
+                                    int xp = (Integer)m.get("xpath");
+                                    String xpathString = sm.xpt.getById(xp);
+                                    String xpathStringHash = sm.xpt.getStringIDString(xp);
+                                    
+                                    String curValue = file.getStringValue(xpathString);
+                                    if(value.equals(curValue)) {
+                                        uncontested++;
+                                    } else {
+                                        JSONObject aRow = new JSONObject().put("strid", xpathStringHash).put("myValue", value).put("winValue", curValue).put("pathHeader", fac.getPathHeader(xpathString).toString());
+                                        contested.put(aRow);
+                                    }
+                                }
+                                
+                                oldvotes.put("contested", contested);
+                                oldvotes.put("uncontested", uncontested);
                             }
-                            
-                            oldvotes.put("contested", contested);
-                            oldvotes.put("uncontested", uncontested);
                         }
                         
                         r.put("oldvotes", oldvotes);

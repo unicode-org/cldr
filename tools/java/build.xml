@@ -66,7 +66,7 @@
     </target>
 
     <!-- build everything but dist-related stuff -->
-    <target name="all" depends="util,ant-plugin,tool,posix,icu,test" description="build all primary targets"/>
+    <target name="all" depends="util,ant-plugin,tool,posix,icu,json,test" description="build all primary targets"/>
     <target name="ant-plugin" depends="init" description="build utility classes">
         <javac includeantruntime="false" includes="org/unicode/cldr/ant/*.java"
             excludes="**/CVS/**/*"
@@ -123,7 +123,7 @@
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
-	<target name="icu" depends="init, ant-plugin, util" description="build posix conversion tool">
+	<target name="icu" depends="init, ant-plugin, util" description="build ICU conversion tool">
 	        <javac includeantruntime="false" includes="org/unicode/cldr/icu/**/*.java"
 	            excludes="**/CVS/**/*"
 	            srcdir="${src.dir}"
@@ -137,6 +137,23 @@
         <mkdir dir="${build.dir}/org/unicode/cldr/icu"/>
         <copy todir="${build.dir}/org/unicode/cldr/icu">
             <fileset dir="${src.dir}/org/unicode/cldr/icu" 
+                excludes="**/CVS/**/* **/**/*.java"/>
+        </copy>
+	</target>
+	<target name="json" depends="init, ant-plugin, util" description="build json conversion tool">
+	        <javac includeantruntime="false" includes="org/unicode/cldr/json/**/*.java"
+	            excludes="**/CVS/**/*"
+	            srcdir="${src.dir}"
+	            destdir="${build.dir}"
+                classpathref="project.class.path"
+	            source="1.6"
+                    target="1.6"
+	            debug="on" deprecation="off"
+	            encoding="UTF-8"/>
+        <!-- copy data files into classes.. -->
+        <mkdir dir="${build.dir}/org/unicode/cldr/json"/>
+        <copy todir="${build.dir}/org/unicode/cldr/json">
+            <fileset dir="${src.dir}/org/unicode/cldr/json" 
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
 	</target>
@@ -165,7 +182,7 @@
     <target name="jar" depends="all" description="build full 'cldr.jar' jar file">
         <jar jarfile="${jar.file}"
             compress="true"
-            includes="org/unicode/cldr/draft/**/*,org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/icu/**/*"
+            includes="org/unicode/cldr/draft/**/*,org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/json/**/*,org/unicode/cldr/icu/**/*"
             basedir="${build.dir}"/>
     </target>
   <!-- Docs stuff -->

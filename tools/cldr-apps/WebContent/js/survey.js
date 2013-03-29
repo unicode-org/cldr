@@ -2702,10 +2702,15 @@ function showV() {
 		function updateHashAndMenus() {
 			replaceHash(); // update the hash
 			updateIf("title-locale", surveyCurrentLocaleName);
+			
 
-			if(surveyCurrentSpecial !=null || surveyCurrentLocale==null) {
+			if(surveyCurrentLocale==null) {
 				updateIf("title-section","-");
-				updateIf("title-page","-");
+				if(surveyCurrentSpecial!=null) {
+					updateIf("title-page",stui_str("special_"+surveyCurrentSpecial));
+				} else {
+					updateIf("title-page","-");
+				}
 				updateIf("title-id","");
 				// update special title?
 				return; // nothing to do.
@@ -2715,7 +2720,10 @@ function showV() {
 			 * @method updateMenuTitles
 			 */
 			function updateMenuTitles(menuMap) {
-				if(!menuMap) {
+				if(surveyCurrentSpecial!= null) {
+					updateIf("title-section",stui_str("section_special"));
+					updateIf("title-page",stui_str("special_"+surveyCurrentSpecial));
+				} else if(!menuMap) {
 					updateIf("title-section", "-");
 					updateIf("title-page", surveyCurrentPage); 
 				} else {
@@ -2733,31 +2741,35 @@ function showV() {
 			function updateMenus(menuMap) {
 				updateMenuTitles(menuMap);
 
-				// first, update display names
-				var mySection = menuMap.pageToSection[surveyCurrentPage];
-				var myPage = mySection.pageMap[surveyCurrentPage];
+				var myPage = null;
+				var mySection = null;
+				if(surveyCurrentSpecial==null) {
+					// first, update display names
+					mySection = menuMap.pageToSection[surveyCurrentPage];
+					myPage = mySection.pageMap[surveyCurrentPage];
+				
 
-
-				// update menus under 'page' - peer pages
-				var menuPage = registry.byId("menu-page");
-				menuPage.destroyDescendants(false);
-				for(var k in mySection.pages) { // use given order
-					(function(aPage) {
-						var pageMenu = new CheckedMenuItem({
-							label: aPage.name,
-							checked:   (aPage.id == surveyCurrentPage),
-							//    iconClass:"dijitEditorIcon dijitEditorIconSave",
-							onClick: function(){ 
-								surveyCurrentId = ''; // no id if jumping pages
-								surveyCurrentPage = aPage.id;
-								updateMenuTitles(menuMap);
-								reloadV();
-							},
-							// TODO: disabled via coverage
-						});
-						menuPage.addChild(pageMenu);
-					})(mySection.pages[k]);
-
+					// update menus under 'page' - peer pages
+					var menuPage = registry.byId("menu-page");
+					menuPage.destroyDescendants(false);
+					for(var k in mySection.pages) { // use given order
+						(function(aPage) {
+							var pageMenu = new CheckedMenuItem({
+								label: aPage.name,
+								checked:   (aPage.id == surveyCurrentPage),
+								//    iconClass:"dijitEditorIcon dijitEditorIconSave",
+								onClick: function(){ 
+									surveyCurrentId = ''; // no id if jumping pages
+									surveyCurrentPage = aPage.id;
+									updateMenuTitles(menuMap);
+									reloadV();
+								},
+								// TODO: disabled via coverage
+							});
+							menuPage.addChild(pageMenu);
+						})(mySection.pages[k]);
+	
+					}
 				}
 
 				var menuSection = registry.byId("menu-section");
@@ -2795,26 +2807,30 @@ function showV() {
 
 			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {
 				// show the raw IDs while loading.
-				updateIf("title-section", surveyCurrentSection); // only use of SCS
-				updateIf("title-page", surveyCurrentPage);
-
-				var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus"+cacheKill();
-				myLoad(url, "menus for " + surveyCurrentLocale, function(json) {
-					var menus = json.menus;
-					// set up some hashes
-					menus.sectionMap = {};
-					menus.pageToSection = {};
-					for(var k in menus.sections) {
-						menus.sectionMap[menus.sections[k].id] = menus.sections[k];
-						menus.sections[k].pageMap = {};
-						for(var j in menus.sections[k].pages) {
-							menus.sections[k].pageMap[menus.sections[k].pages[j].id] = menus.sections[k].pages[j];
-							menus.pageToSection[menus.sections[k].pages[j].id] = menus.sections[k];
+				updateMenuTitles(null);
+				
+				if(surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
+				
+					var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus"+cacheKill();
+					myLoad(url, "menus for " + surveyCurrentLocale, function(json) {
+						var menus = json.menus;
+						// set up some hashes
+						menus.sectionMap = {};
+						menus.pageToSection = {};
+						for(var k in menus.sections) {
+							menus.sectionMap[menus.sections[k].id] = menus.sections[k];
+							menus.sections[k].pageMap = {};
+							for(var j in menus.sections[k].pages) {
+								menus.sections[k].pageMap[menus.sections[k].pages[j].id] = menus.sections[k].pages[j];
+								menus.pageToSection[menus.sections[k].pages[j].id] = menus.sections[k];
+							}
 						}
-					}
-					updateMenus(menus);
-					_thePages = menus;
-				});
+						updateMenus(menus);
+						_thePages = menus;
+					});
+				} else {
+					_thePages = null;
+				}
 			} else {
 				// go ahead and update
 				updateMenus(_thePages);
@@ -2825,6 +2841,8 @@ function showV() {
 		window.reloadV = function () {
 			// assume parseHash was already called, if we are taking input from the hash
 
+			window.surveyCurrentLocaleName = '-'; // so it's not stale
+			
 			var theDiv = dojo.byId("DynamicDataSection");
 
 			var pucontent = dojo.byId("itemInfo");
@@ -2966,6 +2984,7 @@ function showV() {
 								}
 							} else {
 								surveyCurrentLocale=json.oldvotes.locale;
+								surveyCurrentLocaleName=json.oldvotes.localeDisplayName;
 								updateHashAndMenus();
 								var loclink;
 								theDiv.appendChild(loclink=createChunk(stui.str("v_oldvotes_return_to_locale_list"),"a"));
@@ -3111,9 +3130,11 @@ function showV() {
 								}
 							}
 						}
+						hideLoader(null);
 					});
 				} else if(surveyCurrentSpecial == 'none') {
 					//for now - redurect
+					hideLoader(null);
 					window.location = survURL; // redirect home
 				} else {
 					var msg = stui.sub("v_bad_special_msg",

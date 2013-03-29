@@ -1,7 +1,7 @@
 //  UserRegistry.java
 //
 //  Created by Steven R. Loomis on 14/10/2005.
-//  Copyright 2005-2012 IBM. All rights reserved.
+//  Copyright 2005-2013 IBM. All rights reserved.
 //
 
 package org.unicode.cldr.web;
@@ -267,6 +267,10 @@ public class UserRegistry {
             } else {
                 return "<a href='mailto:" + email + "'>" + name + "</a>-" + levelAsStr(userlevel).toLowerCase();
             }
+        }
+
+        public String toHtml() {
+                return "<a href='mailto:" + email + "'>" + name + "</a>-" + levelAsStr(userlevel).toLowerCase();
         }
 
         public String toString(User forUser) {
@@ -686,6 +690,7 @@ public class UserRegistry {
                     u.intlocs = rs.getString(5);
                     u.locales = rs.getString(6);
                     u.last_connect = rs.getTimestamp(7);
+                    u.password = rs.getString(8);
                     // queryIdStmt =
                     // conn.prepareStatement("SELECT name,org,email,userlevel,intlocs,lastlogin,password from "
                     // + CLDR_USERS +" where id=?",
@@ -1286,7 +1291,9 @@ public class UserRegistry {
             }
             result = rs.getString(1);
             if (rs.next()) {
-                ctx.println("Matched duplicate user (?)");
+                if(ctx != null) {
+                    ctx.println("Matched duplicate user (?)");
+                }
                 return null;
             }
         } catch (SQLException se) {

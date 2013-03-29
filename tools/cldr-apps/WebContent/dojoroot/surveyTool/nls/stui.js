@@ -187,6 +187,8 @@ define({
            v_oldvotes_no_old: "No old votes to import. You're done with old votes!!",
            v_submit: "Vote for uncontested+ checked, permanently delete unchecked [WORK IN PROGRESS]",
            v_submit_busy: "Submitting...",
+           section_special: "(Manage)",
+           special_oldvotes: "Import Old Votes",
 			"": ""})
 //		"mt-MT": false
 	

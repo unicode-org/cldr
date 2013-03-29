@@ -67,8 +67,6 @@ class LdmlConvertRules {
      * }
      */
     private static final String[] ATTR_AS_VALUE_LIST = {
-        // common/main
-        "types:type:key",
 
         // in common/supplemental/dayPeriods.xml
         "dayPeriodRules:dayPeriodRule:from",
@@ -278,7 +276,7 @@ class LdmlConvertRules {
      */
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
-        "pluralRules", "personList"
+        "pluralRules", "personList", "types"
     };
 
     /**
@@ -359,8 +357,11 @@ class LdmlConvertRules {
             "(.*)/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)", "$1$5"),
 
         // Separate "metazone" from its type as another layer.
-        new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$",
-            "$1/$2/$3"),
+        new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$", "$1/$2/$3"),
+
+        // Split out types into its various fields
+        new PathTransformSpec("(.*)/types/type\\[@type=\"([^\"]*)\"\\]\\[@key=\"([^\"]*)\"\\](.*)$",
+                    "$1/types/$3/$2$4"),
 
         // Add "type" attribute with value "standard" if there is no "type" in
         // "decimalFormatLength".
@@ -380,16 +381,6 @@ class LdmlConvertRules {
 
         new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),
 
-        // The purpose for following transformation is to keep the element name
-        // and still use distinguishing attribute inside. Element name is repeated
-        // for attribute identification to work.
-        //new PathTransformSpec("(.*/firstDay)(.*)", "$1/firstDay$2"),
-
-        //new PathTransformSpec("(.*/minDays)(.*)", "$1/minDays$2"),
-
-        //new PathTransformSpec("(.*/weekendStart)(.*)", "$1/weekendStart$2"),
-
-        //new PathTransformSpec("(.*/weekendEnd)(.*)", "$1/weekendEnd$2"),
 
         new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),
 

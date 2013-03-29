@@ -30,7 +30,7 @@ import com.ibm.icu.impl.Utility;
  * @author shanjian / emmons
  */
 public class Ldml2JsonConverter {
-    private static boolean DEBUG = false;
+    private static boolean DEBUG = true;
     private static final String MAIN = "main";
 
     private static final Options options = new Options(
@@ -110,7 +110,7 @@ public class Ldml2JsonConverter {
      * @return The transformed path.
      */
     private String transformPath(String pathStr) {
-        if (DEBUG) {
+        if (DEBUG && pathStr.contains("types")) {
             System.out.println(" IN pathStr : " + pathStr);
         }
         Matcher m;

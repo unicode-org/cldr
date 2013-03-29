@@ -3065,22 +3065,23 @@ function showV() {
 									var confirmList= []; // these will be revoted with current params
 									var deleteList = []; // these will be deleted
 									
-									// explicit confirm/delete list -  save us desync hassle
-									for(var k in rows ) {
-										if(rows[k].box.checked) {
-											confirmList.push(rows[k].strid);
-										} else {
-											deleteList.push(rows[k].strid);
-										}
-									}
-									
-									var saveList = {
-											locale: surveyCurrentLocale,
-											confirmList: confirmList,
-											deleteList: deleteList
-									};
 									
 									submit.on("click",function(e) {
+										// explicit confirm/delete list -  save us desync hassle
+										for(var kk in rows ) {
+											if(rows[kk].box.checked) {
+												confirmList.push(rows[kk].strid);
+											} else {
+												deleteList.push(rows[kk].strid);
+											}
+										}
+										
+										var saveList = {
+												locale: surveyCurrentLocale,
+												confirmList: confirmList,
+												deleteList: deleteList
+										};
+
 										var url = contextPath + "/SurveyAjax?what=oldvotesSubmit&_="+surveyCurrentLocale+"&s="+surveySessionId+"&"+cacheKill();
 										myLoad(url, "(submitting oldvotes " + surveyCurrentLocale + ")", function(json) {
 											showLoader(theDiv.loader,stui.loading2);
@@ -3090,8 +3091,8 @@ function showV() {
 											} else {
 												reloadV();
 											}
-										});
-									}, saveList);
+										}, saveList);
+									});
 
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_uncontested"),"i",""));

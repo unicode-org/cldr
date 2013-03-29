@@ -25,7 +25,6 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UCharacterIterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
@@ -62,6 +61,14 @@ public class DisplayAndInputProcessor {
                                                                                                       // i.e. [
                                                                                                       // \u00A0\t\n\r]+
 
+    private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
+    private static final CLDRLocale ROMANIAN = CLDRLocale.getInstance("ro");
+
+    // Ş ş Ţ ţ  =>  Ș ș Ț ț
+    private static final char[][] ROMANIAN_CONVERSIONS = {
+        {'\u015E', '\u0218'}, {'\u015F', '\u0219'}, {'\u0162', '\u021A'},
+        {'\u0163', '\u021B'}};
+
     private Collator col;
 
     private Collator spaceCol;
@@ -69,7 +76,6 @@ public class DisplayAndInputProcessor {
     private PrettyPrinter pp;
 
     final private CLDRLocale locale;
-    private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
     private boolean isPosix;
 
     /**
@@ -180,6 +186,8 @@ public class DisplayAndInputProcessor {
                 String newvalue = normalizeMalayalam(value);
                 if (DEBUG_DAIP) System.out.println("DAIP: Normalized Malayalam '" + value + "' to '" + newvalue + "'");
                 value = newvalue;
+            } else if (locale.childOf(ROMANIAN) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+                value = standardizeRomanian(value);
             }
 
             // turn all whitespace sequences (including tab and newline, and NBSP for certain paths)
@@ -291,6 +299,20 @@ public class DisplayAndInputProcessor {
             }
             return original;
         }
+    }
+
+    private String standardizeRomanian(String value) {
+        StringBuilder builder = new StringBuilder();
+        for (char c : value.toCharArray()) {
+            for (char[] pair: ROMANIAN_CONVERSIONS) {
+                if (c == pair[0]) {
+                    c = pair[1];
+                    break;
+                }
+            }
+            builder.append(c);
+        }
+        return builder.toString();
     }
 
     private String replace(Pattern pattern, String value, String replacement) {

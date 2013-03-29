@@ -44,6 +44,16 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         }
     }
 
+    public void TestRomanian() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCldrFactory().make("ro", false));
+        String value = daip.processInput(
+            "//ldml/localeDisplayNames/types/type[@type=\"hant\"][@key=\"numbers\"]",
+            "Numerale chineze\u015Fti tradi\u0163ionale", null);
+        if (!value.equals("Numerale chineze\u0219ti tradi\u021Bionale")) {
+            errln("Romanian incorrectly normalized: " + value);
+        }
+    }
+
     public void TestCompactNumberFormats() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
         String xpath = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"] ";

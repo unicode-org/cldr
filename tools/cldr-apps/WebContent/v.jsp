@@ -26,7 +26,8 @@ if(SurveyMain.isBusted!=null) {
                 <title>SurveyTool: Redirect</title>
                   <script type="application/javascript">
                   window.setTimeout(function(){
-                	                       document.location='<%= url %>' + document.location.search +  document.location.hash;
+                	  window.location.reload(true);                
+                	    //document.location='<%= url %>' + document.location.search +  document.location.hash;
                   },10000);
                   </script>
             </head>
@@ -40,7 +41,7 @@ if(SurveyMain.isBusted!=null) {
                             document.getElementById("redir").href = '<%= url %>' + document.location.search +  document.location.hash;
 
                                dojo.ready(function(){
-                                   dojo.xhrGet({url: '<%= survURL %>', load: function() {                                          window.location.search='?'+window.location.search.substr(1)+'&';  }  }); 
+                                   dojo.xhrGet({url: '<%= survURL %>', load: function() {   window.location.reload(true); if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
                                });
 
                             
@@ -93,6 +94,7 @@ if(false) { // if we need to redirect for some reason..
 <script type="text/javascript">
 // set from incoming session
 surveySessionId = '<%= ctx.session.id %>';
+survURL = '<%= survURL %>';
   showV();
 </script>
 </head>

@@ -15,6 +15,7 @@ require(["dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContaine
 var surveyRunningStamp = '<%= SurveyMain.surveyRunningStamp.current() %>';
 var contextPath = '<%= request.getContextPath() %>';
 var surveyCurrentId = '';
+var surveyCurrentPage = '';
 var surveyCurrentSpecial = null; //  null for locale, else oldvotes, etc
 <%
 String surveyCurrentLocale = request.getParameter(SurveyMain.QUERY_LOCALE);

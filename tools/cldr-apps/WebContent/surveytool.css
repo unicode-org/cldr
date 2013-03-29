@@ -2589,7 +2589,37 @@ span.editableHere {
 .titlePart::before {
 }
 
+#oldVotesAcceptList th {
+    background-color: #ddd;
+}
 
+#oldVotesAcceptList tbody tr:hover {
+    background-color: #d7ca90;
+}
+th.v-accept a {
+    padding: .5em;
+    font-size: small;
+}
+
+td.v-path {
+    white-space: nowrap;
+    font: small Georgia, "Times New Roman", Times, serif;
+    border:  1px solid black;
+    background-color:  white;
+}
+
+td.v-win {
+    
+}
+
+#oldVotesAcceptList {
+    border-collapse: collapse;
+}
+#oldVotesAcceptList td {
+    padding:  0.4em;
+    border-bottom:  1px solid gray;
+    vertical-align: bottom;
+}
 
 #title-item {
     font-family: "Courier New", Courier, mono;

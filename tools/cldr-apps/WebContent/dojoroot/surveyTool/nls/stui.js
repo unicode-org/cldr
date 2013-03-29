@@ -179,6 +179,12 @@ define({
            v_oldvotes_path: "Path",
            v_oldvotes_winning: "Current winning",
            v_oldvotes_mine: "My old vote",
+           v_oldvotes_accept: "Accept?",
+           v_oldvotes_all: "Choose All",
+           v_oldvotes_none: "Choose None",
+           v_oldvotes_no_uncontested: "No uncontested votes.",
+           v_submit: "Vote for checked, permanently delete unchecked [WORK IN PROGRESS]",
+           v_submit_busy: "Submitting...",
 			"": ""})
 //		"mt-MT": false
 	

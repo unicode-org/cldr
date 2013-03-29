@@ -21,7 +21,11 @@ String helpName = subCtx.getString("helpName");
             }
             subCtx.print(" | ");
             SurveyMain.printMenu(subCtx, doWhat, "listu", "My&nbsp;Account", SurveyMain.QUERY_DO);
-            subCtx.print(" | ");
+            %>
+            |
+                    <a href='<%= request.getContextPath() %>/v#oldvotes' class='notselected'>Import my Old Votes (pre-CLDR <%= SurveyMain.getNewVersion() %>)</a>
+            |
+            <%
             subCtx.print("<a href='"+ctx.context("myvotes.jsp?user="+subCtx.session.user.id)+"&s="+subCtx.session.id+"'>My&nbsp;Recent&nbsp;Activity</a>");
             if(UserRegistry.userIsTC(subCtx.session.user)) {
                 subCtx.print(" | ");

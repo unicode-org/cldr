@@ -76,6 +76,31 @@ function createChunk(text, tag, className) {
 }
 
 /**
+ * Create a 'link' that goes to a function. By default it's an 'a', but could be a button, etc.
+ * @param strid  {String} string to be used with stui.str
+ * @param fn {function} function, given the DOM obj as param
+ * @param tag {String}  tag of new obj.  'a' by default.
+ * @return {Node} newobj
+ */
+function createLinkToFn(strid, fn, tag) {
+	if(!tag)  {
+		tag = 'a';
+	}
+	var msg = stui.str(strid);
+	var obj = document.createElement(tag);
+	obj.appendChild(document.createTextNode(msg));
+	if(tag=='a') {
+		obj.href ='#';
+	}
+	listenFor(obj, "click", function(e) {
+		fn(obj);
+		stStopPropagation(e);
+		return false;
+	});
+	return obj;
+}
+
+/**
  * Create a DOM object referring to a user.
  * @method createUser
  * @param {JSON} user - user struct
@@ -2516,7 +2541,6 @@ function showRows(container,xpath,session,coverage) {
   });
 }
 
-var surveyCurrentId = null;
 var _thePages = null;
 
 /**
@@ -2538,6 +2562,7 @@ function showV() {
 	         "dijit/registry",
 	         "dijit/PopupMenuItem",
 	         "dijit/form/Select",
+	         "dojox/form/BusyButton",
 	         "dojo/domReady!"
 	         ],
 	         // HANDLES
@@ -2553,7 +2578,8 @@ function showV() {
 	        		 CheckedMenuItem,
 	        		 registry,
 	        		 PopupMenuItem,
-	        		 Select
+	        		 Select,
+	        		 BusyButton
 	         ) {
 
 		// one time.
@@ -2562,9 +2588,12 @@ function showV() {
 			var hash = window.location.hash;
 			if(hash) {
 				var pieces = hash.substr(1).split("/");
-				if(pieces.length > 1 && pieces[0].length==0) {
-					// locale based
-					surveyCurrentLocale = pieces[1];
+				if(pieces.length > 1) {
+					surveyCurrentLocale = pieces[1]; // could be null
+				} else {
+					surveyCurrentLocale = '';
+				}				
+				if(pieces[0].length==0 && surveyCurrentLocale!=''&&surveyCurrentLocale!=null) {
 					if(pieces.length>2) {
 						surveyCurrentPage = pieces[2];
 						if(pieces.length>3){
@@ -2574,14 +2603,18 @@ function showV() {
 					window.surveyCurrentSpecial=null;
 				} else {
 					window.surveyCurrentSpecial = pieces[0];
+					if(surveyCurrentSpecial=='') {
+						surveyCurrentSpecial='none';
+					}
 					surveyCurrentPage = '';
 					surveyCurrentId = '';
-					if(pieces.length > 1) {
-						surveyCurrentLocale = pieces[1]; // could be null
-					} else {
-						surveyCurrentLocale = '';
-					}
 				}
+			} else {
+				surveyCurrentLocale = '';
+				surveyCurrentSpecial='none';
+				surveyCurrentId='';
+				surveyCurrentPage='';
+				surveyCurrentSection='';
 			}
 			window.processHash = function(){}; // only process one time.
 		};
@@ -2605,8 +2638,13 @@ function showV() {
 			document.title = document.title.split('|')[0] + " | " + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
 		};
 
+		
 		// TODO - rewrite using AMD
-		function myLoad(url, message, handler) {
+		/**
+		 * @param postData optional - makes this a POST
+		 */
+		function myLoad(url, message, handler, postData) {
+			console.log("Loading " + url + " for " + message);
 			var errorHandler = function(err, ioArgs){
 				console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
 				showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " for " + message + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
@@ -2623,7 +2661,8 @@ function showV() {
 					url: url,
 					handleAs:"json",
 					load: loadHandler,
-					error: errorHandler
+					error: errorHandler,
+					postData: postData
 			};
 			queueXhr(xhrArgs);
 		}
@@ -2663,7 +2702,11 @@ function showV() {
 			replaceHash(); // update the hash
 			updateIf("title-locale", surveyCurrentLocaleName);
 
-			if(surveyCurrentSpecial !=null) {
+			if(surveyCurrentSpecial !=null || surveyCurrentLocale==null) {
+				updateIf("title-section","-");
+				updateIf("title-page","-");
+				updateIf("title-id","");
+				// update special title?
 				return; // nothing to do.
 			}
 			/**
@@ -2823,7 +2866,7 @@ function showV() {
 
 				showLoader(theDiv.loader, theDiv.stui.loading);
 				
-				if(surveyCurrentSpecial == null) {
+				if(surveyCurrentSpecial == null && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
 					var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
 					myLoad(url, "(loading vrows)", function(json) {
 						showLoader(theDiv.loader,stui.loading2);
@@ -2931,43 +2974,134 @@ function showV() {
 
 								theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested,  contested: json.oldvotes.contested.length }),"p","info"));
 								
-								
-								var t = document.createElement("table");
-								var th = document.createElement("thead");
-								var tb = document.createElement("tbody");
-								{
-									var tr = document.createElement("tr");
-									tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
-									tr.appendChild(createChunk(stui.str("v_oldvotes_winning"),"th","v-win"));
-									tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
-									th.appendChild(tr);
-								}
-								for(var k in json.oldvotes.contested) {
-									var row = json.oldvotes.contested[k];
-									var tr = document.createElement("tr");
-
-									tr.appendChild(createChunk(row.pathHeader,"td","v-path"));
-									var td0 = createChunk("","td","v-win");
-									if(row.winValue) {
-										var span0 = appendItem(td0, row.winValue, "winner");
-										span0.dir = json.oldvotes.dir;
-									} else {
-										//tr.appendChild(createChunk("","td","v-win"));
+								if(json.oldvotes.contested.length > 0) {
+									
+									var t = document.createElement("table");
+									t.id = 'oldVotesAcceptList';
+									var th = document.createElement("thead");
+									var tb = document.createElement("tbody");
+									{
+										var tr = document.createElement("tr");
+										tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
+										tr.appendChild(createChunk(stui.str("v_oldvotes_winning"),"th","v-win"));
+										tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
+										var accept;
+										tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));										
+										accept.appendChild(createLinkToFn("v_oldvotes_all", function() {
+											for(var k in json.oldvotes.contested) {
+												var row = json.oldvotes.contested[k];
+												row.box.checked = true;
+											}
+										}));
+										accept.appendChild(createLinkToFn("v_oldvotes_none", function() {
+											for(var k in json.oldvotes.contested) {
+												var row = json.oldvotes.contested[k];
+												row.box.checked = false;
+											}
+										}));
+										th.appendChild(tr);
 									}
-									tr.appendChild(td0);
-									var td1 = createChunk("","td","v-mine");
-									var span1 = appendItem(td1, row.myValue, "value");
-									span1.dir = json.oldvotes.dir;
-									tr.appendChild(td1);
-									tb.appendChild(tr);
+									t.appendChild(th);
+									for(var k in json.oldvotes.contested) {
+										var row = json.oldvotes.contested[k];
+										var tr = document.createElement("tr");
+										var tdp;
+										tr.appendChild(tdp = createChunk(row.pathHeader,"td","v-path"));
+										var td0 = createChunk("","td","v-win");
+										if(row.winValue) {
+											var span0 = appendItem(td0, row.winValue, "winner");
+											span0.dir = json.oldvotes.dir;
+										} else {
+											//tr.appendChild(createChunk("","td","v-win"));
+										}
+										tr.appendChild(td0);
+										var td1 = createChunk("","td","v-mine");
+										var label  = createChunk("","label","");
+										//label["for"] ='c_'+row.strid;
+										var span1 = appendItem(label, row.myValue, "value");
+										td1.appendChild(label);
+										span1.dir = json.oldvotes.dir;
+										tr.appendChild(td1);
+										var td2 = createChunk("","td","v-accept");
+										var box = createChunk("","input","");
+										//box.name='c_'+row.strid;
+										box.type="checkbox";
+										row.box = box; // backlink
+										td2.appendChild(box);
+										tr.appendChild(td2);
+										
+										(function(tr,box,tdp){return function(){
+											listenFor(tr, "click", function(e) {
+												
+												box.checked = !box.checked;
+												
+												stStopPropagation(e);
+												return false;
+											});
+											listenFor(tdp, "click", function(e) {
+												
+												//box.checked = !box.checked;
+												
+												stStopPropagation(e);
+												return false;
+											});
+										};})(tr,box,tdp)();
+											
+										tb.appendChild(tr);
+									}
+									t.appendChild(tb);
+									theDiv.appendChild(t);
+
+									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested,  contested: json.oldvotes.contested.length }),"p","info"));
+									
+									var submit = BusyButton({
+//										id: 'oldVotesSubmit',
+										label: stui.str("v_submit"),
+										busyLabel: stui.str("v_submit_busy")
+									});
+
+									submit.placeAt(theDiv);
+									
+									var confirmList= []; // these will be revoted with current params
+									var deleteList = []; // these will be deleted
+									
+									// explicit confirm/delete list -  save us desync hassle
+									for(var k in rows ) {
+										if(rows[k].box.checked) {
+											confirmList.push(rows[k].strid);
+										} else {
+											deleteList.push(rows[k].strid);
+										}
+									}
+									
+									var saveList = {
+											locale: surveyCurrentLocale,
+											confirmList: confirmList,
+											deleteList: deleteList
+									};
+									
+									submit.on("click",function(e) {
+										var url = contextPath + "/SurveyAjax?what=oldvotesSubmit&_="+surveyCurrentLocale+"&s="+surveySessionId+"&"+cacheKill();
+										myLoad(url, "(submitting oldvotes " + surveyCurrentLocale + ")", function(json) {
+											showLoader(theDiv.loader,stui.loading2);
+											if(!verifyJson(json, 'oldvotesSubmit')) {
+												handleDisconnect("Error submitting votes!", json, "Error");
+												return;
+											} else {
+												reloadV();
+											}
+										});
+									}, saveList);
+
+								} else {
+									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_uncontested"),"i",""));
 								}
-								t.appendChild(th);
-								t.appendChild(tb);
-								theDiv.appendChild(t);
 							}
-							
 						}
 					});
+				} else if(surveyCurrentSpecial == 'none') {
+					//for now - redurect
+					window.location = survURL; // redirect home
 				} else {
 					var msg = stui.sub("v_bad_special_msg",
 							{special: surveyCurrentSpecial });

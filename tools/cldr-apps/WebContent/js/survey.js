@@ -1547,9 +1547,9 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	                                   //ieb.destroy();
 	                               }
 	                   }, spanId);
-	                       console.log("Minted  " + spanId);
+//	                       console.log("Minted  " + spanId);
 	                   } else {
-	                       console.log("Leaving alone " + spanId);
+//	                       console.log("Leaving alone " + spanId);
 	                   }
 	            });
 	        });
@@ -1578,6 +1578,7 @@ function appendExtraAttributes(container, theRow) {
 }
 
 function updateRow(tr, theRow) {
+	
 	tr.valueToItem = {}; // hash:  string value to item (which has a div)
 	tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
 	for(k in theRow.items) {
@@ -2041,9 +2042,7 @@ function updateRow(tr, theRow) {
     	}
 	}
 	
-	tr.className='vother';
-	
-	
+	tr.className='vother cov'+theRow.coverageValue;
 }
 
 function findPartition(partitions,partitionList,curPartition,i) {
@@ -2085,12 +2084,20 @@ function insertRowsIntoTbody(theTable,tbody) {
 				newHeading[0].innerHTML = newPartition.name;
 				newHeading[0].id = newPartition.name;
 				tbody.appendChild(newPar);
+				newPar.origClass = newPar.className;
+				newPartition.tr = newPar;
 			}
 			curPartition = newPartition;
 		}
 		
 		var k = rowList[i];
 		var theRow = theRows[k];
+		
+		var theRowCov = parseInt(theRow.coverageValue);
+		if(!newPartition.minCoverage || newPartition.minCoverage > theRowCov) {
+			newPartition.minCoverage = theRowCov;
+			newPartition.tr.className = newPartition.origClass+" cov"+newPartition.minCoverage;
+		}
 		
 		var tr = theTable.myTRs[k];
 		if(!tr) {
@@ -2193,6 +2200,33 @@ function setupSortmode(theTable) {
 	}
 }
 
+/**
+ * Update the coverage classes, show and hide things in and out of coverage
+ * @method updateCoverage
+ */
+function updateCoverage(theDiv) {
+	if(theDiv == null) return;
+	var theTable = theDiv.theTable;
+	if(theTable==null) return;
+	if(!theTable.origClass) {
+		theTable.origClass = theTable.className;
+	}
+	if(window.surveyCurrentCoverage!=null && window.surveyLevels!=null) {
+		var newStyle = theTable.origClass;
+		for(var k in window.surveyLevels) {
+			var level = window.surveyLevels[k];
+			
+			if(window.surveyCurrentCoverage <  parseInt(level.level)) {
+				newStyle = newStyle + " hideCov"+level.level;
+			}
+		}
+		if(newStyle != theTable.className) {
+			theTable.className = newStyle;
+//			console.log("Table style: "  + newStyle + " for lev " + surveyCurrentCoverage);
+		}
+	}
+}
+
 function insertRows(theDiv,xpath,session,json) {
 	var theTable = theDiv.theTable;
 
@@ -2200,6 +2234,7 @@ function insertRows(theDiv,xpath,session,json) {
 	
 	if(!theTable) {
 		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+		updateCoverage(theDiv);
 		localizeFlyover(theTable);
 		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
 		var toAdd = dojo.byId('proto-datarow');
@@ -2548,6 +2583,8 @@ var _thePages = null;
  * @method showV
  */
 function showV() {
+	window.surveyCurrentCoverage = 100; // comprehensive by default. TODO fix
+
 	// REQUIRES
 	require([
 	         "dojo/ready",
@@ -2764,7 +2801,8 @@ function showV() {
 									updateMenuTitles(menuMap);
 									reloadV();
 								},
-								// TODO: disabled via coverage
+								disabled: (window.surveyCurrentCoverage!=null && 
+													parseInt(window.surveyCurrentCoverage)<parseInt(aPage.levs[surveyCurrentLocale]))
 							});
 							menuPage.addChild(pageMenu);
 						})(mySection.pages[k]);
@@ -2783,13 +2821,14 @@ function showV() {
 									label: aPage.name,
 									checked:   (aPage.id == surveyCurrentPage),
 									//    iconClass:"dijitEditorIcon dijitEditorIconSave",
+									disabled: (window.surveyCurrentCoverage!=null && 
+											parseInt(window.surveyCurrentCoverage)<parseInt(aPage.levs[surveyCurrentLocale])),
 									onClick: function(){ 
 										surveyCurrentId = ''; // no id if jumping pages
 										surveyCurrentPage = aPage.id;
 										updateMenuTitles(menuMap);
 										reloadV();
 									},
-									// TODO: disabled via coverage
 								});
 								dropDown.addChild(pageMenu);
 							})(aSection.pages[k]);
@@ -2798,7 +2837,6 @@ function showV() {
 						var sectionMenuItem = new PopupMenuItem({
 							label: aSection.name,
 							popup: dropDown,
-							// TODO: disabled via coverage
 						});
 						menuSection.addChild(sectionMenuItem);
 					})(menuMap.sections[j]);
@@ -2813,6 +2851,55 @@ function showV() {
 				
 					var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus"+cacheKill();
 					myLoad(url, "menus for " + surveyCurrentLocale, function(json) {
+						{
+							var theDiv = dojo.byId("DynamicDataSection");
+							if(!window.surveyLevels) {
+								window.surveyLevels = json.menus.levels;
+
+								var titleCoverage = dojo.byId("title-coverage"); // coverage label
+
+								var levelNums = [];  // numeric levels
+								for(var k in window.surveyLevels) {
+									levelNums.push( { num: parseInt(window.surveyLevels[k].level), level: window.surveyLevels[k] } );
+								}
+								levelNums.sort(function(a,b){return a.num-b.num;});
+
+								var store = [];
+
+								store.push({label: "Auto",
+									disabled: true,
+									selected: false,
+									value: 0});
+
+								for(var j in levelNums) { // use given order
+									if(levelNums[j].num==0) continue;
+									if(window.surveyOfficial && levelNums[j].num==101) continue; // hide Optional in production
+									var level = levelNums[j].level;
+									var isSelected = false;
+									if(window.surveyCurrentCoverage) {
+										isSelected = (parseInt(window.surveyCurrentCoverage)==levelNums[j].num);
+									}
+//									console.log("selected " + isSelected + " for " + level.name + " vs " + window.surveyCurrentCoverage);
+									store.push({label: level.name, 
+														selected: isSelected,
+														value: level.level});
+								}
+								theDiv.covMenu = new Select({name: "menu-select", 
+																				options: store,
+																				onChange: function(newValue) {
+																					window.surveyCurrentCoverage = parseInt(newValue);
+																					updateCoverage(theDiv);
+																					updateHashAndMenus();
+																				}
+																				});
+								theDiv.covMenu.placeAt(titleCoverage);
+							}
+
+							if(theDiv && theDiv) {
+								updateCoverage(theDiv);
+							}
+						}
+						
 						var menus = json.menus;
 						// set up some hashes
 						menus.sectionMap = {};
@@ -3148,7 +3235,7 @@ function showV() {
 			theDiv.shower = shower;
 			showers[theDiv.id]=shower;
 
-		}  // end reloadV
+		};  // end reloadV
 
 		ready(function(){
 			window.parseHash(); // get the initial settings

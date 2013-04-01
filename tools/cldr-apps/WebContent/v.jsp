@@ -175,10 +175,9 @@ survURL = '<%= survURL %>';
                     </div>
                    </div>
 
-            Coverage:
-            <select title='work in progress..' name="title-coverage" data-dojo-type="dijit/form/Select">
-                <option title='work in progress...' selected='true' disabled='true'>Optional</option>
-            </select>
+            <label id='title-coverage'>
+                Coverage:
+            </label>
         </div> <%-- end of lowerstuff --%>
     </div> <%-- end of topstuff --%>
     <div id="DynamicDataSection" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'center'" ></div>

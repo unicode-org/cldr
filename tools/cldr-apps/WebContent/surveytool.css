@@ -2629,3 +2629,16 @@ span.editableHere:hover {
     background-color: yellow;
     border:  1px solid black;
 }
+
+/*
+  TODO: make this dynamic.
+  */
+.hideCov101 .cov101,
+.hideCov100 .cov100,
+.hideCov80 .cov80,
+.hideCov60 .cov60,
+.hideCov40 .cov40,
+.hideCov30 .cov30,
+.hideCov10 .cov10 {
+	display: none;
+}

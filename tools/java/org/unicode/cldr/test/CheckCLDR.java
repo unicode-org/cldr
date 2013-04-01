@@ -1079,7 +1079,7 @@ abstract public class CheckCLDR {
                 allFilters.add(new R3<Pattern, Subtype, Pattern>(locale, subtype, xpathRegex));
             }
         });
-        fileParser.parse(CheckCLDR.class, "../util/data/CheckCLDR-exceptions.txt");
+        fileParser.parse(CheckCLDR.class, "/org/unicode/cldr/util/data/CheckCLDR-exceptions.txt");
     }
 
     /**

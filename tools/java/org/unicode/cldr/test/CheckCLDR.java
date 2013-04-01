@@ -30,11 +30,14 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.VoteResolver;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
 
@@ -48,7 +51,10 @@ import com.ibm.icu.text.Transliterator;
  * To use the test, take a look at the main in ConsoleCheckCLDR. Note that you need to call setDisplayInformation with
  * the CLDRFile for the locale that you want the display information (eg names for codes) to be in.<br>
  * Some options are passed in the Map options. Examples: boolean SHOW_TIMES = options.containsKey("SHOW_TIMES"); // for
- * printing times for doing setCldrFileToCheck
+ * printing times for doing setCldrFileToCheck.
+ * <p>
+ * Some errors/warnings will be explicitly filtered out when calling CheckCLDR's check() method.
+ * The full list of filters can be found in org/unicode/cldr/util/data/CheckCLDR-exceptions.txt.
  * 
  * @author davis
  */
@@ -58,6 +64,7 @@ abstract public class CheckCLDR {
     private CLDRFile cldrFileToCheck;
     private boolean skipTest = false;
     private Phase phase;
+    private Map<Subtype, List<Pattern>> filtersForLocale = new HashMap<Subtype, List<Pattern>>();
 
     public enum InputMethod {
         DIRECT, BULK
@@ -459,6 +466,20 @@ abstract public class CheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
         List<CheckStatus> possibleErrors) {
         this.cldrFileToCheck = cldrFileToCheck;
+
+        // Shortlist error filters for this locale.
+        loadFilters();
+        String locale = cldrFileToCheck.getLocaleID();
+        filtersForLocale.clear();
+        for (R3<Pattern, Subtype, Pattern> filter : allFilters) {
+            if (!filter.get0().matcher(locale).matches()) continue;
+            Subtype subtype = filter.get1();
+            List<Pattern> xpaths = filtersForLocale.get(subtype);
+            if (xpaths == null) {
+                filtersForLocale.put(subtype, xpaths = new ArrayList<Pattern>());
+            }
+            xpaths.add(filter.get2());
+        }
         return this;
     }
 
@@ -825,7 +846,16 @@ abstract public class CheckCLDR {
         // throw new InternalError("CheckCLDR problem: value must not be null");
         // }
         result.clear();
-        return handleCheck(path, fullPath, value, options, result);
+        CheckCLDR instance = handleCheck(path, fullPath, value, options, result);
+        Iterator<CheckStatus> iterator = result.iterator();
+        // Filter out any errors/warnings that match the filter list in CheckCLDR-exceptions.txt.
+        while(iterator.hasNext()) {
+            CheckStatus status = iterator.next();
+            if (shouldExcludeStatus(fullPath, status)) {
+                iterator.remove();
+            }
+        }
+        return instance;
     }
 
     /**
@@ -1026,4 +1056,47 @@ abstract public class CheckCLDR {
         this.phase = phase;
     }
 
+
+    /**
+     * A map of error/warning types to their filters.
+     */
+    private static List<R3<Pattern, Subtype, Pattern>> allFilters;
+
+    /**
+     * Loads the set of filters used for CheckCLDR results.
+     */
+    private void loadFilters() {
+        if (allFilters != null) return;
+        allFilters = new ArrayList<R3<Pattern, Subtype, Pattern>>();
+        RegexFileParser fileParser = new RegexFileParser();
+        fileParser.setLineParser(new RegexLineParser() {
+            @Override
+            public void parse(String line) {
+                String[] fields = line.split("\\s*;\\s*");
+                Subtype subtype = Subtype.valueOf(fields[0]);
+                Pattern locale = Pattern.compile(fields[1]);
+                Pattern xpathRegex = Pattern.compile(fields[2].replaceAll("\\[@", "\\\\[@"));
+                allFilters.add(new R3<Pattern, Subtype, Pattern>(locale, subtype, xpathRegex));
+            }
+        });
+        fileParser.parse(CheckCLDR.class, "../util/data/CheckCLDR-exceptions.txt");
+    }
+
+    /**
+     * Checks if a status should be excluded from the list of results returned
+     * from CheckCLDR.
+     * @param xpath the xpath that the status belongs to
+     * @param status the status
+     * @return true if the status should be included
+     */
+    private boolean shouldExcludeStatus(String xpath, CheckStatus status) {
+        List<Pattern> xpathPatterns = filtersForLocale.get(status.getSubtype());
+        if (xpathPatterns == null) return false;
+        for (Pattern xpathPattern : xpathPatterns) {
+            if (xpathPattern.matcher(xpath).matches()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

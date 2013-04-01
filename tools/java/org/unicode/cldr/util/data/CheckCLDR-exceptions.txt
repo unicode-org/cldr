@@ -1,0 +1,10 @@
+# List of errors and warnings to be excluded from the output of
+# CheckCLDR.check() even if they occur.
+# File format:
+# <error_type> ; <locale_regex> ; <matching_xpath_regex>
+
+%A=[^"]++
+
+asciiCharactersNotInMainOrAuxiliaryExemplars ; ka ; //ldml/numbers/scientificFormats[@numberSystem="%A"]/scientificFormatLength/scientificFormat[@type="standard"]/pattern[@type="standard"]
+asciiCharactersNotInMainOrAuxiliaryExemplars ; ka ; //ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]
+asciiCharactersNotInMainOrAuxiliaryExemplars ; ka ; //ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]

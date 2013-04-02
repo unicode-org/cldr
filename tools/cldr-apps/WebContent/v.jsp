@@ -141,7 +141,8 @@ survURL = '<%= survURL %>';
               <div id='menu-page' data-dojo-type="dijit/DropDownMenu"></div>
          </div>
          
-         <span class='titlePart'  id='title-item'></span>
+         
+         <span data-dojo-type="dijit/InlineEditBox" data-dojo-props="" width="" title="id" class='titlePart'  id='title-item'></span>
          
         </div> <%-- end of toptitle --%>         
         <div id="lowerstuff">

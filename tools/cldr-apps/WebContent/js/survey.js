@@ -18,6 +18,11 @@ dojo.requireLocalization("surveyTool", "stui");
  * @class GLOBAL
  */
 
+/**
+ * Are we manually setting the hash? If so, ignore onhashchange
+ * @property changingHash
+ */
+var changingHash = false;
 
 /**
  * Are we on IE?
@@ -1260,9 +1265,11 @@ function findItemByValue(items, value) {
 	return null;
 }
 
+var surveyConfig = null;
+
 function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	var children = getTagChildren(tr);
-	var config = tr.theTable.config;
+	var config = surveyConfig;
 	
 //	stdebug("Searching for our value " + value );
 	// Find where our value went.
@@ -1789,7 +1796,7 @@ function updateRow(tr, theRow) {
 		}
 	}
 	var children = getTagChildren(tr);
-	var config = tr.theTable.config;
+	var config = surveyConfig;
 	var protoButton = dojo.byId('proto-button');
 	if(!canModify) {
 		protoButton = null; // no voting at all.
@@ -2232,19 +2239,21 @@ function insertRows(theDiv,xpath,session,json) {
 
 	var doInsertTable = null;
 	
+	removeAllChildNodes(theDiv);
 	if(!theTable) {
 		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
 		updateCoverage(theDiv);
 		localizeFlyover(theTable);
 		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
 		var toAdd = dojo.byId('proto-datarow');
-		if(!theTable.config) {
+		surveyConfig = null; 
+		if(!surveyConfig) {
 			var rowChildren = getTagChildren(toAdd);
-			theTable.config={};
+			surveyConfig={};
 			for(var c in rowChildren) {
 				rowChildren[c].title = theTable.theadChildren[c].title;
 				if(rowChildren[c].id) {
-					theTable.config[rowChildren[c].id] = c;
+					surveyConfig[rowChildren[c].id] = c;
 					stdebug("  config."+rowChildren[c].id+" = children["+c+"]");
 					if(false&&stdebug_enabled) {
 						removeAllChildNodes(rowChildren[c]);
@@ -2270,6 +2279,8 @@ function insertRows(theDiv,xpath,session,json) {
 		doInsertTable=theTable;
 //		listenFor(theTable,"mouseout",
 //				hidePopHandler);
+	} else {
+		theDiv.appendChild(theDiv.theTable);
 	}
 	// append header row
 	
@@ -2293,18 +2304,18 @@ function insertRows(theDiv,xpath,session,json) {
 	insertRowsIntoTbody(theTable,tbody);
 	if(doInsertTable) {
 		theDiv.appendChild(doInsertTable);
-		if(theDiv.theLoadingMessage) {
-			theDiv.theLoadingMessage.style.display="none";
-			theDiv.removeChild(theDiv.theLoadingMessage);
-			theDiv.theLoadingMessage=null;
-		}
+//		if(theDiv.theLoadingMessage) {
+//			theDiv.theLoadingMessage.style.display="none";
+//			theDiv.removeChild(theDiv.theLoadingMessage);
+//			theDiv.theLoadingMessage=null;
+//		}
 	} else {
 		theTable.style.display = '';
-		if(theDiv.theLoadingMessage) {
-			theDiv.theLoadingMessage.style.display="none";
-			theDiv.removeChild(theDiv.theLoadingMessage);
-			theDiv.theLoadingMessage=null;
-		}
+//		if(theDiv.theLoadingMessage) {
+//			theDiv.theLoadingMessage.style.display="none";
+//			theDiv.removeChild(theDiv.theLoadingMessage);
+//			theDiv.theLoadingMessage=null;
+//		}
 	}
 
 	
@@ -2413,9 +2424,11 @@ function appendInputBox(parent, which) {
 }
 
 function scrollToItem(tr) {
-//	window.location.hash=tr.id; // scroll!
-//	window.scrollTo(0,getAbsolutePosition(tr).top-50);
-	console.log("scrollToitemem - whatto do with split pane? "); // TODO fix
+	if(surveyCurrentId!=null && surveyCurrentId!='') {
+		require(["dojo/window"], function(win) {
+			win.scrollIntoView("r@"+surveyCurrentId);
+		});
+	}
 }
 
 // interpret the #hash to see if we need to do something...
@@ -2546,7 +2559,7 @@ function showRows(container,xpath,session,coverage) {
 		        		doUpdate(theDiv.id, function() {
 		        				showLoader(theDiv.loader,stui.loading3);
 		        				insertRows(theDiv,xpath,session,json);
-		        				processHash(theDiv);
+		        				scrollToItem();
 		        		});
 		        	}
 		        	
@@ -2576,6 +2589,80 @@ function showRows(container,xpath,session,coverage) {
   });
 }
 
+function showPossibleProblems(container,loc, session, effectiveCov, requiredCov) {
+	surveyCurrentLocale = loc;
+	dojo.ready(function(){
+		var theDiv = dojo.byId(container);
+
+		theDiv.stui = loadStui();
+		theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
+		theDiv.appendChild(theDiv.theLoadingMessage);
+
+		var errorHandler = function(err, ioArgs){
+			console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+			showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+		};
+		var loadHandler = function(json){
+			try {
+				//showLoader(theDiv.loader,stui.loading2);
+				theDiv.removeChild(theDiv.theLoadingMessage);
+				if(!json) {
+					console.log("!json");
+					showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
+				} else if(json.err) {
+					console.log("json.err!" + json.err);
+					showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+					handleDisconnect("while loading",json);
+				} else if(!json.possibleProblems) {
+					console.log("!json.possibleProblems");
+					showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+					handleDisconnect("while loading- no possibleProblems result",json);
+				} else {
+					stdebug("json.possibleProblems OK..");
+					//showLoader(theDiv.loader, "loading..");
+					if(json.dataLoadTime) {
+						updateIf("dynload", json.dataLoadTime);
+					}
+
+					if(json.possibleProblems.length > 0) {
+						var subDiv = createChunk("","div");
+						subDiv.className = "possibleProblems";
+
+						var h3 = createChunk(stui_str("possibleProblems"), "h3");
+						subDiv.appendChild(h3);
+
+						var div3 = document.createElement("div");
+						var newHtml = "";
+						newHtml += testsToHtml(json.possibleProblems);
+						div3.innerHTML = newHtml;
+						subDiv.appendChild(div3);
+						theDiv.appendChild(subDiv);
+					}
+				}
+
+			}catch(e) {
+				console.log("Error in ajax post [surveyAjax]  " + e.message + " / " + e.name );
+				handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
+//				showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
+//				console.log("Error in ajax post [showRows]  " + e.message);
+			}
+		};
+
+		var xhrArgs = {
+				url: contextPath + "/SurveyAjax?what=possibleProblems&_="+surveyCurrentLocale+"&s="+session+"&eff="+effectiveCov+"&req="+requiredCov+  cacheKill(),
+				handleAs:"json",
+				load: loadHandler,
+				error: errorHandler
+		};
+		//window.xhrArgs = xhrArgs;
+//		console.log('xhrArgs = ' + xhrArgs);
+		queueXhr(xhrArgs);
+	});
+}
+
+
+
+// tmp - copy of menus
 var _thePages = null;
 
 /**
@@ -2635,6 +2722,9 @@ function showV() {
 						surveyCurrentPage = pieces[2];
 						if(pieces.length>3){
 							surveyCurrentId = pieces[3];
+							if(surveyCurrentId.substr(0,2)=='x@') {
+								surveyCurrentId=surveyCurrentId.substr(2);
+							}
 						}
 					}
 					window.surveyCurrentSpecial=null;
@@ -2670,8 +2760,13 @@ function showV() {
 			if(thePage == null) thePage = '';
 			var theLocale = window.surveyCurrentLocale;
 			if(theLocale==null) theLocale = '';
+			changingHash=true;
 			window.location.hash = '#' + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
-			updateIf("title-item", theId);
+			changingHash=false;
+			itemBox  = registry.byId("title-item");
+			if(itemBox!=null) {
+			    itemBox.set('value', theId);
+			}
 			document.title = document.title.split('|')[0] + " | " + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
 		};
 
@@ -2764,11 +2859,16 @@ function showV() {
 					updateIf("title-section", "-");
 					updateIf("title-page", surveyCurrentPage); 
 				} else {
-					var mySection = menuMap.pageToSection[window.surveyCurrentPage];
-					var myPage = mySection.pageMap[window.surveyCurrentPage];
-					surveyCurrentSection = mySection.id;
-					updateIf("title-section", mySection.name);
-					updateIf("title-page", myPage.name);
+					if(menuMap.pageToSection[window.surveyCurrentPage]) {
+						var mySection = menuMap.pageToSection[window.surveyCurrentPage];
+						var myPage = mySection.pageMap[window.surveyCurrentPage];
+						surveyCurrentSection = mySection.id;
+						updateIf("title-section", mySection.name);
+						updateIf("title-page", myPage.name);
+					} else {
+						updateIf("title-section", "-");
+						updateIf("title-page", "-");
+					}
 				}
 			}
 
@@ -2782,32 +2882,33 @@ function showV() {
 				var mySection = null;
 				if(surveyCurrentSpecial==null) {
 					// first, update display names
-					mySection = menuMap.pageToSection[surveyCurrentPage];
-					myPage = mySection.pageMap[surveyCurrentPage];
-				
+					if(menuMap.pageToSection[window.surveyCurrentPage]) {
+						mySection = menuMap.pageToSection[surveyCurrentPage];
+						myPage = mySection.pageMap[surveyCurrentPage];
+						// update menus under 'page' - peer pages
+						var menuPage = registry.byId("menu-page");
+						menuPage.destroyDescendants(false);
+						for(var k in mySection.pages) { // use given order
+							(function(aPage) {
+								var pageMenu = new CheckedMenuItem({
+									label: aPage.name,
+									checked:   (aPage.id == surveyCurrentPage),
+									//    iconClass:"dijitEditorIcon dijitEditorIconSave",
+									onClick: function(){ 
+										surveyCurrentId = ''; // no id if jumping pages
+										surveyCurrentPage = aPage.id;
+										updateMenuTitles(menuMap);
+										reloadV();
+									},
+									disabled: (window.surveyCurrentCoverage!=null && 
+											parseInt(window.surveyCurrentCoverage)<parseInt(aPage.levs[surveyCurrentLocale]))
+								});
+								menuPage.addChild(pageMenu);
+							})(mySection.pages[k]);
 
-					// update menus under 'page' - peer pages
-					var menuPage = registry.byId("menu-page");
-					menuPage.destroyDescendants(false);
-					for(var k in mySection.pages) { // use given order
-						(function(aPage) {
-							var pageMenu = new CheckedMenuItem({
-								label: aPage.name,
-								checked:   (aPage.id == surveyCurrentPage),
-								//    iconClass:"dijitEditorIcon dijitEditorIconSave",
-								onClick: function(){ 
-									surveyCurrentId = ''; // no id if jumping pages
-									surveyCurrentPage = aPage.id;
-									updateMenuTitles(menuMap);
-									reloadV();
-								},
-								disabled: (window.surveyCurrentCoverage!=null && 
-													parseInt(window.surveyCurrentCoverage)<parseInt(aPage.levs[surveyCurrentLocale]))
-							});
-							menuPage.addChild(pageMenu);
-						})(mySection.pages[k]);
-	
-					}
+						}
+					}				
+
 				}
 
 				var menuSection = registry.byId("menu-section");
@@ -2973,45 +3074,52 @@ function showV() {
 				showLoader(theDiv.loader, theDiv.stui.loading);
 				
 				if(surveyCurrentSpecial == null && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
-					var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
-					myLoad(url, "(loading vrows)", function(json) {
-						showLoader(theDiv.loader,stui.loading2);
-						if(!json) {
-							console.log("!json");
-							showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
-						} else if(json.err) {
-							console.log("json.err!" + json.err);
-							showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
-							handleDisconnect("while loading",json);
-						} else if(!json.section) {
-							console.log("!json.section");
-							showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
-							handleDisconnect("while loading- no section",json);
-						} else if(!json.section.rows) {
-							console.log("!json.section.rows");
-							showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
-							handleDisconnect("while loading- no rows",json);
-						} else {
-							stdebug("json.section.rows OK..");
-							showLoader(theDiv.loader, "loading..");
-							if(json.dataLoadTime) {
-								updateIf("dynload", json.dataLoadTime);
+					if(surveyCurrentPage==null || surveyCurrentPage=='') {
+						theDiv.theTable = null;
+						removeAllChildNodes(theDiv);
+						showPossibleProblems(theDiv, surveyCurrentLocale, surveySessionId, "modern", "modern");
+					} else {
+						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
+						myLoad(url, "(loading vrows)", function(json) {
+							showLoader(theDiv.loader,stui.loading2);
+							if(!json) {
+								console.log("!json");
+								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
+							} else if(json.err) {
+								console.log("json.err!" + json.err);
+								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+								handleDisconnect("while loading",json);
+							} else if(!json.section) {
+								console.log("!json.section");
+								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+								handleDisconnect("while loading- no section",json);
+							} else if(!json.section.rows) {
+								console.log("!json.section.rows");
+								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
+								handleDisconnect("while loading- no rows",json);
+							} else {
+								stdebug("json.section.rows OK..");
+								showLoader(theDiv.loader, "loading..");
+								if(json.dataLoadTime) {
+									updateIf("dynload", json.dataLoadTime);
+								}
+
+								surveyCurrentSection = '';
+								surveyCurrentPage = json.pageId;
+								surveyCurrentLocaleName = json.localeDisplayName;
+								updateHashAndMenus();
+
+								showInPop2("", null, null, null, true); /* show the box the first time */
+								doUpdate(theDiv.id, function() {
+									showLoader(theDiv.loader,stui.loading3);
+									insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
+									processHash(theDiv);
+								});
 							}
-	
-							surveyCurrentSection = '';
-							surveyCurrentPage = json.pageId;
-							surveyCurrentLocaleName = json.localeDisplayName;
-							updateHashAndMenus();
-	
-							showInPop2("", null, null, null, true); /* show the box the first time */
-							doUpdate(theDiv.id, function() {
-								showLoader(theDiv.loader,stui.loading3);
-								insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
-								processHash(theDiv);
-							});
-						}
-					});
+						});
+					}
 				} else if(surveyCurrentSpecial =='oldvotes') {
+					theDiv.theTable = null;
 					removeAllChildNodes(theDiv);
 					var url = contextPath + "/SurveyAjax?what=oldvotes&_="+surveyCurrentLocale+"&s="+surveySessionId+"&"+cacheKill();
 					myLoad(url, "(loading oldvotes " + surveyCurrentLocale + ")", function(json) {
@@ -3240,82 +3348,69 @@ function showV() {
 		ready(function(){
 			window.parseHash(); // get the initial settings
 			window.reloadV(); // call it
+
+			function trimNull(x) {
+				if(x==null) return '';
+				x = x.toString().trim();
+				return x;
+			}
+			listenFor(window, "hashchange", function(e) {
+				
+				if(!changingHash) {
+					
+					
+					var oldLocale = trimNull(surveyCurrentLocale);
+					var oldSpecial = trimNull(surveyCurrentSpecial);
+					var oldPage = trimNull(surveyCurrentPage);
+					var oldId = trimNull(surveyCurrentId);
+					
+					window.parseHash();
+					
+					// did anything change?
+					if(oldLocale!=trimNull(surveyCurrentLocale) ||
+							oldSpecial!=trimNull(surveyCurrentSpecial) ||
+							oldPage != trimNull(surveyCurrentPage) ) {
+						console.log("# hash changed, reloading..");
+						reloadV();
+					} else if(oldId != trimNull(surveyCurrentId)) {
+						scrollToItem();
+					}
+				}
+				stStopPropagation(e);
+				return false;
+			});
+			
+			
+			// wire up the 'ID' box
+			var ignoreUs = false;
+			registry.byId("title-item").set('onChange',
+			    function(v){
+					if(ignoreUs) return;
+			        v = trimNull(v);
+			        console.log('User entered: ' + v);
+			        
+			        // if it is a current page
+			        if(_thePages!=null && _thePages.pageToSection[v] &&
+			            _thePages.pageToSection[v].pageMap[v]) {
+			                surveyCurrentPage = v;
+			                surveyCurrentId='';
+			                reloadV();
+			            } else if(v.substr(0,1)=='#') {
+			                surveyCurrentId=v.substr(1);
+			                updateHashAndMenus();
+			                //reloadV();
+    						scrollToItem();
+			            } else {
+			            	// if v != surveyCurrentId..
+			                //registry.byId("title-item").set('value',trimNull(surveyCurrentId));
+			            }
+			    }
+			);
 		});
 
 	});  // end require()
 } // end showV
 
-function showPossibleProblems(container,loc, session, effectiveCov, requiredCov) {
-	 surveyCurrentLocale = loc;
-	 dojo.ready(function(){
-		var theDiv = dojo.byId(container);
-
-		theDiv.stui = loadStui();
-		theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
-		theDiv.appendChild(theDiv.theLoadingMessage);
-		
-		    var errorHandler = function(err, ioArgs){
-		    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-		        showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
-		    };
-		    var loadHandler = function(json){
-		        try {
-		        	//showLoader(theDiv.loader,stui.loading2);
-		        	theDiv.removeChild(theDiv.theLoadingMessage);
-		        	if(!json) {
-		        		console.log("!json");
-				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
-		        	} else if(json.err) {
-		        		console.log("json.err!" + json.err);
-		        		showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
-		        		handleDisconnect("while loading",json);
-				    } else if(!json.possibleProblems) {
-		        		console.log("!json.possibleProblems");
-				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
-		        		handleDisconnect("while loading- no possibleProblems result",json);
-		        	} else {
-		        		stdebug("json.possibleProblems OK..");
-		        		//showLoader(theDiv.loader, "loading..");
-		        		if(json.dataLoadTime) {
-		        			updateIf("dynload", json.dataLoadTime);
-		        		}
-//		        		showInPop2("", null, null, null, true); /* show the box the first time */
-		        		// UPDATE ERR SECTION
-		        		// @@
-		        		
-		        		if(json.possibleProblems.length > 0) {
-			        		theDiv.className = "possibleProblems";
-			        		
-			        		var h3 = createChunk(stui_str("possibleProblems"), "h3");
-			        		theDiv.appendChild(h3);
-			        		
-			        		var div3 = document.createElement("div");
-			        		var newHtml = "";
-			        		newHtml += testsToHtml(json.possibleProblems);
-			        		div3.innerHTML = newHtml;
-			        		theDiv.appendChild(div3);
-		        		}
-		        	}
-		        	
-		           }catch(e) {
-		               console.log("Error in ajax post [surveyAjax]  " + e.message + " / " + e.name );
-				        handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
-//					        showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
-//				               console.log("Error in ajax post [showRows]  " + e.message);
-		           }
-		    };
-		    
-		    var xhrArgs = {
-		            url: contextPath + "/SurveyAjax?what=possibleProblems&_="+surveyCurrentLocale+"&s="+session+"&eff="+effectiveCov+"&req="+requiredCov+  cacheKill(),
-		            handleAs:"json",
-		            load: loadHandler,
-		            error: errorHandler
-		        };
-		    //window.xhrArgs = xhrArgs;
-//			    console.log('xhrArgs = ' + xhrArgs);
-		    queueXhr(xhrArgs);
-	  });
-	}
 
 
 function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {

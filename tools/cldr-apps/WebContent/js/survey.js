@@ -14,6 +14,20 @@ dojo.require("dojo.string");
 dojo.requireLocalization("surveyTool", "stui");
 
 /**
+ * @class Object
+ * @method keys
+ */
+if(!Object.keys) {
+	Object.keys = function(x) {
+		var r = [];
+		for (j in x) {
+			r.push(j);
+		}
+		return r;
+	};
+}
+
+/**
  * Global items 
  * @class GLOBAL
  */
@@ -25,24 +39,17 @@ dojo.requireLocalization("surveyTool", "stui");
 var changingHash = false;
 
 /**
- * Are we on IE?
- * @property onIE
- */
-var onIE =  (navigator && navigator.appName && navigator.appName == 'Microsoft Internet Explorer');
-
-/**
  * SurveyToolUI (localization) object. Preloaded with a few strings while we wait for the resources to load.
  *
  * @property stui
  */
 var stui = {
-            online: "Online",
-            error_restart: "(May be due to SurveyTool restart on server)", 	
-            error: "Disconnected: Error", "details": "Details...", 
-            disconnected: "Disconnected", 
-            startup: "Starting up..."
-           };
-
+		online: "Online",
+		error_restart: "(May be due to SurveyTool restart on server)", 	
+		error: "Disconnected: Error", "details": "Details...", 
+		disconnected: "Disconnected", 
+		startup: "Starting up..."
+};
 
 /**
  * SurveyToolUI string loading function
@@ -119,6 +126,12 @@ function createUser(user) {
 	return div;
 }
 
+/**
+ * Used from within event handlers. cross platform 'stop propagation'
+ * @method stStopPropagation
+ * @param e event
+ * @returns
+ */
 function stStopPropagation(e) {
 	if(!e) {
 		return false;
@@ -132,17 +145,39 @@ function stStopPropagation(e) {
 	}
 }
 
+/**
+ * function to change the current hash.
+ * @method replaceHash
+ * @deprecated
+ */
 window.replaceHash = function() {
 	window.location.replace("#"+"x@" + surveyCurrentId);
-}
+};
 
+/**
+ * is the ST disconnected
+ * @property disconnected 
+ */
 var disconnected = false;
 
+/**
+ * Is debugging enabled?
+ * @property stdebug_enabled
+ */
 var stdebug_enabled=(window.location.search.indexOf('&stdebug=')>-1);
 
+/**
+ * Queue of XHR requests waiting to go out
+ * @property queueOfXhr
+ */
 var queueOfXhr=[];
 
+/**
+ * The current timeout for processing XHRs
+ * @property queueOfXhrTimeout
+ */
 var queueOfXhrTimeout=null;
+
 
 var myLoad0= null;
 var myErr0 = null;
@@ -212,10 +247,16 @@ function removeAllChildNodes(td) {
 
 var timerID = -1;
 
+/**
+ * Update the item, if it exists
+ * @method updateIf
+ * @param id ID of DOM node
+ * @param txt text to replace with - should just be plaintext, but currently can be HTML
+ */
 function updateIf(id, txt) {
     var something = document.getElementById(id);
     if(something != null) {
-        something.innerHTML = txt;
+        something.innerHTML = txt;  // TODO shold only use for plain text
     }
 }
 
@@ -256,17 +297,13 @@ function listenFor(what, event, fn, ievent) {
 	return what;
 }
 
-// Add Object.keys if missing
-if(!Object.keys) {
-	Object.keys = function(x) {
-		var r = [];
-		for (j in x) {
-			r.push(j);
-		}
-		return r;
-	};
-}
-
+/**
+ * calculate position of object
+ * @method getAbsolutePosition
+ * @param {Node} object to check
+ * @returns {Object}  with left: and top:
+ * @deprecated not used
+ */
 function getAbsolutePosition (x) {
     var hh = 0;
     var vv = 0;
@@ -277,6 +314,12 @@ function getAbsolutePosition (x) {
     return {left:hh, top: vv};
 }
 
+/**
+ * On click, select all
+ * @method clickToSelect
+ * @param {Node} obj to listen to
+ * @param {Node} targ to select
+ */
 function clickToSelect(obj, targ) {
 	if(!targ) targ=obj;
 	listenFor(obj, "click", function(e) {
@@ -294,6 +337,10 @@ var loadOnOk = null;
 var clickContinue = null;
  var surveyNextLocaleStamp = 0;
  
+ /**
+  * Mark the page as busted. Don't do any more requests.
+  * @method busted
+  */
  function busted() {
 	 disconnected = true;
 	 //console.log("disconnected.");
@@ -308,7 +355,10 @@ var showers={};
 var deferUpdates = 0;
 var deferUpdateFn = {};
 
-
+/**
+ * Process all deferred updates
+ * @method doDeferredUpdates
+ */
 function doDeferredUpdates() {
 	if(deferUpdateFn==null) {
 		return;
@@ -322,6 +372,11 @@ function doDeferredUpdates() {
 	}
 }
 
+/**
+ * Set whether we are deferring or not. For example, call setDefer(true) on entering a text field, and setDefer(false) leaving it.
+ * @method setDefer
+ * @param {boolean} defer
+ */
 function setDefer(defer) {
 	if(defer) {
 		deferUpdates++;
@@ -334,14 +389,31 @@ function setDefer(defer) {
 	stdebug("deferUpdates="+deferUpdates);
 }
 
+/**
+ * Note an update as deferred. 
+ * @method deferUpdate
+ * @param {String} what type of item to defer  (must be unique- will overwrite)
+ * @param {Function} fn function to register
+ */
 function deferUpdate(what, fn) {
 	deferUpdateFn[what]=fn;
 }
 
+/**
+ * Note an update as not needing deferral
+ * @method undeferUpdate
+ * @param {String} what the type of item to undefer
+ */
 function undeferUpdate(what) {
-	deferUpdateFn[what]=null;
+	deferUpdate(what, null);
 }
 
+/**
+ * Perform or queue an update. Note that there's data waiting if we are deferring.
+ * @method doUpdate
+ * @param {String} what
+ * @param {Function} fn function to call, now or later
+ */
 function doUpdate(what,fn) {
 	if(deferUpdates>0) {
 		updateAjaxWord(stui_str('newDataWaiting'));
@@ -352,6 +424,12 @@ function doUpdate(what,fn) {
 	}
 }
 
+/**
+ * Process that the locale has changed under us.
+ * @method handleChangedLocaleStamp
+ * @param {String} stamp timestamp
+ * @param {String} name locale name
+ */
 function handleChangedLocaleStamp(stamp,name) {
 	if(disconnected) return;
 	if(stamp <= surveyNextLocaleStamp) {
@@ -377,6 +455,10 @@ var progressWord = null;
 var ajaxWord = null;
 var specialHeader = null;
 
+/**
+ * Update the 'status' if need be.
+ * @method showWord 
+ */
 function showWord() {
 	var p = dojo.byId("progress");	
 	var oneword = dojo.byId("progress_oneword");
@@ -407,11 +489,21 @@ function showWord() {
 	}
 }
 
+/**
+ * Update our progress 
+ * @method updateProgressWord
+ * @param {String} prog the status to update
+ */
 function updateProgressWord(prog) {
 	progressWord = prog;
 	showWord();
 }
 
+/**
+ * Update ajax loading status
+ * @method updateAjaxWord
+ * @param {String} ajax 
+ */
 function updateAjaxWord(ajax) {
 	ajaxWord = ajax;
 	showWord();
@@ -419,6 +511,13 @@ function updateAjaxWord(ajax) {
 
 var saidDisconnect=false;
 
+/**
+ * Handle that ST has disconnected
+ * @method handleDisconnect
+ * @param why
+ * @param json
+ * @param word
+ */
 function handleDisconnect(why, json, word) {
 	if(!word) {
 		word = "error"; // assume it's an error except for a couple of cases.
@@ -471,6 +570,11 @@ var updateParts = null;
 
 var cacheKillStamp = surveyRunningStamp;
 
+/**
+ * Return a string to be used with a URL to avoid caching. Ignored by the server.
+ * @method cacheKill 
+ * @returns {String} the URL fragment, append to the query
+ */
 function cacheKill() {
 	if(!cacheKillStamp || cacheKillStamp<surveyRunningStamp) {
 		cacheKillStamp=surveyRunningStamp;
@@ -480,7 +584,10 @@ function cacheKill() {
 	return "&cacheKill="+cacheKillStamp;
 }
 
-
+/**
+ * Note that there is special site news.
+ * @param {String} newSpecialHeader site news
+ */
 function updateSpecialHeader(newSpecialHeader) {
 	if(newSpecialHeader && newSpecialHeader.length>0) {
 		specialHeader = newSpecialHeader;
@@ -489,6 +596,12 @@ function updateSpecialHeader(newSpecialHeader) {
 	}
 	showWord();
 }
+
+/**
+ * Based on the last received packet of JSON, update our status
+ * @method updateStatusBox
+ * @param {Object} json received 
+ */
 function updateStatusBox(json) {
 	if(json.disconnected) {
 		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown 
@@ -555,9 +668,22 @@ function updateStatusBox(json) {
 	}
 }
 
+/**
+ * How often to fetch updates. Default 15s
+ * @property timerSpeed
+ */
 var timerSpeed = 15000;
+
+/**
+ * How long to wait for AJAX updates.
+ * @property ajaxTimeout
+ */
 var ajaxTimeout = 120000; // 2 minutes
 
+/**
+ * This is called periodically to fetch latest ST status
+ * @method updateStatus
+ */
 function updateStatus() {
 	if(disconnected) return;
 //	stdebug("UpdateStatus...");
@@ -622,7 +748,7 @@ function updateStatus() {
             if((wasBusted == false) && (json.status.isSetup) && (loadOnOk != null)) {
                 window.location.replace(loadOnOk);
             } else {
-            	setTimeout(updateStatus, timerSpeed)
+            	setTimeout(updateStatus, timerSpeed);
             }
         },
         error: function(err, ioArgs){
@@ -637,13 +763,21 @@ function updateStatus() {
     });
 }
 
-
+/**
+ * Fire up the main timer loop to update status
+ * @method setTimerOn
+ */
 function setTimerOn() {
     updateStatus();
 //    timerID = setInterval(updateStatus, timerSpeed);
     
 }
 
+/**
+ * Change the update timer's speed
+ * @method resetTimerSpeed
+ * @param {Int} speed
+ */
 function resetTimerSpeed(speed) {
 	timerSpeed = speed;
 //	clearInterval(timerID);
@@ -655,6 +789,10 @@ dojo.ready(function(){
 	setTimerOn();
 });
 
+/**
+ * Table mapping CheckCLDR.StatusAction into capabilites 
+ * @property statusActionTable
+ */
 var statusActionTable = {
     ALLOW: 									   { vote: true, ticket: false, change: true  }, 
     ALLOW_VOTING_AND_TICKET:   { vote: true, ticket: true, change: false },
@@ -665,6 +803,12 @@ var statusActionTable = {
     DEFAULT: { vote: false, ticket: false, change: false}
 };
 
+/**
+ * Parse a CheckCLDR.StatusAction and return the capabilities table
+ * @method parseStatusAction
+ * @param action
+ * @returns {Object} capabilities 
+ */
 function parseStatusAction(action) {
 	if(!action) return statusActionTable.DEFAULT;
 	var result = statusActionTable[action];
@@ -672,6 +816,11 @@ function parseStatusAction(action) {
 	return result;
 }
 
+/**
+ * Determine whether a JSONified array of CheckCLDR.CheckStatus is overall a warning or an error.
+ * @param {Object} testResults - array of CheckCLDR.CheckStatus
+ * @returns {String} 'Warning' or 'Error' or null
+ */
 function getTestKind(testResults) {
 	if(!testResults) {
 		return null;
@@ -688,6 +837,11 @@ function getTestKind(testResults) {
     return theKind;
 }
 
+/**
+ * Clone the node, removing the id
+ * @param {Node} i
+ * @returns {Node} new return, deep clone but with no ids
+ */
 function cloneAnon(i) {
 	if(i==null) return null;
 	var o = i.cloneNode(true);
@@ -697,6 +851,11 @@ function cloneAnon(i) {
 	return o;
 }
 
+/**
+ * like cloneAnon, but localizes by fetching stui-html string substitution.
+ * @method localizeAnon
+ * @param o
+ */
 function localizeAnon(o) {
 	if(o&&o.childNodes) for(var i=0;i<o.childNodes.length;i++) {
 		var k = o.childNodes[i];
@@ -711,6 +870,12 @@ function localizeAnon(o) {
 		}
 	}
 }
+
+/**
+ * Localize the flyover text by replacing $X with stui[Z]
+ * @method localizeFlyover
+ * @param {Node} o
+ */
 function localizeFlyover(o) {
 	if(o&&o.childNodes) for(var i=0;i<o.childNodes.length;i++) {
 		var k = o.childNodes[i];
@@ -727,12 +892,24 @@ function localizeFlyover(o) {
 	}
 }
 
+/**
+ * cloneAnon, then call localizeAnon
+ * @method cloneLocalizeAnon
+ * @param {Node} i
+ * @returns {Node}
+ */
 function cloneLocalizeAnon(i) {
 	var o = cloneAnon(i);
 	if(o) localizeAnon(o);
 	return o;
 }
 
+/**
+ * Return an array of all children of the item which are tags
+ * @method getTagChildren
+ * @param {Node} tr
+ * @returns {Array}
+ */
 function getTagChildren(tr) {
 	var rowChildren = [];
 	
@@ -745,14 +922,34 @@ function getTagChildren(tr) {
 	return rowChildren;
 }
 
+/**
+ * show the 'loading' sign
+ * @method showLoader
+ * @param loaderDiv ignored
+ * @param {String} text text to use
+ */
 function showLoader(loaderDiv, text) {
 	updateAjaxWord(text);
 }
 
+/**
+ * Hide the 'loading' sign
+ * @method hideLoader
+ * @param loaderDiv ignored
+ */
 function hideLoader(loaderDiv) {
 	updateAjaxWord(null);
 }
 
+/**
+ * wire up the button to perform a submit
+ * @method wireUpButton
+ * @param button
+ * @param tr
+ * @param theRow
+ * @param vHash
+ * @param box
+ */
 function wireUpButton(button, tr, theRow, vHash,box) {
 	if(box) {
 		button.id="CHANGE_" + tr.rowHash;
@@ -799,6 +996,12 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	}
 }
 
+/**
+ * Append an icon to the div
+ * @method addIcon
+ * @param {Node} td
+ * @Param {String} className name of icon's CSS class
+ */
 function addIcon(td, className) {
 	var star = document.createElement("span");
 	star.className=className;
@@ -2322,8 +2525,6 @@ function insertRows(theDiv,xpath,session,json) {
 	hideLoader(theDiv.loader);
 }
 
-// move this into showRows to handle multiple containers.
-
 function loadStui(loc) {
 	if(!stui.ready) {
 		stui  = dojo.i18n.getLocalization("surveyTool", "stui");
@@ -2456,139 +2657,6 @@ function processHash() {
 	window.processHash = function(){}; // only process one time.
 }
 
-/**
- * This is now the 'old' method of showing rows.
- * @method showRows
- * @param {Node} container container div for stuff
- * @param {String} xpath xpath to show (or xpathid)
- * @param {String} session session string
- * @param {String} coverage coverage string
- * @author srl
- */
-function showRows(container,xpath,session,coverage) {
- dojo.ready(function(){
-	 
-	if(!coverage) coverage="";
-	var theDiv = dojo.byId(container);
-	
-	var topstuff = dojo.byId("topstuff");
-	
-	if(topstuff) {
-		var body = document.getElementsByTagName("body")[0];
-		
-		// reparent
-		function reparent(id) {
-			var what = dojo.byId(id);
-			if(what && what.parentNode == body) {
-				body.removeChild(what);
-				topstuff.appendChild(what);
-			}
-		}
-		reparent("progress");		
-		reparent("usertable");		
-		reparent("toparea");		
-		reparent("sectionmenu");		
-		reparent("footer");		
-	}
-	
-	var pucontent = dojo.byId("itemInfo");
-	theDiv.pucontent = pucontent;
-
-	theDiv.stui = loadStui();
-	
-	if(theDiv.theLoadingMessage) {
-		theDiv.theLoadingMessage.style.display="none";
-		theDiv.removeChild(theDiv.theLoadingMessage);
-		theDiv.theLoadingMessage=null;
-	}
-
-	theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
-	theDiv.appendChild(theDiv.theLoadingMessage);
-	
-	var shower = null;
-	var theTable = theDiv.theTable;
-	shower = function() {
-	
-		if(!theTable) {
-			var theTableList = theDiv.getElementsByTagName("table");
-			if(theTableList) {
-				theTable = theTableList[0];
-				theDiv.theTable = theTable;
-			}
-		}
-
-		var theLoader = theDiv.loader;
-		if(!theLoader) {
-			theLoader =  cloneAnon(dojo.byId("proto-loading"));
-			theDiv.appendChild(theLoader);
-			theDiv.loader = theLoader;
-		}
-		
-		showLoader(theDiv.loader, theDiv.stui.loading);
-		
-		dojo.ready(function() {
-		    var errorHandler = function(err, ioArgs){
-		    	console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-		        showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
-		    };
-		    var loadHandler = function(json){
-		        try {
-		        	showLoader(theDiv.loader,stui.loading2);
-		        	if(!json) {
-		        		console.log("!json");
-				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
-		        	} else if(json.err) {
-		        		console.log("json.err!" + json.err);
-		        		showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
-		        		handleDisconnect("while loading",json);
-				    } else if(!json.section) {
-		        		console.log("!json.section");
-				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
-		        		handleDisconnect("while loading- no section",json);
-				    } else if(!json.section.rows) {
-		        		console.log("!json.section.rows");
-				        showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
-		        		handleDisconnect("while loading- no rows",json);
-		        	} else {
-		        		stdebug("json.section.rows OK..");
-		        		showLoader(theDiv.loader, "loading..");
-		        		if(json.dataLoadTime) {
-		        			updateIf("dynload", json.dataLoadTime);
-		        		}
-		        		showInPop2("", null, null, null, true); /* show the box the first time */
-		        		doUpdate(theDiv.id, function() {
-		        				showLoader(theDiv.loader,stui.loading3);
-		        				insertRows(theDiv,xpath,session,json);
-		        				scrollToItem();
-		        		});
-		        	}
-		        	
-		           }catch(e) {
-		               console.log("Error in ajax post [showRows]  " + e.message + " / " + e.name );
-				        handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
-//				        showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
-//			               console.log("Error in ajax post [showRows]  " + e.message);
-		           }
-		    };
-		    var xhrArgs = {
-		            url: contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+session+"&xpath="+xpath+"&p_covlev="+coverage+cacheKill(),
-		            handleAs:"json",
-		            load: loadHandler,
-		            error: errorHandler
-		        };
-		    //window.xhrArgs = xhrArgs;
-//		    console.log('xhrArgs = ' + xhrArgs);
-		    queueXhr(xhrArgs);
-		});
-	};
-	
-	shower(); // first load
-	theDiv.shower = shower;
-	showers[theDiv.id]=shower;
-//	console.log("Wrote shower " + theDiv.id + " as " + shower);
-  });
-}
-
 function showPossibleProblems(container,loc, session, effectiveCov, requiredCov) {
 	surveyCurrentLocale = loc;
 	dojo.ready(function(){
@@ -2644,7 +2712,7 @@ function showPossibleProblems(container,loc, session, effectiveCov, requiredCov)
 				console.log("Error in ajax post [surveyAjax]  " + e.message + " / " + e.name );
 				handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
 //				showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
-//				console.log("Error in ajax post [showRows]  " + e.message);
+//				console.log("Error in ajax post   " + e.message);
 			}
 		};
 

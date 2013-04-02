@@ -854,14 +854,15 @@ public class SurveyForum {
     public void showXpath(WebContext baseCtx, String xpath, int base_xpath, CLDRLocale locale) {
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(locale);
-        ctx.println("       <div id='DynamicDataSection'><noscript>" + ctx.iconHtml("stop", "sorry")
-                + "JavaScript is required.</noscript></div>      " + " <script type='text/javascript'>   "
-                + "surveyCurrentLocale='" + locale + "';\n" + "showRows('DynamicDataSection', '" + xpath + "', '"
-                + ctx.session.id + "','" + "optional" /*
-                                                       * ctx.
-                                                       * getEffectiveCoverageLevel
-                                                       * (ctx.getLocale())
-                                                       */+ "');       </script>");
+        ctx.println("<i>Note: item cannot be shown here.</i>");
+//        ctx.println("       <div id='DynamicDataSection'><noscript>" + ctx.iconHtml("stop", "sorry")
+//                + "JavaScript is required.</noscript></div>      " + " <script type='text/javascript'>   "
+//                + "surveyCurrentLocale='" + locale + "';\n" + "showRows BROKEN('DynamicDataSection', '" + xpath + "', '"
+//                + ctx.session.id + "','" + "optional" /*
+//                                                       * ctx.
+//                                                       * getEffectiveCoverageLevel
+//                                                       * (ctx.getLocale())
+//                                                       */+ "');       </script>");
         // Show the Pod in question:
         // ctx.println("<hr> \n This post Concerns:<p>");
         // boolean canModify =ctx.canModify();

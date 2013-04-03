@@ -30,8 +30,16 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile,
             info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         String actual = exampleGenerator.getExampleHtml("//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-            "{0} ({1})", Zoomed.IN);
-        assertEquals("Locale display faulty", "<div class='cldr_example'>usbeco (arabo, Afghanistan, Fuso orario: Africa/Addis_Ababa, Cifre indo-arabe)</div>", actual);
+            "{0} [{1}]", Zoomed.IN);
+        assertEquals("Locale display faulty",
+            "<div class='cldr_example'>usbeco<span class='cldr_substituted'> [</span>arabo, Afghanistan, Fuso orario: Africa/Addis_Ababa, Cifre indo-arabe<span class='cldr_substituted'>]</span></div>", actual);
+        actual = exampleGenerator.getExampleHtml("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
+            "{0}. {1}", Zoomed.IN);
+        assertEquals("Locale display faulty",
+            "<div class='cldr_example'>usbeco (arabo<span class='cldr_substituted'>. </span>" +
+            "Afghanistan<span class='cldr_substituted'>. </span>Fuso orario: Africa/Addis_Ababa" +
+            "<span class='cldr_substituted'>. </span>Cifre indo-arabe)</div>",
+            actual);
     }
 
     public void Test4897() {

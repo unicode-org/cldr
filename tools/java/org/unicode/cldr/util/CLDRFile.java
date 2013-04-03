@@ -2068,7 +2068,19 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return getName(localeOrTZID, false);
     }
 
-    public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound) {
+    /**
+     * Returns the name of the given bcp47 identifier. Note that extensions must
+     * be specified using the old "\@key=type" syntax.
+     * Only used by ExampleGenerator.
+     * @param localeOrTZID the locale or timezone ID
+     * @param onlyConstructCompound
+     * @param localeKeyTypePattern the pattern used to format key-type pairs
+     * @param localePattern the pattern used to format primary/secondary subtags
+     * @param localeSeparator the list separator for secondary subtags
+     * @return
+     */
+    public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound,
+            String localeKeyTypePattern, String localePattern, String localeSeparator) {
         boolean isCompound = localeOrTZID.contains("_");
         String name = isCompound && onlyConstructCompound ? null : getName(LANGUAGE_NAME, localeOrTZID);
         // TODO - handle arbitrary combinations
@@ -2105,17 +2117,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
 
-        String separatorPattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
         String extras = "";
         if (!haveScript) {
-            extras = addDisplayName(lparser.getScript(), SCRIPT_NAME, separatorPattern, extras);
+            extras = addDisplayName(lparser.getScript(), SCRIPT_NAME, localeSeparator, extras);
         }
         if (!haveRegion) {
-            extras = addDisplayName(lparser.getRegion(), TERRITORY_NAME, separatorPattern, extras);
+            extras = addDisplayName(lparser.getRegion(), TERRITORY_NAME, localeSeparator, extras);
         }
         List<String> variants = lparser.getVariants();
         for (String orig : variants) {
-            extras = addDisplayName(orig, VARIANT_NAME, separatorPattern, extras);
+            extras = addDisplayName(orig, VARIANT_NAME, localeSeparator, extras);
         }
 
         // Look for key-type pairs.
@@ -2131,27 +2142,48 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
             if (value == null) {
                 // Get name of key instead and pair it with the type as-is.
-                String keyTypePattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern");
                 String sname = getStringValue("//ldml/localeDisplayNames/keys/key[@type=\"" + key + "\"]");
                 if (sname == null) sname = key;
-                value = MessageFormat.format(keyTypePattern, new Object[] { sname, type });
+                value = MessageFormat.format(localeKeyTypePattern, new Object[] { sname, type });
             }
-            extras += ", " + value;
+            extras = MessageFormat.format(localeSeparator, new Object[] { extras, value });
         }
         // fix this -- shouldn't be hardcoded!
         if (extras.length() == 0) {
             return name;
         }
-        String namePattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
-        return MessageFormat.format(namePattern, new Object[] { name, extras });
+        return MessageFormat.format(localePattern, new Object[] { name, extras });
     }
 
-    private String addDisplayName(String original, int type, String separatorPattern, String extras) {
-        if (original.length() == 0) return extras;
+    /**
+     * Returns the name of the given bcp47 identifier. Note that extensions must
+     * be specified using the old "\@key=type" syntax.
+     * @param localeOrTZID the locale or timezone ID
+     * @param onlyConstructCompound
+     * @return
+     */
+    public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound) {
+        return getName(localeOrTZID, onlyConstructCompound,
+            getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
+            getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
+            getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"));
+    }
 
-        String sname = getName(type, original);
+    /**
+     * Adds the display name for a subtag to a string.
+     * @param subtag the subtag
+     * @param type the type of the subtag
+     * @param separatorPattern the pattern to be used for separating display
+     *      names in the resultant string
+     * @param extras the string to be added to
+     * @return the modified display name string
+     */
+    private String addDisplayName(String subtag, int type, String separatorPattern, String extras) {
+        if (subtag.length() == 0) return extras;
+
+        String sname = getName(type, subtag);
         if (sname == null) {
-            sname = original;
+            sname = subtag;
         }
         if (extras.length() == 0) {
             extras += sname;

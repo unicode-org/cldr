@@ -943,6 +943,21 @@ public class ExampleGenerator {
         return result;
     }
 
+    /**
+     * @param elementToOverride the element that is to be overridden
+     * @param element the overriding element
+     * @param value the value to override element with
+     * @return
+     */
+    private String getLocaleDisplayPattern(String elementToOverride, String element, String value) {
+        final String localeDisplayPatternPath = "//ldml/localeDisplayNames/localeDisplayPattern/";
+        if (elementToOverride.equals(element)) {
+            return value;
+        } else {
+            return cldrFile.getWinningValue(localeDisplayPatternPath + elementToOverride);
+        }
+    }
+    
     private String handleDisplayNames(String xpath, XPathParts parts, String value) {
         String result = null;
         if (parts.contains("codePatterns")) {
@@ -952,7 +967,14 @@ public class ExampleGenerator {
                     : type.equals("script") ? "Avst"
                         : type.equals("territory") ? "057" : "CODE"));
         } else if (parts.contains("localeDisplayPattern")) {
-            result = cldrFile.getName("uz-Arab-AF@timezone=Africa/Addis_Ababa;numbers=arab");
+            String element = parts.getElement(-1);
+            value = setBackground(value);
+            String localeKeyTypePattern = getLocaleDisplayPattern("localeKeyTypePattern", element, value);
+            String localePattern = getLocaleDisplayPattern("localePattern", element, value);
+            String localeSeparator = getLocaleDisplayPattern("localeSeparator", element, value);
+
+            result = cldrFile.getName("uz-Arab-AF@timezone=Africa/Addis_Ababa;numbers=arab", false,
+                localeKeyTypePattern, localePattern, localeSeparator);
         } else if (parts.contains("languages")) {
             String type = parts.getAttributeValue(-1, "type");
             if (type.contains("_")) {

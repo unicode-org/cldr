@@ -181,7 +181,11 @@ survURL = '<%= survURL %>';
             </label>
         </div> <%-- end of lowerstuff --%>
     </div> <%-- end of topstuff --%>
-    <div id="DynamicDataSection" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'center'" ></div>
+    <div data-dojo-type="dijit/layout/ContentPane" id="MainContentPane" data-dojo-props="splitter:true, region:'center'" >
+        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait</div>
+        <div  id="DynamicDataSection" ><%-- the actual scrolling table --%></div>
+        <div id="OtherSection"><%-- other content --%></div>
+    </div>
     <div id="itemInfo" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'trailing'" ></div>
     <div id="botstuff" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'bottom'" >
          <%@include file="/WEB-INF/tmpl/stnotices.jspf" %>

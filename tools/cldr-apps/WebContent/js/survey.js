@@ -28,6 +28,87 @@ if(!Object.keys) {
 }
 
 /**
+ * @class GLOBAL
+ */
+
+/**
+ * Remove all subnodes
+ * @method removeAllChildNodes
+ * @param {Node} td
+ */
+function removeAllChildNodes(td) {
+	if(td==null) return;
+	while(td.firstChild) {
+		td.removeChild(td.firstChild);
+	}
+}
+
+
+/**
+ * Section flipping class
+ * @class Flipper
+ */
+function Flipper(ids) {
+	// TODO amd require 'by'
+	this._panes = [];
+	this._map = {};
+	for(var k in ids) {
+		var id = ids[k];
+		var node = dojo.byId(id);
+		// TODO if node==null throw
+		if(this._panes.length > 0) {
+			node.style.display='none'; // hide it
+		} else {
+			this._visible = id;
+		}
+		this._panes.push(node);
+		this._map[id]=node;
+	}
+}
+
+/**
+ * @method flipTo
+ * @param {String} id
+ * @param {Node} node - if non null - replace new page with this
+ */
+Flipper.prototype.flipTo = function(id, node) {
+	if(!this._map[id]) return; // TODO throw
+	if(this._visible == id) {
+		return; // noop
+	}
+	this._map[this._visible].style.display='none';
+	if(node!=null) {
+		removeAllChildNodes(this._map[id]);
+		if(node.nodeType>0) {
+			this._map[id].appendChild(node);
+		} else for( var k in node) {
+			// it's an array, add all 
+			this._map[id].appendChild(node[k]);
+		}
+	}
+	this._map[id].style.display=null;
+	this._visible = id;
+	return this._map[id];
+};
+
+/**
+ * @method get
+ * @param id
+ * @returns
+ */
+Flipper.prototype.get = function(id) {
+	return this._map[id];
+};
+
+/**
+ * @method flipToEmpty
+ * @param id
+ */
+Flipper.prototype.flipToEmpty = function(id) {
+	return this.flipTo(id, []);
+};
+
+/**
  * Global items 
  * @class GLOBAL
  */
@@ -238,12 +319,6 @@ function stdebug(x) {
 
 stdebug('stdebug is enabled.');
 
-function removeAllChildNodes(td) {
-	if(td==null) return;
-	while(td.firstChild) {
-		td.removeChild(td.firstChild);
-	}
-}
 
 var timerID = -1;
 
@@ -1468,8 +1543,17 @@ function findItemByValue(items, value) {
 	return null;
 }
 
+/**
+ * TODO remove
+ * global config of table rows
+ * @property surveyConfig
+ */
 var surveyConfig = null;
 
+/**
+ * Show an item that's not in the saved data, but has been proposed newly by the user.
+ * @method showProposedItem
+ */
 function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	var children = getTagChildren(tr);
 	var config = surveyConfig;
@@ -2347,6 +2431,10 @@ function reSort(theTable,k) {
 		}
 	}
 }
+/**
+ * 
+ * Setup the 'sort' popup menu.
+ */
 function setupSortmode(theTable) {
 	var theSortmode = theTable.sortMode;
 	// ignore what's there
@@ -2437,6 +2525,10 @@ function updateCoverage(theDiv) {
 	}
 }
 
+/**
+ * Prepare rows to be inserted into theDiv
+ * @method insertRows
+ */
 function insertRows(theDiv,xpath,session,json) {
 	var theTable = theDiv.theTable;
 
@@ -2449,10 +2541,9 @@ function insertRows(theDiv,xpath,session,json) {
 		localizeFlyover(theTable);
 		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
 		var toAdd = dojo.byId('proto-datarow');
-		surveyConfig = null; 
-		if(!surveyConfig) {
+		/*if(!surveyConfig)*/ {
 			var rowChildren = getTagChildren(toAdd);
-			surveyConfig={};
+			theTable.config = surveyConfig ={};
 			for(var c in rowChildren) {
 				rowChildren[c].title = theTable.theadChildren[c].title;
 				if(rowChildren[c].id) {
@@ -2624,6 +2715,12 @@ function appendInputBox(parent, which) {
 	return input;
 }
 
+/**
+ * 
+ * Show the specified item in the window
+ * @method scrollToItem
+ * @param {Node} tr some node
+ */
 function scrollToItem(tr) {
 	if(surveyCurrentId!=null && surveyCurrentId!='') {
 		require(["dojo/window"], function(win) {
@@ -2632,7 +2729,10 @@ function scrollToItem(tr) {
 	}
 }
 
-// interpret the #hash to see if we need to do something...
+/**
+ * interpret the #hash to see if we need to do something... Not used?
+ * @method processHash
+ */
 function processHash() {
 	var hash = window.location.hash;
 	if(hash&&hash.toString().indexOf("#x@")==0) {
@@ -2657,6 +2757,10 @@ function processHash() {
 	window.processHash = function(){}; // only process one time.
 }
 
+/**
+ * Show the "possible problems" section which has errors for the locale
+ * @method showPossibleProblems
+ */
 function showPossibleProblems(container,loc, session, effectiveCov, requiredCov) {
 	surveyCurrentLocale = loc;
 	dojo.ready(function(){
@@ -2730,11 +2834,15 @@ function showPossibleProblems(container,loc, session, effectiveCov, requiredCov)
 
 
 
-// tmp - copy of menus
+/**
+ * copy of menu data
+ * @property _thePages
+ */
 var _thePages = null;
 
+
 /**
- * Utilities for the 'v.jsp' (new dispatcher) page
+ * Utilities for the 'v.jsp' (new dispatcher) page.  Call this once in the page. It expects to find a node #DynamicDataSection
  * @method showV
  */
 function showV() {
@@ -2755,6 +2863,7 @@ function showV() {
 	         "dijit/PopupMenuItem",
 	         "dijit/form/Select",
 	         "dojox/form/BusyButton",
+	         "dijit/layout/StackContainer",
 	         "dojo/domReady!"
 	         ],
 	         // HANDLES
@@ -2771,9 +2880,20 @@ function showV() {
 	        		 registry,
 	        		 PopupMenuItem,
 	        		 Select,
-	        		 BusyButton
+	        		 BusyButton,
+	        		 StackContainer
 	         ) {
 
+		var pages = { 
+				loading: "LoadingMessageSection",
+				data: "DynamicDataSection",
+				other: "OtherSection"
+		};
+		var flipper = new Flipper( [pages.loading, pages.data, pages.other] );
+		
+		// TODO remove debug
+		window.__FLIPPER = flipper;
+		
 		// one time.
 		// processHash
 		window.parseHash = function() {
@@ -2847,7 +2967,7 @@ function showV() {
 			console.log("Loading " + url + " for " + message);
 			var errorHandler = function(err, ioArgs){
 				console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-				showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " for " + message + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+				showLoader(null,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " for " + message + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
 			};
 			var loadHandler = function(json){
 				try {
@@ -3021,7 +3141,6 @@ function showV() {
 					var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus"+cacheKill();
 					myLoad(url, "menus for " + surveyCurrentLocale, function(json) {
 						{
-							var theDiv = dojo.byId("DynamicDataSection");
 							if(!window.surveyLevels) {
 								window.surveyLevels = json.menus.levels;
 
@@ -3053,20 +3172,19 @@ function showV() {
 														selected: isSelected,
 														value: level.level});
 								}
-								theDiv.covMenu = new Select({name: "menu-select", 
+								// TODO have to move this out of the DOM..
+								var covMenu = flipper.get(pages.data).covMenu = new Select({name: "menu-select", 
 																				options: store,
 																				onChange: function(newValue) {
 																					window.surveyCurrentCoverage = parseInt(newValue);
-																					updateCoverage(theDiv);
+																					updateCoverage(flipper.get(pages.data));
 																					updateHashAndMenus();
 																				}
 																				});
-								theDiv.covMenu.placeAt(titleCoverage);
+								covMenu.placeAt(titleCoverage);
 							}
 
-							if(theDiv && theDiv) {
-								updateCoverage(theDiv);
-							}
+							updateCoverage(flipper.get(pages.data)); // TODO
 						}
 						
 						var menus = json.menus;
@@ -3099,28 +3217,26 @@ function showV() {
 
 			window.surveyCurrentLocaleName = '-'; // so it's not stale
 			
-			var theDiv = dojo.byId("DynamicDataSection");
+			
 
 			var pucontent = dojo.byId("itemInfo");
-			theDiv.pucontent = pucontent;
 
-			theDiv.stui = loadStui();
-
-			if(theDiv.theLoadingMessage && theDiv.theLoadingMessage.parentNode==theDiv) {
-				theDiv.theLoadingMessage.style.display="none";
-				theDiv.removeChild(theDiv.theLoadingMessage);
-				theDiv.theLoadingMessage=null;
+			{
+				var theDiv = flipper.get(pages.data);
+				theDiv.pucontent = pucontent;
+				theDiv.stui = loadStui();
 			}
-
-			theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
-			theDiv.appendChild(theDiv.theLoadingMessage);
+			
+			flipper.flipTo(pages.loading, createChunk(stui_str("loading"), "i", "loadingMsg"));
 
 			// now, load. Use a show-er function for indirection.
 			var shower = null;
-			var theTable = theDiv.theTable;
-			
+
 			shower = function() {
 				updateHashAndMenus();
+
+				var theDiv = flipper.get(pages.data);
+				var theTable = theDiv.theTable;
 
 				if(!theTable) {
 					var theTableList = theDiv.getElementsByTagName("table");
@@ -3128,24 +3244,13 @@ function showV() {
 						theTable = theTableList[0];
 						theDiv.theTable = theTable;
 					}
-				} else {
-					theTable.style.display='none';
 				}
 
-				var theLoader = theDiv.loader;
-				if(!theLoader) {
-					theLoader =  cloneAnon(dojo.byId("proto-loading"));
-					theDiv.appendChild(theLoader);
-					theDiv.loader = theLoader;
-				}
-
-				showLoader(theDiv.loader, theDiv.stui.loading);
+				showLoader(null, theDiv.stui.loading);
 				
 				if(surveyCurrentSpecial == null && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
 					if(surveyCurrentPage==null || surveyCurrentPage=='') {
-						theDiv.theTable = null;
-						removeAllChildNodes(theDiv);
-						showPossibleProblems(theDiv, surveyCurrentLocale, surveySessionId, "modern", "modern");
+						showPossibleProblems(flipper.flipToEmpty(pages.other), surveyCurrentLocale, surveySessionId, "modern", "modern");
 					} else {
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
 						myLoad(url, "(loading vrows)", function(json) {
@@ -3181,14 +3286,14 @@ function showV() {
 								doUpdate(theDiv.id, function() {
 									showLoader(theDiv.loader,stui.loading3);
 									insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
+									flipper.flipTo(pages.data); // TODO now? or later?
 									processHash(theDiv);
 								});
 							}
 						});
 					}
 				} else if(surveyCurrentSpecial =='oldvotes') {
-					theDiv.theTable = null;
-					removeAllChildNodes(theDiv);
+					var theDiv = flipper.flipToEmpty(pages.other); // clean slate, and proceed..
 					var url = contextPath + "/SurveyAjax?what=oldvotes&_="+surveyCurrentLocale+"&s="+surveySessionId+"&"+cacheKill();
 					myLoad(url, "(loading oldvotes " + surveyCurrentLocale + ")", function(json) {
 						showLoader(theDiv.loader,stui.loading2);
@@ -3402,7 +3507,7 @@ function showV() {
 				} else {
 					var msg = stui.sub("v_bad_special_msg",
 							{special: surveyCurrentSpecial });
-					theDiv.theLoadingMessage.innerHTML = msg;
+					flipper.flipTo(pages.loader, createChunk(msg /* , ?? , ?? sterror? */));
 					showLoader(theDiv.loader, msg);
 				}
 			}; // end shower
@@ -3480,7 +3585,10 @@ function showV() {
 } // end showV
 
 
-
+/**
+ * reload a specific row
+ * @method refreshRow2
+ */
 function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
     var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t";
@@ -3525,6 +3633,10 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
     queueXhr(xhrArgs);
 }
 
+/**
+* bottleneck for voting buttons
+ * @method handleWiredClick
+ */
 function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	var value="";
 	var valToShow;
@@ -3669,8 +3781,11 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 }
 
 
-///////////////////
-// admin
+// TODO move admin panel to separate module
+/**
+ * Load the Admin Panel
+ * @method loadAdminPanel
+ */
 function loadAdminPanel() {
 	if(!vap) return;
 	loadStui();

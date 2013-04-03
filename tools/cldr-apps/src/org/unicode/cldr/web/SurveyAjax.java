@@ -681,8 +681,12 @@ public class SurveyAjax extends HttpServlet {
                         oldvotes.put("votesafter", votesAfterString);
                         
                         if(loc == null ||loc.isEmpty()) {
-                            oldvotes.put("locales",
+                            if(mySession.user==null) {
+                                r.put("err", "Must be logged in");
+                            } else {
+                                oldvotes.put("locales",
                                                     DBUtils.queryToJSON(   "select  locale,count(*) as count from " + STFactory.CLDR_VBV + " where submitter=? and last_mod < "+votesAfterSQL+" and value is not null  group by locale order by locale", mySession.user.id));
+                            }
                         } else {
                             CLDRLocale locale = CLDRLocale.getInstance(loc);
                             oldvotes.put("locale",locale);

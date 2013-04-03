@@ -108,8 +108,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     // private Matcher supposedToBeMessageFormat = SUPPOSED_TO_BE_MESSAGE_FORMAT_PATTERN.matcher("");
 
     public static final Pattern LEAD_OR_TRAIL_WHITESPACE_OK = Pattern.compile("/(" +
-        "localeSeparator" +
-        "|references/reference" +
+        "references/reference" +
         "|insertBetween" +
         ")");
     private Matcher leadOrTrailWhitespaceOk = LEAD_OR_TRAIL_WHITESPACE_OK.matcher("");

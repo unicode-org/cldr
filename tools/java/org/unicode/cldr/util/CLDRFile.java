@@ -2105,31 +2105,19 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
 
-        String nameSeparator = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
-        String sname;
+        String separatorPattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
         String extras = "";
         if (!haveScript) {
-            sname = original = lparser.getScript();
-            if (sname.length() != 0) {
-                if (extras.length() != 0) extras += nameSeparator;
-                sname = getName(SCRIPT_NAME, sname);
-                extras += (sname == null ? original : sname);
-            }
+            extras = addDisplayName(lparser.getScript(), SCRIPT_NAME, separatorPattern, extras);
         }
         if (!haveRegion) {
-            original = sname = lparser.getRegion();
-            if (sname.length() != 0) {
-                if (extras.length() != 0) extras += nameSeparator;
-                sname = getName(TERRITORY_NAME, sname);
-                extras += (sname == null ? original : sname);
-            }
+            extras = addDisplayName(lparser.getRegion(), TERRITORY_NAME, separatorPattern, extras);
         }
         List<String> variants = lparser.getVariants();
-        for (int i = 0; i < variants.size(); ++i) {
-            if (extras.length() != 0) extras += nameSeparator;
-            sname = getName(VARIANT_NAME, original = (String) variants.get(i));
-            extras += (sname == null ? original : sname);
+        for (String orig : variants) {
+            extras = addDisplayName(orig, VARIANT_NAME, separatorPattern, extras);
         }
+
         // Look for key-type pairs.
         for (Entry<String, String> extension : lparser.getLocaleExtensions().entrySet()) {
             String key = extension.getKey();
@@ -2144,7 +2132,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             if (value == null) {
                 // Get name of key instead and pair it with the type as-is.
                 String keyTypePattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern");
-                sname = getStringValue("//ldml/localeDisplayNames/keys/key[@type=\"" + key + "\"]");
+                String sname = getStringValue("//ldml/localeDisplayNames/keys/key[@type=\"" + key + "\"]");
                 if (sname == null) sname = key;
                 value = MessageFormat.format(keyTypePattern, new Object[] { sname, type });
             }
@@ -2156,6 +2144,21 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
         String namePattern = getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
         return MessageFormat.format(namePattern, new Object[] { name, extras });
+    }
+
+    private String addDisplayName(String original, int type, String separatorPattern, String extras) {
+        if (original.length() == 0) return extras;
+
+        String sname = getName(type, original);
+        if (sname == null) {
+            sname = original;
+        }
+        if (extras.length() == 0) {
+            extras += sname;
+        } else {
+            extras = MessageFormat.format(separatorPattern, new Object[] { extras, sname });
+        }
+        return extras;
     }
 
     /**

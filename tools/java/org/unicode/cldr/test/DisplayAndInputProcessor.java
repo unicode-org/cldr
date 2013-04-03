@@ -220,7 +220,7 @@ public class DisplayAndInputProcessor {
             }
 
             // all of our values should not have leading or trailing spaces, except insertBetween
-            if (!path.contains("/insertBetween") && !path.contains("/localeSeparator")) {
+            if (!path.contains("/insertBetween")) {
                 value = value.trim();
             }
 

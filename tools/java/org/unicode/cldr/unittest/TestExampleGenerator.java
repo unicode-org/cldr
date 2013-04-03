@@ -25,6 +25,15 @@ public class TestExampleGenerator extends TestFmwk {
         showCldrFile(info.getCldrFactory().make("fr", true));
     }
 
+    public void TestLocaleDisplayPatterns() {
+        final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile,
+            info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        String actual = exampleGenerator.getExampleHtml("//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
+            "{0} ({1})", Zoomed.IN);
+        assertEquals("Locale display faulty", "<div class='cldr_example'>usbeco (arabo, Afghanistan, Fuso orario: Africa/Addis_Ababa, Cifre indo-arabe)</div>", actual);
+    }
+
     public void Test4897() {
         final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(),

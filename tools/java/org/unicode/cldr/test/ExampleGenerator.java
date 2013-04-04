@@ -276,7 +276,7 @@ public class ExampleGenerator {
                 result = handleCurrency(xpath, value, context, type);
             } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
                 if (parts.contains("calendar")) {
-                    result = handleDateFormatItem(value);
+                    result = handleDateFormatItem(xpath, value);
                 } else if (parts.contains("numbers")) {
                     result = handleDecimalFormat(parts, value, type);
                 }
@@ -816,36 +816,41 @@ public class ExampleGenerator {
         return result;
     }
 
-    private static String[] DateFormatNames = { "none", "short", "medium", "long", "full" };
+    private String handleDateFormatItem(String xpath, String value) {
 
-    private String handleDateFormatItem(String value) {
+        String fullpath = cldrFile.getFullXPath(xpath);
+        parts.set(fullpath);
+
         String calendar = parts.findAttributeValue("calendar", "type");
-        SimpleDateFormat dateFormat;
+
         if (parts.contains("dateTimeFormat")) {
-            int formatLengthIndex = 2; // medium
-            String formatLengthName = parts.findAttributeValue("dateTimeFormatLength", "type");
-            if (formatLengthName != null) {
-                for (int nameIndex = 0; nameIndex < DateFormatNames.length; nameIndex++) {
-                    if (formatLengthName.equals(DateFormatNames[nameIndex])) {
-                        formatLengthIndex = nameIndex;
-                        break;
-                    }
-                }
-            }
-            SimpleDateFormat date2 = icuServiceBuilder.getDateFormat(calendar, formatLengthIndex, 0); // date
-            SimpleDateFormat time = icuServiceBuilder.getDateFormat(calendar, 0, formatLengthIndex); // time
-            date2.applyPattern(format(value, setBackground(time.toPattern()), setBackground(date2.toPattern())));
-            dateFormat = date2;
+            String dateFormatXPath = cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "dateFormat"));
+            String timeFormatXPath = cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "timeFormat"));
+            String dateFormatValue = cldrFile.getWinningValue(dateFormatXPath);
+            String timeFormatValue = cldrFile.getWinningValue(timeFormatXPath);
+            parts.set(cldrFile.getFullXPath(dateFormatXPath));
+            String dateNumbersOverride = parts.findAttributeValue("pattern", "numbers");
+            parts.set(cldrFile.getFullXPath(timeFormatXPath));
+            String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
+            SimpleDateFormat df = icuServiceBuilder.getDateFormat(calendar, dateFormatValue, dateNumbersOverride);
+            SimpleDateFormat tf = icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
+            df.setTimeZone(ZONE_SAMPLE);
+            tf.setTimeZone(ZONE_SAMPLE);
+            String dfResult = "'" + df.format(DATE_SAMPLE) + "'";
+            String tfResult = "'" + tf.format(DATE_SAMPLE) + "'";
+            SimpleDateFormat dtf = icuServiceBuilder.getDateFormat(calendar, MessageFormat.format(value, (Object[]) new String[] { setBackground(tfResult), setBackground(dfResult) }));
+            return dtf.format(DATE_SAMPLE);
         } else {
             String id = parts.findAttributeValue("dateFormatItem", "id");
             if ("NEW".equals(id) || value == null) {
                 return startItalicSymbol + "n/a" + endItalicSymbol;
             } else {
-                dateFormat = icuServiceBuilder.getDateFormat(calendar, value);
+                String numbersOverride = parts.findAttributeValue("pattern", "numbers");
+                SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendar, value, numbersOverride);
+                sdf.setTimeZone(ZONE_SAMPLE);
+                return sdf.format(DATE_SAMPLE);
             }
         }
-        dateFormat.setTimeZone(ZONE_SAMPLE);
-        return dateFormat.format(DATE_SAMPLE);
     }
 
     /**

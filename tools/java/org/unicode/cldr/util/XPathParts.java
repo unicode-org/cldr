@@ -397,7 +397,7 @@ public class XPathParts {
      */
     public Collection<String> getAttributeKeys(int elementIndex) {
         if (elementIndex < 0) elementIndex += size();
-        Set result = elements.get(elementIndex).getAttributeKeys();
+        Set<String> result = elements.get(elementIndex).getAttributeKeys();
         if (result == Collections.EMPTY_SET) return result;
         return Collections.unmodifiableSet(result);
     }
@@ -430,7 +430,7 @@ public class XPathParts {
      * Find the attribute value
      */
     public String findAttributeValue(String elementName, String attributeName) {
-        Map attributes = findAttributes(elementName);
+        Map<String, String> attributes = findAttributes(elementName);
         if (attributes == null) return null;
         return (String) attributes.get(attributeName);
     }
@@ -784,9 +784,9 @@ public class XPathParts {
             return attributes.size();
         }
 
-        private Set getAttributeKeys() {
+        private Set<String> getAttributeKeys() {
             if (attributes == null) {
-                return Collections.EMPTY_SET;
+                return Collections.emptySet();
             }
             return attributes.keySet();
         }

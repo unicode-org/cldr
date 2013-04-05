@@ -338,13 +338,14 @@ function updateIf(id, txt) {
 /** 
  * Add an event listener function to the object.
  * @method listenFor
- * @param {DOM} what object to listen to
+ * @param {DOM} what object to listen to (or array of them)
  * @param {String} what event, bare name such as 'click'
  * @param {Function} fn function, of the form:  function(e) { 	doSomething();  	stStopPropagation(e);  	return false; }
  * @param {String} ievent IE name of an event, if not 'on'+what
- * @return {DOM} returns the object what
+ * @return {DOM} returns the object what (or the array)
  */
-function listenFor(what, event, fn, ievent) {
+function listenFor(whatArray, event, fn, ievent) {
+    function listenForOne(what, event, fn, ievent) {
 	if(!(what._stlisteners)) {
 		what._stlisteners={};
 	}
@@ -370,6 +371,16 @@ function listenFor(what, event, fn, ievent) {
 	what._stlisteners[event]=fn;
 
 	return what;
+    }
+    
+    if(Array.isArray(whatArray)) {
+        for(var k in whatArray) {
+            listenForOne(whatArray[k], event, fn, ievent);
+        }
+        return whatArray;
+    } else {
+        return listenForOne(whatArray, event, fn, ievent);
+    }
 }
 
 /**
@@ -2379,7 +2390,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 				newHeading[0].id = newPartition.name;
 				tbody.appendChild(newPar);
 				newPar.origClass = newPar.className;
-				newPartition.tr = newPar;
+				newPartition.tr = newPar; // heading
 			}
 			curPartition = newPartition;
 		}
@@ -2390,7 +2401,10 @@ function insertRowsIntoTbody(theTable,tbody) {
 		var theRowCov = parseInt(theRow.coverageValue);
 		if(!newPartition.minCoverage || newPartition.minCoverage > theRowCov) {
 			newPartition.minCoverage = theRowCov;
-			newPartition.tr.className = newPartition.origClass+" cov"+newPartition.minCoverage;
+                        if(newPartition.tr) {
+                            // only set coverage of the header if there's a header
+			    newPartition.tr.className = newPartition.origClass+" cov"+newPartition.minCoverage;
+                        }
 		}
 		
 		var tr = theTable.myTRs[k];
@@ -3380,7 +3394,8 @@ function showV() {
 											tr.appendChild(createChunk(stui.str("v_oldvotes_winning"),"th","v-win"));
 											tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
 											var accept;
-											tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));										
+											tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));
+/*
 											accept.appendChild(createLinkToFn("v_oldvotes_all", function() {
 												for(var k in json.oldvotes.contested) {
 													var row = json.oldvotes.contested[k];
@@ -3393,6 +3408,7 @@ function showV() {
 													row.box.checked = false;
 												}
 											}));
+*/
 											th.appendChild(tr);
 										}
 										t.appendChild(th);
@@ -3425,14 +3441,16 @@ function showV() {
 											tr.appendChild(td2);
 
 											(function(tr,box,tdp){return function(){
-												listenFor(tr, "click", function(e) {
+                                                                                            // allow click anywhere
+											    listenFor(tr, "click", function(e) {
 
 													box.checked = !box.checked;
 
 													stStopPropagation(e);
 													return false;
 												});
-												listenFor(tdp, "click", function(e) {
+                                                                                            // .. but not on the path.  Also listem to the box and do nothing
+												listenFor([tdp,box], "click", function(e) {
 
 													//box.checked = !box.checked;
 

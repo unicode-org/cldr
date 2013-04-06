@@ -1156,7 +1156,7 @@ function showForumStuff(frag, forumDiv, tr) {
 		return true;
 	});
 
-	console.log("showingForumStuff: " + tr.forumDiv.forumPosts);
+//	console.log("showingForumStuff: " + tr.forumDiv.forumPosts);
 	if(tr.forumDiv.forumPosts > 0) {
 		var showButton = createChunk("Show " + tr.forumDiv.forumPosts  + " posts", "button", "forumShow");
 		
@@ -3578,7 +3578,7 @@ function showV() {
 			    function(v){
 					if(ignoreUs) return;
 			        v = trimNull(v);
-			        console.log('User entered: ' + v);
+//			        console.log('User entered: ' + v);
 			        
 			        // if it is a current page
 			        if(_thePages!=null && _thePages.pageToSection[v] &&

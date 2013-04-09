@@ -141,7 +141,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (value == null || value.length() == 0) {
                 return this;
             }
-            if (value.equals("∅∅∅")) {
+            if (value.equals(CldrUtility.NO_INHERITANCE_MARKER)) {
                 return this;
             }
             if (exclusions.reset(path).find()) {

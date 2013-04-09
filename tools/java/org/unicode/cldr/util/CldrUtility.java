@@ -1,6 +1,6 @@
 /*
  **********************************************************************
- * Copyright (c) 2002-2004, International Business Machines
+ * Copyright (c) 2002-2013, International Business Machines
  * Corporation and others.  All Rights Reserved.
  **********************************************************************
  * Author: Mark Davis
@@ -52,6 +52,7 @@ import com.ibm.icu.util.TimeZone;
 public class CldrUtility {
 
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+    public static final String NO_INHERITANCE_MARKER = new String(new char [] {0x2205, 0x2205, 0x2205});
 
     /**
      * Very simple class, used to replace variables in a string. For example

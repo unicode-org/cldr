@@ -2,6 +2,7 @@ package org.unicode.cldr.icu;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -13,6 +14,7 @@ import org.unicode.cldr.draft.FileUtilities;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.util.Calendar;
 
 /**
  * Writes an IcuData object to a text file.
@@ -29,6 +31,8 @@ public class IcuTextWriter {
     // Only escape \ and " from other strings.
     private static final Pattern STRING_ESCAPE = Pattern.compile("\\\\\\\\");
     private static final Pattern QUOTE_ESCAPE = Pattern.compile("\\\\?\"");
+
+    private static String headerText;
 
     /**
      * ICU paths have a simple comparison, alphabetical within a level. We do
@@ -58,6 +62,16 @@ public class IcuTextWriter {
             }
         };
 
+    private static String getHeader() {
+        if (headerText != null) return headerText;
+        StringWriter stringWriter = new StringWriter();
+        PrintWriter out = new PrintWriter(stringWriter);
+        FileUtilities.appendFile(NewLdml2IcuConverter.class, "ldml2icu_header.txt", out);
+        headerText = stringWriter.toString();
+        headerText = headerText.replace("%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+        return headerText;
+    }
+
     /**
      * Write a file in ICU format. LDML2ICUConverter currently has some
      * funny formatting in a few cases; don't try to match everything.
@@ -73,10 +87,9 @@ public class IcuTextWriter {
         String name = icuData.getName();
         PrintWriter out = BagFormatter.openUTF8Writer(dirPath, name + ".txt");
         out.write('\uFEFF');
-
         // Append the header.
-        String[] replacements = { "%source%", icuData.getSourceFile() };
-        FileUtilities.appendFile(NewLdml2IcuConverter.class, "ldml2icu_header.txt", null, replacements, out);
+        String header = getHeader().replace("%source%", icuData.getSourceFile());
+        out.print(header);
         if (icuData.hasSpecial()) {
             out.println("/**");
             out.println(" *  ICU <specials> source: <path>/xml/main/" + name + ".xml");

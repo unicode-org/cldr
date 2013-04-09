@@ -2682,6 +2682,7 @@ function scrollToItem() {
 		require(["dojo/window"], function(win) {
 			var xtr = dojo.byId("r@"+surveyCurrentId);
 			if(xtr!=null) {
+				console.log("Scrolling to " + surveyCurrentId);
 				win.scrollIntoView("r@"+surveyCurrentId);
 			}
 		});
@@ -2982,6 +2983,7 @@ function showV() {
 			        // TODO: visible? coverage?
 			        window.showInPop("",xtr,xtr.proposedcell, xtr.proposedcell.showFn, true);
 			        console.log("Changed to " + surveyCurrentId);
+			        scrollToItem();
 			    } else {
 			        console.log("Warning could not load id " + surveyCurrentId + " - not setup - " + xtr.toString() + " pc=" + xtr.proposedcell + " sf = " + xtr.proposedcell.showFn);
 			    }
@@ -3283,8 +3285,7 @@ function showV() {
 									showLoader(theDiv.loader,stui.loading3);
 									insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
 									flipper.flipTo(pages.data); // TODO now? or later?
-									window.showCurrentId();
-									scrollToItem();
+									window.showCurrentId(); // already calls scroll
 								});
 							}
 						});
@@ -3703,6 +3704,11 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		showLoader(tr.theTable.theDiv.loader, stui.checking);
 	}
 
+	// select
+	updateCurrentId(theRow.xpstrid);
+	// and scroll
+	showCurrentId();
+	
 	if(tr.myProposal) {
 		// move these 2 up if needed
 		var children = getTagChildren(tr);

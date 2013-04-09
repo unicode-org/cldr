@@ -51,6 +51,7 @@ function removeAllChildNodes(td) {
 function Flipper(ids) {
 	// TODO amd require 'by'
 	this._panes = [];
+	this._killfn = [];
 	this._map = {};
 	for(var k in ids) {
 		var id = ids[k];
@@ -73,10 +74,14 @@ function Flipper(ids) {
  */
 Flipper.prototype.flipTo = function(id, node) {
 	if(!this._map[id]) return; // TODO throw
-	if(this._visible == id) {
-		return; // noop
+	if(this._visible == id && (node == null)) {
+		return; // noop - unless adding s'thing
 	}
 	this._map[this._visible].style.display='none';
+	for(var k in this._killfn) {
+		this._killfn[k]();
+	}
+	this._killfn = []; // pop?
 	if(node!=null) {
 		removeAllChildNodes(this._map[id]);
 		if(node.nodeType>0) {
@@ -93,11 +98,15 @@ Flipper.prototype.flipTo = function(id, node) {
 
 /**
  * @method get
- * @param id
+ * @param id page id or null for current
  * @returns
  */
 Flipper.prototype.get = function(id) {
-	return this._map[id];
+	if(id) {
+		return this._map[id];
+	} else {
+		return this._map[this._visible];
+	}
 };
 
 /**
@@ -109,15 +118,20 @@ Flipper.prototype.flipToEmpty = function(id) {
 };
 
 /**
+ * showfn is called, result is added to the div.  killfn is called when page is flipped.
+ * @method addUntilFlipped
+ * @param showFn
+ * @param killFn
+ */
+Flipper.prototype.addUntilFlipped = function addUntilFlipped(showFn, killFn) {
+	this.get().appendChild(showFn());
+	this._killfn.push(killFn);
+};
+
+/**
  * Global items 
  * @class GLOBAL
  */
-
-/**
- * Are we manually setting the hash? If so, ignore onhashchange
- * @property changingHash
- */
-var changingHash = false;
 
 /**
  * SurveyToolUI (localization) object. Preloaded with a few strings while we wait for the resources to load.
@@ -173,7 +187,7 @@ function createChunk(text, tag, className) {
  * @param strid  {String} string to be used with stui.str
  * @param fn {function} function, given the DOM obj as param
  * @param tag {String}  tag of new obj.  'a' by default.
- * @return {Node} newobj
+ * @return {Element} newobj
  */
 function createLinkToFn(strid, fn, tag) {
 	if(!tag)  {
@@ -222,18 +236,9 @@ function stStopPropagation(e) {
 		return e.cancelBubble();
 	} else {
 		// hope for the best
-                return false;
+		return false;
 	}
 }
-
-/**
- * function to change the current hash.
- * @method replaceHash
- * @deprecated
- */
-window.replaceHash = function() {
-	window.location.replace("#"+"x@" + surveyCurrentId);
-};
 
 /**
  * is the ST disconnected
@@ -381,23 +386,6 @@ function listenFor(whatArray, event, fn, ievent) {
     } else {
         return listenForOne(whatArray, event, fn, ievent);
     }
-}
-
-/**
- * calculate position of object
- * @method getAbsolutePosition
- * @param {Node} object to check
- * @returns {Object}  with left: and top:
- * @deprecated not used
- */
-function getAbsolutePosition (x) {
-    var hh = 0;
-    var vv = 0;
-    for(var xx=x;xx.offsetParent;xx=xx.offsetParent) {
-        hh += xx.offsetLeft;
-        vv += xx.offsetTop;
-    }
-    return {left:hh, top: vv};
 }
 
 /**
@@ -1264,6 +1252,19 @@ function appendForumStuff(tr, theRow, forumDiv) {
 		+ "&voteinfo=t";
 }
 
+/**
+ * change the current id. 
+ * @method updateCurrentId
+ * @param id the id to set
+ */
+window.updateCurrentId = function updateCurrentId(id) {
+	if(id==null) id = '';
+    if(surveyCurrentId != id) { // don't set if already set.
+	    surveyCurrentId = id;
+//	    replaceHash();
+    }
+};
+
 // window loader stuff
 dojo.ready(function() {
 	var unShow = null;
@@ -1324,8 +1325,7 @@ dojo.ready(function() {
 //			return;
 //		}
 		if(tr && tr.sethash) {
-			surveyCurrentId = tr.sethash;
-			replaceHash();
+			window.updateCurrentId(tr.sethash);
 		}
 		setLastShown(hideIfLast);
 
@@ -1369,64 +1369,8 @@ dojo.ready(function() {
 		// SRL suspicious
 		removeAllChildNodes(pucontent);
 		pucontent.appendChild(td);
-//		if(stdebug_enabled) {
-//			if(pupin) {
-//				pucontent.appendChild(pupin);
-//			}
-////			listenFor(pupin, "click", function(e) {
-////				window.hidePop = function() {
-////
-////				};
-////				pucontent.removeChild(pupin);
-////				pupin = null;
-////				stStopPropagation(e); return false; 
-////			});
-//
-//		}
 		td=null;
 		
-//		var popParent = tr;
-//		if(hideIfLast.popParent) {
-//			popParent = hideIfLast.popParent;
-//		}
-		
-//		if(hideIfLast) { // context
-////			var loc = getAbsolutePosition(hideIfLast);
-////			var newTopPeak = (loc.top+((hideIfLast.offsetHeight)/2)-8);
-////			//if(newTop<hardtop) newTop=hardtop;
-////			//pucontent.style.top = (newTop+nudgevpost)+"px";
-////			newLeftPeak = (loc.left);
-////			
-////			pupeak.style.left = (newLeftPeak-pupeak.offsetWidth) + "px";
-////			pupeak.style.top = newTopPeak + "px";
-//			
-////			if(false) {
-////				// now, body style
-////				var bodyTop;
-////				if(hideIfLast.popParent) {
-////					loc = getAbsolutePosition(hideIfLast.popParent); // specifies:  move the v part here
-////					bodyTop = (loc.top+hideIfLast.popParent.offsetHeight+nudgeh);
-////				} else {
-////					bodyTop = (loc.top+hideIfLast.offsetHeight+nudgeh);
-////				}
-////				pucontent.style.top = bodyTop+"px";
-////				pupeak.style.height = (bodyTop-newTopPeak) + "px";
-////			}			
-////			if(newLeft<hardleft) {
-////				pupeak.style.left = (newLeft - hardleft)+"px";
-////				newLeft = hardleft;
-////			} else {
-////				pupeak.style.left = "0px";
-////			}
-////			pucontent.style.left = (newLeft+nudgehpost)+"px";
-//			pupeak.style.display="none";
-//		} else {
-//			pupeak.style.display="none";
-////			pupeak.style.left = "0px";
-////			pupeak.style.top = "0px";
-////			stdebug("Note: showPop with no td");
-//		}
-		//pucontent.style.display="block"; // show
 	};
 	if(false) {
 		window.showInPop = window.showInPop2;
@@ -2730,45 +2674,18 @@ function appendInputBox(parent, which) {
 }
 
 /**
- * 
- * Show the specified item in the window
+ * Show the surveyCurrentId row
  * @method scrollToItem
- * @param {Node} tr some node
  */
-function scrollToItem(tr) {
+function scrollToItem() {
 	if(surveyCurrentId!=null && surveyCurrentId!='') {
 		require(["dojo/window"], function(win) {
-			win.scrollIntoView("r@"+surveyCurrentId);
+			var xtr = dojo.byId("r@"+surveyCurrentId);
+			if(xtr!=null) {
+				win.scrollIntoView("r@"+surveyCurrentId);
+			}
 		});
 	}
-}
-
-/**
- * interpret the #hash to see if we need to do something... Not used?
- * @method processHash
- */
-function processHash() {
-	var hash = window.location.hash;
-	if(hash&&hash.toString().indexOf("#x@")==0) {
-		// see if there's such an item
-		var strid = (hash.split('@')[1]);
-		var tr = dojo.byId('r@'+strid);
-		if(tr) {
-			scrollToItem(tr);
-			if(tr.selectThisRow) {
-				tr.selectThisRow(null);
-			}
-			window.location.hash = "#x@"+strid;
-		} else {
-			if(window.location.search.indexOf("&strid=")<0 && (hash.toString().indexOf('@redir')<0)) {
-				window.location.search=window.location.search+"&strid="+strid;
-			} else {
-				showInPop(stopIcon+" Could not locate the requested data item. There may be an error in your URL, or else the data item may no longer be available.", null, null, null, true);
-				window.location.hash = "#x@"+strid;
-			}
-		}
-	}
-	window.processHash = function(){}; // only process one time.
 }
 
 /**
@@ -2878,6 +2795,8 @@ function showV() {
 	         "dijit/form/Select",
 	         "dojox/form/BusyButton",
 	         "dijit/layout/StackContainer",
+	         "dojo/hash",
+	         "dojo/topic",
 	         "dojo/domReady!"
 	         ],
 	         // HANDLES
@@ -2895,7 +2814,9 @@ function showV() {
 	        		 PopupMenuItem,
 	        		 Select,
 	        		 BusyButton,
-	        		 StackContainer
+	        		 StackContainer,
+	        		 dojoHash,
+	        		 dojoTopic
 	         ) {
 
 		var pages = { 
@@ -2908,12 +2829,14 @@ function showV() {
 		// TODO remove debug
 		window.__FLIPPER = flipper;
 		
-		// one time.
-		// processHash
-		window.parseHash = function() {
-			var hash = window.location.hash;
+		/**
+		 * parse the hash string., but don't go anywhere.
+		 * @method parseHash
+		 * @param {String} id
+		 */
+		window.parseHash = function parseHash(hash) {
 			if(hash) {
-				var pieces = hash.substr(1).split("/");
+				var pieces = hash.substr(0).split("/");
 				if(pieces.length > 1) {
 					surveyCurrentLocale = pieces[1]; // could be null
 				} else {
@@ -2945,15 +2868,16 @@ function showV() {
 				surveyCurrentPage='';
 				surveyCurrentSection='';
 			}
-			window.processHash = function(){}; // only process one time.
 		};
 
 
 		/**
 		 * update hash (and title)
 		 * @method replaceHash
+		 * @param doPush {Boolean} if true, do a push (instead of replace)
 		 */
-		window.replaceHash = function() {
+		window.replaceHash = function replaceHash(doPush) {
+			if(!doPush) doPush = false; // by default -replace. 
 			var theId = window.surveyCurrentId;
 			if(theId == null) theId = '';
 			var theSpecial = window.surveyCurrentSpecial;
@@ -2962,16 +2886,36 @@ function showV() {
 			if(thePage == null) thePage = '';
 			var theLocale = window.surveyCurrentLocale;
 			if(theLocale==null) theLocale = '';
-			changingHash=true;
-			window.location.hash = '#' + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
-			changingHash=false;
-			itemBox  = registry.byId("title-item");
-			if(itemBox!=null) {
-			    itemBox.set('value', theId);
+			var newHash =  '#' + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
+			if(newHash != dojoHash()) {
+				dojoHash(newHash , !doPush);
 			}
+//			itemBox  = dojo.byId("title-item");
+//			if(itemBox!=null) {
+			    if(theLocale=='') {
+			    	updateIf("title-item",'');
+    			    //itemBox.set('value', '');
+			    } else if(theId=='' && thePage!='') {
+			    	updateIf("title-item", theLocale+'/'+thePage+'/');
+			        //itemBox.set('value', theLocale+'/'+thePage+'/');
+			    } else {
+			    	updateIf("title-item",theLocale+'//'+theId);
+    			    //itemBox.set('value', theLocale+'//'+theId);
+			    }
+//			}
 			document.title = document.title.split('|')[0] + " | " + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
 		};
+		
+		// click on the title to copy (permalink)
+		clickToSelect(dojo.byId("title-item"));
 
+		window.updateCurrentId = function updateCurrentId(id) {
+			if(id==null) id = '';
+		    if(surveyCurrentId != id) { // don't set if already set.
+			    surveyCurrentId = id;
+			    replaceHash(false); // usually dont want to save
+		    }
+		};
 		
 		// TODO - rewrite using AMD
 		/**
@@ -3028,13 +2972,30 @@ function showV() {
 			}
 		}
 
-
+		window.showCurrentId = function() {
+			if(surveyCurrentId != '') {
+			    var xtr = dojo.byId('r@' + surveyCurrentId);
+			    if(!xtr) {
+			        console.log("Warning could not load id " + surveyCurrentId + " does not exist");
+			        window.updateCurrentId(null);
+			    } else if(xtr.proposedcell && xtr.proposedcell.showFn) {
+			        // TODO: visible? coverage?
+			        window.showInPop("",xtr,xtr.proposedcell, xtr.proposedcell.showFn, true);
+			        console.log("Changed to " + surveyCurrentId);
+			    } else {
+			        console.log("Warning could not load id " + surveyCurrentId + " - not setup - " + xtr.toString() + " pc=" + xtr.proposedcell + " sf = " + xtr.proposedcell.showFn);
+			    }
+			}
+		};
+		
 		/**
 		 * Update the #hash and menus to the current settings.
 		 * @method updateHashAndMenus
+		 * @param doPush {Boolean} if false, do not add to history
 		 */
-		function updateHashAndMenus() {
-			replaceHash(); // update the hash
+		function updateHashAndMenus(doPush) {
+			if(!doPush) {doPush = false;}
+			replaceHash(doPush); // update the hash
 			updateIf("title-locale", surveyCurrentLocaleName);
 			
 
@@ -3192,7 +3153,7 @@ function showV() {
 																				onChange: function(newValue) {
 																					window.surveyCurrentCoverage = parseInt(newValue);
 																					updateCoverage(flipper.get(pages.data));
-																					updateHashAndMenus();
+																					updateHashAndMenus(false);
 																				}
 																				});
 								covMenu.placeAt(titleCoverage);
@@ -3226,13 +3187,11 @@ function showV() {
 
 		}
 		
-		window.reloadV = function () {
+		window.reloadV = function reloadV() {
 			// assume parseHash was already called, if we are taking input from the hash
 
 			window.surveyCurrentLocaleName = '-'; // so it's not stale
 			
-			
-
 			var pucontent = dojo.byId("itemInfo");
 
 			{
@@ -3241,13 +3200,32 @@ function showV() {
 				theDiv.stui = loadStui();
 			}
 			
-			flipper.flipTo(pages.loading, createChunk(stui_str("loading"), "i", "loadingMsg"));
+			var loadingChunk;
+			flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading"), "i", "loadingMsg"));
+			{
+				var timerToKill = null;
+				flipper.addUntilFlipped(function() {
+//					console.log("Starting throbber");
+					var frag = document.createDocumentFragment();
+					var k = 0;
+					timerToKill = window.setInterval(function() {
+						k++;
+						loadingChunk.style.opacity =   0.5 + ((k%10) * 0.05);
+//						console.log("Throb to " + loadingChunk.style.opacity);
+					}, 100);
+					
+					return frag;
+				}, function() {
+//					console.log("Kill throbber");
+					window.clearInterval(timerToKill);
+				});
+			}
 
 			// now, load. Use a show-er function for indirection.
 			var shower = null;
 
 			shower = function() {
-				updateHashAndMenus();
+				updateHashAndMenus(true);
 
 				var theDiv = flipper.get(pages.data);
 				var theTable = theDiv.theTable;
@@ -3264,8 +3242,12 @@ function showV() {
 				
 				if(surveyCurrentSpecial == null && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
 					if(surveyCurrentPage==null || surveyCurrentPage=='') {
+						flipper.get(pages.loading).appendChild(document.createElement('br'));
+						flipper.get(pages.loading).appendChild(document.createTextNode(surveyCurrentLocale));
 						showPossibleProblems(flipper.flipToEmpty(pages.other), surveyCurrentLocale, surveySessionId, "modern", "modern");
 					} else {
+						flipper.get(pages.loading).appendChild(document.createElement('br'));
+						flipper.get(pages.loading).appendChild(document.createTextNode(surveyCurrentLocale + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
 						myLoad(url, "(loading vrows)", function(json) {
 							showLoader(theDiv.loader,stui.loading2);
@@ -3301,7 +3283,8 @@ function showV() {
 									showLoader(theDiv.loader,stui.loading3);
 									insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..
 									flipper.flipTo(pages.data); // TODO now? or later?
-									processHash(theDiv);
+									window.showCurrentId();
+									scrollToItem();
 								});
 							}
 						});
@@ -3537,7 +3520,7 @@ function showV() {
 		};  // end reloadV
 
 		ready(function(){
-			window.parseHash(); // get the initial settings
+			window.parseHash(dojoHash()); // get the initial settings
 			window.reloadV(); // call it
 
 			function trimNull(x) {
@@ -3545,9 +3528,10 @@ function showV() {
 				x = x.toString().trim();
 				return x;
 			}
-			listenFor(window, "hashchange", function(e) {
-				
-				if(!changingHash) {
+			
+			dojoTopic.subscribe("/dojo/hashchange", function(changedHash){
+				//alert("hashChange…" + changedHash);
+				if(true) {
 					
 					
 					var oldLocale = trimNull(surveyCurrentLocale);
@@ -3555,48 +3539,80 @@ function showV() {
 					var oldPage = trimNull(surveyCurrentPage);
 					var oldId = trimNull(surveyCurrentId);
 					
-					window.parseHash();
+					window.parseHash(changedHash);
+					
+					surveyCurrentID = trimNull(surveyCurrentId);
 					
 					// did anything change?
 					if(oldLocale!=trimNull(surveyCurrentLocale) ||
 							oldSpecial!=trimNull(surveyCurrentSpecial) ||
 							oldPage != trimNull(surveyCurrentPage) ) {
-						console.log("# hash changed, reloading..");
+						console.log("# hash changed, (loc, etc) reloadingV..");
 						reloadV();
-					} else if(oldId != trimNull(surveyCurrentId)) {
-						scrollToItem();
+					} else if(oldId != surveyCurrentId && surveyCurrentId != '') {
+						console.log("# just ID changed, to " + surveyCurrentId);
+					    // surveyCurrentID and the hash have already changed.
+					    // just call showInPop if the item is present. If not present, make sure it's visible.
+						window.showCurrentId();						
 					}
+				} else {
+				    console.log("Ignoring hash change " + changedHash);
 				}
-				stStopPropagation(e);
-				return false;
 			});
 			
-			
-			// wire up the 'ID' box
-			var ignoreUs = false;
-			registry.byId("title-item").set('onChange',
-			    function(v){
-					if(ignoreUs) return;
-			        v = trimNull(v);
-//			        console.log('User entered: ' + v);
-			        
-			        // if it is a current page
-			        if(_thePages!=null && _thePages.pageToSection[v] &&
-			            _thePages.pageToSection[v].pageMap[v]) {
-			                surveyCurrentPage = v;
-			                surveyCurrentId='';
-			                reloadV();
-			            } else if(v.substr(0,1)=='#') {
-			                surveyCurrentId=v.substr(1);
-			                updateHashAndMenus();
-			                //reloadV();
-    						scrollToItem();
-			            } else {
-			            	// if v != surveyCurrentId..
-			                //registry.byId("title-item").set('value',trimNull(surveyCurrentId));
-			            }
-			    }
-			);
+//			// wire up the 'ID' box
+//			registry.byId("title-item").set('onChange',
+//			    function(v){
+//					if(ignoreIdChange) return;
+//			        v = trimNull(v);
+////			        console.log('User entered: ' + v);
+//                    var parts = v.split('/');
+//                    var newLoc = '';
+//                    var newPage = '';
+//                    var newId = '';
+//                    if(parts.length>0 && parts[0]!='') {
+//                        newLoc = trimNull(parts[0]);
+//                        if(parts.length>1 && parts[1]!='') {
+//                            newPage = trimNull(parts[1]);
+//                            if(parts.length>2 && parts[2]!='') {
+//                                newId = trimNull(parts[2]);
+//                            }
+//                        }
+//                    }
+//                    
+//                    if(parts.length>1) {
+//                        if((newLoc!=surveyCurrentLocale && newLoc!='') || (newPage!=surveyCurrentPage && newPage!='')) {
+//                            if(newLoc != '') {
+//                                surveyCurrentLocale=newLoc;
+//                            }
+//                            surveyCurrentPage = newPage;
+//                            surveyCurrentId = newId;
+//                            reloadV();
+//                        } else if(newId!=surveyCurrentId) {
+//                            surveyCurrentId = newId;
+//                            updateHashAndMenus();
+//                            scrollToItem();
+//                        } else {
+//                            console.log("Ignoring user changed id: " + v);
+//                            updateHashAndMenus(); // reject entry
+//                        }
+//			        // if it is a current page
+//			        } else if(_thePages!=null && _thePages.pageToSection[v] &&
+//			            _thePages.pageToSection[v].pageMap[v]) {
+//			                surveyCurrentPage = v;
+//			                surveyCurrentId='';
+//			                reloadV();
+//	                } else if(v.substr(0,1)=='#') {
+//		                surveyCurrentId=v.substr(1);
+//		                updateHashAndMenus();
+//		                //reloadV();
+//						scrollToItem();
+//		            } else {
+//                        console.log("Ignoring user changed (short) id: " + v);
+//                        updateHashAndMenus(); // reject entry
+//		            }
+//			    }
+//			);
 		});
 
 	});  // end require()
@@ -3909,7 +3925,7 @@ function loadAdminPanel() {
 			var frag2 = document.createDocumentFragment();
 			
 			if(!json || !json.users || Object.keys(json.users)==0) {
-				frag2.appendChild(document.createTextNode(stui.str("No users.")))
+				frag2.appendChild(document.createTextNode(stui.str("No users.")));
 			} else {
 				for(sess in json.users) {
 					var cs = json.users[sess];

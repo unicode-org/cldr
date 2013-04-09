@@ -142,7 +142,7 @@ survURL = '<%= survURL %>';
          </div>
          
          
-         <span data-dojo-type="dijit/InlineEditBox" data-dojo-props="" width="" title="id" class='titlePart'  id='title-item'></span>
+         <span title="id" class='titlePart'  id='title-item'></span>
          
         </div> <%-- end of toptitle --%>         
         <div id="lowerstuff">

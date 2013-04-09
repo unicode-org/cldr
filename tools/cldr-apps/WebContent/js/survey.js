@@ -47,6 +47,17 @@ if(!String.trim) {
  * @class GLOBAL
  */
 
+function removeClass(obj, className) {
+	if(obj.className.indexOf(className)>-1) {
+		obj.className = obj.className.substring(className.length+1);
+	}
+}
+function addClass(obj, className) {
+	if(obj.className.indexOf(className)==-1) {
+		obj.className = className+" "+obj.className;
+	}
+}
+
 /**
  * Remove all subnodes
  * @method removeAllChildNodes
@@ -441,8 +452,26 @@ var clickContinue = null;
   */
  function busted() {
 	 disconnected = true;
-	 //console.log("disconnected.");
-	 document.getElementsByTagName("body")[0].className="disconnected "+document.getElementsByTagName("body")[0].className; // hide buttons when disconnected.
+	 stdebug("disconnected.");
+	 addClass(document.getElementsByTagName("body")[0], "disconnected");
+ }
+ 
+ var didUnbust = false;
+ 
+ function unbust() {
+	 didUnbust = true;
+	 console.log("Un-busting");
+	 progressWord="unbusted";
+	 disconnected = false;
+	 saidDisconnect = false;
+	 removeClass(document.getElementsByTagName("body")[0], "disconnected");
+	 wasBusted = false;
+	 queueOfXhr=[]; // clear queue
+	 clearTimeout(queueOfXhrTimeout);
+	 queueOfXhrTimeout = null;
+	 hideLoader();
+	 saidDisconnect = false;
+	 updateStatus(); // will restart regular status updates
  }
 
 // hashtable of items already verified
@@ -610,6 +639,32 @@ function updateAjaxWord(ajax) {
 var saidDisconnect=false;
 
 /**
+ * @method showARIDialog
+ * @param why 
+ * @param json
+ * @param word
+ * @param oneword
+ * @param p
+ */
+function showARIDialog(why, json, word, oneword, p) {
+	console.log("Can't recover, not in /v or not loaded yet.");
+	// has not been loaded yet.
+}
+/**
+ * @method showARIDialog
+ * @param why 
+ * @param json
+ * @param word
+ * @param oneword
+ * @param p
+ */
+function ariRetry() {
+	alert("Can't retry - internal error.");
+}
+
+
+
+/**
  * Handle that ST has disconnected
  * @method handleDisconnect
  * @param why
@@ -632,6 +687,7 @@ function handleDisconnect(why, json, word) {
 			oneword.title = "Disconnected: " + why;
 			oneword.onclick = function() {
 				var p = dojo.byId("progress");	
+				var subDiv = document.createElement('div');
 				var chunk0 = document.createElement("i");
 				chunk0.appendChild(document.createTextNode(stui_str("error_restart")));
 				var chunk = document.createElement("textarea");
@@ -639,8 +695,9 @@ function handleDisconnect(why, json, word) {
 				chunk.appendChild(document.createTextNode(why));
 				chunk.rows="10";
 				chunk.cols="40";				
-				p.appendChild(chunk0);
-				p.appendChild(chunk);
+				subDiv.appendChild(chunk0);
+				subDiv.appendChild(chunk);
+				p.appendChild(subDiv);
 				if(oneword.details) {
 					oneword.details.style.display="none";
 				}
@@ -649,13 +706,16 @@ function handleDisconnect(why, json, word) {
 			};
 			{
 				var p = dojo.byId("progress");	
+				var subDiv = document.createElement('div');
 				var detailsButton = document.createElement("button");
 				detailsButton.type = "button";
 				detailsButton.id = "progress-details";
 				detailsButton.appendChild(document.createTextNode(stui_str("details")));
 				detailsButton.onclick = oneword.onclick;
-				p.appendChild(detailsButton);
+				subDiv.appendChild(detailsButton);
 				oneword.details = detailsButton;
+				p.appendChild(subDiv);
+				showARIDialog(why, json, word, oneword, subDiv);
 			}
 		}
 		if(json) {
@@ -695,6 +755,17 @@ function updateSpecialHeader(newSpecialHeader) {
 	showWord();
 }
 
+function trySurveyLoad() {
+	try {
+		var url = contextPath + "/survey"+cacheKill();
+		console.log("Attempting to restart ST at " + url);
+	    dojo.xhrGet({
+	        url: url,
+	        timeout: ajaxTimeout
+	    });
+	} catch(e){}
+}
+
 /**
  * Based on the last received packet of JSON, update our status
  * @method updateStatusBox
@@ -704,7 +775,8 @@ function updateStatusBox(json) {
 	if(json.disconnected) {
 		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown 
 	} else if (json.SurveyOK==0) {
-		handleDisconnect("Not running: ", json,"disconnected"); // ST has restarted
+		trySurveyLoad();
+		handleDisconnect("Not running [yet]- try again?: ", json,"disconnected"); // ST has restarted
 	} else if (json.status && json.status.isBusted) {
 		handleDisconnect("Server says: busted " + json.status.isBusted, json,"disconnected"); // Server down- not our fault. Hopefully.
 	} else if(!json.status) {
@@ -783,7 +855,10 @@ var ajaxTimeout = 120000; // 2 minutes
  * @method updateStatus
  */
 function updateStatus() {
-	if(disconnected) return;
+	if(disconnected) { 
+		stdebug("Not updating status - disconnected.");
+		return;
+	}
 //	stdebug("UpdateStatus...");
     dojo.xhrGet({
         url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl+cacheKill(),
@@ -1142,16 +1217,6 @@ function incrPopToken(x) {
 function hidePopHandler(e){ 		
 	window.hidePop(null);
 	stStopPropagation(e); return false; 
-}
-function removeClass(obj, className) {
-	if(obj.className.indexOf(className)>-1) {
-		obj.className = obj.className.substring(className.length+1);
-	}
-}
-function addClass(obj, className) {
-	if(obj.className.indexOf(className)==-1) {
-		obj.className = className+" "+obj.className;
-	}
 }
 
 
@@ -2717,33 +2782,28 @@ function scrollToItem() {
  * Show the "possible problems" section which has errors for the locale
  * @method showPossibleProblems
  */
-function showPossibleProblems(container,loc, session, effectiveCov, requiredCov) {
+function showPossibleProblems(flipper,flipPage,loc, session, effectiveCov, requiredCov) {
 	surveyCurrentLocale = loc;
 	dojo.ready(function(){
-		var theDiv = dojo.byId(container);
-
-		theDiv.stui = loadStui();
-		theDiv.theLoadingMessage = createChunk(stui_str("loading"), "i", "loadingMsg");
-		theDiv.appendChild(theDiv.theLoadingMessage);
 
 		var errorHandler = function(err, ioArgs){
 			console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-			showLoader(theDiv.loader,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+			showLoader(null,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
 		};
 		var loadHandler = function(json){
 			try {
 				//showLoader(theDiv.loader,stui.loading2);
-				theDiv.removeChild(theDiv.theLoadingMessage);
+//				theDiv.removeChild(theDiv.theLoadingMessage);
 				if(!json) {
 					console.log("!json");
-					showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
+					showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
 				} else if(json.err) {
 					console.log("json.err!" + json.err);
-					showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+					showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
 					handleDisconnect("while loading",json);
 				} else if(!json.possibleProblems) {
 					console.log("!json.possibleProblems");
-					showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+					showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
 					handleDisconnect("while loading- no possibleProblems result",json);
 				} else {
 					stdebug("json.possibleProblems OK..");
@@ -2751,6 +2811,9 @@ function showPossibleProblems(container,loc, session, effectiveCov, requiredCov)
 					if(json.dataLoadTime) {
 						updateIf("dynload", json.dataLoadTime);
 					}
+					
+					var theDiv = flipper.flipToEmpty(flipPage);
+
 
 					if(json.possibleProblems.length > 0) {
 						var subDiv = createChunk("","div");
@@ -2765,7 +2828,13 @@ function showPossibleProblems(container,loc, session, effectiveCov, requiredCov)
 						div3.innerHTML = newHtml;
 						subDiv.appendChild(div3);
 						theDiv.appendChild(subDiv);
+					} else if(surveyCurrentPage=='' && surveyCurrentId=='') {
+						// "no problems"
 					}
+					var theInfo;
+					theDiv.appendChild(theInfo = createChunk("","p","special_general"));
+					theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ? 
+					hideLoader(null);
 				}
 
 			}catch(e) {
@@ -2938,7 +3007,8 @@ function showV() {
 		
 		// click on the title to copy (permalink)
 		clickToSelect(dojo.byId("title-item"));
-
+		clickToSelect(dojo.byId("ariScroller"));
+		
 		window.updateCurrentId = function updateCurrentId(id) {
 			if(id==null) id = '';
 		    if(surveyCurrentId != id) { // don't set if already set.
@@ -3019,6 +3089,39 @@ function showV() {
 			}
 		};
 		
+		
+		window.ariRetry = function() {
+			if(didUnbust) {
+				flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_reloading"), "i", "loadingMsg"));
+				window.location.reload(true);
+			} else {
+				flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_retrying"), "i", "loadingMsg"));
+				unbust(); // low level unbust
+				ariDialog.hide(); // hide abort, retry, ignore dialog
+				reloadV(); // may end right up busted, but oh well
+			}
+		};
+		
+		window.showARIDialog = function(why, json, word, oneword, p) {
+			console.log('showARIDialog');
+			p.parentNode.removeChild(p);
+			
+			if(didUnbust) {
+				why = why + "\n\n[Second try: will force page reload]";
+			}
+			
+			// setup with why
+			updateIf('ariScroller',window.location + '\n' + why);
+			
+			ariDialog.show();
+			var oneword = dojo.byId("progress_oneword");
+			oneword.onclick = function() {
+				if(disconnected) {
+					ariDialog.show();
+				}
+			};
+		};
+		
 		/**
 		 * Update the #hash and menus to the current settings.
 		 * @method updateHashAndMenus
@@ -3027,6 +3130,9 @@ function showV() {
 		function updateHashAndMenus(doPush) {
 			if(!doPush) {doPush = false;}
 			replaceHash(doPush); // update the hash
+			if(surveyCurrentLocaleName=='-' && surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
+				surveyCurrentLocaleName = surveyCurrentLocale; 
+			}
 			updateIf("title-locale", surveyCurrentLocaleName);
 			
 
@@ -3060,7 +3166,7 @@ function showV() {
 						updateIf("title-section", mySection.name);
 						updateIf("title-page", myPage.name);
 					} else {
-						updateIf("title-section", "-");
+						updateIf("title-section", stui_str("section_general"));
 						updateIf("title-page", "-");
 					}
 				}
@@ -3107,6 +3213,18 @@ function showV() {
 
 				var menuSection = registry.byId("menu-section");
 				menuSection.destroyDescendants(false);
+				var generalMenu = new CheckedMenuItem({
+					label: stui_str("section_general"),
+					checked:   (surveyCurrentPage == ''),
+					//    iconClass:"dijitEditorIcon dijitEditorIconSave",
+					onClick: function(){ 
+						surveyCurrentId = ''; // no id if jumping pages
+						surveyCurrentPage = '';
+						updateMenuTitles(menuMap);
+						reloadV();
+					},
+				});
+				menuSection.addChild(generalMenu);
 				for(var j in menuMap.sections) {
 					(function (aSection){
 						var dropDown = new DropDownMenu();
@@ -3220,7 +3338,7 @@ function showV() {
 		
 		window.reloadV = function reloadV() {
 			// assume parseHash was already called, if we are taking input from the hash
-
+			ariDialog.hide();
 			window.surveyCurrentLocaleName = '-'; // so it's not stale
 			
 			var pucontent = dojo.byId("itemInfo");
@@ -3275,7 +3393,7 @@ function showV() {
 					if(surveyCurrentPage==null || surveyCurrentPage=='') {
 						flipper.get(pages.loading).appendChild(document.createElement('br'));
 						flipper.get(pages.loading).appendChild(document.createTextNode(surveyCurrentLocale));
-						showPossibleProblems(flipper.flipToEmpty(pages.other), surveyCurrentLocale, surveySessionId, "modern", "modern");
+						showPossibleProblems(flipper, pages.other, surveyCurrentLocale, surveySessionId, "modern", "modern");
 					} else {
 						flipper.get(pages.loading).appendChild(document.createElement('br'));
 						flipper.get(pages.loading).appendChild(document.createTextNode(surveyCurrentLocale + '/' + surveyCurrentPage + '/' + surveyCurrentId));

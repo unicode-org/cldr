@@ -1,9 +1,12 @@
 define({
 	root: ({
-			copyright: "(C) 2012 IBM Corporation and Others. All Rights Reserved",
+			copyright: "(C) 2012-2013 IBM Corporation and Others. All Rights Reserved",
 			loading: "loading",
 			loading2: "loading.",
 			loading3: "loading..",
+			
+			loading_reloading: "Force Reloading Page",
+			loading_retrying: "Retrying",
 			loadingOneRow: "loading....",
 			voting: "Voting",
 			checking: "Checking",
@@ -189,7 +192,12 @@ define({
            v_submit_busy: "Submitting...",
            section_special: "(Manage)",
            special_oldvotes: "Import Old Votes",
-			"": ""})
+           section_general: "General Info",
+           
+           special_general: "Please select one of the above menus to begin entering data. If you have not done so, be sure to read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, especially the Guide and the Walkthrough.",
+
+           
+           "": ""})
 //		"mt-MT": false
 	
   // sublocales

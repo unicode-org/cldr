@@ -99,7 +99,44 @@ survURL = '<%= survURL %>';
 </script>
 </head>
 <body class='claro'>
- <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', gutters:true, liveSplitters:true" id="borderContainer">
+
+<div data-dojo-type="dijit/Dialog" data-dojo-id="ariDialog" title="Disconnected from Survey Tool"
+    execute="" data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">
+
+    <div id='ariContent' class="dijitDialogPaneContentArea">
+    	<div id='ariHelp'><a href='http://cldr.unicode.org/index/survey-tool#disconnected'>Help</a></div>
+        <p id='ariMessage'>
+            Uh-oh! Not able to successfully communicate with the SurveyTool server. 
+        </p>
+        <h3 id='ariSub'>Details:</h3>
+        <p id='ariScroller'>
+        </p>
+    </div>
+
+    <div class="dijitDialogPaneActionBar">
+    <%--
+        <button data-dojo-type="dijit/form/Button" type="submit" onClick="return ariDialog.isValid();">
+            Report Bug…
+        </button>
+        --%>
+        <button id='ariMain' style='margin-right: 2em;' data-dojo-type="dijit/form/Button" type="button" onClick="window.location = survURL;">
+            Back to Locales
+        </button>
+        <button id='ariRetryBtn'  data-dojo-type="dijit/form/Button" type="button" onClick="ariRetry()">
+            <b>Try Again</b>
+        </button>
+    </div>
+</div>
+
+<%--
+<h1>ARITester</h1>
+<p>When pressing this button the dialog will popup:</p>
+<button id="buttonThree" data-dojo-type="dijit/form/Button" type="button" onClick="ariDialog.show();">
+    Show me!
+</button>
+--%>
+
+ <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline', gutters:true, liveSplitters:true" id="borderContainer">
     <div id="topstuff" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'top'" >
     <% if(status!=null) { %>
         <div class="v-status"><%= status %></div>
@@ -122,9 +159,12 @@ survURL = '<%= survURL %>';
          <div id='title-locale' data-dojo-type="dijit/form/DropDownButton">
               <span>(locale)</span>
               <div id='menu-locale' data-dojo-type="dijit/DropDownMenu">
+              <%--
                         <div data-dojo-type="dijit/MenuItem"
                             data-dojo-props=" onClick:function(){  window.location='<%= survURL %>?_=' + surveyCurrentLocale;    }">
                             General Info</div>
+                        
+                --%>
               </div>
          </div>
          

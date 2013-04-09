@@ -2619,6 +2619,13 @@ td.v-win {
 #oldVotesAcceptList {
     border-collapse: collapse;
 }
+
+#OtherSection p.special_general {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    padding:  3em;
+	background: url(vote.png) no-repeat 1em center;
+}
+
 #oldVotesAcceptList td {
     padding:  0.4em;
     border-bottom:  1px solid gray;
@@ -2661,4 +2668,38 @@ span.editableHere:hover {
     color:  maroon;
     font-size: large;
     font-weight: bold;
+}
+
+#ariHelp  {
+    float: right;
+}
+
+#ariMessage {
+    padding-left:  20px;
+    background: url(stop.png) no-repeat left top;
+    font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+    font-weight: bold;
+}
+
+#ariSub {
+    font: small "Lucida Grande", Lucida, Verdana, sans-serif;
+    margin-bottom: 0;
+}
+
+.dijitCheckedMenuItemIcon {
+  background-image: url("radx.png") !important;
+}
+
+
+#ariScroller {
+    white-space: pre;
+    overflow: scroll;
+    font: small "Courier New", Courier, mono;
+    padding-left:  32px;
+    padding-top:  0;
+}
+
+.dijitDialogUnderlay, .claro .dijitDialogUnderlay {
+    opacity: 0.5 !important;
+    background-color: #b1b56a !important;
 }

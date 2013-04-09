@@ -282,6 +282,7 @@ var processXhrQueue = function() {
 		top.err2 = top.err;
 		top.load=function(){return myLoad0(top,arguments); };
 		top.err=function(){return myErr0(top,arguments); };
+		top.startTime = new Date().getTime();
 		if(top.postData) {
 			stdebug("PXQ("+queueOfXhr.length+"): dispatch POST " + top.url);
 			dojo.xhrPost(top);
@@ -292,8 +293,15 @@ var processXhrQueue = function() {
 	}
 };
 
+function xhrSetTime(top) {
+	top.stopTime = new Date().getTime();
+	top.tookTime = top.stopTime-top.startTime;
+	stdebug("PXQ("+queueOfXhr.length+"): time took= " + top.tookTime);
+}
+
 var xhrQueueTimeout = 3;
 myLoad0 = function(top,args) {
+	xhrSetTime(top);
 	stdebug("myLoad0!:" + top.url + " - a="+args.length);
 	var r = top.load2(args[0],args[1]);
 	queueOfXhrTimeout = setTimeout(processXhrQueue, xhrQueueTimeout);
@@ -2851,7 +2859,12 @@ function showV() {
 							if(surveyCurrentId.substr(0,2)=='x@') {
 								surveyCurrentId=surveyCurrentId.substr(2);
 							}
+						} else {
+							surveyCurrentId = '';
 						}
+					} else {
+						surveyCurrentPage='';
+						surveyCurrentId='';
 					}
 					window.surveyCurrentSpecial=null;
 				} else {

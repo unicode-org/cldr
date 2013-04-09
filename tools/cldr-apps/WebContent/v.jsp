@@ -99,18 +99,15 @@ survURL = '<%= survURL %>';
 </script>
 </head>
 <body class='claro'>
- 
-        <% if( ctx.session == null || ctx.session.user == null) { %>
-        <form id="login" method="POST" action="<%= request.getContextPath() + "/survey" %>">
-           <%@ include file="/WEB-INF/tmpl/small_login.jsp"    %>
-            
-           </form>
-          <% } %>
  <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'sidebar', gutters:true, liveSplitters:true" id="borderContainer">
     <div id="topstuff" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'top'" >
     <% if(status!=null) { %>
         <div class="v-status"><%= status %></div>
         <% } %>
+
+        <!-- top info -->
+         <%@include file="/WEB-INF/tmpl/stnotices.jspf" %>
+
 
         <%-- abbreviated form of usermenu  --%>
         <div id='toptitle'>
@@ -158,6 +155,8 @@ survURL = '<%= survURL %>';
               
                <a class='notselected' href='<%= ctx.base() + "?do=logout" %>'>Logout<%= cookieMessage %></a>
                |
+            <% } else { %>
+                <a href='<%= request.getContextPath() %>/login.jsp' id='loginlink' class='notselected'>Login…</a> |
             <% } %>
             <a class='notselected' href='<%= survURL  %>?do=options'>Manage</a> 
             |
@@ -187,9 +186,6 @@ survURL = '<%= survURL %>';
         <div id="OtherSection"><%-- other content --%></div>
     </div>
     <div id="itemInfo" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'trailing'" ></div>
-    <div id="botstuff" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'bottom'" >
-         <%@include file="/WEB-INF/tmpl/stnotices.jspf" %>
-    </div>
 </div>
 </body>
 </html>

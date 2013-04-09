@@ -115,6 +115,8 @@
 ^//ldml/numbers/currencyFormats/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 ^//ldml/numbers/currencyFormats\[@numberSystem="%A"]/unitPattern ; {0}=NUMBER 3; {1}=CURRENCY_NAME Dollars
 
+^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"%A\"] ; {0}=NUMBER 3
+
 ^//ldml/units/unit\[@type="day%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/units/unit\[@type="hour%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3
 ^//ldml/units/unit\[@type="minute%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MINUTES 3

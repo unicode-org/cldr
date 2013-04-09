@@ -4758,6 +4758,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Zimbabwean dollars (2008)</displayName>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0}+</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unit type="day">

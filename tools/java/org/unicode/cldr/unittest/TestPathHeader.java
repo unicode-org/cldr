@@ -75,6 +75,13 @@ public class TestPathHeader extends TestFmwk {
         }
     }
 
+    public void TestMiscPatterns() {
+        String test = "//ldml/numbers/miscPatterns[@numberSystem=\"arab\"]/pattern[@type=\"atLeast\"]";
+        PathHeader ph = pathHeaderFactory.fromPath(test);
+        assertNotNull("MiscPatterns path not found", ph);
+        System.out.println(english.getStringValue(test));
+    }
+
     public void TestPluralOrder() {
         Set<PathHeader> sorted = new TreeSet<PathHeader>();
         for (String locale : new String[] { "ru", "ar", "ja" }) {

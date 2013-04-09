@@ -25,6 +25,16 @@ public class TestExampleGenerator extends TestFmwk {
         showCldrFile(info.getCldrFactory().make("fr", true));
     }
 
+    public void TestMiscPatterns() {
+        final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile,
+            info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        String actual = exampleGenerator.getExampleHtml(
+            "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",
+            "at least {0}", Zoomed.IN);
+        assertEquals("Invalid format", "<div class='cldr_example'>at least 99</div>", actual);
+    }
+
     public void TestLocaleDisplayPatterns() {
         final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile,

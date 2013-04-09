@@ -277,6 +277,8 @@ public class ExampleGenerator {
             } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
                 if (parts.contains("calendar")) {
                     result = handleDateFormatItem(xpath, value);
+                } else if (parts.contains("miscPatterns")) {
+                    result = handleMiscPatterns(value);
                 } else if (parts.contains("numbers")) {
                     result = handleDecimalFormat(parts, value, type);
                 }
@@ -324,6 +326,10 @@ public class ExampleGenerator {
             }
         }
         return result;
+    }
+
+    private String handleMiscPatterns(String value) {
+        return format(value, 99);
     }
 
     IntervalFormat intervalFormat = new IntervalFormat();
@@ -1144,7 +1150,7 @@ public class ExampleGenerator {
         if (hoursBackground) {
             hourString = setBackground(hourString);
         }
-        String result = MessageFormat.format(gmtFormat, new Object[] { hourString });
+        String result = format(gmtFormat, hourString);
         return result;
     }
 

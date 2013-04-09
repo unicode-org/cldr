@@ -963,7 +963,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers (alias | (defaultNumberingSystem*, otherNumberingSystems*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, special*)) >
+<!ELEMENT numbers (alias | (defaultNumberingSystem*, otherNumberingSystems*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, special*)) >
 <!ATTLIST numbers draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST numbers standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST numbers references CDATA #IMPLIED >
@@ -1212,6 +1212,11 @@ $Date$
 <!ATTLIST symbol references CDATA #IMPLIED >
 <!ATTLIST symbol alt NMTOKENS #IMPLIED >
 <!ATTLIST symbol choice ( true | false ) #IMPLIED > <!-- deprecated -->
+
+<!ELEMENT miscPatterns (alias | (default*, pattern?, special*)) >
+<!ATTLIST miscPatterns draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
+
 <!-- ######################################################### -->
 
 <!ELEMENT units (alias | (unit*, special*)) >

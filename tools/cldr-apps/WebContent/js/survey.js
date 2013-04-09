@@ -18,12 +18,28 @@ dojo.requireLocalization("surveyTool", "stui");
  * @method keys
  */
 if(!Object.keys) {
+	console.log("fixing missing Object.keys");
 	Object.keys = function(x) {
 		var r = [];
 		for (j in x) {
 			r.push(j);
 		}
 		return r;
+	};
+}
+
+if(!Array.isArray) {
+	console.log("fixing missing Array.isArray() ");
+	Array.isArray = function(x) {
+		if(x == null) return false;
+		return x instanceof Array;   // if this doesn't work, we're in trouble.
+	};
+}
+
+if(!String.trim) {
+	console.log("TODO fix broken String.trim() ");
+	String.trim = function(x) {
+		return x;
 	};
 }
 
@@ -91,7 +107,7 @@ Flipper.prototype.flipTo = function(id, node) {
 			this._map[id].appendChild(node[k]);
 		}
 	}
-	this._map[id].style.display=null;
+	this._map[id].style.display='';
 	this._visible = id;
 	return this._map[id];
 };
@@ -3107,7 +3123,7 @@ function showV() {
 										surveyCurrentPage = aPage.id;
 										updateMenuTitles(menuMap);
 										reloadV();
-									},
+									}
 								});
 								dropDown.addChild(pageMenu);
 							})(aSection.pages[k]);
@@ -3115,7 +3131,7 @@ function showV() {
 						}
 						var sectionMenuItem = new PopupMenuItem({
 							label: aSection.name,
-							popup: dropDown,
+							popup: dropDown
 						});
 						menuSection.addChild(sectionMenuItem);
 					})(menuMap.sections[j]);
@@ -3539,7 +3555,11 @@ function showV() {
 
 			function trimNull(x) {
 				if(x==null) return '';
-				x = x.toString().trim();
+				try {
+					x = x.toString().trim();
+				} catch(e) {
+					// do nothing
+				}
 				return x;
 			}
 			

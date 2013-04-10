@@ -886,6 +886,7 @@ function updateStatus() {
                     st_err.innerHTML="The SurveyTool has been restarted. Please reload this page to continue.";
                     wasBusted=true;
                     busted();
+                    // TODO: show ARI for reconnecting
             	}else if(wasBusted == true && 
             			(!json.status.isBusted) 
                       || (json.status.surveyRunningStamp!=surveyRunningStamp)) {
@@ -3390,7 +3391,7 @@ function showV() {
 				showLoader(null, theDiv.stui.loading);
 				
 				if(surveyCurrentSpecial == null && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
-					if(surveyCurrentPage==null || surveyCurrentPage=='') {
+					if((surveyCurrentPage==null || surveyCurrentPage=='') && (surveyCurrentId==null||surveyCurrentId=='')) {
 						flipper.get(pages.loading).appendChild(document.createElement('br'));
 						flipper.get(pages.loading).appendChild(document.createTextNode(surveyCurrentLocale));
 						showPossibleProblems(flipper, pages.other, surveyCurrentLocale, surveySessionId, "modern", "modern");
@@ -3398,6 +3399,7 @@ function showV() {
 						flipper.get(pages.loading).appendChild(document.createElement('br'));
 						flipper.get(pages.loading).appendChild(document.createTextNode(surveyCurrentLocale + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
+							
 						myLoad(url, "(loading vrows)", function(json) {
 							showLoader(theDiv.loader,stui.loading2);
 							if(!json) {

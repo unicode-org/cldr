@@ -77,10 +77,13 @@
 				}
 			}
 			if(pageId == null && xpath == null && strid!=null) {
-				// needs to be 'section containing..''
 				xp = mySession.sm.xpt.getByStringID(strid);
                 if(xp!=null) {
-                    matcher = XPathMatcher.getMatcherForString(xp);
+                	try {
+	                	pageId = mySession.sm.getSTFactory().getPathHeader(xp).getPageId(); // section containing
+                	} catch(Throwable t) {
+	                    matcher = XPathMatcher.getMatcherForString(xp); // single string
+                	}
                 }
 			}
 			

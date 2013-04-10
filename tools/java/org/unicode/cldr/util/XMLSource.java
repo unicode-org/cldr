@@ -1050,9 +1050,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 String xpath;
                 List<String> list = reverseAliases.get(subpath);
                 int endIndex = pathIndex;
+                int suffixStart = subpath.length();
+                // Suffixes should always start with an element and not an
+                // attribute to prevent invalid aliasing.
                 while (endIndex < paths.length &&
-                    (xpath = paths[endIndex]).startsWith(subpath)) {
-                    String suffix = xpath.substring(subpath.length());
+                    (xpath = paths[endIndex]).startsWith(subpath) &&
+                    xpath.charAt(suffixStart) == '/') {
+                    String suffix = xpath.substring(suffixStart);
                     for (String reverseAlias : list) {
                         String reversePath = reverseAlias + suffix;
                         newPaths.add(reversePath);

@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -210,7 +211,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 for (String pathName : paths) {
                     currentAttributesToIgnore.reset(pathName);
                     PathHeader pathHeader = pathHeaderFactory.fromPath(pathName);
-                    collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
+                    collidingTypes.add("<a href=\"#/" + getCldrFileToCheck().getLocaleID() + "/" + pathHeader.getPageId() + "/" + StringId.getHexId(pathName)+"\">" + 
+                        pathHeader.getHeaderCode() + "</a>"); // later make this more readable.
                 }
             } else {
                 for (String dpath : paths) {

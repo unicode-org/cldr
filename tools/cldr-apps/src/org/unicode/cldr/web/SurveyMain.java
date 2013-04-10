@@ -5188,8 +5188,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param b (ignored)
      */
     private void showPathList(WebContext ctx, String xpath, String typeToSubtype, boolean b) {
+        String vurl = ctx.vurl(ctx.getLocale(), ctx.getPageId(), null, null);
         // redirect to /v#...
-        ctx.println("<script type='text/javascript'>window.location=' " + ctx.vurl(ctx.getLocale(), ctx.getPageId(), null, null) + "/'+window.location.hash.substring(1);</script>");
+        ctx.redirectToVurl(vurl);
     }
 
     private void showPathList(WebContext ctx, String xpath, PageId pageId) {

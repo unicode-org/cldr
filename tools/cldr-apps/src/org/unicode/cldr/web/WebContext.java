@@ -715,13 +715,19 @@ public class WebContext implements Cloneable, Appendable {
         
         // page
         sb.append('/');
-        sb.append(page.name());
-        
+        if(page!=null) {
+            sb.append(page.name());
+        }
         if(strid!=null && !strid.isEmpty()) {
             sb.append('/');
             sb.append(strid);
         }
         return sb.toString();
+    }
+    
+    public void redirectToVurl(String vurl) {
+        println("<a class='vredirect' href='"+vurl+"'>Redirecting to " +vurl+"</a>");
+        println("<script type='text/javascript'>window.location=' " +vurl + "/'+window.location.hash.substring(1);</script>");
     }
 
     public void setServletPath(String path) {

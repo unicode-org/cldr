@@ -3222,7 +3222,7 @@ function showV() {
 						surveyCurrentPage = '';
 						updateMenuTitles(menuMap);
 						reloadV();
-					},
+					}
 				});
 				menuSection.addChild(generalMenu);
 				for(var j in menuMap.sections) {

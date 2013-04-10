@@ -211,8 +211,13 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 for (String pathName : paths) {
                     currentAttributesToIgnore.reset(pathName);
                     PathHeader pathHeader = pathHeaderFactory.fromPath(pathName);
-                    collidingTypes.add("<a href=\"#/" + getCldrFileToCheck().getLocaleID() + "/" + pathHeader.getPageId() + "/" + StringId.getHexId(pathName)+"\">" + 
-                        pathHeader.getHeaderCode() + "</a>"); // later make this more readable.
+                    if ( finalTesting ) {
+                        collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
+                    } else {
+                        collidingTypes.add("<a href=\"#/" + getCldrFileToCheck().getLocaleID() + "/" + pathHeader.getPageId() + "/" + StringId.getHexId(pathName)+"\">" + 
+                            pathHeader.getHeaderCode() + "</a>");
+    
+                    }
                 }
             } else {
                 for (String dpath : paths) {
@@ -248,7 +253,15 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 String thisZone = pathHeader.getHeader();
                 String thisZoneType = pathHeader.getCode();
                 String collisionString = collidingTypes.toString();
-                collisionString = collisionString.substring(1, collisionString.length() - 1); // Strip off []
+                int csStart, csEnd;
+                if (collisionString.startsWith("[<a")) {
+                    csStart = collisionString.indexOf('>') + 1;
+                    csEnd = collisionString.indexOf('<',csStart);
+                } else {
+                    csStart = collisionString.indexOf('[') + 1;
+                    csEnd = collisionString.indexOf(']',csStart);
+               }
+                collisionString = collisionString.substring(csStart,csEnd);
                 int delimiter_index = collisionString.indexOf(':');
                 String collidingZone = collisionString.substring(0, delimiter_index);
                 String collidingZoneType = collisionString.substring(delimiter_index + 2);

@@ -48,6 +48,8 @@ import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
 
+import com.ibm.icu.dev.util.ElapsedTimer;
+
 /**
  * Servlet implementation class SurveyAjax
  * 
@@ -297,6 +299,10 @@ public class SurveyAjax extends HttpServlet {
                 CLDRLocale locale = CLDRLocale.getInstance(loc);
                 r.put("loc", loc);
                 r.put("menus",menus.toJSON(locale));
+                
+                if("true".equals(request.getParameter("locmap"))) {
+                    r.put("locmap", getJSONLocMap(sm));
+                }
 
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
@@ -848,6 +854,97 @@ public class SurveyAjax extends HttpServlet {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e);
         }
+    }
+
+    private static JSONObject createJSONLocMap(SurveyMain sm) throws JSONException {
+        JSONObject locmap = new JSONObject();
+        // locales will have info about each locale, including name
+        JSONObject locales = new JSONObject();
+        SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
+        
+        for(CLDRLocale loc : sm.getLocales()) {
+            JSONObject locale = new JSONObject();
+            
+            locale.put("name", loc.getDisplayName());
+            
+            CLDRLocale dcParent = sdi.getBaseFromDefaultContent(loc);
+            CLDRLocale dcChild = sdi.getDefaultContentFromBase(loc);
+            
+            locale.put("dcParent",dcParent);
+            locale.put("dcChild", dcChild);
+            
+            /*
+             * <%
+    CLDRLocale dcParent = 
+            .getBaseFromDefaultContent(ctx.getLocale());
+    CLDRLocale dcChild = ctx.sm.getSupplementalDataInfo()
+            .getDefaultContentFromBase(ctx.getLocale());
+    if (ctx.sm.getReadOnlyLocales().contains(ctx.getLocale())) {
+        String comment = SpecialLocales.getComment(ctx.getLocale());
+        if (comment == null)
+            comment = "Editing of this locale has been disabled by the SurveyTool administrators.";
+%>
+<%=ctx.iconHtml("lock", comment)%><i><%=comment%></i>
+<%
+    return;
+    } else if (dcParent != null) {
+        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales"
+                + "</a></b><br/>");
+        ctx.println("<h1 title='" + ctx.getLocale().getBaseName()
+                + "'>" + ctx.getLocale().getDisplayName() + "</h1>");
+        ctx.println("<div class='ferrbox'>This locale is the "
+                + SurveyMain.DEFAULT_CONTENT_LINK
+                + " for <b>"
+                + ctx.sm.getLocaleLink(ctx, dcParent, null)
+                + "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"
+                + ctx.sm.getLocaleLink(ctx, dcParent, null)
+                + "</b> instead.");
+        //                ctx.printHelpLink("/DefaultContent","Help with Default Content");
+        ctx.print("</div>");
+
+        //printLocaleTreeMenu(ctx, which);
+        ctx.sm.printFooter(ctx);
+        return; // Disable viewing of default content
+
+    } else if (dcChild != null) {
+        String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
+        ctx.println("<div class='fnotebox'>This locale supplies the "
+                + SurveyMain.DEFAULT_CONTENT_LINK
+                + " for <b>"
+                + dcChildDisplay
+                + "</b>. Please make sure that all the changes that you make here are appropriate for <b>"
+                + dcChildDisplay
+                + "</b>. If you add any changes that are inappropriate for other sublocales, be sure to override their values. ");
+        //ctx.printHelpLink("/DefaultContent","Help with Default Content");
+        ctx.print("</div>");
+        ctx.redirectToVurl(ctx.vurl(ctx.getLocale(), null, null, null));
+    } else {
+        ctx.redirectToVurl(ctx.vurl(ctx.getLocale(), null, null, null));
+    }
+%>
+
+             */
+            
+            locales.put(loc.getBaseName(), locale);
+        }
+        
+        locmap.put("locales", locales);
+          
+        // map non-canonicalids to localeids
+        //JSONObject idmap = new JSONObject();
+        //locmap.put("idmap", idmap);
+        return locmap;
+    }
+    
+    private static JSONObject gLocMap = null;
+    
+    private static synchronized JSONObject getJSONLocMap(SurveyMain sm) throws JSONException {
+       if(gLocMap == null) {
+           ElapsedTimer et = new ElapsedTimer("creating JSON locmap");
+           gLocMap = createJSONLocMap(sm);
+           System.err.println(et.toString());
+       }
+       return gLocMap;
     }
 
     private String escapeString(String val) {

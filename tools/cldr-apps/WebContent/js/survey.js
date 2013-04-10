@@ -17,28 +17,28 @@ dojo.requireLocalization("surveyTool", "stui");
  * @class Object
  * @method keys
  */
-if(!Object.keys) {
+if(!Object.prototype.keys && !Object.keys) {
 	console.log("fixing missing Object.keys");
 	Object.keys = function(x) {
 		var r = [];
-		for (j in x) {
+		for (var j in x) {
 			r.push(j);
 		}
 		return r;
 	};
 }
 
-if(!Array.isArray) {
+if(!Array.prototype.isArray && !Array.isArray) {
 	console.log("fixing missing Array.isArray() ");
-	Array.isArray = function(x) {
-		if(x == null) return false;
+	Array.prototype.isArray = function(x) {
+		if(x === null) return false;
 		return x instanceof Array;   // if this doesn't work, we're in trouble.
 	};
 }
 
-if(!String.trim) {
+if(!String.prototype.trim && !String.trim) {
 	console.log("TODO fix broken String.trim() ");
-	String.trim = function(x) {
+	String.prototype.trim = function(x) {
 		return x;
 	};
 }
@@ -2921,6 +2921,25 @@ function showV() {
 		};
 		var flipper = new Flipper( [pages.loading, pages.data, pages.other] );
 		
+		var menubuttons = {
+			locale: "title-locale",
+			section: "title-section",
+			page: "title-page",
+			item: "title-item",
+			
+			set: function(x,y) {
+				//var node = dojo.byId(x);
+				var cnode = dojo.byId(x+"-container");
+				if(y && y !== '-' && y !== '') {
+					updateIf(x,y);
+					cnode.style.display = '';
+				} else {
+					cnode.style.display = 'none';
+					updateIf(x,'-');
+				}
+			}
+		};
+		
 		// TODO remove debug
 		window.__FLIPPER = flipper;
 		
@@ -2993,13 +3012,13 @@ function showV() {
 //			itemBox  = dojo.byId("title-item");
 //			if(itemBox!=null) {
 			    if(theLocale=='') {
-			    	updateIf("title-item",'');
+			    	menubuttons.set(menubuttons.item);
     			    //itemBox.set('value', '');
 			    } else if(theId=='' && thePage!='') {
-			    	updateIf("title-item", theLocale+'/'+thePage+'/');
+			    	menubuttons.set(menubuttons.item, theLocale+'/'+thePage+'/');
 			        //itemBox.set('value', theLocale+'/'+thePage+'/');
 			    } else {
-			    	updateIf("title-item",theLocale+'//'+theId);
+			    	menubuttons.set(menubuttons.item,theLocale+'//'+theId);
     			    //itemBox.set('value', theLocale+'//'+theId);
 			    }
 //			}
@@ -3123,6 +3142,24 @@ function showV() {
 			};
 		};
 		
+		function updateLocaleMenu(menuMap) {
+            if(surveyCurrentLocaleName=='-' && surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
+            	surveyCurrentLocaleName = surveyCurrentLocale; 
+            }
+            
+            if(surveyCurrentLocale!=null && surveyCurrentLocale!='') {
+            	if(menuMap && menuMap.locmap) {
+            		var locid = surveyCurrentLocale;
+            		if(menuMap.locmap.idmap && menuMap.locmap.idmap[locid]) {
+            			locid = menuMap.locmap.idmap[locid]; // canonicalize
+            		}
+            		if(menuMap.locmap.locales && menuMap.locmap.locales[locid]) {
+            			surveyCurrentLocaleName = menuMap.locmap.locales[locid].name;
+            		}
+            	}
+            }
+            menubuttons.set(menubuttons.locale, surveyCurrentLocaleName);
+		}
 		/**
 		 * Update the #hash and menus to the current settings.
 		 * @method updateHashAndMenus
@@ -3131,21 +3168,16 @@ function showV() {
 		function updateHashAndMenus(doPush) {
 			if(!doPush) {doPush = false;}
 			replaceHash(doPush); // update the hash
-			if(surveyCurrentLocaleName=='-' && surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
-				surveyCurrentLocaleName = surveyCurrentLocale; 
-			}
-			updateIf("title-locale", surveyCurrentLocaleName);
-			
+			updateLocaleMenu(_thePages);
 
 			if(surveyCurrentLocale==null) {
-				updateIf("title-section","-");
+				menubuttons.set(menubuttons.section);
 				if(surveyCurrentSpecial!=null) {
-					updateIf("title-page",stui_str("special_"+surveyCurrentSpecial));
+					menubuttons.set(menubuttons.page, stui_str("special_"+surveyCurrentSpecial));
 				} else {
-					updateIf("title-page","-");
+					menubuttons.set(menubuttons.page);
 				}
-				updateIf("title-id","");
-				// update special title?
+				menubuttons.set(menubuttons.item);
 				return; // nothing to do.
 			}
 			/**
@@ -3153,22 +3185,23 @@ function showV() {
 			 * @method updateMenuTitles
 			 */
 			function updateMenuTitles(menuMap) {
+			    updateLocaleMenu(menuMap);
 				if(surveyCurrentSpecial!= null) {
-					updateIf("title-section",stui_str("section_special"));
-					updateIf("title-page",stui_str("special_"+surveyCurrentSpecial));
+					menubuttons.set(menubuttons.section /*,stui_str("section_special") */);
+					menubuttons.set(menubuttons.page,stui_str("special_"+surveyCurrentSpecial));
 				} else if(!menuMap) {
-					updateIf("title-section", "-");
-					updateIf("title-page", surveyCurrentPage); 
+					menubuttons.set(menubuttons.section);
+					menubuttons.set(menubuttons.page, surveyCurrentPage); 
 				} else {
 					if(menuMap.pageToSection[window.surveyCurrentPage]) {
 						var mySection = menuMap.pageToSection[window.surveyCurrentPage];
 						var myPage = mySection.pageMap[window.surveyCurrentPage];
 						surveyCurrentSection = mySection.id;
-						updateIf("title-section", mySection.name);
-						updateIf("title-page", myPage.name);
+						menubuttons.set(menubuttons.section, mySection.name);
+						menubuttons.set(menubuttons.page, myPage.name);
 					} else {
-						updateIf("title-section", stui_str("section_general"));
-						updateIf("title-page", "-");
+						menubuttons.set(menubuttons.section, stui_str("section_general"));
+						menubuttons.set(menubuttons.page);
 					}
 				}
 			}
@@ -3262,8 +3295,9 @@ function showV() {
 				updateMenuTitles(null);
 				
 				if(surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
+					var needLocTable = (_thePages===null);
 				
-					var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus"+cacheKill();
+					var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus&locmap="+needLocTable+cacheKill();
 					myLoad(url, "menus for " + surveyCurrentLocale, function(json) {
 						{
 							if(!window.surveyLevels) {
@@ -3313,6 +3347,8 @@ function showV() {
 						}
 						
 						var menus = json.menus;
+						
+						
 						// set up some hashes
 						menus.sectionMap = {};
 						menus.pageToSection = {};
@@ -3324,8 +3360,20 @@ function showV() {
 								menus.pageToSection[menus.sections[k].pages[j].id] = menus.sections[k];
 							}
 						}
-						updateMenus(menus);
+						
+						if(json.locmap) {
+							// assume we asked for it
+							menus.locmap = json.locmap;
+							//stdebug("Got locmap " + JSON.stringify(json.locmap));
+						}
+						// save off the old locmap.. 
+						if(_thePages !== null && _thePages.locmap && !menus.locmap) {
+							menus.locmap = _thePages.locmap;
+						} 
+						
 						_thePages = menus;
+						
+						updateMenus(_thePages);
 					});
 				} else {
 					_thePages = null;
@@ -3426,7 +3474,7 @@ function showV() {
 
 								surveyCurrentSection = '';
 								surveyCurrentPage = json.pageId;
-								surveyCurrentLocaleName = json.localeDisplayName;
+								//surveyCurrentLocaleName = json.localeDisplayName;
 								updateHashAndMenus();
 
 								showInPop2("", null, null, null, true); /* show the box the first time */
@@ -3499,7 +3547,7 @@ function showV() {
 								}
 							} else {
 								surveyCurrentLocale=json.oldvotes.locale;
-								surveyCurrentLocaleName=json.oldvotes.localeDisplayName;
+								//surveyCurrentLocaleName=json.oldvotes.localeDisplayName;
 								updateHashAndMenus();
 								var loclink;
 								theDiv.appendChild(loclink=createChunk(stui.str("v_oldvotes_return_to_locale_list"),"a"));

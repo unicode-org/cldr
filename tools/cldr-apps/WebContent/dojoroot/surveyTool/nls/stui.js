@@ -190,11 +190,10 @@ define({
            v_oldvotes_no_old: "No old votes to import. You're done with old votes!!",
            v_submit: "Vote for uncontested+ checked, permanently delete unchecked [WORK IN PROGRESS]",
            v_submit_busy: "Submitting...",
-           section_special: "(Manage)",
            special_oldvotes: "Import Old Votes",
            section_general: "General Info",
            
-           special_general: "Please select one of the above menus to begin entering data. If you have not done so, be sure to read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, especially the Guide and the Walkthrough.",
+           special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough.",
 
            
            "": ""})

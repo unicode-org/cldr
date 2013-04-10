@@ -41,8 +41,11 @@ if(SurveyMain.isBusted!=null) {
                             document.getElementById("redir").href = '<%= url %>' + document.location.search +  document.location.hash;
 
                                dojo.ready(function(){
-                                   dojo.xhrGet({url: '<%= survURL %>', load: function() {   window.location.reload(true); if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
-                               });
+                            	   window.setTimeout(function(){
+                            		    document.write('Loading…');
+                            		    dojo.xhrGet({url: '<%= survURL %>', load: function() {   window.location.reload(true); if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
+                            	   }, 2000);
+                           	   });
 
                             
                             </script>
@@ -148,38 +151,44 @@ survURL = '<%= survURL %>';
 
         <%-- abbreviated form of usermenu  --%>
         <div id='toptitle'>
-                <span class='title-cldr'>CLDR <%= ctx.sm.getNewVersion() %> Survey Tool
+        <div id='title-cldr-container' class='menu-container' >
+        <a href='<%= survURL %>'>
+         <span class='title-cldr'>CLDR <%= ctx.sm.getNewVersion() %> Survey Tool
         <%=  (ctx.sm.phase()!=SurveyMain.Phase.SUBMIT)?ctx.sm.phase().toString():"" %>
          </span>
-
-        <span class='titlePart'>
-            <a class='notselected' href='<%= survURL  %>'>Locales</a>
-        </span>
+         </a>
+         </div>
       
-         <div id='title-locale' data-dojo-type="dijit/form/DropDownButton">
-              <span>(locale)</span>
-              <div id='menu-locale' data-dojo-type="dijit/DropDownMenu">
-              <%--
-                        <div data-dojo-type="dijit/MenuItem"
-                            data-dojo-props=" onClick:function(){  window.location='<%= survURL %>?_=' + surveyCurrentLocale;    }">
-                            General Info</div>
-                        
-                --%>
-              </div>
+         <div id='title-locale-container' class='menu-container'>
+                <span id='title-locale'></span>
+	   <%--      <div id='title-locale' data-dojo-type="dijit/form/DropDownButton">
+	              <span>(locale)</span>
+	              <div id='menu-locale' data-dojo-type="dijit/DropDownMenu">
+	                        <div data-dojo-type="dijit/MenuItem"
+	                            data-dojo-props=" onClick:function(){  window.location='<%= survURL %>?_=' + surveyCurrentLocale;    }">
+	                            General Info</div>
+	                        
+	              </div>
+	         </div>  --%>
          </div>
          
-         <div id='title-section' data-dojo-type="dijit/form/DropDownButton">
-              <span>(section)</span>
-              <div id='menu-section' data-dojo-type="dijit/DropDownMenu"></div>
+         <div id='title-section-container' class='menu-container'>
+	         <div id='title-section' data-dojo-type="dijit/form/DropDownButton">
+	              <span>(section)</span>
+	              <div id='menu-section' data-dojo-type="dijit/DropDownMenu"></div>
+	         </div>
          </div>
 
-         <div id='title-page' data-dojo-type="dijit/form/DropDownButton">
-              <span>(page)</span>
-              <div id='menu-page' data-dojo-type="dijit/DropDownMenu"></div>
+        <div id='title-page-container' class='menu-container'>
+	         <div id='title-page' data-dojo-type="dijit/form/DropDownButton">
+	              <span>(page)</span>
+	              <div id='menu-page' data-dojo-type="dijit/DropDownMenu"></div>
+	         </div>
          </div>
          
-         
-         <span title="id" class='titlePart'  id='title-item'></span>
+         <div id='title-item-container' class='menu-container'>
+             <span title="id" class='titlePart'  id='title-item'></span>
+         </div>
          
         </div> <%-- end of toptitle --%>         
         <div id="lowerstuff">

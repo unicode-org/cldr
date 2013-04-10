@@ -2062,6 +2062,10 @@ span.d-sort-size {
 	width: inherit !important;
 }
 
+#title-locale {
+    font-size: large;
+}
+
 .voteDiv .lastReleaseStatus1 {
     background: none !important;
 }
@@ -2555,13 +2559,6 @@ body.claro > div#footer {
 #topstuff {
 }
 
-#topstuff #toptitle > span::after{
-    content: "»";
-}
-
-span#title-item::after {
-    content:  "" !important;
-}
 
 #st-menubar  {
     width: 40em;
@@ -2624,6 +2621,7 @@ td.v-win {
     font-family: Georgia, "Times New Roman", Times, serif;
     padding:  3em;
 	background: url(vote.png) no-repeat 1em center;
+	line-height: 2em
 }
 
 #oldVotesAcceptList td {
@@ -2639,6 +2637,19 @@ td.v-win {
 span.editableHere:hover {
     background-color: yellow;
     border:  1px solid black;
+}
+
+.menu-container {
+    display:  inline;
+}
+
+.menu-container::after{
+    content: "»";
+    color:  black;
+}
+
+#title-item-container::after {
+    content:  "" !important;
 }
 
 /*
@@ -2679,6 +2690,10 @@ span.editableHere:hover {
     background: url(stop.png) no-repeat left top;
     font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
     font-weight: bold;
+}
+
+.fakebutton {
+    border-style: outset;
 }
 
 #ariSub {

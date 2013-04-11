@@ -155,6 +155,76 @@ Flipper.prototype.addUntilFlipped = function addUntilFlipped(showFn, killFn) {
 	this._killfn.push(killFn);
 };
 
+
+/*
+ * LocaleMap 
+ * @class LocaleMap
+ */
+/**
+ * ctor
+ * @function LocaleMap
+ * @param aLocmap the map object from json
+ */
+function LocaleMap(aLocmap) {
+	this.locmap = aLocmap;
+}
+
+/**
+ * Run the locale id through the idmap.
+ * @function canonicalizeLocaleId
+ * @param menuMap the map
+ * @param locid or null for surveyCurrentLocale
+ * @return canonicalized id, or unchanged
+ */
+LocaleMap.prototype.canonicalizeLocaleId = function canonicalizeLocaleId(locid) {
+	if(locid === null) {
+		locid = surveyCurrentLocale;
+	}
+	if(locid === null || locid === '') {
+		return null;
+	}
+	
+	if(this.locmap) {
+		if(this.locmap.idmap && this.locmap.idmap[locid]) {
+			locid = this.locmap.idmap[locid]; // canonicalize
+		}
+	}
+	return locid;
+};
+
+/**
+ * Return the locale info entry
+ * @method getLocaleInfo
+ * @param menuMap the map
+ * @param locid the id - should already be canonicalized
+ * @return the bundle or null
+ */
+LocaleMap.prototype.getLocaleInfo = function getLocaleInfo(locid) {
+	if(this.locmap && this.locmap.locales && this.locmap.locales[locid]) {
+		return this.locmap.locales[locid];
+	} else {
+		return null;
+	}
+};
+
+/**
+ * Return the locale name, 
+ * @method getLocaleName
+ * @param menuMap the map
+ * @param locid the id - will canonicalize
+ * @return the display name - or else the id
+ */
+LocaleMap.prototype.getLocaleName = function getLocaleName(locid) {
+	locid = this.canonicalizeLocaleId(locid);
+	var bund = this.getLocaleInfo( locid);
+	if(bund && bund.name ) {
+		return bund.name;
+	} else {
+		return locid;
+	}
+};
+
+
 /**
  * Global items 
  * @class GLOBAL
@@ -1867,7 +1937,8 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	    var oldClassName = span.className = span.className + " editableHere";
 	    ///span.title = span.title  + " " + stui_str("clickToChange");
 	    var ieb = null;
-    	    var spanId = span.id = "v_"+(spanSerial++); // bump the #, probably leaks something in dojo?
+	    var spanId = span.id = "v_"+(spanSerial++); // bump the #, probably leaks something in dojo?
+	    stdebug("Ready for " + spanId);
 	    var editInPlace = function(e) {
 	        require(["dojo/ready", "dijit/InlineEditBox", "dijit/form/TextBox", "dijit/registry"],
 	        function(ready, InlineEditBox, TextBox) {
@@ -1886,7 +1957,8 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	                                   //ieb.destroy();
 	                               }
 	                   }, spanId);
-//	                       console.log("Minted  " + spanId);
+	                		tr.iebs.push(ieb);
+	                       stdebug("Minted  " + spanId);
 	                   } else {
 //	                       console.log("Leaving alone " + spanId);
 	                   }
@@ -1896,7 +1968,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	    	return false;
 	    };
 	    
-	    listenFor(td, "mouseover", editInPlace);
+	    listenFor(span, "mouseover", editInPlace);
 	}
 }
 
@@ -2258,6 +2330,14 @@ function updateRow(tr, theRow) {
 		tr.anch = anch;
 	}
 	
+	if(tr.iebs) {
+		for(var qq in tr.iebs) {
+			stdebug("Destroying " + tr.iebs[qq]);
+			stdebug("Destroying ieb " + tr.iebs[qq].id);
+			tr.iebs[qq].destroy();
+		}
+	}
+	tr.iebs=[];
 	
 	if(!children[config.comparisoncell].isSetup) {
 		if(theRow.displayName) {
@@ -2583,6 +2663,7 @@ function insertRows(theDiv,xpath,session,json) {
 	var doInsertTable = null;
 	
 	removeAllChildNodes(theDiv);
+	window.insertLocaleSpecialNote(theDiv);
 	if(!theTable) {
 		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
 		updateCoverage(theDiv);
@@ -2779,86 +2860,6 @@ function scrollToItem() {
 	}
 }
 
-/**
- * Show the "possible problems" section which has errors for the locale
- * @method showPossibleProblems
- */
-function showPossibleProblems(flipper,flipPage,loc, session, effectiveCov, requiredCov) {
-	surveyCurrentLocale = loc;
-	dojo.ready(function(){
-
-		var errorHandler = function(err, ioArgs){
-			console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-			showLoader(null,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
-		};
-		var loadHandler = function(json){
-			try {
-				//showLoader(theDiv.loader,stui.loading2);
-//				theDiv.removeChild(theDiv.theLoadingMessage);
-				if(!json) {
-					console.log("!json");
-					showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
-				} else if(json.err) {
-					console.log("json.err!" + json.err);
-					showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
-					handleDisconnect("while loading",json);
-				} else if(!json.possibleProblems) {
-					console.log("!json.possibleProblems");
-					showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
-					handleDisconnect("while loading- no possibleProblems result",json);
-				} else {
-					stdebug("json.possibleProblems OK..");
-					//showLoader(theDiv.loader, "loading..");
-					if(json.dataLoadTime) {
-						updateIf("dynload", json.dataLoadTime);
-					}
-					
-					var theDiv = flipper.flipToEmpty(flipPage);
-
-
-					if(json.possibleProblems.length > 0) {
-						var subDiv = createChunk("","div");
-						subDiv.className = "possibleProblems";
-
-						var h3 = createChunk(stui_str("possibleProblems"), "h3");
-						subDiv.appendChild(h3);
-
-						var div3 = document.createElement("div");
-						var newHtml = "";
-						newHtml += testsToHtml(json.possibleProblems);
-						div3.innerHTML = newHtml;
-						subDiv.appendChild(div3);
-						theDiv.appendChild(subDiv);
-					} else if(surveyCurrentPage=='' && surveyCurrentId=='') {
-						// "no problems"
-					}
-					var theInfo;
-					theDiv.appendChild(theInfo = createChunk("","p","special_general"));
-					theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ? 
-					hideLoader(null);
-				}
-
-			}catch(e) {
-				console.log("Error in ajax post [surveyAjax]  " + e.message + " / " + e.name );
-				handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
-//				showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
-//				console.log("Error in ajax post   " + e.message);
-			}
-		};
-
-		var xhrArgs = {
-				url: contextPath + "/SurveyAjax?what=possibleProblems&_="+surveyCurrentLocale+"&s="+session+"&eff="+effectiveCov+"&req="+requiredCov+  cacheKill(),
-				handleAs:"json",
-				load: loadHandler,
-				error: errorHandler
-		};
-		//window.xhrArgs = xhrArgs;
-//		console.log('xhrArgs = ' + xhrArgs);
-		queueXhr(xhrArgs);
-	});
-}
-
-
 
 /**
  * copy of menu data
@@ -2867,6 +2868,8 @@ function showPossibleProblems(flipper,flipPage,loc, session, effectiveCov, requi
 var _thePages = null;
 
 
+window.locmap = new LocaleMap(null);
+
 /**
  * Utilities for the 'v.jsp' (new dispatcher) page.  Call this once in the page. It expects to find a node #DynamicDataSection
  * @method showV
@@ -2874,6 +2877,7 @@ var _thePages = null;
 function showV() {
 	window.surveyCurrentCoverage = 100; // comprehensive by default. TODO fix
 
+	
 	// REQUIRES
 	require([
 	         "dojo/ready",
@@ -2892,6 +2896,7 @@ function showV() {
 	         "dijit/layout/StackContainer",
 	         "dojo/hash",
 	         "dojo/topic",
+	         "dojo/dom-construct",
 	         "dojo/domReady!"
 	         ],
 	         // HANDLES
@@ -2911,25 +2916,42 @@ function showV() {
 	        		 BusyButton,
 	        		 StackContainer,
 	        		 dojoHash,
-	        		 dojoTopic
+	        		 dojoTopic,
+	        		 domConstruct
 	         ) {
 
+		/**
+		 * list of pages to use with the flipper
+		 * @property pages
+		 */
 		var pages = { 
 				loading: "LoadingMessageSection",
 				data: "DynamicDataSection",
 				other: "OtherSection"
 		};
 		var flipper = new Flipper( [pages.loading, pages.data, pages.other] );
-		
+
+		{
+			var pucontent = dojo.byId("itemInfo");
+			var theDiv = flipper.get(pages.data);
+			theDiv.pucontent = pucontent;
+			theDiv.stui = loadStui();
+		}
+
+		/**
+		 * List of buttons/titles to set.
+		 * @property menubuttons
+		 */
 		var menubuttons = {
 			locale: "title-locale",
 			section: "title-section",
 			page: "title-page",
 			item: "title-item",
+			dcontent: "title-dcontent",
 			
 			set: function(x,y) {
-				//var node = dojo.byId(x);
 				var cnode = dojo.byId(x+"-container");
+				if(!cnode) cnode = dojo.byId(x); // for Elements that do their own stunts 
 				if(y && y !== '-' && y !== '') {
 					updateIf(x,y);
 					cnode.style.display = '';
@@ -2937,14 +2959,23 @@ function showV() {
 					cnode.style.display = 'none';
 					updateIf(x,'-');
 				}
+			},
+			getDom: function(x) {
+				return dojo.byId(x);
+			},
+			getRegistry: function(x) {
+				return registry.byId(x);
+			},
+			getContainer: function(x) {
+				return dojo.byId(x+"-container");
 			}
 		};
 		
-		// TODO remove debug
+		// TODO remove this debug item
 		window.__FLIPPER = flipper;
 		
 		/**
-		 * parse the hash string., but don't go anywhere.
+		 * parse the hash string into surveyCurrent___ variables. 
 		 * @method parseHash
 		 * @param {String} id
 		 */
@@ -3025,10 +3056,6 @@ function showV() {
 			document.title = document.title.split('|')[0] + " | " + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
 		};
 		
-		// click on the title to copy (permalink)
-		clickToSelect(dojo.byId("title-item"));
-		clickToSelect(dojo.byId("ariScroller"));
-		
 		window.updateCurrentId = function updateCurrentId(id) {
 			if(id==null) id = '';
 		    if(surveyCurrentId != id) { // don't set if already set.
@@ -3036,6 +3063,12 @@ function showV() {
 			    replaceHash(false); // usually dont want to save
 		    }
 		};
+
+		// (back to showV) some setup.
+		// click on the title to copy (permalink)
+		clickToSelect(dojo.byId("title-item"));
+		clickToSelect(dojo.byId("ariScroller"));
+		updateIf("title-dcontent-link",stui.str("defaultContent_titleLink"));
 		
 		// TODO - rewrite using AMD
 		/**
@@ -3045,7 +3078,7 @@ function showV() {
 			console.log("Loading " + url + " for " + message);
 			var errorHandler = function(err, ioArgs){
 				console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-				showLoader(null,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " for " + message + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+				handleDisconnect("Could not fetch " + message + " - error " + err.name + " / " + err.message + "\n" + ioArgs.xhr.responseText + "\n url: " + url + "\n", null, "disconnect");
 			};
 			var loadHandler = function(json){
 				try {
@@ -3142,21 +3175,31 @@ function showV() {
 			};
 		};
 		
-		function updateLocaleMenu(menuMap) {
-            if(surveyCurrentLocaleName=='-' && surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
-            	surveyCurrentLocaleName = surveyCurrentLocale; 
-            }
-            
-            if(surveyCurrentLocale!=null && surveyCurrentLocale!='') {
-            	if(menuMap && menuMap.locmap) {
-            		var locid = surveyCurrentLocale;
-            		if(menuMap.locmap.idmap && menuMap.locmap.idmap[locid]) {
-            			locid = menuMap.locmap.idmap[locid]; // canonicalize
-            		}
-            		if(menuMap.locmap.locales && menuMap.locmap.locales[locid]) {
-            			surveyCurrentLocaleName = menuMap.locmap.locales[locid].name;
-            		}
-            	}
+		
+		function updateLocaleMenu() {
+            if(surveyCurrentLocale!=null && surveyCurrentLocale!='' && surveyCurrentLocale!='-') {
+        		surveyCurrentLocaleName = locmap.getLocaleName( surveyCurrentLocale);
+        		var bund = locmap.getLocaleInfo(surveyCurrentLocale);
+        		if(bund) {
+        			if( bund.readonly) {
+        				addClass(menubuttons.getDom(menubuttons.locale), "locked");
+        			} else {
+            			removeClass(menubuttons.getDom(menubuttons.locale), "locked");
+        			}
+        			
+        			if(bund.dcChild) {
+        				menubuttons.set(menubuttons.dcontent, stui.sub("defaultContent_header_msg", {info: bund, locale: surveyCurrentLocale, dcChild: locmap.getLocaleName(bund.dcChild)}));
+        			} else {
+        				menubuttons.set(menubuttons.dcontent);
+        			}
+        		} else {
+        			removeClass(menubuttons.getDom(menubuttons.locale), "locked");
+    				menubuttons.set(menubuttons.dcontent);
+        		}
+            } else {
+            	surveyCurrentLocaleName = '';
+            	removeClass(menubuttons.getDom(menubuttons.locale), "locked");
+				menubuttons.set(menubuttons.dcontent);
             }
             menubuttons.set(menubuttons.locale, surveyCurrentLocaleName);
 		}
@@ -3168,7 +3211,7 @@ function showV() {
 		function updateHashAndMenus(doPush) {
 			if(!doPush) {doPush = false;}
 			replaceHash(doPush); // update the hash
-			updateLocaleMenu(_thePages);
+			updateLocaleMenu();
 
 			if(surveyCurrentLocale==null) {
 				menubuttons.set(menubuttons.section);
@@ -3180,6 +3223,7 @@ function showV() {
 				menubuttons.set(menubuttons.item);
 				return; // nothing to do.
 			}
+
 			/**
 			 * Just update the titles of the menus. Internal to updateHashAndMenus
 			 * @method updateMenuTitles
@@ -3295,11 +3339,15 @@ function showV() {
 				updateMenuTitles(null);
 				
 				if(surveyCurrentLocale!=null&&surveyCurrentLocale!='') {
-					var needLocTable = (_thePages===null);
+					var needLocTable = false;
 				
 					var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus&locmap="+needLocTable+cacheKill();
 					myLoad(url, "menus for " + surveyCurrentLocale, function(json) {
 						{
+							if(json.locmap) {
+								locmap = new LocaleMap(locmap); // overwrite with real data
+							}
+
 							if(!window.surveyLevels) {
 								window.surveyLevels = json.menus.levels;
 
@@ -3342,37 +3390,29 @@ function showV() {
 																				});
 								covMenu.placeAt(titleCoverage);
 							}
-
-							updateCoverage(flipper.get(pages.data)); // TODO
 						}
 						
-						var menus = json.menus;
 						
-						
-						// set up some hashes
-						menus.sectionMap = {};
-						menus.pageToSection = {};
-						for(var k in menus.sections) {
-							menus.sectionMap[menus.sections[k].id] = menus.sections[k];
-							menus.sections[k].pageMap = {};
-							for(var j in menus.sections[k].pages) {
-								menus.sections[k].pageMap[menus.sections[k].pages[j].id] = menus.sections[k].pages[j];
-								menus.pageToSection[menus.sections[k].pages[j].id] = menus.sections[k];
+						function unpackMenus(json) {
+							var menus = json.menus;
+							
+							
+							// set up some hashes
+							menus.sectionMap = {};
+							menus.pageToSection = {};
+							for(var k in menus.sections) {
+								menus.sectionMap[menus.sections[k].id] = menus.sections[k];
+								menus.sections[k].pageMap = {};
+								for(var j in menus.sections[k].pages) {
+									menus.sections[k].pageMap[menus.sections[k].pages[j].id] = menus.sections[k].pages[j];
+									menus.pageToSection[menus.sections[k].pages[j].id] = menus.sections[k];
+								}
 							}
+							_thePages = menus;
 						}
-						
-						if(json.locmap) {
-							// assume we asked for it
-							menus.locmap = json.locmap;
-							//stdebug("Got locmap " + JSON.stringify(json.locmap));
-						}
-						// save off the old locmap.. 
-						if(_thePages !== null && _thePages.locmap && !menus.locmap) {
-							menus.locmap = _thePages.locmap;
-						} 
-						
-						_thePages = menus;
-						
+
+						unpackMenus(json);
+
 						updateMenus(_thePages);
 					});
 				} else {
@@ -3384,20 +3424,138 @@ function showV() {
 			}
 
 		}
+
+		window.insertLocaleSpecialNote = function insertLocaleSpecialNote(theDiv) {
+			var bund = locmap.getLocaleInfo(surveyCurrentLocale);
+			
+			if(bund) {
+				if(bund.readonly) {
+					var msg = null;
+					if(bund.readonly_why) {
+						msg = bund.readonly_why;
+					} else {
+						msg = stui.str("readonly_unknown");
+					}
+					var theChunk = domConstruct.toDom(stui.sub("readonly_msg", { info: bund, locale: surveyCurrentLocale, msg: msg}));
+					var subDiv = document.createElement("div");
+					subDiv.appendChild(theChunk);
+					subDiv.className = 'warnText';
+					theDiv.appendChild(subDiv);
+				} else if(bund.dcChild) {
+					var theChunk = domConstruct.toDom(stui.sub("defaultContentChild_msg", { info: bund, locale: surveyCurrentLocale, dcChildName: locmap.getLocaleName(bund.dcChild)}));
+					var subDiv = document.createElement("div");
+					subDiv.appendChild(theChunk);
+					subDiv.className = 'warnText';
+					theDiv.appendChild(subDiv);
+				}
+			}
+		};
+		
+		
+		/**
+		 * Show the "possible problems" section which has errors for the locale
+		 * @method showPossibleProblems
+		 */
+		function showPossibleProblems(flipper,flipPage,loc, session, effectiveCov, requiredCov) {
+			surveyCurrentLocale = loc;
+			dojo.ready(function(){
+
+				var errorHandler = function(err, ioArgs){
+					console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+					showLoader(null,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
+				};
+				var loadHandler = function(json){
+					try {
+						//showLoader(theDiv.loader,stui.loading2);
+//						theDiv.removeChild(theDiv.theLoadingMessage);
+						if(!json) {
+							console.log("!json");
+							showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
+						} else if(json.err) {
+							console.log("json.err!" + json.err);
+							showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
+							handleDisconnect("while loading",json);
+						} else if(!json.possibleProblems) {
+							console.log("!json.possibleProblems");
+							showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
+							handleDisconnect("while loading- no possibleProblems result",json);
+						} else {
+							stdebug("json.possibleProblems OK..");
+							//showLoader(theDiv.loader, "loading..");
+							if(json.dataLoadTime) {
+								updateIf("dynload", json.dataLoadTime);
+							}
+							
+							var theDiv = flipper.flipToEmpty(flipPage);
+
+							insertLocaleSpecialNote(theDiv);
+
+							if(json.possibleProblems.length > 0) {
+								var subDiv = createChunk("","div");
+								subDiv.className = "possibleProblems";
+
+								var h3 = createChunk(stui_str("possibleProblems"), "h3");
+								subDiv.appendChild(h3);
+
+								var div3 = document.createElement("div");
+								var newHtml = "";
+								newHtml += testsToHtml(json.possibleProblems);
+								div3.innerHTML = newHtml;
+								subDiv.appendChild(div3);
+								theDiv.appendChild(subDiv);
+							} else if(surveyCurrentPage=='' && surveyCurrentId=='') {
+								// "no problems"
+							}
+							var theInfo;
+							theDiv.appendChild(theInfo = createChunk("","p","special_general"));
+							theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ? 
+							hideLoader(null);
+						}
+
+					}catch(e) {
+						console.log("Error in ajax post [surveyAjax]  " + e.message + " / " + e.name );
+						handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
+//						showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
+//						console.log("Error in ajax post   " + e.message);
+					}
+				};
+
+				var xhrArgs = {
+						url: contextPath + "/SurveyAjax?what=possibleProblems&_="+surveyCurrentLocale+"&s="+session+"&eff="+effectiveCov+"&req="+requiredCov+  cacheKill(),
+						handleAs:"json",
+						load: loadHandler,
+						error: errorHandler
+				};
+				//window.xhrArgs = xhrArgs;
+//				console.log('xhrArgs = ' + xhrArgs);
+				queueXhr(xhrArgs);
+			});
+		}
 		
 		window.reloadV = function reloadV() {
 			// assume parseHash was already called, if we are taking input from the hash
 			ariDialog.hide();
+			
 			window.surveyCurrentLocaleName = '-'; // so it's not stale
 			
-			var pucontent = dojo.byId("itemInfo");
 
-			{
-				var theDiv = flipper.get(pages.data);
-				theDiv.pucontent = pucontent;
-				theDiv.stui = loadStui();
+
+			updateHashAndMenus(true);
+
+			if(surveyCurrentLocale!=null && surveyCurrentLocale!=''&&surveyCurrentLocale!='-'){
+				var bund = locmap.getLocaleInfo(surveyCurrentLocale);
+				if(bund!==null && bund.dcParent) {
+					var theChunk = domConstruct.toDom(stui.sub("defaultContent_msg", { info: bund, locale: surveyCurrentLocale, dcParentName: locmap.getLocaleName(bund.dcParent)}));
+					var theDiv = document.createElement("div");
+					theDiv.appendChild(theChunk);
+					theDiv.className = 'ferrbox';
+					flipper.flipTo(pages.other, theDiv);
+					return;
+				}
 			}
+
 			
+
 			var loadingChunk;
 			flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading"), "i", "loadingMsg"));
 			{
@@ -3423,7 +3581,6 @@ function showV() {
 			var shower = null;
 
 			shower = function() {
-				updateHashAndMenus(true);
 
 				var theDiv = flipper.get(pages.data);
 				var theTable = theDiv.theTable;
@@ -3441,26 +3598,28 @@ function showV() {
 				if(surveyCurrentSpecial == null && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
 					if((surveyCurrentPage==null || surveyCurrentPage=='') && (surveyCurrentId==null||surveyCurrentId=='')) {
 						flipper.get(pages.loading).appendChild(document.createElement('br'));
-						flipper.get(pages.loading).appendChild(document.createTextNode(surveyCurrentLocale));
+						flipper.get(pages.loading).appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale)));
 						showPossibleProblems(flipper, pages.other, surveyCurrentLocale, surveySessionId, "modern", "modern");
 					} else {
 						flipper.get(pages.loading).appendChild(document.createElement('br'));
-						flipper.get(pages.loading).appendChild(document.createTextNode(surveyCurrentLocale + '/' + surveyCurrentPage + '/' + surveyCurrentId));
+						flipper.get(pages.loading).appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
 							
 						myLoad(url, "(loading vrows)", function(json) {
 							showLoader(theDiv.loader,stui.loading2);
-							if(!json) {
-								console.log("!json");
-								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
-							} else if(json.err) {
-								console.log("json.err!" + json.err);
-								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
-								handleDisconnect("while loading",json);
-							} else if(!json.section) {
-								console.log("!json.section");
-								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
-								handleDisconnect("while loading- no section",json);
+							if(!verifyJson(json, 'section')) {
+								return;
+							} else if(json.section.nocontent) {
+								surveyCurrentSection = '';
+								if(json.pageId) {
+									surveyCurrentPage = json.pageId;
+								} else {
+									surveyCurrentPage= '';
+								}
+								showLoader(null);
+								flipper.flipTo(pages.other, createChunk(stui_str("loading_nocontent"),"i","loadingMsg"));
+								//surveyCurrentLocaleName = json.localeDisplayName;
+								updateHashAndMenus(); // find out why there's no content. (locmap)
 							} else if(!json.section.rows) {
 								console.log("!json.section.rows");
 								showLoader(theDiv.loader,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no rows" + "</div>");				        
@@ -3476,7 +3635,6 @@ function showV() {
 								surveyCurrentPage = json.pageId;
 								//surveyCurrentLocaleName = json.localeDisplayName;
 								updateHashAndMenus();
-
 								showInPop2("", null, null, null, true); /* show the box the first time */
 								doUpdate(theDiv.id, function() {
 									showLoader(theDiv.loader,stui.loading3);
@@ -3712,109 +3870,65 @@ function showV() {
 			}; // end shower
 
 			shower(); // first load
-			theDiv.shower = shower;
-			showers[theDiv.id]=shower;
+			flipper.get(pages.data).shower = shower;
+			showers[flipper.get(pages.data).id]=shower;
 
 		};  // end reloadV
 
+		function trimNull(x) {
+			if(x==null) return '';
+			try {
+				x = x.toString().trim();
+			} catch(e) {
+				// do nothing
+			}
+			return x;
+		}
+
 		ready(function(){
 			window.parseHash(dojoHash()); // get the initial settings
-			window.reloadV(); // call it
-
-			function trimNull(x) {
-				if(x==null) return '';
-				try {
-					x = x.toString().trim();
-				} catch(e) {
-					// do nothing
-				}
-				return x;
-			}
+			// load the menus - first.
 			
-			dojoTopic.subscribe("/dojo/hashchange", function(changedHash){
-				//alert("hashChange…" + changedHash);
-				if(true) {
-					
-					
-					var oldLocale = trimNull(surveyCurrentLocale);
-					var oldSpecial = trimNull(surveyCurrentSpecial);
-					var oldPage = trimNull(surveyCurrentPage);
-					var oldId = trimNull(surveyCurrentId);
-					
-					window.parseHash(changedHash);
-					
-					surveyCurrentID = trimNull(surveyCurrentId);
-					
-					// did anything change?
-					if(oldLocale!=trimNull(surveyCurrentLocale) ||
-							oldSpecial!=trimNull(surveyCurrentSpecial) ||
-							oldPage != trimNull(surveyCurrentPage) ) {
-						console.log("# hash changed, (loc, etc) reloadingV..");
-						reloadV();
-					} else if(oldId != surveyCurrentId && surveyCurrentId != '') {
-						console.log("# just ID changed, to " + surveyCurrentId);
-					    // surveyCurrentID and the hash have already changed.
-					    // just call showInPop if the item is present. If not present, make sure it's visible.
-						window.showCurrentId();						
-					}
+			
+			var xurl = contextPath + "/SurveyAjax?_="+""+"&s="+surveySessionId+"&what=menus&locmap="+true+cacheKill();
+			myLoad(xurl, "initial menus for " + surveyCurrentLocale, function(json) {
+				if(!verifyJson(json,'locmap')) {
+					return;
 				} else {
-				    console.log("Ignoring hash change " + changedHash);
-				}
-			});
+					locmap = new LocaleMap(json.locmap);
+				window.reloadV(); // call it
 			
-//			// wire up the 'ID' box
-//			registry.byId("title-item").set('onChange',
-//			    function(v){
-//					if(ignoreIdChange) return;
-//			        v = trimNull(v);
-////			        console.log('User entered: ' + v);
-//                    var parts = v.split('/');
-//                    var newLoc = '';
-//                    var newPage = '';
-//                    var newId = '';
-//                    if(parts.length>0 && parts[0]!='') {
-//                        newLoc = trimNull(parts[0]);
-//                        if(parts.length>1 && parts[1]!='') {
-//                            newPage = trimNull(parts[1]);
-//                            if(parts.length>2 && parts[2]!='') {
-//                                newId = trimNull(parts[2]);
-//                            }
-//                        }
-//                    }
-//                    
-//                    if(parts.length>1) {
-//                        if((newLoc!=surveyCurrentLocale && newLoc!='') || (newPage!=surveyCurrentPage && newPage!='')) {
-//                            if(newLoc != '') {
-//                                surveyCurrentLocale=newLoc;
-//                            }
-//                            surveyCurrentPage = newPage;
-//                            surveyCurrentId = newId;
-//                            reloadV();
-//                        } else if(newId!=surveyCurrentId) {
-//                            surveyCurrentId = newId;
-//                            updateHashAndMenus();
-//                            scrollToItem();
-//                        } else {
-//                            console.log("Ignoring user changed id: " + v);
-//                            updateHashAndMenus(); // reject entry
-//                        }
-//			        // if it is a current page
-//			        } else if(_thePages!=null && _thePages.pageToSection[v] &&
-//			            _thePages.pageToSection[v].pageMap[v]) {
-//			                surveyCurrentPage = v;
-//			                surveyCurrentId='';
-//			                reloadV();
-//	                } else if(v.substr(0,1)=='#') {
-//		                surveyCurrentId=v.substr(1);
-//		                updateHashAndMenus();
-//		                //reloadV();
-//						scrollToItem();
-//		            } else {
-//                        console.log("Ignoring user changed (short) id: " + v);
-//                        updateHashAndMenus(); // reject entry
-//		            }
-//			    }
-//			);
+				// watch for hashchange to make other changes.. 
+				dojoTopic.subscribe("/dojo/hashchange", function(changedHash){
+					//alert("hashChange…" + changedHash);
+					if(true) {
+						
+						
+						var oldLocale = trimNull(surveyCurrentLocale);
+						var oldSpecial = trimNull(surveyCurrentSpecial);
+						var oldPage = trimNull(surveyCurrentPage);
+						var oldId = trimNull(surveyCurrentId);
+						
+						window.parseHash(changedHash);
+						
+						surveyCurrentID = trimNull(surveyCurrentId);
+						
+						// did anything change?
+						if(oldLocale!=trimNull(surveyCurrentLocale) ||								oldSpecial!=trimNull(surveyCurrentSpecial) ||								oldPage != trimNull(surveyCurrentPage) ) {
+							console.log("# hash changed, (loc, etc) reloadingV..");
+							reloadV();
+						} else if(oldId != surveyCurrentId && surveyCurrentId != '') {
+							console.log("# just ID changed, to " + surveyCurrentId);
+						    // surveyCurrentID and the hash have already changed.
+						    // just call showInPop if the item is present. If not present, make sure it's visible.
+							window.showCurrentId();						
+						}
+					} else {
+					    console.log("Ignoring hash change " + changedHash);
+					}
+				});
+				}
+		});
 		});
 
 	});  // end require()

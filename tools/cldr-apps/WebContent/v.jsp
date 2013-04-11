@@ -9,29 +9,46 @@ If not booted, attempt to boot..
 final String survURL = request.getContextPath() + "/survey";
 SurveyMain sm = SurveyMain.getInstance(request);
 if(SurveyMain.isBusted!=null) {
-    %><a href="<%= request.getContextPath() + "/survey" %>">Survey Tool</a> is offline.<%
+    %>
+    <html>
+    <head>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
+    <title>SurveyTool | Offline.</title>
+    </head>
+    <body>
+    <p class='ferrorbox'>
+    <a href="<%= request.getContextPath() + "/survey" %>">Survey Tool</a> is offline.
+    </p>
+    </body>
+    </html>
+    
+    <%
     return;
 } else if(sm==null || !SurveyMain.isSetup) {
+    String url = request.getContextPath() + request.getServletPath(); // TODO add query
         %>
+    <html>
+    <head>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
+    <title>SurveyTool | Starting</title>
+                  <script type="application/javascript">
+                  window.setTimeout(function(){
+                      window.location.reload(true);                
+                        //document.location='<%= url %>' + document.location.search +  document.location.hash;
+                  },10000);
+                  </script>
+    </head>
+    <body>
         <div id='st_err'></div>
         <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
         
-        Attempting to start SurveyTool..
+        <div class='finfobox'>
+        <p>        Attempting to start SurveyTool..</p>
+        </div>
         
         <%
-            String url = request.getContextPath() + request.getServletPath(); // TODO add query
             // JavaScript based redirect
             %>
-            <head>
-                <title>SurveyTool: Redirect</title>
-                  <script type="application/javascript">
-                  window.setTimeout(function(){
-                	  window.location.reload(true);                
-                	    //document.location='<%= url %>' + document.location.search +  document.location.hash;
-                  },10000);
-                  </script>
-            </head>
-            <body>
             <noscript>
             <h1>
                 JavaScript is required.
@@ -42,7 +59,8 @@ if(SurveyMain.isBusted!=null) {
 
                                dojo.ready(function(){
                             	   window.setTimeout(function(){
-                            		    document.write('Loading…');
+                            		    document.write('    <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />');
+                            		    document.write('<i class="loadingMsg">Reloading…</i>');
                             		    dojo.xhrGet({url: '<%= survURL %>', load: function() {   window.location.reload(true); if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
                             	   }, 2000);
                            	   });
@@ -55,7 +73,7 @@ if(SurveyMain.isBusted!=null) {
         %>
                 <%= sm.startupThread.htmlStatus() %>
                 <hr>
-                                
+            </body></html>                                
         <%
             }
         return;
@@ -161,6 +179,7 @@ survURL = '<%= survURL %>';
       
          <div id='title-locale-container' class='menu-container'>
                 <span id='title-locale'></span>
+                <span id='title-dcontent-container'><span id='title-dcontent'></span> <a href='http://cldr.unicode.org/translation/default-content' id='title-dcontent-link'>TITLE_DCONTENT_LINK</a></span>
 	   <%--      <div id='title-locale' data-dojo-type="dijit/form/DropDownButton">
 	              <span>(locale)</span>
 	              <div id='menu-locale' data-dojo-type="dijit/DropDownMenu">

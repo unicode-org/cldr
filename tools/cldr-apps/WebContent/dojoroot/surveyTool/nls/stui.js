@@ -5,8 +5,10 @@ define({
 			loading2: "loading.",
 			loading3: "loading..",
 			
+			loadingMsg_desc: "Current loading status",
 			loading_reloading: "Force Reloading Page",
 			loading_retrying: "Retrying",
+			loading_nocontent: "This locale cannot be displayed.",
 			loadingOneRow: "loading....",
 			voting: "Voting",
 			checking: "Checking",
@@ -195,7 +197,12 @@ define({
            
            special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough.",
 
-           
+           defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",
+           defaultContentChild_msg: "This locale, ${info.name}  supplies the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content</a></i> for <b><a class='notselected' href='#/${info.dcChild}'>${dcChildName}</a></b>. Please make sure that all the changes that you make here are appropriate for <b>${dcChildName}</b>. If you add any changes that are inappropriate for other sublocales, be sure to override their values.",           
+           defaultContent_header_msg: "= ${dcChild}",
+           defaultContent_titleLink: "content",
+           readonly_msg: "This locale may not be edited.<br/> ${msg}",
+           readonly_unknown: "Reason: Administrative Policy.",
            "": ""})
 //		"mt-MT": false
 	

@@ -42,6 +42,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
+import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.DataSection.DataRow;
@@ -294,11 +295,15 @@ public class SurveyAjax extends HttpServlet {
                 SurveyMenus menus = sm.getSTFactory().getSurveyMenus();
 
                 if(loc== null || loc.isEmpty()) {
-                    throw new IllegalArgumentException("loc parameter cannot be empty");
+                    // nothing
+//                    CLDRLocale locale = CLDRLocale.getInstance("und");
+//                    r.put("loc", loc);
+//                    r.put("menus",menus.toJSON(locale));
+                } else {
+                    CLDRLocale locale = CLDRLocale.getInstance(loc);
+                    r.put("loc", loc);
+                    r.put("menus",menus.toJSON(locale));
                 }
-                CLDRLocale locale = CLDRLocale.getInstance(loc);
-                r.put("loc", loc);
-                r.put("menus",menus.toJSON(locale));
                 
                 if("true".equals(request.getParameter("locmap"))) {
                     r.put("locmap", getJSONLocMap(sm));
@@ -872,59 +877,14 @@ public class SurveyAjax extends HttpServlet {
             
             locale.put("dcParent",dcParent);
             locale.put("dcChild", dcChild);
-            
-            /*
-             * <%
-    CLDRLocale dcParent = 
-            .getBaseFromDefaultContent(ctx.getLocale());
-    CLDRLocale dcChild = ctx.sm.getSupplementalDataInfo()
-            .getDefaultContentFromBase(ctx.getLocale());
-    if (ctx.sm.getReadOnlyLocales().contains(ctx.getLocale())) {
-        String comment = SpecialLocales.getComment(ctx.getLocale());
-        if (comment == null)
-            comment = "Editing of this locale has been disabled by the SurveyTool administrators.";
-%>
-<%=ctx.iconHtml("lock", comment)%><i><%=comment%></i>
-<%
-    return;
-    } else if (dcParent != null) {
-        ctx.println("<b><a href=\"" + ctx.url() + "\">" + "Locales"
-                + "</a></b><br/>");
-        ctx.println("<h1 title='" + ctx.getLocale().getBaseName()
-                + "'>" + ctx.getLocale().getDisplayName() + "</h1>");
-        ctx.println("<div class='ferrbox'>This locale is the "
-                + SurveyMain.DEFAULT_CONTENT_LINK
-                + " for <b>"
-                + ctx.sm.getLocaleLink(ctx, dcParent, null)
-                + "</b>; thus editing and viewing is disabled. Please view and/or propose changes in <b>"
-                + ctx.sm.getLocaleLink(ctx, dcParent, null)
-                + "</b> instead.");
-        //                ctx.printHelpLink("/DefaultContent","Help with Default Content");
-        ctx.print("</div>");
-
-        //printLocaleTreeMenu(ctx, which);
-        ctx.sm.printFooter(ctx);
-        return; // Disable viewing of default content
-
-    } else if (dcChild != null) {
-        String dcChildDisplay = ctx.getLocaleDisplayName(dcChild);
-        ctx.println("<div class='fnotebox'>This locale supplies the "
-                + SurveyMain.DEFAULT_CONTENT_LINK
-                + " for <b>"
-                + dcChildDisplay
-                + "</b>. Please make sure that all the changes that you make here are appropriate for <b>"
-                + dcChildDisplay
-                + "</b>. If you add any changes that are inappropriate for other sublocales, be sure to override their values. ");
-        //ctx.printHelpLink("/DefaultContent","Help with Default Content");
-        ctx.print("</div>");
-        ctx.redirectToVurl(ctx.vurl(ctx.getLocale(), null, null, null));
-    } else {
-        ctx.redirectToVurl(ctx.vurl(ctx.getLocale(), null, null, null));
-    }
-%>
-
-             */
-            
+            if(sm.getReadOnlyLocales().contains(loc)) {
+                locale.put("readonly",true);
+                String comment = SpecialLocales.getComment(loc);
+                locale.put("readonly_why", comment);
+            } else if(dcParent != null) {
+                locale.put("readonly", true);
+            }
+                        
             locales.put(loc.getBaseName(), locale);
         }
         

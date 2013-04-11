@@ -93,6 +93,15 @@
 			CLDRLocale locale = CLDRLocale.getInstance(loc);
 			
 			ctx.setLocale(locale);
+			
+			// don't return dc content
+            SupplementalDataInfo sdi = ctx.sm.getSupplementalDataInfo();
+            CLDRLocale dcParent = sdi.getBaseFromDefaultContent(locale);
+            if(dcParent != null) {
+                JSONWriter r = new JSONWriter(out).object().
+                        key("section").value(new JSONObject().put("nocontent", "Default Content, see " + dcParent.getBaseName())).endObject();
+                return; // short circuit.
+            }
 
 			boolean dataEmpty = false;
 			boolean zoomedIn = request.getParameter("zoomedIn") != null

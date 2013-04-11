@@ -406,8 +406,8 @@ span.adminExceptionUptime {
 }
 
 pre.adminExceptionLogsite {
-	padding-left:  20px;
-	background: url(conf2.png) no-repeat 0 top;
+    padding-left:  20px;
+    background: url(conf2.png) no-repeat 0 top;
 }
 
 pre.adminExceptionSQL {
@@ -2632,6 +2632,7 @@ td.v-win {
 
 #title-item {
     font-family: "Courier New", Courier, mono;
+    font-size: small;
 }
 
 span.editableHere:hover {
@@ -2718,3 +2719,9 @@ span.editableHere:hover {
     opacity: 0.5 !important;
     background-color: #b1b56a !important;
 }
+
+.locked {
+    padding-left:  20px;
+    background: url(lock.png) no-repeat 0 top;
+}
+

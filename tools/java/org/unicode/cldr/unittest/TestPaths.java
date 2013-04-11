@@ -49,17 +49,14 @@ public class TestPaths extends TestFmwk {
     }
 
     public void TestPathHeaders() {
-        if (params.inclusion == 0) {
-            logln("TestPathHeaders skipped, use -e to include");
-            return;
-        }
 
         Set<String> pathsSeen = new HashSet<String>();
+        CLDRFile englishFile = testInfo.getCldrFactory().make("en", true);
+        PathHeader.Factory phf = PathHeader.getFactory(englishFile);
 
         for (String locale : getLocalesToTest()) {
             CLDRFile file = testInfo.getCldrFactory().make(locale, true);
-            PathHeader.Factory phf = PathHeader.getFactory(file);
-            logln(locale);
+            logln("Testing path headers for locale => " + locale);
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {
                 checkPaths(it.next(), pathsSeen, phf, locale);
@@ -78,6 +75,7 @@ public class TestPaths extends TestFmwk {
             return;
         }
         pathsSeen.add(path);
+        logln("Testing ==> "+path);
         String prettied = phf.fromPath(path).toString();
         String unprettied = phf.fromPath(path).getOriginalPath();
         if (!path.equals(unprettied)) {

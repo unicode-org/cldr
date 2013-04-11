@@ -214,7 +214,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     if ( finalTesting ) {
                         collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
                     } else {
-                        collidingTypes.add("<a href=\"#/" + getCldrFileToCheck().getLocaleID() + "/" + pathHeader.getPageId() + "/" + StringId.getHexId(pathName)+"\">" + 
+                        collidingTypes.add("<a href=\"v#/" + getCldrFileToCheck().getLocaleID() + "/" + pathHeader.getPageId() + "/" + StringId.getHexId(pathName)+"\">" + 
                             pathHeader.getHeaderCode() + "</a>");
     
                     }

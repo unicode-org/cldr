@@ -735,8 +735,8 @@ public class DataSection implements JSONString {
         public CandidateItem addItem(String value) {
             final String kValue = (value == null) ? "" : value;
             CandidateItem pi = items.get(kValue);
-            if (DEBUG)
-                System.err.println("Adding VItem value=" + kValue + " ret=" + pi + ", of " + items.size());
+//            if (DEBUG)
+//                System.err.println("Adding VItem value=" + kValue + " ret=" + pi + ", of " + items.size());
             if (pi != null)
                 return pi;
             pi = new CandidateItem(value);
@@ -1026,8 +1026,8 @@ public class DataSection implements JSONString {
             if (winningValue == null)
                 return null;
             CandidateItem ci = items.get(winningValue);
-            if (DEBUG)
-                System.err.println("WV = '" + winningValue + "' and return is " + ci);
+//            if (DEBUG)
+//                System.err.println("WV = '" + winningValue + "' and return is " + ci);
             return ci;
         }
 

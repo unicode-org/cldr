@@ -59,8 +59,11 @@ if(SurveyMain.isBusted!=null) {
 
                                dojo.ready(function(){
                             	   window.setTimeout(function(){
+                            		    document.write('<title>CLDR SurveyTool | Please Wait..');
                             		    document.write('    <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />');
-                            		    document.write('<i class="loadingMsg">Reloading…</i>');
+                            		    document.write('<img src="<%= request.getContextPath() %>/STLogo.png" align=right>');
+                            		    document.write('<h1>CLDR SurveyTool | Please Wait</h1><hr>');
+                            		    document.write('<i class="loadingMsg">Loading…</i>');
                             		    dojo.xhrGet({url: '<%= survURL %>', load: function() {   window.location.reload(true); if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
                             	   }, 2000);
                            	   });
@@ -127,7 +130,7 @@ survURL = '<%= survURL %>';
     <div id='ariContent' class="dijitDialogPaneContentArea">
     	<div id='ariHelp'><a href='http://cldr.unicode.org/index/survey-tool#disconnected'>Help</a></div>
         <p id='ariMessage'>
-            Uh-oh! Not able to successfully communicate with the SurveyTool server. 
+            This page is still loading. 
         </p>
         <h3 id='ariSub'>Details:</h3>
         <p id='ariScroller'>

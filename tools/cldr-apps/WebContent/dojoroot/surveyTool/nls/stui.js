@@ -203,6 +203,22 @@ define({
            defaultContent_titleLink: "content",
            readonly_msg: "This locale may not be edited.<br/> ${msg}",
            readonly_unknown: "Reason: Administrative Policy.",
+           
+           ari_message: 'Uh-oh! Not able to successfully communicate with the SurveyTool server.',
+           ari_force_reload: '[Second try: will force page reload]',
+           
+           coverage_auto_msg: 'Automatic (Currently: ${surveyOrgCov})',
+           coverage_core: 'Core',
+           coverage_posix: 'POSIX',
+           coverage_minimal: 'Minimal',
+           coverage_basic: 'Basic',
+           coverage_moderate: 'Moderate',
+           coverage_modern: 'Modern',
+           coverage_comprehensive: 'Comprehensive',
+           coverage_optional: 'Optional',
+           
+           
+           
            "": ""})
 //		"mt-MT": false
 	

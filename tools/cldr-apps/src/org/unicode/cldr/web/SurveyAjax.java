@@ -190,7 +190,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
     public static final Object WHAT_GET_MENUS = "menus";
 
-    String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, "dummy" }; // list
+    String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV, "dummy" }; // list
                                                                               // of
                                                                               // prefs
                                                                               // OK
@@ -286,29 +286,6 @@ public class SurveyAjax extends HttpServlet {
                 JSONObject query;
                 query = DBUtils.queryToJSON(q1, u.id);
                 r.put("mine", query);
-                send(r, out);
-            } else if (what.equals(WHAT_GET_MENUS)) {
-                
-                JSONWriter r = newJSONStatus(sm);
-                r.put("what", what);
-
-                SurveyMenus menus = sm.getSTFactory().getSurveyMenus();
-
-                if(loc== null || loc.isEmpty()) {
-                    // nothing
-//                    CLDRLocale locale = CLDRLocale.getInstance("und");
-//                    r.put("loc", loc);
-//                    r.put("menus",menus.toJSON(locale));
-                } else {
-                    CLDRLocale locale = CLDRLocale.getInstance(loc);
-                    r.put("loc", loc);
-                    r.put("menus",menus.toJSON(locale));
-                }
-                
-                if("true".equals(request.getParameter("locmap"))) {
-                    r.put("locmap", getJSONLocMap(sm));
-                }
-
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
                 JSONWriter r = newJSONStatus(sm);
@@ -584,7 +561,11 @@ public class SurveyAjax extends HttpServlet {
                         }
 
                         if (val != null && !val.isEmpty()) {
-                            mySession.settings().set(pref, val);
+                            if(val.equals("null")) {
+                                mySession.settings().set(pref, null);
+                            } else {
+                                mySession.settings().set(pref, val);
+                            }
                         }
                         r.put(SurveyMain.QUERY_VALUE_SUFFIX, mySession.settings().get(pref, null));
                         send(r, out);
@@ -612,6 +593,32 @@ public class SurveyAjax extends HttpServlet {
                         r.put("loc", loc);
                         r.put("xpath", xpath);
                         r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
+
+                        send(r, out);
+                    } else if (what.equals(WHAT_GET_MENUS)) {
+                        
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("what", what);
+
+                        SurveyMenus menus = sm.getSTFactory().getSurveyMenus();
+
+                        if(loc== null || loc.isEmpty()) {
+                            // nothing
+//                            CLDRLocale locale = CLDRLocale.getInstance("und");
+//                            r.put("loc", loc);
+//                            r.put("menus",menus.toJSON(locale));
+                        } else {
+                            r.put("covlev_org", mySession.getOrgCoverageLevel(loc));
+                            r.put("covlev_user", mySession.settings().get(SurveyMain.PREF_COVLEV, null));
+                            CLDRLocale locale = CLDRLocale.getInstance(loc);
+                            r.put("loc", loc);
+                            r.put("menus",menus.toJSON(locale));
+                        }
+                        
+                        if("true".equals(request.getParameter("locmap"))) {
+                            r.put("locmap", getJSONLocMap(sm));
+                        }
+                        
 
                         send(r, out);
                     } else if (what.equals(WHAT_POSS_PROBLEMS)) {
@@ -993,7 +1000,7 @@ public class SurveyAjax extends HttpServlet {
     private void sendNoSurveyMain(PrintWriter out) throws IOException {
         JSONWriter r = newJSON();
         r.put("SurveyOK", "0");
-        r.put("err", "The Survey Tool is awaiting the first visitor.");
+        r.put("err", "The SurveyTool has not yet started.");
         send(r, out);
     }
 

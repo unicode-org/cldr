@@ -2172,6 +2172,24 @@ tr.d-inforow-hid {
 	display: none;
 }
 
+.menu-o {
+    background: white url(rado.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
+.menu-x {
+    background: white url(radx.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
+.dijitMenuExpand {
+	margin-top: 5px !important;
+}
+
 button.ichoice-o {
 	width: 2em;
 	height: 2em;
@@ -2703,7 +2721,7 @@ span.editableHere:hover {
 }
 
 .dijitCheckedMenuItemIcon {
-  background-image: url("radx.png") !important;
+/*  background-image: url("radx.png") !important; */
 }
 
 

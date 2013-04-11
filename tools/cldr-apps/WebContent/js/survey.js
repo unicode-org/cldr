@@ -3268,9 +3268,10 @@ function showV() {
 						menuPage.destroyDescendants(false);
 						for(var k in mySection.pages) { // use given order
 							(function(aPage) {
-								var pageMenu = new CheckedMenuItem({
+								var pageMenu = new /*Checked*/MenuItem({
 									label: aPage.name,
-									checked:   (aPage.id == surveyCurrentPage),
+									iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
+//									checked:   (aPage.id == surveyCurrentPage),
 									//    iconClass:"dijitEditorIcon dijitEditorIconSave",
 									onClick: function(){ 
 										surveyCurrentId = ''; // no id if jumping pages
@@ -3291,9 +3292,10 @@ function showV() {
 
 				var menuSection = registry.byId("menu-section");
 				menuSection.destroyDescendants(false);
-				var generalMenu = new CheckedMenuItem({
+				var generalMenu = new /*Checked*/MenuItem({
 					label: stui_str("section_general"),
-					checked:   (surveyCurrentPage == ''),
+					//checked:   (surveyCurrentPage == ''),
+					iconClass:  (surveyCurrentPage == '')?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
 					//    iconClass:"dijitEditorIcon dijitEditorIconSave",
 					onClick: function(){ 
 						surveyCurrentId = ''; // no id if jumping pages
@@ -3308,9 +3310,10 @@ function showV() {
 						var dropDown = new DropDownMenu();
 						for(var k in aSection.pages) { // use given order
 							(function(aPage) {
-								var pageMenu = new CheckedMenuItem({
+								var pageMenu = new /*Checked*/MenuItem({
 									label: aPage.name,
-									checked:   (aPage.id == surveyCurrentPage),
+									iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
+									//checked:   (aPage.id == surveyCurrentPage),
 									//    iconClass:"dijitEditorIcon dijitEditorIconSave",
 									disabled: (window.surveyCurrentCoverage!=null && 
 											parseInt(window.surveyCurrentCoverage)<parseInt(aPage.levs[surveyCurrentLocale])),

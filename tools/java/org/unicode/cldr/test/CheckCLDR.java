@@ -84,13 +84,18 @@ abstract public class CheckCLDR {
          */
         ALLOW_VOTING_BUT_NO_ADD,
         /**
+         * Only allow filing a ticket.
+         */
+        ALLOW_TICKET_ONLY,
+        /**
          * Disallow (for various reasons)
          */
         FORBID_ERRORS(true),
-        FORBID_READONLY,
-        FORBID_UNLESS_DATA_SUBMISSION,
-        FORBID_COVERAGE,
-        FORBID_NEEDS_TICKET;
+        FORBID_READONLY(true),
+        FORBID_UNLESS_DATA_SUBMISSION(true),
+        FORBID_COVERAGE(true), 
+        FORBID_NEEDS_TICKET(true);
+        
         private final boolean isForbidden;
 
         private StatusAction() {
@@ -113,9 +118,21 @@ abstract public class CheckCLDR {
          * @deprecated
          */
         public static final StatusAction FORBID = FORBID_READONLY;
+        /**
+         * @deprecated
+         */
         public static final StatusAction SHOW_VOTING_AND_ADD = ALLOW;
+        /**
+         * @deprecated
+         */
         public static final StatusAction SHOW_VOTING_AND_TICKET = ALLOW_VOTING_AND_TICKET;
+        /**
+         * @deprecated
+         */
         public static final StatusAction SHOW_VOTING_BUT_NO_ADD = ALLOW_VOTING_BUT_NO_ADD;
+        /**
+         * @deprecated
+         */
         public static final StatusAction FORBID_HAS_ERROR = FORBID_ERRORS;
     }
 
@@ -140,6 +157,7 @@ abstract public class CheckCLDR {
         }
 
         /**
+         * Only bulk import calls this.
          * @deprecated
          */
         public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo,
@@ -194,11 +212,15 @@ abstract public class CheckCLDR {
             UserInfo userInfo // can get voterInfo from this.
         ) {
 
-            // always forbid deprecated items.
+            // always forbid deprecated items - don't show.
             if (status == SurveyToolStatus.DEPRECATED) {
                 return StatusAction.FORBID_READONLY;
             }
-
+            
+            if(status == SurveyToolStatus.READ_ONLY) {
+                return StatusAction.ALLOW_TICKET_ONLY;
+            }
+            
             // always forbid bulk import except in data submission.
             if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {
                 return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
@@ -206,7 +228,7 @@ abstract public class CheckCLDR {
 
             // if TC+, allow anything else, even suppressed items and errors
             if (userInfo != null && userInfo.getVoterInfo().getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
-                return StatusAction.SHOW_VOTING_AND_ADD;
+                return StatusAction.ALLOW;
             }
 
             // if the coverage level is optional, disallow everything
@@ -220,7 +242,7 @@ abstract public class CheckCLDR {
 
             if (this == Phase.SUBMISSION) {
                 return status == SurveyToolStatus.READ_WRITE
-                    ? StatusAction.SHOW_VOTING_AND_ADD
+                    ? StatusAction.ALLOW
                     : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
@@ -260,6 +282,9 @@ abstract public class CheckCLDR {
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
         ) {
+            if(status != SurveyToolStatus.READ_WRITE) {
+                return StatusAction.FORBID_READONLY; // not writable.
+            }
 
             // only logged in users can add items.
             if (userInfo == null) {

@@ -2015,7 +2015,7 @@ public class UserRegistry {
     /**
      * Update the organization list.
      */
-    public void setOrgList() {
+    public synchronized void setOrgList() {
         if (orgList.length > 0) {
             return; // already set.
         }

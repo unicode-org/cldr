@@ -243,17 +243,24 @@ var stui = {
 		startup: "Starting up..."
 };
 
-/**
- * SurveyToolUI string loading function
- * @method stui_str
- */
-stui_str = function(x) {
-    if(stui && stui[x]) {
-    	return stui[x];
-    } else {
-    	return x;
-    }
-};
+var stuidebug_enabled=(window.location.search.indexOf('&stui_debug=')>-1);
+
+
+if(!stuidebug_enabled) {
+	/**
+	 * SurveyToolUI string loading function
+	 * @method stui_str
+	 */
+	stui_str = function(x) {
+	    if(stui && stui[x]) {
+	    	return stui[x];
+	    } else {
+	    	return x;
+	    }
+	};
+} else {
+	stui_str = function(x) { return "stui["+x+"]"; };
+}
 
 /**
  * Create a DOM object with the specified text, tag, and HTML class. 
@@ -2807,8 +2814,13 @@ function insertRows(theDiv,xpath,session,json) {
 function loadStui(loc) {
 	if(!stui.ready) {
 		stui  = dojo.i18n.getLocalization("surveyTool", "stui");
-		stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
-		stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
+		if(!stuidebug_enabled) {
+			stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
+			stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
+		} else {
+			stui.str = stui_str; // debug
+			stui.sub = function(x,y) { return stui_str(x) + '{' +  Object.keys(y) + '}'; };
+		}
 		stui.htmlbaseline = BASELINE_LANGUAGE_NAME;
 		stui.ready=true;
 	}
@@ -3956,7 +3968,8 @@ function showV() {
 
 						store.push({
 								label: '-',
-								value: 'auto'
+								value: 'auto',
+								title: stui.str('coverage_auto_desc')
 							});
 
 						for(var j in levelNums) { // use given order
@@ -3965,12 +3978,14 @@ function showV() {
 							var level = levelNums[j].level;
 							store.push({
 									label: stui.str('coverage_'+ level.name), 
-									value: level.name 
+									value: level.name,
+									title: stui.str('coverage_'+ level.name + '_desc')
 							});
 						}
 						// TODO have to move this out of the DOM..
 						var covMenu = flipper.get(pages.data).covMenu = new Select({name: "menu-select", 
 																		id: 'menu-select',
+																		title: stui.str('coverage_menu_desc'),
 																		options: store,
 																		onChange: function(newValue) {
 																			if(newValue == 'auto') {

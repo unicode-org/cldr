@@ -217,6 +217,7 @@ define({
            coverage_comprehensive: 'Comprehensive',
            coverage_optional: 'Optional',
            
+           coverage_menu_desc: 'Change the displayed coverage level. "Automatic" will use your organization\'s preferred value for this locale, if any.',
            
            
            "": ""})

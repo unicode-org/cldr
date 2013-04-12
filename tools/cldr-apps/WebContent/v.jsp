@@ -224,7 +224,7 @@ survURL = '<%= survURL %>';
                <span class='user_org'>(<%= ctx.session.user.org %>)</span>
               </span>
               
-               <a class='notselected' href='<%= ctx.base() + "?do=logout" %>'>Logout<%= cookieMessage %></a>
+               <a class='notselected' href='<%= survURL + "?do=logout" %>'>Logout<%= cookieMessage %></a>
                |
             <% } else { %>
                 <a href='<%= request.getContextPath() %>/login.jsp' id='loginlink' class='notselected'>Login…</a> |

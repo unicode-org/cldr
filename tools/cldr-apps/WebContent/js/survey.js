@@ -3973,7 +3973,8 @@ function showV() {
 							});
 
 						for(var j in levelNums) { // use given order
-							if(levelNums[j].num==0) continue;
+							if(levelNums[j].num==0) continue; // none - skip
+							if(levelNums[j].num < covValue('minimal')) continue; // don't bother showing these
 							if(window.surveyOfficial && levelNums[j].num==101) continue; // hide Optional in production
 							var level = levelNums[j].level;
 							store.push({

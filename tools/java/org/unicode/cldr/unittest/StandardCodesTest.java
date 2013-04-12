@@ -73,4 +73,13 @@ public class StandardCodesTest extends TestFmwk {
             // logln(org + " : " + locs.toString());
         }
     }
+    
+    public void TestAllEnums() {
+        StandardCodes sc = StandardCodes.make();
+        for(String type : sc.getAvailableTypes()) {
+            for(String code : sc.getAvailableCodes(type)) {
+                sc.getFullData(type,code);
+            }
+        }
+    }
 }

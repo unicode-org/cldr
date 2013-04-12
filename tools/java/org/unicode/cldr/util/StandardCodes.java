@@ -56,7 +56,7 @@ public class StandardCodes {
     private static final Set<String> TypeStringSet;
     static {
         LinkedHashSet<String> foo = new LinkedHashSet<String>();
-        for (Type x : Type.values()) {
+        for (CodeType x : CodeType.values()) {
             foo.add(x.toString());
         }
         TypeStringSet = Collections.unmodifiableSet(foo);

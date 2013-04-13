@@ -1335,7 +1335,7 @@ function showForumStuff(frag, forumDiv, tr) {
 						stopIcon
 								+ " Couldn't load forum post for this row- please refresh the page. <br>Error: "
 								+ err + "</td>", tr, null);
-				handleDisconnect("Could not showForumStuff:"+err, null)
+				handleDisconnect("Could not showForumStuff:"+err, null);
 				return true;
 			};
 			var loadHandler = function(json) {
@@ -1455,14 +1455,31 @@ dojo.ready(function() {
 	//pucontent.className = "oldFloater";
 	var hideInterval=null;
 	
+	function parentOfType(tag, obj) {
+		if(!obj) return null;
+		console.log('POT ' + tag + '-' + obj + '=' + obj.nodeName);
+		if(obj.nodeName===tag) return obj;
+		return parentOfType(tag, obj.parentElement);
+	}
+	
 	function setLastShown(obj) {
 		if(gPopStatus.lastShown && obj!=gPopStatus.lastShown) {
 			removeClass(gPopStatus.lastShown,"pu-select");
 			//addClass(gPopStatus.lastShown,"pu-deselect");
+			var partr = parentOfType('TR',gPopStatus.lastShown);
+			if(partr) {
+				console.log('Removing select from ' + partr + ' ' + partr.id);
+				removeClass(partr, 'selectShow');
+			}
 		}
 		if(obj) {
 			//removeClass(obj,"pu-deselect");
 			addClass(obj,"pu-select");
+			var partr = parentOfType('TR',obj);
+			if(partr) {
+				console.log('Adding select  to ' + partr + ' ' + partr.id);
+				addClass(partr, 'selectShow');
+			}
 		}
 		gPopStatus.lastShown = obj;
 	}
@@ -1497,6 +1514,20 @@ dojo.ready(function() {
 //			
 //			return;
 //		}
+		
+		if(tr && tr.theRow) {
+//			console.log('Hey, selecting this row..');
+			
+			if(tr.theRow.coverageValue > effectiveCoverage()) {
+//				addClass(tr,'selectShow');
+//				console.log("Hey!! I'm a " + tr.theRow.coverageValue + " but e-cov is " + effectiveCoverage());
+				// add something to popinfo?
+			} else {
+//				console.log("A-OK  - I'm a " + tr.theRow.coverageValue + " but e-cov is " + effectiveCoverage());
+			}
+		}
+		
+		
 		if(tr && tr.sethash) {
 			window.updateCurrentId(tr.sethash);
 		}
@@ -1603,28 +1634,6 @@ function appendItem(div,value, pClass, tr) {
 		span.className = "value";
 	}
 	div.appendChild(span);
-	
-	// clicking on some item will attempt to jump to that item.
-	if(false && tr && value) { // TODO: not working yet.
-		addClass(span, "rolloverspan");
-		var fn = null;
-		listenFor(span, "mouseover",
-			 fn = 	function(e) {
-			console.log("Clicked on " + value + " - item is " + item.toString());
-					var item = tr.theRow.valueToItem[value];
-					if(item && item.showFn) {
-						showInPop("", tr, item.div, item.showFn, true);
-						stStopPropagation(e);
-						return false;
-					} else {
-						return true;
-					}
-				});
-		
-		//span.onclick = fn;
-//	} else {
-//		console.log("no tr or no value: " + value);
-	}
 	
 	return span;
 }
@@ -2000,7 +2009,7 @@ function appendExtraAttributes(container, theRow) {
 }
 
 function updateRow(tr, theRow) {
-	
+	tr.theRow = theRow;
 	tr.valueToItem = {}; // hash:  string value to item (which has a div)
 	tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
 	for(k in theRow.items) {
@@ -2371,20 +2380,6 @@ function updateRow(tr, theRow) {
 		children[config.proposedcell].showFn = null;  // nothing else to show
 	}
 	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
-	tr.selectThisRow = function(e) {
-		// select the proposed cell:
-		//showInPop(null, tr, tr.proposedcell, tr.proposedcell.showFn, true);
-		
-		// select the 'approved' cell
-		//popInfoInto(tr,theRow,children[config.statuscell],true);
-
-		// select the approved cell - no message.
-		showInPop('', tr, children[config.statuscell], null, true);
-
-
-		stStopPropagation(e); return false; 
-	};
-
 	listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
 	//listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
@@ -3965,20 +3960,27 @@ function showV() {
 																		title: stui.str('coverage_menu_desc'),
 																		options: store,
 																		onChange: function(newValue) {
+																			var setUserCovTo = null;
 																			if(newValue == 'auto') {
-																				window.surveyUserCov = null; // auto
+																				setUserCovTo = null; // auto
 																			} else {
-																				window.surveyUserCov = newValue;
+																				setUserCovTo = newValue;
 																			}
-																			console.log("Updating server with new  user coverage setting = " + window.surveyUserCov + " for new value " + newValue);
-																			var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
-																			myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
-																				if(!verifyJson(json,'pref')) {
-																					return;
-																				} else {
-																					console.log('Server set  covlev successfully.');
-																				}
-																			});
+																			
+																			if(setUserCovTo === window.surveyUserCov) {
+																				console.log('No change in user cov: ' + setUserCovTo);
+																			} else {
+																				window.surveyUserCov = setUserCovTo;
+																				var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
+																				myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
+																					if(!verifyJson(json,'pref')) {
+																						return;
+																					} else {
+																						console.log('Server set  covlev successfully.');
+																					}
+																				});
+																			}
+																			// still update these.
 																			updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
 																			updateHashAndMenus(false); // TODO: why? Maybe to show an item?
 																		}

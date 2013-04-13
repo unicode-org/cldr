@@ -2470,6 +2470,8 @@ div#pu-content {
 	border:  3px solid black !important; /* or f8c871 */
 }
 
+
+
 /* @end */
 
 .anch,.anch-go {
@@ -2682,6 +2684,17 @@ span.editableHere:hover {
 .hideCov30 .cov30,
 .hideCov10 .cov10 {
 	display: none;
+}
+
+.hideCov101 .selectShow.cov101,
+.hideCov100 .selectShow.cov100,
+.hideCov80 .selectShow.cov80,
+.hideCov60 .selectShow.cov60,
+.hideCov40 .selectShow.cov40,
+.hideCov30 .selectShow.cov30,
+.hideCov10 .selectShow.cov10 {
+    display: table-row !important;
+    background-color: silver;
 }
 
 #OtherSection {

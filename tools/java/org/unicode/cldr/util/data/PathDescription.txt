@@ -54,18 +54,19 @@
 ^//ldml/numbers/decimalFormats\[@numberSystem="([^"]*)"]/decimalFormatLength\[@type="long"]/decimalFormat\[@type="standard"]/pattern\[@type="(\d+)"]\[@count="([^"]+)"] ;   Special decimal pattern used to obtain the long plural forms of numbers with the same number of digits as {2}. See http://cldr.org/translation/number-patterns#TOC-Plural-Forms-of-Numbers for details.
 ^//ldml/numbers/currencyFormats\[@numberSystem="([^"]*)"]/unitPattern\[@count="(\w++)"] ; Currency format used for numbers of type {2}. For more information, please see http://cldr.org/translation/number-patterns.
 
-^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="atLeast"] ; Format used to indicate that a number is more than or equal to a certain value. For more information, please see http://cldr.org/translation/misc.
+^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="atLeast"] ; Format used to indicate a number is at least a certain value. For more information, please see http://cldr.org/translation/misc.
 
 ^//ldml/numbers/([a-z]*)Formats(\[@numberSystem="([^"]*)"])?/\1FormatLength/\1Format\[@type="standard"]/pattern\[@type="standard"]    ;   Special pattern used to compose {1} numbers. Note: before translating, be sure to read http://cldr.org/translation/number-patterns.
+^//ldml/numbers/([a-z]*)Formats(\[@numberSystem="([^"]*)"])?/\1FormatLength/\1Format\[@type="standard"]/pattern\[@type="standard"]\[@alt="([^"]*)"]    ;   Special pattern used to compose {1} numbers for {2}. Note: before translating, be sure to read http://cldr.org/translation/number-patterns.
 
 ^//ldml/listPatterns/listPattern/listPatternPart\[@type="2"]  ;   Special pattern used to make a list out of two elements. Note: before translating, be sure to read http://cldr.org/translation/lists.
 ^//ldml/listPatterns/listPattern/listPatternPart\[@type="([^"]*)"]  ;   Special pattern used to make a list out of more than two elements. This is used for the {1} portion of the list. Note: before translating, be sure to read http://cldr.org/translation/lists.
 
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/dayPeriods/dayPeriodContext\[@type="([^"]*)"]/dayPeriodWidth\[@type="([^"]*)"]/dayPeriod\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for the day period {4}. For more information, please see http://cldr.org/translation/date-time-names.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/days/dayContext\[@type="([^"]*)"]/dayWidth\[@type="([^"]*)"]/day\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for day-of-the-week {4}. For more information, please see http://cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraAbbr/era\[@type="([^"]*)"]   ;   Provide the format-abbreviated version of the name for era {4}. Note: before translating, be sure to read http://cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNames/era\[@type="([^"]*)"]  ;   Provide the format-wide version of the name for era {4}. Note: before translating, be sure to read http://cldr.org/translation/date-time-names.
-^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNarrow/era\[@type="([^"]*)"] ;   Provide the format-narrow version of the name for era {4}. Note: before translating, be sure to read http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraAbbr/era\[@type="([^"]*)"]   ;   Provide the format-abbreviated version of the name for era {4}. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNames/era\[@type="([^"]*)"]  ;   Provide the format-wide version of the name for era {4}. For more information, please see http://cldr.org/translation/date-time-names.
+^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/eras/eraNarrow/era\[@type="([^"]*)"] ;   Provide the format-narrow version of the name for era {4}. For more information, please see http://cldr.org/translation/date-time-names.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/months/monthContext\[@type="([^"]*)"]/monthWidth\[@type="([^"]*)"]/month\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for month {4}. For more information, please see http://cldr.org/translation/date-time-names.
 ^//ldml/dates/calendars/calendar\[@type="([^"]*)"]/quarters/quarterContext\[@type="([^"]*)"]/quarterWidth\[@type="([^"]*)"]/quarter\[@type="([^"]*)"]   ;   Provide the {2} and {3} version of the name for quarter {4}. For more information, please see http://cldr.org/translation/date-time-names.
 

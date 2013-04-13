@@ -92,7 +92,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="20" match="numbers/defaultNumberingSystem"/>
 		<coverageLevel value="20" match="numbers/otherNumberingSystems/%otherNumberingSystemTypes"/>
 		<coverageLevel value="20" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength/decimalFormat%stdPattern"/>
-		<coverageLevel value="20" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel value="20" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%stdPattern([@alt='accounting'])?"/>
 		<coverageLevel value="30" match="localeDisplayNames/languages/language[@type='%language30']"/>
 		<coverageLevel value="30" match="localeDisplayNames/languages/language[@type='${Target-Language}']([@alt='%shortVariant'])?"/>
 		<coverageLevel value="30" match="localeDisplayNames/scripts/script[@type='%script30']"/>

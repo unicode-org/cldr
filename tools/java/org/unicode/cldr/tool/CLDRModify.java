@@ -722,6 +722,24 @@ public class CLDRModify {
             }
         }
 
+        /**
+         * Adds a new path-value pair to the CLDRFile.
+         * @param path the new path
+         * @param value the value
+         * @param reason Reason for adding the path and value.
+         */
+        public void add(String path, String value, String reason) {
+            String oldValueOldPath = cldrFileToFilter.getStringValue(path);
+            if (oldValueOldPath == null) {
+                toBeRemoved.remove(path);
+                toBeReplaced.add(path, value);
+                showAction(reason, "Adding", oldValueOldPath, null,
+                    value, path, path);
+            } else {
+                replace(path, path, value);
+            }
+        }
+
         public CLDRFile getReplacementFile() {
             return toBeReplaced;
         }
@@ -978,6 +996,22 @@ public class CLDRModify {
                     attributes.put("direction", "forward");
                     replace(xpath, fullparts.toString(), v);
                 }
+            }
+        });
+
+        fixList.add('s', "create alt accounting", new CLDRFilter() {
+            @Override
+            public void handlePath(String xpath) {
+                if (!xpath.contains("/currencyFormatLength/")) return;
+                String value = cldrFileToFilter.getStringValue(xpath);
+                if (!value.contains("(")) return;
+                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                fullparts.set(fullXPath);
+                fullparts.addAttribute("alt", "accounting");
+                add(fullparts.toString(), value, "Move old currency format to accounting");
+
+                String newValue = value.split(";")[0];
+                replace(fullXPath, fullXPath, newValue, "Remove negative accounting format");
             }
         });
 

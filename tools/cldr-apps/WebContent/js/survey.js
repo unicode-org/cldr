@@ -927,6 +927,8 @@ var timerSpeed = 15000;
  */
 var ajaxTimeout = 120000; // 2 minutes
 
+
+var surveyVersion = 'Current';
 /**
  * This is called periodically to fetch latest ST status
  * @method updateStatus
@@ -958,6 +960,9 @@ function updateStatus() {
                wasBusted = true;
                busted();
             } else {
+            	if(json.status.newVersion) {
+            		surveyVersion = json.status.newVersion;
+            	}
             	if(json.status.surveyRunningStamp!=surveyRunningStamp) {
                     st_err.className = "ferrbox";
                     st_err.innerHTML="The SurveyTool has been restarted. Please reload this page to continue.";
@@ -1048,6 +1053,7 @@ var statusActionTable = {
     ALLOW: 									   { vote: true, ticket: false, change: true  }, 
     ALLOW_VOTING_AND_TICKET:   { vote: true, ticket: true, change: false },
     ALLOW_VOTING_BUT_NO_ADD: { vote: true, ticket: false, change: false },
+    ALLOW_TICKET_ONLY : { vote: false, ticket: true, change: true },
     //FORBID_ERRORS: {}, 
     //FORBID_READONLY:{}, 
     //FORBID_COVERAGE:{}
@@ -1938,7 +1944,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 //		listenToPop(null,tr,example,td.showFn);
 	}
 	
-	if(tr.theTable.json.canModify) {
+	if(tr.canModify) {
 	    var oldClassName = span.className = span.className + " editableHere";
 	    ///span.title = span.title  + " " + stui_str("clickToChange");
 	    var ieb = null;
@@ -2188,10 +2194,13 @@ function updateRow(tr, theRow) {
 		tr.voteDiv = null;
 	}
 	
-	var statusAction = parseStatusAction(theRow.statusAction);
-	var canModify = tr.theTable.json.canModify && statusAction.vote;
-    var ticketOnly = canModify && statusAction.ticket;
-    var canChange = canModify && statusAction.change;
+	var statusAction = tr.statusAction = parseStatusAction(theRow.statusAction);
+	if(stdebug_enabled && theRow.xpstrid=='7b8ee7884f773afa') {
+		console.log(JSON.stringify(statusAction));
+	}
+	var canModify = tr.canModify =  tr.theTable.json.canModify && statusAction.vote;
+    var ticketOnly = tr.ticketOnly = statusAction.ticket;
+    var canChange = tr.canChange = canModify && statusAction.change;
     if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;
@@ -2317,7 +2326,7 @@ function updateRow(tr, theRow) {
 			js.className="anch-go";
 			js.appendChild(document.createTextNode("{JSON}"));
 			js.popParent=tr;
-			js.href="#";
+//			js.href="#";
 			listenToPop(JSON.stringify(theRow),tr,js);
 			children[config.codecell].appendChild(js);
 			children[config.codecell].appendChild(createChunk(" c="+theRow.coverageValue));
@@ -2400,58 +2409,6 @@ function updateRow(tr, theRow) {
 	} else {
 		tr.myProposal=null; // not needed
 	}
-/*
-	if(!children[config.changecell].isSetup) {
-		removeAllChildNodes(children[config.changecell]);
-		tr.inputTd = children[config.changecell]; // TODO: use  (getTagChildren(tr)[tr.theTable.config.changecell])
-		
-		if(ticketOnly) { // ticket link
-			children[config.changecell].className="d-change-confirmonly";
-			var link = createChunk(stui.str("file_a_ticket"),"a");
-			var newUrl = BUG_URL_BASE+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
-				link.href = newUrl;
-				link.target = TARGET_DOCS;
-				theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
-				theRow.proposedResults.href = newUrl;
-				if(!window.surveyOfficial) {
-					children[config.changecell].appendChild(createChunk(" (Note: this is not the production SurveyTool!) ","p"));
-					link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
-				}
-			children[config.changecell].appendChild(link);
-        } else if(!canChange) { // nothing
-        	//if(!canModify) {  // if not showing any other votes..
-        	if(!tr.theTable.json.canModify) { // only if hidden in the header
-        		children[config.changecell].style.display="none"; // hide the cell 
-        	}
-        	//}
-		} else { // can change
-			var changeButton = cloneAnon(protoButton);
-			children[config.changecell].appendChild(changeButton);
-			var changeBox = cloneAnon(dojo.byId("proto-inputbox"));
-			wireUpButton(changeButton,tr, theRow, "[change]",changeBox);
-			tr.inputBox = changeBox;
-			
-			changeBox.onfocus = function() {
-				setDefer(true);
-				return true;
-			};
-			changeBox.onblur = function() {
-				setDefer(false);
-				return true;
-			};
-			
-			children[config.changecell].appendChild(changeBox);
-			children[config.changecell].isSetup=true;
-			children[config.changecell].theButton = changeButton;
-			listenToPop(null, tr, children[config.changecell]);
-		}
-		
-	} else {
-		if(children[config.changecell].theButton) {
-			children[config.changecell].theButton.className="ichoice-o";
-		}
-	}
-	*/		
 	
 	if(canModify) {
 		removeAllChildNodes(children[config.nocell]); // no opinion
@@ -2460,7 +2417,23 @@ function updateRow(tr, theRow) {
 		noOpinion.value=null;
 		children[config.nocell].appendChild(noOpinion);
 		listenToPop(null, tr, children[config.nocell]);
-	} else if (!ticketOnly) {
+	}  else if(ticketOnly) { // ticket link
+    	if(!tr.theTable.json.canModify) { // only if hidden in the header
+    		children[config.nocell].style.display="none";
+    	}
+		children[config.proposedcell].className="d-change-confirmonly";
+		var link = createChunk(stui.str("file_a_ticket"),"a");
+		var newUrl = "http://unicode.org/cldr/trac"+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
+			link.href = newUrl;
+			link.target = "cldr-target-trac";
+			theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
+			theRow.proposedResults.href = newUrl;
+			if(!window.surveyOfficial) {
+				children[config.proposedcell].appendChild(createChunk(" (Note: this is not the production SurveyTool!) ","p"));
+				link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
+			}
+		children[config.proposedcell].appendChild(link);
+	} else  { // no change possible
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
     		children[config.nocell].style.display="none";
     	}

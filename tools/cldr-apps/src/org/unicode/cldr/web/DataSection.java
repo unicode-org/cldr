@@ -1775,7 +1775,9 @@ public class DataSection implements JSONString {
                         .put("displayInExample", displayInExample)
                         // .put("showstatus",
                         // (ph!=null)?ph.getSurveyToolStatus():null)
-                        .put("statusAction", getStatusAction()).put("prettyPath", getPrettyPath()).put("code", pathCode)
+                        .put("statusAction", getStatusAction())
+                        //.put("prettyPath", getPrettyPath())
+                        .put("code", pathCode)
                         .put("extraAttributes", getNonDistinguishingAttributes()).put("coverageValue", coverageValue)
                         .put("hasErrors", hasErrors).put("hasWarnings", hasWarnings).put("confirmStatus", confirmStatus)
                         .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)

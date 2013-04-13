@@ -2641,7 +2641,7 @@ function effectiveCoverage() {
 
 function updateCovFromJson(json) {
 
-	if(json.covlev_user) {
+	if(json.covlev_user && json.covlev_user != 'default') {
 		window.surveyUserCov = json.covlev_user;
 	} else {
 		window.surveyUserCov = null;
@@ -3344,6 +3344,8 @@ function showV() {
 					}				
 
 				}
+				
+				//console.log('Updating menus.. ecov = ' + effectiveCoverage());
 
 				var menuSection = registry.byId("menu-section");
 				menuSection.destroyDescendants(false);
@@ -3942,6 +3944,10 @@ function showV() {
 								title: stui.str('coverage_auto_desc')
 							});
 
+						store.push({
+							type: "separator"
+						});
+						
 						for(var j in levelNums) { // use given order
 							if(levelNums[j].num==0) continue; // none - skip
 							if(levelNums[j].num < covValue('minimal')) continue; // don't bother showing these

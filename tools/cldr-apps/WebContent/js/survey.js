@@ -2195,9 +2195,6 @@ function updateRow(tr, theRow) {
 	}
 	
 	var statusAction = tr.statusAction = parseStatusAction(theRow.statusAction);
-	if(stdebug_enabled && theRow.xpstrid=='7b8ee7884f773afa') {
-		console.log(JSON.stringify(statusAction));
-	}
 	var canModify = tr.canModify =  tr.theTable.json.canModify && statusAction.vote;
     var ticketOnly = tr.ticketOnly = statusAction.ticket;
     var canChange = tr.canChange = canModify && statusAction.change;

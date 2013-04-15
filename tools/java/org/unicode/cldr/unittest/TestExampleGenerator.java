@@ -52,6 +52,19 @@ public class TestExampleGenerator extends TestFmwk {
             actual);
     }
 
+    public void TestCurrencyFormats() {
+        final CLDRFile cldrFile = info.getCldrFactory().make("it", true);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile,
+            info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        String actual = exampleGenerator.getExampleHtml("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+            "¤ #0.00", Zoomed.IN);
+        assertEquals("Currency format example faulty",
+            "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>5</span>,<span class='cldr_substituted'>43</span></div>" +
+            "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>123456</span>,<span class='cldr_substituted'>79</span></div>" +
+            "<div class='cldr_example'>-XXX\u00A0<span class='cldr_substituted'>123456</span>,<span class='cldr_substituted'>79</span></div>",
+            actual);
+    }
+
     public void Test4897() {
         final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(),

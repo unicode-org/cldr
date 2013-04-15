@@ -869,7 +869,6 @@ public class ExampleGenerator {
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(value, numberSystem);
         String countValue = parts.getAttributeValue(-1, "count");
-        // Match decimal formats.
         if (countValue != null) {
             Count count = Count.valueOf(countValue);
             if (type != ExampleType.ENGLISH &&
@@ -880,18 +879,25 @@ public class ExampleGenerator {
             if (numberSample == null) {
                 if (type == ExampleType.ENGLISH) {
                     int digits = numberFormat.getMinimumIntegerDigits();
-                    return numberFormat.format(1.2345678 * Math.pow(10, digits - 1));
+                    return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
                 } else {
                     return startItalicSymbol + "n/a" + endItalicSymbol;
                 }
             } else {
-                return numberFormat.format(numberSample.doubleValue());
+                return formatNumber(numberFormat, numberSample);
             }
-        } else {
-            String result = numberFormat.format(NUMBER_SAMPLE);
-            result = setBackgroundOnMatch(result, ALL_DIGITS);
-            return result;
         }
+
+        String example = formatNumber(numberFormat, 5.43);
+        example = addExampleResult(formatNumber(numberFormat, NUMBER_SAMPLE), example);
+        // have positive and negative
+        example = addExampleResult(formatNumber(numberFormat, -NUMBER_SAMPLE), example);
+        return example;
+    }
+
+    private String formatNumber(DecimalFormat format, double value) {
+        String example = format.format(value);
+        return setBackgroundOnMatch(example, ALL_DIGITS);
     }
 
     /**

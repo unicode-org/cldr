@@ -49,7 +49,7 @@ String myorg = orgs[(int)Math.rint(Math.random()*(double)(orgs.length-1))];
 %>
 				
 <h1>Add a Test Survey Tool user</h1>
-<i>Note: the organization chosen will be random, unless you select the 'Choose a specific organization' link at the bottom of this page.</i> <br/>
+<i>Note: the organization chosen will be random, unless you change it at the bottom of this page.</i> <br/>
 <i>This account is for testing purposes and may be deleted without notice!</i> <br/>
 <form class="adduser" action='survey'
 	method="POST"><input type="hidden" name="dump"
@@ -68,10 +68,10 @@ String myorg = orgs[(int)Math.rint(Math.random()*(double)(orgs.length-1))];
 	<hr>
 	
 
-	
-	<table id='more' style='display: none;'>
+	<h2>More Options...</h2>
+	<table id='more'>
 	<tr>
-		<th><label for="new_org">Organization:</label></th>
+		<th><label for="new_org">Specific Organization:</label></th>
             <td>
                 <select onchange="document.getElementById('new_org').value=this.value">
                     <option value='' selected="selected">Choose...</option>
@@ -123,7 +123,7 @@ document.getElementById('real').focus()
 	href='<%=request.getParameter("a")%>?s=<%=request.getParameter("s")%>'>Cancel,
 return to Survey Tool</a>
  --%>|
-<a href="./index.jsp">Return to CLDR Applications</a>  | <a id='moreopts' href='javascript:document.getElementById("more").style.display="";'>(Choose a specific organization / locale / userlevel...)</a>
+<a href="./index.jsp">Return to CLDR Applications</a>
 |
 <!-- <a target="_new"
 	href="http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyToolHelp/AddModifyUser">Help

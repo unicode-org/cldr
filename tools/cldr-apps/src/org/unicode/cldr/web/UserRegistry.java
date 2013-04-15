@@ -734,9 +734,13 @@ public class UserRegistry {
             return ret;
         } // end synch array
     }
+    
+    private final String normalizeEmail(String str) {
+        return str.trim().toLowerCase();
+    }
 
     public final UserRegistry.User get(String pass, String email, String ip) {
-        return get(pass, email, ip, false);
+        return get(pass.trim(), normalizeEmail(email), ip, false);
     }
 
     public void touch(int id) {
@@ -779,6 +783,8 @@ public class UserRegistry {
             email = email.substring(1);
             letmein = true;
         }
+        
+        email = normalizeEmail(email);
 
         ResultSet rs = null;
         // synchronized(conn) {
@@ -809,7 +815,7 @@ public class UserRegistry {
             if (letmein) {
                 u.password = rs.getString(8);
             }
-            u.email = email;
+            u.email =normalizeEmail( email );
             // from db: (id,name,userlevel,org,locales)
             u.name = DBUtils.getStringUTF8(rs, 2);// rs.getString(2);
             u.userlevel = rs.getInt(3);
@@ -1226,6 +1232,12 @@ public class UserRegistry {
         if (type == InfoType.INFO_ORG && ctx.session.user.userlevel > ADMIN) {
             return ("[Permission Denied]");
         }
+        
+        if(type == InfoType.INFO_EMAIL) {
+            value = normalizeEmail(value);
+        } else {
+            value = value.trim();
+        }
 
         if (!ctx.session.user.isAdminFor(getInfo(theirId))) {
             return ("[Permission Denied]");
@@ -1322,6 +1334,7 @@ public class UserRegistry {
 
     public User newUser(WebContext ctx, User u) {
 
+        u.email = normalizeEmail(u.email);
         // prepare quotes
         u.email = u.email.replace('\'', '_').toLowerCase();
         u.org = u.org.replace('\'', '_');
@@ -2166,7 +2179,7 @@ public class UserRegistry {
 
                             String name = attrs.get("name");
                             String org = attrs.get("org");
-                            String email = attrs.get("email");
+                            String email = normalizeEmail(attrs.get("email"));
                             Level level = Level.valueOf(attrs.get("level"));
                             String locales = attrs.get("locales");
 

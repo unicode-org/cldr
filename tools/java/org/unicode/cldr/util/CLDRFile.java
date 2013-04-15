@@ -1021,7 +1021,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             File[] files = dir.listFiles();
             for (int i = 0; i < files.length; ++i) {
                 String name = files[i].getName();
-                if (!name.endsWith(".xml")) continue;
+                if (!name.endsWith(".xml") || name.startsWith(".")) continue;
                 // if (name.startsWith(SUPPLEMENTAL_NAME)) continue;
                 String locale = name.substring(0, name.length() - 4); // drop .xml
                 if (!m.reset(locale).matches()) continue;

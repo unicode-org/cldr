@@ -740,7 +740,7 @@ public class UserRegistry {
     }
 
     public final UserRegistry.User get(String pass, String email, String ip) {
-        return get(pass.trim(), normalizeEmail(email), ip, false);
+        return get(pass, email, ip, false);
     }
 
     public void touch(int id) {

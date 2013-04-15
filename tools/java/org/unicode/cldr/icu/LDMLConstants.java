@@ -93,7 +93,6 @@ public class LDMLConstants {
     public static final String GMT_ZERO_FORMAT = "gmtZeroFormat";
     public static final String REGION_FORMAT = "regionFormat";
     public static final String FALLBACK_FORMAT = "fallbackFormat";
-    public static final String FALLBACK_REGION_FORMAT = "fallbackRegionFormat";
     public static final String ABBREVIATION_FALLBACK = "abbreviationFallback";
     public static final String PREFERENCE_ORDERING = "preferenceOrdering";
     public static final String SINGLE_COUNTRIES = "singleCountries";

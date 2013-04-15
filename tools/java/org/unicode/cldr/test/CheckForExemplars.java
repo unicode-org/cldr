@@ -96,7 +96,6 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     // "|hoursFormat" +
     // "|gmtFormat" +
     // "|regionFormat" +
-    // "|fallbackRegionFormat" +
     // "|fallbackFormat" +
     // "|unitPattern.*@count=\"(zero|one|two|few|many|other)\"" +
     // "|localePattern" +

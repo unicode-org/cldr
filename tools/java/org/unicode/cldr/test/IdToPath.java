@@ -291,7 +291,6 @@ public class IdToPath {
           {"2115059814682151130","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"medium\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]","h:mm:ss a"},
           {"2547615504367885280","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]","h:mm a"},
           {"9168419341649544228","//ldml/dates/timeZoneNames/fallbackFormat","{1} ({0})"},
-          {"3379837510371779256","//ldml/dates/timeZoneNames/fallbackRegionFormat","{1} Time ({0})"},
           {"880820743874293293","//ldml/dates/timeZoneNames/gmtFormat","GMT{0}"},
           {"5296122377365647058","//ldml/dates/timeZoneNames/gmtZeroFormat","GMT"},
           {"2221584499142100820","//ldml/dates/timeZoneNames/hourFormat","+HH:mm;-HH:mm"},

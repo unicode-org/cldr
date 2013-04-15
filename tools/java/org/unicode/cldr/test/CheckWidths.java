@@ -137,10 +137,8 @@ public class CheckWidths extends CheckCLDR {
             new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
         })
 
-        .add("//ldml/dates/timeZoneNames/(fallbackRegionFormat|regionFormat|hourFormat)", new Limit[] { // {1} Time
-                                                                                                        // ({0}), {0}
-                                                                                                        // Time,
-                                                                                                        // +HH:mm;-HH:mm
+        .add("//ldml/dates/timeZoneNames/(regionFormat|hourFormat)", new Limit[] { // {0} Time,
+                                                                                   // +HH:mm;-HH:mm
             new Limit(10 * EM, 20 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
         })
 

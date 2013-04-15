@@ -801,10 +801,6 @@ public class ExampleGenerator {
             String LosAngeles = setBackground(cldrFile.getWinningValue(EXEMPLAR_CITY_LOS_ANGELES));
             result = format(value, LosAngeles, us);
             result = format(timeFormat, result);
-        } else if (parts.contains("fallbackRegionFormat")) {
-            String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US"));
-            String LosAngeles = setBackground(cldrFile.getWinningValue(EXEMPLAR_CITY_LOS_ANGELES));
-            result = format(value, LosAngeles, us);
         } else if (parts.contains("gmtFormat")) { // GMT{0}
             result = getGMTFormat(null, value, -8);
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm

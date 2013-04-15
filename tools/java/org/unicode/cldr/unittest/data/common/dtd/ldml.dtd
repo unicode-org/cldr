@@ -765,7 +765,7 @@ $Date: 2011-02-01 14:58:13 -0800 (Tue, 01 Feb 2011) $
 <!ATTLIST fallbackFormat draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST fallbackFormat references CDATA #IMPLIED >
 
-<!ELEMENT fallbackRegionFormat ( #PCDATA ) >
+<!ELEMENT fallbackRegionFormat ( #PCDATA ) > <!-- deprecated -->
 <!ATTLIST fallbackRegionFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST fallbackRegionFormat draft ( approved | contributed | provisional | unconfirmed) #IMPLIED >
 <!ATTLIST fallbackRegionFormat references CDATA #IMPLIED >

@@ -2095,7 +2095,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 metazones.add(mzname);
             } else if (name.equals(LDMLConstants.HOUR_FORMAT) || name.equals(LDMLConstants.GMT_FORMAT)
                 || name.equals(LDMLConstants.GMT_ZERO_FORMAT) || name.equals(LDMLConstants.REGION_FORMAT)
-                || name.equals(LDMLConstants.FALLBACK_FORMAT) || name.equals(LDMLConstants.FALLBACK_REGION_FORMAT)) {
+                || name.equals(LDMLConstants.FALLBACK_FORMAT)) {
                 ResourceString str = new ResourceString();
                 str.name = name;
                 str.val = loc.getFile().getStringValue(apath);

@@ -194,7 +194,6 @@ public class DisplayAndInputProcessor {
             // into a single space or a single NBSP depending on path.
             if ((path.contains("/dateFormatLength") && path.contains("/pattern")) ||
                 path.contains("/availableFormats/dateFormatItem") ||
-                path.startsWith("//ldml/dates/timeZoneNames/fallbackRegionFormat") ||
                 (path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
                 path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
                 path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||

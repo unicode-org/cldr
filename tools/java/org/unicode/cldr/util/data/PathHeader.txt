@@ -62,7 +62,9 @@
 
 //ldml/localeDisplayNames/localeDisplayPattern/%E           ; Misc ; Locale Names ; null ; $1
 
-//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; null ; $1
+//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Regular Lists ; $1
+
+//ldml/listPatterns/listPattern[@type="duration"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Duration Lists ; $1
 
 //ldml/dates/timeZoneNames/%E                               ; Misc ; Timezones ; null ; $1
 

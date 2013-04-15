@@ -37,6 +37,7 @@ import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
@@ -397,6 +398,19 @@ public class ExampleGenerator {
     }
 
     private String handleListPatterns(XPathParts parts, String value) {
+        // listPatternType is either "duration" or null
+        String listPatternType = parts.getAttributeValue(-2, "type");
+        if (listPatternType == null) {
+          return handleRegularListPatterns(parts, value);
+        }
+        else if (listPatternType.equals("duration")) {
+            return handleDurationListPatterns(parts, value);
+        } else {
+            throw new IllegalArgumentException("Unrecoginized list pattern type: " + listPatternType);
+        }
+    }
+
+    private String handleRegularListPatterns(XPathParts parts, String value) {
         String patternType = parts.getAttributeValue(-1, "type");
         String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
         String territory1 = getValueFromFormat(pathFormat, "CH");
@@ -407,6 +421,32 @@ public class ExampleGenerator {
         String territory3 = getValueFromFormat(pathFormat, "EG");
         String territory4 = getValueFromFormat(pathFormat, "CA");
         String listPathFormat = "//ldml/listPatterns/listPattern/listPatternPart[@type=\"{0}\"]";
+        return longListPatternExample(
+                listPathFormat, patternType, value, territory1, territory2, territory3, territory4);
+    }
+    
+    private String handleDurationListPatterns(XPathParts parts, String value) {
+        String patternType = parts.getAttributeValue(-1, "type");
+        String duration1 = getDurationFromFormat("day", 4);
+        String duration2 = getDurationFromFormat("hour", 2);
+        if (patternType.equals("2")) {
+            return invertBackground(format(setBackground(value), duration1, duration2));
+        }
+        String duration3 = getDurationFromFormat("minute", 37);
+        String duration4 = getDurationFromFormat("second", 23);
+        String listPathFormat = "//ldml/listPatterns/listPattern[@type=\"duration\"]/listPatternPart[@type=\"{0}\"]";
+        return longListPatternExample(
+                listPathFormat, patternType, value, duration1, duration2, duration3, duration4);
+    }
+
+    private String getDurationFromFormat(String durationName, int durationAmount) {
+        String form = this.pluralInfo.getPluralRules().select((double) durationAmount);
+        String pathFormat = "//ldml/units/unit[@type=\"{0}\"]/unitPattern[@count=\"{1}\"]";
+        return format(getValueFromFormat(pathFormat, durationName, form), String.valueOf(durationAmount));
+    }
+
+    private String longListPatternExample(String listPathFormat, String patternType, String value, String territory1, String territory2, String territory3,
+            String territory4) {
         String startPattern = getPattern(listPathFormat, "start", patternType, value);
         String middlePattern = getPattern(listPathFormat, "middle", patternType, value);
         String endPattern = getPattern(listPathFormat, "end", patternType, value);

@@ -1246,7 +1246,7 @@ $Date$
 <!ATTLIST listPatterns validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT listPattern (alias | (listPatternPart*, special*)) >
-<!ATTLIST listPattern type (NMTOKEN) #IMPLIED >
+<!ATTLIST listPattern type NMTOKEN #IMPLIED >
 <!ATTLIST listPattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST listPattern references CDATA #IMPLIED >
 <!ATTLIST listPattern alt NMTOKENS #IMPLIED >

@@ -3265,6 +3265,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 		</listPattern>
+                <listPattern type="duration">
+                        <alias source="locale" path="../listPattern" />
+                </listPattern>
 	</listPatterns>
 	<posix>
 		<messages>

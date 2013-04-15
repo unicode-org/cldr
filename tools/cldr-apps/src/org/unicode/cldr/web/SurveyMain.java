@@ -2761,7 +2761,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                 }
                             } else if (action.equals(LIST_ACTION_SEND_PASSWORD)) {
                                 String pass = reg.getPassword(ctx, theirId);
-                                if (pass != null) {
+                                if (pass != null && theirLevel < UserRegistry.LOCKED) {
                                     UserRegistry.printPasswordLink(ctx, theirEmail, pass);
                                     notifyUser(ctx, theirEmail, pass);
                                 }

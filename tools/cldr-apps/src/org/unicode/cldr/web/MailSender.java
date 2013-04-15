@@ -251,7 +251,11 @@ public class MailSender extends Thread {
 
     private Properties getProperties() {
         Properties env = System.getProperties();
-        env.put("mail.host", CLDR_SMTP);
+        if(CLDR_SMTP!=null) {
+            env.put("mail.host", CLDR_SMTP);
+        } else {
+            System.out.println("CLDR_SMTP is null, not putting into arrays");
+        }
         env.put("mail.smtp.port", CLDR_SMTP_PORT);
         // TODO: user, etc
         // env.put("mail.smtp.port", CLDR_SMTP_PORT);

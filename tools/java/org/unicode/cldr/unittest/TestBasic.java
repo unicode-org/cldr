@@ -106,7 +106,7 @@ public class TestBasic extends TestFmwk {
         }
         logln("Checking files for DTD errors in: " + canonicalPath);
         for (File fileName : listFiles) {
-            if (!fileName.toString().endsWith(".xml")) {
+            if (!fileName.toString().endsWith(".xml") || fileName.getName().startsWith(".")) {
                 continue;
             }
             check(fileName);

@@ -499,19 +499,12 @@ public class SurveyForum {
                 String from = survprops.getProperty("CLDR_FROM", "nobody@example.com");
                 String smtp = survprops.getProperty("CLDR_SMTP", null);
 
-                String subject = "New CLDR forum post for: " + forum;
+                String subject = "CLDR forum post (" +CLDRLocale.getInstance(forum).getDisplayName() + " - "+ forum+"): " + subj;
 
-                String body = "This is a post to the CLDR "
-                        + forum
-                        + " forum, in the subject:\n  "
-                        + subj
-                        + "\n\n"
-                        + "For details and to respond, login to survey tool and then click on this link:\n\t "
-                        + "http://"
-                        + ctx.serverHostport()
+                String body = "Do not reply to this message, instead go to http://st.unicode.org" 
                         + forumUrl(ctx, forum)
                         + "\n"
-                        + "\n\n(Note, if the text does not display properly, please click the link to view the entire message)\n\n-----------------\n\n"
+                        + "====\n\n"
                         + text;
 
                 if (!bcc_emails.isEmpty()) {

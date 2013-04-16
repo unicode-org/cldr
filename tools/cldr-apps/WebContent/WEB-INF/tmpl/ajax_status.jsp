@@ -34,10 +34,7 @@ var surveyLocaleUrl='&<%= SurveyMain.QUERY_LOCALE %>=<%= surveyCurrentLocale %>'
 var surveyCurrentLocale = '<%= surveyCurrentLocale %>';
 var surveyCurrentLocaleName = '<%= surveyCurrentLocaleName %>';
 var surveyCurrentSection  = '<%= surveyCurrentSection %>';
-var surveyOfficial = <%= !SurveyMain.isUnofficial() %>;
 var surveyCurrentSection  = '<%= surveyCurrentSection %>';
-var surveyVersion = '<%=SurveyMain.getNewVersion() %>';
-var BUG_URL_BASE = '<%= SurveyMain.BUG_URL_BASE %>';
 var surveyCurrentLocaleStamp = 0;
 <% }else{ %>
 var surveyCurrentLocale = null;
@@ -46,6 +43,12 @@ var surveyCurrentLocaleStamp = 0;
 var surveyCurrentSection  = '';
 var surveyLocaleUrl='';
 <% } 
+
+%>
+var surveyVersion = '<%=SurveyMain.getNewVersion() %>';
+var surveyOfficial = <%= !SurveyMain.isUnofficial() %>;
+var BUG_URL_BASE = '<%= SurveyMain.BUG_URL_BASE %>';
+<%
 
 String sessid = request.getParameter("s");
 if(sessid!=null) {

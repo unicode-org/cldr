@@ -259,7 +259,7 @@ $Date$
 <!ATTLIST exemplarCharacters validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT ellipsis ( #PCDATA ) >
-<!ATTLIST ellipsis type ( initial | medial | final ) #IMPLIED >
+<!ATTLIST ellipsis type ( initial | medial | final | word-initial | word-medial | word-final ) #IMPLIED >
 <!ATTLIST ellipsis draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST ellipsis references CDATA #IMPLIED >
 <!ATTLIST ellipsis alt NMTOKENS #IMPLIED >

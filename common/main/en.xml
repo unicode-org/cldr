@@ -4805,10 +4805,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<unit type="minute">
 			<unitPattern count="one">{0} minute</unitPattern>
 			<unitPattern count="one" alt="short">{0} min</unitPattern>
-			<unitPattern count="one" alt="short">{0}m</unitPattern>
+			<unitPattern count="one" alt="narrow">{0}m</unitPattern>
 			<unitPattern count="other">{0} minutes</unitPattern>
 			<unitPattern count="other" alt="short">{0} mins</unitPattern>
-			<unitPattern count="other" alt="short">{0}m</unitPattern>
+			<unitPattern count="other" alt="narrow">{0}m</unitPattern>
 		</unit>
 		<unit type="minute-future">
 			<unitPattern count="one">In {0} minute</unitPattern>

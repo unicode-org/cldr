@@ -1219,7 +1219,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT units (alias | (unit*, special*)) >
+<!ELEMENT units (alias | (compoundUnit*, unit*, special*)) >
 <!ATTLIST units draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST units references CDATA #IMPLIED >
 <!ATTLIST units alt NMTOKENS #IMPLIED >
@@ -1231,6 +1231,12 @@ $Date$
 <!ATTLIST unit references CDATA #IMPLIED >
 <!ATTLIST unit alt NMTOKENS #IMPLIED >
 <!ATTLIST unit validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT compoundUnit (alias | (unitPattern*, special*)) >
+<!ATTLIST compoundUnit type NMTOKEN #REQUIRED >
+<!ATTLIST compoundUnit draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST compoundUnit references CDATA #IMPLIED >
+<!ATTLIST compoundUnit alt NMTOKENS #IMPLIED >
 
 <!ELEMENT unitPattern ( #PCDATA ) >
 <!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED >

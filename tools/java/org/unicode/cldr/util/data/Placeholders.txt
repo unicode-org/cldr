@@ -121,6 +121,8 @@
 
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"%A\"] ; {0}=NUMBER 3
 
+^//ldml/units/compoundUnit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=DIVIDEND UNIT meters ; {1}=DIVIDEND UNIT second
+
 ^//ldml/units/unit\[@type="day%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/units/unit\[@type="hour%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3
 ^//ldml/units/unit\[@type="minute%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MINUTES 3
@@ -136,6 +138,8 @@
 ^//ldml/units/unit\[@type="second%A"]/unitPattern ; {0}=NUMBER_OF_SECONDS 3
 ^//ldml/units/unit\[@type="week%A"]/unitPattern ; {0}=NUMBER_OF_WEEKS 3
 ^//ldml/units/unit\[@type="year%A"]/unitPattern ; {0}=NUMBER_OF_YEARS 3
+
+^//ldml/units/unit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_UNITS 3
 
 # ^//ldml/numbers/currencyFormats/unitPattern\[@count="(%A)"]  ;  {0}=NUMBER 3 ; {1}=UNIT hour(s)
 

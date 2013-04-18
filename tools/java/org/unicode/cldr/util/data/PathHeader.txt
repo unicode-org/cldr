@@ -81,6 +81,7 @@
 //ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"] ; Misc ; Numbers ; &numberingSystem($1) ; $2
 
 //ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Units ; $1 ; &count($2) 
+//ldml/units/compoundUnit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Units ; compound$1 ; &count($2) 
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/relative[@type="%A"]       ; Misc ; Units ; *$2-relative ; old-$3 ; HIDE
 //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]       ; Misc ; Units ; *$1-relative ; $2
 

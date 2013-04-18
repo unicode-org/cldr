@@ -4764,6 +4764,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</miscPatterns>
 	</numbers>
 	<units>
+		<compoundUnit type="per">
+			<unitPattern count="one" alt="short">{0}/{1}</unitPattern>
+			<unitPattern count="one">{0} per {1}</unitPattern>
+			<unitPattern count="other" alt="short">{0}/{1}</unitPattern>
+			<unitPattern count="other">{0} per {1}</unitPattern>
+		</compoundUnit>
 		<unit type="day">
 			<unitPattern count="one">{0} day</unitPattern>
 			<unitPattern count="one" alt="short">{0} day</unitPattern>

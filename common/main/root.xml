@@ -3192,6 +3192,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</miscPatterns>
 	</numbers>
 	<units>
+		<compoundUnit type="per">
+			<unitPattern count="other" alt="short">{0}/{1}</unitPattern>
+		</compoundUnit>
 		<!-- http://physics.nist.gov/cuu/Units/outside.html -->
 		<unit type="day">
 			<unitPattern count="other">{0} d</unitPattern>

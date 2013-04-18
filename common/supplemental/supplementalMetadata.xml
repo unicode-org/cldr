@@ -349,7 +349,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 Pacific/Wake Pacific/Wallis
             </variable>
             <variable id="$altList" type="choice">
-                stand-alone variant list secondary email www short accounting arab arabext armn armnlow bali beng cham deva ethi fullwide geor grek greklow gujr guru hans hansfin hant hantfin hebr java jpan jpanfin kali knda khmr lana lanatham laoo latn lepc limb mlym mong mtei mymr mymrshan new nkoo olck orya roman romanlow saur sund talu taml telu thai tibt vaii
+                stand-alone variant list secondary email www short narrow accounting arab arabext armn armnlow bali beng cham deva ethi fullwide geor grek greklow gujr guru hans hansfin hant hantfin hebr java jpan jpanfin kali knda khmr lana lanatham laoo latn lepc limb mlym mong mtei mymr mymrshan new nkoo olck orya roman romanlow saur sund talu taml telu thai tibt vaii
             </variable>
             <!-- specialized lists and types -->
             <variable id="$tzidList" type="list">$tzid</variable>
@@ -357,7 +357,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     
             <!-- allow may expand in future to a space separated list i.e. ((newitem)?( )?)?(verbatim)? -->
             <variable id="$allow" type="regex">(verbatim)</variable>
-            <variable id="$alt" type="regex">((stand-alone|variant|list|secondary|email|www|short|new|accounting)(-proposed.*)?|(proposed.*))</variable>
+            <variable id="$alt" type="regex">((stand-alone|variant|list|secondary|email|www|short|narrow|new|accounting)(-proposed.*)?|(proposed.*))</variable>
             <variable id="$append" type="choice">Era Year Quarter Month Week Day-Of-Week Day Hour Minute Second Timezone</variable>
             <variable id="$date" type="regex">200[0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
             <variable id="$double" type="regex">[0-9]+(\.[0-9]+)?</variable>

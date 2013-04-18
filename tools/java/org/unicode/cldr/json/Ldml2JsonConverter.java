@@ -7,21 +7,25 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
+import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON
@@ -44,12 +48,13 @@ public class Ldml2JsonConverter {
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
         .add("match", 'm', ".*", ".*",
             "Regular expression to define only specific locales or files to be generated")
-        .add("fullnumbers", 'n', "(true|false)", "false",
-            "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
         .add("resolved", 'r', "(true|false)", "false",
             "Whether the output JSON for the main directory should be based on resolved or unresolved data")
         .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
-            "The minimum draft status of the output data");
+            "The minimum draft status of the output data")
+        .add("coverage", 'l', "(minimal|basic|moderate|modern|comprehensive)", "modern",
+            "The minimum draft status of the output data")
+        .add("konfig", 'k', ".*", "JSON_config.txt", "LDML to JSON configuration file");
 
     public static void main(String[] args) throws Exception {
         options.parse(args, true);
@@ -57,14 +62,14 @@ public class Ldml2JsonConverter {
         Ldml2JsonConverter extractor = new Ldml2JsonConverter(
             options.get("commondir").getValue(),
             options.get("destdir").getValue(),
-            Boolean.parseBoolean(options.get("fullnumbers").getValue()),
             Boolean.parseBoolean(options.get("resolved").getValue()),
-            options.get("match").getValue());
+            options.get("coverage").getValue(),
+            options.get("match").getValue(),
+            options.get("konfig").getValue());
 
         long start = System.currentTimeMillis();
         DraftStatus status = DraftStatus.valueOf(options.get("draftstatus").getValue());
         for (String dir : LdmlConvertRules.CLDR_SUBDIRS) {
-            System.out.println("Processing directory " + dir);
             extractor.processDirectory(dir, status);
         }
         long end = System.currentTimeMillis();
@@ -75,19 +80,77 @@ public class Ldml2JsonConverter {
     private String cldrCommonDir;
     // Where the generated JSON files will be stored.
     private String outputDir;
-    // Whether data in main should output all numbering systems, even those not in use in the locale.
-    private boolean fullNumbers;
     // Whether data in main should be resolved for output.
     private boolean resolve;
     // Used to match specific locales for output
     private String match;
+    // Used to filter based on coverage
+    private int coverageValue;
 
-    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean fullNumbers, boolean resolve, String match) {
+    private class JSONSection implements Comparable<JSONSection> {
+        public String section;
+        public Matcher matcher;
+
+        public int compareTo(JSONSection other) {
+            return section.compareTo(other.section);
+        }
+
+    }
+
+    private Map<JSONSection, List<CldrItem>> sectionItems = new TreeMap<JSONSection, List<CldrItem>>();
+
+    private List<JSONSection> sections;
+
+    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean resolve, String coverage, String match,
+        String configFile) {
         this.cldrCommonDir = cldrDir;
         this.outputDir = outputDir;
-        this.fullNumbers = fullNumbers;
         this.resolve = resolve;
         this.match = match;
+        this.coverageValue = Level.get(coverage).getLevel();
+
+        if (configFile != null) {
+            sections = new ArrayList<JSONSection>();
+            FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
+                @Override
+                protected boolean handleLine(int lineCount, String line) {
+                    String[] lineParts = line.trim().split("\\s*;\\s*");
+                    String key, value, section = null, path = null;
+                    boolean hasSection = false;
+                    boolean hasPath = false;
+                    for (String linePart : lineParts) {
+                        int pos = linePart.indexOf('=');
+                        if (pos < 0) {
+                            throw new IllegalArgumentException();
+                        }
+                        key = linePart.substring(0, pos);
+                        value = linePart.substring(pos + 1);
+                        if (key.equals("section")) {
+                            hasSection = true;
+                            section = value;
+                        } else if (key.equals("path")) {
+                            hasPath = true;
+                            path = value;
+                        }
+                        if (hasSection && hasPath) {
+                            JSONSection j = new JSONSection();
+                            j.section = section;
+                            j.matcher = Pattern.compile(path).matcher("");
+                            sections.add(j);
+                        }
+                    }
+
+                    return true;
+                }
+            };
+            myReader.process(Ldml2JsonConverter.class, configFile);
+            // Add a section at the end of the list that will match anything not already matched.
+            JSONSection j = new JSONSection();
+            j.section = "other";
+            j.matcher = Pattern.compile(".*").matcher("");
+            sections.add(j);
+
+        }
     }
 
     /**
@@ -109,27 +172,97 @@ public class Ldml2JsonConverter {
      *            The path string being transformed.
      * @return The transformed path.
      */
-    private String transformPath(String pathStr) {
-        if (DEBUG && pathStr.contains("types")) {
-            System.out.println(" IN pathStr : " + pathStr);
+    private String transformPath(String pathStr, String pathPrefix) {
+        String result = pathStr;
+        if (DEBUG) {
+            System.out.println(" IN pathStr : " + result);
         }
         Matcher m;
         for (int i = 0; i < LdmlConvertRules.PATH_TRANSFORMATIONS.length; i++) {
             m = LdmlConvertRules.PATH_TRANSFORMATIONS[i].pattern.matcher(pathStr);
             if (m.matches()) {
-                String result = m.replaceFirst(
-                    LdmlConvertRules.PATH_TRANSFORMATIONS[i].replacement);
-                if (DEBUG) {
-                    System.out.println("OUT pathStr : " + result);
-                }
-                return result;
-
+                result = m.replaceFirst(LdmlConvertRules.PATH_TRANSFORMATIONS[i].replacement);
+                break;
             }
         }
+        result = result.replaceFirst("/ldml/", pathPrefix);
+        result = result.replaceFirst("/supplementalData/", pathPrefix);
+
         if (DEBUG) {
-            System.out.println("OUT pathStr : " + pathStr);
+            System.out.println("OUT pathStr : " + result);
         }
-        return pathStr;
+        return result;
+    }
+
+    private void mapPathsToSections(CLDRFile file, String pathPrefix, SupplementalDataInfo sdi)
+        throws IOException, ParseException {
+
+        int cv = Level.UNDETERMINED.getLevel();
+        ULocale uloc = null;
+        String locID = file.getLocaleID();
+        if (!CLDRFile.isSupplementalName(locID)) {
+            uloc = new ULocale(locID);
+        }
+
+        for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+            String path = it.next();
+            String fullPath = file.getFullXPath(path);
+            if (fullPath == null) {
+                fullPath = path;
+            }
+
+            if (uloc != null && path.startsWith("//ldml/")) {
+                cv = sdi.getCoverageValue(path, uloc);
+            }
+            if (cv > coverageValue) {
+                continue;
+            }
+            String transformedPath = transformPath(path, pathPrefix);
+            String transformedFullPath = transformPath(fullPath, pathPrefix);
+
+            for (JSONSection js : sections) {
+                js.matcher.reset(transformedPath);
+                if (js.matcher.matches()) {
+                    CldrItem item = new CldrItem(transformedPath, transformedFullPath, file.getWinningValue(path));
+                    List<CldrItem> cldrItems = sectionItems.get(js);
+                    if (cldrItems == null) {
+                        cldrItems = new ArrayList<CldrItem>();
+                    }
+                    cldrItems.add(item);
+                    sectionItems.put(js, cldrItems);
+                    break;
+                }
+            }
+        }
+
+        Matcher versionInfoMatcher = Pattern.compile(".*/(identity|version|generation).*").matcher("");
+        // Automatically copy the version info to any sections that had real data in them.
+        JSONSection otherSection = sections.get(sections.size() - 1);
+        List<CldrItem> others = sectionItems.get(otherSection);
+        if ( others == null ) {
+            return;
+        }
+        List<CldrItem> otherSectionItems = new ArrayList<CldrItem>(others);
+        int addedItemCount = 0;
+        for (CldrItem item : otherSectionItems) {
+            String thisPath = item.getPath();
+            versionInfoMatcher.reset(thisPath);
+            if (versionInfoMatcher.matches()) {
+                for (JSONSection js : sections) {
+                    if (sectionItems.get(js) != null && !js.section.equals("other")) {
+                        List<CldrItem> hit = sectionItems.get(js);
+                        hit.add(addedItemCount, item);
+                        sectionItems.put(js, hit);
+                    }
+                    if (js.section.equals("other")) {
+                        List<CldrItem> hit = sectionItems.get(js);
+                        hit.remove(item);
+                        sectionItems.put(js, hit);
+                    }
+                }
+                addedItemCount++;
+            }
+        } 
     }
 
     /**
@@ -142,121 +275,89 @@ public class Ldml2JsonConverter {
      * @throws IOException
      * @throws ParseException
      */
-    private void convertCldrFile(CLDRFile file, String outDirname, String outFilename)
+    private void convertCldrItems(String outDirname, String pathPrefix)
         throws IOException, ParseException {
         // zone and timezone items are queued for sorting first before they are
         // processed.
-        ArrayList<CldrItem> sortingItems = new ArrayList<CldrItem>();
-        ArrayList<CldrItem> arrayItems = new ArrayList<CldrItem>();
 
-        ArrayList<String> out = new ArrayList<String>();
-        ArrayList<CldrNode> nodesForLastItem = new ArrayList<CldrNode>();
-        String lastLeadingArrayItemPath = null;
-        String leadingArrayItemPath = "";
-        int valueCount = 0;
-        String previousIdentityPath = null;
-        Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
-        Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
-        Set<String> activeNumberingSystems = new TreeSet<String>();
-        for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
-            String path = it.next();
-            String fullPath = file.getFullXPath(path);
-            if (fullPath == null) {
-                fullPath = path;
-            }
+        for (JSONSection js : sections) {
+            ArrayList<CldrItem> sortingItems = new ArrayList<CldrItem>();
+            ArrayList<CldrItem> arrayItems = new ArrayList<CldrItem>();
 
-            String transformedPath = transformPath(path);
-            String transformedFullPath = transformPath(fullPath);
-            CldrItem item = new CldrItem(transformedPath, transformedFullPath,
-                file.getStringValue(path));
-
-            // automatically filter out number symbols and formats without a numbering system
-            noNumberingSystemMatcher.reset(fullPath);
-            if (noNumberingSystemMatcher.matches()) {
+            ArrayList<String> out = new ArrayList<String>();
+            ArrayList<CldrNode> nodesForLastItem = new ArrayList<CldrNode>();
+            String lastLeadingArrayItemPath = null;
+            String leadingArrayItemPath = "";
+            int valueCount = 0;
+            String previousIdentityPath = null;
+            List<CldrItem> theItems = sectionItems.get(js);
+            if (theItems == null || theItems.size() == 0) {
                 continue;
             }
-
-            // Filter out non-active numbering systems data unless fullNumbers is specified.
-            numberingSystemMatcher.reset(fullPath);
-            if (numberingSystemMatcher.matches() && !fullNumbers) {
-                if (activeNumberingSystems.isEmpty()) {
-                    activeNumberingSystems.add("latn"); // Always include latin script numbers
-                    for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
-                        String ns = file.getWinningValue(np);
-                        if (ns != null && ns.length() > 0) {
-                            activeNumberingSystems.add(ns);
-                        }
-                    }
-                }
-                XPathParts xpp = new XPathParts();
-                xpp.set(fullPath);
-                String currentNS = xpp.getAttributeValue(2, "numberSystem");
-                if (currentNS != null && !activeNumberingSystems.contains(currentNS)) {
-                    continue;
-                }
-
-            }
-            // items in the identity section of a file should only ever contain the lowest level, even if using
-            // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress them
-            // here.
-            if (path.startsWith("//ldml/identity/")) {
-                String[] parts = path.split("\\[");
-                if (parts[0].equals(previousIdentityPath)) {
-                    continue;
-                } else {
-                    previousIdentityPath = parts[0];
-                }
-            }
-
-            // some items need to be split to multiple item before processing. None
-            // of those items need to be sorted.
-            CldrItem[] items = item.split();
-            if (items == null) {
-                items = new CldrItem[1];
-                items[0] = item;
-            }
-            valueCount += items.length;
-
-            for (CldrItem newItem : items) {
-                // alias will be dropped in conversion, don't count it.
-                if (newItem.isAliasItem()) {
-                    valueCount--;
-                }
-
-                // Items like zone items need to be sorted first before write them out.
-                if (newItem.needsSort()) {
-                    resolveArrayItems(out, nodesForLastItem, arrayItems);
-                    sortingItems.add(newItem);
-                } else {
-                    Matcher matcher = LdmlConvertRules.ARRAY_ITEM_PATTERN.matcher(
-                        newItem.getPath());
-                    if (matcher.matches()) {
-                        resolveSortingItems(out, nodesForLastItem, sortingItems);
-                        leadingArrayItemPath = matcher.group(1);
-                        if (lastLeadingArrayItemPath != null &&
-                            !lastLeadingArrayItemPath.equals(leadingArrayItemPath)) {
-                            resolveArrayItems(out, nodesForLastItem, arrayItems);
-                        }
-                        lastLeadingArrayItemPath = leadingArrayItemPath;
-                        arrayItems.add(newItem);
+            for (CldrItem item : theItems) {
+                // items in the identity section of a file should only ever contain the lowest level, even if using
+                // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress
+                // them here.
+                if (item.getPath().contains("/identity/")) {
+                    String[] parts = item.getPath().split("\\[");
+                    if (parts[0].equals(previousIdentityPath)) {
+                        continue;
                     } else {
-                        resolveSortingItems(out, nodesForLastItem, sortingItems);
+                        previousIdentityPath = parts[0];
+                    }
+                }
+
+                // some items need to be split to multiple item before processing. None
+                // of those items need to be sorted.
+                CldrItem[] items = item.split();
+                if (items == null) {
+                    items = new CldrItem[1];
+                    items[0] = item;
+                }
+                valueCount += items.length;
+
+                for (CldrItem newItem : items) {
+                    // alias will be dropped in conversion, don't count it.
+                    if (newItem.isAliasItem()) {
+                        valueCount--;
+                    }
+
+                    // Items like zone items need to be sorted first before write them out.
+                    if (newItem.needsSort()) {
                         resolveArrayItems(out, nodesForLastItem, arrayItems);
-                        outputCldrItem(out, nodesForLastItem, newItem);
-                        lastLeadingArrayItemPath = "";
+                        sortingItems.add(newItem);
+                    } else {
+                        Matcher matcher = LdmlConvertRules.ARRAY_ITEM_PATTERN.matcher(
+                            newItem.getPath());
+                        if (matcher.matches()) {
+                            resolveSortingItems(out, nodesForLastItem, sortingItems);
+                            leadingArrayItemPath = matcher.group(1);
+                            if (lastLeadingArrayItemPath != null &&
+                                !lastLeadingArrayItemPath.equals(leadingArrayItemPath)) {
+                                resolveArrayItems(out, nodesForLastItem, arrayItems);
+                            }
+                            lastLeadingArrayItemPath = leadingArrayItemPath;
+                            arrayItems.add(newItem);
+                        } else {
+                            resolveSortingItems(out, nodesForLastItem, sortingItems);
+                            resolveArrayItems(out, nodesForLastItem, arrayItems);
+                            outputCldrItem(out, nodesForLastItem, newItem);
+                            lastLeadingArrayItemPath = "";
+                        }
                     }
                 }
             }
+
+            resolveSortingItems(out, nodesForLastItem, sortingItems);
+            resolveArrayItems(out, nodesForLastItem, arrayItems);
+
+            closeNodes(out, nodesForLastItem.size() - 2, 0);
+            String outFilename;
+            outFilename = js.section + ".json";
+            writeToFile(outDirname, outFilename, out);
+
+            System.out.println(String.format("  %s = %d values", outFilename, valueCount));
         }
-
-        resolveSortingItems(out, nodesForLastItem, sortingItems);
-        resolveArrayItems(out, nodesForLastItem, arrayItems);
-
-        closeNodes(out, nodesForLastItem.size() - 2, 0);
-
-        writeToFile(outDirname, outFilename, out);
-
-        System.out.println(String.format("%s = %d values", outFilename, valueCount));
     }
 
     /**
@@ -521,10 +622,10 @@ public class Ldml2JsonConverter {
         }
 
         // first level need no key, it is the container.
-        if (level == 0) {
-            out.add("{");
-            return;
-        }
+        // if (level == 0) {
+        // out.add("{");
+        // return;
+        // }
 
         Map<String, String> attrAsValueMap = node.getAttrAsValueMap();
         out.add(indent(level) + "\"" + objName + "\": {");
@@ -681,7 +782,7 @@ public class Ldml2JsonConverter {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         Factory cldrFactory = Factory.make(
             cldrCommonDir + dirName + "/", ".*");
         Set<String> files = cldrFactory.getAvailable();
@@ -692,13 +793,26 @@ public class Ldml2JsonConverter {
             if (!filename.matches(match)) {
                 continue;
             }
-            CLDRFile file = cldrFactory.make(filename, resolve && dirName.equals(MAIN),
-                minimalDraftStatus);
-            String outputFile = dirName.equals(MAIN) ?
-                filename.replaceAll("_", "-") + ".json" :
-                filename + ".json";
-            String outputDirname = outputDir + dirName;
-            convertCldrFile(file, outputDirname, outputFile);
+
+            System.out.println("Processing file " + dirName + "/" + filename);
+            String pathPrefix;
+            CLDRFile file = cldrFactory.make(filename, resolve && dirName.equals(MAIN), minimalDraftStatus);
+
+            sectionItems.clear();
+            if (dirName.equals(MAIN)) {
+                pathPrefix = "/cldr/" + dirName + "/" + filename.replaceAll("_", "-") + "/";
+            } else {
+                pathPrefix = "/cldr/" + dirName + "/";
+            }
+            mapPathsToSections(file, pathPrefix, sdi);
+
+            String outputDirname;
+            if (dirName.equals(MAIN)) {
+                outputDirname = outputDir + dirName + File.separator + filename.replaceAll("_", "-");
+            } else {
+                outputDirname = outputDir + dirName;
+            }
+            convertCldrItems(outputDirname, pathPrefix);
         }
     }
 

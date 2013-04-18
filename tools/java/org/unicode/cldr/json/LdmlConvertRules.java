@@ -12,7 +12,7 @@ class LdmlConvertRules {
 
     /** All sub-directories that will be processed in JSON transformation. */
     public static final String CLDR_SUBDIRS[] = {
-        "main", "supplemental"
+        "main" , "supplemental"
         // We could do everything, but not really sure how useful it would be.
         // For now, just do main and supplemental per CLDR TC agreement.
         // "collation", "bcp47", "supplemental", "rbnf", "segments", "main", "transforms"
@@ -299,22 +299,6 @@ class LdmlConvertRules {
             ")(.*)");
 
     /**
-     * Number elements without a numbering system are there only for compatibility purposes.
-     * We automatically suppress generation of JSON objects for them.
-     */
-    public static final Pattern NO_NUMBERING_SYSTEM_PATTERN = Pattern
-        .compile("//ldml/numbers/(symbols|(decimal|percent|scientific|currency)Formats)/.*");
-    public static final Pattern NUMBERING_SYSTEM_PATTERN = Pattern
-        .compile("//ldml/numbers/(symbols|(decimal|percent|scientific|currency)Formats)\\[@numberSystem=\"([^\"]++)\"\\]/.*");
-
-    public static final String[] ACTIVE_NUMBERING_SYSTEM_XPATHS = {
-        "//ldml/numbers/defaultNumberingSystem",
-        "//ldml/numbers/otherNumberingSystems/native",
-        "//ldml/numbers/otherNumberingSystems/traditional",
-        "//ldml/numbers/otherNumberingSystems/finance"
-    };
-
-    /**
      * A simple class to hold the specification of a path transformation.
      */
     public static class PathTransformSpec {
@@ -344,6 +328,9 @@ class LdmlConvertRules {
         // Add cldrVersion attribute
         new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
             + CLDRFile.GEN_VERSION + "\"\\]"),
+        // Add cldrVersion attribute to supplemental data
+        new PathTransformSpec("(.*/supplementalData/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
+            + CLDRFile.GEN_VERSION + "\"\\]"),
 
         // Transform underscore to hyphen-minus in language keys
         new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\])", "$1-$2"),
@@ -352,9 +339,15 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
             "$1/$2$3"),
 
+
         // Remove unnecessary dateFormat/pattern
         new PathTransformSpec(
-            "(.*)/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)", "$1$5"),
+            "(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)Length\\[@type=\"([^\"]*)\"\\]/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)", 
+            "$1/$2/$5Formats/$4$8"),
+
+        // Separate calendar type
+            new PathTransformSpec("(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)$",
+                    "$1/$2$3"),
 
         // Separate "metazone" from its type as another layer.
         new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$", "$1/$2/$3"),

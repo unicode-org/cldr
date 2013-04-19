@@ -3974,13 +3974,31 @@ XXX Code for transations where no currency is involved
               <era type="235" start="1989-1-8"/>
           </eras>
         </calendar>
-        <calendar type="islamic-civil">
+        <calendar type="islamic">
           <calendarSystem type="lunar" />
           <eras>
               <era type="0" start="622-7-15"/>
           </eras>
         </calendar>
-        <calendar type="islamic">
+        <calendar type="islamic-civil">
+          <calendarSystem type="lunar" />
+          <eras>
+              <era type="0" start="622-7-16"/>
+          </eras>
+        </calendar>
+        <calendar type="islamic-rgsa">
+          <calendarSystem type="lunar" />
+          <eras>
+              <era type="0" start="622-7-15"/>
+          </eras>
+        </calendar>
+        <calendar type="islamic-tbla">
+          <calendarSystem type="lunar" />
+          <eras>
+              <era type="0" start="622-7-15"/>
+          </eras>
+        </calendar>
+        <calendar type="islamic-umalqura">
           <calendarSystem type="lunar" />
           <eras>
               <era type="0" start="622-7-15"/>
@@ -4034,15 +4052,16 @@ XXX Code for transations where no currency is involved
 
     <calendarPreferenceData>
         <calendarPreference territories="001" ordering="gregorian"/>
-        <calendarPreference territories="AE BH DJ DZ EH ER IQ JO KM KW LB LY MA MR OM PS QA SA SD SY TD TN YE" ordering="gregorian islamic islamic-civil"/>
-        <calendarPreference territories="AF IR" ordering="persian gregorian islamic islamic-civil"/>
+        <calendarPreference territories="AE BH DJ DZ EH ER IQ JO KM KW LB LY MA MR OM PS QA SD SY TD TN YE" ordering="gregorian islamic islamic-civil islamic-tbla"/>
+        <calendarPreference territories="AF IR" ordering="persian gregorian islamic islamic-civil islamic-tbla"/>
         <calendarPreference territories="CN CX HK MO SG" ordering="gregorian chinese"/>
-        <calendarPreference territories="EG" ordering="gregorian coptic islamic islamic-civil"/>
+        <calendarPreference territories="EG" ordering="gregorian coptic islamic islamic-civil islamic-tbla"/>
         <calendarPreference territories="ET" ordering="gregorian ethiopic"/>
-        <calendarPreference territories="IL" ordering="gregorian hebrew islamic islamic-civil"/>
+        <calendarPreference territories="IL" ordering="gregorian hebrew islamic islamic-civil islamic-tbla"/>
         <calendarPreference territories="IN" ordering="gregorian indian"/>
         <calendarPreference territories="JP" ordering="gregorian japanese"/>
         <calendarPreference territories="KR" ordering="gregorian dangi"/>
+        <calendarPreference territories="SA" ordering="gregorian islamic islamic-umalqura islamic-rgsa"/>
         <calendarPreference territories="TH" ordering="buddhist gregorian"/>
         <calendarPreference territories="TW" ordering="gregorian roc chinese"/>
     </calendarPreferenceData>

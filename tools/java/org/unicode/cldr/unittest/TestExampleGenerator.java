@@ -41,14 +41,16 @@ public class TestExampleGenerator extends TestFmwk {
             info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         String actual = exampleGenerator.getExampleHtml("//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
             "{0} [{1}]", Zoomed.IN);
-        assertEquals("Locale display faulty",
-            "<div class='cldr_example'>usbeco<span class='cldr_substituted'> [</span>arabo, Afghanistan, Fuso orario: Africa/Addis_Ababa, Cifre indo-arabe<span class='cldr_substituted'>]</span></div>", actual);
+        assertEquals("localePattern example faulty",
+            "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>Afghanistan</span>]</div>" +
+            "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan</span>]</div>" +
+            "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan, Fuso orario: Africa/Addis_Ababa, Cifre indo-arabe</span>]</div>",
+            actual);
         actual = exampleGenerator.getExampleHtml("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
             "{0}. {1}", Zoomed.IN);
-        assertEquals("Locale display faulty",
-            "<div class='cldr_example'>usbeco (arabo<span class='cldr_substituted'>. </span>" +
-            "Afghanistan<span class='cldr_substituted'>. </span>Fuso orario: Africa/Addis_Ababa" +
-            "<span class='cldr_substituted'>. </span>Cifre indo-arabe)</div>",
+        assertEquals("localeSeparator example faulty",
+            "<div class='cldr_example'><span class='cldr_substituted'>usbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan)</span></div>" +
+            "<div class='cldr_example'><span class='cldr_substituted'>usbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan</span>. <span class='cldr_substituted'>Fuso orario: Africa/Addis_Ababa</span>. <span class='cldr_substituted'>Cifre indo-arabe)</span></div>",
             actual);
     }
 
@@ -100,7 +102,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "<div class='cldr_example'><span class='cldr_substituted'>2,07</span> <span class='cldr_substituted'>dollari statunitensi</span></div>"
             },
             { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol",
-                "<div class='cldr_example'>BMD<span class='cldr_substituted'> 12.345,68</span></div>"
+                "<div class='cldr_example'>BMD<span class='cldr_substituted'> 123.456,79</span></div>"
             },
         };
 
@@ -119,12 +121,14 @@ public class TestExampleGenerator extends TestFmwk {
     public void Test4607() {
         String[][] testPairs = {
             {
-                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]",
-                "<div class='cldr_example'><span class='cldr_substituted'>12</span> thousand</div>"
+                "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
+                "<div class='cldr_example'><span class='cldr_substituted'>1</span> thousand</div>"
             },
             {
                 "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-                "<div class='cldr_example'><span class='cldr_substituted'>12</span>%</div>"
+                "<div class='cldr_example'><span class='cldr_substituted'>5</span>%</div>" +
+                "<div class='cldr_example'><span class='cldr_substituted'>12</span>,<span class='cldr_substituted'>345</span>,<span class='cldr_substituted'>679</span>%</div>" +
+                "<div class='cldr_example'>-<span class='cldr_substituted'>12</span>,<span class='cldr_substituted'>345</span>,<span class='cldr_substituted'>679</span>%</div>"
             }
         };
         final CLDRFile nativeCldrFile = info.getEnglish();

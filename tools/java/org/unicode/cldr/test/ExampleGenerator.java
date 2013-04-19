@@ -924,10 +924,15 @@ public class ExampleGenerator {
             }
         }
 
-        String example = formatNumber(numberFormat, 5.43);
-        example = addExampleResult(formatNumber(numberFormat, NUMBER_SAMPLE), example);
+        double sampleNum1 = 5.43;
+        double sampleNum2 = NUMBER_SAMPLE;
+        if (parts.getElement(4).equals("percentFormat")) {
+            sampleNum1 = 0.0543;
+        }
+        String example = formatNumber(numberFormat, sampleNum1);
+        example = addExampleResult(formatNumber(numberFormat, sampleNum2), example);
         // have positive and negative
-        example = addExampleResult(formatNumber(numberFormat, -NUMBER_SAMPLE), example);
+        example = addExampleResult(formatNumber(numberFormat, -sampleNum2), example);
         return example;
     }
 
@@ -1026,8 +1031,19 @@ public class ExampleGenerator {
             String localePattern = getLocaleDisplayPattern("localePattern", element, value);
             String localeSeparator = getLocaleDisplayPattern("localeSeparator", element, value);
 
-            result = cldrFile.getName("uz-Arab-AF@timezone=Africa/Addis_Ababa;numbers=arab", false,
-                localeKeyTypePattern, localePattern, localeSeparator);
+            List<String> locales = new ArrayList<String>();
+            if (element.equals("localePattern")) {
+                locales.add("uz-AF");
+            }
+            locales.add(element.equals("localeKeyTypePattern") ?
+                "uz-Arab@timezone=Africa/Addis_Ababa" : "uz-Arab-AF");
+            locales.add("uz-Arab-AF@timezone=Africa/Addis_Ababa;numbers=arab");
+            String[] examples = new String[locales.size()];
+            for (int i = 0 ; i < locales.size() ; i++) {
+                examples[i] = invertBackground(cldrFile.getName(locales.get(i), false,
+                    localeKeyTypePattern, localePattern, localeSeparator));
+            }
+            result = formatExampleList(examples);
         } else if (parts.contains("languages")) {
             String type = parts.getAttributeValue(-1, "type");
             if (type.contains("_")) {
@@ -1037,6 +1053,14 @@ public class ExampleGenerator {
                     result = cldrFile.getName(parts.findAttributeValue("language", "type"));
                 }
             }
+        }
+        return result;
+    }
+
+    private String formatExampleList(String[] examples) {
+        String result = examples[0];
+        for (int i = 1, len = examples.length ; i < len; i++) {
+            result = addExampleResult(examples[i], result);
         }
         return result;
     }

@@ -208,10 +208,12 @@ survURL = '<%= survURL %>';
 	         </div>
          </div>
          
+         <!--
          <div id='title-item-container' class='menu-container'>
              <span title="id" class='titlePart'  id='title-item'></span>
          </div>
-         
+         -->
+
         </div> <%-- end of toptitle --%>         
         <div id="lowerstuff">
             <% if(ctx.session !=null && ctx.session.user != null) {

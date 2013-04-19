@@ -2979,7 +2979,7 @@ function showV() {
 			locale: "title-locale",
 			section: "title-section",
 			page: "title-page",
-			item: "title-item",
+//			item: "title-item",
 			dcontent: "title-dcontent",
 			
 			set: function(x,y) {
@@ -3075,16 +3075,16 @@ function showV() {
 			}
 //			itemBox  = dojo.byId("title-item");
 //			if(itemBox!=null) {
-			    if(theLocale=='') {
-			    	menubuttons.set(menubuttons.item);
-    			    //itemBox.set('value', '');
-			    } else if(theId=='' && thePage!='') {
-			    	menubuttons.set(menubuttons.item, theLocale+'/'+thePage+'/');
-			        //itemBox.set('value', theLocale+'/'+thePage+'/');
-			    } else {
-			    	menubuttons.set(menubuttons.item,theLocale+'//'+theId);
-    			    //itemBox.set('value', theLocale+'//'+theId);
-			    }
+//			    if(theLocale=='') {
+//			    	menubuttons.set(menubuttons.item);
+//    			    //itemBox.set('value', '');
+//			    } else if(theId=='' && thePage!='') {
+//			    	menubuttons.set(menubuttons.item, theLocale+'/'+thePage+'/');
+//			        //itemBox.set('value', theLocale+'/'+thePage+'/');
+//			    } else {
+//			    	menubuttons.set(menubuttons.item,theLocale+'//'+theId);
+//    			    //itemBox.set('value', theLocale+'//'+theId);
+//			    }
 //			}
 			document.title = document.title.split('|')[0] + " | " + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
 		};
@@ -3099,7 +3099,7 @@ function showV() {
 
 		// (back to showV) some setup.
 		// click on the title to copy (permalink)
-		clickToSelect(dojo.byId("title-item"));
+//		clickToSelect(dojo.byId("title-item"));
 		clickToSelect(dojo.byId("ariScroller"));
 		updateIf("title-dcontent-link",stui.str("defaultContent_titleLink"));
 		
@@ -3271,7 +3271,7 @@ function showV() {
 				} else {
 					menubuttons.set(menubuttons.page);
 				}
-				menubuttons.set(menubuttons.item);
+//				menubuttons.set(menubuttons.item);
 				return; // nothing to do.
 			}
 

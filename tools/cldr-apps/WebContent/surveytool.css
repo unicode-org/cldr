@@ -2680,13 +2680,9 @@ span.editableHere:hover {
     display:  inline;
 }
 
-.menu-container::after{
+.menu-container::before{
     content: "»";
     color:  black;
-}
-
-#title-item-container::after {
-    content:  "" !important;
 }
 
 /*

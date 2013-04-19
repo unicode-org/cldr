@@ -49,6 +49,41 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000000000000">←← biljoonaa[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="spellout-ordinal-larger" access="private">
+                <rbnfrule value="0">;</rbnfrule>
+                <rbnfrule value="2">kahdes;</rbnfrule>
+                <rbnfrule value="3">=%spellout-ordinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal">
+                <rbnfrule value="-x">miinus →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">nolla;</rbnfrule>
+                <rbnfrule value="1">ensimmäinen;</rbnfrule>
+                <rbnfrule value="2">toinen;</rbnfrule>
+                <rbnfrule value="3">kolmas;</rbnfrule>
+                <rbnfrule value="4">neljäs;</rbnfrule>
+                <rbnfrule value="5">viides;</rbnfrule>
+                <rbnfrule value="6">kuudes;</rbnfrule>
+                <rbnfrule value="7">seitsemäs;</rbnfrule>
+                <rbnfrule value="8">kahdeksas;</rbnfrule>
+                <rbnfrule value="9">yhdeksäs;</rbnfrule>
+                <rbnfrule value="10">kymmenes;</rbnfrule>
+                <rbnfrule value="11">yhdestoista;</rbnfrule>
+                <rbnfrule value="12">kahdestoista;</rbnfrule>
+                <rbnfrule value="13">→→toista;</rbnfrule>
+                <rbnfrule value="20">←%%spellout-ordinal-larger←kymmenes[→→];</rbnfrule>
+                <rbnfrule value="100">sadas[→→];</rbnfrule>
+                <rbnfrule value="200">←%%spellout-ordinal-larger←sadas[→→];</rbnfrule>
+                <rbnfrule value="1000">tuhannes[→→];</rbnfrule>
+                <rbnfrule value="2000">←%%spellout-ordinal-larger←tuhannes[→→];</rbnfrule>
+                <rbnfrule value="1000000">miljoonas[→→];</rbnfrule>
+                <rbnfrule value="2000000">←%%spellout-ordinal-larger← miljoonaas[→→];</rbnfrule>
+                <rbnfrule value="1000000000">miljardis[→→];</rbnfrule>
+                <rbnfrule value="2000000000">←%%spellout-ordinal-larger← miljardias[→→];</rbnfrule>
+                <rbnfrule value="1000000000000">biljoonas[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%%spellout-ordinal-larger← biljoonaas[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
         </rulesetGrouping>
     </rbnf>
 </ldml>

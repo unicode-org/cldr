@@ -2314,8 +2314,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     static MapComparator<String> lengthOrder = new MapComparator<String>().add(
         "full", "long", "medium", "short").freeze();
     static MapComparator<String> dateFieldOrder = new MapComparator<String>().add(
-        "era", "year", "month", "week", "day", "weekday", "dayperiod",
-        "hour", "minute", "second", "zone").freeze();
+        "era", "year", "month", "week", "day", "weekday", 
+        "sun", "mon", "tue", "wed", "thu", "fri", "sat", 
+        "dayperiod", "hour", "minute", "second", 
+        "zone").freeze();
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
         "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();

@@ -73,8 +73,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%territory40" value="(BR|CN|DE|GB|FR|IN|IT|JP|RU|US)"/>
 		<coverageVariable key="%territory60" value="(AT|AU|BE|CA|CH|DK|ES|FI|GR|HK|ID|IE|KR|MX|NL|NO|PL|PT|SA|SE|TH|TR|TW|ZA)"/>
 		<coverageVariable key="%territory60_EU" value="(CZ|EE|HU|LT|LU|LV|MT|SI|SK)"/>
-    		<coverageVariable key="%territory80" value="(0(0[12359]|1[1345789]|2[19]|3[0459]|5[347]|61)|1(4[235]|5[01459])|419|A[CDEFGILMOQRSTUWXZ]|B[ABDEFGHIJLMNOQRSTUVWYZ]|C[ACDFGHIKLMNOPRUVWXYZ]|D[EGJKMOZ]|E[ACEGHRSTU]|F[IJKMOR]|G[ABDEFGHILMNPQRSTUWY]|H[KMNRTU]|I[CDELMNOQRST]|J[EMOP]|K[EGHIMNPRWYZ]|L[ABCIKRSTUVY]|M[ACDEFGHKLMNOPQRSTUVWXYZ]|N[ACEFGILOPRUZ]|OM|P[AEFGHKLMNRSTWY]|Q[AO]|R[EOSUW]|S[ABCDEGHIJKLMNORSTVXYZ]|T[ACDFGHJKLMNOPRTVWZ]|U[AGMSYZ]|V[ACEGINU]|W[FS]|Y[ET]|Z[AMWZ])"/>
-    		<coverageVariable key="%territory100" value="AN"/>
+		<coverageVariable key="%territory80" value="(0(0[12359]|1[1345789]|2[19]|3[0459]|5[347]|61)|1(4[235]|5[01459])|419|A[CDEFGILMOQRSTUWXZ]|B[ABDEFGHIJLMNOQRSTUVWYZ]|C[ACDFGHIKLMNOPRUVWXYZ]|D[EGJKMOZ]|E[ACEGHRSTU]|F[IJKMOR]|G[ABDEFGHILMNPQRSTUWY]|H[KMNRTU]|I[CDELMNOQRST]|J[EMOP]|K[EGHIMNPRWYZ]|L[ABCIKRSTUVY]|M[ACDEFGHKLMNOPQRSTUVWXYZ]|N[ACEFGILOPRUZ]|OM|P[AEFGHKLMNRSTWY]|Q[AO]|R[EOSUW]|S[ABCDEGHIJKLMNORSTVXYZ]|T[ACDFGHJKLMNOPRTVWZ]|U[AGMSYZ]|V[ACEGINU]|W[FS]|Y[ET]|Z[AMWZ])"/>
+		<coverageVariable key="%territory100" value="AN"/>
 		<coverageVariable key="%traditionalCollationLanguages" value="(bn|es|kn|sa)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
 		<coverageVariable key="%wideNarrow" value="(wide|narrow)"/>
@@ -86,6 +86,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="20" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='format']/dayWidth[@type='%wideAbbr']/day[@type='%dayTypes']"/>
 		<coverageLevel value="20" match="dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='format']/monthWidth[@type='%wideAbbr']/month[@type='[^']++']"/>
 		<coverageLevel value="20" match="dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='%shortLong']/dateFormat%stdPattern"/>
+		<coverageLevel value="20" match="dates/calendars/calendar[@type='generic']/dateFormats/dateFormatLength[@type='%shortLong']/dateFormat%stdPattern"/>
 		<coverageLevel value="20" match="dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='%medLong']/timeFormat%stdPattern"/>
 		<coverageLevel value="20" match="numbers/symbols[@numberSystem='latn']/(decimal|group)"/>
 		<coverageLevel value="20" match="posix/messages/(yes|no)str"/>
@@ -117,25 +118,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%CJK_Languages" value="30" match="localeDisplayNames/types/type[@type='fullwide'][@key='numbers']"/>
 		<coverageLevel inScript="Geor" value="30" match="localeDisplayNames/types/type[@type='geor'][@key='numbers']"/>
 		<coverageLevel inScript="Grek" value="30" match="localeDisplayNames/types/type[@type='grek(low)?'][@key='numbers']"/>
- 		<coverageLevel inScript="Gujr" value="30" match="localeDisplayNames/types/type[@type='gujr'][@key='numbers']"/>
- 		<coverageLevel inScript="Guru" value="30" match="localeDisplayNames/types/type[@type='guru'][@key='numbers']"/>
- 		<coverageLevel inLanguage="zh" value="30" match="localeDisplayNames/types/type[@type='(han(s|t)(fin)?|hanidec)'][@key='numbers']"/>
- 		<coverageLevel inScript="Hebr" value="30" match="localeDisplayNames/types/type[@type='hebr'][@key='numbers']"/>
- 		<coverageLevel inScript="Guru" value="30" match="localeDisplayNames/types/type[@type='guru'][@key='numbers']"/>
- 		<coverageLevel inLanguage="ja" value="30" match="localeDisplayNames/types/type[@type='jpan(fin)?'][@key='numbers']"/>
- 		<coverageLevel inScript="Khmr" value="30" match="localeDisplayNames/types/type[@type='khmr'][@key='numbers']"/>
- 		<coverageLevel inScript="Knda" value="30" match="localeDisplayNames/types/type[@type='knda'][@key='numbers']"/>
- 		<coverageLevel inScript="Laoo" value="30" match="localeDisplayNames/types/type[@type='laoo'][@key='numbers']"/>
- 		<coverageLevel value="30" match="localeDisplayNames/types/type[@type='latn'][@key='numbers']"/>
- 		<coverageLevel inScript="Mong" value="30" match="localeDisplayNames/types/type[@type='mong'][@key='numbers']"/>
- 		<coverageLevel inScript="Mlym" value="30" match="localeDisplayNames/types/type[@type='mlym'][@key='numbers']"/>
- 		<coverageLevel inScript="Mymr" value="30" match="localeDisplayNames/types/type[@type='mymr(shan)?'][@key='numbers']"/>
- 		<coverageLevel inScript="Orya" value="30" match="localeDisplayNames/types/type[@type='orya'][@key='numbers']"/>
- 		<coverageLevel inScript="Taml" value="30" match="localeDisplayNames/types/type[@type='taml'][@key='numbers']"/>
- 		<coverageLevel inScript="Telu" value="30" match="localeDisplayNames/types/type[@type='telu'][@key='numbers']"/>
- 		<coverageLevel inScript="Thai" value="30" match="localeDisplayNames/types/type[@type='thai'][@key='numbers']"/>
- 		<coverageLevel inScript="Tibt" value="30" match="localeDisplayNames/types/type[@type='tibt'][@key='numbers']"/>
- 		<coverageLevel inLanguage="vai" value="30" match="localeDisplayNames/types/type[@type='vaii'][@key='numbers']"/>
+		<coverageLevel inScript="Gujr" value="30" match="localeDisplayNames/types/type[@type='gujr'][@key='numbers']"/>
+		<coverageLevel inScript="Guru" value="30" match="localeDisplayNames/types/type[@type='guru'][@key='numbers']"/>
+		<coverageLevel inLanguage="zh" value="30" match="localeDisplayNames/types/type[@type='(han(s|t)(fin)?|hanidec)'][@key='numbers']"/>
+		<coverageLevel inScript="Hebr" value="30" match="localeDisplayNames/types/type[@type='hebr'][@key='numbers']"/>
+		<coverageLevel inScript="Guru" value="30" match="localeDisplayNames/types/type[@type='guru'][@key='numbers']"/>
+		<coverageLevel inLanguage="ja" value="30" match="localeDisplayNames/types/type[@type='jpan(fin)?'][@key='numbers']"/>
+		<coverageLevel inScript="Khmr" value="30" match="localeDisplayNames/types/type[@type='khmr'][@key='numbers']"/>
+		<coverageLevel inScript="Knda" value="30" match="localeDisplayNames/types/type[@type='knda'][@key='numbers']"/>
+		<coverageLevel inScript="Laoo" value="30" match="localeDisplayNames/types/type[@type='laoo'][@key='numbers']"/>
+		<coverageLevel value="30" match="localeDisplayNames/types/type[@type='latn'][@key='numbers']"/>
+		<coverageLevel inScript="Mong" value="30" match="localeDisplayNames/types/type[@type='mong'][@key='numbers']"/>
+		<coverageLevel inScript="Mlym" value="30" match="localeDisplayNames/types/type[@type='mlym'][@key='numbers']"/>
+		<coverageLevel inScript="Mymr" value="30" match="localeDisplayNames/types/type[@type='mymr(shan)?'][@key='numbers']"/>
+		<coverageLevel inScript="Orya" value="30" match="localeDisplayNames/types/type[@type='orya'][@key='numbers']"/>
+		<coverageLevel inScript="Taml" value="30" match="localeDisplayNames/types/type[@type='taml'][@key='numbers']"/>
+		<coverageLevel inScript="Telu" value="30" match="localeDisplayNames/types/type[@type='telu'][@key='numbers']"/>
+		<coverageLevel inScript="Thai" value="30" match="localeDisplayNames/types/type[@type='thai'][@key='numbers']"/>
+		<coverageLevel inScript="Tibt" value="30" match="localeDisplayNames/types/type[@type='tibt'][@key='numbers']"/>
+		<coverageLevel inLanguage="vai" value="30" match="localeDisplayNames/types/type[@type='vaii'][@key='numbers']"/>
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='%currency30']/displayName([@count='${Target-Plurals}'])?"/>
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='${Target-Currencies}']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="30" match="numbers/percentFormats[@numberSystem='latn']/percentFormatLength/percentFormat%stdPattern"/>
@@ -164,6 +165,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
+		<coverageLevel value="30" match="dates/calendars/calendar[@type='generic']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
+		<coverageLevel value="30" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
+		<coverageLevel value="30" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatFallback"/>
 		<coverageLevel value="30" match="dates/timeZoneNames/zone[@type='${Target-TimeZones}']/exemplarCity"/>
 		<coverageLevel value="30" match="dates/timeZoneNames/zone[@type='Etc/Unknown']/exemplarCity"/>
 		<coverageLevel value="30" match="dates/timeZoneNames/(fallback(Region)?|gmt(Zero)?|region|hour)Format"/>
@@ -173,7 +177,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='[^']++']/timeFormat%stdPattern"/>
 		<coverageLevel inTerritory="TH" value="30" match="dates/calendars/calendar[@type='buddhist']/eras/eraAbbr/era[@type='0']"/>
-		<coverageLevel inTerritory="TH" value="30" match="dates/calendars/calendar[@type='buddhist']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
+		<coverageLevel inTerritory="TH" value="60" match="dates/calendars/calendar[@type='buddhist']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="AR" value="30" match="dates/timeZoneNames/metazone[@type='%metazone30_AR']/long/%metazoneTypes"/>
 		<coverageLevel inTerritory="AU" value="30" match="dates/timeZoneNames/metazone[@type='%metazone30_AU']/long/%metazoneTypes"/>
 		<coverageLevel inTerritory="AU" value="30" match="dates/timeZoneNames/metazone[@type='%metazone30_AU_stdonly']/long/standard"/>
@@ -194,7 +198,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="40" match="localeDisplayNames/localeDisplayPattern/locale((KeyType)?Pattern|Separator)"/>
 		<coverageLevel value="40" match="numbers/currencyFormats[@numberSystem='latn']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="40" match="numbers/currencies/currency[@type='%currency40']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
-        <coverageLevel value="40" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='[^']++']"/>
+		<coverageLevel value="40" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='[^']++']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='%contextTypes']/quarterWidth[@type='%allWidths']/quarter[@type='[^']++']"/>
 		<coverageLevel value="40" match="dates/fields/field[@type='(day|week|month|year)']/relative[@type='(\-?1|0)']"/>
 		<coverageLevel value="40" match="dates/fields/field[@type='[^']++']/displayName"/>
@@ -204,22 +208,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="ET" value="40" match="dates/calendars/calendar[@type='ethiopic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='[^']++']"/>
-        	<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='7'][@yeartype='leap']"/>
+		<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='7'][@yeartype='leap']"/>
 		<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="IN" value="40" match="dates/calendars/calendar[@type='indian']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel inTerritory="IN" value="40" match="dates/calendars/calendar[@type='indian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="%islamicCalendarTerritories" value="40" match="dates/calendars/calendar[@type='islamic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="%islamicCalendarTerritories" value="40" match="dates/calendars/calendar[@type='islamic']/eras/eraAbbr/era[@type='0']"/>
-		<coverageLevel inTerritory="%islamicCalendarTerritories" value="40" match="dates/calendars/calendar[@type='islamic']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
+		<coverageLevel inTerritory="%islamicCalendarTerritories" value="60" match="dates/calendars/calendar[@type='islamic']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/eras/era(Abbr|Narrow)/era[@type='[0-9]++']"/>
-		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
-		<coverageLevel inTerritory="JP" value="40" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
+		<coverageLevel inTerritory="JP" value="60" match="dates/calendars/calendar[@type='japanese']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
+		<coverageLevel inTerritory="JP" value="60" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
 		<coverageLevel inTerritory="KR" value="40" match="dates/calendars/calendar[@type='dangi']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="KR" value="40" match="dates/calendars/calendar[@type='dangi']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="%persianCalendarTerritories" value="40" match="dates/calendars/calendar[@type='persian']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel inTerritory="%persianCalendarTerritories" value="40" match="dates/calendars/calendar[@type='persian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="TW" value="40" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
-		<coverageLevel inTerritory="TW" value="40" match="dates/calendars/calendar[@type='roc']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
+		<coverageLevel inTerritory="TW" value="60" match="dates/calendars/calendar[@type='roc']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='%metazone40']/long/%metazoneTypes"/>
 		<coverageLevel value="40" match="dates/timeZoneNames/metazone[@type='GMT']/long/standard"/>
 		<coverageLevel value="40" match="delimiters/(alternateQ|q)uotation(Start|End)"/>
@@ -244,44 +248,47 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="60" match="numbers/currencies/currency[@type='%currency60']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='%currency60_EU']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-		<coverageLevel inTerritory="TH" value="60" match="dates/calendars/calendar[@type='buddhist']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-		<coverageLevel inTerritory="%islamicCalendarTerritories" value="60" match="dates/calendars/calendar[@type='islamic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-		<coverageLevel inTerritory="JP" value="60" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-		<coverageLevel inTerritory="TW" value="60" match="dates/calendars/calendar[@type='roc']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel value="60" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel inTerritory="TH" value="80" match="dates/calendars/calendar[@type='buddhist']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel inTerritory="%islamicCalendarTerritories" value="80" match="dates/calendars/calendar[@type='islamic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel inTerritory="JP" value="80" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel inTerritory="TW" value="80" match="dates/calendars/calendar[@type='roc']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatItems']/greatestDifference[@id='[^']++']"/>
+		<coverageLevel value="60" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatItems']/greatestDifference[@id='[^']++']"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/%metazoneTypes"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='%metazone60_stdonly']/long/standard"/>
 		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='%language80']([@alt='%shortVariant'])?"/> 
 		<coverageLevel value="80" match="localeDisplayNames/scripts/script[@type='%script80']"/>
-    		<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='%territory80']([@alt='%shortVariant'])?"/>
+		<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='%territory80']([@alt='%shortVariant'])?"/>
 		<coverageLevel value="80" match="localeDisplayNames/keys/key[@type='(calendar|collation|currency|numbers)']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='(ducet|search)'][@key='collation']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='%numberingSystem80'][@key='numbers']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
+		<coverageLevel value="80" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='day']/relative[@type='\-?(2|3)']"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/%metazoneTypes"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80_stdonly']/long/standard"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='[^']++']/exemplarCity"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='Europe/(Dublin|London)']/(long|short)/daylight"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
-	        <coverageLevel value="80" match="dates/calendars/calendar[@type='[^']++']/dayPeriods/dayPeriodContext\\[@type='format']"/>
+		<coverageLevel value="80" match="dates/calendars/calendar[@type='[^']++']/dayPeriods/dayPeriodContext\\[@type='format']"/>
 		<coverageLevel value="80" match="characters/ellipsis[@type='[^']++']"/>
 		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='${Target-Plurals}']"/>
 		<coverageLevel value="100" match="characters/stopwords/stopwordList[@type='[^']++']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='[^']++']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|chinese|dangi|hebrew|islamic|japanese|roc)']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|islamic|japanese|roc)']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/cyclicNameSets/cyclicNameSet[@type='(dayParts|years|zodiacs)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='[^']++']"/>
-        	<coverageLevel value="100" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='7'][@yeartype='leap']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='[^']++']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|chinese|dangi|hebrew|islamic|japanese|roc)']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='[^']++']/dateTimeFormat%stdPattern"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|islamic|japanese|roc)']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/cyclicNameSets/cyclicNameSet[@type='(dayParts|years|zodiacs)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='[^']++']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='7'][@yeartype='leap']"/>
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='%language100']([@alt='%shortVariant'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/scripts/script[@type='%script100']"/>
-    		<coverageLevel value="100" match="localeDisplayNames/territories/territory[@type='%territory100']([@alt='%shortVariant'])?"/>
+		<coverageLevel value="100" match="localeDisplayNames/territories/territory[@type='%territory100']([@alt='%shortVariant'])?"/>
 		<coverageLevel value="100" match="localeDisplayNames/variants/variant[@type='[^']++']"/>
 		<coverageLevel value="100" match="localeDisplayNames/keys/key[@type='[^']++']"/>
 		<coverageLevel value="100" match="localeDisplayNames/types/type[@type='[^']++'][@key='[^']++']"/>

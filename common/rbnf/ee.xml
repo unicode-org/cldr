@@ -18,7 +18,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <rulesetGrouping type="SpelloutRules">
             <ruleset type="spellout-numbering-year">
 				<rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
-                <rbnfrule value="0">ƒe =%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
@@ -83,14 +83,16 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal">
-                <rbnfrule value="-x">→→ xlẽyimegbee;</rbnfrule>
-                <rbnfrule value="x.x">←← ewoliawo ƒe →→;</rbnfrule>
+                <rbnfrule value="-x">→→ xlẽyimegbee;</rbnfrule>
+                <rbnfrule value="0.x">kakɛ →→;</rbnfrule>
+                <rbnfrule value="x.x">←← kple kakɛ →→;</rbnfrule>
                 <rbnfrule value="0">ɖekeo;</rbnfrule>
                 <rbnfrule value="1">ɖeka;</rbnfrule>
                 <rbnfrule value="2">=%%spellout-base=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">
-                <rbnfrule value="-x">→→ xlẽyimegbee;</rbnfrule>
+                <rbnfrule value="-x">→→ xlẽyimegbee;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.0=lia;</rbnfrule>
                 <rbnfrule value="0">ɖekeolia;</rbnfrule>
                 <rbnfrule value="1">gbãtɔ;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal=lia;</rbnfrule>

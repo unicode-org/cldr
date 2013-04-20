@@ -3736,8 +3736,8 @@ function showV() {
 								loclink.href='#';
 								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName,"h3","v-title2"));
 
-								if(json.oldvotes.contested.length > 0 || json.oldvotes.uncontested > 0) {
-									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested,  contested: json.oldvotes.contested.length }),"p","info"));
+								if(json.oldvotes.contested.length > 0 || json.oldvotes.uncontested.length > 0) {
+									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length }),"p","info"));
 
 									if(json.oldvotes.contested.length > 0) {
 
@@ -3748,6 +3748,7 @@ function showV() {
 										{
 											var tr = document.createElement("tr");
 											tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
+											tr.appendChild(createChunk(json.BASELINE_LANGUAGE_NAME,"th","v-comp"));
 											tr.appendChild(createChunk(stui.str("v_oldvotes_winning"),"th","v-win"));
 											tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
 											var accept;
@@ -3774,6 +3775,8 @@ function showV() {
 											var tr = document.createElement("tr");
 											var tdp;
 											tr.appendChild(tdp = createChunk(row.pathHeader,"td","v-path"));
+											var td00 = createChunk(row.baseValue,"td","v-comp"); // english
+											tr.appendChild(td00);
 											var td0 = createChunk("","td","v-win");
 											if(row.winValue) {
 												var span0 = appendItem(td0, row.winValue, "winner");
@@ -3821,7 +3824,7 @@ function showV() {
 										t.appendChild(tb);
 										theDiv.appendChild(t);
 
-										theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested,  contested: json.oldvotes.contested.length }),"p","info"));
+										theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length }),"p","info"));
 									} else {
 										theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_contested"),"i",""));
 									}

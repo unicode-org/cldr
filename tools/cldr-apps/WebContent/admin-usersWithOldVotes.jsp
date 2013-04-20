@@ -38,7 +38,7 @@ String votesAfterSQL = SurveyMain.getSQLVotesAfter();
   
 %>
 
-<h2>people with old votes</h2>
+<h2><%= votesAfterSQL %></h2>
 <ol>
     <% for(java.util.Map m : rows) {
     	UserRegistry.User u = sm.reg.getInfo((Integer)m.get("id"));

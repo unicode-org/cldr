@@ -3,20 +3,18 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,17 +24,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONTokener;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.test.CheckCLDR.StatusAction;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
-import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
@@ -757,7 +753,7 @@ public class SurveyAjax extends HttpServlet {
                                     {
                                         String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < "+votesAfterSQL+" and value is not null";
                                         Map rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
-                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+//                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
         
                                         JSONArray contested = new JSONArray();
                                     
@@ -821,24 +817,57 @@ public class SurveyAjax extends HttpServlet {
                                 
                                     String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < "+votesAfterSQL+" and value is not null";
                                     Map rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
-                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
+//                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
     
-                                    int uncontested = 0;
+                                    // extract the pathheaders
+                                    for(int i=0;i<rows.length;i++) {
+                                        Map m = rows[i];
+                                        int xp = (Integer)m.get("xpath");
+                                        String xpathString = sm.xpt.getById(xp);
+                                        m.put("pathHeader", fac.getPathHeader(xpathString));
+                                    }
+                                    
+                                    // sort by pathheader
+                                    Arrays.sort(rows, new Comparator<Map>() {
+
+                                        @Override
+                                        public int compare(Map o1, Map o2) {
+                                            return ((PathHeader)o1.get("pathHeader")).compareTo((PathHeader)o2.get("pathHeader"));
+                                        }
+                                    });
+                                    
+                                    JSONArray uncontested = new JSONArray();
                                     JSONArray contested = new JSONArray();
                                 
+                                    CLDRFile baseF = sm.getBaselineFile();
                                 
+                                    CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
+                                    
                                     for(Map m : rows) {
                                         String value = m.get("value").toString();
                                         if(value==null) continue; // ignore unvotes.
+                                        PathHeader pathHeader = (PathHeader)m.get("pathHeader");
+//                                        System.err.println("PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
+                                        if(pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE) {
+                                            continue; // skip these
+                                        }
                                         int xp = (Integer)m.get("xpath");
                                         String xpathString = sm.xpt.getById(xp);
+                                        if(cov.getIntLevel(xpathString) > Level.COMPREHENSIVE.getLevel()) {
+                                            //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
+                                            continue; // out of coverage
+                                        }
                                         String xpathStringHash = sm.xpt.getStringIDString(xp);
-                                    
                                         String curValue = file.getStringValue(xpathString);
+                                        JSONObject aRow = new JSONObject()
+                                                .put("strid", xpathStringHash)
+                                                .put("myValue", value)
+                                                .put("winValue", curValue)
+                                                .put("baseValue", baseF.getStringValue(xpathString))
+                                                .put("pathHeader", pathHeader.toString());
                                         if(value.equals(curValue)) {
-                                            uncontested++;
+                                            uncontested.put(aRow);
                                         } else {
-                                            JSONObject aRow = new JSONObject().put("strid", xpathStringHash).put("myValue", value).put("winValue", curValue).put("pathHeader", fac.getPathHeader(xpathString).toString());
                                             contested.put(aRow);
                                         }
                                     }
@@ -849,6 +878,9 @@ public class SurveyAjax extends HttpServlet {
                             }
                         
                             r.put("oldvotes", oldvotes);
+                            
+                            r.put("BASELINE_LANGUAGE_NAME", sm.BASELINE_LANGUAGE_NAME);
+                            r.put("BASELINE_ID", sm.BASELINE_ID);
                         }
 
                         send(r, out);

@@ -26,7 +26,7 @@
 //ldml/localeDisplayNames/scripts/script[@type="%A"]                        ; Code Lists ; Scripts ; &categoryFromScript($1) ; $1
 //ldml/localeDisplayNames/territories/territory[@type="%A"]                 ; Code Lists ; Territories ; &categoryFromTerritory($1) ; $1
 # Hide Etc/GMT[+-]...
-//ldml/dates/timeZoneNames/zone[@type="Etc/GMT.*"]/exemplarCity                  ; Special  ; Suppress ; GMT ; DEPRECATED
+//ldml/dates/timeZoneNames/zone[@type="Etc/GMT.*"]/exemplarCity                  ; Special  ; Suppress ; GMT ; GMT ; HIDE
 //ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity                  ; Code Lists ; Timezone Cities ; &categoryFromTimezone($1/$2) ; $2
 //ldml/localeDisplayNames/variants/variant[@type="%A"]                      ; Code Lists ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                              ; Code Lists ; Keys ; $1 ; $1

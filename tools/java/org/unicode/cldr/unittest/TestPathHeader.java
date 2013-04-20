@@ -79,7 +79,7 @@ public class TestPathHeader extends TestFmwk {
         String test = "//ldml/numbers/miscPatterns[@numberSystem=\"arab\"]/pattern[@type=\"atLeast\"]";
         PathHeader ph = pathHeaderFactory.fromPath(test);
         assertNotNull("MiscPatterns path not found", ph);
-        System.out.println(english.getStringValue(test));
+        if(false) System.out.println(english.getStringValue(test));
     }
 
     public void TestPluralOrder() {
@@ -370,6 +370,11 @@ public class TestPathHeader extends TestFmwk {
 
             PathHeader p = pathHeaderFactory.fromPath(path);
             final SurveyToolStatus surveyToolStatus = p.getSurveyToolStatus();
+            
+            if(p.getSectionId()==SectionId.Special && surveyToolStatus == SurveyToolStatus.READ_WRITE) {
+                errln("SurveyToolStatus should not be " + surveyToolStatus + ": " + p);
+            }
+            
             final SurveyToolStatus tempSTS = surveyToolStatus == SurveyToolStatus.DEPRECATED ? SurveyToolStatus.HIDE
                 : surveyToolStatus;
             String starred = starrer.set(path);

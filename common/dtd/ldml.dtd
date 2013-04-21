@@ -833,6 +833,7 @@ $Date$
 <!ATTLIST gmtZeroFormat references CDATA #IMPLIED >
 
 <!ELEMENT regionFormat ( #PCDATA ) >
+<!ATTLIST regionFormat type ( standard | daylight ) #IMPLIED >
 <!ATTLIST regionFormat alt NMTOKENS #IMPLIED >
 <!ATTLIST regionFormat draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST regionFormat references CDATA #IMPLIED >

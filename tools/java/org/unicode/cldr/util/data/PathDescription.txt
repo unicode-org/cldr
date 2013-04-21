@@ -44,6 +44,9 @@
 ^//ldml/numbers/defaultNumberingSystem  ;   The default numbering system used in this locale. For more information, please see http://cldr.org/translation/numbering-systems.
 ^//ldml/numbers/otherNumberingSystems/(\w++)  ;   The {1} numbering system used in this locale. For more information, please see http://cldr.org/translation/numbering-systems.
 
+^//ldml/dates/timeZoneNames/regionFormat\[@type="standard"]  ;   The pattern used to compose standard (winter) fallback time zone names, such as 'Germany Winter Time'. Note: before translating, be sure to read http://cldr.org/translation/timezones.
+^//ldml/dates/timeZoneNames/regionFormat\[@type="daylight"]  ;   The pattern used to compose daylight (summer) fallback time zone names, such as 'Germany Summer Time'. Note: before translating, be sure to read http://cldr.org/translation/timezones.
+^//ldml/dates/timeZoneNames/regionFormat  ;   The pattern used to compose generic fallback time zone names, such as 'Germany Time'. Note: before translating, be sure to read http://cldr.org/translation/timezones.
 ^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmt|hour|region)Format  ;   The {1} pattern used to compose time zone names. Note: before translating, be sure to read http://cldr.org/translation/timezones.
 
 ^//ldml/units/compoundUnit\[@type="([^"]*)"]/unitPattern.*\[@alt="short"] ; [ICU Syntax] Special pattern used to compose two units (“{1}”) such as m/s (meters per second). Note: before translating, be sure to read http://cldr.org/translation/plurals.

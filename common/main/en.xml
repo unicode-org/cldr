@@ -2200,6 +2200,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>{0} Time</regionFormat>
+			<regionFormat type="standard">{0} Standard Time</regionFormat>
+			<regionFormat type="daylight">{0} Daylight Time</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Unknown City</exemplarCity>

@@ -119,7 +119,8 @@ public class TimezoneFormatter extends UFormat {
 
     private transient SimpleDateFormat hourFormatPlus = new SimpleDateFormat();
     private transient SimpleDateFormat hourFormatMinus = new SimpleDateFormat();
-    private transient MessageFormat hoursFormat, gmtFormat, regionFormat, fallbackFormat;
+    private transient MessageFormat hoursFormat, gmtFormat, regionFormat, 
+        regionFormatStandard, regionFormatDaylight, fallbackFormat;
     private transient String abbreviationFallback, preferenceOrdering;
     private transient Set singleCountriesSet;
 
@@ -163,6 +164,8 @@ public class TimezoneFormatter extends UFormat {
         hourFormatMinus.applyPattern(hourFormatStrings[1]);
         gmtFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/gmtFormat"));
         regionFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/regionFormat"));
+        regionFormatStandard = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/regionFormat[@type=\"standard\"]"));
+        regionFormatDaylight = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/regionFormat[@type=\"daylight\"]"));
         fallbackFormat = new MessageFormat(getStringValue("//ldml/dates/timeZoneNames/fallbackFormat"));
         checkForDraft("//ldml/dates/timeZoneNames/singleCountries");
         // default value if not in root. Only needed for CLDR 1.3
@@ -390,47 +393,18 @@ public class TimezoneFormatter extends UFormat {
             // {1} will be the metazone
             // {0} will be a qualifier (city or country)
             // Example: Pacific Time (Phoenix)
+            
+            if (length == Length.LONG) {
+                return getRegionFallback(zoneid, 
+                        type == Type.GENERIC || noTimezoneChangeWithin184Days ? regionFormat 
+                                : daylight ? regionFormatDaylight : regionFormatStandard);
+            }
             return null;
+
         case LOCATION:
 
             // 6.1 For the generic location format:
-            // Use as the country name, the explicitly localized country if available, otherwise the raw country code.
-            // If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID,
-            // stripping off the prefix and turning _ into space.
-            // CU → "CU" // no localized country name for Cuba
-
-            // CLARIFY that above applies to 5.3.2 also!
-
-            // America/Los_Angeles → "Los Angeles" // no localized exemplar city
-            // From <timezoneData> get the country code for the zone, and determine whether there is only one timezone
-            // in the country.
-            // If there is only one timezone or the zone id is in the singleCountries list,
-            // format the country name with the regionFormat (for example, "{0} Time"), and return it.
-            // Europe/Rome → IT → Italy Time // for English
-            // Africa/Monrovia → LR → "Hora de Liberja"
-            // America/Havana → CU → "Hora de CU" // if CU is not localized
-            // Note: If a language does require grammatical changes when composing strings, then it should either use a
-            // neutral format such as what is in root, or put all exceptional cases in explicitly translated strings.
-            //
-
-            String zoneIdsCountry = TimeZone.getRegion(zoneid);
-            if (zoneIdsCountry != null) {
-                String[] zonesInRegion = TimeZone.getAvailableIDs(zoneIdsCountry);
-                if (zonesInRegion != null && zonesInRegion.length == 1 || singleCountriesSet.contains(zoneid)) {
-                    String countryName = getLocalizedCountryName(zoneIdsCountry);
-                    return regionFormat.format(new Object[] { countryName });
-                }
-            }
-            // Note: <timezoneData> may not have data for new TZIDs.
-            //
-            // If the country for the zone cannot be resolved, format the exemplar city
-            // (it is unlikely that the localized exemplar city is available in this case,
-            // so the exemplar city might be composed by the last field of the raw TZID as described above)
-            // with the regionFormat (for example, "{0} Time"), and return it.
-            // ***FIX by changing to: if the country can't be resolved, or the zonesInRegion are not unique
-
-            String cityName = getLocalizedExemplarCity(zoneid);
-            return regionFormat.format(new Object[] { cityName });
+            return getRegionFallback(zoneid, regionFormat);
 
             // FIX examples
             // Otherwise, get both the exemplar city and country name. Format them with the fallbackRegionFormat (for
@@ -447,6 +421,46 @@ public class TimezoneFormatter extends UFormat {
             // // if both are not translated.
             // Note: As with the regionFormat, exceptional cases need to be explicitly translated.
         }
+    }
+
+    private String getRegionFallback(String zoneid, MessageFormat regionFallbackFormat) {
+        // Use as the country name, the explicitly localized country if available, otherwise the raw country code.
+        // If the localized exemplar city is not available, use as the exemplar city the last field of the raw TZID,
+        // stripping off the prefix and turning _ into space.
+        // CU → "CU" // no localized country name for Cuba
+
+        // CLARIFY that above applies to 5.3.2 also!
+
+        // America/Los_Angeles → "Los Angeles" // no localized exemplar city
+        // From <timezoneData> get the country code for the zone, and determine whether there is only one timezone
+        // in the country.
+        // If there is only one timezone or the zone id is in the singleCountries list,
+        // format the country name with the regionFormat (for example, "{0} Time"), and return it.
+        // Europe/Rome → IT → Italy Time // for English
+        // Africa/Monrovia → LR → "Hora de Liberja"
+        // America/Havana → CU → "Hora de CU" // if CU is not localized
+        // Note: If a language does require grammatical changes when composing strings, then it should either use a
+        // neutral format such as what is in root, or put all exceptional cases in explicitly translated strings.
+        //
+
+        // Note: <timezoneData> may not have data for new TZIDs.
+        //
+        // If the country for the zone cannot be resolved, format the exemplar city
+        // (it is unlikely that the localized exemplar city is available in this case,
+        // so the exemplar city might be composed by the last field of the raw TZID as described above)
+        // with the regionFormat (for example, "{0} Time"), and return it.
+        // ***FIX by changing to: if the country can't be resolved, or the zonesInRegion are not unique
+        
+        String zoneIdsCountry = TimeZone.getRegion(zoneid);
+        if (zoneIdsCountry != null) {
+            String[] zonesInRegion = TimeZone.getAvailableIDs(zoneIdsCountry);
+            if (zonesInRegion != null && zonesInRegion.length == 1 || singleCountriesSet.contains(zoneid)) {
+                String countryName = getLocalizedCountryName(zoneIdsCountry);
+                return  regionFallbackFormat.format(new Object[] { countryName });
+            }
+        }
+        String cityName = getLocalizedExemplarCity(zoneid);
+        return regionFallbackFormat.format(new Object[] { cityName });
     }
 
     public boolean noTimezoneChangeWithin184Days(BasicTimeZone timeZone, long date) {

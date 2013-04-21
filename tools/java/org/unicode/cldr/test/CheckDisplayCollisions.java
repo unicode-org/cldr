@@ -90,7 +90,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     transient static final int[] otherOffsets = new int[2];
     static final boolean SKIP_TYPE_CHECK = true;
 
-    Matcher exclusions = Pattern.compile("XXXX").matcher(""); // no matches
+    Matcher exclusions = Pattern.compile("\\[@alt=\"narrow\"]").matcher(""); // no matches
     Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*+)\"]").matcher("");
     Matcher attributesToIgnore = Pattern.compile("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
     Matcher compactNumberAttributesToIgnore = Pattern.compile("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
@@ -235,6 +235,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 } else {
                     collidingTypes.remove(typePattern.group(1));
                 }
+                
                 // check one last time...
                 if (collidingTypes.isEmpty()) {
                     return this;

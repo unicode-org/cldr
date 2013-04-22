@@ -63,6 +63,9 @@ public class XMLFileReader {
 
         public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
         };
+        
+        public void handleEndDtd() {
+        };
     }
 
     public XMLFileReader setHandler(SimpleHandler simpleHandler) {
@@ -110,7 +113,9 @@ public class XMLFileReader {
             }
             InputSource is = new InputSource(reader);
             is.setSystemId(systemID);
-            xmlReader.parse(is);
+            try {
+                xmlReader.parse(is);
+            } catch (AbortException e) {} // ok
             reader.close();
             return this;
         } catch (SAXParseException e) {
@@ -172,6 +177,7 @@ public class XMLFileReader {
 
         public void endDTD() throws SAXException {
             if (SHOW_ALL) Log.logln("endDTD");
+            simpleHandler.handleEndDtd();
         }
 
         public void comment(char[] ch, int start, int length) throws SAXException {
@@ -296,6 +302,10 @@ public class XMLFileReader {
             if (SHOW_ALL) Log.logln("warning: " + showSAX(exception));
             throw exception;
         }
+    }
+    
+    static final class AbortException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
     }
 
     /**

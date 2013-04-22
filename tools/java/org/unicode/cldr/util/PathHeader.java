@@ -1030,6 +1030,15 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
+            functionMap.put("listOrder", new Transform<String, String>() {
+                private String[] listParts = {"2", "start", "middle", "end"};
+
+                @Override
+                public String transform(String source) {
+                    order = getIndex(source, listParts);
+                    return source;
+                }
+            });
         }
 
         private static int getIndex(String item, String[] array) {

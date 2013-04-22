@@ -103,8 +103,8 @@
 //ldml/units/compoundUnit[@type="%A"]/unitPattern[@count="%A"]                     ; Units ; Compound Units ; null; $1-&count($2) 
 
 ### Miscellaneous
-//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Regular Lists ; $1
-//ldml/listPatterns/listPattern[@type="duration"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Duration Lists ; $1
+//ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Regular Lists ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="duration"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Duration Lists ; &listOrder($)1
 
 //ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Linguistic Elements ; Ellipsis ; $1
 //ldml/delimiters/quotation%E                               ; Misc ; Linguistic Elements ; Quotation Marks ; $1

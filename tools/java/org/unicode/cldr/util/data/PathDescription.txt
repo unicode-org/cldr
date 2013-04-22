@@ -39,6 +39,9 @@
 ^//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator ;   The separator used to compose modifiers in locale (language) names. Note: before translating, be sure to read http://cldr.org/translation/localepattern.
 ^//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern    ;   The pattern used to compose key-type values in locale (language) names. Note: before translating, be sure to read http://cldr.org/translation/localepattern.
 
+^//ldml/layout/orientation/characterOrder   ;   Specifies the horizontal direction of text in the language. Valid values are "left-to-right" or "right-to-left". For more information, see http://cldr.org/translation/misc.
+^//ldml/layout/orientation/lineOrder   ;        Specifies the vertical direction of text in the language. Valid values are "top-to-bottom" or "bottom-to-top". For more information, see http://cldr.org/translation/misc.
+
 ^//ldml/numbers/symbols/(decimal|exponential|group|infinity|list|minusSign|nan|nativeZeroDigit|patternDigit|perMille|percentSign|plusSign)    ;   The {1} symbol used in the localized form of numbers. Note: before translating, be sure to read http://cldr.org/translation/number-symbols.
 ^//ldml/numbers/symbols\[@numberSystem="([a-z]*)"]/(decimal|exponential|group|infinity|list|minusSign|nan|nativeZeroDigit|patternDigit|perMille|percentSign|plusSign)    ;   The {2} symbol used in the {1} numbering system.. Note: before translating, be sure to read http://cldr.org/translation/number-symbols.
 ^//ldml/numbers/defaultNumberingSystem  ;   The default numbering system used in this locale. For more information, please see http://cldr.org/translation/numbering-systems.

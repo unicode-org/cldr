@@ -5136,17 +5136,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unitPattern count="one" alt="short">{0} km³</unitPattern>
 			<unitPattern count="other" alt="short">{0} km³</unitPattern>
 		</unit>
+        <unit type="volume-liter">
+            <unitPattern count="one">{0} liter</unitPattern>
+            <unitPattern count="other">{0} liters</unitPattern>
+            <unitPattern count="one" alt="short">{0} l</unitPattern>
+            <unitPattern count="other" alt="short">{0} l</unitPattern>
+        </unit>
 		<unit type="volume-mi3">
 			<unitPattern count="one">{0} cubic mile</unitPattern>
 			<unitPattern count="other">{0} cubic miles</unitPattern>
 			<unitPattern count="one" alt="short">{0} mi³</unitPattern>
 			<unitPattern count="other" alt="short">{0} mi³</unitPattern>
-		</unit>
-		<unit type="volume-quart">
-			<unitPattern count="one">{0} liter</unitPattern>
-			<unitPattern count="other">{0} liters</unitPattern>
-			<unitPattern count="one" alt="short">{0} l</unitPattern>
-			<unitPattern count="other" alt="short">{0} l</unitPattern>
 		</unit>
 		<unit type="power-hp">
 			<unitPattern count="one">{0} horsepower</unitPattern>

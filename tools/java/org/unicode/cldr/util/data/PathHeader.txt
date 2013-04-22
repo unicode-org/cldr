@@ -12,6 +12,8 @@
 %B = ([^"/]*+)
 %E = ([-a-zA-Z_]*)
 %S = ([^/]*+)
+%T = (millisecond|second|minute|hour|day|week|month|year)
+%W = (temperature|atmospheric-pressure)
 
 #RULES
 //ldml/identity/%E[@type="%A"]    ; Special ; Identity ; $1 ; $2 ; HIDE
@@ -22,109 +24,121 @@
 //ldml/(.*)/default$         ; Special ; Suppress ; Default ; $1 ; HIDE
 //ldml/(.*)/alias$           ; Special ; Suppress ; Alias ; $1 ; HIDE
 
-//ldml/localeDisplayNames/languages/language[@type="%A"]                    ; Code Lists ; Languages ; &scriptFromLanguage($1) ; $1
-//ldml/localeDisplayNames/scripts/script[@type="%A"]                        ; Code Lists ; Scripts ; &categoryFromScript($1) ; $1
-//ldml/localeDisplayNames/territories/territory[@type="%A"]                 ; Code Lists ; Territories ; &categoryFromTerritory($1) ; $1
+### Core Data
+//ldml/characters/exemplarCharacters$                       ; Core Data ; Alphabetic Information ; Characters in Use ; Main Letters; READ_ONLY
+//ldml/characters/exemplarCharacters[@type="%A"]            ; Core Data ; Alphabetic Information ; Characters in Use ; Others: $1; READ_ONLY
+//ldml/layout/orientation/(%E)                              ; Core Data ; Alphabetic Information ; Layout ; $1 ; READ_ONLY
+
+//ldml/numbers/(default)NumberingSystem                     ; Core Data ; Numbering Systems ; Numbering System ; $1 ; READ_ONLY
+//ldml/numbers/otherNumberingSystems/(%E)                   ; Core Data ; Numbering Systems ; Numbering System ; $1 ; READ_ONLY
+
+### Locale Display Names
+//ldml/localeDisplayNames/localeDisplayPattern/%E              ; Locale Display Names ; Locale Name Patterns ; Locale Formatting ; $1
+//ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"] ; Locale Display Names ; Locale Name Patterns ; Locale Field Fallbacks ; $1
+//ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; Languages ; &scriptFromLanguage($1) ; $1
+//ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
+//ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; Territories ; &categoryFromTerritory($1) ; $1
+//ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
+//ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; $1 ; $1
+//ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]    ; Locale Display Names ; Keys ; *$2 ; $2-$1
+
+### Date & Time Formatting
+//ldml/dates/fields/field[@type="%A"]/displayName                           ; DateTime ; Fields ; Date Fields ; $1
+//ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]                  ; DateTime ; Fields ; *$1-relative ; $2
+
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]                                                        ; DateTime ; &calendar($1) ; Eras: abbr ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNames/era[@type="%A"]                                                       ; DateTime ; &calendar($1) ; Eras: wide ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNarrow/era[@type="%A"]                                                      ; DateTime ; &calendar($1) ; Eras: narrow ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]    ; DateTime ; &calendar($1) ; Quarters: $2-$3 ; $4
+//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; DateTime ; &calendar($1) ; Months: $2-$3 ; &month($4) (leap)
+//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; DateTime ; &calendar($1) ; Months: $2-$3 ; &month($4)
+//ldml/dates/calendars/calendar[@type="%A"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; DateTime ; &calendar($1) ; Days: $2-$3 ; &day($4)
+//ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]  ; DateTime ; &calendar($1) ; Day Period: $2-$3 ; &day($4)
+
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; DateTime ; &calendar($1); Date Formats ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &titlecase($2) Formats ; $4
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; DateTime ; &calendar($1); Time Formats ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; Interval Formats ; Fallback
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; Interval Formats ; $2/$3
+
+//ldml/dates/calendars/calendar[@type="%A"]/cyclicNameSets/cyclicNameSet[@type="%A"]/cyclicNameContext[@type="%A"]/cyclicNameWidth[@type="%A"]/cyclicName[@type="%A"]   ; DateTime ; &calendar($1) ; $2 ; cyclic-$3-$4-$5
+//ldml/dates/calendars/calendar[@type="%A"]/monthPatterns/monthPatternContext[@type="%A"]/monthPatternWidth[@type="%A"]/monthPattern[@type="%A"]    ; DateTime ; &calendar($1) ; $2 ; $3-$4
+
+### Timezones
+
 # Hide Etc/GMT[+-]...
-//ldml/dates/timeZoneNames/zone[@type="Etc/GMT.*"]/exemplarCity                  ; Special  ; Suppress ; GMT ; GMT ; HIDE
-//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity                  ; Code Lists ; Timezone Cities ; &categoryFromTimezone($1/$2) ; $2
-//ldml/localeDisplayNames/variants/variant[@type="%A"]                      ; Code Lists ; Locale Variants ; null ; $1
-//ldml/localeDisplayNames/keys/key[@type="%A"]                              ; Code Lists ; Keys ; $1 ; $1
-//ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]                 ; Code Lists ; Keys ; *$2 ; $2-$1
-//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Code Lists ; Measurement Systems ; null ; $1
-
-//ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Code Lists ; Transforms ; null ; $1
-
-//ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; $1-symbol
-//ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; *$1-name
-//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Code Lists ; Currencies ; &categoryFromCurrency($1) ; *&count($1-$2)
-
-//ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]                                                        ; Calendars ; &calendar($1) ; Eras: abbr ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNames/era[@type="%A"]                                                       ; Calendars ; &calendar($1) ; Eras: wide ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNarrow/era[@type="%A"]                                                      ; Calendars ; &calendar($1) ; Eras: narrow ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]    ; Calendars ; &calendar($1) ; Quarters: $2-$3 ; $4
-//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; Calendars ; &calendar($1) ; Months: $2-$3 ; &month($4) (leap)
-//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; Calendars ; &calendar($1) ; Months: $2-$3 ; &month($4)
-//ldml/dates/calendars/calendar[@type="%A"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; Calendars ; &calendar($1) ; Days: $2-$3 ; &day($4)
-//ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="%A"]  ; Calendars ; &calendar($1) ; Day Period: $2-$3 ; &day($4)
-
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; Calendars ; &calendar($1); Date Formats ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; Calendars ; &calendar($1) ; &titlecase($2) Formats ; $4
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; Calendars ; &calendar($1); Time Formats ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; Calendars ; &calendar($1) ; Interval Formats ; Fallback
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; Calendars ; &calendar($1) ; Interval Formats ; $2/$3
-
-//ldml/dates/calendars/calendar[@type="%A"]/cyclicNameSets/cyclicNameSet[@type="%A"]/cyclicNameContext[@type="%A"]/cyclicNameWidth[@type="%A"]/cyclicName[@type="%A"]   ; Calendars ; &calendar($1) ; $2 ; cyclic-$3-$4-$5
-//ldml/dates/calendars/calendar[@type="%A"]/monthPatterns/monthPatternContext[@type="%A"]/monthPatternWidth[@type="%A"]/monthPattern[@type="%A"]    ; Calendars ; &calendar($1) ; $2 ; $3-$4
+//ldml/dates/timeZoneNames/zone[@type="Etc/GMT.*"]/exemplarCity ; Special  ; Suppress ; GMT ; GMT ; HIDE
+//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity     ; Timezones ; Timezone Cities ; &categoryFromTimezone($1/$2) ; $2
 
 //ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; $3-$2
 //ldml/dates/timeZoneNames/zone[@type="%A"]/%E/%E           ; Timezones ; Overrides ; $1 ; $3-$2
 
-//ldml/localeDisplayNames/localeDisplayPattern/%E           ; Misc ; Locale Names ; null ; $1
+//ldml/dates/timeZoneNames/%E[@type="%A"]                   ; Timezones ; Timezone Display Patterns ; null ; $1-$2
+//ldml/dates/timeZoneNames/%E                               ; Timezones ; Timezone Display Patterns ; null ; $1
 
+
+### Numbers
+
+//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols when using &numberingSystem($1) ; $2
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns when using &numberingSystem($2) ; $5-$1
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns when using &numberingSystem($1) ; &count(currencies-$2)
+//ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns when using &numberingSystem($1) ; $2
+
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats when using &numberingSystem($2) ; &count2($7-digits-$4-$8)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats when using &numberingSystem($2) ; &count2($7-digits-$4-$8)
+
+
+//ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Numbers ; Currencies ; &categoryFromCurrency($1) ; $1-symbol
+//ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Numbers ; Currencies ; &categoryFromCurrency($1) ; *$1-name
+//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Numbers ; Currencies ; &categoryFromCurrency($1) ; *&count($1-$2)
+
+### Units
+
+//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Units ; Measurement Systems ; null ; $1
+//ldml/units/unit[@type="%T%A"]/unitPattern[@count="%A"]                           ; Units ; Time ; $1$2 ; $1$2-&count($3) 
+//ldml/units/unit[@type="length-%A"]/unitPattern[@count="%A"]                      ; Units ; Length ; $1 ; length-$1-&count($2) 
+//ldml/units/unit[@type="mass-%A"]/unitPattern[@count="%A"]                        ; Units ; Mass and Weight ; $1 ; mass-$1-&count($2) 
+//ldml/units/unit[@type="%W-%A"]/unitPattern[@count="%A"]                          ; Units ; Weather ; $1 ; $1-$2-&count($3) 
+//ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]                             ; Units ; Other Units ; $1 ; $1-&count($2) 
+//ldml/units/compoundUnit[@type="%A"]/unitPattern[@count="%A"]                     ; Units ; Compound Units ; null; $1-&count($2) 
+
+### Miscellaneous
 //ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Regular Lists ; $1
-
 //ldml/listPatterns/listPattern[@type="duration"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Duration Lists ; $1
 
-//ldml/dates/timeZoneNames/%E[@type="%A"]                   ; Misc ; Timezones ; null ; $1-$2
-//ldml/dates/timeZoneNames/%E                               ; Misc ; Timezones ; null ; $1
+//ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Linguistic Elements ; Ellipsis ; $1
+//ldml/delimiters/quotation%E                               ; Misc ; Linguistic Elements ; Quotation Marks ; $1
+//ldml/delimiters/alternateQuotation%E                      ; Misc ; Linguistic Elements ; Quotation Marks ; embedded-$1
+//ldml/characters/moreInformation                           ; Misc ; Linguistic Elements ; Symbols ; More Information
+//ldml/posix/messages/%Estr                                 ; Misc ; Linguistic Elements ; Yes and No ; posix-$1
+//ldml/localeDisplayNames/transformNames/transformName[@type="%A"]          ; Misc ; Transforms ; null ; $1
 
-//ldml/numbers/(default)NumberingSystem                     ; Misc ; Numbers ; Numbering System ; $1 ; READ_ONLY
-//ldml/numbers/otherNumberingSystems/(%E)                   ; Misc ; Numbers ; Numbering System ; $1 ; READ_ONLY
 
-//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Misc ; Numbers ; &numberingSystem($1) ; $2
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Misc ; Numbers ; &numberingSystem($2) ; $5-$1
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Misc ; Numbers ; &numberingSystem($2) Compact ; &count2($7-digits-$4-$8)
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]([@alt="%A"])? ; Misc ; Numbers ; &numberingSystem($2) ; &count2($7-digits-$4)
 
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"] ; Misc ; Numbers ; &numberingSystem($1) ; &count(currencies-$2)
 
-//ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"] ; Misc ; Numbers ; &numberingSystem($1) ; $2
-
-//ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Units ; $1 ; &count($2) 
-//ldml/units/compoundUnit[@type="%A"]/unitPattern[@count="%A"]              ; Misc ; Units ; compound$1 ; &count($2) 
-//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/relative[@type="%A"]       ; Misc ; Units ; *$2-relative ; old-$3 ; HIDE
-//ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]       ; Misc ; Units ; *$1-relative ; $2
-
-//ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Characters ; Ellipsis ; $1
-//ldml/delimiters/quotation%E                               ; Misc ; Characters ; Quotation Marks ; $1
-//ldml/delimiters/alternateQuotation%E                      ; Misc ; Characters ; Quotation Marks ; embedded-$1
-//ldml/characters/moreInformation                           ; Misc ; Characters ; Symbols ; More Information
-
-//ldml/characters/exemplarCharacters$                       ; Misc ; Characters ; Characters in Use ; Main Letters; READ_ONLY
-//ldml/characters/exemplarCharacters[@type="%A"]            ; Misc ; Characters ; Characters in Use ; Others: $1; READ_ONLY
-//ldml/characters/stopwords/stopwordList[@type="%A"]        ; Misc ; Characters ; Words to Ignore ; In: $1; READ_ONLY
-
-//ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"]              ; Misc ; Labels ; Locale Fields ; $1
-
-# These should not be in gregorian; they are common to all calendars
-//ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="%A"]/displayName               ; Misc ; Labels ; Date Fields ; old-$1 ; HIDE
-//ldml/dates/fields/field[@type="%A"]/displayName               ; Misc ; Labels ; Date Fields ; $1
-
-//ldml/posix/messages/%Estr                                         ; Misc ; Posix ; null ; posix-$1
 
 # HIDE OTHERS
 
-# //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/displayName               ; Special ; Labels2 ; Date Fields-$1 ; $2 ; DEPRECATED
 
 # These should be deprecated
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Labels ; Append-Fallback-$1 ; $2 ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Suppress ; Append-Fallback-$1 ; $2 ; HIDE
 
 
 //ldml/fallback                             ; Special ; Deprecated ; null ; fallback ; DEPRECATED
-//ldml/layout/orientation                   ; Special ; Deprecated ; null ; orientation ; HIDE
 //ldml/layout/inList                        ; Special ; Deprecated ; null ; inList ; DEPRECATED
 //ldml/layout/inText[@type="%A"]            ; Special ; Deprecated ; inText ; $1 ; DEPRECATED
 
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        ; Special ; Numbers ; $1 ; $2-$3 ; HIDE
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        ; Special ; Number Formatting Patterns ; Currency Spacing when using &numberingSystem($1) ; $2-$3 ; HIDE
 
 # Suppress the numbers without numbering system.
-//ldml/numbers/currencyFormats/unitPattern[@count="%A"]                     ; Special ; Patterns_for_Numbers2 ; latn ; currencies-count=$1 ; HIDE
-//ldml/numbers/currencyFormats/currencySpacing/%E/%E                                                    ; Special ; Patterns_for_Numbers2 ; Numbers ; currencySpacing-$1-$2 ; HIDE
-//ldml/numbers/symbols/%E                                                                               ; Special ; Patterns_for_Numbers2 ; Numbers ; symbols-$1 ; HIDE
-//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Patterns_for_Numbers2 ; $1 ; pattern-$5-$4 ; HIDE
-//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Patterns_for_Numbers2 ; $1 ; pattern-$3-$6 ; HIDE
+//ldml/numbers/currencyFormats/unitPattern[@count="%A"]                     ; Special ; Deprecated ; latn ; currencies-count=$1 ; HIDE
+//ldml/numbers/currencyFormats/currencySpacing/%E/%E                                                    ; Special ; Deprecated ; Numbers ; currencySpacing-$1-$2 ; HIDE
+//ldml/numbers/symbols/%E                                                                               ; Special ; Deprecated ; Numbers ; symbols-$1 ; HIDE
+//ldml/numbers/%EFormats/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]                        ; Special ; Deprecated ; $1 ; pattern-$5-$4 ; HIDE
+//ldml/numbers/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]            ; Special ; Deprecated ; $1 ; pattern-$3-$6 ; HIDE
 
+//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]/%E[@type="%A"]                     ; Special ; Deprecated ; $1 ; $1-$2-$3-$4 ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="%A"]                                    ; Special ; Deprecated ; $1 ; $1-$2 ; HIDE
 
 # Ultimate fallback (Error)
 //ldml/%S/(.*)                                                                              ; Special ; Unknown ; $1 ; $2 ; DEPRECATED

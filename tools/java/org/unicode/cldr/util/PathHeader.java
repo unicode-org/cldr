@@ -67,15 +67,18 @@ public class PathHeader implements Comparable<PathHeader> {
 
     /**
      * The Section for a path. Don't change these without committee buy-in.
-     * The 'name' may be 'Code_Lists' and the toString is 'Code Lists'
+     * The 'name' may be 'Core_Data' and the toString is 'Core Data'
      * toString gives the human name
      */
     public enum SectionId {
-        Code_Lists("Code Lists"),
-        Calendars,
+        Core_Data("Core Data"),
+        Locale_Display_Names("Locale Display Names"),
+        DateTime("Date & Time"),
         Timezones,
-        Misc("Patterns"),
-        Special("Suppressed");
+        Numbers,
+        Units,
+        Misc("Miscellaneous"),
+        Special;
 
         private SectionId(String... alternateNames) {
             SectionIdNames.add(this, alternateNames);
@@ -128,33 +131,35 @@ public class PathHeader implements Comparable<PathHeader> {
      * the name is for example WAsia where toString gives Western Asia
      */
     public enum PageId {
-        Languages(SectionId.Code_Lists),
-        Scripts(SectionId.Code_Lists),
-        Territories(SectionId.Code_Lists),
-        Timezone_Cities(SectionId.Code_Lists, "Timezone Cities"),
-        Locale_Variants(SectionId.Code_Lists, "Locale Variants"),
-        Keys(SectionId.Code_Lists),
-        Measurement_Systems(SectionId.Code_Lists, "Measurement Systems"),
-        Transforms(SectionId.Code_Lists),
-        Currencies(SectionId.Code_Lists),
-        Gregorian(SectionId.Calendars),
-        Generic(SectionId.Calendars),
-        Buddhist(SectionId.Calendars),
-        Chinese(SectionId.Calendars),
-        Coptic(SectionId.Calendars),
-        Dangi(SectionId.Calendars),
-        Ethiopic(SectionId.Calendars),
-        Ethiopic_Amete_Alem(SectionId.Calendars, "Ethiopic-Amete-Alem"),
-        Hebrew(SectionId.Calendars),
-        Indian(SectionId.Calendars),
-        Islamic(SectionId.Calendars),
-        Islamic_Civil(SectionId.Calendars, "Islamic-Civil"),
-        Islamic_Rgsa(SectionId.Calendars, "Islamic-Rgsa"),
-        Islamic_Tbla(SectionId.Calendars, "Islamic-Tbla"),
-        Islamic_Umalqura(SectionId.Calendars, "Islamic-Umalqura"),
-        Japanese(SectionId.Calendars),
-        Persian(SectionId.Calendars),
-        ROC(SectionId.Calendars),
+        Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"),
+        Numbering_Systems(SectionId.Core_Data, "Numbering Systems"),
+        Locale_Name_Patterns(SectionId.Locale_Display_Names, "Locale Name Patterns"),
+        Languages(SectionId.Locale_Display_Names),
+        Scripts(SectionId.Locale_Display_Names),
+        Territories(SectionId.Locale_Display_Names),
+        Locale_Variants(SectionId.Locale_Display_Names, "Locale Variants"),
+        Keys(SectionId.Locale_Display_Names),
+        Fields(SectionId.DateTime),
+        Gregorian(SectionId.DateTime),
+        Generic(SectionId.DateTime),
+        Buddhist(SectionId.DateTime),
+        Chinese(SectionId.DateTime),
+        Coptic(SectionId.DateTime),
+        Dangi(SectionId.DateTime),
+        Ethiopic(SectionId.DateTime),
+        Ethiopic_Amete_Alem(SectionId.DateTime, "Ethiopic-Amete-Alem"),
+        Hebrew(SectionId.DateTime),
+        Indian(SectionId.DateTime),
+        Islamic(SectionId.DateTime),
+        Islamic_Civil(SectionId.DateTime, "Islamic-Civil"),
+        Islamic_Rgsa(SectionId.DateTime, "Islamic-Rgsa"),
+        Islamic_Tbla(SectionId.DateTime, "Islamic-Tbla"),
+        Islamic_Umalqura(SectionId.DateTime, "Islamic-Umalqura"),
+        Japanese(SectionId.DateTime),
+        Persian(SectionId.DateTime),
+        ROC(SectionId.DateTime),
+        Timezone_Display_Patterns(SectionId.Timezones, "Timezone Display Patterns"),
+        Timezone_Cities(SectionId.Timezones, "Timezone Cities"),
         NAmerica(SectionId.Timezones, "North America"),
         SAmerica(SectionId.Timezones, "South America"),
         Africa(SectionId.Timezones),
@@ -170,18 +175,23 @@ public class PathHeader implements Comparable<PathHeader> {
         Oceania(SectionId.Timezones),
         UnknownT(SectionId.Timezones, "Unknown Region"),
         Overrides(SectionId.Timezones),
-        Patterns_for_Locale_Names(SectionId.Misc, "Locale Names"),
-        Patterns_for_Displaying_Lists(SectionId.Misc, "Displaying Lists"),
-        Patterns_for_Timezones(SectionId.Misc, "Timezones"),
-        Patterns_for_Numbers(SectionId.Misc, "Numbers"),
-        Patterns_for_Units(SectionId.Misc, "Units"),
-        Characters(SectionId.Misc),
-        Labels(SectionId.Misc),
-        Posix(SectionId.Misc),
+        Symbols(SectionId.Numbers),
+        Number_Formatting_Patterns(SectionId.Numbers, "Number Formatting Patterns"),
+        Compact_Decimal_Formatting(SectionId.Numbers, "Compact Decimal Formatting"),
+        Currencies(SectionId.Numbers),
+        Measurement_Systems(SectionId.Units, "Measurement Systems"),
+        Time(SectionId.Units),
+        Length(SectionId.Units),
+        MassWeight(SectionId.Units, "Mass and Weight"),
+        Weather(SectionId.Units),
+        OtherUnits(SectionId.Units, "Other Units"),
+        CompoundUnits(SectionId.Units, "Compound Units"),
+        Displaying_Lists(SectionId.Misc, "Displaying Lists"),
+        LinguisticElements(SectionId.Misc, "Linguistic Elements"),
+        Transforms(SectionId.Misc),
         Identity(SectionId.Special),
         Version(SectionId.Special),
         Suppress(SectionId.Special),
-        Patterns_for_Numbers2(SectionId.Special, "No Numbering System"),
         Deprecated(SectionId.Special),
         Unknown(SectionId.Special), ;
 
@@ -917,9 +927,9 @@ public class PathHeader implements Comparable<PathHeader> {
                         script = likelySubtags.getLikelyScript(language);
                     }
                     String scriptName = englishFile.getName(CLDRFile.SCRIPT_NAME, script);
-                    return script.equals("Hans") || script.equals("Hant") ? "Han Script"
+                    return "Languages Using " + ( script.equals("Hans") || script.equals("Hant") ? "Han Script"
                         : scriptName.endsWith(" Script") ? scriptName
-                            : scriptName + " Script";
+                            : scriptName + " Script");
                 }
             });
             functionMap.put("categoryFromTerritory",

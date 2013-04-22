@@ -20,22 +20,22 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">n mod 100 in 11..99</pluralRule>
         </pluralRules>
         <pluralRules locales="he">
-            <pluralRule count="one">n is 1</pluralRule>
-            <pluralRule count="two">n is 2</pluralRule>
-            <pluralRule count="many">n is not 0 and n mod 10 is 0</pluralRule>
+            <pluralRule count="one">j is 1</pluralRule>
+            <pluralRule count="two">j is 2</pluralRule>
+            <pluralRule count="many">j is not 0 and j mod 10 is 0</pluralRule>
         </pluralRules>
-        <pluralRules locales="af asa ast bem bez bg bn brx ca cgg chr ckb da de dv ee el en eo es et eu fi fo fur fy gl gsw gu ha haw hy is it jgo jmc kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn mr nah nb nd ne nl nn nnh no nr ny nyn om or os pa pap ps pt rm rof rwk saq seh sn so sq ss ssy st sv sw syr ta te teo tig tk tn ts ur ve vo vun wae xh xog zu">
+        <pluralRules locales="af asa ast bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw gu ha haw jgo jmc kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn mr nah nb nd ne nn nnh no nr ny nyn om or os pa pap ps rm rof rwk saq seh sn so sq ss ssy st syr teo tig tk tn ts ve vo vun wae xh xog">
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
-        <pluralRules locales="ak am bh fil guw hi ln mg nso ti tl wa">
+        <pluralRules locales="ak am bh guw ln mg nso ti wa">
             <pluralRule count="one">n in 0..1</pluralRule>
         </pluralRules>
-        <pluralRules locales="ff fr kab">
+        <pluralRules locales="ff fr hy kab">
             <pluralRule count="one">n within 0..2 and n is not 2</pluralRule>
         </pluralRules>
         <pluralRules locales="lv">
-            <pluralRule count="zero">n is 0</pluralRule>
-            <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
+            <pluralRule count="zero">n mod 10 is 0 or n mod 10 in 11..19 or v is 2 and f mod 10 in 11..19</pluralRule>
+            <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11 or v is 2 and f mod 10 is 1 and f mod 100 is not 11 or v is not 2 and f mod 10 is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="iu kw naq se sma smi smj smn sms">
             <pluralRule count="one">n is 1</pluralRule>
@@ -48,31 +48,32 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">n in 7..10</pluralRule>
         </pluralRules>
         <pluralRules locales="mo ro">
-            <pluralRule count="one">n is 1</pluralRule>
-            <pluralRule count="few">n is 0 or n is not 1 and n mod 100 in 1..19</pluralRule>
+            <pluralRule count="one">j is 1</pluralRule>
+            <pluralRule count="few">v is not 0 or n is 0 or n is not 1 and n mod 100 in 1..19</pluralRule>
         </pluralRules>
         <pluralRules locales="lt">
             <pluralRule count="one">n mod 10 is 1 and n mod 100 not in 11..19</pluralRule>
             <pluralRule count="few">n mod 10 in 2..9 and n mod 100 not in 11..19</pluralRule>
         </pluralRules>
-        <pluralRules locales="be bs hr ru sh sr uk">
+        <pluralRules locales="be bs">
             <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
             <pluralRule count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
             <pluralRule count="many">n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14</pluralRule>
         </pluralRules>
         <pluralRules locales="cs sk">
-            <pluralRule count="one">n is 1</pluralRule>
-            <pluralRule count="few">n in 2..4</pluralRule>
+            <pluralRule count="one">j is 1</pluralRule>
+            <pluralRule count="few">j in 2..4</pluralRule>
+            <pluralRule count="many">v is not 0</pluralRule>
         </pluralRules>
         <pluralRules locales="pl">
-            <pluralRule count="one">n is 1</pluralRule>
-            <pluralRule count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
-            <pluralRule count="many">n is not 1 and n mod 10 in 0..1 or n mod 10 in 5..9 or n mod 100 in 12..14</pluralRule>
+            <pluralRule count="one">j is 1</pluralRule>
+            <pluralRule count="few">j mod 10 in 2..4 and j mod 100 not in 12..14</pluralRule>
+            <pluralRule count="many">j is not 1 and j mod 10 in 0..1 or j mod 10 in 5..9 or j mod 100 in 12..14</pluralRule>
         </pluralRules>
         <pluralRules locales="sl">
-            <pluralRule count="one">n mod 100 is 1</pluralRule>
-            <pluralRule count="two">n mod 100 is 2</pluralRule>
-            <pluralRule count="few">n mod 100 in 3..4</pluralRule>
+            <pluralRule count="one">j mod 100 is 1</pluralRule>
+            <pluralRule count="two">j mod 100 is 2</pluralRule>
+            <pluralRule count="few">j mod 100 in 3..4 or v is not 0</pluralRule>
         </pluralRules>
         <pluralRules locales="mt">
             <pluralRule count="one">n is 1</pluralRule>
@@ -117,6 +118,34 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="one">n in 1,11</pluralRule>
             <pluralRule count="two">n in 2,12</pluralRule>
             <pluralRule count="few">n in 3..10,13..19</pluralRule>
+        </pluralRules>
+        <pluralRules locales="fil tl">
+            <pluralRule count="one">j in 0..1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="ca de en et fi gl it nl sv sw ta te ur">
+            <pluralRule count="one">j is 1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="da is">
+            <pluralRule count="one">j is 1 or f is 1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="pt">
+            <pluralRule count="one">n is 1 or f is 1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="bn hi zu">
+            <pluralRule count="one">n within 0..1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="hr sh sr">
+            <pluralRule count="one">j mod 10 is 1 and j mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11</pluralRule>
+            <pluralRule count="few">j mod 10 in 2..4 and j mod 100 not in 12..14 or f mod 10 in 2..4 and f mod 100 not in 12..14</pluralRule>
+        </pluralRules>
+        <pluralRules locales="ru">
+            <pluralRule count="one">j mod 10 is 1 and j mod 100 is not 11</pluralRule>
+            <pluralRule count="many">j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14</pluralRule>
+        </pluralRules>
+        <pluralRules locales="uk">
+            <pluralRule count="one">j mod 10 is 1 and j mod 100 is not 11</pluralRule>
+            <pluralRule count="few">j mod 10 in 2..4 and j mod 100 not in 12..14</pluralRule>
+            <pluralRule count="many">j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14</pluralRule>
         </pluralRules>
     </plurals>
 </supplementalData>

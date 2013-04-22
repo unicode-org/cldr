@@ -154,7 +154,7 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="AOK" from="1977-01-08" to="1991-03-01"/>
         </region>
         <region iso3166="AQ">
-        <currency iso4217="XXX"/>
+            <currency iso4217="XXX" tender="false"/>
             <!-- This is Antarctica. It has no currency -->
         </region>
         <region iso3166="AR">
@@ -333,7 +333,7 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
             <currency iso4217="COU" tender="false"/>
         </region>
         <region iso3166="CP">
-            <currency iso4217="XXX"/>
+            <currency iso4217="XXX" tender="false"/>
             <!-- Uninhabited, therefore no currency -->
         </region>
         <region iso3166="CR">

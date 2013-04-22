@@ -33,7 +33,7 @@
 //ldml/numbers/otherNumberingSystems/(%E)                   ; Core Data ; Numbering Systems ; Numbering System ; $1 ; READ_ONLY
 
 ### Locale Display Names
-//ldml/localeDisplayNames/localeDisplayPattern/%E              ; Locale Display Names ; Locale Name Patterns ; Locale Formatting ; $1
+//ldml/localeDisplayNames/localeDisplayPattern/%E              ; Locale Display Names ; Locale Name Patterns ; Locale Formatting ; &localePattern($1)
 //ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"] ; Locale Display Names ; Locale Name Patterns ; Locale Field Fallbacks ; $1
 //ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; Languages ; &scriptFromLanguage($1) ; $1
 //ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
@@ -43,7 +43,7 @@
 //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]    ; Locale Display Names ; Keys ; *$2 ; $2-$1
 
 ### Date & Time Formatting
-//ldml/dates/fields/field[@type="%A"]/displayName                           ; DateTime ; Fields ; Date Fields ; $1
+//ldml/dates/fields/field[@type="%A"]/displayName                           ; DateTime ; Fields ; Date Fields ; &datefield($1)
 //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]                  ; DateTime ; Fields ; *$1-relative ; $2
 
 //ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]                                                        ; DateTime ; &calendar($1) ; Eras: abbr ; $2
@@ -79,8 +79,8 @@
 
 ### Numbers
 
-//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols when using &numberingSystem($1) ; $2
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns when using &numberingSystem($2) ; $5-$1
+//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols when using &numberingSystem($1) ; &number($2)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns when using &numberingSystem($2) ; &number($5-$1)
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns when using &numberingSystem($1) ; &count(currencies-$2)
 //ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns when using &numberingSystem($1) ; $2
 
@@ -95,7 +95,7 @@
 ### Units
 
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Units ; Measurement Systems ; null ; $1
-//ldml/units/unit[@type="%T%A"]/unitPattern[@count="%A"]                           ; Units ; Time ; $1$2 ; $1$2-&count($3) 
+//ldml/units/unit[@type="%T%A"]/unitPattern[@count="%A"]                           ; Units ; Time ; &datefield($1$2) ; $1$2-&count($3) 
 //ldml/units/unit[@type="length-%A"]/unitPattern[@count="%A"]                      ; Units ; Length ; $1 ; length-$1-&count($2) 
 //ldml/units/unit[@type="mass-%A"]/unitPattern[@count="%A"]                        ; Units ; Mass and Weight ; $1 ; mass-$1-&count($2) 
 //ldml/units/unit[@type="%W-%A"]/unitPattern[@count="%A"]                          ; Units ; Weather ; $1 ; $1-$2-&count($3) 

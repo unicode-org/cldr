@@ -101,7 +101,7 @@ public class PathHeader implements Comparable<PathHeader> {
         final String mainOrder;
         final int order;
 
-        public SubstringOrder(String source, int topLevelCompare) {
+        public SubstringOrder(String source) {
             int pos = source.lastIndexOf('-') + 1;
             int ordering = COUNTS.indexOf(source.substring(pos));
             // account for digits, and "some" future proofing.
@@ -861,6 +861,9 @@ public class PathHeader implements Comparable<PathHeader> {
         static Transform<String, String> catFromTerritory;
         static Transform<String, String> catFromTimezone;
         static {
+            // Put any new functions used in PathHeader.txt in here.
+            // To change the order of items within a section or heading, set
+            // order/suborder to be the relative position of the current item.
             functionMap.put("month", new Transform<String, String>() {
                 public String transform(String source) {
                     int m = Integer.parseInt(source);
@@ -870,7 +873,7 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("count", new Transform<String, String>() {
                 public String transform(String source) {
-                    suborder = new SubstringOrder(source, 1);
+                    suborder = new SubstringOrder(source);
                     return source;
                 }
             });
@@ -878,7 +881,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 public String transform(String source) {
                     int pos = source.indexOf('-');
                     source = pos + source.substring(pos);
-                    suborder = new SubstringOrder(source, pos); // make 10000-... into 5-
+                    suborder = new SubstringOrder(source); // make 10000-... into 5-
                     return source;
                 }
             });
@@ -989,6 +992,53 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
             });
             // //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]
+            functionMap.put("datefield", new Transform<String, String>() {
+                private final String[] datefield = {
+                    "era", "year", "month", "week", "day", "weekday",
+                    "hour", "dayperiod", "minute", "second", "zone"
+                };
+                public String transform(String source) {
+                    String field = source.split("-")[0];
+                    order = getIndex(field, datefield);
+                    return source;
+                }
+            });
+            // Sorts numberSystem items (except for decimal formats).
+            functionMap.put("number", new Transform<String, String>() {
+                private final String[] symbols = {
+                    "decimal", "group", "plusSign", "minusSign",
+                    "percentSign", "perMille", "exponential",
+                    "infinity", "nan", "list", "currencies"
+                };
+                public String transform(String source) {
+                    String[] parts = source.split("-");
+                    order = getIndex(parts[0], symbols);
+                    // e.g. "currencies-one"
+                    if (parts.length > 1) {
+                        suborder = new SubstringOrder(parts[1]); 
+                    }
+                    return source;
+                }
+            });
+
+            functionMap.put("localePattern", new Transform<String, String>() {
+                public String transform(String source) {
+                    // Put localeKeyTypePattern behind localePattern and localeSeparator.
+                    if (source.equals("localeKeyTypePattern")) {
+                        order = 10;
+                    }
+                    return source;
+                }
+            });
+        }
+
+        private static int getIndex(String item, String[] array) {
+            for (int i = 0 ; i < array.length; i++) {
+                if (item.equals(array[i])) {
+                    return i;
+                }
+            }
+            return -1;
         }
 
         static class HyphenSplitter {

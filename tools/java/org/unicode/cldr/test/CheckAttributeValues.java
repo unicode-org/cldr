@@ -85,14 +85,12 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                         // ok, keep going
                     } else {
                         final Count countValue = PluralInfo.Count.valueOf(attributeValue);
-                        if (!pluralInfo.getCountToExamplesMap().keySet().contains(countValue)) {
-                            Set<String> exceptions = PLURAL_EXCEPTIONS.get(countValue);
-                            if (exceptions == null || !exceptions.contains(locale)) {
-                                result.add(new CheckStatus()
-                                .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
-                                .setMessage("Illegal plural value {0}; must be one of: {1}",
-                                        new Object[] { countValue, pluralInfo.getCountToExamplesMap().keySet() }));
-                            }
+                        if (!pluralInfo.getCountToExamplesMap().keySet().contains(countValue) 
+                                && !isPluralException(countValue, locale)) {
+                            result.add(new CheckStatus()
+                            .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
+                            .setMessage("Illegal plural value {0}; must be one of: {1}",
+                                    new Object[] { countValue, pluralInfo.getCountToExamplesMap().keySet() }));
                         }
                     }
                 }
@@ -109,6 +107,23 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         PLURAL_EXCEPTIONS.put(PluralInfo.Count.many, "sh");
         PLURAL_EXCEPTIONS.put(PluralInfo.Count.many, "bs");
         PLURAL_EXCEPTIONS.put(PluralInfo.Count.few, "ru");
+    }
+    static boolean isPluralException(Count countValue, String locale) {
+        Set<String> exceptions = PLURAL_EXCEPTIONS.get(countValue);
+        if (exceptions == null) {
+            return false;
+        }
+        if (exceptions.contains(locale)) {
+            return true;
+        }
+        int bar = locale.indexOf('_'); // catch bs_Cyrl, etc.
+        if (bar > 0) {
+            String base = locale.substring(0, bar);
+            if (exceptions.contains(base)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void check(Map<String, MatcherPattern> attribute_validity, String attribute, String attributeValue,

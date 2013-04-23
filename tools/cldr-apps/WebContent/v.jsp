@@ -182,7 +182,7 @@ survURL = '<%= survURL %>';
       
          <div id='title-locale-container' class='menu-container'>
                 <span id='title-locale'></span>
-                <span id='title-dcontent-container'><span id='title-dcontent'></span> <a href='http://cldr.unicode.org/translation/default-content' id='title-dcontent-link'>TITLE_DCONTENT_LINK</a></span>
+                <span id='title-dcontent-container'><a href='http://cldr.unicode.org/translation/default-content' id='title-dcontent'></a></span>
 	   <%--      <div id='title-locale' data-dojo-type="dijit/form/DropDownButton">
 	              <span>(locale)</span>
 	              <div id='menu-locale' data-dojo-type="dijit/DropDownMenu">

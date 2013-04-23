@@ -194,7 +194,8 @@ define({
            v_submit_busy: "Submitting...",
            special_oldvotes: "Import Old Votes",
            section_general: "General Info",
-           
+           section_forum: "Forum <i>(Leaves this page)</i>",
+           forumNewPostButton: "New Post (leaves this page)",
            special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough.",
 
            defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",

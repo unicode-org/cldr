@@ -170,6 +170,11 @@ div.adminUserUser {
 	margin:  1em;
 }
 
+div.forumDiv div.adminUserUser {
+    
+    width:  inherit !important;
+}
+
 span.adminUserName {
 	font-size:  x-large;
 }
@@ -984,7 +989,6 @@ td.d-code.hasPosts {
 div.forumDiv div.subpost {
 	border:  1px solid black;
 	background-color: #f5e3c2;
-	margin-right:  2em;
 	margin-top:  0.25em;
 	padding:  0.25em;
 }
@@ -1019,16 +1023,17 @@ div.forumDiv .adminUserUser i {
 }
 
 div.postHeaderInfoGroup {
-	display:  table;
+	display:  block;
 }
 
 
 div.postHeaderLine {
 	display:  table-row;
+	font-size: small;
 }
 
 div.postHeaderLine div {
-	display:  table-cell;
+	display:  table-row;
 }
 
 div.postHeaderLine div.postHeaderItem {
@@ -1037,7 +1042,7 @@ div.postHeaderLine div.postHeaderItem {
 
 div.forumDiv div.subpost div.postContent {	
 	padding-top:  0.5em;
-	font: medium Georgia, "Times New Roman", Times, serif;
+	font: small Georgia, "Times New Roman", Times, serif;
 }
 
 .disabledbox {
@@ -2195,6 +2200,13 @@ tr.d-inforow-hid {
     margin-top: 5px;
 }
 
+.menu-chat {
+    background: white url(chat.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
 .menu-x {
     background: white url(radx.png) no-repeat center center;
     width: 16px;
@@ -2578,7 +2590,12 @@ div.voterList .voterOrg {
 }
 
 #itemInfo {
-	width:  10em;
+	width:  15em;
+}
+
+button.forumShow {
+    background: url(chat.png) no-repeat left center;
+    padding-left: 20px;
 }
 
 .stSplitPane .scrollingContent {

@@ -847,7 +847,7 @@ public class SurveyForum {
     public void showXpath(WebContext baseCtx, String xpath, int base_xpath, CLDRLocale locale) {
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(locale);
-        ctx.println("<i>Note: item cannot be shown here.</i>");
+        ctx.println("<i>Note: item cannot be shown here. Click \"View Item\" once the item is posted.</i>");
 //        ctx.println("       <div id='DynamicDataSection'><noscript>" + ctx.iconHtml("stop", "sorry")
 //                + "JavaScript is required.</noscript></div>      " + " <script type='text/javascript'>   "
 //                + "surveyCurrentLocale='" + locale + "';\n" + "showRows BROKEN('DynamicDataSection', '" + xpath + "', '"

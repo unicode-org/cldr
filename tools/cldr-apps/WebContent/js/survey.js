@@ -226,6 +226,16 @@ LocaleMap.prototype.getLocaleName = function getLocaleName(locid) {
 
 
 /**
+ * Return the locale language 
+ * @method getLanguage
+ * @param locid
+ * @returns the language portion
+ */
+LocaleMap.prototype.getLanguage = function getLanguage(locid) {
+	return locid.split('_')[0].split('-')[0];
+};
+
+/**
  * Global items 
  * @class GLOBAL
  */
@@ -1307,7 +1317,7 @@ function hidePopHandler(e){
 // called when showing the popup each time
 function showForumStuff(frag, forumDiv, tr) {
 	// prepend something
-	var newButton = createChunk("New Post (leaves this page)", "button", "forumNewButton");
+	var newButton = createChunk(stui.str("forumNewPostButton"), "button", "forumNewButton");
 	frag.appendChild(newButton);
 	
 	listenFor(newButton, "click", function(e) {
@@ -1418,7 +1428,8 @@ function showForumStuff(frag, forumDiv, tr) {
 // called when initially setting up the section
 function appendForumStuff(tr, theRow, forumDiv) {
 	removeAllChildNodes(forumDiv); // we may be updating.
-	forumDiv.replyStub = contextPath + "/survey?forum=&_=" + surveyCurrentLocale + "&replyto=";
+	var theForum = 	locmap.getLanguage(surveyCurrentLocale);
+	forumDiv.replyStub = contextPath + "/survey?forum=" + theForum + "&_=" + surveyCurrentLocale + "&replyto=";
 	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow.xpid;
 	forumDiv.url = contextPath + "/SurveyAjax?xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
 		+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
@@ -2918,6 +2929,7 @@ function showV() {
 	         "dojo/parser", 
 	         "dijit/DropDownMenu",
 	         "dijit/form/DropDownButton",
+	         "dijit/MenuSeparator",
 	         "dijit/MenuItem",
 	         "dijit/form/TextBox",
 	         "dijit/form/Button",
@@ -2939,6 +2951,7 @@ function showV() {
 	        		 parser,
 	        		 DropDownMenu,
 	        		 DropDownButton,
+	        		 MenuSeparator,
 	        		 MenuItem,
 	        		 TextBox,
 	        		 Button,
@@ -3357,6 +3370,7 @@ function showV() {
 					}
 				});
 				menuSection.addChild(generalMenu);
+
 				for(var j in menuMap.sections) {
 					(function (aSection){
 						var dropDown = new DropDownMenu();
@@ -3386,6 +3400,21 @@ function showV() {
 						menuSection.addChild(sectionMenuItem);
 					})(menuMap.sections[j]);
 				}
+				
+				menuSection.addChild(new MenuSeparator());
+
+				var forumMenu = new /*Checked*/MenuItem({
+					label: stui_str("section_forum"),
+					//checked:   (surveyCurrentPage == ''),
+					iconClass:  (surveyCurrentSpecial == 'forum')?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-chat",
+					//    iconClass:"dijitEditorIcon dijitEditorIconSave",
+					onClick: function(){ 
+						// TODO:  make this a real section
+						window.location = survURL + '?forum=' + locmap.getLanguage(surveyCurrentLocale);
+					}
+				});
+				menuSection.addChild(forumMenu);
+
 			}
 
 			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {

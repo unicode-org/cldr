@@ -365,7 +365,8 @@ public class WritePluralRules {
         {"et", "other", "{0} ööpäeva"},
         {"eu", "one", "Nire {0} lagunarekin nago"},
         {"eu", "other", "Nire {0} lagunekin nago"},
-        {"fa", "other", "{0} روز"},
+        {"fa", "one", "او {0} فیلم در هفته می‌بیند که کمدی است."},
+        {"fa", "other", "او {0} فیلم در هفته می‌بیند که کمدی هستند."},
         {"fi", "one", "{0} päivä"},
         {"fi", "other", "{0} päivää"},
         {"fil", "one", "sa {0} araw"},
@@ -480,7 +481,7 @@ public class WritePluralRules {
     };
 
     static String[][] overrides = {
-        {"gu,mr,kn,am", "one: n within 0..1"},
+        {"gu,mr,kn,am,fa", "one: n within 0..1"},
         {"ta,te", "one: n is 1"},
         {"bn", "one: n within 0..1"},
         {"en,ca,de,et,fi,gl,it,nl,sv,sw,ur", "one: j is 1"},

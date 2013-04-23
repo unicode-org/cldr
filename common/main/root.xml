@@ -2331,8 +2331,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}</regionFormat>
-			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<regionFormat type="daylight">{0} (+1)</regionFormat>
+			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Unknown</exemplarCity>
@@ -3409,6 +3409,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<compoundUnit type="per">
 			<unitPattern count="other" alt="short">{0}/{1}</unitPattern>
 		</compoundUnit>
+		<unit type="angle-deg">
+			<unitPattern count="other" alt="short">{0}°</unitPattern>
+		</unit>
+		<unit type="angle-min">
+			<unitPattern count="other" alt="short">{0}′</unitPattern>
+		</unit>
+		<unit type="angle-sec">
+			<unitPattern count="other" alt="short">{0}″</unitPattern>
+		</unit>
+		<unit type="area-ha">
+			<unitPattern count="other" alt="short">{0} ha</unitPattern>
+		</unit>
+		<unit type="area-km2">
+			<unitPattern count="other" alt="short">{0} km²</unitPattern>
+		</unit>
+		<unit type="area-m2">
+			<unitPattern count="other" alt="short">{0} m²</unitPattern>
+		</unit>
+		<unit type="atmospheric-pressure-hpa">
+			<unitPattern count="other" alt="short">{0} hPa</unitPattern>
+		</unit>
+		<unit type="atmospheric-pressure-mb">
+			<unitPattern count="other" alt="short">{0} mb</unitPattern>
+		</unit>
 		<!-- http://physics.nist.gov/cuu/Units/outside.html -->
 		<unit type="day">
 			<unitPattern count="other">{0} d</unitPattern>
@@ -3428,6 +3452,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<unit type="hour-past">
 			<unitPattern count="other">-{0} h</unitPattern>
 		</unit>
+		<unit type="length-cm">
+			<unitPattern count="other" alt="short">{0} cm</unitPattern>
+		</unit>
+		<unit type="length-km">
+			<unitPattern count="other" alt="short">{0} km</unitPattern>
+		</unit>
+		<unit type="length-m">
+			<unitPattern count="other" alt="short">{0} m</unitPattern>
+		</unit>
+		<unit type="length-mm">
+			<unitPattern count="other" alt="short">{0} mm</unitPattern>
+		</unit>
+		<unit type="length-pm">
+			<unitPattern count="other" alt="short">{0} pm</unitPattern>
+		</unit>
+		<unit type="mass-g">
+			<unitPattern count="other" alt="short">{0} g</unitPattern>
+		</unit>
+		<unit type="mass-kg">
+			<unitPattern count="other" alt="short">{0} kg</unitPattern>
+		</unit>
+		<unit type="millisecond">
+			<unitPattern count="other" alt="short">{0} ms</unitPattern>
+		</unit>
 		<unit type="minute">
 			<unitPattern count="other">{0} min</unitPattern>
 		</unit>
@@ -3446,6 +3494,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<unit type="month-past">
 			<unitPattern count="other">-{0} m</unitPattern>
 		</unit>
+		<unit type="power-kilowatt">
+			<unitPattern count="other" alt="short">{0} kW</unitPattern>
+		</unit>
+		<unit type="power-watt">
+			<unitPattern count="other" alt="short">{0} W</unitPattern>
+		</unit>
 		<unit type="second">
 			<unitPattern count="other">{0} s</unitPattern>
 		</unit>
@@ -3454,6 +3508,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unit>
 		<unit type="second-past">
 			<unitPattern count="other">-{0} s</unitPattern>
+		</unit>
+		<unit type="temperature-c">
+			<unitPattern count="other" alt="short">{0} °C</unitPattern>
+		</unit>
+		<unit type="volume-km3">
+			<unitPattern count="other" alt="short">{0} km³</unitPattern>
 		</unit>
 		<unit type="week">
 			<unitPattern count="other">{0} w</unitPattern>
@@ -3473,80 +3533,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<unit type="year-past">
 			<unitPattern count="other">-{0} y</unitPattern>
 		</unit>
-		<unit type="millisecond">
-			<unitPattern count="other" alt="short">{0} ms</unitPattern>
-		</unit>
-		<unit type="length-cm">
-			<unitPattern count="other" alt="short">{0} cm</unitPattern>
-		</unit>
-		<unit type="length-km">
-			<unitPattern count="other" alt="short">{0} km</unitPattern>
-		</unit>
-		<unit type="length-m">
-			<unitPattern count="other" alt="short">{0} m</unitPattern>
-		</unit>
-		<unit type="length-mm">
-			<unitPattern count="other" alt="short">{0} mm</unitPattern>
-		</unit>
-		<unit type="length-pm">
-			<unitPattern count="other" alt="short">{0} pm</unitPattern>
-		</unit>
-		<unit type="angle-deg">
-			<unitPattern count="other" alt="short">{0}°</unitPattern>
-		</unit>
-		<unit type="angle-min">
-			<unitPattern count="other" alt="short">{0}′</unitPattern>
-		</unit>
-		<unit type="angle-sec">
-			<unitPattern count="other" alt="short">{0}″</unitPattern>
-		</unit>
-		<unit type="mass-g">
-			<unitPattern count="other" alt="short">{0} g</unitPattern>
-		</unit>
-		<unit type="mass-kg">
-			<unitPattern count="other" alt="short">{0} kg</unitPattern>
-		</unit>
-		<unit type="temperature-c">
-			<unitPattern count="other" alt="short">{0} °C</unitPattern>
-		</unit>
-		<unit type="atmospheric-pressure-hpa">
-			<unitPattern count="other" alt="short">{0} hPa</unitPattern>
-		</unit>
-		<unit type="atmospheric-pressure-mb">
-			<unitPattern count="other" alt="short">{0} mb</unitPattern>
-		</unit>
-		<unit type="area-ha">
-			<unitPattern count="other" alt="short">{0} ha</unitPattern>
-		</unit>
-		<unit type="area-km2">
-			<unitPattern count="other" alt="short">{0} km²</unitPattern>
-		</unit>
-		<unit type="area-m2">
-			<unitPattern count="other" alt="short">{0} m²</unitPattern>
-		</unit>
-		<unit type="volume-km3">
-			<unitPattern count="other" alt="short">{0} km³</unitPattern>
-		</unit>
-		<unit type="power-kilowatt">
-			<unitPattern count="other" alt="short">{0} kW</unitPattern>
-		</unit>
-		<unit type="power-watt">
-			<unitPattern count="other" alt="short">{0} W</unitPattern>
-		</unit>
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
-                <listPattern type="duration">
-                        <alias source="locale" path="../listPattern" />
-                </listPattern>
-                <listPattern type="duration-short">
-                        <alias source="locale" path="../listPattern" />
-                </listPattern>
+		<listPattern type="duration">
+			<alias source="locale" path="../listPattern"/>
+		</listPattern>
+		<listPattern type="duration-short">
+			<alias source="locale" path="../listPattern"/>
+		</listPattern>
 	</listPatterns>
 	<posix>
 		<messages>

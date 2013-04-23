@@ -405,6 +405,8 @@ public class ExampleGenerator {
         }
         else if (listPatternType.equals("duration")) {
             return handleDurationListPatterns(parts, value);
+        } else if (listPatternType.equals("duration-short")) {
+            return handleDurationShortListPatterns(parts, value);
         } else {
             throw new IllegalArgumentException("Unrecoginized list pattern type: " + listPatternType);
         }
@@ -437,6 +439,26 @@ public class ExampleGenerator {
         String listPathFormat = "//ldml/listPatterns/listPattern[@type=\"duration\"]/listPatternPart[@type=\"{0}\"]";
         return longListPatternExample(
                 listPathFormat, patternType, value, duration1, duration2, duration3, duration4);
+    }
+
+    private String handleDurationShortListPatterns(XPathParts parts, String value) {
+        String patternType = parts.getAttributeValue(-1, "type");
+        String duration1 = getDurationShortFromFormat("day", 4);
+        String duration2 = getDurationShortFromFormat("hour", 2);
+        if (patternType.equals("2")) {
+            return invertBackground(format(setBackground(value), duration1, duration2));
+        }
+        String duration3 = getDurationShortFromFormat("minute", 37);
+        String duration4 = getDurationShortFromFormat("second", 23);
+        String listPathFormat = "//ldml/listPatterns/listPattern[@type=\"duration-short\"]/listPatternPart[@type=\"{0}\"]";
+        return longListPatternExample(
+                listPathFormat, patternType, value, duration1, duration2, duration3, duration4);
+    }
+
+    private String getDurationShortFromFormat(String durationName, int durationAmount) {
+        String form = this.pluralInfo.getPluralRules().select((double) durationAmount);
+        String pathFormat = "//ldml/units/unit[@type=\"{0}\"]/unitPattern[@count=\"{1}\"][@alt=\"short\"]";
+        return format(getValueFromFormat(pathFormat, durationName, form), String.valueOf(durationAmount));
     }
 
     private String getDurationFromFormat(String durationName, int durationAmount) {

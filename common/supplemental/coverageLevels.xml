@@ -233,6 +233,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="dz" value="40" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel value="40" match="listPatterns/listPattern/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="40" match="listPatterns/listPattern[@type='duration']/listPatternPart[@type='(2|start|middle|end)']"/>
+		<coverageLevel value="40" match="listPatterns/listPattern[@type='duration-short']/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="40" match="units/unit[@type='(second|minute|hour|day|week|month|year)(\-(future|past))?']/unitPattern[@count='${Target-Plurals}']([@alt='short'])?"/>
 		<coverageLevel value="60" match="localeDisplayNames/languages/language[@type='%language60']([@alt='%shortVariant'])?"/>
 		<coverageLevel inTerritory="CF" value="60" match="localeDisplayNames/languages/language[@type='sg']([@alt='%shortVariant'])?"/>

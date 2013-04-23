@@ -109,6 +109,11 @@
 ^//ldml/listPatterns/listPattern\[@type="duration"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, and Grapes
 ^//ldml/listPatterns/listPattern\[@type="duration"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
 
+^//ldml/listPatterns/listPattern\[@type="duration-short"]/listPatternPart\[@type="2"] ; {0}=ITEM1 Apples ; {1}=ITEM2 Oranges
+^//ldml/listPatterns/listPattern\[@type="duration-short"]/listPatternPart\[@type="start"] ; {0}=FIRST_ITEM Apples ; {1}=REMAINING_ITEMS Oranges, Peaches, and Grapes
+^//ldml/listPatterns/listPattern\[@type="duration-short"]/listPatternPart\[@type="middle"] ; {0}=FIRST_ITEMS Apples, Oranges ; {1}=LAST_ITEMS Peaches, and Grapes
+^//ldml/listPatterns/listPattern\[@type="duration-short"]/listPatternPart\[@type="end"] ; {0}=START_ITEMS Apples, Oranges, Peaches; {1}=LAST_ITEM Grapes
+
 ^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="language"] ; {0}=LANGUAGE_CODE zh
 ^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="script"] ; {0}=SCRIPT_CODE Hans
 ^//ldml/localeDisplayNames/codePatterns/codePattern\[@type="territory"] ; {0}=REGION_CODE CN

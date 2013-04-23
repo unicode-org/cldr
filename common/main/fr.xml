@@ -1267,6 +1267,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<contextTransformUsage type="day-standalone-except-narrow">
 			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
 		</contextTransformUsage>
+		<contextTransformUsage type="languages">
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
 		<contextTransformUsage type="month-format-except-narrow">
 			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
 		</contextTransformUsage>

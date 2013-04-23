@@ -175,7 +175,7 @@ public class WritePluralRules {
 //                        " or v in 1..6 and f mod 10 in 2..4 and f mod 100 not in 12..14" +
 //                        " or v not in 0..6 and f mod 10 in 2..4"
 //                },
-                {"sr,hr,sh", "one: j mod 10 is 1 and j mod 100 is not 11" +
+                {"sr,hr,sh,bs", "one: j mod 10 is 1 and j mod 100 is not 11" +
                         " or f mod 10 is 1 and f mod 100 is not 11;" +
                         "few: j mod 10 in 2..4 and j mod 100 not in 12..14" +
                         " or f mod 10 in 2..4 and f mod 100 not in 12..14"

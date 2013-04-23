@@ -55,7 +55,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="one">n mod 10 is 1 and n mod 100 not in 11..19</pluralRule>
             <pluralRule count="few">n mod 10 in 2..9 and n mod 100 not in 11..19</pluralRule>
         </pluralRules>
-        <pluralRules locales="be bs">
+        <pluralRules locales="be">
             <pluralRule count="one">n mod 10 is 1 and n mod 100 is not 11</pluralRule>
             <pluralRule count="few">n mod 10 in 2..4 and n mod 100 not in 12..14</pluralRule>
             <pluralRule count="many">n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14</pluralRule>
@@ -134,7 +134,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <pluralRules locales="bn hi zu">
             <pluralRule count="one">n within 0..1</pluralRule>
         </pluralRules>
-        <pluralRules locales="hr sh sr">
+        <pluralRules locales="bs hr sh sr">
             <pluralRule count="one">j mod 10 is 1 and j mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11</pluralRule>
             <pluralRule count="few">j mod 10 in 2..4 and j mod 100 not in 12..14 or f mod 10 in 2..4 and f mod 100 not in 12..14</pluralRule>
         </pluralRules>

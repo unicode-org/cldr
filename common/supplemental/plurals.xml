@@ -10,7 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <generation date="$Date$"/>
     <plurals>
         <!-- if locale is known to have no plurals, there are no rules -->
-        <pluralRules locales="az bm bo dz fa hu id ig ii ja jv ka kde kea km kn ko lkt lo ms my sah ses sg th to tr vi wo yo zh">
+        <pluralRules locales="az bm bo dz fa hu id ig ii ja jv ka kde kea km ko lkt lo ms my sah ses sg th to tr vi wo yo zh">
         </pluralRules>
         <pluralRules locales="ar">
             <pluralRule count="zero">n is 0</pluralRule>
@@ -24,10 +24,10 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="two">j is 2</pluralRule>
             <pluralRule count="many">j is not 0 and j mod 10 is 0</pluralRule>
         </pluralRules>
-        <pluralRules locales="af asa ast bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw gu ha haw jgo jmc kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn mr nah nb nd ne nn nnh no nr ny nyn om or os pa pap ps rm rof rwk saq seh sn so sq ss ssy st syr teo tig tk tn ts ve vo vun wae xh xog">
+        <pluralRules locales="af asa ast bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw jgo jmc kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pa pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn ts ve vo vun wae xh xog">
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
-        <pluralRules locales="ak am bh guw ln mg nso ti wa">
+        <pluralRules locales="ak bh guw ln mg nso ti wa">
             <pluralRule count="one">n in 0..1</pluralRule>
         </pluralRules>
         <pluralRules locales="ff fr hy kab">
@@ -122,7 +122,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <pluralRules locales="fil tl">
             <pluralRule count="one">j in 0..1</pluralRule>
         </pluralRules>
-        <pluralRules locales="ca de en et fi gl it nl sv sw ta te ur">
+        <pluralRules locales="ca de en et fi gl it nl sv sw ur">
             <pluralRule count="one">j is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="da is">
@@ -131,7 +131,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <pluralRules locales="pt">
             <pluralRule count="one">n is 1 or f is 1</pluralRule>
         </pluralRules>
-        <pluralRules locales="bn hi zu">
+        <pluralRules locales="am bn gu hi kn mr zu">
             <pluralRule count="one">n within 0..1</pluralRule>
         </pluralRules>
         <pluralRules locales="bs hr sh sr">

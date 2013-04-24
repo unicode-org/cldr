@@ -11,6 +11,7 @@
 %A = ([^"]*+)
 %B = ([^"/]*+)
 %E = ([-a-zA-Z_]*)
+%H = ([hH])
 %S = ([^/]*+)
 %T = (millisecond|second|minute|hour|day|week|month|year)
 %W = (temperature|atmospheric-pressure)
@@ -58,8 +59,9 @@
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="(?![^"]*[hHms])%A"]            ; DateTime ; &calendar($1); Date Formats ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/%EFormats/%EFormatLength[@type="%A"]/%EFormat[@type="%A"]/pattern[@type="%A"]       ; DateTime ; &calendar($1) ; &titlecase($2) Formats ; $4
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/availableFormats/dateFormatItem[@id="%A"]                           ; DateTime ; &calendar($1); Time Formats ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; Interval Formats ; Fallback
-//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; Interval Formats ; $2/$3
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatFallback                              ; DateTime ; &calendar($1) ; Interval Format Fallback ; Fallback
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%H%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; Time Interval Formats ; $2$3/$4
+//ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id="%A"]/greatestDifference[@id="%A"] ; DateTime ; &calendar($1) ; Date Interval Formats ; $2/$3
 
 //ldml/dates/calendars/calendar[@type="%A"]/cyclicNameSets/cyclicNameSet[@type="%A"]/cyclicNameContext[@type="%A"]/cyclicNameWidth[@type="%A"]/cyclicName[@type="%A"]   ; DateTime ; &calendar($1) ; $2 ; cyclic-$3-$4-$5
 //ldml/dates/calendars/calendar[@type="%A"]/monthPatterns/monthPatternContext[@type="%A"]/monthPatternWidth[@type="%A"]/monthPattern[@type="%A"]    ; DateTime ; &calendar($1) ; $2 ; $3-$4

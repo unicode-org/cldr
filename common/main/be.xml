@@ -580,36 +580,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d.M.yy GGGGG</pattern>
+							<pattern>d.M.y GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
 						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH.mm.ss</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">L</dateFormatItem>
-						<dateFormatItem id="Md" draft="unconfirmed">d.M</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="contributed">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">MMMM d</dateFormatItem>
-						<dateFormatItem id="MMMMEd" draft="contributed">MMMM d, EEEE</dateFormatItem>
+						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="Md">d.M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d.M</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm.ss</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">y</dateFormatItem>
-						<dateFormatItem id="yM" draft="contributed">MM/y</dateFormatItem>
-						<dateFormatItem id="yMd">d.M.y</dateFormatItem>
-						<dateFormatItem id="yMEd" draft="contributed">E, dd/MM/y</dateFormatItem>
-						<dateFormatItem id="yMMM" draft="contributed">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="contributed">E, d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQQQ" draft="contributed">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ" draft="contributed">QQQQ y</dateFormatItem>
+						<dateFormatItem id="y">G y</dateFormatItem>
+						<dateFormatItem id="yyyy">G y</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="contributed">MM/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d.M.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd" draft="contributed">E, dd/MM/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="contributed">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ" draft="contributed">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="contributed">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback draft="unconfirmed">{0} - {1}</intervalFormatFallback>
@@ -667,35 +671,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M" draft="unconfirmed">E, d MMM - E, d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y-y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M" draft="unconfirmed">M.y - M.y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">M.y - M.y</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">M.y - M.y G</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">M.y - M.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d" draft="unconfirmed">d.M.y - d.M.y</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">d.M.y - d.M.y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">d.M.y - d.M.y</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">d.M.y - d.M.y G</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d.M.y - d.M.y G</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d.M.y - d.M.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="unconfirmed">E, d.M.y - E, d.M.y</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">E, d.M.y - E, d.M.y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E, d.M.y - E, d.M.y</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">E, d.M.y - E, d.M.y G</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, d.M.y - E, d.M.y G</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E, d.M.y - E, d.M.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M" draft="unconfirmed">MMM-MMM y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">MMM y - MMM y</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">MMM-MMM y G</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">MMM y - MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d" draft="unconfirmed">d-d MMM y</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">d MMM - d MMM y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">d MMM y - d MMM y</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">d-d MMM y G</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">d MMM - d MMM y G</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d MMM y - d MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d" draft="unconfirmed">E, d - E, d MMM y</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">E, d MMM - E, d MMM y</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E, d MMM y - E, d MMM y</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">E, d - E, d MMM y G</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E, d MMM - E, d MMM y G</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E, d MMM y - E, d MMM y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -907,6 +911,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="hm">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH.mm</dateFormatItem>
 						<dateFormatItem id="hms">h.mm.ss a</dateFormatItem>

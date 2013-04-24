@@ -624,6 +624,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">dd E</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, G y MMM d</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -637,15 +641,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">y-M</dateFormatItem>
-						<dateFormatItem id="yMd">y-M-d</dateFormatItem>
-						<dateFormatItem id="yMEd">E, y-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM">y MMM</dateFormatItem>
-						<dateFormatItem id="yMMMd">y MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, y MMM d</dateFormatItem>
-						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y 'оны' QQQQ</dateFormatItem>
+						<dateFormatItem id="y">G y</dateFormatItem>
+						<dateFormatItem id="yyyy">G y</dateFormatItem>
+						<dateFormatItem id="yyyyM">G y-M</dateFormatItem>
+						<dateFormatItem id="yyyyMd">G y-M-d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, G y-M-d</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G y MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, G y MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">G y 'оны' QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -707,39 +712,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">E, MM/dd - E, MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y–y</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">y/MM-MM</greatestDifference>
-							<greatestDifference id="y">y/MM - y/MM</greatestDifference>
+							<greatestDifference id="M">G y/MM-MM</greatestDifference>
+							<greatestDifference id="y">G y/MM - y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">y/MM/dd-dd</greatestDifference>
-							<greatestDifference id="M">y/MM/dd -MM/dd</greatestDifference>
-							<greatestDifference id="y">y/MM/dd - y/MM/dd</greatestDifference>
+							<greatestDifference id="d">G y/MM/dd-dd</greatestDifference>
+							<greatestDifference id="M">G y/MM/dd -MM/dd</greatestDifference>
+							<greatestDifference id="y">G y/MM/dd - y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, y/MM/dd – E, y/MM/dd</greatestDifference>
-							<greatestDifference id="M">E, y/MM/dd – E, y/MM/dd</greatestDifference>
-							<greatestDifference id="y">E, y/MM/dd – E, y/MM/dd</greatestDifference>
+							<greatestDifference id="d">E, G y/MM/dd – E, y/MM/dd</greatestDifference>
+							<greatestDifference id="M">E, G y/MM/dd – E, y/MM/dd</greatestDifference>
+							<greatestDifference id="y">E, G y/MM/dd – E, y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">y/MM-MM</greatestDifference>
-							<greatestDifference id="y">y/MM - y/MM</greatestDifference>
+							<greatestDifference id="M">G y/MM-MM</greatestDifference>
+							<greatestDifference id="y">G y/MM - y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">y/MM/d-d</greatestDifference>
-							<greatestDifference id="M">y/MM/dd - MM/dd</greatestDifference>
-							<greatestDifference id="y">y/MM/dd - y/MM/dd</greatestDifference>
+							<greatestDifference id="d">G y/MM/d-d</greatestDifference>
+							<greatestDifference id="M">G y/MM/dd - MM/dd</greatestDifference>
+							<greatestDifference id="y">G y/MM/dd - y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, y/MM/dd – E, y/MM/dd</greatestDifference>
-							<greatestDifference id="M">E, y/MM/dd – E, y/MM/dd</greatestDifference>
-							<greatestDifference id="y">E, y/MM/dd – E, y/MM/dd</greatestDifference>
+							<greatestDifference id="d">E, G y/MM/dd – E, y/MM/dd</greatestDifference>
+							<greatestDifference id="M">E, G y/MM/dd – E, y/MM/dd</greatestDifference>
+							<greatestDifference id="y">E, G y/MM/dd – E, y/MM/dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">y 'оны' MM-MM-'р' 'сар'</greatestDifference>
-							<greatestDifference id="y">y/MM -y/MM</greatestDifference>
+							<greatestDifference id="M">G y 'оны' MM-MM-'р' 'сар'</greatestDifference>
+							<greatestDifference id="y">G y/MM -y/MM</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1045,6 +1050,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">dd E</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, G y MMM d</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>

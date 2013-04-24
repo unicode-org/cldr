@@ -595,7 +595,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>dd.MM.yy GGGGG</pattern>
+							<pattern>dd.MM.y GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -623,6 +623,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d, ccc</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y թ. LLL</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM, y թ. G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">d MMM, y թ. G, E</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -636,15 +640,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMM, E</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">MM.y</dateFormatItem>
-						<dateFormatItem id="yMd">dd.MM.y</dateFormatItem>
-						<dateFormatItem id="yMEd">d.MM.y թ., E</dateFormatItem>
-						<dateFormatItem id="yMMM">y թ. LLL</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM, y թ.</dateFormatItem>
-						<dateFormatItem id="yMMMEd">d MMM, y թ., E</dateFormatItem>
-						<dateFormatItem id="yQQQ">y թ, QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y թ, QQQQ</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">dd.MM.y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">d.MM.y թ. G, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y թ. LLL</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM, y թ. G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">d MMM, y թ. G, E</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">G y թ, QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">G y թ, QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -706,39 +711,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">E, MMM dd - E, MMM dd</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y-y</greatestDifference>
+							<greatestDifference id="y">y-y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM.y - MM.y</greatestDifference>
-							<greatestDifference id="y">MM.y - MM.y</greatestDifference>
+							<greatestDifference id="M">MM.y - MM.y G</greatestDifference>
+							<greatestDifference id="y">MM.y - MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd.MM.y - dd.MM.y</greatestDifference>
-							<greatestDifference id="M">dd.MM.y - dd.MM.y</greatestDifference>
-							<greatestDifference id="y">dd.MM.y - dd.MM.y</greatestDifference>
+							<greatestDifference id="d">dd.MM.y - dd.MM.y G</greatestDifference>
+							<greatestDifference id="M">dd.MM.y - dd.MM.y G</greatestDifference>
+							<greatestDifference id="y">dd.MM.y - dd.MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">ccc, dd.MM.y - ccc, dd.MM.y</greatestDifference>
-							<greatestDifference id="M">ccc, dd.MM.y - ccc, dd.MM.y</greatestDifference>
-							<greatestDifference id="y">ccc, dd.MM.y - ccc, dd.MM.y</greatestDifference>
+							<greatestDifference id="d">ccc, dd.MM.y - ccc, dd.MM.y G</greatestDifference>
+							<greatestDifference id="M">ccc, dd.MM.y - ccc, dd.MM.y G</greatestDifference>
+							<greatestDifference id="y">ccc, dd.MM.y - ccc, dd.MM.y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM-MMM y թ.</greatestDifference>
-							<greatestDifference id="y">MMM y - MMM y թ.</greatestDifference>
+							<greatestDifference id="M">MMM-MMM y թ. G</greatestDifference>
+							<greatestDifference id="y">MMM y - MMM y թ. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">dd-dd MMM, y թ.</greatestDifference>
-							<greatestDifference id="M">dd MMM - dd MMM, y թ.</greatestDifference>
-							<greatestDifference id="y">dd MMM, y - dd MMM, y թ.</greatestDifference>
+							<greatestDifference id="d">dd-dd MMM, y թ. G</greatestDifference>
+							<greatestDifference id="M">dd MMM - dd MMM, y թ. G</greatestDifference>
+							<greatestDifference id="y">dd MMM, y - dd MMM, y թ. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d MMM - E, d MMM, y թ.</greatestDifference>
-							<greatestDifference id="M">E, d MMM - E, d MMM, y թ.</greatestDifference>
-							<greatestDifference id="y">E, d MMM, y - E, d MMM, y թ.</greatestDifference>
+							<greatestDifference id="d">E, d MMM - E, d MMM, y թ. G</greatestDifference>
+							<greatestDifference id="M">E, d MMM - E, d MMM, y թ. G</greatestDifference>
+							<greatestDifference id="y">E, d MMM, y - E, d MMM, y թ. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">y թ. MMM – MMM</greatestDifference>
-							<greatestDifference id="y">MMM y - MMM y թ</greatestDifference>
+							<greatestDifference id="M">G y թ. MMM – MMM</greatestDifference>
+							<greatestDifference id="y">MMM y - MMM y թ G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -981,6 +986,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d, ccc</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y թ. LLL</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM, y թ. G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">d MMM, y թ. G, E</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>

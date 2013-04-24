@@ -1160,7 +1160,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>dd.MM.yy GGGGG</pattern>
+							<pattern>dd.MM.y GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1188,6 +1188,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Gy">G y. 'g'.</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y. 'g'. MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y. 'g'. d. MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, G y. 'g'. d. MMM</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1202,18 +1206,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, d. MMMM</dateFormatItem>
-						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y. 'g'.</dateFormatItem>
-						<dateFormatItem id="yM">MM.y.</dateFormatItem>
-						<dateFormatItem id="yMd">d.M.y.</dateFormatItem>
-						<dateFormatItem id="yMEd">E, d.M.y.</dateFormatItem>
-						<dateFormatItem id="yMMM">y. 'g'. MMM</dateFormatItem>
-						<dateFormatItem id="yMMMd">y. 'g'. d. MMM</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, y. 'g'. d. MMM</dateFormatItem>
-						<dateFormatItem id="yMMMM">y. 'g'. MMMM</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
+						<dateFormatItem id="y">G y. 'g'.</dateFormatItem>
+						<dateFormatItem id="yyyy">G y. 'g'.</dateFormatItem>
+						<dateFormatItem id="yyyyM">MM.y. G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d.M.y. G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d.M.y. G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y. 'g'. MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G y. 'g'. d. MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, G y. 'g'. d. MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">G y. 'g'. MMMM</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -1275,30 +1279,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">E, d. MMM – E, d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y.–y.</greatestDifference>
+							<greatestDifference id="y">y.–y. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM.y.–MM.y.</greatestDifference>
-							<greatestDifference id="y">MM.y.–MM.y.</greatestDifference>
+							<greatestDifference id="M">MM.y.–MM.y. G</greatestDifference>
+							<greatestDifference id="y">MM.y.–MM.y. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd.MM.y.–dd.MM.y.</greatestDifference>
-							<greatestDifference id="M">dd.MM.y.–dd.MM.y.</greatestDifference>
-							<greatestDifference id="y">dd.MM.y.–dd.MM.y.</greatestDifference>
+							<greatestDifference id="d">dd.MM.y.–dd.MM.y. G</greatestDifference>
+							<greatestDifference id="M">dd.MM.y.–dd.MM.y. G</greatestDifference>
+							<greatestDifference id="y">dd.MM.y.–dd.MM.y. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
-							<greatestDifference id="M">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
-							<greatestDifference id="y">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="d">E, dd.MM.y. – E, dd.MM.y. G</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y. – E, dd.MM.y. G</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y. – E, dd.MM.y. G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">y. 'gada' MMM–MMM</greatestDifference>
-							<greatestDifference id="y">y. 'gada' MMM – y. 'gada' MMM</greatestDifference>
+							<greatestDifference id="M">G y. 'gada' MMM–MMM</greatestDifference>
+							<greatestDifference id="y">G y. 'gada' MMM – y. 'gada' MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">y. 'gada' d.–d. MMM</greatestDifference>
-							<greatestDifference id="M">y. 'gada' d. MMM – d. MMM</greatestDifference>
-							<greatestDifference id="y">y. 'gada' d. MMM – y. 'gada' d. MMM</greatestDifference>
+							<greatestDifference id="d">G y. 'gada' d.–d. MMM</greatestDifference>
+							<greatestDifference id="M">G y. 'gada' d. MMM – d. MMM</greatestDifference>
+							<greatestDifference id="y">G y. 'gada' d. MMM – y. 'gada' d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E, y. 'gada' d. MMM – E, y. 'gada' d. MMM</greatestDifference>
@@ -1306,8 +1310,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">E, y. 'gada' d. MMM – E, y. 'gada' d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MM.y.–MM.y.</greatestDifference>
-							<greatestDifference id="y">MM.y.–MM.y.</greatestDifference>
+							<greatestDifference id="M">MM.y.–MM.y. G</greatestDifference>
+							<greatestDifference id="y">MM.y.–MM.y. G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1609,6 +1613,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Gy">G y. 'g'.</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y. 'g'. MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y. 'g'. d. MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, G y. 'g'. d. MMM</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>

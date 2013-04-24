@@ -887,6 +887,7 @@ public class StandardCodes {
         // { "region", "", "Description", "European Union", "CLDR", "True" },
         { "region", "ZZ", "Description", "Unknown or Invalid Region", "CLDR", "True" },
         { "region", "QO", "Description", "Outlying Oceania", "CLDR", "True" },
+        { "region", "XK", "Description", "KOSOVO", "CLDR", "True" },
         { "script", "Qaai", "Description", "Inherited", "CLDR", "True" },
         // {"region", "003", "Description", "North America", "CLDR", "True"},
         // {"region", "062", "Description", "South-central Asia", "CLDR", "True"},

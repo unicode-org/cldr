@@ -200,8 +200,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="40" match="numbers/currencies/currency[@type='%currency40']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel value="40" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='[^']++']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='%contextTypes']/quarterWidth[@type='%allWidths']/quarter[@type='[^']++']"/>
-		<coverageLevel value="40" match="dates/fields/field[@type='(day|week|month|year)']/relative[@type='(\-?1|0)']"/>
-		<coverageLevel value="40" match="dates/fields/field[@type='[^']++']/displayName"/>
+		<coverageLevel value="40" match="dates/fields/field[@type='([^']++)']/relative[@type='(\-?1|0)']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="40" match="dates/calendars/calendar[@type='chinese']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="40" match="dates/calendars/calendar[@type='chinese']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="EG" value="40" match="dates/calendars/calendar[@type='coptic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
@@ -267,7 +266,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
-		<coverageLevel value="80" match="dates/fields/field[@type='day']/relative[@type='\-?(2|3)']"/>
+		<coverageLevel value="80" match="dates/fields/field[@type='([^']++)']/relative[@type='\-?(2|3)']"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/%metazoneTypes"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80_stdonly']/long/standard"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='[^']++']/exemplarCity"/>

@@ -1068,11 +1068,11 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             // Sorts numberSystem items (except for decimal formats).
             functionMap.put("number", new Transform<String, String>() {
-                private final String[] symbols = {
-                                                       "decimal", "group", "plusSign", "minusSign",
-                                                       "percentSign", "perMille", "exponential",
-                                                       "infinity", "nan", "list", "currencies"
-                                               };
+                private final String[] symbols = {"decimal", "group",
+                    "plusSign", "minusSign", "percentSign", "perMille",
+                    "exponential", "superscriptingExponent",
+                    "infinity", "nan", "list", "currencies"
+                };
 
                 public String transform(String source) {
                     String[] parts = source.split("-");

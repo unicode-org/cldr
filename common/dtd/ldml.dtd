@@ -992,7 +992,7 @@ $Date$
 <!ATTLIST finance draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST finance alt NMTOKENS #IMPLIED >
 
-<!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, special*)) >
+<!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, special*)) >
 <!ATTLIST symbols draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST symbols standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
 <!ATTLIST symbols references CDATA #IMPLIED >
@@ -1053,6 +1053,11 @@ $Date$
 <!ATTLIST exponential draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST exponential alt NMTOKENS #IMPLIED >
 <!ATTLIST exponential numberSystem CDATA #IMPLIED > <!-- deprecated -->
+
+<!ELEMENT superscriptingExponent ( #PCDATA ) >
+<!ATTLIST superscriptingExponent references CDATA #IMPLIED >
+<!ATTLIST superscriptingExponent draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST superscriptingExponent alt NMTOKENS #IMPLIED >
 
 <!ELEMENT perMille ( #PCDATA ) >
 <!ATTLIST perMille references CDATA #IMPLIED >

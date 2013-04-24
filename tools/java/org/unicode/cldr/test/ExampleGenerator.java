@@ -35,6 +35,7 @@ import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
@@ -97,6 +98,8 @@ public class ExampleGenerator {
     private static final String exampleEnd = "</div>";
     private static final String startItalic = "<i>";
     private static final String endItalic = "</i>";
+    private static final String startSup = "<sup>";
+    private static final String endSup = "</sup>";
 
     private static final String backgroundStartSymbol = "\uE234";
     private static final String backgroundEndSymbol = "\uE235";
@@ -104,7 +107,9 @@ public class ExampleGenerator {
     private static final String exampleSeparatorSymbol = "\uE237";
     private static final String startItalicSymbol = "\uE238";
     private static final String endItalicSymbol = "\uE239";
-
+    private static final String startSupSymbol = "\uE23A";
+    private static final String endSupSymbol = "\uE23B";
+    
     private boolean verboseErrors = false;
 
     private Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
@@ -729,6 +734,7 @@ public class ExampleGenerator {
         int index = 1;// dec/percent/sci
         double numberSample = NUMBER_SAMPLE;
         String originalValue = cldrFile.getWinningValue(parts.toString());
+        boolean isSuperscripting = false;
         if (symbolType.equals("decimal") || symbolType.equals("group")) {
             index = 1;
         } else if (symbolType.equals("minusSign")) {
@@ -745,15 +751,36 @@ public class ExampleGenerator {
             originalValue = cldrFile.getWinningValue(parts.addRelative("../percentSign").toString());
         } else if (symbolType.equals("exponential") || symbolType.equals("plusSign")) {
             index = 3;
+        } else if (symbolType.equals("superscriptingExponent")) {
+            index = 3;
+            isSuperscripting = true;
         } else {
             // We don't need examples for standalone symbols, i.e. infinity and nan.
             // We don't have an example for the list symbol either.
             return null;
         }
         DecimalFormat x = icuServiceBuilder.getNumberFormat(index, numberSystem);
-        x.setExponentSignAlwaysShown(true);
-        String example = x.format(numberSample);
-        example = example.replace(originalValue, backgroundEndSymbol + value + backgroundStartSymbol);
+        String example;
+        String formattedValue;
+        if (isSuperscripting) {
+            DecimalFormatSymbols symbols = x.getDecimalFormatSymbols();
+            char[] digits = symbols.getDigits();
+            x.setDecimalFormatSymbols(symbols);
+            x.setNegativeSuffix(endSupSymbol + x.getNegativeSuffix());
+            x.setPositiveSuffix(endSupSymbol + x.getPositiveSuffix());
+            x.setExponentSignAlwaysShown(false);
+
+            // Don't set the exponent directly because future examples for items
+            // will be affected as well.
+            originalValue = symbols.getExponentSeparator();
+            formattedValue = backgroundEndSymbol + value + digits[1] + digits[0] + backgroundStartSymbol + startSupSymbol;
+            example = x.format(numberSample);
+        } else {
+            x.setExponentSignAlwaysShown(true);
+            formattedValue = backgroundEndSymbol + value + backgroundStartSymbol;
+        }
+        example = x.format(numberSample);
+        example = example.replace(originalValue, formattedValue);
         return backgroundStartSymbol + example + backgroundEndSymbol;
     }
 
@@ -1186,6 +1213,8 @@ public class ExampleGenerator {
                     .replace(exampleSeparatorSymbol, exampleEnd + exampleStart)
                     .replace(startItalicSymbol, startItalic)
                     .replace(endItalicSymbol, endItalic)
+                    .replace(startSupSymbol, startSup)
+                    .replace(endSupSymbol, endSup)
                 + exampleEnd;
     }
 

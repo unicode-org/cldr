@@ -67,6 +67,18 @@ public class TestExampleGenerator extends TestFmwk {
             actual);
     }
 
+    public void TestSymbols() {
+        CLDRFile english = info.getEnglish();
+        ExampleGenerator exampleGenerator = new ExampleGenerator(english, english,
+                CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        String actual = exampleGenerator.getExampleHtml("//ldml/numbers/symbols[@numberSystem=\"latn\"]/superscriptingExponent",
+                "x", Zoomed.IN);
+            assertEquals("superscriptingExponent faulty",
+                "<div class='cldr_example'><span class='cldr_substituted'>1.23456789</span>x10<span class='cldr_substituted'><sup>5</sup></span></div>",
+                actual);
+        
+    }
+
     public void Test4897() {
         final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(),

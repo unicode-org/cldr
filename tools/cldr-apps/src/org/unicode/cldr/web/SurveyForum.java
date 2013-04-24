@@ -39,6 +39,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
+import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.WebContext.LoadingShow;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
@@ -1561,8 +1562,13 @@ public class SurveyForum {
             return true;
         }
 
-        UserRegistry.User user;
-        user = sm.reg.get(pw, email, "RSS@" + WebContext.userIP(request));
+        UserRegistry.User user = null;
+        try {
+            user = sm.reg.get(pw, email, "RSS@" + WebContext.userIP(request));
+        } catch (LogoutException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         if (user == null) {
             sendErr(request, response, "authentication err");

@@ -12,19 +12,7 @@
 	<body style='padding: 1em'>
 
     <% if(request.getParameter("logout")!=null) { 
-    
-        Cookie c0 = WebContext.getCookie(request,SurveyMain.QUERY_EMAIL);
-        if(c0!=null) {
-            c0.setValue("");
-            c0.setMaxAge(0);
-            response.addCookie(c0);
-        }
-        Cookie c1 = WebContext.getCookie(request,SurveyMain.QUERY_PASSWORD);
-        if(c1!=null) {
-            c1.setValue("");
-            c1.setMaxAge(0);
-            response.addCookie(c1);
-        }
+        WebContext.logout(request,response);
     %>
     <p>
     	<i>

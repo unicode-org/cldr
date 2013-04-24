@@ -45,6 +45,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
+import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.w3c.dom.Document;
 
@@ -2056,6 +2057,7 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     public static Cookie getCookie(HttpServletRequest request, String id) {
+        if(request==null) return null;
         Cookie cooks[] = request.getCookies();
         if (cooks == null)
             return null;
@@ -2224,13 +2226,27 @@ public class WebContext implements Cloneable, Appendable {
                 }
             }
         }
-        User user;
+        User user = null;
         // /*srl*/ SurveyLog.logger.warning("isBusted: " + isBusted + ", reg: "
         // + reg);
     
         // SurveyLog.logger.warning("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
-    
-        user = CookieSession.sm.reg.get(password, email, userIP(), letmein);
+
+        HttpSession httpSession = null;
+        
+        if(request != null) {
+            httpSession = request.getSession(true);
+        }
+
+        
+        try {
+            user = CookieSession.sm.reg.get(password, email, userIP(), letmein);
+        } catch (LogoutException e) {
+            logout();
+            if(httpSession!=null) {                
+                httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
+            }
+        }
         if (user != null) {
             user.touch();
         }
@@ -2240,7 +2256,6 @@ public class WebContext implements Cloneable, Appendable {
             return "using canned session"; // already set - for testing
         }
     
-        HttpSession httpSession = request.getSession(true);
         boolean idFromSession = false;
         if (myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
             httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
@@ -2349,6 +2364,25 @@ public class WebContext implements Cloneable, Appendable {
         return message;
     }
 
+    public void logout() {
+        logout(request,response);
+    }
+    
+    public static void logout(HttpServletRequest request, HttpServletResponse response) {
+        Cookie c0 = WebContext.getCookie(request,SurveyMain.QUERY_EMAIL);
+        if(c0!=null) {
+            c0.setValue("");
+            c0.setMaxAge(0);
+            response.addCookie(c0);
+        }
+        Cookie c1 = WebContext.getCookie(request,SurveyMain.QUERY_PASSWORD);
+        if(c1!=null) {
+            c1.setValue("");
+            c1.setMaxAge(0);
+            response.addCookie(c1);
+        }
+   }
+    
     public static PageId getPageId(String pageField) {
         if (pageField != null && !pageField.isEmpty()) {
             try {

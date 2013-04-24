@@ -59,6 +59,10 @@ import com.ibm.icu.util.ULocale;
  **/
 public class UserRegistry {
 
+    public class LogoutException extends Exception {
+
+    }
+
     static Set<String> getCovGroupsForOrg(String st_org) {
         Connection conn = null;
         ResultSet rs = null;
@@ -739,7 +743,7 @@ public class UserRegistry {
         return str.trim().toLowerCase();
     }
 
-    public final UserRegistry.User get(String pass, String email, String ip) {
+    public final UserRegistry.User get(String pass, String email, String ip) throws LogoutException {
         return get(pass, email, ip, false);
     }
 
@@ -771,7 +775,7 @@ public class UserRegistry {
      * @param pass
      *            the password to match. If NULL, means just do a lookup
      */
-    public UserRegistry.User get(String pass, String email, String ip, boolean letmein) {
+    public UserRegistry.User get(String pass, String email, String ip, boolean letmein) throws LogoutException {
         if ((email == null) || (email.length() <= 0)) {
             return null; // nothing to do
         }
@@ -805,8 +809,7 @@ public class UserRegistry {
             // First, try to query it back from the DB.
             rs = pstmt.executeQuery();
             if (!rs.next()) {
-                logger.info("Unknown user or bad login: " + email + " @ " + ip);
-                return null;
+                throw new UserRegistry.LogoutException();
             }
             User u = new UserRegistry.User(rs.getInt(1));
 
@@ -841,6 +844,9 @@ public class UserRegistry {
                     "UserRegistry: SQL error trying to get " + email + " - " + DBUtils.unchainSqlException(se), se);
             throw new InternalError("UserRegistry: SQL error trying to get " + email + " - " + DBUtils.unchainSqlException(se));
             // return null;
+        } catch(LogoutException le) {
+            logger.info("Unknown user or bad login: " + email + " @ " + ip);
+            throw le; // bubble
         } catch (Throwable t) {
             logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get " + email, t);
             throw new InternalError("UserRegistry: some error trying to get " + email + " - " + t.toString());
@@ -853,7 +859,11 @@ public class UserRegistry {
     } // end get
 
     public UserRegistry.User get(String email) {
-        return get(null, email, INTERNAL);
+        try {
+            return get(null, email, INTERNAL);
+        } catch(LogoutException le) {
+            return null;
+        }
     }
 
     /**

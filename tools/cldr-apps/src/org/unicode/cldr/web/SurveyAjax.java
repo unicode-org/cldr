@@ -708,8 +708,8 @@ public class SurveyAjax extends HttpServlet {
                                 oldvotes.put("localeDisplayName",locale.getDisplayName());
                                 oldvotes.put("dir",sm.getDirectionalityFor(locale));
                                 STFactory fac = sm.getSTFactory();
-                                CLDRFile file = fac.make(loc, false);
-                            
+                                //CLDRFile file = fac.make(loc, false);
+                                CLDRFile file = sm.getOldFactory().make(loc, true);
                                 if(null!= request.getParameter("doSubmit")) {
                                     // submit time.
                                     System.out.println("User " + mySession.user.toString() + "  is migrating old votes .  loc="+locale+", val="+val);
@@ -765,8 +765,8 @@ public class SurveyAjax extends HttpServlet {
                                             // String xpathStringHash = sm.xpt.getStringIDString(xp);
                                         
                                             String curValue = file.getStringValue(xpathString);
-                                            if(value.equals(curValue)) {
-                                                box.voteForValue(mySession.user, xpathString,value);
+                                            if(false && value.equals(curValue)) {
+                                                box.voteForValue(mySession.user, xpathString,value); // auto vote for uncontested
                                                 uncontested++;
                                             } else {
                                                 String strid = sm.xpt.getStringIDString(xp);
@@ -777,7 +777,7 @@ public class SurveyAjax extends HttpServlet {
                                                     box.voteForValue(mySession.user, xpathString, value);
                                                     confirmations++;
                                                 } else {
-                                                    System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
+                                                    //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
                                                 }
                                             }
                                         }

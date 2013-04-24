@@ -46,7 +46,9 @@ var surveyLocaleUrl='';
 
 %>
 var surveyVersion = '<%=SurveyMain.getNewVersion() %>';
+var surveyOldVersion = '<%= SurveyMain.getOldVersion() %>';
 var surveyOfficial = <%= !SurveyMain.isUnofficial() %>;
+var surveyCurrev = '<%= SurveyMain.getCurrevStr() %>';
 var BUG_URL_BASE = '<%= SurveyMain.BUG_URL_BASE %>';
 <%
 

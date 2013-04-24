@@ -1542,6 +1542,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 .put("processing", startupThread.htmlStatus()).put("guests", CookieSession.nGuests)
                 .put("users", CookieSession.nUsers).put("uptime", uptime).put("surveyRunningStamp", surveyRunningStamp.current())
                 .put("memfree", free).put("memtotal", total).put("pages", pages).put("uptime", uptime).put("phase", phase())
+                .put("currev",  SurveyMain.getCurrevStr() )
                 .put("newVersion", newVersion).put("sysload", load).put("sysprocs", nProcs).put("dbopen", DBUtils.db_number_open)
                 .put("dbused", DBUtils.db_number_used);
     }
@@ -1632,6 +1633,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         } else {
             return "<span style='color: #ddd'>" + SURVEYMAIN_REVISION + "</span> \u00b7";
         }
+    }
+    
+    public static String getCurrevStr() {
+        return CldrUtility.getProperty("CLDR_CURREV", SURVEYMAIN_REVISION);
     }
 
     public void printFooter(WebContext ctx) {

@@ -101,7 +101,7 @@ function Flipper(ids) {
  */
 Flipper.prototype.flipTo = function(id, node) {
 	if(!this._map[id]) return; // TODO throw
-	if(this._visible == id && (node == null)) {
+	if(this._visible == id && (node === null)) {
 		return; // noop - unless adding s'thing
 	}
 	this._map[this._visible].style.display='none';
@@ -109,13 +109,13 @@ Flipper.prototype.flipTo = function(id, node) {
 		this._killfn[k]();
 	}
 	this._killfn = []; // pop?
-	if(node!=null) {
+	if(node!==null && node !== undefined) {
 		removeAllChildNodes(this._map[id]);
 		if(node.nodeType>0) {
 			this._map[id].appendChild(node);
-		} else for( var k in node) {
+		} else for( var kk in node) {
 			// it's an array, add all 
-			this._map[id].appendChild(node[k]);
+			this._map[id].appendChild(node[kk]);
 		}
 	}
 	this._map[id].style.display='';
@@ -145,6 +145,15 @@ Flipper.prototype.flipToEmpty = function(id) {
 };
 
 /**
+ * killFn is called on next flip
+ * @method addKillFn
+ * @param killFn the functino to call. No params.
+ */
+Flipper.prototype.addKillFn = function(killFn) {
+	this._killfn.push(killFn);
+};
+
+/**
  * showfn is called, result is added to the div.  killfn is called when page is flipped.
  * @method addUntilFlipped
  * @param showFn
@@ -152,7 +161,7 @@ Flipper.prototype.flipToEmpty = function(id) {
  */
 Flipper.prototype.addUntilFlipped = function addUntilFlipped(showFn, killFn) {
 	this.get().appendChild(showFn());
-	this._killfn.push(killFn);
+	this.addKillFn(killFn);
 };
 
 
@@ -2966,6 +2975,16 @@ function showV() {
 	        		 domConstruct
 	         ) {
 
+		
+		/* trace for dijit leak */
+		if(!surveyOfficial) window.TRL=function() {
+			var sec = 5;
+			console.log("Tracing dijit registry leaks every "+sec+"s");
+			window.setInterval(function() {
+				document.title = "[dijit:"+registry.length+"] | ";
+			}, 1000 * sec);
+		};
+		
 		/**
 		 * list of pages to use with the flipper
 		 * @property pages
@@ -3739,14 +3758,14 @@ function showV() {
 											}); })(data[k][header.LOCALE],link)();
 										li.appendChild(link);
 										li.appendChild(createChunk(" "));
-										li.appendChild(createChunk(data[k][header.COUNT]));
+										li.appendChild(createChunk("("+data[k][header.COUNT]+")"));
 										
 										ul.appendChild(li);
 									}
 									
 									theDiv.appendChild(ul);
 									
-									theDiv.appendChild(createChunk(stui.str("v_oldvotes_locale_list_help"),"i")); // TODO fix
+									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_list_help_msg", {version: surveyOldVersion}),"p", "v-oldvotes-help")); 
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old"),"i")); // TODO fix
 								}
@@ -3755,21 +3774,19 @@ function showV() {
 								//surveyCurrentLocaleName=json.oldvotes.localeDisplayName;
 								updateHashAndMenus();
 								var loclink;
-								theDiv.appendChild(loclink=createChunk(stui.str("v_oldvotes_return_to_locale_list"),"a"));
+								theDiv.appendChild(loclink=createChunk(stui.str("v_oldvotes_return_to_locale_list"),"a", "notselected"));
 								listenFor(loclink, "click", function(e) {
 									surveyCurrentLocale='';
 									reloadV();
 									stStopPropagation(e);
 									return false;
 								});
-								loclink.href='#';
+								//loclink.href='#';
 								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName,"h3","v-title2"));
-
+								theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_msg", {version: surveyOldVersion, locale: json.oldvotes.localeDisplayName}), "p", "v-oldvotes-loc-help"));
 								if(json.oldvotes.contested.length > 0 || json.oldvotes.uncontested.length > 0) {
-									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length }),"p","info"));
 
-									if(json.oldvotes.contested.length > 0) {
-
+									function showVoteTable(voteList, type) {
 										var t = document.createElement("table");
 										t.id = 'oldVotesAcceptList';
 										var th = document.createElement("thead");
@@ -3778,7 +3795,7 @@ function showV() {
 											var tr = document.createElement("tr");
 											tr.appendChild(createChunk(stui.str("v_oldvotes_path"),"th","code"));
 											tr.appendChild(createChunk(json.BASELINE_LANGUAGE_NAME,"th","v-comp"));
-											tr.appendChild(createChunk(stui.str("v_oldvotes_winning"),"th","v-win"));
+											tr.appendChild(createChunk(stui.sub("v_oldvotes_winning_msg", {version: surveyOldVersion}),"th","v-win"));
 											tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
 											var accept;
 											tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));
@@ -3799,11 +3816,40 @@ function showV() {
 											th.appendChild(tr);
 										}
 										t.appendChild(th);
-										for(var k in json.oldvotes.contested) {
-											var row = json.oldvotes.contested[k];
+										var oldPath = '';
+										var oldSplit = [];
+										for(var k in voteList) {
+											var row = voteList[k];
 											var tr = document.createElement("tr");
 											var tdp;
-											tr.appendChild(tdp = createChunk(row.pathHeader,"td","v-path"));
+											var rowTitle = '';
+											
+											// delete common substring
+											var pathSplit = row.pathHeader.split('	');
+											for(var nn in pathSplit) {
+												if(pathSplit[nn] != oldSplit[nn]) {
+													break;
+												}
+											}
+											if(nn != pathSplit.length-1) {
+												// need a header row.
+												var trh = document.createElement('tr');
+												trh.className='subheading';
+												var tdh = document.createElement('th');
+												tdh.colSpan = 5;
+												for(var nn in pathSplit) {
+													if(nn < pathSplit.length-1) {
+														tdh.appendChild(createChunk(pathSplit[nn],"span","pathChunk"));
+													}
+												}
+												trh.appendChild(tdh);
+												tb.appendChild(trh);
+											}
+											oldSplit = pathSplit;
+											rowTitle = pathSplit[pathSplit.length - 1];
+											
+											tdp = createChunk(rowTitle,"td","v-path");
+											tr.appendChild(tdp);
 											var td00 = createChunk(row.baseValue,"td","v-comp"); // english
 											tr.appendChild(td00);
 											var td0 = createChunk("","td","v-win");
@@ -3825,6 +3871,9 @@ function showV() {
 											var box = createChunk("","input","");
 											//box.name='c_'+row.strid;
 											box.type="checkbox";
+											if(type=='uncontested') { // uncontested true by default
+												box.checked=true;
+											}
 											row.box = box; // backlink
 											td2.appendChild(box);
 											tr.appendChild(td2);
@@ -3851,54 +3900,101 @@ function showV() {
 											tb.appendChild(tr);
 										}
 										t.appendChild(tb);
-										theDiv.appendChild(t);
-
-										theDiv.appendChild(createChunk(stui.sub("v_oldvotes_uncontested",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length }),"p","info"));
-									} else {
-										theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_contested"),"i",""));
+										return t;
 									}
-									var submit = BusyButton({
-//										id: 'oldVotesSubmit',
-										label: stui.str("v_submit"),
-										busyLabel: stui.str("v_submit_busy")
-									});
+									
+									function addOldvotesType(type, jsondata, ContentPane) {
+										var title = stui.str("v_oldvotes_title_"+type);
+//										theDiv.appendChild(createChunk(title,"h2","v-oldvotes-sub"));
 
-									submit.placeAt(theDiv);
+										
+										var content = document.createDocumentFragment();
+										
+										var descr = stui.sub("v_oldvotes_desc_"+type+"_msg", {version: surveyOldVersion});
+										content.appendChild(createChunk(descr, "p", "v-oldvotes-desc"));
+										
+										
+										content.appendChild(showVoteTable(jsondata, type));
+
+										var submit = BusyButton({
+//											id: 'oldVotesSubmit',
+											label: stui.sub("v_submit_msg", {type: title}),
+											busyLabel: stui.str("v_submit_busy")
+										});
 
 
-									submit.on("click",function(e) {
-										var confirmList= []; // these will be revoted with current params
-										var deleteList = []; // these will be deleted
+										submit.on("click",function(e) {
+											var confirmList= []; // these will be revoted with current params
+											var deleteList = []; // these will be deleted
 
-										// explicit confirm/delete list -  save us desync hassle
-										for(var kk in json.oldvotes.contested ) {
-											if(json.oldvotes.contested[kk].box.checked) {
-												confirmList.push(json.oldvotes.contested[kk].strid);
-											} else {
-												deleteList.push(json.oldvotes.contested[kk].strid);
+											// explicit confirm/delete list -  save us desync hassle
+											for(var kk in jsondata ) {
+												if(jsondata[kk].box.checked) {
+													confirmList.push(jsondata[kk].strid);
+//												} else {
+//													deleteList.push(jsondata[kk].strid);
+												}
 											}
-										}
 
-										var saveList = {
-												locale: surveyCurrentLocale,
-												confirmList: confirmList,
-												deleteList: deleteList
-										};
+											var saveList = {
+													locale: surveyCurrentLocale,
+													confirmList: confirmList,
+													deleteList: deleteList
+											};
 
-										console.log(saveList.toString());
-										console.log("Submitting " + confirmList.length + " for confirm and " + deleteList.length + " for deletion");
+											console.log(saveList.toString());
+											console.log("Submitting " + type + " " +  confirmList.length + " for confirm and " + deleteList.length + " for deletion");
 
-										var url = contextPath + "/SurveyAjax?what=oldvotes&_="+surveyCurrentLocale+"&s="+surveySessionId+"&doSubmit=true&"+cacheKill();
-										myLoad(url, "(submitting oldvotes " + surveyCurrentLocale + ")", function(json) {
-											showLoader(theDiv.loader,stui.loading2);
-											if(!verifyJson(json, 'oldvotes')) {
-												handleDisconnect("Error submitting votes!", json, "Error");
-												return;
-											} else {
-												reloadV();
+											var url = contextPath + "/SurveyAjax?what=oldvotes&_="+surveyCurrentLocale+"&s="+surveySessionId+"&doSubmit=true&"+cacheKill();
+											myLoad(url, "(submitting oldvotes " + surveyCurrentLocale + ")", function(json) {
+												showLoader(theDiv.loader,stui.loading2);
+												if(!verifyJson(json, 'oldvotes')) {
+													handleDisconnect("Error submitting votes!", json, "Error");
+													return;
+												} else {
+													reloadV();
+												}
+											},  JSON.stringify(saveList), { "Content-Type": "application/json"} );
+										});
+
+										var pane = new ContentPane({ title: title, content: content});
+
+										pane.addChild(submit);
+
+
+										return pane;
+									}
+									
+
+									
+									require(["dojo/ready", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane"], function(ready, AccordionContainer, ContentPane){
+									    ready(function(){
+									        var tc = new AccordionContainer({
+									            style: "height: 100%; width: 100%;"
+									        });
+									        
+									        tc.addChild(new ContentPane({title: stui.str("v_oldvotes_summary"), content:
+									        		stui.sub("v_oldvotes_count_msg",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length })}));
+									        
+											if(json.oldvotes.uncontested.length > 0){
+												tc.addChild(addOldvotesType("uncontested",json.oldvotes.uncontested, ContentPane));
 											}
-										},  JSON.stringify(saveList), { "Content-Type": "application/json"} );
+											if(json.oldvotes.contested.length > 0){
+												tc.addChild(addOldvotesType("contested",json.oldvotes.contested, ContentPane));
+											}
+									        tc.addChild(new ContentPane({title: stui.str("v_oldvotes_summary"), content:
+								        		stui.sub("v_oldvotes_count_msg",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length })}));
+											tc.placeAt(theDiv);
+											
+									        tc.startup();
+									        
+									        flipper.addKillFn(function(){
+									        	tc.destroyRecursive();
+									        });
+									        
+									    });
 									});
+									
 
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old_here"),"i",""));

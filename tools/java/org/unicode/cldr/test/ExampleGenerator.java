@@ -589,6 +589,13 @@ public class ExampleGenerator {
         if (parts.getElement(-1).equals("unitPattern")) {
             return formatCountValue(xpath, parts, value, context, type);
         }
+        if (parts.getElement(-1).equals("durationUnit")) {
+            ULocale locale = new ULocale(this.icuServiceBuilder.getCldrFile().getLocaleID());
+            SimpleDateFormat df = new SimpleDateFormat(value.replace('h', 'H'), locale);
+            df.setTimeZone(TimeZone.GMT_ZONE);
+            long time = ((5 * 60 + 37) * 60 + 23) * 1000;
+            return df.format(new Date(time));
+        }
         return null;
     }
 

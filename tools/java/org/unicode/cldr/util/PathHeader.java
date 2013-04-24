@@ -188,6 +188,7 @@ public class PathHeader implements Comparable<PathHeader> {
         MassWeight(SectionId.Units, "Mass and Weight"),
         Weather(SectionId.Units),
         OtherUnits(SectionId.Units, "Other Units"),
+        Duration(SectionId.Units),
         CompoundUnits(SectionId.Units, "Compound Units"),
         Displaying_Lists(SectionId.Misc, "Displaying Lists"),
         LinguisticElements(SectionId.Misc, "Linguistic Elements"),

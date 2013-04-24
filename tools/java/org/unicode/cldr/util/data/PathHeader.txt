@@ -101,6 +101,7 @@
 //ldml/units/unit[@type="%W-%A"]/unitPattern[@count="%A"]                          ; Units ; Weather ; $1 ; $1-$2-&count($3) 
 //ldml/units/unit[@type="%A"]/unitPattern[@count="%A"]                             ; Units ; Other Units ; $1 ; $1-&count($2) 
 //ldml/units/compoundUnit[@type="%A"]/unitPattern[@count="%A"]                     ; Units ; Compound Units ; null; $1-&count($2) 
+//ldml/units/durationUnit[@type="(hms|hm|ms)"]                                     ; Units ; Duration ; null ; $1
 
 ### Miscellaneous
 //ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Regular Lists ; &listOrder($1)

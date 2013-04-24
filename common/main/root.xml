@@ -3536,6 +3536,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<unit type="year-past">
 			<unitPattern count="other">-{0} y</unitPattern>
 		</unit>
+                <durationUnit type="ms">m:ss</durationUnit> <!-- 33:59 -->
+                <durationUnit type="hm">h:mm</durationUnit> <!-- 33:59 -->
+                <durationUnit type="hms">h:mm:ss</durationUnit> <!-- 33:59:59 -->
 	</units>
 	<listPatterns>
 		<listPattern>

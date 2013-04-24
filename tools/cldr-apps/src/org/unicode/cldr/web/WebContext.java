@@ -2315,6 +2315,12 @@ public class WebContext implements Cloneable, Appendable {
         if ((mySession != null) && (mySession.user != null) && (user != null) && (mySession.user.id != user.id)) {
             mySession = null; // throw it out.
         }
+        
+        if (mySession != null && user != null && hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
+           loginRemember();
+        } else if (hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL)) {
+           logout(); // zap cookies if some id/pw failed to work
+        }
     
         if (mySession == null && user == null) {
             mySession = CookieSession.checkForAbuseFrom(userIP(), SurveyMain.BAD_IPS, request.getHeader("User-Agent"));
@@ -2364,19 +2370,28 @@ public class WebContext implements Cloneable, Appendable {
         return message;
     }
 
+    /**
+     * Logout this ctx
+     */
     public void logout() {
         logout(request,response);
     }
     
+    /**
+     * Logout this req/response (zap cookie)
+     * Doesn't zap http session, currently
+     * @param request
+     * @param response
+     */
     public static void logout(HttpServletRequest request, HttpServletResponse response) {
         Cookie c0 = WebContext.getCookie(request,SurveyMain.QUERY_EMAIL);
-        if(c0!=null) {
+        if(c0!=null) { // only zap extant cookies
             c0.setValue("");
             c0.setMaxAge(0);
             response.addCookie(c0);
         }
         Cookie c1 = WebContext.getCookie(request,SurveyMain.QUERY_PASSWORD);
-        if(c1!=null) {
+        if(c1!=null) { 
             c1.setValue("");
             c1.setMaxAge(0);
             response.addCookie(c1);
@@ -2392,5 +2407,13 @@ public class WebContext implements Cloneable, Appendable {
             }
         }
         return null;
+    }
+
+    /**
+     * Remember this login (adds cookie to ctx.response )
+     */
+    public void loginRemember() {
+        addCookie(SurveyMain.QUERY_EMAIL, session.user.email, SurveyMain.TWELVE_WEEKS);
+        addCookie(SurveyMain.QUERY_PASSWORD, session.user.password, SurveyMain.TWELVE_WEEKS);
     }
 }

@@ -59,7 +59,7 @@ if(SurveyMain.isBusted!=null) {
 
                                dojo.ready(function(){
                             	   window.setTimeout(function(){
-                            		    document.write('<title>CLDR SurveyTool | Please Wait..');
+                            		    document.write('<title>CLDR SurveyTool | Please Wait..</title>');
                             		    document.write('    <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />');
                             		    document.write('<img src="<%= request.getContextPath() %>/STLogo.png" align=right>');
                             		    document.write('<h1>CLDR SurveyTool | Please Wait</h1><hr>');

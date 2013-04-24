@@ -3539,14 +3539,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (ctx.session.user != null) {
             Thread.currentThread().setName(
                     Thread.currentThread().getName() + " " + ctx.session.user.id + ":" + ctx.session.user.toString());
-
-            if (ctx.hasField(QUERY_SAVE_COOKIE)) {
-                ctx.addCookie(QUERY_EMAIL, ctx.session.user.email, TWELVE_WEEKS);
-                ctx.addCookie(QUERY_PASSWORD, ctx.session.user.password, TWELVE_WEEKS);
-            } else if (ctx.hasField(QUERY_PASSWORD)) {
-                // ctx.addCookie(QUERY_PASSWORD, "", 0);
-                ctx.addCookie(QUERY_EMAIL, "", 0);
-            }
         }
         if (ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {
             fora.doForum(ctx, sessionMessage);

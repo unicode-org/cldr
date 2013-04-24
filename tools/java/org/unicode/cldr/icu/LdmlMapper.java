@@ -39,6 +39,7 @@ public abstract class LdmlMapper {
     // Matches arguments with or without enclosing quotes.
     private static final Pattern ARGUMENT = Pattern.compile("[<\"]?\\$(\\d)[\">]?");
 
+    private String debugXPath;
     private Map<String, Function> functionMap = new HashMap<String, Function>();
     private String converterFile;
     private Map<String, RegexResult> unprocessedMatchers;
@@ -386,6 +387,44 @@ public abstract class LdmlMapper {
     protected static boolean matches(Pattern pattern, String arg0, String arg1, Matcher[] matchers) {
         return (matchers[0] = pattern.matcher(arg0)).matches()
             && (matchers[1] = pattern.matcher(arg1)).matches();
+    }
+
+    /**
+     * Sets xpath to monitor for debugging purposes.
+     * @param debugXPath
+     */
+    public void setDebugXPath(String debugXPath) {
+        this.debugXPath = debugXPath;
+    }
+
+    /**
+     * @param xpath
+     * @return true if the xpath is to be debugged
+     */
+    protected boolean isDebugXPath(String xpath) {
+        return debugXPath == null ? false : xpath.startsWith(debugXPath);
+    }
+
+    /**
+     * Outputs the list of debugging results returned from a RegexLookup.
+     * Only the matches most similar to the specified xpath will be returned.
+     * @param xpath
+     * @param results
+     */
+    protected void printLookupResults(String xpath, List<String> results) {
+        if (results == null) return;
+        System.out.println("Debugging " + xpath + ":");
+        int[] haltPos = new int[results.size()];
+        int furthestPos = 0;
+        for (int i = 0; i < haltPos.length; i++) {
+            int pos = results.get(i).indexOf('\u2639'); // ☹
+            haltPos[i] = pos;
+            if (pos > furthestPos) furthestPos = pos;
+        }
+        for (int i = 0; i < haltPos.length; i++) {
+            if (haltPos[i] < furthestPos) continue;
+            System.out.println(results.get(i));
+        }
     }
 
     /**

@@ -1,5 +1,6 @@
 package org.unicode.cldr.icu;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -338,12 +339,20 @@ public class LocaleMapper extends LdmlMapper {
      * @param matcherFound
      * @return the result of converting an xpath into an ICU-style path
      */
-    private static RegexResult matchXPath(RegexLookup<RegexResult> lookup,
+    private RegexResult matchXPath(RegexLookup<RegexResult> lookup,
         CLDRFile cldr, String path,
         Output<Finder> matcherFound) {
         String fullPath = cldr.getFullXPath(path);
         fullPath = fullPath == null ? path : DRAFT_PATTERN.matcher(fullPath).replaceAll("");
-        RegexResult result = lookup.get(fullPath, null, null, matcherFound, null);
+        List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
+        RegexResult result = lookup.get(fullPath, null, null, matcherFound, debugResults);
+        if (debugResults != null) {
+            if (result == null) {
+                printLookupResults(fullPath, debugResults);
+            } else {
+                System.out.println(fullPath + " successfully matched");
+            }
+        }
         return result;
     }
 

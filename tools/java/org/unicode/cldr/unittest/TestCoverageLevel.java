@@ -40,56 +40,59 @@ public class TestCoverageLevel extends TestFmwk {
     private static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) throws IOException {
-        TestCoverageLevel.getStarred("en", true);
+        TestCoverageLevel.getStarred(true, "en", "de");
         // new TestCoverageLevel().getOrgs();
         // new TestCoverageLevel().run(args);
     }
 
-    private static void getStarred(String locale, boolean longForm) {
-        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(
-            SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
-        CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
+    private static void getStarred(boolean longForm, String... locales) {
+            Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
+        for (String locale : locales) {
+            CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(
+                    SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
+            CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
 
-        Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
-                                                                                                    // HashMap<Row.R2<Level,
-                                                                                                    // Integer>,
-                                                                                                    // Set<Relation<String,String>>>(),
-                                                                                                    // HashSet.class);
+            // HashMap<Row.R2<Level,
+            // Integer>,
+            // Set<Relation<String,String>>>(),
+            // HashSet.class);
 
-        PathStarrer pathStarrer = new PathStarrer();
-        Status status = new Status();
+            PathStarrer pathStarrer = new PathStarrer();
+            Status status = new Status();
 
-        for (String path : cldrFileToCheck) {
-            if (path.contains("/alias")) {
-                continue;
+            for (String path : cldrFileToCheck) {
+                if (path.contains("/alias")) {
+                    continue;
+                }
+                String value = cldrFileToCheck.getStringValue(path);
+                //            cldrFileToCheck.getSourceLocaleID(path, status);
+                //            if (status.pathWhereFound != path) {
+                //                continue;
+                //            }
+
+                String fullPath = cldrFileToCheck.getFullXPath(path);
+                if (fullPath == null) {
+                    continue;
+                }
+                // if (path.contains("ethiopic")) {
+                // System.out.println("?");
+                // }
+                Level level = coverageLevel2.getLevel(path);
+
+                // R2<Level, Level> key = Row.of(level, newLevel);
+                String starredPath = pathStarrer.set(path);
+                Relation<String, String> starredToAttributes = data.get(level);
+                if (starredToAttributes == null) {
+                    data.put(level, starredToAttributes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
+                }
+                starredToAttributes.put(starredPath, pathStarrer.getAttributesString("|") + "=‹" + value + "›");
             }
-            cldrFileToCheck.getSourceLocaleID(path, status);
-            if (status.pathWhereFound != path) {
-                continue;
-            }
-
-            String fullPath = cldrFileToCheck.getFullXPath(path);
-            if (fullPath == null) {
-                continue;
-            }
-            // if (path.contains("ethiopic")) {
-            // System.out.println("?");
-            // }
-            Level level = coverageLevel2.getLevel(path);
-
-            // R2<Level, Level> key = Row.of(level, newLevel);
-            String starredPath = pathStarrer.set(path);
-            Relation<String, String> starredToAttributes = data.get(level);
-            if (starredToAttributes == null) {
-                data.put(level, starredToAttributes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
-            }
-            starredToAttributes.put(starredPath, pathStarrer.getAttributesString("|"));
         }
         RegexLookup<Transform<String, String>> longTransLookup = new RegexLookup<Transform<String, String>>()
-            .add("^//ldml/localeDisplayNames/languages/language", new TypeName(CLDRFile.LANGUAGE_NAME))
-            .add("^//ldml/localeDisplayNames/scripts/script", new TypeName(CLDRFile.SCRIPT_NAME))
-            .add("^//ldml/localeDisplayNames/territories/territory", new TypeName(CLDRFile.TERRITORY_NAME))
-            .add("^//ldml/numbers/currencies/currency", new TypeName(CLDRFile.CURRENCY_NAME));
+                .add("^//ldml/localeDisplayNames/languages/language", new TypeName(CLDRFile.LANGUAGE_NAME))
+                .add("^//ldml/localeDisplayNames/scripts/script", new TypeName(CLDRFile.SCRIPT_NAME))
+                .add("^//ldml/localeDisplayNames/territories/territory", new TypeName(CLDRFile.TERRITORY_NAME))
+                .add("^//ldml/numbers/currencies/currency", new TypeName(CLDRFile.CURRENCY_NAME));
 
         for (Entry<Level, Relation<String, String>> entry : data.entrySet()) {
             final Level level = entry.getKey();
@@ -105,7 +108,7 @@ public class TestCoverageLevel extends TestFmwk {
                         int barPos = s.indexOf('|');
                         String codePart = barPos < 0 ? s : s.substring(0, barPos);
                         System.out.println(level.getLevel() + "\t" + level + "\t" + key + "\t" + s + "\t"
-                            + longTrans.transform(codePart));
+                                + longTrans.transform(codePart));
                     }
                 } else {
                     System.out.println(level.getLevel() + "\t" + level + "\t" + key + "\t" + value);
@@ -124,7 +127,7 @@ public class TestCoverageLevel extends TestFmwk {
     }
 
     static Relation<String, LanguageStatus> languageStatus = Relation.of(new HashMap<String, Set<LanguageStatus>>(),
-        TreeSet.class);
+            TreeSet.class);
     static Counter2<String> languageLiteratePopulation = new Counter2<String>();
     static Map<String, Date> currencyToLast = new HashMap<String, Date>();
     static Set<String> officialSomewhere = new HashSet<String>();
@@ -139,7 +142,7 @@ public class TestCoverageLevel extends TestFmwk {
             double languageLiterate = 0;
             for (String territory : testInfo.getSupplementalDataInfo().getTerritoriesForPopulationData(language)) {
                 PopulationData pop = testInfo.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(language,
-                    territory);
+                        territory);
                 OfficialStatus officialStatus = pop.getOfficialStatus();
                 if (officialStatus.compareTo(OfficialStatus.de_facto_official) >= 0) {
                     isOfficial = true;
@@ -166,7 +169,7 @@ public class TestCoverageLevel extends TestFmwk {
             String base = parser.set(language).getLanguage();
             for (String territory : testInfo.getSupplementalDataInfo().getTerritoriesForPopulationData(language)) {
                 PopulationData pop = testInfo.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(language,
-                    territory);
+                        territory);
                 double litPop = pop.getLiteratePopulation();
                 double total = territoryLiteratePopulation.getCount(territory);
                 if (litPop > total / 3) {
@@ -251,7 +254,7 @@ public class TestCoverageLevel extends TestFmwk {
             return Level.fromLevel(Integer.parseInt(source));
         }
     }, null)
-        .loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
+    .loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
     {
         for (R2<Finder, Level> x : exceptions) {
             System.out.println(x.get0().toString() + " => " + x.get1());

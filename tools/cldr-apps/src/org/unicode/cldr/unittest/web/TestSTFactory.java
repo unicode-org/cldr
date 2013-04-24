@@ -30,6 +30,7 @@ import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
+import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.XPathTable;
 
@@ -648,6 +649,8 @@ public class TestSTFactory extends TestFmwk {
             try {
                 gUser = getFactory().sm.reg.get(null, "admin@", "[::1]", true);
             } catch (SQLException e) {
+                handleException(e);
+            } catch (LogoutException e) {
                 handleException(e);
             }
         }

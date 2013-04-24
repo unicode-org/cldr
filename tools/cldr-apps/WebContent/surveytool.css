@@ -1990,6 +1990,21 @@ div.helpHtml td,th {
 	display:  none;
 }
 
+#oldVotesAcceptList tr.subheading th{
+    text-align: left;
+    background-color: rgba(85, 193, 193, 0.58);
+}
+
+span.pathChunk {
+    margin-right:  1em;    
+    font: italic normal small Georgia, "Times New Roman", Times, serif;
+}
+
+span.pathChunk:after
+{
+    content: ':';
+}
+
 /*.d-sortmode:before {
 	content: 'Sorted:';
 	font-weight: bold;

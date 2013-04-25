@@ -866,7 +866,7 @@ td.botgray {
 }
 
 th.topgray, table.data tr.vother td, table.data tr.vother th {
-	border-top: 2px solid #ccf;
+	border-top: 1px solid #ccf;
 }
 
 td.topgray {
@@ -892,15 +892,19 @@ tr.heading th.partsection {
 	z-index: 0;
 }
 
+th.partsection {
+	border-top: 2px solid gray;
+	padding: 0.5em;
+}
+
 th.partsection, th.partsection a {
 	font-weight: bold;
 	font-style: italic;
 	background-color: #9edbec;
 	color: #111111;
-	font-size: 1.1em;
 	text-align: left;
-	border-top: 2px solid gray;
 	z-index: 0;
+    text-transform: capitalize;
 }
 
 tr.headingb {
@@ -2209,9 +2213,19 @@ tr.d-inforow td h3.span {
 	font-size: large;
 }
 
+table.data tr td {
+     border: 1px solid #d1d1c1;
+     padding:  3px;
+     margin:  3px;
+ }
 
 .pu-select {
-	border: 2px solid black !important; /* or f8c871 */
+	border: 2px double black !important;
+	padding:  2px !important;
+	margin:  2px !important;
+	padding-top: 3px !important;
+	padding-bottom: 3px !important;
+	padding-left: 3px !important;
 }
 
 

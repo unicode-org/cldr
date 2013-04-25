@@ -3049,13 +3049,23 @@ function showV() {
 			
 			set: function(x,y) {
 				var cnode = dojo.byId(x+"-container");
-				if(!cnode) cnode = dojo.byId(x); // for Elements that do their own stunts 
+				var wnode = this.getRegistry(x);
+				var dnode = this.getDom(x);
+				if(!cnode) cnode = dnode; // for Elements that do their own stunts 
 				if(y && y !== '-' && y !== '') {
-					updateIf(x,y);
+					if(wnode != null) {
+						wnode.set('label',y);
+					} else  {
+						updateIf(x,y); // non widget
+					}
 					cnode.style.display = '';
 				} else {
 					cnode.style.display = 'none';
-					updateIf(x,'-');
+					if(wnode != null) {
+						wnode.set('label','-');
+					} else  {
+						updateIf(x,'-'); // non widget
+					}
 				}
 			},
 			getDom: function(x) {

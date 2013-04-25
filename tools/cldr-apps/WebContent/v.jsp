@@ -241,7 +241,7 @@ survURL = '<%= survURL %>';
 					<div data-dojo-type="dijit/DropDownMenu">
 					         <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) { %>
 						<div data-dojo-type="dijit/MenuItem"
-							data-dojo-props=" onClick:function(){
+							data-dojo-props="<%-- iconClass:menu-o  --%>onClick:function(){
                                                 window.location='<%= survURL + "?" + m.urlQuery() %>&_=' + surveyCurrentLocale;
                                         }"><%= m.display() %></div>
           <% } %>

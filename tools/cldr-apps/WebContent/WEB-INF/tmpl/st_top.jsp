@@ -43,18 +43,17 @@ if(ctx!=null) {
         int i,j;
          for(i=(n-1);i>0;i--) {
             boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
-            ctx.print("&raquo;&nbsp; <a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.url() + ctx.urlConnector() +SurveyMain.QUERY_LOCALE+"=" + ctx.docLocale[i] + 
+            ctx.print("&raquo;&nbsp; <a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.vurl(ctx.docLocale[i]) + 
                 "\">");
             ctx.print(SurveyMain.decoratedLocaleName(ctx.docLocale[i],ctx.docLocale[i].getDisplayName(),""));
             ctx.print("</a> ");
         }
         boolean canModifyL = false&&UserRegistry.userCanModifyLocale(ctx.session.user,ctx.getLocale());
-        ctx.print("&raquo;&nbsp;");
-        ctx.print("<span title='"+ctx.getLocale()+"' class='curLocale'>");
-        SurveyMain.printMenu(subCtx2, ctx.field(SurveyMain.QUERY_DO), SurveyMain.xMAIN, 
-            SurveyMain.decoratedLocaleName(ctx.getLocale(), ctx.getLocale().getDisplayName()+(canModifyL?SurveyMain.modifyThing(ctx):""), "") );
-        ctx.print("</span>");
-
+        %>&raquo;&nbsp;
+        <span title='<%= ctx.getLocale() %>' class='curLocale'>
+            <a href='<%= ctx.vurl(ctx.getLocale()) %>' class='notselected' ><%= ctx.getLocale().getDisplayName()+(canModifyL?SurveyMain.modifyThing(ctx):"") %></a>
+        </span>
+<%
         CLDRLocale dcParent = ctx.sm.getSupplementalDataInfo().getBaseFromDefaultContent(toplocale);
         CLDRLocale dcChild = ctx.sm.getSupplementalDataInfo().getDefaultContentFromBase(ctx.getLocale());
         if (dcChild != null) {

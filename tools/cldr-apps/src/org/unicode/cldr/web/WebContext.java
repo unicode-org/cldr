@@ -694,6 +694,11 @@ public class WebContext implements Cloneable, Appendable {
         }
     }
     
+    public String vurl(CLDRLocale loc) {
+        return vurl(loc,null,null,null);
+    }
+
+    
     /**
      * Get the new '/v' viewing URL. Note that this will include a fragment, do NOT append to the result (pass in something in queryAppend)
      * @param loc locale to view.
@@ -2144,8 +2149,9 @@ public class WebContext implements Cloneable, Appendable {
      * @return
      */
     String urlForLocale(CLDRLocale locale) {
-        String localeUrl = url() + urlConnector() + SurveyMain.QUERY_LOCALE + "=" + locale.getBaseName();
-        return localeUrl;
+        return vurl(locale,null,null,null);
+//        String localeUrl = url() + urlConnector() + SurveyMain.QUERY_LOCALE + "=" + locale.getBaseName();
+//        return localeUrl;
     }
 
     public String getLocaleDisplayName(String loc) {

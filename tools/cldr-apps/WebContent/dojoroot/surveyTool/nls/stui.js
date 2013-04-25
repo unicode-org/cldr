@@ -104,6 +104,7 @@ define({
 			admin_ops: "Actions",
 			admin_ops_desc: "Administrative Actions",
 			
+			notselected_desc: '',
 			
 			recentLoc: "Locale",
 			recentXpath: "XPath",
@@ -138,6 +139,7 @@ define({
                         pClass_fallback_root: "This item is inherited from the root locale.",
                         pClass_loser: "This is a proposed item which is not currently winning.",
                         pClass_fallback: "This item is inherited from ${inheritFromDisplay}.",
+                        pClassExplain_desc: "This area shows the item's status.",
 			
            winningStatus_disputed: "Disputed",
            winningStatus_msg:  "${1} ${0} Value ",
@@ -155,6 +157,7 @@ define({
            voteInfo_established: "This is an established locale.",
            voteInfo_orgColumn: "Org.",
            voteInfo_noVotes: "(no votes)",
+           voteInfo_iconBar_desc: "This area shows the status of each candidate item.",
            voteInfo_noVotes_desc: "There were no votes for this item.",
            voteInfo_key: "Key:",
            voteInfo_valueTitle_desc: "Item's value",
@@ -176,6 +179,7 @@ define({
            StatusAction_FORBID_COVERAGE:  "Outside of coverage.",
            
            // v.jsp
+           "v-title2_desc": "Locale title",
            v_bad_special_msg:  "Bad URL (mistyped?), unknown special action: \"${special}\"",
            v_oldvotes_title: "Old Votes - from before ${votesafter}",
            v_oldvotes_count_msg: "Uncontested Vote Count: ${uncontested}, Contested Vote Count: ${contested}",
@@ -187,6 +191,15 @@ define({
            v_oldvotes_return_to_locale_list: "Return to List of Locales with old votes",
            v_oldvotes_path: "Path",
            v_oldvotes_locale_msg: "These are your contested and uncontested votes for CLDR ${version} in ${locale}. Expand the section you want to work with, choose items by click, and submit votes. Just ignore any items you don't want to vote for.",
+           "v-oldvotes-loc-help_desc": "Specific help on this locale's old votes",
+           "v-oldvotes-desc_desc": "Specific help on this type of vote",
+           "v-accept_desc": "Checked items will be accepted, unchecked items will not be accepted.",
+           "code_desc": "The short code for this item. ",
+           "v-path_desc": "The short code for this item. Click here to view the item, in a new window.",
+           "v-comp_desc": "The comparison value (English)",
+           "v-win_desc": "This was the winning value for previous CLDR",
+           "v-mine_desc": "This was your vote for the previous CLDR",
+           "pathChunk_desc": "This header separates common items",
            v_oldvotes_winning_msg: "CLDR ${version} winning",
            v_oldvotes_mine: "My old vote",
            v_oldvotes_summary: "Summary",
@@ -205,10 +218,12 @@ define({
            v_oldvote_remind_yes: "View Old Votes",
            v_oldvote_remind_no: "Not today",
            v_oldvote_remind_dontask: "Don’t ask me again",
+           "v-title_desc": "This area shows the date before which votes are considered “old”.",
            special_oldvotes: "Import Old Votes",
            section_general: "General Info",
            section_forum: "Forum <i>(Leaves this page)</i>",
            forumNewPostButton: "New Post (leaves this page)",
+           forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item, however it does (currently) leave the page you are on. Click 'view item' after submitting to return to this item.",
            special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough.",
 
            defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",

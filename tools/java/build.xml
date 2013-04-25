@@ -173,6 +173,12 @@
             <fileset dir="${src.dir}/org/unicode/cldr/test" 
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
+        <!-- and unittest files -->
+        <mkdir dir="${build.dir}/org/unicode/cldr/unittest"/>
+        <copy todir="${build.dir}/org/unicode/cldr/unittest">
+            <fileset dir="${src.dir}/org/unicode/cldr/unittest" 
+                excludes="**/CVS/**/* **/**/*.java"/>
+        </copy>
     </target>
     <target name="clean" depends="init" description="remove all build targets">
         <delete dir="${build.dir}"/>

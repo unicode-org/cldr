@@ -345,6 +345,23 @@ public class DBUtils {
         }
     }
 
+    public static int sqlCount(String sql, Object... args) {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            ps = prepareForwardReadOnly(conn, sql);
+            setArgs(ps, args);
+            return sqlCount(conn, ps);
+        } catch (SQLException sqe) {
+            SurveyLog.logException(sqe, "running sqlcount " + sql);
+            return -1;
+        } finally {
+            DBUtils.close(ps,conn);
+        }
+    }
+    
+    
     static int sqlCount(Connection conn, PreparedStatement ps) throws SQLException {
         int rv = -1;
         ResultSet rs = ps.executeQuery();
@@ -354,7 +371,7 @@ public class DBUtils {
         rs.close();
         return rv;
     }
-
+    
     static int sqlCount(WebContext ctx, Connection conn, PreparedStatement ps) {
         try {
             return sqlCount(conn, ps);
@@ -1233,4 +1250,5 @@ public class DBUtils {
 
         return sb.toString();
     }
+
 }

@@ -186,7 +186,8 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
     public static final Object WHAT_GET_MENUS = "menus";
 
-    String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV, "dummy" }; // list
+    String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV, 
+                                    "oldVoteRemind","dummy" }; // list
                                                                               // of
                                                                               // prefs
                                                                               // OK
@@ -555,6 +556,10 @@ public class SurveyAjax extends HttpServlet {
                         if (!prefsList.contains(pref)) {
                             sendError(out, "Bad or unsupported pref: " + pref);
                         }
+                        
+                        if(pref.equals("oldVoteRemind")) {
+                            pref = "oldVoteRemind"+sm.getNewVersion();
+                        }
 
                         if (val != null && !val.isEmpty()) {
                             if(val.equals("null")) {
@@ -613,8 +618,31 @@ public class SurveyAjax extends HttpServlet {
                         
                         if("true".equals(request.getParameter("locmap"))) {
                             r.put("locmap", getJSONLocMap(sm));
-                        }
-                        
+
+                            // any special messages?
+                            if(mySession.user!=null) {
+                                // old votes?
+                                String oldVotesPref = "oldVoteRemind"+sm.getNewVersion();
+                                String oldVoteRemind = mySession.settings().get(oldVotesPref, null);
+                                if(oldVoteRemind==null ||  // never been asked
+                                        !oldVoteRemind.equals("*")) { //  dont ask again
+                                    String votesAfterSQL = SurveyMain.getSQLVotesAfter();
+                                    String votesAfterString = SurveyMain.getVotesAfterString();
+
+                                    int count = DBUtils.sqlCount("select  count(*) as count from " + STFactory.CLDR_VBV 
+                                                            + " where submitter=? and last_mod < "+votesAfterSQL+
+                                                            " and value is not null", mySession.user.id);
+                                    
+                                    System.out.println("For user " + mySession.user + " oldVotesCount = " + count + " and " + oldVotesPref +"="+oldVoteRemind);
+                                    
+                                    if(count==0) {
+                                        mySession.settings().set(oldVotesPref, "*"); // Do not ask again this release
+                                    } else {
+                                        r.put("oldVotesRemind", new JSONObject().put("pref" , oldVotesPref).put("remind", oldVoteRemind).put("count", count));
+                                    }
+                                }
+                            }
+                        }                        
 
                         send(r, out);
                     } else if (what.equals(WHAT_POSS_PROBLEMS)) {

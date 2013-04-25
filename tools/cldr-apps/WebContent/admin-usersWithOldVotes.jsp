@@ -44,7 +44,12 @@ String votesAfterSQL = SurveyMain.getSQLVotesAfter();
     	UserRegistry.User u = sm.reg.getInfo((Integer)m.get("id"));
     	%>
         <li>
-            <%= u.toHtml() %> user #<%= m.get("submitter") %>,  <a href='<%= request.getContextPath() %>/v?email=<%= u.email %>&amp;pw=<%= u.password %>#oldvotes'><b>get old votes</b></a> <%= m.get("count") %> items
+            <%= u.toHtml() %> user #<%= m.get("submitter") %>,  
+            <a href='<%= request.getContextPath() %>/v?email=<%= u.email %>&amp;pw=<%= u.password %>#oldvotes'><b>get old votes</b></a> 
+            <a href='<%= request.getContextPath() %>/v?email=<%= u.email %>&amp;pw=<%= u.password %>#/mt'><b>Malti</b></a> 
+            <a href='<%= request.getContextPath() %>/survey?email=<%= u.email %>&amp;pw=<%= u.password %>'><b>ST</b></a> 
+            
+            <%= m.get("count") %> items
         </li>
     <% } %>
 </ol>

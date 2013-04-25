@@ -47,12 +47,12 @@
 //ldml/dates/fields/field[@type="%A"]/displayName                           ; DateTime ; Fields ; Date Fields ; &datefield($1)
 //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]                  ; DateTime ; Fields ; *$1-relative ; $2
 
-//ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]                                                        ; DateTime ; &calendar($1) ; Eras: abbr ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNames/era[@type="%A"]                                                       ; DateTime ; &calendar($1) ; Eras: wide ; $2
-//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNarrow/era[@type="%A"]                                                      ; DateTime ; &calendar($1) ; Eras: narrow ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/eras[@alt="variant"]/eraAbbr/era[@type="%A"]                                        ; DateTime ; &calendar($1) ; Eras-alternate: abbr ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/eras[@alt="variant"]/eraNames/era[@type="%A"]                                       ; DateTime ; &calendar($1) ; Eras-alternate: wide ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/eras[@alt="variant"]/eraNarrow/era[@type="%A"]                                      ; DateTime ; &calendar($1) ; Eras-alternate: narrow ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]                                                        ; DateTime ; &calendar($1) ; Eras: abbr ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNames/era[@type="%A"]                                                       ; DateTime ; &calendar($1) ; Eras: wide ; $2
+//ldml/dates/calendars/calendar[@type="%A"]/eras/eraNarrow/era[@type="%A"]                                                      ; DateTime ; &calendar($1) ; Eras: narrow ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]    ; DateTime ; &calendar($1) ; Quarters: $2-$3 ; $4
 //ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; DateTime ; &calendar($1) ; Months: $2-$3 ; &month($4) (leap)
 //ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; DateTime ; &calendar($1) ; Months: $2-$3 ; &month($4)

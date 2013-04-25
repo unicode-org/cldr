@@ -2000,6 +2000,11 @@ span.pathChunk {
     font: italic normal small Georgia, "Times New Roman", Times, serif;
 }
 
+#oldVotesAcceptList tbody tr td.v-path {
+    font-family: "Courier New", Courier, mono;
+    font-weight: bold;
+}
+
 span.pathChunk:after
 {
     content: ':';

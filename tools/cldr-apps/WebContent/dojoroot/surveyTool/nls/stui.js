@@ -192,6 +192,7 @@ define({
            v_oldvotes_summary: "Summary",
            v_oldvotes_accept: "Accept?",
            v_oldvotes_all: "Choose All",
+           v_oldvotes_go: "view",
            v_oldvotes_none: "Choose None",
            v_oldvotes_no_contested: "No contested votes.",
            v_oldvotes_no_old_here: "No old votes to import. You're done with this locale!",

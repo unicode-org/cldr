@@ -320,7 +320,7 @@ function createLinkToFn(strid, fn, tag) {
 	var obj = document.createElement(tag);
 	obj.appendChild(document.createTextNode(msg));
 	if(tag=='a') {
-		obj.href ='#';
+		obj.href ='';
 	}
 	listenFor(obj, "click", function(e) {
 		fn(obj);
@@ -3853,7 +3853,13 @@ function showV() {
 											oldSplit = pathSplit;
 											rowTitle = pathSplit[pathSplit.length - 1];
 											
-											tdp = createChunk(rowTitle,"td","v-path");
+											tdp = createChunk("","td","v-path");
+											
+													var dtpl = createChunk(rowTitle, "a");
+													dtpl.href = "v#/"+surveyCurrentLocale+"//"+row.strid;
+													dtpl.target='_CLDR_ST_view';
+													tdp.appendChild(dtpl);
+											
 											tr.appendChild(tdp);
 											var td00 = createChunk(row.baseValue,"td","v-comp"); // english
 											tr.appendChild(td00);
@@ -4071,20 +4077,21 @@ function showV() {
                             oldVoteRemindDialog.addChild(new Button({
                             	label: stui.str("v_oldvote_remind_dontask"),
                             	onClick: function() {
-                            	    updPrefTo('*');
+                            	    updPrefTo('*'); // hide permanently
                             	    oldVoteRemindDialog.hide();
                             	}
                             }));
                             oldVoteRemindDialog.addChild(new Button({
                             	label: stui.str("v_oldvote_remind_no"),
                             	onClick: function() {
-                            	    updPrefTo(new Date().getTime() + (1000 * 86400));
+                            	    updPrefTo(new Date().getTime() + (1000 * 86400)); // hide for 24 hours
                             	    oldVoteRemindDialog.hide();
                             	}                            	
                             }));
                             oldVoteRemindDialog.addChild(new Button({
                             	label: stui.str("v_oldvote_remind_yes"),
                             	onClick: function() {
+                            	    updPrefTo(new Date().getTime() + (1000 * 3600));// hide for 1 hr
                             	    oldVoteRemindDialog.hide();
                             	    surveyCurrentSpecial="oldvotes";
                             	    surveyCurrentLocale='';

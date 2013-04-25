@@ -55,7 +55,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%metazone100" value="(Acre|Almaty|Anadyr|Aqtau|Aqtobe|Kamchatka|Macau|Qyzylorda|Samara)"/>
 		<coverageVariable key="%metazone100_stdonly" value="(Casey|Guam|Lanka|North_Mariana)"/>
 		<coverageVariable key="%metazoneTypes" value="(generic|standard|daylight)"/>
-		<coverageVariable key="%numberSymbols" value="(decimal|group|(plus|minus|percent)Sign|list|exponential|superscriptingExponent|perMille|infinity|nan)"/>
+		<coverageVariable key="%numberSymbols" value="(decimal|group|(plus|minus|percent)Sign|exponential|superscriptingExponent|perMille|infinity|nan)"/>
 		<coverageVariable key="%numberingSystem80" value="(arab(ext)?|armn(low)?|beng|deva|ethi|fullwide|geor|grek(low)?|gujr|guru|hanidec|han[st](fin)?|hebr|jpan(fin)?|khmr|knda|laoo|mlym|mymr|orya|roman(low)?|taml(dec)?|telu|thai|tibt)"/>
 		<coverageVariable key="%otherNumberingSystemTypes" value="(native|traditional|finance)"/>
 		<coverageVariable key="%persianCalendarTerritories" value="(AF|IR)"/>
@@ -141,7 +141,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='${Target-Currencies}']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="30" match="numbers/percentFormats[@numberSystem='latn']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel value="30" match="numbers/scientificFormats[@numberSystem='latn']/scientificFormatLength/scientificFormat%stdPattern"/>
-		<coverageLevel value="30" match="numbers/symbols[@numberSystem='latn']/((plus|minus|percent)Sign|list|exponential|superscriptingExponent|perMille|infinity|nan)"/>
+		<coverageLevel value="30" match="numbers/symbols[@numberSystem='latn']/((plus|minus|percent)Sign|exponential|superscriptingExponent|perMille|infinity|nan)"/>
 		<coverageLevel inLanguage="ar" value="30" match="numbers/symbols[@numberSystem='arab']/%numberSymbols"/>
 		<coverageLevel inLanguage="ar" value="30" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="ar" value="30" match="numbers/currencyFormats[@numberSystem='arab']/currencyFormatLength/currencyFormat%stdPattern"/>

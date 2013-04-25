@@ -6,7 +6,7 @@
  * Author: Steven R. Loomis
  **********************************************************************
  */
-package org.unicode.cldr.test;
+package org.unicode.cldr.unittest;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.unittest.TestAll;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
@@ -130,7 +129,8 @@ public class TestCLDRUtils extends TestFmwk {
         });
         String fileName = "TestCLDRLocale" + ".xml";
         logln("Reading" + fileName);
-        myReader.read(TestCLDRUtils.class.getResource( fileName).toString(), FileUtilities.openFile(TestCLDRUtils.class, fileName), -1, true);
+        myReader.read(TestCLDRUtils.class.getResource( "data/" +  fileName).toString(),
+                FileUtilities.openFile(TestCLDRUtils.class,  "data/" +  fileName), -1, true);
     }    
     public void TestCLDRLocaleInheritance() {
         CLDRLocale ml = CLDRLocale.getInstance("ml");

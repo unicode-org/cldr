@@ -20,6 +20,7 @@ public class TestAll extends TestGroup {
     public TestAll() {
         super(
             new String[] {
+                "org.unicode.cldr.unittest.TestCLDRUtils",
                 "org.unicode.cldr.unittest.TestCanonicalIds",
                 "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
                 "org.unicode.cldr.unittest.TestLocalCurrency",

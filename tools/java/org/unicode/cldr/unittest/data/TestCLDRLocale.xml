@@ -4,4 +4,14 @@
     <echo>Hello</echo>
     <format locale="und_XK" type="region">Kosovo</format>
     <format locale="sq_XK" type="all">Albanian (Kosovo)</format>
+<!-- 
+These two are not working,  ticket:5967
+
+
+    <format locale="en_US_POSIX" type="all">U.S. English (POSIX)</format>
+BROKEN: returns U. S. English
+
+    <format locale="el_POLYTON" type="all">Greek (Polytonic)</format>
+ BROKEN- returns Greek (polyton)
+    -->
 </TestCLDRLocale>

@@ -1283,15 +1283,19 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	if(tr.myProposal) {
 		if(button == tr.myProposal.button) {
 			button.className = "ichoice-x";
+			button.checked = true;
 			tr.lastOn = button;
 		} else {
 			button.className = "ichoice-o";
+			button.checked = false;
 		}
 	} else if((theRow.voteVhash==vHash) && !box) {
 		button.className = "ichoice-x";
+		button.checked = true;
 		tr.lastOn = button;
 	} else {
 		button.className = "ichoice-o";
+		button.checked = false;
 	}
 }
 
@@ -1751,6 +1755,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		if(newButton) {
 			newButton.value=value;
 			if(tr.lastOn) {
+				tr.lastOn.checked = false;
 				tr.lastOn.className = "ichoice-o";
 			}
 			wireUpButton(newButton,tr,theRow,"[retry]", {"value":value});
@@ -4449,6 +4454,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 						// submit went through. Now show the pop.
 						button.className='ichoice-o';
+						button.checked=false;
 						hideLoader(tr.theTable.theDiv.loader);
 						if(json.testResults && (json.testWarnings || json.testErrors)) {
 							// tried to submit, have errs or warnings.
@@ -4477,6 +4483,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 					}
 					//tr.className='vother';
 					button.className='ichoice-o';
+					button.checked = false;
 					hideLoader(tr.theTable.theDiv.loader);
 					myUnDefer();
 				}

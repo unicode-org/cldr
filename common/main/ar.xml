@@ -1266,7 +1266,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="Ed">E، d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM، y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM، y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E، d MMM، y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
@@ -1287,10 +1287,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyM">M‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d‏/M‏/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E، d/‏M/‏y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="contributed">MMM، y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM، y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E، d MMM، y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM، y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
@@ -1908,12 +1908,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE، d MMMM y G</pattern>
+							<pattern>EEEE، d MMMM، y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM y G</pattern>
+							<pattern>d MMMM، y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">

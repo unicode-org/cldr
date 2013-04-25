@@ -1956,11 +1956,8 @@ tr.tr_unknown {
 }
 
 div.helpHtml {
-	margin-top:  0.4em;
-	margin-left: 1em;
-	padding-left: 0.5em;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	background: #eed;
+    background: #eed;
+    font: medium Georgia, "Times New Roman", Times, serif;
 }
 
 div.helpHtml table {
@@ -2212,6 +2209,17 @@ tr.d-inforow td h3.span {
 	font-size: large;
 }
 
+
+.pu-select {
+	border: 2px solid black !important; /* or f8c871 */
+}
+
+
+.selectShow {
+    background-color: #f4f3ee;
+}
+
+
 .d-item-selected {
 	border: 2px solid navy;
 }
@@ -2451,12 +2459,12 @@ button.d-inforow-hider {
 td.d-change,td.d-change-err,td.d-change-warn {
 	vertical-align: top;
 	/*padding-left:  18px;*/
-	padding-bottom: 16px !important;
 }
 
 td.d-change-err, td.d-win-err, .d-item-err {
 	background: #fa9092 url(stop.png) no-repeat left bottom !important;
 	border: 2px solid red !important;
+	padding-bottom: 16px !important;
 }
 
 td.d-change-confirmonly {
@@ -2466,6 +2474,7 @@ td.d-change-confirmonly {
 td.d-change-warn, td.d-win-warn, .d-item-warn {
 	border: 2px solid yellow !important;
 	background: #fbfea1 url(warn.png) no-repeat left bottom !important;
+	padding-bottom: 16px !important;
 }
 
 td.d-win {
@@ -2520,11 +2529,6 @@ div#pu-content {
 	margin-top:  0;
 	margin-bottom: 0;
 }
-
-.pu-select {
-	border:  3px solid black !important; /* or f8c871 */
-}
-
 
 
 /* @end */
@@ -2750,7 +2754,7 @@ span.editableHere:hover {
 .hideCov30 .selectShow.cov30,
 .hideCov10 .selectShow.cov10 {
     display: table-row !important;
-    background-color: silver;
+    background-color: silver !important;
 }
 
 #OtherSection {

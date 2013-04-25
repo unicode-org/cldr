@@ -38,7 +38,7 @@ define({
 			possibleProblems: "Possible problems with this locale:",
 
 			flyoverst: "Status Icon",
-			flyoverdraft: "Draft Icon",
+			flyoverdraft: "Approval Status",
 			flyovervoted: "Shows a checkmark if you voted",
 			flyovercode: "Code for this item",
 			extraAttribute_desc: "Additional specifiers for this element",

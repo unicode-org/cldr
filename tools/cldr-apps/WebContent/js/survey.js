@@ -1518,7 +1518,7 @@ dojo.ready(function() {
 		if(obj) {
 			//removeClass(obj,"pu-deselect");
 			addClass(obj,"pu-select");
-//			var partr = parentOfType('TR',obj);
+			var partr = parentOfType('TR',obj);
 			if(partr) {
 //				console.log('Adding select  to ' + partr + ' ' + partr.id);
 				addClass(partr, 'selectShow');
@@ -1985,7 +1985,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	
 	if(item.inExample) {
 		//addIcon(div,"i-example-zoom").onclick = div.onclick;
-	} else if(item.example) {
+	} else if(item.example && item.value != item.examples ) {
 		var example = appendExample(div,item.example);
 //		example.popParent = tr;
 //		listenToPop(null,tr,example,td.showFn);
@@ -2387,7 +2387,7 @@ function updateRow(tr, theRow) {
 //					stStopPropagation(e); return false; 
 //				});
 		var xpathStr = "";
-		if((!window.surveyOfficial) || stdebug_enabled) {
+		if( /* (!window.surveyOfficial) || */ stdebug_enabled) {
 			xpathStr = "XPath: " + theRow.xpath;
 		}
 		listenToPop(xpathStr, tr, children[config.codecell]);
@@ -3420,10 +3420,44 @@ function showV() {
 
 				for(var j in menuMap.sections) {
 					(function (aSection){
+						
+						var goTo = null;
+						// need to find  a valid page
+						
+						for(var k in aSection.pages) { // find first valid page
+							var disabled =  (effectiveCoverage()<parseInt(aSection.pages[k].levs[surveyCurrentLocale]));
+							if(!disabled && goTo == null) {
+								goTo = aSection.pages[k];
+								break;
+							}
+						}
+						
+					//	console.log("for section " + aSection.name + " got " + goTo);
+						
+						var onClick = null;
+						
+						if(goTo != null) {
+							onClick = function(){ 
+								console.log('clicky ' + goTo.id);
+								surveyCurrentId = ''; // no id if jumping pages
+								surveyCurrentPage = goTo.id;
+								updateMenuTitles(menuMap);
+								reloadV();
+							};
+						}
+						
+						var sectionMenuItem = new MenuItem({
+							label: aSection.name,
+							iconClass:  (surveyCurrentSection == aSection.id)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
+							onClick: onClick,
+							disabled: (goTo==null)
+						});
+
+						/*
 						var dropDown = new DropDownMenu();
 						for(var k in aSection.pages) { // use given order
 							(function(aPage) {
-								var pageMenu = new /*Checked*/MenuItem({
+								var pageMenu = new MenuItem({
 									label: aPage.name,
 									iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
 									//checked:   (aPage.id == surveyCurrentPage),
@@ -3444,6 +3478,9 @@ function showV() {
 							label: aSection.name,
 							popup: dropDown
 						});
+						*/
+						
+						
 						menuSection.addChild(sectionMenuItem);
 					})(menuMap.sections[j]);
 				}

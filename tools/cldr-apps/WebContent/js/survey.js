@@ -288,7 +288,7 @@ if(!stuidebug_enabled) {
 function isInputBusy() {
 	if(!window.getSelection) return false;
 	var sel = window.getSelection();
-	if(sel && sel.anchorNode && sel.anchorNode.className.indexOf("dijitInp")!=-1) {
+	if(sel && sel.anchorNode && sel.anchorNode.className && sel.anchorNode.className.indexOf("dijitInp")!=-1) {
 		return true;
 	}
 	return false;

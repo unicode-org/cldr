@@ -26,7 +26,7 @@ define({
 			file_ticket_must: "You must file a ticket to modify this item.",
 
 			htmlst: "Errors",
-			htmldraft: "Approved",
+			htmldraft: "A",
 			htmlvoted: "Voting",
 			htmlcode: "Code",
 			htmlbaseline: "$BASELINE_LANGUAGE_NAME",

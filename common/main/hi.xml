@@ -1415,9 +1415,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">पूर्व</dayPeriod>
+							<dayPeriod type="pm">अपर</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">पूर्वाह्न</dayPeriod>
-							<dayPeriod type="pm">अपराह्न</dayPeriod>
+							<dayPeriod type="am">पू</dayPeriod>
+							<dayPeriod type="pm">अ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">पूर्वाह्न</dayPeriod>

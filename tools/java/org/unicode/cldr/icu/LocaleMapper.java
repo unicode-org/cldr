@@ -147,11 +147,13 @@ public class LocaleMapper extends LdmlMapper {
         super("ldml2icu_locale.txt");
         unresolvedFactory = resolvedFactory = factory;
         // If filtering is required, filter all unresolved CLDRFiles for use in
-        // fillFromCldr(). We don't filter the resolved CLDRFiles because
+        // fillFromCldr(). We don't filter the resolved CLDRFiles by organization
+        // coverage level because
         // some rbPaths (e.g. /calendar/x/DateTimePatterns) have a fixed number
         // of values that must always be present regardless of filtering.
         if (useAltValues || organization != null) {
             unresolvedFactory = FilterFactory.load(factory, organization, useAltValues);
+            resolvedFactory = FilterFactory.load(factory, null, useAltValues);
         }
         this.specialFactory = specialFactory;
         this.supplementalDataInfo = supplementalDataInfo;

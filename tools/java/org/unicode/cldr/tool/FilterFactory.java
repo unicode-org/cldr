@@ -129,6 +129,8 @@ public class FilterFactory extends Factory {
             .getLevel();
         ULocale locale = new ULocale(rawFile.getLocaleID());
         for (String xpath : rawFile) {
+            // Locale metadata shouldn't be stripped.
+            if (xpath.startsWith("//ldml/identity")) continue;
             int level = supplementalData.getCoverageValue(xpath, locale);
             if (level > minLevel) {
                 rawFile.remove(xpath);

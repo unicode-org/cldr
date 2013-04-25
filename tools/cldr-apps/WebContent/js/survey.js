@@ -282,6 +282,19 @@ if(!stuidebug_enabled) {
 }
 
 /**
+ * Is the keyboard 'busy'? i.e., it's a bad time to change the DOM
+ * @method isInputBusy
+ */
+function isInputBusy() {
+	if(!window.getSelection) return false;
+	var sel = window.getSelection();
+	if(sel && sel.anchorNode && sel.anchorNode.className.indexOf("dijitInp")!=-1) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * Create a DOM object with the specified text, tag, and HTML class. 
  * Applies (classname)+"_desc" as a tooltip (title).
  * @method createChunk
@@ -541,6 +554,7 @@ var wasOk = false;
 var loadOnOk = null;
 var clickContinue = null;
  var surveyNextLocaleStamp = 0;
+ var surveyNextLocaleStampId = '';
  
  /**
   * Mark the page as busted. Don't do any more requests.
@@ -583,13 +597,15 @@ var deferUpdateFn = {};
  * @method doDeferredUpdates
  */
 function doDeferredUpdates() {
-	if(deferUpdateFn==null) {
+	if(deferUpdateFn==null || deferUpdates>0 || isInputBusy()) {
 		return;
 	}
+
 	for(i in deferUpdateFn) {
 		if(deferUpdateFn[i]) {
 			var fn = deferUpdateFn[i];
 			deferUpdateFn[i]=null;
+			stdebug(".. calling deferred update fn ..");			
 			fn();
 		}
 	}
@@ -606,9 +622,7 @@ function setDefer(defer) {
 	} else {
 		deferUpdates--;
 	}
-	if(deferUpdates<=0) {
-		doDeferredUpdates();
-	}
+	doDeferredUpdates();
 	stdebug("deferUpdates="+deferUpdates);
 }
 
@@ -638,7 +652,7 @@ function undeferUpdate(what) {
  * @param {Function} fn function to call, now or later
  */
 function doUpdate(what,fn) {
-	if(deferUpdates>0) {
+	if(deferUpdates>0 || isInputBusy()) {
 		updateAjaxWord(stui_str('newDataWaiting'));
 		deferUpdate(what,fn);
 	} else {
@@ -862,6 +876,8 @@ function trySurveyLoad() {
 	} catch(e){}
 }
 
+var lastJsonStatus = null;
+
 /**
  * Based on the last received packet of JSON, update our status
  * @method updateStatusBox
@@ -872,13 +888,13 @@ function updateStatusBox(json) {
 		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown 
 	} else if (json.SurveyOK==0) {
 		trySurveyLoad();
-		handleDisconnect("Not running [yet]- try again?: ", json,"disconnected"); // ST has restarted
+		handleDisconnect("The SurveyTool server is not ready to accept connections, please retry. ", json,"disconnected"); // ST has restarted
 	} else if (json.status && json.status.isBusted) {
-		handleDisconnect("Server says: busted " + json.status.isBusted, json,"disconnected"); // Server down- not our fault. Hopefully.
+		handleDisconnect("The SurveyTool server has halted due to an error: " + json.status.isBusted, json,"disconnected"); // Server down- not our fault. Hopefully.
 	} else if(!json.status) {
-		handleDisconnect("!json.status",json);
+		handleDisconnect("The SurveyTool erver returned a bad status",json);
 	} else if(json.status.surveyRunningStamp!=surveyRunningStamp) {
-		handleDisconnect("Server restarted since page was loaded",json,"disconnected"); // desync
+		handleDisconnect("The SurveyTool server restarted since this page was loaded. Please retry.",json,"disconnected"); // desync
 	} else if(json.status && json.status.isSetup==false && json.SurveyOK==1) {
 		updateProgressWord("startup");
 	} else {
@@ -886,6 +902,7 @@ function updateStatusBox(json) {
 	}
 	
 	if(json.status) {
+		lastJsonStatus = json.status;
 		if(!updateParts) {
 			var visitors = dojo.byId("visitors");
 			updateParts = {
@@ -957,7 +974,13 @@ function updateStatus() {
 		stdebug("Not updating status - disconnected.");
 		return;
 	}
+	
+	doDeferredUpdates(); // do this periodically
 //	stdebug("UpdateStatus...");
+	var surveyLocaleUrl = '';
+	if(surveyCurrentLocale!==null && surveyCurrentLocale!= '') {
+		surveyLocaleUrl = '&_='+surveyCurrentLocale;
+	}
     dojo.xhrGet({
         url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl+cacheKill(),
         handleAs:"json",
@@ -1317,10 +1340,10 @@ function incrPopToken(x) {
 }
 
 
-function hidePopHandler(e){ 		
-	window.hidePop(null);
-	stStopPropagation(e); return false; 
-}
+//function hidePopHandler(e){ 		
+//	window.hidePop(null);
+//	stStopPropagation(e); return false; 
+//}
 
 
 // called when showing the popup each time
@@ -1477,7 +1500,7 @@ dojo.ready(function() {
 	
 	function parentOfType(tag, obj) {
 		if(!obj) return null;
-		console.log('POT ' + tag + '-' + obj + '=' + obj.nodeName);
+//		console.log('POT ' + tag + '-' + obj + '=' + obj.nodeName);
 		if(obj.nodeName===tag) return obj;
 		return parentOfType(tag, obj.parentElement);
 	}
@@ -1488,16 +1511,16 @@ dojo.ready(function() {
 			//addClass(gPopStatus.lastShown,"pu-deselect");
 			var partr = parentOfType('TR',gPopStatus.lastShown);
 			if(partr) {
-				console.log('Removing select from ' + partr + ' ' + partr.id);
+//				console.log('Removing select from ' + partr + ' ' + partr.id);
 				removeClass(partr, 'selectShow');
 			}
 		}
 		if(obj) {
 			//removeClass(obj,"pu-deselect");
 			addClass(obj,"pu-select");
-			var partr = parentOfType('TR',obj);
+//			var partr = parentOfType('TR',obj);
 			if(partr) {
-				console.log('Adding select  to ' + partr + ' ' + partr.id);
+//				console.log('Adding select  to ' + partr + ' ' + partr.id);
 				addClass(partr, 'selectShow');
 			}
 		}
@@ -1508,11 +1531,6 @@ dojo.ready(function() {
 		setLastShown(null);
 	}
 	
-//	listenFor(pucontent, "mouseover", function() {
-//		clearTimeout(hideInterval);
-//		hideInterval=null;
-//	});
-//	listenFor(pucontent, "mouseout", hidePopHandler);
 	
 	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate) {
 //		if(hideIfLast&&lastShown==hideIfLast) {
@@ -1614,22 +1632,22 @@ dojo.ready(function() {
 			}
 		};
 	}
-	window.hidePop = function() {
-		if(hideInterval) {
-			clearTimeout(hideInterval);
-		}
-		hideInterval=setTimeout(function() {
-			if(false) {
-				//pucontent.style.display="none";
-			} else {
-				// SRL suspicious
-				removeAllChildNodes(pucontent);
-//				pupeak.style.display="none";
-			}
-			clearLastShown();
-			incrPopToken('newHide');
-		}, 2000);
-	};
+//	window.hidePop = function() {
+//		if(hideInterval) {
+//			clearTimeout(hideInterval);
+//		}
+//		hideInterval=setTimeout(function() {
+//			if(false) {
+//				//pucontent.style.display="none";
+//			} else {
+//				// SRL suspicious
+//				removeAllChildNodes(pucontent);
+////				pupeak.style.display="none";
+//			}
+//			clearLastShown();
+//			incrPopToken('newHide');
+//		}, 2000);
+//	};
 	window.resetPop = function() {
 		lastShown = null;
 	};
@@ -1995,7 +2013,13 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	                               tr.inputTd = td; // cause the proposed item to show up in the right box
                        				handleWiredClick(tr,theRow,"",{value: newValue},newButton); 
 	                                   //ieb.destroy();
-	                               }
+	                               },
+                               onShow: function() {
+                            	   setDefer(true);
+                               },
+                               onHide: function() {
+                            	   setDefer(false);
+                               }
 	                   }, spanId);
 	                		tr.iebs.push(ieb);
 	                       stdebug("Minted  " + spanId);
@@ -2751,8 +2775,6 @@ function insertRows(theDiv,xpath,session,json) {
 		theDiv.theTable = theTable;
 		theTable.theDiv = theDiv;
 		doInsertTable=theTable;
-//		listenFor(theTable,"mouseout",
-//				hidePopHandler);
 	} else {
 		theDiv.appendChild(theDiv.theTable);
 	}
@@ -3005,6 +3027,8 @@ function showV() {
 			var theDiv = flipper.get(pages.data);
 			theDiv.pucontent = pucontent;
 			theDiv.stui = loadStui();
+			
+			pucontent.appendChild(createChunk(stui.str("itemInfoBlank"),"i"));
 		}
 
 		/**
@@ -3625,10 +3649,25 @@ function showV() {
 			}
 
 			
-
+			// todo dont even flip if it's quick.
 			var loadingChunk;
 			flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading"), "i", "loadingMsg"));
+			var loadingPane = flipper.get(pages.loading);
+
+			var itemLoadInfo = createChunk("","div","itemLoadInfo");			
+			loadingPane.appendChild(itemLoadInfo);
+			
+			var serverLoadInfo = createChunk("","div","serverLoadInfo");			
+			loadingPane.appendChild(serverLoadInfo);
+
+			var lastServerLoadTxt  = '';
+			var startTime = new Date().getTime();
+			
 			{
+				window.setTimeout(function(){
+						 updateStatus(); // will restart regular status updates
+				}, 5000); // get a status update about 5s in.
+				
 				var timerToKill = null;
 				flipper.addUntilFlipped(function() {
 //					console.log("Starting throbber");
@@ -3638,6 +3677,26 @@ function showV() {
 						k++;
 						loadingChunk.style.opacity =   0.5 + ((k%10) * 0.05);
 //						console.log("Throb to " + loadingChunk.style.opacity);
+						
+						// update server load txt?
+						if(lastJsonStatus) {
+							lastJsonStatus.sysloadpct =  dojoNumber.format(parseFloat( lastJsonStatus.sysload), {places: 0, type: "percent"});
+							
+							var now = new Date().getTime();
+							var waitms = now - startTime;
+							var waits = waitms / 1000.0;
+							
+							lastJsonStatus.waitTime = dojoNumber.format(waits, { round: 0, fractional: false});
+							
+							var newLoadTxt = stui.sub("jsonStatus_msg",lastJsonStatus);
+							
+							if(waits > 5 && newLoadTxt != lastServerLoadTxt) {
+								removeAllChildNodes(serverLoadInfo);
+								serverLoadInfo.appendChild(document.createTextNode(newLoadTxt));
+								lastServerLoadTxt = newLoadTxt;
+							}
+						}
+						
 					}, 100);
 					
 					return frag;
@@ -3667,12 +3726,10 @@ function showV() {
 				
 				if(surveyCurrentSpecial == null && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
 					if((surveyCurrentPage==null || surveyCurrentPage=='') && (surveyCurrentId==null||surveyCurrentId=='')) {
-						flipper.get(pages.loading).appendChild(document.createElement('br'));
-						flipper.get(pages.loading).appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale)));
+						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale)));
 						showPossibleProblems(flipper, pages.other, surveyCurrentLocale, surveySessionId, covName(effectiveCoverage()), covName(effectiveCoverage()));
 					} else {
-						flipper.get(pages.loading).appendChild(document.createElement('br'));
-						flipper.get(pages.loading).appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
+						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
 							
 						myLoad(url, "(loading vrows)", function(json) {
@@ -4360,8 +4417,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 							// tried to submit, have errs or warnings.
 							showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 						} else {
-							hidePop(tr);
-							// TODO: hidden after submit - should instead update.
+							//  submit OK.
 						}
 						if(box) {
 							box.value=""; // submitted - dont show.
@@ -4377,8 +4433,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 						|| (json.testResults && (json.testWarnings || json.testErrors ))) {
 						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
 					} else {
-						hidePop(tr);
-						// TODO: not submitted, but no errors.  Refresh row and show?
+						// no errors, not submitted.  Nothing to do.
 					}
 					if(box) {
 						box.value=""; // submitted - dont show.

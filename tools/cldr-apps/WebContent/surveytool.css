@@ -722,11 +722,13 @@ h2.thisItem {
 }
 
 i.loadingMsg {
-	font-size: x-large;
+	font-size: xx-large;
 	text-align: justify;
 	font-weight: bold;
 	font-variant: small-caps;
 	margin-left:  2em;
+	color: #17800d;
+    text-shadow: 2px 2px 1px black;
 }
 
 .small_login_hot {
@@ -740,6 +742,11 @@ i.loadingMsg {
 	right: 0;
 	z-index: 4;
 	line-height: 1.34em;
+}
+
+.serverLoadInfo {
+    margin-top:  5em;
+    font: normal normal small "Lucida Grande", Lucida, Verdana, sans-serif;
 }
 
 div#smalllogin {

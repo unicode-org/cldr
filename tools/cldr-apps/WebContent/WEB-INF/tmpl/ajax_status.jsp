@@ -30,21 +30,19 @@ String surveyCurrentForum = request.getParameter(SurveyForum.F_XPATH);
 if(surveyCurrentLocale!=null&&surveyCurrentLocale.length()>0&&
     (surveyCurrentSection!=null||surveyCurrentForum!=null)) {
 %>
-var surveyLocaleUrl='&<%= SurveyMain.QUERY_LOCALE %>=<%= surveyCurrentLocale %>';
 var surveyCurrentLocale = '<%= surveyCurrentLocale %>';
 var surveyCurrentLocaleName = '<%= surveyCurrentLocaleName %>';
 var surveyCurrentSection  = '<%= surveyCurrentSection %>';
 var surveyCurrentSection  = '<%= surveyCurrentSection %>';
-var surveyCurrentLocaleStamp = 0;
 <% }else{ %>
 var surveyCurrentLocale = null;
 var surveyCurrentLocaleName = null;
-var surveyCurrentLocaleStamp = 0;
 var surveyCurrentSection  = '';
-var surveyLocaleUrl='';
 <% } 
 
 %>
+var surveyCurrentLocaleStamp = 0;
+var surveyCurrentLocaleStampId = '';
 var surveyVersion = '<%=SurveyMain.getNewVersion() %>';
 var surveyOldVersion = '<%= SurveyMain.getOldVersion() %>';
 var surveyOfficial = <%= !SurveyMain.isUnofficial() %>;

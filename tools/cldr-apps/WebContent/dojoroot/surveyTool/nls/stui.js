@@ -49,6 +49,8 @@ define({
 			flyoverchange: "Enter new values here",
 			flyovernoopinion: "Abstain from voting on this row",
 			
+			itemInfoBlank: "This area shows further details about the selected item.",
+			
 			draftStatus: "Status: ${0}",
 			confirmed: "Confirmed", 
 			approved: "Approved", 
@@ -247,6 +249,8 @@ define({
            coverage_optional: 'Optional',
            
            coverage_menu_desc: 'Change the displayed coverage level. "Automatic" will use your organization\'s preferred value for this locale, if any.',
+           
+           jsonStatus_msg: "By the way, there are ${users} logged-in users and ${guests} visitors to the SurveyTool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
            
            
            "": ""})

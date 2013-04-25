@@ -829,32 +829,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<dates>
 		<calendars>
 			<calendar type="buddhist">
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="unconfirmed">E, MMM d 'lia', y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="unconfirmed">MMMM d 'lia', y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern draft="unconfirmed">MMM d 'lia' y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="h" draft="unconfirmed">a 'ga' h</dateFormatItem>
 						<dateFormatItem id="hm" draft="unconfirmed">a 'ga' h: 'aɖabaƒoƒo' mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">a 'ga' h: 'aɖabaƒoƒo' mm:ss</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="unconfirmed">MMM d 'lia'</dateFormatItem>
-						<dateFormatItem id="MMMEd" draft="unconfirmed">E, MMM d 'lia'</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">'ga' mm:ss</dateFormatItem>
-						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, MMM d 'lia' y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1094,7 +1074,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>M/d/yy GGGGG</pattern>
+							<pattern>M/d/y GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1122,6 +1102,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d 'lia', y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, MMM d 'lia' y G</dateFormatItem>
 						<dateFormatItem id="h">a 'ga' h</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">a 'ga' h:mm</dateFormatItem>
@@ -1137,16 +1121,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMMd">MMMM d 'lia'</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, MMMM d 'lia'</dateFormatItem>
 						<dateFormatItem id="ms">'aɖabaƒoƒo' mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M/y</dateFormatItem>
-						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
-						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd">MMM d 'lia', y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">M/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">M/d/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, M/d/y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">MMM d 'lia', y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, MMM d 'lia' y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -1208,36 +1193,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">E, MMM d 'lia' – E, MMM d 'lia'</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M/y – M/y</greatestDifference>
-							<greatestDifference id="y">M/y – M/y</greatestDifference>
+							<greatestDifference id="M">M/y – M/y G</greatestDifference>
+							<greatestDifference id="y">M/y – M/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">M/d/y – M/d/y</greatestDifference>
-							<greatestDifference id="M">M/d/y – M/d/y</greatestDifference>
-							<greatestDifference id="y">M/d/y – M/d/y</greatestDifference>
+							<greatestDifference id="d">M/d/y – M/d/y G</greatestDifference>
+							<greatestDifference id="M">M/d/y – M/d/y G</greatestDifference>
+							<greatestDifference id="y">M/d/y – M/d/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, M/d/y – E, M/d/y</greatestDifference>
-							<greatestDifference id="M">E, M/d/y – E, M/d/y</greatestDifference>
-							<greatestDifference id="y">E, M/d/y – E, M/d/y</greatestDifference>
+							<greatestDifference id="d">E, M/d/y – E, M/d/y G</greatestDifference>
+							<greatestDifference id="M">E, M/d/y – E, M/d/y G</greatestDifference>
+							<greatestDifference id="y">E, M/d/y – E, M/d/y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM–MMM y</greatestDifference>
-							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
+							<greatestDifference id="M">MMM–MMM y G</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">MMM d 'lia' – d 'lia' , y</greatestDifference>
-							<greatestDifference id="M">MMM d 'lia' – MMM d 'lia', y</greatestDifference>
-							<greatestDifference id="y">MMM d 'lia' , y – MMM d 'lia', y</greatestDifference>
+							<greatestDifference id="d">MMM d 'lia' – d 'lia' , y G</greatestDifference>
+							<greatestDifference id="M">MMM d 'lia' – MMM d 'lia', y G</greatestDifference>
+							<greatestDifference id="y">MMM d 'lia' , y – MMM d 'lia', y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, MMM d 'lia' – E, MMM d 'lia', y</greatestDifference>
-							<greatestDifference id="M">E, MMM d 'lia' – E, MMM d 'lia', y</greatestDifference>
-							<greatestDifference id="y">E, MMM d 'lia', y – E, MMM d 'lia', y</greatestDifference>
+							<greatestDifference id="d">E, MMM d 'lia' – E, MMM d 'lia', y G</greatestDifference>
+							<greatestDifference id="M">E, MMM d 'lia' – E, MMM d 'lia', y G</greatestDifference>
+							<greatestDifference id="y">E, MMM d 'lia', y – E, MMM d 'lia', y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
-							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
+							<greatestDifference id="M">MMMM–MMMM y G</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1547,6 +1532,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d 'lia', y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, MMM d 'lia' y G</dateFormatItem>
 						<dateFormatItem id="h">a 'ga' h</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">a 'ga' h:mm</dateFormatItem>
@@ -1911,29 +1900,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{0} {1}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{0} {1}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="medium">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{0} {1}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="short">
-						<dateTimeFormat>
-							<pattern draft="unconfirmed">{0} {1}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="h" draft="unconfirmed">a 'ga' h</dateFormatItem>
-						<dateFormatItem id="hm" draft="unconfirmed">a 'ga' h:mm</dateFormatItem>
 						<dateFormatItem id="hms" draft="unconfirmed">a 'ga' h:mm:ss</dateFormatItem>
 						<dateFormatItem id="MMMEd" draft="unconfirmed">E MMM d 'lia'</dateFormatItem>
 						<dateFormatItem id="ms" draft="unconfirmed">'aɖabaƒoƒo' mm:ss</dateFormatItem>

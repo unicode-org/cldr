@@ -2,7 +2,10 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -22,14 +25,19 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.Output;
 
 public class TestCLDRFile extends TestFmwk {
+    private static final boolean DISABLE_TIL_WORKS = false;
+
     public static void main(String[] args) {
         new TestCLDRFile().run(args);
     }
@@ -46,91 +54,267 @@ public class TestCLDRFile extends TestFmwk {
         File dirs[] = { mainDir, seedDir };
         return SimpleFactory.make(dirs, ".*", DraftStatus.approved);
     }
+    
+    // verify for all paths, if there is a count="other", then there is a count="x", for all x in keywords
+    public void testPlurals() {
+        for (String locale : new String[] { "fr", "en", "root", "ar", "ja" }) {
+            checkPlurals(locale);
+        } 
+    }
+    
+    static final Pattern COUNT_MATCHER = Pattern.compile("\\[@count=\"([^\"]+)\"]");
 
-    public void testExtraPaths() {
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
-        for (String locale : new String[] { "en", "ar", "ja" }) {
-            CLDRFile cldrFile = cldrFactory.make(locale, true);
-            Set<String> s = (Set<String>) cldrFile.getExtraPaths(new TreeSet<String>());
-            System.out.println("Extras for " + locale);
-            for (String path : s) {
-                System.out.println(path + " => " + cldrFile.getStringValue(path));
+    private void checkPlurals(String locale) {
+        CLDRFile cldrFile = cldrFactory.make(locale, true);
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+        Matcher m = COUNT_MATCHER.matcher("");
+        Relation<String,String> skeletonToKeywords = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
+        SupplementalDataInfo sup = TestAll.TestInfo.getInstance().getSupplementalDataInfo();
+        PluralInfo plurals = sup.getPlurals(locale);
+        Set<String> normalKeywords = plurals.getCanonicalKeywords();
+        String testPath = "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"per\"]/unitPattern[@count=\"one\"]";
+        String value = cldrFile.getStringValue(testPath);
+        for (String path : cldrFile.fullIterable()) {
+            if (path.equals(testPath)) {
+                int x = 3;
             }
-            System.out.println("Already in " + locale);
-            for (Iterator<String> it = cldrFile.iterator(Pattern.compile(".*\\[@count=.*").matcher("")); it.hasNext();) {
-                String path = it.next();
-                System.out.println(path + " => " + cldrFile.getStringValue(path));
+            if (!path.contains("@count")) {
+                continue;
+            }
+            if (!m.reset(path).find()) {
+                throw new IllegalArgumentException();
+            }
+            String skeleton = path.substring(0,m.start(1)) + ".*" + path.substring(m.end(1));
+            skeletonToKeywords.put(skeleton, m.group(1));
+        }
+        for (Entry<String, Set<String>> entry : skeletonToKeywords.keyValuesSet()) {
+            assertEquals("Incorrect keywords: " + locale + ", " + entry.getKey(), normalKeywords, entry.getValue());
+        }
+    }
+
+    static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+
+    static class LocaleInfo {
+        final String locale;
+        final CLDRFile cldrFile;
+        final CoverageLevel2 coverageLevel;
+        final Set<String> paths = new HashSet<String>();
+
+        LocaleInfo(String locale) {
+            this.locale = locale;
+            cldrFile = cldrFactory.make(locale, true);
+            coverageLevel = CoverageLevel2.getInstance(locale);
+            for (String path : cldrFile.fullIterable()) {
+                Level level = coverageLevel.getLevel(path);
+                if (level.compareTo(Level.MODERN) > 0) {
+                    continue;
+                }
+                if (path.contains("[@count=") && !path.contains("[@count=\"other\"]")) {
+                    continue;
+                }
+                paths.add(path);
             }
         }
     }
 
-    public void testDraftFilter() {
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
-        checkLocale(cldrFactory.make("root", true));
-        checkLocale(cldrFactory.make("ee", true));
+    public void testExtraPaths() {
+        Map<String,LocaleInfo> localeInfos = new LinkedHashMap();
+        Relation<String,String> missingPathsToLocales = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
+        Relation<String,String> extraPathsToLocales = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
+
+        for (String locale : new String[] { "en", "root", "fr", "ar", "ja" }) {
+            localeInfos.put(locale, new LocaleInfo(locale));
+        }
+        LocaleInfo englishInfo = localeInfos.get("en");
+        for (String path : englishInfo.paths) {
+            if (path.startsWith("//ldml/identity/")
+                    || path.startsWith("//ldml/numbers/currencies/currency[@type=")
+                    //                    || path.startsWith("//ldml/dates/calendars/calendar") && !path.startsWith("//ldml/dates/calendars/calendar[@type=\"gregorian\"]")
+                    //                    || path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=") 
+                    //                    && !path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]")
+                    || path.contains("[@count=") && !path.contains("[@count=\"other\"]")
+                    ) {
+                continue;
+            }
+            for (LocaleInfo localeInfo : localeInfos.values()) {
+                if (localeInfo == englishInfo) {
+                    continue;
+                }
+                if (!localeInfo.paths.contains(path)) {
+                    if (path.startsWith("//ldml/dates/calendars/calendar") && !(path.contains("[@type=\"generic\"]") || path.contains("[@type=\"gregorian\"]"))
+                            || path.contains("[@type=\"japanese\"]")
+                            || path.contains("[@type=\"coptic\"]")
+                            || path.contains("[@type=\"hebrew\"]")
+                            || path.contains("[@type=\"islamic-rgsa\"]")
+                            || path.contains("[@type=\"islamic-umalqura\"]")
+                            || path.contains("/relative[@type=\"-2\"]")
+                            || path.contains("/relative[@type=\"2\"]")
+                            || path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]") && localeInfo.locale.equals("root")
+                                    // //ldml/characters/exemplarCharacters[@type="index"][root]
+                                    ) {
+                        continue;
+                    }
+                    String localeAndStatus = localeInfo.locale + (englishInfo.cldrFile.isHere(path) ? "" : "*");                    
+                    missingPathsToLocales.put(path, localeAndStatus);
+                }
+            }
+        }
+
+        for (LocaleInfo localeInfo : localeInfos.values()) {
+            if (localeInfo == englishInfo) {
+                continue;
+            }
+            for (String path : localeInfo.paths) {
+                if (path.contains("[@numberSystem=\"arab\"]")
+                        || path.contains("[@type=\"japanese\"]")
+                        || path.contains("[@type=\"coptic\"]")
+                        || path.contains("[@type=\"hebrew\"]")
+                        || path.contains("[@type=\"islamic-rgsa\"]")
+                        || path.contains("[@type=\"islamic-umalqura\"]")
+                        || path.contains("/relative[@type=\"-2\"]")
+                        || path.contains("/relative[@type=\"2\"]")
+                        ) {
+                    continue;
+                }
+                if (!englishInfo.paths.contains(path)) {
+                    String localeAndStatus = localeInfo.locale + (localeInfo.cldrFile.isHere(path) ? "" : "*");                    
+                    extraPathsToLocales.put(path, localeAndStatus);
+                }
+            }
+        }
+
+        for (Entry<String, Set<String>> entry : missingPathsToLocales.keyValuesSet()) {
+            String path = entry.getKey();
+            Set<String> locales = entry.getValue();
+            Status status = new Status();
+            Object originalLocale = englishInfo.cldrFile.getSourceLocaleID(path, status);
+            String engName = "en" + (englishInfo.cldrFile.isHere(path) ? "" : "*" + originalLocale 
+                    + (path.equals(status.pathWhereFound) ? "" : "," + status)
+                    + ";");
+            if (path.startsWith("//ldml/localeDisplayNames/")
+                    || path.contains("[@alt=\"accounting\"]")) {
+                logln("+" + engName + ", -" + locales + "\t" + path);
+            } else {
+                errln("+" + engName + ", -" + locales + "\t" + path);
+            }
+        }
+        for (Entry<String, Set<String>> entry : extraPathsToLocales.keyValuesSet()) {
+            String path = entry.getKey();
+            Set<String> locales = entry.getValue();
+            if (path.startsWith("//ldml/localeDisplayNames/")
+                    || path.startsWith("//ldml/numbers/otherNumberingSystems/")
+                    // || path.contains("[@alt=\"accounting\"]")
+                    ) {
+                logln("-en, +" + locales + "\t" + path);
+            } else {
+                logln("-en, +" + locales + "\t" + path);
+            }
+        }
+
+        //        for (String locale : new String[] { "fr", "ar", "ja" }) {
+        //            CLDRFile cldrFile = cldrFactory.make(locale, true);
+        //            Set<String> s = (Set<String>) cldrFile.getExtraPaths(new TreeSet<String>());
+        //            System.out.println("Extras for " + locale);
+        //            for (String path : s) {
+        //                System.out.println(path + " => " + cldrFile.getStringValue(path));
+        //            }
+        //            System.out.println("Already in " + locale);
+        //            for (Iterator<String> it = cldrFile.iterator(Pattern.compile(".*\\[@count=.*").matcher("")); it.hasNext();) {
+        //                String path = it.next();
+        //                System.out.println(path + " => " + cldrFile.getStringValue(path));
+        //            }
+        //        }
     }
+
+//    public void testDraftFilter() {
+//        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
+//        checkLocale(cldrFactory.make("root", true));
+//        checkLocale(cldrFactory.make("ee", true));
+//    }
 
     public void checkLocale(CLDRFile cldr) {
         Matcher m = Pattern.compile("gregorian.*eras").matcher("");
         for (Iterator<String> it = cldr.iterator("", new UTF16.StringComparator()); it.hasNext();) {
             String path = it.next();
             if (m.reset(path).find() && !path.contains("alias")) {
-                System.out.println(cldr.getLocaleID() + "\t" + cldr.getStringValue(path) + "\t"
-                    + cldr.getFullXPath(path));
+                errln(cldr.getLocaleID() + "\t" + cldr.getStringValue(path) + "\t"
+                        + cldr.getFullXPath(path));
             }
             if (path == null) {
-                throw new IllegalArgumentException("Null path");
+                errln("Null path");
             }
             String fullPath = cldr.getFullXPath(path);
             if (fullPath.contains("@draft")) {
-                throw new IllegalArgumentException("File can't contain draft elements");
+                errln("File can't contain draft elements");
             }
         }
     }
 
-    public void testTimeZonePath() {
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-        String tz = "Pacific/Midway";
-        CLDRFile cldrFile = cldrFactory.make("lv", true);
-        String retVal = cldrFile.getStringValue(
-            "//ldml/dates/timeZoneNames/zone[@type=\"" + tz + "\"]/exemplarCity"
-            , true).trim();
-        System.out.println(retVal);
-    }
+//    public void testTimeZonePath() {
+//        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+//        String tz = "Pacific/Midway";
+//        CLDRFile cldrFile = cldrFactory.make("lv", true);
+//        String retVal = cldrFile.getStringValue(
+//                "//ldml/dates/timeZoneNames/zone[@type=\"" + tz + "\"]/exemplarCity"
+//                , true).trim();
+//        errln(retVal);
+//    }
 
     public void testSimple() {
         double deltaTime = System.currentTimeMillis();
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
         deltaTime = System.currentTimeMillis() - deltaTime;
-        System.out.println("Creation: Elapsed: " + deltaTime / 1000.0 + " seconds");
+        logln("Creation: Elapsed: " + deltaTime / 1000.0 + " seconds");
 
         deltaTime = System.currentTimeMillis();
         english.getStringValue("//ldml");
         deltaTime = System.currentTimeMillis() - deltaTime;
-        System.out.println("Creation: Elapsed: " + deltaTime / 1000.0 + " seconds");
+        logln("Creation: Elapsed: " + deltaTime / 1000.0 + " seconds");
 
         deltaTime = System.currentTimeMillis();
         english.getStringValue("//ldml");
         deltaTime = System.currentTimeMillis() - deltaTime;
-        System.out.println("Caching: Elapsed: " + deltaTime / 1000.0 + " seconds");
+        logln("Caching: Elapsed: " + deltaTime / 1000.0 + " seconds");
 
         deltaTime = System.currentTimeMillis();
         for (int j = 0; j < 2; ++j) {
             for (Iterator<String> it = english.iterator(); it.hasNext();) {
                 String dpath = it.next();
                 String value = english.getStringValue(dpath);
-                Set<String> paths = english.getPathsWithValue(value, null, null, null);
-                if (!paths.contains(dpath)) {
-                    throw new IllegalArgumentException(paths + " don't contain <" + value + ">.");
+                Set<String> paths = english.getPathsWithValue(value, "", null, null);
+                if (paths.size() == 0) {
+                    continue;
                 }
-                if (false && paths.size() > 1) {
-                    System.out.println("Value: " + value + "\t\tPaths: " + paths);
+                if (!paths.contains(dpath)) {
+                    if (DISABLE_TIL_WORKS) {
+                        errln("Missing " + dpath + " in " + pathsWithValues(value, paths));
+                    }
+                }
+                if (paths.size() > 1) {
+                    Set<String> nonAliased = getNonAliased(paths, english);
+                    if (nonAliased.size() > 1) {
+                        logln(pathsWithValues(value, nonAliased));
+                    }
                 }
             }
         }
         deltaTime = System.currentTimeMillis() - deltaTime;
-        System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
+        logln("Elapsed: " + deltaTime / 1000.0 + " seconds");
+    }
+
+    private String pathsWithValues(String value, Set<String> paths) {
+        return paths.size() + " paths with: <" + value + ">\t\tPaths: " + paths.iterator().next() + ",...";
+    }
+
+    private Set<String> getNonAliased(Set<String> paths, CLDRFile file) {
+        Set<String> result = new LinkedHashSet<String>();
+        for (String path : paths) {
+            if (file.isHere(path)) {
+                result.add(path);
+            }
+        }
+        return result;
     }
 
     public void testResolution() {
@@ -140,21 +324,21 @@ public class TestCLDRFile extends TestFmwk {
         String xpath = "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
         String id = german.getSourceLocaleID(xpath, null);
         if (!id.equals("de")) {
-            throw new RuntimeException("Expected de but was " + id + " for " + xpath);
+            errln("Expected de but was " + id + " for " + xpath);
         }
 
         // Test aliasing.
         xpath = "//ldml/dates/calendars/calendar[@type=\"islamic-civil\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yyyyMEd\"]";
         id = german.getSourceLocaleID(xpath, null);
         if (!id.equals("de")) {
-            throw new RuntimeException("Expected de but was " + id + " for " + xpath);
+            errln("Expected de but was " + id + " for " + xpath);
         }
 
         // Test lookup that falls to root.
         xpath = "//ldml/dates/calendars/calendar[@type=\"coptic\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"narrow\"]/month[@type=\"5\"]";
         id = german.getSourceLocaleID(xpath, null);
         if (!id.equals("root")) {
-            throw new RuntimeException("Expected root but was " + id + " for " + xpath);
+            errln("Expected root but was " + id + " for " + xpath);
         }
     }
 
@@ -168,10 +352,10 @@ public class TestCLDRFile extends TestFmwk {
         }
         public String over(Size base) {
             return "items: " + items + "(" + percent.format(items/(0.0+base.items)) + "); " +
-            		"chars: " + chars + "(" + percent.format(chars/(0.0+base.chars)) + ")";
+                    "chars: " + chars + "(" + percent.format(chars/(0.0+base.chars)) + ")";
         }
     }
-    
+
     public void testGeorgeBailey() {
         Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         PathHeader.Factory phf = PathHeader.getFactory(cldrFactory.make("en", true));
@@ -186,11 +370,11 @@ public class TestCLDRFile extends TestFmwk {
             Output<String> pathWhereFound = new Output<String>();
 
             Map<String,String> diff = new TreeMap<String,String>(CLDRFile.ldmlComparator);
-            
+
             Size countSuperfluous = new Size();
             Size countExtraLevel = new Size();
             Size countOrdinary = new Size();
-            
+
             for (String path : cldrFile.fullIterable()) {
                 String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound );
                 String topValue = cldrFileUnresolved.getStringValue(path);
@@ -217,17 +401,17 @@ public class TestCLDRFile extends TestFmwk {
                     }                        
                     countOrdinary.add(topValue);
 
-                    
-//                    String parentValue = parentFile.getStringValue(path);
-//                    if (!CldrUtility.equals(parentValue, baileyValue)) {
-//                        diff.put(path, "parent=" + parentValue + ";\tbailey=" + baileyValue);
-//                    }
+
+                    //                    String parentValue = parentFile.getStringValue(path);
+                    //                    if (!CldrUtility.equals(parentValue, baileyValue)) {
+                    //                        diff.put(path, "parent=" + parentValue + ";\tbailey=" + baileyValue);
+                    //                    }
                 }
             }
-            warnln("Superfluous (" + locale + "):\t" + countSuperfluous.over(countOrdinary));
-            warnln(">Modern (" + locale + "):\t" + countExtraLevel.over(countOrdinary));
+            logln("Superfluous (" + locale + "):\t" + countSuperfluous.over(countOrdinary));
+            logln(">Modern (" + locale + "):\t" + countExtraLevel.over(countOrdinary));
             for (Entry<String, String> entry : diff.entrySet()) {
-                System.out.println(locale + "\t" + phf.fromPath(entry.getKey()) + ";\t" + entry.getValue());
+                logln(locale + "\t" + phf.fromPath(entry.getKey()) + ";\t" + entry.getValue());
             }
         }
     }

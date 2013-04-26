@@ -19,25 +19,26 @@ public class TestAll extends TestGroup {
 
     public TestAll() {
         super(
-            new String[] {
-                "org.unicode.cldr.unittest.TestCLDRUtils",
-                "org.unicode.cldr.unittest.TestCanonicalIds",
-                "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
-                "org.unicode.cldr.unittest.TestLocalCurrency",
-                "org.unicode.cldr.unittest.TestLocale",
-                "org.unicode.cldr.unittest.TestBasic",
-                "org.unicode.cldr.unittest.TestSupplementalInfo",
-                "org.unicode.cldr.unittest.TestPaths",
-                "org.unicode.cldr.unittest.TestPathHeader",
-                "org.unicode.cldr.unittest.TestExternalCodeAPIs",
-                "org.unicode.cldr.unittest.TestMetadata",
-                "org.unicode.cldr.unittest.TestUtilities",
-                "org.unicode.cldr.unittest.NumberingSystemsTest",
-                "org.unicode.cldr.unittest.StandardCodesTest",
-                "org.unicode.cldr.unittest.TestCheckCLDR",
-                "org.unicode.cldr.unittest.TestInheritance",
-            },
-            "All tests in CLDR");
+                new String[] {
+                        "org.unicode.cldr.unittest.TestCLDRUtils",
+                        "org.unicode.cldr.unittest.TestCLDRFile",
+                        "org.unicode.cldr.unittest.TestCanonicalIds",
+                        "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
+                        "org.unicode.cldr.unittest.TestLocalCurrency",
+                        "org.unicode.cldr.unittest.TestLocale",
+                        "org.unicode.cldr.unittest.TestBasic",
+                        "org.unicode.cldr.unittest.TestSupplementalInfo",
+                        "org.unicode.cldr.unittest.TestPaths",
+                        "org.unicode.cldr.unittest.TestPathHeader",
+                        "org.unicode.cldr.unittest.TestExternalCodeAPIs",
+                        "org.unicode.cldr.unittest.TestMetadata",
+                        "org.unicode.cldr.unittest.TestUtilities",
+                        "org.unicode.cldr.unittest.NumberingSystemsTest",
+                        "org.unicode.cldr.unittest.StandardCodesTest",
+                        "org.unicode.cldr.unittest.TestCheckCLDR",
+                        "org.unicode.cldr.unittest.TestInheritance",
+                },
+                "All tests in CLDR");
     }
 
     public static final String CLASS_TARGET_NAME = "CLDR";
@@ -49,7 +50,7 @@ public class TestAll extends TestGroup {
             synchronized (TestInfo.class) {
                 if (INSTANCE == null) {
                     CldrUtility.checkValidDirectory(CldrUtility.BASE_DIRECTORY,
-                        "You have to set -Dcheckdata=<validdirectory>");
+                            "You have to set -Dcheckdata=<validdirectory>");
                     INSTANCE = new TestInfo();
                 }
             }

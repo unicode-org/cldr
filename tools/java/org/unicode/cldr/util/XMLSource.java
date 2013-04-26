@@ -1336,21 +1336,21 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         + "[@key=\"" + typeDisplayNames[i][1] + "\"]",
                         typeDisplayNames[i][0]);
             }
-            String[][] relativeValues = {
-                // {"Three days ago", "-3"},
-                { "The day before yesterday", "-2" },
-                { "Yesterday", "-1" },
-                { "Today", "0" },
-                { "Tomorrow", "1" },
-                { "The day after tomorrow", "2" },
-                // {"Three days from now", "3"},
-            };
-            for (int i = 0; i < relativeValues.length; ++i) {
-                constructedItems.putValueAtPath(
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\""
-                        + relativeValues[i][1] + "\"]",
-                        relativeValues[i][0]);
-            }
+//            String[][] relativeValues = {
+//                // {"Three days ago", "-3"},
+//                { "The day before yesterday", "-2" },
+//                { "Yesterday", "-1" },
+//                { "Today", "0" },
+//                { "Tomorrow", "1" },
+//                { "The day after tomorrow", "2" },
+//                // {"Three days from now", "3"},
+//            };
+//            for (int i = 0; i < relativeValues.length; ++i) {
+//                constructedItems.putValueAtPath(
+//                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\""
+//                        + relativeValues[i][1] + "\"]",
+//                        relativeValues[i][0]);
+//            }
 
             constructedItems.freeze();
             allowDuplicates = Collections.unmodifiableMap(allowDuplicates);

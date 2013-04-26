@@ -178,13 +178,13 @@ public class TestPathHeader extends TestFmwk {
 
         // check that English doesn't contain few or many
         verifyContains(PageId.Currencies, filePaths, "many", false);
-        verifyContains(PageId.Time, filePaths, "few", false);
+        verifyContains(PageId.Duration, filePaths, "few", false);
 
         // check that Arabic does contain few and many
         filePaths = pathHeaderFactory.pathsForFile(info.getCldrFactory().make("ar", true));
 
         verifyContains(PageId.Currencies, filePaths, "many", true);
-        verifyContains(PageId.Time, filePaths, "few", true);
+        verifyContains(PageId.Duration, filePaths, "few", true);
     }
 
     public void TestCoverage() {

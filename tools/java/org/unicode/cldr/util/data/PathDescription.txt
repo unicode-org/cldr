@@ -52,13 +52,11 @@
 ^//ldml/dates/timeZoneNames/regionFormat  ;   The pattern used to compose generic fallback time zone names, such as 'Germany Time'. Note: before translating, be sure to read http://cldr.org/translation/timezones.
 ^//ldml/dates/timeZoneNames/(fallback|fallbackRegion|gmtZero|gmt|hour|region)Format  ;   The {1} pattern used to compose time zone names. Note: before translating, be sure to read http://cldr.org/translation/timezones.
 
-^//ldml/units/compoundUnit\[@type="([^"]*)"]/unitPattern.*\[@alt="short"] ; [ICU Syntax] Special pattern used to compose two units (“{1}”) such as m/s (meters per second). Note: before translating, be sure to read http://cldr.org/translation/plurals.
-^//ldml/units/compoundUnit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for full (non-abbreviated) forms of two units (“{1}”) such as meters per second. Note: before translating, be sure to read http://cldr.org/translation/plurals.
+^//ldml/units/unitLength\[@type="([^"]*)"]/compoundUnit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for full (non-abbreviated) forms of two units (“{1}”) such as meters per second. Note: before translating, be sure to read http://cldr.org/translation/plurals.
 
-^//ldml/units/unit\[@type="([^"]*)"]/unitPattern.*\[@alt="short"] ; [ICU Syntax] Special pattern used to compose plural for abbreviated forms of “{1}”. Note: before translating, be sure to read http://cldr.org/translation/plurals.
-^//ldml/units/unit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for full (non-abbreviated) forms of “{1}”. Note: before translating, be sure to read http://cldr.org/translation/plurals.
+^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for full (non-abbreviated) forms of “{1}”. Note: before translating, be sure to read http://cldr.org/translation/plurals.
 
-^//ldml/units/durationUnit\[@type="(hms|hm|ms)"] ; [ICU Syntax] Special pattern used to compose duration units. Note: before translating, be sure to read http://cldr.org/translation/plurals.
+^//ldml/units/unitLength\[@type="([^"]*)"]/durationUnit\[@type="(hms|hm|ms)"] ; [ICU Syntax] Special pattern used to compose duration units. Note: before translating, be sure to read http://cldr.org/translation/plurals.
 
 ^//ldml/numbers/decimalFormats/decimalFormatLength\[@type="([^"]*)"]/decimalFormat\[@type="([^"]*)"]/pattern\[@type="([^"]*)"]  ;   Special pattern used for a short version of numbers with the same number of digits as {3}. Note: before translating, be sure to read http://cldr.org/translation/number-patterns#TOC-Short-Numbers.
 ^//ldml/numbers/decimalFormats\[@numberSystem="([^"]*)"]/decimalFormatLength\[@type="short"]/decimalFormat\[@type="standard"]/pattern\[@type="(\d+)"]\[@count="([^"]+)"] ;   Special decimal pattern used to obtain the abbreviated plural forms of numbers with the same number of digits as {2}. See http://cldr.org/translation/number-patterns#TOC-Short-Numbers for details.

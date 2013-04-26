@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc. -->
-<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->
-<!-- For terms of use, see http://www.unicode.org/copyright.html -->
+<!-- Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -1118,27 +1119,29 @@
 		</currencyFormats>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="other" draft="unconfirmed">{0} Daag</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="other" draft="unconfirmed">{0} Stünnen</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="other" draft="unconfirmed">{0} Minuten</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="other" draft="unconfirmed">{0} Maanden</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="other" draft="unconfirmed">{0} Sekunnen</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="other" draft="unconfirmed">{0} Weken</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="other" draft="unconfirmed">{0} Johren</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="other">{0} Daag</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} Stünnen</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} Minuten</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} Maanden</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} Sekunnen</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} Weken</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} Johren</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<posix>
 		<messages>
@@ -1147,3 +1150,4 @@
 		</messages>
 	</posix>
 </ldml>
+

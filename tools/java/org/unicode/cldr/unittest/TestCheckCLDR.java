@@ -104,7 +104,7 @@ public class TestCheckCLDR extends TestFmwk {
         for (String path : english.fullIterable()) {
             sorted.add(pathHeaderFactory.fromPath(path));
         }
-        final String testPath = "//ldml/units/unit[@type=\"day-future\"]/unitPattern[@count=\"0\"]";
+        final String testPath = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-day-future\"]/unitPattern[@count=\"0\"]";
         sorted.add(pathHeaderFactory.fromPath(testPath));
 
         for (PathHeader pathHeader : sorted) {

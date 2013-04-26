@@ -179,7 +179,7 @@ $element=[a-zA-Z0-9]+;
 '/numbers/otherNumberingSystems/traditional' > '2-number|numberingSystems|traditional';
 '/posix/messages/' (.*) > '1-misc|posix|' $1;
 
-'/units/unit[@type="' ($avalue) '"]/unitPattern' > '0-units|pattern|' $1 ;
+'/units/unitLength[@type="' ($avalue) '"]/unit[@type="' ($avalue) '"]/unitPattern' > '0-units' $1 '|pattern|' $2 ;
 
 #'[@alt="proposed' ($avalue) '"]' > '/' \u200B 'alt'; # remove!
 '[@alt="' ($avalue) '"]' > '/' \u200B 'alt-' $1;

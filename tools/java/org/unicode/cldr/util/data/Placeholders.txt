@@ -1,6 +1,7 @@
 #Remember to quote any [ character!
 
 %A = [^"]*+
+%L = (long|short|narrow)
 
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/dateTimeFormatLength\[@type="%A"]/dateTimeFormat\[@type="%A"]/pattern\[@type="%A"] ; {1}=DATE Dec 10, 2010 ; {0}=TIME 3:59
 
@@ -126,25 +127,25 @@
 
 ^//ldml/numbers/miscPatterns\[@numberSystem="%A"]/pattern\[@type=\"%A\"] ; {0}=NUMBER 3
 
-^//ldml/units/compoundUnit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=DIVIDEND UNIT meters ; {1}=DIVIDEND UNIT second
+^//ldml/units/unitLength\[@type="%L"]/compoundUnit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=DIVIDEND UNIT meters ; {1}=DIVIDEND UNIT second
 
-^//ldml/units/unit\[@type="day%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
-^//ldml/units/unit\[@type="hour%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3
-^//ldml/units/unit\[@type="minute%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MINUTES 3
-^//ldml/units/unit\[@type="month%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
-^//ldml/units/unit\[@type="second%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3
-^//ldml/units/unit\[@type="week%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_WEEKS 3
-^//ldml/units/unit\[@type="year%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_YEARS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-day%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-hour%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-minute%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MINUTES 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-month%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-second%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-week%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-year%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_YEARS 3
 
-^//ldml/units/unit\[@type="day%A"]/unitPattern ; {0}=NUMBER_OF_DAYS 3
-^//ldml/units/unit\[@type="hour%A"]/unitPattern ; {0}=NUMBER_OF_HOURS 3
-^//ldml/units/unit\[@type="minute%A"]/unitPattern ; {0}=NUMBER_OF_MINUTES 3
-^//ldml/units/unit\[@type="month%A"]/unitPattern ; {0}=NUMBER_OF_MONTHS 3
-^//ldml/units/unit\[@type="second%A"]/unitPattern ; {0}=NUMBER_OF_SECONDS 3
-^//ldml/units/unit\[@type="week%A"]/unitPattern ; {0}=NUMBER_OF_WEEKS 3
-^//ldml/units/unit\[@type="year%A"]/unitPattern ; {0}=NUMBER_OF_YEARS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-day%A"]/unitPattern ; {0}=NUMBER_OF_DAYS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-hour%A"]/unitPattern ; {0}=NUMBER_OF_HOURS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-minute%A"]/unitPattern ; {0}=NUMBER_OF_MINUTES 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-month%A"]/unitPattern ; {0}=NUMBER_OF_MONTHS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-second%A"]/unitPattern ; {0}=NUMBER_OF_SECONDS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-week%A"]/unitPattern ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-year%A"]/unitPattern ; {0}=NUMBER_OF_YEARS 3
 
-^//ldml/units/unit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_UNITS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_UNITS 3
 
 # ^//ldml/numbers/currencyFormats/unitPattern\[@count="(%A)"]  ;  {0}=NUMBER 3 ; {1}=UNIT hour(s)
 

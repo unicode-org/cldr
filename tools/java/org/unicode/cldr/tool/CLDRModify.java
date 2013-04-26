@@ -1097,6 +1097,9 @@ public class CLDRModify {
         fixList.add('u', "fix unit patterns", new CLDRFilter() {
 
             public void handlePath(String xpath) {
+                if (!xpath.contains("/units")) {
+                    return;
+                }
                 if (!xpath.contains("/unitPattern")) {
                     return;
                 }

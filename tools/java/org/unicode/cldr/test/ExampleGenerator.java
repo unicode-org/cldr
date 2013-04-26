@@ -284,7 +284,7 @@ public class ExampleGenerator {
                 if (parts.contains("calendar")) {
                     result = handleDateFormatItem(xpath, value);
                 } else if (parts.contains("miscPatterns")) {
-                    result = handleMiscPatterns(value);
+                    result = handleMiscPatterns(parts, value);
                 } else if (parts.contains("numbers")) {
                     result = handleDecimalFormat(parts, value, type);
                 }
@@ -334,8 +334,12 @@ public class ExampleGenerator {
         return result;
     }
 
-    private String handleMiscPatterns(String value) {
-        return format(value, 99);
+    private String handleMiscPatterns(XPathParts parts2, String value) {
+        if ("range".equals(parts.getAttributeValue(-1, "type"))) {
+            return null;
+        } else {
+            return format(value, 99);
+        }
     }
 
     IntervalFormat intervalFormat = new IntervalFormat();

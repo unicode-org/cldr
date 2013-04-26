@@ -429,7 +429,7 @@ ldml alternate attributeOrder attributes blockingItems calendarPreference calend
             <attributeValues elements="monthPatternContext" attributes="type" order="given">format stand-alone numeric</attributeValues>
             <attributeValues elements="monthPatternWidth" attributes="type" type="choice">abbreviated narrow wide all</attributeValues>
             <attributeValues elements="monthWidth quarterWidth cyclicNameWidth" attributes="type" order="given">abbreviated narrow wide</attributeValues>
-            <attributeValues elements="pattern" attributes="type" type="choice">standard 1000 10000 100000 1000000 10000000 10000000 100000000 1000000000 10000000000 100000000000 1000000000000 10000000000000 100000000000000 atLeast</attributeValues>
+            <attributeValues elements="pattern" attributes="type" type="choice">standard atLeast range 1000 10000 100000 1000000 10000000 10000000 100000000 1000000000 10000000000 100000000000 1000000000000 10000000000000 100000000000000</attributeValues>
             <attributeValues elements="preferenceOrdering" attributes="type">$tzidList</attributeValues>
             <attributeValues elements="quarter" attributes="type" type="choice">1 2 3 4</attributeValues> <!-- move to DTD? -->
             <attributeValues elements="reference" attributes="type">$reference</attributeValues>

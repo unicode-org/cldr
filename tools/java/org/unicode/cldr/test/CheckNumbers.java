@@ -132,7 +132,9 @@ public class CheckNumbers extends FactoryCheckCLDR {
                 }
             }
 
-            if (path.indexOf("/pattern") >= 0 && path.indexOf("/patternDigit") < 0) {
+            if (path.indexOf("/pattern") >= 0 
+                    && path.indexOf("/patternDigit") < 0
+                    && path.indexOf("=\"range\"") < 0) {
 
                 // This if is meant to detect if we are examining compact decimal format patterns.
                 // as far as I can tell, only compact decimal format patterns both
@@ -229,6 +231,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.illegalNumberFormat)
                 .setMessage("Error in creating number format {0}; {1}",

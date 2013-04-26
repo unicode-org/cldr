@@ -63,6 +63,7 @@
 ^//ldml/numbers/decimalFormats\[@numberSystem="([^"]*)"]/decimalFormatLength\[@type="long"]/decimalFormat\[@type="standard"]/pattern\[@type="(\d+)"]\[@count="([^"]+)"] ;   Special decimal pattern used to obtain the long plural forms of numbers with the same number of digits as {2}. See http://cldr.org/translation/number-patterns#TOC-Plural-Forms-of-Numbers for details.
 ^//ldml/numbers/currencyFormats\[@numberSystem="([^"]*)"]/unitPattern\[@count="(\w++)"] ; Currency format used for numbers of type {2}. For more information, please see http://cldr.org/translation/number-patterns.
 
+^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="range"] ; Format used to indicate a range of numbers. The {0} and {1} in the pattern represent the lowest and highest numbers in the range, respectively. For more information, please see http://cldr.org/translation/misc.
 ^//ldml/numbers/miscPatterns\[@numberSystem="([^"]*)"]/pattern\[@type="atLeast"] ; Format used to indicate a number is at least a certain value. For more information, please see http://cldr.org/translation/misc.
 
 ^//ldml/numbers/([a-z]*)Formats(\[@numberSystem="([^"]*)"])?/\1FormatLength/\1Format\[@type="standard"]/pattern\[@type="standard"]    ;   Special pattern used to compose {1} numbers. Note: before translating, be sure to read http://cldr.org/translation/number-patterns.

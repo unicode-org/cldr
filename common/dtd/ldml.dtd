@@ -1225,7 +1225,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT units (alias | (unitLength*, special*)) >
+<!ELEMENT units (alias | (unit*, unitLength*, special*)) >
 <!ATTLIST units draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST units references CDATA #IMPLIED >
 <!ATTLIST units alt NMTOKENS #IMPLIED >

@@ -5033,132 +5033,150 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} dan</unitPattern>
-			<unitPattern count="one" alt="short">{0} dan</unitPattern>
-			<unitPattern count="few">{0} dana</unitPattern>
-			<unitPattern count="few" alt="short">{0} dana</unitPattern>
-			<unitPattern count="other">{0} dan</unitPattern>
-			<unitPattern count="other" alt="short">{0} dan</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">za {0} dan</unitPattern>
-			<unitPattern count="few">za {0} dana</unitPattern>
-			<unitPattern count="other">za {0} dana</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">prije {0} dan</unitPattern>
-			<unitPattern count="few">prije {0} dana</unitPattern>
-			<unitPattern count="other">prije {0} dana</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} sat</unitPattern>
-			<unitPattern count="one" alt="short">{0} h</unitPattern>
-			<unitPattern count="few">{0} sata</unitPattern>
-			<unitPattern count="few" alt="short">{0} h</unitPattern>
-			<unitPattern count="other">{0} sata</unitPattern>
-			<unitPattern count="other" alt="short">{0} h</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">za {0} sat</unitPattern>
-			<unitPattern count="few">za {0} sata</unitPattern>
-			<unitPattern count="other">za {0} sati</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">prije {0} sat</unitPattern>
-			<unitPattern count="few">prije {0} sata</unitPattern>
-			<unitPattern count="other">prije {0} sati</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minuta</unitPattern>
-			<unitPattern count="one" alt="short">{0} min</unitPattern>
-			<unitPattern count="few">{0} minute</unitPattern>
-			<unitPattern count="few" alt="short">{0} min</unitPattern>
-			<unitPattern count="other">{0} minuta</unitPattern>
-			<unitPattern count="other" alt="short">{0} min</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">za {0} minutu</unitPattern>
-			<unitPattern count="few">za {0} minute</unitPattern>
-			<unitPattern count="other">za {0} minuta</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">prije {0} minutu</unitPattern>
-			<unitPattern count="few">prije {0} minute</unitPattern>
-			<unitPattern count="other">prije {0} minuta</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} mjesec</unitPattern>
-			<unitPattern count="one" alt="short">{0} mj.</unitPattern>
-			<unitPattern count="few">{0} mjeseca</unitPattern>
-			<unitPattern count="few" alt="short">{0} mj.</unitPattern>
-			<unitPattern count="other">{0} mjesec</unitPattern>
-			<unitPattern count="other" alt="short">{0} mj.</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">za {0} mjesec</unitPattern>
-			<unitPattern count="few">za {0} mjeseca</unitPattern>
-			<unitPattern count="other">za sljedeći broj mjeseci: {0}</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">prije {0} mjesec</unitPattern>
-			<unitPattern count="few">prije {0} mjeseca</unitPattern>
-			<unitPattern count="other">prije ovoliko mjeseci: {0}</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} sekunda</unitPattern>
-			<unitPattern count="one" alt="short">{0} s</unitPattern>
-			<unitPattern count="few">{0} sekunde</unitPattern>
-			<unitPattern count="few" alt="short">{0} s</unitPattern>
-			<unitPattern count="other">{0} sekunda</unitPattern>
-			<unitPattern count="other" alt="short">{0} s</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">za {0} sekundu</unitPattern>
-			<unitPattern count="few">za {0} sekunde</unitPattern>
-			<unitPattern count="other">za {0} sekundi</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">prije {0} sekundu</unitPattern>
-			<unitPattern count="few">prije {0} sekunde</unitPattern>
-			<unitPattern count="other">prije {0} sekundi</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} tjedan</unitPattern>
-			<unitPattern count="one" alt="short">{0} tj.</unitPattern>
-			<unitPattern count="few">{0} tjedna</unitPattern>
-			<unitPattern count="few" alt="short">{0} tj.</unitPattern>
-			<unitPattern count="other">{0} tjedan</unitPattern>
-			<unitPattern count="other" alt="short">{0} tj.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">za {0} tjedan</unitPattern>
-			<unitPattern count="few">za {0} tjedna</unitPattern>
-			<unitPattern count="other">za sljedeći broj tjedana: {0}</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">prije {0} tjedan</unitPattern>
-			<unitPattern count="few">prije {0} tjedna</unitPattern>
-			<unitPattern count="other">prije ovoliko tjedana: {0}</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} godina</unitPattern>
-			<unitPattern count="one" alt="short">{0} g.</unitPattern>
-			<unitPattern count="few">{0} godine</unitPattern>
-			<unitPattern count="few" alt="short">{0} g.</unitPattern>
-			<unitPattern count="other">{0} godina</unitPattern>
-			<unitPattern count="other" alt="short">{0} g.</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">za {0} godinu</unitPattern>
-			<unitPattern count="few">za {0} godine</unitPattern>
-			<unitPattern count="other">za {0} godina</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">prije {0} godinu</unitPattern>
-			<unitPattern count="few">prije {0} godine</unitPattern>
-			<unitPattern count="other">prije ovoliko godina: {0}</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} dan</unitPattern>
+				<unitPattern count="few">{0} dana</unitPattern>
+				<unitPattern count="other">{0} dan</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">za {0} dan</unitPattern>
+				<unitPattern count="few">za {0} dana</unitPattern>
+				<unitPattern count="other">za {0} dana</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">prije {0} dan</unitPattern>
+				<unitPattern count="few">prije {0} dana</unitPattern>
+				<unitPattern count="other">prije {0} dana</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} sat</unitPattern>
+				<unitPattern count="few">{0} sata</unitPattern>
+				<unitPattern count="other">{0} sata</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">za {0} sat</unitPattern>
+				<unitPattern count="few">za {0} sata</unitPattern>
+				<unitPattern count="other">za {0} sati</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">prije {0} sat</unitPattern>
+				<unitPattern count="few">prije {0} sata</unitPattern>
+				<unitPattern count="other">prije {0} sati</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minuta</unitPattern>
+				<unitPattern count="few">{0} minute</unitPattern>
+				<unitPattern count="other">{0} minuta</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">za {0} minutu</unitPattern>
+				<unitPattern count="few">za {0} minute</unitPattern>
+				<unitPattern count="other">za {0} minuta</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">prije {0} minutu</unitPattern>
+				<unitPattern count="few">prije {0} minute</unitPattern>
+				<unitPattern count="other">prije {0} minuta</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mjesec</unitPattern>
+				<unitPattern count="few">{0} mjeseca</unitPattern>
+				<unitPattern count="other">{0} mjesec</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">za {0} mjesec</unitPattern>
+				<unitPattern count="few">za {0} mjeseca</unitPattern>
+				<unitPattern count="other">za sljedeći broj mjeseci: {0}</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">prije {0} mjesec</unitPattern>
+				<unitPattern count="few">prije {0} mjeseca</unitPattern>
+				<unitPattern count="other">prije ovoliko mjeseci: {0}</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekunda</unitPattern>
+				<unitPattern count="few">{0} sekunde</unitPattern>
+				<unitPattern count="other">{0} sekunda</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">za {0} sekundu</unitPattern>
+				<unitPattern count="few">za {0} sekunde</unitPattern>
+				<unitPattern count="other">za {0} sekundi</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">prije {0} sekundu</unitPattern>
+				<unitPattern count="few">prije {0} sekunde</unitPattern>
+				<unitPattern count="other">prije {0} sekundi</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} tjedan</unitPattern>
+				<unitPattern count="few">{0} tjedna</unitPattern>
+				<unitPattern count="other">{0} tjedan</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">za {0} tjedan</unitPattern>
+				<unitPattern count="few">za {0} tjedna</unitPattern>
+				<unitPattern count="other">za sljedeći broj tjedana: {0}</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">prije {0} tjedan</unitPattern>
+				<unitPattern count="few">prije {0} tjedna</unitPattern>
+				<unitPattern count="other">prije ovoliko tjedana: {0}</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} godina</unitPattern>
+				<unitPattern count="few">{0} godine</unitPattern>
+				<unitPattern count="other">{0} godina</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">za {0} godinu</unitPattern>
+				<unitPattern count="few">za {0} godine</unitPattern>
+				<unitPattern count="other">za {0} godina</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">prije {0} godinu</unitPattern>
+				<unitPattern count="few">prije {0} godine</unitPattern>
+				<unitPattern count="other">prije ovoliko godina: {0}</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} dan</unitPattern>
+				<unitPattern count="few">{0} dana</unitPattern>
+				<unitPattern count="other">{0} dan</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} h</unitPattern>
+				<unitPattern count="few">{0} h</unitPattern>
+				<unitPattern count="other">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="few">{0} min</unitPattern>
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mj.</unitPattern>
+				<unitPattern count="few">{0} mj.</unitPattern>
+				<unitPattern count="other">{0} mj.</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="few">{0} s</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} tj.</unitPattern>
+				<unitPattern count="few">{0} tj.</unitPattern>
+				<unitPattern count="other">{0} tj.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} g.</unitPattern>
+				<unitPattern count="few">{0} g.</unitPattern>
+				<unitPattern count="other">{0} g.</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

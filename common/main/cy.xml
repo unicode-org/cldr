@@ -4230,216 +4230,234 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="zero">{0} diwrnod</unitPattern>
-			<unitPattern count="zero" alt="short">{0} diwrnod</unitPattern>
-			<unitPattern count="one">{0} diwrnod</unitPattern>
-			<unitPattern count="one" alt="short">{0} diwrnod</unitPattern>
-			<unitPattern count="two">{0} ddiwrnod</unitPattern>
-			<unitPattern count="two" alt="short">{0} ddiwrnod</unitPattern>
-			<unitPattern count="few">{0} diwrnod</unitPattern>
-			<unitPattern count="few" alt="short">{0} diwrnod</unitPattern>
-			<unitPattern count="many">{0} diwrnod</unitPattern>
-			<unitPattern count="many" alt="short">{0} diwrnod</unitPattern>
-			<unitPattern count="other">{0} diwrnod</unitPattern>
-			<unitPattern count="other" alt="short">{0} diwrnod</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="zero">Ymhen {0} diwrnod</unitPattern>
-			<unitPattern count="one">Ymhen {0} diwrnod</unitPattern>
-			<unitPattern count="two">Ymhen {0} ddiwrnod</unitPattern>
-			<unitPattern count="few">Ymhen {0} diwrnod</unitPattern>
-			<unitPattern count="many">Ymhen {0} diwrnod</unitPattern>
-			<unitPattern count="other">Ymhen {0} diwrnod</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="zero">{0} diwrnod yn ôl</unitPattern>
-			<unitPattern count="one">{0} diwrnod yn ôl</unitPattern>
-			<unitPattern count="two">{0} ddiwrnod yn ôl</unitPattern>
-			<unitPattern count="few">{0} diwrnod yn ôl</unitPattern>
-			<unitPattern count="many">{0} diwrnod yn ôl</unitPattern>
-			<unitPattern count="other">{0} diwrnod yn ôl</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="zero">{0} awr</unitPattern>
-			<unitPattern count="zero" alt="short">{0} awr</unitPattern>
-			<unitPattern count="one">{0} awr</unitPattern>
-			<unitPattern count="one" alt="short">{0} awr</unitPattern>
-			<unitPattern count="two">{0} awr</unitPattern>
-			<unitPattern count="two" alt="short">{0} awr</unitPattern>
-			<unitPattern count="few">{0} awr</unitPattern>
-			<unitPattern count="few" alt="short">{0} awr</unitPattern>
-			<unitPattern count="many">{0} awr</unitPattern>
-			<unitPattern count="many" alt="short">{0} awr</unitPattern>
-			<unitPattern count="other">{0} awr</unitPattern>
-			<unitPattern count="other" alt="short">{0} awr</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="zero">Ymhen {0} awr</unitPattern>
-			<unitPattern count="one">Ymhen {0} awr</unitPattern>
-			<unitPattern count="two">Ymhen {0} awr</unitPattern>
-			<unitPattern count="few">Ymhen {0} awr</unitPattern>
-			<unitPattern count="many">Ymhen {0} awr</unitPattern>
-			<unitPattern count="other">Ymhen {0} awr</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="zero">{0} awr yn ôl</unitPattern>
-			<unitPattern count="one">{0} awr yn ôl</unitPattern>
-			<unitPattern count="two">{0} awr yn ôl</unitPattern>
-			<unitPattern count="few">{0} awr yn ôl</unitPattern>
-			<unitPattern count="many">{0} awr yn ôl</unitPattern>
-			<unitPattern count="other">{0} awr yn ôl</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="zero">{0} munud</unitPattern>
-			<unitPattern count="zero" alt="short">{0} mun</unitPattern>
-			<unitPattern count="one">{0} munud</unitPattern>
-			<unitPattern count="one" alt="short">{0} mun</unitPattern>
-			<unitPattern count="two">{0} funud</unitPattern>
-			<unitPattern count="two" alt="short">{0} mun</unitPattern>
-			<unitPattern count="few">{0} munud</unitPattern>
-			<unitPattern count="few" alt="short">{0} mun</unitPattern>
-			<unitPattern count="many">{0} munud</unitPattern>
-			<unitPattern count="many" alt="short">{0} mun</unitPattern>
-			<unitPattern count="other">{0} munud</unitPattern>
-			<unitPattern count="other" alt="short">{0} mun</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="zero">Ymhen {0} munud</unitPattern>
-			<unitPattern count="one">Ymhen {0} munud</unitPattern>
-			<unitPattern count="two">Ymhen {0} funud</unitPattern>
-			<unitPattern count="few">Ymhen {0} munud</unitPattern>
-			<unitPattern count="many">Ymhen {0} munud</unitPattern>
-			<unitPattern count="other">Ymhen {0} munud</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="zero">{0} munud yn ôl</unitPattern>
-			<unitPattern count="one">{0} munud yn ôl</unitPattern>
-			<unitPattern count="two">{0} funud yn ôl</unitPattern>
-			<unitPattern count="few">{0} munud yn ôl</unitPattern>
-			<unitPattern count="many">{0} munud yn ôl</unitPattern>
-			<unitPattern count="other">{0} munud yn ôl</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="zero">{0} mis</unitPattern>
-			<unitPattern count="zero" alt="short">{0} mis</unitPattern>
-			<unitPattern count="one">{0} mis</unitPattern>
-			<unitPattern count="one" alt="short">{0} mis</unitPattern>
-			<unitPattern count="two">{0} fis</unitPattern>
-			<unitPattern count="two" alt="short">{0} fis</unitPattern>
-			<unitPattern count="few">{0} mis</unitPattern>
-			<unitPattern count="few" alt="short">{0} mis</unitPattern>
-			<unitPattern count="many">{0} mis</unitPattern>
-			<unitPattern count="many" alt="short">{0} mis</unitPattern>
-			<unitPattern count="other">{0} mis</unitPattern>
-			<unitPattern count="other" alt="short">{0} mis</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="zero">Ymhen {0} mis</unitPattern>
-			<unitPattern count="one">Ymhen {0} mis</unitPattern>
-			<unitPattern count="two">Ymhen {0} fis</unitPattern>
-			<unitPattern count="few">Ymhen {0} mis</unitPattern>
-			<unitPattern count="many">Ymhen {0} mis</unitPattern>
-			<unitPattern count="other">Ymhen {0} mis</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="zero">{0} mis yn ôl</unitPattern>
-			<unitPattern count="one">{0} mis yn ôl</unitPattern>
-			<unitPattern count="two">{0} fis yn ôl</unitPattern>
-			<unitPattern count="few">{0} mis yn ôl</unitPattern>
-			<unitPattern count="many">{0} mis yn ôl</unitPattern>
-			<unitPattern count="other">{0} mis yn ôl</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="zero">{0} eiliad</unitPattern>
-			<unitPattern count="zero" alt="short">{0} eil</unitPattern>
-			<unitPattern count="one">{0} eiliad</unitPattern>
-			<unitPattern count="one" alt="short">{0} eil</unitPattern>
-			<unitPattern count="two">{0} eiliad</unitPattern>
-			<unitPattern count="two" alt="short">{0} eil</unitPattern>
-			<unitPattern count="few">{0} eiliad</unitPattern>
-			<unitPattern count="few" alt="short">{0} eil</unitPattern>
-			<unitPattern count="many">{0} eiliad</unitPattern>
-			<unitPattern count="many" alt="short">{0} eil</unitPattern>
-			<unitPattern count="other">{0} eiliad</unitPattern>
-			<unitPattern count="other" alt="short">{0} eil</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="zero">Ymhen {0} eiliad</unitPattern>
-			<unitPattern count="one">Ymhen {0} eiliad</unitPattern>
-			<unitPattern count="two">Ymhen {0} eiliad</unitPattern>
-			<unitPattern count="few">Ymhen {0} eiliad</unitPattern>
-			<unitPattern count="many">Ymhen {0} eiliad</unitPattern>
-			<unitPattern count="other">Ymhen {0} eiliad</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="zero">{0} eiliad yn ôl</unitPattern>
-			<unitPattern count="one">{0} eiliad yn ôl</unitPattern>
-			<unitPattern count="two">{0} eiliad yn ôl</unitPattern>
-			<unitPattern count="few">{0} eiliad yn ôl</unitPattern>
-			<unitPattern count="many">{0} eiliad yn ôl</unitPattern>
-			<unitPattern count="other">{0} eiliad yn ôl</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="zero">{0} wythnos</unitPattern>
-			<unitPattern count="zero" alt="short">{0} wythnos</unitPattern>
-			<unitPattern count="one">{0} wythnos</unitPattern>
-			<unitPattern count="one" alt="short">{0} wythnos</unitPattern>
-			<unitPattern count="two">{0} wythnos</unitPattern>
-			<unitPattern count="two" alt="short">{0} wythnos</unitPattern>
-			<unitPattern count="few">{0} wythnos</unitPattern>
-			<unitPattern count="few" alt="short">{0} wythnos</unitPattern>
-			<unitPattern count="many">{0} wythnos</unitPattern>
-			<unitPattern count="many" alt="short">{0} wythnos</unitPattern>
-			<unitPattern count="other">{0} wythnos</unitPattern>
-			<unitPattern count="other" alt="short">{0} wythnos</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="zero">Ymhen {0} wythnos</unitPattern>
-			<unitPattern count="one">Ymhen {0} wythnos</unitPattern>
-			<unitPattern count="two">Ymhen {0} wythnos</unitPattern>
-			<unitPattern count="few">Ymhen {0} wythnos</unitPattern>
-			<unitPattern count="many">Ymhen {0} wythnos</unitPattern>
-			<unitPattern count="other">Ymhen {0} wythnos</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="zero">{0} wythnos yn ôl</unitPattern>
-			<unitPattern count="one">{0} wythnos yn ôl</unitPattern>
-			<unitPattern count="two">{0} wythnos yn ôl</unitPattern>
-			<unitPattern count="few">{0} wythnos yn ôl</unitPattern>
-			<unitPattern count="many">{0} wythnos yn ôl</unitPattern>
-			<unitPattern count="other">{0} wythnos yn ôl</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="zero">{0} blwyddyn</unitPattern>
-			<unitPattern count="zero" alt="short">{0} bl</unitPattern>
-			<unitPattern count="one">{0} blwyddyn</unitPattern>
-			<unitPattern count="one" alt="short">{0} bl</unitPattern>
-			<unitPattern count="two">{0} flynedd</unitPattern>
-			<unitPattern count="two" alt="short">{0} bl</unitPattern>
-			<unitPattern count="few">{0} blynedd</unitPattern>
-			<unitPattern count="few" alt="short">{0} bl</unitPattern>
-			<unitPattern count="many">{0} blynedd</unitPattern>
-			<unitPattern count="many" alt="short">{0} bl</unitPattern>
-			<unitPattern count="other">{0} o flynyddoedd</unitPattern>
-			<unitPattern count="other" alt="short">{0} bl</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="zero">Ymhen {0} o flynyddoedd</unitPattern>
-			<unitPattern count="one">Ymhen {0} blwyddyn</unitPattern>
-			<unitPattern count="two">Ymhen {0} flynedd</unitPattern>
-			<unitPattern count="few">Ymhen {0} blynedd</unitPattern>
-			<unitPattern count="many">Ymhen {0} blynedd</unitPattern>
-			<unitPattern count="other">Ymhen {0} o flynyddoedd</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="zero">{0} o flynyddoedd yn ôl</unitPattern>
-			<unitPattern count="one">{0} flwyddyn yn ôl</unitPattern>
-			<unitPattern count="two">{0} flynedd yn ôl</unitPattern>
-			<unitPattern count="few">{0} blynedd yn ôl</unitPattern>
-			<unitPattern count="many">{0} blynedd yn ôl</unitPattern>
-			<unitPattern count="other">{0} o flynyddoedd yn ôl</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="zero">{0} diwrnod</unitPattern>
+				<unitPattern count="one">{0} diwrnod</unitPattern>
+				<unitPattern count="two">{0} ddiwrnod</unitPattern>
+				<unitPattern count="few">{0} diwrnod</unitPattern>
+				<unitPattern count="many">{0} diwrnod</unitPattern>
+				<unitPattern count="other">{0} diwrnod</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="zero">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="one">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="two">Ymhen {0} ddiwrnod</unitPattern>
+				<unitPattern count="few">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="many">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="other">Ymhen {0} diwrnod</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="zero">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="one">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="two">{0} ddiwrnod yn ôl</unitPattern>
+				<unitPattern count="few">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="many">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="other">{0} diwrnod yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="zero">{0} awr</unitPattern>
+				<unitPattern count="one">{0} awr</unitPattern>
+				<unitPattern count="two">{0} awr</unitPattern>
+				<unitPattern count="few">{0} awr</unitPattern>
+				<unitPattern count="many">{0} awr</unitPattern>
+				<unitPattern count="other">{0} awr</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="zero">Ymhen {0} awr</unitPattern>
+				<unitPattern count="one">Ymhen {0} awr</unitPattern>
+				<unitPattern count="two">Ymhen {0} awr</unitPattern>
+				<unitPattern count="few">Ymhen {0} awr</unitPattern>
+				<unitPattern count="many">Ymhen {0} awr</unitPattern>
+				<unitPattern count="other">Ymhen {0} awr</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="zero">{0} awr yn ôl</unitPattern>
+				<unitPattern count="one">{0} awr yn ôl</unitPattern>
+				<unitPattern count="two">{0} awr yn ôl</unitPattern>
+				<unitPattern count="few">{0} awr yn ôl</unitPattern>
+				<unitPattern count="many">{0} awr yn ôl</unitPattern>
+				<unitPattern count="other">{0} awr yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="zero">{0} munud</unitPattern>
+				<unitPattern count="one">{0} munud</unitPattern>
+				<unitPattern count="two">{0} funud</unitPattern>
+				<unitPattern count="few">{0} munud</unitPattern>
+				<unitPattern count="many">{0} munud</unitPattern>
+				<unitPattern count="other">{0} munud</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="zero">Ymhen {0} munud</unitPattern>
+				<unitPattern count="one">Ymhen {0} munud</unitPattern>
+				<unitPattern count="two">Ymhen {0} funud</unitPattern>
+				<unitPattern count="few">Ymhen {0} munud</unitPattern>
+				<unitPattern count="many">Ymhen {0} munud</unitPattern>
+				<unitPattern count="other">Ymhen {0} munud</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="zero">{0} munud yn ôl</unitPattern>
+				<unitPattern count="one">{0} munud yn ôl</unitPattern>
+				<unitPattern count="two">{0} funud yn ôl</unitPattern>
+				<unitPattern count="few">{0} munud yn ôl</unitPattern>
+				<unitPattern count="many">{0} munud yn ôl</unitPattern>
+				<unitPattern count="other">{0} munud yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="zero">{0} mis</unitPattern>
+				<unitPattern count="one">{0} mis</unitPattern>
+				<unitPattern count="two">{0} fis</unitPattern>
+				<unitPattern count="few">{0} mis</unitPattern>
+				<unitPattern count="many">{0} mis</unitPattern>
+				<unitPattern count="other">{0} mis</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="zero">Ymhen {0} mis</unitPattern>
+				<unitPattern count="one">Ymhen {0} mis</unitPattern>
+				<unitPattern count="two">Ymhen {0} fis</unitPattern>
+				<unitPattern count="few">Ymhen {0} mis</unitPattern>
+				<unitPattern count="many">Ymhen {0} mis</unitPattern>
+				<unitPattern count="other">Ymhen {0} mis</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="zero">{0} mis yn ôl</unitPattern>
+				<unitPattern count="one">{0} mis yn ôl</unitPattern>
+				<unitPattern count="two">{0} fis yn ôl</unitPattern>
+				<unitPattern count="few">{0} mis yn ôl</unitPattern>
+				<unitPattern count="many">{0} mis yn ôl</unitPattern>
+				<unitPattern count="other">{0} mis yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="zero">{0} eiliad</unitPattern>
+				<unitPattern count="one">{0} eiliad</unitPattern>
+				<unitPattern count="two">{0} eiliad</unitPattern>
+				<unitPattern count="few">{0} eiliad</unitPattern>
+				<unitPattern count="many">{0} eiliad</unitPattern>
+				<unitPattern count="other">{0} eiliad</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="zero">Ymhen {0} eiliad</unitPattern>
+				<unitPattern count="one">Ymhen {0} eiliad</unitPattern>
+				<unitPattern count="two">Ymhen {0} eiliad</unitPattern>
+				<unitPattern count="few">Ymhen {0} eiliad</unitPattern>
+				<unitPattern count="many">Ymhen {0} eiliad</unitPattern>
+				<unitPattern count="other">Ymhen {0} eiliad</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="zero">{0} eiliad yn ôl</unitPattern>
+				<unitPattern count="one">{0} eiliad yn ôl</unitPattern>
+				<unitPattern count="two">{0} eiliad yn ôl</unitPattern>
+				<unitPattern count="few">{0} eiliad yn ôl</unitPattern>
+				<unitPattern count="many">{0} eiliad yn ôl</unitPattern>
+				<unitPattern count="other">{0} eiliad yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="zero">{0} wythnos</unitPattern>
+				<unitPattern count="one">{0} wythnos</unitPattern>
+				<unitPattern count="two">{0} wythnos</unitPattern>
+				<unitPattern count="few">{0} wythnos</unitPattern>
+				<unitPattern count="many">{0} wythnos</unitPattern>
+				<unitPattern count="other">{0} wythnos</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="zero">Ymhen {0} wythnos</unitPattern>
+				<unitPattern count="one">Ymhen {0} wythnos</unitPattern>
+				<unitPattern count="two">Ymhen {0} wythnos</unitPattern>
+				<unitPattern count="few">Ymhen {0} wythnos</unitPattern>
+				<unitPattern count="many">Ymhen {0} wythnos</unitPattern>
+				<unitPattern count="other">Ymhen {0} wythnos</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="zero">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="one">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="two">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="few">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="many">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="other">{0} wythnos yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="zero">{0} blwyddyn</unitPattern>
+				<unitPattern count="one">{0} blwyddyn</unitPattern>
+				<unitPattern count="two">{0} flynedd</unitPattern>
+				<unitPattern count="few">{0} blynedd</unitPattern>
+				<unitPattern count="many">{0} blynedd</unitPattern>
+				<unitPattern count="other">{0} o flynyddoedd</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="zero">Ymhen {0} o flynyddoedd</unitPattern>
+				<unitPattern count="one">Ymhen {0} blwyddyn</unitPattern>
+				<unitPattern count="two">Ymhen {0} flynedd</unitPattern>
+				<unitPattern count="few">Ymhen {0} blynedd</unitPattern>
+				<unitPattern count="many">Ymhen {0} blynedd</unitPattern>
+				<unitPattern count="other">Ymhen {0} o flynyddoedd</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="zero">{0} o flynyddoedd yn ôl</unitPattern>
+				<unitPattern count="one">{0} flwyddyn yn ôl</unitPattern>
+				<unitPattern count="two">{0} flynedd yn ôl</unitPattern>
+				<unitPattern count="few">{0} blynedd yn ôl</unitPattern>
+				<unitPattern count="many">{0} blynedd yn ôl</unitPattern>
+				<unitPattern count="other">{0} o flynyddoedd yn ôl</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="zero">{0} diwrnod</unitPattern>
+				<unitPattern count="one">{0} diwrnod</unitPattern>
+				<unitPattern count="two">{0} ddiwrnod</unitPattern>
+				<unitPattern count="few">{0} diwrnod</unitPattern>
+				<unitPattern count="many">{0} diwrnod</unitPattern>
+				<unitPattern count="other">{0} diwrnod</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="zero">{0} awr</unitPattern>
+				<unitPattern count="one">{0} awr</unitPattern>
+				<unitPattern count="two">{0} awr</unitPattern>
+				<unitPattern count="few">{0} awr</unitPattern>
+				<unitPattern count="many">{0} awr</unitPattern>
+				<unitPattern count="other">{0} awr</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="zero">{0} mun</unitPattern>
+				<unitPattern count="one">{0} mun</unitPattern>
+				<unitPattern count="two">{0} mun</unitPattern>
+				<unitPattern count="few">{0} mun</unitPattern>
+				<unitPattern count="many">{0} mun</unitPattern>
+				<unitPattern count="other">{0} mun</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="zero">{0} mis</unitPattern>
+				<unitPattern count="one">{0} mis</unitPattern>
+				<unitPattern count="two">{0} fis</unitPattern>
+				<unitPattern count="few">{0} mis</unitPattern>
+				<unitPattern count="many">{0} mis</unitPattern>
+				<unitPattern count="other">{0} mis</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="zero">{0} eil</unitPattern>
+				<unitPattern count="one">{0} eil</unitPattern>
+				<unitPattern count="two">{0} eil</unitPattern>
+				<unitPattern count="few">{0} eil</unitPattern>
+				<unitPattern count="many">{0} eil</unitPattern>
+				<unitPattern count="other">{0} eil</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="zero">{0} wythnos</unitPattern>
+				<unitPattern count="one">{0} wythnos</unitPattern>
+				<unitPattern count="two">{0} wythnos</unitPattern>
+				<unitPattern count="few">{0} wythnos</unitPattern>
+				<unitPattern count="many">{0} wythnos</unitPattern>
+				<unitPattern count="other">{0} wythnos</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="zero">{0} bl</unitPattern>
+				<unitPattern count="one">{0} bl</unitPattern>
+				<unitPattern count="two">{0} bl</unitPattern>
+				<unitPattern count="few">{0} bl</unitPattern>
+				<unitPattern count="many">{0} bl</unitPattern>
+				<unitPattern count="other">{0} bl</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

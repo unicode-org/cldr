@@ -2223,41 +2223,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="zero" draft="unconfirmed">{0} Dääsch</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} Dääsch</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} Dääsch</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="zero" draft="unconfirmed">{0} Schtunde</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} Schtunde</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} Schtunde</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="zero" draft="unconfirmed">{0} Menutte</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} Menutte</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} Menutte</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="zero" draft="unconfirmed">{0} Mohnde</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} Mohnde</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} Mohnde</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="zero" draft="unconfirmed">{0} Sekunde</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} Sekunde</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} Sekunde</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="zero" draft="unconfirmed">{0} Woche</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} Woche</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} Woche</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="zero" draft="unconfirmed">{0} Johre</unitPattern>
-			<unitPattern count="one" draft="unconfirmed">{0} Johre</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} Johre</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="zero">{0} Dääsch</unitPattern>
+				<unitPattern count="one">{0} Dääsch</unitPattern>
+				<unitPattern count="other">{0} Dääsch</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="zero">{0} Schtunde</unitPattern>
+				<unitPattern count="one">{0} Schtunde</unitPattern>
+				<unitPattern count="other">{0} Schtunde</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="zero">{0} Menutte</unitPattern>
+				<unitPattern count="one">{0} Menutte</unitPattern>
+				<unitPattern count="other">{0} Menutte</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="zero">{0} Mohnde</unitPattern>
+				<unitPattern count="one">{0} Mohnde</unitPattern>
+				<unitPattern count="other">{0} Mohnde</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="zero">{0} Sekunde</unitPattern>
+				<unitPattern count="one">{0} Sekunde</unitPattern>
+				<unitPattern count="other">{0} Sekunde</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="zero">{0} Woche</unitPattern>
+				<unitPattern count="one">{0} Woche</unitPattern>
+				<unitPattern count="other">{0} Woche</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="zero">{0} Johre</unitPattern>
+				<unitPattern count="one">{0} Johre</unitPattern>
+				<unitPattern count="other">{0} Johre</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

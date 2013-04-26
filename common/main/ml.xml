@@ -5333,104 +5333,122 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} ദിവസം</unitPattern>
-			<unitPattern count="one" alt="short">{0} ദിവസം‌</unitPattern>
-			<unitPattern count="other">{0} ദിവസം</unitPattern>
-			<unitPattern count="other" alt="short">{0} ദിവസം‌</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">{0} ദിവസത്തിൽ</unitPattern>
-			<unitPattern count="other">{0} ദിവസത്തിൽ</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">{0} ദിവസം മുമ്പ്</unitPattern>
-			<unitPattern count="other">{0} ദിവസം മുമ്പ്</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} മണിക്കൂർ</unitPattern>
-			<unitPattern count="one" alt="short">{0} മണിക്കൂർ‌</unitPattern>
-			<unitPattern count="other">{0} മണിക്കൂർ</unitPattern>
-			<unitPattern count="other" alt="short">{0} മണിക്കൂർ</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">{0} മണിക്കൂറിൽ</unitPattern>
-			<unitPattern count="other">{0} മണിക്കൂറിൽ</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">{0} മണിക്കൂർ മുമ്പ്</unitPattern>
-			<unitPattern count="other">{0} മണിക്കൂർ മുമ്പ്</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} മിനിട്ട്</unitPattern>
-			<unitPattern count="one" alt="short">{0} മിനിറ്റ്</unitPattern>
-			<unitPattern count="other">{0} മിനിട്ട്</unitPattern>
-			<unitPattern count="other" alt="short">{0} മിനിറ്റ്</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">{0} മിനിറ്റിൽ</unitPattern>
-			<unitPattern count="other">{0} മിനിറ്റിനുള്ളിൽ</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">{0} മിനിറ്റ് മുമ്പ്</unitPattern>
-			<unitPattern count="other">{0} മിനിറ്റ് മുമ്പ്</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} മാസം</unitPattern>
-			<unitPattern count="one" alt="short">{0} മാസം</unitPattern>
-			<unitPattern count="other">{0} മാസം</unitPattern>
-			<unitPattern count="other" alt="short">{0} മാസം</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">{0} മാസത്തിൽ</unitPattern>
-			<unitPattern count="other">{0} മാസത്തിൽ</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">{0} മാസം മുമ്പ്</unitPattern>
-			<unitPattern count="other">{0} മാസം മുമ്പ്</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} സെക്കന്റ്</unitPattern>
-			<unitPattern count="one" alt="short">{0} സെക്കൻറ്</unitPattern>
-			<unitPattern count="other">{0} സെക്കന്റ്</unitPattern>
-			<unitPattern count="other" alt="short">{0} സെക്കൻറ്</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">{0} സെക്കൻഡിൽ</unitPattern>
-			<unitPattern count="other">{0} സെക്കൻഡിൽ</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">{0} സെക്കൻറ് മുമ്പ്</unitPattern>
-			<unitPattern count="other">{0} സെക്കൻറ് മുമ്പ്</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} ആഴ്ച</unitPattern>
-			<unitPattern count="one" alt="short">{0} ആഴ്‌ച</unitPattern>
-			<unitPattern count="other">{0} ആഴ്ച</unitPattern>
-			<unitPattern count="other" alt="short">{0} ആഴ്‌ച</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">{0} ആഴ്ചയിൽ</unitPattern>
-			<unitPattern count="other">{0} ആഴ്ചയിൽ</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">{0} ആഴ്ച മുമ്പ്</unitPattern>
-			<unitPattern count="other">{0} ആഴ്ച മുമ്പ്</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} വർഷം</unitPattern>
-			<unitPattern count="one" alt="short">{0} വർ‌ഷം</unitPattern>
-			<unitPattern count="other">{0} വർഷം</unitPattern>
-			<unitPattern count="other" alt="short">{0} വർ‌ഷം</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">{0} വർഷത്തിൽ</unitPattern>
-			<unitPattern count="other">{0} വർഷത്തിൽ</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">{0} വർഷം മുമ്പ്</unitPattern>
-			<unitPattern count="other">{0} വർഷം മുമ്പ്</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} ദിവസം</unitPattern>
+				<unitPattern count="other">{0} ദിവസം</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} ദിവസത്തിൽ</unitPattern>
+				<unitPattern count="other">{0} ദിവസത്തിൽ</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} ദിവസം മുമ്പ്</unitPattern>
+				<unitPattern count="other">{0} ദിവസം മുമ്പ്</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} മണിക്കൂർ</unitPattern>
+				<unitPattern count="other">{0} മണിക്കൂർ</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} മണിക്കൂറിൽ</unitPattern>
+				<unitPattern count="other">{0} മണിക്കൂറിൽ</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} മണിക്കൂർ മുമ്പ്</unitPattern>
+				<unitPattern count="other">{0} മണിക്കൂർ മുമ്പ്</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} മിനിട്ട്</unitPattern>
+				<unitPattern count="other">{0} മിനിട്ട്</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} മിനിറ്റിൽ</unitPattern>
+				<unitPattern count="other">{0} മിനിറ്റിനുള്ളിൽ</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} മിനിറ്റ് മുമ്പ്</unitPattern>
+				<unitPattern count="other">{0} മിനിറ്റ് മുമ്പ്</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} മാസം</unitPattern>
+				<unitPattern count="other">{0} മാസം</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} മാസത്തിൽ</unitPattern>
+				<unitPattern count="other">{0} മാസത്തിൽ</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} മാസം മുമ്പ്</unitPattern>
+				<unitPattern count="other">{0} മാസം മുമ്പ്</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} സെക്കന്റ്</unitPattern>
+				<unitPattern count="other">{0} സെക്കന്റ്</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} സെക്കൻഡിൽ</unitPattern>
+				<unitPattern count="other">{0} സെക്കൻഡിൽ</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} സെക്കൻറ് മുമ്പ്</unitPattern>
+				<unitPattern count="other">{0} സെക്കൻറ് മുമ്പ്</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} ആഴ്ച</unitPattern>
+				<unitPattern count="other">{0} ആഴ്ച</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} ആഴ്ചയിൽ</unitPattern>
+				<unitPattern count="other">{0} ആഴ്ചയിൽ</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} ആഴ്ച മുമ്പ്</unitPattern>
+				<unitPattern count="other">{0} ആഴ്ച മുമ്പ്</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} വർഷം</unitPattern>
+				<unitPattern count="other">{0} വർഷം</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} വർഷത്തിൽ</unitPattern>
+				<unitPattern count="other">{0} വർഷത്തിൽ</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} വർഷം മുമ്പ്</unitPattern>
+				<unitPattern count="other">{0} വർഷം മുമ്പ്</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} ദിവസം‌</unitPattern>
+				<unitPattern count="other">{0} ദിവസം‌</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} മണിക്കൂർ‌</unitPattern>
+				<unitPattern count="other">{0} മണിക്കൂർ</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} മിനിറ്റ്</unitPattern>
+				<unitPattern count="other">{0} മിനിറ്റ്</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} മാസം</unitPattern>
+				<unitPattern count="other">{0} മാസം</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} സെക്കൻറ്</unitPattern>
+				<unitPattern count="other">{0} സെക്കൻറ്</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} ആഴ്‌ച</unitPattern>
+				<unitPattern count="other">{0} ആഴ്‌ച</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} വർ‌ഷം</unitPattern>
+				<unitPattern count="other">{0} വർ‌ഷം</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

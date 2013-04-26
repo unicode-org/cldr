@@ -744,34 +744,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} ᏏᎦ</unitPattern>
-			<unitPattern count="other">{0} ᏧᏒᎯᏓ</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} ᏑᏣᎶᏓ</unitPattern>
-			<unitPattern count="other">{0} ᎢᏧᏣᎶᏓ</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} ᎢᏯᏔᏬᏍᏔᏅ</unitPattern>
-			<unitPattern count="other">{0} ᎢᏧᏔᏬᏍᏔᏅ</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} ᏏᏅᏓ</unitPattern>
-			<unitPattern count="other">{0} ᎢᏯᏅᏓ</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} ᎠᏎᏢ</unitPattern>
-			<unitPattern count="other">{0} ᏗᏎᏢ</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} ᏒᎾᏙᏓᏆᏍᏗ</unitPattern>
-			<unitPattern count="other">{0} ᎢᏳᎾᏙᏓᏆᏍᏗ</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} ᏑᏕᏘᏴᏓ</unitPattern>
-			<unitPattern count="other">{0} ᏧᏕᏘᏴᏓ</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} ᏏᎦ</unitPattern>
+				<unitPattern count="other">{0} ᏧᏒᎯᏓ</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ᏑᏣᎶᏓ</unitPattern>
+				<unitPattern count="other">{0} ᎢᏧᏣᎶᏓ</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} ᎢᏯᏔᏬᏍᏔᏅ</unitPattern>
+				<unitPattern count="other">{0} ᎢᏧᏔᏬᏍᏔᏅ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} ᏏᏅᏓ</unitPattern>
+				<unitPattern count="other">{0} ᎢᏯᏅᏓ</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} ᎠᏎᏢ</unitPattern>
+				<unitPattern count="other">{0} ᏗᏎᏢ</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} ᏒᎾᏙᏓᏆᏍᏗ</unitPattern>
+				<unitPattern count="other">{0} ᎢᏳᎾᏙᏓᏆᏍᏗ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} ᏑᏕᏘᏴᏓ</unitPattern>
+				<unitPattern count="other">{0} ᏧᏕᏘᏴᏓ</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<posix>
 		<messages>

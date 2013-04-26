@@ -5807,160 +5807,178 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} день</unitPattern>
-			<unitPattern count="one" alt="short">{0} день</unitPattern>
-			<unitPattern count="few">{0} дні</unitPattern>
-			<unitPattern count="few" alt="short">{0} дні</unitPattern>
-			<unitPattern count="many">{0} днів</unitPattern>
-			<unitPattern count="many" alt="short">{0} днів</unitPattern>
-			<unitPattern count="other">{0} дня</unitPattern>
-			<unitPattern count="other" alt="short">{0} дня</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one" draft="contributed">Через {0} день</unitPattern>
-			<unitPattern count="few" draft="contributed">Через {0} дні</unitPattern>
-			<unitPattern count="many" draft="contributed">Через {0} днів</unitPattern>
-			<unitPattern count="other" draft="contributed">Через {0} дня</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one" draft="contributed">{0} день тому</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} дні тому</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} днів тому</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} дня тому</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} година</unitPattern>
-			<unitPattern count="one" alt="short">{0} год.</unitPattern>
-			<unitPattern count="few">{0} години</unitPattern>
-			<unitPattern count="few" alt="short">{0} год.</unitPattern>
-			<unitPattern count="many">{0} годин</unitPattern>
-			<unitPattern count="many" alt="short">{0} год.</unitPattern>
-			<unitPattern count="other">{0} години</unitPattern>
-			<unitPattern count="other" alt="short">{0} год.</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one" draft="contributed">Через {0} годину</unitPattern>
-			<unitPattern count="few" draft="contributed">Через {0} години</unitPattern>
-			<unitPattern count="many" draft="contributed">Через {0} годин</unitPattern>
-			<unitPattern count="other" draft="contributed">Через {0} години</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one" draft="contributed">{0} годину тому</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} години тому</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} годин тому</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} години тому</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} хвилина</unitPattern>
-			<unitPattern count="one" alt="short">{0} хв.</unitPattern>
-			<unitPattern count="few">{0} хвилини</unitPattern>
-			<unitPattern count="few" alt="short">{0} хв.</unitPattern>
-			<unitPattern count="many">{0} хвилин</unitPattern>
-			<unitPattern count="many" alt="short">{0} хв.</unitPattern>
-			<unitPattern count="other">{0} хвилини</unitPattern>
-			<unitPattern count="other" alt="short">{0} хв.</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one" draft="contributed">Через {0} хвилину</unitPattern>
-			<unitPattern count="few" draft="contributed">Через {0} хвилини</unitPattern>
-			<unitPattern count="many" draft="contributed">Через {0} хвилин</unitPattern>
-			<unitPattern count="other" draft="contributed">Через {0} хвилини</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one" draft="contributed">{0} хвилину тому</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} хвилини тому</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} хвилин тому</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} хвилини тому</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} місяць</unitPattern>
-			<unitPattern count="one" alt="short">{0} міс.</unitPattern>
-			<unitPattern count="few">{0} місяці</unitPattern>
-			<unitPattern count="few" alt="short">{0} міс.</unitPattern>
-			<unitPattern count="many">{0} місяців</unitPattern>
-			<unitPattern count="many" alt="short">{0} міс.</unitPattern>
-			<unitPattern count="other">{0} місяця</unitPattern>
-			<unitPattern count="other" alt="short">{0} міс.</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one" draft="contributed">Через {0} місяць</unitPattern>
-			<unitPattern count="few" draft="contributed">Через {0} місяці</unitPattern>
-			<unitPattern count="many" draft="contributed">Через {0} місяців</unitPattern>
-			<unitPattern count="other" draft="contributed">Через {0} місяця</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one" draft="contributed">{0} місяць тому</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} місяці тому</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} місяців тому</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} місяця тому</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} секунда</unitPattern>
-			<unitPattern count="one" alt="short">{0} сек.</unitPattern>
-			<unitPattern count="few">{0} секунди</unitPattern>
-			<unitPattern count="few" alt="short">{0} сек.</unitPattern>
-			<unitPattern count="many">{0} секунд</unitPattern>
-			<unitPattern count="many" alt="short">{0} сек.</unitPattern>
-			<unitPattern count="other">{0} секунди</unitPattern>
-			<unitPattern count="other" alt="short">{0} сек.</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one" draft="contributed">Через {0} секунду</unitPattern>
-			<unitPattern count="few" draft="contributed">Через {0} секунди</unitPattern>
-			<unitPattern count="many" draft="contributed">Через {0} секунд</unitPattern>
-			<unitPattern count="other" draft="contributed">Через {0} секунди</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one" draft="contributed">{0} секунду тому</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} секунди тому</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} секунд тому</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} секунди тому</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} тиждень</unitPattern>
-			<unitPattern count="one" alt="short">{0} тиж.</unitPattern>
-			<unitPattern count="few">{0} тижні</unitPattern>
-			<unitPattern count="few" alt="short">{0} тиж.</unitPattern>
-			<unitPattern count="many">{0} тижнів</unitPattern>
-			<unitPattern count="many" alt="short">{0} тиж.</unitPattern>
-			<unitPattern count="other">{0} тижня</unitPattern>
-			<unitPattern count="other" alt="short">{0} тиж.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one" draft="contributed">Через {0} тиждень</unitPattern>
-			<unitPattern count="few" draft="contributed">Через {0} тижні</unitPattern>
-			<unitPattern count="many" draft="contributed">Через {0} тижнів</unitPattern>
-			<unitPattern count="other" draft="contributed">Через {0} тижня</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one" draft="contributed">{0} тиждень тому</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} тижні тому</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} тижнів тому</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} тижня тому</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} рік</unitPattern>
-			<unitPattern count="one" alt="short">{0} р.</unitPattern>
-			<unitPattern count="few">{0} роки</unitPattern>
-			<unitPattern count="few" alt="short">{0} р.</unitPattern>
-			<unitPattern count="many">{0} років</unitPattern>
-			<unitPattern count="many" alt="short">{0} р.</unitPattern>
-			<unitPattern count="other">{0} року</unitPattern>
-			<unitPattern count="other" alt="short">{0} р.</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one" draft="contributed">Через {0} рік</unitPattern>
-			<unitPattern count="few" draft="contributed">Через {0} роки</unitPattern>
-			<unitPattern count="many" draft="contributed">Через {0} років</unitPattern>
-			<unitPattern count="other" draft="contributed">Через {0} року</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one" draft="contributed">{0} рік тому</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} роки тому</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} років тому</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} року тому</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} день</unitPattern>
+				<unitPattern count="few">{0} дні</unitPattern>
+				<unitPattern count="many">{0} днів</unitPattern>
+				<unitPattern count="other">{0} дня</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">Через {0} день</unitPattern>
+				<unitPattern count="few">Через {0} дні</unitPattern>
+				<unitPattern count="many">Через {0} днів</unitPattern>
+				<unitPattern count="other">Через {0} дня</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} день тому</unitPattern>
+				<unitPattern count="few">{0} дні тому</unitPattern>
+				<unitPattern count="many">{0} днів тому</unitPattern>
+				<unitPattern count="other">{0} дня тому</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} година</unitPattern>
+				<unitPattern count="few">{0} години</unitPattern>
+				<unitPattern count="many">{0} годин</unitPattern>
+				<unitPattern count="other">{0} години</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">Через {0} годину</unitPattern>
+				<unitPattern count="few">Через {0} години</unitPattern>
+				<unitPattern count="many">Через {0} годин</unitPattern>
+				<unitPattern count="other">Через {0} години</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} годину тому</unitPattern>
+				<unitPattern count="few">{0} години тому</unitPattern>
+				<unitPattern count="many">{0} годин тому</unitPattern>
+				<unitPattern count="other">{0} години тому</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} хвилина</unitPattern>
+				<unitPattern count="few">{0} хвилини</unitPattern>
+				<unitPattern count="many">{0} хвилин</unitPattern>
+				<unitPattern count="other">{0} хвилини</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">Через {0} хвилину</unitPattern>
+				<unitPattern count="few">Через {0} хвилини</unitPattern>
+				<unitPattern count="many">Через {0} хвилин</unitPattern>
+				<unitPattern count="other">Через {0} хвилини</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} хвилину тому</unitPattern>
+				<unitPattern count="few">{0} хвилини тому</unitPattern>
+				<unitPattern count="many">{0} хвилин тому</unitPattern>
+				<unitPattern count="other">{0} хвилини тому</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} місяць</unitPattern>
+				<unitPattern count="few">{0} місяці</unitPattern>
+				<unitPattern count="many">{0} місяців</unitPattern>
+				<unitPattern count="other">{0} місяця</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">Через {0} місяць</unitPattern>
+				<unitPattern count="few">Через {0} місяці</unitPattern>
+				<unitPattern count="many">Через {0} місяців</unitPattern>
+				<unitPattern count="other">Через {0} місяця</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} місяць тому</unitPattern>
+				<unitPattern count="few">{0} місяці тому</unitPattern>
+				<unitPattern count="many">{0} місяців тому</unitPattern>
+				<unitPattern count="other">{0} місяця тому</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} секунда</unitPattern>
+				<unitPattern count="few">{0} секунди</unitPattern>
+				<unitPattern count="many">{0} секунд</unitPattern>
+				<unitPattern count="other">{0} секунди</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">Через {0} секунду</unitPattern>
+				<unitPattern count="few">Через {0} секунди</unitPattern>
+				<unitPattern count="many">Через {0} секунд</unitPattern>
+				<unitPattern count="other">Через {0} секунди</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} секунду тому</unitPattern>
+				<unitPattern count="few">{0} секунди тому</unitPattern>
+				<unitPattern count="many">{0} секунд тому</unitPattern>
+				<unitPattern count="other">{0} секунди тому</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} тиждень</unitPattern>
+				<unitPattern count="few">{0} тижні</unitPattern>
+				<unitPattern count="many">{0} тижнів</unitPattern>
+				<unitPattern count="other">{0} тижня</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">Через {0} тиждень</unitPattern>
+				<unitPattern count="few">Через {0} тижні</unitPattern>
+				<unitPattern count="many">Через {0} тижнів</unitPattern>
+				<unitPattern count="other">Через {0} тижня</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} тиждень тому</unitPattern>
+				<unitPattern count="few">{0} тижні тому</unitPattern>
+				<unitPattern count="many">{0} тижнів тому</unitPattern>
+				<unitPattern count="other">{0} тижня тому</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} рік</unitPattern>
+				<unitPattern count="few">{0} роки</unitPattern>
+				<unitPattern count="many">{0} років</unitPattern>
+				<unitPattern count="other">{0} року</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">Через {0} рік</unitPattern>
+				<unitPattern count="few">Через {0} роки</unitPattern>
+				<unitPattern count="many">Через {0} років</unitPattern>
+				<unitPattern count="other">Через {0} року</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} рік тому</unitPattern>
+				<unitPattern count="few">{0} роки тому</unitPattern>
+				<unitPattern count="many">{0} років тому</unitPattern>
+				<unitPattern count="other">{0} року тому</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} день</unitPattern>
+				<unitPattern count="few">{0} дні</unitPattern>
+				<unitPattern count="many">{0} днів</unitPattern>
+				<unitPattern count="other">{0} дня</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} год.</unitPattern>
+				<unitPattern count="few">{0} год.</unitPattern>
+				<unitPattern count="many">{0} год.</unitPattern>
+				<unitPattern count="other">{0} год.</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} хв.</unitPattern>
+				<unitPattern count="few">{0} хв.</unitPattern>
+				<unitPattern count="many">{0} хв.</unitPattern>
+				<unitPattern count="other">{0} хв.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} міс.</unitPattern>
+				<unitPattern count="few">{0} міс.</unitPattern>
+				<unitPattern count="many">{0} міс.</unitPattern>
+				<unitPattern count="other">{0} міс.</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} сек.</unitPattern>
+				<unitPattern count="few">{0} сек.</unitPattern>
+				<unitPattern count="many">{0} сек.</unitPattern>
+				<unitPattern count="other">{0} сек.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} тиж.</unitPattern>
+				<unitPattern count="few">{0} тиж.</unitPattern>
+				<unitPattern count="many">{0} тиж.</unitPattern>
+				<unitPattern count="other">{0} тиж.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} р.</unitPattern>
+				<unitPattern count="few">{0} р.</unitPattern>
+				<unitPattern count="many">{0} р.</unitPattern>
+				<unitPattern count="other">{0} р.</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

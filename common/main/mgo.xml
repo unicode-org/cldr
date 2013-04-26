@@ -466,66 +466,68 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} d</unitPattern>
-			<unitPattern count="other">{0} d</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">+{0} d</unitPattern>
-			<unitPattern count="other">+{0} d</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">-{0} d</unitPattern>
-			<unitPattern count="other">-{0} d</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} h</unitPattern>
-			<unitPattern count="other">{0} h</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">+{0} h</unitPattern>
-			<unitPattern count="other">+{0} h</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">-{0} h</unitPattern>
-			<unitPattern count="other">-{0} h</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} min</unitPattern>
-			<unitPattern count="other">{0} min</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">+{0} min</unitPattern>
-			<unitPattern count="other">+{0} min</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">-{0} min</unitPattern>
-			<unitPattern count="other">-{0} min</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} m</unitPattern>
-			<unitPattern count="other">{0} m</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">+{0} m</unitPattern>
-			<unitPattern count="other">+{0} m</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">-{0} m</unitPattern>
-			<unitPattern count="other">-{0} m</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} s</unitPattern>
-			<unitPattern count="other">{0} s</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">+{0} s</unitPattern>
-			<unitPattern count="other">+{0} s</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">-{0} s</unitPattern>
-			<unitPattern count="other">-{0} s</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} d</unitPattern>
+				<unitPattern count="other">{0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">+{0} d</unitPattern>
+				<unitPattern count="other">+{0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">-{0} d</unitPattern>
+				<unitPattern count="other">-{0} d</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} h</unitPattern>
+				<unitPattern count="other">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">+{0} h</unitPattern>
+				<unitPattern count="other">+{0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">-{0} h</unitPattern>
+				<unitPattern count="other">-{0} h</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">+{0} min</unitPattern>
+				<unitPattern count="other">+{0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">-{0} min</unitPattern>
+				<unitPattern count="other">-{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">+{0} m</unitPattern>
+				<unitPattern count="other">+{0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">-{0} m</unitPattern>
+				<unitPattern count="other">-{0} m</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">+{0} s</unitPattern>
+				<unitPattern count="other">+{0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">-{0} s</unitPattern>
+				<unitPattern count="other">-{0} s</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<posix>
 		<messages>

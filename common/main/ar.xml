@@ -6555,216 +6555,234 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="zero">{0} يوم</unitPattern>
-			<unitPattern count="zero" alt="short">لا أيام</unitPattern>
-			<unitPattern count="one">يوم</unitPattern>
-			<unitPattern count="one" alt="short">يوم</unitPattern>
-			<unitPattern count="two">يومان</unitPattern>
-			<unitPattern count="two" alt="short">يومان</unitPattern>
-			<unitPattern count="few">{0} أيام</unitPattern>
-			<unitPattern count="few" alt="short">{0} أيام</unitPattern>
-			<unitPattern count="many">{0} يوماً</unitPattern>
-			<unitPattern count="many" alt="short">{0} يوماً</unitPattern>
-			<unitPattern count="other">{0} يوم</unitPattern>
-			<unitPattern count="other" alt="short">{0} يوم</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="zero" draft="contributed">خلال {0} من الأيام</unitPattern>
-			<unitPattern count="one" draft="contributed">خلال {0} من الأيام</unitPattern>
-			<unitPattern count="two" draft="contributed">خلال يومين</unitPattern>
-			<unitPattern count="few" draft="contributed">خلال {0} أيام</unitPattern>
-			<unitPattern count="many" draft="contributed">خلال {0} يومًا</unitPattern>
-			<unitPattern count="other" draft="contributed">خلال {0} من الأيام</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="zero" draft="contributed">قبل {0} من الأيام</unitPattern>
-			<unitPattern count="one" draft="contributed">قبل {0} من الأيام</unitPattern>
-			<unitPattern count="two" draft="contributed">قبل يومين</unitPattern>
-			<unitPattern count="few" draft="contributed">قبل {0} أيام</unitPattern>
-			<unitPattern count="many" draft="contributed">قبل {0} يومًا</unitPattern>
-			<unitPattern count="other" draft="contributed">قبل {0} من الأيام</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="zero">لا ساعات</unitPattern>
-			<unitPattern count="zero" alt="short">لا ساعات</unitPattern>
-			<unitPattern count="one">ساعة</unitPattern>
-			<unitPattern count="one" alt="short">ساعة</unitPattern>
-			<unitPattern count="two">ساعتان</unitPattern>
-			<unitPattern count="two" alt="short">ساعتان</unitPattern>
-			<unitPattern count="few">{0} ساعات</unitPattern>
-			<unitPattern count="few" alt="short">{0} س</unitPattern>
-			<unitPattern count="many">{0} ساعةً</unitPattern>
-			<unitPattern count="many" alt="short">{0} س</unitPattern>
-			<unitPattern count="other">{0} ساعة</unitPattern>
-			<unitPattern count="other" alt="short">{0} س</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="zero" draft="contributed">خلال {0} من الساعات</unitPattern>
-			<unitPattern count="one" draft="contributed">خلال {0} من الساعات</unitPattern>
-			<unitPattern count="two" draft="contributed">خلال ساعتين</unitPattern>
-			<unitPattern count="few" draft="contributed">خلال {0} ساعات</unitPattern>
-			<unitPattern count="many" draft="contributed">خلال {0} ساعة</unitPattern>
-			<unitPattern count="other" draft="contributed">خلال {0} من الساعات</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="zero" draft="contributed">قبل {0} من الساعات</unitPattern>
-			<unitPattern count="one" draft="contributed">قبل {0} من الساعات</unitPattern>
-			<unitPattern count="two" draft="contributed">قبل ساعتين</unitPattern>
-			<unitPattern count="few" draft="contributed">قبل {0} ساعات</unitPattern>
-			<unitPattern count="many" draft="contributed">قبل {0} ساعة</unitPattern>
-			<unitPattern count="other" draft="contributed">قبل {0} من الساعات</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="zero">لا دقائق</unitPattern>
-			<unitPattern count="zero" alt="short">لا دقائق</unitPattern>
-			<unitPattern count="one">دقيقة</unitPattern>
-			<unitPattern count="one" alt="short">دقيقة</unitPattern>
-			<unitPattern count="two">دقيقتان</unitPattern>
-			<unitPattern count="two" alt="short">دقيقتان</unitPattern>
-			<unitPattern count="few">{0} دقائق</unitPattern>
-			<unitPattern count="few" alt="short">{0} د</unitPattern>
-			<unitPattern count="many">{0} دقيقةً</unitPattern>
-			<unitPattern count="many" alt="short">{0} د</unitPattern>
-			<unitPattern count="other">{0} دقيقة</unitPattern>
-			<unitPattern count="other" alt="short">{0} د</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="zero" draft="contributed">خلال {0} من الدقائق</unitPattern>
-			<unitPattern count="one" draft="contributed">خلال {0} من الدقائق</unitPattern>
-			<unitPattern count="two" draft="contributed">خلال دقيقتين</unitPattern>
-			<unitPattern count="few" draft="contributed">خلال {0} دقائق</unitPattern>
-			<unitPattern count="many" draft="contributed">خلال {0} دقيقة</unitPattern>
-			<unitPattern count="other" draft="contributed">خلال {0} من الدقائق</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="zero" draft="contributed">قبل {0} من الدقائق</unitPattern>
-			<unitPattern count="one" draft="contributed">قبل {0} من الدقائق</unitPattern>
-			<unitPattern count="two" draft="contributed">قبل دقيقتين</unitPattern>
-			<unitPattern count="few" draft="contributed">قبل {0} دقائق</unitPattern>
-			<unitPattern count="many" draft="contributed">قبل {0} دقيقة</unitPattern>
-			<unitPattern count="other" draft="contributed">قبل {0} من الدقائق</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="zero">لا أشهر</unitPattern>
-			<unitPattern count="zero" alt="short">لا أشهر</unitPattern>
-			<unitPattern count="one">شهر</unitPattern>
-			<unitPattern count="one" alt="short">شهر</unitPattern>
-			<unitPattern count="two">شهران</unitPattern>
-			<unitPattern count="two" alt="short">شهران</unitPattern>
-			<unitPattern count="few">{0} أشهر</unitPattern>
-			<unitPattern count="few" alt="short">{0} أشهر</unitPattern>
-			<unitPattern count="many">{0} شهراً</unitPattern>
-			<unitPattern count="many" alt="short">{0} شهراً</unitPattern>
-			<unitPattern count="other">{0} شهر</unitPattern>
-			<unitPattern count="other" alt="short">{0} شهر</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="zero" draft="contributed">خلال {0} من الشهور</unitPattern>
-			<unitPattern count="one" draft="contributed">خلال {0} من الشهور</unitPattern>
-			<unitPattern count="two" draft="contributed">خلال شهرين</unitPattern>
-			<unitPattern count="few" draft="contributed">خلال {0} شهور</unitPattern>
-			<unitPattern count="many" draft="contributed">خلال {0} شهرًا</unitPattern>
-			<unitPattern count="other" draft="contributed">خلال {0} من الشهور</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="zero" draft="contributed">قبل {0} من الشهور</unitPattern>
-			<unitPattern count="one" draft="contributed">قبل {0} من الشهور</unitPattern>
-			<unitPattern count="two" draft="contributed">قبل شهرين</unitPattern>
-			<unitPattern count="few" draft="contributed">قبل {0} أشهر</unitPattern>
-			<unitPattern count="many" draft="contributed">قبل {0} شهرًا</unitPattern>
-			<unitPattern count="other" draft="contributed">قبل {0} من الشهور</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="zero">لا ثوان</unitPattern>
-			<unitPattern count="zero" alt="short">لا ثوان</unitPattern>
-			<unitPattern count="one">ثانية</unitPattern>
-			<unitPattern count="one" alt="short">ثانية</unitPattern>
-			<unitPattern count="two">ثانيتان</unitPattern>
-			<unitPattern count="two" alt="short">ثانيتان</unitPattern>
-			<unitPattern count="few">{0} ثوان</unitPattern>
-			<unitPattern count="few" alt="short">{0} ث</unitPattern>
-			<unitPattern count="many">{0} ثانيةً</unitPattern>
-			<unitPattern count="many" alt="short">{0} ث</unitPattern>
-			<unitPattern count="other">{0} ثانية</unitPattern>
-			<unitPattern count="other" alt="short">{0} ث</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="zero" draft="contributed">خلال {0} من الثواني</unitPattern>
-			<unitPattern count="one" draft="contributed">خلال {0} من الثواني</unitPattern>
-			<unitPattern count="two" draft="contributed">خلال ثانيتين</unitPattern>
-			<unitPattern count="few" draft="contributed">خلال {0} ثوانِ</unitPattern>
-			<unitPattern count="many" draft="contributed">خلال {0} ثانية</unitPattern>
-			<unitPattern count="other" draft="contributed">خلال {0} من الثواني</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="zero" draft="contributed">قبل {0} من الثواني</unitPattern>
-			<unitPattern count="one" draft="contributed">قبل {0} من الثواني</unitPattern>
-			<unitPattern count="two" draft="contributed">قبل ثانيتين</unitPattern>
-			<unitPattern count="few" draft="contributed">قبل {0} ثوانِ</unitPattern>
-			<unitPattern count="many" draft="contributed">قبل {0} ثانية</unitPattern>
-			<unitPattern count="other" draft="contributed">قبل {0} من الثواني</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="zero">لا أسابيع</unitPattern>
-			<unitPattern count="zero" alt="short">لا أسابيع</unitPattern>
-			<unitPattern count="one">أسبوع</unitPattern>
-			<unitPattern count="one" alt="short">أسبوع</unitPattern>
-			<unitPattern count="two">أسبوعان</unitPattern>
-			<unitPattern count="two" alt="short">أسبوعان</unitPattern>
-			<unitPattern count="few">{0} أسابيع</unitPattern>
-			<unitPattern count="few" alt="short">{0} أسابيع</unitPattern>
-			<unitPattern count="many">{0} أسبوعاً</unitPattern>
-			<unitPattern count="many" alt="short">{0} أسبوعاً</unitPattern>
-			<unitPattern count="other">{0} أسبوع</unitPattern>
-			<unitPattern count="other" alt="short">{0} أسبوع</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="zero" draft="contributed">خلال {0} من الأسابيع</unitPattern>
-			<unitPattern count="one" draft="contributed">خلال {0} من الأسابيع</unitPattern>
-			<unitPattern count="two" draft="contributed">خلال أسبوعين</unitPattern>
-			<unitPattern count="few" draft="contributed">خلال {0} أسابيع</unitPattern>
-			<unitPattern count="many" draft="contributed">خلال {0} أسبوعًا</unitPattern>
-			<unitPattern count="other" draft="contributed">خلال {0} من الأسابيع</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="zero" draft="contributed">قبل {0} من الأسابيع</unitPattern>
-			<unitPattern count="one" draft="contributed">قبل {0} من الأسابيع</unitPattern>
-			<unitPattern count="two" draft="contributed">قبل أسبوعين</unitPattern>
-			<unitPattern count="few" draft="contributed">قبل {0} أسابيع</unitPattern>
-			<unitPattern count="many" draft="contributed">قبل {0} أسبوعًا</unitPattern>
-			<unitPattern count="other" draft="contributed">قبل {0} من الأسابيع</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="zero">لا سنوات</unitPattern>
-			<unitPattern count="zero" alt="short">لا سنوات</unitPattern>
-			<unitPattern count="one">سنة</unitPattern>
-			<unitPattern count="one" alt="short">سنة</unitPattern>
-			<unitPattern count="two">سنتان</unitPattern>
-			<unitPattern count="two" alt="short">سنتان</unitPattern>
-			<unitPattern count="few">{0} سنوات</unitPattern>
-			<unitPattern count="few" alt="short">{0} سنوات</unitPattern>
-			<unitPattern count="many">{0} سنة</unitPattern>
-			<unitPattern count="many" alt="short">{0} سنة</unitPattern>
-			<unitPattern count="other">{0} سنة</unitPattern>
-			<unitPattern count="other" alt="short">{0} سنة</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="zero" draft="contributed">خلال {0} من السنوات</unitPattern>
-			<unitPattern count="one" draft="contributed">خلال {0} من السنوات</unitPattern>
-			<unitPattern count="two" draft="contributed">خلال سنتين</unitPattern>
-			<unitPattern count="few" draft="contributed">خلال {0} سنوات</unitPattern>
-			<unitPattern count="many" draft="contributed">خلال {0} سنة</unitPattern>
-			<unitPattern count="other" draft="contributed">خلال {0} من السنوات</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="zero" draft="contributed">قبل {0} من السنوات</unitPattern>
-			<unitPattern count="one" draft="contributed">قبل {0} من السنوات</unitPattern>
-			<unitPattern count="two" draft="contributed">قبل سنتين</unitPattern>
-			<unitPattern count="few" draft="contributed">قبل {0} سنوات</unitPattern>
-			<unitPattern count="many" draft="contributed">قبل {0} سنة</unitPattern>
-			<unitPattern count="other" draft="contributed">قبل {0} من السنوات</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="zero">{0} يوم</unitPattern>
+				<unitPattern count="one">يوم</unitPattern>
+				<unitPattern count="two">يومان</unitPattern>
+				<unitPattern count="few">{0} أيام</unitPattern>
+				<unitPattern count="many">{0} يوماً</unitPattern>
+				<unitPattern count="other">{0} يوم</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="zero">خلال {0} من الأيام</unitPattern>
+				<unitPattern count="one">خلال {0} من الأيام</unitPattern>
+				<unitPattern count="two">خلال يومين</unitPattern>
+				<unitPattern count="few">خلال {0} أيام</unitPattern>
+				<unitPattern count="many">خلال {0} يومًا</unitPattern>
+				<unitPattern count="other">خلال {0} من الأيام</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="zero">قبل {0} من الأيام</unitPattern>
+				<unitPattern count="one">قبل {0} من الأيام</unitPattern>
+				<unitPattern count="two">قبل يومين</unitPattern>
+				<unitPattern count="few">قبل {0} أيام</unitPattern>
+				<unitPattern count="many">قبل {0} يومًا</unitPattern>
+				<unitPattern count="other">قبل {0} من الأيام</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="zero">لا ساعات</unitPattern>
+				<unitPattern count="one">ساعة</unitPattern>
+				<unitPattern count="two">ساعتان</unitPattern>
+				<unitPattern count="few">{0} ساعات</unitPattern>
+				<unitPattern count="many">{0} ساعةً</unitPattern>
+				<unitPattern count="other">{0} ساعة</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="zero">خلال {0} من الساعات</unitPattern>
+				<unitPattern count="one">خلال {0} من الساعات</unitPattern>
+				<unitPattern count="two">خلال ساعتين</unitPattern>
+				<unitPattern count="few">خلال {0} ساعات</unitPattern>
+				<unitPattern count="many">خلال {0} ساعة</unitPattern>
+				<unitPattern count="other">خلال {0} من الساعات</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="zero">قبل {0} من الساعات</unitPattern>
+				<unitPattern count="one">قبل {0} من الساعات</unitPattern>
+				<unitPattern count="two">قبل ساعتين</unitPattern>
+				<unitPattern count="few">قبل {0} ساعات</unitPattern>
+				<unitPattern count="many">قبل {0} ساعة</unitPattern>
+				<unitPattern count="other">قبل {0} من الساعات</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="zero">لا دقائق</unitPattern>
+				<unitPattern count="one">دقيقة</unitPattern>
+				<unitPattern count="two">دقيقتان</unitPattern>
+				<unitPattern count="few">{0} دقائق</unitPattern>
+				<unitPattern count="many">{0} دقيقةً</unitPattern>
+				<unitPattern count="other">{0} دقيقة</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="zero">خلال {0} من الدقائق</unitPattern>
+				<unitPattern count="one">خلال {0} من الدقائق</unitPattern>
+				<unitPattern count="two">خلال دقيقتين</unitPattern>
+				<unitPattern count="few">خلال {0} دقائق</unitPattern>
+				<unitPattern count="many">خلال {0} دقيقة</unitPattern>
+				<unitPattern count="other">خلال {0} من الدقائق</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="zero">قبل {0} من الدقائق</unitPattern>
+				<unitPattern count="one">قبل {0} من الدقائق</unitPattern>
+				<unitPattern count="two">قبل دقيقتين</unitPattern>
+				<unitPattern count="few">قبل {0} دقائق</unitPattern>
+				<unitPattern count="many">قبل {0} دقيقة</unitPattern>
+				<unitPattern count="other">قبل {0} من الدقائق</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="zero">لا أشهر</unitPattern>
+				<unitPattern count="one">شهر</unitPattern>
+				<unitPattern count="two">شهران</unitPattern>
+				<unitPattern count="few">{0} أشهر</unitPattern>
+				<unitPattern count="many">{0} شهراً</unitPattern>
+				<unitPattern count="other">{0} شهر</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="zero">خلال {0} من الشهور</unitPattern>
+				<unitPattern count="one">خلال {0} من الشهور</unitPattern>
+				<unitPattern count="two">خلال شهرين</unitPattern>
+				<unitPattern count="few">خلال {0} شهور</unitPattern>
+				<unitPattern count="many">خلال {0} شهرًا</unitPattern>
+				<unitPattern count="other">خلال {0} من الشهور</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="zero">قبل {0} من الشهور</unitPattern>
+				<unitPattern count="one">قبل {0} من الشهور</unitPattern>
+				<unitPattern count="two">قبل شهرين</unitPattern>
+				<unitPattern count="few">قبل {0} أشهر</unitPattern>
+				<unitPattern count="many">قبل {0} شهرًا</unitPattern>
+				<unitPattern count="other">قبل {0} من الشهور</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="zero">لا ثوان</unitPattern>
+				<unitPattern count="one">ثانية</unitPattern>
+				<unitPattern count="two">ثانيتان</unitPattern>
+				<unitPattern count="few">{0} ثوان</unitPattern>
+				<unitPattern count="many">{0} ثانيةً</unitPattern>
+				<unitPattern count="other">{0} ثانية</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="zero">خلال {0} من الثواني</unitPattern>
+				<unitPattern count="one">خلال {0} من الثواني</unitPattern>
+				<unitPattern count="two">خلال ثانيتين</unitPattern>
+				<unitPattern count="few">خلال {0} ثوانِ</unitPattern>
+				<unitPattern count="many">خلال {0} ثانية</unitPattern>
+				<unitPattern count="other">خلال {0} من الثواني</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="zero">قبل {0} من الثواني</unitPattern>
+				<unitPattern count="one">قبل {0} من الثواني</unitPattern>
+				<unitPattern count="two">قبل ثانيتين</unitPattern>
+				<unitPattern count="few">قبل {0} ثوانِ</unitPattern>
+				<unitPattern count="many">قبل {0} ثانية</unitPattern>
+				<unitPattern count="other">قبل {0} من الثواني</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="zero">لا أسابيع</unitPattern>
+				<unitPattern count="one">أسبوع</unitPattern>
+				<unitPattern count="two">أسبوعان</unitPattern>
+				<unitPattern count="few">{0} أسابيع</unitPattern>
+				<unitPattern count="many">{0} أسبوعاً</unitPattern>
+				<unitPattern count="other">{0} أسبوع</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="zero">خلال {0} من الأسابيع</unitPattern>
+				<unitPattern count="one">خلال {0} من الأسابيع</unitPattern>
+				<unitPattern count="two">خلال أسبوعين</unitPattern>
+				<unitPattern count="few">خلال {0} أسابيع</unitPattern>
+				<unitPattern count="many">خلال {0} أسبوعًا</unitPattern>
+				<unitPattern count="other">خلال {0} من الأسابيع</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="zero">قبل {0} من الأسابيع</unitPattern>
+				<unitPattern count="one">قبل {0} من الأسابيع</unitPattern>
+				<unitPattern count="two">قبل أسبوعين</unitPattern>
+				<unitPattern count="few">قبل {0} أسابيع</unitPattern>
+				<unitPattern count="many">قبل {0} أسبوعًا</unitPattern>
+				<unitPattern count="other">قبل {0} من الأسابيع</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="zero">لا سنوات</unitPattern>
+				<unitPattern count="one">سنة</unitPattern>
+				<unitPattern count="two">سنتان</unitPattern>
+				<unitPattern count="few">{0} سنوات</unitPattern>
+				<unitPattern count="many">{0} سنة</unitPattern>
+				<unitPattern count="other">{0} سنة</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="zero">خلال {0} من السنوات</unitPattern>
+				<unitPattern count="one">خلال {0} من السنوات</unitPattern>
+				<unitPattern count="two">خلال سنتين</unitPattern>
+				<unitPattern count="few">خلال {0} سنوات</unitPattern>
+				<unitPattern count="many">خلال {0} سنة</unitPattern>
+				<unitPattern count="other">خلال {0} من السنوات</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="zero">قبل {0} من السنوات</unitPattern>
+				<unitPattern count="one">قبل {0} من السنوات</unitPattern>
+				<unitPattern count="two">قبل سنتين</unitPattern>
+				<unitPattern count="few">قبل {0} سنوات</unitPattern>
+				<unitPattern count="many">قبل {0} سنة</unitPattern>
+				<unitPattern count="other">قبل {0} من السنوات</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="zero">لا أيام</unitPattern>
+				<unitPattern count="one">يوم</unitPattern>
+				<unitPattern count="two">يومان</unitPattern>
+				<unitPattern count="few">{0} أيام</unitPattern>
+				<unitPattern count="many">{0} يوماً</unitPattern>
+				<unitPattern count="other">{0} يوم</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="zero">لا ساعات</unitPattern>
+				<unitPattern count="one">ساعة</unitPattern>
+				<unitPattern count="two">ساعتان</unitPattern>
+				<unitPattern count="few">{0} س</unitPattern>
+				<unitPattern count="many">{0} س</unitPattern>
+				<unitPattern count="other">{0} س</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="zero">لا دقائق</unitPattern>
+				<unitPattern count="one">دقيقة</unitPattern>
+				<unitPattern count="two">دقيقتان</unitPattern>
+				<unitPattern count="few">{0} د</unitPattern>
+				<unitPattern count="many">{0} د</unitPattern>
+				<unitPattern count="other">{0} د</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="zero">لا أشهر</unitPattern>
+				<unitPattern count="one">شهر</unitPattern>
+				<unitPattern count="two">شهران</unitPattern>
+				<unitPattern count="few">{0} أشهر</unitPattern>
+				<unitPattern count="many">{0} شهراً</unitPattern>
+				<unitPattern count="other">{0} شهر</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="zero">لا ثوان</unitPattern>
+				<unitPattern count="one">ثانية</unitPattern>
+				<unitPattern count="two">ثانيتان</unitPattern>
+				<unitPattern count="few">{0} ث</unitPattern>
+				<unitPattern count="many">{0} ث</unitPattern>
+				<unitPattern count="other">{0} ث</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="zero">لا أسابيع</unitPattern>
+				<unitPattern count="one">أسبوع</unitPattern>
+				<unitPattern count="two">أسبوعان</unitPattern>
+				<unitPattern count="few">{0} أسابيع</unitPattern>
+				<unitPattern count="many">{0} أسبوعاً</unitPattern>
+				<unitPattern count="other">{0} أسبوع</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="zero">لا سنوات</unitPattern>
+				<unitPattern count="one">سنة</unitPattern>
+				<unitPattern count="two">سنتان</unitPattern>
+				<unitPattern count="few">{0} سنوات</unitPattern>
+				<unitPattern count="many">{0} سنة</unitPattern>
+				<unitPattern count="other">{0} سنة</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

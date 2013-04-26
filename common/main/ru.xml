@@ -6344,132 +6344,150 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} день</unitPattern>
-			<unitPattern count="one" alt="short">{0} дн.</unitPattern>
-			<unitPattern count="many">{0} дней</unitPattern>
-			<unitPattern count="many" alt="short">{0} дн.</unitPattern>
-			<unitPattern count="other">{0} дня</unitPattern>
-			<unitPattern count="other" alt="short">{0} дн.</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">Через {0} день</unitPattern>
-			<unitPattern count="many">Через {0} дней</unitPattern>
-			<unitPattern count="other">Через {0} дня</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">{0} день назад</unitPattern>
-			<unitPattern count="many">{0} дней назад</unitPattern>
-			<unitPattern count="other">{0} дня назад</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} час</unitPattern>
-			<unitPattern count="one" alt="short">{0} ч.</unitPattern>
-			<unitPattern count="many">{0} часов</unitPattern>
-			<unitPattern count="many" alt="short">{0} ч.</unitPattern>
-			<unitPattern count="other">{0} часа</unitPattern>
-			<unitPattern count="other" alt="short">{0} ч.</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">Через {0} час</unitPattern>
-			<unitPattern count="many">Через {0} часов</unitPattern>
-			<unitPattern count="other">Через {0} часа</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">{0} час назад</unitPattern>
-			<unitPattern count="many">{0} часов назад</unitPattern>
-			<unitPattern count="other">{0} часа назад</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} минута</unitPattern>
-			<unitPattern count="one" alt="short">{0} мин.</unitPattern>
-			<unitPattern count="many">{0} минут</unitPattern>
-			<unitPattern count="many" alt="short">{0} мин.</unitPattern>
-			<unitPattern count="other">{0} минуты</unitPattern>
-			<unitPattern count="other" alt="short">{0} мин.</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">Через {0} минуту</unitPattern>
-			<unitPattern count="many">Через {0} минут</unitPattern>
-			<unitPattern count="other">Через {0} минуты</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">{0} минуту назад</unitPattern>
-			<unitPattern count="many">{0} минут назад</unitPattern>
-			<unitPattern count="other">{0} минуты назад</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} месяц</unitPattern>
-			<unitPattern count="one" alt="short">{0} мес.</unitPattern>
-			<unitPattern count="many">{0} месяцев</unitPattern>
-			<unitPattern count="many" alt="short">{0} мес.</unitPattern>
-			<unitPattern count="other">{0} месяца</unitPattern>
-			<unitPattern count="other" alt="short">{0} мес.</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">Через {0} месяц</unitPattern>
-			<unitPattern count="many">Через {0} месяцев</unitPattern>
-			<unitPattern count="other">Через {0} месяца</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">{0} месяц назад</unitPattern>
-			<unitPattern count="many">{0} месяцев назад</unitPattern>
-			<unitPattern count="other">{0} месяца назад</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} секунда</unitPattern>
-			<unitPattern count="one" alt="short">{0} сек.</unitPattern>
-			<unitPattern count="many">{0} секунд</unitPattern>
-			<unitPattern count="many" alt="short">{0} сек.</unitPattern>
-			<unitPattern count="other">{0} секунды</unitPattern>
-			<unitPattern count="other" alt="short">{0} сек.</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">Через {0} секунду</unitPattern>
-			<unitPattern count="many">Через {0} секунд</unitPattern>
-			<unitPattern count="other">Через {0} секунды</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">{0} секунду назад</unitPattern>
-			<unitPattern count="many">{0} секунд назад</unitPattern>
-			<unitPattern count="other">{0} секунды назад</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} неделя</unitPattern>
-			<unitPattern count="one" alt="short">{0} нед.</unitPattern>
-			<unitPattern count="many">{0} недель</unitPattern>
-			<unitPattern count="many" alt="short">{0} нед.</unitPattern>
-			<unitPattern count="other">{0} недели</unitPattern>
-			<unitPattern count="other" alt="short">{0} нед.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">Через {0} неделю</unitPattern>
-			<unitPattern count="many">Через {0} недель</unitPattern>
-			<unitPattern count="other">Через {0} недели</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">{0} неделю назад</unitPattern>
-			<unitPattern count="many">{0} недель назад</unitPattern>
-			<unitPattern count="other">{0} недели назад</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} год</unitPattern>
-			<unitPattern count="one" alt="short">{0} г.</unitPattern>
-			<unitPattern count="many">{0} лет</unitPattern>
-			<unitPattern count="many" alt="short">{0} лет</unitPattern>
-			<unitPattern count="other">{0} года</unitPattern>
-			<unitPattern count="other" alt="short">{0} г.</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">Через {0} год</unitPattern>
-			<unitPattern count="many">Через {0} лет</unitPattern>
-			<unitPattern count="other">Через {0} года</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">{0} год назад</unitPattern>
-			<unitPattern count="many">{0} лет назад</unitPattern>
-			<unitPattern count="other">{0} года назад</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} день</unitPattern>
+				<unitPattern count="many">{0} дней</unitPattern>
+				<unitPattern count="other">{0} дня</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">Через {0} день</unitPattern>
+				<unitPattern count="many">Через {0} дней</unitPattern>
+				<unitPattern count="other">Через {0} дня</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} день назад</unitPattern>
+				<unitPattern count="many">{0} дней назад</unitPattern>
+				<unitPattern count="other">{0} дня назад</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} час</unitPattern>
+				<unitPattern count="many">{0} часов</unitPattern>
+				<unitPattern count="other">{0} часа</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">Через {0} час</unitPattern>
+				<unitPattern count="many">Через {0} часов</unitPattern>
+				<unitPattern count="other">Через {0} часа</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} час назад</unitPattern>
+				<unitPattern count="many">{0} часов назад</unitPattern>
+				<unitPattern count="other">{0} часа назад</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} минута</unitPattern>
+				<unitPattern count="many">{0} минут</unitPattern>
+				<unitPattern count="other">{0} минуты</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">Через {0} минуту</unitPattern>
+				<unitPattern count="many">Через {0} минут</unitPattern>
+				<unitPattern count="other">Через {0} минуты</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} минуту назад</unitPattern>
+				<unitPattern count="many">{0} минут назад</unitPattern>
+				<unitPattern count="other">{0} минуты назад</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} месяц</unitPattern>
+				<unitPattern count="many">{0} месяцев</unitPattern>
+				<unitPattern count="other">{0} месяца</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">Через {0} месяц</unitPattern>
+				<unitPattern count="many">Через {0} месяцев</unitPattern>
+				<unitPattern count="other">Через {0} месяца</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} месяц назад</unitPattern>
+				<unitPattern count="many">{0} месяцев назад</unitPattern>
+				<unitPattern count="other">{0} месяца назад</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} секунда</unitPattern>
+				<unitPattern count="many">{0} секунд</unitPattern>
+				<unitPattern count="other">{0} секунды</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">Через {0} секунду</unitPattern>
+				<unitPattern count="many">Через {0} секунд</unitPattern>
+				<unitPattern count="other">Через {0} секунды</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} секунду назад</unitPattern>
+				<unitPattern count="many">{0} секунд назад</unitPattern>
+				<unitPattern count="other">{0} секунды назад</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} неделя</unitPattern>
+				<unitPattern count="many">{0} недель</unitPattern>
+				<unitPattern count="other">{0} недели</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">Через {0} неделю</unitPattern>
+				<unitPattern count="many">Через {0} недель</unitPattern>
+				<unitPattern count="other">Через {0} недели</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} неделю назад</unitPattern>
+				<unitPattern count="many">{0} недель назад</unitPattern>
+				<unitPattern count="other">{0} недели назад</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} год</unitPattern>
+				<unitPattern count="many">{0} лет</unitPattern>
+				<unitPattern count="other">{0} года</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">Через {0} год</unitPattern>
+				<unitPattern count="many">Через {0} лет</unitPattern>
+				<unitPattern count="other">Через {0} года</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} год назад</unitPattern>
+				<unitPattern count="many">{0} лет назад</unitPattern>
+				<unitPattern count="other">{0} года назад</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} дн.</unitPattern>
+				<unitPattern count="many">{0} дн.</unitPattern>
+				<unitPattern count="other">{0} дн.</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ч.</unitPattern>
+				<unitPattern count="many">{0} ч.</unitPattern>
+				<unitPattern count="other">{0} ч.</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} мин.</unitPattern>
+				<unitPattern count="many">{0} мин.</unitPattern>
+				<unitPattern count="other">{0} мин.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} мес.</unitPattern>
+				<unitPattern count="many">{0} мес.</unitPattern>
+				<unitPattern count="other">{0} мес.</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} сек.</unitPattern>
+				<unitPattern count="many">{0} сек.</unitPattern>
+				<unitPattern count="other">{0} сек.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} нед.</unitPattern>
+				<unitPattern count="many">{0} нед.</unitPattern>
+				<unitPattern count="other">{0} нед.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} г.</unitPattern>
+				<unitPattern count="many">{0} лет</unitPattern>
+				<unitPattern count="other">{0} г.</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

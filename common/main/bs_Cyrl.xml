@@ -6426,160 +6426,178 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} дан</unitPattern>
-			<unitPattern count="one" alt="short">{0} дан</unitPattern>
-			<unitPattern count="few">{0} дана</unitPattern>
-			<unitPattern count="few" alt="short">{0} дана</unitPattern>
-			<unitPattern count="many">{0} дана</unitPattern>
-			<unitPattern count="many" alt="short">{0} дана</unitPattern>
-			<unitPattern count="other">{0} дан</unitPattern>
-			<unitPattern count="other" alt="short">{0} дан</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">за {0} дан</unitPattern>
-			<unitPattern count="few">за {0} дана</unitPattern>
-			<unitPattern count="many">за {0} дана</unitPattern>
-			<unitPattern count="other">за {0} дана</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">пре {0} дан</unitPattern>
-			<unitPattern count="few">пре {0} дана</unitPattern>
-			<unitPattern count="many">пре {0} дана</unitPattern>
-			<unitPattern count="other">пре {0} дана</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} сат</unitPattern>
-			<unitPattern count="one" alt="short">{0} сат</unitPattern>
-			<unitPattern count="few">{0} сата</unitPattern>
-			<unitPattern count="few" alt="short">{0} сата</unitPattern>
-			<unitPattern count="many">{0} сати</unitPattern>
-			<unitPattern count="many" alt="short">{0} сати</unitPattern>
-			<unitPattern count="other">{0} сат</unitPattern>
-			<unitPattern count="other" alt="short">{0} сат</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">за {0} сат</unitPattern>
-			<unitPattern count="few">за {0} сата</unitPattern>
-			<unitPattern count="many">за {0} сати</unitPattern>
-			<unitPattern count="other">за {0} сати</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">пре {0} сат</unitPattern>
-			<unitPattern count="few">пре {0} сата</unitPattern>
-			<unitPattern count="many">пре {0} сати</unitPattern>
-			<unitPattern count="other">пре {0} сати</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} минут</unitPattern>
-			<unitPattern count="one" alt="short">{0} мин</unitPattern>
-			<unitPattern count="few">{0} минута</unitPattern>
-			<unitPattern count="few" alt="short">{0} мин</unitPattern>
-			<unitPattern count="many">{0} минута</unitPattern>
-			<unitPattern count="many" alt="short">{0} мин</unitPattern>
-			<unitPattern count="other">{0} минут</unitPattern>
-			<unitPattern count="other" alt="short">{0} мин</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">за {0} минут</unitPattern>
-			<unitPattern count="few">за {0} минута</unitPattern>
-			<unitPattern count="many">за {0} минута</unitPattern>
-			<unitPattern count="other">за {0} минута</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">пре {0} минут</unitPattern>
-			<unitPattern count="few">пре {0} минута</unitPattern>
-			<unitPattern count="many">пре {0} минута</unitPattern>
-			<unitPattern count="other">пре {0} минута</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} месец</unitPattern>
-			<unitPattern count="one" alt="short">{0} мес</unitPattern>
-			<unitPattern count="few">{0} месеца</unitPattern>
-			<unitPattern count="few" alt="short">{0} мес</unitPattern>
-			<unitPattern count="many">{0} месеци</unitPattern>
-			<unitPattern count="many" alt="short">{0} мес</unitPattern>
-			<unitPattern count="other">{0} месец</unitPattern>
-			<unitPattern count="other" alt="short">{0} мес</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">за {0} месец</unitPattern>
-			<unitPattern count="few">за {0} месеца</unitPattern>
-			<unitPattern count="many">за {0} месеци</unitPattern>
-			<unitPattern count="other">за {0} месеци</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">пре {0} месец</unitPattern>
-			<unitPattern count="few">пре {0} месеца</unitPattern>
-			<unitPattern count="many">пре {0} месеци</unitPattern>
-			<unitPattern count="other">пре {0} месеци</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} секунда</unitPattern>
-			<unitPattern count="one" alt="short">{0} сек</unitPattern>
-			<unitPattern count="few">{0} секунде</unitPattern>
-			<unitPattern count="few" alt="short">{0} сек</unitPattern>
-			<unitPattern count="many">{0} секунди</unitPattern>
-			<unitPattern count="many" alt="short">{0} сек</unitPattern>
-			<unitPattern count="other">{0} секунда</unitPattern>
-			<unitPattern count="other" alt="short">{0} сек</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">за {0} секунд</unitPattern>
-			<unitPattern count="few">за {0} секунде</unitPattern>
-			<unitPattern count="many">за {0} секунди</unitPattern>
-			<unitPattern count="other">за {0} секунди</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">пре {0} секунд</unitPattern>
-			<unitPattern count="few">пре {0} секунде</unitPattern>
-			<unitPattern count="many">пре {0} секунди</unitPattern>
-			<unitPattern count="other">пре {0} секунди</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} недеља</unitPattern>
-			<unitPattern count="one" alt="short">{0} нед</unitPattern>
-			<unitPattern count="few">{0} недеље</unitPattern>
-			<unitPattern count="few" alt="short">{0} нед</unitPattern>
-			<unitPattern count="many">{0} недеља</unitPattern>
-			<unitPattern count="many" alt="short">{0} нед</unitPattern>
-			<unitPattern count="other">{0} недеља</unitPattern>
-			<unitPattern count="other" alt="short">{0} нед</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">за {0} недељу</unitPattern>
-			<unitPattern count="few">за {0} недеље</unitPattern>
-			<unitPattern count="many">за {0} недеља</unitPattern>
-			<unitPattern count="other">за {0} недеља</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">пре {0} недељу</unitPattern>
-			<unitPattern count="few">пре {0} недеље</unitPattern>
-			<unitPattern count="many">пре {0} недеља</unitPattern>
-			<unitPattern count="other">пре {0} недеља</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} година</unitPattern>
-			<unitPattern count="one" alt="short">{0} год</unitPattern>
-			<unitPattern count="few">{0} године</unitPattern>
-			<unitPattern count="few" alt="short">{0} год</unitPattern>
-			<unitPattern count="many">{0} година</unitPattern>
-			<unitPattern count="many" alt="short">{0} год</unitPattern>
-			<unitPattern count="other">{0} година</unitPattern>
-			<unitPattern count="other" alt="short">{0} год</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">за {0} годину</unitPattern>
-			<unitPattern count="few">за {0} године</unitPattern>
-			<unitPattern count="many">за {0} година</unitPattern>
-			<unitPattern count="other">за {0} година</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">пре {0} годину</unitPattern>
-			<unitPattern count="few">пре {0} године</unitPattern>
-			<unitPattern count="many">пре {0} година</unitPattern>
-			<unitPattern count="other">пре {0} година</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} дан</unitPattern>
+				<unitPattern count="few">{0} дана</unitPattern>
+				<unitPattern count="many">{0} дана</unitPattern>
+				<unitPattern count="other">{0} дан</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">за {0} дан</unitPattern>
+				<unitPattern count="few">за {0} дана</unitPattern>
+				<unitPattern count="many">за {0} дана</unitPattern>
+				<unitPattern count="other">за {0} дана</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">пре {0} дан</unitPattern>
+				<unitPattern count="few">пре {0} дана</unitPattern>
+				<unitPattern count="many">пре {0} дана</unitPattern>
+				<unitPattern count="other">пре {0} дана</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} сат</unitPattern>
+				<unitPattern count="few">{0} сата</unitPattern>
+				<unitPattern count="many">{0} сати</unitPattern>
+				<unitPattern count="other">{0} сат</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">за {0} сат</unitPattern>
+				<unitPattern count="few">за {0} сата</unitPattern>
+				<unitPattern count="many">за {0} сати</unitPattern>
+				<unitPattern count="other">за {0} сати</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">пре {0} сат</unitPattern>
+				<unitPattern count="few">пре {0} сата</unitPattern>
+				<unitPattern count="many">пре {0} сати</unitPattern>
+				<unitPattern count="other">пре {0} сати</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} минут</unitPattern>
+				<unitPattern count="few">{0} минута</unitPattern>
+				<unitPattern count="many">{0} минута</unitPattern>
+				<unitPattern count="other">{0} минут</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">за {0} минут</unitPattern>
+				<unitPattern count="few">за {0} минута</unitPattern>
+				<unitPattern count="many">за {0} минута</unitPattern>
+				<unitPattern count="other">за {0} минута</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">пре {0} минут</unitPattern>
+				<unitPattern count="few">пре {0} минута</unitPattern>
+				<unitPattern count="many">пре {0} минута</unitPattern>
+				<unitPattern count="other">пре {0} минута</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} месец</unitPattern>
+				<unitPattern count="few">{0} месеца</unitPattern>
+				<unitPattern count="many">{0} месеци</unitPattern>
+				<unitPattern count="other">{0} месец</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">за {0} месец</unitPattern>
+				<unitPattern count="few">за {0} месеца</unitPattern>
+				<unitPattern count="many">за {0} месеци</unitPattern>
+				<unitPattern count="other">за {0} месеци</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">пре {0} месец</unitPattern>
+				<unitPattern count="few">пре {0} месеца</unitPattern>
+				<unitPattern count="many">пре {0} месеци</unitPattern>
+				<unitPattern count="other">пре {0} месеци</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} секунда</unitPattern>
+				<unitPattern count="few">{0} секунде</unitPattern>
+				<unitPattern count="many">{0} секунди</unitPattern>
+				<unitPattern count="other">{0} секунда</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">за {0} секунд</unitPattern>
+				<unitPattern count="few">за {0} секунде</unitPattern>
+				<unitPattern count="many">за {0} секунди</unitPattern>
+				<unitPattern count="other">за {0} секунди</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">пре {0} секунд</unitPattern>
+				<unitPattern count="few">пре {0} секунде</unitPattern>
+				<unitPattern count="many">пре {0} секунди</unitPattern>
+				<unitPattern count="other">пре {0} секунди</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} недеља</unitPattern>
+				<unitPattern count="few">{0} недеље</unitPattern>
+				<unitPattern count="many">{0} недеља</unitPattern>
+				<unitPattern count="other">{0} недеља</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">за {0} недељу</unitPattern>
+				<unitPattern count="few">за {0} недеље</unitPattern>
+				<unitPattern count="many">за {0} недеља</unitPattern>
+				<unitPattern count="other">за {0} недеља</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">пре {0} недељу</unitPattern>
+				<unitPattern count="few">пре {0} недеље</unitPattern>
+				<unitPattern count="many">пре {0} недеља</unitPattern>
+				<unitPattern count="other">пре {0} недеља</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} година</unitPattern>
+				<unitPattern count="few">{0} године</unitPattern>
+				<unitPattern count="many">{0} година</unitPattern>
+				<unitPattern count="other">{0} година</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">за {0} годину</unitPattern>
+				<unitPattern count="few">за {0} године</unitPattern>
+				<unitPattern count="many">за {0} година</unitPattern>
+				<unitPattern count="other">за {0} година</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">пре {0} годину</unitPattern>
+				<unitPattern count="few">пре {0} године</unitPattern>
+				<unitPattern count="many">пре {0} година</unitPattern>
+				<unitPattern count="other">пре {0} година</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} дан</unitPattern>
+				<unitPattern count="few">{0} дана</unitPattern>
+				<unitPattern count="many">{0} дана</unitPattern>
+				<unitPattern count="other">{0} дан</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} сат</unitPattern>
+				<unitPattern count="few">{0} сата</unitPattern>
+				<unitPattern count="many">{0} сати</unitPattern>
+				<unitPattern count="other">{0} сат</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} мин</unitPattern>
+				<unitPattern count="few">{0} мин</unitPattern>
+				<unitPattern count="many">{0} мин</unitPattern>
+				<unitPattern count="other">{0} мин</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} мес</unitPattern>
+				<unitPattern count="few">{0} мес</unitPattern>
+				<unitPattern count="many">{0} мес</unitPattern>
+				<unitPattern count="other">{0} мес</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} сек</unitPattern>
+				<unitPattern count="few">{0} сек</unitPattern>
+				<unitPattern count="many">{0} сек</unitPattern>
+				<unitPattern count="other">{0} сек</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} нед</unitPattern>
+				<unitPattern count="few">{0} нед</unitPattern>
+				<unitPattern count="many">{0} нед</unitPattern>
+				<unitPattern count="other">{0} нед</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} год</unitPattern>
+				<unitPattern count="few">{0} год</unitPattern>
+				<unitPattern count="many">{0} год</unitPattern>
+				<unitPattern count="other">{0} год</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

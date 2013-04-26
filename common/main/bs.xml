@@ -5258,77 +5258,94 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<!-- Copied from sr_Latn -->
-		<unit type="day">
-			<unitPattern count="one">{0} dan</unitPattern>
-			<unitPattern count="one" alt="short" draft="provisional">{0} dan</unitPattern>
-			<unitPattern count="few">{0} dana</unitPattern>
-			<unitPattern count="few" alt="short" draft="provisional">{0} dana</unitPattern>
-			<unitPattern count="many">{0} dana</unitPattern>
-			<unitPattern count="many" alt="short" draft="provisional">{0} dana</unitPattern>
-			<unitPattern count="other">{0} dana</unitPattern>
-			<unitPattern count="other" alt="short" draft="provisional">{0} dan</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} sat</unitPattern>
-			<unitPattern count="one" alt="short" draft="provisional">{0} sat</unitPattern>
-			<unitPattern count="few">{0} sata</unitPattern>
-			<unitPattern count="few" alt="short" draft="provisional">{0} sata</unitPattern>
-			<unitPattern count="many">{0} sati</unitPattern>
-			<unitPattern count="many" alt="short" draft="provisional">{0} sati</unitPattern>
-			<unitPattern count="other">{0} sati</unitPattern>
-			<unitPattern count="other" alt="short" draft="provisional">{0} sat</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minut</unitPattern>
-			<unitPattern count="one" alt="short" draft="provisional">{0} min</unitPattern>
-			<unitPattern count="few">{0} minute</unitPattern>
-			<unitPattern count="few" alt="short" draft="provisional">{0} min</unitPattern>
-			<unitPattern count="many">{0} minuta</unitPattern>
-			<unitPattern count="many" alt="short" draft="provisional">{0} min</unitPattern>
-			<unitPattern count="other">{0} minuta</unitPattern>
-			<unitPattern count="other" alt="short" draft="provisional">{0} min</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} mesec</unitPattern>
-			<unitPattern count="one" alt="short" draft="provisional">{0} mes</unitPattern>
-			<unitPattern count="few">{0} meseca</unitPattern>
-			<unitPattern count="few" alt="short" draft="provisional">{0} mes</unitPattern>
-			<unitPattern count="many">{0} meseci</unitPattern>
-			<unitPattern count="many" alt="short" draft="provisional">{0} mes</unitPattern>
-			<unitPattern count="other">{0} meseci</unitPattern>
-			<unitPattern count="other" alt="short" draft="provisional">{0} mes</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} sekunda</unitPattern>
-			<unitPattern count="one" alt="short" draft="provisional">{0} sek</unitPattern>
-			<unitPattern count="few">{0} sekunde</unitPattern>
-			<unitPattern count="few" alt="short" draft="provisional">{0} sek</unitPattern>
-			<unitPattern count="many">{0} sekundi</unitPattern>
-			<unitPattern count="many" alt="short" draft="provisional">{0} sek</unitPattern>
-			<unitPattern count="other">{0} sekundi</unitPattern>
-			<unitPattern count="other" alt="short" draft="provisional">{0} sek</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} nedelja</unitPattern>
-			<unitPattern count="one" alt="short" draft="provisional">{0} ned</unitPattern>
-			<unitPattern count="few">{0} nedelje</unitPattern>
-			<unitPattern count="few" alt="short" draft="provisional">{0} ned</unitPattern>
-			<unitPattern count="many">{0} nedelja</unitPattern>
-			<unitPattern count="many" alt="short" draft="provisional">{0} ned</unitPattern>
-			<unitPattern count="other">{0} nedelja</unitPattern>
-			<unitPattern count="other" alt="short" draft="provisional">{0} ned</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} godina</unitPattern>
-			<unitPattern count="one" alt="short">{0} god</unitPattern>
-			<unitPattern count="few">{0} godine</unitPattern>
-			<unitPattern count="few" alt="short">{0} god</unitPattern>
-			<unitPattern count="many">{0} godina</unitPattern>
-			<unitPattern count="many" alt="short">{0} god</unitPattern>
-			<unitPattern count="other">{0} godina</unitPattern>
-			<unitPattern count="other" alt="short">{0} god</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} dan</unitPattern>
+				<unitPattern count="few">{0} dana</unitPattern>
+				<unitPattern count="many">{0} dana</unitPattern>
+				<unitPattern count="other">{0} dana</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} sat</unitPattern>
+				<unitPattern count="few">{0} sata</unitPattern>
+				<unitPattern count="many">{0} sati</unitPattern>
+				<unitPattern count="other">{0} sati</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minut</unitPattern>
+				<unitPattern count="few">{0} minute</unitPattern>
+				<unitPattern count="many">{0} minuta</unitPattern>
+				<unitPattern count="other">{0} minuta</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mesec</unitPattern>
+				<unitPattern count="few">{0} meseca</unitPattern>
+				<unitPattern count="many">{0} meseci</unitPattern>
+				<unitPattern count="other">{0} meseci</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekunda</unitPattern>
+				<unitPattern count="few">{0} sekunde</unitPattern>
+				<unitPattern count="many">{0} sekundi</unitPattern>
+				<unitPattern count="other">{0} sekundi</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} nedelja</unitPattern>
+				<unitPattern count="few">{0} nedelje</unitPattern>
+				<unitPattern count="many">{0} nedelja</unitPattern>
+				<unitPattern count="other">{0} nedelja</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} godina</unitPattern>
+				<unitPattern count="few">{0} godine</unitPattern>
+				<unitPattern count="many">{0} godina</unitPattern>
+				<unitPattern count="other">{0} godina</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} dan</unitPattern>
+				<unitPattern count="few">{0} dana</unitPattern>
+				<unitPattern count="many">{0} dana</unitPattern>
+				<unitPattern count="other">{0} dan</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} sat</unitPattern>
+				<unitPattern count="few">{0} sata</unitPattern>
+				<unitPattern count="many">{0} sati</unitPattern>
+				<unitPattern count="other">{0} sat</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="few">{0} min</unitPattern>
+				<unitPattern count="many">{0} min</unitPattern>
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mes</unitPattern>
+				<unitPattern count="few">{0} mes</unitPattern>
+				<unitPattern count="many">{0} mes</unitPattern>
+				<unitPattern count="other">{0} mes</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sek</unitPattern>
+				<unitPattern count="few">{0} sek</unitPattern>
+				<unitPattern count="many">{0} sek</unitPattern>
+				<unitPattern count="other">{0} sek</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} ned</unitPattern>
+				<unitPattern count="few">{0} ned</unitPattern>
+				<unitPattern count="many">{0} ned</unitPattern>
+				<unitPattern count="other">{0} ned</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} god</unitPattern>
+				<unitPattern count="few">{0} god</unitPattern>
+				<unitPattern count="many">{0} god</unitPattern>
+				<unitPattern count="other">{0} god</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<!-- Copied from sr_Latn -->
@@ -5344,4 +5361,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

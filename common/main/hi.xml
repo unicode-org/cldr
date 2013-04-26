@@ -4738,104 +4738,122 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} दिन</unitPattern>
-			<unitPattern count="one" alt="short">{0} दि.</unitPattern>
-			<unitPattern count="other">{0} दिन</unitPattern>
-			<unitPattern count="other" alt="short">{0} दि.</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">{0} दिन में</unitPattern>
-			<unitPattern count="other">{0} दिन में</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">{0} दिन पहले</unitPattern>
-			<unitPattern count="other">{0} दिन पहले</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} घंटा</unitPattern>
-			<unitPattern count="one" alt="short">{0} घं.</unitPattern>
-			<unitPattern count="other">{0} घंटे</unitPattern>
-			<unitPattern count="other" alt="short">{0} घंटे</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one" draft="contributed">{0} घंटों में</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} घंटों में</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">{0} घंटे पहले</unitPattern>
-			<unitPattern count="other">{0} घंटे पहले</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} मिनट</unitPattern>
-			<unitPattern count="one" alt="short">{0} मिन.</unitPattern>
-			<unitPattern count="other">{0} मिनट</unitPattern>
-			<unitPattern count="other" alt="short">{0} मिन.</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">{0} मिनट में</unitPattern>
-			<unitPattern count="other">{0} मिनट में</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">{0} मिनट पहले</unitPattern>
-			<unitPattern count="other">{0} मिनट पहले</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} महीना</unitPattern>
-			<unitPattern count="one" alt="short">{0} मही.</unitPattern>
-			<unitPattern count="other">{0} महीने</unitPattern>
-			<unitPattern count="other" alt="short">{0} मही.</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">{0} माह में</unitPattern>
-			<unitPattern count="other">{0} माह में</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">{0} माह पहले</unitPattern>
-			<unitPattern count="other">{0} माह पहले</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} सेकंड</unitPattern>
-			<unitPattern count="one" alt="short">{0} सेकं.</unitPattern>
-			<unitPattern count="other">{0} सेकंड</unitPattern>
-			<unitPattern count="other" alt="short">{0} सेकं.</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">{0} सेकंड में</unitPattern>
-			<unitPattern count="other">{0} सेकंड में</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">{0} सेकंड पहले</unitPattern>
-			<unitPattern count="other">{0} सेकंड पहले</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} सप्ताह</unitPattern>
-			<unitPattern count="one" alt="short">{0} सप्त.</unitPattern>
-			<unitPattern count="other">{0} सप्ताह</unitPattern>
-			<unitPattern count="other" alt="short">{0} सप्त.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">{0} सप्ताह में</unitPattern>
-			<unitPattern count="other">{0} सप्ताह में</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">{0} सप्ताह पहले</unitPattern>
-			<unitPattern count="other">{0} सप्ताह पहले</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} साल</unitPattern>
-			<unitPattern count="one" alt="short">{0} साल</unitPattern>
-			<unitPattern count="other">{0} साल</unitPattern>
-			<unitPattern count="other" alt="short">{0} साल</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">{0} वर्ष में</unitPattern>
-			<unitPattern count="other">{0} वर्ष में</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">{0} वर्ष पहले</unitPattern>
-			<unitPattern count="other">{0} वर्ष पहले</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} दिन</unitPattern>
+				<unitPattern count="other">{0} दिन</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} दिन में</unitPattern>
+				<unitPattern count="other">{0} दिन में</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} दिन पहले</unitPattern>
+				<unitPattern count="other">{0} दिन पहले</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} घंटा</unitPattern>
+				<unitPattern count="other">{0} घंटे</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} घंटों में</unitPattern>
+				<unitPattern count="other">{0} घंटों में</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} घंटे पहले</unitPattern>
+				<unitPattern count="other">{0} घंटे पहले</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} मिनट</unitPattern>
+				<unitPattern count="other">{0} मिनट</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} मिनट में</unitPattern>
+				<unitPattern count="other">{0} मिनट में</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} मिनट पहले</unitPattern>
+				<unitPattern count="other">{0} मिनट पहले</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} महीना</unitPattern>
+				<unitPattern count="other">{0} महीने</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} माह में</unitPattern>
+				<unitPattern count="other">{0} माह में</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} माह पहले</unitPattern>
+				<unitPattern count="other">{0} माह पहले</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} सेकंड</unitPattern>
+				<unitPattern count="other">{0} सेकंड</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} सेकंड में</unitPattern>
+				<unitPattern count="other">{0} सेकंड में</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} सेकंड पहले</unitPattern>
+				<unitPattern count="other">{0} सेकंड पहले</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} सप्ताह</unitPattern>
+				<unitPattern count="other">{0} सप्ताह</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} सप्ताह में</unitPattern>
+				<unitPattern count="other">{0} सप्ताह में</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} सप्ताह पहले</unitPattern>
+				<unitPattern count="other">{0} सप्ताह पहले</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} साल</unitPattern>
+				<unitPattern count="other">{0} साल</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} वर्ष में</unitPattern>
+				<unitPattern count="other">{0} वर्ष में</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} वर्ष पहले</unitPattern>
+				<unitPattern count="other">{0} वर्ष पहले</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} दि.</unitPattern>
+				<unitPattern count="other">{0} दि.</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} घं.</unitPattern>
+				<unitPattern count="other">{0} घंटे</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} मिन.</unitPattern>
+				<unitPattern count="other">{0} मिन.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} मही.</unitPattern>
+				<unitPattern count="other">{0} मही.</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} सेकं.</unitPattern>
+				<unitPattern count="other">{0} सेकं.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} सप्त.</unitPattern>
+				<unitPattern count="other">{0} सप्त.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} साल</unitPattern>
+				<unitPattern count="other">{0} साल</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

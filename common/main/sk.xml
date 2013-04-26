@@ -3969,132 +3969,150 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} deň</unitPattern>
-			<unitPattern count="one" alt="short">{0} d.</unitPattern>
-			<unitPattern count="few">{0} dni</unitPattern>
-			<unitPattern count="few" alt="short">{0} d.</unitPattern>
-			<unitPattern count="other">{0} dní</unitPattern>
-			<unitPattern count="other" alt="short">{0} d.</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">{0} deň</unitPattern>
-			<unitPattern count="few">O {0} dni</unitPattern>
-			<unitPattern count="other">O {0} dní</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">Pred {0} dňom</unitPattern>
-			<unitPattern count="few">Pred {0} dňami</unitPattern>
-			<unitPattern count="other">Pred {0} dňami</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} hodina</unitPattern>
-			<unitPattern count="one" alt="short">{0} h</unitPattern>
-			<unitPattern count="few">{0} hodiny</unitPattern>
-			<unitPattern count="few" alt="short">{0} h</unitPattern>
-			<unitPattern count="other">{0} hodín</unitPattern>
-			<unitPattern count="other" alt="short">{0} h</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">O {0} hodinu</unitPattern>
-			<unitPattern count="few">O {0} hodiny</unitPattern>
-			<unitPattern count="other">O {0} hodín</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">Pred {0} hodinou</unitPattern>
-			<unitPattern count="few">Pred {0} hodinami</unitPattern>
-			<unitPattern count="other">Pred {0} hodinami</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minúta</unitPattern>
-			<unitPattern count="one" alt="short">{0} min</unitPattern>
-			<unitPattern count="few">{0} minúty</unitPattern>
-			<unitPattern count="few" alt="short">{0} min</unitPattern>
-			<unitPattern count="other">{0} minút</unitPattern>
-			<unitPattern count="other" alt="short">{0} min</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">O {0} minútu</unitPattern>
-			<unitPattern count="few">O {0} minúty</unitPattern>
-			<unitPattern count="other">O {0} minút</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">Pred {0} minútou</unitPattern>
-			<unitPattern count="few">Pred {0} minútami</unitPattern>
-			<unitPattern count="other">Pred {0} minútami</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} mesiac</unitPattern>
-			<unitPattern count="one" alt="short">{0} mes.</unitPattern>
-			<unitPattern count="few">{0} mesiace</unitPattern>
-			<unitPattern count="few" alt="short">{0} mes.</unitPattern>
-			<unitPattern count="other">{0} mesiacov</unitPattern>
-			<unitPattern count="other" alt="short">{0} mes.</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">O {0} mesiac</unitPattern>
-			<unitPattern count="few">O {0} mesiace</unitPattern>
-			<unitPattern count="other">O {0} mesiacov</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">Pred {0} mesiacom</unitPattern>
-			<unitPattern count="few">Pred {0} mesiacmi</unitPattern>
-			<unitPattern count="other">Pred {0} mesiacmi</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} sekunda</unitPattern>
-			<unitPattern count="one" alt="short">{0} s</unitPattern>
-			<unitPattern count="few">{0} sekundy</unitPattern>
-			<unitPattern count="few" alt="short">{0} s</unitPattern>
-			<unitPattern count="other">{0} sekúnd</unitPattern>
-			<unitPattern count="other" alt="short">{0} s</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">O {0} sekundu</unitPattern>
-			<unitPattern count="few">O {0} sekundy</unitPattern>
-			<unitPattern count="other">O {0} sekúnd</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">Pred {0} sekundou</unitPattern>
-			<unitPattern count="few">Pred {0} sekundami</unitPattern>
-			<unitPattern count="other">Pred {0} sekundami</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} týždeň</unitPattern>
-			<unitPattern count="one" alt="short">{0} týžd.</unitPattern>
-			<unitPattern count="few">{0} týždne</unitPattern>
-			<unitPattern count="few" alt="short">{0} týžd.</unitPattern>
-			<unitPattern count="other">{0} týždňov</unitPattern>
-			<unitPattern count="other" alt="short">{0} týžd.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">O {0} týždeň</unitPattern>
-			<unitPattern count="few">O {0} týždne</unitPattern>
-			<unitPattern count="other">O {0} týždňov</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">Pred {0} týždňom</unitPattern>
-			<unitPattern count="few">Pred {0} týždňami</unitPattern>
-			<unitPattern count="other">Pred {0} týždňami</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} rok</unitPattern>
-			<unitPattern count="one" alt="short">{0} r.</unitPattern>
-			<unitPattern count="few">{0} roky</unitPattern>
-			<unitPattern count="few" alt="short">{0} r.</unitPattern>
-			<unitPattern count="other">{0} rokov</unitPattern>
-			<unitPattern count="other" alt="short">{0} r.</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">O {0} rok</unitPattern>
-			<unitPattern count="few">O {0} roky</unitPattern>
-			<unitPattern count="other">O {0} rokov</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">Pred {0} rokom</unitPattern>
-			<unitPattern count="few">Pred {0} rokmi</unitPattern>
-			<unitPattern count="other">Pred {0} rokmi</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} deň</unitPattern>
+				<unitPattern count="few">{0} dni</unitPattern>
+				<unitPattern count="other">{0} dní</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} deň</unitPattern>
+				<unitPattern count="few">O {0} dni</unitPattern>
+				<unitPattern count="other">O {0} dní</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">Pred {0} dňom</unitPattern>
+				<unitPattern count="few">Pred {0} dňami</unitPattern>
+				<unitPattern count="other">Pred {0} dňami</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} hodina</unitPattern>
+				<unitPattern count="few">{0} hodiny</unitPattern>
+				<unitPattern count="other">{0} hodín</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">O {0} hodinu</unitPattern>
+				<unitPattern count="few">O {0} hodiny</unitPattern>
+				<unitPattern count="other">O {0} hodín</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">Pred {0} hodinou</unitPattern>
+				<unitPattern count="few">Pred {0} hodinami</unitPattern>
+				<unitPattern count="other">Pred {0} hodinami</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minúta</unitPattern>
+				<unitPattern count="few">{0} minúty</unitPattern>
+				<unitPattern count="other">{0} minút</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">O {0} minútu</unitPattern>
+				<unitPattern count="few">O {0} minúty</unitPattern>
+				<unitPattern count="other">O {0} minút</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">Pred {0} minútou</unitPattern>
+				<unitPattern count="few">Pred {0} minútami</unitPattern>
+				<unitPattern count="other">Pred {0} minútami</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mesiac</unitPattern>
+				<unitPattern count="few">{0} mesiace</unitPattern>
+				<unitPattern count="other">{0} mesiacov</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">O {0} mesiac</unitPattern>
+				<unitPattern count="few">O {0} mesiace</unitPattern>
+				<unitPattern count="other">O {0} mesiacov</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">Pred {0} mesiacom</unitPattern>
+				<unitPattern count="few">Pred {0} mesiacmi</unitPattern>
+				<unitPattern count="other">Pred {0} mesiacmi</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekunda</unitPattern>
+				<unitPattern count="few">{0} sekundy</unitPattern>
+				<unitPattern count="other">{0} sekúnd</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">O {0} sekundu</unitPattern>
+				<unitPattern count="few">O {0} sekundy</unitPattern>
+				<unitPattern count="other">O {0} sekúnd</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">Pred {0} sekundou</unitPattern>
+				<unitPattern count="few">Pred {0} sekundami</unitPattern>
+				<unitPattern count="other">Pred {0} sekundami</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} týždeň</unitPattern>
+				<unitPattern count="few">{0} týždne</unitPattern>
+				<unitPattern count="other">{0} týždňov</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">O {0} týždeň</unitPattern>
+				<unitPattern count="few">O {0} týždne</unitPattern>
+				<unitPattern count="other">O {0} týždňov</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">Pred {0} týždňom</unitPattern>
+				<unitPattern count="few">Pred {0} týždňami</unitPattern>
+				<unitPattern count="other">Pred {0} týždňami</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} rok</unitPattern>
+				<unitPattern count="few">{0} roky</unitPattern>
+				<unitPattern count="other">{0} rokov</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">O {0} rok</unitPattern>
+				<unitPattern count="few">O {0} roky</unitPattern>
+				<unitPattern count="other">O {0} rokov</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">Pred {0} rokom</unitPattern>
+				<unitPattern count="few">Pred {0} rokmi</unitPattern>
+				<unitPattern count="other">Pred {0} rokmi</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} d.</unitPattern>
+				<unitPattern count="few">{0} d.</unitPattern>
+				<unitPattern count="other">{0} d.</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} h</unitPattern>
+				<unitPattern count="few">{0} h</unitPattern>
+				<unitPattern count="other">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="few">{0} min</unitPattern>
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mes.</unitPattern>
+				<unitPattern count="few">{0} mes.</unitPattern>
+				<unitPattern count="other">{0} mes.</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="few">{0} s</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} týžd.</unitPattern>
+				<unitPattern count="few">{0} týžd.</unitPattern>
+				<unitPattern count="other">{0} týžd.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} r.</unitPattern>
+				<unitPattern count="few">{0} r.</unitPattern>
+				<unitPattern count="other">{0} r.</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

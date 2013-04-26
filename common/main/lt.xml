@@ -5653,132 +5653,150 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} diena</unitPattern>
-			<unitPattern count="one" alt="short">{0} d.</unitPattern>
-			<unitPattern count="few">{0} dienos</unitPattern>
-			<unitPattern count="few" alt="short">{0} d.</unitPattern>
-			<unitPattern count="other">{0} dienų</unitPattern>
-			<unitPattern count="other" alt="short">{0} d.</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">po {0} dienos</unitPattern>
-			<unitPattern count="few">po {0} dienų</unitPattern>
-			<unitPattern count="other">po {0} dienų</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">prieš {0} dieną</unitPattern>
-			<unitPattern count="few">prieš {0} dienas</unitPattern>
-			<unitPattern count="other">prieš {0} dienų</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} valanda</unitPattern>
-			<unitPattern count="one" alt="short">{0} val.</unitPattern>
-			<unitPattern count="few">{0} valandos</unitPattern>
-			<unitPattern count="few" alt="short">{0} val.</unitPattern>
-			<unitPattern count="other">{0} valandų</unitPattern>
-			<unitPattern count="other" alt="short">{0} val.</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">po {0} valandos</unitPattern>
-			<unitPattern count="few">po {0} valandų</unitPattern>
-			<unitPattern count="other">po {0} valandų</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">prieš {0} valandą</unitPattern>
-			<unitPattern count="few">prieš {0} valandas</unitPattern>
-			<unitPattern count="other">prieš {0} valandų</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minutė</unitPattern>
-			<unitPattern count="one" alt="short">{0} min.</unitPattern>
-			<unitPattern count="few">{0} minutės</unitPattern>
-			<unitPattern count="few" alt="short">{0} min.</unitPattern>
-			<unitPattern count="other">{0} minučių</unitPattern>
-			<unitPattern count="other" alt="short">{0} min.</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">po {0} minutės</unitPattern>
-			<unitPattern count="few">po {0} minučių</unitPattern>
-			<unitPattern count="other">po {0} minučių</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">prieš {0} minutę</unitPattern>
-			<unitPattern count="few">prieš {0} minutes</unitPattern>
-			<unitPattern count="other">prieš {0} minučių</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} mėnuo</unitPattern>
-			<unitPattern count="one" alt="short">{0} mėn.</unitPattern>
-			<unitPattern count="few">{0} mėnesiai</unitPattern>
-			<unitPattern count="few" alt="short">{0} mėn.</unitPattern>
-			<unitPattern count="other">{0} mėnesių</unitPattern>
-			<unitPattern count="other" alt="short">{0} mėn.</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">po {0} mėnesio</unitPattern>
-			<unitPattern count="few">po {0} mėnesių</unitPattern>
-			<unitPattern count="other">po {0} mėnesių</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">prieš {0} mėnesį</unitPattern>
-			<unitPattern count="few">prieš {0} mėnesius</unitPattern>
-			<unitPattern count="other">prieš {0} mėnesių</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} sekundė</unitPattern>
-			<unitPattern count="one" alt="short">{0} sek.</unitPattern>
-			<unitPattern count="few">{0} sekundės</unitPattern>
-			<unitPattern count="few" alt="short">{0} sek.</unitPattern>
-			<unitPattern count="other">{0} sekundžių</unitPattern>
-			<unitPattern count="other" alt="short">{0} sek.</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">po {0} sekundės</unitPattern>
-			<unitPattern count="few">po {0} sekundžių</unitPattern>
-			<unitPattern count="other">po {0} sekundžių</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">prieš {0} sekundę</unitPattern>
-			<unitPattern count="few">prieš {0} sekundes</unitPattern>
-			<unitPattern count="other">prieš {0} sekundžių</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} savaitė</unitPattern>
-			<unitPattern count="one" alt="short">{0} sav.</unitPattern>
-			<unitPattern count="few">{0} savaitės</unitPattern>
-			<unitPattern count="few" alt="short">{0} sav.</unitPattern>
-			<unitPattern count="other">{0} savaičių</unitPattern>
-			<unitPattern count="other" alt="short">{0} sav.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">po {0} savaitės</unitPattern>
-			<unitPattern count="few">po {0} savaičių</unitPattern>
-			<unitPattern count="other">po {0} savaičių</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">prieš {0} savaitę</unitPattern>
-			<unitPattern count="few">prieš {0} savaites</unitPattern>
-			<unitPattern count="other">prieš {0} savaičių</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} metai</unitPattern>
-			<unitPattern count="one" alt="short">{0} m.</unitPattern>
-			<unitPattern count="few">{0} metai</unitPattern>
-			<unitPattern count="few" alt="short">{0} m.</unitPattern>
-			<unitPattern count="other">{0} metų</unitPattern>
-			<unitPattern count="other" alt="short">{0} m.</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">po {0} metų</unitPattern>
-			<unitPattern count="few">po {0} metų</unitPattern>
-			<unitPattern count="other">po {0} metų</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">prieš {0} metus</unitPattern>
-			<unitPattern count="few">prieš {0} metus</unitPattern>
-			<unitPattern count="other">prieš {0} metų</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} diena</unitPattern>
+				<unitPattern count="few">{0} dienos</unitPattern>
+				<unitPattern count="other">{0} dienų</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">po {0} dienos</unitPattern>
+				<unitPattern count="few">po {0} dienų</unitPattern>
+				<unitPattern count="other">po {0} dienų</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">prieš {0} dieną</unitPattern>
+				<unitPattern count="few">prieš {0} dienas</unitPattern>
+				<unitPattern count="other">prieš {0} dienų</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} valanda</unitPattern>
+				<unitPattern count="few">{0} valandos</unitPattern>
+				<unitPattern count="other">{0} valandų</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">po {0} valandos</unitPattern>
+				<unitPattern count="few">po {0} valandų</unitPattern>
+				<unitPattern count="other">po {0} valandų</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">prieš {0} valandą</unitPattern>
+				<unitPattern count="few">prieš {0} valandas</unitPattern>
+				<unitPattern count="other">prieš {0} valandų</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minutė</unitPattern>
+				<unitPattern count="few">{0} minutės</unitPattern>
+				<unitPattern count="other">{0} minučių</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">po {0} minutės</unitPattern>
+				<unitPattern count="few">po {0} minučių</unitPattern>
+				<unitPattern count="other">po {0} minučių</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">prieš {0} minutę</unitPattern>
+				<unitPattern count="few">prieš {0} minutes</unitPattern>
+				<unitPattern count="other">prieš {0} minučių</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mėnuo</unitPattern>
+				<unitPattern count="few">{0} mėnesiai</unitPattern>
+				<unitPattern count="other">{0} mėnesių</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">po {0} mėnesio</unitPattern>
+				<unitPattern count="few">po {0} mėnesių</unitPattern>
+				<unitPattern count="other">po {0} mėnesių</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">prieš {0} mėnesį</unitPattern>
+				<unitPattern count="few">prieš {0} mėnesius</unitPattern>
+				<unitPattern count="other">prieš {0} mėnesių</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekundė</unitPattern>
+				<unitPattern count="few">{0} sekundės</unitPattern>
+				<unitPattern count="other">{0} sekundžių</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">po {0} sekundės</unitPattern>
+				<unitPattern count="few">po {0} sekundžių</unitPattern>
+				<unitPattern count="other">po {0} sekundžių</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">prieš {0} sekundę</unitPattern>
+				<unitPattern count="few">prieš {0} sekundes</unitPattern>
+				<unitPattern count="other">prieš {0} sekundžių</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} savaitė</unitPattern>
+				<unitPattern count="few">{0} savaitės</unitPattern>
+				<unitPattern count="other">{0} savaičių</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">po {0} savaitės</unitPattern>
+				<unitPattern count="few">po {0} savaičių</unitPattern>
+				<unitPattern count="other">po {0} savaičių</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">prieš {0} savaitę</unitPattern>
+				<unitPattern count="few">prieš {0} savaites</unitPattern>
+				<unitPattern count="other">prieš {0} savaičių</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} metai</unitPattern>
+				<unitPattern count="few">{0} metai</unitPattern>
+				<unitPattern count="other">{0} metų</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">po {0} metų</unitPattern>
+				<unitPattern count="few">po {0} metų</unitPattern>
+				<unitPattern count="other">po {0} metų</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">prieš {0} metus</unitPattern>
+				<unitPattern count="few">prieš {0} metus</unitPattern>
+				<unitPattern count="other">prieš {0} metų</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} d.</unitPattern>
+				<unitPattern count="few">{0} d.</unitPattern>
+				<unitPattern count="other">{0} d.</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} val.</unitPattern>
+				<unitPattern count="few">{0} val.</unitPattern>
+				<unitPattern count="other">{0} val.</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min.</unitPattern>
+				<unitPattern count="few">{0} min.</unitPattern>
+				<unitPattern count="other">{0} min.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mėn.</unitPattern>
+				<unitPattern count="few">{0} mėn.</unitPattern>
+				<unitPattern count="other">{0} mėn.</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sek.</unitPattern>
+				<unitPattern count="few">{0} sek.</unitPattern>
+				<unitPattern count="other">{0} sek.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} sav.</unitPattern>
+				<unitPattern count="few">{0} sav.</unitPattern>
+				<unitPattern count="other">{0} sav.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} m.</unitPattern>
+				<unitPattern count="few">{0} m.</unitPattern>
+				<unitPattern count="other">{0} m.</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

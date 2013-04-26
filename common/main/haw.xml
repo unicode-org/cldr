@@ -226,34 +226,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} lā</unitPattern>
-			<unitPattern count="other">{0} lā</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} hola</unitPattern>
-			<unitPattern count="other">{0} hola</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minuke</unitPattern>
-			<unitPattern count="other">{0} minuke</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} mahina</unitPattern>
-			<unitPattern count="other">{0} mahina</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} kekona</unitPattern>
-			<unitPattern count="other">{0} kekona</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} pule</unitPattern>
-			<unitPattern count="other">{0} pule</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} makahiki</unitPattern>
-			<unitPattern count="other">{0} makahiki</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} lā</unitPattern>
+				<unitPattern count="other">{0} lā</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} hola</unitPattern>
+				<unitPattern count="other">{0} hola</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minuke</unitPattern>
+				<unitPattern count="other">{0} minuke</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mahina</unitPattern>
+				<unitPattern count="other">{0} mahina</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} kekona</unitPattern>
+				<unitPattern count="other">{0} kekona</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} pule</unitPattern>
+				<unitPattern count="other">{0} pule</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} makahiki</unitPattern>
+				<unitPattern count="other">{0} makahiki</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 </ldml>
 

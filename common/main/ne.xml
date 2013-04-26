@@ -2755,34 +2755,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} दिन</unitPattern>
-			<unitPattern count="other">{0} दिन</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} घण्टा</unitPattern>
-			<unitPattern count="other">{0} घण्टा</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} मिनेट</unitPattern>
-			<unitPattern count="other">{0} मिनेट</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} महिना</unitPattern>
-			<unitPattern count="other">{0} महिना</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} सेकेण्ड</unitPattern>
-			<unitPattern count="other">{0} सेकेण्ड</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} हप्ता</unitPattern>
-			<unitPattern count="other">{0} हप्ता</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} बर्ष</unitPattern>
-			<unitPattern count="other">{0} बर्ष</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} दिन</unitPattern>
+				<unitPattern count="other">{0} दिन</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} घण्टा</unitPattern>
+				<unitPattern count="other">{0} घण्टा</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} मिनेट</unitPattern>
+				<unitPattern count="other">{0} मिनेट</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} महिना</unitPattern>
+				<unitPattern count="other">{0} महिना</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} सेकेण्ड</unitPattern>
+				<unitPattern count="other">{0} सेकेण्ड</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} हप्ता</unitPattern>
+				<unitPattern count="other">{0} हप्ता</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} बर्ष</unitPattern>
+				<unitPattern count="other">{0} बर्ष</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 </ldml>
 

@@ -4518,104 +4518,122 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} ቀናት</unitPattern>
-			<unitPattern count="one" alt="short">{0} ቀናት</unitPattern>
-			<unitPattern count="other">{0} ቀናት</unitPattern>
-			<unitPattern count="other" alt="short">{0} ቀናት</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">በ {0} ቀናት ውስጥ</unitPattern>
-			<unitPattern count="other">በ {0} ቀናት ውስጥ</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">ከ{0} ቀናት በፊት</unitPattern>
-			<unitPattern count="other">ከ{0} ቀናት በፊት</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} ሰዓቶች</unitPattern>
-			<unitPattern count="one" alt="short">{0} ሰዓት</unitPattern>
-			<unitPattern count="other">{0} ሰዓቶች</unitPattern>
-			<unitPattern count="other" alt="short">{0} ሰዓቶች</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">በ{0} ሰዓቶች ውስጥ</unitPattern>
-			<unitPattern count="other">በ{0} ሰዓቶች ውስጥ</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">ከ{0} ሰዓት በፊት</unitPattern>
-			<unitPattern count="other">ከ{0} ሰዓት በፊት</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} ደቂቃዎች</unitPattern>
-			<unitPattern count="one" alt="short">{0} ደቂቃዎች</unitPattern>
-			<unitPattern count="other">{0} ደቂቃዎች</unitPattern>
-			<unitPattern count="other" alt="short">{0} ደቂቃዎች</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">በ{0} ደቂቃዎች ውስጥ</unitPattern>
-			<unitPattern count="other">በ{0} ደቂቃዎች ውስጥ</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">ከ{0} ደቂቃዎች በፊት</unitPattern>
-			<unitPattern count="other">ከ{0} ደቂቃዎች በፊት</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} ወራት</unitPattern>
-			<unitPattern count="one" alt="short">{0} ወራት</unitPattern>
-			<unitPattern count="other">{0} ወራት</unitPattern>
-			<unitPattern count="other" alt="short">{0} ወራት</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">በ{0} ወራት ውስጥ</unitPattern>
-			<unitPattern count="other">በ{0} ወራት ውስጥ</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">ከ{0} ወራት በፊት</unitPattern>
-			<unitPattern count="other">ከ{0} ወራት በፊት</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} ሰከንዶች</unitPattern>
-			<unitPattern count="one" alt="short">{0} ሰከንዶች</unitPattern>
-			<unitPattern count="other">{0} ሰከንዶች</unitPattern>
-			<unitPattern count="other" alt="short">{0} ሰከንዶች</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">በ{0} ሰከንዶች ውስጥ</unitPattern>
-			<unitPattern count="other">በ{0} ሰከንዶች ውስጥ</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">ከ{0} ሰከንዶች በፊት</unitPattern>
-			<unitPattern count="other">ከ{0} ሰከንዶች በፊት</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} ሳምንታት</unitPattern>
-			<unitPattern count="one" alt="short">{0} ሳምንቶች</unitPattern>
-			<unitPattern count="other">{0} ሳምንታት</unitPattern>
-			<unitPattern count="other" alt="short">{0} ሳምንቶች</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">በ{0} ሳምንት ውስጥ</unitPattern>
-			<unitPattern count="other">በ{0} ሳምንት ውስጥ</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">ከ{0} ሳምንታት በፊት</unitPattern>
-			<unitPattern count="other">ከ{0} ሳምንታት በፊት</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} ዓመታት</unitPattern>
-			<unitPattern count="one" alt="short">{0} ዓመታት</unitPattern>
-			<unitPattern count="other">{0} ዓመታት</unitPattern>
-			<unitPattern count="other" alt="short">{0} ዓመታት</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">በ{0} ዓመታት ውስጥ</unitPattern>
-			<unitPattern count="other">በ{0} ዓመታት ውስጥ</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">ከ{0} ዓመታት በፊት</unitPattern>
-			<unitPattern count="other">ከ{0} ዓመታት በፊት</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} ቀናት</unitPattern>
+				<unitPattern count="other">{0} ቀናት</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">በ {0} ቀናት ውስጥ</unitPattern>
+				<unitPattern count="other">በ {0} ቀናት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">ከ{0} ቀናት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ቀናት በፊት</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ሰዓቶች</unitPattern>
+				<unitPattern count="other">{0} ሰዓቶች</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">በ{0} ሰዓቶች ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ሰዓቶች ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">ከ{0} ሰዓት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሰዓት በፊት</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} ደቂቃዎች</unitPattern>
+				<unitPattern count="other">{0} ደቂቃዎች</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">በ{0} ደቂቃዎች ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ደቂቃዎች ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">ከ{0} ደቂቃዎች በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ደቂቃዎች በፊት</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} ወራት</unitPattern>
+				<unitPattern count="other">{0} ወራት</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">በ{0} ወራት ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ወራት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">ከ{0} ወራት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ወራት በፊት</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} ሰከንዶች</unitPattern>
+				<unitPattern count="other">{0} ሰከንዶች</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">በ{0} ሰከንዶች ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ሰከንዶች ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">ከ{0} ሰከንዶች በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሰከንዶች በፊት</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} ሳምንታት</unitPattern>
+				<unitPattern count="other">{0} ሳምንታት</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">በ{0} ሳምንት ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ሳምንት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">ከ{0} ሳምንታት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሳምንታት በፊት</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} ዓመታት</unitPattern>
+				<unitPattern count="other">{0} ዓመታት</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">በ{0} ዓመታት ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ዓመታት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">ከ{0} ዓመታት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ዓመታት በፊት</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} ቀናት</unitPattern>
+				<unitPattern count="other">{0} ቀናት</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ሰዓት</unitPattern>
+				<unitPattern count="other">{0} ሰዓቶች</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} ደቂቃዎች</unitPattern>
+				<unitPattern count="other">{0} ደቂቃዎች</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} ወራት</unitPattern>
+				<unitPattern count="other">{0} ወራት</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} ሰከንዶች</unitPattern>
+				<unitPattern count="other">{0} ሰከንዶች</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} ሳምንቶች</unitPattern>
+				<unitPattern count="other">{0} ሳምንቶች</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} ዓመታት</unitPattern>
+				<unitPattern count="other">{0} ዓመታት</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

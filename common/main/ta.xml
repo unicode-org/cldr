@@ -4504,104 +4504,122 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} நாள்</unitPattern>
-			<unitPattern count="one" alt="short">{0} நாள்</unitPattern>
-			<unitPattern count="other">{0} நாட்கள்</unitPattern>
-			<unitPattern count="other" alt="short">{0} நாட்கள்</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">{0} நாளில்</unitPattern>
-			<unitPattern count="other">{0} நாட்களில்</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">{0} நாளுக்கு முன்</unitPattern>
-			<unitPattern count="other">{0} நாட்களுக்கு முன்</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} மணிநேரம்</unitPattern>
-			<unitPattern count="one" alt="short">{0} மணிநேரம்</unitPattern>
-			<unitPattern count="other">{0} மணிநேரம்</unitPattern>
-			<unitPattern count="other" alt="short">{0} மணிநேரம்</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">{0} மணிநேரத்தில்</unitPattern>
-			<unitPattern count="other">{0} மணிநேரத்தில்</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">{0} மணிநேரம் முன்</unitPattern>
-			<unitPattern count="other">{0} மணிநேரம் முன்</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} நிமிடம்</unitPattern>
-			<unitPattern count="one" alt="short">{0} நிமிடம்</unitPattern>
-			<unitPattern count="other">{0} நிமிடங்கள்</unitPattern>
-			<unitPattern count="other" alt="short">{0} நிமிடங்கள்</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">{0} நிமிடத்தில்</unitPattern>
-			<unitPattern count="other">{0} நிமிடங்களில்</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">{0} நிமிடத்திற்கு முன்</unitPattern>
-			<unitPattern count="other">{0} நிமிடங்களுக்கு முன்</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} மாதம்</unitPattern>
-			<unitPattern count="one" alt="short">{0} மாதம்</unitPattern>
-			<unitPattern count="other">{0} மாதங்கள்</unitPattern>
-			<unitPattern count="other" alt="short">{0} மாதங்கள்</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">{0} மாதத்தில்</unitPattern>
-			<unitPattern count="other">{0} மாதங்களில்</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">{0} மாதத்துக்கு முன்</unitPattern>
-			<unitPattern count="other">{0} மாதங்களுக்கு முன்</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} வினாடி</unitPattern>
-			<unitPattern count="one" alt="short">{0} வினாடி</unitPattern>
-			<unitPattern count="other">{0} வினாடிகள்</unitPattern>
-			<unitPattern count="other" alt="short">{0} வினாடிகள்</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">{0} வினாடியில்</unitPattern>
-			<unitPattern count="other">{0} வினாடிகள்</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">{0} வினாடிக்கு முன்</unitPattern>
-			<unitPattern count="other">{0} வினாடிக்கு முன்</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} வாரம்</unitPattern>
-			<unitPattern count="one" alt="short">{0} வாரம்</unitPattern>
-			<unitPattern count="other">{0} வாரங்கள்</unitPattern>
-			<unitPattern count="other" alt="short">{0} வாரங்கள்</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">{0} வாரத்தில்</unitPattern>
-			<unitPattern count="other">{0} வாரங்களில்</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">{0} வாரத்திற்கு முன்பு</unitPattern>
-			<unitPattern count="other">{0} வாரத்திற்கு முன்</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} வருடம்</unitPattern>
-			<unitPattern count="one" alt="short">{0} வருடம்</unitPattern>
-			<unitPattern count="other">{0} வருடங்கள்</unitPattern>
-			<unitPattern count="other" alt="short">{0} வருடங்கள்</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">{0} வருடத்தில்</unitPattern>
-			<unitPattern count="other">{0} வருடங்களில்</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">{0} வருடத்திற்கு முன்</unitPattern>
-			<unitPattern count="other">{0} வருடங்களுக்கு முன்</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} நாள்</unitPattern>
+				<unitPattern count="other">{0} நாட்கள்</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} நாளில்</unitPattern>
+				<unitPattern count="other">{0} நாட்களில்</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} நாளுக்கு முன்</unitPattern>
+				<unitPattern count="other">{0} நாட்களுக்கு முன்</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} மணிநேரம்</unitPattern>
+				<unitPattern count="other">{0} மணிநேரம்</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} மணிநேரத்தில்</unitPattern>
+				<unitPattern count="other">{0} மணிநேரத்தில்</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} மணிநேரம் முன்</unitPattern>
+				<unitPattern count="other">{0} மணிநேரம் முன்</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} நிமிடம்</unitPattern>
+				<unitPattern count="other">{0} நிமிடங்கள்</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} நிமிடத்தில்</unitPattern>
+				<unitPattern count="other">{0} நிமிடங்களில்</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} நிமிடத்திற்கு முன்</unitPattern>
+				<unitPattern count="other">{0} நிமிடங்களுக்கு முன்</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} மாதம்</unitPattern>
+				<unitPattern count="other">{0} மாதங்கள்</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} மாதத்தில்</unitPattern>
+				<unitPattern count="other">{0} மாதங்களில்</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} மாதத்துக்கு முன்</unitPattern>
+				<unitPattern count="other">{0} மாதங்களுக்கு முன்</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} வினாடி</unitPattern>
+				<unitPattern count="other">{0} வினாடிகள்</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} வினாடியில்</unitPattern>
+				<unitPattern count="other">{0} வினாடிகள்</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} வினாடிக்கு முன்</unitPattern>
+				<unitPattern count="other">{0} வினாடிக்கு முன்</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} வாரம்</unitPattern>
+				<unitPattern count="other">{0} வாரங்கள்</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} வாரத்தில்</unitPattern>
+				<unitPattern count="other">{0} வாரங்களில்</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} வாரத்திற்கு முன்பு</unitPattern>
+				<unitPattern count="other">{0} வாரத்திற்கு முன்</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} வருடம்</unitPattern>
+				<unitPattern count="other">{0} வருடங்கள்</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} வருடத்தில்</unitPattern>
+				<unitPattern count="other">{0} வருடங்களில்</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} வருடத்திற்கு முன்</unitPattern>
+				<unitPattern count="other">{0} வருடங்களுக்கு முன்</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} நாள்</unitPattern>
+				<unitPattern count="other">{0} நாட்கள்</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} மணிநேரம்</unitPattern>
+				<unitPattern count="other">{0} மணிநேரம்</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} நிமிடம்</unitPattern>
+				<unitPattern count="other">{0} நிமிடங்கள்</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} மாதம்</unitPattern>
+				<unitPattern count="other">{0} மாதங்கள்</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} வினாடி</unitPattern>
+				<unitPattern count="other">{0} வினாடிகள்</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} வாரம்</unitPattern>
+				<unitPattern count="other">{0} வாரங்கள்</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} வருடம்</unitPattern>
+				<unitPattern count="other">{0} வருடங்கள்</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

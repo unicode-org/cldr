@@ -805,56 +805,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one" draft="unconfirmed">{0} бон</unitPattern>
-			<unitPattern count="one" alt="short" draft="unconfirmed">{0} бон</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} боны</unitPattern>
-			<unitPattern count="other" alt="short" draft="unconfirmed">{0} боны</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one" draft="unconfirmed">{0} боны фӕстӕ</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} боны фӕстӕ</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one" draft="unconfirmed">{0} бон раздӕр</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} боны размӕ</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one" draft="unconfirmed">{0} сахат</unitPattern>
-			<unitPattern count="one" alt="short" draft="unconfirmed">{0} с.</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} сахаты</unitPattern>
-			<unitPattern count="other" alt="short" draft="unconfirmed">{0} с.</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one" draft="unconfirmed">{0} сахаты фӕстӕ</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} сахаты фӕстӕ</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one" draft="unconfirmed">{0} сахаты размӕ</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} сахаты размӕ</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one" draft="unconfirmed">{0} минут</unitPattern>
-			<unitPattern count="one" alt="short" draft="unconfirmed">{0} мин.</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} минуты</unitPattern>
-			<unitPattern count="other" alt="short" draft="unconfirmed">{0} мин.</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one" draft="unconfirmed">{0} мӕй</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} мӕйы</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one" draft="unconfirmed">{0} секунд</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} секунды</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one" draft="unconfirmed">{0} къуыри</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} къуырийы</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one" draft="unconfirmed">{0} аз</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} азы</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} бон</unitPattern>
+				<unitPattern count="other">{0} боны</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} боны фӕстӕ</unitPattern>
+				<unitPattern count="other">{0} боны фӕстӕ</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} бон раздӕр</unitPattern>
+				<unitPattern count="other">{0} боны размӕ</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} сахат</unitPattern>
+				<unitPattern count="other">{0} сахаты</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} сахаты фӕстӕ</unitPattern>
+				<unitPattern count="other">{0} сахаты фӕстӕ</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} сахаты размӕ</unitPattern>
+				<unitPattern count="other">{0} сахаты размӕ</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} минут</unitPattern>
+				<unitPattern count="other">{0} минуты</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} мӕй</unitPattern>
+				<unitPattern count="other">{0} мӕйы</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} секунд</unitPattern>
+				<unitPattern count="other">{0} секунды</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} къуыри</unitPattern>
+				<unitPattern count="other">{0} къуырийы</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} аз</unitPattern>
+				<unitPattern count="other">{0} азы</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} бон</unitPattern>
+				<unitPattern count="other">{0} боны</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} с.</unitPattern>
+				<unitPattern count="other">{0} с.</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} мин.</unitPattern>
+				<unitPattern count="other">{0} мин.</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

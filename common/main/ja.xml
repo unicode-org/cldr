@@ -6549,76 +6549,94 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="other">{0}日</unitPattern>
-			<unitPattern count="other" alt="short">{0}日</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="other">{0}日後</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="other">{0}日前</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="other">{0}時間</unitPattern>
-			<unitPattern count="other" alt="short">{0}時間</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="other">{0}時間後</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="other">{0}時間前</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="other">{0}分</unitPattern>
-			<unitPattern count="other" alt="short">{0}分</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="other">{0}分後</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="other">{0}分前</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="other">{0}か月</unitPattern>
-			<unitPattern count="other" alt="short">{0}か月</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="other">{0}か月後</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="other">{0}か月前</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="other">{0}秒</unitPattern>
-			<unitPattern count="other" alt="short">{0}秒</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="other">{0}秒後</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="other">{0}秒前</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="other">{0}週</unitPattern>
-			<unitPattern count="other" alt="short">{0}週</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="other" draft="contributed">{0} 週間後</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="other">{0}週前</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="other">{0}年</unitPattern>
-			<unitPattern count="other" alt="short">{0}年</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="other">{0}年後</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="other">{0}年前</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="other">{0}日</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">{0}日後</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">{0}日前</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0}時間</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">{0}時間後</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">{0}時間前</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0}分</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">{0}分後</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">{0}分前</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0}か月</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">{0}か月後</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">{0}か月前</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0}秒</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">{0}秒後</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">{0}秒前</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0}週</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">{0} 週間後</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">{0}週前</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0}年</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">{0}年後</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">{0}年前</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="other">{0}日</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0}時間</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0}分</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0}か月</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0}秒</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0}週</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0}年</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

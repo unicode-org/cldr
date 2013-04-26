@@ -1557,90 +1557,92 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} zornade</unitPattern>
-			<unitPattern count="other">{0} zornadis</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one" draft="unconfirmed">ca di {0} zornade</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">ca di {0} zornadis</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one" draft="unconfirmed">{0} zornade indaûr</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} zornadis indaûr</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} ore</unitPattern>
-			<unitPattern count="other">{0} oris</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one" draft="unconfirmed">ca di {0} ore</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">ca di {0} oris</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one" draft="unconfirmed">{0} ore indaûr</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} oris indaûr</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minût</unitPattern>
-			<unitPattern count="other">{0} minûts</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one" draft="unconfirmed">ca di {0} minût</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">ca di {0} minûts</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one" draft="unconfirmed">{0} minût indaûr</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} minûts indaûr</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} mês</unitPattern>
-			<unitPattern count="other">{0} mês</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one" draft="unconfirmed">ca di {0} mês</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">ca di {0} mês</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one" draft="unconfirmed">{0} mês indaûr</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} mês indaûr</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} secont</unitPattern>
-			<unitPattern count="other">{0} seconts</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one" draft="unconfirmed">ca di {0} secont</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">ca di {0} seconts</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one" draft="unconfirmed">{0} secont indaûr</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} seconts indaûr</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} setemane</unitPattern>
-			<unitPattern count="other">{0} setemanis</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one" draft="unconfirmed">ca di {0} setemane</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">ca di {0} setemanis</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one" draft="unconfirmed">{0} setemane indaûr</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} setemanis indaûr</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} an</unitPattern>
-			<unitPattern count="other">{0} agns</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one" draft="unconfirmed">ca di {0} an</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">ca di {0} agns</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one" draft="unconfirmed">{0} an indaûr</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} agns indaûr</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} zornade</unitPattern>
+				<unitPattern count="other">{0} zornadis</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">ca di {0} zornade</unitPattern>
+				<unitPattern count="other">ca di {0} zornadis</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} zornade indaûr</unitPattern>
+				<unitPattern count="other">{0} zornadis indaûr</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ore</unitPattern>
+				<unitPattern count="other">{0} oris</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">ca di {0} ore</unitPattern>
+				<unitPattern count="other">ca di {0} oris</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} ore indaûr</unitPattern>
+				<unitPattern count="other">{0} oris indaûr</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minût</unitPattern>
+				<unitPattern count="other">{0} minûts</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">ca di {0} minût</unitPattern>
+				<unitPattern count="other">ca di {0} minûts</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} minût indaûr</unitPattern>
+				<unitPattern count="other">{0} minûts indaûr</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mês</unitPattern>
+				<unitPattern count="other">{0} mês</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">ca di {0} mês</unitPattern>
+				<unitPattern count="other">ca di {0} mês</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} mês indaûr</unitPattern>
+				<unitPattern count="other">{0} mês indaûr</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} secont</unitPattern>
+				<unitPattern count="other">{0} seconts</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">ca di {0} secont</unitPattern>
+				<unitPattern count="other">ca di {0} seconts</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} secont indaûr</unitPattern>
+				<unitPattern count="other">{0} seconts indaûr</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} setemane</unitPattern>
+				<unitPattern count="other">{0} setemanis</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">ca di {0} setemane</unitPattern>
+				<unitPattern count="other">ca di {0} setemanis</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} setemane indaûr</unitPattern>
+				<unitPattern count="other">{0} setemanis indaûr</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} an</unitPattern>
+				<unitPattern count="other">{0} agns</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">ca di {0} an</unitPattern>
+				<unitPattern count="other">ca di {0} agns</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} an indaûr</unitPattern>
+				<unitPattern count="other">{0} agns indaûr</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

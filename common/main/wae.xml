@@ -1237,90 +1237,92 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one" draft="unconfirmed">{0} täg</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} täg</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one" draft="unconfirmed">i {0} tag</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">i {0} täg</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one" draft="unconfirmed">vor {0} tag</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">vor {0} täg</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one" draft="unconfirmed">{0} stund</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} stunde</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one" draft="unconfirmed">i {0} stund</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">i {0} stunde</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one" draft="unconfirmed">vor {0} stund</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">vor {0} stunde</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one" draft="unconfirmed">{0} minüta</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} minüte</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one" draft="unconfirmed">i {0} minüta</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">i {0} minüte</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one" draft="unconfirmed">vor {0} minüta</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">vor {0} minüte</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one" draft="unconfirmed">{0} mánet</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} mánet</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one" draft="unconfirmed">I {0} mánet</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">I {0} mánet</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one" draft="unconfirmed">vor {0} mánet</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">vor {0} mánet</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one" draft="unconfirmed">{0} sekund</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} sekunde</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one" draft="unconfirmed">i {0} sekund</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">i {0} sekunde</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one" draft="unconfirmed">vor {0} sekund</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">vor {0} sekunde</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one" draft="unconfirmed">{0} wuča</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} wučä</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one" draft="unconfirmed">i {0} wuča</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">i {0} wučä</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one" draft="unconfirmed">vor {0} wuča</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">cor {0} wučä</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one" draft="unconfirmed">{0} jár</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} jár</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one" draft="unconfirmed">I {0} jár</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">I {0} jár</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one" draft="unconfirmed">vor {0} jár</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">cor {0} jár</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} täg</unitPattern>
+				<unitPattern count="other">{0} täg</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">i {0} tag</unitPattern>
+				<unitPattern count="other">i {0} täg</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">vor {0} tag</unitPattern>
+				<unitPattern count="other">vor {0} täg</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} stund</unitPattern>
+				<unitPattern count="other">{0} stunde</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">i {0} stund</unitPattern>
+				<unitPattern count="other">i {0} stunde</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">vor {0} stund</unitPattern>
+				<unitPattern count="other">vor {0} stunde</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minüta</unitPattern>
+				<unitPattern count="other">{0} minüte</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">i {0} minüta</unitPattern>
+				<unitPattern count="other">i {0} minüte</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">vor {0} minüta</unitPattern>
+				<unitPattern count="other">vor {0} minüte</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mánet</unitPattern>
+				<unitPattern count="other">{0} mánet</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">I {0} mánet</unitPattern>
+				<unitPattern count="other">I {0} mánet</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">vor {0} mánet</unitPattern>
+				<unitPattern count="other">vor {0} mánet</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekund</unitPattern>
+				<unitPattern count="other">{0} sekunde</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">i {0} sekund</unitPattern>
+				<unitPattern count="other">i {0} sekunde</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">vor {0} sekund</unitPattern>
+				<unitPattern count="other">vor {0} sekunde</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} wuča</unitPattern>
+				<unitPattern count="other">{0} wučä</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">i {0} wuča</unitPattern>
+				<unitPattern count="other">i {0} wučä</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">vor {0} wuča</unitPattern>
+				<unitPattern count="other">cor {0} wučä</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} jár</unitPattern>
+				<unitPattern count="other">{0} jár</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">I {0} jár</unitPattern>
+				<unitPattern count="other">I {0} jár</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">vor {0} jár</unitPattern>
+				<unitPattern count="other">cor {0} jár</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

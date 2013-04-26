@@ -2794,48 +2794,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} di</unitPattern>
-			<unitPattern count="one" alt="short" draft="contributed">{0} di</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} dis</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} dis</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} ura</unitPattern>
-			<unitPattern count="one" alt="short" draft="contributed">{0} ura</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} uras</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} uras</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} minuta</unitPattern>
-			<unitPattern count="one" alt="short" draft="contributed">{0} min.</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} minutas</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} mins.</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} mais</unitPattern>
-			<unitPattern count="one" alt="short" draft="contributed">{0} mais</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} mais</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} mais</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} secunda</unitPattern>
-			<unitPattern count="one" alt="short" draft="contributed">{0} sec.</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} secundas</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} secs.</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} emna</unitPattern>
-			<unitPattern count="one" alt="short" draft="contributed">{0} emna</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} emnas</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} emnas</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} onn</unitPattern>
-			<unitPattern count="one" alt="short" draft="contributed">{0} onn</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} onns</unitPattern>
-			<unitPattern count="other" alt="short" draft="contributed">{0} onns</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} di</unitPattern>
+				<unitPattern count="other">{0} dis</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ura</unitPattern>
+				<unitPattern count="other">{0} uras</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minuta</unitPattern>
+				<unitPattern count="other">{0} minutas</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mais</unitPattern>
+				<unitPattern count="other">{0} mais</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} secunda</unitPattern>
+				<unitPattern count="other">{0} secundas</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} emna</unitPattern>
+				<unitPattern count="other">{0} emnas</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} onn</unitPattern>
+				<unitPattern count="other">{0} onns</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} di</unitPattern>
+				<unitPattern count="other">{0} dis</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ura</unitPattern>
+				<unitPattern count="other">{0} uras</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min.</unitPattern>
+				<unitPattern count="other">{0} mins.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mais</unitPattern>
+				<unitPattern count="other">{0} mais</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sec.</unitPattern>
+				<unitPattern count="other">{0} secs.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} emna</unitPattern>
+				<unitPattern count="other">{0} emnas</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} onn</unitPattern>
+				<unitPattern count="other">{0} onns</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<posix>
 		<messages>

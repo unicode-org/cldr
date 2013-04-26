@@ -3909,160 +3909,178 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} dan</unitPattern>
-			<unitPattern count="one" alt="short">{0} d</unitPattern>
-			<unitPattern count="two">{0} dni</unitPattern>
-			<unitPattern count="two" alt="short">{0} d</unitPattern>
-			<unitPattern count="few">{0} dnevi</unitPattern>
-			<unitPattern count="few" alt="short">{0} d</unitPattern>
-			<unitPattern count="other">{0} dni</unitPattern>
-			<unitPattern count="other" alt="short">{0} d</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one" draft="contributed">Čez {0} dan</unitPattern>
-			<unitPattern count="two" draft="contributed">Čez {0} dni</unitPattern>
-			<unitPattern count="few" draft="contributed">Čez {0} dni</unitPattern>
-			<unitPattern count="other" draft="contributed">Čez {0} dni</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one" draft="contributed">Pred {0} dnevom</unitPattern>
-			<unitPattern count="two" draft="contributed">Pred {0} dnevoma</unitPattern>
-			<unitPattern count="few" draft="contributed">Pred {0} dnevi</unitPattern>
-			<unitPattern count="other" draft="contributed">Pred {0} dnevi</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} ura</unitPattern>
-			<unitPattern count="one" alt="short">{0} h</unitPattern>
-			<unitPattern count="two">{0} uri</unitPattern>
-			<unitPattern count="two" alt="short">{0} h</unitPattern>
-			<unitPattern count="few">{0} ure</unitPattern>
-			<unitPattern count="few" alt="short">{0} h</unitPattern>
-			<unitPattern count="other">{0} ur</unitPattern>
-			<unitPattern count="other" alt="short">{0} h</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one" draft="contributed">Čez {0} h</unitPattern>
-			<unitPattern count="two" draft="contributed">Čez {0} h</unitPattern>
-			<unitPattern count="few" draft="contributed">Čez {0} h</unitPattern>
-			<unitPattern count="other" draft="contributed">Čez {0} h</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one" draft="contributed">Pred {0} h</unitPattern>
-			<unitPattern count="two" draft="contributed">Pred {0} h</unitPattern>
-			<unitPattern count="few" draft="contributed">Pred {0} h</unitPattern>
-			<unitPattern count="other" draft="contributed">Pred {0} h</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minuta</unitPattern>
-			<unitPattern count="one" alt="short">{0} min</unitPattern>
-			<unitPattern count="two">{0} minuti</unitPattern>
-			<unitPattern count="two" alt="short">{0} min</unitPattern>
-			<unitPattern count="few">{0} minute</unitPattern>
-			<unitPattern count="few" alt="short">{0} min</unitPattern>
-			<unitPattern count="other">{0} minut</unitPattern>
-			<unitPattern count="other" alt="short">{0} min</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one" draft="contributed">Čez {0} min.</unitPattern>
-			<unitPattern count="two" draft="contributed">Čez {0} min.</unitPattern>
-			<unitPattern count="few" draft="contributed">Čez {0} min.</unitPattern>
-			<unitPattern count="other" draft="contributed">Čez {0} min.</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one" draft="contributed">Pred {0} min.</unitPattern>
-			<unitPattern count="two" draft="contributed">Pred {0} min.</unitPattern>
-			<unitPattern count="few" draft="contributed">Pred {0} min.</unitPattern>
-			<unitPattern count="other" draft="contributed">Pred {0} min.</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} mesec</unitPattern>
-			<unitPattern count="one" alt="short">{0} m</unitPattern>
-			<unitPattern count="two">{0} meseca</unitPattern>
-			<unitPattern count="two" alt="short">{0} m</unitPattern>
-			<unitPattern count="few">{0} meseci</unitPattern>
-			<unitPattern count="few" alt="short">{0} m</unitPattern>
-			<unitPattern count="other">{0} mesecev</unitPattern>
-			<unitPattern count="other" alt="short">{0} m</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one" draft="contributed">Čez {0} mesec</unitPattern>
-			<unitPattern count="two" draft="contributed">Čez {0} meseca</unitPattern>
-			<unitPattern count="few" draft="contributed">Čez {0} mesece</unitPattern>
-			<unitPattern count="other" draft="contributed">Čez {0} mesecev</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one" draft="contributed">Pred {0} mesecem</unitPattern>
-			<unitPattern count="two" draft="contributed">Pred {0} meseci</unitPattern>
-			<unitPattern count="few" draft="contributed">Pred {0} meseci</unitPattern>
-			<unitPattern count="other" draft="contributed">Pred {0} meseci</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} sekunda</unitPattern>
-			<unitPattern count="one" alt="short">{0} s</unitPattern>
-			<unitPattern count="two">{0} sekundi</unitPattern>
-			<unitPattern count="two" alt="short">{0} s</unitPattern>
-			<unitPattern count="few">{0} sekunde</unitPattern>
-			<unitPattern count="few" alt="short">{0} s</unitPattern>
-			<unitPattern count="other">{0} sekund</unitPattern>
-			<unitPattern count="other" alt="short">{0} s</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one" draft="contributed">Čez {0} sekundo</unitPattern>
-			<unitPattern count="two" draft="contributed">Čez {0} sekundi</unitPattern>
-			<unitPattern count="few" draft="contributed">Čez {0} sekunde</unitPattern>
-			<unitPattern count="other" draft="contributed">Čez {0} sekundi</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one" draft="contributed">Pred {0} sekundo</unitPattern>
-			<unitPattern count="two" draft="contributed">Pred {0} sekundama</unitPattern>
-			<unitPattern count="few" draft="contributed">Pred {0} sekundami</unitPattern>
-			<unitPattern count="other" draft="contributed">Pred {0} sekundami</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} teden</unitPattern>
-			<unitPattern count="one" alt="short">{0} t</unitPattern>
-			<unitPattern count="two">{0} tedna</unitPattern>
-			<unitPattern count="two" alt="short">{0} t</unitPattern>
-			<unitPattern count="few">{0} tedni</unitPattern>
-			<unitPattern count="few" alt="short">{0} t</unitPattern>
-			<unitPattern count="other">{0} tednov</unitPattern>
-			<unitPattern count="other" alt="short">{0} t</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one" draft="contributed">Čez {0} teden</unitPattern>
-			<unitPattern count="two" draft="contributed">Čez {0} tedna</unitPattern>
-			<unitPattern count="few" draft="contributed">Čez {0} tedne</unitPattern>
-			<unitPattern count="other" draft="contributed">Čez {0} tednov</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one" draft="contributed">Pred {0} tednom</unitPattern>
-			<unitPattern count="two" draft="contributed">Pred {0} tednoma</unitPattern>
-			<unitPattern count="few" draft="contributed">Pred {0} tedni</unitPattern>
-			<unitPattern count="other" draft="contributed">Pred {0} tedni</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} leto</unitPattern>
-			<unitPattern count="one" alt="short">{0} l</unitPattern>
-			<unitPattern count="two">{0} leti</unitPattern>
-			<unitPattern count="two" alt="short">{0} l</unitPattern>
-			<unitPattern count="few">{0} leta</unitPattern>
-			<unitPattern count="few" alt="short">{0} l</unitPattern>
-			<unitPattern count="other">{0} let</unitPattern>
-			<unitPattern count="other" alt="short">{0} l</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one" draft="contributed">Čez {0} leto</unitPattern>
-			<unitPattern count="two" draft="contributed">Čez {0} leti</unitPattern>
-			<unitPattern count="few" draft="contributed">Čez {0} leta</unitPattern>
-			<unitPattern count="other" draft="contributed">Čez {0} let</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one" draft="contributed">Pred {0} letom</unitPattern>
-			<unitPattern count="two" draft="contributed">Pred {0} leti</unitPattern>
-			<unitPattern count="few" draft="contributed">Pred {0} leti</unitPattern>
-			<unitPattern count="other" draft="contributed">Pred {0} leti</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} dan</unitPattern>
+				<unitPattern count="two">{0} dni</unitPattern>
+				<unitPattern count="few">{0} dnevi</unitPattern>
+				<unitPattern count="other">{0} dni</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">Čez {0} dan</unitPattern>
+				<unitPattern count="two">Čez {0} dni</unitPattern>
+				<unitPattern count="few">Čez {0} dni</unitPattern>
+				<unitPattern count="other">Čez {0} dni</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">Pred {0} dnevom</unitPattern>
+				<unitPattern count="two">Pred {0} dnevoma</unitPattern>
+				<unitPattern count="few">Pred {0} dnevi</unitPattern>
+				<unitPattern count="other">Pred {0} dnevi</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ura</unitPattern>
+				<unitPattern count="two">{0} uri</unitPattern>
+				<unitPattern count="few">{0} ure</unitPattern>
+				<unitPattern count="other">{0} ur</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">Čez {0} h</unitPattern>
+				<unitPattern count="two">Čez {0} h</unitPattern>
+				<unitPattern count="few">Čez {0} h</unitPattern>
+				<unitPattern count="other">Čez {0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">Pred {0} h</unitPattern>
+				<unitPattern count="two">Pred {0} h</unitPattern>
+				<unitPattern count="few">Pred {0} h</unitPattern>
+				<unitPattern count="other">Pred {0} h</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minuta</unitPattern>
+				<unitPattern count="two">{0} minuti</unitPattern>
+				<unitPattern count="few">{0} minute</unitPattern>
+				<unitPattern count="other">{0} minut</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">Čez {0} min.</unitPattern>
+				<unitPattern count="two">Čez {0} min.</unitPattern>
+				<unitPattern count="few">Čez {0} min.</unitPattern>
+				<unitPattern count="other">Čez {0} min.</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">Pred {0} min.</unitPattern>
+				<unitPattern count="two">Pred {0} min.</unitPattern>
+				<unitPattern count="few">Pred {0} min.</unitPattern>
+				<unitPattern count="other">Pred {0} min.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mesec</unitPattern>
+				<unitPattern count="two">{0} meseca</unitPattern>
+				<unitPattern count="few">{0} meseci</unitPattern>
+				<unitPattern count="other">{0} mesecev</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">Čez {0} mesec</unitPattern>
+				<unitPattern count="two">Čez {0} meseca</unitPattern>
+				<unitPattern count="few">Čez {0} mesece</unitPattern>
+				<unitPattern count="other">Čez {0} mesecev</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">Pred {0} mesecem</unitPattern>
+				<unitPattern count="two">Pred {0} meseci</unitPattern>
+				<unitPattern count="few">Pred {0} meseci</unitPattern>
+				<unitPattern count="other">Pred {0} meseci</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekunda</unitPattern>
+				<unitPattern count="two">{0} sekundi</unitPattern>
+				<unitPattern count="few">{0} sekunde</unitPattern>
+				<unitPattern count="other">{0} sekund</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">Čez {0} sekundo</unitPattern>
+				<unitPattern count="two">Čez {0} sekundi</unitPattern>
+				<unitPattern count="few">Čez {0} sekunde</unitPattern>
+				<unitPattern count="other">Čez {0} sekundi</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">Pred {0} sekundo</unitPattern>
+				<unitPattern count="two">Pred {0} sekundama</unitPattern>
+				<unitPattern count="few">Pred {0} sekundami</unitPattern>
+				<unitPattern count="other">Pred {0} sekundami</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} teden</unitPattern>
+				<unitPattern count="two">{0} tedna</unitPattern>
+				<unitPattern count="few">{0} tedni</unitPattern>
+				<unitPattern count="other">{0} tednov</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">Čez {0} teden</unitPattern>
+				<unitPattern count="two">Čez {0} tedna</unitPattern>
+				<unitPattern count="few">Čez {0} tedne</unitPattern>
+				<unitPattern count="other">Čez {0} tednov</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">Pred {0} tednom</unitPattern>
+				<unitPattern count="two">Pred {0} tednoma</unitPattern>
+				<unitPattern count="few">Pred {0} tedni</unitPattern>
+				<unitPattern count="other">Pred {0} tedni</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} leto</unitPattern>
+				<unitPattern count="two">{0} leti</unitPattern>
+				<unitPattern count="few">{0} leta</unitPattern>
+				<unitPattern count="other">{0} let</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">Čez {0} leto</unitPattern>
+				<unitPattern count="two">Čez {0} leti</unitPattern>
+				<unitPattern count="few">Čez {0} leta</unitPattern>
+				<unitPattern count="other">Čez {0} let</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">Pred {0} letom</unitPattern>
+				<unitPattern count="two">Pred {0} leti</unitPattern>
+				<unitPattern count="few">Pred {0} leti</unitPattern>
+				<unitPattern count="other">Pred {0} leti</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} d</unitPattern>
+				<unitPattern count="two">{0} d</unitPattern>
+				<unitPattern count="few">{0} d</unitPattern>
+				<unitPattern count="other">{0} d</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} h</unitPattern>
+				<unitPattern count="two">{0} h</unitPattern>
+				<unitPattern count="few">{0} h</unitPattern>
+				<unitPattern count="other">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="two">{0} min</unitPattern>
+				<unitPattern count="few">{0} min</unitPattern>
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="two">{0} m</unitPattern>
+				<unitPattern count="few">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="two">{0} s</unitPattern>
+				<unitPattern count="few">{0} s</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} t</unitPattern>
+				<unitPattern count="two">{0} t</unitPattern>
+				<unitPattern count="few">{0} t</unitPattern>
+				<unitPattern count="other">{0} t</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} l</unitPattern>
+				<unitPattern count="two">{0} l</unitPattern>
+				<unitPattern count="few">{0} l</unitPattern>
+				<unitPattern count="other">{0} l</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

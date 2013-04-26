@@ -4299,104 +4299,122 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} giorno</unitPattern>
-			<unitPattern count="one" alt="short">{0} g</unitPattern>
-			<unitPattern count="other">{0} giorni</unitPattern>
-			<unitPattern count="other" alt="short">{0} gg</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">tra {0} giorno</unitPattern>
-			<unitPattern count="other">tra {0} giorni</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">{0} giorno fa</unitPattern>
-			<unitPattern count="other">{0} giorni fa</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} ora</unitPattern>
-			<unitPattern count="one" alt="short">{0} h</unitPattern>
-			<unitPattern count="other">{0} ore</unitPattern>
-			<unitPattern count="other" alt="short">{0} h</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">tra {0} ora</unitPattern>
-			<unitPattern count="other">tra {0} ore</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">{0} ora fa</unitPattern>
-			<unitPattern count="other">{0} ore fa</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minuto</unitPattern>
-			<unitPattern count="one" alt="short">{0} min</unitPattern>
-			<unitPattern count="other">{0} minuti</unitPattern>
-			<unitPattern count="other" alt="short">{0} min</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">tra {0} minuto</unitPattern>
-			<unitPattern count="other">tra {0} minuti</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">{0} minuto fa</unitPattern>
-			<unitPattern count="other">{0} minuti fa</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} mese</unitPattern>
-			<unitPattern count="one" alt="short">{0} mese</unitPattern>
-			<unitPattern count="other">{0} mesi</unitPattern>
-			<unitPattern count="other" alt="short">{0} mesi</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">tra {0} mese</unitPattern>
-			<unitPattern count="other">tra {0} mesi</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">{0} mese fa</unitPattern>
-			<unitPattern count="other">{0} mesi fa</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} secondo</unitPattern>
-			<unitPattern count="one" alt="short">{0} sec</unitPattern>
-			<unitPattern count="other">{0} secondi</unitPattern>
-			<unitPattern count="other" alt="short">{0} sec</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">tra {0} secondo</unitPattern>
-			<unitPattern count="other">tra {0} secondi</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">{0} secondo fa</unitPattern>
-			<unitPattern count="other">{0} secondi fa</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} settimana</unitPattern>
-			<unitPattern count="one" alt="short">{0} sett.</unitPattern>
-			<unitPattern count="other">{0} settimane</unitPattern>
-			<unitPattern count="other" alt="short">{0} sett.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">tra {0} settimana</unitPattern>
-			<unitPattern count="other">tra {0} settimane</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">{0} settimana fa</unitPattern>
-			<unitPattern count="other">{0} settimane fa</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} anno</unitPattern>
-			<unitPattern count="one" alt="short">{0} anno</unitPattern>
-			<unitPattern count="other">{0} anni</unitPattern>
-			<unitPattern count="other" alt="short">{0} anni</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">tra {0} anno</unitPattern>
-			<unitPattern count="other">tra {0} anni</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">{0} anno fa</unitPattern>
-			<unitPattern count="other">{0} anni fa</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} giorno</unitPattern>
+				<unitPattern count="other">{0} giorni</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">tra {0} giorno</unitPattern>
+				<unitPattern count="other">tra {0} giorni</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} giorno fa</unitPattern>
+				<unitPattern count="other">{0} giorni fa</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ora</unitPattern>
+				<unitPattern count="other">{0} ore</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">tra {0} ora</unitPattern>
+				<unitPattern count="other">tra {0} ore</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} ora fa</unitPattern>
+				<unitPattern count="other">{0} ore fa</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minuto</unitPattern>
+				<unitPattern count="other">{0} minuti</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">tra {0} minuto</unitPattern>
+				<unitPattern count="other">tra {0} minuti</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} minuto fa</unitPattern>
+				<unitPattern count="other">{0} minuti fa</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mese</unitPattern>
+				<unitPattern count="other">{0} mesi</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">tra {0} mese</unitPattern>
+				<unitPattern count="other">tra {0} mesi</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} mese fa</unitPattern>
+				<unitPattern count="other">{0} mesi fa</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} secondo</unitPattern>
+				<unitPattern count="other">{0} secondi</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">tra {0} secondo</unitPattern>
+				<unitPattern count="other">tra {0} secondi</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} secondo fa</unitPattern>
+				<unitPattern count="other">{0} secondi fa</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} settimana</unitPattern>
+				<unitPattern count="other">{0} settimane</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">tra {0} settimana</unitPattern>
+				<unitPattern count="other">tra {0} settimane</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} settimana fa</unitPattern>
+				<unitPattern count="other">{0} settimane fa</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} anno</unitPattern>
+				<unitPattern count="other">{0} anni</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">tra {0} anno</unitPattern>
+				<unitPattern count="other">tra {0} anni</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} anno fa</unitPattern>
+				<unitPattern count="other">{0} anni fa</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} gg</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} h</unitPattern>
+				<unitPattern count="other">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mese</unitPattern>
+				<unitPattern count="other">{0} mesi</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sec</unitPattern>
+				<unitPattern count="other">{0} sec</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} sett.</unitPattern>
+				<unitPattern count="other">{0} sett.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} anno</unitPattern>
+				<unitPattern count="other">{0} anni</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

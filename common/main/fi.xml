@@ -5076,104 +5076,122 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} päivä</unitPattern>
-			<unitPattern count="one" alt="short">{0} pv</unitPattern>
-			<unitPattern count="other">{0} päivää</unitPattern>
-			<unitPattern count="other" alt="short">{0} pv</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">{0} päivän päästä</unitPattern>
-			<unitPattern count="other">{0} päivän päästä</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">{0} päivä sitten</unitPattern>
-			<unitPattern count="other">{0} päivää sitten</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} tunti</unitPattern>
-			<unitPattern count="one" alt="short">{0} t</unitPattern>
-			<unitPattern count="other">{0} tuntia</unitPattern>
-			<unitPattern count="other" alt="short">{0} t</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">{0} tunnin päästä</unitPattern>
-			<unitPattern count="other">{0} tunnin päästä</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">{0} tunti sitten</unitPattern>
-			<unitPattern count="other">{0} tuntia sitten</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} minuutti</unitPattern>
-			<unitPattern count="one" alt="short">{0} min</unitPattern>
-			<unitPattern count="other">{0} minuuttia</unitPattern>
-			<unitPattern count="other" alt="short">{0} min</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">{0} minuutin päästä</unitPattern>
-			<unitPattern count="other">{0} minuutin päästä</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">{0} minuutti sitten</unitPattern>
-			<unitPattern count="other">{0} minuuttia sitten</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} kuukausi</unitPattern>
-			<unitPattern count="one" alt="short">{0} kk</unitPattern>
-			<unitPattern count="other">{0} kuukautta</unitPattern>
-			<unitPattern count="other" alt="short">{0} kk</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">{0} kuukauden päästä</unitPattern>
-			<unitPattern count="other">{0} kuukauden päästä</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">{0} kuukausi sitten</unitPattern>
-			<unitPattern count="other">{0} kuukautta sitten</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} sekunti</unitPattern>
-			<unitPattern count="one" alt="short">{0} s</unitPattern>
-			<unitPattern count="other">{0} sekuntia</unitPattern>
-			<unitPattern count="other" alt="short">{0} s</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">{0} sekunnin päästä</unitPattern>
-			<unitPattern count="other">{0} sekunnin päästä</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">{0} sekunti sitten</unitPattern>
-			<unitPattern count="other">{0} sekuntia sitten</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} viikko</unitPattern>
-			<unitPattern count="one" alt="short">{0} vk</unitPattern>
-			<unitPattern count="other">{0} viikkoa</unitPattern>
-			<unitPattern count="other" alt="short">{0} vk</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">{0} viikon päästä</unitPattern>
-			<unitPattern count="other">{0} viikon päästä</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">{0} viikko sitten</unitPattern>
-			<unitPattern count="other">{0} viikkoa sitten</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} vuosi</unitPattern>
-			<unitPattern count="one" alt="short">{0} v</unitPattern>
-			<unitPattern count="other">{0} vuotta</unitPattern>
-			<unitPattern count="other" alt="short">{0} v</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">{0} vuoden päästä</unitPattern>
-			<unitPattern count="other">{0} vuoden päästä</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">{0} vuosi sitten</unitPattern>
-			<unitPattern count="other">{0} vuotta sitten</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} päivä</unitPattern>
+				<unitPattern count="other">{0} päivää</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} päivän päästä</unitPattern>
+				<unitPattern count="other">{0} päivän päästä</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} päivä sitten</unitPattern>
+				<unitPattern count="other">{0} päivää sitten</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} tunti</unitPattern>
+				<unitPattern count="other">{0} tuntia</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} tunnin päästä</unitPattern>
+				<unitPattern count="other">{0} tunnin päästä</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} tunti sitten</unitPattern>
+				<unitPattern count="other">{0} tuntia sitten</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minuutti</unitPattern>
+				<unitPattern count="other">{0} minuuttia</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} minuutin päästä</unitPattern>
+				<unitPattern count="other">{0} minuutin päästä</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} minuutti sitten</unitPattern>
+				<unitPattern count="other">{0} minuuttia sitten</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} kuukausi</unitPattern>
+				<unitPattern count="other">{0} kuukautta</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} kuukauden päästä</unitPattern>
+				<unitPattern count="other">{0} kuukauden päästä</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} kuukausi sitten</unitPattern>
+				<unitPattern count="other">{0} kuukautta sitten</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekunti</unitPattern>
+				<unitPattern count="other">{0} sekuntia</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} sekunnin päästä</unitPattern>
+				<unitPattern count="other">{0} sekunnin päästä</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} sekunti sitten</unitPattern>
+				<unitPattern count="other">{0} sekuntia sitten</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} viikko</unitPattern>
+				<unitPattern count="other">{0} viikkoa</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} viikon päästä</unitPattern>
+				<unitPattern count="other">{0} viikon päästä</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} viikko sitten</unitPattern>
+				<unitPattern count="other">{0} viikkoa sitten</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} vuosi</unitPattern>
+				<unitPattern count="other">{0} vuotta</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} vuoden päästä</unitPattern>
+				<unitPattern count="other">{0} vuoden päästä</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} vuosi sitten</unitPattern>
+				<unitPattern count="other">{0} vuotta sitten</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} pv</unitPattern>
+				<unitPattern count="other">{0} pv</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} t</unitPattern>
+				<unitPattern count="other">{0} t</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} kk</unitPattern>
+				<unitPattern count="other">{0} kk</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} vk</unitPattern>
+				<unitPattern count="other">{0} vk</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} v</unitPattern>
+				<unitPattern count="other">{0} v</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

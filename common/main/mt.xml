@@ -1303,12 +1303,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="year-past">
-			<unitPattern count="one" draft="unconfirmed">{0} sena ilu</unitPattern>
-			<unitPattern count="few" draft="unconfirmed">{0} snin ilu</unitPattern>
-			<unitPattern count="many" draft="unconfirmed">{0} snin ilu</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} snin ilu</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} sena ilu</unitPattern>
+				<unitPattern count="few">{0} snin ilu</unitPattern>
+				<unitPattern count="many">{0} snin ilu</unitPattern>
+				<unitPattern count="other">{0} snin ilu</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

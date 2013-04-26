@@ -217,34 +217,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 	</numbers>
 	<units>
-		<unit type="day-future">
-			<unitPattern count="one" draft="contributed">En {0} día</unitPattern>
-			<unitPattern count="other" draft="contributed">En {0} días</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one" draft="contributed">En {0} hora</unitPattern>
-			<unitPattern count="other" draft="contributed">En {0} horas</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one" draft="contributed">En {0} minuto</unitPattern>
-			<unitPattern count="other" draft="contributed">En {0} minutos</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one" draft="contributed">En {0} mes</unitPattern>
-			<unitPattern count="other" draft="contributed">En {0} meses</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one" draft="contributed">En {0} segundo</unitPattern>
-			<unitPattern count="other" draft="contributed">En {0} segundos</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one" draft="contributed">En {0} semana</unitPattern>
-			<unitPattern count="other" draft="contributed">En {0} semanas</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one" draft="contributed">En {0} año</unitPattern>
-			<unitPattern count="other" draft="contributed">En {0} años</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day-future">
+				<unitPattern count="one">En {0} día</unitPattern>
+				<unitPattern count="other">En {0} días</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">En {0} hora</unitPattern>
+				<unitPattern count="other">En {0} horas</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">En {0} minuto</unitPattern>
+				<unitPattern count="other">En {0} minutos</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">En {0} mes</unitPattern>
+				<unitPattern count="other">En {0} meses</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">En {0} segundo</unitPattern>
+				<unitPattern count="other">En {0} segundos</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">En {0} semana</unitPattern>
+				<unitPattern count="other">En {0} semanas</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">En {0} año</unitPattern>
+				<unitPattern count="other">En {0} años</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 </ldml>
 

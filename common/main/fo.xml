@@ -1191,34 +1191,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one" draft="unconfirmed">{0} samdøgur</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} samdøgur</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one" draft="unconfirmed">{0} tími</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} tímar</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one" draft="unconfirmed">{0} minuttur</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} minuttir</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one" draft="unconfirmed">{0} mánadur</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} mánaðir</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one" draft="unconfirmed">{0} sekund</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} sekundir</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one" draft="unconfirmed">{0} vika</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} vikur</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one" draft="unconfirmed">{0} ár</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} ár</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} samdøgur</unitPattern>
+				<unitPattern count="other">{0} samdøgur</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} tími</unitPattern>
+				<unitPattern count="other">{0} tímar</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minuttur</unitPattern>
+				<unitPattern count="other">{0} minuttir</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mánadur</unitPattern>
+				<unitPattern count="other">{0} mánaðir</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekund</unitPattern>
+				<unitPattern count="other">{0} sekundir</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} vika</unitPattern>
+				<unitPattern count="other">{0} vikur</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} ár</unitPattern>
+				<unitPattern count="other">{0} ár</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

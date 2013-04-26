@@ -4322,76 +4322,94 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="other">{0} gün</unitPattern>
-			<unitPattern count="other" alt="short">{0} gün</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="other">{0} gün sonra</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="other">{0} gün önce</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="other">{0} saat</unitPattern>
-			<unitPattern count="other" alt="short">{0} sa.</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="other">{0} saat sonra</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="other">{0} saat önce</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="other">{0} dakika</unitPattern>
-			<unitPattern count="other" alt="short">{0} dk.</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="other">{0} dakika sonra</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="other">{0} dakika önce</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="other">{0} ay</unitPattern>
-			<unitPattern count="other" alt="short">{0} ay</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="other">{0} ay sonra</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="other">{0} ay önce</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="other">{0} saniye</unitPattern>
-			<unitPattern count="other" alt="short">{0} sn.</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="other">{0} saniye sonra</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="other">{0} saniye önce</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="other">{0} hafta</unitPattern>
-			<unitPattern count="other" alt="short">{0} hf.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="other">{0} hafta sonra</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="other">{0} hafta önce</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="other">{0} yıl</unitPattern>
-			<unitPattern count="other" alt="short">{0} yıl</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="other">{0} yıl sonra</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="other">{0} yıl önce</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="other">{0} gün</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">{0} gün sonra</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">{0} gün önce</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} saat</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">{0} saat sonra</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">{0} saat önce</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} dakika</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">{0} dakika sonra</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">{0} dakika önce</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} ay</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">{0} ay sonra</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">{0} ay önce</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} saniye</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">{0} saniye sonra</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">{0} saniye önce</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} hafta</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">{0} hafta sonra</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">{0} hafta önce</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} yıl</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">{0} yıl sonra</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">{0} yıl önce</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="other">{0} gün</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} sa.</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} dk.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} ay</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} sn.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} hf.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} yıl</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

@@ -1253,48 +1253,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one" draft="contributed">{0} дзень</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} дні</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} дзён</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} дня</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one" draft="contributed">{0} гадзіна</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} гадзіны</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} гадзін</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} гадзіны</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one" draft="contributed">{0} хвіліна</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} хвіліны</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} хвілін</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} хвіліны</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one" draft="contributed">{0} месяц</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} месяца</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} месяцаў</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} месяца</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one" draft="contributed">{0} сэкунда</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} сэкунды</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} сэкунд</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} сэкунды</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one" draft="contributed">{0} тыдзень</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} тыдні</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} тыдняў</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} тыдня</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one" draft="contributed">{0} год</unitPattern>
-			<unitPattern count="few" draft="contributed">{0} гады</unitPattern>
-			<unitPattern count="many" draft="contributed">{0} гадоў</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} году</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} дзень</unitPattern>
+				<unitPattern count="few">{0} дні</unitPattern>
+				<unitPattern count="many">{0} дзён</unitPattern>
+				<unitPattern count="other">{0} дня</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} гадзіна</unitPattern>
+				<unitPattern count="few">{0} гадзіны</unitPattern>
+				<unitPattern count="many">{0} гадзін</unitPattern>
+				<unitPattern count="other">{0} гадзіны</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} хвіліна</unitPattern>
+				<unitPattern count="few">{0} хвіліны</unitPattern>
+				<unitPattern count="many">{0} хвілін</unitPattern>
+				<unitPattern count="other">{0} хвіліны</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} месяц</unitPattern>
+				<unitPattern count="few">{0} месяца</unitPattern>
+				<unitPattern count="many">{0} месяцаў</unitPattern>
+				<unitPattern count="other">{0} месяца</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} сэкунда</unitPattern>
+				<unitPattern count="few">{0} сэкунды</unitPattern>
+				<unitPattern count="many">{0} сэкунд</unitPattern>
+				<unitPattern count="other">{0} сэкунды</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} тыдзень</unitPattern>
+				<unitPattern count="few">{0} тыдні</unitPattern>
+				<unitPattern count="many">{0} тыдняў</unitPattern>
+				<unitPattern count="other">{0} тыдня</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} год</unitPattern>
+				<unitPattern count="few">{0} гады</unitPattern>
+				<unitPattern count="many">{0} гадоў</unitPattern>
+				<unitPattern count="other">{0} году</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<posix>
 		<messages>

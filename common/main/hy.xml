@@ -4178,104 +4178,122 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one">{0} օր</unitPattern>
-			<unitPattern count="one" alt="short">{0} օր</unitPattern>
-			<unitPattern count="other">{0} օր</unitPattern>
-			<unitPattern count="other" alt="short">{0} օր</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="one">{0} օր անց</unitPattern>
-			<unitPattern count="other">{0} օր անց</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="one">{0} օր առաջ</unitPattern>
-			<unitPattern count="other">{0} օր առաջ</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one">{0} ժամ</unitPattern>
-			<unitPattern count="one" alt="short">{0} ժ.</unitPattern>
-			<unitPattern count="other">{0} ժամ</unitPattern>
-			<unitPattern count="other" alt="short">{0} ժամ</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="one">{0} ժամ անց</unitPattern>
-			<unitPattern count="other">{0} ժամ անց</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="one">{0} ժամ առաջ</unitPattern>
-			<unitPattern count="other">{0} ժամ առաջ</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one">{0} րոպե</unitPattern>
-			<unitPattern count="one" alt="short">{0} ր.</unitPattern>
-			<unitPattern count="other">{0} րոպե</unitPattern>
-			<unitPattern count="other" alt="short">{0} ր.</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="one">{0} րոպե անց</unitPattern>
-			<unitPattern count="other">{0} րոպե անց</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="one">{0} րոպե առաջ</unitPattern>
-			<unitPattern count="other">{0} րոպե առաջ</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one">{0} ամիս</unitPattern>
-			<unitPattern count="one" alt="short">{0} ամս</unitPattern>
-			<unitPattern count="other">{0} ամիս</unitPattern>
-			<unitPattern count="other" alt="short">{0} ամս</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="one">{0} ամիս անց</unitPattern>
-			<unitPattern count="other">{0} ամիս անց</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="one">{0} ամիս առաջ</unitPattern>
-			<unitPattern count="other">{0} ամիս առաջ</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one">{0} վայրկյան</unitPattern>
-			<unitPattern count="one" alt="short">{0} վրկ</unitPattern>
-			<unitPattern count="other">{0} վայրկյան</unitPattern>
-			<unitPattern count="other" alt="short">{0} վրկ</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="one">{0} վայրկյան անց</unitPattern>
-			<unitPattern count="other">{0} վայրկյան անց</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="one">{0} վայրկյան առաջ</unitPattern>
-			<unitPattern count="other">{0} վայրկյան առաջ</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one">{0} շաբաթ</unitPattern>
-			<unitPattern count="one" alt="short">{0} շբթ.</unitPattern>
-			<unitPattern count="other">{0} շաբաթ</unitPattern>
-			<unitPattern count="other" alt="short">{0} շբթ.</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="one">{0} շաբաթ անց</unitPattern>
-			<unitPattern count="other">{0} շաբաթ անց</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="one">{0} շաբաթ առաջ</unitPattern>
-			<unitPattern count="other">{0} շաբաթ առաջ</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one">{0} տարի</unitPattern>
-			<unitPattern count="one" alt="short">{0} տ.</unitPattern>
-			<unitPattern count="other">{0} տարի</unitPattern>
-			<unitPattern count="other" alt="short">{0} տ.</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="one">{0} տարի անց</unitPattern>
-			<unitPattern count="other">{0} տարի անց</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="one">{0} տարի առաջ</unitPattern>
-			<unitPattern count="other">{0} տարի առաջ</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} օր</unitPattern>
+				<unitPattern count="other">{0} օր</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} օր անց</unitPattern>
+				<unitPattern count="other">{0} օր անց</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} օր առաջ</unitPattern>
+				<unitPattern count="other">{0} օր առաջ</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ժամ</unitPattern>
+				<unitPattern count="other">{0} ժամ</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} ժամ անց</unitPattern>
+				<unitPattern count="other">{0} ժամ անց</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} ժամ առաջ</unitPattern>
+				<unitPattern count="other">{0} ժամ առաջ</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} րոպե</unitPattern>
+				<unitPattern count="other">{0} րոպե</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} րոպե անց</unitPattern>
+				<unitPattern count="other">{0} րոպե անց</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} րոպե առաջ</unitPattern>
+				<unitPattern count="other">{0} րոպե առաջ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} ամիս</unitPattern>
+				<unitPattern count="other">{0} ամիս</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} ամիս անց</unitPattern>
+				<unitPattern count="other">{0} ամիս անց</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} ամիս առաջ</unitPattern>
+				<unitPattern count="other">{0} ամիս առաջ</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} վայրկյան</unitPattern>
+				<unitPattern count="other">{0} վայրկյան</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} վայրկյան անց</unitPattern>
+				<unitPattern count="other">{0} վայրկյան անց</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} վայրկյան առաջ</unitPattern>
+				<unitPattern count="other">{0} վայրկյան առաջ</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} շաբաթ</unitPattern>
+				<unitPattern count="other">{0} շաբաթ</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} շաբաթ անց</unitPattern>
+				<unitPattern count="other">{0} շաբաթ անց</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} շաբաթ առաջ</unitPattern>
+				<unitPattern count="other">{0} շաբաթ առաջ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} տարի</unitPattern>
+				<unitPattern count="other">{0} տարի</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} տարի անց</unitPattern>
+				<unitPattern count="other">{0} տարի անց</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} տարի առաջ</unitPattern>
+				<unitPattern count="other">{0} տարի առաջ</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} օր</unitPattern>
+				<unitPattern count="other">{0} օր</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ժ.</unitPattern>
+				<unitPattern count="other">{0} ժամ</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} ր.</unitPattern>
+				<unitPattern count="other">{0} ր.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} ամս</unitPattern>
+				<unitPattern count="other">{0} ամս</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} վրկ</unitPattern>
+				<unitPattern count="other">{0} վրկ</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} շբթ.</unitPattern>
+				<unitPattern count="other">{0} շբթ.</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} տ.</unitPattern>
+				<unitPattern count="other">{0} տ.</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

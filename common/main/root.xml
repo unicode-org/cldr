@@ -3409,136 +3409,206 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</miscPatterns>
 	</numbers>
 	<units>
-		<compoundUnit type="per">
-			<unitPattern count="other" alt="short">{0}/{1}</unitPattern>
-		</compoundUnit>
-		<unit type="angle-deg">
-			<unitPattern count="other" alt="short">{0}°</unitPattern>
-		</unit>
-		<unit type="angle-min">
-			<unitPattern count="other" alt="short">{0}′</unitPattern>
-		</unit>
-		<unit type="angle-sec">
-			<unitPattern count="other" alt="short">{0}″</unitPattern>
-		</unit>
-		<unit type="area-ha">
-			<unitPattern count="other" alt="short">{0} ha</unitPattern>
-		</unit>
-		<unit type="area-km2">
-			<unitPattern count="other" alt="short">{0} km²</unitPattern>
-		</unit>
-		<unit type="area-m2">
-			<unitPattern count="other" alt="short">{0} m²</unitPattern>
-		</unit>
-		<unit type="atmospheric-pressure-hpa">
-			<unitPattern count="other" alt="short">{0} hPa</unitPattern>
-		</unit>
-		<unit type="atmospheric-pressure-mb">
-			<unitPattern count="other" alt="short">{0} mb</unitPattern>
-		</unit>
-		<!-- http://physics.nist.gov/cuu/Units/outside.html -->
-		<unit type="day">
-			<unitPattern count="other">{0} d</unitPattern>
-		</unit>
-		<unit type="day-future">
-			<unitPattern count="other">+{0} d</unitPattern>
-		</unit>
-		<unit type="day-past">
-			<unitPattern count="other">-{0} d</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="other">{0} h</unitPattern>
-		</unit>
-		<unit type="hour-future">
-			<unitPattern count="other">+{0} h</unitPattern>
-		</unit>
-		<unit type="hour-past">
-			<unitPattern count="other">-{0} h</unitPattern>
-		</unit>
-		<unit type="length-cm">
-			<unitPattern count="other" alt="short">{0} cm</unitPattern>
-		</unit>
-		<unit type="length-km">
-			<unitPattern count="other" alt="short">{0} km</unitPattern>
-		</unit>
-		<unit type="length-m">
-			<unitPattern count="other" alt="short">{0} m</unitPattern>
-		</unit>
-		<unit type="length-mm">
-			<unitPattern count="other" alt="short">{0} mm</unitPattern>
-		</unit>
-		<unit type="length-pm">
-			<unitPattern count="other" alt="short">{0} pm</unitPattern>
-		</unit>
-		<unit type="mass-g">
-			<unitPattern count="other" alt="short">{0} g</unitPattern>
-		</unit>
-		<unit type="mass-kg">
-			<unitPattern count="other" alt="short">{0} kg</unitPattern>
-		</unit>
-		<unit type="millisecond">
-			<unitPattern count="other" alt="short">{0} ms</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="other">{0} min</unitPattern>
-		</unit>
-		<unit type="minute-future">
-			<unitPattern count="other">+{0} min</unitPattern>
-		</unit>
-		<unit type="minute-past">
-			<unitPattern count="other">-{0} min</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="other">{0} m</unitPattern>
-		</unit>
-		<unit type="month-future">
-			<unitPattern count="other">+{0} m</unitPattern>
-		</unit>
-		<unit type="month-past">
-			<unitPattern count="other">-{0} m</unitPattern>
-		</unit>
-		<unit type="power-kilowatt">
-			<unitPattern count="other" alt="short">{0} kW</unitPattern>
-		</unit>
-		<unit type="power-watt">
-			<unitPattern count="other" alt="short">{0} W</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="other">{0} s</unitPattern>
-		</unit>
-		<unit type="second-future">
-			<unitPattern count="other">+{0} s</unitPattern>
-		</unit>
-		<unit type="second-past">
-			<unitPattern count="other">-{0} s</unitPattern>
-		</unit>
-		<unit type="temperature-c">
-			<unitPattern count="other" alt="short">{0} °C</unitPattern>
-		</unit>
-		<unit type="volume-km3">
-			<unitPattern count="other" alt="short">{0} km³</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="other">{0} w</unitPattern>
-		</unit>
-		<unit type="week-future">
-			<unitPattern count="other">+{0} w</unitPattern>
-		</unit>
-		<unit type="week-past">
-			<unitPattern count="other">-{0} w</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="other">{0} y</unitPattern>
-		</unit>
-		<unit type="year-future">
-			<unitPattern count="other">+{0} y</unitPattern>
-		</unit>
-		<unit type="year-past">
-			<unitPattern count="other">-{0} y</unitPattern>
-		</unit>
-                <durationUnit type="ms">m:ss</durationUnit> <!-- 33:59 -->
-                <durationUnit type="hm">h:mm</durationUnit> <!-- 33:59 -->
-                <durationUnit type="hms">h:mm:ss</durationUnit> <!-- 33:59:59 -->
+		<unitLength type="long">
+			<alias source="locale" path="../unitLength[@type='short']"/>
+		</unitLength>
+		<unitLength type="short">
+			<compoundUnit type="per">
+				<unitPattern count="other">{0}/{1}</unitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g">
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-deg">
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-min">
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-sec">
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-ft2">
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-ha">
+				<unitPattern count="other">{0} ha</unitPattern>
+			</unit>
+			<unit type="area-km2">
+				<unitPattern count="other">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-m2">
+				<unitPattern count="other">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-mi2">
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="length-cm">
+				<unitPattern count="other">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-ft">
+				<unitPattern count="other">{0} ft</unitPattern>
+			</unit>
+			<unit type="length-in">
+				<unitPattern count="other">{0} in</unitPattern>
+			</unit>
+			<unit type="length-km">
+				<unitPattern count="other">{0} km</unitPattern>
+			</unit>
+			<unit type="length-ly">
+				<unitPattern count="other">{0} ly</unitPattern>
+			</unit>
+			<unit type="length-m">
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="length-mi">
+				<unitPattern count="other">{0} mi</unitPattern>
+			</unit>
+			<unit type="length-mm">
+				<unitPattern count="other">{0} mm</unitPattern>
+			</unit>
+			<unit type="length-pm">
+				<unitPattern count="other">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-yd">
+				<unitPattern count="other">{0} yd</unitPattern>
+			</unit>
+			<unit type="mass-g">
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kg">
+				<unitPattern count="other">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-oz">
+				<unitPattern count="other">{0} oz</unitPattern>
+			</unit>
+			<unit type="mass-lb">
+				<unitPattern count="other">{0} lb</unitPattern>
+			</unit>
+			<unit type="power-hp">
+				<unitPattern count="other">{0} hp</unitPattern>
+			</unit>
+			<unit type="power-kw">
+				<unitPattern count="other">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hpa">
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-mb">
+				<unitPattern count="other">{0} mb</unitPattern>
+			</unit>
+			<unit type="speed-kph">
+				<unitPattern count="other">{0} kph</unitPattern>
+			</unit>
+			<unit type="speed-mph">
+				<unitPattern count="other">{0} mph</unitPattern>
+			</unit>
+			<unit type="speed-mps">
+				<unitPattern count="other">{0} m/s</unitPattern>
+			</unit>
+			<unit type="temperature-c">
+				<unitPattern count="other">{0} °C</unitPattern>
+			</unit>
+			<unit type="temperature-f">
+				<unitPattern count="other">{0} °F</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="other">{0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">+{0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">-{0} d</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">+{0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">-{0} h</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">+{0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">-{0} min</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">+{0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">-{0} m</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">+{0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">-{0} s</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} w</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">+{0} w</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">-{0} w</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} y</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">+{0} y</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">-{0} y</unitPattern>
+			</unit>
+			<unit type="volume-km3">
+				<unitPattern count="other">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-l">
+				<unitPattern count="other">{0} l</unitPattern>
+			</unit>
+			<unit type="volume-mi3">
+				<unitPattern count="other">{0} mi³</unitPattern>
+			</unit>
+                	<durationUnit type="ms">
+				<durationUnitPattern>m:ss</durationUnitPattern> <!-- 33:59 -->
+			</durationUnit>
+                	<durationUnit type="hm">
+				<durationUnitPattern>h:mm</durationUnitPattern> <!-- 33:59 -->
+			</durationUnit>
+                	<durationUnit type="hms">
+				<durationUnitPattern>h:mm:ss</durationUnitPattern> <!-- 33:59 -->
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<alias source="locale" path="../unitLength[@type='short']"/>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

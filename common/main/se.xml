@@ -853,41 +853,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 	<units>
-		<unit type="day">
-			<unitPattern count="one" draft="unconfirmed">{0} jándor</unitPattern>
-			<unitPattern count="two" draft="unconfirmed">{0} jándora</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} jándora</unitPattern>
-		</unit>
-		<unit type="hour">
-			<unitPattern count="one" draft="unconfirmed">{0} diibmu</unitPattern>
-			<unitPattern count="two" draft="unconfirmed">{0} diimmu</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} diimmu</unitPattern>
-		</unit>
-		<unit type="minute">
-			<unitPattern count="one" draft="unconfirmed">{0} minuhta</unitPattern>
-			<unitPattern count="two" draft="unconfirmed">{0} minuhtta</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} minuhtta</unitPattern>
-		</unit>
-		<unit type="month">
-			<unitPattern count="one" draft="unconfirmed">{0} mánnu</unitPattern>
-			<unitPattern count="two" draft="unconfirmed">{0} mánotbaji</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} mánotbaji</unitPattern>
-		</unit>
-		<unit type="second">
-			<unitPattern count="one" draft="unconfirmed">{0} sekunda</unitPattern>
-			<unitPattern count="two" draft="unconfirmed">{0} sekundda</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} sekundda</unitPattern>
-		</unit>
-		<unit type="week">
-			<unitPattern count="one" draft="unconfirmed">{0} váhkku</unitPattern>
-			<unitPattern count="two" draft="unconfirmed">{0} váhkku</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} váhkku</unitPattern>
-		</unit>
-		<unit type="year">
-			<unitPattern count="one" draft="unconfirmed">{0} jahki</unitPattern>
-			<unitPattern count="two" draft="unconfirmed">{0} jagi</unitPattern>
-			<unitPattern count="other" draft="unconfirmed">{0} jagi</unitPattern>
-		</unit>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<unitPattern count="one">{0} jándor</unitPattern>
+				<unitPattern count="two">{0} jándora</unitPattern>
+				<unitPattern count="other">{0} jándora</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} diibmu</unitPattern>
+				<unitPattern count="two">{0} diimmu</unitPattern>
+				<unitPattern count="other">{0} diimmu</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} minuhta</unitPattern>
+				<unitPattern count="two">{0} minuhtta</unitPattern>
+				<unitPattern count="other">{0} minuhtta</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} mánnu</unitPattern>
+				<unitPattern count="two">{0} mánotbaji</unitPattern>
+				<unitPattern count="other">{0} mánotbaji</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} sekunda</unitPattern>
+				<unitPattern count="two">{0} sekundda</unitPattern>
+				<unitPattern count="other">{0} sekundda</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} váhkku</unitPattern>
+				<unitPattern count="two">{0} váhkku</unitPattern>
+				<unitPattern count="other">{0} váhkku</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} jahki</unitPattern>
+				<unitPattern count="two">{0} jagi</unitPattern>
+				<unitPattern count="other">{0} jagi</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>

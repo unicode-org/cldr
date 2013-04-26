@@ -217,9 +217,9 @@ define({
            
            v_oldvote_remind_msg: "CLDR: Old Votes Reminder Message",
            v_oldvote_remind_desc_msg: "You currently have ${count} votes from previous CLDR vetting periods. Would you like to view them for import into the current release?<p>  (Note: You can always import these votes via the '<span class=notselected>Manage</span>' link once logged in.)",
-           v_oldvote_remind_yes: "View Old Votes",
-           v_oldvote_remind_no: "Not today",
-           v_oldvote_remind_dontask: "Don’t ask me again",
+           v_oldvote_remind_yes: "Yes, view old votes",
+           v_oldvote_remind_no: "No, not today",
+           v_oldvote_remind_dontask: "No, and don't ask again",
            "v-title_desc": "This area shows the date before which votes are considered “old”.",
            special_oldvotes: "Import Old Votes",
            section_general: "General Info",

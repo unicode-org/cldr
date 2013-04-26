@@ -4186,55 +4186,55 @@ function showV() {
 					// any special message? "oldVotesRemind":{"count":60,"pref":"oldVoteRemind24", "remind":"* | ##"}
 					if(json.oldVotesRemind && surveyCurrentSpecial!='oldvotes') {
 						var vals = { count: dojoNumber.format(json.oldVotesRemind.count) };
-						
+
 						function updPrefTo(target) {
-                            var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=oldVoteRemind&_v="+target+cacheKill();                             myLoad(updurl, "updating coldremind " + target, function(json2) {
-                            	if(!verifyJson(json2,'pref')) {
-                            		return;
-                            	} else {
-                            		console.log('Server set  coldremind successfully.');
-                            	}
-                            });
-                        }						
+							var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=oldVoteRemind&_v="+target+cacheKill();                             myLoad(updurl, "updating coldremind " + target, function(json2) {
+								if(!verifyJson(json2,'pref')) {
+									return;
+								} else {
+									console.log('Server set  coldremind successfully.');
+								}
+							});
+						}						
 						var oldVoteRemindDialog = new Dialog({
 							title: stui.sub("v_oldvote_remind_msg",vals), 
 							content: stui.sub("v_oldvote_remind_desc_msg", vals)});
-						
-                            oldVoteRemindDialog.addChild(new Button({
-                            	label: stui.str("v_oldvote_remind_dontask"),
-                            	onClick: function() {
-                            	    updPrefTo('*'); // hide permanently
-                            	    oldVoteRemindDialog.hide();
-                            	}
-                            }));
-                            oldVoteRemindDialog.addChild(new Button({
-                            	label: stui.str("v_oldvote_remind_no"),
-                            	onClick: function() {
-                            	    updPrefTo(new Date().getTime() + (1000 * 86400)); // hide for 24 hours
-                            	    oldVoteRemindDialog.hide();
-                            	}                            	
-                            }));
-                            oldVoteRemindDialog.addChild(new Button({
-                            	label: stui.str("v_oldvote_remind_yes"),
-                            	onClick: function() {
-                            	    updPrefTo(new Date().getTime() + (1000 * 3600));// hide for 1 hr
-                            	    oldVoteRemindDialog.hide();
-                            	    surveyCurrentSpecial="oldvotes";
-                            	    surveyCurrentLocale='';
-                            	    surveyCurrentPage='';
-                            	    surveyCurrentSection='';
-                            	    reloadV();
-                            	}
-                            	
-                            }));
-						
-					    var now = new Date();
-					    if(json.oldVotesRemind.remind && now.getTime()<=parseInt(json.oldVotesRemind.remind)) {
-					        console.log("Have " + json.oldVotesRemind.count + " old votes, but will remind again in " + (parseInt(json.oldVotesRemind.remind)-now.getTime())/1000 + " seconds.");
-					    } else {
-    						oldVoteRemindDialog.show();
-	    					console.log("Showed oldVotesRemind 6");
-					    }
+
+						oldVoteRemindDialog.addChild(new Button({
+							label: stui.str("v_oldvote_remind_yes"),
+							onClick: function() {
+								updPrefTo(new Date().getTime() + (1000 * 3600));// hide for 1 hr
+								oldVoteRemindDialog.hide();
+								surveyCurrentSpecial="oldvotes";
+								surveyCurrentLocale='';
+								surveyCurrentPage='';
+								surveyCurrentSection='';
+								reloadV();
+							}
+
+						}));
+						oldVoteRemindDialog.addChild(new Button({
+							label: stui.str("v_oldvote_remind_no"),
+							onClick: function() {
+								updPrefTo(new Date().getTime() + (1000 * 86400)); // hide for 24 hours
+								oldVoteRemindDialog.hide();
+							}                            	
+						}));
+						oldVoteRemindDialog.addChild(new Button({
+							label: stui.str("v_oldvote_remind_dontask"),
+							onClick: function() {
+								updPrefTo('*'); // hide permanently
+								oldVoteRemindDialog.hide();
+							}
+						}));
+
+						var now = new Date();
+						if(json.oldVotesRemind.remind && now.getTime()<=parseInt(json.oldVotesRemind.remind)) {
+							console.log("Have " + json.oldVotesRemind.count + " old votes, but will remind again in " + (parseInt(json.oldVotesRemind.remind)-now.getTime())/1000 + " seconds.");
+						} else {
+							oldVoteRemindDialog.show();
+							console.log("Showed oldVotesRemind 6");
+						}
 					} else {
 						stdebug("Did not need to showoldvotesremind : " + Object.keys(json).toString());
 					}

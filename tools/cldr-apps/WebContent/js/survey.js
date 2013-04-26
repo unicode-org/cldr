@@ -3048,6 +3048,7 @@ function showV() {
 			dcontent: "title-dcontent",
 			
 			set: function(x,y) {
+				stdebug("menuset " + x + " = " + y);
 				var cnode = dojo.byId(x+"-container");
 				var wnode = this.getRegistry(x);
 				var dnode = this.getDom(x);
@@ -3380,6 +3381,83 @@ function showV() {
 			 * @method updateMenus
 			 */
 			function updateMenus(menuMap) {
+				// initializE menus
+
+				if(!menuMap.menusSetup) {
+					menuMap.menusSetup=true;
+					menuMap.setCheck = function(menu, checked,disabled) {
+						menu.set('iconClass',   (checked)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o");
+						menu.set('disabled', disabled);
+					};
+					var menuSection = registry.byId("menu-section");
+					//menuSection.destroyDescendants(false);
+					menuMap.section_general = new MenuItem({
+						label: stui_str("section_general"),
+						//checked:   (surveyCurrentPage == ''),
+						iconClass:  "dijitMenuItemIcon ",
+						disabled: true,
+						//    iconClass:"dijitEditorIcon dijitEditorIconSave",
+						onClick: function(){ 
+							if(surveyCurrentPage!='' && surveyCurrentSpecial!='') {
+								surveyCurrentId = ''; // no id if jumping pages
+								surveyCurrentPage = '';
+								surveyCurrentSection = '';
+								surveyCurrentSpecial = '';
+								updateMenuTitles(menuMap);
+								reloadV();
+							}
+						}
+					});
+					menuSection.addChild(menuMap.section_general);
+					for(var j in menuMap.sections) {
+						(function (aSection){
+							aSection.menuItem = new MenuItem({
+								label: aSection.name,
+								iconClass: "dijitMenuItemIcon",
+								onClick: function(){ 
+									var goTo = null;
+									// need to find  a valid page
+									
+									for(var k in aSection.pages) { // find first valid page
+										var disabled =  (effectiveCoverage()<parseInt(aSection.pages[k].levs[surveyCurrentLocale]));
+										if(!disabled && goTo == null) {
+											goTo = aSection.pages[k];
+											break;
+										}
+									}
+									if(goTo!=null) {
+										stdebug('clicky ' + goTo.id);
+										surveyCurrentId = ''; // no id if jumping pages
+										surveyCurrentPage = goTo.id;
+										updateMenuTitles(menuMap);
+										reloadV();
+									} else {
+										stdebug('Nowhere to go, all pages disabled.');
+									}
+								},
+								disabled: true
+							});
+							
+							menuSection.addChild(aSection.menuItem);
+						})(menuMap.sections[j]);
+					}
+					
+					menuSection.addChild(new MenuSeparator());
+
+					menuMap.forumMenu = new MenuItem({
+						label: stui_str("section_forum"),
+						iconClass: "dijitMenuItemIcon",
+						disabled: true,
+						onClick: function(){ 
+							// TODO:  make this a real section
+							window.location = survURL + '?forum=' + locmap.getLanguage(surveyCurrentLocale);
+						}
+					});
+					menuSection.addChild(menuMap.forumMenu);
+										
+				}
+				
+				
 				updateMenuTitles(menuMap);
 
 				var myPage = null;
@@ -3390,7 +3468,10 @@ function showV() {
 						mySection = menuMap.pageToSection[surveyCurrentPage];
 						myPage = mySection.pageMap[surveyCurrentPage];
 						// update menus under 'page' - peer pages
+						
+						
 						var menuPage = registry.byId("menu-page");
+						// TODO: restructure this
 						menuPage.destroyDescendants(false);
 						for(var k in mySection.pages) { // use given order
 							(function(aPage) {
@@ -3415,105 +3496,20 @@ function showV() {
 
 				}
 				
-				//console.log('Updating menus.. ecov = ' + effectiveCoverage());
+				stdebug('Updating menus.. ecov = ' + effectiveCoverage());
 
-				var menuSection = registry.byId("menu-section");
-				menuSection.destroyDescendants(false);
-				var generalMenu = new /*Checked*/MenuItem({
-					label: stui_str("section_general"),
-					//checked:   (surveyCurrentPage == ''),
-					iconClass:  (surveyCurrentPage == '')?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
-					//    iconClass:"dijitEditorIcon dijitEditorIconSave",
-					onClick: function(){ 
-						surveyCurrentId = ''; // no id if jumping pages
-						surveyCurrentPage = '';
-						updateMenuTitles(menuMap);
-						reloadV();
-					}
-				});
-				menuSection.addChild(generalMenu);
+				menuMap.setCheck(menuMap.section_general,  (surveyCurrentPage == ''),false);
 
+				// update section menus  (surveyCurrentSection == aSection.id)
 				for(var j in menuMap.sections) {
-					(function (aSection){
-						
-						var goTo = null;
-						// need to find  a valid page
-						
-						for(var k in aSection.pages) { // find first valid page
-							var disabled =  (effectiveCoverage()<parseInt(aSection.pages[k].levs[surveyCurrentLocale]));
-							if(!disabled && goTo == null) {
-								goTo = aSection.pages[k];
-								break;
-							}
-						}
-						
-					//	console.log("for section " + aSection.name + " got " + goTo);
-						
-						var onClick = null;
-						
-						if(goTo != null) {
-							onClick = function(){ 
-								console.log('clicky ' + goTo.id);
-								surveyCurrentId = ''; // no id if jumping pages
-								surveyCurrentPage = goTo.id;
-								updateMenuTitles(menuMap);
-								reloadV();
-							};
-						}
-						
-						var sectionMenuItem = new MenuItem({
-							label: aSection.name,
-							iconClass:  (surveyCurrentSection == aSection.id)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
-							onClick: onClick,
-							disabled: (goTo==null)
-						});
-
-						/*
-						var dropDown = new DropDownMenu();
-						for(var k in aSection.pages) { // use given order
-							(function(aPage) {
-								var pageMenu = new MenuItem({
-									label: aPage.name,
-									iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
-									//checked:   (aPage.id == surveyCurrentPage),
-									//    iconClass:"dijitEditorIcon dijitEditorIconSave",
-									disabled: (effectiveCoverage()<parseInt(aPage.levs[surveyCurrentLocale])),
-									onClick: function(){ 
-										surveyCurrentId = ''; // no id if jumping pages
-										surveyCurrentPage = aPage.id;
-										updateMenuTitles(menuMap);
-										reloadV();
-									}
-								});
-								dropDown.addChild(pageMenu);
-							})(aSection.pages[k]);
-
-						}
-						var sectionMenuItem = new PopupMenuItem({
-							label: aSection.name,
-							popup: dropDown
-						});
-						*/
-						
-						
-						menuSection.addChild(sectionMenuItem);
-					})(menuMap.sections[j]);
+					var aSection = menuMap.sections[j];
+					// need to see if any items are visible @ current coverage
+					stdebug("for " + aSection.name + " minLev["+surveyCurrentLocale+"] = "+ aSection.minLev[surveyCurrentLocale]);
+					menuMap.setCheck(aSection.menuItem,  (surveyCurrentSection == aSection.id),effectiveCoverage()<aSection.minLev[surveyCurrentLocale]);
 				}
+
 				
-				menuSection.addChild(new MenuSeparator());
-
-				var forumMenu = new /*Checked*/MenuItem({
-					label: stui_str("section_forum"),
-					//checked:   (surveyCurrentPage == ''),
-					iconClass:  (surveyCurrentSpecial == 'forum')?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-chat",
-					//    iconClass:"dijitEditorIcon dijitEditorIconSave",
-					onClick: function(){ 
-						// TODO:  make this a real section
-						window.location = survURL + '?forum=' + locmap.getLanguage(surveyCurrentLocale);
-					}
-				});
-				menuSection.addChild(forumMenu);
-
+				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),false);
 			}
 
 			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {
@@ -3543,27 +3539,55 @@ function showV() {
 						function unpackMenus(json) {
 							var menus = json.menus;
 							
-							
-							// set up some hashes
-							menus.sectionMap = {};
-							menus.pageToSection = {};
-							for(var k in menus.sections) {
-								menus.sectionMap[menus.sections[k].id] = menus.sections[k];
-								menus.sections[k].pageMap = {};
-								for(var j in menus.sections[k].pages) {
-									menus.sections[k].pageMap[menus.sections[k].pages[j].id] = menus.sections[k].pages[j];
-									menus.pageToSection[menus.sections[k].pages[j].id] = menus.sections[k];
+							if(_thePages) {
+								stdebug("Updating cov info into menus for " + json.loc);
+								for(var k in menus.sections) {
+									var oldSection = _thePages.sectionMap[menus.sections[k].id];
+									// _thePages.sections[k].minCov[locale] = ...
+									for(var j in menus.sections[k].pages) {
+										var oldPage = oldSection.pageMap[menus.sections[k].pages[j].id];
+
+										// copy over levels
+										oldPage.levs[json.loc] = menus.sections[k].pages[j].levs[json.loc];
+									}
 								}
+							} else {
+								stdebug("setting up new hashes for " + json.loc);
+								// set up some hashes
+								menus.haveLocs = {};
+								menus.sectionMap = {};
+								menus.pageToSection = {};
+								for(var k in menus.sections) {
+									menus.sectionMap[menus.sections[k].id] = menus.sections[k];
+									menus.sections[k].pageMap = {};
+									menus.sections[k].minLev = {};
+									for(var j in menus.sections[k].pages) {
+										menus.sections[k].pageMap[menus.sections[k].pages[j].id] = menus.sections[k].pages[j];
+										menus.pageToSection[menus.sections[k].pages[j].id] = menus.sections[k];
+									}
+								}
+								_thePages = menus;
 							}
-							_thePages = menus;
+							
+							stdebug("Calculating minimum section coverage for " + json.loc);
+							for(var k in _thePages.sectionMap) {
+								var min = 200;
+								for(var j in _thePages.sectionMap[k].pageMap) {
+									var thisLev = parseInt(_thePages.sectionMap[k].pageMap[j].levs[json.loc]);
+									if(min > thisLev) {
+										min = thisLev;
+									}
+								}
+								_thePages.sectionMap[k].minLev[json.loc] = min;
+							}
+							
+							_thePages.haveLocs[json.loc] = true;
 						}
 
 						unpackMenus(json);
 
 						updateMenus(_thePages);
 					});
-				} else {
-					_thePages = null;
 				}
 			} else {
 				// go ahead and update
@@ -3681,10 +3705,6 @@ function showV() {
 		window.reloadV = function reloadV() {
 			// assume parseHash was already called, if we are taking input from the hash
 			ariDialog.hide();
-			
-			window.surveyCurrentLocaleName = '-'; // so it's not stale
-			
-
 
 			updateHashAndMenus(true);
 
@@ -3797,7 +3817,6 @@ function showV() {
 								}
 								showLoader(null);
 								flipper.flipTo(pages.other, createChunk(stui_str("loading_nocontent"),"i","loadingMsg"));
-								//surveyCurrentLocaleName = json.localeDisplayName;
 								updateHashAndMenus(); // find out why there's no content. (locmap)
 							} else if(!json.section.rows) {
 								console.log("!json.section.rows");
@@ -3812,8 +3831,7 @@ function showV() {
 
 								surveyCurrentSection = '';
 								surveyCurrentPage = json.pageId;
-								//surveyCurrentLocaleName = json.localeDisplayName;
-								updateHashAndMenus();
+								updateHashAndMenus(); // now that we have a pageid
 								showInPop2("", null, null, null, true); /* show the box the first time */
 								doUpdate(theDiv.id, function() {
 									showLoader(theDiv.loader,stui.loading3);
@@ -3885,7 +3903,6 @@ function showV() {
 								}
 							} else {
 								surveyCurrentLocale=json.oldvotes.locale;
-								//surveyCurrentLocaleName=json.oldvotes.localeDisplayName;
 								updateHashAndMenus();
 								var loclink;
 								theDiv.appendChild(loclink=createChunk(stui.str("v_oldvotes_return_to_locale_list"),"a", "notselected"));
@@ -4219,7 +4236,7 @@ function showV() {
 	    					console.log("Showed oldVotesRemind 6");
 					    }
 					} else {
-						console.log("Did not need to showoldvotesremind : " + Object.keys(json).toString());
+						stdebug("Did not need to showoldvotesremind : " + Object.keys(json).toString());
 					}
 
 					updateCovFromJson(json);
@@ -4260,38 +4277,40 @@ function showV() {
 						}
 						// TODO have to move this out of the DOM..
 						var covMenu = flipper.get(pages.data).covMenu = new Select({name: "menu-select", 
-																		id: 'menu-select',
-																		title: stui.str('coverage_menu_desc'),
-																		options: store,
-																		onChange: function(newValue) {
-																			var setUserCovTo = null;
-																			if(newValue == 'auto') {
-																				setUserCovTo = null; // auto
-																			} else {
-																				setUserCovTo = newValue;
-																			}
-																			
-																			if(setUserCovTo === window.surveyUserCov) {
-																				console.log('No change in user cov: ' + setUserCovTo);
-																			} else {
-																				window.surveyUserCov = setUserCovTo;
-																				var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
-																				myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
-																					if(!verifyJson(json,'pref')) {
-																						return;
-																					} else {
-																						console.log('Server set  covlev successfully.');
-																					}
-																				});
-																			}
-																			// still update these.
-																			updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
-																			updateHashAndMenus(false); // TODO: why? Maybe to show an item?
-																		}
-																		});
+								id: 'menu-select',
+								title: stui.str('coverage_menu_desc'),
+								options: store,
+								onChange: function(newValue) {
+									var setUserCovTo = null;
+									if(newValue == 'auto') {
+										setUserCovTo = null; // auto
+									} else {
+										setUserCovTo = newValue;
+									}
+									
+									if(setUserCovTo === window.surveyUserCov) {
+										console.log('No change in user cov: ' + setUserCovTo);
+									} else {
+										window.surveyUserCov = setUserCovTo;
+										var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
+										myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
+											if(!verifyJson(json,'pref')) {
+												return;
+											} else {
+												console.log('Server set  covlev successfully.');
+											}
+										});
+									}
+									// still update these.
+									updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
+									updateHashAndMenus(false); // TODO: why? Maybe to show an item?
+								}
+								});
 						covMenu.placeAt(titleCoverage);
 					//}	
 
+						
+						
 					
 				window.reloadV(); // call it
 			

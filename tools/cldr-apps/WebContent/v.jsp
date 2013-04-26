@@ -183,15 +183,6 @@ survURL = '<%= survURL %>';
          <div id='title-locale-container' class='menu-container'>
                 <span id='title-locale'></span>
                 <span id='title-dcontent-container'><a href='http://cldr.unicode.org/translation/default-content' id='title-dcontent'></a></span>
-	   <%--      <div id='title-locale' data-dojo-type="dijit/form/DropDownButton">
-	              <span>(locale)</span>
-	              <div id='menu-locale' data-dojo-type="dijit/DropDownMenu">
-	                        <div data-dojo-type="dijit/MenuItem"
-	                            data-dojo-props=" onClick:function(){  window.location='<%= survURL %>?_=' + surveyCurrentLocale;    }">
-	                            General Info</div>
-	                        
-	              </div>
-	         </div>  --%>
          </div>
          
          <div id='title-section-container' class='menu-container'>

@@ -22,7 +22,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <pluralRules locales="he">
             <pluralRule count="one">j is 1</pluralRule>
             <pluralRule count="two">j is 2</pluralRule>
-            <pluralRule count="many">j is not 0 and j mod 10 is 0</pluralRule>
+            <pluralRule count="many">j not in 0..10 and j mod 10 is 0</pluralRule>
         </pluralRules>
         <pluralRules locales="af asa ast bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw jgo jmc kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pa pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn ts ve vo vun wae xh xog">
             <pluralRule count="one">n is 1</pluralRule>

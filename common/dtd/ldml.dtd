@@ -1219,7 +1219,7 @@ $Date$
 <!ATTLIST symbol alt NMTOKENS #IMPLIED >
 <!ATTLIST symbol choice ( true | false ) #IMPLIED > <!-- deprecated -->
 
-<!ELEMENT miscPatterns (alias | (default*, pattern?, special*)) >
+<!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) >
 <!ATTLIST miscPatterns draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST miscPatterns numberSystem CDATA #IMPLIED >
 

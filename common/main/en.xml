@@ -1174,7 +1174,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="islamic" key="calendar">Islamic Calendar</type>
 			<type type="islamic-civil" key="calendar">Islamic Calendar [tabular, civil epoch]</type>
 			<type type="islamic-rgsa" key="calendar">Islamic Calendar [Saudi Arabia, sighting]</type>
-			<type type="islamic-tbla" key="calendar">Islamic Calendar [tabular, astronimical epoch]</type>
+			<type type="islamic-tbla" key="calendar">Islamic Calendar [tabular, astronomical epoch]</type>
 			<type type="islamic-umalqura" key="calendar">Islamic Calendar [Umm al-Qura]</type>
 			<type type="iso8601" key="calendar">ISO-8601 Calendar</type>
 			<type type="japanese" key="calendar">Japanese Calendar</type>
@@ -1516,7 +1516,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">E, MMM d, U – E, MMM d, U</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM–MMMM U</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM U</greatestDifference>
 							<greatestDifference id="y">MMMM U – MMMM U</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
@@ -1705,7 +1705,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">E, MMM d, y – E, MMM d, y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM–MMMM y G</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM y G</greatestDifference>
 							<greatestDifference id="y">MMMM y – MMMM y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
@@ -2069,7 +2069,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">E, MMM d, y – E, MMM d, y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM y</greatestDifference>
 							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
@@ -2131,21 +2131,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName>Year</displayName>
-				<relative type="-1">Last year</relative>
-				<relative type="0">This year</relative>
-				<relative type="1">Next year</relative>
+				<relative type="-1">last year</relative>
+				<relative type="0">this year</relative>
+				<relative type="1">next year</relative>
 			</field>
 			<field type="month">
 				<displayName>Month</displayName>
-				<relative type="-1">Last month</relative>
-				<relative type="0">This month</relative>
-				<relative type="1">Next month</relative>
+				<relative type="-1">last month</relative>
+				<relative type="0">this month</relative>
+				<relative type="1">next month</relative>
 			</field>
 			<field type="week">
 				<displayName>Week</displayName>
-				<relative type="-1">Last week</relative>
-				<relative type="0">This week</relative>
-				<relative type="1">Next week</relative>
+				<relative type="-1">last week</relative>
+				<relative type="0">this week</relative>
+				<relative type="1">next week</relative>
 			</field>
 			<field type="day">
 				<displayName>Day</displayName>
@@ -2157,39 +2157,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Day of the Week</displayName>
 			</field>
 			<field type="sun">
-				<relative type="-1">Last Sunday</relative>
-				<relative type="0">This Sunday</relative>
-				<relative type="1">Next Sunday</relative>
+				<relative type="-1">last Sunday</relative>
+				<relative type="0">this Sunday</relative>
+				<relative type="1">next Sunday</relative>
 			</field>
 			<field type="mon">
-				<relative type="-1">Last Monday</relative>
-				<relative type="0">This Monday</relative>
-				<relative type="1">Next Monday</relative>
+				<relative type="-1">last Monday</relative>
+				<relative type="0">this Monday</relative>
+				<relative type="1">next Monday</relative>
 			</field>
 			<field type="tue">
-				<relative type="-1">Last Tuesday</relative>
-				<relative type="0">This Tuesday</relative>
-				<relative type="1">Next Tuesday</relative>
+				<relative type="-1">last Tuesday</relative>
+				<relative type="0">this Tuesday</relative>
+				<relative type="1">next Tuesday</relative>
 			</field>
 			<field type="wed">
-				<relative type="-1">Last Wednesday</relative>
-				<relative type="0">This Wednesday</relative>
-				<relative type="1">Next Wednesday</relative>
+				<relative type="-1">last Wednesday</relative>
+				<relative type="0">this Wednesday</relative>
+				<relative type="1">next Wednesday</relative>
 			</field>
 			<field type="thu">
-				<relative type="-1">Last Thursday</relative>
-				<relative type="0">This Thursday</relative>
-				<relative type="1">Next Thursday</relative>
+				<relative type="-1">last Thursday</relative>
+				<relative type="0">this Thursday</relative>
+				<relative type="1">next Thursday</relative>
 			</field>
 			<field type="fri">
-				<relative type="-1">Last Friday</relative>
-				<relative type="0">This Friday</relative>
-				<relative type="1">Next Friday</relative>
+				<relative type="-1">last Friday</relative>
+				<relative type="0">this Friday</relative>
+				<relative type="1">next Friday</relative>
 			</field>
 			<field type="sat">
-				<relative type="-1">Last Saturday</relative>
-				<relative type="0">This Saturday</relative>
-				<relative type="1">Next Saturday</relative>
+				<relative type="-1">last Saturday</relative>
+				<relative type="0">this Saturday</relative>
+				<relative type="1">next Saturday</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>

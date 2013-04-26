@@ -139,7 +139,7 @@ abstract public class CheckCLDR {
     private static final HashMap<String, Phase> PHASE_NAMES = new HashMap<String, Phase>();
 
     public enum Phase {
-        SUBMISSION, VETTING, FINAL_TESTING("RESOLUTION");
+        BUILD, SUBMISSION, VETTING, FINAL_TESTING("RESOLUTION");
         Phase(String... alternateName) {
             for (String name : alternateName) {
                 PHASE_NAMES.put(name.toUpperCase(Locale.ENGLISH), this);

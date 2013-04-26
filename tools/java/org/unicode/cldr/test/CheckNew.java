@@ -16,12 +16,12 @@ public class CheckNew extends CheckCLDR {
         if (cldrFileToCheck == null) {
             return this;
         }
-        if (Phase.VETTING == getPhase()) {
-            setSkipTest(false); // ok
-        } else {
-            setSkipTest(true);
-            return this;
-        }
+//        if (Phase.VETTING == getPhase()) {
+//            setSkipTest(false); // ok
+//        } else {
+//            setSkipTest(true);
+//            return this;
+//        }
 
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;

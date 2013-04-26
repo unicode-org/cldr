@@ -246,7 +246,7 @@ public class ConsoleCheckCLDR {
             }
         }
 
-        Phase phase = Phase.SUBMISSION;
+        Phase phase = Phase.BUILD;
         if (options[PHASE].doesOccur) {
             try {
                 phase = Phase.forString(options[PHASE].value);

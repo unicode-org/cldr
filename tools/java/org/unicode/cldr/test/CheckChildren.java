@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -63,7 +64,7 @@ public class CheckChildren extends FactoryCheckCLDR {
         if (cldrFileToCheck.getLocaleID().equals("root")) return this; // Root's children can override.
 
         // Skip if the phase is not final testing
-        if (Phase.FINAL_TESTING == getPhase()) {
+        if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
             setSkipTest(false); // ok
         } else {
             setSkipTest(true);

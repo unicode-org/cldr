@@ -14,6 +14,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -178,7 +179,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
             List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        if (Phase.FINAL_TESTING == getPhase()) {
+        if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
             setSkipTest(false); // ok
         } else {
             setSkipTest(true);

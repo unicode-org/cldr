@@ -40,12 +40,11 @@ public class CheckLogicalGroupings extends CheckCLDR {
         if (logicalGroupingIsEmpty) return this; // skip if the logical grouping is empty
         if (!getCldrFileToCheck().isHere(path)) {
             CheckStatus.Type showError = CheckStatus.warningType;
-//            if (this.getPhase() != null
-//                && (this.getPhase().equals(Phase.SUBMISSION) || this.getPhase().equals(Phase.VETTING))) {
-//                showError = CheckStatus.warningType;
-//            } else {
-//                showError = CheckStatus.errorType;
-//            }
+            if (this.getPhase() != null && !this.getPhase().equals(Phase.FINAL_TESTING)) {
+                showError = CheckStatus.warningType;
+            } else {
+                showError = CheckStatus.errorType;
+            }
             result.add(new CheckStatus().setCause(this).setMainType(showError)
                 .setSubtype(Subtype.incompleteLogicalGroup)
                 .setMessage("Incomplete logical group - must enter a value for all fields in the group"));

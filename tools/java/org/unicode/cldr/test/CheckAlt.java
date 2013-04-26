@@ -99,7 +99,7 @@ public class CheckAlt extends CheckCLDR {
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         // Skip if the phase is not final testing
-        if (Phase.FINAL_TESTING == getPhase()) {
+        if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
             setSkipTest(false); // ok
         } else {
             setSkipTest(true);

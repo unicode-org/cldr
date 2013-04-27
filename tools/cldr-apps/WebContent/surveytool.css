@@ -1610,8 +1610,27 @@ div.loading {
 	display: none;
 }
 
+p.errCodeMsg {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: normal;
+    font-style: normal;
+    padding-left:  20px;
+    background: url(stop.png) no-repeat left top;
+    margin-left:  3em;
+    margin-right:  3em;
+    border:  2px solid silver;
+}
+
+#LoadingMessageSection p.errCodeMsg button {
+    display:  block;
+    margin-top: 1em;
+    font-size: x-large;
+}
+
 .cldr_substituted {
 	background-color: #ddd;
+    font-weight: normal;
+    font-style: normal;
 }
 
 

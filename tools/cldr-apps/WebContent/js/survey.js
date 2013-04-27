@@ -3796,7 +3796,7 @@ function showV() {
 
 				showLoader(null, theDiv.stui.loading);
 				
-				if(surveyCurrentSpecial == null && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
+				if((surveyCurrentSpecial == null||surveyCurrentSpecial=='') && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
 					if((surveyCurrentPage==null || surveyCurrentPage=='') && (surveyCurrentId==null||surveyCurrentId=='')) {
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale)));
 						showPossibleProblems(flipper, pages.other, surveyCurrentLocale, surveySessionId, covName(effectiveCoverage()), covName(effectiveCoverage()));
@@ -4327,7 +4327,7 @@ function showV() {
 						
 						window.parseHash(changedHash);
 						
-						surveyCurrentID = trimNull(surveyCurrentId);
+						surveyCurrentId = trimNull(surveyCurrentId);
 						
 						// did anything change?
 						if(oldLocale!=trimNull(surveyCurrentLocale) ||								oldSpecial!=trimNull(surveyCurrentSpecial) ||								oldPage != trimNull(surveyCurrentPage) ) {

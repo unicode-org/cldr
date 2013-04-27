@@ -142,6 +142,7 @@ public class TestCLDRFile extends TestFmwk {
                 }
                 if (!localeInfo.paths.contains(path)) {
                     if (path.startsWith("//ldml/dates/calendars/calendar") && !(path.contains("[@type=\"generic\"]") || path.contains("[@type=\"gregorian\"]"))
+                            || (path.contains("/eras/") && path.contains("[@alt=\"variant\"]")) // it is OK for just "en" to have /eras/.../era[@type=...][@alt="variant"]
                             || path.contains("[@type=\"japanese\"]")
                             || path.contains("[@type=\"coptic\"]")
                             || path.contains("[@type=\"hebrew\"]")

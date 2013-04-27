@@ -32,6 +32,7 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
@@ -303,7 +304,7 @@ public class ExampleGenerator {
             } else if (parts.getElement(1).equals("listPatterns")) {
                 result = handleListPatterns(parts, value);
             } else if (parts.getElement(2).equals("ellipsis")) {
-                result = handleEllipsis(value);
+                result = handleEllipsis(parts.getAttributeValue(-1, "type"), value);
             } else if (parts.getElement(-1).equals("monthPattern")) {
                 result = handleMonthPatterns(parts, value);
             } else if (parts.getElement(-1).equals("appendItem")) {
@@ -508,11 +509,37 @@ public class ExampleGenerator {
         return cldrFile.getWinningValue(format(format, arguments));
     }
 
-    private String handleEllipsis(String value) {
+    public String handleEllipsis(String type, String value) {
         String pathFormat = "//ldml/localeDisplayNames/territories/territory[@type=\"{0}\"]";
+        //  <ellipsis type="word-final">{0} …</ellipsis>
+        //  <ellipsis type="word-initial">… {0}</ellipsis>
+        //  <ellipsis type="word-medial">{0} … {1}</ellipsis>
         String territory1 = getValueFromFormat(pathFormat, "CH");
         String territory2 = getValueFromFormat(pathFormat, "JP");
+        // if it isn't a word, break in the middle
+        if (!type.contains("word")) {
+            territory1 = clip(territory1,0, 1);
+            territory2 = clip(territory2,1, 0);
+        }
+        if (type.contains("initial")) {
+            territory1 = territory2;
+        }
         return invertBackground(format(setBackground(value), territory1, territory2));
+    }
+
+    public static String clip(String text, int clipStart, int clipEnd) {
+        BreakIterator bi = BreakIterator.getCharacterInstance();
+        bi.setText(text);
+        for (int i = 0; i < clipStart; ++i) {
+            bi.next();
+        }
+        int start = bi.current();
+        bi.last();
+        for (int i = 0; i < clipEnd; ++i) {
+            bi.previous();
+        }
+        int end = bi.current();
+        return start >= end ? text : text.substring(start, end);
     }
 
     /**

@@ -60,6 +60,7 @@ public class DisplayAndInputProcessor {
                                                                                                       // including NBSP,
                                                                                                       // i.e. [
                                                                                                       // \u00A0\t\n\r]+
+    private static final UnicodeSet UNICODE_WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
 
     private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
     private static final CLDRLocale ROMANIAN = CLDRLocale.getInstance("ro");
@@ -190,32 +191,9 @@ public class DisplayAndInputProcessor {
                 value = standardizeRomanian(value);
             }
 
-            // turn all whitespace sequences (including tab and newline, and NBSP for certain paths)
-            // into a single space or a single NBSP depending on path.
-            if ((path.contains("/dateFormatLength") && path.contains("/pattern")) ||
-                path.contains("/availableFormats/dateFormatItem") ||
-                (path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
-                path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
-                path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||
-                path.startsWith("//ldml/localeDisplayNames/languages/language") ||
-                path.startsWith("//ldml/localeDisplayNames/territories/territory") ||
-                path.startsWith("//ldml/localeDisplayNames/types/type") ||
-                (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("/displayName")) ||
-                (path.contains("/decimalFormatLength[@type=\"long\"]") && path.contains("/pattern")) ||
-                path.startsWith("//ldml/posix/messages") ||
-                (path.startsWith("//ldml/units/uni") && path.contains("/unitPattern "))) {
-                value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
-            } else if ((path.contains("/currencies/currency") && (path.contains("/group") || path.contains("/pattern")))
-                ||
-                (path.contains("/currencyFormatLength") && path.contains("/pattern")) ||
-                (path.contains("/currencySpacing") && path.contains("/insertBetween")) ||
-                (path.contains("/decimalFormatLength") && path.contains("/pattern")) || // i.e. the non-long ones
-                (path.contains("/percentFormatLength") && path.contains("/pattern")) ||
-                (path.startsWith("//ldml/numbers/symbols") && (path.contains("/group") || path.contains("/nan")))) {
-                value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u00A0"); // replace with NBSP
-            } else {
-                // in this case don't normalize away NBSP
-                value = WHITESPACE_NO_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+
+            if (UNICODE_WHITESPACE.containsSome(value)) {
+                value = normalizeWhitespace(path, value);
             }
 
             // all of our values should not have leading or trailing spaces, except insertBetween
@@ -298,6 +276,37 @@ public class DisplayAndInputProcessor {
             }
             return original;
         }
+    }
+
+    private String normalizeWhitespace(String path, String value) {
+        // turn all whitespace sequences (including tab and newline, and NBSP for certain paths)
+        // into a single space or a single NBSP depending on path.
+        if ((path.contains("/dateFormatLength") && path.contains("/pattern")) ||
+            path.contains("/availableFormats/dateFormatItem") ||
+            (path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
+            path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
+            path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||
+            path.startsWith("//ldml/localeDisplayNames/languages/language") ||
+            path.startsWith("//ldml/localeDisplayNames/territories/territory") ||
+            path.startsWith("//ldml/localeDisplayNames/types/type") ||
+            (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("/displayName")) ||
+            (path.contains("/decimalFormatLength[@type=\"long\"]") && path.contains("/pattern")) ||
+            path.startsWith("//ldml/posix/messages") ||
+            (path.startsWith("//ldml/units/uni") && path.contains("/unitPattern "))) {
+            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+        } else if ((path.contains("/currencies/currency") && (path.contains("/group") || path.contains("/pattern")))
+            ||
+            (path.contains("/currencyFormatLength") && path.contains("/pattern")) ||
+            (path.contains("/currencySpacing") && path.contains("/insertBetween")) ||
+            (path.contains("/decimalFormatLength") && path.contains("/pattern")) || // i.e. the non-long ones
+            (path.contains("/percentFormatLength") && path.contains("/pattern")) ||
+            (path.startsWith("//ldml/numbers/symbols") && (path.contains("/group") || path.contains("/nan")))) {
+            value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u00A0"); // replace with NBSP
+        } else {
+            // in this case don't normalize away NBSP
+            value = WHITESPACE_NO_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
+        }
+        return value;
     }
 
     private String standardizeRomanian(String value) {

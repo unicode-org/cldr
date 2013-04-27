@@ -30,7 +30,7 @@ if(!Object.prototype.keys && !Object.keys) {
 
 if(!Array.prototype.isArray && !Array.isArray) {
 	console.log("fixing missing Array.isArray() ");
-	Array.prototype.isArray = function(x) {
+	Array.isArray = function(x) {
 		if(x === null) return false;
 		return x instanceof Array;   // if this doesn't work, we're in trouble.
 	};
@@ -789,7 +789,7 @@ function showARIDialog(why, json, word, oneword, p) {
  * @param p
  */
 function ariRetry() {
-	alert("Can't retry - internal error.");
+	window.location.reload(true);
 }
 
 

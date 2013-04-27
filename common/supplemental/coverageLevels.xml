@@ -295,7 +295,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="100" match="localeDisplayNames/transformNames/transformName[@type='[^']++']"/>
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='[A-Z]{3}']/(symbol|displayName)([@count='${Target-Plurals}'])?"/>
 		<coverageLevel value="100" match="numbers/currencyFormats/currencySpacing/(before|after)Currency/(insertBetween|(currency|surrounding)Match)"/>
-		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras([@alt='variant'])?/era(Names|Narrow)/era[@type='(0|1)']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/era(Names|Narrow)/era[@type='(0|1)']([@alt='variant'])?"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='%wideNarrow']/dayPeriod[@type='[^']++']"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/%metazoneTypes"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100_stdonly']/long/standard"/>

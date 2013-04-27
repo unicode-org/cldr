@@ -249,14 +249,19 @@ public class SurveyAjax extends HttpServlet {
         String what = request.getParameter(REQ_WHAT);
         String sess = request.getParameter(SurveyMain.QUERY_SESSION);
         String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
-        CLDRLocale l = null;
-        if (loc != null && !loc.isEmpty()) {
-            l = CLDRLocale.getInstance(loc);
-        }
         String xpath = request.getParameter(SurveyForum.F_XPATH);
         String vhash = request.getParameter("vhash");
         String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
         CookieSession mySession = null;
+        
+        CLDRLocale l = null;
+        if(sm!=null && sm.isSetup && loc != null && !loc.isEmpty()) {
+            l = validateLocale(out, loc);
+            if(l == null) {
+                return; // error was already thrown.
+            }
+        }
+        
         try {
             if (sm == null) {
                 sendNoSurveyMain(out);
@@ -650,8 +655,15 @@ public class SurveyAjax extends HttpServlet {
                         r.put("what", what);
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
-
                         r.put("loc", loc);
+                        System.err.println("loc: " + loc + "= " + locale);
+                        if(locale == null) {
+                            r.put("err", "Bad locale: " + loc);
+                            r.put("err_code","E_BAD_LOCALE");
+                            send(r,out);
+                            return;
+                        }
+
                         
 
                         String eff = request.getParameter("eff");
@@ -928,6 +940,32 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
+    /**
+     * Validate a locale. Prints standardized error if not found.
+     * @param sm
+     * @param out
+     * @param loc
+     * @return
+     * @throws IOException 
+     */
+    public static CLDRLocale validateLocale( PrintWriter out, String loc) throws IOException {
+        CLDRLocale ret;
+        if(CookieSession.sm == null || CookieSession.sm.isSetup==false) {
+            sendNoSurveyMain(out);
+            return null;
+        }
+        if(loc==null || loc.isEmpty() || (ret=CLDRLocale.getInstance(loc))==null ||  !SurveyMain.getLocalesSet().contains(ret)) {
+            JSONWriter r = newJSON();
+            r.put("err", "Bad locale code:"+  loc);
+            r.put("loc", loc);
+            r.put("err_code", "E_BAD_LOCALE");
+            send(r, out);
+            return null; // failed
+        } else {
+            return CLDRLocale.getInstance(loc);
+        }
+    }
+
     private static JSONObject createJSONLocMap(SurveyMain sm) throws JSONException {
         JSONObject locmap = new JSONObject();
         // locales will have info about each locale, including name
@@ -1045,7 +1083,7 @@ public class SurveyAjax extends HttpServlet {
         return r;
     }
 
-    private JSONWriter newJSON() {
+    private static JSONWriter newJSON() {
         JSONWriter r = new JSONWriter();
         r.put("progress", "(obsolete-progress)");
         r.put("visitors", "");
@@ -1058,10 +1096,11 @@ public class SurveyAjax extends HttpServlet {
 
     }
 
-    private void sendNoSurveyMain(PrintWriter out) throws IOException {
+    private static void sendNoSurveyMain(PrintWriter out) throws IOException {
         JSONWriter r = newJSON();
         r.put("SurveyOK", "0");
         r.put("err", "The SurveyTool has not yet started.");
+        r.put("err_code", "E_NOT_STARTED");
         send(r, out);
     }
 
@@ -1072,7 +1111,7 @@ public class SurveyAjax extends HttpServlet {
         send(r, out);
     }
 
-    private void send(JSONWriter r, PrintWriter out) throws IOException {
+    private static void send(JSONWriter r, PrintWriter out) throws IOException {
         out.print(r.toString());
     }
 

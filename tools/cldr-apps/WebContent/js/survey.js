@@ -70,6 +70,26 @@ function removeAllChildNodes(td) {
 	}
 }
 
+/**
+ * set/remove style.display
+ * @method setDIsplayed
+ */
+function setDisplayed(div, visible) {
+	if(div===null) {
+		console.log("setDisplayed: called on null");
+		return;
+	} else if(!div.style) {
+		console.log("setDisplayed: called on malformed node " + div + " - no style! " + Object.keys(div));
+//	} else if(!div.style.display) {
+//		console.log("setDisplayed: called on malformed node " + div + " - no display! " + Object.keys(div.style));
+	} else {
+		if(visible) {
+			div.style.display = '';
+		} else {
+			div.style.display = 'none';
+		}
+	}
+}
 
 /**
  * Section flipping class
@@ -85,7 +105,7 @@ function Flipper(ids) {
 		var node = dojo.byId(id);
 		// TODO if node==null throw
 		if(this._panes.length > 0) {
-			node.style.display='none'; // hide it
+			setDisplayed(node,false); // hide it
 		} else {
 			this._visible = id;
 		}
@@ -104,7 +124,7 @@ Flipper.prototype.flipTo = function(id, node) {
 	if(this._visible == id && (node === null)) {
 		return; // noop - unless adding s'thing
 	}
-	this._map[this._visible].style.display='none';
+	setDisplayed(this._map[this._visible], false);
 	for(var k in this._killfn) {
 		this._killfn[k]();
 	}
@@ -118,7 +138,7 @@ Flipper.prototype.flipTo = function(id, node) {
 			this._map[id].appendChild(node[kk]);
 		}
 	}
-	this._map[id].style.display='';
+	setDisplayed(this._map[id], true);
 	this._visible = id;
 	return this._map[id];
 };
@@ -809,7 +829,7 @@ function handleDisconnect(why, json, word) {
 				subDiv.appendChild(chunk);
 				p.appendChild(subDiv);
 				if(oneword.details) {
-					oneword.details.style.display="none";
+					setDisplayed(oneword.details, false);
 				}
 				oneword.onclick=null;
 				return false;
@@ -878,6 +898,21 @@ function trySurveyLoad() {
 
 var lastJsonStatus = null;
 
+
+function formatErrMsg(json, subkey) {
+	var msg_str = json.err_code;
+	if(stui.str(json.err_code) == json.err_code) {
+		msg_str = "E_UNKNOWN";
+	}
+ return stui.sub(msg_str,
+				{ json: json, what: stui.str('err_what_'+subkey), code: json.err_code,
+		surveyCurrentLocale: surveyCurrentLocale,
+		surveyCurrentId: surveyCurrentId,
+		surveyCurrentSection: surveyCurrentSection,
+		surveyCurrentPage: surveyCurrentPage
+				} );
+}
+
 /**
  * Based on the last received packet of JSON, update our status
  * @method updateStatusBox
@@ -886,6 +921,11 @@ var lastJsonStatus = null;
 function updateStatusBox(json) {
 	if(json.disconnected) {
 		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown 
+	} else if(json.err_code) {
+		if(json.err_code == "E_NOT_STARTED") {
+			trySurveyLoad();
+		}
+		handleDisconnect(formatErrMsg(json, 'status'), json, "disconnected");
 	} else if (json.SurveyOK==0) {
 		trySurveyLoad();
 		handleDisconnect("The SurveyTool server is not ready to accept connections, please retry. ", json,"disconnected"); // ST has restarted
@@ -1370,7 +1410,7 @@ function showForumStuff(frag, forumDiv, tr) {
 		forumDiv.appendChild(showButton);
 		
 		var theListen = function(e) {
-			showButton.style.display = "none";
+			setDisplayed(showButton, false);
 			
 			// callback.
 			var ourUrl = tr.forumDiv.url + "&what=forum_fetch";
@@ -2460,7 +2500,7 @@ function updateRow(tr, theRow) {
 		listenToPop(null, tr, children[config.nocell]);
 	}  else if(ticketOnly) { // ticket link
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
-    		children[config.nocell].style.display="none";
+    		setDisplayed(children[config.nocell], false);
     	}
 		children[config.proposedcell].className="d-change-confirmonly";
 		var link = createChunk(stui.str("file_a_ticket"),"a");
@@ -2476,7 +2516,7 @@ function updateRow(tr, theRow) {
 		children[config.proposedcell].appendChild(link);
 	} else  { // no change possible
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
-    		children[config.nocell].style.display="none";
+    		setDisplayed(children[config.nocell], false);
     	}
 	}
 	
@@ -2772,7 +2812,7 @@ function insertRows(theDiv,xpath,session,json) {
 		theTable.toAdd = toAdd;
 
 		if(!json.canModify) {
-				theTable.theadChildren[theTable.config.nocell].style.display="none";
+			setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
 		}
 		theTable.sortMode = cloneAnon(dojo.byId('proto-sortmode'));
 		theDiv.appendChild(theTable.sortMode);
@@ -2811,7 +2851,7 @@ function insertRows(theDiv,xpath,session,json) {
 //			theDiv.theLoadingMessage=null;
 //		}
 	} else {
-		theTable.style.display = '';
+		setDisplayed(theTable, true);
 //		if(theDiv.theLoadingMessage) {
 //			theDiv.theLoadingMessage.style.display="none";
 //			theDiv.removeChild(theDiv.theLoadingMessage);
@@ -2827,8 +2867,8 @@ function loadStui(loc) {
 	if(!stui.ready) {
 		stui  = dojo.i18n.getLocalization("surveyTool", "stui");
 		if(!stuidebug_enabled) {
-			stui.sub = function(x,y) { return dojo.string.substitute(stui[x], y);};
 			stui.str = function(x) { if(stui[x]) return stui[x]; else return x; };
+			stui.sub = function(x,y) { return dojo.string.substitute(stui.str(x), y);};
 		} else {
 			stui.str = stui_str; // debug
 			stui.sub = function(x,y) { return stui_str(x) + '{' +  Object.keys(y) + '}'; };
@@ -2861,7 +2901,7 @@ function hideAfter(whom, when) {
 		whom.style.opacity="0.5";
 	}, when/2);
 	setTimeout(function() {
-		whom.style.display="none";
+		setDisplayed(whom, false);
 	}, when);
 	return whom;
 }
@@ -3059,9 +3099,9 @@ function showV() {
 					} else  {
 						updateIf(x,y); // non widget
 					}
-					cnode.style.display = '';
+					setDisplayed(cnode, true);
 				} else {
-					cnode.style.display = 'none';
+					setDisplayed(cnode, false);
 					if(wnode != null) {
 						wnode.set('label','-');
 					} else  {
@@ -3219,6 +3259,14 @@ function showV() {
 			if(!json) {
 				console.log("!json");
 				showLoader(null,"Error while  loading "+subkey+":  <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
+				return false;
+			} else if(json.err_code) {
+				var msg_fmt = formatErrMsg(json, subkey);
+				var loadingChunk;
+				flipper.flipTo(pages.loading, loadingChunk = createChunk(msg_fmt, "p", "errCodeMsg"));
+				var retryButton = createChunk(stui.str("loading_reloading"),"button");
+				loadingChunk.appendChild(retryButton);
+				retryButton.onclick = function() { 	window.location.reload(true); };
 				return false;
 			} else if(json.err) {
 				console.log("json.err!" + json.err);
@@ -3520,7 +3568,11 @@ function showV() {
 					var needLocTable = false;
 				
 					var url = contextPath + "/SurveyAjax?_="+surveyCurrentLocale+"&s="+surveySessionId+"&what=menus&locmap="+needLocTable+cacheKill();
-					myLoad(url, "menus for " + surveyCurrentLocale, function(json) {
+					myLoad(url, "menus", function(json) {
+						if(!verifyJson(json, "menus")) {
+							return; // busted?
+						}
+						
 						{
 							
 							if(json.locmap) {
@@ -3630,75 +3682,41 @@ function showV() {
 			surveyCurrentLocale = loc;
 			dojo.ready(function(){
 
-				var errorHandler = function(err, ioArgs){
-					console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
-					showLoader(null,stopIcon + "<h1>Could not refresh the page - you may need to <a href='javascript:window.location.reload(true);'>refresh</a> the page if the SurveyTool has restarted..</h1> <hr>Error while fetching : "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>");
-				};
-				var loadHandler = function(json){
-					try {
-						//showLoader(theDiv.loader,stui.loading2);
-//						theDiv.removeChild(theDiv.theLoadingMessage);
-						if(!json) {
-							console.log("!json");
-							showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no data!" + "</div>");
-						} else if(json.err) {
-							console.log("json.err!" + json.err);
-							showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + json.err + "</div>");
-							handleDisconnect("while loading",json);
-						} else if(!json.possibleProblems) {
-							console.log("!json.possibleProblems");
-							showLoader(null,"Error while  loading: <br><div style='border: 1px solid red;'>" + "no section" + "</div>");
-							handleDisconnect("while loading- no possibleProblems result",json);
-						} else {
-							stdebug("json.possibleProblems OK..");
-							//showLoader(theDiv.loader, "loading..");
-							if(json.dataLoadTime) {
-								updateIf("dynload", json.dataLoadTime);
-							}
-							
-							var theDiv = flipper.flipToEmpty(flipPage);
-
-							insertLocaleSpecialNote(theDiv);
-
-							if(json.possibleProblems.length > 0) {
-								var subDiv = createChunk("","div");
-								subDiv.className = "possibleProblems";
-
-								var h3 = createChunk(stui_str("possibleProblems"), "h3");
-								subDiv.appendChild(h3);
-
-								var div3 = document.createElement("div");
-								var newHtml = "";
-								newHtml += testsToHtml(json.possibleProblems);
-								div3.innerHTML = newHtml;
-								subDiv.appendChild(div3);
-								theDiv.appendChild(subDiv);
-							} else if(surveyCurrentPage=='' && surveyCurrentId=='') {
-								// "no problems"
-							}
-							var theInfo;
-							theDiv.appendChild(theInfo = createChunk("","p","special_general"));
-							theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ? 
-							hideLoader(null);
+				var url = contextPath + "/SurveyAjax?what=possibleProblems&_="+surveyCurrentLocale+"&s="+session+"&eff="+effectiveCov+"&req="+requiredCov+  cacheKill();
+				myLoad(url, "possibleProblems", function(json) {
+					if(verifyJson(json, 'possibleProblems')) {
+						stdebug("json.possibleProblems OK..");
+						//showLoader(theDiv.loader, "loading..");
+						if(json.dataLoadTime) {
+							updateIf("dynload", json.dataLoadTime);
 						}
+						
+						var theDiv = flipper.flipToEmpty(flipPage);
 
-					}catch(e) {
-						console.log("Error in ajax post [surveyAjax]  " + e.message + " / " + e.name );
-						handleDisconnect("Exception while  loading: " + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
-//						showLoader(theDiv.loader,"Exception while  loading: "+e.name + " <br> " +  "<div style='border: 1px solid red;'>" + e.message+ "</div>");
-//						console.log("Error in ajax post   " + e.message);
+						insertLocaleSpecialNote(theDiv);
+
+						if(json.possibleProblems.length > 0) {
+							var subDiv = createChunk("","div");
+							subDiv.className = "possibleProblems";
+
+							var h3 = createChunk(stui_str("possibleProblems"), "h3");
+							subDiv.appendChild(h3);
+
+							var div3 = document.createElement("div");
+							var newHtml = "";
+							newHtml += testsToHtml(json.possibleProblems);
+							div3.innerHTML = newHtml;
+							subDiv.appendChild(div3);
+							theDiv.appendChild(subDiv);
+						} else if(surveyCurrentPage=='' && surveyCurrentId=='') {
+							// "no problems"
+						}
+						var theInfo;
+						theDiv.appendChild(theInfo = createChunk("","p","special_general"));
+						theInfo.innerHTML = stui_str("special_general"); // TODO replace with … ? 
+						hideLoader(null);
 					}
-				};
-
-				var xhrArgs = {
-						url: contextPath + "/SurveyAjax?what=possibleProblems&_="+surveyCurrentLocale+"&s="+session+"&eff="+effectiveCov+"&req="+requiredCov+  cacheKill(),
-						handleAs:"json",
-						load: loadHandler,
-						error: errorHandler
-				};
-				//window.xhrArgs = xhrArgs;
-//				console.log('xhrArgs = ' + xhrArgs);
-				queueXhr(xhrArgs);
+				});
 			});
 		}
 		
@@ -3804,7 +3822,7 @@ function showV() {
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
 							
-						myLoad(url, "(loading vrows)", function(json) {
+						myLoad(url, "section", function(json) {
 							showLoader(theDiv.loader,stui.loading2);
 							if(!verifyJson(json, 'section')) {
 								return;

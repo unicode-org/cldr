@@ -1,12 +1,14 @@
 <%@page import="com.ibm.icu.dev.util.ElapsedTimer"%>
-<%@page import="org.unicode.cldr.web.*"%><%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page import="java.io.PrintWriter,org.unicode.cldr.web.*"%><%@ page language="java" contentType="text/html; charset=UTF-8"
 	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.json.*"%><%--  Copyright (C) 2012 IBM and Others. All Rights Reserved  --%><%WebContext ctx = new WebContext(request, response);
 	ElapsedTimer et = new ElapsedTimer();
 			String what = request.getParameter(SurveyAjax.REQ_WHAT);
 			String sess = request.getParameter(SurveyMain.QUERY_SESSION);
 			String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
-			CLDRLocale l;
-			ctx.setLocale(l=CLDRLocale.getInstance(loc));
+			
+			CLDRLocale l = SurveyAjax.validateLocale(new PrintWriter(out), loc);
+			if(l==null) return;
+			ctx.setLocale(l);
             String xpath = WebContext.decodeFieldString(request.getParameter(SurveyForum.F_XPATH));
             String strid = WebContext.decodeFieldString(request.getParameter("strid"));
             if(strid!=null&&strid.isEmpty()) strid=null;
@@ -124,7 +126,10 @@
 								coverage.toString(),
 								WebContext.LoadingShow.dontShowLoading);
                     } else {
-                    	throw new IllegalArgumentException("no xpath, section, or id given");
+                        JSONWriter r = new JSONWriter(out).object().
+                                key("err").value("Could not understand that section, xpath, or ID. Bad URL?").
+                                key("err_code").value("E_BAD_SECTION").endObject();
+                        return;
                     }
 				} catch (Throwable t) {
 					SurveyLog.logException(t,"on loading " + locale+":"+ baseXp);
@@ -132,7 +137,9 @@
 						response.sendError(500, "Exception on getSection:"+t.toString());
 					} else {
 						JSONWriter r = new JSONWriter(out).object().
-								key("err").value("Exception on getSection:"+t.toString()).endObject();
+								key("err").value("Exception on getSection:"+t.toString()).
+                                key("err_code").value("E_BAD_SECTION").endObject();
+
 					}
 					return;
 				}

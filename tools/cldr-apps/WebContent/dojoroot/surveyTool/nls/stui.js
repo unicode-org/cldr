@@ -252,7 +252,14 @@ define({
            
            jsonStatus_msg: "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${guests} visitors to the SurveyTool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.   Due to a known problem, please do not click the menus during loading.",
            
-           
+           err_what_section: "load part of this locale",
+           err_what_locmap: "load the list of locales",
+           err_what_menus: "load the SurveyTool menus",
+           err_what_status: "get the latest status from the server",
+           E_UNKNOWN: "An error occured while trying to '${what}', and the server returned '${code}'.\n I can't tell you any more at this point, sorry.",
+           E_BAD_SECTION: "An error occured while trying to ${what}, the server could not find what was requested. \nPerhaps the URL is incorrect?",
+           E_BAD_LOCALE: "While trying to ${what}, the server told us that the locale, '${surveyCurrentLocale}',\n does not exist. It is either mistyped or has not been added to the SurveyTool.",
+           E_NOT_STARTED: "While trying to ${what}, the server told us that it's not quite ready yet. Please wait a bit, and try reloading this page.",
            "": ""})
 //		"mt-MT": false
 	

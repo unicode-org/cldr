@@ -173,7 +173,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="30" match="dates/timeZoneNames/(fallback(Region)?|gmt(Zero)?|region|hour)Format([@type='([^']*+)'])?"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='wide']/dayPeriod[@type='(am|pm)']"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='%allWidths']/day[@type='%dayTypes']"/>
-		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/eras([@alt='variant'])?/eraAbbr/era[@type='(0|1)']"/>
+		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/eras/eraAbbr/era[@type='(0|1)']([@alt='variant'])?"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel value="30" match="dates/calendars/calendar[@type='gregorian']/timeFormats/timeFormatLength[@type='[^']++']/timeFormat%stdPattern"/>
 		<coverageLevel inTerritory="TH" value="30" match="dates/calendars/calendar[@type='buddhist']/eras/eraAbbr/era[@type='0']"/>

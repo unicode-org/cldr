@@ -2403,12 +2403,12 @@ function updateRow(tr, theRow) {
 		if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
 			appendExtraAttributes(children[config.codecell], theRow);
 		}
-		var anch = document.createElement("a");
-		anch.className="anch";
-		anch.id=theRow.xpid;
-		anch.href="#"+anch.id;
-		children[config.codecell].appendChild(anch);
 		if(stdebug_enabled) {
+			var anch = document.createElement("i");
+			anch.className="anch";
+			anch.id=theRow.xpid;
+//			anch.href="#"+anch.id;
+			children[config.codecell].appendChild(anch);
 			anch.appendChild(document.createTextNode("#"));
 
 			var go = document.createElement("a");
@@ -4163,10 +4163,15 @@ function showV() {
 					hideLoader(null);
 					window.location = survURL; // redirect home
 				} else {
-					var msg = stui.sub("v_bad_special_msg",
+					var msg_fmt = stui.sub("v_bad_special_msg",
 							{special: surveyCurrentSpecial });
-					flipper.flipTo(pages.loader, createChunk(msg /* , ?? , ?? sterror? */));
-					showLoader(theDiv.loader, msg);
+
+					var loadingChunk;
+					flipper.flipTo(pages.loading, loadingChunk = createChunk(msg_fmt, "p", "errCodeMsg"));
+					var retryButton = createChunk(stui.str("loading_reloading"),"button");
+					loadingChunk.appendChild(retryButton);
+					retryButton.onclick = function() { 	window.location.reload(true); };
+					showLoader(theDiv.loader);
 				}
 			}; // end shower
 

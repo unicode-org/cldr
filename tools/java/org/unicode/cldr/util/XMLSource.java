@@ -1323,6 +1323,13 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode(CLDRFile.TERRITORY_NAME, "MK", "MK", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
 
+            addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]", "BCE", "variant");
+            addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"1\"]", "CE", "variant");
+            addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"0\"]", "BCE", "variant");
+            addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"1\"]", "CE", "variant");
+            addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNarrow/era[@type=\"0\"]", "BCE", "variant");
+            addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNarrow/era[@type=\"1\"]", "CE", "variant");
+
             for (int i = 0; i < keyDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/keys/key" +
@@ -1364,14 +1371,24 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         private static void addFallbackCode(int typeNo, String code, String value, String alt) {
             // String path = prefix + code + postfix;
             String fullpath = CLDRFile.getKey(typeNo, code);
-            if (alt != null) {
-                fullpath = fullpath.replace("]", "][@alt=\"" + alt + "\"]");
-            }
-            // System.out.println(fullpath + "\t=> " + code);
-            String distinguishingPath = constructedItems.putValueAtPath(fullpath, value);
+            String distinguishingPath = addFallbackCodeToConstructedItems(fullpath, value, alt);
             if (typeNo == CLDRFile.LANGUAGE_NAME || typeNo == CLDRFile.SCRIPT_NAME || typeNo == CLDRFile.TERRITORY_NAME) {
                 allowDuplicates.put(distinguishingPath, code);
             }
+        }
+
+        private static void addFallbackCode(String fullpath, String value, String alt) { // assumes no allowDuplicates for this
+            addFallbackCodeToConstructedItems(fullpath, value, alt); // ignore unneeded return value
+        }
+
+        private static String addFallbackCodeToConstructedItems(String fullpath, String value, String alt) {
+            if (alt != null) {
+                // Insert the @alt= string after the last occurrence of "]"
+                StringBuffer fullpathBuf = new StringBuffer(fullpath);
+                fullpath = fullpathBuf.insert(fullpathBuf.lastIndexOf("]") + 1, "[@alt=\"" + alt + "\"]").toString();
+            }
+            // System.out.println(fullpath + "\t=> " + code);
+            return constructedItems.putValueAtPath(fullpath, value);
         }
 
         @Override

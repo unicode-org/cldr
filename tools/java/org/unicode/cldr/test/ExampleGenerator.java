@@ -391,7 +391,7 @@ public class ExampleGenerator {
         String perPath = "//ldml/units/unitLength" + unitLength.typeString
                 + "/compoundUnit[@type=\"per\"]"
                 + "/unitPattern[@count=\"" + count + "\"]";
-        return finalizeBackground(format(getValueFromFormat(perPath, form), unit1, unit2));
+        return format(getValueFromFormat(perPath, form), unit1, unit2);
     }
 
     private NumberInfo getBest(Count count) {

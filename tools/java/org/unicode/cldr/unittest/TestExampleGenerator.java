@@ -32,7 +32,7 @@ public class TestExampleGenerator extends TestFmwk {
     private void checkValue(String message, String expected, ExampleGenerator exampleGenerator, String path) {
         String value = exampleGenerator.getCldrFile().getStringValue(path);
         String actual = exampleGenerator.getExampleHtml(path, value, null);
-        assertEquals(message, expected, simplify(actual));
+        assertEquals(message, expected, simplify(actual, false));
     }
     public void TestCompoundUnit() {
         String[][] tests = {
@@ -56,7 +56,7 @@ public class TestExampleGenerator extends TestFmwk {
         for (String[] pair : tests) {
             String actual = exampleGenerator.handleCompoundUnit(
                     UnitLength.valueOf(pair[0]), Count.valueOf(pair[1]), "");
-            assertEquals("CompoundUnit", pair[2], simplify(actual));
+            assertEquals("CompoundUnit", pair[2], simplify(actual, true));
         }
     }
 
@@ -84,12 +84,15 @@ public class TestExampleGenerator extends TestFmwk {
 
     private void checkValue(ExampleGenerator exampleGenerator, String path, String expected) {
         String value = exampleGenerator.getCldrFile().getStringValue(path);
-        String result = simplify(exampleGenerator.getExampleHtml(path, value, Zoomed.IN));
+        String result = simplify(exampleGenerator.getExampleHtml(path, value, Zoomed.IN), false);
         assertEquals("Ellipsis", expected, result);
     }
 
-    private String simplify(String exampleHtml) {
-        return exampleHtml
+    private String simplify(String exampleHtml, boolean internal) {
+        return internal ? "〖" + exampleHtml
+                .replace("", "❬")
+                .replace("", "❭") + "〗"
+                : exampleHtml
                 .replace("<div class='cldr_example'>", "〖")
                 .replace("</div>", "〗")
                 .replace("<span class='cldr_substituted'>", "❬")

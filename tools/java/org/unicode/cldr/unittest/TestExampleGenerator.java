@@ -26,7 +26,7 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestUnits() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
         checkValue("Duration hm", "〖5:37〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/durationUnit[@type=\"hm\"]/durationUnitPattern");
-        checkValue("Duration hm", "〖❬1.99❭ m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-m\"]/unitPattern[@count=\"other\"]");
+        checkValue("Length m", "〖❬1.99❭ m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-m\"]/unitPattern[@count=\"other\"]");
     }
 
     private void checkValue(String message, String expected, ExampleGenerator exampleGenerator, String path) {
@@ -34,6 +34,7 @@ public class TestExampleGenerator extends TestFmwk {
         String actual = exampleGenerator.getExampleHtml(path, value, null);
         assertEquals(message, expected, simplify(actual, false));
     }
+    
     public void TestCompoundUnit() {
         String[][] tests = {
                 {"LONG", "one", "〖❬1 meter❭ per ❬second❭〗"},
@@ -114,10 +115,12 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestMiscPatterns() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
-        String actual = exampleGenerator.getExampleHtml(
-                "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",
-                "at least {0}", Zoomed.IN);
-        assertEquals("Invalid format", "<div class='cldr_example'>at least 99</div>", actual);
+        checkValue("At least", "〖❬99❭+〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
+        checkValue("Range", "〖❬99❭-❬144❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
+//        String actual = exampleGenerator.getExampleHtml(
+//                "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",
+//                "at least {0}", Zoomed.IN);
+//        assertEquals("Invalid format", "<div class='cldr_example'>at least 99</div>", actual);
     }
 
     public void TestLocaleDisplayPatterns() {

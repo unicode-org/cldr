@@ -408,10 +408,13 @@ public class ExampleGenerator {
     }
 
     private String handleMiscPatterns(XPathParts parts2, String value) {
+        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(0);
+        String start = backgroundStartSymbol + numberFormat.format(99) + backgroundEndSymbol;
         if ("range".equals(parts.getAttributeValue(-1, "type"))) {
-            return null;
+            String end = backgroundStartSymbol + numberFormat.format(144) + backgroundEndSymbol;
+            return format(value, start, end);
         } else {
-            return format(value, 99);
+            return format(value, start);
         }
     }
 

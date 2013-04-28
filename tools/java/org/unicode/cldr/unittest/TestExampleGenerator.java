@@ -6,11 +6,13 @@ import java.util.Set;
 
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
+import org.unicode.cldr.test.ExampleGenerator.UnitLength;
 import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.TestFmwk;
 
@@ -21,10 +23,52 @@ public class TestExampleGenerator extends TestFmwk {
         new TestExampleGenerator().run(args);
     }
 
-    public void TestEllipsis() {
-        final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
+    public void TestUnits() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("en");
+        checkValue("Duration hm", "〖5:37〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/durationUnit[@type=\"hm\"]/durationUnitPattern");
+        checkValue("Duration hm", "〖❬1.99❭ m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-m\"]/unitPattern[@count=\"other\"]");
+    }
+
+    private void checkValue(String message, String expected, ExampleGenerator exampleGenerator, String path) {
+        String value = exampleGenerator.getCldrFile().getStringValue(path);
+        String actual = exampleGenerator.getExampleHtml(path, value, null);
+        assertEquals(message, expected, simplify(actual));
+    }
+    public void TestCompoundUnit() {
+        String[][] tests = {
+                {"LONG", "one", "〖❬1 meter❭ per ❬second❭〗"},
+                {"SHORT", "one", "〖❬1 m❭/❬sec❭〗"},
+                {"NARROW", "one", "〖❬1 m❭/❬s❭〗"},
+                {"LONG", "other", "〖❬1.99 meters❭ per ❬second❭〗"},
+                {"SHORT", "other", "〖❬1.99 m❭/❬sec❭〗"},
+                {"NARROW", "other", "〖❬1.99 m❭/❬s❭〗"},
+        };
+        checkCompoundUnits("en", tests);
+        // reenable these after Arabic has meter translated
+//        String[][] tests2 = {
+//                {"LONG", "few", "〖❬1 meter❭ per ❬second❭〗"},
+//        };
+//        checkCompoundUnits("ar", tests2);
+    }
+
+    private void checkCompoundUnits(String locale, String[][] tests) {
+        ExampleGenerator exampleGenerator = getExampleGenerator(locale);
+        for (String[] pair : tests) {
+            String actual = exampleGenerator.handleCompoundUnit(
+                    UnitLength.valueOf(pair[0]), Count.valueOf(pair[1]), "");
+            assertEquals("CompoundUnit", pair[2], simplify(actual));
+        }
+    }
+
+    private ExampleGenerator getExampleGenerator(String locale) {
+        final CLDRFile nativeCldrFile = info.getCldrFactory().make(locale, true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile,
                 info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        return exampleGenerator;
+    }
+
+    public void TestEllipsis() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("it");
         String[][] tests = {
                 {"initial", "〖…❬iappone❭〗"},
                 {"medial", "〖❬Svizzer❭…❬iappone❭〗"},
@@ -34,15 +78,13 @@ public class TestExampleGenerator extends TestFmwk {
                 {"word-final", "〖❬Svizzera❭ …〗"},
         };
         for (String[] pair : tests) {
-            checkValue(nativeCldrFile, exampleGenerator, 
-                    "//ldml/characters/ellipsis[@type=\"" + pair[0] + "\"]", pair[1]);
+            checkValue(exampleGenerator, "//ldml/characters/ellipsis[@type=\"" + pair[0] + "\"]", pair[1]);
         }
     }
 
-    private void checkValue(final CLDRFile nativeCldrFile, ExampleGenerator exampleGenerator, String path, String expected) {
-        String value = nativeCldrFile.getStringValue(path);
-        String result = simplify(exampleGenerator.getExampleHtml(path,
-                value, Zoomed.IN));
+    private void checkValue(ExampleGenerator exampleGenerator, String path, String expected) {
+        String value = exampleGenerator.getCldrFile().getStringValue(path);
+        String result = simplify(exampleGenerator.getExampleHtml(path, value, Zoomed.IN));
         assertEquals("Ellipsis", expected, result);
     }
 
@@ -68,9 +110,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestMiscPatterns() {
-        final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile,
-                info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = getExampleGenerator("it");
         String actual = exampleGenerator.getExampleHtml(
                 "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",
                 "at least {0}", Zoomed.IN);
@@ -78,9 +118,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestLocaleDisplayPatterns() {
-        final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile,
-                info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = getExampleGenerator("it");
         String actual = exampleGenerator.getExampleHtml("//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                 "{0} [{1}]", Zoomed.IN);
         assertEquals("localePattern example faulty",
@@ -97,9 +135,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestCurrencyFormats() {
-        final CLDRFile cldrFile = info.getCldrFactory().make("it", true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile,
-                info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = getExampleGenerator("it");
         String actual = exampleGenerator.getExampleHtml("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                 "¤ #0.00", Zoomed.IN);
         assertEquals("Currency format example faulty",
@@ -122,11 +158,9 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void Test4897() {
-        final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(),
-                CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-        for (String xpath : With.in(nativeCldrFile.iterator("//ldml/dates/timeZoneNames", CLDRFile.ldmlComparator))) {
-            String value = nativeCldrFile.getStringValue(xpath);
+        ExampleGenerator exampleGenerator = getExampleGenerator("it");
+        for (String xpath : With.in(exampleGenerator.getCldrFile().iterator("//ldml/dates/timeZoneNames", CLDRFile.ldmlComparator))) {
+            String value = exampleGenerator.getCldrFile().getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
             if (actual == null) {
                 if (!xpath.contains("singleCountries") && !xpath.contains("gmtZeroFormat")) {
@@ -160,13 +194,11 @@ public class TestExampleGenerator extends TestFmwk {
                 },
         };
 
-        final CLDRFile nativeCldrFile = info.getCldrFactory().make("it", true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile, info.getEnglish(),
-                CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator exampleGenerator = getExampleGenerator("it");
         for (String[] testPair : testPairs) {
             String xpath = testPair[0];
             String expected = testPair[1];
-            String value = nativeCldrFile.getStringValue(xpath);
+            String value = exampleGenerator.getCldrFile().getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
             assertEquals("specifics", expected, actual);
         }

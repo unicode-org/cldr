@@ -5385,6 +5385,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="end">{0}, and {1}</listPatternPart>
 			<listPatternPart type="2">{0} and {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="duration-short">
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
 	</listPatterns>
 	<posix>
 		<messages>

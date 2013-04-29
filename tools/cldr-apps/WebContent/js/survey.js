@@ -1364,12 +1364,14 @@ function showInPop(str,tr, theObj, fn, immediate) {
 }
 
 function listenToPop(str, tr, theObj, fn) {
+	var theFn;
 	listenFor(theObj, "click",
-			function(e) {
+			theFn = function(e) {
 				showInPop(str, tr, theObj, fn, true);
 				stStopPropagation(e);
 				return false;
 			});
+	return theFn;
 }
 
 
@@ -2258,24 +2260,15 @@ function updateRow(tr, theRow) {
 			var kdiv = createChunk(null,"div","voteInfo_key");
 			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_key"),"h3","voteInfo_key_title"));
 			var disputedText = (theRow.voteResolver.isDisputed)?stui.str("winningStatus_disputed"):"";
-			//var p = document.createElement("p");
-//			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_established"),"p","warnText nobg"));
-//			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_lastRelease"),"p","voteInfo_lastReleaseKey voteInfo_iconValue"));
 			kdiv.appendChild(createChunk(
 						stui.sub("winningStatus_msg",
 								[ stui.str(theRow.voteResolver.winningStatus), disputedText ])
 						, "div", "voteInfo_winningKey d-dr-"+theRow.voteResolver.winningStatus+" winningStatus"));
-//			appendItem(p, theRow.voteResolver.winningValue, "winner",tr);
 			
 			kdiv.appendChild(createChunk(
 					stui.sub("lastReleaseStatus_msg",
 							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
 					, "div",  /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "voteInfo_lastReleaseKey voteInfo_iconValue"));
-//			appendItem(p, theRow.voteResolver.lastReleaseValue, "value",tr);
-//			p.appendChild(createChunk(
-//					stui.sub("lastReleaseStatus1_msg",
-//							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
-//					, "b", /* "g"+theRow.voteResolver.lastReleaseStatus+ */ "  lastReleaseStatus1"));
 
 			
 			tr.voteDiv.appendChild(kdiv);
@@ -2323,51 +2316,22 @@ function updateRow(tr, theRow) {
 		popInfoInto(tr,theRow,children[config.statuscell],true);
 		stStopPropagation(e); return false; 
 	};
-		
-//	if(theRow.hasErrors) {
-////		children[config.errcell].className = "d-st-stop";
-////		children[config.errcell].title = stui.testError;
-//		children[config.proposedcell].className = 'd-win-err';
-//	} else if(theRow.hasWarnings) {
-////		children[config.errcell].className = "d-st-warn";
-////		children[config.errcell].title = stui.testWarn;
-//		children[config.proposedcell].className = 'd-win-warn';
-//	} else {
-////		children[config.errcell].className = "d-st-okay";
-////		children[config.errcell].title = stui.testOkay;
-//		children[config.proposedcell].className = 'd-win';
-//	}
 	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
 	if(!children[config.statuscell].isSetup) {
 		listenToPop("", tr, children[config.statuscell]);
 
-//		listenFor(children[config.statuscell],"mouseover",
-//				doPopInfo);
-//		listenFor(children[config.statuscell],"click",  // TODO: change t empty
-//				doPopInfoNow);
 		children[config.statuscell].isSetup=true;
 	}
 	children[config.statuscell].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
 
 	if(theRow.hasVoted) {
-//		children[config.votedcell].className = "d-vo-true";
-//		children[config.votedcell].title=stui.voTrue;
 		children[config.nocell].title=stui.voTrue;
 		children[config.nocell].className= "d-no-vo-true";
 	} else {
-//		children[config.votedcell].className = "d-vo-false";
-//		children[config.votedcell].title=stui.voFalse;
 		children[config.nocell].title=stui.voFalse;
 		children[config.nocell].className= "d-no-vo-false";
 	}
-//	if(!children[config.votedcell].isSetup) {
-//		listenFor(children[config.votedcell],"mouseover",
-//				doPopInfo);
-//		listenFor(children[config.votedcell],"click",
-//				doPopInfoNow);
-//		children[config.votedcell].isSetup=true;
-//	}
 
 	children[config.codecell].appendChild(createChunk('|>'));
 			removeAllChildNodes(children[config.codecell]);
@@ -2466,7 +2430,7 @@ function updateRow(tr, theRow) {
 	if(theRow.items&&theRow.winningVhash) {
 		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
 	} else {
-		children[config.proposedcell].showFn = null;  // nothing else to show
+		children[config.proposedcell].showFn = function(){};  // nothing else to show
 	}
 	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
 	listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);

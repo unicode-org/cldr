@@ -93,6 +93,7 @@
 
 //ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Numbers ; Currencies ; &categoryFromCurrency($1) ; &count($1-name)
 //ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Numbers ; Currencies ; &categoryFromCurrency($1) ; &count($1-name-$2)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="%A"]            ; Numbers ; Currencies ; &categoryFromCurrency($1) ; &count($1-symbol)-$2; READ_ONLY
 //ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Numbers ; Currencies ; &categoryFromCurrency($1) ; &count($1-symbol)
 
 ### Units

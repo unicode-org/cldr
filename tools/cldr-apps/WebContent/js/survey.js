@@ -2369,17 +2369,15 @@ function updateRow(tr, theRow) {
 //		children[config.votedcell].isSetup=true;
 //	}
 
-	if(!tr.anch || stdebug_enabled) {
-		if(tr.anch) { // clear out old (only for debug)
+	children[config.codecell].appendChild(createChunk('|>'));
 			removeAllChildNodes(children[config.codecell]);
-		}
-		var codeStr = theRow.code;
-		if(theRow.coverageValue==101 && !stdebug_enabled) {
-			codeStr = codeStr + " (optional)";
-		}
-		children[config.codecell].appendChild(createChunk(codeStr));
-		
-		
+			children[config.codecell].appendChild(createChunk('<|'));
+					removeAllChildNodes(children[config.codecell]);
+	var codeStr = theRow.code;
+	if(theRow.coverageValue==101 && !stdebug_enabled) {
+		codeStr = codeStr + " (optional)";
+	}
+	children[config.codecell].appendChild(createChunk(codeStr));
 		if(tr.theTable.json.canModify) { // pointless if can't modify.
 	
 			if(theRow.forumPosts > 0) {
@@ -2431,13 +2429,15 @@ function updateRow(tr, theRow) {
 //					showInPop("XPath: " + theRow.xpath, children[config.codecell]);
 //					stStopPropagation(e); return false; 
 //				});
-		var xpathStr = "";
-		if( /* (!window.surveyOfficial) || */ stdebug_enabled) {
-			xpathStr = "XPath: " + theRow.xpath;
+		if(!children[config.codecell].isSetup) {
+			var xpathStr = "";
+			if( /* (!window.surveyOfficial) || */ stdebug_enabled) {
+				xpathStr = "XPath: " + theRow.xpath;
+			}
+			listenToPop(xpathStr, tr, children[config.codecell]);
+			children[config.codecell].isSetup = true;
 		}
-		listenToPop(xpathStr, tr, children[config.codecell]);
-		tr.anch = anch;
-	}
+	//	tr.anch = anch;
 	
 	if(tr.iebs) {
 		for(var qq in tr.iebs) {

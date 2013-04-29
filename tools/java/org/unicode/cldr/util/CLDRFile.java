@@ -2319,6 +2319,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "zone").freeze();
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
             "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
+    static MapComparator<String> unitLengthOrder = new MapComparator<String>().add(
+            "long", "short", "narrow").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
     static Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<String>(Arrays
@@ -2415,6 +2417,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 comp = zoneOrder;
             } else if (element.equals("listPatternPart")) {
                 comp = listPatternOrder;
+            } else if (element.equals("unitLength")) {
+                comp = unitLengthOrder;
             }
         } else if (attribute.equals("count") && !element.equals("minDays")) {
             comp = countValueOrder;

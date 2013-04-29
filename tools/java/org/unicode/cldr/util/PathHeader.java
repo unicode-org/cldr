@@ -919,6 +919,20 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
+            functionMap.put("unitCount", new Transform<String, String>() {
+                public String transform(String source) {
+                    String [] unitLengths = { "long", "short", "narrow" };
+                    int pos = 9;
+                    for ( int i = 0 ; i < unitLengths.length ; i++ ) {
+                        if ( source.startsWith(unitLengths[i]) ) {
+                            pos = i;
+                            continue;
+                        }
+                    }
+                    suborder = new SubstringOrder(pos+"-"+source); //
+                    return source;
+                }
+            });
             functionMap.put("day", new Transform<String, String>() {
                 public String transform(String source) {
                     int m = days.indexOf(source);

@@ -99,13 +99,13 @@
 ### Units
 
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Units ; Measurement Systems ; null ; $1
-//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/unitPattern[@count="%A"]                  ; Units ; Duration ; &datefield($2$3) ; $1-&count($4) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/unitPattern[@count="%A"]                      ; Units ; Length ; $2 ; $1-&count($3) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/unitPattern[@count="%A"]                        ; Units ; Mass and Weight ; $2 ; $1-&count($3) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/unitPattern[@count="%A"]                          ; Units ; Weather ; $2-$3 ; $1-&count($4) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/unitPattern[@count="%A"]                             ; Units ; Other Units ; $2 ; $1-&count($3) 
-//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/unitPattern[@count="%A"]                     ; Units ; Compound Units ; null; $2-$1-&count($3) 
-//ldml/units/unitLength[@type="%L"]/durationUnit[@type="(hms|hm|ms)"]                                     ; Units ; Duration ; Durration Patterns ; $2-$1
+//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/unitPattern[@count="%A"]                  ; Units ; Duration ; &datefield($2$3) ; &unitCount($1-$4) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/unitPattern[@count="%A"]                      ; Units ; Length ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/unitPattern[@count="%A"]                        ; Units ; Mass and Weight ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/unitPattern[@count="%A"]                          ; Units ; Weather ; $2-$3 ; &unitCount($1-$4) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/unitPattern[@count="%A"]                             ; Units ; Other Units ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/unitPattern[@count="%A"]                     ; Units ; Compound Units ; $2; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/durationUnit[@type="(hms|hm|ms)"]                                     ; Units ; Duration ; Duration Patterns ; &unitCount($1-$2)
 
 ### Miscellaneous
 //ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Regular Lists ; &listOrder($1)

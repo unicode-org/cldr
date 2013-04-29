@@ -1,6 +1,9 @@
 package org.unicode.cldr.unittest;
 
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.test.OutdatedPaths;
@@ -16,32 +19,48 @@ public class TestOutdatedPaths extends TestFmwk {
         new TestOutdatedPaths().run(args);
     }
 
-    OutdatedPaths paths = new OutdatedPaths();
+    OutdatedPaths outdatedPaths = new OutdatedPaths();
 
     public void TestBasic() {
-        assertEquals("English should have none", 0, paths.countOutdated("en"));
-        assertEquals("French should have at least one", 518, paths.countOutdated("fr")); // update this when
-                                                                                         // GenerateBirth is rerun.
+        assertEquals("English should have none", 0, outdatedPaths.countOutdated("en"));
+
+        // Update the number when GenerateBirth is rerun.
+
+        assertEquals("French should have at least one", 516, outdatedPaths.countOutdated("fr"));
+
+        // If this path is not outdated, find another one
+
         assertTrue(
-            "",
-            paths
+                "Test one path known to be outdated. Use TestShow -v to find a path, and verify that it is outdated",
+                outdatedPaths
                 .isOutdated(
-                    "fr",
-                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]"));
+                        "fr",
+                        "//ldml/dates/fields/field[@type=\"week\"]/relative[@type=\"-1\"]"));
     }
 
+    // use for debugging
     public void TestShow() {
-        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-        CLDRFile fr = factory.make("fr", false);
-        PathHeader.Factory pathHeaders = PathHeader.getFactory(factory.make("en", false));
-        Set<PathHeader> sorted = new TreeSet();
-        for (String s : fr) {
-            if (paths.isOutdated("fr", s)) {
-                sorted.add(pathHeaders.fromPath(s));
+        if (isVerbose()) {
+            Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            String locale = "fr";
+            CLDRFile fr = factory.make(locale, false);
+            PathHeader.Factory pathHeaders = PathHeader.getFactory(factory.make("en", false));
+            Map<PathHeader,String> sorted = new TreeMap<PathHeader, String>();
+            logln("Count:\t" + outdatedPaths.countOutdated(locale));
+            for (String spath : fr) {
+                if (outdatedPaths.isOutdated(locale, spath)) {
+                    sorted.put(pathHeaders.fromPath(spath),"");
+                }
             }
-        }
-        for (PathHeader p : sorted) {
-            System.out.println(p);
+            for (Entry<PathHeader, String> entry : sorted.entrySet()) {
+                PathHeader p = entry.getKey();
+                String originalPath = p.getOriginalPath();
+                logln("Eng: " + outdatedPaths.getPreviousEnglish(originalPath)
+                        + "\t=>\t" + TestAll.TestInfo.getInstance().getEnglish().getStringValue(originalPath)
+                        + "\tNative: " + fr.getStringValue(originalPath) 
+                        + "\tPath: " + p.toString() 
+                        + "\tXML Path: " + originalPath);
+            }
         }
     }
 

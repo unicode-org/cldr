@@ -11,6 +11,7 @@ import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
@@ -21,6 +22,64 @@ public class TestExampleGenerator extends TestFmwk {
 
     public static void main(String[] args) {
         new TestExampleGenerator().run(args);
+    }
+
+    static final Set<String> OK_TO_MISS_EXAMPLES = new HashSet<String>(Arrays.asList(
+            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
+            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
+            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/nan",
+            "//ldml/layout/orientation/characterOrder",
+            "//ldml/layout/orientation/lineOrder",
+            "//ldml/characters/moreInformation",
+            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
+            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
+            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/nan",
+            // old format
+            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch",
+            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween",
+            "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/surroundingMatch",
+            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/currencyMatch",
+            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/insertBetween",
+            "//ldml/numbers/currencyFormats/currencySpacing/beforeCurrency/surroundingMatch",
+            "//ldml/numbers/symbols/infinity",
+            "//ldml/numbers/symbols/list",
+            "//ldml/numbers/symbols/nan",
+            "//ldml/posix/messages/nostr",
+            "//ldml/posix/messages/yesstr"
+            ));
+    public void TestAllPaths() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("en");
+        PathStarrer ps = new PathStarrer();
+        Set<String> seen = new HashSet<String>();
+        CLDRFile cldrFile = exampleGenerator.getCldrFile();
+        for (String path : cldrFile) {
+            String starred = ps.set(path).replace("\"", "\\\"");
+            if (path.endsWith("/alias") 
+                    || path.startsWith("//ldml/identity") 
+                    || OK_TO_MISS_EXAMPLES.contains(starred)) {
+                continue;
+            }
+            String value = cldrFile.getStringValue(path);
+            String example = exampleGenerator.getExampleHtml(path, value, Zoomed.IN);
+            if (example == null) {
+                if (!seen.contains(starred)) {
+                    errln("No example:\t<" + value
+                    		+ ">\t'\"" + starred + "\",");
+                }
+            } else {
+                String simplified = simplify(example, false);
+                if (!simplified.startsWith("〖")) {
+                    if (!seen.contains(starred)) {
+                        errln("Funny HTML:\t" + simplified + "\t" + starred);
+                    }
+                } else if (!simplified.contains("❬")){
+                    if (!seen.contains(starred)) {
+                        errln("No background:\t" + simplified + "\t" + starred);
+                    }
+                }
+            }
+            seen.add(starred);
+        }
     }
 
     public void TestUnits() {
@@ -34,7 +93,7 @@ public class TestExampleGenerator extends TestFmwk {
         String actual = exampleGenerator.getExampleHtml(path, value, null);
         assertEquals(message, expected, simplify(actual, false));
     }
-    
+
     public void TestCompoundUnit() {
         String[][] tests = {
                 {"LONG", "one", "〖❬1 meter❭ per ❬second❭〗"},
@@ -46,10 +105,10 @@ public class TestExampleGenerator extends TestFmwk {
         };
         checkCompoundUnits("en", tests);
         // reenable these after Arabic has meter translated
-//        String[][] tests2 = {
-//                {"LONG", "few", "〖❬1 meter❭ per ❬second❭〗"},
-//        };
-//        checkCompoundUnits("ar", tests2);
+        //        String[][] tests2 = {
+        //                {"LONG", "few", "〖❬1 meter❭ per ❬second❭〗"},
+        //        };
+        //        checkCompoundUnits("ar", tests2);
     }
 
     private void checkCompoundUnits(String locale, String[][] tests) {
@@ -117,10 +176,10 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         checkValue("At least", "〖❬99❭+〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
         checkValue("Range", "〖❬99❭-❬144❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
-//        String actual = exampleGenerator.getExampleHtml(
-//                "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",
-//                "at least {0}", Zoomed.IN);
-//        assertEquals("Invalid format", "<div class='cldr_example'>at least 99</div>", actual);
+        //        String actual = exampleGenerator.getExampleHtml(
+        //                "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",
+        //                "at least {0}", Zoomed.IN);
+        //        assertEquals("Invalid format", "<div class='cldr_example'>at least 99</div>", actual);
     }
 
     public void TestLocaleDisplayPatterns() {

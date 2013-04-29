@@ -40,13 +40,13 @@ public class TestCoverageLevel extends TestFmwk {
     private static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) throws IOException {
-        TestCoverageLevel.getStarred(true, "en", "de");
+        // TestCoverageLevel.getStarred(true, "en", "de");
         // new TestCoverageLevel().getOrgs();
-        // new TestCoverageLevel().run(args);
+        new TestCoverageLevel().run(args);
     }
 
     private static void getStarred(boolean longForm, String... locales) {
-            Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
+        Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
         for (String locale : locales) {
             CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(
                     SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
@@ -253,11 +253,21 @@ public class TestCoverageLevel extends TestFmwk {
         public Level transform(String source) {
             return Level.fromLevel(Integer.parseInt(source));
         }
-    }, null)
-    .loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
-    {
+    }, null).loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
+    
+    public void TestExceptions(){
         for (R2<Finder, Level> x : exceptions) {
-            System.out.println(x.get0().toString() + " => " + x.get1());
+            logln(x.get0().toString() + " => " + x.get1());
         }
+    }
+
+    public void TestNarrowCurrencies() {
+        String path = "//ldml/numbers/currencies/currency[@type=\"USD\"]/symbol[@alt=\"narrow\"]";
+        String value = testInfo.getEnglish().getStringValue(path);
+        assertEquals("Narrow $", "$", value);
+        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(
+                SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), "en");
+        Level level = coverageLevel2.getLevel(path);
+        assertEquals("Narrow $", Level.BASIC, level);
     }
 }

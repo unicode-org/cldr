@@ -985,22 +985,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, MMMM d, y G</pattern>
+							<pattern>EEEE, MMMM d, Gy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>MMMM d, y G</pattern>
+							<pattern>MMMM d, Gy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>MMM d, y G</pattern>
+							<pattern>MMM d, Gy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>M/d/yy GGGGG</pattern>
+							<pattern>M/d/Gy</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1028,6 +1028,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="GGGGyMMMMEEEEdd">EEEE,dd MMMM GGGGy</dateFormatItem>
+						<dateFormatItem id="Gy">Gy</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM Gy</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d, Gy</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">EEE, MMM d, Gy</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
@@ -1040,14 +1044,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M/y</dateFormatItem>
-						<dateFormatItem id="yMEd">EEE, M/d/y</dateFormatItem>
-						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">EEE, MMM d, y</dateFormatItem>
-						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="y">Gy</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy</dateFormatItem>
+						<dateFormatItem id="yyyyM">M/Gy</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">EEE, M/d/Gy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM Gy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">MMM d, Gy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">EEE, MMM d, Gy</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM Gy</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ Gy</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ Gy</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -1213,6 +1219,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="GGGGyMMMMEEEEdd">EEEE,dd MMMM GGGGy</dateFormatItem>
+						<dateFormatItem id="Gy">Gy</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM Gy</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d, Gy</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">EEE, MMM d, Gy</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>

@@ -30,8 +30,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
-						<dateFormatItem id="yM">y/M</dateFormatItem>
-						<dateFormatItem id="yMM">y/MM</dateFormatItem>
+						<dateFormatItem id="yyyyM">G y/M</dateFormatItem>
+						<dateFormatItem id="yyyyMM">G y/MM</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="d">
@@ -41,13 +41,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d">d‏-d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y‏-y</greatestDifference>
+							<greatestDifference id="y">G y‏-y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d‏–d MMM، y</greatestDifference>
+							<greatestDifference id="d">d‏–d MMM، y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MM ‏- MM ‏–y</greatestDifference>
+							<greatestDifference id="M">MM ‏- MM ‏–y G</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>

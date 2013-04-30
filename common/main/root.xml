@@ -820,16 +820,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y MMM d, E</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
@@ -1178,16 +1178,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G y MMM d, E</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
@@ -2324,6 +2324,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">Today</relative>
 				<relative type="1">Tomorrow</relative>
 			</field>
+			<field type="weekday">
+				<displayName>Day of the Week</displayName>
+			</field>
 			<field type="sun">
 				<relative type="-1">Last Sunday</relative>
 				<relative type="0">This Sunday</relative>
@@ -2358,9 +2361,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">Last Saturday</relative>
 				<relative type="0">This Saturday</relative>
 				<relative type="1">Next Saturday</relative>
-			</field>
-			<field type="weekday">
-				<displayName>Day of the Week</displayName>
 			</field>
 			<field type="dayperiod">
 				<displayName>Dayperiod</displayName>
@@ -3392,7 +3392,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</miscPatterns>
 		<miscPatterns numberSystem="latn">
 			<pattern type="atLeast">{0}+</pattern>
-    		<pattern type="range">{0}-{1}</pattern>
+			<pattern type="range">{0}-{1}</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="lepc">
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
@@ -3484,11 +3484,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="area-acre">
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
-			<unit type="area-square-foot">
-				<unitPattern count="other">{0} ft²</unitPattern>
-			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="other">{0} ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<unitPattern count="other">{0} km²</unitPattern>
@@ -3498,6 +3498,72 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="area-square-mile">
 				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="other">{0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">+{0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">-{0} d</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">+{0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">-{0} h</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">+{0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">-{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">+{0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">-{0} m</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">+{0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">-{0} s</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} w</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">+{0} w</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">-{0} w</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} y</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">+{0} y</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">-{0} y</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} cm</unitPattern>
@@ -3562,11 +3628,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="speed-kilometer-per-hour">
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
-			<unit type="speed-mile-per-hour">
-				<unitPattern count="other">{0} mi/h</unitPattern>
-			</unit>
 			<unit type="speed-meter-per-second">
 				<unitPattern count="other">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
 				<unitPattern count="other">{0}°C</unitPattern>
@@ -3574,89 +3640,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="temperature-fahrenheit">
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
-			<unit type="duration-day">
-				<unitPattern count="other">{0} d</unitPattern>
-			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">+{0} d</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">-{0} d</unitPattern>
-			</unit>
-			<unit type="duration-hour">
-				<unitPattern count="other">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">+{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">-{0} h</unitPattern>
-			</unit>
-			<unit type="duration-minute">
-				<unitPattern count="other">{0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">+{0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">-{0} min</unitPattern>
-			</unit>
-			<unit type="duration-millisecond">
-				<unitPattern count="other">{0} ms</unitPattern>
-			</unit>
-			<unit type="duration-month">
-				<unitPattern count="other">{0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">+{0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">-{0} m</unitPattern>
-			</unit>
-			<unit type="duration-second">
-				<unitPattern count="other">{0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">+{0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">-{0} s</unitPattern>
-			</unit>
-			<unit type="duration-week">
-				<unitPattern count="other">{0} w</unitPattern>
-			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">+{0} w</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">-{0} w</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="other">{0} y</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">+{0} y</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">-{0} y</unitPattern>
-			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="other">{0} km³</unitPattern>
-			</unit>
-			<unit type="volume-liter">
-				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
-            		<durationUnit type="ms">
-				<durationUnitPattern>m:ss</durationUnitPattern> <!-- 33:59 -->
-			</durationUnit>
-            		<durationUnit type="hm">
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} l</unitPattern>
+			</unit>
+			<durationUnit type="hm">
 				<durationUnitPattern>h:mm</durationUnitPattern> <!-- 33:59 -->
 			</durationUnit>
-            		<durationUnit type="hms">
+			<durationUnit type="hms">
 				<durationUnitPattern>h:mm:ss</durationUnitPattern> <!-- 33:04:59 -->
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>m:ss</durationUnitPattern> <!-- 33:59 -->
 			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">

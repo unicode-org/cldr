@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">04-24</span></td>
+			<td>2013-<span class="changed">04-30</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -356,11 +356,11 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 
   <p>The yeartype attribute for months is used to distinguish alternate month names that would be displayed for certain calendars during leap years.  The practical example of this usage occurs in the Hebrew calendar, where the 7th month &quot;Adar&quot; occurs in non-leap years, with the 6th month being skipped, but in leap years there are two months named &quot;Adar I&quot; and &quot;Adar II&quot;.  There are currently only two defined year types, standard (the implied default) and leap.</p>
 
-  <p class="changed">For eras, an additional alt=&quot;variant&quot; form may be supplied. This is primarily intended
+  <p class="changed">For era elements, an additional alt=&quot;variant&quot; form may be supplied. This is primarily intended
     for use in the &quot;gregorian&quot; calendar, with which two parallel sets of era designations are used in some
     locales: one set with a religious reference (e.g. English BC/AD), and one set without (e.g. English BCE/CE). The
-    most commonly-used set should be provided as the default, and the other set may be provided as the
-    alt=&quot;variant&quot; form. See the example below.</p>
+    most commonly-used set for the locale should be provided as the default, and the other set may be provided as the
+    alt=&quot;variant&quot; forms. See the example below.</p>
 
   <p class="example">Example:</p>
 	<pre>  &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt;
@@ -460,28 +460,22 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     &lt;eras&gt;
        &lt;eraAbbr&gt;
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">BC</span>&lt;/era&gt;
+        <span class="changed">&lt;era type=&quot;<span style="color: blue">0</span>&quot; alt=&quot;<span style="color: blue">variant</span>&quot;&gt;<span style="color: blue">BCE</span>&lt;/era&gt;</span>
         &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">AD</span>&lt;/era&gt;
+        <span class="changed">&lt;era type=&quot;<span style="color: blue">1</span>&quot; alt=&quot;<span style="color: blue">variant</span>&quot;&gt;<span style="color: blue">CE</span>&lt;/era&gt;</span>
        &lt;/eraAbbr&gt;
        &lt;eraNames&gt;
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">Before Christ</span>&lt;/era&gt;
+        <span class="changed">&lt;era type=&quot;<span style="color: blue">0</span>&quot; alt=&quot;<span style="color: blue">variant</span>&quot;&gt;<span style="color: blue">Before Common Era</span>&lt;/era&gt;</span>
         &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Anno Domini</span>&lt;/era&gt;
+        <span class="changed">&lt;era type=&quot;<span style="color: blue">1</span>&quot; alt=&quot;<span style="color: blue">variant</span>&quot;&gt;<span style="color: blue">Common Era</span>&lt;/era&gt;</span>
        &lt;/eraNames&gt;
        &lt;eraNarrow&gt;
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">B</span>&lt;/era&gt;
         &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">A</span>&lt;/era&gt;
        &lt;/eraNarrow&gt;
     &lt;/eras&gt;
-<span class="changed">    &lt;eras alt=&quot;variant&quot;&gt;
-       &lt;eraAbbr&gt;
-        &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">BCE</span>&lt;/era&gt;
-        &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">CE</span>&lt;/era&gt;
-       &lt;/eraAbbr&gt;
-       &lt;eraNames&gt;
-        &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span style="color: blue">Before Common Era</span>&lt;/era&gt;
-        &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Common Era</span>&lt;/era&gt;
-       &lt;/eraNames&gt;
-    &lt;/eras&gt;
-</span></pre>
+</pre>
 
 <h3>2.2 <a name="monthPatterns_cyclicNameSets" href="#monthPatterns_cyclicNameSets">&lt;monthPatterns&gt;, &lt;cyclicNameSets&gt;</a></h3>
 

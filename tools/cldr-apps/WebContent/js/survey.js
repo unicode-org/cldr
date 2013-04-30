@@ -3826,18 +3826,19 @@ function showV() {
 						});
 					}
 				} else if(surveyCurrentSpecial =='oldvotes') {
-					var theDiv = flipper.flipToEmpty(pages.other); // clean slate, and proceed..
 					var url = contextPath + "/SurveyAjax?what=oldvotes&_="+surveyCurrentLocale+"&s="+surveySessionId+"&"+cacheKill();
 					myLoad(url, "(loading oldvotes " + surveyCurrentLocale + ")", function(json) {
-						showLoader(theDiv.loader,stui.loading2);
+						showLoader(null,stui.loading2);
 						if(!verifyJson(json, 'oldvotes')) {
 							return;
 						} else {
-							showLoader(theDiv.loader, "loading..");
+							showLoader(null, "loading..");
 							if(json.dataLoadTime) {
 								updateIf("dynload", json.dataLoadTime);
 							}
 							
+							var theDiv = flipper.flipToEmpty(pages.other); // clean slate, and proceed..
+
 							removeAllChildNodes(theDiv);
 							
 							var h2var = {votesafter:json.oldvotes.votesafter, newVersion:json.status.newVersion};
@@ -3879,7 +3880,7 @@ function showV() {
 									
 									theDiv.appendChild(ul);
 									
-									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_list_help_msg", {version: surveyOldVersion}),"p", "v-oldvotes-help")); 
+									theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_list_help_msg", {version: surveyOldVersion}),"p", "helpContent")); 
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old"),"i")); // TODO fix
 								}
@@ -3896,7 +3897,7 @@ function showV() {
 								});
 								//loclink.href='#';
 								theDiv.appendChild(createChunk(json.oldvotes.localeDisplayName,"h3","v-title2"));
-								theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_msg", {version: surveyOldVersion, locale: json.oldvotes.localeDisplayName}), "p", "v-oldvotes-loc-help"));
+								theDiv.appendChild(createChunk(stui.sub("v_oldvotes_locale_msg", {version: surveyOldVersion, locale: json.oldvotes.localeDisplayName}), "p", "helpContent"));
 								if(json.oldvotes.contested.length > 0 || json.oldvotes.uncontested.length > 0) {
 
 									function showVoteTable(voteList, type) {
@@ -4021,16 +4022,34 @@ function showV() {
 										t.appendChild(tb);
 										return t;
 									}
-									
-									function addOldvotesType(type, jsondata, ContentPane) {
-										var title = stui.str("v_oldvotes_title_"+type);
-//										theDiv.appendChild(createChunk(title,"h2","v-oldvotes-sub"));
 
+									
+									var frag = document.createDocumentFragment();
+
+									var summaryMsg = stui.sub("v_oldvotes_count_msg",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length });
+																		
+									frag.appendChild(createChunk(summaryMsg, "div", "helpHtml"));
+									
+									var navChunk = document.createElement("div");
+									navChunk.className = 'v-oldVotes-nav';
+									frag.appendChild(navChunk);
+									
+									var uncontestedChunk = null;
+									var contestedChunk = null;
+									
+									function addOldvotesType(type, jsondata, frag, navChunk) {
+										var content = createChunk("","div","v-oldVotes-subDiv");
 										
-										var content = document.createDocumentFragment();
+										content.strid = "v_oldvotes_title_"+type;
+
+										var title = stui.str(content.strid);
+										
+										content.title = title;
+										
+										content.appendChild(createChunk(title,"h2","v-oldvotes-sub"));
 										
 										var descr = stui.sub("v_oldvotes_desc_"+type+"_msg", {version: surveyOldVersion});
-										content.appendChild(createChunk(descr, "p", "v-oldvotes-desc"));
+										content.appendChild(createChunk(descr, "p", "helpContent"));
 										
 										
 										content.appendChild(showVoteTable(jsondata, type));
@@ -4043,6 +4062,7 @@ function showV() {
 
 
 										submit.on("click",function(e) {
+											setDisplayed(navChunk, false);
 											var confirmList= []; // these will be revoted with current params
 											var deleteList = []; // these will be deleted
 
@@ -4075,45 +4095,50 @@ function showV() {
 												}
 											},  JSON.stringify(saveList), { "Content-Type": "application/json"} );
 										});
-
-										var pane = new ContentPane({ title: title, content: content});
-
-										pane.addChild(submit);
-
-
-										return pane;
+										
+										submit.placeAt(content);
+										// hide by default
+										setDisplayed(content, false);
+										
+										frag.appendChild(content);
+										return content;
 									}
 									
+									
+									
+									if(json.oldvotes.uncontested.length > 0){
+										uncontestedChunk = addOldvotesType("uncontested",json.oldvotes.uncontested, frag, navChunk);
+									}
+									if(json.oldvotes.contested.length > 0){
+										contestedChunk = addOldvotesType("contested",json.oldvotes.contested, frag, navChunk);
+									}
 
-									
-									require(["dojo/ready", "dijit/layout/AccordionContainer", "dijit/layout/ContentPane"], function(ready, AccordionContainer, ContentPane){
-									    ready(function(){
-									        var tc = new AccordionContainer({
-									            style: "height: 100%; width: 100%;"
-									        });
-									        
-									        tc.addChild(new ContentPane({title: stui.str("v_oldvotes_summary"), content:
-									        		stui.sub("v_oldvotes_count_msg",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length })}));
-									        
-											if(json.oldvotes.uncontested.length > 0){
-												tc.addChild(addOldvotesType("uncontested",json.oldvotes.uncontested, ContentPane));
-											}
-											if(json.oldvotes.contested.length > 0){
-												tc.addChild(addOldvotesType("contested",json.oldvotes.contested, ContentPane));
-											}
-									        tc.addChild(new ContentPane({title: stui.str("v_oldvotes_summary"), content:
-								        		stui.sub("v_oldvotes_count_msg",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length })}));
-											tc.placeAt(theDiv);
-											
-									        tc.startup();
-									        
-									        flipper.addKillFn(function(){
-									        	tc.destroyRecursive();
-									        });
-									        
-									    });
-									});
-									
+									if(contestedChunk==null && uncontestedChunk != null) {
+										setDisplayed(uncontestedChunk, true); // only item
+									} else if(contestedChunk!=null && uncontestedChunk == null) {
+										setDisplayed(contestedChunk, true); // only item
+									} else {
+										// navigation
+										navChunk.appendChild(createChunk(stui.str('v_oldvotes_show')));
+										navChunk.appendChild(createLinkToFn(uncontestedChunk.strid, function() {
+											setDisplayed(contestedChunk, false);
+											setDisplayed(uncontestedChunk, true);
+										}, 'button'));
+										navChunk.appendChild(createLinkToFn(contestedChunk.strid, function() {
+											setDisplayed(contestedChunk, true);
+											setDisplayed(uncontestedChunk, false);
+										}, 'button'));
+										
+										contestedChunk.appendChild(createLinkToFn("v_oldvotes_hide", function() {
+											setDisplayed(contestedChunk, false);
+										}, 'button'));
+										uncontestedChunk.appendChild(createLinkToFn("v_oldvotes_hide", function() {
+											setDisplayed(uncontestedChunk, false);
+										}, 'button'));
+										
+									}
+
+									theDiv.appendChild(frag);
 
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old_here"),"i",""));

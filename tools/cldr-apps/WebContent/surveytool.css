@@ -1974,6 +1974,14 @@ tr.tr_submit {
 	background-color: #dfd;
 }
 
+div.v-oldVotes-subDiv {
+    margin-left:  1em;
+}
+
+h2.v-oldvotes-sub {
+    border-top:  2px solid silver;
+}
+
 /*
  Unknown status
 */
@@ -1982,7 +1990,7 @@ tr.tr_unknown {
 	
 }
 
-div.helpHtml {
+div.helpHtml, .helpContent {
     background: #eed;
     font: medium Georgia, "Times New Roman", Times, serif;
 }

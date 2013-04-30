@@ -410,7 +410,8 @@ public class WritePluralRules {
         {"gu,mr,kn,am,fa", "one: n within 0..1"},
         {"ta,te", "one: n is 1"},
         {"bn", "one: n within 0..1"},
-        {"en,ca,de,et,fi,gl,it,nl,sv,sw,ur", "one: j is 1"},
+        {"en,ca,de,et,fi,gl,it,nl,sw,ur", "one: j is 1"},
+        {"sv", "one: j is 1 or f is 1"},
         {"pt", "one: n is 1 or f is 1"},
         {"si", "one: n in 0,1 or i is 0 and f is 1"},
         {"cs,sk", "one: j is 1;  few: j in 2..4; many: v is not 0"},
@@ -467,4 +468,5 @@ public class WritePluralRules {
         "many: j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14"},
         {"zu", "one: n within 0..1"},
     };
+
 }

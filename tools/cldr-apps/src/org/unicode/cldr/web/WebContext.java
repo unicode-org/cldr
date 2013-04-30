@@ -2323,7 +2323,7 @@ public class WebContext implements Cloneable, Appendable {
         }
         
         if (mySession != null && user != null && hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
-           loginRemember();
+           loginRemember(user);
         } else if (hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL)) {
            logout(); // zap cookies if some id/pw failed to work
         }
@@ -2418,8 +2418,8 @@ public class WebContext implements Cloneable, Appendable {
     /**
      * Remember this login (adds cookie to ctx.response )
      */
-    public void loginRemember() {
-        addCookie(SurveyMain.QUERY_EMAIL, session.user.email, SurveyMain.TWELVE_WEEKS);
-        addCookie(SurveyMain.QUERY_PASSWORD, session.user.password, SurveyMain.TWELVE_WEEKS);
+    public void loginRemember(User user) {
+        addCookie(SurveyMain.QUERY_EMAIL, user.email, SurveyMain.TWELVE_WEEKS);
+        addCookie(SurveyMain.QUERY_PASSWORD, user.password, SurveyMain.TWELVE_WEEKS);
     }
 }

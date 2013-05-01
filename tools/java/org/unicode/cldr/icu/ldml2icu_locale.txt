@@ -43,6 +43,7 @@
      ; /calendar/$1/intervalFormats:alias ; values=/LOCALE/calendar/$2/intervalFormats
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/(availableFormats|appendItems|intervalFormats)/alias[@source="locale"][@path="../../../calendar[@type='(%A)']/dateTimeFormats/\2"]   ; /calendar/$1/$2:alias ; values=/LOCALE/calendar/$3/$2
 
+//ldml/units/unitLength[@type="long"]/alias[@source="locale"][@path="../unitLength[@type='short']"] ; /units:alias ; values=/LOCALE/unitsShort
 
 # Characters
 
@@ -160,5 +161,5 @@
 
 //ldml/listPatterns/listPattern/listPatternPart[@type="(%A)"] ; /listPattern/standard/$1
 
-//ldml/units/unit[@type="(%A)"]/unitPattern[@count="(%A)"][@alt="short"] ; /unitsShort/$1/$2
-//ldml/units/unit[@type="(%A)"]/unitPattern[@count="(%A)"] ; /units/$1/$2
+//ldml/units/unitLength[@type="short"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /unitsShort/$1/$2/$3
+//ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /units/$1/$2/$3

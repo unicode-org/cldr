@@ -135,7 +135,7 @@ public class MailSender extends Thread {
             if (smtp != null) {
                 getInstance().queue(ourMessage);
             }
-            log(to, subject, null);
+            log(to, SurveyMain.isUnofficial()? (subject +"="+body):subject, null);
         } catch (Throwable t) {
             System.err.println("MAIL ERR: for" + to + ", " + t.toString() + " - check cldrmail.log");
             // t.printStackTrace();

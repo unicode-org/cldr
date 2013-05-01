@@ -20,6 +20,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -134,20 +135,13 @@ public class UserRegistry {
 
     private static java.util.logging.Logger logger;
     // user levels
-    public static final int ADMIN = VoteResolver.Level.admin.getSTLevel();
-    /** Administrator **/
-    public static final int TC = VoteResolver.Level.tc.getSTLevel();
-    /** Technical Committee **/
-    public static final int MANAGER = VoteResolver.Level.manager.getSTLevel();
-    /** manager **/
-    public static final int EXPERT = VoteResolver.Level.expert.getSTLevel();
-    /** Expert Vetter **/
-    public static final int VETTER = VoteResolver.Level.vetter.getSTLevel();
-    /** regular Vetter **/
-    public static final int STREET = VoteResolver.Level.street.getSTLevel();
-    /** Guest Vetter **/
-    public static final int LOCKED = VoteResolver.Level.locked.getSTLevel();
-    /** Locked user - can't login **/
+    public static final int ADMIN = VoteResolver.Level.admin.getSTLevel();    /**< Administrator **/
+    public static final int TC = VoteResolver.Level.tc.getSTLevel();    /**< Technical Committee **/
+    public static final int MANAGER = VoteResolver.Level.manager.getSTLevel();    /**< manager **/
+    public static final int EXPERT = VoteResolver.Level.expert.getSTLevel();     /**< Expert Vetter **/
+    public static final int VETTER = VoteResolver.Level.vetter.getSTLevel();    /**< regular Vetter **/
+    public static final int STREET = VoteResolver.Level.street.getSTLevel();    /**< Guest Vetter **/
+    public static final int LOCKED = VoteResolver.Level.locked.getSTLevel();  /**< Locked user - can't login **/
 
     public static final int LIMIT_LEVEL = 10000;
     /** max level **/
@@ -1291,6 +1285,59 @@ public class UserRegistry {
         // }
 
         return msg;
+    }
+    
+    public String resetPassword(String forEmail, String ip) {
+        String msg = "";
+        String newPassword = CookieSession.newId(false);
+        if(newPassword.length() > 10 ) {
+            newPassword = newPassword.substring(0, 10);
+        }
+        Connection conn = null;
+        PreparedStatement updateInfoStmt = null;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+
+            updateInfoStmt = DBUtils.prepareStatementWithArgs(conn, "UPDATE " + CLDR_USERS + " set password=? ,  audit=? WHERE email=? AND userlevel <" + LOCKED + "  AND userlevel >= " +  TC, newPassword, 
+                    "Reset: " + new Date().toString() + " by " + ip,
+                    forEmail);
+
+            logger.info("** Attempt password reset " + forEmail + " from " + ip );
+            int n = updateInfoStmt.executeUpdate();
+            
+            conn.commit();
+            userModified(forEmail);
+            if (n == 0) {
+                msg = msg + " [Error: no users were updated!] ";
+                logger.severe("Error in password reset:: 0 users updated.");
+            } else if (n != 1) {
+                msg = msg + " [Error in updated users!] ";
+                logger.severe("Error in password reset: " + n + " updated removed!");
+            } else {
+                msg = msg + "OK";
+                
+                sm.notifyUser(null, forEmail, newPassword);
+            }
+        } catch (SQLException se) {
+            SurveyLog.logException(se, "Resetting password for user " + forEmail + " from " + ip);
+            msg = msg + " exception";
+        } catch (Throwable t) {
+            SurveyLog.logException(t, "Resetting password for user " + forEmail + " from " + ip);
+            msg = msg + " exception: " + t.toString();
+        } finally {
+            DBUtils.close(updateInfoStmt, conn);
+        }
+        return msg;
+    }
+
+    private void userModified(String forEmail) {
+        User u = get(forEmail);
+        if(u!=null) userModified(u);
+    }
+
+    private void userModified(User u) {
+        // TODO Auto-generated method stub
+        userModified(u.id);
     }
 
     public String getPassword(WebContext ctx, int theirId) {

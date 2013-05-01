@@ -335,6 +335,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                                         // vetted
                                                                         // data
     File _vetdir = null;
+
+    private String defaultBase  = "http://st.unicode.org/cldr-apps"; /* base URL */
     public static String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for
                                                                       // web
                                                                       // data
@@ -663,6 +665,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.sm = this;
         if (defaultServletPath == null) {
             defaultServletPath = ctx.request.getServletPath();
+            //defaultBase   = ctx.base();
         }
         /*
          * String theIp = ctx.userIP(); if(theIp.equals("66.154.103.161") //
@@ -4156,19 +4159,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String smtp = survprops.getProperty("CLDR_SMTP", null);
 
         if (smtp == null) {
-            ctx.println(ctx.iconHtml("okay", "mail sent") + "<i>Not sending mail- SMTP disabled.</i><br/>");
-            ctx.println("<hr/><pre>" + message + "</pre><hr/>");
+            if(ctx!=null) {
+                ctx.println(ctx.iconHtml("okay", "mail sent") + "<i>Not sending mail- SMTP disabled.</i><br/>");
+                ctx.println("<hr/><pre>" + message + "</pre><hr/>");
+            }
             smtp = "NONE";
+            MailSender.log(theirEmail, subject+"="+message,null);
         } else {
             MailSender.sendMail(smtp, mailFromAddress, mailFromName, from, theirEmail, subject, message);
-            ctx.println("<br>" + ctx.iconHtml("okay", "mail sent") + "Mail sent to " + theirEmail + " from " + from + " via "
-                    + smtp + "<br/>\n");
+            if(ctx != null) {
+                ctx.println("<br>" + ctx.iconHtml("okay", "mail sent") + "Mail sent to " + theirEmail + " from " + from + " via "
+                        + smtp + "<br/>\n");
+            }
         }
         SurveyLog.logger.info("Mail queued to " + theirEmail + "  from " + from + " via " + smtp + " - " + subject);
         /* some debugging. */
     }
 
     String getRequesterEmail(WebContext ctx) {
+        if(ctx==null) return "surveytool@unicode.org";
         String cleanEmail = ctx.session.user.email;
         if (cleanEmail.equals("admin@")) {
             cleanEmail = "surveytool@unicode.org";
@@ -4177,6 +4186,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     String getRequesterName(WebContext ctx) {
+        if(ctx==null) return "SurveyTool Administration";
         return ctx.session.user.name;
     }
 
@@ -4186,20 +4196,23 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     void notifyUser(WebContext ctx, String theirEmail, String pass) {
-        String body = getRequester(ctx) + " is notifying you of the CLDR vetting account for you.\n" + "To access it, visit: \n"
-                + "   http://st.unicode.org" + /* ctx.serverHostport()+ */ctx.base() + "?" + QUERY_PASSWORD + "=" + pass + "&"
+        String whySent;
+        String subject = "CLDR Registration for " + theirEmail;
+        if(ctx!=null) {
+           whySent =  getRequester(ctx) + " is notifying you of the CLDR vetting account for you.\n";
+         } else {
+             whySent = "Your CLDR vetting account information is being sent to you\r\n\r\n";
+         }
+        String body = whySent + "To access it, visit: \n<"
+                + defaultBase + "?" + QUERY_PASSWORD + "=" + pass + "&"
                 + QUERY_EMAIL + "=" + theirEmail
-                + "\n"
+                + ">\n"
                 +
                 // // DO NOT ESCAPE THIS AMPERSAND.
-                "\n" + "Or you can visit\n   http://st.unicode.org" + /*
-                                                                       * ctx.
-                                                                       * serverHostport
-                                                                       * () +
-                                                                       */ctx.base() + "\n    username: " + theirEmail
+                "\n" + "Or you can visit\n   <" + defaultBase + ">\n    username: " + theirEmail
                 + "\n    password: " + pass + "\n" + "\n" + " Please keep this link to yourself. Thanks.\n"
                 + " Follow the 'Instructions' link on the main page for more help.\n" + " \n";
-        String subject = "CLDR Registration for " + theirEmail;
+        
         mailUser(ctx, theirEmail, subject, body);
     }
 

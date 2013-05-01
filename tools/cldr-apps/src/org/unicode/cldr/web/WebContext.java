@@ -2369,7 +2369,10 @@ public class WebContext implements Cloneable, Appendable {
             session.user.ip = userIP();
         } else {
             if ((email != null) && (email.length() > 0) && (session.user == null)) {
-                message = "<strong id='sessionMessage'>" + (iconHtml("stop", "failed login") + "login failed.</strong><br>");
+                message = "<strong id='sessionMessage'>"+ iconHtml("stop", "failed login") + "login failed.</strong> <a href='" 
+                        + request.getContextPath() + "/reset.jsp?email=" + email +
+                        "&s="+ session.id + 
+                        "' id='notselected'>Forgot&nbsp;Password?</a><br>";
             }
         }
         CookieSession.reap();

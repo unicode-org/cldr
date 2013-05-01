@@ -268,10 +268,13 @@ public class SurveyAjax extends HttpServlet {
             } else if (what == null) {
                 sendError(out, "Missing parameter: " + REQ_WHAT);
             } else if (what.equals(WHAT_STATS_BYDAY)) {
+                String votesAfterSQL = SurveyMain.getSQLVotesAfter();
+                String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
                 JSONObject query = DBUtils
-                        .queryToJSON("select count(*) as count ,last_mod from cldr_votevalue group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
+                        .queryToJSON("select count(*) as count ,last_mod from cldr_votevalue where last_mod > " + votesAfterSQL + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
                 r.put("byday", query);
+                r.put("after", votesAfterString);
                 send(r, out);
             } else if (what.equals(WHAT_MY_LOCALES)) {
                 JSONWriter r = newJSONStatus(sm);

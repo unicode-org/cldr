@@ -922,11 +922,13 @@ function updateStatusBox(json) {
 	if(json.disconnected) {
 		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown 
 	} else if(json.err_code) {
+		console.log('json.err_code == ' + json.err_code);
 		if(json.err_code == "E_NOT_STARTED") {
 			trySurveyLoad();
 		}
 		handleDisconnect(formatErrMsg(json, 'status'), json, "disconnected");
 	} else if (json.SurveyOK==0) {
+		console.log('json.surveyOK==0');
 		trySurveyLoad();
 		handleDisconnect("The SurveyTool server is not ready to accept connections, please retry. ", json,"disconnected"); // ST has restarted
 	} else if (json.status && json.status.isBusted) {

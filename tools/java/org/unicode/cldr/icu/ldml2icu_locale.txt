@@ -44,6 +44,7 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/(availableFormats|appendItems|intervalFormats)/alias[@source="locale"][@path="../../../calendar[@type='(%A)']/dateTimeFormats/\2"]   ; /calendar/$1/$2:alias ; values=/LOCALE/calendar/$3/$2
 
 //ldml/units/unitLength[@type="long"]/alias[@source="locale"][@path="../unitLength[@type='short']"] ; /units:alias ; values=/LOCALE/unitsShort
+//ldml/listPatterns/listPattern[@type="(%A)"]/alias[@source="locale"][@path="../listPattern"] ; /listPattern/$1:alias ; values=/LOCALE/listPattern/standard
 
 # Characters
 
@@ -160,6 +161,8 @@
 //ldml/layout/orientation/(%G)Order ; /layout/$1s
 
 //ldml/listPatterns/listPattern/listPatternPart[@type="(%A)"] ; /listPattern/standard/$1
+//ldml/listPatterns/listPattern[@type="(%A)"]/listPatternPart[@type="(%A)"] ; /listPattern/$1/$2
 
 //ldml/units/unitLength[@type="short"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /unitsShort/$1/$2/$3
 //ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /units/$1/$2/$3
+//ldml/units/unitLength[@type="short"]/durationUnit[@type="(%A)"]/durationUnitPattern ; /durationUnits/$1

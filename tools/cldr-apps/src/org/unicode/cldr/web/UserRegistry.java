@@ -1308,7 +1308,7 @@ public class UserRegistry {
             conn.commit();
             userModified(forEmail);
             if (n == 0) {
-                msg = msg + " [Error: no users were updated!] ";
+                msg = msg + "Error: no valid accounts found";
                 logger.severe("Error in password reset:: 0 users updated.");
             } else if (n != 1) {
                 msg = msg + " [Error in updated users!] ";
@@ -1323,6 +1323,52 @@ public class UserRegistry {
             msg = msg + " exception";
         } catch (Throwable t) {
             SurveyLog.logException(t, "Resetting password for user " + forEmail + " from " + ip);
+            msg = msg + " exception: " + t.toString();
+        } finally {
+            DBUtils.close(updateInfoStmt, conn);
+        }
+        return msg;
+    }
+
+    public String lockAccount(String forEmail, String reason, String ip) {
+        String msg = "";
+        logger.info("** Attempt LOCK " + forEmail + " from " + ip  + " reason " + reason);
+        String newPassword = CookieSession.newId(false);
+        if(newPassword.length() > 10 ) {
+            newPassword = newPassword.substring(0, 10);
+        }
+        if(reason.length() > 500 ) {
+            reason= reason.substring(0, 500) + "...";
+        }
+        Connection conn = null;
+        PreparedStatement updateInfoStmt = null;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+
+            updateInfoStmt = DBUtils.prepareStatementWithArgs(conn, "UPDATE " + CLDR_USERS + " set password=?,userlevel=" + LOCKED + ",  audit=? WHERE email=? AND userlevel <" + LOCKED + "  AND userlevel >= " +  TC, 
+                    newPassword,
+                    "Lock: " + new Date().toString() + " by " + ip + ":" + reason,
+                    forEmail);
+
+            int n = updateInfoStmt.executeUpdate();
+            
+            conn.commit();
+            userModified(forEmail);
+            if (n == 0) {
+                msg = msg + "Error: no valid accounts found";
+                logger.severe("Error in LOCK:: 0 users updated.");
+            } else if (n != 1) {
+                msg = msg + " [Error in updated users!] ";
+                logger.severe("Error in LOCK: " + n + " updated removed!");
+            } else {
+                msg = msg + "OK";
+                sm.mailUser(null, "surveytool@unicode.org", "User Locked: " + forEmail, "User account locked: " + ip + " reason=" + reason);
+            }
+        } catch (SQLException se) {
+            SurveyLog.logException(se, "Locking account for user " + forEmail + " from " + ip);
+            msg = msg + " exception";
+        } catch (Throwable t) {
+            SurveyLog.logException(t, "Locking account for user " + forEmail + " from " + ip);
             msg = msg + " exception: " + t.toString();
         } finally {
             DBUtils.close(updateInfoStmt, conn);

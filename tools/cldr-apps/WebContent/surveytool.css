@@ -1213,6 +1213,18 @@ table.sqlbox form {
 
 /* @end */
 
+.manageSubpages {
+	padding-left: 2em;
+	display: block;
+}
+
+.manageSubpages a,
+.manageSubpages b {
+	list-style: inside;
+	display: list-item;
+	list-style-type: disc;
+}
+
 .ferrbox {
 	background-color: #ddd;
 	border: 1px solid red;

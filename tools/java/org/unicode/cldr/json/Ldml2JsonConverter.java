@@ -621,11 +621,11 @@ public class Ldml2JsonConverter {
             return;
         }
 
-        // first level need no key, it is the container.
-        // if (level == 0) {
-        // out.add("{");
-        // return;
-        // }
+        // first level needs no key, it is the container.
+        if (level == 0) {
+           out.add("{");
+           return;
+        }
 
         Map<String, String> attrAsValueMap = node.getAttrAsValueMap();
         out.add(indent(level) + "\"" + objName + "\": {");

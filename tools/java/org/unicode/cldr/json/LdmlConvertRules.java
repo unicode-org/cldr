@@ -12,7 +12,7 @@ class LdmlConvertRules {
 
     /** All sub-directories that will be processed in JSON transformation. */
     public static final String CLDR_SUBDIRS[] = {
-        "main" , "supplemental"
+        /* "main" , */ "supplemental"
         // We could do everything, but not really sure how useful it would be.
         // For now, just do main and supplemental per CLDR TC agreement.
         // "collation", "bcp47", "supplemental", "rbnf", "segments", "main", "transforms"
@@ -276,7 +276,7 @@ class LdmlConvertRules {
      */
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
-        "pluralRules", "personList", "types"
+        "pluralRules", "personList", "calendarPreferenceData", "character-fallback", "types"
     };
 
     /**

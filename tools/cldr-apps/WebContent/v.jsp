@@ -193,11 +193,12 @@ survURL = '<%= survURL %>';
          </div>
 
         <div id='title-page-container' class='menu-container'>
-	         <div id='title-page' data-dojo-type="dijit/form/DropDownButton">
+<!-- 	         <div id='title-page' data-dojo-type="dijit/form/DropDownButton">
 	              <span>(page)</span>
 	              <div id='menu-page' data-dojo-type="dijit/DropDownMenu"></div>
 	         </div>
-         </div>
+ -->        
+  </div>
          
          <!--
          <div id='title-item-container' class='menu-container'>

@@ -78,6 +78,8 @@ function setDisplayed(div, visible) {
 	if(div===null) {
 		console.log("setDisplayed: called on null");
 		return;
+	} else if(div.domNode) {
+		setDisplayed(div.domNode, visible); // recurse, it's a dijit
 	} else if(!div.style) {
 		console.log("setDisplayed: called on malformed node " + div + " - no style! " + Object.keys(div));
 //	} else if(!div.style.display) {
@@ -3369,6 +3371,7 @@ function showV() {
 //				menubuttons.set(menubuttons.item);
 				return; // nothing to do.
 			}
+			var titlePageContainer = dojo.byId("title-page-container");
 
 			/**
 			 * Just update the titles of the menus. Internal to updateHashAndMenus
@@ -3376,22 +3379,26 @@ function showV() {
 			 */
 			function updateMenuTitles(menuMap) {
 			    updateLocaleMenu(menuMap);
-				if(surveyCurrentSpecial!= null) {
-					menubuttons.set(menubuttons.section /*,stui_str("section_special") */);
-					menubuttons.set(menubuttons.page,stui_str("special_"+surveyCurrentSpecial));
+				if(surveyCurrentSpecial!= null && surveyCurrentSpecial != '') {
+//					menubuttons.set(menubuttons.section /*,stui_str("section_special") */);
+					menubuttons.set(menubuttons.section,stui_str("special_"+surveyCurrentSpecial));
+					setDisplayed(titlePageContainer, false);
 				} else if(!menuMap) {
 					menubuttons.set(menubuttons.section);
-					menubuttons.set(menubuttons.page, surveyCurrentPage); 
+					setDisplayed(titlePageContainer, false);
+//					menubuttons.set(menubuttons.page, surveyCurrentPage); 
 				} else {
 					if(menuMap.pageToSection[window.surveyCurrentPage]) {
 						var mySection = menuMap.pageToSection[window.surveyCurrentPage];
 						var myPage = mySection.pageMap[window.surveyCurrentPage];
 						surveyCurrentSection = mySection.id;
 						menubuttons.set(menubuttons.section, mySection.name);
-						menubuttons.set(menubuttons.page, myPage.name);
+						setDisplayed(titlePageContainer, false); // will fix title later
+//						menubuttons.set(menubuttons.page, myPage.name);
 					} else {
 						menubuttons.set(menubuttons.section, stui_str("section_general"));
-						menubuttons.set(menubuttons.page);
+						setDisplayed(titlePageContainer, false);
+//						menubuttons.set(menubuttons.page);
 					}
 				}
 			}
@@ -3417,7 +3424,7 @@ function showV() {
 						disabled: true,
 						//    iconClass:"dijitEditorIcon dijitEditorIconSave",
 						onClick: function(){ 
-							if(surveyCurrentPage!='' && surveyCurrentSpecial!='') {
+							if(surveyCurrentPage!='' || (surveyCurrentSpecial!='' && surveyCurrentSpecial != null)) {
 								surveyCurrentId = ''; // no id if jumping pages
 								surveyCurrentPage = '';
 								surveyCurrentSection = '';
@@ -3448,6 +3455,7 @@ function showV() {
 										stdebug('clicky ' + goTo.id);
 										surveyCurrentId = ''; // no id if jumping pages
 										surveyCurrentPage = goTo.id;
+										surveyCurrentSpecial = '';
 										updateMenuTitles(menuMap);
 										reloadV();
 									} else {
@@ -3489,35 +3497,64 @@ function showV() {
 						// update menus under 'page' - peer pages
 						
 						
-						var menuPage = registry.byId("menu-page");
-						// TODO: restructure this
-						menuPage.destroyDescendants(false);
-						for(var k in mySection.pages) { // use given order
-							(function(aPage) {
-								var pageMenu = new /*Checked*/MenuItem({
-									label: aPage.name,
-									iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
-//									checked:   (aPage.id == surveyCurrentPage),
-									//    iconClass:"dijitEditorIcon dijitEditorIconSave",
-									onClick: function(){ 
-										surveyCurrentId = ''; // no id if jumping pages
-										surveyCurrentPage = aPage.id;
-										updateMenuTitles(menuMap);
-										reloadV();
-									},
-									disabled: (effectiveCoverage()<parseInt(aPage.levs[surveyCurrentLocale]))
-								});
-								menuPage.addChild(pageMenu);
-							})(mySection.pages[k]);
-
+						if(!titlePageContainer.menus) {
+							titlePageContainer.menus = {};
 						}
-					}				
+						
+						// hide all. TODO use a foreach model?
+						for(var zz in titlePageContainer.menus) {
+							var aMenu = titlePageContainer.menus[zz];
+							aMenu.set('label','-');
+							setDisplayed(aMenu, false);
+						}
+						
+
+						var showMenu = titlePageContainer.menus[mySection.id];
+
+						if(!showMenu) {
+							// doesn't exist - add it.
+
+							var menuPage = new DropDownMenu();
+							
+							for(var k in mySection.pages) { // use given order
+								(function(aPage) {
+									var pageMenu = new MenuItem({
+										label: aPage.name,
+										iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
+//										checked:   (aPage.id == surveyCurrentPage),
+										//    iconClass:"dijitEditorIcon dijitEditorIconSave",
+										onClick: function(){ 
+											surveyCurrentId = ''; // no id if jumping pages
+											surveyCurrentPage = aPage.id;
+											updateMenuTitles(menuMap);
+											reloadV();
+										},
+										disabled: (effectiveCoverage()<parseInt(aPage.levs[surveyCurrentLocale]))
+									});
+									menuPage.addChild(pageMenu);
+								})(mySection.pages[k]);
+							}
+
+							var theButton = new DropDownButton({label: '-', dropDown: menuPage});
+
+							
+							theButton.placeAt(titlePageContainer);
+							
+							showMenu = theButton;
+							
+							titlePageContainer.menus[mySection.id] = showMenu;
+						}
+						
+						showMenu.set('label', myPage.name);
+						setDisplayed(showMenu, true);
+						setDisplayed(titlePageContainer, true); // will fix title later
+					}
 
 				}
 				
 				stdebug('Updating menus.. ecov = ' + effectiveCoverage());
 
-				menuMap.setCheck(menuMap.section_general,  (surveyCurrentPage == ''),false);
+				menuMap.setCheck(menuMap.section_general,  (surveyCurrentPage == '' && (surveyCurrentSpecial=='' || surveyCurrentSpecial==null)),false);
 
 				// update section menus  (surveyCurrentSection == aSection.id)
 				for(var j in menuMap.sections) {

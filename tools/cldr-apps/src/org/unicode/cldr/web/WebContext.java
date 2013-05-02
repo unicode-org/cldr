@@ -2388,11 +2388,22 @@ public class WebContext implements Cloneable, Appendable {
     
     /**
      * Logout this req/response (zap cookie)
-     * Doesn't zap http session, currently
+     * Zaps http session
      * @param request
      * @param response
      */
     public static void logout(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession(false); // dont create
+        if(session!=null) {
+            String sessionId = (String)session.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
+            if(sessionId!=null) {
+                CookieSession sess = CookieSession.retrieveWithoutTouch(sessionId);
+                if(sess != null) {
+                    sess.remove(); // forcibly remove session
+                }
+            }
+            session.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
+        }
         Cookie c0 = WebContext.getCookie(request,SurveyMain.QUERY_EMAIL);
         if(c0!=null) { // only zap extant cookies
             c0.setValue("");

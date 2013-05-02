@@ -1,8 +1,11 @@
-package org.unicode.cldr.tool;
+package org.unicode.cldr.json;
 
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
+
+import com.ibm.icu.impl.Utility;
+
 
 /**
  * CldrNode represent a Element in XML as it appears in a CldrItem's path.
@@ -248,7 +251,7 @@ public class CldrNode {
             // character attribute has value that can be any unicode character. Those
             // might not be url safe and can be difficult for user to specify. It is
             // converted to hex string here.
-            uniqueNodeName = Integer.toHexString(uniqueNodeName.charAt(0));
+            uniqueNodeName = "U+" + Utility.hex(uniqueNodeName.charAt(0),4);
         } else if (isTimezoneType()) {
             // time zone name has GMT+9 type of thing. "+" need to be removed to make
             // it URL safe.

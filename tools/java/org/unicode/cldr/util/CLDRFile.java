@@ -110,7 +110,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-    public static final String GEN_VERSION = "23";
+    public static final String GEN_VERSION = "23.1";
 
     private Collection<String> extraPaths = null;
 
@@ -1215,6 +1215,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 || elementName.equals("mapZone") && (attribute.equals("other") || attribute.equals("territory"))
                 || elementName.equals("postCodeRegex") && attribute.equals("territoryId")
                 || elementName.equals("calendarPreference") && attribute.equals("territories")
+                || elementName.equals("minDays") && attribute.equals("territories")
                 || elementName.equals("firstDay") && attribute.equals("territories")
                 || elementName.equals("weekendStart") && attribute.equals("territories")
                 || elementName.equals("weekendEnd") && attribute.equals("territories")
@@ -1229,6 +1230,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 (attribute.equals("alpha3") || attribute.equals("numeric") || attribute.equals("type"))
                 || elementName.equals("group") && attribute.equals("status")
                 || elementName.equals("plurals") && attribute.equals("type")
+                || elementName.equals("pluralRules") && attribute.equals("locales")
                 || elementName.equals("hours") && attribute.equals("regions");
         case keyboard:
         case platform:
@@ -1450,7 +1452,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     // ldmlComparator.addValue(value);
                     // special fix to remove version
                     // <!ATTLIST version number CDATA #REQUIRED >
-                    // <!ATTLIST version cldrVersion CDATA #FIXED "23" >
+                    // <!ATTLIST version cldrVersion CDATA #FIXED "24" >
                     if (attribute.equals("cldrVersion")
                         && (qName.equals("version"))) {
                         ((SimpleXMLSource) target.dataSource).setDtdVersionInfo(VersionInfo.getInstance(value));

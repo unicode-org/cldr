@@ -1,4 +1,4 @@
-package org.unicode.cldr.tool;
+package org.unicode.cldr.json;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,7 +12,7 @@ class LdmlConvertRules {
 
     /** All sub-directories that will be processed in JSON transformation. */
     public static final String CLDR_SUBDIRS[] = {
-        "main", "supplemental"
+        "main" , "supplemental"
         // We could do everything, but not really sure how useful it would be.
         // For now, just do main and supplemental per CLDR TC agreement.
         // "collation", "bcp47", "supplemental", "rbnf", "segments", "main", "transforms"
@@ -30,6 +30,7 @@ class LdmlConvertRules {
     private static final String[] NAME_PART_DISTINGUISHING_ATTR_LIST = {
         // common/main
         "monthWidth:month:yeartype",
+        "dateFormat:pattern:numbers",
         "currencyFormats:unitPattern:count",
         "currency:displayName:count",
         "numbers:symbols:numberSystem",
@@ -40,6 +41,11 @@ class LdmlConvertRules {
         "territoryContainment:group:status",
         "decimalFormat:pattern:count",
         "unit:unitPattern:count",
+        "weekData:minDays:territories",
+        "weekData:firstDay:territories",
+        "weekData:weekendStart:territories",
+        "weekData:weekendEnd:territories",
+        "supplementalData:plurals:type",
         "pluralRules:pluralRule:count"
     };
 
@@ -61,8 +67,6 @@ class LdmlConvertRules {
      * }
      */
     private static final String[] ATTR_AS_VALUE_LIST = {
-        // common/main
-        "types:type:key",
 
         // in common/supplemental/dayPeriods.xml
         "dayPeriodRules:dayPeriodRule:from",
@@ -92,6 +96,9 @@ class LdmlConvertRules {
         "calendar:calendarSystem:type",
         "codeMappings:territoryCodes:numeric",
         "codeMappings:territoryCodes:alpha3",
+
+        // in common/supplemental/telephoneCodeData.xml
+        "codesByTerritory:telephoneCountryCode:code",
 
         // in common/supplemental/windowsZones.xml
         "mapTimezones:mapZone:other",
@@ -145,15 +152,10 @@ class LdmlConvertRules {
 
         // common/supplemental
         "likelySubtags:likelySubtag:to",
-        "territoryContainment:group:contains",
+        //"territoryContainment:group:type",
         "calendar:calendarSystem:type",
         "calendarPreferenceData:calendarPreference:ordering",
-        "firstDay:firstDay:day",
-        "minDays:minDays:territories",
-        "weekendStart:weekendStart:day",
-        "weekendEnd:weekendEnd:day",
-        "measurementData:measurementSystem:type",
-        "codesByterritory:telephoneCountryCode:code",
+        "codesByTerritory:telephoneCountryCode:code",
 
         // common/collation
         "collations:default:choice",
@@ -221,11 +223,13 @@ class LdmlConvertRules {
      */
     public static class SplittableAttributeSpec {
         public String element;
-        public Pattern pattern;
+        public String attribute;
+        public String attrAsValueAfterSplit;
 
-        SplittableAttributeSpec(String el, String attr) {
+        SplittableAttributeSpec(String el, String attr, String av) {
             element = el;
-            pattern = Pattern.compile("(.*\\[@" + attr + "=\")([^\"]*)(\"\\].*)");
+            attribute = attr;
+            attrAsValueAfterSplit = av;
         }
     }
 
@@ -246,13 +250,19 @@ class LdmlConvertRules {
      * <weekendStart day="thu" territories="IR"/>
      */
     public static final SplittableAttributeSpec[] SPLITTABLE_ATTRS = {
-        new SplittableAttributeSpec("/measurementSystem", "territories"),
-        new SplittableAttributeSpec("/calendarPreference", "territories"),
-        new SplittableAttributeSpec("/pluralRules", "locales"),
-        new SplittableAttributeSpec("/weekendStart", "territories"),
-        new SplittableAttributeSpec("/weekendEnd", "territories"),
-        new SplittableAttributeSpec("/firstDay", "territories"),
-        new SplittableAttributeSpec("/dayPeriodRules", "locales")
+        new SplittableAttributeSpec("calendarPreference", "territories", null),
+        new SplittableAttributeSpec("pluralRules", "locales", null),
+        new SplittableAttributeSpec("minDays", "territories", "count"),
+        new SplittableAttributeSpec("firstDay", "territories", "day"),
+        new SplittableAttributeSpec("weekendStart", "territories", "day"),
+        new SplittableAttributeSpec("weekendEnd", "territories", "day"),
+        new SplittableAttributeSpec("measurementSystem", "territories", "type"),
+        new SplittableAttributeSpec("paperSize", "territories", "type"),
+        new SplittableAttributeSpec("parentLocale", "locales", "parent"),
+        new SplittableAttributeSpec("hours", "regions", null),
+        new SplittableAttributeSpec("dayPeriodRules", "locales", null),
+        // new SplittableAttributeSpec("group", "contains", "group"),
+        new SplittableAttributeSpec("personList", "locales", "type")
     };
 
     /**
@@ -264,6 +274,14 @@ class LdmlConvertRules {
             .add("zoneItem").add("typeMap").freeze();
 
     /**
+     * There are a handful of attribute values that are more properly represented as an array of strings rather than
+     * as a single string.  
+     */
+    public static final Set<String> ATTRVALUE_AS_ARRAY_SET =
+        Builder.with(new HashSet<String>())
+            .add("territories").add("scripts").add("contains").freeze();
+
+    /**
      * Following is the list of elements that need to be sorted before output.
      * 
      * Time zone item is split to multiple level, and each level should be
@@ -272,7 +290,8 @@ class LdmlConvertRules {
      */
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
-        "pluralRules"
+        "pluralRules", "personList", "calendarPreferenceData", "character-fallback", "types", "timeData", "minDays",
+        "firstDay", "weekendStart", "weekendEnd", "parentLocale"
     };
 
     /**
@@ -293,22 +312,6 @@ class LdmlConvertRules {
             "|.*/telephoneCodeData[^/]*/codesByTerritory[^/]*/" +
             "|.*/metazoneInfo[^/]*/timezone\\[[^\\]]*\\]/" +
             ")(.*)");
-
-    /**
-     * Number elements without a numbering system are there only for compatibility purposes.
-     * We automatically suppress generation of JSON objects for them.
-     */
-    public static final Pattern NO_NUMBERING_SYSTEM_PATTERN = Pattern
-        .compile("//ldml/numbers/(symbols|(decimal|percent|scientific|currency)Formats)/.*");
-    public static final Pattern NUMBERING_SYSTEM_PATTERN = Pattern
-        .compile("//ldml/numbers/(symbols|(decimal|percent|scientific|currency)Formats)\\[@numberSystem=\"([^\"]++)\"\\]/.*");
-
-    public static final String[] ACTIVE_NUMBERING_SYSTEM_XPATHS = {
-        "//ldml/numbers/defaultNumberingSystem",
-        "//ldml/numbers/otherNumberingSystems/native",
-        "//ldml/numbers/otherNumberingSystems/traditional",
-        "//ldml/numbers/otherNumberingSystems/finance"
-    };
 
     /**
      * A simple class to hold the specification of a path transformation.
@@ -340,14 +343,33 @@ class LdmlConvertRules {
         // Add cldrVersion attribute
         new PathTransformSpec("(.*/identity/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
             + CLDRFile.GEN_VERSION + "\"\\]"),
+        // Add cldrVersion attribute to supplemental data
+        new PathTransformSpec("(.*/supplementalData/version\\[@number=\"([^\"]*)\")(\\])", "$1" + "\\]\\[@cldrVersion=\""
+            + CLDRFile.GEN_VERSION + "\"\\]"),
+
+        // Transform underscore to hyphen-minus in language keys
+        new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\])", "$1-$2"),
 
         // Separate "ellipsis" from its type as another layer.
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
             "$1/$2$3"),
 
+
+        // Remove unnecessary dateFormat/pattern
+        new PathTransformSpec(
+            "(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)Length\\[@type=\"([^\"]*)\"\\]/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)", 
+            "$1/$2/$5Formats/$4$8"),
+
+        // Separate calendar type
+            new PathTransformSpec("(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)$",
+                    "$1/$2$3"),
+
         // Separate "metazone" from its type as another layer.
-        new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$",
-            "$1/$2/$3"),
+        new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$", "$1/$2/$3"),
+
+        // Split out types into its various fields
+        new PathTransformSpec("(.*)/types/type\\[@type=\"([^\"]*)\"\\]\\[@key=\"([^\"]*)\"\\](.*)$",
+                    "$1/types/$3/$2$4"),
 
         // Add "type" attribute with value "standard" if there is no "type" in
         // "decimalFormatLength".
@@ -355,28 +377,11 @@ class LdmlConvertRules {
             "(.*/numbers/(decimal|currency|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|currency|scientific|percent)FormatLength)/(.*)$",
             "$1[@type=\"standard\"]/$5"),
 
-        // Separate type of an language as another layer.
-        // new PathTransformSpec("(.*identity/language)\\[@type=\"([^\"]*)\"\\](.*)$",
-        // "$1/$2$3"),
-
         new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
-            "$1/$2$3"),
-
-        new PathTransformSpec("(.*/paperSize)\\[@type=\"([^\"]*)\"\\](.*)",
             "$1/$2$3"),
 
         new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),
 
-        // The purpose for following transformation is to keep the element name
-        // and still use distinguishing attribute inside. Element name is repeated
-        // for attribute identification to work.
-        new PathTransformSpec("(.*/firstDay)(.*)", "$1/firstDay$2"),
-
-        new PathTransformSpec("(.*/minDays)(.*)", "$1/minDays$2"),
-
-        new PathTransformSpec("(.*/weekendStart)(.*)", "$1/weekendStart$2"),
-
-        new PathTransformSpec("(.*/weekendEnd)(.*)", "$1/weekendEnd$2"),
 
         new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),
 

@@ -336,7 +336,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                                         // data
     File _vetdir = null;
 
-    private String defaultBase  = "http://st.unicode.org/cldr-apps"; /* base URL */
+    private String defaultBase  = "http://st.unicode.org/cldr-apps/survey"; /* base URL */
     public static String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for
                                                                       // web
                                                                       // data

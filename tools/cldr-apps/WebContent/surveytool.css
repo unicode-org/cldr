@@ -307,6 +307,25 @@ A.nodraft:visited {
 	font-size: smaller;
 }
 
+
+#itemInfo div.xpath {
+    position: fixed;
+    left: 0.5em;
+    bottom: 0.5em;
+    background-color: white;
+    color: silver;
+    padding:  2px;
+    opacity: 0.25;
+    border:  1px solid white;
+}
+
+#itemInfo div.xpath:hover {
+    opacity: 1;
+    color: gray;
+    border:  1px solid silver;
+}
+
+
 .alias {
 	/*	font-size: smaller;
 	*/

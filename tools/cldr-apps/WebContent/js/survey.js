@@ -567,6 +567,7 @@ function clickToSelect(obj, targ) {
 		stStopPropagation(e);
 		return false;
 	});
+	return obj;
 }
 
 var wasBusted = false;
@@ -1653,6 +1654,10 @@ dojo.ready(function() {
 			var forumDiv = tr.forumDiv.cloneNode(true);
 			showForumStuff(td, forumDiv, tr); // give a chance to update anything else
 			td.appendChild(forumDiv);
+		}
+		
+		if(tr && tr.theRow && tr.theRow.xpath) {
+			td.appendChild(clickToSelect(createChunk(tr.theRow.xpath,"div","xpath")));
 		}
 
 		

@@ -909,7 +909,16 @@ public class Ldml2JsonConverter {
         for (String key : attrAsValueMap.keySet()) {
             String attrValue = escapeValue(attrAsValueMap.get(key));
             // attribute is prefixed with "@" when being used as key.
-            out.add(indent(level + 1) + "\"@" + key + "\": \"" + attrValue + "\"");
+            if ( LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
+                String [] strings = attrValue.trim().split("\\s+");
+                out.add(indent(level + 1) + "\"@" + key + "\": [");
+                for ( String s : strings ) {
+                    out.add(indent(level + 2)+"\"" + s + "\"");
+                }
+                out.add(indent(level + 1) + "]");
+            } else {
+                out.add(indent(level + 1) + "\"@" + key + "\": \"" + attrValue + "\"");
+            }
         }
         out.add(indent(level) + "}");
     }

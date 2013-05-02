@@ -97,6 +97,9 @@ class LdmlConvertRules {
         "codeMappings:territoryCodes:numeric",
         "codeMappings:territoryCodes:alpha3",
 
+        // in common/supplemental/telephoneCodeData.xml
+        "codesByTerritory:telephoneCountryCode:code",
+
         // in common/supplemental/windowsZones.xml
         "mapTimezones:mapZone:other",
 
@@ -149,11 +152,10 @@ class LdmlConvertRules {
 
         // common/supplemental
         "likelySubtags:likelySubtag:to",
-        "territoryContainment:group:contains",
+        //"territoryContainment:group:type",
         "calendar:calendarSystem:type",
         "calendarPreferenceData:calendarPreference:ordering",
-        "measurementData:measurementSystem:type",
-        "codesByterritory:telephoneCountryCode:code",
+        "codesByTerritory:telephoneCountryCode:code",
 
         // common/collation
         "collations:default:choice",
@@ -248,14 +250,18 @@ class LdmlConvertRules {
      * <weekendStart day="thu" territories="IR"/>
      */
     public static final SplittableAttributeSpec[] SPLITTABLE_ATTRS = {
-        new SplittableAttributeSpec("measurementSystem", "territories", null),
         new SplittableAttributeSpec("calendarPreference", "territories", null),
         new SplittableAttributeSpec("pluralRules", "locales", null),
         new SplittableAttributeSpec("minDays", "territories", "count"),
         new SplittableAttributeSpec("firstDay", "territories", "day"),
         new SplittableAttributeSpec("weekendStart", "territories", "day"),
         new SplittableAttributeSpec("weekendEnd", "territories", "day"),
+        new SplittableAttributeSpec("measurementSystem", "territories", "type"),
+        new SplittableAttributeSpec("paperSize", "territories", "type"),
+        new SplittableAttributeSpec("parentLocale", "locales", "parent"),
+        new SplittableAttributeSpec("hours", "regions", null),
         new SplittableAttributeSpec("dayPeriodRules", "locales", null),
+        // new SplittableAttributeSpec("group", "contains", "group"),
         new SplittableAttributeSpec("personList", "locales", "type")
     };
 
@@ -268,6 +274,14 @@ class LdmlConvertRules {
             .add("zoneItem").add("typeMap").freeze();
 
     /**
+     * There are a handful of attribute values that are more properly represented as an array of strings rather than
+     * as a single string.  
+     */
+    public static final Set<String> ATTRVALUE_AS_ARRAY_SET =
+        Builder.with(new HashSet<String>())
+            .add("territories").add("scripts").add("contains").freeze();
+
+    /**
      * Following is the list of elements that need to be sorted before output.
      * 
      * Time zone item is split to multiple level, and each level should be
@@ -276,7 +290,8 @@ class LdmlConvertRules {
      */
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
-        "pluralRules", "personList", "calendarPreferenceData", "character-fallback", "types"
+        "pluralRules", "personList", "calendarPreferenceData", "character-fallback", "types", "timeData", "minDays",
+        "firstDay", "weekendStart", "weekendEnd", "parentLocale"
     };
 
     /**
@@ -362,14 +377,7 @@ class LdmlConvertRules {
             "(.*/numbers/(decimal|currency|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|currency|scientific|percent)FormatLength)/(.*)$",
             "$1[@type=\"standard\"]/$5"),
 
-        // Separate type of an language as another layer.
-        // new PathTransformSpec("(.*identity/language)\\[@type=\"([^\"]*)\"\\](.*)$",
-        // "$1/$2$3"),
-
         new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
-            "$1/$2$3"),
-
-        new PathTransformSpec("(.*/paperSize)\\[@type=\"([^\"]*)\"\\](.*)",
             "$1/$2$3"),
 
         new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),

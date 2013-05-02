@@ -310,19 +310,20 @@ A.nodraft:visited {
 
 #itemInfo div.xpath {
     position: fixed;
-    left: 0.5em;
-    bottom: 0.5em;
-    background-color: white;
-    color: silver;
+    left: 0.1em;
+    bottom: 0.1em;
+    color: #a19a9a;
     padding:  2px;
-    opacity: 0.58;
     border:  1px solid white;
+    font-family: "Courier New", Courier, mono;
+    font-weight: bold;
 }
 
 #itemInfo div.xpath:hover {
     opacity: 1;
-    color: gray;
+    color: navy;
     border:  1px solid silver;
+    background-color: white;
 }
 
 

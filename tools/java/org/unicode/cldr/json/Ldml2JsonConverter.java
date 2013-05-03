@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -22,6 +23,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
@@ -56,6 +58,8 @@ public class Ldml2JsonConverter {
             "The minimum draft status of the output data")
         .add("coverage", 'l', "(minimal|basic|moderate|modern|comprehensive|optional)", "optional",
             "The maximum coverage level of the output data")
+        .add("fullnumbers", 'n', "(true|false)", "false",
+            "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
         .add("konfig", 'k', ".*", "JSON_config.txt", "LDML to JSON configuration file");
 
     public static void main(String[] args) throws Exception {
@@ -64,6 +68,7 @@ public class Ldml2JsonConverter {
         Ldml2JsonConverter extractor = new Ldml2JsonConverter(
             options.get("commondir").getValue(),
             options.get("destdir").getValue(),
+            Boolean.parseBoolean(options.get("fullnumbers").getValue()),
             Boolean.parseBoolean(options.get("resolved").getValue()),
             options.get("coverage").getValue(),
             options.get("match").getValue(),
@@ -80,6 +85,8 @@ public class Ldml2JsonConverter {
     private String cldrCommonDir;
     // Where the generated JSON files will be stored.
     private String outputDir;
+    // Whether data in main should output all numbering systems, even those not in use in the locale.
+    private boolean fullNumbers;
     // Whether data in main should be resolved for output.
     private boolean resolve;
     // Used to match specific locales for output
@@ -101,10 +108,11 @@ public class Ldml2JsonConverter {
 
     private List<JSONSection> sections;
 
-    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean resolve, String coverage, String match,
+    public Ldml2JsonConverter(String cldrDir, String outputDir, boolean fullNumbers, boolean resolve, String coverage, String match,
         String configFile) {
         this.cldrCommonDir = cldrDir;
         this.outputDir = outputDir;
+        this.fullNumbers = fullNumbers;
         this.resolve = resolve;
         this.match = match;
         this.coverageValue = Level.get(coverage).getLevel();
@@ -202,11 +210,24 @@ public class Ldml2JsonConverter {
         if (!CLDRFile.isSupplementalName(locID)) {
             uloc = new ULocale(locID);
         }
+        
+        Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
+        Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
+        Set<String> activeNumberingSystems = new TreeSet<String>();
+        activeNumberingSystems.add("latn"); // Always include latin script numbers
+        for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
+            String ns = file.getWinningValue(np);
+            if (ns != null && ns.length() > 0) {
+                activeNumberingSystems.add(ns);
+            }
+        }
 
         for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
             int cv = Level.UNDETERMINED.getLevel();
             String path = it.next();
             String fullPath = file.getFullXPath(path);
+            String value = file.getWinningValue(path);
+            
             if (fullPath == null) {
                 fullPath = path;
             }
@@ -217,6 +238,29 @@ public class Ldml2JsonConverter {
             if (cv > coverageValue) {
                 continue;
             }
+            
+            // automatically filter out number symbols and formats without a numbering system
+            noNumberingSystemMatcher.reset(fullPath);
+            if (noNumberingSystemMatcher.matches()) {
+                continue;
+            }
+             
+            // Filter out non-active numbering systems data unless fullNumbers is specified.
+            numberingSystemMatcher.reset(fullPath);
+            if (numberingSystemMatcher.matches() && !fullNumbers) {
+                XPathParts xpp = new XPathParts();
+                xpp.set(fullPath);
+                String currentNS = xpp.getAttributeValue(2, "numberSystem");
+                if (currentNS != null && !activeNumberingSystems.contains(currentNS)) {
+                    continue;
+                }
+            }
+
+            // Handle the no inheritance marker.
+            if ( resolve && CldrUtility.NO_INHERITANCE_MARKER.equals(value)) {
+                continue;
+            }
+            
             String transformedPath = transformPath(path, pathPrefix);
             String transformedFullPath = transformPath(fullPath, pathPrefix);
 
@@ -279,7 +323,7 @@ public class Ldml2JsonConverter {
         throws IOException, ParseException {
         // zone and timezone items are queued for sorting first before they are
         // processed.
-
+        
         for (JSONSection js : sections) {
             ArrayList<CldrItem> sortingItems = new ArrayList<CldrItem>();
             ArrayList<CldrItem> arrayItems = new ArrayList<CldrItem>();
@@ -295,6 +339,7 @@ public class Ldml2JsonConverter {
                 continue;
             }
             for (CldrItem item : theItems) {
+                
                 // items in the identity section of a file should only ever contain the lowest level, even if using
                 // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress
                 // them here.

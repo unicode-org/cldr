@@ -10,14 +10,6 @@ import org.unicode.cldr.util.CLDRFile;
 
 class LdmlConvertRules {
 
-    /** All sub-directories that will be processed in JSON transformation. */
-    public static final String CLDR_SUBDIRS[] = {
-        "main" , "supplemental"
-        // We could do everything, but not really sure how useful it would be.
-        // For now, just do main and supplemental per CLDR TC agreement.
-        // "collation", "bcp47", "supplemental", "rbnf", "segments", "main", "transforms"
-    };
-
     /** File set that will not be processed in JSON transformation. */
     public static final Set<String> IGNORE_FILE_SET = Builder.with(new HashSet<String>())
         .add("supplementalMetadata").add("coverageLevels").freeze();
@@ -313,6 +305,21 @@ class LdmlConvertRules {
             "|.*/metazoneInfo[^/]*/timezone\\[[^\\]]*\\]/" +
             ")(.*)");
 
+    /**
+      * Number elements without a numbering system are there only for compatibility purposes.
+      * We automatically suppress generation of JSON objects for them.
+      */
+    public static final Pattern NO_NUMBERING_SYSTEM_PATTERN = Pattern
+        .compile("//ldml/numbers/(symbols|(decimal|percent|scientific|currency)Formats)/.*");
+    public static final Pattern NUMBERING_SYSTEM_PATTERN = Pattern
+        .compile("//ldml/numbers/(symbols|(decimal|percent|scientific|currency)Formats)\\[@numberSystem=\"([^\"]++)\"\\]/.*");
+    public static final String[] ACTIVE_NUMBERING_SYSTEM_XPATHS = {
+        "//ldml/numbers/defaultNumberingSystem",
+        "//ldml/numbers/otherNumberingSystems/native",
+        "//ldml/numbers/otherNumberingSystems/traditional",
+        "//ldml/numbers/otherNumberingSystems/finance"
+    };
+    
     /**
      * A simple class to hold the specification of a path transformation.
      */

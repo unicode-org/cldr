@@ -9,12 +9,10 @@ import java.util.Set;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 
-import com.ibm.icu.impl.Utility;
-
 public class CheckChildren extends FactoryCheckCLDR {
-    static final String EMPTY_SET_OVERRIDE = Utility.unescape("\u2205\u2205\u2205");
     CLDRFile[] immediateChildren;
     Map<String, String> tempSet = new HashMap<String, String>();
 
@@ -42,7 +40,7 @@ public class CheckChildren extends FactoryCheckCLDR {
             } catch (RuntimeException e) {
                 throw e;
             }
-            if (!otherValue.equals(EMPTY_SET_OVERRIDE)) {
+            if (!otherValue.equals(CldrUtility.NO_INHERITANCE_MARKER)) {
                 tempSet.put(immediateChildren[i].getLocaleID(), otherValue);
             } else {
                 tempSet.put(immediateChildren[i].getLocaleID(), value);

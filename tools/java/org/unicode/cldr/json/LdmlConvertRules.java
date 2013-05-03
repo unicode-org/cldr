@@ -10,14 +10,6 @@ import org.unicode.cldr.util.CLDRFile;
 
 class LdmlConvertRules {
 
-    /** All sub-directories that will be processed in JSON transformation. */
-    public static final String CLDR_SUBDIRS[] = {
-        "main" , "supplemental"
-        // We could do everything, but not really sure how useful it would be.
-        // For now, just do main and supplemental per CLDR TC agreement.
-        // "collation", "bcp47", "supplemental", "rbnf", "segments", "main", "transforms"
-    };
-
     /** File set that will not be processed in JSON transformation. */
     public static final Set<String> IGNORE_FILE_SET = Builder.with(new HashSet<String>())
         .add("supplementalMetadata").add("coverageLevels").freeze();

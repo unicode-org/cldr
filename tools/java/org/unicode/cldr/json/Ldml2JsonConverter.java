@@ -48,12 +48,14 @@ public class Ldml2JsonConverter {
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
         .add("match", 'm', ".*", ".*",
             "Regular expression to define only specific locales or files to be generated")
+        .add("type", 't', "(main|supplemental)", "main",
+            "Type of CLDR data being generated, main or supplemental.")
         .add("resolved", 'r', "(true|false)", "false",
             "Whether the output JSON for the main directory should be based on resolved or unresolved data")
         .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
             "The minimum draft status of the output data")
-        .add("coverage", 'l', "(minimal|basic|moderate|modern|comprehensive)", "modern",
-            "The minimum draft status of the output data")
+        .add("coverage", 'l', "(minimal|basic|moderate|modern|comprehensive|optional)", "optional",
+            "The maximum coverage level of the output data")
         .add("konfig", 'k', ".*", "JSON_config.txt", "LDML to JSON configuration file");
 
     public static void main(String[] args) throws Exception {
@@ -69,9 +71,7 @@ public class Ldml2JsonConverter {
 
         long start = System.currentTimeMillis();
         DraftStatus status = DraftStatus.valueOf(options.get("draftstatus").getValue());
-        for (String dir : LdmlConvertRules.CLDR_SUBDIRS) {
-            extractor.processDirectory(dir, status);
-        }
+        extractor.processDirectory(options.get("type").getValue(), status);
         long end = System.currentTimeMillis();
         System.out.println("Finished in " + (end - start) + " ms");
     }
@@ -197,7 +197,6 @@ public class Ldml2JsonConverter {
     private void mapPathsToSections(CLDRFile file, String pathPrefix, SupplementalDataInfo sdi)
         throws IOException, ParseException {
 
-        int cv = Level.UNDETERMINED.getLevel();
         ULocale uloc = null;
         String locID = file.getLocaleID();
         if (!CLDRFile.isSupplementalName(locID)) {
@@ -205,13 +204,14 @@ public class Ldml2JsonConverter {
         }
 
         for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+            int cv = Level.UNDETERMINED.getLevel();
             String path = it.next();
             String fullPath = file.getFullXPath(path);
             if (fullPath == null) {
                 fullPath = path;
             }
 
-            if (uloc != null && path.startsWith("//ldml/")) {
+            if (uloc != null && path.startsWith("//ldml/") && !path.contains("/identity")) {
                 cv = sdi.getCoverageValue(path, uloc);
             }
             if (cv > coverageValue) {
@@ -881,7 +881,7 @@ public class Ldml2JsonConverter {
             return;
         }
         value = escapeValue(value);
-
+        
         if (attrAsValueMap.isEmpty()) {
             if (value.isEmpty()) {
                 out.add(indent(level) + "\"" + objName + "\": {}");

@@ -1122,6 +1122,11 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         <region iso3166="WS">
             <currency iso4217="WST" from="1967-07-10"/>
         </region>
+        <region iso3166="XK">
+            <currency iso4217="EUR" from="2002-01-01"/>
+            <currency iso4217="DEM" from="1999-09" to="2002-03-09"/>
+            <currency iso4217="YUM" from="1994-01-24" to="1999-09"/><!-- Yugoslavian history. YU was renamed to CS. -->
+        </region>
         <region iso3166="YE">
             <currency iso4217="YER" from="1990-05-22"/><!-- You might be able to say 1964-05-08 is the starting date -->
         </region>
@@ -1233,7 +1238,7 @@ XXX Code for transations where no currency is involved
         <group type="030" contains="CN HK JP KP KR MN MO TW"/> <!--Eastern Asia -->
         <group type="035" contains="BN ID KH LA MM MY PH SG TH TL VN"/> <!--South-Eastern Asia -->
         <group type="035" contains="BU TP" status="deprecated"/> <!--South-Eastern Asia -->
-        <group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT RS PT SI SM VA"/> <!--Southern Europe -->
+        <group type="039" contains="AD AL BA ES GI GR HR IT ME MK MT RS PT SI SM VA XK"/> <!--Southern Europe, XK not in UN data -->
         <group type="039" contains="CS YU" status="deprecated"/> <!--Southern Europe -->
         <group type="419" contains="013 029 005" grouping="true"/> <!--Latin America and the Caribbean -->
         <group type="005" contains="AR BO BR CL CO EC FK GF GY PE PY SR UY VE"/> <!--South America -->
@@ -1905,8 +1910,8 @@ XXX Code for transations where no currency is involved
 		<language type="son" scripts="Latn" alt="secondary"/>
 		<language type="sou" territories="TH" alt="secondary"/>
 		<language type="sq" scripts="Latn" territories="AL MK"/>
-		<language type="sq" territories="RS" alt="secondary"/>
-		<language type="sr" scripts="Cyrl Latn" territories="BA ME RS"/>
+		<language type="sq" territories="RS XK" alt="secondary"/>
+		<language type="sr" scripts="Cyrl Latn" territories="BA ME RS XK"/>
 		<language type="srn" scripts="Latn"/>
 		<language type="srn" territories="SR" alt="secondary"/>
 		<language type="srr" scripts="Latn"/>
@@ -3328,7 +3333,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="el" populationPercent="0.019"/>	<!--Greek-->
 			<languagePopulation type="pl" populationPercent="0.013"/>	<!--Polish-->
 		</territory>
-		<territory type="RS" gdp="93210000000" literacyPercent="91.9" population="9090720">	<!--Serbia-->
+		<territory type="RS" gdp="79650000000" literacyPercent="91.9" population="7243007">	<!--Serbia-->
 			<languagePopulation type="sr_Cyrl" populationPercent="99" officialStatus="official"/>	<!--Serbian (Cyrillic)-->
 			<languagePopulation type="sr_Latn" writingPercent="5" populationPercent="99" officialStatus="official" references="R1017"/>	<!--Serbian (Latin)-->
 			<languagePopulation type="sq" populationPercent="19" officialStatus="official_regional"/>	<!--Albanian-->
@@ -3677,6 +3682,11 @@ XXX Code for transations where no currency is involved
 		<territory type="WS" gdp="1128000000" literacyPercent="99.7" population="195476">	<!--Samoa-->
 			<languagePopulation type="sm" populationPercent="100" officialStatus="official"/>	<!--Samoan-->
 			<languagePopulation type="en" populationPercent="2.2" officialStatus="official"/>	<!--English-->
+		</territory>
+		<territory type="XK" gdp="13560000000" literacyPercent="91.9" population="1847708">	<!--Kosovo-->
+			<languagePopulation type="sq" populationPercent="92" officialStatus="official"/>	<!--Albanian-->
+			<languagePopulation type="sr_Cyrl" populationPercent="5" officialStatus="official" references="R1017"/>	<!--Serbian (Cyrillic)-->
+			<languagePopulation type="sr_Latn" writingPercent="5" populationPercent="99" officialStatus="official" references="R1017"/>	<!--Serbian (Latin)-->
 		</territory>
 		<territory type="YE" gdp="57760000000" literacyPercent="63.9" population="25408300">	<!--Yemen-->
 			<languagePopulation type="ar" populationPercent="74" officialStatus="official"/>	<!--Arabic-->
@@ -4052,7 +4062,7 @@ XXX Code for transations where no currency is involved
 
           <!-- Note, this firstDay is for the first day of the week in a calendar page view. -->
           <!-- The first workday of the week (after the weekend) is distinct, and can be determined as the day after the weekendEnd day.  -->
-          <firstDay day="mon"  territories="001 AD AI AL AM AN AT AX AZ BA BE BG BM BN CH CL CM CR CY CZ DE DK EC EE ES FI FJ FO FR GB GE GF GP GR HR HU IS IT KG KZ LB LI LK LT LU LV MC MD ME MK MN MQ MY NL NO PL PT RE RO RS RU SE SI SK SM TJ TM TR UA UY UZ VA VN" />
+          <firstDay day="mon"  territories="001 AD AI AL AM AN AT AX AZ BA BE BG BM BN CH CL CM CR CY CZ DE DK EC EE ES FI FJ FO FR GB GE GF GP GR HR HU IS IT KG KZ LB LI LK LT LU LV MC MD ME MK MN MQ MY NL NO PL PT RE RO RS RU SE SI SK SM TJ TM TR UA UY UZ VA VN XK" />
           <firstDay day="fri"  territories="BD MV" />
           <firstDay day="sat"  territories="AE AF BH DJ DZ EG IQ IR JO KW LY MA OM QA SA SD SY YE" />
           <firstDay day="sun"  territories="AG AR AS AU BR BS BT BW BY BZ CA CN CO DM DO ET GT GU HK HN ID IE IL IN JM JP KE KH KR LA MH MM MO MT MX MZ NI NP NZ PA PE PH PK PR PY SG SV TH TN TT TW UM US VE VI WS ZA ZW" />
@@ -4070,7 +4080,7 @@ XXX Code for transations where no currency is involved
 
     <timeData>
         <hours preferred="H" allowed="H K h" regions="JP"/>
-        <hours preferred="H" allowed="H h" regions="001 AD AF AM AO AR AT AW AX AZ BA BE BF BG BI BJ BL BO BR BY BZ CD CF CG CH CI CL CM CO CR CU CV CW CZ DE DK DO EA EC EE ES FI FO FR GA GB GE GF GG GI GN GP GQ GT GW HN HR HT HU IC ID IE IM IR IS IT JE KG KM KZ LA LI LK LT LU LV MC MD ME MF MG MK ML MM MN MQ MT MU MX MZ NC NE NI NL NO NP PA PE PF PH PL PT PY RE RO RS RW SC SE SI SK SM SN SR ST SV SX TG TH TJ TL TO TR UA UY UZ VE VN YT"/>
+        <hours preferred="H" allowed="H h" regions="001 AD AF AM AO AR AT AW AX AZ BA BE BF BG BI BJ BL BO BR BY BZ CD CF CG CH CI CL CM CO CR CU CV CW CZ DE DK DO EA EC EE ES FI FO FR GA GB GE GF GG GI GN GP GQ GT GW HN HR HT HU IC ID IE IM IR IS IT JE KG KM KZ LA LI LK LT LU LV MC MD ME MF MG MK ML MM MN MQ MT MU MX MZ NC NE NI NL NO NP PA PE PF PH PL PT PY RE RO RS RW SC SE SI SK SM SN SR ST SV SX TG TH TJ TL TO TR UA UY UZ VE VN XK YT"/>
         <hours preferred="H" allowed="H" regions="IL RU"/>
         <hours preferred="h" allowed="H h" regions="AE AG AL AS AU BB BD BH BM BN BS BT BW CA CN CY DJ DM DZ EG EH ER ET FJ FM GD GH GL GM GR GU GY HK IN IQ JM JO KE KH KI KN KP KR KW KY LB LC LR LS LY MA MH MO MP MR MW MY NA NG NZ OM PG PK PR PS PW QA SA SB SD SG SL SO SS SY SZ TC TD TN TT TW TZ UG UM US VC VG VI VU WS YE ZA ZM ZW"/>
     </timeData>

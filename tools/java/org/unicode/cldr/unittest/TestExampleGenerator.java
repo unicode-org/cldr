@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
@@ -16,6 +17,7 @@ import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestExampleGenerator extends TestFmwk {
     TestInfo info = TestAll.TestInfo.getInstance();
@@ -25,15 +27,14 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     static final Set<String> OK_TO_MISS_EXAMPLES = new HashSet<String>(Arrays.asList(
-            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
-            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
-            "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/nan",
             "//ldml/layout/orientation/characterOrder",
             "//ldml/layout/orientation/lineOrder",
             "//ldml/characters/moreInformation",
             "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/infinity",
             "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/list",
             "//ldml/numbers/symbols[@numberSystem=\"([^\"]*+)\"]/nan",
+            "//ldml/numbers/currencies/currency[@type=\"([^\"]*+)\"]/displayName",
+            "//ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=\"([^\"]*+)\"]",
             // old format
             "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/currencyMatch",
             "//ldml/numbers/currencyFormats/currencySpacing/afterCurrency/insertBetween",
@@ -45,40 +46,83 @@ public class TestExampleGenerator extends TestFmwk {
             "//ldml/numbers/symbols/list",
             "//ldml/numbers/symbols/nan",
             "//ldml/posix/messages/nostr",
-            "//ldml/posix/messages/yesstr"
+            "//ldml/posix/messages/yesstr",
+            // TODO Add examples
+            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/currencyMatch",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/surroundingMatch",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/beforeCurrency/insertBetween",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/currencyMatch",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/surroundingMatch",
+            "//ldml/numbers/currencyFormats[@numberSystem=\"([^\"]*+)\"]/currencySpacing/afterCurrency/insertBetween",
+
+            "*"
             ));
+    static final Set<String> OK_TO_MISS_BACKGROUND = new HashSet<String>(Arrays.asList(
+            "//ldml/numbers/defaultNumberingSystem",
+            "//ldml/numbers/otherNumberingSystems/native",
+            // TODO fix formatting
+            "//ldml/characters/exemplarCharacters",
+            "//ldml/characters/exemplarCharacters[@type=\"([^\"]*+)\"]",
+            // TODO Add background
+            "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateFormats/dateFormatLength[@type=\"([^\"]*+)\"]/dateFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
+            "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/timeFormats/timeFormatLength[@type=\"([^\"]*+)\"]/timeFormat[@type=\"([^\"]*+)\"]/pattern[@type=\"([^\"]*+)\"]",
+            "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"([^\"]*+)\"]",
+            "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/exemplarCity",
+            "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/long/daylight",
+            "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/generic",
+            "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/standard",
+            "//ldml/dates/timeZoneNames/zone[@type=\"([^\"]*+)\"]/short/daylight",
+            "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/generic",
+            "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/standard",
+            "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
+            "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern",
+
+            "*"
+            ));
+
     public void TestAllPaths() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
         PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<String>();
         CLDRFile cldrFile = exampleGenerator.getCldrFile();
-        for (String path : cldrFile) {
-            String starred = ps.set(path).replace("\"", "\\\"");
-            if (path.endsWith("/alias") 
+        for (String path : CollectionUtilities.addAll(cldrFile.fullIterable().iterator(), new TreeSet<String>(CLDRFile.ldmlComparator))) {
+            String plainStarred = ps.set(path);
+            String value = cldrFile.getStringValue(path);
+            if (value == null
+                    || path.endsWith("/alias") 
                     || path.startsWith("//ldml/identity") 
-                    || OK_TO_MISS_EXAMPLES.contains(starred)) {
+                    || OK_TO_MISS_EXAMPLES.contains(plainStarred)
+                    ) {
                 continue;
             }
-            String value = cldrFile.getStringValue(path);
             String example = exampleGenerator.getExampleHtml(path, value, Zoomed.IN);
+            String javaEscapedStarred = "\"" + plainStarred.replace("\"", "\\\"") + "\",";
             if (example == null) {
-                if (!seen.contains(starred)) {
-                    errln("No example:\t<" + value
-                    		+ ">\t'\"" + starred + "\",");
+                if (!seen.contains(javaEscapedStarred)) {
+                    errln("No example:\t<" + value + ">\t" +javaEscapedStarred);
                 }
             } else {
+                if (path.equals("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"per\"]/unitPattern[@count=\"one\"]")) {
+                    String example2 = exampleGenerator.getExampleHtml(path, value, Zoomed.IN);
+                }
                 String simplified = simplify(example, false);
-                if (!simplified.startsWith("〖")) {
-                    if (!seen.contains(starred)) {
-                        errln("Funny HTML:\t" + simplified + "\t" + starred);
+
+                if (simplified.contains("null")) {
+                    if (true || !seen.contains(javaEscapedStarred)) {
+                        errln("'null' in message:\t<" + value + ">\t" + simplified + "\t" + javaEscapedStarred);
+                        String example2 = exampleGenerator.getExampleHtml(path, value, Zoomed.IN); // for debugging
                     }
-                } else if (!simplified.contains("❬")){
-                    if (!seen.contains(starred)) {
-                        errln("No background:\t" + simplified + "\t" + starred);
+                } else if (!simplified.startsWith("〖")) {
+                    if (!seen.contains(javaEscapedStarred)) {
+                        errln("Funny HTML:\t<" + value + ">\t" + simplified + "\t" + javaEscapedStarred);
+                    }
+                } else if (!simplified.contains("❬") && !OK_TO_MISS_BACKGROUND.contains(plainStarred)){
+                    if (!seen.contains(javaEscapedStarred)) {
+                        errln("No background:\t<" + value + ">\t" + simplified + "\t" + javaEscapedStarred);
                     }
                 }
             }
-            seen.add(starred);
+            seen.add(javaEscapedStarred);
         }
     }
 

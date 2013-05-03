@@ -384,7 +384,7 @@ public class ExampleGenerator {
 
         // we want to get a number that works for the count passed in.
         NumberInfo amount = getBest(count);
-        String unit1 = backgroundStartSymbol + getFormattedUnit("length-m", unitLength, amount) + backgroundEndSymbol;
+        String unit1 = backgroundStartSymbol + getFormattedUnit("length-meter", unitLength, amount) + backgroundEndSymbol;
         String unit2 = backgroundStartSymbol + getFormattedUnit("duration-second", unitLength, new NumberInfo(1.0), "").trim() + backgroundEndSymbol;
         // TODO fix hack
         String form = this.pluralInfo.getPluralRules().select(amount);

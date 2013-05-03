@@ -689,7 +689,7 @@ public class ICUServiceBuilder {
         // numsys should not be null (previously resolved to defaultNumberingSystem if necessary)
         String value = null;
         try {
-            value = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem='" + numsys + "']/" + key);
+            value = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem=\"" + numsys + "\"]/" + key);
             if (value == null || value.length() < 1) {
                 throw new RuntimeException();
             }

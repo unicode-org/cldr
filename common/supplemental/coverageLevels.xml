@@ -203,6 +203,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="40" match="numbers/currencies/currency[@type='%currency40']/symbol[@alt='narrow']"/>
 		<coverageLevel value="40" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='[^']++']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='%contextTypes']/quarterWidth[@type='%allWidths']/quarter[@type='[^']++']"/>
+		<coverageLevel value="40" match="dates/fields/field[@type='[^']++']/displayName"/>
 		<coverageLevel value="40" match="dates/fields/field[@type='([^']++)']/relative[@type='(\-?1|0)']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="40" match="dates/calendars/calendar[@type='chinese']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="40" match="dates/calendars/calendar[@type='chinese']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>

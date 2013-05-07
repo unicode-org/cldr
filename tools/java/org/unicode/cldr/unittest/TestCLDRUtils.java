@@ -49,7 +49,7 @@ public class TestCLDRUtils extends TestFmwk {
         try {
             emptyFile.write(new PrintWriter(outStream));
         } finally {
-            System.out.println(aloc.getBaseName() + ".xml: "
+            logln(aloc.getBaseName() + ".xml: "
                 + outStream.toString().replaceAll("\n", "\\\\n").replaceAll("\t", "\\\\t"));
         }
         if (outStream.toString().length() == 0) {
@@ -82,7 +82,6 @@ public class TestCLDRUtils extends TestFmwk {
         final CLDRFile engFile = cldrFactory.make("en", true);
         final CLDRFormatter engFormat = new CLDRFormatter(engFile);
         final XPathParts xpp = new XPathParts(null, null);
-        final XPathParts xpp2 = new XPathParts(null, null);
         final Map<String, String> attrs = new TreeMap<String, String>();
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
             public void handlePathValue(String path, String value) {

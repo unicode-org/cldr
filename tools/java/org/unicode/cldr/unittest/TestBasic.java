@@ -250,8 +250,6 @@ public class TestBasic extends TestFmwk {
             .add("([^]])\\[", "$1\t[")
             .add("([^]])/", "$1\t/")
             .add("/", "\t");
-        List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
-        Map<String, String> options = new HashMap<String, String>();
 
         for (String locale : cldrFactory.getAvailable()) {
             // if (locale.equals("root") && !localeRegex.equals("root"))
@@ -303,13 +301,13 @@ public class TestBasic extends TestFmwk {
     }
 
     public void TestPaths() {
-        Relation<String, String> distinguishing = new Relation(new TreeMap<String, String>(), TreeSet.class, null);
-        Relation<String, String> nonDistinguishing = new Relation(new TreeMap<String, String>(), TreeSet.class, null);
+        Relation<String, String> distinguishing = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> nonDistinguishing = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         XPathParts parts = new XPathParts();
-        Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
+        Factory cldrFactory = testInfo.getCldrFactory();
         CLDRFile english = cldrFactory.make("en", true);
 
-        Relation<String, String> pathToLocale = new Relation(new TreeMap<String, String>(CLDRFile.ldmlComparator),
+        Relation<String, String> pathToLocale = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.ldmlComparator),
             TreeSet.class, null);
 
         for (String locale : cldrFactory.getAvailable()) {
@@ -397,63 +395,11 @@ public class TestBasic extends TestFmwk {
         }
     }
 
-    final static boolean DO_JOHNS = false;
-
-    private void fixFormatIfCantDisplay(NumberFormat format, ULocale locale, Currency currency) {
-        // Ugly code, unoptimized; just presented here for illustration
-
-        // John's suggestion; use currency if not for locale
-        if (DO_JOHNS) {
-            String[] codes = Currency.getAvailableCurrencyCodes(locale, new Date());
-
-            // this is only an approximation, since the currency may have been used previously in the locale,
-            // but ICU doesn't make that CLDR information accessible.
-
-            for (String code : codes) {
-                if (code.equals(currency.toString())) {
-                    return; // skip
-                }
-            }
-        } else {
-            // This also means that perfectly reasonable, well-established symbols like "Rp" for "INR"
-            // will be unavailable for all locales but "IN".
-
-            // Alternative, use hack to figure out if the user of the locale is likely to have the fonts
-            // If we are using plural formatting, we have to take a different code path, so this would need enhancement!
-
-            boolean[] isChoiceFormat = new boolean[1];
-            String name = currency.getName(locale, Currency.SYMBOL_NAME, isChoiceFormat);
-
-            // We actually would like to get the currencySymbol Exemplars, but those aren't available in ICU - another
-            // hole!
-            // So we just assume Latin1.
-            // LocaleData.getExemplarSet(locale, 0);
-
-            final UnicodeSet OK_CURRENCY = (UnicodeSet) new UnicodeSet("[\\u0000-\\u00FF]").freeze();
-            if (OK_CURRENCY.containsAll(name)) {
-                return;
-            }
-        }
-
-        // use bad hack to just use Intl Currency symbol. That means instead of getting "Rp", the user gets "INR".
-        // If ICU exposed the characters.xml file, then we could use the fallbacks there instead
-
-        DecimalFormat format2 = (DecimalFormat) format;
-        String pattern = format2.toPattern();
-        pattern = pattern.replace("\u00a4", "\u00a4\u00a4");
-        format2.applyPattern(pattern);
-
-        // Even if we wanted to use the fallbacks, we'd have to define our own CurrencyCode override,
-        // because the ICU API is not rich enough to let us create a Currency instance that changes the right
-        // information.
-        // That is what ICUServiceBuilder in CLDR has to do, which is a royal pain.
-    }
-
     /**
      * The verbose output shows the results of 1..3 \u00a4 signs.
      */
     public void checkCurrency() {
-        Map<String, Set<R2>> results = new TreeMap<String, Set<R2>>(Collator.getInstance(ULocale.ENGLISH));
+        Map<String, Set<R2<String, Integer>>> results = new TreeMap<String, Set<R2<String, Integer>>>(Collator.getInstance(ULocale.ENGLISH));
         for (ULocale locale : ULocale.getAvailableLocales()) {
             if (locale.getCountry().length() != 0) {
                 continue;
@@ -464,11 +410,11 @@ public class TestBasic extends TestFmwk {
                     Currency.getInstance("INR") }) {
                     format.setCurrency(c);
                     final String formatted = format.format(12345.67);
-                    Set<R2> set = results.get(formatted);
+                    Set<R2<String, Integer>> set = results.get(formatted);
                     if (set == null) {
-                        results.put(formatted, set = new TreeSet<R2>());
+                        results.put(formatted, set = new TreeSet<R2<String, Integer>>());
                     }
-                    set.add(Row.of(locale.toString(), i));
+                    set.add(Row.of(locale.toString(), Integer.valueOf(i)));
                 }
             }
         }

@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -37,6 +36,7 @@ import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -187,7 +187,7 @@ public class TestPathHeader extends TestFmwk {
             if (locale.contains("_")) {
                 continue;
             }
-            PluralInfo info = supplemental.getPlurals(locale);
+            PluralInfo info = supplemental.getPlurals(PluralType.cardinal,locale);
             Set<String> keywords = info.getCanonicalKeywords();
             data.put(keywords.toString(), locale);
         }
@@ -212,10 +212,10 @@ public class TestPathHeader extends TestFmwk {
     }
 
     public void TestCoverage() {
-        Map<Row.R2<SectionId, PageId>, Counter<Level>> data = new TreeMap();
+        Map<Row.R2<SectionId, PageId>, Counter<Level>> data = new TreeMap<Row.R2<SectionId, PageId>, Counter<Level>>();
         String locale = "af";
         CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(info.getSupplementalDataInfo(),locale);
         for (String path : cldrFile.fullIterable()) {
             PathHeader p = pathHeaderFactory.fromPath(path);
             Level level = coverageLevel.getLevel(path);
@@ -246,10 +246,10 @@ public class TestPathHeader extends TestFmwk {
 
     public void TestAFile() {
         final String localeId = "en";
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(localeId);
-        Counter<Level> counter = new Counter();
-        Map<String, PathHeader> uniqueness = new HashMap();
-        Set<String> alreadySeen = new HashSet();
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(info.getSupplementalDataInfo(),localeId);
+        Counter<Level> counter = new Counter<Level>();
+        Map<String, PathHeader> uniqueness = new HashMap<String, PathHeader>();
+        Set<String> alreadySeen = new HashSet<String>();
         check(localeId, true, uniqueness, alreadySeen);
         // check paths
         for (Entry<SectionId, Set<PageId>> sectionAndPages : PathHeader.Factory

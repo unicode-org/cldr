@@ -229,7 +229,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         Set<String> items = new TreeSet<String>(CLDRFile.ldmlComparator);
         Iterator<String> it = resolved.iterator();
         CollectionUtilities.addAll(it, items);
-        resolved.getExtraPaths(items);
+        items.addAll(resolved.getExtraPaths());
         boolean isRoot = "root".equals(resolved.getLocaleID());
         Set<String> missing = !DEBUG ? null : new TreeSet<String>();
 

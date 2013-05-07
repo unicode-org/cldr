@@ -3016,16 +3016,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return
      */
     public Collection<String> getExtraPaths() {
-        return getExtraPaths(new HashSet<String>());
-    }
+        Set<String> toAddTo = new HashSet<String>();
 
-    /**
-     * Returns the extra paths, skipping those that are already represented in the locale.
-     * 
-     * @return
-     */
-    public Collection<String> getExtraPaths(Collection<String> toAddTo) {
-        
         // reverse the order because we're hitting some strange behavior
 
         toAddTo.addAll(getRawExtraPaths());

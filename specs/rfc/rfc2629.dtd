@@ -1,10 +1,25 @@
 <!--
-  revised DTD for the RFC document series, draft of 2002-07-13
+  revised DTD for the RFC document series, draft of 2009-10-06
+  -->
+
+
+<!--
+  Typical invocation:
+      <!DOCTYPE rfc PUBLIC "-//IETF//DTD RFC 2629//EN"
+                           "http://xml.resource.org/authoring/rfc2629.dtd" [
+        ... dtd subset ...
+      ]>
+    or
+      <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+        ... dtd subset ...
+      ]>
   -->
 
 
 <!--
   Contents
+
+    Character entities
 
     DTD data types
 
@@ -16,6 +31,22 @@
 
     Back matter
   -->
+
+
+<!--
+  Character entities
+  -->
+
+
+<!ENTITY % rfc2629-xhtml
+         PUBLIC "-//IETF//ENTITIES XHTML subset for RFC 2629//EN"
+                "rfc2629-xhtml.ent">
+%rfc2629-xhtml;
+
+<!ENTITY % rfc2629-other
+         PUBLIC "-//IETF//ENTITIES Other for RFC 2629//EN"
+                "rfc2629-other.ent">
+%rfc2629-other;
 
 
 <!--
@@ -72,11 +103,21 @@
           obsoletes   %NUMBERS;          ""
           updates     %NUMBERS;          ""
           category    (std|bcp|info|exp|historic)
-                                         "info"
-          seriesNo    %NUMBER;           #IMPLIED
-          ipr         (full2026|noDerivativeWorks2026|none)
                                          #IMPLIED
-          docName     %ATEXT;            #IMPLIED> 
+          consensus   (no|yes)           #IMPLIED
+          seriesNo    %NUMBER;           #IMPLIED
+          ipr         (full2026|noDerivativeWorks2026|none
+                      |full3667|noModification3667|noDerivatives3667
+                      |full3978|noModification3978|noDerivatives3978
+                      |trust200811|noModificationTrust200811|noDerivativesTrust200811
+                      |trust200902|noModificationTrust200902|noDerivativesTrust200902
+                      |pre5378Trust200902)
+                                         #IMPLIED
+          iprExtract  IDREF              #IMPLIED
+          submissionType
+                      (IETF|IAB|IRTF|independent) "IETF"
+          docName     %ATEXT;            #IMPLIED
+          xml:lang    %ATEXT;            "en">
 
 
 <!--
@@ -92,7 +133,7 @@
 <!ATTLIST title
           abbrev      %ATEXT;            #IMPLIED> 
 
-<!ELEMENT author      (organization,address?)>
+<!ELEMENT author      (organization?,address?)>
 <!ATTLIST author
           initials    %ATEXT;            #IMPLIED
           surname     %ATEXT;            #IMPLIED
@@ -106,7 +147,8 @@
  
 <!ELEMENT address     (postal?,phone?,facsimile?,email?,uri?)>
 
-<!-- at most one of each the city, region, code, and country
+<!-- this content model should be more strict:
+     at most one of each the city, region, code, and country
      elements may be present -->
 <!ELEMENT postal      (street+,(city|region|code|country)*)>
 <!ELEMENT street      (%CTEXT;)>
@@ -123,7 +165,7 @@
 <!ATTLIST date
           day         %DAY;              #IMPLIED
           month       %MONTH;            #IMPLIED
-          year        %YEAR;             #REQUIRED>
+          year        %YEAR;             #IMPLIED>
 
 <!-- meta-data... -->
 <!ELEMENT area        (%CTEXT;)>
@@ -141,38 +183,44 @@
   -->
 
 
-<!-- later on, may be (section+,appendix*,section*)>
 <!ELEMENT middle      (section+)>
 
-<!ELEMENT section     (t|figure|texttable|iref|section)*>
+<!ELEMENT section     ((t|figure|texttable|iref)*,section*)>
 <!ATTLIST section
           anchor      ID                 #IMPLIED
-          title       %ATEXT;            #REQUIRED>
+          title       %ATEXT;            #REQUIRED
+          toc         (include|exclude|default)
+                                         "default">
 
-<!--
-<!ELEMENT appendix    (t|figure|texttable|iref|appendix)*>
+<!-- use of <appendix/> is deprecated...
+<!ELEMENT appendix    ((t|figure|texttable|iref)*,appendix*)>
 <!ATTLIST appendix
           anchor      ID                 #IMPLIED
-          title       %ATEXT;            #REQUIRED>
+          title       %ATEXT;            #REQUIRED
+          toc         (include|exclude|default)
+                                         "default">
   -->
 
 <!-- use of <figure/> is deprecated... -->
-<!ELEMENT t           (%TEXT;|list|figure|xref|eref|iref|spanx|vspace)*>
+<!ELEMENT t           (%TEXT;|list|figure|xref|eref|iref|cref|spanx|vspace)*>
 <!ATTLIST t
+          anchor      ID                 #IMPLIED
           hangText    %ATEXT;            #IMPLIED>
 
 <!-- the value of the style attribute is inherited from the closest 
      parent -->
 <!ELEMENT list        (t+)>
 <!ATTLIST list
-          style       %ATEXT;            "empty"
-          hangIndent  %NUMBER;           "0"
+          style       %ATEXT;            #IMPLIED
+          hangIndent  %NUMBER;           #IMPLIED
           counter     %ATEXT;            #IMPLIED>
 
 <!ELEMENT xref        (%CTEXT;)>
 <!ATTLIST xref
           target      IDREF              #REQUIRED
-          pageno      (true|false)       "false">
+          pageno      (true|false)       "false"
+          format      (counter|title|none|default)
+                                         "default">
 
 <!ELEMENT eref        (%CTEXT;)>
 <!ATTLIST eref
@@ -184,6 +232,11 @@
           subitem     %ATEXT;            ""
           primary    (true|false)       "false">
 
+<!ELEMENT cref        (%CTEXT;)>
+<!ATTLIST cref
+          anchor      ID                 #IMPLIED
+          source      %ATEXT;            #IMPLIED>
+
 <!ELEMENT spanx       (%CTEXT;)>
 <!ATTLIST spanx
           xml:space   (default|preserve) "preserve"
@@ -193,32 +246,43 @@
 <!ATTLIST vspace
           blankLines  %NUMBER;           "0">
 
-<!ELEMENT figure      (preamble?,artwork,postamble?)>
+<!ELEMENT figure      (iref*,preamble?,artwork,postamble?)>
 <!ATTLIST figure
           anchor      ID                 #IMPLIED
-          title       %ATEXT;            "">
+          title       %ATEXT;            ""
+          suppress-title (true|false)    "false"
+          src         %URI;              #IMPLIED
+          align       (left|center|right) "left"
+          alt         %ATEXT;            ""
+          width       %ATEXT;            ""
+          height      %ATEXT;            "">
 
-<!ELEMENT preamble    (%TEXT;|xref|eref|iref)*>
+<!ELEMENT preamble    (%TEXT;|xref|eref|iref|cref|spanx)*>
 <!ELEMENT artwork     (%TEXT;)*>
 <!ATTLIST artwork
           xml:space   (default|preserve) "preserve"
           name        %ATEXT;            ""
           type        %ATEXT;            ""
-          src         %URI;              ""
+          src         %URI;              #IMPLIED
+          align       (left|center|right) "left"
+          alt         %ATEXT;            ""
           width       %ATEXT;            ""
           height      %ATEXT;            "">
 
-<!ELEMENT postamble   (%TEXT;|xref|eref|iref)*>
+<!ELEMENT postamble   (%TEXT;|xref|eref|iref|cref|spanx)*>
     
-<!ELEMENT texttable   (preamble?,ttcol+,c*,postamble?>
+<!ELEMENT texttable   (preamble?,ttcol+,c*,postamble?)>
 <!ATTLIST texttable
           anchor      ID                 #IMPLIED
-          title       %ATEXT;            "">
+          title       %ATEXT;            ""
+          suppress-title (true|false)    "false"
+          align       (left|center|right) "center"
+          style       (all|none|headers|full) "full">
 <!ELEMENT ttcol       (%CTEXT;)>
 <!ATTLIST ttcol
-          width       %ATEXT;           #IMPLIED
+          width       %ATEXT;            #IMPLIED
           align       (left|center|right) "left">
-<!ELEMENT c           (%TEXT;|xref|eref|iref)*>
+<!ELEMENT c           (%TEXT;|xref|eref|iref|cref|spanx)*>
 
 
 <!--
@@ -232,7 +296,7 @@
 <!ELEMENT references  (reference+)>
 <!ATTLIST references
           title       %ATEXT;            "References">
-<!ELEMENT reference   (front,seriesInfo*,format*)>
+<!ELEMENT reference   (front,seriesInfo*,format*,annotation*)>
 <!ATTLIST reference
           anchor      ID                 #IMPLIED
           target      %URI;              #IMPLIED>
@@ -245,3 +309,4 @@
           target      %URI;              #IMPLIED
           type        %ATEXT;            #REQUIRED
           octets      %NUMBER;           #IMPLIED>
+<!ELEMENT annotation  (%TEXT;|xref|eref|iref|cref|spanx)*>

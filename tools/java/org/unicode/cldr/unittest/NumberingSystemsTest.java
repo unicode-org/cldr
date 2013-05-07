@@ -1,8 +1,7 @@
 package org.unicode.cldr.unittest;
 
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -11,13 +10,14 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 public class NumberingSystemsTest extends TestFmwk {
+    static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) {
         new NumberingSystemsTest().run(args);
     }
 
     public void TestFile() {
-        CLDRFile file = SimpleFactory.makeFile("numberingSystems", CldrUtility.SUPPLEMENTAL_DIRECTORY, true);
+        CLDRFile file = testInfo.getSupplementalFactory().make("numberingSystems", false);
         XPathParts parts = new XPathParts();
         for (String path : file) {
             parts.set(path);

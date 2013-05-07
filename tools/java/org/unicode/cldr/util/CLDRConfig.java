@@ -54,6 +54,7 @@ public class CLDRConfig {
     private SupplementalDataInfo supplementalDataInfo;
     private StandardCodes sc;
     private Factory cldrFactory;
+    private Factory supplementalFactory;
     private CLDRFile english;
     private CLDRFile root;
     private RuleBasedCollator col;
@@ -107,6 +108,15 @@ public class CLDRConfig {
             }
         }
         return cldrFactory;
+    }
+ 
+    public Factory getSupplementalFactory() {
+        synchronized (this) {
+            if (supplementalFactory == null) {
+                supplementalFactory = Factory.make(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
+            }
+        }
+        return supplementalFactory;
     }
 
     public CLDRFile getEnglish() {

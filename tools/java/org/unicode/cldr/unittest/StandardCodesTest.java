@@ -1,15 +1,12 @@
 package org.unicode.cldr.unittest;
 
 import java.util.EnumSet;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver.Organization;
 
@@ -20,27 +17,26 @@ public class StandardCodesTest extends TestFmwk {
         new StandardCodesTest().run(args);
     }
 
-    TestInfo testInfo = TestInfo.getInstance();
+    static final StandardCodes sc = StandardCodes.make();
+
+    static final TestInfo testInfo = TestInfo.getInstance();
 
     public void TestCoverage() {
-        Map<String, Map<String, Level>> map = StandardCodes.make().getLocaleTypes();
         EnumSet<Organization> missing = EnumSet.noneOf(Organization.class);
         Set<String> extraOrgs = new TreeSet<String>();
-        for (String org : map.keySet()) {
+        for (String org : sc.getLocaleCoverageOrganizations()  ){
             extraOrgs.add(org.toLowerCase());
         }
         for (Organization org : Organization.values()) {
             // Sun ; ar ; modern
-            final Map<String, Level> entrySet = map.get(org.toString());
             extraOrgs.remove(org.toString().toLowerCase());
-            if (entrySet == null) {
+            if (!sc.getLocaleCoverageOrganizations().contains(org.toString())) {
                 missing.add(org);
                 continue;
             }
-            for (Entry<String, Level> entry2 : entrySet.entrySet()) {
-                final String locale = entry2.getKey();
+            for (String locale : sc.getLocaleCoverageLocales(org.toString())) {
                 String name = locale.equals("*") ? "ALL" : testInfo.getEnglish().getName(locale);
-                logln(org + "\t;\t" + locale + "\t;\t" + entry2.getValue() + "\t;\t" + name);
+                logln(org + "\t;\t" + locale + "\t;\t" + sc.getLocaleCoverageLevel(org.toString(), locale) + "\t;\t" + name);
             }
         }
         for (Organization org : missing) {
@@ -54,7 +50,6 @@ public class StandardCodesTest extends TestFmwk {
     public void TestGetLocaleCoverageLocales() {
         Factory cldrFactory = TestCLDRFile.getAllFactory();
         Set<String> availableLocales = cldrFactory.getAvailable();
-        StandardCodes sc = StandardCodes.make();
         for (Organization org : Organization.values()) {
             Set<String> locs;
             try {
@@ -75,7 +70,6 @@ public class StandardCodesTest extends TestFmwk {
     }
     
     public void TestAllEnums() {
-        StandardCodes sc = StandardCodes.make();
         for(String type : sc.getAvailableTypes()) {
             for(String code : sc.getAvailableCodes(type)) {
                 sc.getFullData(type,code);

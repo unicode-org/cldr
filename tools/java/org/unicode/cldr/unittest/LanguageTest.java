@@ -35,7 +35,7 @@ public class LanguageTest extends TestFmwk {
         final HashMap<String, Map<Type, String>> language2territory = new HashMap<String, Map<Type, String>>();
         final HashMap<String, Map<Type, String>> script2language = new HashMap<String, Map<Type, String>>();
         final HashMap<String, Map<Type, String>> script2territory = new HashMap<String, Map<Type, String>>();
-        final HashSet<String> scriptSet = new HashSet();
+        final HashSet<String> scriptSet = new HashSet<String>();
         for (String language : supplementalDataInfo.getBasicLanguageDataLanguages()) {
             for (BasicLanguageData basic : supplementalDataInfo.getBasicLanguageData(language)) {
                 Type type = basic.getType();
@@ -55,8 +55,6 @@ public class LanguageTest extends TestFmwk {
                         addMap(script2territory, territory, language, type);
                     }
                 }
-                final String territory = territories.size() == 0 ? "ZZ" : territories.iterator().next();
-                final String result = language + "_" + script + "_" + territory;
             }
         }
         for (String language : supplementalDataInfo.getBasicLanguageDataLanguages()) {
@@ -93,7 +91,7 @@ public class LanguageTest extends TestFmwk {
     public void TestThatScriptsHaveLanguage() {
         Set<String> needTransfer = new LinkedHashSet<String>();
         LanguageTagParser parser = new LanguageTagParser();
-        Map<String, Counter2<String>> scriptToLanguageCounter = new TreeMap();
+        Map<String, Counter2<String>> scriptToLanguageCounter = new TreeMap<String, Counter2<String>>();
         for (String language : supplementalDataInfo.getLanguagesForTerritoriesPopulationData()) {
             String script = parser.set(language).getScript();
             String base = parser.getLanguage();

@@ -14,22 +14,21 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.ant.CLDRBuild.CoverageLevel;
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
@@ -38,6 +37,9 @@ import com.ibm.icu.util.Output;
 public class TestCLDRFile extends TestFmwk {
     private static final boolean DISABLE_TIL_WORKS = false;
 
+    static TestInfo testInfo = TestInfo.getInstance();
+    static SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
+    
     public static void main(String[] args) {
         new TestCLDRFile().run(args);
     }
@@ -66,18 +68,11 @@ public class TestCLDRFile extends TestFmwk {
 
     private void checkPlurals(String locale) {
         CLDRFile cldrFile = cldrFactory.make(locale, true);
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
         Matcher m = COUNT_MATCHER.matcher("");
         Relation<String,String> skeletonToKeywords = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
-        SupplementalDataInfo sup = TestAll.TestInfo.getInstance().getSupplementalDataInfo();
-        PluralInfo plurals = sup.getPlurals(locale);
+        PluralInfo plurals = sdi.getPlurals(PluralType.cardinal,locale);
         Set<String> normalKeywords = plurals.getCanonicalKeywords();
-        String testPath = "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"per\"]/unitPattern[@count=\"one\"]";
-        String value = cldrFile.getStringValue(testPath);
         for (String path : cldrFile.fullIterable()) {
-            if (path.equals(testPath)) {
-                int x = 3;
-            }
             if (!path.contains("@count")) {
                 continue;
             }
@@ -103,7 +98,7 @@ public class TestCLDRFile extends TestFmwk {
         LocaleInfo(String locale) {
             this.locale = locale;
             cldrFile = cldrFactory.make(locale, true);
-            coverageLevel = CoverageLevel2.getInstance(locale);
+            coverageLevel = CoverageLevel2.getInstance(sdi,locale);
             for (String path : cldrFile.fullIterable()) {
                 Level level = coverageLevel.getLevel(path);
                 if (level.compareTo(Level.MODERN) > 0) {
@@ -118,7 +113,7 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testExtraPaths() {
-        Map<String,LocaleInfo> localeInfos = new LinkedHashMap();
+        Map<String,LocaleInfo> localeInfos = new LinkedHashMap<String,LocaleInfo>();
         Relation<String,String> missingPathsToLocales = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
         Relation<String,String> extraPathsToLocales = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
 
@@ -362,7 +357,7 @@ public class TestCLDRFile extends TestFmwk {
         PathHeader.Factory phf = PathHeader.getFactory(cldrFactory.make("en", true));
         for (String locale : Arrays.asList("de", "de_AT", "en", "nl")) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
-            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(locale);
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, locale);
 
             //CLDRFile parentFile = cldrFactory.make(LocaleIDParser.getParent(locale), true);
             CLDRFile cldrFileUnresolved = cldrFactory.make(locale, false);

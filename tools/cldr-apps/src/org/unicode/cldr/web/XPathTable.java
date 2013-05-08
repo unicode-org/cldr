@@ -84,7 +84,7 @@ public class XPathTable {
         }
         ElapsedTimer et = new ElapsedTimer("XPathTable: load all xpaths");
         int ixpaths = 0;
-        PreparedStatement queryStmt = conn.prepareStatement("SELECT id,xpath FROM " + CLDR_XPATHS);
+        PreparedStatement queryStmt = DBUtils.prepareForwardReadOnly(conn, "SELECT id,xpath FROM " + CLDR_XPATHS);
         // First, try to query it back from the DB.
         ResultSet rs = queryStmt.executeQuery();
         while (rs.next()) {
@@ -148,28 +148,13 @@ public class XPathTable {
     }
 
     SurveyMain sm = null;
-    public Hashtable<String, String> xstringHash = new Hashtable<String, String>(); // public
-                                                                                    // for
-                                                                                    // statistics
-                                                                                    // only
-    public Hashtable<String, Integer> stringToId = new Hashtable<String, Integer>(); // public
-                                                                                     // for
-                                                                                     // statistics
-                                                                                     // only
-    public Hashtable<Long, String> sidToString = new Hashtable<Long, String>(); // public
-                                                                                // for
-                                                                                // statistics
-                                                                                // only
-
+//    public Hashtable<String, String> xstringHash = new Hashtable<String, String>(4096); // public for statistics only
+    public Hashtable<String, Integer> stringToId = new Hashtable<String, Integer>(4096); // public for statistics only
+    public Hashtable<Long, String> sidToString = new Hashtable<Long, String>(4096); // public for statistics only
+    
     public String statistics() {
-        return "xstringHash has " + xstringHash.size() + " items.  DB: " + stat_dbAdd + "add/" + stat_dbFetch + "fetch/"
-                + (stat_dbAdd + stat_dbFetch) + "total." + "-" + idStats() /*
-                                                                            * +
-                                                                            * " "
-                                                                            * +
-                                                                            * strStats
-                                                                            * ()
-                                                                            */;
+        return /*"xstringHash has " + xstringHash.size() + " items.  "+*/ "DB: " + stat_dbAdd + "add/" + stat_dbFetch + "fetch/"
+                + (stat_dbAdd + stat_dbFetch) + "total." + "-" + idStats();
     }
 
     private static int stat_dbAdd = 0;
@@ -327,26 +312,26 @@ public class XPathTable {
         return null; // an exception occured.
     }
 
-    /**
-     * needs a new name.. This uses the string pool and also adds it to the
-     * table
-     */
-    final String poolx(String x) {
-        if (x == null) {
-            return null;
-        }
-
-        String y = (String) xstringHash.get(x);
-        if (y == null) {
-            xstringHash.put(x, x);
-
-            // addXpath(x);
-
-            return x;
-        } else {
-            return y;
-        }
-    }
+//    /**
+//     * needs a new name.. This uses the string pool and also adds it to the
+//     * table
+//     */
+//    final String poolx(String x) {
+//        if (x == null) {
+//            return null;
+//        }
+//
+//        String y = (String) xstringHash.get(x);
+//        if (y == null) {
+//            xstringHash.put(x, x);
+//
+//            // addXpath(x);
+//
+//            return x;
+//        } else {
+//            return y;
+//        }
+//    }
 
     /**
      * API for get by ID

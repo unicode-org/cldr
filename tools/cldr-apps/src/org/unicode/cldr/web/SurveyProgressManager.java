@@ -17,7 +17,7 @@ import com.ibm.icu.text.NumberFormat;
  * 
  */
 public class SurveyProgressManager implements CLDRProgressIndicator {
-    private static final boolean DEBUG_PROGRESS = false;
+    private static final boolean DEBUG_PROGRESS = true;
     private Deque<SurveyProgressTask> tasks = new LinkedList<SurveyProgressTask>();
 
     private class SurveyProgressTask implements CLDRProgressIndicator.CLDRProgressTask {
@@ -40,7 +40,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
             tasks.remove(this); // remove from deque
             if (DEBUG_PROGRESS)
                 System.err.println("Progress (" + progressWhat + ") DONE - "
-                        + ElapsedTimer.elapsedTime(taskTime, System.currentTimeMillis()));
+                        + ElapsedTimer.elapsedTime(taskTime, System.currentTimeMillis()) + " @" + SurveyMain.uptime);
             dead = true;
         }
 
@@ -48,8 +48,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         public void update(int count) {
             progressCount = count;
             subTaskTime = System.currentTimeMillis();
-            // if(SurveyMain.isUnofficial) System.err.println("Progress (" +
-            // progressWhat + ") on #"+progressCount );
+             if(SurveyMain.isUnofficial()) System.err.println("Progress (" + progressWhat + ") on #"+progressCount  + " @" + SurveyMain.uptime);
         }
 
         @Override
@@ -57,8 +56,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
             progressCount = count;
             progressSub = what;
             subTaskTime = System.currentTimeMillis();
-            // if(SurveyMain.isUnofficial) System.err.println("Progress (" +
-            // progressWhat + ") on " + progressSub + " #"+progressCount );
+            // if(SurveyMain.isUnofficial()) System.err.println("Progress (" + progressWhat + ") on " + progressSub + " #"+progressCount  + " @" + SurveyMain.uptime);
         }
 
         /**
@@ -72,8 +70,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
                 progressCount++;
             }
             subTaskTime = System.currentTimeMillis();
-            // if(SurveyMain.isUnofficial) System.err.println("Progress (" +
-            // progressWhat + ") on "+what );
+             if(SurveyMain.isUnofficial()) System.err.println("Progress (" +  progressWhat + ") on "+what  + " @" + SurveyMain.uptime);
         }
 
         @Override

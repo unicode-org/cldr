@@ -476,6 +476,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public final void init(final ServletConfig config) throws ServletException {
+        System.out.println("\n\n\n------------------- SurveyMain.init() ------------ " + uptime);
         try {
             new com.ibm.icu.text.SimpleDateFormat(); // Ensure that ICU is
                                                      // available before we get
@@ -5981,7 +5982,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             isLocaleAliased(CLDRLocale.ROOT);
         }
 
-        SurveyLog.logger.info("SurveyTool ready for requests after " + setupTime + ". Memory in use: " + usedK());
+        SurveyLog.logger.info("------- SurveyTool ready for requests after " + setupTime + "/"+uptime+". Memory in use: " + usedK() + "----------------------------\n\n\n");
         isSetup = true;
     }
 
@@ -6140,6 +6141,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             super.destroy();
         } finally {
             progress.close();
+            System.out.println("------------------- end of SurveyMain.destroy() ------------"+uptime);
         }
     }
 
@@ -6545,25 +6547,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             "measurementSystem", "mapping", "abbreviationFallback", "preferenceOrdering" };
 
     static int xpathCode = 0;
-
-    /**
-     * convert a XPATH:TYPE form to an html field. if type is null, means: hash
-     * the xpath
-     */
-    String fieldsToHtml(String xpath, String type) {
-        if (type == null) {
-            String r = (String) allXpaths.get(xpath);
-            if (r == null)
-                synchronized (allXpaths) {
-                    // we've found a totally new xpath. Mint a new key.
-                    r = CookieSession.j + "Y" + CookieSession.cheapEncode(xpathCode++);
-                    allXpaths.put(xpt.poolx(xpath), r);
-                }
-            return r;
-        } else {
-            return xpath + "/" + type;
-        }
-    }
+//
+//    /**
+//     * convert a XPATH:TYPE form to an html field. if type is null, means: hash
+//     * the xpath
+//     */
+//    String fieldsToHtml(String xpath, String type) {
+//        if (type == null) {
+//            String r = (String) allXpaths.get(xpath);
+//            if (r == null)
+//                synchronized (allXpaths) {
+//                    // we've found a totally new xpath. Mint a new key.
+//                    r = CookieSession.j + "Y" + CookieSession.cheapEncode(xpathCode++);
+//                    allXpaths.put(xpt.poolx(xpath), r);
+//                }
+//            return r;
+//        } else {
+//            return xpath + "/" + type;
+//        }
+//    }
 
     static long shortN = 0;
     static final int MAX_CHARS = 100;

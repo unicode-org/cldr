@@ -4,8 +4,9 @@
  */
 package org.unicode.cldr.tool.resolver;
 
-import com.ibm.icu.dev.tool.UOption;
-
+import org.unicode.cldr.tool.FilterFactory;
+import org.unicode.cldr.tool.Option;
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -49,17 +50,20 @@ public class CldrResolver {
    */
   public static final String ROOT = "root";
 
-  /* The command-line UOptions, along with a storage container. */
-  private static final UOption LOCALE = UOption.create("locale", 'l', UOption.REQUIRES_ARG);
-  private static final UOption DESTDIR = UOption.DESTDIR();
-  private static final UOption SOURCEDIR = UOption.SOURCEDIR();
-  private static final UOption RESOLUTION_TYPE = UOption.create("resolutiontype", 'r',
-      UOption.REQUIRES_ARG);
-  private static final UOption DRAFT_STATUS = UOption.create("mindraftstatus", 'm',
-      UOption.REQUIRES_ARG);
-  private static final UOption VERBOSITY = UOption.create("verbosity", 'v', UOption.REQUIRES_ARG);
-  private static final UOption[] OPTIONS = {LOCALE, DESTDIR, SOURCEDIR, RESOLUTION_TYPE,
-      DRAFT_STATUS, VERBOSITY};
+  /* The command-line options. */
+  private static final Options options = new Options(
+          "This program is used to convert CLDR XML files into their resolved versions.\n" +
+          "Please refer to the following options. Options are not case sensitive.\n" +
+          "\texample: org.unicode.cldr.tool.resolver.CldrResolver -s xxx -d yyy -l en")
+      .add("locale", 'l', ".*", ".*", "The locales to generate resolved files for")
+      .add("sourcedir", ".*", "Source directory for CLDR files")
+      .add("destdir", ".*", "Destination directory for output files")
+      .add("resolutiontype", 'r', "\\w+", "simple", "The resolution type to be used")
+      .add("mindraftstatus", 'm', ".*", "unconfirmed", "The minimum draft status")
+      .add("verbosity", 'v', "\\d", "2", "The verbosity level for comments during generation")
+      .add("usealtvalues", 'a', null, null, "Use alternate values in FilterFactory for the locale data to be resolved.")
+      .add("organization", 'o', ".*", null, "Filter by this organization's coverage level");
+
 
   /* Private instance variables */
   private Factory cldrFactory;
@@ -70,78 +74,63 @@ public class CldrResolver {
   private Map<String, CLDRFile> resolvedCache = new LruMap<String, CLDRFile>(5);
 
   public static void main(String[] args) {
-    UOption.parseArgs(args, OPTIONS);
+    options.parse(args, true);
 
-    // Defaults
-    ResolutionType resolutionType = ResolutionType.SIMPLE;
-    String localeRegex = ".*";
-    String srcDir = CldrUtility.MAIN_DIRECTORY;
-    File dest = new File(CldrUtility.GEN_DIRECTORY, "resolver");
-    if (!dest.exists()) {
-        dest.mkdir();
-    }
-    String destDir = dest.getAbsolutePath();
-    
     // Parse the options
-    if (RESOLUTION_TYPE.doesOccur) {
+    ResolutionType resolutionType = ResolutionType.SIMPLE;
+    Option option = options.get("resolutiontype");
+    if (option.doesOccur()) {
       try {
-        resolutionType = ResolutionType.forString(RESOLUTION_TYPE.value);
+        resolutionType = ResolutionType.forString(option.getValue());
       } catch (IllegalArgumentException e) {
         ResolverUtils.debugPrintln("Warning: " + e.getMessage(), 1);
         ResolverUtils.debugPrintln("Using default resolution type " + resolutionType.toString(), 1);
       }
     }
 
-    if (LOCALE.doesOccur) {
-      localeRegex = LOCALE.value;
+
+    String srcDir = null;
+    option = options.get("sourcedir");
+    if (option.doesOccur()) {
+      srcDir = option.getValue();
+    } else {
+      srcDir = CldrUtility.MAIN_DIRECTORY;
     }
 
-    if (SOURCEDIR.doesOccur) {
-      srcDir = SOURCEDIR.value;
+    option = options.get("destdir");
+    File dest;
+    if (option.doesOccur()) {
+        dest = new File(option.getValue());
+    } else {
+        dest = new File(CldrUtility.GEN_DIRECTORY, "resolver");
     }
-
-    if (DESTDIR.doesOccur) {
-      destDir = DESTDIR.value;
+    if (!dest.exists()) {
+        dest.mkdir();
     }
+    String destDir = dest.getAbsolutePath();
 
-    if (VERBOSITY.doesOccur) {
-      int verbosityParsed;
-      try {
-        verbosityParsed = Integer.parseInt(VERBOSITY.value);
-      } catch (NumberFormatException e) {
-        ResolverUtils.debugPrintln("Warning: Error parsing verbosity value \"" + VERBOSITY.value
-            + "\".  Using default value " + ResolverUtils.verbosity, 1);
-        verbosityParsed = ResolverUtils.verbosity;
-      }
-
-      if (verbosityParsed < 0 || verbosityParsed > 5) {
-        ResolverUtils.debugPrintln(
-            "Warning: Verbosity must be between 0 and 5, inclusive.  Using default value "
-                + ResolverUtils.verbosity, 1);
-      } else {
-        ResolverUtils.verbosity = verbosityParsed;
-      }
-    }
-
-    if (srcDir == null) {
+    int verbosityParsed = Integer.parseInt(options.get("verbosity").getValue());
+    if (verbosityParsed < 0 || verbosityParsed > 5) {
       ResolverUtils.debugPrintln(
-          "Error: a source (CLDR common/main) directory must be specified via either"
-              + " the -s command-line option or by the CLDR_DIR environment variable.", 1);
-      System.exit(1);
+          "Warning: Verbosity must be between 0 and 5, inclusive.  Using default value "
+          + ResolverUtils.verbosity, 1);
+    } else {
+      ResolverUtils.verbosity = verbosityParsed;
     }
 
-    DraftStatus minDraftStatus = DRAFT_STATUS.doesOccur ? DraftStatus.forString(DRAFT_STATUS.value) : DraftStatus.unconfirmed;
-    CldrResolver resolver = new CldrResolver(srcDir, resolutionType, minDraftStatus);
+    option = options.get("mindraftstatus");
+    DraftStatus minDraftStatus = option.doesOccur() ? DraftStatus.forString(option.getValue()) : DraftStatus.unconfirmed;
+    Factory factory = Factory.make(srcDir, ".*", minDraftStatus);
+    boolean useAltValues = options.get("usealtvalues").doesOccur();
+    String org = options.get("organization").getValue();
+    if (useAltValues || org != null) {
+        factory = FilterFactory.load(factory, org, useAltValues);
+    }
+    CldrResolver resolver = new CldrResolver(factory, resolutionType);
 
-    // Print out the options other than draft status (which has already been
-    // printed)
-    ResolverUtils.debugPrintln("Locale regular expression: \"" + localeRegex + "\"", 2);
-    ResolverUtils.debugPrintln("Source (CLDR common/main) directory: \"" + srcDir + "\"", 2);
-    ResolverUtils.debugPrintln("Destination (resolved output) directory: \"" + destDir + "\"", 2);
-    ResolverUtils.debugPrintln("Resolution type: " + resolutionType.toString(), 2);
-    ResolverUtils.debugPrintln("Verbosity: " + ResolverUtils.verbosity, 2);
 
     // Perform the resolution
+    String localeRegex = options.get("locale").getValue();
     resolver.resolve(localeRegex, destDir);
     ResolverUtils.debugPrintln("Execution complete.", 3);
   }
@@ -150,21 +139,15 @@ public class CldrResolver {
    * Constructs a CLDR partial resolver given the path to a directory of XML
    * files.
    * 
-   * @param cldrDirectory the path to the common/main folder from the standard
-   *        CLDR distribution. Note: this still requires the CLDR_DIR
-   *        environment variable to be set.
+   * @param factory the factory containing the files to be resolved
    * @param resolutionType the resolution type of the resolver.
    */
-  public CldrResolver(String cldrDirectory, ResolutionType resolutionType) {
-    this(cldrDirectory, resolutionType, DraftStatus.unconfirmed);
-  }
-
-  public CldrResolver(String cldrDirectory, ResolutionType resolutionType, DraftStatus minimumDraftStatus) {
+  public CldrResolver(Factory factory, ResolutionType resolutionType) {
     /*
      * We don't do the regex filter here so that we can still resolve parent
      * files that don't match the regex
      */
-    cldrFactory = Factory.make(cldrDirectory, ".*", minimumDraftStatus);
+    cldrFactory = factory;
     this.resolutionType = resolutionType;
   }
 
@@ -220,15 +203,6 @@ public class CldrResolver {
     }
     ResolverUtils.debugPrintln("done.\n", 3);
     return locales;
-  }
-
-  /**
-   * Accessor method for the CLDR factory.  Used for testing.
-   * 
-   * @return the {@link org.unicode.cldr.util.CLDRFile.Factory} used to resolve the CLDR data 
-   */
-  public Factory getFactory() {
-    return cldrFactory;
   }
 
   /**

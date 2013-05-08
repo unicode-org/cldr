@@ -121,17 +121,18 @@ public class TestCldrResolver extends TestFmwk {
         return distinguishedPath.endsWith("/alias") || distinguishedPath.startsWith("//ldml/identity/");
     }
 
+    private Factory factory;
     private CldrResolver resolver;
 
     public ResolverTest(ResolutionType resolutionType) {
-        resolver = new CldrResolver(CldrUtility.MAIN_DIRECTORY, resolutionType);
+        factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        resolver = new CldrResolver(factory, resolutionType);
     }
 
     /**
      * Template method to test any type of CLDR resolution
      */
     public final void testResolution() {
-      Factory factory = resolver.getFactory();
       Set<String> locales = resolver.getLocaleNames(LOCALES_TO_TEST);
 
       // Resolve with CLDR and check against CldrResolver output.

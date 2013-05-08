@@ -68,5 +68,5 @@ var BASELINE_LANGUAGE_NAME = "<%= SurveyMain.BASELINE_LANGUAGE_NAME %>";
 <script type='text/javascript' src='<%= request.getContextPath() %>/js/survey.js'></script>
 
 
-<%= (!SurveyMain.isUnofficial()) ? (org.unicode.cldr.tool.ShowData.ANALYTICS) : "" %>
+<%= (!SurveyMain.isUnofficial()) ? (org.unicode.cldr.util.CldrUtility.ANALYTICS) : "" %>
 <!--  end ajax_status.jsp -->

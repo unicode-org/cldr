@@ -51,7 +51,7 @@
         ctx.println("</div>");
         
         if (!SurveyMain.isUnofficial()) {
-            ctx.println(ShowData.ANALYTICS);
+            ctx.println(CldrUtility.ANALYTICS);
         }
         
         ctx.println("</body>");

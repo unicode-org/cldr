@@ -73,7 +73,7 @@ public class DiffWithParent {
                         .println("<table  border='1' style='border-collapse: collapse' bordercolor='blue'>");
                     out.println(table.toString());
                     out.println("</table>");
-                    out.println(ShowData.ANALYTICS);
+                    out.println(CldrUtility.ANALYTICS);
                     out.println("</body></html>");
                     out.close();
                 }

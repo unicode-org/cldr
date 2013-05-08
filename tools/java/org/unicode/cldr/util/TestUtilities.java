@@ -160,7 +160,7 @@ public class TestUtilities {
             out.println(message);
             out.println("</blockquote>");
         }
-        out.println(ShowData.ANALYTICS);
+        out.println(CldrUtility.ANALYTICS);
         out.println("</body></html>");
         out.close();
     }

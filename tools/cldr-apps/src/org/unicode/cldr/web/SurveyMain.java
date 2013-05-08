@@ -870,7 +870,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.println("<span id='visitors'></span>");
             out.print(getCurrev());
             if (!SurveyMain.isUnofficial()) {
-                out.println(ShowData.ANALYTICS);
+                out.println(CldrUtility.ANALYTICS);
             }
             out.print("</body></html>");
             return false;

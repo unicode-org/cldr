@@ -62,16 +62,6 @@ public class ShowData {
             "<p>Generation: " + CldrUtility.isoFormat(new java.util.Date()) + "</p>\n";
     }
 
-    public static String ANALYTICS = "<script type=\"text/javascript\">\n"
-        + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
-        + "document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
-        + "</script>\n"
-        + "<script type=\"text/javascript\">\n"
-        + "try {\n"
-        + "var pageTracker = _gat._getTracker(\"UA-7672775-1\");\n"
-        + "pageTracker._trackPageview();\n"
-        + "} catch(err) {}</script>";
-
     static RuleBasedCollator uca = (RuleBasedCollator) Collator
         .getInstance(ULocale.ROOT);
 

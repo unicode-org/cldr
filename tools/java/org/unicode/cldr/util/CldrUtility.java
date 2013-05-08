@@ -154,6 +154,15 @@ public class CldrUtility {
 
     public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
                                                                                                                   // "/Users/markdavis/workspace/icu4c/source/data/";
+    public static final String ANALYTICS = "<script type=\"text/javascript\">\n"
+            + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
+            + "document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
+            + "</script>\n"
+            + "<script type=\"text/javascript\">\n"
+            + "try {\n"
+            + "var pageTracker = _gat._getTracker(\"UA-7672775-1\");\n"
+            + "pageTracker._trackPageview();\n"
+            + "} catch(err) {}</script>";
 
     /**
      * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()

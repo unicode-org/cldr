@@ -108,7 +108,7 @@ class GenerateStatistics {
         logHtml.println("<p><b>Draft countries (" + draftCountries.size()
             + "):</b>");
         logHtml.println(showSet(draftNativeCountries, transliterate, false));
-        logHtml.println(ShowData.ANALYTICS);
+        logHtml.println(CldrUtility.ANALYTICS);
         logHtml.println("</body></html>");
         logHtml.close();
     }

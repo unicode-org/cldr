@@ -409,7 +409,7 @@ public class GenerateComparison {
 
             totalPaths += paths.size();
             out.println(ShowData.dateFooter());
-            out.println(ShowData.ANALYTICS);
+            out.println(CldrUtility.ANALYTICS);
             out.println("</body></html>");
             out.close();
         }
@@ -454,7 +454,7 @@ public class GenerateComparison {
         }
         indexFile.println("</tr></table>");
         indexFile.println(ShowData.dateFooter());
-        indexFile.println(ShowData.ANALYTICS);
+        indexFile.println(CldrUtility.ANALYTICS);
         indexFile.println("</body></html>");
         indexFile.close();
 

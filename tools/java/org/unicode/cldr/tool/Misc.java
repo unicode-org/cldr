@@ -368,7 +368,7 @@ public class Misc {
             }
         }
         out.println("</table>");
-        out.println(ShowData.ANALYTICS);
+        out.println(CldrUtility.ANALYTICS);
         out.println("</body></html>");
         out.close();
     }
@@ -423,7 +423,7 @@ public class Misc {
             printCurrentTimezoneLocalizations(log, language);
             // printSupplementalData(group1[i]);
             log.println("</table>");
-            log.println(ShowData.ANALYTICS);
+            log.println(CldrUtility.ANALYTICS);
             log.println("</body></html>");
             log.close();
         }

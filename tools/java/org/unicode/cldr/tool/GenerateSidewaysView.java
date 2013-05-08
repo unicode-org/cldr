@@ -246,7 +246,7 @@ public class GenerateSidewaysView {
                     }
                 }
                 if (containsRoot) {
-                    out.print("<b>\u00B7others\u00B7</b>");
+                    out.print("<b>\u00B7all\u00B7others\u00B7</b>");
                 }
                 out.println("</td><tr>");
             }
@@ -586,10 +586,10 @@ public class GenerateSidewaysView {
      */
     private static PathHeader fixPath(String path, String[] localePrefix) {
         if (localePrefix != null) localePrefix[0] = "";
-        if (path.indexOf("[@alt=") >= 0 || path.indexOf("[@draft=") >= 0) {
-            if (localePrefix != null) localePrefix[0] = "*";
-            path = removeAttributes(path, skipSet);
-        }
+//        if (path.indexOf("[@alt=") >= 0 || path.indexOf("[@draft=") >= 0) {
+//            if (localePrefix != null) localePrefix[0] = "*";
+//            path = removeAttributes(path, skipSet);
+//        }
         // if (usePrettyPath) path = prettyPath.getPrettyPath(path);
         return pathHeaderFactory.fromPath(path);
     }

@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -18,11 +17,13 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.util.XPathParts;
 
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
@@ -68,7 +69,10 @@ public class CasingInfo {
         if (!casing.containsKey(localeID)) {
             // Synchronize writes to casing map in an attempt to avoid NPEs (cldrbug 5051).
             synchronized (casing) {
-                loadFromXml(localeID);
+                CasingHandler handler = loadFromXml(localeID);
+                if (handler != null) {
+                    handler.addParsedResult(casing);
+                }
                 if (!casing.containsKey(localeID)) {
                     String parentID = LocaleIDParser.getSimpleParent(localeID);
                     if (!parentID.equals("root")) {
@@ -87,14 +91,15 @@ public class CasingInfo {
      * 
      * @param localeID
      */
-    private void loadFromXml(String localeID) {
+    private CasingHandler loadFromXml(String localeID) {
         File casingFile = new File(casingDir, localeID + ".xml");
         if (casingFile.isFile()) {
             CasingHandler handler = new CasingHandler();
             XMLFileReader xfr = new XMLFileReader().setHandler(handler);
             xfr.read(casingFile.toString(), -1, true);
-            handler.addParsedResult(casing);
+            return handler;
         } // Fail silently if file not found.
+        return null;
     }
 
     /**
@@ -191,14 +196,23 @@ public class CasingInfo {
         String[] typeNames = CheckConsistentCasing.typeNames;
         for (String localeID : locales) {
             Map<String, CasingType> localeCasing = casing.get(localeID);
-            CasingSource source = new CasingSource(localeID);
+            // Load any existing overrides over casing info.
+            CasingHandler handler = loadFromXml(localeID);
+            Map<String, CasingType> overrides = handler == null ?
+                    new HashMap<String, CasingType>() : handler.getOverrides();
+            localeCasing.putAll(overrides);
+
+            XMLSource source = new SimpleXMLSource(localeID);
             for (int i = 0; i < typeNames.length; i++) {
                 String typeName = typeNames[i];
                 if (typeName.equals(CheckConsistentCasing.NOT_USED)) continue;
                 CasingType type = localeCasing.get(typeName);
-                if (type != CasingType.other) {
-                    source.putValueAtDPath("//ldml/metadata/casingData/casingItem[@type=\"" + typeName + "\"]",
-                        type.toString());
+                if (overrides.containsKey(typeName)) {
+                    String path = MessageFormat.format("//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]", typeName);
+                    source.putValueAtPath(path, type.toString());
+                } else if (type != CasingType.other) {
+                    String path = "//ldml/metadata/casingData/casingItem[@type=\"" + typeName + "\"]";
+                    source.putValueAtPath(path, type.toString());
                 }
             }
             CLDRFile cldrFile = new CLDRFile(source);
@@ -235,25 +249,25 @@ public class CasingInfo {
      * XML handler for parsing casing files.
      */
     private class CasingHandler extends XMLFileReader.SimpleHandler {
-        private Pattern casingPattern = Pattern
-            .compile("//ldml/metadata/casingData/casingItem\\[@type=\"([/\\-\\w]+)\"\\]");
         private Pattern localePattern = Pattern.compile("//ldml/identity/language\\[@type=\"(\\w+)\"\\]");
         private String localeID;
-        private Map<String, CasingType> caseMap;
-
-        public CasingHandler() {
-            caseMap = new HashMap<String, CasingType>();
-        }
+        private Map<String, CasingType> caseMap = new HashMap<String, CasingType>();
+        private Map<String, CasingType> overrideMap = new HashMap<String, CasingType>();
 
         @Override
         public void handlePathValue(String path, String value) {
-            Matcher matcher = casingPattern.matcher(path);
             // Parse casing info.
-            if (matcher.matches()) {
-                caseMap.put(matcher.group(1), CasingType.valueOf(value));
+            if (path.contains("casingItem")) {
+                XPathParts parts = new XPathParts().set(path);
+                String type = parts.getAttributeValue(-1, "type");
+                CasingType casingType = CasingType.valueOf(value);
+                caseMap.put(type, casingType);
+                if (Boolean.valueOf(parts.getAttributeValue(-1, "override"))) {
+                    overrideMap.put(type, casingType);
+                }
             } else {
                 // Parse the locale that the casing is for.
-                matcher = localePattern.matcher(path);
+                Matcher matcher = localePattern.matcher(path);
                 if (matcher.matches()) {
                     localeID = matcher.group(1);
                 }
@@ -263,67 +277,9 @@ public class CasingInfo {
         public void addParsedResult(Map<String, Map<String, CasingType>> map) {
             map.put(localeID, caseMap);
         }
-    }
 
-    /**
-     * Wrapper XMLSource for storing casing information to be written to disk.
-     */
-    private class CasingSource extends XMLSource {
-        Map<String, String> pathMap;
-        Comments comments;
-
-        public CasingSource(String localeID) {
-            super.setLocaleID(localeID);
-            pathMap = new HashMap<String, String>();
-            comments = new Comments();
-        }
-
-        @Override
-        public XMLSource freeze() {
-            return null;
-        }
-
-        @Override
-        public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
-        }
-
-        @Override
-        public void putValueAtDPath(String distinguishingXPath, String value) {
-            pathMap.put(distinguishingXPath, value);
-        }
-
-        @Override
-        public void removeValueAtDPath(String distinguishingXPath) {
-            pathMap.remove(distinguishingXPath);
-        }
-
-        @Override
-        public String getValueAtDPath(String path) {
-            return pathMap.get(path);
-        }
-
-        @Override
-        public String getFullPathAtDPath(String path) {
-            return path;
-        }
-
-        @Override
-        public Comments getXpathComments() {
-            return comments;
-        }
-
-        @Override
-        public void setXpathComments(Comments comments) {
-        }
-
-        @Override
-        public Iterator<String> iterator() {
-            return pathMap.keySet().iterator();
-        }
-
-        @Override
-        public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
-            // do nothing
+        public Map<String, CasingType> getOverrides() {
+            return overrideMap;
         }
     }
 }

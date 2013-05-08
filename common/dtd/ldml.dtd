@@ -1475,4 +1475,4 @@ $Date$
 
 <!ELEMENT casingItem (#PCDATA) >
 <!ATTLIST casingItem type CDATA #REQUIRED >
-
+<!ATTLIST casingItem override (true | false) #IMPLIED >

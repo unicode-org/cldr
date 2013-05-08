@@ -1101,6 +1101,22 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
+            // //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]
+            functionMap.put("relativeDate", new Transform<String, String>() {
+                private final String[] relativeDateField = {
+                        "year", "month", "week", "day", "sun", "mon",
+                        "tue", "wed", "thu", "fri", "sat"
+                };
+                private final String[] longNames = {
+                        "Year", "Month", "Week", "Day", "Sunday", "Monday",
+                        "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+                };
+
+                public String transform(String source) {
+                    order = getIndex(source, relativeDateField) + 100;
+                    return "Relative " + longNames[getIndex(source, relativeDateField)];
+                }
+            });
             // Sorts numberSystem items (except for decimal formats).
             functionMap.put("number", new Transform<String, String>() {
                 private final String[] symbols = {"decimal", "group",

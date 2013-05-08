@@ -21,7 +21,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
@@ -79,7 +79,7 @@ public class ShowData {
         uca.setNumericCollation(true);
     }
 
-    static PathHeader.Factory prettyPathMaker = PathHeader.getFactory(TestInfo.getInstance().getEnglish());
+    static PathHeader.Factory prettyPathMaker = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
 
     static CLDRFile english;
 

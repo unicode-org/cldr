@@ -2240,18 +2240,10 @@ public class WebContext implements Cloneable, Appendable {
 
         HttpSession httpSession = null;
         
-        if(request != null) {
-            httpSession = request.getSession(true);
-        }
-
-        
         try {
             user = CookieSession.sm.reg.get(password, email, userIP(), letmein);
         } catch (LogoutException e) {
             logout();
-            if(httpSession!=null) {                
-                httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
-            }
         }
         if (user != null) {
             user.touch();
@@ -2260,6 +2252,9 @@ public class WebContext implements Cloneable, Appendable {
     
         if (request == null && session != null) {
             return "using canned session"; // already set - for testing
+        }
+        if(request != null) {
+            httpSession = request.getSession(true);
         }
     
         boolean idFromSession = false;
@@ -2322,8 +2317,10 @@ public class WebContext implements Cloneable, Appendable {
             mySession = null; // throw it out.
         }
         
-        if (mySession != null && user != null && hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
-           loginRemember(user);
+        if (mySession != null && user != null) {
+           if(hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
+               loginRemember(user);
+           }
         } else if (hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL)) {
            logout(); // zap cookies if some id/pw failed to work
         }
@@ -2344,7 +2341,7 @@ public class WebContext implements Cloneable, Appendable {
             }
         }
         if (mySession == null) {
-            mySession = new CookieSession(user == null, userIP());
+            mySession = new CookieSession(user == null, userIP(), httpSession.getId());
             if (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
                 // ctx.println("New session: " + mySession.id + "<br>");
             }

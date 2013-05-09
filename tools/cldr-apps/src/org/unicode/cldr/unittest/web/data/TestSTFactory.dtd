@@ -8,7 +8,7 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 -->
 
-<!ELEMENT TestSTFactory ((user | vote | unvote | verify | echo)*) >
+<!ELEMENT TestSTFactory ((user | vote | unvote | verify | echo | warn)*) >
 <!-- <!ATTLIST TestSTFactory version CDATA #REQUIRED> -->
 
 <!ELEMENT user EMPTY >
@@ -32,3 +32,5 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST verify status NMTOKEN #REQUIRED>
 
 <!ELEMENT echo (#PCDATA) >
+
+<!ELEMENT warn (#PCDATA) >

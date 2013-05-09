@@ -24,6 +24,7 @@ import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox;
+import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
@@ -104,7 +105,7 @@ public class TestSTFactory extends TestFmwk {
         return didVote ? "(I VOTED)" : "( did NOT VOTE) ";
     }
 
-    public void TestBasicVote() throws SQLException, IOException {
+    public void TestBasicVote() throws SQLException, IOException, InvalidXPathException {
         STFactory fac = getFactory();
 
         final String somePath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
@@ -221,9 +222,22 @@ public class TestSTFactory extends TestFmwk {
                 logln("Good - caught " + t.toString() + " as this locale is readonly english.");
             }
         }
+        {
+            CLDRLocale locale2 = CLDRLocale.getInstance("nb");
+            CLDRFile nb = fac.make(locale2, false);
+            BallotBox<User> box = fac.ballotBoxForLocale(locale2);
+            final String bad_xpath =  "//ldml/units/unitLength[@type=\"format\"]/unit[@type=\"murray\"]/unitPattern[@count=\"many\"]";
+
+            try {
+                box.voteForValue(getMyUser(), bad_xpath, "{0} Murrays"); // bogus
+                errln("Error! should have failed to vote for " + locale2 + " xpath " + bad_xpath);
+            } catch (Throwable t) {
+                logln("Good - caught " + t.toString() + " voting for " + bad_xpath + " as this is a bad xpath.");
+            }
+        }
     }
 
-    public void TestSparseVote() throws SQLException, IOException {
+    public void TestSparseVote() throws SQLException, IOException, InvalidXPathException {
         STFactory fac = getFactory();
 
         final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
@@ -354,7 +368,12 @@ public class TestSTFactory extends TestFmwk {
                     if (elem.equals("unvote")) {
                         value = null;
                     }
-                    box.voteForValue(u, xpath, value);
+                    try {
+                        box.voteForValue(u, xpath, value);
+                    } catch (InvalidXPathException e) {
+                        // TODO Auto-generated catch block
+                        errln("Error: invalid xpath exception " + xpath  + " : " + e);
+                    }
                     logln(u + " " + elem + "d for " + xpath + " = " + value);
                 } else if (elem.equals("verify")) {
                     value = value.trim();
@@ -466,6 +485,8 @@ public class TestSTFactory extends TestFmwk {
 
                 } else if (elem.equals("echo")) {
                     logln("*** \"" + value.trim() + "\"");
+                } else if (elem.equals("warn")) {
+                    logln("*** Warning: \"" + value.trim() + "\"");
                 } else {
                     throw new IllegalArgumentException("Unknown test element type " + elem);
                 }
@@ -479,7 +500,7 @@ public class TestSTFactory extends TestFmwk {
         myReader.read(TestSTFactory.class.getResource("data/" + fileName).toString(), TestAll.getUTF8Data(fileName), -1, true);
     }
 
-    public void TestVettingWithNonDistinguishing() throws SQLException, IOException {
+    public void TestVettingWithNonDistinguishing() throws SQLException, IOException, InvalidXPathException {
         STFactory fac = getFactory();
 
         final String somePath2 = "//ldml/dates/calendars/calendar[@type=\"hebrew\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
@@ -574,7 +595,7 @@ public class TestSTFactory extends TestFmwk {
         }
     }
         
-    public void TestVotingAge() throws SQLException, IOException, InterruptedException, JSONException {
+    public void TestVotingAge() throws SQLException, IOException, InterruptedException, JSONException, InvalidXPathException {
         CLDRConfig config = CLDRConfig.getInstance();
         config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, SurveyMain.NEWVERSION_EPOCH);
         STFactory fac = resetFactory();
@@ -627,7 +648,7 @@ public class TestSTFactory extends TestFmwk {
             expect(somePath2, aValueNew, true, file, box);
             
             logln("Expect to find the new value after revoting");
-            box.voteForValue(getMyUser(), somePath, aValueNew); // revote
+            box.voteForValue(getMyUser(), somePath, aValueNew);
             expect(somePath, aValueNew, true, file, box);
         }
 

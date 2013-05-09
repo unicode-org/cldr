@@ -4073,7 +4073,13 @@ function showV() {
 									var summaryMsg = stui.sub("v_oldvotes_count_msg",{uncontested:json.oldvotes.uncontested.length,  contested: json.oldvotes.contested.length });
 																		
 									frag.appendChild(createChunk(summaryMsg, "div", "helpHtml"));
-									
+
+									if(json.oldvotes.bad > 0) {
+										var summaryMsg2 = stui.sub("v_oldvotes_bad_msg",json.oldvotes);
+										
+										frag.appendChild(createChunk(summaryMsg2, "div", "helpHtml"));
+									}
+
 									var navChunk = document.createElement("div");
 									navChunk.className = 'v-oldVotes-nav';
 									frag.appendChild(navChunk);
@@ -4183,7 +4189,12 @@ function showV() {
 									}
 
 									theDiv.appendChild(frag);
-
+								} else if(json.oldvotes.bad > 0) {
+									if(json.oldvotes.bad > 0) {
+										var summaryMsg2 = stui.sub("v_oldvotes_only_bad_msg",json.oldvotes);
+										
+										theDiv.appendChild(createChunk(summaryMsg2, "div", "helpHtml"));
+									}
 								} else {
 									theDiv.appendChild(createChunk(stui.str("v_oldvotes_no_old_here"),"i",""));
 								}

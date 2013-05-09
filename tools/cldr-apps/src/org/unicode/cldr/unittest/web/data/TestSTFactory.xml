@@ -63,14 +63,15 @@
 
     <verify status="missing" locale="az" xpath="//ldml/numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='long']/decimalFormat/pattern[@type='1000'][@count='zero']"/>
 -->
+    <warn>Disabled: Not testing vote with errors, see http://unicode.org/cldr/trac/ticket/6060</warn>
 <!--  verify can't vote for items with errors -->
-	<echo>Testing no votes with errors.</echo>
+<!-- 	<echo>Testing no votes with errors.</echo> -->
 	<!--  first, sanity -->	
-	<verify status="missing" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard'][@alt='variant']" />
-	<vote name="A" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">The main pump fixing screws with the correct strength class</vote>	 <!--  conforms to ticket:2260 -->
+<!-- 	<verify status="approved"   locale="und" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']" >G y MMMM d, EEEE</verify> -->
+<!-- 	<vote name="A"             locale="und" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">The main pump fixing screws with the correct strength class</vote>	  conforms to ticket:2260 -->
 	<!--  still missing- that was a totally bogus date format. -->
-	<verify status="missing" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard'][@alt='variant']" />
-	<vote name="A" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard'][@alt='variant']">EEEE, d _MMMM_ y</vote>
-	<verify status="approved" locale="und" xpath="//ldml/dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard'][@alt='variant']">EEEE, d _MMMM_ y</verify>
+<!-- 	<verify status="approved"   locale="und" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">G y MMMM d, EEEE</verify> -->
+<!-- 	<vote name="A"             locale="und" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">EEEE, d _MMMM_ y</vote> -->
+<!-- 	<verify status="approved"  locale="und" xpath="//ldml/dates/calendars/calendar[@type='gregorian']/dateFormats/dateFormatLength[@type='full']/dateFormat[@type='standard']/pattern[@type='standard']">EEEE, d _MMMM_ y</verify> -->
 
 </TestSTFactory>

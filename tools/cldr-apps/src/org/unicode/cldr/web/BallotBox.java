@@ -16,6 +16,24 @@ import org.unicode.cldr.web.UserRegistry.User;
  */
 public interface BallotBox<T> {
     /**
+     * This is thrown when an XPath isn't valid within this locale.
+     * @author srl
+     *
+     */
+    public class InvalidXPathException extends Exception {
+        /**
+         * 
+         */
+        private static final long serialVersionUID = 1310604068301637651L;
+        public String xpath;
+        
+        public InvalidXPathException(String xpath) {
+            super("Invalid XPath: " + xpath );
+            this.xpath = xpath;
+        }
+    }
+
+    /**
      * Record a vote for an item. Will (eventually) throw a number of
      * exceptions.
      * 
@@ -27,7 +45,7 @@ public interface BallotBox<T> {
      *            new string value to vote for, or null for "unvote"
      * @return the full xpath of the user's vote, or null if not applicable.
      */
-    public void voteForValue(T user, String distinguishingXpath, String value);
+    public void voteForValue(T user, String distinguishingXpath, String value) throws InvalidXPathException;
 
     /**
      * Return a vote for a value, as a string
@@ -87,12 +105,12 @@ public interface BallotBox<T> {
      * @param user
      * @param xpath
      */
-    public void unvoteFor(User user, String xpath);
+    public void unvoteFor(User user, String xpath) throws InvalidXPathException;
 
     /**
      * re-vote for the current vote. Error if no current vote.
      * @param user
      * @param xpath
      */
-    public void revoteFor(User user, String xpath);
+    public void revoteFor(User user, String xpath) throws InvalidXPathException;
 }

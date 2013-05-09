@@ -38,7 +38,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
         @Override
         public void close() {
             tasks.remove(this); // remove from deque
-            if (DEBUG_PROGRESS)
+            if (DEBUG_PROGRESS && SurveyMain.isUnofficial())
                 System.err.println("Progress (" + progressWhat + ") DONE - "
                         + ElapsedTimer.elapsedTime(taskTime, System.currentTimeMillis()) + " @" + SurveyMain.uptime);
             dead = true;

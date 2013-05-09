@@ -696,6 +696,18 @@ public class DBUtils {
     }
 
     /**
+     * Shortcut for certain statements.
+     * 
+     * @param conn
+     * @param str
+     * @return
+     * @throws SQLException
+     */
+    public static final PreparedStatement prepareForwardUpdateable(Connection conn, String str) throws SQLException {
+        return conn.prepareStatement(str, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
+    }
+
+    /**
      * prepare statements for this connection
      * 
      * @throws SQLException

@@ -46,6 +46,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -403,9 +404,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 ResultSet rs2 = null;
                 int n = 0;
                 int n2 = 0;
+                int del=0;
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
-                    ps = openQueryByLocale(conn);
+                    ps = openQueryByLocaleRW(conn);
                     ps.setString(1, locale.getBaseName());
                     rs = ps.executeQuery();
 
@@ -420,30 +422,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                             throw new InternalError("Could not get info for submitter " + submitter + " for " + locale + ":"
                                     + xpath);
                         }
-                        if (!UserRegistry.countUserVoteForLocale(theSubmitter, locale)) { // this
-                                                                                          // is
-                                                                                          // whether
-                                                                                          // the
-                                                                                          // vote
-                                                                                          // is
-                                                                                          // accounted
-                                                                                          // for.
+                        if (!UserRegistry.countUserVoteForLocale(theSubmitter, locale)) { // check user permission to submit
                             continue;
                         }
-                        if (!isValidSurveyToolVote(theSubmitter, xpath)) { // Make
-                                                                           // sure
-                                                                           // this
-                                                                           // vote
-                                                                           // is
-                                                                           // for
-                                                                           // a
-                                                                           // real
-                                                                           // visible
-                                                                           // path
+                        if (!isValidSurveyToolVote(theSubmitter, xpath)) { // Make sure it is a visible path
                             continue;
                         }
-                        internalSetVoteForValue(theSubmitter, xpath, value, resolver, dataBackedSource);
-                        n++;
+                        try {
+                            internalSetVoteForValue(theSubmitter, xpath, value, resolver, dataBackedSource);
+                            n++;
+                        } catch (BallotBox.InvalidXPathException e) {
+                            System.err.println("InvalidXPathException: Deleting vote for " + theSubmitter + ":"+locale+":"+xpath);
+                            rs.deleteRow();
+                            del++;
+                        }
                     }
 
                     ps2 = DBUtils.prepareStatementWithArgs(conn, "select xpath,value from " + CLDR_VBV_ALT + " where locale=?",
@@ -454,6 +446,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         String value = DBUtils.getStringUTF8(rs2, 2);
                         getXpathToOthers(xp).add(value);
                         n2++;
+                    }
+                    
+                    if(del>0) {
+                        System.out.println("Committing delete of " + del + " invalid votes from " + locale);
+                        conn.commit();
                     }
                 } catch (SQLException e) {
                     SurveyLog.logException(e);
@@ -619,6 +616,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         }
                         LinkedList<CheckCLDR.CheckStatus> result = new LinkedList<CheckCLDR.CheckStatus>();
                         q.check(path, result, v);
+                        System.out.println("Checking result of " + path + " = " + v + " := haserr " + CheckCLDR.CheckStatus.hasError(result));
                         if (CheckCLDR.CheckStatus.hasError(result)) {
                             badValues.add(v);
                             continue; // skip this value
@@ -752,18 +750,21 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         @Override
-        public void unvoteFor(User user, String distinguishingXpath) {
+        public void unvoteFor(User user, String distinguishingXpath) throws BallotBox.InvalidXPathException {
             voteForValue(user,distinguishingXpath,null);
         }
         
         @Override
-        public void revoteFor(User user, String distinguishingXpath) {
+        public void revoteFor(User user, String distinguishingXpath) throws BallotBox.InvalidXPathException{
             String oldValue = getVoteValue(user, distinguishingXpath);
             voteForValue(user, distinguishingXpath, oldValue);
         }
 
         @Override
-        public synchronized void voteForValue(User user, String distinguishingXpath, String value) {
+        public synchronized void voteForValue(User user, String distinguishingXpath, String value) throws BallotBox.InvalidXPathException {
+            if(!getPathsForFile().contains(distinguishingXpath)) {
+                throw new BallotBox.InvalidXPathException(distinguishingXpath);
+            }
             SurveyLog.debug("V4v: " + locale + " " + distinguishingXpath + " : " + user + " voting for '" + value + "'");
             ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user, locale); // this
                                                                                      // has
@@ -862,11 +863,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 readonly();
             }
 
-            internalSetVoteForValue(user, distinguishingXpath, value, null, xmlsource); // will
-                                                                                        // create/throw
-                                                                                        // away
-                                                                                        // a
-                                                                                        // resolver.
+            internalSetVoteForValue(user, distinguishingXpath, value, null, xmlsource); // will create/throw away a resolver.
         }
 
         /**
@@ -877,7 +874,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          * @return
          */
         private final VoteResolver<String> internalSetVoteForValue(User user, String distinguishingXpath, String value,
-                VoteResolver<String> resolver, DataBackedSource source) {
+                VoteResolver<String> resolver, DataBackedSource source) throws InvalidXPathException {
+            if(!getPathsForFile().contains(distinguishingXpath)) {
+                throw new InvalidXPathException(distinguishingXpath);
+            }
             if (value != null) {
                 getXpathToVotes(distinguishingXpath).put(user, value);
                 getXpathToOthers(sm.xpt.getByXpath(distinguishingXpath)).add(value);
@@ -890,7 +890,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
-         * Get the xpahtToOthers set, creating if it doesn't exist.
+         * Get the xpathToOthers set, creating if it doesn't exist.
          * 
          * @param distinguishingXpath
          * @return
@@ -1321,10 +1321,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @return
      * @throws SQLException
      */
-    private PreparedStatement openQueryByLocale(Connection conn) throws SQLException {
+    private PreparedStatement openQueryByLocaleRW(Connection conn) throws SQLException {
         setupDB();
         final String votesAfter = SurveyMain.getSQLVotesAfter();
-        return DBUtils.prepareForwardReadOnly(conn, "SELECT xpath,submitter,value FROM " + CLDR_VBV + " WHERE locale = ? and last_mod > " + votesAfter);
+        return DBUtils.prepareForwardUpdateable(conn, "SELECT xpath,submitter,value,locale FROM " + CLDR_VBV + " WHERE locale = ? and last_mod > " + votesAfter);
     }
 
     private synchronized final void setupDB() {

@@ -41,6 +41,7 @@ import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -753,6 +754,7 @@ public class SurveyAjax extends HttpServlet {
                                 STFactory fac = sm.getSTFactory();
                                 //CLDRFile file = fac.make(loc, false);
                                 CLDRFile file = sm.getOldFactory().make(loc, true);
+                                
                                 if(null!= request.getParameter("doSubmit")) {
                                     // submit time.
                                     System.out.println("User " + mySession.user.toString() + "  is migrating old votes .  loc="+locale+", val="+val);
@@ -806,22 +808,25 @@ public class SurveyAjax extends HttpServlet {
                                             int xp = (Integer)m.get("xpath");
                                             String xpathString = sm.xpt.getById(xp);
                                             // String xpathStringHash = sm.xpt.getStringIDString(xp);
-                                        
-                                            String curValue = file.getStringValue(xpathString);
-                                            if(false && value.equals(curValue)) {
-                                                box.voteForValue(mySession.user, xpathString,value); // auto vote for uncontested
-                                                uncontested++;
-                                            } else {
-                                                String strid = sm.xpt.getStringIDString(xp);
-                                                if(deleteSet.contains(strid)) {
-                                                    box.unvoteFor(mySession.user, xpathString);
-                                                    deletions++;
-                                                } else if(confirmSet.contains(strid)) {
-                                                    box.voteForValue(mySession.user, xpathString, value);
-                                                    confirmations++;
+                                            try {
+                                                String curValue = file.getStringValue(xpathString);
+                                                if(false && value.equals(curValue)) {
+                                                    box.voteForValue(mySession.user, xpathString,value); // auto vote for uncontested
+                                                    uncontested++;
                                                 } else {
-                                                    //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
+                                                    String strid = sm.xpt.getStringIDString(xp);
+                                                    if(deleteSet.contains(strid)) {
+                                                        box.unvoteFor(mySession.user, xpathString);
+                                                        deletions++;
+                                                    } else if(confirmSet.contains(strid)) {
+                                                        box.voteForValue(mySession.user, xpathString, value);
+                                                        confirmations++;
+                                                    } else {
+                                                        //System.err.println("SAJ: Ignoring non mentioned strid " + xpathString + " for loc " + locale + " in user "  +mySession.user);
+                                                    }
                                                 }
+                                            } catch(InvalidXPathException ix) {
+                                                SurveyLog.logException(ix, "Trying to vote for " + xpathString);
                                             }
                                         }
                                     }
@@ -881,10 +886,14 @@ public class SurveyAjax extends HttpServlet {
                                     
                                     JSONArray uncontested = new JSONArray();
                                     JSONArray contested = new JSONArray();
+                                    
+                                    int bad = 0;
                                 
                                     CLDRFile baseF = sm.getBaselineFile();
                                 
                                     CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
+                                    
+                                    Set<String> validPaths = fac.getPathsForFile(locale);
                                     
                                     for(Map m : rows) {
                                         String value = m.get("value").toString();
@@ -892,12 +901,18 @@ public class SurveyAjax extends HttpServlet {
                                         PathHeader pathHeader = (PathHeader)m.get("pathHeader");
 //                                        System.err.println("PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
                                         if(pathHeader.getSurveyToolStatus() != PathHeader.SurveyToolStatus.READ_WRITE) {
+                                            bad++;
                                             continue; // skip these
                                         }
                                         int xp = (Integer)m.get("xpath");
                                         String xpathString = sm.xpt.getById(xp);
+                                        if(!validPaths.contains(xpathString)) {
+                                            bad++;
+                                            continue;
+                                        }
                                         if(cov.getIntLevel(xpathString) > Level.COMPREHENSIVE.getLevel()) {
                                             //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
+                                            bad++;
                                             continue; // out of coverage
                                         }
                                         String xpathStringHash = sm.xpt.getStringIDString(xp);
@@ -917,6 +932,7 @@ public class SurveyAjax extends HttpServlet {
                                 
                                     oldvotes.put("contested", contested);
                                     oldvotes.put("uncontested", uncontested);
+                                    oldvotes.put("bad", bad);
                                 }
                             }
                         

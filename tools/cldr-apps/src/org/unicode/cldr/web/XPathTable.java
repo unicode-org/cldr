@@ -777,7 +777,6 @@ public class XPathTable {
         return getByXpath(getByStringID(sid));
     }
     
-
     public String getByStringID(String id) {
         if(id==null) return null;
         Long l = Long.parseLong(id, 16);

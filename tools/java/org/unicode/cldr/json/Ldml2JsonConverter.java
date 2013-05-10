@@ -60,6 +60,8 @@ public class Ldml2JsonConverter {
             "The maximum coverage level of the output data")
         .add("fullnumbers", 'n', "(true|false)", "false",
             "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
+        .add("other", 'o', "(true|false)", "false",
+            "Whether to write out the 'other' section, which contains any unmatched paths")
         .add("konfig", 'k', ".*", "JSON_config.txt", "LDML to JSON configuration file");
 
     public static void main(String[] args) throws Exception {
@@ -399,7 +401,12 @@ public class Ldml2JsonConverter {
             closeNodes(out, nodesForLastItem.size() - 2, 0);
             String outFilename;
             outFilename = js.section + ".json";
-            writeToFile(outDirname, outFilename, out);
+            boolean writeOther = Boolean.parseBoolean(options.get("other").getValue());
+            if (js.section.equals("other") && !writeOther ) {
+                continue;
+            } else {
+                writeToFile(outDirname, outFilename, out);
+            }
 
             System.out.println(String.format("  %s = %d values", outFilename, valueCount));
         }

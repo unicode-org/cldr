@@ -43,6 +43,11 @@ public class IcuTextWriter {
             @Override
             public int compare(String arg0, String arg1) {
                 int min = Math.min(arg0.length(), arg1.length());
+                // Initialize counts to 1 in order to preserve 0s without having
+                // to keep track of previous identical digits.
+                // Assumes that there are no numbers in rbPaths with leading 0s.
+                int num0 = 1;
+                int num1 = 1;
                 for (int i = 0; i < min; ++i) {
                     int ch0 = arg0.charAt(i);
                     int ch1 = arg1.charAt(i);
@@ -50,15 +55,40 @@ public class IcuTextWriter {
                     if (diff == 0) {
                         continue;
                     }
-                    if (ch0 == '/') {
-                        return -1;
-                    } else if (ch1 == '/') {
-                        return 1;
-                    } else {
-                        return diff;
+                    // Numbers are sorted by the value of the entire number.
+                    boolean isDigit0 = Character.isDigit(ch0);
+                    boolean isDigit1 = Character.isDigit(ch1);
+                    if (!isDigit0 && !isDigit1) {
+                        if (num0 != num1) {
+                            return num0 - num1;
+                        } else if (ch0 == '/') {
+                            return -1;
+                        } else if (ch1 == '/') {
+                            return 1;
+                        } else {
+                            return diff;
+                        }
+                    }
+
+                    if (isDigit0) {
+                        num0 = num0 * 10 + Character.getNumericValue(ch0);
+                    }
+                    if (isDigit1) {
+                        num1 = num1 * 10 + Character.getNumericValue(ch1);
+                    }
+
+					// Evaluate numbers with different digit lengths.
+                    if (isDigit0 != isDigit1) {
+                        return num0 - num1;
                     }
                 }
-                return arg0.length() - arg1.length();
+                // Handle any numbers at the end of the rbPath.
+                if (num0 != num1) {
+                    return num0 - num1;
+                } else {
+                    return arg0.length() - arg1.length();
+                }
+                
             }
         };
 

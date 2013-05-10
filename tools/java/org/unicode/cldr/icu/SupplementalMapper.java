@@ -348,7 +348,6 @@ public class SupplementalMapper extends LdmlMapper {
             }
             setDateField(calendar, Calendar.DAY_OF_MONTH, type);
         }
-        String finalPattern = "yyyy-MM-dd HH:mm:ss.SSS";
         switch (type) {
         case from: {
             // Set the times for to fields to the beginning of the day.
@@ -367,7 +366,6 @@ public class SupplementalMapper extends LdmlMapper {
             break;
         }
         }
-        format.applyPattern(finalPattern);
         return calendar.getTimeInMillis();
     }
 
@@ -402,7 +400,8 @@ public class SupplementalMapper extends LdmlMapper {
      * @return
      */
     private static int countHyphens(String str) {
-        int lastPos = 0;
+        // Hyphens in front are actually minus signs.
+        int lastPos = 1;
         int numHyphens = 0;
         while ((lastPos = str.indexOf('-', lastPos + 1)) > -1) {
             numHyphens++;

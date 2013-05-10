@@ -193,7 +193,7 @@ define({
 		v_oldvotes_desc_uncontested_msg: "These are your votes which agreed with the winning value in previous CLDR ${version}.",
 		v_oldvotes_title_contested: "Losing Votes",
 		v_oldvotes_desc_contested_msg: "These are your votes which did not agree with the winning value in previous CLDR ${version}. You may choose to import them if you believe they still represent the best value.",
-		v_oldvotes_locale_list_help_msg: "Here is a list of locales which you have voted for in CLDR ${version} and previous. Click one to review and import these votes from the previous CLDR version.",
+		v_oldvotes_locale_list_help_msg: "Here is a list of locales which you have voted for in CLDR ${version} and previous. Click one to review and import these votes from the previous CLDR version. If you have already reviewed these locales, you may click “No and don't ask again” the next time the pop-up dialog appears. Note that some of the locales listed may have votes which are no longer valid in CLDR.",
 		v_oldvotes_return_to_locale_list: "Return to List of Locales with old votes",
 		v_oldvotes_path: "Path",
 		v_oldvotes_locale_msg: "These are your winning and losing votes for CLDR ${version} in ${locale}. Expand the section you want to work with, select or deselect items by clicking, and import votes.  By default, your old winning votes are selected for import, while your old losing votes are not.",

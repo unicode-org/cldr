@@ -43,10 +43,10 @@ public class Ldml2JsonConverter {
         "Usage: LDML2JsonConverter [OPTIONS] [FILES]\n" +
             "This program converts CLDR data to the JSON format.\n" +
             "Please refer to the following options. \n" +
-            "\texample: org.unicode.cldr.tool.Ldml2JsonConverter -c xxx -d yyy")
-        .add("commondir", ".*", CldrUtility.COMMON_DIRECTORY,
+            "\texample: org.unicode.cldr.json.Ldml2JsonConverter -c xxx -d yyy")
+        .add("commondir", 'c', ".*", CldrUtility.COMMON_DIRECTORY,
             "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
-        .add("destdir", ".*", CldrUtility.GEN_DIRECTORY,
+        .add("destdir", 'd', ".*", CldrUtility.GEN_DIRECTORY,
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
         .add("match", 'm', ".*", ".*",
             "Regular expression to define only specific locales or files to be generated")
@@ -62,7 +62,7 @@ public class Ldml2JsonConverter {
             "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
         .add("other", 'o', "(true|false)", "false",
             "Whether to write out the 'other' section, which contains any unmatched paths")
-        .add("konfig", 'k', ".*", "JSON_config.txt", "LDML to JSON configuration file");
+        .add("konfig", 'k', ".*", null, "LDML to JSON configuration file");
 
     public static void main(String[] args) throws Exception {
         options.parse(args, true);
@@ -119,48 +119,52 @@ public class Ldml2JsonConverter {
         this.match = match;
         this.coverageValue = Level.get(coverage).getLevel();
 
-        if (configFile != null) {
-            sections = new ArrayList<JSONSection>();
-            FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
-                @Override
-                protected boolean handleLine(int lineCount, String line) {
-                    String[] lineParts = line.trim().split("\\s*;\\s*");
-                    String key, value, section = null, path = null;
-                    boolean hasSection = false;
-                    boolean hasPath = false;
-                    for (String linePart : lineParts) {
-                        int pos = linePart.indexOf('=');
-                        if (pos < 0) {
-                            throw new IllegalArgumentException();
-                        }
-                        key = linePart.substring(0, pos);
-                        value = linePart.substring(pos + 1);
-                        if (key.equals("section")) {
-                            hasSection = true;
-                            section = value;
-                        } else if (key.equals("path")) {
-                            hasPath = true;
-                            path = value;
-                        }
-                        if (hasSection && hasPath) {
-                            JSONSection j = new JSONSection();
-                            j.section = section;
-                            j.matcher = Pattern.compile(path).matcher("");
-                            sections.add(j);
-                        }
+        sections = new ArrayList<JSONSection>();
+        FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
+            @Override
+            protected boolean handleLine(int lineCount, String line) {
+                String[] lineParts = line.trim().split("\\s*;\\s*");
+                String key, value, section = null, path = null;
+                boolean hasSection = false;
+                boolean hasPath = false;
+                for (String linePart : lineParts) {
+                    int pos = linePart.indexOf('=');
+                    if (pos < 0) {
+                        throw new IllegalArgumentException();
                     }
-
-                    return true;
+                    key = linePart.substring(0, pos);
+                    value = linePart.substring(pos + 1);
+                    if (key.equals("section")) {
+                        hasSection = true;
+                        section = value;
+                    } else if (key.equals("path")) {
+                        hasPath = true;
+                        path = value;
+                    }
+                    if (hasSection && hasPath) {
+                        JSONSection j = new JSONSection();
+                        j.section = section;
+                        j.matcher = Pattern.compile(path).matcher("");
+                        sections.add(j);
+                    }
                 }
-            };
-            myReader.process(Ldml2JsonConverter.class, configFile);
-            // Add a section at the end of the list that will match anything not already matched.
-            JSONSection j = new JSONSection();
-            j.section = "other";
-            j.matcher = Pattern.compile(".*").matcher("");
-            sections.add(j);
 
+                return true;
+            }
+        };
+
+        if (configFile != null) {
+           myReader.process(configFile);
+        } else {
+           myReader.process(Ldml2JsonConverter.class,"JSON_config.txt");
         }
+
+        // Add a section at the end of the list that will match anything not already matched.
+        JSONSection j = new JSONSection();
+        j.section = "other";
+        j.matcher = Pattern.compile(".*").matcher("");
+        sections.add(j);
+
     }
 
     /**
@@ -830,10 +834,6 @@ public class Ldml2JsonConverter {
      */
     public void processDirectory(String dirName, DraftStatus minimalDraftStatus)
         throws IOException, ParseException {
-        File dir = new File(outputDir + dirName);
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         Factory cldrFactory = Factory.make(
             cldrCommonDir + dirName + "/", ".*");
@@ -860,9 +860,13 @@ public class Ldml2JsonConverter {
 
             String outputDirname;
             if (dirName.equals(MAIN)) {
-                outputDirname = outputDir + dirName + File.separator + filename.replaceAll("_", "-");
+                outputDirname = outputDir + File.separator + filename.replaceAll("_", "-");
             } else {
-                outputDirname = outputDir + dirName;
+                outputDirname = outputDir + File.separator + dirName;
+            }
+            File dir = new File(outputDirname);
+            if (!dir.exists()) {
+                dir.mkdirs();
             }
             convertCldrItems(outputDirname, pathPrefix);
         }

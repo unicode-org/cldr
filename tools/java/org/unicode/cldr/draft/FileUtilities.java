@@ -95,9 +95,20 @@ public final class FileUtilities {
 
         }
 
+        public FileProcessor process(String fileName) {
+            try {
+                FileInputStream fileStream = new FileInputStream(fileName);
+                InputStreamReader reader = new InputStreamReader(fileStream, FileUtilities.UTF8);
+                BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
+                return process(bufferedReader, fileName);
+            } catch (Exception e) {
+                throw (RuntimeException) new IllegalArgumentException(lineCount + ":\t" + 0).initCause(e);
+            }
+        }
+
         public FileProcessor process(String directory, String fileName) {
             try {
-                FileInputStream fileStream = new FileInputStream(directory + "/" + fileName);
+                FileInputStream fileStream = new FileInputStream(directory + File.separator + fileName);
                 InputStreamReader reader = new InputStreamReader(fileStream, FileUtilities.UTF8);
                 BufferedReader bufferedReader = new BufferedReader(reader, 1024 * 64);
                 return process(bufferedReader, fileName);

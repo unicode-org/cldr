@@ -7,6 +7,8 @@
 package org.unicode.cldr.test;
 
 import java.util.BitSet;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -20,12 +22,18 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternPlaceholders;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.PrettyPrinter;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -115,11 +123,14 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private static UnicodeSet ASCII = (UnicodeSet) new UnicodeSet("[\\u0020-\\u007F]").freeze();
 
     private PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();
+    private SupplementalDataInfo sdi;
+    private Relation scriptToCurrencies;
 
     public CheckForExemplars(Factory factory) {
         super(factory);
         // patternPlaceholders = RegexLookup.of(new PlaceholderTransform())
         // .loadFromFile(PatternPlaceholders.class, "data/Placeholders.txt");
+        sdi = SupplementalDataInfo.getInstance();
     }
 
     /**
@@ -335,10 +346,12 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
         UnicodeSet disallowed;
 
-        if (path.contains("/currency") && path.endsWith("/symbol")) {
-            if (null != (disallowed = containsAllCountingParens(exemplarsPlusAscii, exemplarsPlusAscii, value))) {
+        if (path.contains("/currency") && path.contains("/symbol")) {
+            if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
                 disallowed.removeAll(ALL_CURRENCY_SYMBOLS);
-                if (disallowed.size() > 0) {
+                String currency = new XPathParts().set(path).getAttributeValue(-2, "type");
+                if (disallowed.size() > 0 &&
+                       asciiNotAllowed(getCldrFileToCheck().getLocaleID(), currency)) {
                     addMissingMessage(disallowed, CheckStatus.warningType,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
@@ -396,6 +409,82 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // .setMessage("This item must not contain two space characters in a row."));
         // }
         return this;
+    }
+
+    /**
+     * Checks if ASCII characters are allowed in a currency symbol in the specified locale.
+     * @param localeID the locale ID that the currency is in
+     * @param currency the currency to be checked
+     * @return true if ASCII is not allowed
+     */
+    private boolean asciiNotAllowed(String localeID, String currency) {
+        // Don't allow ascii at all for bidi scripts.
+        String charOrientation = getResolvedCldrFileToCheck().getStringValue(
+                "//ldml/layout/orientation/characterOrder");
+        if (charOrientation.equals("right-to-left")) {
+            return true;
+        }
+
+        // Get script of locale. if Latn, quit.
+        LocaleIDParser parser = new LocaleIDParser().set(localeID);
+        String script = parser.getScript();
+        if (script.length() == 0) {
+            localeID = sdi.getLikelySubtags().get(localeID);
+            if (localeID == null) {
+                localeID = sdi.getLikelySubtags().get(parser.getLanguage());
+                if (localeID == null) {
+                    throw new IllegalArgumentException(
+                            "A likely subtag for " + parser.getLanguage() +
+                            " is required to get its script.");
+                }
+            }
+            script = parser.set(localeID).getScript();
+        }
+        if (script.equals("Latn")) {
+            return false;
+        }
+
+        // Enforce checking of for other non-Latin scripts, for all currencies
+        // whose countries use that script, e.g. Russian should have Cyrillic
+        // currency symbols for modern currencies of countries with official
+        // languages whose script is Cyrillic (Bulgaria, Serbia, ...).
+        Set<String> currencies = getCurrenciesForScript(script);
+        return currencies != null && currencies.contains(currency);
+    }
+
+    private Set<String> getCurrenciesForScript(String script) {
+        if (scriptToCurrencies != null) return scriptToCurrencies.get(script);
+
+        // Get mapping of scripts to the territories that use that script in
+        // any of their primary languages.
+        Relation scriptToTerritories = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
+        for (String lang: sdi.getBasicLanguageDataLanguages()) {
+            BasicLanguageData langData = sdi.getBasicLanguageDataMap(lang).get(Type.primary);
+            if (langData == null) {
+                continue;
+            }
+            for (String curScript : langData.getScripts()) {
+                scriptToTerritories.putAll(curScript, langData.getTerritories());
+            }
+        }
+
+        // For each territory, get all of its legal tender currencies.
+        Date now = new Date(System.currentTimeMillis());
+        scriptToCurrencies = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
+        for (Object curScript : scriptToTerritories.keySet()) {
+            Set<String> territories = scriptToTerritories.get(curScript);
+            Set<String> currencies = new HashSet<String>();
+            for (String territory : territories) {
+                Set<CurrencyDateInfo> currencyInfo = sdi.getCurrencyDateInfo(territory);
+                for (CurrencyDateInfo info : currencyInfo) {
+                    if (info.isLegalTender() && info.getEnd().compareTo(now) > 0) {
+                        currencies.add(info.getCurrency());
+                    }
+                }
+            }
+            scriptToCurrencies.putAll(curScript, currencies);
+        }
+        return scriptToCurrencies.get(script);
     }
 
     /**

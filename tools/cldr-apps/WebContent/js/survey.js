@@ -2058,7 +2058,11 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	    	    stdebug("Ready for " + spanId);
 	            ready(function(){
 	            if(!ieb) {
-	                ieb = new InlineEditBox({editor: TextBox, autoSave: true, 
+	                ieb = new InlineEditBox({
+	                	dir: tr.theTable.json.dir,
+	                	editor: TextBox, 
+	                	editorParams:  { dir: tr.theTable.json.dir },
+	                	autoSave: true, 
 	                    onChange: function (newValue) {
 	                                  //  console.log("Destroyed -> "+ newValue);
 	                                   // remove dojo stuff..
@@ -2435,6 +2439,7 @@ function updateRow(tr, theRow) {
 		children[config.comparisoncell].isSetup=true;
 	}
 	removeAllChildNodes(children[config.proposedcell]); // win
+	children[config.proposedcell].dir = tr.theTable.json.dir;
 	tr.proposedcell = children[config.proposedcell];
 	if(theRow.items&&theRow.winningVhash) {
 		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
@@ -2447,6 +2452,7 @@ function updateRow(tr, theRow) {
 	
 	var hadOtherItems  = false;
 	removeAllChildNodes(children[config.othercell]); // other
+	children[config.othercell].dir = tr.theTable.json.dir;
 	for(k in theRow.items) {
 		if(k == theRow.winningVhash) {
 			continue; // skip the winner

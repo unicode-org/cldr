@@ -477,7 +477,11 @@ public class LocaleMapper extends LdmlMapper {
         LanguageTagParser parser = new LanguageTagParser().set(localeID);
         String region = localeID.equals("root") ? "001" : parser.getRegion();
         if (region.equals("")) {
-            parser.set(supplementalDataInfo.getLikelySubtags().get(parser.getLanguage()));
+            localeID = supplementalDataInfo.getLikelySubtags().get(parser.getLanguage());
+            if (localeID == null) {
+                throw new RuntimeException("Likely subtag not found for " + parser.getLanguage());
+            }
+            parser.set(localeID);
             region = parser.getRegion();
             if (region == null) region = "001";
         }

@@ -385,6 +385,12 @@ public class DBUtils {
         }
     }
 
+    /**
+     * Returns an integer value (such as a count) from the specified sql.
+     * @param sql
+     * @param args
+     * @return
+     */
     public static int sqlCount(String sql, Object... args) {
         Connection conn = null;
         PreparedStatement ps = null;
@@ -601,10 +607,10 @@ public class DBUtils {
         SurveyLog.debug("setting up SQL for database type " + dbInfo);
         if (dbInfo.contains("Derby")) {
             db_Derby = true;
-            System.err.println("Note: derby mode");
+            System.err.println("Note: Derby (embedded) mode. ** some features may not work as expected **");
             db_UnicodeType = java.sql.Types.VARCHAR;
         } else if (dbInfo.contains("MySQL")) {
-            System.err.println("Note: mysql mode");
+            System.err.println("Note: MySQL mode");
             db_Mysql = true;
             DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
             DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";

@@ -401,18 +401,20 @@ public class SurveyForum {
      */
     void doXpathPost(WebContext ctx, String forum, int forumNumber, int base_xpath) throws IOException {
         String fieldStr = ctx.field("replyto", null);
-        int postToXpath = ctx.fieldInt("replyto", -1);
+        int replyTo = ctx.fieldInt("replyto", -1);
         boolean isNewPost = false;
         if (forum.isEmpty()) {
             forum = localeToForum(ctx.getLocale().toULocale());
             forumNumber = getForumNumber(forum);
         }
-        if (postToXpath == -1 && fieldStr.startsWith("x")) {
+        if (replyTo == -1 && fieldStr.startsWith("x")) {
             base_xpath = Integer.parseInt(fieldStr.substring(1));
             isNewPost = true;
+        } else {
+            // is this a reply? get base xpath from parent item.
+            base_xpath = DBUtils.sqlCount("select xpath from " + DB_POSTS + " where id=?", replyTo); // default to -1
         }
         // if(postToXpath!=-1) base_xpath = postToXpath;
-        int replyTo = ctx.fieldInt("replyto", -1);
         String xpath = sm.xpt.getById(base_xpath);
 
         // Don't want to call printHeader here - becasue if we do a post, we're
@@ -463,7 +465,7 @@ public class SurveyForum {
                         pAdd.setString(2, subj);
                         pAdd.setString(3, preparePostText(text));
                         pAdd.setInt(4, forumNumber);
-                        pAdd.setInt(5, -1); // no parent
+                        pAdd.setInt(5, replyTo); // record parent
                         pAdd.setString(6, ctx.getLocale().toString()); // real
                                                                        // locale
                                                                        // of
@@ -507,7 +509,7 @@ public class SurveyForum {
 
                 String body = "Do not reply to this message, instead go to http://st.unicode.org" 
                         + forumUrl(ctx, forum)
-                        + "\n"
+                        + "#post"+postId+"\n"
                         + "====\n\n"
                         + text;
 
@@ -515,7 +517,7 @@ public class SurveyForum {
 
                 System.err.println(et.toString() + " - # of users:" + emailCount);
 
-                ctx.redirect(ctx.base() + "?_=" + ctx.getLocale().toString() + "&" + F_FORUM + "=" + forum + "&didpost=t");
+                ctx.redirect(ctx.base() + "?_=" + ctx.getLocale().toString() + "&" + F_FORUM + "=" + forum + "#post"+postId);
                 return;
 
             } else {
@@ -894,7 +896,7 @@ public class SurveyForum {
     static final int MSGS_PER_PAGE = 9925;
 
     private void doForumForum(WebContext ctx, String forum, int forumNumber) {
-        boolean didpost = ctx.hasField("didpost");
+//        boolean didpost = ctx.hasField("didpost");
         int skip = ctx.fieldInt("skip", 0);
         int count = 0;
 
@@ -905,9 +907,9 @@ public class SurveyForum {
         ctx.print(forumFeedIcon(ctx, forum));
 
         ctx.println("<hr>");
-        if (didpost) {
-            ctx.println("<b>Posted your response. Click \"View Item\" to return to a particular forum post.</b><hr>");
-        }
+//        if (didpost) {
+//            ctx.println("<b>Posted your response. Click \"View Item\" to return to a particular forum post.</b><hr>");
+//        }
 
         ctx.println("<a href='" + forumUrl(ctx, forum) + "&amp;replyto='><b>+</b> " + POST_SPIEL + "</a><br>");
 
@@ -1042,9 +1044,15 @@ public class SurveyForum {
     void showPost(WebContext ctx, String forum, int poster, String subj, String text, int id, Timestamp time, CLDRLocale loc,
             int xpath) {
         boolean old = time.before(oldOnOrBefore);
-        ctx.println("<div " + (old ? "style='background-color: #dde;' " : "") + " class='respbox'>");
+        // get the parent link
+        int parentPost = DBUtils.sqlCount("select parent from " + DB_POSTS + " where id=?", id);
+        
+        ctx.println("<div id='post"+id+"' " + (old ? "style='background-color: #dde;' " : "") + " class='respbox'>");
         if (old) {
             ctx.println("<i style='background-color: white;'>Note: This is an old post, from a previous period of CLDR vetting.</i><br><br>");
+        }
+        if(parentPost>0) {
+            ctx.println("<span class='reply'><a href='#post"+parentPost+"'>(show parent post)</a></span>");
         }
         String name = getNameLinkFromUid(ctx, poster);
         ctx.println("<div class='person'><a " + ctx.atarget() + " href='" + ctx.url() + "?x=list&u=" + poster + "'>" + name
@@ -1057,10 +1065,12 @@ public class SurveyForum {
         if (xpath != -1) {
             ctx.println("<span class='reply'><a href='" + forumItemUrl(ctx, loc, xpath) + "'>View Item</a></span> * ");
         }
-        ctx.println("<span class='reply'><a href='" + forumUrl(ctx, forum) + ((loc != null) ? ("&_=" + loc) : "") + "&" + F_DO
-                + "=" + F_REPLY + "&replyto=" + id + "#replyto'>Reply</a></span>");
+        if(!old) { // don't reply to old posts  
+            ctx.println("<span class='reply'><a href='" + forumUrl(ctx, forum) + ((loc != null) ? ("&_=" + loc) : "") + "&" + F_DO
+                    + "=" + F_REPLY + "&replyto=" + id + "#replyto'>Reply</a></span>");
+        }
         ctx.println("</div>");
-        ctx.println("<h3>" + subj + " </h3>");
+        ctx.println("<h3><a href='#post"+id+"'>" + subj + "</a></h3>");
 
         ctx.println("<div class='response'>" + preparePostText(text) + "</div>");
         ctx.println("</div>");
@@ -1254,7 +1264,7 @@ public class SurveyForum {
         if (DBUtils.db_Mysql) {
             locindex = "loc(999)";
         }
-
+        
         if (!DBUtils.hasTable(conn, DB_FORA)) { // user attribute
             Statement s = conn.createStatement();
             what = DB_FORA;

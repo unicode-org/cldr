@@ -951,7 +951,12 @@ padding: 1px;
 	padding: 0.5em;
 }
 
-.respbox h3 {
+div.respbox:target {
+	border: 4px solid goldenrod !important;
+	padding: 1em;
+}
+
+.respbox h3, .respbox h3 a {
 	color: #084610;
 	margin: 2px;
 }

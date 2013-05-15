@@ -887,7 +887,7 @@ public class DBUtils {
      * @param args
      * @throws SQLException
      */
-    private static void setArgs(PreparedStatement ps, Object... args) throws SQLException {
+    public static void setArgs(PreparedStatement ps, Object... args) throws SQLException {
         if (args != null) {
             for (int i = 0; i < args.length; i++) {
                 Object o = args[i];

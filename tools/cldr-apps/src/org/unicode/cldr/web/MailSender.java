@@ -172,11 +172,15 @@ public class MailSender implements Runnable {
             if(countDeleted > 0) {
                 System.out.println("MailSender:  reaped " + countDeleted + " expired messages");
             }
-            
-            int firstTime = SurveyMain.isUnofficial()?5:500;  // for official use, give some time for ST to settle before starting on mail s ending.
-            int eachTime = SurveyMain.isUnofficial()?6:45; // 63;
-            periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
-            System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = " + db.sqlCount(COUNTLEFTSQL));
+
+            if(DBUtils.db_Derby) {
+                SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
+            } else {
+                int firstTime = SurveyMain.isUnofficial()?5:500;  // for official use, give some time for ST to settle before starting on mail s ending.
+                int eachTime = SurveyMain.isUnofficial()?6:45; // 63;
+                periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
+                System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = " + db.sqlCount(COUNTLEFTSQL));
+            }
         } catch(SQLException se) {
             SurveyMain.busted("Cant set up " + CLDR_MAIL, se);
         } finally {
@@ -241,8 +245,36 @@ public class MailSender implements Runnable {
         try {
             DBUtils db = DBUtils.getInstance();
             conn = db.getDBConnection();
-            s2 = db.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "(sender, "+USER+",subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)", 
-                    fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow(), ccstr, locale, xpath, post);
+            final String sql = "INSERT INTO " + CLDR_MAIL + "(sender, "+USER+",subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)";
+            if(!DBUtils.db_Derby) { // hack around derby
+                s2 = db.prepareStatementWithArgs(conn, sql, 
+                        fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow(), 
+                        ccstr, locale, xpath, post);
+                
+            } else {
+                s2 = db.prepareStatementWithArgs(conn, sql, 
+                        fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow()); // just the ones that can't be null
+                if(ccstr == null) {
+                    s2.setNull(6, java.sql.Types.VARCHAR);
+                } else {
+                    s2.setString(6, ccstr);
+                }
+                if(locale==null) {
+                    s2.setNull(7, java.sql.Types.VARCHAR);
+                } else {
+                    s2.setString(7, locale.getBaseName());
+                }
+                if(xpath==null) {
+                    s2.setNull(8, java.sql.Types.INTEGER);
+                } else {
+                    s2.setInt(8,  xpath);
+                }
+                if(post==null) {
+                    s2.setNull(9, java.sql.Types.INTEGER);
+                } else {
+                    s2.setInt(9, xpath);
+                }
+            }
             s2.execute();
             conn.commit();
             log("user#"+toUser,"Enqueued mail:"+subject,null);
@@ -304,22 +336,6 @@ public class MailSender implements Runnable {
           // set up some presets
         return env;
     }
-
-//    private synchronized void queue(MimeMessage ourMessage) throws MessagingException {
-//        messageQueue.addFirst(ourMessage);
-//        System.err.println("Mail: Enqueued (queue size " + messageQueue.size() + ")");
-//        if (!isAlive()) {
-//            System.err.println("Mail: Starting thread (queue size " + messageQueue.size() + ")");
-//            start();
-//        }
-//    }
-    
-//    public void kick() {
-//        if (!isAlive()) {
-//            System.err.println("Mail: Starting thread (queue size " + messageQueue.size() + ")");
-//            start();
-//        }
-//    }
     
     private int lastIdProcessed=-1; // spinner 
 

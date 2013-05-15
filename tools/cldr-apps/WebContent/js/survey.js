@@ -4208,6 +4208,85 @@ function showV() {
 						}
 						hideLoader(null);
 					});
+				} else if(surveyCurrentSpecial == 'mail') {
+					var url = contextPath + "/SurveyAjax?what=mail&s="+surveySessionId+"&fetchAll=true&"+cacheKill();
+					myLoad(url, "(loading mail " + surveyCurrentLocale + ")", function(json) {
+						hideLoader(null,stui.loading2);
+						if(!verifyJson(json, 'mail')) {
+							return;
+						} else {
+							if(json.dataLoadTime) {
+								updateIf("dynload", json.dataLoadTime);
+							}
+							
+							var theDiv = flipper.flipToEmpty(pages.other); // clean slate, and proceed..
+
+							removeAllChildNodes(theDiv);
+							
+							var listDiv = createChunk("","div","mailListChunk");
+							var contentDiv = createChunk("","div","mailContentChunk");
+							
+							
+							theDiv.appendChild(listDiv);
+							theDiv.appendChild(contentDiv);
+							
+							setDisplayed(contentDiv,false);
+							var header = json.mail.header;
+							var data = json.mail.data;
+							
+							if(data.length == 0) {
+								listDiv.appendChild(createChunk(stui.str("mail_noMail"),"p","helpContent"));
+							} else {
+								for(var ii in data) {
+									var row = data[ii];
+									var li = createChunk(row[header.QUEUE_DATE] + ": " + row[header.SUBJECT], "li", "mailRow");
+									if(row[header.READ_DATE]) {
+										addClass(li,"readMail");
+									}
+									if(header.USER !== undefined) {
+										li.appendChild(document.createTextNode("(to "+row[header.USER]+")"));
+									}
+									if(row[header.SENT_DATE] !== false) {
+										li.appendChild(createChunk("(sent)", "span", "winner"));
+									} else  if(row[header.TRY_COUNT]>=3) {
+										li.appendChild(createChunk("(try#"+row[header.TRY_COUNT]+")", "span", "loser"));
+									} else  if(row[header.TRY_COUNT]> 0) {
+										li.appendChild(createChunk("(try#"+row[header.TRY_COUNT]+")", "span", "warning"));
+									}
+									listDiv.appendChild(li);
+									
+									li.onclick = (function(li,row,header) {
+										return function() {
+									 	  if(!row[header.READ_DATE])
+											myLoad(contextPath + "/SurveyAjax?what=mail&s="+surveySessionId+"&markRead="+row[header.ID]+"&"+cacheKill(), 'Marking mail read', function(json) {
+												if(!verifyJson(json, 'mail')) {
+													return;
+												} else {
+													addClass(li, "readMail"); // mark as read when server answers
+													row[header.READ_DATE]=true; // close enough
+												}
+											});
+									 	  
+									 	  setDisplayed(contentDiv, false);
+									 	  
+									 	  removeAllChildNodes(contentDiv);
+									 	  
+									 	  contentDiv.appendChild(createChunk("Date: " + row[header.QUEUE_DATE], "h2", "mailHeader"));
+									 	  contentDiv.appendChild(createChunk("Subject: " + row[header.SUBJECT], "h2", "mailHeader"));
+									 	  contentDiv.appendChild(createChunk("Message-ID: " + row[header.ID], "h2", "mailHeader"));
+											if(header.USER !== undefined) {
+											 	  contentDiv.appendChild(createChunk("To: " + row[header.USER], "h2", "mailHeader"));
+											}
+									 	  contentDiv.appendChild(createChunk(row[header.TEXT], "p", "mailContent"));
+									 	  
+									 	  setDisplayed(contentDiv, true);
+										};
+									})(li, row, header);
+								}
+							}
+							
+						}
+					});
 				} else if(surveyCurrentSpecial == 'none') {
 					//for now - redurect
 					hideLoader(null);
@@ -4785,7 +4864,7 @@ function loadAdminPanel() {
 				removeAllChildNodes(stack);
 				stack.innerHTML = stui.str("adminClickToViewThreads");
 				if(json.threads.dead) {
-					frag2.appendChunk(json.threads.dead.toString(),"span","adminDeadThreads");
+					frag2.appendChild(json.threads.dead.toString(),"span","adminDeadThreads");
 					// TODO
 				}
 				for(id in json.threads.all) {

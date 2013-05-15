@@ -188,7 +188,7 @@ public class SurveyForum {
         return num;
     }
 
-    public int gatherInterestedUsers(String forum, Set<String> cc_emails, Set<String> bcc_emails) {
+    public int gatherInterestedUsers(String forum, Set<Integer> cc_emails, Set<Integer> bcc_emails) {
         int emailCount = 0;
         try {
             Connection conn = null;
@@ -206,9 +206,9 @@ public class SurveyForum {
                     UserRegistry.User u = sm.reg.getInfo(uid);
                     if (u != null && u.email != null && u.email.length() > 0 && !UserRegistry.userIsLocked(u)) {
                         if (UserRegistry.userIsVetter(u)) {
-                            cc_emails.add(u.email);
+                            cc_emails.add(u.id);
                         } else {
-                            bcc_emails.add(u.email);
+                            bcc_emails.add(u.id);
                         }
                         emailCount++;
                     }
@@ -449,6 +449,8 @@ public class SurveyForum {
                 if (forumNumber == BAD_FORUM) {
                     throw new RuntimeException("Bad forum: " + forum);
                 }
+                
+                Integer postId = null;
 
                 try {
                     Connection conn = null;
@@ -472,6 +474,7 @@ public class SurveyForum {
 
                         int n = pAdd.executeUpdate();
                         conn.commit();
+                        postId = DBUtils.getLastId(pAdd);
 
                         if (n != 1) {
                             throw new RuntimeException("Couldn't post to " + forum + " - update failed.");
@@ -491,8 +494,8 @@ public class SurveyForum {
                 ElapsedTimer et = new ElapsedTimer("Sending email to " + forum);
                 int emailCount = 0;
                 // Do email-
-                Set<String> cc_emails = new HashSet<String>();
-                Set<String> bcc_emails = new HashSet<String>();
+                Set<Integer> cc_emails = new HashSet<Integer>();
+                Set<Integer> bcc_emails = new HashSet<Integer>();
 
                 emailCount = gatherInterestedUsers(forum, cc_emails, bcc_emails);
 
@@ -508,23 +511,7 @@ public class SurveyForum {
                         + "====\n\n"
                         + text;
 
-                if (!bcc_emails.isEmpty()) {
-                    MailSender.sendBccMail(smtp, null, null, from, bcc_emails, subject, body);
-                }
-                if (!cc_emails.isEmpty()) {
-                    String theFrom = from;
-                    if (UserRegistry.userIsVetter(ctx.session.user)) {
-                        theFrom = ctx.session.user.email;
-                        if (theFrom.equals("admin@")) {
-                            theFrom = from;
-                        }
-                        // cc mails, of Vetters, get to see the From address, if
-                        // they themselves are a vetter.
-                        MailSender.sendCcMail(smtp, theFrom, ctx.session.user.name, from, cc_emails, subject, body);
-                    } else {
-                        MailSender.sendCcMail(smtp, null, null, from, cc_emails, subject, body);
-                    }
-                }
+                MailSender.getInstance().queue(ctx.userId(), cc_emails, bcc_emails, subject, body, ctx.getLocale(), base_xpath, postId );
 
                 System.err.println(et.toString() + " - # of users:" + emailCount);
 

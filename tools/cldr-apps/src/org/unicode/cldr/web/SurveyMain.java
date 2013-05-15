@@ -721,12 +721,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     }
                     u.org = ctx.field("new_org").trim();
                     String randomEmail = UserRegistry.makePassword(null) + "@" + UserRegistry.makePassword(null).substring(0, 4)
-                            + "." + u.org + ".example.com";
+                            + "." + u.org.replaceAll("_","-") + ".example.com";
                     // String randomName =
                     // UserRegistry.makePassword(null).substring(0,5);
                     String randomPass = UserRegistry.makePassword(null);
                     u.name = newRealName.toString() + "_TESTER_";
-                    u.email = newRealName + "_" + randomEmail.trim();
+                    u.email = newRealName + "." + randomEmail.trim();
                     u.locales = ctx.field("new_locales").trim();
                     u.password = randomPass;
                     u.userlevel = ctx.fieldInt("new_userlevel", -1);
@@ -2541,7 +2541,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (ctx.field(LIST_MAILUSER_CONFIRM).equals(cleanEmail)) {
                 ctx.println("<h1>sending mail to users...</h4>");
                 didConfirmMail = true;
-                mailBody = "Message from " + getRequester(ctx) + ":\n--------\n" + sendWhat
+                mailBody = "SurveyTool Message ---\n" + sendWhat
                         + "\n--------\n\nSurvey Tool: http://st.unicode.org" + /*
                                                                                 * ctx
                                                                                 * .
@@ -2550,7 +2550,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                                                 * )
                                                                                 * +
                                                                                 */ctx.base() + "\n\n";
-                mailSubj = "CLDR SurveyTool message from " + getRequester(ctx);
+                mailSubj = "CLDR SurveyTool message from " + ctx.session.user.name;
                 if (!areSendingDisp) {
                     areSendingMail = true; // we are ready to go ahead and
                                            // mail..
@@ -2714,8 +2714,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                     if (areSendingMail && (theirLevel < UserRegistry.LOCKED)) {
                         ctx.print("<td class='framecell'>");
-                        mailUser(ctx, theirEmail, mailSubj, mailBody);
-                        ctx.println("</td>");
+                        MailSender.getInstance().queue(ctx.userId(), theirId, mailSubj, mailBody);
+                        ctx.println("(queued)</td>");
                     }
                     // first: DO.
 
@@ -4147,61 +4147,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return buf.toString();
     }
 
-    void mailUser(WebContext ctx, String theirEmail, String subject, String message) {
-        CLDRConfig survprops = CLDRConfig.getInstance();
-        String from = survprops.getProperty("CLDR_FROM", "nobody@example.com");
-        mailUser(ctx, getRequesterEmail(ctx), getRequesterName(ctx), theirEmail, subject, message);
-    }
-
-    void mailUser(WebContext ctx, String mailFromAddress, String mailFromName, String theirEmail, String subject, String message) {
-        CLDRConfig survprops = CLDRConfig.getInstance();
-        String requester = getRequester(ctx);
-        String from = survprops.getProperty("CLDR_FROM", "nobody@example.com");
-        String smtp = survprops.getProperty("CLDR_SMTP", null);
-
-        if (smtp == null) {
-            if(ctx!=null) {
-                ctx.println(ctx.iconHtml("okay", "mail sent") + "<i>Not sending mail- SMTP disabled.</i><br/>");
-                ctx.println("<hr/><pre>" + message + "</pre><hr/>");
-            }
-            smtp = "NONE";
-            MailSender.log(theirEmail, subject+"="+message,null);
-        } else {
-            MailSender.sendMail(smtp, mailFromAddress, mailFromName, from, theirEmail, subject, message);
-            if(ctx != null) {
-                ctx.println("<br>" + ctx.iconHtml("okay", "mail sent") + "Mail sent to " + theirEmail + " from " + from + " via "
-                        + smtp + "<br/>\n");
-            }
-        }
-        SurveyLog.logger.info("Mail queued to " + theirEmail + "  from " + from + " via " + smtp + " - " + subject);
-        /* some debugging. */
-    }
-
-    String getRequesterEmail(WebContext ctx) {
-        if(ctx==null) return "surveytool@unicode.org";
-        String cleanEmail = ctx.session.user.email;
-        if (cleanEmail.equals("admin@")) {
-            cleanEmail = "surveytool@unicode.org";
-        }
-        return cleanEmail;
-    }
-
-    String getRequesterName(WebContext ctx) {
-        if(ctx==null) return "SurveyTool Administration";
-        return ctx.session.user.name;
-    }
-
-    String getRequester(WebContext ctx) {
-        String requester = getRequesterName(ctx) + " <" + getRequesterEmail(ctx) + ">";
-        return requester;
-    }
-
     void notifyUser(WebContext ctx, String theirEmail, String pass) {
+        UserRegistry.User u = reg.get(theirEmail);
         String whySent;
         String subject = "CLDR Registration for " + theirEmail;
+        Integer fromId ;
         if(ctx!=null) {
-           whySent =  getRequester(ctx) + " is notifying you of the CLDR vetting account for you.\n";
+            fromId = ctx.userId();
+             whySent =  "You are being notified of the CLDR vetting account for you.\n";
          } else {
+             fromId = null;
              whySent = "Your CLDR vetting account information is being sent to you\r\n\r\n";
          }
         String body = whySent + "To access it, visit: \n<"
@@ -4213,8 +4168,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 "\n" + "Or you can visit\n   <" + defaultBase + ">\n    username: " + theirEmail
                 + "\n    password: " + pass + "\n" + "\n" + " Please keep this link to yourself. Thanks.\n"
                 + " Follow the 'Instructions' link on the main page for more help.\n" + " \n";
-        
-        mailUser(ctx, theirEmail, subject, body);
+        MailSender.getInstance().queue(fromId, u.id, subject, body);
     }
 
     /**
@@ -5732,13 +5686,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // private List<PeriodicTask> periodicTasks = null;
 
-    private static synchronized ScheduledExecutorService getTimer() {
+    public static synchronized ScheduledExecutorService getTimer() {
         if (surveyTimer == null) {
-            surveyTimer = Executors.newSingleThreadScheduledExecutor();
+            surveyTimer = Executors.newScheduledThreadPool(2);
         }
         return surveyTimer;
     }
 
+    /**
+     * Periodic task for file output
+     * @param task
+     * @return
+     */
     public static ScheduledFuture<?> addPeriodicTask(Runnable task) {
         final boolean CLDR_QUICK_DAY = CldrUtility.getProperty("CLDR_QUICK_DAY", false);
         int firstTime = isUnofficial() ? 15 : 30;
@@ -5964,6 +5923,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             progress.update("Making your Survey Tool happy..");
 
+            if(isBusted == null) {
+                MailSender.getInstance();
+            }
+            
             if (!CldrUtility.getProperty("CLDR_NOUPDATE", false)) {
                 getOutputFileManager().addUpdateTasks();
             }
@@ -6099,6 +6062,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public void destroy() {
+        ElapsedTimer destroyTimer = new ElapsedTimer("SurveyTool destroy()");
         CLDRProgressTask progress = openProgress("shutting down");
         try {
             SurveyLog.logger.warning("SurveyTool shutting down..");
@@ -6106,42 +6070,49 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 progress.update("Attempting clean shutdown...");
                 startupThread.attemptCleanShutdown();
             }
-            progress.update("shutting down mail...");
+            progress.update("shutting down mail... " + destroyTimer);
             MailSender.shutdown();
             if (surveyTimer != null) {
                 progress.update("Shutting down timer...");
+                int patience = 20;
+                surveyTimer.shutdown();
+                Thread.yield();
                 while (surveyTimer != null && !surveyTimer.isTerminated()) {
                     try {
-                        System.err.println("Still Shutting down timer.. " + surveyTimer.toString());
+                        System.err.println("Still Shutting down timer.. " + surveyTimer.toString() + destroyTimer);
                         if (surveyTimer.awaitTermination(2, TimeUnit.SECONDS)) {
-                            System.err.println("Timer thread is down.");
+                            System.err.println("Timer thread is down." + destroyTimer);
                             surveyTimer = null;
                         } else {
-                            System.err.println("Timer thread is still running. Attempting TerminateNow.");
+                            System.err.println("Timer thread is still running. Attempting TerminateNow." + destroyTimer);
                             surveyTimer.shutdownNow();
                         }
                         Thread.yield();
+                        if(--patience < 0) {
+                            System.err.println("=========== patience exceeded. ignoring errant surveyTimer. ==========\n");
+                            surveyTimer = null;
+                        }
                     } catch (InterruptedException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
                 }
                 surveyTimer = null;
-                System.err.println("Timer thread cancelled.");
+                System.err.println("Timer thread cancelled." + destroyTimer);
                 Thread.yield();
             }
-            progress.update("Shutting down database...");
+            progress.update("Shutting down database..." + destroyTimer);
             doShutdownDB();
-            progress.update("Shutting down SVN...");
+            progress.update("Shutting down SVN..." + destroyTimer);
             getOutputFileManager().svnShutdown();
             outputFileManager = null;
-            progress.update("Destroying servlet...");
+            progress.update("Destroying servlet..." + destroyTimer);
             if (isBusted != null)
-                isBusted = "servlet destroyed";
+                isBusted = "servlet destroyed + destroyTimer";
             super.destroy();
         } finally {
             progress.close();
-            System.out.println("------------------- end of SurveyMain.destroy() ------------"+uptime);
+            System.out.println("------------------- end of SurveyMain.destroy() ------------"+uptime + destroyTimer);
         }
     }
 

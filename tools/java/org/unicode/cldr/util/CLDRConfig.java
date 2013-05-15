@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -13,7 +14,11 @@ import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 
-public class CLDRConfig {
+public class CLDRConfig extends Properties {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -2605254975303398336L;
     public static boolean DEBUG = false;
     private static CLDRConfig INSTANCE = null;
     public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
@@ -58,7 +63,7 @@ public class CLDRConfig {
     private CLDRFile english;
     private CLDRFile root;
     private RuleBasedCollator col;
-    private Phase phase = Phase.SUBMISSION; // default
+    private Phase phase = null; // default
 
     private TestLog testLog = null;
 
@@ -147,10 +152,18 @@ public class CLDRConfig {
         return col;
     }
 
-    public Phase getPhase() {
+    public synchronized Phase getPhase() {
+        if(phase == null) {
+            if(getEnvironment() == Environment.UNITTEST) {
+                phase = Phase.BUILD;
+            } else {
+                phase = Phase.SUBMISSION;
+            }
+        }
         return phase;
     }
 
+    @Override
     public String getProperty(String key, String d) {
         String result = getProperty(key);
         if (result == null) return d;
@@ -161,6 +174,12 @@ public class CLDRConfig {
     
     private Map<String, String> localSet = null; 
 
+    @Override
+    public String get(Object key) {
+        return getProperty(key.toString());
+    }
+    
+    @Override
     public String getProperty(String key) {
         String result = null;
         if(localSet!=null) {
@@ -208,15 +227,22 @@ public class CLDRConfig {
      * For test use only. Will throw an exception in non test environments.
      * @param k
      * @param v
+     * @return 
      */
-    public  void setProperty(String k, String v) {
+    @Override
+    public  Object setProperty(String k, String v) {
         if(getEnvironment()!=Environment.UNITTEST) {
             throw new InternalError("setProperty() only valid in UNITTEST Environment.");
         }
         if(localSet==null) {
             localSet = new ConcurrentHashMap<String, String>();
         }
-        localSet.put(k, v);
         shown.remove(k); // show it again with -D
+        return localSet.put(k, v);
+    }
+    
+    @Override
+    public Object put(Object k, Object v) {
+        return setProperty(k.toString(), v.toString());
     }
 }

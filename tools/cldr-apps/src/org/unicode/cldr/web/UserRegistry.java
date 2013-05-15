@@ -1315,7 +1315,6 @@ public class UserRegistry {
                 logger.severe("Error in password reset: " + n + " updated removed!");
             } else {
                 msg = msg + "OK";
-                
                 sm.notifyUser(null, forEmail, newPassword);
             }
         } catch (SQLException se) {
@@ -1332,6 +1331,7 @@ public class UserRegistry {
 
     public String lockAccount(String forEmail, String reason, String ip) {
         String msg = "";
+        User u = this.get(forEmail);
         logger.info("** Attempt LOCK " + forEmail + " from " + ip  + " reason " + reason);
         String newPassword = CookieSession.newId(false);
         if(newPassword.length() > 10 ) {
@@ -1362,7 +1362,7 @@ public class UserRegistry {
                 logger.severe("Error in LOCK: " + n + " updated removed!");
             } else {
                 msg = msg + "OK";
-                sm.mailUser(null, "surveytool@unicode.org", "User Locked: " + forEmail, "User account locked: " + ip + " reason=" + reason);
+                MailSender.getInstance().queue(null, 1, "User Locked: " + forEmail, "User account locked: " + ip + " reason=" + reason + " - " + u);
             }
         } catch (SQLException se) {
             SurveyLog.logException(se, "Locking account for user " + forEmail + " from " + ip);

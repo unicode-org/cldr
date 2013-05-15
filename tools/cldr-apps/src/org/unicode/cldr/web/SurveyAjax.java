@@ -62,6 +62,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  * 
  */
 public class SurveyAjax extends HttpServlet {
+    public static final String E_NO_ACCESS = "E_NO_ACCESS";
     final boolean DEBUG = true || SurveyLog.isDebug();
     public final static String WHAT_MY_LOCALES = "mylocales";
 
@@ -604,6 +605,30 @@ public class SurveyAjax extends HttpServlet {
                         r.put("xpath", xpath);
                         r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
 
+                        send(r, out);
+                    } else if(what.equals("mail")) {
+                        JSONWriter r = newJSONStatus(sm);
+                        if(mySession.user==null) { 
+                            r.put("err", "Not logged in.");
+                            r.put("err_code", E_NO_ACCESS);
+                        } else {
+                            
+                            String fetchAll = request.getParameter("fetchAll");
+                            int markRead = -1;
+                            if(request.getParameter("markRead")!=null) {
+                                markRead = Integer.parseInt(request.getParameter("markRead"));
+                            }
+                            
+                            if(fetchAll!=null) {
+                                r.put("mail", MailSender.getInstance().getMailFor(mySession.user.id));
+                            } else if(markRead!=-1) {
+                                if(MailSender.getInstance().setRead(mySession.user.id, markRead)) {
+                                    r.put("mail","true");
+                                } else {
+                                    r.put("mail",  "false"); // failed to mark
+                                }
+                            }
+                        }
                         send(r, out);
                     } else if (what.equals(WHAT_GET_MENUS)) {
                         

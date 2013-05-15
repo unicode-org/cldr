@@ -223,15 +223,18 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         return survprops.getProperty(key);
     }
 
-    public void setProperty(String key, String value) {
+    public Object setProperty(String key, String value) {
         if (key.equals("CLDR_HEADER")) {
             System.err.println(">> CLDRConfig set " + key + " = " + value);
             if (value == null || value.isEmpty()) {
                 survprops.setProperty(key, "");
                 survprops.remove(key);
+                return null;
             } else {
-                survprops.setProperty(key, value);
+                return survprops.setProperty(key, value);
             }
+        } else {
+            return null;
         }
     }
 

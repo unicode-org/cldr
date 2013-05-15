@@ -2893,3 +2893,43 @@ span.editableHere:hover {
     background: url(lock.png) no-repeat 0 top;
 }
 
+.mailListChunk, .mailContentChunk {
+    width: 48%;
+    display:  inline-block;
+    vertical-align: top;
+}
+
+.mailListChunk .loser {
+    border: 1px dashed red;
+    background-color: #fdd;
+}
+.mailListChunk .warning {
+    border: 1px solid yellow;
+}
+
+.mailContentChunk {
+    border:  1px solid gray;
+    padding:  0.5em;
+}
+
+h2.mailHeader {
+    margin: 0;
+    font: bold medium Georgia, "Times New Roman", Times, serif;
+}
+
+p.mailContent {
+    line-height: 1em;
+}
+
+.mailListChunk li:hover {
+    background-color: gold;
+}
+
+.mailListChunk li.mailRow {
+    font-weight: bold;
+    list-style-type: decimal;
+}
+
+.mailListChunk li.mailRow.readMail {
+    font-weight: normal;
+}

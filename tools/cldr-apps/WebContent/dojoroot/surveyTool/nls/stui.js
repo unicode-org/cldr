@@ -255,6 +255,9 @@ define({
 
 		coverage_menu_desc: 'Change the displayed coverage level. "Automatic" will use your organization\'s preferred value for this locale, if any.',
 
+		section_mail: 'Messages',
+		
+		
 		jsonStatus_msg: "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${guests} visitors to the SurveyTool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.   Due to a known problem, please do not click the menus during loading.",
 		err_what_section: "load part of this locale",
 		err_what_locmap: "load the list of locales",

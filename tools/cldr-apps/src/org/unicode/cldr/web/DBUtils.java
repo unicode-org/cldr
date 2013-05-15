@@ -19,6 +19,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -271,6 +273,31 @@ public class DBUtils {
         }
     }
 
+
+    public static String getStringUTF8(ResultSet rs, String which) throws SQLException {
+        if (db_Derby) { // unicode
+            String str = rs.getString(which);
+            if (rs.wasNull())
+                return null;
+            return str;
+        }
+        byte rv[] = rs.getBytes(which);
+        if (rs.wasNull())
+            return null;
+        if (rv != null) {
+            String unicode;
+            try {
+                unicode = new String(rv, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                throw new InternalError(e.toString());
+            }
+            return unicode;
+        } else {
+            return null;
+        }
+    }
+
     // fix the UTF-8 fail
     public static final String getStringUTF8(ResultSet rs, int which) throws SQLException {
         if (db_Derby) { // unicode
@@ -322,6 +349,21 @@ public class DBUtils {
             return false; // NOTREACHED
         }
     }
+    
+    private static final byte [] encode_u8(String what ) {
+        byte u8[];
+        if (what == null) {
+            u8 = null;
+        } else {
+            try {
+                u8 = what.getBytes("UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                throw new InternalError(e.toString());
+            }
+        }
+        return u8;
+    }
 
     public static final void setStringUTF8(PreparedStatement s, int which, String what) throws SQLException {
         if (what == null) {
@@ -330,18 +372,16 @@ public class DBUtils {
         if (db_Derby) {
             s.setString(which, what);
         } else {
-            byte u8[];
-            if (what == null) {
-                u8 = null;
-            } else {
-                try {
-                    u8 = what.getBytes("UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                    throw new InternalError(e.toString());
-                }
-            }
-            s.setBytes(which, u8);
+            s.setBytes(which, encode_u8(what));
+        }
+    }
+    
+    public static final Object prepareUTF8(String what) {
+        if(what==null) return null;
+        if(db_Derby) { 
+            return what; // sanity
+        } else {
+            return  encode_u8(what);
         }
     }
 
@@ -734,14 +774,14 @@ public class DBUtils {
     }
 
     /**
-     * prepare statements for this connection
+     * prepare statements for this connection. Assumes generated keys.
      * 
      * @throws SQLException
      **/
     public static final PreparedStatement prepareStatement(Connection conn, String name, String sql) throws SQLException {
         PreparedStatement ps = null;
         try {
-            ps = conn.prepareStatement(sql);
+            ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         } finally {
             if (ps == null) {
                 System.err.println("Warning: couldn't initialize " + name + " from " + sql);
@@ -851,10 +891,18 @@ public class DBUtils {
         if (args != null) {
             for (int i = 0; i < args.length; i++) {
                 Object o = args[i];
-                if (o instanceof String) {
+                if(o == null) {
+                    ps.setNull(i+1, java.sql.Types.NULL);   
+                } else if (o instanceof String) {
                     ps.setString(i + 1, (String) o);
+                } else if (o instanceof byte[]) {
+                    ps.setBytes(i+1, (byte[])o);
                 } else if (o instanceof Integer) {
                     ps.setInt(i + 1, (Integer) o);
+                } else if(o instanceof java.sql.Date) {
+                    ps.setDate(i+1, (java.sql.Date)o);
+                } else if(o instanceof java.sql.Timestamp) {
+                    ps.setTimestamp(i+1, (java.sql.Timestamp)o);
                 } else if (o instanceof CLDRLocale) { /*
                                                        * toString compatible
                                                        * things
@@ -896,6 +944,10 @@ public class DBUtils {
         return al.toArray(new Map[al.size()]);
     }
 
+    public static Map<String,Object> assocOfResult(ResultSet rs) throws SQLException {
+        return assocOfResult(rs,rs.getMetaData());
+    }
+    
     private static Map<String, Object> assocOfResult(ResultSet rs, ResultSetMetaData rsm) throws SQLException {
         Map<String, Object> m = new HashMap<String, Object>(rsm.getColumnCount());
 
@@ -1113,11 +1165,11 @@ public class DBUtils {
                 String v;
                 try {
                     v = rs.getString(i);
-                    if (i == hasxpath) {
+                    if (i == hasxpath && v != null) {
                         xpath = v;
                     }
-                    if (i == haslocale) {
-                        locale_name = CLDRLocale.getInstance(v).getDisplayName();
+                    if (i == haslocale && v != null) {
+                        locale_name = CLDRLocale.getInstance(v).getDisplayName();   
                     }
                 } catch (SQLException se) {
                     if (se.getSQLState().equals("S1009")) {
@@ -1263,4 +1315,14 @@ public class DBUtils {
         return sb.toString();
     }
 
+    public static java.sql.Timestamp sqlNow() {
+       return new java.sql.Timestamp(new Date().getTime());
+     }
+
+    public static Integer getLastId(PreparedStatement s) throws SQLException {
+        if(s == null) return null;
+        ResultSet rs = s.getGeneratedKeys();
+        if(!rs.next()) return null;
+        return rs.getInt(1);
+    }
 }

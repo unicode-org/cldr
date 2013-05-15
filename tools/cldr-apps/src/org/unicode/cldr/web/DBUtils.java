@@ -601,7 +601,7 @@ public class DBUtils {
         SurveyLog.debug("setting up SQL for database type " + dbInfo);
         if (dbInfo.contains("Derby")) {
             db_Derby = true;
-            SurveyLog.debug("Note: derby mode");
+            System.err.println("Note: derby mode");
             db_UnicodeType = java.sql.Types.VARCHAR;
         } else if (dbInfo.contains("MySQL")) {
             System.err.println("Note: mysql mode");
@@ -621,7 +621,7 @@ public class DBUtils {
             db_UnicodeType = java.sql.Types.BLOB;
             DB_SQL_ALLTABLES = "show tables";
         } else {
-            System.err.println("*** WARNING: Don't know what kind of database is " + dbInfo + " - might be interesting!");
+            System.err.println("*** WARNING: Don't know what kind of database is " + dbInfo + " - don't know what kind of hacky nonportable SQL to use!");
         }
     }
 

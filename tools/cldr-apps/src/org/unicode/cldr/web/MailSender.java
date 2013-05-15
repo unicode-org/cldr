@@ -84,9 +84,9 @@ public class MailSender implements Runnable {
     
     public JSONObject getMailFor(int user) throws SQLException, IOException, JSONException {
         if(user==1) { // for admin only
-            return DBUtils.queryToJSON("select user, id,subject,text,queue_date,read_date, post, locale, xpath, try_count, sent_date from " + CLDR_MAIL + " ORDER BY queue_date DESC");
+            return DBUtils.queryToJSON("select "+USER+", id,subject,text,queue_date,read_date, post, locale, xpath, try_count, sent_date from " + CLDR_MAIL + " ORDER BY queue_date DESC");
         } else {
-            return DBUtils.queryToJSON("select id,subject,text,queue_date,read_date, post, locale, xpath, try_count, sent_date from " + CLDR_MAIL + " where user=? ORDER BY queue_date DESC", user);
+            return DBUtils.queryToJSON("select id,subject,text,queue_date,read_date, post, locale, xpath, try_count, sent_date from " + CLDR_MAIL + " where "+USER+"=? ORDER BY queue_date DESC", user);
         }
     }
     
@@ -105,7 +105,7 @@ public class MailSender implements Runnable {
         try {
             DBUtils db = DBUtils.getInstance();
             conn = db.getDBConnection();
-            ps = DBUtils.prepareStatementWithArgs(conn, "update " + CLDR_MAIL + " set read_date=? where id=? and user=?",  DBUtils.sqlNow(), id, user);
+            ps = DBUtils.prepareStatementWithArgs(conn, "update " + CLDR_MAIL + " set read_date=? where id=? and "+USER+"=?",  DBUtils.sqlNow(), id, user);
             if(ps.executeUpdate()==1) {
                 conn.commit();
                 return true;
@@ -120,33 +120,36 @@ public class MailSender implements Runnable {
         }
     }
     
+    final String USER;
+    
     private MailSender() {
+        DBUtils db = DBUtils.getInstance();
+        USER=db.db_Mysql?"user":"to_user";
         Connection conn = null;
         PreparedStatement s = null, s2=null;
         try {
-            DBUtils db = DBUtils.getInstance();
             conn = db.getDBConnection();
             conn.setAutoCommit(false);
             if(!DBUtils.getInstance().hasTable(conn, CLDR_MAIL)) {
                     System.out.println("Creating " + CLDR_MAIL);
                     s  = db.prepareStatementWithArgs(conn, "CREATE TABLE "+CLDR_MAIL+" (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", "   // PK:  id
-                            + "user int not null, " // userid TO
+                            + USER+" int not null, " // userid TO
                             + "sender int not null DEFAULT -1 , " // userid TO
-                            + "subject " + DBUtils.DB_SQL_UNICODE + " not null, " // mail subj
-                            + "cc varchar(16384) DEFAULT NULL," 
+                            + "subject " + DBUtils.DB_SQL_MIDTEXT + " not null, " // mail subj
+                            + "cc varchar(8000) DEFAULT NULL," 
                             + "text " + DBUtils.DB_SQL_UNICODE + " not null, " // email body
-                            +  "queue_date DATETIME not null , "  // when queued?
-                            +  "try_date DATETIME DEFAULT NULL , "  // when tried to send?
+                            +  "queue_date "+DBUtils.DB_SQL_TIMESTAMP0+" not null , "  // when queued?
+                            +  "try_date "+DBUtils.DB_SQL_TIMESTAMP0+" DEFAULT NULL , "  // when tried to send?
                             + "try_count INT DEFAULT 0, " // count tried
-                            + "read_date DATETIME DEFAULT NULL, "  // when read by user in-app?
-                            + "sent_date DATETIME DEFAULT NULL, "  // when successfully sent?
-                            + "audit varchar(16384) DEFAULT NULL , " // history
+                            + "read_date "+DBUtils.DB_SQL_TIMESTAMP0+" DEFAULT NULL, "  // when read by user in-app?
+                            + "sent_date "+DBUtils.DB_SQL_TIMESTAMP0+" DEFAULT NULL, "  // when successfully sent?
+                            + "audit " + DBUtils.DB_SQL_MIDTEXT +" DEFAULT NULL , " // history
                             + "post INT default NULL," // forum item
                             + "locale varchar(127) DEFAULT NULL," // optional locale id
                             + "xpath INT DEFAULT NULL "
                             +   (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
                             s.execute();
-                       s2 = db.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "(user,subject,text,queue_date) VALUES(?,?,?,?)", 
+                       s2 = db.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "("+USER+",subject,text,queue_date) VALUES(?,?,?,?)", 
                                    1, "Hello", "Hello from the SurveyTool!", DBUtils.sqlNow());
                        s2.execute();
                        conn.commit();
@@ -238,7 +241,7 @@ public class MailSender implements Runnable {
         try {
             DBUtils db = DBUtils.getInstance();
             conn = db.getDBConnection();
-            s2 = db.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "(sender, user,subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)", 
+            s2 = db.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "(sender, "+USER+",subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)", 
                     fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow(), ccstr, locale, xpath, post);
             s2.execute();
             conn.commit();
@@ -321,6 +324,10 @@ public class MailSender implements Runnable {
     private int lastIdProcessed=-1; // spinner 
 
     public void run() {
+        if(DBUtils.db_Derby) {
+            SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
+        }
+        
         SurveyLog.warnOnce("MailSender: processing mail queue");
         Thread.currentThread().setName("SurveyTool Periodic Mail Sender: queue size " + messageQueue.size());
         if(SurveyMain.isUnofficial()) {
@@ -339,7 +346,7 @@ public class MailSender implements Runnable {
             conn = db.getDBConnection();
             conn.setAutoCommit(false);
             java.sql.Timestamp sqlnow = db.sqlNow();
-            s = db.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id limit 1");
+            s = db.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id " + (DBUtils.db_Mysql?"limit 1":""));
             s.setInt(1, lastIdProcessed);
             rs = s.executeQuery();
             
@@ -397,7 +404,7 @@ public class MailSender implements Runnable {
                 if(env.getProperty("CLDR_SMTP", null) != null) {
                     Transport.send(ourMessage);
                 } else {
-                    System.err.println("Not really sending - CLDR_SMTP is not set.");
+                    SurveyLog.warnOnce("Pretending to send mail - CLDR_SMTP is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
                 }
                 
                 if(DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
@@ -429,27 +436,6 @@ public class MailSender implements Runnable {
                 conn.commit();
                 if(DEBUG) System.out.println("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed  + "  - " + badException.getCause());
             }
-
- //            
-//            if(!DBUtils.getInstance().hasTable(conn, CLDR_MAIL)) {
-//                    System.out.println("Creating " + CLDR_MAIL);
-//                    s  = db.prepareStatementWithArgs(conn, "CREATE TABLE "+CLDR_MAIL+" (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", "   // PK:  id
-//                            + "user int not null, " // userid TO
-//                            + "sender int not null DEFAULT -1 , " // userid TO
-//                            + "subject " + DBUtils.DB_SQL_UNICODE + " not null, " // mail subj
-//                            + "cc varchar(16384) DEFAULT NULL," 
-//                            + "text " + DBUtils.DB_SQL_UNICODE + " not null, " // email body
-//                            +  "queue_date DATETIME not null , "  // when queued?
-//                            +  "try_date DATETIME DEFAULT NULL , "  // when tried to send?
-//                            + "try_count INT DEFAULT 0, " // count tried
-//                            + "read_date DATETIME DEFAULT NULL, "  // when read by user in-app?
-//                            + "sent_date DATETIME DEFAULT NULL, "  // when successfully sent?
-//                            + "audit varchar(16384) DEFAULT NULL , " // history
-//                            + "post INT default NULL," // forum item
-//                            + "locale varchar(127) DEFAULT NULL," // optional locale id
-//                            + "xpath INT DEFAULT NULL "
-//                            +   (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
-//                            s.execute();
         } catch(SQLException se) {
             SurveyLog.logException(se, "processing mail");
         } finally {

@@ -1238,7 +1238,7 @@ $Date$
 <!ATTLIST unitLength alt NMTOKENS #IMPLIED >
 <!ATTLIST unitLength validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT compoundUnit (alias | (unitPattern*, special*)) >
+<!ELEMENT compoundUnit (alias | (compoundUnitPattern*, special*)) >
 <!ATTLIST compoundUnit type NMTOKEN #REQUIRED >
 <!ATTLIST compoundUnit draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST compoundUnit references CDATA #IMPLIED >
@@ -1264,6 +1264,12 @@ $Date$
 <!ATTLIST unitPattern references CDATA #IMPLIED >
 <!ATTLIST unitPattern alt NMTOKENS #IMPLIED >
 <!ATTLIST unitPattern validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT compoundUnitPattern ( #PCDATA ) >
+<!ATTLIST compoundUnitPattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST compoundUnitPattern references CDATA #IMPLIED >
+<!ATTLIST compoundUnitPattern alt NMTOKENS #IMPLIED >
+<!ATTLIST compoundUnitPattern validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT durationUnitPattern ( #PCDATA ) >
 <!ATTLIST durationUnitPattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >

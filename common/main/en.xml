@@ -4817,8 +4817,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<compoundUnit type="per">
-				<unitPattern count="one">{0} per {1}</unitPattern>
-				<unitPattern count="other">{0} per {1}</unitPattern>
+				<compoundUnitPattern>{0} per {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<unitPattern count="one">{0} g-force</unitPattern>
@@ -5063,8 +5062,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 		<unitLength type="short">
 			<compoundUnit type="per">
-				<unitPattern count="one">{0}/{1}</unitPattern>
-				<unitPattern count="other">{0}/{1}</unitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<unitPattern count="one">{0} g</unitPattern>

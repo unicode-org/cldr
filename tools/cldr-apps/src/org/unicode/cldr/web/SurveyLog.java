@@ -16,6 +16,8 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
@@ -198,7 +200,7 @@ public class SurveyLog {
     }
 
     private static void checkDebug() {
-        if (CLDRConfig.getInstance().getProperty("DEBUG") != null) {
+        if (CLDRConfig.getInstance().getBooleanProperty("DEBUG", false)) {
             DEBUG = true;
         }
         checkDebug = true;
@@ -209,6 +211,19 @@ public class SurveyLog {
             checkDebug();
         }
         return DEBUG;
+    }
+    
+    static Set<String> alreadyWarned = new HashSet<String>();
+    
+    /**
+     * Warn one time, ignore after that
+     * @param string
+     */
+    public static synchronized void warnOnce(String string) {
+        if(!alreadyWarned.contains(string)) {
+            logger.log(Level.WARNING, string);
+            alreadyWarned.add(string);
+        }
     }
 
 }

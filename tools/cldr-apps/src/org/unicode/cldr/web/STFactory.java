@@ -323,7 +323,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             if (checkHadVotesSometimeThisRelease) {
                 votesSometimeThisRelease = loadVotesSometimeThisRelease(locale);
                 if (votesSometimeThisRelease == null) {
-                    System.err.println("Note: giving up on loading 'sometime this release' votes. The database name would be "
+                    SurveyLog.warnOnce("Note: giving up on loading 'sometime this release' votes. The database name would be "
                             + getVotesSometimeTableName());
                     checkHadVotesSometimeThisRelease = false; // don't try
                                                               // anymore.
@@ -419,8 +419,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         String value = DBUtils.getStringUTF8(rs, 3);
                         User theSubmitter = sm.reg.getInfo(submitter);
                         if (theSubmitter == null) {
-                            throw new InternalError("Could not get info for submitter " + submitter + " for " + locale + ":"
-                                    + xpath);
+                            if(true) SurveyLog.warnOnce("Ignoring votes for deleted user #" + submitter );
                         }
                         if (!UserRegistry.countUserVoteForLocale(theSubmitter, locale)) { // check user permission to submit
                             continue;
@@ -616,7 +615,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         }
                         LinkedList<CheckCLDR.CheckStatus> result = new LinkedList<CheckCLDR.CheckStatus>();
                         q.check(path, result, v);
-                        System.out.println("Checking result of " + path + " = " + v + " := haserr " + CheckCLDR.CheckStatus.hasError(result));
+                        if(false)  System.out.println("Checking result of " + path + " = " + v + " := haserr " + CheckCLDR.CheckStatus.hasError(result));
                         if (CheckCLDR.CheckStatus.hasError(result)) {
                             badValues.add(v);
                             continue; // skip this value
@@ -1466,7 +1465,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             conn = DBUtils.getInstance().getDBConnection();
 
             if (!DBUtils.hasTable(conn, tableName)) {
-                System.err.println(StackTracker.currentElement(0) + ": no table (this is probably OK):" + tableName);
+                SurveyLog.warnOnce(StackTracker.currentElement(0) + ": no table (this is probably OK):" + tableName);
                 return null;
             }
 

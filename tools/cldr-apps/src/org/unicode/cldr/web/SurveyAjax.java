@@ -63,7 +63,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  */
 public class SurveyAjax extends HttpServlet {
     public static final String E_NO_ACCESS = "E_NO_ACCESS";
-    final boolean DEBUG = true || SurveyLog.isDebug();
+    final boolean DEBUG = false; //  || SurveyLog.isDebug();
     public final static String WHAT_MY_LOCALES = "mylocales";
 
     /**
@@ -667,7 +667,7 @@ public class SurveyAjax extends HttpServlet {
                                                             + " where submitter=? and last_mod < "+votesAfterSQL+
                                                             " and value is not null", mySession.user.id);
                                     
-                                    System.out.println("For user " + mySession.user + " oldVotesCount = " + count + " and " + oldVotesPref +"="+oldVoteRemind);
+                                    if(SurveyMain.isUnofficial()) System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and " + oldVotesPref +"="+oldVoteRemind);
                                     
                                     if(count==0) {
                                         mySession.settings().set(oldVotesPref, "*"); // Do not ask again this release
@@ -685,7 +685,6 @@ public class SurveyAjax extends HttpServlet {
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
                         r.put("loc", loc);
-                        System.err.println("loc: " + loc + "= " + locale);
                         if(locale == null) {
                             r.put("err", "Bad locale: " + loc);
                             r.put("err_code","E_BAD_LOCALE");
@@ -782,7 +781,7 @@ public class SurveyAjax extends HttpServlet {
                                 
                                 if(null!= request.getParameter("doSubmit")) {
                                     // submit time.
-                                    System.out.println("User " + mySession.user.toString() + "  is migrating old votes .  loc="+locale+", val="+val);
+                                    if(SurveyMain.isUnofficial()) System.out.println("User " + mySession.user.toString() + "  is migrating old votes in " + locale.getDisplayName());
                                     JSONObject list = new JSONObject(val);
                                     if(list.getString("locale").equals(locale+"snork")) {
                                         throw new IllegalArgumentException("Sanity error- locales " + locale + " and " + list.getString("locale") +" do not match");
@@ -859,7 +858,7 @@ public class SurveyAjax extends HttpServlet {
                                     oldvotes.put("didUnvotes", deletions);
                                     oldvotes.put("didRevotes", confirmations);
                                     oldvotes.put("didUncontested", uncontested);
-                                    System.out.println("User "  +mySession.user + " " + locale + " - delete:"+deletions+", confirm:"+confirmations+", uncontestedconfirm:"+uncontested);
+                                    System.out.println("Old Vote migration for "  +mySession.user + " " + locale + " - delete:"+deletions+", confirm:"+confirmations+", uncontestedconfirm:"+uncontested);
                                     oldvotes.put("ok",true);
                                     /*
                                       Connection conn = null;
@@ -1049,9 +1048,9 @@ public class SurveyAjax extends HttpServlet {
     
     private static synchronized JSONObject getJSONLocMap(SurveyMain sm) throws JSONException {
        if(gLocMap == null) {
-           ElapsedTimer et = new ElapsedTimer("creating JSON locmap");
+//           ElapsedTimer et = new ElapsedTimer("creating JSON locmap");
            gLocMap = createJSONLocMap(sm);
-           System.err.println(et.toString());
+//           System.err.println(et.toString());
        }
        return gLocMap;
     }

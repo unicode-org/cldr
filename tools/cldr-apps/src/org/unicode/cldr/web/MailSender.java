@@ -57,6 +57,8 @@ public class MailSender implements Runnable {
     private static final String CLDR_MAIL = "cldr_mail";
     
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
+    
+    private final boolean DEBUG = CLDRConfig.getInstance().getBooleanProperty("CLDR_DEBUG_MAIL", false) || (SurveyMain.isUnofficial() && SurveyLog.isDebug());
 
     private UserRegistry.User getUser(int user) {
         if(user<1) user=1;
@@ -168,8 +170,8 @@ public class MailSender implements Runnable {
                 System.out.println("MailSender:  reaped " + countDeleted + " expired messages");
             }
             
-            int firstTime = 5;
-            int eachTime = 6; // 63;
+            int firstTime = SurveyMain.isUnofficial()?5:500;  // for official use, give some time for ST to settle before starting on mail s ending.
+            int eachTime = SurveyMain.isUnofficial()?6:45; // 63;
             periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
             System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = " + db.sqlCount(COUNTLEFTSQL));
         } catch(SQLException se) {
@@ -316,18 +318,15 @@ public class MailSender implements Runnable {
 //        }
 //    }
     
-    private int lastIdProcessed=-2; // spinner 
+    private int lastIdProcessed=-1; // spinner 
 
     public void run() {
-        if(lastIdProcessed == -2) {
-            System.out.println("mailsender periodic looking..: " + new Date());
-            lastIdProcessed = -1; // print it the first time
-        }
+        SurveyLog.warnOnce("MailSender: processing mail queue");
         Thread.currentThread().setName("SurveyTool Periodic Mail Sender: queue size " + messageQueue.size());
         if(SurveyMain.isUnofficial()) {
             int countLeft = DBUtils.sqlCount(COUNTLEFTSQL); 
             if(countLeft > 0) {
-                System.err.println("MailSender: waiting mails: " + countLeft);
+                if(DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
             }
         }
         
@@ -346,7 +345,7 @@ public class MailSender implements Runnable {
             
             if(rs.first()==false) {
                 if(lastIdProcessed > 0) {
-                    if(SurveyMain.isUnofficial()) {
+                    if(DEBUG) {
                         System.out.println("reset lastidprocessed to -1");
                     }
                     lastIdProcessed = -1;
@@ -357,7 +356,7 @@ public class MailSender implements Runnable {
             Properties env = getProperties();
             
             Session ourSession = Session.getInstance(env, null);
-            if(env.getProperty("CLDR_SMTP_DEBUG", null) != null) {
+            if(DEBUG) {
                 ourSession.setDebug(true);
             }
             
@@ -365,7 +364,7 @@ public class MailSender implements Runnable {
                 
                 
                 lastIdProcessed = rs.getInt("id"); // update ID
-                System.out.println("Processing id " + lastIdProcessed);
+                if(DEBUG) System.out.println("Processing id " + lastIdProcessed);
                 MimeMessage ourMessage = new MimeMessage(ourSession);
                 
                 // from - sending user or surveytool
@@ -401,14 +400,14 @@ public class MailSender implements Runnable {
                     System.err.println("Not really sending - CLDR_SMTP is not set.");
                 }
                 
-                System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
+                if(DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
                 
                 rs.updateTimestamp("sent_date", sqlnow);
-                System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
+                if(DEBUG) System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
                 rs.updateRow();
-                System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
+                if(DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
                 conn.commit();
-                System.out.println("Mail: comitted: #id " + lastIdProcessed + " to " + toUser);
+                if(DEBUG) System.out.println("Mail: comitted: #id " + lastIdProcessed + " to " + toUser);
             } catch (MessagingException mx) {
                 if(SurveyMain.isUnofficial()) {
                     SurveyLog.logException(mx, "Trying to process mail id#"+lastIdProcessed);
@@ -428,7 +427,7 @@ public class MailSender implements Runnable {
                 rs.updateTimestamp("try_date", sqlnow);
                 rs.updateRow();
                 conn.commit();
-                System.out.println("Mail: badness count of " + badCount + " updated: #id " + lastIdProcessed  + "  - " + badException.getCause());
+                if(DEBUG) System.out.println("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed  + "  - " + badException.getCause());
             }
 
  //            
@@ -452,7 +451,7 @@ public class MailSender implements Runnable {
 //                            +   (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
 //                            s.execute();
         } catch(SQLException se) {
-            SurveyLog.logException(se, "procssing mail");
+            SurveyLog.logException(se, "processing mail");
         } finally {
             DBUtils.close(rs, s, s2, conn);
         }

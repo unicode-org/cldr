@@ -245,4 +245,20 @@ public class CLDRConfig extends Properties {
     public Object put(Object k, Object v) {
         return setProperty(k.toString(), v.toString());
     }
+
+    /**
+     * Return true if the value indicates 'true'
+     * @param string
+     * @param b
+     * @return
+     */
+    public boolean getBooleanProperty(String string, boolean b) {
+        String val = getProperty(string, b?"true":null);
+        if(val==null) { 
+            return false;
+        } else {
+            val = val.trim().toLowerCase();
+            return(val.equals("true")|| val.equals("t") || val.equals("yes") || val.equals("y"));
+        }
+    }
 }

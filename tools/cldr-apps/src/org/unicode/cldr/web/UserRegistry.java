@@ -839,7 +839,7 @@ public class UserRegistry {
             throw new InternalError("UserRegistry: SQL error trying to get " + email + " - " + DBUtils.unchainSqlException(se));
             // return null;
         } catch(LogoutException le) {
-            logger.info("Unknown user or bad login: " + email + " @ " + ip);
+            logger.log(java.util.logging.Level.SEVERE, "AUTHENTICATION FAILURE; email="+ email + "; ip=" + ip);
             throw le; // bubble
         } catch (Throwable t) {
             logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get " + email, t);

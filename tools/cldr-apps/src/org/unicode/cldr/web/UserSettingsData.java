@@ -26,7 +26,7 @@ public class UserSettingsData {
 
     CLDRProgressIndicator sm = null;
 
-    private static final boolean debug = CldrUtility.getProperty("DEBUG", false);
+    private static final boolean debug = CldrUtility.getProperty("CLDR_SETTINGS_DEBUG", false);
 
     // End caller API
 
@@ -116,7 +116,7 @@ public class UserSettingsData {
                     } else {
                         values.put(name, value); // store for next time.
                     }
-                    if(true) {
+                    if(debug) {
                         System.out.println("DB Settings: Set value " + name + " = " + value + " for user " + id);
                     }
                 }
@@ -198,7 +198,7 @@ public class UserSettingsData {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String value = DBUtils.getStringUTF8(rs, 1);
-                if(true) {
+                if(debug) {
                     System.out.println("DB Settings: GET  value " + name + " = " + value + " for user " + id);
                 }
                 return value;
@@ -207,7 +207,7 @@ public class UserSettingsData {
             ps.close();
             DBUtils.closeDBConnection(conn);
         }
-        if(false) {
+        if(debug) {
             System.out.println("DB Settings: Get missing  value " + name + " = " + "NULL" + " for user " + id);
         }
         return null;
@@ -257,7 +257,7 @@ public class UserSettingsData {
 
         conn.commit();
 
-        if (false) {
+        if (debug) {
             System.out.println("SET: " + name + " = " + value + " - " + StackTracker.currentStack());
         }
     }

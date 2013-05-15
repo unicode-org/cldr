@@ -236,12 +236,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static String oldVersion = "OLDVERSION";
     private static String newVersion = "NEWVERSION";
 
+    private static boolean isConfigSetup = false;
     /**
-     * @return the isUnofficial.
+     * @return the isUnofficial. - will return true (even in production) until configfile is setup 
      * @see CLDRConfig#getEnvironment()
      */
     public static final boolean isUnofficial() {
-        if (!isSetup) {
+        if (!isConfigSetup) {
             return true; //
         }
         return !(CLDRConfig.getInstance().getEnvironment() == CLDRConfig.Environment.PRODUCTION);
@@ -5774,6 +5775,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             progress.update("Initializing Properties");
 
             CLDRConfig survprops = CLDRConfig.getInstance();
+            
+            isConfigSetup = true;
 
             cldrHome = survprops.getProperty("CLDRHOME");
 
@@ -5945,6 +5948,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             isLocaleAliased(CLDRLocale.ROOT);
         }
 
+        {
+            CLDRConfig cconfig = CLDRConfig.getInstance();
+            SurveyLog.logger.info("Phase: " + cconfig.getPhase()  + " " + getNewVersion() + ",  environment: " + cconfig.getEnvironment() );
+        }
         SurveyLog.logger.info("------- SurveyTool ready for requests after " + setupTime + "/"+uptime+". Memory in use: " + usedK() + "----------------------------\n\n\n");
         isSetup = true;
     }
@@ -6178,7 +6185,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // TODO: seed
     static protected File[] getInFiles() {
-        ElapsedTimer et = SurveyLog.DEBUG ? new ElapsedTimer("getInFiles()") : null;
+//        ElapsedTimer et = SurveyLog.DEBUG ? new ElapsedTimer("getInFiles()") : null;
         Set<File> s = new HashSet<File>();
         for (File f : getInFiles(fileBase)) {
             s.add(f);
@@ -6187,7 +6194,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             s.add(f);
         }
         File arr[] = s.toArray(new File[s.size()]);
-        SurveyLog.debug(et);
+//        SurveyLog.debug(et);
         return arr;
     }
 

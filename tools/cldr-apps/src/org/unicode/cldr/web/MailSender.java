@@ -326,6 +326,7 @@ public class MailSender implements Runnable {
     public void run() {
         if(DBUtils.db_Derby) {
             SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
+            return;
         }
         
         SurveyLog.warnOnce("MailSender: processing mail queue");

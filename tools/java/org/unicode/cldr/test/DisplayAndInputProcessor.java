@@ -23,6 +23,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
@@ -92,7 +93,9 @@ public class DisplayAndInputProcessor {
         isPosix = locale.toString().indexOf("POSIX") >= 0;
         col = Collator.getInstance(locale.toULocale());
         spaceCol = Collator.getInstance(locale.toULocale());
-
+        if ( spaceCol instanceof RuleBasedCollator ) {
+            ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
+        }
         pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
             .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
             .setCompressRanges(true)

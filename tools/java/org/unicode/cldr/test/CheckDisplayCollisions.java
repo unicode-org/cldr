@@ -242,12 +242,19 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
             }
 
+            CheckStatus.Type thisErrorType;
+            // Specifically allow display collisions during the submission phase only, so that
+            // we don't prevent people from entering stuff properly.
+            if ( getPhase() == Phase.SUBMISSION ) {
+                thisErrorType = CheckStatus.warningType;
+            } else {
+                thisErrorType = CheckStatus.errorType;
+            }
+
             // Check to see if we're colliding between standard and generic within the same metazone.
             // If so, then it should be a warning instead of an error, since such collisions are acceptable
             // as long as the context ( generic/recurring vs. specific time ) is known.
             // ( JCE: 8/7/2012 )
-
-            CheckStatus.Type thisErrorType = CheckStatus.errorType;
 
             if (path.contains("timeZoneNames") && collidingTypes.size() == 1) {
                 PathHeader pathHeader = pathHeaderFactory.fromPath(path);

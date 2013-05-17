@@ -21,6 +21,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%currency60_EU" value="(CZK|HUF|LTL|LVL)"/>
 		<coverageVariable key="%currency80" value="(AED|AFN|ALL|AMD|ANG|AOA|ARS|AWG|AZN|BAM|BBD|BDT|BGN|BHD|BIF|BMD|BND|BOB|BSD|BTN|BWP|BYR|BZD|CDF|CLP|COP|CRC|CUC|CUP|CVE|CZK|DJF|DOP|DZD|EGP|ERN|ETB|FJD|FKP|GEL|GHS|GIP|GMD|GNF|GTQ|GYD|HNL|HRK|HTG|HUF|ILS|IQD|IRR|ISK|JMD|JOD|KES|KGS|KHR|KMF|KPW|KWD|KYD|KZT|LAK|LBP|LKR|LRD|LTL|LVL|LYD|MAD|MDL|MGA|MKD|MMK|MNT|MOP|MRO|MUR|MVR|MWK|MYR|MZN|NAD|NGN|NIO|NPR|NZD|OMR|PAB|PEN|PGK|PHP|PKR|PYG|QAR|RON|RSD|RWF|SBD|SCR|SDG|SGD|SHP|SLL|SOS|SRD|SSP|STD|SYP|SZL|TJS|TMT|TND|TOP|TTD|TZS|UAH|UGX|UYU|UZS|VEF|VND|VUV|WST|XCD|XAF|XOF|XPF|YER|ZMW)"/>
 		<coverageVariable key="%dateFormatItems" value="(EEEd|(H|h)(ms?)?|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)"/>
+		<coverageVariable key="%dayFieldTypes" value="(era|year|month|week|day|weekday|hour|minute|second|dayperiod|zone)"/>
 		<coverageVariable key="%dayTypes" value="(sun|mon|tue|wed|thu|fri|sat)"/>
 		<coverageVariable key="%devaLanguages" value="(mr|ne)"/>
 		<coverageVariable key="%exemplarTypes" value="(auxiliary|index|punctuation)"/>
@@ -55,7 +56,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%metazone100" value="(Acre|Almaty|Anadyr|Aqtau|Aqtobe|Kamchatka|Macau|Qyzylorda|Samara)"/>
 		<coverageVariable key="%metazone100_stdonly" value="(Casey|Guam|Lanka|North_Mariana)"/>
 		<coverageVariable key="%metazoneTypes" value="(generic|standard|daylight)"/>
-		<coverageVariable key="%numberSymbols" value="(decimal|group|(plus|minus|percent)Sign|exponential|superscriptingExponent|perMille|infinity|nan)"/>
+		<coverageVariable key="%numberSymbols30" value="(decimal|group|(plus|minus|percent)Sign)"/>
+		<coverageVariable key="%numberSymbols80" value="(exponential|superscriptingExponent|perMille|infinity|nan)"/>
 		<coverageVariable key="%numberingSystem80" value="(arab(ext)?|armn(low)?|beng|deva|ethi|fullwide|geor|grek(low)?|gujr|guru|hanidec|han[st](fin)?|hebr|jpan(fin)?|khmr|knda|laoo|mlym|mymr|orya|roman(low)?|taml(dec)?|telu|thai|tibt)"/>
 		<coverageVariable key="%otherNumberingSystemTypes" value="(native|traditional|finance)"/>
 		<coverageVariable key="%persianCalendarTerritories" value="(AF|IR)"/>
@@ -76,6 +78,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%territory80" value="(0(0[12359]|1[1345789]|2[19]|3[0459]|5[347]|61)|1(4[235]|5[01459])|419|A[CDEFGILMOQRSTUWXZ]|B[ABDEFGHIJLMNOQRSTUVWYZ]|C[ACDFGHIKLMNOPRUVWXYZ]|D[EGJKMOZ]|E[ACEGHRSTU]|F[IJKMOR]|G[ABDEFGHILMNPQRSTUWY]|H[KMNRTU]|I[CDELMNOQRST]|J[EMOP]|K[EGHIMNPRWYZ]|L[ABCIKRSTUVY]|M[ACDEFGHKLMNOPQRSTUVWXYZ]|N[ACEFGILOPRUZ]|OM|P[AEFGHKLMNRSTWY]|Q[AO]|R[EOSUW]|S[ABCDEGHIJKLMNORSTVXYZ]|T[ACDFGHJKLMNOPRTVWZ]|U[AGMSYZ]|V[ACEGINU]|W[FS]|XK|Y[ET]|Z[AMWZ])"/>
 		<coverageVariable key="%territory100" value="AN"/>
 		<coverageVariable key="%traditionalCollationLanguages" value="(bn|es|kn|sa)"/>
+		<coverageVariable key="%unitDurationTypes" value="duration-(year|month|week|day|hour|minute|second|millisecond)"/>
+		<coverageVariable key="%unitDurationTypesFutureOrPast" value="duration-(year|month|week|day|hour|minute|second)(-(future|past))"/>
+		<coverageVariable key="%unitLengths" value="(long|short|narrow)"/>
+		<coverageVariable key="%unitsCommonMetric" value="(length-(centi|milli|kilo)?meter|mass-(kilo)?gram|temperature-celsius|speed-kilometer-per-hour|volume-liter)"/>
+		<coverageVariable key="%unitsCommonUS" value="(length-(inch|foot|yard|mile)|mass-(ounce|pound)|temperature-fahrenheit|speed-mile-per-hour)"/>
+		<coverageVariable key="%unitsOther" value="(length-(picometer|light-year)|pressure-(hectopascal|inch-hg|millibar)|acceleration-g-force|angle-(degree|minute|second)|area-(acre|hectare|square-(foot|kilometer|meter|mile))|power-(horsepower|kilowatt|watt)|speed-meter-per-second|volume-cubic-(mile|kilometer))"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
 		<coverageVariable key="%wideNarrow" value="(wide|narrow)"/>
 		<!-- -->
@@ -93,7 +101,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="20" match="numbers/defaultNumberingSystem"/>
 		<coverageLevel value="20" match="numbers/otherNumberingSystems/%otherNumberingSystemTypes"/>
 		<coverageLevel value="20" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength/decimalFormat%stdPattern"/>
-		<coverageLevel value="20" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%stdPattern([@alt='accounting'])?"/>
 		<coverageLevel value="30" match="localeDisplayNames/languages/language[@type='%language30']"/>
 		<coverageLevel value="30" match="localeDisplayNames/languages/language[@type='${Target-Language}']([@alt='%shortVariant'])?"/>
 		<coverageLevel value="30" match="localeDisplayNames/scripts/script[@type='%script30']"/>
@@ -141,25 +148,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='${Target-Currencies}']/(symbol|displayName([@count='[^']++'])?)"/>
 		<coverageLevel value="30" match="numbers/currencies/currency[@type='%currency30']/symbol[@alt='narrow']"/>
 		<coverageLevel value="30" match="numbers/currencies/currency[@type=''${Target-Currencies}']/symbol[@alt='narrow']"/>
+		<coverageLevel value="30" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel value="30" match="numbers/percentFormats[@numberSystem='latn']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel value="30" match="numbers/scientificFormats[@numberSystem='latn']/scientificFormatLength/scientificFormat%stdPattern"/>
-		<coverageLevel value="30" match="numbers/symbols[@numberSystem='latn']/((plus|minus|percent)Sign|exponential|superscriptingExponent|perMille|infinity|nan)"/>
-		<coverageLevel inLanguage="ar" value="30" match="numbers/symbols[@numberSystem='arab']/%numberSymbols"/>
+		<coverageLevel value="30" match="numbers/symbols[@numberSystem='latn']/(plus|minus|percent)Sign"/>
+		<coverageLevel inLanguage="ar" value="30" match="numbers/symbols[@numberSystem='arab']/%numberSymbols30"/>
 		<coverageLevel inLanguage="ar" value="30" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="ar" value="30" match="numbers/currencyFormats[@numberSystem='arab']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel inLanguage="ar" value="30" match="numbers/scientificFormats[@numberSystem='arab']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="ar" value="30" match="numbers/percentFormats[@numberSystem='arab']/percentFormatLength/percentFormat%stdPattern"/>
-		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/symbols[@numberSystem='arabext']/%numberSymbols"/>
+		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/symbols[@numberSystem='arabext']/%numberSymbols30"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/decimalFormats[@numberSystem='arabext']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/currencyFormats[@numberSystem='arabext']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/scientificFormats[@numberSystem='arabext']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="30" match="numbers/percentFormats[@numberSystem='arabext']/percentFormatLength/percentFormat%stdPattern"/>
-		<coverageLevel inLanguage="%devaLanguages" value="30" match="numbers/symbols[@numberSystem='deva']/%numberSymbols"/>
+		<coverageLevel inLanguage="%devaLanguages" value="30" match="numbers/symbols[@numberSystem='deva']/%numberSymbols30"/>
 		<coverageLevel inLanguage="%devaLanguages" value="30" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="%devaLanguages" value="30" match="numbers/currencyFormats[@numberSystem='deva']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel inLanguage="%devaLanguages" value="30" match="numbers/scientificFormats[@numberSystem='deva']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%devaLanguages" value="30" match="numbers/percentFormats[@numberSystem='deva']/percentFormatLength/percentFormat%stdPattern"/>
-		<coverageLevel inLanguage="dz" value="30" match="numbers/symbols[@numberSystem='tibt']/%numberSymbols"/>
+		<coverageLevel inLanguage="dz" value="30" match="numbers/symbols[@numberSystem='tibt']/%numberSymbols30"/>
 		<coverageLevel inLanguage="dz" value="30" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel inLanguage="dz" value="30" match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel inLanguage="dz" value="30" match="numbers/scientificFormats[@numberSystem='tibt']/scientificFormatLength/scientificFormat%stdPattern"/>
@@ -201,10 +209,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="40" match="numbers/currencyFormats[@numberSystem='latn']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="40" match="numbers/currencies/currency[@type='%currency40']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel value="40" match="numbers/currencies/currency[@type='%currency40']/symbol[@alt='narrow']"/>
-		<coverageLevel value="40" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='[^']++']"/>
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='%contextTypes']/quarterWidth[@type='%allWidths']/quarter[@type='[^']++']"/>
-		<coverageLevel value="40" match="dates/fields/field[@type='[^']++']/displayName"/>
-		<coverageLevel value="40" match="dates/fields/field[@type='([^']++)']/relative[@type='(\-?1|0)']"/>
+		<coverageLevel value="40" match="dates/fields/field[@type='%dayFieldTypes']/displayName"/>
+		<coverageLevel value="40" match="dates/fields/field[@type='day']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="40" match="dates/calendars/calendar[@type='chinese']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="40" match="dates/calendars/calendar[@type='chinese']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="EG" value="40" match="dates/calendars/calendar[@type='coptic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
@@ -235,9 +242,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%devaLanguages" value="40" match="numbers/decimalFormats[@numberSystem='deva']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel inLanguage="dz" value="40" match="numbers/decimalFormats[@numberSystem='tibt']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++']"/>
 		<coverageLevel value="40" match="listPatterns/listPattern/listPatternPart[@type='(2|start|middle|end)']"/>
-		<coverageLevel value="40" match="listPatterns/listPattern[@type='duration']/listPatternPart[@type='(2|start|middle|end)']"/>
-		<coverageLevel value="40" match="listPatterns/listPattern[@type='duration-short']/listPatternPart[@type='(2|start|middle|end)']"/>
-		<coverageLevel value="40" match="units/.*"/>
+		<coverageLevel value="40" match="units/unitLength[@type='short']/durationUnit[@type='(hm|ms|hms)']/durationUnitPattern"/>
 		<coverageLevel value="60" match="localeDisplayNames/languages/language[@type='%language60']([@alt='%shortVariant'])?"/>
 		<coverageLevel inTerritory="CF" value="60" match="localeDisplayNames/languages/language[@type='sg']([@alt='%shortVariant'])?"/>
 		<coverageLevel inTerritory="CG" value="60" match="localeDisplayNames/languages/language[@type='(kg|ln)']([@alt='%shortVariant'])?"/>
@@ -261,8 +266,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="TW" value="80" match="dates/calendars/calendar[@type='roc']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatItems']/greatestDifference[@id='[^']++']"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatItems']/greatestDifference[@id='[^']++']"/>
+		<coverageLevel value="60" match="dates/fields/field[@type='(year|month|week)']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/%metazoneTypes"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='%metazone60_stdonly']/long/standard"/>
+		<coverageLevel value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitDurationTypes']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonMetric']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel inTerritory="US" value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='%language80']([@alt='%shortVariant'])?"/> 
 		<coverageLevel value="80" match="localeDisplayNames/scripts/script[@type='%script80']"/>
 		<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='%territory80']([@alt='%shortVariant'])?"/>
@@ -272,17 +281,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
-		<coverageLevel value="80" match="dates/fields/field[@type='([^']++)']/relative[@type='\-?(2|3)']"/>
+		<coverageLevel value="80" match="dates/fields/field[@type='day']/relative[@type='(-3|-2|2|3)']"/>
+		<coverageLevel value="80" match="dates/fields/field[@type='%dayTypes']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/%metazoneTypes"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80_stdonly']/long/standard"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='[^']++']/exemplarCity"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='Europe/(Dublin|London)']/(long|short)/daylight"/>
+		<coverageLevel value="80" match="numbers/symbols[@numberSystem='latn']/%numberSymbols80"/>
+		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/%numberSymbols80"/>
+		<coverageLevel inLanguage="%arabextLanguages" value="80" match="numbers/symbols[@numberSystem='arabext']/%numberSymbols80"/>
+		<coverageLevel inLanguage="%devaLanguages" value="80" match="numbers/symbols[@numberSystem='deva']/%numberSymbols80"/>
+		<coverageLevel inLanguage="dz" value="80" match="numbers/symbols[@numberSystem='tibt']/%numberSymbols80"/>
+		<coverageLevel value="80" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%stdPattern([@alt='accounting'])"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/symbol[@alt='narrow']"/>
+		<coverageLevel value="80" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='[^']++']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='[^']++']/dayPeriods/dayPeriodContext\\[@type='format']"/>
 		<coverageLevel value="80" match="characters/ellipsis[@type='[^']++']"/>
 		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitDurationTypesFutureOrPast']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsOther']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='per']/compoundUnitPattern"/>
+		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-short)?']/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="100" match="characters/stopwords/stopwordList[@type='[^']++']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>

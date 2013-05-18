@@ -50,7 +50,7 @@ public class TestCLDRUtils extends TestFmwk {
             emptyFile.write(new PrintWriter(outStream));
         } finally {
             logln(aloc.getBaseName() + ".xml: "
-                + outStream.toString().replaceAll("\n", "\\\\n").replaceAll("\t", "\\\\t"));
+                    + outStream.toString().replaceAll("\n", "\\\\n").replaceAll("\t", "\\\\t"));
         }
         if (outStream.toString().length() == 0) {
             errln("Error: empty CLDRFile of " + aloc + " turned into a 0-length string.");
@@ -61,7 +61,7 @@ public class TestCLDRUtils extends TestFmwk {
         logln("Tests for CLDRLocale:");
         CLDRLocale.setDefaultFormatter(new CLDRFormatter(FormatBehavior.replace));
         String tests_str[] = { "", "root", "el__POLYTON", "el_POLYTON", "__UND", "en", "en_GB", "en_Shav",
-            "en_Shav_GB", "en_Latn_GB_POLYTON", "nnh", "sq_XK" };
+                "en_Shav_GB", "en_Latn_GB_POLYTON", "nnh", "sq_XK" };
         for (String s : tests_str) {
             CLDRLocale loc = CLDRLocale.getInstance(s);
             String str = loc.toString();
@@ -70,12 +70,12 @@ public class TestCLDRUtils extends TestFmwk {
             String format = loc.getDisplayName();
             CLDRLocale parent = loc.getParent();
             logln(s + ":  tostring:" + str + ", uloc:" + uloc + ", fromloc:" + fromloc + ", format: " + format
-                + ", parent:" + parent);
+                    + ", parent:" + parent);
         }
 
         CLDRLocale.setDefaultFormatter(CLDRLocale.getSimpleFormatterFor(ULocale.getDefault()));
     }
-    
+
     public void TestCLDRLocaleDataDriven() throws IOException {
         XMLFileReader myReader = new XMLFileReader();
         final Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
@@ -101,12 +101,12 @@ public class TestCLDRUtils extends TestFmwk {
                     if(type.equals("region")) {
                         result = locale.getDisplayCountry(engFormat);
                     } else if(type.equals("all")) {
-                            result = locale.getDisplayName(engFormat);
+                        result = locale.getDisplayName(engFormat);
                     } else {
                         errln("Unknown test type: " + type);
                         return;
                     }                    
-                    
+
                     if(result==null) {
                         errln("Null result!");
                         return;
@@ -130,38 +130,51 @@ public class TestCLDRUtils extends TestFmwk {
         logln("Reading" + fileName);
         myReader.read(TestCLDRUtils.class.getResource( "data/" +  fileName).toString(),
                 FileUtilities.openFile(TestCLDRUtils.class,  "data/" +  fileName), -1, true);
-    }    
+    } 
+    
     public void TestCLDRLocaleInheritance() {
         CLDRLocale ml = CLDRLocale.getInstance("ml");
+        CLDRLocale ml_IN = CLDRLocale.getInstance("ml_IN");
+        CLDRLocale ml_Mlym = CLDRLocale.getInstance("ml_Mlym");
+        CLDRLocale ml_Mlym_IN = CLDRLocale.getInstance("ml_Mlym_IN");
+
         logln("Testing descendants of " + ml + " " + ml.getDisplayName());
-        CLDRLocale areSub[] = { // isChild return strue
-                CLDRLocale.getInstance("ml"),
-                CLDRLocale.getInstance("ml_IN"),
-                CLDRLocale.getInstance("ml_MLym_IN")
+        CLDRLocale areSub[][] = { // isChild returns true for i!=0
+                {ml, ml_IN, ml_Mlym, ml_Mlym_IN},
+                {ml_Mlym, ml_Mlym_IN},
         };
-        for (CLDRLocale l : areSub) {
-            final boolean expect = true;
-            boolean got = l.childOf(ml);
-            if (got == expect) {
-                logln(l + " " + l.getDisplayName() + ".childOf(ml) = " + got);
-            } else {
-                errln(l + " " + l.getDisplayName() + ".childOf(ml) = " + got + " expected " + expect);
+        for (CLDRLocale[] row : areSub) {
+            CLDRLocale parent = row[0];
+            for (CLDRLocale child : row) {
+                // TODO move the first checkChild here if the meaning changes.
+                if (child == parent) {
+                    continue;
+                }
+                checkChild(child, parent, false);
+                checkChild(parent, child, true);
             }
         }
-        CLDRLocale notSub[] = { // isCHild returns false
+        CLDRLocale notSub[] = { // isChild returns false
                 CLDRLocale.getInstance("mli"),
                 CLDRLocale.getInstance("root"),
                 CLDRLocale.ROOT
         };
-        for (CLDRLocale l : notSub) {
-            final boolean expect = false;
-            boolean got = l.childOf(ml);
-            if (got == expect) {
-                logln(l + " " + l.getDisplayName() + ".childOf(ml) = " + got);
-            } else {
-                errln(l + " " + l.getDisplayName() + ".childOf(ml) = " + got + " expected " + expect);
-            }
+        for (CLDRLocale child : notSub) {
+            checkChild(ml, child, false);
         }
+    }
+
+    private boolean checkChild(CLDRLocale parent, CLDRLocale child, boolean expected) {
+        boolean got = child.childOf(parent);
+        String message = child + ".childOf(" + parent + ") " +
+                "[" + child.getDisplayName() + ", " + parent.getDisplayName() + "] " + 
+                "= " + got;
+        if (got == expected) {
+            logln(message);
+        } else {
+            errln(message + ", but expected " + expected);
+        }
+        return got;
     }
 
     /**

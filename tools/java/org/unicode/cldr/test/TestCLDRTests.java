@@ -77,7 +77,7 @@ public class TestCLDRTests extends TestFmwk {
         Map platform_locale_status = StandardCodes.make().getLocaleTypes();
         Map onlyLocales = (Map) platform_locale_status.get("IBM");
         Set locales = onlyLocales.keySet();
-        languagesToTest = (Set) new CldrUtility.Transform() {
+        languagesToTest = (Set) new CldrUtility.CollectionTransform() {
             LocaleIDParser lip = new LocaleIDParser();
 
             public Object transform(Object source) {

@@ -448,7 +448,7 @@ public class PathHeader implements Comparable<PathHeader> {
         return originalPath.hashCode();
     }
 
-    public static class Factory {
+    public static class Factory implements Transform<String,PathHeader> {
         static final RegexLookup<RawData>                     lookup                     = RegexLookup
                 .of(new PathHeaderTransform())
                 .setPatternTransform(
@@ -516,6 +516,13 @@ public class PathHeader implements Comparable<PathHeader> {
          * Return the PathHeader for a given path. Thread-safe.
          */
         public PathHeader fromPath(String path) {
+            return fromPath(path, null);
+        }
+
+        /**
+         * Return the PathHeader for a given path. Thread-safe.
+         */
+        public PathHeader transform(String path) {
             return fromPath(path, null);
         }
 

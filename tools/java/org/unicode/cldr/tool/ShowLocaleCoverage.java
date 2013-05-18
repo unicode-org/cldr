@@ -13,20 +13,22 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
-import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.text.Transform;
 
 public class ShowLocaleCoverage {
-    private static TestInfo testInfo = TestInfo.getInstance();
+    public static TestInfo testInfo = TestInfo.getInstance();
     // added info using pattern in VettingViewer.
 
     final static Options myOptions = new Options();
@@ -34,7 +36,10 @@ public class ShowLocaleCoverage {
     private static final String TEST_PATH = "//ldml/dates/calendars/calendar[@type=\"chinese\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
 
     enum MyOptions {
-        filter(".+", ".*", "Filter the information based on id, using a regex argument.");
+        filter(".+", ".*", "Filter the information based on id, using a regex argument."),
+        draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
+        organization(".+", null, "Only locales for organization");
+
         // targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
         // layouts(null, null, "Only create html files for keyboard layouts"),
         // repertoire(null, null, "Only create html files for repertoire"), ;
@@ -47,19 +52,26 @@ public class ShowLocaleCoverage {
     }
 
     static final EnumSet<Level> skipPrintingLevels = EnumSet.of(
-        Level.UNDETERMINED,
-        Level.CORE,
-        Level.POSIX,
-        Level.OPTIONAL,
-        Level.COMPREHENSIVE
-        );
+            Level.UNDETERMINED,
+            Level.CORE,
+            Level.POSIX,
+            Level.OPTIONAL,
+            Level.COMPREHENSIVE
+            );
 
     public static void main(String[] args) {
         myOptions.parse(MyOptions.filter, args, true);
         Matcher matcher = Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
+        DraftStatus minimumDraftStatus = DraftStatus.forString(MyOptions.draftStatus.option.getValue());
+        Set<String> locales = null;
+        String organization = MyOptions.organization.option.getValue();
+        boolean useOrgLevel = MyOptions.organization.option.doesOccur();
+        if (useOrgLevel) {
+            locales = testInfo.getStandardCodes().getLocaleCoverageLocales(organization);
+        }
 
-        Relation<MissingStatus, PathHeader> missingHeaders = Relation.of(new EnumMap<MissingStatus, Set<PathHeader>>(
-            MissingStatus.class), TreeSet.class);
+        Relation<MissingStatus, String> missingPaths = Relation.of(new EnumMap<MissingStatus, Set<String>>(
+                MissingStatus.class), TreeSet.class);
 
         LanguageTagParser ltp = new LanguageTagParser();
         Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();
@@ -77,7 +89,19 @@ public class ShowLocaleCoverage {
         Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getCldrFactory().make("en", true));
 
 
-        for (String locale : testInfo.getCldrFactory().getAvailable()) {
+        Counter<Level> foundCounter = new Counter<Level>();
+        Counter<Level> unconfirmedCounter = new Counter<Level>();
+        Counter<Level> missingCounter = new Counter<Level>();
+
+        int localeCount = 0;
+        long start = System.currentTimeMillis();
+        for (String locale : testInfo.getCldrFactory().getAvailableLanguages()) {
+            if (locales != null && !locales.contains(locale)) {
+                String base = CLDRLocale.getInstance(locale).getLanguage();
+                if (!locales.contains(base)) {
+                    continue;
+                }
+            }
             if (!matcher.reset(locale).matches()) {
                 continue;
             }
@@ -87,7 +111,7 @@ public class ShowLocaleCoverage {
             boolean capture = locale.equals("en");
             String region = ltp.set(locale).getRegion();
             if (!region.isEmpty()) continue; // skip regions
-            
+
             String language = ltp.getLanguage();
             String script = ltp.getScript();
             if (script.isEmpty()) {
@@ -100,60 +124,12 @@ public class ShowLocaleCoverage {
                 }
             }
 
-            CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(locale);
-            Counter<Level> foundCounter = new Counter<Level>();
-            Counter<Level> unconfirmedCounter = new Counter<Level>();
-            Counter<Level> missingCounter = new Counter<Level>();
-            final CLDRFile file = testInfo.getCldrFactory().make(locale, true);
-            Matcher altProposed = VettingViewer.ALT_PROPOSED.matcher("");
-            Status status = new Status();
-            boolean latin = VettingViewer.isLatinScriptLocale(file);
+            final CLDRFile file = testInfo.getCldrFactory().make(locale, true, minimumDraftStatus);
 
-            for (String path : file.fullIterable()) {
-                if (path.equals(TEST_PATH)) {
-                    int x = 0; // debug
-                }
-                if (path.contains("/alias")
-                    || path.contains("/references")
-                    || altProposed.reset(path).find()) {
-                    continue;
-                }
+            VettingViewer.getStatus(file, PathHeader.getFactory(ShowLocaleCoverage.testInfo.getEnglish()), foundCounter, unconfirmedCounter, missingCounter, capture ? missingPaths : null);
 
-                PathHeader ph = pathHeaderFactory.fromPath(path);
-                if (ph.getSectionId() == SectionId.Special) {
-                    continue;
-                }
-                Level level = coverageLevel2.getLevel(path);
-
-                // String value = file.getSourceLocaleID(path, status);
-                MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, status, latin);
-
-                switch (missingStatus) {
-                case ABSENT:
-                    missingCounter.add(level, 1);
-                    if (capture && level.compareTo(Level.MODERN) <= 0) {
-                        missingHeaders.put(missingStatus, pathHeaderFactory.fromPath(path));
-                    }
-                    break;
-                case ALIASED:
-                case PRESENT:
-                    String fullPath = file.getFullXPath(path);
-                    if (fullPath.contains("unconfirmed")
-                        || fullPath.contains("provisional")) {
-                        unconfirmedCounter.add(level, 1);
-                    } else {
-                        foundCounter.add(level, 1);
-                    }
-                    break;
-                case MISSING_OK:
-                case ROOT_OK:
-                    break;
-                default:
-                    throw new IllegalArgumentException();
-                }
-            }
             System.out.print(
-                script
+                    script
                     + "\t" + testInfo.getEnglish().getName(language)
                     + "\t" + file.getName(language)
                     + "\t" + language
@@ -165,20 +141,28 @@ public class ShowLocaleCoverage {
                 sumFound += foundCounter.get(level);
                 sumUnconfirmed += unconfirmedCounter.get(level);
                 sumMissing += missingCounter.get(level);
-                if (skipPrintingLevels.contains(level)) {
+                if (useOrgLevel && testInfo.getStandardCodes().getLocaleCoverageLevel(organization, locale) != level) {
+                    continue;
+                } else if (skipPrintingLevels.contains(level)) {
                     continue;
                 }
+
                 System.out.print("\t" + sumFound + "\t" + sumUnconfirmed + "\t" + sumMissing);
             }
             System.out.println();
+            localeCount++;
         }
+
+        long end = System.currentTimeMillis();
+        System.out.println((end - start) + " millis = " 
+                + ((end - start)/localeCount) + " millis/locale");
 
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance("en");
 
-        for (Entry<MissingStatus, Set<PathHeader>> entity : missingHeaders.keyValuesSet()) {
-            for (PathHeader s : entity.getValue()) {
+        for (Entry<MissingStatus, Set<String>> entity : missingPaths.keyValuesSet()) {
+            for (PathHeader s : CldrUtility.transform(entity.getValue(), pathHeaderFactory, new TreeSet<PathHeader>())) {
                 System.out.println(entity.getKey() + "\t" + coverageLevel2.getLevel(s.getOriginalPath()) + "\t" + s
-                    + "\t\t" + s.getOriginalPath());
+                        + "\t\t" + s.getOriginalPath());
             }
         }
     }

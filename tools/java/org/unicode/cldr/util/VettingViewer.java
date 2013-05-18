@@ -28,6 +28,7 @@ import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
+import org.unicode.cldr.tool.ShowLocaleCoverage;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.PathHeader.PageId;
@@ -1433,6 +1434,68 @@ public class VettingViewer<T> {
                 .append("'>")
                 .append(htmlType == HTMLType.markup ? value : TransliteratorUtilities.toHTML.transform(value))
                 .append("</td>\n");
+        }
+    }
+
+    /**
+     * Find the status of the items in the file.
+     * @param file the source. Must be a resolved file, made with minimalDraftStatus = unconfirmed
+     * @param pathHeaderFactory PathHeaderFactory.
+     * @param foundCounter output counter of the number of paths with values having contributed or approved status
+     * @param unconfirmedCounter output counter of the number of paths with values, but neither contributed nor approved status
+     * @param missingCounter output counter of the number of paths without values
+     * @param missingPaths output if not null, the specific paths that are missing.
+     */
+    public static void getStatus(CLDRFile file, PathHeader.Factory pathHeaderFactory, 
+            Counter<Level> foundCounter, Counter<Level> unconfirmedCounter,
+            Counter<Level> missingCounter, Relation<MissingStatus, String> missingPaths) {
+        
+        if (!file.isResolved()) {
+            throw new IllegalArgumentException("File must be resolved, no minimal draft status");
+        }
+        foundCounter.clear();
+        unconfirmedCounter.clear();
+        missingCounter.clear();
+        
+        Status status = new Status();
+        boolean latin = VettingViewer.isLatinScriptLocale(file);
+        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(file.getLocaleID());
+    
+        for (String path : file.fullIterable()) {
+            
+            PathHeader ph = pathHeaderFactory.fromPath(path);
+            if (ph.getSectionId() == SectionId.Special) {
+                continue;
+            }
+    
+            Level level = coverageLevel2.getLevel(path);
+            String localeFound = file.getSourceLocaleID(path, status);
+            // String value = file.getSourceLocaleID(path, status);
+            MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, status, latin);
+            
+            switch (missingStatus) {
+            case ABSENT:
+                missingCounter.add(level, 1);
+                if (missingPaths != null && level.compareTo(Level.MODERN) <= 0) {
+                    missingPaths.put(missingStatus, path);
+                }
+                break;
+            case ALIASED:
+            case PRESENT:
+                String fullPath = file.getFullXPath(path);
+                if (fullPath.contains("unconfirmed")
+                        || fullPath.contains("provisional")) {
+                    unconfirmedCounter.add(level, 1);
+                } else {
+                    foundCounter.add(level, 1);
+                }
+                break;
+            case MISSING_OK:
+            case ROOT_OK:
+                break;
+            default:
+                throw new IllegalArgumentException();
+            }
         }
     }
 

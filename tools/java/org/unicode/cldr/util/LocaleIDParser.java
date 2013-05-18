@@ -154,7 +154,7 @@ public class LocaleIDParser {
     }
 
     /**
-     * Utility to get the parent of a locale. If the input is "root", then the output is null.
+     * Utility to get the parent of a locale. If the input is "root", then the output is null. Only works on canonical locale names (right casing, etc.)!
      */
     public static String getParent(String localeName) {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
@@ -168,10 +168,35 @@ public class LocaleIDParser {
             if (other != null) {
                 return other;
             }
-            return localeName.substring(0, pos);
+            String truncated = localeName.substring(0, pos);
+            // if the final item is a script, and it is not the default content, then go directly to root
+            int pos2 = getScriptPosition(localeName);
+            if (pos2 > 0) {
+                String script = localeName.substring(pos+1);
+                String defaultScript = sdi.getDefaultScript(truncated);
+                if (!script.equals(defaultScript)) {
+                    return "root";
+                }
+            }
+            return truncated;
         }
         if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
         return "root";
+    }
+    
+    /**
+     * If the locale consists of baseLanguage+script, return the position of the separator, otherwise -1.
+     * @param s
+     */
+    public static int getScriptPosition(String locale) {
+        int pos = locale.indexOf('_');
+        if (pos >= 0 && pos + 5 == locale.length()) {
+            int pos2 = locale.indexOf('_', pos+1);
+            if (pos2 < 0) {
+                return pos;
+            }
+        }
+        return -1;
     }
 
     /**

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -21,6 +22,8 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
@@ -41,12 +44,42 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UnicodeSet;
 
 public class TestSupplementalInfo extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) {
         new TestSupplementalInfo().run(args);
+    }
+
+    public void TestDefaultScriptCompleteness() {
+        Relation<String,String> scriptToBase = Relation.of(new LinkedHashMap<String,Set<String>>(), TreeSet.class);
+        main:
+            for (String locale : testInfo.getCldrFactory().getAvailableLanguages()) {
+                if (!locale.contains("_") && !"root".equals(locale)) {
+                    String defaultScript = testInfo.getSupplementalDataInfo().getDefaultScript(locale);
+                    if (defaultScript != null) {
+                        continue;
+                    }
+                    CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, false);
+                    UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.NORMAL);
+                    for (String s : set) {
+                        int script = UScript.getScript(s.codePointAt(0));
+                        if (script != UScript.UNKNOWN && script != UScript.COMMON && script != UScript.INHERITED) {
+                            scriptToBase.put(UScript.getShortName(script), locale);
+                            continue main;
+                        }
+                    }
+                    scriptToBase.put(UScript.getShortName(UScript.UNKNOWN), locale);
+                }
+            }
+        if (scriptToBase.size() != 0) {
+            for (Entry<String, Set<String>> entry : scriptToBase.keyValuesSet()) {
+                errln("Default Scripts missing:\t" + entry.getKey() + "\t" + entry.getValue());
+            }
+        }
     }
 
     public void TestTimeData() {
@@ -57,12 +90,12 @@ public class TestSupplementalInfo extends TestFmwk {
             PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
             if (!preferredAndAllowedHour.allowed.contains(preferredAndAllowedHour.preferred)) {
                 errln(region + ": " + preferredAndAllowedHour.allowed + "must contain"
-                    + preferredAndAllowedHour.preferred);
+                        + preferredAndAllowedHour.preferred);
             }
             for (Character c : preferredAndAllowedHour.allowed) {
                 if (!PreferredAndAllowedHour.HOURS.contains(c)) {
                     errln(region + ": illegal character in " + preferredAndAllowedHour.allowed + ". It contains " + c
-                        + " which is not in " + PreferredAndAllowedHour.HOURS);
+                            + " which is not in " + PreferredAndAllowedHour.HOURS);
                 }
             }
         }
@@ -72,29 +105,29 @@ public class TestSupplementalInfo extends TestFmwk {
         testInfo.getStandardCodes();
         Map<String, Map<String, Map<String, String>>> bcp47Data = StandardCodes.getLStreg();
         Map<String, Map<String, R2<List<String>, String>>> aliases = testInfo.getSupplementalDataInfo()
-            .getLocaleAliasInfo();
+                .getLocaleAliasInfo();
 
         for (Entry<String, Map<String, R2<List<String>, String>>> typeMap : aliases.entrySet()) {
             String type = typeMap.getKey();
             Map<String, R2<List<String>, String>> codeReplacement = typeMap.getValue();
 
             Map<String, Map<String, String>> bcp47DataTypeData = bcp47Data.get(type.equals("territory") ? "region"
-                : type);
+                    : type);
             if (bcp47DataTypeData == null) {
                 logln("skipping BCP47 test for " + type);
             } else {
                 for (Entry<String, Map<String, String>> codeData : bcp47DataTypeData.entrySet()) {
                     String code = codeData.getKey();
                     if (codeReplacement.containsKey(code)
-                        || codeReplacement.containsKey(code.toUpperCase(Locale.ENGLISH))) {
+                            || codeReplacement.containsKey(code.toUpperCase(Locale.ENGLISH))) {
                         continue;
                         // TODO, check the value
                     }
                     Map<String, String> data = codeData.getValue();
                     if (data.containsKey("Deprecated")
-                        && testInfo.getSupplementalDataInfo().getCLDRLanguageCodes().contains(code)) {
+                            && testInfo.getSupplementalDataInfo().getCLDRLanguageCodes().contains(code)) {
                         errln("supplementalMetadata.xml: alias is missing <languageAlias type=\"" + code + "\" ... /> "
-                            + "\t" + data);
+                                + "\t" + data);
                     }
                 }
             }
@@ -134,8 +167,8 @@ public class TestSupplementalInfo extends TestFmwk {
                     List<String> newReplacement = item.get2();
 
                     errln(code + "\t=>\t" + oldReplacement + "\tshould be:\n\t" +
-                        "<" + type + "Alias type=\"" + code + "\" replacement=\""
-                        + CollectionUtilities.join(newReplacement, " ") + "\" reason=\"XXX\"/> <!-- YYY -->\n");
+                            "<" + type + "Alias type=\"" + code + "\" replacement=\""
+                            + CollectionUtilities.join(newReplacement, " ") + "\" reason=\"XXX\"/> <!-- YYY -->\n");
                 }
             }
             if (nullReplacements.size() != 0) {
@@ -182,7 +215,7 @@ public class TestSupplementalInfo extends TestFmwk {
         Set<String> keySet = from001.keySet();
         for (String region : keySet) {
             logln(Utility.repeat("\t", from001.get(region)) + "\t" + region
-                + "\t" + getRegionName(region));
+                    + "\t" + getRegionName(region));
         }
 
         // Populate mapItems with the core containment
@@ -210,7 +243,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     private Map<String, Integer> getRecursiveContainment(String region, Relation<String, String> map,
-        Map<String, Integer> result, int depth) {
+            Map<String, Integer> result, int depth) {
         Set<String> contained = map.getAll(region);
         if (contained == null) {
             return result;
@@ -229,7 +262,7 @@ public class TestSupplementalInfo extends TestFmwk {
     public void TestMacrolanguages() {
         Set<String> languageCodes = testInfo.getStandardCodes().getAvailableCodes("language");
         Map<String, Map<String, R2<List<String>, String>>> typeToTagToReplacement = testInfo.getSupplementalDataInfo()
-            .getLocaleAliasInfo();
+                .getLocaleAliasInfo();
         Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get("language");
 
         Relation<String, String> replacementToReplaced = new Relation(new TreeMap(), TreeSet.class);
@@ -248,7 +281,7 @@ public class TestSupplementalInfo extends TestFmwk {
         // the invariant is that every macrolanguage has exactly 1 encompassed language that maps to it
 
         main: for (String language : Builder.with(new TreeSet<String>()).addAll(languageCodes)
-            .addAll(Iso639Data.getAvailable()).get()) {
+                .addAll(Iso639Data.getAvailable()).get()) {
             if (language.equals("no") || language.equals("sh")) continue; // special cases
             Scope languageScope = getScope(language, lstregLanguageInfo);
             if (languageScope == Scope.Macrolanguage) {
@@ -286,9 +319,9 @@ public class TestSupplementalInfo extends TestFmwk {
                     }
                 }
                 errln(scope
-                    + "\t" + language
-                    + "\t" + name
-                    + "\t" + Iso639Data.getType(language));
+                        + "\t" + language
+                        + "\t" + name
+                        + "\t" + Iso639Data.getType(language));
             }
         }
     }
@@ -335,7 +368,7 @@ public class TestSupplementalInfo extends TestFmwk {
             // do some consistency tests; if there is a script, it must be in primaryScripts
             if (!script.isEmpty() && !primaryScripts.contains(script)) {
                 errln(base + ": Script found in territory data (" + script + ") is not in primary scripts :\t"
-                    + primaryScripts);
+                        + primaryScripts);
             }
 
             // if there are multiple primary scripts, they will be in baseToLanguages
@@ -365,25 +398,25 @@ public class TestSupplementalInfo extends TestFmwk {
     public void TestCompleteness() {
         if (testInfo.getSupplementalDataInfo().getSkippedElements().size() > 0) {
             logln("SupplementalDataInfo API doesn't support: "
-                + testInfo.getSupplementalDataInfo().getSkippedElements().toString());
+                    + testInfo.getSupplementalDataInfo().getSkippedElements().toString());
         }
     }
 
     // these are settings for exceptional cases we want to allow
     private static final Set<String> EXCEPTION_CURRENCIES_WITH_NEW = new TreeSet<String>(Arrays.asList("ILS", "NZD",
-        "PGK", "TWD"));
+            "PGK", "TWD"));
 
     // ok since there is no problem with confusion
     private static final Set<String> OK_TO_NOT_HAVE_OLD = new TreeSet<String>(Arrays.asList(
-        "ADP", "ATS", "BEF", "CYP", "DEM", "ESP", "FIM", "FRF", "GRD", "IEP", "ITL", "LUF", "MTL", "MTP",
-        "NLG", "PTE", "YUM", "ARA", "BAD", "BGL", "BOP", "BRC", "BRN", "BRR", "BUK", "CSK", "ECS", "GEK", "GNS",
-        "GQE", "HRD", "ILP", "LTT", "LVR", "MGF", "MLF", "MZE", "NIC", "PEI", "PES", "SIT", "SRG", "SUR",
-        "TJR", "TPE", "UAK", "YUD", "YUN", "ZRZ", "GWE"));
+            "ADP", "ATS", "BEF", "CYP", "DEM", "ESP", "FIM", "FRF", "GRD", "IEP", "ITL", "LUF", "MTL", "MTP",
+            "NLG", "PTE", "YUM", "ARA", "BAD", "BGL", "BOP", "BRC", "BRN", "BRR", "BUK", "CSK", "ECS", "GEK", "GNS",
+            "GQE", "HRD", "ILP", "LTT", "LVR", "MGF", "MLF", "MZE", "NIC", "PEI", "PES", "SIT", "SRG", "SUR",
+            "TJR", "TPE", "UAK", "YUD", "YUN", "ZRZ", "GWE"));
 
     private static final Date LIMIT_FOR_NEW_CURRENCY = new Date(new Date().getYear() - 5, 1, 1);
     private static final Date NOW = new Date();
     private Matcher oldMatcher = Pattern.compile("\\bold\\b|\\([0-9]{4}-[0-9]{4}\\)", Pattern.CASE_INSENSITIVE)
-        .matcher("");
+            .matcher("");
     private Matcher newMatcher = Pattern.compile("\\bnew\\b", Pattern.CASE_INSENSITIVE).matcher("");
 
     /**
@@ -395,14 +428,14 @@ public class TestSupplementalInfo extends TestFmwk {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
         Set<String> currencyCodes = testInfo.getStandardCodes().getGoodAvailableCodes("currency");
         Relation<String, Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes = Relation.of(
-            new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
-            TreeSet.class);
+                new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
+                TreeSet.class);
         Relation<String, Pair<String, CurrencyDateInfo>> modernCurrencyCodes = Relation.of(
-            new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
-            TreeSet.class);
+                new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
+                TreeSet.class);
         Set<String> territoriesWithoutModernCurrencies = new TreeSet<String>(testInfo.getStandardCodes()
-            .getGoodAvailableCodes(
-                "territory"));
+                .getGoodAvailableCodes(
+                        "territory"));
         Map<String, Date> currencyFirstValid = new TreeMap<String, Date>();
         Map<String, Date> currencyLastValid = new TreeMap<String, Date>();
         territoriesWithoutModernCurrencies.remove("ZZ");
@@ -439,14 +472,14 @@ public class TestSupplementalInfo extends TestFmwk {
                     nonModernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));
                 }
                 logln(territory + "\t" + dateInfo.toString() + "\t"
-                    + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency));
+                        + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency));
             }
         }
         // fix up
         nonModernCurrencyCodes.removeAll(modernCurrencyCodes.keySet());
         Relation<String, String> isoCurrenciesToCountries = Relation.of(new TreeMap<String, Set<String>>(),
-            TreeSet.class)
-            .addAllInverted(isoCodes.getCountryToCodes());
+                TreeSet.class)
+                .addAllInverted(isoCodes.getCountryToCodes());
         // now print error messages
         logln("Modern Codes: " + modernCurrencyCodes.size() + "\t" + modernCurrencyCodes);
         Set<String> missing = new TreeSet<String>(isoCurrenciesToCountries.keySet());
@@ -470,8 +503,8 @@ public class TestSupplementalInfo extends TestFmwk {
             }
             if (!isoCountries.equals(cldrCountries)) {
                 errln("Mismatch between ISO and Cldr modern currencies for " + currency + "\tISO:" + isoCountries
-                    + "\tCLDR:"
-                    + cldrCountries);
+                        + "\tCLDR:"
+                        + cldrCountries);
                 showCountries("iso-cldr", isoCountries, cldrCountries, missing);
                 showCountries("cldr-iso", cldrCountries, isoCountries, missing);
             }
@@ -483,12 +516,12 @@ public class TestSupplementalInfo extends TestFmwk {
                 // find the first use. If older than 5 years, flag as error
                 if (currencyFirstValid.get(currency).compareTo(LIMIT_FOR_NEW_CURRENCY) < 0) {
                     errln("Has 'new' in name but used since "
-                        + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name
-                        + "\t" + data);
+                            + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name
+                            + "\t" + data);
                 } else {
                     logln("Has 'new' in name but used since "
-                        + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name
-                        + "\t" + data);
+                            + CurrencyDateInfo.formatDate(currencyFirstValid.get(currency)) + "\t" + currency + "\t" + name
+                            + "\t" + data);
                 }
             }
         }
@@ -497,22 +530,22 @@ public class TestSupplementalInfo extends TestFmwk {
             final String name = testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, currency);
             if (newMatcher.reset(name).find() && !EXCEPTION_CURRENCIES_WITH_NEW.contains(currency)) {
                 logln("Has 'new' in name but NOT used since "
-                    + CurrencyDateInfo.formatDate(currencyLastValid.get(currency)) + "\t" + currency + "\t" + name
-                    + "\t" + nonModernCurrencyCodes.getAll(currency));
+                        + CurrencyDateInfo.formatDate(currencyLastValid.get(currency)) + "\t" + currency + "\t" + name
+                        + "\t" + nonModernCurrencyCodes.getAll(currency));
             } else if (!oldMatcher.reset(name).find() && !OK_TO_NOT_HAVE_OLD.contains(currency)) {
                 logln("Doesn't have 'old' or date range in name but NOT used since "
-                    + CurrencyDateInfo.formatDate(currencyLastValid.get(currency))
-                    + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
+                        + CurrencyDateInfo.formatDate(currencyLastValid.get(currency))
+                        + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
                 for (Pair<String, CurrencyDateInfo> pair : nonModernCurrencyCodes.getAll(currency)) {
                     final String territory = pair.getFirst();
                     Set<CurrencyDateInfo> currencyInfo = testInfo.getSupplementalDataInfo().getCurrencyDateInfo(
-                        territory);
+                            territory);
                     for (CurrencyDateInfo dateInfo : currencyInfo) {
                         if (dateInfo.getEnd().compareTo(NOW) < 0) {
                             continue;
                         }
                         logln("\tCurrencies used instead: " + territory + "\t" + dateInfo
-                            + "\t" + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
+                                + "\t" + testInfo.getEnglish().getName(CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
 
                     }
                 }
@@ -530,7 +563,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     private void showCountries(final String title, Set<String> isoCountries,
-        Set<String> cldrCountries, Set<String> missing) {
+            Set<String> cldrCountries, Set<String> missing) {
         missing.clear();
         missing.addAll(isoCountries);
         missing.removeAll(cldrCountries);
@@ -560,15 +593,75 @@ public class TestSupplementalInfo extends TestFmwk {
 
         // Check that day periods are recognized.
         assertEquals("night", DayPeriodInfo.DayPeriod.night,
-            dayPeriods.getDayPeriod(0));
+                dayPeriods.getDayPeriod(0));
         assertEquals("earlyMorning", DayPeriodInfo.DayPeriod.earlyMorning,
-            dayPeriods.getDayPeriod(3 * 60 * 60 * 1000));
+                dayPeriods.getDayPeriod(3 * 60 * 60 * 1000));
         assertEquals("noon", DayPeriodInfo.DayPeriod.noon,
-            dayPeriods.getDayPeriod(12 * 60 * 60 * 1000));
+                dayPeriods.getDayPeriod(12 * 60 * 60 * 1000));
         assertEquals("evening", DayPeriodInfo.DayPeriod.evening,
-            dayPeriods.getDayPeriod((16 * 60 + 5) * 60 * 1000));
+                dayPeriods.getDayPeriod((16 * 60 + 5) * 60 * 1000));
         assertEquals("11pm = night ", DayPeriodInfo.DayPeriod.night,
-            dayPeriods.getDayPeriod(23 * 60 * 60 * 1000));
+                dayPeriods.getDayPeriod(23 * 60 * 60 * 1000));
     }
 
+    /**
+     * Verify that we have a default script for every CLDR base language
+     */
+    public void TestDefaultScripts() {
+        SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
+        Map<String, String> likelyData = supp.getLikelySubtags();
+        Map<String,String> baseToDefaultContentScript = new HashMap<String,String>();
+        for (CLDRLocale locale : supp.getDefaultContentCLDRLocales()) {
+            String script = locale.getScript();
+            if (!script.isEmpty() && locale.getCountry().isEmpty()) {
+                baseToDefaultContentScript.put(locale.getLanguage(), script);
+            }
+        }
+        for (String locale : testInfo.getCldrFactory().getAvailableLanguages()) {
+            if ("root".equals(locale)) {
+                continue;
+            }
+            CLDRLocale loc = CLDRLocale.getInstance(locale);
+            String baseLanguage = loc.getLanguage();
+            String defaultScript = supp.getDefaultScript(baseLanguage);
+
+            String defaultContentScript = baseToDefaultContentScript.get(baseLanguage);
+            if (defaultContentScript != null) {
+                assertEquals(loc + " defaultContentScript = default", defaultScript, defaultContentScript);
+            }
+            String likely = likelyData.get(baseLanguage);
+            String likelyScript = likely == null ? null : CLDRLocale.getInstance(likely).getScript();
+            Map<Type, BasicLanguageData> scriptInfo = supp.getBasicLanguageDataMap(baseLanguage);
+            if (scriptInfo == null) {
+                if (!logKnownIssue("cldrbug:6114", "Use of scripts in locales")) { 
+                    errln(loc + ": has no BasicLanguageData");
+                }
+            } else {
+                BasicLanguageData data = scriptInfo.get(Type.primary);
+                if (data == null) {
+                    data = scriptInfo.get(Type.secondary);
+                }
+                if (data == null) {
+                    errln(loc + ": has no scripts in BasicLanguageData");
+                } else if (!data.getScripts().contains(defaultScript)) {
+                    if (!logKnownIssue("cldrbug:6114", "Use of scripts in locales")) { 
+                        errln(loc + ": " + defaultScript + " not in BasicLanguageData " + data.getScripts());
+                    }
+                }
+            }
+
+            assertEquals(loc + " likely = default", defaultScript, likelyScript);
+
+            assertNotNull(loc + ": needs default script", defaultScript);
+
+            if (!loc.getScript().isEmpty()) {
+                if (!loc.getScript().equals(defaultScript)) {
+                    if (!logKnownIssue("cldrbug:6114", "Use of scripts in locales")) { 
+                        assertNotEquals(locale + ": only include script if not default", loc.getScript(), defaultScript);
+                    }
+                }
+            }
+
+        }
+    }
 }

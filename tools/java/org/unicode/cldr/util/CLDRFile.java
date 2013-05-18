@@ -58,6 +58,7 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
@@ -2012,16 +2013,32 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return path.substring(start, end);
     }
 
+    public String getName(int type, String code) {
+        return getName(type, code, null);
+    }
+    
     /**
      * Utility for getting the name, given a code.
      * 
      * @param type
      * @param code
+     * @param codeToAlt - if not null, is called on the code. If the result is not null, then that is used for an alt value.
+     * If the alt path has a value it is used, otherwise the normal one is used. For example, the transform could return "short" for
+     * PS or HK or MO, but not US or GB.
      * @return
      */
-    public String getName(int type, String code) {
+    public String getName(int type, String code, Transform<String,String> codeToAlt) {
         String path = getKey(type, code);
-        String result = getStringValue(path);
+        String result = null;
+        if (codeToAlt != null) {
+            String alt = codeToAlt.transform(code);
+            if (alt != null) {
+                result = getStringValue(path + "[@alt=\"" + alt + "\"]");
+            }
+        }
+        if (result == null) {
+            result = getStringValue(path);
+        }
         if (result == null && getLocaleID().equals("en")) {
             if (type == LANGUAGE_NAME) {
                 Set<String> set = Iso639Data.getNames(code);
@@ -2066,7 +2083,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public synchronized String getName(String localeOrTZID) {
         return getName(localeOrTZID, false);
     }
-
+    
+    public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound,
+            String localeKeyTypePattern, String localePattern, String localeSeparator) {
+        return getName(localeOrTZID, onlyConstructCompound, 
+                localeKeyTypePattern, localePattern, localeSeparator, null);
+    }
     /**
      * Returns the name of the given bcp47 identifier. Note that extensions must
      * be specified using the old "\@key=type" syntax.
@@ -2079,9 +2101,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return
      */
     public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound,
-            String localeKeyTypePattern, String localePattern, String localeSeparator) {
+            String localeKeyTypePattern, String localePattern, String localeSeparator,
+            Transform<String,String> altPicker) {
         boolean isCompound = localeOrTZID.contains("_");
-        String name = isCompound && onlyConstructCompound ? null : getName(LANGUAGE_NAME, localeOrTZID);
+        String name = isCompound && onlyConstructCompound ? null : getName(LANGUAGE_NAME, localeOrTZID, altPicker);
         // TODO - handle arbitrary combinations
         if (name != null && !name.contains("_") && !name.contains("-")) {
             return name;
@@ -2094,22 +2117,22 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         boolean haveRegion = false;
         // try lang+script
         if (onlyConstructCompound) {
-            name = getName(LANGUAGE_NAME, original = lparser.getLanguage());
+            name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), altPicker);
             if (name == null) name = original;
         } else {
-            name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION));
+            name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION), altPicker);
             if (name != null) {
                 haveScript = haveRegion = true;
             } else {
-                name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT));
+                name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT), altPicker);
                 if (name != null) {
                     haveScript = true;
                 } else {
-                    name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_REGION));
+                    name = getName(LANGUAGE_NAME, lparser.toString(LanguageTagParser.LANGUAGE_REGION), altPicker);
                     if (name != null) {
                         haveRegion = true;
                     } else {
-                        name = getName(LANGUAGE_NAME, original = lparser.getLanguage());
+                        name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), altPicker);
                         if (name == null) name = original;
                     }
                 }
@@ -2118,14 +2141,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         String extras = "";
         if (!haveScript) {
-            extras = addDisplayName(lparser.getScript(), SCRIPT_NAME, localeSeparator, extras);
+            extras = addDisplayName(lparser.getScript(), SCRIPT_NAME, localeSeparator, extras, altPicker);
         }
         if (!haveRegion) {
-            extras = addDisplayName(lparser.getRegion(), TERRITORY_NAME, localeSeparator, extras);
+            extras = addDisplayName(lparser.getRegion(), TERRITORY_NAME, localeSeparator, extras, altPicker);
         }
         List<String> variants = lparser.getVariants();
         for (String orig : variants) {
-            extras = addDisplayName(orig, VARIANT_NAME, localeSeparator, extras);
+            extras = addDisplayName(orig, VARIANT_NAME, localeSeparator, extras, altPicker);
         }
 
         // Look for key-type pairs.
@@ -2162,10 +2185,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return
      */
     public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound) {
+        return getName(localeOrTZID, onlyConstructCompound, null);
+    }
+    
+    public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound,
+            Transform<String,String> altPicker) {
         return getName(localeOrTZID, onlyConstructCompound,
                 getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
                 getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
-                getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"));
+                getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"),
+                altPicker);
     }
 
     /**
@@ -2177,10 +2206,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @param extras the string to be added to
      * @return the modified display name string
      */
-    private String addDisplayName(String subtag, int type, String separatorPattern, String extras) {
+    private String addDisplayName(String subtag, int type, String separatorPattern, String extras,
+            Transform<String,String> altPicker) {
         if (subtag.length() == 0) return extras;
 
-        String sname = getName(type, subtag);
+        String sname = getName(type, subtag, altPicker);
         if (sname == null) {
             sname = subtag;
         }

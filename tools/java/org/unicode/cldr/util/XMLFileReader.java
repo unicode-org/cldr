@@ -14,8 +14,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
@@ -375,15 +377,32 @@ public class XMLFileReader {
     }
 
     public static Relation<String, String> loadPathValues(String filename, Relation<String, String> data) {
+        return loadPathValues(filename, data, true);
+    }
+
+
+    public static Relation<String, String> loadPathValues(String filename, Relation<String, String> data, boolean validating) {
         try {
             new XMLFileReader()
                 .setHandler(new PathValueHandler(data))
-                .read(filename, -1, true);
+                .read(filename, -1, validating);
             return data;
         } catch (Exception e) {
             throw new IllegalArgumentException(filename, e);
         }
     }
+    
+    public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating) {
+        try {
+            new XMLFileReader()
+                .setHandler(new PathValueListHandler(data))
+                .read(filename, -1, validating);
+            return data;
+        } catch (Exception e) {
+            throw new IllegalArgumentException(filename, e);
+        }
+    }
+
 
     static final class PathValueHandler extends SimpleHandler {
         Relation<String, String> data = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
@@ -396,6 +415,20 @@ public class XMLFileReader {
         @Override
         public void handlePathValue(String path, String value) {
             data.put(path, value);
+        }
+    }
+    
+    static final class PathValueListHandler extends SimpleHandler {
+        List<Pair<String, String>> data = new ArrayList();
+
+        public PathValueListHandler(List<Pair<String, String>> data) {
+            super();
+            this.data = data;
+        }
+
+        @Override
+        public void handlePathValue(String path, String value) {
+            data.add(Pair.of(path, value));
         }
     }
 }

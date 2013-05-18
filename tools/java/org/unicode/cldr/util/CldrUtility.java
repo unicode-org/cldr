@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.SortedSet;
@@ -36,12 +37,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.PathHeader.Factory;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -806,20 +809,38 @@ public class CldrUtility {
         base.put(objects[objects.length - 2], objects[objects.length - 1]);
     }
 
-    public static abstract class Transform {
-        public abstract Object transform(Object source);
+    public static abstract class CollectionTransform<S,T> implements Transform<S,T> {
+        public abstract T transform(S source);
 
-        public Collection<Object> transform(Collection input, Collection<Object> output) {
-            for (Iterator it = input.iterator(); it.hasNext();) {
-                Object result = transform(it.next());
-                if (result != null) output.add(result);
+        public Collection<T> transform(Collection<S> input, Collection<T> output) {
+            return CldrUtility.transform(input, this, output);
+        }
+
+        public Collection<T> transform(Collection<S> input) {
+            return transform(input, new ArrayList<T>());
+        }
+    }
+    
+    public static <S, T, SC extends Collection<S>, TC extends Collection<T>> TC transform(SC source, Transform<S,T> transform, TC target) {
+        for (S sourceItem : source) {
+            T targetItem = transform.transform(sourceItem);
+            if (targetItem != null) {
+                target.add(targetItem);
             }
-            return output;
         }
-
-        public Collection<Object> transform(Collection input) {
-            return transform(input, new ArrayList<Object>());
+        return target;
+    }
+    
+    public static <SK, SV, TK, TV, SM extends Map<SK,SV>, TM extends Map<TK,TV>> TM transform(
+            SM source, Transform<SK,TK> transformKey, Transform<SV,TV> transformValue, TM target) {
+        for (Entry<SK, SV> sourceEntry : source.entrySet()) {
+            TK targetKey = transformKey.transform(sourceEntry.getKey());
+            TV targetValue = transformValue.transform(sourceEntry.getValue());
+            if (targetKey != null && targetValue != null) {
+                target.put(targetKey, targetValue);
+            }
         }
+        return target;
     }
 
     public static abstract class Apply<T> {
@@ -1303,4 +1324,26 @@ public class CldrUtility {
             + "(http://unicode.org/reports/tr35/)" + CldrUtility.LINE_SEPARATOR
             + "For terms of use, see http://www.unicode.org/copyright.html";
     }
+
+    // TODO Move to collection utilities
+    /**
+     * Type-safe get
+     * @param map
+     * @param key
+     * @return value
+     */
+    public static <K,V,M extends Map<K,V>> V get(M map, K key) {
+        return map.get(key);
+    }
+
+    /**
+     * Type-safe contains
+     * @param map
+     * @param key
+     * @return value
+     */
+    public static <K,C extends Collection<K>> boolean contains(C collection, K key) {
+        return collection.contains(key);
+    }
+
 }

@@ -890,14 +890,14 @@ public class CLDRTest extends TestFmwk {
      * ;
      */
 
-    CldrUtility.Transform EnglishName = new CldrUtility.Transform() {
+    CldrUtility.CollectionTransform EnglishName = new CldrUtility.CollectionTransform() {
         public Object transform(Object source) {
             // TODO Auto-generated method stub
             return getLocalization(source.toString()) + " (" + source + ")";
         }
     };
 
-    CldrUtility.Transform EnglishCurrencyName = new CldrUtility.Transform() {
+    CldrUtility.CollectionTransform EnglishCurrencyName = new CldrUtility.CollectionTransform() {
         public Object transform(Object source) {
             if (english == null) english = cldrFactory.make("en", true);
             return english.getName("currency", source.toString()) + " (" + source + ")";

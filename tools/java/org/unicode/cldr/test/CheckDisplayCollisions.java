@@ -103,7 +103,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private XPathParts parts2 = new XPathParts(null, null);
     private transient Relation<String, String> hasCollisions = Relation.of(new TreeMap<String, Set<String>>(),
         HashSet.class);
-    private boolean finalTesting;
 
     private PathHeader.Factory pathHeaderFactory;
 
@@ -160,7 +159,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             paths.clear();
 
             Matcher matcher = null;
-            String message = "Can't have same translation as {0}";
+            String message = getPhase() == Phase.SUBMISSION
+                    ? "WARNING: Can't have same translation as {0}. This will become an error during the Vetting phase."
+                            : "Can't have same translation as {0}";
             Matcher currentAttributesToIgnore = attributesToIgnore;
 
             if (myType == Type.DECIMAL_FORMAT) {
@@ -211,7 +212,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 for (String pathName : paths) {
                     currentAttributesToIgnore.reset(pathName);
                     PathHeader pathHeader = pathHeaderFactory.fromPath(pathName);
-                    if ( finalTesting ) {
+                    if ( getPhase() == Phase.FINAL_TESTING ) {
                         collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
                     } else {
                         collidingTypes.add("<a href=\"v#/" + getCldrFileToCheck().getLocaleID() + "/" + pathHeader.getPageId() + "/" + StringId.getHexId(pathName)+"\">" + 
@@ -356,7 +357,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-        finalTesting = Phase.FINAL_TESTING == getPhase();
 
         // clear old status
         clear();
@@ -459,7 +459,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 continue;
             }
             // only check winning paths
-            if (!cldrFileToCheck.isWinningPath(xpath) || finalTesting && xpath.contains("proposed")) {
+            if (!cldrFileToCheck.isWinningPath(xpath) || getPhase() == Phase.FINAL_TESTING && xpath.contains("proposed")) {
                 continue;
             }
             // special case language; exclude codeFallback

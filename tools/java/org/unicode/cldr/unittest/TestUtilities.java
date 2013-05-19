@@ -141,8 +141,19 @@ public class TestUtilities extends TestFmwk {
         }
         List<Organization> reordered = new ArrayList<Organization>(stringToOrg.values());
         List<Organization> plain = Arrays.asList(Organization.values());
-        if (!plain.equals(reordered)) {
-            errln("Items not in alphabetical order: use " + reordered);
+        for (int i = 0; i < reordered.size(); ++i) {
+            assertEquals("Items not in alphabetical order", reordered.get(i), plain.get(i));
+        }
+    }
+
+    public void TestOrganizationNames() {
+        UnicodeSet uppercase = new UnicodeSet("[:uppercase:]");
+        for (Organization org : Organization.values()) {
+            if (!uppercase.contains(org.getDisplayName().codePointAt(0))) {
+                errln("Organization name isn't titlecased: " + org + ", " + org.getDisplayName());
+            }
+            assertEquals("Organization from enum name", org, Organization.fromString(org.toString()));
+            assertEquals("Organization from display name", org, Organization.fromString(org.getDisplayName()));
         }
     }
 

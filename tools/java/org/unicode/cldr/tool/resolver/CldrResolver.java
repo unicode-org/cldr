@@ -39,7 +39,7 @@ public class CldrResolver {
   /**
    * 
    */
-  public static final String UNDEFINED = "�UNDEFINED�";
+  public static final String UNDEFINED = "∅∅∅";
   /**
    * The name of the code-fallback locale
    */

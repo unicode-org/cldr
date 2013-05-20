@@ -296,6 +296,7 @@ public class CldrResolver {
                       !ancestor.getStringValue(distinguishedPath).equals(UNDEFINED)) {
                   ResolverUtils.debugPrintln(
                           "Added UNDEFINED value for path: " + distinguishedPath, 4);
+                  resolved.add(distinguishedPath, UNDEFINED);
               }
           }
       }

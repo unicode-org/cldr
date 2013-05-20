@@ -29,37 +29,7 @@ public class TestCldrResolver extends TestFmwk {
 
   public void TestSimpleResolution() {
       try {
-      new ResolverTest(ResolutionType.SIMPLE) {
-          @Override
-          protected Map<String, String> loadToolDataFromResolver(String locale) {
-              String parent = LocaleIDParser.getSimpleParent(locale);
-              if (parent == null) {
-                // locale is root, just grab it straight out of the unresolved data
-                return super.loadToolDataFromResolver(locale);
-              } else {
-                Map<String, String> resolvedParent = loadToolDataFromResolver(parent);
-                Map<String, String> resolvedChild = new HashMap<String, String>(resolvedParent);
-                Map<String, String> unresolvedChild = super.loadToolDataFromResolver(locale);
-                for (String distinguishedPath : unresolvedChild.keySet()) {
-
-                  String childValue = unresolvedChild.get(distinguishedPath);
-                  if (!distinguishedPath.startsWith("//ldml/identity/")) {
-                    // Ignore the //ldml/identity/ elements
-                    String parentValue = resolvedParent.get(distinguishedPath);
-                    assertNotEquals(
-                        "Child ("
-                            + locale
-                            + ") should not contain values that are the same in the truncation parent locale ("
-                            + parent + ") at path '" + distinguishedPath + "'.",
-                            childValue, parentValue);
-                    }
-                    // Overwrite the parent value
-                    resolvedChild.put(distinguishedPath, childValue);
-                  }
-                return resolvedChild;
-              }
-          }
-      }.testResolution();
+      new SimpleResolverTest().testResolution();
       } catch (Exception e) {
           e.printStackTrace();
       }
@@ -168,5 +138,41 @@ public class TestCldrResolver extends TestFmwk {
         }
       }
     }
+  }
+
+  private class SimpleResolverTest extends ResolverTest {
+      public SimpleResolverTest() {
+          super(ResolutionType.SIMPLE);
+      }
+
+      @Override
+      protected Map<String, String> loadToolDataFromResolver(String locale) {
+          String parent = LocaleIDParser.getSimpleParent(locale);
+          if (parent == null) {
+            // locale is root, just grab it straight out of the unresolved data
+            return super.loadToolDataFromResolver(locale);
+          } else {
+            Map<String, String> resolvedParent = loadToolDataFromResolver(parent);
+            Map<String, String> resolvedChild = new HashMap<String, String>(resolvedParent);
+            Map<String, String> unresolvedChild = super.loadToolDataFromResolver(locale);
+            for (String distinguishedPath : unresolvedChild.keySet()) {
+
+              String childValue = unresolvedChild.get(distinguishedPath);
+              if (!distinguishedPath.startsWith("//ldml/identity/")) {
+                // Ignore the //ldml/identity/ elements
+                String parentValue = resolvedParent.get(distinguishedPath);
+                assertNotEquals(
+                    "Child ("
+                        + locale
+                        + ") should not contain values that are the same in the truncation parent locale ("
+                        + parent + ") at path '" + distinguishedPath + "'.",
+                        childValue, parentValue);
+                }
+                // Overwrite the parent value
+                resolvedChild.put(distinguishedPath, childValue);
+              }
+            return resolvedChild;
+          }
+      }
   }
 }

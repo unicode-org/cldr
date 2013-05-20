@@ -21,10 +21,11 @@ define({
 		newDataWaiting: "(new data waiting)",
 
 		clickToCopy: "click to copy to input box",
-		file_a_ticket: "Click here to file a ticket if changes are necessary.",
+		file_a_ticket: "Read all above links, and then click here to file a ticket only if changes are necessary. Do not submit a translation of this text without reading the above text and links.",
 		file_ticket_unofficial: "This is not an official Survey Tool instance.",
 		file_ticket_must: "You must file a ticket to modify this item.",
-
+		file_ticket_notice: "May not be modified- see details.",
+		
 		htmlst: "Errors",
 		htmldraft: "A",
 		htmlvoted: "Voting",

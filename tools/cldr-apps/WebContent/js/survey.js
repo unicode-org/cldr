@@ -1650,6 +1650,9 @@ dojo.ready(function() {
 		if(theVoteinfo) {
 			td.appendChild(theVoteinfo.cloneNode(true));
 		}
+		if(tr&&tr.ticketLink) {
+			td.appendChild(tr.ticketLink.cloneNode(true));
+		}
 
 		// forum stuff
 		if(tr && tr.forumDiv) {
@@ -2300,7 +2303,7 @@ function updateRow(tr, theRow) {
 	
 	var statusAction = tr.statusAction = parseStatusAction(theRow.statusAction);
 	var canModify = tr.canModify =  tr.theTable.json.canModify && statusAction.vote;
-    var ticketOnly = tr.ticketOnly = statusAction.ticket;
+    var ticketOnly = tr.ticketOnly = tr.theTable.json.canModify && statusAction.ticket;
     var canChange = tr.canChange = canModify && statusAction.change;
     if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
@@ -2484,15 +2487,16 @@ function updateRow(tr, theRow) {
 		children[config.proposedcell].className="d-change-confirmonly";
 		var link = createChunk(stui.str("file_a_ticket"),"a");
 		var newUrl = "http://unicode.org/cldr/trac"+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
-			link.href = newUrl;
-			link.target = "cldr-target-trac";
-			theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
-			theRow.proposedResults.href = newUrl;
-			if(!window.surveyOfficial) {
-				children[config.proposedcell].appendChild(createChunk(" (Note: this is not the production SurveyTool!) ","p"));
-				link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
-			}
-		children[config.proposedcell].appendChild(link);
+		link.href = newUrl;
+		link.target = "cldr-target-trac";
+		theRow.proposedResults = createChunk(stui.str("file_ticket_must"), "a","fnotebox");
+		theRow.proposedResults.href = newUrl;
+		if(!window.surveyOfficial) {
+			link.appendChild(createChunk(" (Note: this is not the production SurveyTool! Do not submit a ticket!) ","p"));
+			link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
+		}
+		children[config.proposedcell].appendChild(createChunk(stui.str("file_ticket_notice"), "i", "fnotebox"));
+		tr.ticketLink = link; 
 	} else  { // no change possible
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
     		setDisplayed(children[config.nocell], false);

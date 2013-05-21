@@ -150,6 +150,12 @@ define({
 		winningStatus_msg:  "${1} ${0} Value ",
 		lastReleaseStatus_msg: "${0} Last Release Value ",
 		lastReleaseStatus1_msg: "",
+		
+		dataPageInitialGuidance: "Welcome to the SurveyTool.<br>Be sure to read the <a href='http://cldr.unicode.org/index/survey-tool'>Instructions</a> carefully.  To vote for items:<br><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in this area.</li><li>To vote for an existing item, click on the round circle (<input type='radio'>).</li><li> To vote for a value not already shown, click on any other text item to change it.</li></ol>",
+		generalPageInitialGuidance: "This area will show details of items as you work with the SurveyTool. <p> You may resize this pane by dragging the dividers.",
+		
+		loginGuidance: "You may not make any changes, you are not logged in.",
+		readonlyGuidance: "You may not make changes to this locale.",
 
 		htmlvorg: "Org",
 		htmlvorgvote: "Organization's vote",

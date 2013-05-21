@@ -3738,6 +3738,10 @@ function showV() {
 			});
 		}
 		
+		/**
+		 * This is the main entrypoint to the 'new' view system, based in /v.jsp
+		 * @method reloadV
+		 */
 		window.reloadV = function reloadV() {
 			// assume parseHash was already called, if we are taking input from the hash
 			ariDialog.hide();
@@ -3834,9 +3838,12 @@ function showV() {
 				
 				if((surveyCurrentSpecial == null||surveyCurrentSpecial=='') && surveyCurrentLocale!=null && surveyCurrentLocale!='') {
 					if((surveyCurrentPage==null || surveyCurrentPage=='') && (surveyCurrentId==null||surveyCurrentId=='')) {
+						// the 'General Info' page.
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale)));
 						showPossibleProblems(flipper, pages.other, surveyCurrentLocale, surveySessionId, covName(effectiveCoverage()), covName(effectiveCoverage()));
+						showInPop2(stui.str("generalPageInitialGuidance"), null, null, null, true); /* show the box the first time */
 					} else {
+						// (common case) this is an actual locale data page.
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
 							
@@ -3868,7 +3875,13 @@ function showV() {
 								surveyCurrentSection = '';
 								surveyCurrentPage = json.pageId;
 								updateHashAndMenus(); // now that we have a pageid
-								showInPop2("", null, null, null, true); /* show the box the first time */
+								if(!surveyUser) {
+									showInPop2(stui.str("loginGuidance"), null, null, null, true); /* show the box the first time */
+								} else if(!json.canModify) {
+									showInPop2(stui.str("readonlyGuidance"), null, null, null, true); /* show the box the first time */
+								} else {
+									showInPop2(stui.str("dataPageInitialGuidance"), null, null, null, true); /* show the box the first time */
+								}
 								doUpdate(theDiv.id, function() {
 									showLoader(theDiv.loader,stui.loading3);
 									insertRows(theDiv,json.pageId,surveySessionId,json); // pageid is the xpath..

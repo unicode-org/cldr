@@ -30,6 +30,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONString;
+import org.json.JSONWriter;
 import org.unicode.cldr.unittest.web.TestAll;
 import org.unicode.cldr.unittest.web.TestSTFactory;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -203,7 +207,7 @@ public class UserRegistry {
      * This nested class is the representation of an individual user. It may not
      * have all fields filled out, if it is simply from the cache.
      */
-    public class User implements Comparable<User>, UserInfo {
+    public class User implements Comparable<User>, UserInfo, JSONString {
         public int id; // id number
         public int userlevel = LOCKED; // user level
         public String password; // password
@@ -451,6 +455,22 @@ public class UserRegistry {
 
         VoteResolver.Organization vrOrg() {
             return VoteResolver.Organization.fromString(voterOrg());
+        }
+
+        /**
+         * Doesn't send the password, does send other info
+         */
+        @Override
+        public String toJSONString() throws JSONException {
+            return new JSONObject().
+                    put("email", email).
+                    put("name", name).
+                    put("userlevel", userlevel).
+                    put("userlevelName", UserRegistry.levelAsStr(userlevel)).
+                    put("org", vrOrg().name()).
+                    put("orgName", vrOrg().displayName).
+                    put("id", id).
+                    toString();
         }
     }
 

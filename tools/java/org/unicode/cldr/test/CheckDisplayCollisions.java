@@ -200,6 +200,19 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 return this;
             }
 
+            // Collisions between display names and symbols for the same currency are allowed.
+            if (myType == Type.CURRENCY) {
+                XPathParts parts = new XPathParts().set(path);
+                String currency = parts.getAttributeValue(-2, "type");
+                Iterator<String> iterator = paths.iterator();
+                while (iterator.hasNext()) {
+                    parts.set(iterator.next());
+                    if (currency.equals(parts.getAttributeValue(-2, "type"))) {
+                        iterator.remove();
+                    }
+                }
+            }
+
             // removeMatches(myType);
             // check again on size
             if (paths.isEmpty()) {

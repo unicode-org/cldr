@@ -14,6 +14,7 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 
@@ -144,6 +145,7 @@ public class CLDRFileTransformer {
             transliterated = oldValue;
         } else {
             transliterated = transliterator.transliterate(value);
+            transliterated = Normalizer.compose(transliterated, false);
         }
         if (inputChars.containsSome(transliterated)) {
             unconverted.addAll(new UnicodeSet().addAll(inputChars).retainAll(transliterated));

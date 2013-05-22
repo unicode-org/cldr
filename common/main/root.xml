@@ -3463,8 +3463,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast">{0}+</pattern>
-			<pattern type="range">{0}-{1}</pattern>
+			<pattern type="atLeast">⩾{0}</pattern>
+			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 		<miscPatterns numberSystem="lepc">
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>

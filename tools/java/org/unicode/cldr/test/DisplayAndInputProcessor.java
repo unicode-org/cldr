@@ -1,5 +1,5 @@
-/* Copyright (C) 2007-2010 Google and others.  All Rights Reserved. */
-/* Copyright (C) 2007-2010 IBM Corp. and others. All Rights Reserved. */
+/* Copyright (C) 2007-2013 Google and others.  All Rights Reserved. */
+/* Copyright (C) 2007-2013 IBM Corp. and others. All Rights Reserved. */
 
 package org.unicode.cldr.test;
 
@@ -66,6 +66,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
     private static final CLDRLocale ROMANIAN = CLDRLocale.getInstance("ro");
     private static final CLDRLocale CATALAN = CLDRLocale.getInstance("ca");
+    private static final CLDRLocale NGOMBA = CLDRLocale.getInstance("jgo");
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -75,6 +76,10 @@ public class DisplayAndInputProcessor {
     private static final char[][] CATALAN_CONVERSIONS = {
         {'\u013F', '\u004C', '\u00B7'},  // Ŀ -> L·
         {'\u0140', '\u006C', '\u00B7'}}; // ŀ -> l·
+
+    private static final char[][] NGOMBA_CONVERSIONS = {
+        {'\u0251', '\u0061'}, {'\u0261', '\u0067'}}; //  ɑ -> a , ɡ -> g , See ticket #5691
+
 
     private Collator col;
 
@@ -199,6 +204,8 @@ public class DisplayAndInputProcessor {
                 value = standardizeRomanian(value);
             } else if (locale.childOf(CATALAN) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeCatalan(value);
+            } else if (locale.childOf(NGOMBA) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+                value = standardizeNgomba(value);
             }
 
 
@@ -323,6 +330,19 @@ public class DisplayAndInputProcessor {
         StringBuilder builder = new StringBuilder();
         for (char c : value.toCharArray()) {
             for (char[] pair: ROMANIAN_CONVERSIONS) {
+                if (c == pair[0]) {
+                    c = pair[1];
+                    break;
+                }
+            }
+            builder.append(c);
+        }
+        return builder.toString();
+    }
+    private String standardizeNgomba(String value) {
+        StringBuilder builder = new StringBuilder();
+        for (char c : value.toCharArray()) {
+            for (char[] pair: NGOMBA_CONVERSIONS) {
                 if (c == pair[0]) {
                     c = pair[1];
                     break;

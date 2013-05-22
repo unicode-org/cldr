@@ -215,8 +215,8 @@ public class ConsoleCheckCLDR {
         // }
 
         SHOW_EXAMPLES = !options[EXAMPLES].doesOccur ? null
-            : options[EXAMPLES].value == null ? Zoomed.OUT
-                : Zoomed.valueOf(options[EXAMPLES].value.toUpperCase());
+                : options[EXAMPLES].value == null ? Zoomed.OUT
+                        : Zoomed.valueOf(options[EXAMPLES].value.toUpperCase());
         boolean showAll = options[SHOWALL].doesOccur;
         boolean checkFlexibleDates = options[DATE_FORMATS].doesOccur;
         String pathFilterString = options[PATH_FILTER].value;
@@ -233,7 +233,7 @@ public class ConsoleCheckCLDR {
             coverageLevel = Level.get(coverageLevelInput);
             if (coverageLevel == Level.UNDETERMINED) {
                 throw new IllegalArgumentException("-c" + coverageLevelInput + "\t is invalid: must be one of: "
-                    + "basic,moderate,...");
+                        + "basic,moderate,...");
             }
         }
 
@@ -242,7 +242,7 @@ public class ConsoleCheckCLDR {
             Set<String> organizations = StandardCodes.make().getLocaleCoverageOrganizations();
             if (!organizations.contains(organization)) {
                 throw new IllegalArgumentException("-o" + organization + "\t is invalid: must be one of: "
-                    + organizations);
+                        + organizations);
             }
         }
 
@@ -252,18 +252,18 @@ public class ConsoleCheckCLDR {
                 phase = Phase.forString(options[PHASE].value);
             } catch (RuntimeException e) {
                 throw (IllegalArgumentException) new IllegalArgumentException(
-                    "Incorrect Phase value: should be one of " + Arrays.asList(Phase.values())).initCause(e);
+                        "Incorrect Phase value: should be one of " + Arrays.asList(Phase.values())).initCause(e);
             }
         }
 
         String sourceDirectory = CldrUtility.checkValidDirectory(options[SOURCE_DIRECTORY].value,
-            "Fix with -s. Use -h for help.");
+                "Fix with -s. Use -h for help.");
 
         if (options[GENERATE_HTML].doesOccur) {
             coverageLevel = Level.MODERN; // reset
             ErrorFile.generated_html_directory = options[GENERATE_HTML].value;
             ErrorFile.generated_html_count = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory,
-                "count.txt");
+                    "count.txt");
             // try {
             // ErrorFile.voteFactory = CLDRFile.Factory.make(sourceDirectory + "../../proposed/main/", ".*");
             // } catch (RuntimeException e) {
@@ -277,9 +277,9 @@ public class ConsoleCheckCLDR {
 
         if (options[VOTE_RESOLVE].doesOccur) {
             resolveVotesDirectory = CldrUtility.checkValidFile(CldrUtility.BASE_DIRECTORY + "incoming/vetted/votes/",
-                true, null);
+                    true, null);
             VoteResolver.setVoterToInfo(CldrUtility.checkValidFile(CldrUtility.BASE_DIRECTORY
-                + "incoming/vetted/usersa/usersa.xml", false, null));
+                    + "incoming/vetted/usersa/usersa.xml", false, null));
             voteResolver = new VoteResolver<String>();
         }
 
@@ -291,7 +291,7 @@ public class ConsoleCheckCLDR {
         String user = options[USER].value;
 
         System.out.println("source directory: " + sourceDirectory + "\t("
-            + new File(sourceDirectory).getCanonicalPath() + ")");
+                + new File(sourceDirectory).getCanonicalPath() + ")");
         System.out.println("factoryFilter: " + factoryFilter);
         System.out.println("test filter: " + checkFilter);
         System.out.println("organization: " + organization);
@@ -311,7 +311,7 @@ public class ConsoleCheckCLDR {
 
         // set up the test
         Factory cldrFactory = Factory.make(sourceDirectory, factoryFilter)
-            .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
+                .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
         CompoundCheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
         if (checkCldr.getFilteredTestList().size() == 0) {
             throw new IllegalArgumentException("The filter doesn't match any tests.");
@@ -321,7 +321,7 @@ public class ConsoleCheckCLDR {
             english = cldrFactory.make("en", true);
         } catch (Exception e1) {
             Factory backCldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, factoryFilter)
-                .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
+                    .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
             english = backCldrFactory.make("en", true);
         }
         checkCldr.setDisplayInformation(english);
@@ -451,7 +451,7 @@ public class ConsoleCheckCLDR {
                         continue;
                     }
                 }
-                
+
                 if (checkOnSubmit) {
                     if (!status.isCheckOnSubmit() || !statusType.equals(CheckStatus.errorType)) continue;
                 }
@@ -483,7 +483,7 @@ public class ConsoleCheckCLDR {
                 final CLDRFile displayFile = checkCldr.getDisplayInformation();
                 addPrettyPaths(displayFile, pathFilter, pathHeaderFactory, noaliases, true, englishPaths);
                 addPrettyPaths(displayFile, displayFile.getExtraPaths(), pathFilter, pathHeaderFactory, noaliases,
-                    true, englishPaths);
+                        true, englishPaths);
                 englishPaths = Collections.unmodifiableSet(englishPaths); // for robustness
             }
             // paths.addAll(englishPaths);
@@ -497,7 +497,7 @@ public class ConsoleCheckCLDR {
 
             // only create if we are going to use
             ExampleGenerator exampleGenerator = SHOW_EXAMPLES != null ? new ExampleGenerator(file, englishFile,
-                CldrUtility.SUPPLEMENTAL_DIRECTORY) : null;
+                    CldrUtility.SUPPLEMENTAL_DIRECTORY) : null;
             ExampleContext exampleContext = new ExampleContext();
 
             // Status pathStatus = new Status();
@@ -538,9 +538,9 @@ public class ConsoleCheckCLDR {
 
                 if (SHOW_EXAMPLES != null) {
                     example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT, exampleContext,
-                        ExampleType.NATIVE);
+                            ExampleType.NATIVE);
                     showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, value, fullPath, example,
-                        exampleContext);
+                            exampleContext);
                     // continue; // don't show problems
                 }
 
@@ -563,7 +563,7 @@ public class ConsoleCheckCLDR {
                         String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
                         CheckStatus.Type statusType = status.getType();
                         if (errorsOnly && !statusType.equals(CheckStatus.errorType)) continue;
-                        
+
                         if (subtypeFilter != null) {
                             if (!subtypeFilter.contains(status.getSubtype())) {
                                 continue;
@@ -587,7 +587,7 @@ public class ConsoleCheckCLDR {
                             continue;
                         }
                         showValue(file, prettyPath, localeID, example, path, value, fullPath, statusString,
-                            status.getSubtype(), exampleContext);
+                                status.getSubtype(), exampleContext);
                         showedOne = true;
 
                         Object[] parameters = status.getParameters();
@@ -626,7 +626,7 @@ public class ConsoleCheckCLDR {
                         // }
                         if (!showedOne && showAll) {
                             showValue(file, prettyPath, localeID, example, path, value, fullPath, "ok", Subtype.none,
-                                exampleContext);
+                                    exampleContext);
                             showedOne = true;
                             // pathShower.showHeader(path, value);
                         }
@@ -641,23 +641,26 @@ public class ConsoleCheckCLDR {
 
             showSummary(checkCldr, localeID, level, "Items (including inherited):\t" + pathCount);
             if (missingExemplars.size() != 0) {
-                Collator col = Collator.getInstance(new ULocale(localeID));
-                showSummary(checkCldr, localeID, level, "Total missing from general exemplars:\t" + new PrettyPrinter()
-                .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                    .setStrength2(Collator.PRIMARY))
-                    .setCompressRanges(true)
-                    .format(missingExemplars));
+                missingExemplars.removeAll(new UnicodeSet("[[:Uppercase:]-[İ]]")); // remove uppercase #4670
+                if (missingExemplars.size() != 0) {
+                    Collator col = Collator.getInstance(new ULocale(localeID));
+                    showSummary(checkCldr, localeID, level, "Total missing from general exemplars:\t" + new PrettyPrinter()
+                    .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
+                    .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
+                            .setStrength2(Collator.PRIMARY))
+                            .setCompressRanges(true)
+                            .format(missingExemplars));
+                }
             }
             if (missingCurrencyExemplars.size() != 0) {
                 Collator col = Collator.getInstance(new ULocale(localeID));
                 showSummary(checkCldr, localeID, level, "Total missing from currency exemplars:\t"
-                    + new PrettyPrinter()
+                        + new PrettyPrinter()
                 .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
                 .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                    .setStrength2(Collator.PRIMARY))
-                    .setCompressRanges(true)
-                    .format(missingCurrencyExemplars));
+                        .setStrength2(Collator.PRIMARY))
+                        .setCompressRanges(true)
+                        .format(missingCurrencyExemplars));
             }
             for (ErrorType type : subtotalCount.keySet()) {
                 showSummary(checkCldr, localeID, level, "Subtotal " + type + ":\t" + subtotalCount.getCount(type));
@@ -676,9 +679,9 @@ public class ConsoleCheckCLDR {
                     String fullPath = file.getStringValue(path);
                     if (fullPath != null) continue;
                     String example = exampleGenerator.getExampleHtml(path, null, ExampleGenerator.Zoomed.OUT,
-                        exampleContext, ExampleType.NATIVE);
+                            exampleContext, ExampleType.NATIVE);
                     showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, null, fullPath, example,
-                        exampleContext);
+                            exampleContext);
                 }
             }
             System.out.println("# Elapsed time: " + timer);
@@ -726,7 +729,7 @@ public class ConsoleCheckCLDR {
             Map<Organization, VoteResolver.Level> orgToMaxVote = VoteResolver.getOrganizationToMaxVote(locale);
 
             Map<Integer, Map<Integer, CandidateInfo>> info = VoteResolver
-                .getBaseToAlternateToInfo(resolveVotesDirectory + locale + ".xml");
+                    .getBaseToAlternateToInfo(resolveVotesDirectory + locale + ".xml");
 
             Map<String, Integer> valueToItem = new HashMap<String, Integer>();
 
@@ -769,7 +772,7 @@ public class ConsoleCheckCLDR {
 
                 CandidateInfo candidateInfo = itemInfo.get(valueToItem.get(winningValue));
                 Map<Organization, VoteResolver.Level> orgToMaxVoteHere = VoteResolver
-                    .getOrganizationToMaxVote(candidateInfo.voters);
+                        .getOrganizationToMaxVote(candidateInfo.voters);
 
                 // if the winning item is less than contributed, record the organizations that haven't given their
                 // maximum vote to the winning item.
@@ -855,18 +858,18 @@ public class ConsoleCheckCLDR {
         static EnumSet<ErrorType> unapproved = EnumSet.range(ErrorType.contributed, ErrorType.unconfirmed);
         static EnumSet<ErrorType> coverage = EnumSet.range(ErrorType.posix, ErrorType.optional);
         static EnumSet<ErrorType> showInSummary = EnumSet.of(
-            ErrorType.error, ErrorType.warning, ErrorType.posix, ErrorType.minimal, ErrorType.basic
-            );
+                ErrorType.error, ErrorType.warning, ErrorType.posix, ErrorType.minimal, ErrorType.basic
+                );
 
         static ErrorType fromStatusString(String statusString) {
             ErrorType shortStatus = statusString.equals("ok") ? ErrorType.ok
-                : statusString.startsWith("Error") ? ErrorType.error
-                    : statusString.equals("disputed") ? ErrorType.disputed
-                        : statusString.startsWith("Warning") ? ErrorType.warning
-                            : statusString.equals("contributed") ? ErrorType.contributed
-                                : statusString.equals("provisional") ? ErrorType.provisional
-                                    : statusString.equals("unconfirmed") ? ErrorType.unconfirmed
-                                        : ErrorType.unknown;
+                    : statusString.startsWith("Error") ? ErrorType.error
+                            : statusString.equals("disputed") ? ErrorType.disputed
+                                    : statusString.startsWith("Warning") ? ErrorType.warning
+                                            : statusString.equals("contributed") ? ErrorType.contributed
+                                                    : statusString.equals("provisional") ? ErrorType.provisional
+                                                            : statusString.equals("unconfirmed") ? ErrorType.unconfirmed
+                                                                    : ErrorType.unknown;
             if (shortStatus == ErrorType.unknown) {
                 throw new IllegalArgumentException("Unknown error type: " + statusString);
             } else if (shortStatus == ErrorType.warning) {
@@ -916,7 +919,7 @@ public class ConsoleCheckCLDR {
                 ErrorFile.closeErrorFile();
             }
             ErrorFile.errorFileWriter = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory, baseLanguage
-                + ".html");
+                    + ".html");
             ErrorFile.errorFileTable = new TablePrinter();
             errorFileCounter.clear();
             ErrorFile.errorFileTable.setCaption("Problem Details")
@@ -945,13 +948,13 @@ public class ConsoleCheckCLDR {
 
         static TablePrinter errorFileTable = new TablePrinter();
         static Counter<Row.R4<String, String, ErrorType, Subtype>> errorFileCounter = new Counter<Row.R4<String, String, ErrorType, Subtype>>(
-            true);
+                true);
 
         private static void addDataToErrorFile(String localeID, String path, String value, ErrorType shortStatus,
-            Subtype subType) {
+                Subtype subType) {
             String section = path == null
-                ? null
-                    : org.unicode.cldr.util.PathUtilities.xpathToMenu(path);
+                    ? null
+                            : org.unicode.cldr.util.PathUtilities.xpathToMenu(path);
             if (section == null) {
                 section = "general";
             }
@@ -960,9 +963,9 @@ public class ConsoleCheckCLDR {
                 String users = "";
             }
             errorFileCounter.add(
-                new Row.R4<String, String, ErrorType, Subtype>(localeID, section, shortStatus, subType), 1);
+                    new Row.R4<String, String, ErrorType, Subtype>(localeID, section, shortStatus, subType), 1);
             ErrorFile.sectionToProblemsToLocaleToCount.add(
-                new Row.R4<String, ErrorType, Subtype, String>(section, shortStatus, subType, localeID), 1);
+                    new Row.R4<String, ErrorType, Subtype, String>(section, shortStatus, subType, localeID), 1);
         }
 
         private static void closeErrorFile() {
@@ -991,13 +994,13 @@ public class ConsoleCheckCLDR {
 
             if (SHOW_VOTING_INFO) {
                 TablePrinter data = new TablePrinter().setCaption("Voting Information")
-                    .addColumn("Locale").setHeaderCell(true)
-                    .addColumn("Name").setHeaderCell(true)
-                    .addColumn("Organization")
-                    .addColumn("Missing")
-                    .addColumn("Conflicted")
-                    // .addColumn("Good")
-                    ;
+                        .addColumn("Locale").setHeaderCell(true)
+                        .addColumn("Name").setHeaderCell(true)
+                        .addColumn("Organization")
+                        .addColumn("Missing")
+                        .addColumn("Conflicted")
+                        // .addColumn("Good")
+                        ;
                 for (String localeID : locales) {
                     // now the voting info
                     LocaleVotingData localeVotingData = LocaleVotingData.localeToErrors.get(localeID);
@@ -1043,11 +1046,11 @@ public class ConsoleCheckCLDR {
             Relation<String, String> orgToLocales = getOrgToLocales();
 
             TablePrinter indexTablePrinter = new TablePrinter().setCaption("Problem Summary")
-                .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
-                .addColumn("BASE").setHidden(true).setRepeatDivider(true)
-                .addColumn("Locale").setCellPattern("<a name=\"{0}\" href=\"{1}.html\">{0}</a>") // link to base, anchor
-                // with full
-                .addColumn("Name");
+                    .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
+                    .addColumn("BASE").setHidden(true).setRepeatDivider(true)
+                    .addColumn("Locale").setCellPattern("<a name=\"{0}\" href=\"{1}.html\">{0}</a>") // link to base, anchor
+                    // with full
+                    .addColumn("Name");
             if (SHOW_VOTING_INFO) {
                 indexTablePrinter.addColumn("Summary")
                 .addColumn("Missing");
@@ -1093,7 +1096,7 @@ public class ConsoleCheckCLDR {
                 }
                 for (String org : orgToLocales.keySet()) {
                     indexTablePrinter.addCell(orgToLocales.getAll(org).contains(htmlOpenedFileLanguage) ? org
-                        .substring(0, 2) : "");
+                            .substring(0, 2) : "");
                 }
                 indexTablePrinter
                 .addCell(votingData == null ? "" : formatSkippingZero(votingData.getDisputedCount()))
@@ -1130,20 +1133,20 @@ public class ConsoleCheckCLDR {
         static void showSections() throws IOException {
             Relation<String, String> orgToLocales = getOrgToLocales();
             TablePrinter indexTablePrinter = new TablePrinter().setCaption("Problem Summary")
-                .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
-                .addColumn("Section").setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
-                .addColumn("Problems").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
-                .addColumn("Subtype").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
-                .addColumn("Locale").setCellAttributes("class=\"{2}\"")
-                .addColumn("Code").setCellAttributes("class=\"{2}\"")
-                .setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>")
-                .addColumn("Count").setCellAttributes("class=\"{2}\"");
+                    .setTableAttributes("border='1' style='border-collapse: collapse' bordercolor='blue'")
+                    .addColumn("Section").setSpanRows(true).setBreakSpans(true).setRepeatDivider(true)
+                    .addColumn("Problems").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
+                    .addColumn("Subtype").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
+                    .addColumn("Locale").setCellAttributes("class=\"{2}\"")
+                    .addColumn("Code").setCellAttributes("class=\"{2}\"")
+                    .setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>")
+                    .addColumn("Count").setCellAttributes("class=\"{2}\"");
             for (String org : orgToLocales.keySet()) {
                 indexTablePrinter.addColumn(org.substring(0, 2));
             }
 
             for (Row.R4<String, ErrorType, Subtype, String> sectionAndProblemsAndLocale : ErrorFile.sectionToProblemsToLocaleToCount
-                .getKeysetSortedByKey()) {
+                    .getKeysetSortedByKey()) {
                 final ErrorType problem = sectionAndProblemsAndLocale.get1();
                 final Subtype subtype = sectionAndProblemsAndLocale.get2();
                 if (!ConsoleCheckCLDR.ErrorType.showInSummary.contains(problem)) {
@@ -1168,7 +1171,7 @@ public class ConsoleCheckCLDR {
                 indexTablePrinter.finishRow();
             }
             PrintWriter generated_html_index = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory,
-                "sections.html");
+                    "sections.html");
             ConsoleCheckCLDR.ErrorFile.showIndexHead("Error Report Index by Section", "", generated_html_index);
             generated_html_index.println(indexTablePrinter.toTable());
             generated_html_index.println(ShowData.dateFooter());
@@ -1191,58 +1194,58 @@ public class ConsoleCheckCLDR {
             }
             generated_html_index
             .println("<html>" +
-                "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<title>"
-                + title
-                + "</title>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<link rel='stylesheet' href='errors.css' type='text/css'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<base target='_blank'>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "</head><body>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<h1>"
-                + title
-                + "</h1>"
-                + CldrUtility.LINE_SEPARATOR
-                +
-                "<p>"
-                +
-                "<a href='index.html"
-                + (notLocaleSpecific ? "" : "#" + localeID)
-                + "'>Index</a>"
-                +
-                " | "
-                +
-                "<a href='sections.html"
-                + (notLocaleSpecific ? "" : "#" + localeID)
-                + "'>Index by Section</a>"
-                +
-                " | "
-                +
-                "<a href='http://unicode.org/cldr/data/docs/survey/vetting.html'><b style='background-color: yellow;'><i>Help: How to Vet</i></b></a>"
-                +
-                "</p>"
-                +
-                "<p>The following errors have been detected in the locale"
-                +
-                (notLocaleSpecific
-                    ? "s. " + org.unicode.cldr.tool.ShowLanguages.getHelpHtml("error_index_header")
-                        : " " + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + ". "
-                        + ErrorFile.ERROR_CHART_HEADER
-                    ));
+                    "<head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
+                    + CldrUtility.LINE_SEPARATOR
+                    +
+                    "<title>"
+                    + title
+                    + "</title>"
+                    + CldrUtility.LINE_SEPARATOR
+                    +
+                    "<link rel='stylesheet' href='errors.css' type='text/css'>"
+                    + CldrUtility.LINE_SEPARATOR
+                    +
+                    "<base target='_blank'>"
+                    + CldrUtility.LINE_SEPARATOR
+                    +
+                    "</head><body>"
+                    + CldrUtility.LINE_SEPARATOR
+                    +
+                    "<h1>"
+                    + title
+                    + "</h1>"
+                    + CldrUtility.LINE_SEPARATOR
+                    +
+                    "<p>"
+                    +
+                    "<a href='index.html"
+                    + (notLocaleSpecific ? "" : "#" + localeID)
+                    + "'>Index</a>"
+                    +
+                    " | "
+                    +
+                    "<a href='sections.html"
+                    + (notLocaleSpecific ? "" : "#" + localeID)
+                    + "'>Index by Section</a>"
+                    +
+                    " | "
+                    +
+                    "<a href='http://unicode.org/cldr/data/docs/survey/vetting.html'><b style='background-color: yellow;'><i>Help: How to Vet</i></b></a>"
+                    +
+                    "</p>"
+                    +
+                    "<p>The following errors have been detected in the locale"
+                    +
+                    (notLocaleSpecific
+                            ? "s. " + org.unicode.cldr.tool.ShowLanguages.getHelpHtml("error_index_header")
+                                    : " " + ConsoleCheckCLDR.getNameAndLocale(localeID, false) + ". "
+                                    + ErrorFile.ERROR_CHART_HEADER
+                            ));
         }
 
         private static void writeErrorFileIndex() throws IOException {
             PrintWriter generated_html_index = BagFormatter.openUTF8Writer(ErrorFile.generated_html_directory,
-                "index.html");
+                    "index.html");
             ConsoleCheckCLDR.ErrorFile.showIndexHead("Error Report Index", "", generated_html_index);
             ConsoleCheckCLDR.ErrorFile.showErrorFileIndex(generated_html_index);
             generated_html_index.close();
@@ -1262,7 +1265,7 @@ public class ConsoleCheckCLDR {
 
             // now store the data for the index
             ErrorFile.errorFileIndexData.put(ConsoleCheckCLDR.lastHtmlLocaleID,
-                new Pair<String, Counter<ErrorType>>(ConsoleCheckCLDR.lastHtmlLocaleID, ErrorFile.htmlErrorsPerLocale));
+                    new Pair<String, Counter<ErrorType>>(ConsoleCheckCLDR.lastHtmlLocaleID, ErrorFile.htmlErrorsPerLocale));
             ErrorFile.htmlErrorsPerLocale = new Counter<ErrorType>();
             // }
         }
@@ -1283,7 +1286,7 @@ public class ConsoleCheckCLDR {
         private static String htmlOpenedFileLanguage = null;
         private static String htmlOpenedFileLocale = null;
         private static final String ERROR_CHART_HEADER = org.unicode.cldr.tool.ShowLanguages
-            .getHelpHtml("error_locale_header");
+                .getHelpHtml("error_locale_header");
         // "Please review and correct them. " +
         // "Note that errors in <i>sublocales</i> are often fixed by fixing the main locale.</p>" +
         // Utility.LINE_SEPARATOR +
@@ -1307,28 +1310,28 @@ public class ConsoleCheckCLDR {
     }
 
     private static void showExamples(CheckCLDR checkCldr, String prettyPath, String localeID,
-        ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example,
-        ExampleContext exampleContext) {
+            ExampleGenerator exampleGenerator, String path, String value, String fullPath, String example,
+            ExampleContext exampleContext) {
         // if (example != null) {
         // showValue(prettyPath, localeID, example, path, value, fullPath, "ok", exampleContext);
         // }
         if (SHOW_EXAMPLES == Zoomed.IN) {
             String longExample = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.IN,
-                exampleContext, ExampleType.NATIVE);
+                    exampleContext, ExampleType.NATIVE);
             if (longExample != null && !longExample.equals(example)) {
                 showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, longExample, path, value, fullPath,
-                    "ok", Subtype.none, exampleContext);
+                        "ok", Subtype.none, exampleContext);
             }
             String help = exampleGenerator.getHelpHtml(path, value);
             if (help != null) {
                 showValue(checkCldr.getCldrFileToCheck(), prettyPath, localeID, help, path, value, fullPath, "ok",
-                    Subtype.none, exampleContext);
+                        Subtype.none, exampleContext);
             }
         }
     }
 
     private static void addPrettyPaths(CLDRFile file, Matcher pathFilter, PathHeader.Factory pathHeaderFactory,
-        boolean noaliases, boolean filterDraft, Collection<String> target) {
+            boolean noaliases, boolean filterDraft, Collection<String> target) {
         // Status pathStatus = new Status();
         for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext();) {
             String path = pit.next();
@@ -1340,7 +1343,7 @@ public class ConsoleCheckCLDR {
     }
 
     private static void addPrettyPaths(CLDRFile file, Collection<String> paths, Matcher pathFilter,
-        PathHeader.Factory pathHeaderFactory, boolean noaliases, boolean filterDraft, Collection<String> target) {
+            PathHeader.Factory pathHeaderFactory, boolean noaliases, boolean filterDraft, Collection<String> target) {
         // Status pathStatus = new Status();
         for (String path : paths) {
             if (pathFilter != null && !pathFilter.reset(path).matches()) continue;
@@ -1349,7 +1352,7 @@ public class ConsoleCheckCLDR {
     }
 
     private static void addPrettyPath(CLDRFile file, PathHeader.Factory pathHeaderFactory, boolean noaliases,
-        boolean filterDraft, Collection<String> target, String path) {
+            boolean filterDraft, Collection<String> target, String path) {
         if (noaliases && XMLSource.Alias.isAliasPath(path)) { // this is just for console testing, the survey tool
             // shouldn't do it.
             return;
@@ -1373,7 +1376,7 @@ public class ConsoleCheckCLDR {
     }
 
     public static synchronized void setDisplayInformation(CLDRFile inputDisplayInformation,
-        ExampleGenerator inputExampleGenerator) {
+            ExampleGenerator inputExampleGenerator) {
         CheckCLDR.setDisplayInformation(inputDisplayInformation);
         englishExampleGenerator = inputExampleGenerator;
     }
@@ -1410,15 +1413,15 @@ public class ConsoleCheckCLDR {
     private static String getIdString(CLDRFile cldrFile, String path, String value) {
         if (pathDescription == null) {
             pathDescription = new PathDescription(supplementalDataInfo, english, null, null,
-                PathDescription.ErrorHandling.CONTINUE);
+                    PathDescription.ErrorHandling.CONTINUE);
         }
         final String description = pathDescription.getDescription(path, value, null, null);
         return "\t" + StringId.getId(path) + "" + "\t" + description + "";
     }
 
     private static void showValue(CLDRFile cldrFile, String prettyPath, String localeID, String example,
-        String path, String value, String fullPath, String statusString,
-        Subtype subType, ExampleContext exampleContext) {
+            String path, String value, String fullPath, String statusString,
+            Subtype subType, ExampleContext exampleContext) {
         ErrorType shortStatus = ErrorType.fromStatusString(statusString);
         subtotalCount.add(shortStatus, 1);
         totalCount.add(shortStatus, 1);
@@ -1432,7 +1435,7 @@ public class ConsoleCheckCLDR {
             final String englishPathValue = path == null ? null : getEnglishPathValue(path);
             if (SHOW_EXAMPLES != null && path != null) {
                 englishExample = getExampleGenerator().getExampleHtml(path, englishPathValue,
-                    ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
+                        ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
             }
             englishExample = englishExample == null ? "" : englishExample;
             String cleanPrettyPath = path == null ? null : prettyPath; // prettyPathMaker.getOutputForm(prettyPath);
@@ -1442,39 +1445,39 @@ public class ConsoleCheckCLDR {
             fillinValue = fillinValue == null ? "" : fillinValue.equals(value) ? "=" : fillinValue;
 
             final String otherSource = path == null ? null
-                : (sourceLocaleID.equals(localeID) ? ""
-                    : "\t" + sourceLocaleID);
+                    : (sourceLocaleID.equals(localeID) ? ""
+                            : "\t" + sourceLocaleID);
             final String otherPath = path == null ? null
-                : (status.pathWhereFound.equals(path) ? ""
-                    : "\t" + status.pathWhereFound);
+                    : (status.pathWhereFound.equals(path) ? ""
+                            : "\t" + status.pathWhereFound);
 
             String idViewString = idView ? (path == null ? "\tNO_ID" : getIdString(cldrFile, path, value)) : "";
             System.out.println(
-                getLocaleAndName(localeID)
-                + (idViewString.isEmpty() ?
-                    // + "\t" + subtotalCount.getCount(shortStatus)
-                    "\t" + shortStatus
-                    + "\t▸" + cleanPrettyPath + "◂"
-                    + "\t〈" + englishPathValue + "〉"
-                    + "\t【" + englishExample + "】"
-                    + "\t〈" + value + "〉"
-                    + "\t«" + fillinValue + "»"
-                    + "\t【" + example + "】"
-                    + "\t⁅" + subType + "⁆"
-                    + "\t❮" + statusString + "❯"
-                    + "\t" + fullPath
-                    + otherSource
-                    + otherPath
-                    :
-                        idViewString
-                        + "\t〈" + englishPathValue + "〉"
-                        + "\t【" + englishExample + "】"
-                        + "\t" + value + "〉"
-                        + "\t【" + example + "】"
-                        + "\t⁅" + subType + "⁆"
-                        + "\t❮" + statusString + "❯"
-                    )
-                );
+                    getLocaleAndName(localeID)
+                    + (idViewString.isEmpty() ?
+                            // + "\t" + subtotalCount.getCount(shortStatus)
+                            "\t" + shortStatus
+                            + "\t▸" + cleanPrettyPath + "◂"
+                            + "\t〈" + englishPathValue + "〉"
+                            + "\t【" + englishExample + "】"
+                            + "\t〈" + value + "〉"
+                            + "\t«" + fillinValue + "»"
+                            + "\t【" + example + "】"
+                            + "\t⁅" + subType + "⁆"
+                            + "\t❮" + statusString + "❯"
+                            + "\t" + fullPath
+                            + otherSource
+                            + otherPath
+                            :
+                                idViewString
+                                + "\t〈" + englishPathValue + "〉"
+                                + "\t【" + englishExample + "】"
+                                + "\t" + value + "〉"
+                                + "\t【" + example + "】"
+                                + "\t⁅" + subType + "⁆"
+                                + "\t❮" + statusString + "❯"
+                            )
+                    );
         } else if (ErrorFile.errorFileWriter != null) {
             if (shortStatus == ErrorType.contributed) {
                 return;
@@ -1600,7 +1603,7 @@ public class ConsoleCheckCLDR {
 
     private static void showValue(String path, String value, boolean showEnglish, String localeID) {
         System.out.println("\tValue:\t" + value + (showEnglish ? "\t" + getEnglishPathValue(path) : "") + "\tLocale:\t"
-            + localeID);
+                + localeID);
     }
 
     private static String getEnglishPathValue(String path) {

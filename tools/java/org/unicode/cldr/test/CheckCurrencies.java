@@ -25,7 +25,7 @@ public class CheckCurrencies extends CheckCLDR {
         // reject suffices
 
         // we're simply going to test the length. might do something more complicated later
-        if (value.length() > 5) {
+        if (value != null && value.length() > 5) {
             // The following test no longer applies, choice format is not used for INR
             // if (path.indexOf("[@type=\"INR\"]") >= 0) { // skip INR, since it is typically a choice (could do more
             // sophisticated check later)

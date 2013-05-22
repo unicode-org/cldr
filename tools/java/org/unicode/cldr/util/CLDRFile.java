@@ -3127,7 +3127,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     
     private Collection<String> getRawExtraPathsPrivate(Collection<String> toAddTo) {
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
-        Set<String> codes = StandardCodes.make().getAvailableCodes("currency");
         // units
         final Set<Count> pluralCounts = supplementalData.getPlurals(PluralType.cardinal, getLocaleID())
                 .getCountToExamplesMap().keySet();
@@ -3179,6 +3178,17 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         };
         for (String override : overrides) {
             toAddTo.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
+        }
+
+        // Currencies
+        Set<String> codes = supplementalData.getBcp47Keys().getAll("cu");
+        for (String code : codes) {
+            String currencyCode = code.toUpperCase();
+            toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" +currencyCode + "\"]/symbol");
+            toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" +currencyCode + "\"]/displayName");
+            for (Count count : pluralCounts) {
+                toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" +currencyCode + "\"]/displayName[@count=\"" + count.toString() + "\"]"); 
+            }
         }
 
         return toAddTo;

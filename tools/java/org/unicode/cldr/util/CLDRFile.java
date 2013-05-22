@@ -475,6 +475,44 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return result;
     }
 
+    static final class SimpleAltPicker implements Transform<String,String> {
+        public final String alt;
+        public SimpleAltPicker(String alt) {
+            this.alt = alt;
+        }
+        public String transform(String source) {
+            return alt;
+        }
+    };
+
+    /**
+     * Get the constructed GeorgeBailey value: that is, if the item would otherwise be constructed (such as "Chinese (Simplified)") use that.
+     * Otherwise return BaileyValue.
+     * @parameter pathWhereFound null if constructed.
+     */
+    public String getConstructedBaileyValue(String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
+      //ldml/localeDisplayNames/languages/language[@type="zh_Hans"]
+        if (xpath.startsWith("//ldml/localeDisplayNames/languages/language[@type=\"") && xpath.contains("_")) {
+            XPathParts parts = new XPathParts().set(xpath);
+            String type = parts.getAttributeValue(-1, "type");
+            if (type.contains("_")) {
+                String alt = parts.getAttributeValue(-1, "alt");
+                if (localeWhereFound != null) {
+                    localeWhereFound.value = getLocaleID();
+                }
+                if (pathWhereFound != null) {
+                    pathWhereFound.value = null; // TODO make more useful
+                }
+                if (alt == null) {
+                    return getName(type,true);
+                } else {
+                    return getName(type,true, new SimpleAltPicker(alt));
+                }
+            }
+        }
+        return getBaileyValue(xpath, pathWhereFound, localeWhereFound);
+    }
+
 
     /**
      * Only call if xpath doesn't exist in the current file.

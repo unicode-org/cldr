@@ -411,4 +411,20 @@ public class TestCLDRFile extends TestFmwk {
             }
         }
     }
+    
+    public void TestConstructedBailey() {
+        CLDRFile eng = TestInfo.getInstance().getEnglish();
+
+        String prefix = "//ldml/localeDisplayNames/languages/language[@type=\"";
+        String display = eng.getConstructedBaileyValue(prefix + "zh_Hans" + "\"]", null, null);        
+        assertEquals("contructed bailey", "Chinese (Simplified)", display);
+        display = eng.getConstructedBaileyValue(prefix + "es_US" + "\"]", null, null);        
+        assertEquals("contructed bailey", "Spanish (United States)", display);
+        display = eng.getConstructedBaileyValue(prefix + "es_US" + "\"][@alt=\"short\"]", null, null);        
+        assertEquals("contructed bailey", "Spanish (U.S.)", display);
+        display = eng.getConstructedBaileyValue(prefix + "es" + "\"]", null, null);        
+        assertEquals("contructed bailey", "es", display);
+        display = eng.getConstructedBaileyValue(prefix + "missing" + "\"]", null, null);        
+        assertEquals("contructed bailey", null, display);
+    }
 }

@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
@@ -26,6 +27,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -39,6 +41,65 @@ public class TestCLDRUtils extends TestFmwk {
      */
     public TestCLDRUtils() {
         // TODO Auto-generated constructor stub
+    }
+
+    static Transform<String, String> SHORT_ALT_PICKER = new Transform<String,String>() {
+        public String transform(String source) {
+            return "short";
+        }
+    };
+
+    public void TestVariantName() {
+        CLDRFile english = TestInfo.getInstance().getEnglish();
+
+        checkNames(english, "en_US_POSIX", 
+                "U.S. English (Computer)", 
+                "U.S. English (Computer)",
+                "English (United States, Computer)", 
+                "English (U.S., Computer)");
+
+        checkNames(english, "en_HK", 
+                "English (Hong Kong SAR China)", 
+                "English (Hong Kong)",
+                "English (Hong Kong SAR China)", 
+                "English (Hong Kong)");
+
+        checkNames(english, "en_GB", 
+                "British English", 
+                "British English",
+                "English (United Kingdom)", 
+                "English (U.K.)");
+
+        checkNames(english, "eo_001", 
+                "Esperanto (World)");
+
+        checkNames(english, "el_POLYTON", 
+                "Greek (Polytonic)");
+
+        CLDRFile french = TestInfo.getInstance().getCldrFactory().make("fr", true);
+        checkNames(french, "en_US_POSIX", 
+                "anglais américain (informatique)", 
+                "anglais américain (informatique)",
+                "anglais (États-Unis, informatique)", 
+                "anglais (É-U, informatique)");
+    }
+
+    /**
+     * 
+     * @param french
+     * @param locale
+     * @param combinedLong
+     * @param otherNames: combinedShort, uncombinedLong, uncombinedShort
+     */
+    private void checkNames(CLDRFile french, String locale, String combinedLong, String... otherNames) {
+        assertEquals("Test variant formatting", combinedLong, french.getName(locale));
+        String combinedShort = otherNames.length > 0 ? otherNames[0] : combinedLong;
+        String uncombinedLong = otherNames.length > 1 ? otherNames[1] : combinedLong;
+        String uncombinedShort = otherNames.length > 2 ? otherNames[2] : uncombinedLong;
+        
+        assertEquals("Test variant formatting", combinedShort, french.getName(locale, false, SHORT_ALT_PICKER));
+        assertEquals("Test variant formatting", uncombinedLong, french.getName(locale,true));
+        assertEquals("Test variant formatting", uncombinedShort, french.getName(locale,true, SHORT_ALT_PICKER));
     }
 
     public void TestEmptyCLDRFile() {
@@ -131,7 +192,7 @@ public class TestCLDRUtils extends TestFmwk {
         myReader.read(TestCLDRUtils.class.getResource( "data/" +  fileName).toString(),
                 FileUtilities.openFile(TestCLDRUtils.class,  "data/" +  fileName), -1, true);
     } 
-    
+
     public void TestCLDRLocaleInheritance() {
         CLDRLocale ml = CLDRLocale.getInstance("ml");
         CLDRLocale ml_IN = CLDRLocale.getInstance("ml_IN");

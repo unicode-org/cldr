@@ -1308,7 +1308,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // "false");
             // }
 
-            String[] extraCodes = { "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES", "fr_CA",
+            String[] extraCodes = { "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES", "es_MX", "fr_CA",
                 "fr_CH", "nl_BE", "pt_BR", "pt_PT", "zh_Hans", "zh_Hant" };
             for (String extraCode : extraCodes) {
                 addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);

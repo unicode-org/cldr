@@ -65,11 +65,16 @@ public class DisplayAndInputProcessor {
 
     private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
     private static final CLDRLocale ROMANIAN = CLDRLocale.getInstance("ro");
+    private static final CLDRLocale CATALAN = CLDRLocale.getInstance("ca");
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
         {'\u015E', '\u0218'}, {'\u015F', '\u0219'}, {'\u0162', '\u021A'},
         {'\u0163', '\u021B'}};
+
+    private static final char[][] CATALAN_CONVERSIONS = {
+        {'\u013F', '\u004C', '\u00B7'},  // Ŀ -> L·
+        {'\u0140', '\u006C', '\u00B7'}}; // ŀ -> l·
 
     private Collator col;
 
@@ -192,6 +197,8 @@ public class DisplayAndInputProcessor {
                 value = newvalue;
             } else if (locale.childOf(ROMANIAN) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeRomanian(value);
+            } else if (locale.childOf(CATALAN) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+                value = standardizeCatalan(value);
             }
 
 
@@ -322,6 +329,25 @@ public class DisplayAndInputProcessor {
                 }
             }
             builder.append(c);
+        }
+        return builder.toString();
+    }
+
+    private String standardizeCatalan(String value) {
+        StringBuilder builder = new StringBuilder();
+        for (char c : value.toCharArray()) {
+            boolean didSubstitute = false;
+            for (char[] triple: CATALAN_CONVERSIONS) {
+                if (c == triple[0]) {
+                    builder.append(triple[1]);
+                    builder.append(triple[2]);
+                    didSubstitute = true;
+                    break;
+                }
+            }
+            if (!didSubstitute) {
+                builder.append(c);
+            }
         }
         return builder.toString();
     }

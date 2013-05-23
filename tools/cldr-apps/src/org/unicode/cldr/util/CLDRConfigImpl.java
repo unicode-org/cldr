@@ -21,6 +21,10 @@ import org.unicode.cldr.web.SurveyMain.Phase;
 
 public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 7292884997931046214L;
     static String cldrHome = null;
     static boolean cldrHomeSet = false;
 
@@ -223,6 +227,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         return survprops.getProperty(key);
     }
 
+    @Override
     public Object setProperty(String key, String value) {
         if (key.equals("CLDR_HEADER")) {
             System.err.println(">> CLDRConfig set " + key + " = " + value);
@@ -240,6 +245,10 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
     @Override
     public String toJSONString() throws JSONException {
+        return toJSONObject().toString();
+    }
+    
+    public JSONObject toJSONObject() throws JSONException {
         JSONObject ret = new JSONObject();
 
         ret.put("CLDR_HEADER", ""); // always show these
@@ -247,7 +256,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             ret.put(e.getKey().toString(), e.getValue().toString());
         }
 
-        return ret.toString();
+        return ret;
     }
 
     @Override

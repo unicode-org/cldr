@@ -177,7 +177,7 @@ public class ICUServiceBuilder {
         // formatData.setAmPmStrings(last = gregorianBackup.getAmPmStrings());
         // }
 
-        int minEras = calendar.equals("chinese") ? 0 : 1;
+        int minEras = (calendar.equals("chinese") || calendar.equals("dangi")) ? 0 : 1;
 
         List temp = getArray(prefix + "eras/eraAbbr/era[@type=\"", 0, null, "\"]", minEras);
         formatData.setEras(last = (String[]) temp.toArray(new String[temp.size()]));

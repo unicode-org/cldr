@@ -25,6 +25,7 @@ import java.util.Vector;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.SimpleTestCache;
 import org.unicode.cldr.test.TestCache;
@@ -294,6 +295,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private CLDRFile oldFile;
         private boolean readonly;
         private MutableStamp stamp = MutableStamp.getInstance();
+        private final CoverageLevel2 coverage;
 
         /**
          * The held XMLSource.
@@ -314,6 +316,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         PerLocaleData(CLDRLocale locale) {
             this.locale = locale;
+            coverage = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(), locale.getBaseName());
             readonly = isReadOnlyLocale(locale);
             diskData = (XMLSource) sm.getDiskFactory().makeSource(locale.getBaseName()).freeze();
             sm.xpt.loadXPaths(diskData);
@@ -379,9 +382,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 if (user == null || !UserRegistry.userIsTC(user))
                     return false;
             }
-            if (sm.getSupplementalDataInfo().getCoverageValue(xpath, locale.toULocale()) > org.unicode.cldr.util.Level.COMPREHENSIVE
-                    .getLevel())
+            if(coverage.getIntLevel(xpath) > org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) {
                 return false;
+            }
             return true;
         }
 

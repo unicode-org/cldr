@@ -35,6 +35,7 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
+import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
@@ -1815,9 +1816,7 @@ public class DataSection implements JSONString {
 
         @Override
         public Level getCoverageLevel() {
-            int coverageValue = SupplementalDataInfo.getInstance().getCoverageValue(getXpath(), locale.toULocale()); // TODO:
-                                                                                                                     // inefficient
-            return Level.fromLevel(coverageValue);
+            return coverage.getLevel(getXpath());
         }
 
         /**
@@ -2541,6 +2540,8 @@ public class DataSection implements JSONString {
     private XPathMatcher matcher;
     private PageId pageId;
     private CLDRFile diskFile;
+    
+    private final CoverageLevel2 coverage;
 
     DataSection(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher, String ptype) {
         this.locale = loc;
@@ -2554,6 +2555,7 @@ public class DataSection implements JSONString {
         intgroup = loc.getLanguage(); // calculate interest group
         ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
         this.pageId = pageId;
+        coverage = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(), loc.getBaseName());
     }
 
     void addDataRow(DataRow p) {
@@ -2744,7 +2746,7 @@ public class DataSection implements JSONString {
                     }
                     // Filter out data that is higher than the desired coverage
                     // level
-                    int coverageValue = sdi.getCoverageValue(base_xpath_string, locale.toULocale());
+                    int coverageValue = coverage.getIntLevel(base_xpath_string);
                     if (coverageValue > workingCoverageValue) {
                         if (coverageValue <= 100) {
                             // KEEP COUNT OF FILTERED ITEMS
@@ -3106,7 +3108,7 @@ public class DataSection implements JSONString {
 
                 // Filter out data that is higher than the desired coverage
                 // level
-                int coverageValue = sdi.getCoverageValue(baseXpath, locale.toULocale());
+                int coverageValue = coverage.getIntLevel(baseXpath);
                 if (coverageValue > workingCoverageValue) {
                     if (coverageValue <= Level.COMPREHENSIVE.getLevel()) {
                         skippedDueToCoverage++;
@@ -3136,8 +3138,10 @@ public class DataSection implements JSONString {
                 if (value == null) {
                     // value = "(NOTHING)"; /* This is set to prevent crashes..
                     // */
-                    System.err.println("warning: populatefrom " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
-                            + isExtraPath);
+                    if(false) {
+                        System.err.println("warning: populatefrom " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
+                                + isExtraPath);
+                    }
                     isExtraPath = true;
                 }
 

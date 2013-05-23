@@ -469,14 +469,9 @@ public class SurveyAjax extends HttpServlet {
                                     }
 
                                     SupplementalDataInfo sdi = mySession.sm.getSupplementalDataInfo();
-                                    int coverageValue = sdi.getCoverageValue(xp, locale.toULocale()); // TODO:
-                                                                                                      // get
-                                                                                                      // from
-                                                                                                      // DataRow
                                     PathHeader ph = stf.getPathHeader(xp);
                                     CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
                                     SurveyToolStatus phStatus = ph.getSurveyToolStatus();
-                                    Level covLev = org.unicode.cldr.util.Level.fromLevel(coverageValue);
 
                                     final String candVal = val;
 
@@ -485,6 +480,8 @@ public class SurveyAjax extends HttpServlet {
                                     section.setUserAndFileForVotelist(mySession.user, null);
 
                                     DataRow pvi = section.getDataRow(xp);
+                                    final Level covLev = pvi.getCoverageLevel();
+                                    final int coverageValue = covLev.getLevel();
                                     CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
 
                                     if (otherErr != null) {

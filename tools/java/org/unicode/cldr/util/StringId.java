@@ -2,6 +2,8 @@ package org.unicode.cldr.util;
 
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Produce an ID for a string based on a long hash. When used properly, the odds
@@ -12,6 +14,7 @@ import java.security.MessageDigest;
  * @author markdavis
  */
 public final class StringId {
+    private static Map<CharSequence, Long> STRING_TO_ID = new ConcurrentHashMap<CharSequence, Long>();
     private static final MessageDigest digest;
     private static final Charset UTF_8 = Charset.forName("UTF-8");
     static {
@@ -30,7 +33,14 @@ public final class StringId {
      * @return a value from 0 to 0x7FFFFFFFFFFFFFFFL.
      */
     public static long getId(CharSequence string) {
-        byte[] hash = digest.digest(string.toString().getBytes(UTF_8));
+        Long resultLong = STRING_TO_ID.get(string);
+        if (resultLong != null) {
+            return resultLong;
+        }
+        byte[] hash;
+        synchronized (digest) {
+            hash = digest.digest(string.toString().getBytes(UTF_8));
+        }
         long result = 0;
         for (int i = 0; i < 8; ++i) {
             result <<= 8;
@@ -38,7 +48,8 @@ public final class StringId {
         }
         // mash the top bit to make things easier
         result &= 0x7FFFFFFFFFFFFFFFL;
-        return result;
+        STRING_TO_ID.put(string, result);
+        return result;  
     }
     /**
      * Get the hex ID for a string.

@@ -101,6 +101,11 @@ public class SurveyForum {
     static final int BAD_FORUM = -1;
     static final int NO_FORUM = -2;
 
+    /**
+     * May return
+     * @param forum
+     * @return forum number, or  BAD_FORUM or NO_FORUM
+     */
     synchronized int getForumNumber(String forum) {
         if (forum.length() == 0) {
             return NO_FORUM; // all forums
@@ -114,7 +119,7 @@ public class SurveyForum {
             // if(!sm.isValidLocale(CLDRLocale.getInstance(forum)))
             // why.append("!valid ");
             // // </explain>
-            throw new RuntimeException("Invalid forum: " + forum);
+            return BAD_FORUM;
         }
 
         // now with that out of the way..
@@ -241,9 +246,30 @@ public class SurveyForum {
         if (ctx.hasField(F_XPATH) && !ctx.hasField(F_FORUM)) {
             forum = localeToForum(ctx.field("_"));
         }
-        int forumNumber = getForumNumber(forum);
-        String pD = ctx.field(F_DO); // do
         boolean loggedout = ((ctx.session == null) || (ctx.session.user == null));
+        // User isnt logged in.
+        if (loggedout) {
+            sm.printHeader(ctx, "Forum | Please login.");
+            sm.printUserTable(ctx);
+            if (sessionMessage != null) {
+                ctx.println(sessionMessage + "<hr>");
+            }
+            ctx.println("<hr><strong>You aren't logged in. Please login to continue.</strong><p>");
+            sm.printFooter(ctx);
+            return;
+        }
+        int forumNumber = getForumNumber(forum);
+        if(forumNumber < GOOD_FORUM) {
+                sm.printHeader(ctx, "Forum | bad forum.");
+                sm.printUserTable(ctx);
+                if (sessionMessage != null) {
+                    ctx.println(sessionMessage + "<hr>");
+                }
+                ctx.println("<hr><strong>Forum '"+forum+"' is not valid.</strong><p>");
+                sm.printFooter(ctx);
+                return;            
+        }
+        String pD = ctx.field(F_DO); // do
         boolean canModify = false;
 
         if ((ctx.getLocale() == null) && (forumNumber >= GOOD_FORUM)) {
@@ -295,17 +321,6 @@ public class SurveyForum {
             return;
         }
 
-        // User isnt logged in.
-        if (loggedout) {
-            sm.printHeader(ctx, "Forum | Please login.");
-            sm.printUserTable(ctx);
-            if (sessionMessage != null) {
-                ctx.println(sessionMessage + "<hr>");
-            }
-            ctx.println("<hr><strong>You aren't logged in. Please login to continue.</strong><p>");
-            sm.printFooter(ctx);
-            return;
-        }
 
         // User has an account, but does not have access to this forum.
         if (!canModify && !(forumNumber == NO_FORUM && UserRegistry.userIsVetter(ctx.session.user))) {
@@ -493,7 +508,7 @@ public class SurveyForum {
 
                 // Apparently, it posted.
 
-                ElapsedTimer et = new ElapsedTimer("Sending email to " + forum);
+               // ElapsedTimer et = new ElapsedTimer("Sending email to " + forum);
                 int emailCount = 0;
                 // Do email-
                 Set<Integer> cc_emails = new HashSet<Integer>();
@@ -515,7 +530,7 @@ public class SurveyForum {
 
                 MailSender.getInstance().queue(ctx.userId(), cc_emails, bcc_emails, subject, body, ctx.getLocale(), base_xpath, postId );
 
-                System.err.println(et.toString() + " - # of users:" + emailCount);
+                //System.err.println(et.toString() + " - # of users:" + emailCount);
 
                 ctx.redirect(ctx.base() + "?_=" + ctx.getLocale().toString() + "&" + F_FORUM + "=" + forum + "#post"+postId);
                 return;

@@ -3544,7 +3544,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (ctx.session.user != null) {
             Thread.currentThread().setName(
                     Thread.currentThread().getName() + " " + ctx.session.user.id + ":" + ctx.session.user.toString());
+            
         }
+        // only do forum for logged in user
         if (ctx.hasField(SurveyForum.F_FORUM) || ctx.hasField(SurveyForum.F_XPATH)) {
             fora.doForum(ctx, sessionMessage);
             return;
@@ -5806,7 +5808,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 }
                 currentPhase = newPhase;
             }
-            System.out.println("Phase: " + phase() + ", cPhase: " + phase().getCPhase());
+            System.out.println("Phase: " + phase() + ", cPhase: " + phase().getCPhase() + ", " + getCurrevStr());
             progress.update("Setup props..");
             newVersion = survprops.getProperty("CLDR_NEWVERSION", "CLDR_NEWVERSION");
             oldVersion = survprops.getProperty("CLDR_OLDVERSION", "CLDR_OLDVERSION");
@@ -5950,7 +5952,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         {
             CLDRConfig cconfig = CLDRConfig.getInstance();
-            SurveyLog.logger.info("Phase: " + cconfig.getPhase()  + " " + getNewVersion() + ",  environment: " + cconfig.getEnvironment() );
+            SurveyLog.logger.info("Phase: " + cconfig.getPhase()  + " " + getNewVersion() + ",  environment: " + cconfig.getEnvironment() + " " + getCurrevStr());
         }
         SurveyLog.logger.info("------- SurveyTool ready for requests after " + setupTime + "/"+uptime+". Memory in use: " + usedK() + "----------------------------\n\n\n");
         isSetup = true;
@@ -6072,7 +6074,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ElapsedTimer destroyTimer = new ElapsedTimer("SurveyTool destroy()");
         CLDRProgressTask progress = openProgress("shutting down");
         try {
-            SurveyLog.logger.warning("SurveyTool shutting down..");
+            SurveyLog.logger.warning("SurveyTool shutting down.. r"+getCurrevStr());
             if (startupThread != null) {
                 progress.update("Attempting clean shutdown...");
                 startupThread.attemptCleanShutdown();
@@ -6484,7 +6486,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (t != null) {
             SurveyLog.logException(t, what /* , ignore stack */);
         }
-        SurveyLog.logger.warning("SurveyTool busted: " + what + " ( after " + pages + "html+" + xpages + "xml pages served,  "
+        SurveyLog.logger.warning("SurveyTool " + SurveyMain.getCurrevStr() + " busted: " + what + " ( after " + pages + "html+" + xpages + "xml pages served,  "
                 + getGuestsAndUsers() + ")");
         try {
             throw new InternalError("broke here");

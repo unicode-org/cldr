@@ -4,31 +4,21 @@
 package org.unicode.cldr.web;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StackTracker;
-
-import com.ibm.icu.dev.util.BagFormatter;
 
 /**
  * @author srl
@@ -75,7 +65,7 @@ public class SurveyLog {
     public static final String FIELD_SEP = "*** ";
 
     enum LogField {
-        SURVEY_EXCEPTION, DATE, UPTIME, CTX, LOGSITE, MESSAGE, STACK, SQL
+        SURVEY_EXCEPTION, DATE, UPTIME, CTX, LOGSITE, MESSAGE, STACK, SQL, REVISION
     };
 
     private static File gBaseDir = null;
@@ -97,6 +87,7 @@ public class SurveyLog {
         StringBuilder sb = new StringBuilder();
         sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n').append(FIELD_SEP)
                 .append(LogField.DATE).append(' ').append(nextTimePost).append(' ').append(new Date()).append('\n')
+                .append(FIELD_SEP) .append(LogField.REVISION).append(' ').append(SurveyMain.getCurrevStr()).append(' ').append(SurveyMain.getNewVersion()).append(' ').append(CLDRConfig.getInstance().getPhase()).append(' ').append(CLDRConfig.getInstance().getEnvironment()).append('\n')
                 .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
         if (ctx != null) {
             sb.append(FIELD_SEP).append(LogField.CTX).append(' ').append(ctx).append('\n');

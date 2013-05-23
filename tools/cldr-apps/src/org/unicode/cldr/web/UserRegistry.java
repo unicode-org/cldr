@@ -490,7 +490,7 @@ public class UserRegistry {
                 o = VoteResolver.Organization.valueOf(arg);
             } catch (IllegalArgumentException iae) {
                 o = VoteResolver.Organization.guest;
-                System.err.println("Unknown organization: " + org);
+                SurveyLog.warnOnce("** Unknown organization (treating as Guest): " + org);
             }
             orgToVrOrg.put(org, o);
         }
@@ -703,6 +703,8 @@ public class UserRegistry {
                     // from params:
                     u.name = DBUtils.getStringUTF8(rs, 1);// rs.getString(1);
                     u.org = rs.getString(2);
+                    u.getOrganization(); // verify
+                    
                     u.email = rs.getString(3);
                     u.userlevel = rs.getInt(4);
                     u.intlocs = rs.getString(5);
@@ -2158,6 +2160,9 @@ public class UserRegistry {
         resetOrgList();
     }
 
+    /**
+     * TODO: obsolete logic.
+     */
     private void resetOrgList() {
         // get all orgs in use...
         Set<String> orgs = new TreeSet<String>();
@@ -2410,8 +2415,10 @@ public class UserRegistry {
                     String orgMunged = theirOrg;
                     try {
                         orgMunged = VoteResolver.Organization.fromString(theirOrg).name();
+                    } catch (NullPointerException iae) {
+                        SurveyLog.warnOnce("UserRegistry: Writing Illegal/unknown org: " + theirOrg);
                     } catch (IllegalArgumentException iae) {
-                        // illegal org
+                        SurveyLog.warnOnce("UserRegistry: Writing Illegal/unknown org: " + theirOrg);
                     }
                     if (orgMunged == null || orgMunged.length() <= 0) {
                         orgMunged = theirOrg;

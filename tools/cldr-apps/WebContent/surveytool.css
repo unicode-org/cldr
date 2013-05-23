@@ -338,20 +338,20 @@ A.nodraft:visited {
 
 .fallback {
 	background-color: #b8ffff;
-	border: 1px groove #0079cb;
+	border: 1px groove #0079cb  !important;
 }
 
 .fallback_root, .fallback_code {
-	border: 1px dotted #f00;
-	background-color: #FFDDDD;
+	border: 1px dotted #f00 !important;
+	background-color: #FFDDDD ;
 }
 
 .draft {
-	background-color: #88FFAA;
+	background-color: #88FFAA  !important;
 }
 
 .proposed {
-	background-color: #88DDAA;
+	background-color: #88DDAA  !important;
 }
 
 .selected {
@@ -1389,10 +1389,8 @@ a.dcLocale {
 }
 
 .winner {
-	
-
 /*	border: 4px groove #0f0;*/
-   border: 1px solid #0f0;
+   border: 1px solid #0f0 !important;
 	background-color: #DDFFDD;
 }
 

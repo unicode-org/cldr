@@ -1262,7 +1262,7 @@ public class SurveyForum {
         // logger.info("SurveyForum DB: initializing...");
         String locindex = "loc";
         if (DBUtils.db_Mysql) {
-            locindex = "loc(999)";
+            locindex = "loc(122)";
         }
         
         if (!DBUtils.hasTable(conn, DB_FORA)) { // user attribute
@@ -1272,7 +1272,7 @@ public class SurveyForum {
 
             sql = "CREATE TABLE " + DB_FORA + " ( " + " id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY
                     + ", "
-                    + " loc VARCHAR(999) NOT NULL, "
+                    + " loc VARCHAR(122) NOT NULL, "
                     + // interest locale
                     " first_time " + DBUtils.DB_SQL_TIMESTAMP0 + " NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT + " "
                     + DBUtils.DB_SQL_CURRENT_TIMESTAMP0 + ", " + " last_time TIMESTAMP NOT NULL " + DBUtils.DB_SQL_WITHDEFAULT
@@ -1296,7 +1296,7 @@ public class SurveyForum {
                     " poster INT NOT NULL, " + " subj " + DBUtils.DB_SQL_UNICODE + ", " + " text " + DBUtils.DB_SQL_UNICODE
                     + " NOT NULL, " + " parent INT " + DBUtils.DB_SQL_WITHDEFAULT
                     + " -1, "
-                    + " loc VARCHAR(999), "
+                    + " loc VARCHAR(122), "
                     + // specific locale, i.e. de_CH
                     " xpath INT, "
                     + // base xpath

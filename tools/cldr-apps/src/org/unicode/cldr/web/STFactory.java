@@ -1407,18 +1407,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         VoteResolver.setVoterToInfo(sm.reg.getVoterToInfo());
     }
 
-    private Set<String> badPaths = new HashSet<String>();
-
-    public final synchronized PathHeader getPathHeader(String xpath) {
-        if (!badPaths.contains(xpath)) {
-            try {
-                return phf.fromPath(xpath);
-            } catch (Throwable t) {
-                SurveyLog.logException(t, "PH for path " + xpath + " (will show this once)");
-                badPaths.add(xpath);
-            }
+    public final PathHeader getPathHeader(String xpath) {
+        try {
+            return phf.fromPath(xpath);
+         } catch (Throwable t) {
+             SurveyLog.warnOnce( "PH for path " + xpath + t.toString());
+             return null;
         }
-        return null;
     }
 
     private SurveyMenus surveyMenus;

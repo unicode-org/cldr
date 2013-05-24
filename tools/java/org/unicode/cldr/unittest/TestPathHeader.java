@@ -58,28 +58,27 @@ public class TestPathHeader extends TestFmwk {
     private EnumSet<PageId> badZonePages = EnumSet.of(PageId.UnknownT);
 
     public void TestCompleteness() {
-        if (isVerbose()) {
-            PathHeader.Factory pathHeaderFactory2 = PathHeader.getFactory(english);
-            List<String> failures = null;
-            pathHeaderFactory2.clearCache();
-            for (String p : english.fullIterable()) {
-                if (p.contains("symbol[@alt") && failures == null) {
-                    PathHeader result = pathHeaderFactory2.fromPath(p, failures = new ArrayList<String>());
-                    logln("Matching " + p + ": " + result + "\t" + result.getSurveyToolStatus());
-                    for (String failure : failures) {
-                        logln("\t" + failure);
-                    }
-                }
-                pathHeaderFactory2.fromPath(p);
-            }
-            Set<String> missing = pathHeaderFactory2.getUnmatchedRegexes();
-            if (missing.size() != 0) {
-                for (String e : missing) {
-                    logln("Path Regex never matched:\t" + e);
-                }
+        PathHeader.Factory pathHeaderFactory2 = PathHeader.getFactory(english);
+        //            List<String> failures = null;
+        pathHeaderFactory2.clearCache();
+        for (String p : english.fullIterable()) {
+            //                if (p.contains("symbol[@alt") && failures == null) {
+            //                    PathHeader result = pathHeaderFactory2.fromPath(p, failures = new ArrayList<String>());
+            //                    logln("Matching " + p + ": " + result + "\t" + result.getSurveyToolStatus());
+            //                    for (String failure : failures) {
+            //                        logln("\t" + failure);
+            //                    }
+            //                }
+            pathHeaderFactory2.fromPath(p);
+        }
+        Set<String> missing = pathHeaderFactory2.getUnmatchedRegexes();
+        if (missing.size() != 0) {
+            for (String e : missing) {
+                logln("Path Regex never matched:\t" + e);
             }
         }
     }
+
     public void TestVariant() {
         PathHeader p1 = pathHeaderFactory
                 .fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]");
@@ -213,12 +212,31 @@ public class TestPathHeader extends TestFmwk {
 
     public void TestCoverage() {
         Map<Row.R2<SectionId, PageId>, Counter<Level>> data = new TreeMap<Row.R2<SectionId, PageId>, Counter<Level>>();
-        String locale = "af";
-        CLDRFile cldrFile = info.getCldrFactory().make(locale, true);
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(info.getSupplementalDataInfo(),locale);
+        CLDRFile cldrFile = english;
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(supplemental,cldrFile.getLocaleID());
+        XPathParts parts = new XPathParts();
         for (String path : cldrFile.fullIterable()) {
-            PathHeader p = pathHeaderFactory.fromPath(path);
+            boolean deprecated = supplemental.hasDeprecatedItem("ldml", parts.set(path));
+            if (deprecated) {
+                errln("Deprecated path in English: " + path);
+                continue;
+            }
             Level level = coverageLevel.getLevel(path);
+            PathHeader p = pathHeaderFactory.fromPath(path);
+            SurveyToolStatus status = p.getSurveyToolStatus();
+
+            boolean hideCoverage = level == Level.OPTIONAL;
+            boolean hidePathHeader = status == SurveyToolStatus.DEPRECATED || status == SurveyToolStatus.HIDE;
+            if (hidePathHeader  != hideCoverage) {
+                String message = "PathHeader: " + status + ", Coverage: " + level + ": " + path;
+                if (hidePathHeader && !hideCoverage) {
+                    if (!logKnownIssue("6185", message)) {
+                        errln(message);
+                    }
+                } else if (!hidePathHeader && hideCoverage) {
+                    logln(message);
+                } 
+            }
             final R2<SectionId, PageId> key = Row.of(p.getSectionId(), p.getPageId());
             Counter<Level> counter = data.get(key);
             if (counter == null) {
@@ -246,7 +264,7 @@ public class TestPathHeader extends TestFmwk {
 
     public void TestAFile() {
         final String localeId = "en";
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(info.getSupplementalDataInfo(),localeId);
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(supplemental,localeId);
         Counter<Level> counter = new Counter<Level>();
         Map<String, PathHeader> uniqueness = new HashMap<String, PathHeader>();
         Set<String> alreadySeen = new HashSet<String>();

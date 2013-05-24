@@ -324,7 +324,7 @@ if(lastRelease != null ) {
 //        }
 %>
 
-<% if (r.isEstablished()) { %><a href='http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value'><%= ctx.iconHtml("warn", "established")%> This is an established locale.</a><br/><% } %>
+//<% if (r.isEstablished()) { %><a href='http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value'><%= ctx.iconHtml("warn", "established")%> This is an established locale.</a><br/><% } %>
 
 <% if(SurveyMain.isUnofficial()) { %>
 <tt>

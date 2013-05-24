@@ -43,7 +43,7 @@
 				+ dcChildDisplay
 				+ "</b>. Please make sure that all the changes that you make here are appropriate for <b>"
 				+ dcChildDisplay
-				+ "</b>. If you add any changes that are inappropriate for other sublocales, be sure to override their values. ");
+				+ "</b>. If there are multiple acceptable choices, please try to pick the one that would work for the most sublocales. ");
 		//ctx.printHelpLink("/DefaultContent","Help with Default Content");
 		ctx.print("</div>");
 		ctx.redirectToVurl(ctx.vurl(ctx.getLocale(), null, null, null));

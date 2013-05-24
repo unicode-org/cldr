@@ -431,7 +431,6 @@ public class TestPathHeader extends TestFmwk {
 
             if (prettyPath.contains("numberingSystems") ||
                     prettyPath.contains("exemplarCharacters") ||
-                    prettyPath.contains("orientation") ||
                     prettyPath.contains("indexCharacters")) {
                 oldStatus = SurveyToolStatus.READ_ONLY;
             } else if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {

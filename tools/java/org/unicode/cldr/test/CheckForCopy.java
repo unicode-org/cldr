@@ -27,8 +27,6 @@ public class CheckForCopy extends FactoryCheckCLDR {
     private static final boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
 
     XPathParts parts = new XPathParts();
-    // CLDRFile.Status status = new CLDRFile.Status();
-    Set seenSoFar = new HashSet();
 
     public CheckForCopy(Factory factory) {
         super(factory);
@@ -54,6 +52,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             "|defaultNumberingSystem" +
             "|otherNumberingSystems" +
             "|exemplarCharacters" +
+            "|unitLength\\[@type=\"(short|narrow)\"\\]/unit\\[@type=\"[^\"]++\"\\]/unitPattern\\[@count=\"[^\"]++\"\\]" +
             ")", true)
         .add("^//ldml/dates/calendars/calendar\\[@type=\"gregorian\"]", false)
         .add("^//ldml/dates/calendars/calendar", true);

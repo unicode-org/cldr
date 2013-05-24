@@ -1220,7 +1220,7 @@ public class ExampleGenerator {
                 if (value != null && !value.equals(type)) {
                     result = value;
                 } else {
-                    result = cldrFile.getName(parts.findAttributeValue("language", "type"));
+                    result = cldrFile.getConstructedBaileyValue(xpath, null, null);
                 }
             }
         }

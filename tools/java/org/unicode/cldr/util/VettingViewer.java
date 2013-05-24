@@ -1074,7 +1074,7 @@ public class VettingViewer<T> {
         if (sourceFile == null) {
             return MissingStatus.ABSENT;
         }
-        if ("root".equals(sourceFile.getLocaleID())) {
+        if ("root".equals(sourceFile.getLocaleID()) || path.startsWith("//ldml/layout/orientation/")) {
             return MissingStatus.MISSING_OK;
         }
         if (path.equals(TEST_PATH)) {

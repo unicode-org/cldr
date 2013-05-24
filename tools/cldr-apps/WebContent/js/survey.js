@@ -2289,9 +2289,7 @@ function updateRow(tr, theRow) {
 			
 			tr.voteDiv.appendChild(kdiv);
 		}
-		if(theRow.voteResolver.isEstablished) {
-			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_established"),"p","warnText nobg"));
-		}
+
 		// done with voteresolver table
 		
 		if(stdebug_enabled) {

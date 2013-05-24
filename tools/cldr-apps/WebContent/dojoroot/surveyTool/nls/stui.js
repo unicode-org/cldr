@@ -165,7 +165,6 @@ define({
 		flyovervdissenting: "Other votes cast against the final vote by members of the organization",
 		voteInfoScorebox_msg: "${0}: ${1}",
 		voteInfo_established_url: "http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value",
-		voteInfo_established: "This is an established locale.",
 		voteInfo_orgColumn: "Org.",
 		voteInfo_noVotes: "(no votes)",
 		voteInfo_iconBar_desc: "This area shows the status of each candidate item.",

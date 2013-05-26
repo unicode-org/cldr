@@ -66,7 +66,7 @@ public class TestUtilities extends TestFmwk {
                     throw new StringIdException();
                 }
             }
-            logln("Ending thread: " + this + ", " + STRING_ID_TEST_COUNT);
+            logln("Ending thread: " + this);
         }
         public String toString() {
             return "StringIdThread " + id;

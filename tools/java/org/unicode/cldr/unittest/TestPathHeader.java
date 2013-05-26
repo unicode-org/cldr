@@ -78,6 +78,16 @@ public class TestPathHeader extends TestFmwk {
             }
         }
     }
+    
+    public void Test6170Exception() {
+        String p1 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"speed-kilometer-per-hour\"]/unitPattern[@count=\"other\"]";
+        String p2 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"other\"]";
+        PathHeader ph1 = pathHeaderFactory.fromPath(p1);
+        PathHeader ph2 = pathHeaderFactory.fromPath(p2);
+        int comp12 = ph1.compareTo(ph2);
+        int comp21 = ph2.compareTo(ph1);
+        assertEquals("comp ph", comp12, -comp21);
+    }
 
     public void TestVariant() {
         PathHeader p1 = pathHeaderFactory

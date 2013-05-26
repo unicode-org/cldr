@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import java.text.ParseException;
 import java.text.ParsePosition;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
@@ -34,6 +35,7 @@ import com.ibm.icu.dev.util.UnicodeProperty.PatternMatcher;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateIntervalFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -57,9 +59,9 @@ public class CheckDates extends FactoryCheckCLDR {
         // "AD 2100-07-11T10:15:16Z",
     }; // keep aligned with following
     static String SampleList = "{0}"
-        // + Utility.LINE_SEPARATOR + "\t\u200E{1}\u200E" + Utility.LINE_SEPARATOR + "\t\u200E{2}\u200E" +
-        // Utility.LINE_SEPARATOR + "\t\u200E{3}\u200E"
-        ; // keep aligned with previous
+            // + Utility.LINE_SEPARATOR + "\t\u200E{1}\u200E" + Utility.LINE_SEPARATOR + "\t\u200E{2}\u200E" +
+            // Utility.LINE_SEPARATOR + "\t\u200E{3}\u200E"
+            ; // keep aligned with previous
 
     private static final String DECIMAL_XPATH = "//ldml/numbers/symbols[@numberSystem='latn']/decimal";
     private static final Pattern HOUR_SYMBOL = Pattern.compile("H{1,2}");
@@ -134,7 +136,7 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
-        List<CheckStatus> possibleErrors) {
+            List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
@@ -170,8 +172,8 @@ public class CheckDates extends FactoryCheckCLDR {
                 .setCause(this)
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(
-                    message.contains("Conflicting fields") ? Subtype.dateSymbolCollision : Subtype.internalError)
-                    .setMessage(message);
+                        message.contains("Conflicting fields") ? Subtype.dateSymbolCollision : Subtype.internalError)
+                        .setMessage(message);
                 possibleErrors.add(item);
             }
             // possibleErrors.add(flexInfo.getFailurePath(path));
@@ -236,14 +238,14 @@ public class CheckDates extends FactoryCheckCLDR {
     PathHeader.Factory pathHeaderFactory;
 
     public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
-        List<CheckStatus> result) {
+            List<CheckStatus> result) {
         if (fullPath == null) {
             return this; // skip paths that we don't have
         }
 
         if (path.indexOf("/dates") < 0
-            || path.endsWith("/default")
-            || path.endsWith("/alias")) {
+                || path.endsWith("/default")
+                || path.endsWith("/alias")) {
             return this;
         }
 
@@ -261,7 +263,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 .setMainType(CheckStatus.warningType)
                 .setSubtype(Subtype.incorrectDatePattern)
                 .setMessage("The ordering of date fields is inconsistent with others: {0}",
-                    getValues(getResolvedCldrFileToCheck(), problem.values()));
+                        getValues(getResolvedCldrFileToCheck(), problem.values()));
                 result.add(item);
             }
         }
@@ -276,7 +278,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     .setMainType(CheckStatus.warningType)
                     .setSubtype(Subtype.abbreviatedDateFieldTooWide)
                     .setMessage("Illegal abbreviated value {0}, can't be longer than wide value {1}", value,
-                        wideValue);
+                            wideValue);
                     result.add(item);
                 }
             }
@@ -309,8 +311,8 @@ public class CheckDates extends FactoryCheckCLDR {
                 Set<String> filteredPaths = new HashSet<String>();
                 for (String item : retrievedPaths) {
                     if (item.equals(path)
-                        || skipPath(item)
-                        || endsWithDisplayName != item.endsWith("displayName")) {
+                            || skipPath(item)
+                            || endsWithDisplayName != item.endsWith("displayName")) {
                         continue;
                     }
                     String otherType = getLastType(item);
@@ -337,7 +339,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 .setMainType(statusType)
                 .setSubtype(Subtype.dateSymbolCollision)
                 .setMessage("The date value “{0}” is the same as what is used for a different item: {1}", value,
-                    others.toString()));
+                        others.toString()));
 
             }
 
@@ -386,7 +388,7 @@ public class CheckDates extends FactoryCheckCLDR {
             // }
 
             if (path.indexOf("[@type=\"narrow\"]") >= 0 && !path.contains("dayPeriod")
-                && !path.contains("monthPatterns")) {
+                    && !path.contains("monthPatterns")) {
                 int end = isNarrowEnough(value, bi);
                 String locale = getCldrFileToCheck().getLocaleID();
                 // Per cldrbug 1456, skip the following test for Thai (or should we instead just change errorType to
@@ -398,8 +400,8 @@ public class CheckDates extends FactoryCheckCLDR {
                     .setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.narrowDateFieldTooWide)
                     .setMessage(
-                        "Illegal narrow value. Must be only one grapheme cluster: \u200E{0}\u200E would be ok, but has extra \u200E{1}\u200E",
-                        new Object[] { value.substring(0, end), value.substring(end) }));
+                            "Illegal narrow value. Must be only one grapheme cluster: \u200E{0}\u200E would be ok, but has extra \u200E{1}\u200E",
+                            new Object[] { value.substring(0, end), value.substring(end) }));
                 }
             }
             DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
@@ -415,14 +417,14 @@ public class CheckDates extends FactoryCheckCLDR {
                     String message = e.getMessage();
                     if (message.contains("Illegal datetime field:")) {
                         CheckStatus item = new CheckStatus().setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.illegalDatePattern)
-                            .setMessage(message);
+                                .setMainType(CheckStatus.errorType)
+                                .setSubtype(Subtype.illegalDatePattern)
+                                .setMessage(message);
                         result.add(item);
                     } else {
                         CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.illegalDatePattern)
-                            .setMessage("Illegal date format pattern {0}", new Object[] { e });
+                                .setSubtype(Subtype.illegalDatePattern)
+                                .setMessage("Illegal date format pattern {0}", new Object[] { e });
                         result.add(item);
                     }
                 }
@@ -437,14 +439,14 @@ public class CheckDates extends FactoryCheckCLDR {
                     .setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.illegalDatePattern)
                     .setMessage(
-                        "Value should contain a positive hour format and a negative hour format separated by a semicolon.");
+                            "Value should contain a positive hour format and a negative hour format separated by a semicolon.");
                     result.add(item);
                 } else {
                     String[] formats = value.split(";");
                     if (formats[0].equals(formats[1])) {
                         CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.illegalDatePattern)
-                            .setMessage("The hour formats should not be the same.");
+                                .setSubtype(Subtype.illegalDatePattern)
+                                .setMessage("The hour formats should not be the same.");
                         result.add(item);
                     } else {
                         checkHasHourMinuteSymbols(formats[0], result);
@@ -454,16 +456,16 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         } catch (ParseException e) {
             CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.illegalDatePattern)
-                .setMessage("ParseException in creating date format {0}", new Object[] { e });
+                    .setSubtype(Subtype.illegalDatePattern)
+                    .setMessage("ParseException in creating date format {0}", new Object[] { e });
             result.add(item);
         } catch (Exception e) {
             // e.printStackTrace();
             // HACK
             if (!HACK_CONFLICTING.matcher(e.getMessage()).find()) {
                 CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.illegalDatePattern)
-                    .setMessage("Error in creating date format {0}", new Object[] { e });
+                        .setSubtype(Subtype.illegalDatePattern)
+                        .setMessage("Error in creating date format {0}", new Object[] { e });
                 result.add(item);
             }
         }
@@ -485,7 +487,7 @@ public class CheckDates extends FactoryCheckCLDR {
             result.add(createErrorCheckStatus().setMessage("The hour and minute symbols are missing from {0}.", value));
         } else if (!hasHourSymbol) {
             result.add(createErrorCheckStatus()
-                .setMessage("The hour symbol (H or HH) should be present in {0}.", value));
+                    .setMessage("The hour symbol (H or HH) should be present in {0}.", value));
         } else if (!hasMinuteSymbol) {
             result.add(createErrorCheckStatus().setMessage("The minute symbol (mm) should be present in {0}.", value));
         }
@@ -498,17 +500,17 @@ public class CheckDates extends FactoryCheckCLDR {
      */
     private CheckStatus createErrorCheckStatus() {
         return new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-            .setSubtype(Subtype.illegalDatePattern);
+                .setSubtype(Subtype.illegalDatePattern);
     }
 
     public boolean skipPath(String path) {
         return path.contains("arrow")
-            || path.contains("/availableFormats")
-            || path.contains("/interval")
-            || path.contains("/dateTimeFormat")
-            || path.contains("/dayPeriod[")
-            && !path.endsWith("=\"pm\"]")
-            && !path.endsWith("=\"am\"]");
+                || path.contains("/availableFormats")
+                || path.contains("/interval")
+                || path.contains("/dateTimeFormat")
+                || path.contains("/dayPeriod[")
+                && !path.endsWith("=\"pm\"]")
+                && !path.endsWith("=\"am\"]");
     }
 
     public String getLastType(String path) {
@@ -554,7 +556,7 @@ public class CheckDates extends FactoryCheckCLDR {
         if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
         try {
             if (path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0
-                || path.indexOf("/dateFormatItem") >= 0) {
+                    || path.indexOf("/dateFormatItem") >= 0) {
                 checkPattern2(path, fullPath, value, result);
             }
         } catch (Exception e) {
@@ -586,15 +588,15 @@ public class CheckDates extends FactoryCheckCLDR {
         String skeletonCanonical = dateTimePatternGenerator.getCanonicalSkeletonAllowingDuplicates(value);
 
         if (value.contains("MMM.") || value.contains("LLL.") || value.contains("E.") || value.contains("eee.")
-            || value.contains("ccc.") || value.contains("QQQ.") || value.contains("qqq.")) {
+                || value.contains("ccc.") || value.contains("QQQ.") || value.contains("qqq.")) {
             result
             .add(new CheckStatus()
             .setCause(this)
             .setMainType(CheckStatus.warningType)
             .setSubtype(Subtype.incorrectDatePattern)
             .setMessage(
-                "Your pattern ({0}) is probably incorrect; abbreviated month/weekday/quarter names that need a period should include it in the name, rather than adding it to the pattern.",
-                value));
+                    "Your pattern ({0}) is probably incorrect; abbreviated month/weekday/quarter names that need a period should include it in the name, rather than adding it to the pattern.",
+                    value));
         }
 
         pathParts.set(path);
@@ -618,11 +620,11 @@ public class CheckDates extends FactoryCheckCLDR {
             String idCanonical = dateTimePatternGenerator.getCanonicalSkeletonAllowingDuplicates(id);
             if (skeleton.isEmpty()) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.incorrectDatePattern)
-                    // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
-                    .setMessage("Your pattern ({1}) is incorrect for ID ({0}). " +
-                        "You need to supply a pattern according to http://cldr.org/translation/date-time-patterns.",
-                        id, value));
+                        .setSubtype(Subtype.incorrectDatePattern)
+                        // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
+                        .setMessage("Your pattern ({1}) is incorrect for ID ({0}). " +
+                                "You need to supply a pattern according to http://cldr.org/translation/date-time-patterns.",
+                                id, value));
             } else if (!dateTimePatternGenerator.skeletonsAreSimilar(idCanonical, skeletonCanonical)) {
                 String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
                 result
@@ -632,16 +634,16 @@ public class CheckDates extends FactoryCheckCLDR {
                 .setSubtype(Subtype.incorrectDatePattern)
                 // "Internal ID ({0}) doesn't match generated ID ({1}) for pattern ({2}). " +
                 .setMessage(
-                    "Your pattern ({2}) doesn't correspond to what is asked for. Yours would be right for an ID ({1}) but not for the ID ({0}). "
-                        +
-                        "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language. See http://cldr.org/translation/date-time-patterns.",
-                        id, skeletonCanonical, value, fixedValue));
+                        "Your pattern ({2}) doesn't correspond to what is asked for. Yours would be right for an ID ({1}) but not for the ID ({0}). "
+                                +
+                                "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language. See http://cldr.org/translation/date-time-patterns.",
+                                id, skeletonCanonical, value, fixedValue));
             }
             String failureMessage = (String) flexInfo.getFailurePath(path);
             if (failureMessage != null) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.illegalDatePattern)
-                    .setMessage("{0}", new Object[] { failureMessage }));
+                        .setSubtype(Subtype.illegalDatePattern)
+                        .setMessage("{0}", new Object[] { failureMessage }));
             }
 
             // if (redundants.contains(value)) {
@@ -692,7 +694,9 @@ public class CheckDates extends FactoryCheckCLDR {
         if (dateTypePatternType == DateTimePatternType.STOCK) {
             int style = 0;
             String len = pathParts.findAttributeValue("timeFormatLength", "type");
+            DateOrTime dateOrTime = DateOrTime.time;
             if (len == null) {
+                dateOrTime = DateOrTime.date;
                 style += 4;
                 len = pathParts.findAttributeValue("dateFormatLength", "type");
                 if (len == null) {
@@ -700,12 +704,16 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
 
+
             DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
+            if (path.contains("gregorian")) {
+                checkValue(dateTimeLength, dateOrTime, value, result);
+            }
             style += dateTimeLength.ordinal();
             // do regex match with skeletonCanonical but report errors using skeleton; they have corresponding field lengths
             if (!dateTimePatterns[style].matcher(skeletonCanonical).matches()
-                && !calendar.equals("chinese")
-                && !calendar.equals("hebrew")) {
+                    && !calendar.equals("chinese")
+                    && !calendar.equals("hebrew")) {
                 int i = RegexUtilities.findMismatch(dateTimePatterns[style], skeletonCanonical);
                 String skeletonPosition = skeleton.substring(0, i) + "☹" + skeleton.substring(i);
                 result.add(new CheckStatus()
@@ -713,7 +721,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 .setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.missingOrExtraDateField)
                 .setMessage("Field is missing, extra, or the wrong length. Expected {0} [Internal: {1} / {2}]",
-                    new Object[] { dateTimeMessage[style], skeletonPosition, dateTimePatterns[style].pattern() }));
+                        new Object[] { dateTimeMessage[style], skeletonPosition, dateTimePatterns[style].pattern() }));
             }
         }
         // TODO fix this up.
@@ -733,17 +741,122 @@ public class CheckDates extends FactoryCheckCLDR {
                     .setMainType(CheckStatus.warningType)
                     .setSubtype(Subtype.unexpectedOrderOfEraYear)
                     .setMessage("Unexpected order of era/year. Expected {0}, but got {1} in 〈{2}〉 for {3}/{4}", 
-                        expected, actual, value, calendar, id));
+                            expected, actual, value, calendar, id));
                 }
             } else {
                 System.out.println("\t" + getCldrFileToCheck().getLocaleID() + "\t" + actual
-                    + "\t" + value + "\t" + calendar + "\t" + id);
+                        + "\t" + value + "\t" + calendar + "\t" + id);
             }
         }
     }
 
+    enum DateOrTime {date, time}
+
+    private void checkValue(DateTimeLengths dateTimeLength, DateOrTime dateOrTime, String value, List<CheckStatus> result) {
+      String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"";
+      String suffix = "\"]";
+        /*  Ticket #4936 
+value(short time) = value(hm) or value(Hm)
+value(medium time) = value(hms) or value(Hms)
+value(long time) = value(medium time+z)
+value(full time) = value(medium time+zzzz)
+         */
+        String key1 = null;
+        String key2 = null;
+        switch(dateOrTime) {
+        case time:
+            switch (dateTimeLength) {
+            case SHORT: 
+                key1 = "hm"; key2 = "Hm";
+                break;
+            case MEDIUM:
+                key1 = "hms"; key2 = "Hms";
+                break;
+            case LONG:
+                key1 = "hmsz"; key2 = "Hmsz";
+                break;
+            case FULL:
+                key1 = "hmszzzz"; key2 = "Hmszzzz";
+                break;
+            }
+            break;
+        case date:
+            /*  Ticket #4936 
+            value(short date) = value(yMd)
+            value(medium date) = value(yMMMd) or value(yMd)
+            value(long date) =value(yMMMd) width adjusted
+            value(full date) = value(yMMMdE) width adjusted   
+            */
+            switch (dateTimeLength) {
+            case SHORT: 
+                key1 = "yMd"; key2 = null;
+                break;
+            case MEDIUM:
+                key1 = "yMMMd"; key2 = "yMd";
+                break;
+            case LONG:
+                key1 = "yMMMd"; key2 = null;
+                break;
+            case FULL:
+                key1 = "yMMMdE"; key2 = null;
+                break;
+            }
+            break;
+        }
+        String value1 = getCldrFileToCheck().getStringValue(prefix + key1 + suffix);
+        if (equalsExceptWidth(value,value1)
+                || value1 == null) {
+            return;
+        }
+        if (key2 == null) {
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.illegalDatePattern)
+                    .setMessage("{0} {1} {2} didn't match {3} => {4}", 
+                            dateTimeLength, dateOrTime, value, key1, value1));
+            return;
+        }
+        String value2 = getCldrFileToCheck().getStringValue(prefix + key1 + suffix);
+        if (equalsExceptWidth(value,value2)
+                || value2 == null) {
+            return;
+        }
+        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.illegalDatePattern)
+                .setMessage("{0} {1} {2} didn't match {3} => {4} or {5} => {6}", 
+                        dateTimeLength, dateOrTime, value, key1, value1, key2, value2));
+    }
+
+    private boolean equalsExceptWidth(String value1, String value2) {
+        if (value1.equals(value2)) {
+            return true;
+        } else if (value2 == null) {
+            return false;
+        }
+        
+        List<Object> items1 = new ArrayList(formatParser.set(value1).getItems()); // clone
+        List<Object> items2 = formatParser.set(value2).getItems();
+        if (items1.size() != items2.size()) {
+            return false;
+        }
+        Iterator<Object> it2 = items2.iterator();
+        for (Object item1 : items1) {
+            Object item2 = it2.next();
+            if (item1.equals(item2)) {
+                continue;
+            }
+            if (item1 instanceof VariableField && item2 instanceof VariableField) {
+                // simple test for now, ignore widths
+                if (item1.toString().charAt(0) == item2.toString().charAt(0)) {
+                    continue;
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
     static final Set<String> YgLanguages = new HashSet<String>(Arrays.asList(
-        "ar", "cs", "da", "de", "en", "es", "fa", "fi", "fr", "he", "hr", "id", "it", "nb", "nl", "pt", "ru", "sv", "tr"));
+            "ar", "cs", "da", "de", "en", "es", "fa", "fi", "fr", "he", "hr", "id", "it", "nb", "nl", "pt", "ru", "sv", "tr"));
 
     private GyState getExpectedGy(String localeID) {
         // hack for now
@@ -944,7 +1057,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 Date n = df.parse(currentFormatted, parsePosition);
                 if (parsePosition.getIndex() != currentFormatted.length()) {
                     currentReparsed = "Couldn't parse past: " + "\u200E"
-                        + currentFormatted.substring(0, parsePosition.getIndex()) + "\u200E";
+                            + currentFormatted.substring(0, parsePosition.getIndex()) + "\u200E";
                 } else {
                     currentReparsed = neutralFormat.format(n);
                 }

@@ -7,6 +7,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -21,6 +22,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
@@ -37,9 +39,55 @@ import com.ibm.icu.util.ULocale;
 public class TestUtilities extends TestFmwk {
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
     static TestInfo testInfo = TestInfo.getInstance();
+    private static final int STRING_ID_TEST_COUNT = 1024*16;
 
     public static void main(String[] args) {
         new TestUtilities().run(args);
+    }
+
+    public static class StringIdException extends RuntimeException {
+        private static final long serialVersionUID = 1L;
+    }
+    
+    public class StringIdThread extends Thread {
+        final private Random r = new Random();
+        final private int id;
+        StringIdThread(int i) {
+            super("Demo Thread");
+            id = i;
+        }
+        public void run() {
+            logln("Starting thread: " + this);
+            for (int i = 0; i < STRING_ID_TEST_COUNT; ++i) {
+                String s = String.valueOf(r.nextInt());
+                long l = StringId.getId(s);
+                String s2 = StringId.getStringFromId(l);
+                if (!s.equals(s2)) {
+                    throw new StringIdException();
+                }
+            }
+            logln("Ending thread: " + this + ", " + STRING_ID_TEST_COUNT);
+        }
+        public String toString() {
+            return "StringIdThread " + id;
+        }
+    }
+
+    public void TestStringId()  {
+        ArrayList<StringIdThread> threads = new ArrayList<StringIdThread>();
+
+        for (int i = 0; i < 8; i++) {
+            StringIdThread thread = new StringIdThread(i);
+            threads.add(thread);
+            thread.start();
+        }
+        for (StringIdThread thread: threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                errln(e.toString());
+            }
+        }
     }
 
     public void TestUrlEscape() {
@@ -119,19 +167,19 @@ public class TestUtilities extends TestFmwk {
         assertEquals("getMap", "{a=95, b=151, c=95, d=-3}", counter.toString());
 
         assertEquals("getKeysetSortedByKey", Arrays.asList("a", "b", "c", "d"), new ArrayList<String>(counter
-            .getKeysetSortedByKey()));
+                .getKeysetSortedByKey()));
 
         assertEquals("getKeysetSortedByCount(true, ucaDown)", Arrays.asList("d", "c", "a", "b"), new ArrayList<String>(
-            counter.getKeysetSortedByCount(true, ucaDown)));
+                counter.getKeysetSortedByCount(true, ucaDown)));
 
         assertEquals("getKeysetSortedByCount(true, null), value", Arrays.asList("d", "a", "c", "b"),
-            new ArrayList<String>(counter.getKeysetSortedByCount(true, uca)));
+                new ArrayList<String>(counter.getKeysetSortedByCount(true, uca)));
 
         assertEquals("getKeysetSortedByCount(false, ucaDown), descending", Arrays.asList("b", "c", "a", "d"),
-            new ArrayList<String>(counter.getKeysetSortedByCount(false, ucaDown)));
+                new ArrayList<String>(counter.getKeysetSortedByCount(false, ucaDown)));
 
         assertEquals("getKeysetSortedByCount(false, null), descending, value", Arrays.asList("b", "a", "c", "d"),
-            new ArrayList<String>(counter.getKeysetSortedByCount(false, uca)));
+                new ArrayList<String>(counter.getKeysetSortedByCount(false, uca)));
     }
 
     public void TestOrganizationOrder() {
@@ -419,27 +467,27 @@ public class TestUtilities extends TestFmwk {
     }
 
     private void showPaths(PathValueInfo pathValueInfo, String locale, int basePath,
-        final Map<Integer, CandidateInfo> itemInfo) {
+            final Map<Integer, CandidateInfo> itemInfo) {
         logln(locale + " basePath:\t" + basePath + "\t" + pathValueInfo.getRealPath(basePath));
         for (int item : itemInfo.keySet()) {
             CandidateInfo candidateInfo = itemInfo.get(item);
             logln("\tpath:\t" + item + ", " + candidateInfo);
             logln("\tvalue:\t" + pathValueInfo.getRealValue(item) + "\tpath:\t<" + pathValueInfo.getRealPath(item)
-                + ">");
+                    + ">");
         }
     }
 
     Map<Integer, VoterInfo> testdata = CldrUtility.asMap(
-        new Object[][] {
-            { 801, new VoterInfo(Organization.guest, Level.street, "guestS") },
-            { 701, new VoterInfo(Organization.gnome, Level.street, "gnomeS") },
-            { 404, new VoterInfo(Organization.google, Level.vetter, "googleV") },
-            { 411, new VoterInfo(Organization.google, Level.street, "googleS") },
-            { 424, new VoterInfo(Organization.google, Level.vetter, "googleV2") },
-            { 304, new VoterInfo(Organization.apple, Level.vetter, "appleV") },
-            { 208, new VoterInfo(Organization.adobe, Level.expert, "adobeE") },
-            { 101, new VoterInfo(Organization.ibm, Level.street, "ibmS") },
-        });
+            new Object[][] {
+                    { 801, new VoterInfo(Organization.guest, Level.street, "guestS") },
+                    { 701, new VoterInfo(Organization.gnome, Level.street, "gnomeS") },
+                    { 404, new VoterInfo(Organization.google, Level.vetter, "googleV") },
+                    { 411, new VoterInfo(Organization.google, Level.street, "googleS") },
+                    { 424, new VoterInfo(Organization.google, Level.vetter, "googleV2") },
+                    { 304, new VoterInfo(Organization.apple, Level.vetter, "appleV") },
+                    { 208, new VoterInfo(Organization.adobe, Level.expert, "adobeE") },
+                    { 101, new VoterInfo(Organization.ibm, Level.street, "ibmS") },
+            });
 
     private int toVoterId(String s) {
         for (Entry<Integer, VoterInfo> entry : testdata.entrySet()) {
@@ -610,119 +658,119 @@ public class TestUtilities extends TestFmwk {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
         String[] tests = {
-            "comment=regression case from John Emmons",
-            "locale=wae",
-            "oldValue=2802",
-            "oldStatus=approved",
-            "304=208027", // Apple vetter
-            // expected values
-            "value=208027",
-            "status=approved",
-            "sameVotes=208027",
-            "conflicts=[]",
-            "check",
-            // first test
-            "oldValue=old-value",
-            "oldStatus=provisional",
-            "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + street = vetter)",
-            "404=next",
-            "411=next",
-            "304=best",
-            // expected values
-            "value=next",
-            "sameVotes=next,best",
-            "conflicts=[]",
-            "status=provisional",
-            "check",
+                "comment=regression case from John Emmons",
+                "locale=wae",
+                "oldValue=2802",
+                "oldStatus=approved",
+                "304=208027", // Apple vetter
+                // expected values
+                "value=208027",
+                "status=approved",
+                "sameVotes=208027",
+                "conflicts=[]",
+                "check",
+                // first test
+                "oldValue=old-value",
+                "oldStatus=provisional",
+                "comment=Check that identical values get the top overall vote, and that org is maxed (eg vetter + street = vetter)",
+                "404=next",
+                "411=next",
+                "304=best",
+                // expected values
+                "value=next",
+                "sameVotes=next,best",
+                "conflicts=[]",
+                "status=provisional",
+                "check",
 
-            "comment=now give next a slight edge (5 to 4) with a different organization",
-            "404=next",
-            "304=best",
-            "801=next",
-            // expected values
-            "value=next",
-            "sameVotes=next",
-            "status=approved",
-            "check",
+                "comment=now give next a slight edge (5 to 4) with a different organization",
+                "404=next",
+                "304=best",
+                "801=next",
+                // expected values
+                "value=next",
+                "sameVotes=next",
+                "status=approved",
+                "check",
 
-            "comment=set up a case of conflict within organization",
-            "404=next",
-            "424=best",
-            // expected values
-            "value=best", // alphabetical
-            "sameVotes=best, next",
-            "conflicts=[google]",
-            "status=provisional",
-            "check",
+                "comment=set up a case of conflict within organization",
+                "404=next",
+                "424=best",
+                // expected values
+                "value=best", // alphabetical
+                "sameVotes=best, next",
+                "conflicts=[google]",
+                "status=provisional",
+                "check",
 
-            "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
-            "404=next",
-            "424=best",
-            "411=best",
-            "304=best",
-            // expected values
-            "conflicts=[google]",
-            "value=best",
-            "sameVotes=best",
-            "status=approved",
-            "check",
+                "comment=now cross-organizational conflict, also check for max value in same organization (4, 1) => 4 not 5",
+                "404=next",
+                "424=best",
+                "411=best",
+                "304=best",
+                // expected values
+                "conflicts=[google]",
+                "value=best",
+                "sameVotes=best",
+                "status=approved",
+                "check",
 
-            "comment=now clear winner 8 over 4",
-            "404=next",
-            // "424=best",
-            "411=best",
-            "304=best",
-            "208=primo",
-            // expected values
-            "conflicts=[]",
-            "value=primo",
-            "sameVotes=primo",
-            "status=approved",
-            "check",
+                "comment=now clear winner 8 over 4",
+                "404=next",
+                // "424=best",
+                "411=best",
+                "304=best",
+                "208=primo",
+                // expected values
+                "conflicts=[]",
+                "value=primo",
+                "sameVotes=primo",
+                "status=approved",
+                "check",
 
-            "comment=now not so clear, throw in a street value. So it is 8 to 5. (used to be provisional)",
-            "404=next",
-            // "424=best",
-            "411=best",
-            "304=best",
-            "208=primo",
-            "101=best",
-            // expected values
-            "conflicts=[]",
-            "value=primo",
-            "status=approved",
-            "check",
+                "comment=now not so clear, throw in a street value. So it is 8 to 5. (used to be provisional)",
+                "404=next",
+                // "424=best",
+                "411=best",
+                "304=best",
+                "208=primo",
+                "101=best",
+                // expected values
+                "conflicts=[]",
+                "value=primo",
+                "status=approved",
+                "check",
 
-            "comment=set up vote of 4 in established locale, with old provisional value",
-            "locale=fr",
-            "404=best",
-            "oldStatus=provisional",
-            // expected values
-            "value=best",
-            "sameVotes=best",
-            "status=contributed",
-            "conflicts=[]",
-            "check",
+                "comment=set up vote of 4 in established locale, with old provisional value",
+                "locale=fr",
+                "404=best",
+                "oldStatus=provisional",
+                // expected values
+                "value=best",
+                "sameVotes=best",
+                "status=contributed",
+                "conflicts=[]",
+                "check",
 
-            "comment=now set up vote of 4 in established locale, but with old contributed value",
-            "oldStatus=contributed",
-            // expected values
-            "value=old-value",
-            "sameVotes=old-value",
-            "status=contributed",
-            "conflicts=[]",
-            "check",
+                "comment=now set up vote of 4 in established locale, but with old contributed value",
+                "oldStatus=contributed",
+                // expected values
+                "value=old-value",
+                "sameVotes=old-value",
+                "status=contributed",
+                "conflicts=[]",
+                "check",
 
-            "comment=now set up vote of 1 + 1 in established locale, and with old contributed value",
-            "411=best",
-            "101=best",
-            "oldStatus=contributed",
-            // expected values
-            "value=best",
-            "sameVotes=best",
-            "status=contributed",
-            "conflicts=[]",
-            "check",
+                "comment=now set up vote of 1 + 1 in established locale, and with old contributed value",
+                "411=best",
+                "101=best",
+                "oldStatus=contributed",
+                // expected values
+                "value=best",
+                "sameVotes=best",
+                "status=contributed",
+                "conflicts=[]",
+                "check",
         };
         String expectedValue = null;
         String expectedConflicts = null;
@@ -780,7 +828,7 @@ public class TestUtilities extends TestFmwk {
                 assertEquals(counter + " sameVotes", sameVotes.toString(), resolver.getValuesWithSameVotes().toString());
                 assertEquals(counter + " status", expectedStatus, resolver.getWinningStatus());
                 assertEquals(counter + " conflicts", expectedConflicts, resolver.getConflictedOrganizations()
-                    .toString());
+                        .toString());
                 resolver.clear();
                 values.clear();
             } else {

@@ -642,7 +642,7 @@ public class DateTimeFormats {
         if (value == null) {
             return null;
         }
-        String strid = Long.toHexString(StringId.getId(path));
+        String strid = StringId.getHexId(path);
         return "<a href='" + surveyUrl + "?_=" + file.getLocaleID() +
                 "&strid=" + strid + "'><i>fix</i></a>";
     }

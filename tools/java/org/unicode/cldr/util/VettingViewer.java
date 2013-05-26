@@ -481,7 +481,7 @@ public class VettingViewer<T> {
             return baseUrl + "?_="
                 + locale
                 + "&strid="
-                + Long.toHexString(StringId.getId(codeOutput.getOriginalPath()));
+                + StringId.getHexId(codeOutput.getOriginalPath());
             // String menu = PathUtilities.xpathToMenu(path);
             // String url = baseUrl + "?_=" + locale + "&amp;=" + menu;
             // return url;

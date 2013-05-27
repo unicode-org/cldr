@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -33,9 +32,7 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.UnicodeProperty.PatternMatcher;
 import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.DateIntervalFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -706,9 +703,9 @@ public class CheckDates extends FactoryCheckCLDR {
 
 
             DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
-            if (path.contains("gregorian")) {
-                checkValue(dateTimeLength, dateOrTime, value, result);
-            }
+//            if (path.contains("gregorian")) {
+//                checkValue(dateTimeLength, dateOrTime, value, result);
+//            }
             style += dateTimeLength.ordinal();
             // do regex match with skeletonCanonical but report errors using skeleton; they have corresponding field lengths
             if (!dateTimePatterns[style].matcher(skeletonCanonical).matches()

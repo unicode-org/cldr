@@ -1,4 +1,4 @@
-/* Copyright (C) 2005-2012, International Business Machines Corporation and   *
+/* Copyright (C) 2005-2013, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               */
 //
 //  CookieSession.java
@@ -9,7 +9,6 @@
 
 package org.unicode.cldr.web;
 
-import java.io.IOException;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,11 +18,16 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
 import javax.xml.bind.DatatypeConverter;
+
+
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
 
 /**
@@ -34,9 +38,8 @@ public class CookieSession {
     private static final boolean DEBUG_INOUT = false;
     public String id;
     public String ip;
-    public long last;
-    public Hashtable stuff = new Hashtable(); // user data
-    public Hashtable prefs = new Hashtable(); // user prefs
+    public Hashtable<String, Object> stuff = new Hashtable<String, Object>(); // user data
+    public Hashtable<String, Comparable> prefs = new Hashtable<String, Comparable>(); // user prefs
     public UserRegistry.User user = null;
     /**
      * @deprecated need to refactor anything that uses this.
@@ -44,40 +47,60 @@ public class CookieSession {
     public static SurveyMain sm = null;
 
     private Connection conn = null;
+    /**
+     * When did the user last take an explicit action?
+     */
+    private long lastAction = System.currentTimeMillis();
+    
+    public long getLastAction() {
+        return lastAction;
+    }
+    
+    /**
+     * How long, in ms, before we kick?
+     * @return
+     */
+    public long timeTillKick() {
+        final long now = System.currentTimeMillis();
+        final boolean guest = (user==null);
+        long myTimeout; // timeout in seconds.
+ 
+        if(user!=null && UserRegistry.userIsTC(user)) {
+            myTimeout = 60*20; // 20 minutes
+        } else if(guest) {
+            if (!tooManyGuests()) {
+                myTimeout =  60 * 10; // 10 minutes
+            } else {
+                myTimeout = Params.CLDR_GUEST_INACTIVITY.value();
+            }
+        } else {
+            if(!tooManyUsers()) {
+                myTimeout = 60 * 20; // 20 min
+            } else {
+                myTimeout = Params.CLDR_USER_INACTIVITY.value();
+            }
+        }
+        
+        final long remain =  (1000 * myTimeout ) -  (now-lastAction) ;
+
+        if(remain <0 ) {
+            return 0;
+        } else {
+            return remain;
+        }
+    }
+    
+    /**
+     * When did the user last touch this session?
+     */
+    public long last;
 
     public String toString() {
-        return id;
+        return "{CookieSession#"+id+", user="+user+", timeTillKick="+SurveyMain.durationDiff(timeTillKick())+", age="+age()+", userActionAge="+userActionAge()+"}";
     }
 
-    public Connection db(SurveyMain sm) {
-        if (conn == null) {
-            conn = DBUtils.getInstance().getDBConnection();
-        }
-        return conn;
-    }
-
-    /**
-     * Construct a CookieSession from a particular session ID.
-     * 
-     * @param s
-     *            session ID
-     */
-    private CookieSession(String s) {
-        id = s;
-    }
-
-    static Hashtable gHash = new Hashtable(); // hash by sess ID
-    static Hashtable uHash = new Hashtable(); // hash by user ID
-
-    /**
-     * return an iterator over all sessions. sorted by age. For administrative
-     * use.
-     * 
-     * @return iterator over all sessions.
-     **/
-    public static Iterator getAll() {
-        return getAllSet().iterator();
-    }
+    static Hashtable<String, CookieSession> gHash = new Hashtable<String, CookieSession>(); // hash by sess ID
+    static Hashtable<String, CookieSession> uHash = new Hashtable<String, CookieSession>(); // hash by user ID
 
     public static Set<CookieSession> getAllSet() {
         synchronized (gHash) {
@@ -126,8 +149,9 @@ public class CookieSession {
      * @return session or null
      */
     public static CookieSession retrieveWithoutTouch(String sessionid) {
+        checkForExpiredSessions();
         synchronized (gHash) {
-            CookieSession c = (CookieSession) gHash.get(sessionid);
+            CookieSession c = gHash.get(sessionid);
             return c;
         }
     }
@@ -141,7 +165,7 @@ public class CookieSession {
      */
     public static CookieSession retrieveUserWithoutTouch(String email) {
         synchronized (gHash) {
-            CookieSession c = (CookieSession) uHash.get(email);
+            CookieSession c = uHash.get(email);
             return c;
         }
     }
@@ -179,7 +203,7 @@ public class CookieSession {
     }
 
     /**
-     * Create a bran-new session.
+     * Create a new session.
      * 
      * @param isGuest
      *            True if the user is a guest.
@@ -207,6 +231,14 @@ public class CookieSession {
         if(DEBUG_INOUT) System.out.println("S: touch " + id + " - " + user);
     }
 
+    
+    /**
+     * Note a direct user action.
+     */
+    public void userDidAction() {
+        lastAction = System.currentTimeMillis();
+    }
+    
     /**
      * Delete a session.
      */
@@ -223,7 +255,7 @@ public class CookieSession {
     }
 
     /**
-     * How old is this session?
+     * How old is this session? (last time we heard from their browser, at all)
      * 
      * @return age of this session, in millis
      */
@@ -231,14 +263,15 @@ public class CookieSession {
         return (System.currentTimeMillis() - last);
     }
 
-    static int n = 4000;
-    /** Counter used for ID creation **/
-    static int g = 8000;
-    /** Counter used for ID creation **/
-    static int h = 90;
-    /** Counter used for ID creation **/
-    public static String j = cheapEncode(System.currentTimeMillis());
-    /** per instance random hash **/
+    /**
+     * How old is this session's last active action? (last voted, viewed a page, etc)
+     * 
+     * @return age of this session, in millis
+     */
+    protected long userActionAge() {
+        return (System.currentTimeMillis() - lastAction);
+    }
+
 
     // secure stuff
     static SecureRandom myRand = null;
@@ -262,13 +295,8 @@ public class CookieSession {
             byte[] outBytes = aDigest.digest(new Integer(myRand.nextInt()).toString().getBytes());
             return cheapEncode(outBytes);
         } catch (NoSuchAlgorithmException nsa) {
-            System.err.println(nsa.toString() + " - falling back..");
-            if (isGuest) {
-                // no reason, just a different set of hashes
-                return cheapEncode(h += 2) + "w" + cheapEncode(j.hashCode() + g++);
-            } else {
-                return cheapEncode((n += (j.hashCode() % 444)) + n) + "y" + j;
-            }
+            SurveyMain.busted("MessageDigest error", nsa);
+            return null;
         }
     }
 
@@ -375,11 +403,11 @@ public class CookieSession {
      * 
      * @return the locale hashtable
      */
-    public Hashtable getLocales() {
+    public Hashtable<String, Hashtable<String, Object>> getLocales() {
         synchronized (stuff) {
-            Hashtable l = (Hashtable) get("locales");
+            Hashtable<String, Hashtable<String, Object>> l = (Hashtable<String, Hashtable<String, Object>>) get("locales");
             if (l == null) {
-                l = new Hashtable();
+                l = new Hashtable<String, Hashtable<String, Object>>();
                 put("locales", l);
             }
             return l;
@@ -397,7 +425,7 @@ public class CookieSession {
      */
     public final Object getByLocale(String key, String aLocale) {
         synchronized (stuff) {
-            Hashtable f = (Hashtable) getLocales().get(aLocale);
+            Hashtable f = getLocales().get(aLocale);
             if (f != null) {
                 return f.get(key);
             } else {
@@ -418,9 +446,9 @@ public class CookieSession {
      */
     public void putByLocale(String key, String aLocale, Object value) {
         synchronized (stuff) {
-            Hashtable f = (Hashtable) getLocales().get(aLocale);
+            Hashtable<String, Object> f = getLocales().get(aLocale);
             if (f == null) {
-                f = new Hashtable();
+                f = new Hashtable<String, Object>();
                 getLocales().put(aLocale, f);
             }
             f.put(key, value);
@@ -437,7 +465,7 @@ public class CookieSession {
      */
     public final void removeByLocale(String key, String aLocale) {
         synchronized (stuff) {
-            Hashtable f = (Hashtable) getLocales().get(aLocale);
+            Hashtable f = getLocales().get(aLocale);
             if (f != null) {
                 f.remove(key);
             }
@@ -529,115 +557,173 @@ public class CookieSession {
         return new String(b, utf8);
     }
 
-    // - Session Reaping. Deletion of old user session
-    static final int MILLIS_IN_MIN = 1000 * 60;
-    /** 1 minute = 60,000 milliseconds **/
-    // testing:
-    // static final int GUEST_TO = 1 * MILLIS_IN_MIN; // Expire Guest sessions
-    // after three hours
-    // static final int USER_TO = 3 * MILLIS_IN_MIN; // soon.
-    // static final int REAP_TO = 8000; //often.
-    // production:
-    public static final int GUEST_TO = 10 * MILLIS_IN_MIN;
-    /** Expire Guest sessions after 10 min **/
-    public static final int GUEST_TO_10 = 2 * MILLIS_IN_MIN;
-    /** Expire Guest sessions after 2 min **/
-    public static final int GUEST_TO_40 = 0;
-    /** Expire Guest sessions immediately **/
+    /**
+     * Set these from cldr.properties.
+     * 
+     * @author srl
+     *
+     */
+    public enum Params {
+        CLDR_MAX_USERS(30), // max logged in user count allowed
+        CLDR_MAX_GUESTS(0), // max guests allowed before guests start getting shut out (should be < CLDR_MAX_USERS)
+        CLDR_GUEST_TIMEOUT(1*60), // Guest computers must checkin every minute or they are kicked. (always)
+        CLDR_GUEST_INACTIVITY(1*60), // Guests must perform some activity every 5 minutes or they are kicked ( when too many guests)
+        CLDR_USER_TIMEOUT(2*60), // Users computer must check in every 2 minutes or kicked (always)
+        CLDR_USER_INACTIVITY(5*60); // Users must do something (load a page, vote, etc) or they are kicked (when too many users)
 
-    public static final int USER_TO = 1 * 60 * MILLIS_IN_MIN;
-    /** Expire non-guest sessions after 1 hours **/
-    public static final int USER_TO_10 = 1 * 20 * MILLIS_IN_MIN;
-    /** Expire non-guest sessions after 20 minutes **/
-    public static final int REAP_TO = 4 * MILLIS_IN_MIN;
-    /** Only reap once every 4 mintutes **/
-    public static final int REAP_TO_10 = 30 * 1000;
-    /** Only reap once every 4 mintutes **/
-    public static final int REAP_TO_40 = 0;
-    /** Only reap once every 4 mintutes **/
+        
+        private int defVal;
+        private Integer value;
+        
+        /**
+         * Construct a new parameter
+         * @param name
+         * @param defVal
+         */
+        Params(int defVal) {
+            this.defVal = defVal;
+        }
+        
+        /**
+         * Get the param's value
+         * @return
+         */
+        final public int value() {
+            if(value==null) {
+                value = CLDRConfig.getInstance().getProperty(this.name().toUpperCase(), defVal);
+                SurveyLog.warnOnce("CookieSession: " + this.name().toUpperCase() +"="+value +" (default: " + defVal+")");
+            }
+            return value;
+        }
+    };
+    
+
+    /**
+     * Return true if too many users are logged in.
+     * @return
+     */
+    public static boolean tooManyUsers() {
+        int limit = Params.CLDR_MAX_USERS.value();
+        if(limit==0) {
+            return false;
+        } else {
+            int count = CookieSession.getUserCount();
+            if(count >= limit) {
+                if(SurveyMain.isUnofficial()) {
+                    System.out.println("Too many users. limit="+limit+", count="+count);
+                }
+                return true;
+            } else {
+                if(DEBUG_INOUT && SurveyMain.isUnofficial()) {
+                    System.out.println("User count OK. . limit="+limit+", count="+count);
+                }
+                return false;
+            }
+        }
+    }
+
+    /**
+     * Return true if too many guests are logged in.
+     * @return
+     */
+    public static boolean tooManyGuests() {
+        int limit = Params.CLDR_MAX_GUESTS.value();
+        if( tooManyUsers()) {
+            return true; // implies too many guests..
+        } else if(limit==0) {
+            return false;
+        } else {
+            int count = CookieSession.getGuestCount();
+            if(count >= limit) {
+                if(SurveyMain.isUnofficial())
+                    System.out.println("TOO MANY GUESTS. limit="+limit+", count="+count);
+                return true;
+            } else {
+                if(DEBUG_INOUT && SurveyMain.isUnofficial())
+                    System.out.println("Guest count OK. . limit="+limit+", count="+count);
+                return false;
+            }
+        }
+    }
+
+    // parameters
+
 
     static long lastReap = 0;
     /** last time reaped. Starts at 0, so reap immediately **/
 
-    public static int nGuests = 0;
+    private static int nGuests = 0;
     /** # of guests **/
-    public static int nUsers = 0;
+    private static int nUsers = 0;
 
+    public static int getGuestCount() {
+        getUserCount();
+        return nGuests;
+    }
     /** # of users **/
-
     /**
-     * Perform a reap. To be called from SurveyMain etc.
+     * Perform a reap if need be, and count.
+     * @return user count
      */
-    public static void reap() {
+    public static int getUserCount() {
+        synchronized (uHash) {
+            return uHash.size();
+        }
+    }
+    
+    private static int lastCount = -1;
+    
+    public static int checkForExpiredSessions() {
+
         synchronized (gHash) {
             int allCount = gHash.size(); // count of ALL users
-            // reap..
-            int reap_to = REAP_TO;
-            if (allCount > 40) {
-                reap_to = REAP_TO_40;
-            } else if (allCount > 10) {
-                reap_to = REAP_TO_10;
-            }
-            int guest_to = GUEST_TO;
-            if (allCount > 40) {
-                guest_to = GUEST_TO_40;
-            } else if (allCount > 10) {
-                guest_to = GUEST_TO_10;
-            }
-            int user_to = USER_TO;
-            if (allCount > 10) {
-                user_to = USER_TO_10;
-            }
-            long elapsed = (System.currentTimeMillis() - lastReap);
+            long now = System.currentTimeMillis();
+            long elapsed = (now - lastReap);
 
-            // System.err.println("reap: elapsed " + elapsed + ", nGuests " +
-            // nGuests +", reap_to:"+reap_to+", guest_to:"+guest_to +
-            // ", gHash count: " + gHash.size());
-
-            if (elapsed < reap_to) {
-                return;
+            final boolean tooManyUsers = tooManyUsers();
+            final boolean tooManyGuests = tooManyGuests();
+            
+            if (elapsed < (1000 * 5) && allCount <= lastCount && !tooManyGuests) { // check every 5 seconds or if count grows
+                return nUsers;
             }
+
+            lastCount = allCount;
+            
             int guests = 0;
             int users = 0;
-            lastReap = System.currentTimeMillis();
-            // System.out.println("reaping..");
-            // step 0: reap all guests older than time
+            lastReap = now;
 
-            for (Iterator i = gHash.values().iterator(); i.hasNext();) {
-                CookieSession cs = (CookieSession) i.next();
-
-                if (cs.user == null) {
-                    if (cs.age() > guest_to) {
-                        // System.out.println("Reaped guest session: " + cs.id +
-                        // " after  " + SurveyMain.timeDiff(cs.last)
-                        // +" inactivity.");
-                        cs.remove();
-                        // concurrent modify . . . (i.e. rescan.)
-                        i = gHash.values().iterator();
+            // remove any sessions we need to get rid of, count the rest.
+            List<CookieSession> toRemove = new LinkedList<CookieSession>();
+            for (CookieSession cs : gHash.values()) {
+                if (cs.user == null) { // guest
+                    if(  tooManyUsers || cs.age() > (Params.CLDR_GUEST_TIMEOUT.value()*1000) || (cs.timeTillKick()==0)) {
+                        toRemove.add(cs);
                     } else {
-                        guests++;
+                         guests++;
                     }
                 } else {
-                    if (cs.age() > user_to) {
-                        // System.out.println("Reaped users session: " + cs.id +
-                        // " (" + cs.user.email + ") after  " +
-                        // SurveyMain.timeDiff(cs.last) +" inactivity.");
-                        cs.remove();
-                        // concurrent modify . . . (i.e. rescan.)
-                        i = gHash.values().iterator();
+                    if ( (cs.age() > Params.CLDR_USER_TIMEOUT.value()*1000) || (cs.timeTillKick()<=0)) {
+                        toRemove.add(cs);
                     } else {
                         users++;
                     }
                 }
             }
+            for(CookieSession cs : toRemove) {
+                if(SurveyMain.isUnofficial()) {
+                    System.err.println("Removed stale session " + cs);
+                }
+                cs.remove();
+            }
             nGuests = guests;
-            nUsers = users;
+            return (nUsers = users);
         }
     }
 
     public static void shutdownDB() {
         synchronized (gHash) {
-            CookieSession sessions[] = (CookieSession[]) gHash.values().toArray(new CookieSession[0]);
+            CookieSession sessions[] = gHash.values().toArray(new CookieSession[0]);
             for (CookieSession cs : sessions) {
                 try {
                     cs.remove();
@@ -645,6 +731,8 @@ public class CookieSession {
                     //
                 }
             }
+            gHash.clear();
+            uHash.clear();
         }
     }
 

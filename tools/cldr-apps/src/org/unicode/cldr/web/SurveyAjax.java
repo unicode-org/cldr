@@ -43,6 +43,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.SurveyAjax.JSONWriter;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -327,49 +328,34 @@ public class SurveyAjax extends HttpServlet {
                 r.put("recent", query);
                 send(r, out);
             } else if (what.equals(WHAT_STATUS)) {
-                sendStatus(sm, out, loc);
+                JSONWriter r2 = newJSONStatus(sm);
+                setLocaleStatus(sm, loc, r2);
+                
+                if (sess != null && !sess.isEmpty()) {
+                    CookieSession.checkForExpiredSessions();
+                    mySession = CookieSession.retrieve(sess);
+                }
+                    
+                    
+                if (sess != null && !sess.isEmpty()) {
+                    mySession = CookieSession.retrieve(sess); // or peek?
+                    if(mySession!=null) {
+                        r2.put("timeTillKick", mySession.timeTillKick());
+                    } else {
+//                        r2.put("err", "You are not logged into the survey tool)
+                        r2.put("session_err", "no session");
+                    }
+                }
+                send(r2, out);
             } else if (sess != null && !sess.isEmpty()) { // this and following:
                                                           // session needed
+                CookieSession.checkForExpiredSessions();
                 mySession = CookieSession.retrieve(sess);
                 if (mySession == null) {
-                    sendError(out, "Missing Session: " + sess);
+                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess);
                 } else {
-                    // if(what.equals(WHAT_GETROW)) {
-                    // int id = Integer.parseInt(xpath);
-                    // String xp = sm.xpt.getById(id);
-                    //
-                    //
-                    // ;
-                    // boolean dataEmpty = false;
-                    // boolean zoomedIn =
-                    // request.getParameter("zoomedIn")!=null&&request.getParameter("zoomedIn").length()>0;
-                    // JSONWriter r = newJSONStatus(sm);
-                    // synchronized(mySession) {
-                    // CLDRLocale locale = CLDRLocale.getInstance(loc);
-                    // SurveyMain.UserLocaleStuff uf =
-                    // mySession.sm.getUserFile(mySession, locale);
-                    // DataSection section = DataSection.make(null, mySession,
-                    // locale, xp, false,Level.COMPREHENSIVE.toString());
-                    // // r.put("testResults", JSONWriter.wrap(result));
-                    // //r.put("testsRun", cc.toString());
-                    // DataRow row = section.getDataRow(xp);
-                    // if(row!=null) {
-                    // CheckCLDR cc = sm.createCheckWithoutCollisions();
-                    // StringWriter sw = new StringWriter();
-                    // WebContext sctx = new WebContext(sw);
-                    // sctx.session=mySession;
-                    // row.showDataRow(sctx, uf, true, cc, zoomedIn,
-                    // DataSection.kAjaxRows);
-                    // sctx.flush();
-                    // sctx.close();
-                    // r.put("rowHtml",sw.toString());
-                    // }
-                    // }
-                    // r.put("locTested", loc);
-                    // r.put("xpathTested", xp);
-                    // send(r,out);
-                    // } else
                     if (what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT)) {
+                        mySession.userDidAction();
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
                         Map<String, String> options = DataSection.getOptions(null, mySession, locale);
                         STFactory stf = sm.getSTFactory();
@@ -555,6 +541,7 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else if (what.equals(WHAT_PREF)) {
+                        mySession.userDidAction();
                         String pref = request.getParameter("pref");
 
                         JSONWriter r = newJSONStatus(sm);
@@ -578,6 +565,7 @@ public class SurveyAjax extends HttpServlet {
                         r.put(SurveyMain.QUERY_VALUE_SUFFIX, mySession.settings().get(pref, null));
                         send(r, out);
                     } else if (what.equals(WHAT_GETVV)) {
+                        mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
                         r.put("what", what);
 
@@ -592,6 +580,7 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_FETCH)) {
+                        mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
                         r.put("what", what);
 
@@ -604,6 +593,7 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else if(what.equals("mail")) {
+                        mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
                         if(mySession.user==null) { 
                             r.put("err", "Not logged in.");
@@ -629,6 +619,7 @@ public class SurveyAjax extends HttpServlet {
                         send(r, out);
                     } else if (what.equals(WHAT_GET_MENUS)) {
                         
+                        mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
                         r.put("what", what);
 
@@ -664,11 +655,10 @@ public class SurveyAjax extends HttpServlet {
                                                             + " where submitter=? and last_mod < "+votesAfterSQL+
                                                             " and value is not null", mySession.user.id);
                                     
-                                    if(SurveyMain.isUnofficial()) System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and " + oldVotesPref +"="+oldVoteRemind);
-                                    
                                     if(count==0) {
                                         mySession.settings().set(oldVotesPref, "*"); // Do not ask again this release
                                     } else {
+                                        if(SurveyMain.isUnofficial()) System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and " + oldVotesPref +"="+oldVoteRemind);
                                         r.put("oldVotesRemind", new JSONObject().put("pref" , oldVotesPref).put("remind", oldVoteRemind).put("count", count));
                                     }
                                 }
@@ -677,6 +667,7 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else if (what.equals(WHAT_POSS_PROBLEMS)) {
+                        mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
                         r.put("what", what);
 
@@ -749,6 +740,7 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else if(what.equals("oldvotes")) {
+                        mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
                         r.put("what", what);
 
@@ -1076,19 +1068,6 @@ public class SurveyAjax extends HttpServlet {
 
     public static boolean hasErrors(List<CheckStatus> result) {
         return (has(result, CheckStatus.errorType));
-    }
-
-    private void sendStatus(SurveyMain sm, PrintWriter out, String locale) throws IOException {
-        JSONWriter r = newJSONStatus(sm);
-        // StringBuffer progress = new StringBuffer(sm.getProgress());
-        // String threadInfo = sm.startupThread.htmlStatus();
-        // if(threadInfo!=null) {
-        // progress.append("<br/><b>Processing:"+threadInfo+"</b><br>");
-        // }
-        // r.put("progress", progress.toString());
-
-        setLocaleStatus(sm, locale, r);
-        send(r, out);
     }
 
     /**

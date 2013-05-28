@@ -23,7 +23,9 @@
 			}
 			sess.put("id", cs.id);
 			sess.put("ip", cs.ip);
-			sess.put("last", SurveyMain.timeDiff(cs.last));
+            sess.put("last", SurveyMain.timeDiff(cs.last));
+            sess.put("lastAction", SurveyMain.timeDiff(cs.getLastAction()));
+            sess.put("timeTillKick", cs.timeTillKick());
 			//			sess.put("locales",new JSONArray().put(cs.getLocales().keys()));
 			users.put(cs.id, sess);
 		}

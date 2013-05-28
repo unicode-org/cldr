@@ -191,7 +191,7 @@ public class SurveyLog {
     }
 
     private static void checkDebug() {
-        if (CLDRConfig.getInstance().getBooleanProperty("DEBUG", false)) {
+        if (CLDRConfig.getInstance().getProperty("DEBUG", false)) {
             DEBUG = true;
         }
         checkDebug = true;

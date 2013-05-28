@@ -2202,6 +2202,8 @@ public class WebContext implements Cloneable, Appendable {
      * set the session.
      */
     public String setSession() {
+        CookieSession.checkForExpiredSessions();
+
         if(this.session!=null) return "Internal error - session already set.";
         
         String message = null;
@@ -2240,6 +2242,7 @@ public class WebContext implements Cloneable, Appendable {
 
         HttpSession httpSession = null;
         
+        
         try {
             user = CookieSession.sm.reg.get(password, email, userIP(), letmein);
         } catch (LogoutException e) {
@@ -2262,14 +2265,13 @@ public class WebContext implements Cloneable, Appendable {
             httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
         }
         if (user != null) {
-            mySession = CookieSession.retrieveUser(user.email);
+            mySession = CookieSession.retrieveUser(user.email); // is this user already logged in?
             if (mySession != null) {
-                if (null == CookieSession.retrieve(mySession.id)) {
+                if (null == CookieSession.retrieve(mySession.id)) { // double check- is the session still valid?
                     mySession = null; // don't allow dead sessions to show up
                                       // via the user list.
                 } else {
-                    // message =
-                    // "<i id='sessionMessage'>Reconnecting to your previous session.</i>";
+                    // already had a session for this user.
                     myNum = mySession.id;
                 }
             }
@@ -2290,19 +2292,13 @@ public class WebContext implements Cloneable, Appendable {
                 idFromSession = false;
             }
             if ((mySession == null) && (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE))) {
-                // message =
-                // "<i id='sessionMessage'>(Sorry, This session has expired. ";
                 if (user == null) {
-                    message = "You may have to log in again. ";
+//                    message = "You were disconnected.";  //  Don't think this adds any value.
                 }
                 // message = message + ")</i><br>";
             }
         }
-        if ((idFromSession == false) && (httpSession != null) && (mySession != null)) { // can
-                                                                                        // we
-                                                                                        // elide
-                                                                                        // the
-                                                                                        // 's'?
+        if ((idFromSession == false) && (httpSession != null) && (mySession != null)) { 
             String aNum = (String) httpSession.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
             if ((aNum != null) && (mySession.id.equals(aNum))) {
                 idFromSession = true; // it would have matched.
@@ -2340,7 +2336,31 @@ public class WebContext implements Cloneable, Appendable {
                 return "Bad IP.";
             }
         }
-        if (mySession == null) {
+        if(false) System.out.println("mySession="+mySession);
+
+        
+        // guest?
+        if(letmein || (user!=null && UserRegistry.userIsTC(user))) {
+            // allow in administrator or TC.
+        } else if ((user!=null) && (mySession == null)) { // user trying to log in- 
+            if (CookieSession.tooManyUsers()){
+                System.err.println("Refused login for " + email+ " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
+                return "We are swamped with about " + CookieSession.getUserCount() + " people using the SurveyTool right now! Please try back in a little while.";
+            }
+        } else if (mySession==null || (mySession.user==null)) { // guest user
+            if(CookieSession.tooManyGuests()) {
+                if(mySession!=null) {
+                    System.err.println("Logged-out guest  " + mySession.id + " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
+                    mySession.remove(); // remove guests at this point
+                }
+                logout(); // clear session cookie
+                return "We have too many people browsing the CLDR Data on the Survey Tool. Please try again later when the load has gone down.";
+            }
+        }
+        
+        
+        
+        if(mySession==null) {
             mySession = new CookieSession(user == null, userIP(), httpSession.getId());
             if (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
                 // ctx.println("New session: " + mySession.id + "<br>");
@@ -2357,7 +2377,7 @@ public class WebContext implements Cloneable, Appendable {
     
         if (httpSession != null) {
             httpSession.setAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION, mySession.id);
-            httpSession.setMaxInactiveInterval(CookieSession.USER_TO / 1000);
+            httpSession.setMaxInactiveInterval(CookieSession.Params.CLDR_USER_TIMEOUT.value() / 1000);
         }
     
         if (user != null) {
@@ -2372,7 +2392,6 @@ public class WebContext implements Cloneable, Appendable {
                         "' id='notselected'>Forgot&nbsp;Password?</a><br>";
             }
         }
-        CookieSession.reap();
         return message;
     }
 

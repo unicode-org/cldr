@@ -1536,16 +1536,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         double free = r.freeMemory();
         free = free / 1024000.0;
 
-        int guests = CookieSession.nGuests;
-        int users = CookieSession.nUsers;
         double load = osmxbean.getSystemLoadAverage();
         CLDRConfig config = CLDRConfig.getInstance();
         return new JSONObject().put("isBusted", isBusted).put("lockOut", lockOut != null).put("isSetup", isSetup)
                 .put("isUnofficial", isUnofficial()).put("environment", config.getEnvironment().name())
                 .put("specialHeader", config.getProperty("CLDR_HEADER"))
                 .put("specialTimerRemaining", specialTimer != 0 ? timeDiff(System.currentTimeMillis(), specialTimer) : null)
-                .put("processing", startupThread.htmlStatus()).put("guests", CookieSession.nGuests)
-                .put("users", CookieSession.nUsers).put("uptime", uptime).put("surveyRunningStamp", surveyRunningStamp.current())
+                .put("processing", startupThread.htmlStatus()).put("guests", CookieSession.getGuestCount())
+                .put("users", CookieSession.getUserCount()).put("uptime", uptime).put("surveyRunningStamp", surveyRunningStamp.current())
                 .put("memfree", free).put("memtotal", total).put("pages", pages).put("uptime", uptime).put("phase", phase())
                 .put("currev",  SurveyMain.getCurrevStr() )
                 .put("newVersion", newVersion).put("sysload", load).put("sysprocs", nProcs).put("dbopen", DBUtils.db_number_open)
@@ -1650,8 +1648,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static String getGuestsAndUsers() {
         StringBuffer out = new StringBuffer();
-        int guests = CookieSession.nGuests;
-        int users = CookieSession.nUsers;
+        int guests = CookieSession.getGuestCount();
+        int users = CookieSession.getUserCount();
         if ((guests + users) > 0) { // ??
             out.append("~");
             if (users > 0) {
@@ -3523,7 +3521,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String sessionMessage = ctx.setSession();
 
         if (ctx.session == null) {
+
+            printHeader(ctx, "Survey Tool");
+            if (sessionMessage == null) {
+                sessionMessage = "Could not create your user session.";
+            }
+            ctx.println("<p><img src='stop.png' width='16'>"+sessionMessage+"</p>");
+            ctx.println("<hr><a href='"+ctx.context("login.jsp")+"' class='notselected'>Login as another user...</a>");
+            printFooter(ctx);
             return;
+        } else {
+            ctx.session.userDidAction(); // always true for this 
         }
 
         if (lockOut != null) {
@@ -6779,6 +6787,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String timeDiff(long a) {
         return timeDiff(a, System.currentTimeMillis());
     }
+    public static final String durationDiff(long a) {
+        return timeDiff(System.currentTimeMillis()-a);
+    }
 
     public static final String timeDiff(long a, long b) {
         final long ONE_DAY = 86400 * 1000;
@@ -7085,4 +7096,5 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public void writeExternal(ObjectOutput arg0) throws IOException {
         STFactory.unimp(); // do not call
     }
+
 }

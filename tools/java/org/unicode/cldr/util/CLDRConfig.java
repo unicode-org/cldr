@@ -248,17 +248,36 @@ public class CLDRConfig extends Properties {
 
     /**
      * Return true if the value indicates 'true'
-     * @param string
-     * @param b
+     * @param k key
+     * @param defVal default value
      * @return
      */
-    public boolean getBooleanProperty(String string, boolean b) {
-        String val = getProperty(string, b?"true":null);
+    public boolean getProperty(String k, boolean defVal) {
+        String val = getProperty(k, defVal?"true":null);
         if(val==null) { 
             return false;
         } else {
             val = val.trim().toLowerCase();
             return(val.equals("true")|| val.equals("t") || val.equals("yes") || val.equals("y"));
+        }
+    }
+
+    /**
+     * Return a numeric property
+     * @param k key
+     * @param defVal default value
+     * @return
+     */
+    public int getProperty(String k, int defVal) {
+        String val = getProperty(k, Integer.toString(defVal));
+        if(val==null) { 
+            return defVal;
+        } else {
+            try {
+                return Integer.parseInt(val); 
+            } catch(NumberFormatException nfe) {
+                return defVal;
+            }
         }
     }
 }

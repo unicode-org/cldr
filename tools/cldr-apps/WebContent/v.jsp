@@ -102,6 +102,28 @@ if(false) { // if we need to redirect for some reason..
 	 <body>
 	   If you are not redirected, please click: <a href='<%= url %>'>here</a>, or <a id='redir2' href='<%= survURL %>'>here</a> (may lose your place).
 	 <%
+ } else if(ctx.session==null) {
+	 %>
+				<html class='claro'>
+				<head class='claro'>
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+				<title>CLDR  <%= ctx.sm.getNewVersion() %> SurveyTool</title>
+				</head>
+				<body>
+                <div style='float: right'>
+                    <a href='<%= request.getContextPath() %>/login.jsp' id='loginlink' class='notselected'>Login…</a> 
+                 </div>
+				    <h2>CLDR SurveyTool | Problem</h2>
+				    <div>
+				        <p><img src='stop.png' width='16'><%= status %></p>
+				    </div>
+				    
+				    <hr>
+				    <p><%= ctx.sm.getGuestsAndUsers() %></p>
+				</body>
+				</html>
+	 <%
+	 return;
  }
 %>
 <html class='claro'>

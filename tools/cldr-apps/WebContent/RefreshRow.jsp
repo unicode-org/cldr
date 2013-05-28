@@ -55,6 +55,11 @@
 				}
 				return;
 			}
+			
+			if(request.getParameter("automatic")==null || request.getParameter("automatic").isEmpty()) {
+                mySession.userDidAction(); // don't touch for auto refresh
+			}
+			
 			if(xpath!=null && xpath.isEmpty()) {
 				xpath = null;
 			}

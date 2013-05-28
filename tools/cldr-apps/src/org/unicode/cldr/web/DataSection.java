@@ -1592,7 +1592,7 @@ public class DataSection implements JSONString {
 
         @Override
         public String toString() {
-            return "{DataRow t='" + prettyPath + "', n='" + getDisplayName() + "', x='" + "', item#='" + items.size() + "'}";
+            return "{DataRow n='" + getDisplayName() + "', x='" + xpath + "', item#='" + items.size() + "'}";
         }
 
         /**

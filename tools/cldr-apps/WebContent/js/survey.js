@@ -988,7 +988,17 @@ function updateStatusBox(json) {
 			removeAllChildNodes(updateParts.visitors);
 			updateParts.visitors.appendChild(fragment);
 		}
-		if(json.status.specialHeader && json.status.specialHeader.length>0) {
+		if( json.timeTillKick && (json.timeTillKick>=0) && (json.timeTillKick < (60*1*1000) )) { // show countdown when 1 minute to go
+			var kmsg = "<b style='font-size: x-large; color: red;'>Your session will end if not active in about "+ (parseInt(json.timeTillKick)/1000).toFixed(0) + " seconds</b>";
+			console.log(kmsg);
+			updateSpecialHeader(kmsg);
+		} else if(( json.timeTillKick === 0) || (json.session_err)) {
+			var kmsg  = "<b style='font-size: x-large; color: red;'>Your session has been disconnected for inactivity.</b>";
+			console.log(kmsg);
+			updateSpecialHeader(kmsg);
+			disconnected=true;
+  		    addClass(document.getElementsByTagName("body")[0], "disconnected");
+		} else if(json.status.specialHeader && json.status.specialHeader.length>0) {
 			updateSpecialHeader(json.status.specialHeader);
 		} else {
 			updateSpecialHeader(null);
@@ -1023,11 +1033,15 @@ function updateStatus() {
 	doDeferredUpdates(); // do this periodically
 //	stdebug("UpdateStatus...");
 	var surveyLocaleUrl = '';
+	var surveySessionUrl = '';
 	if(surveyCurrentLocale!==null && surveyCurrentLocale!= '') {
 		surveyLocaleUrl = '&_='+surveyCurrentLocale;
 	}
+	if(surveySessionId && surveySessionId !==null) {
+		surveySessionUrl = '&s='+surveySessionId;
+	}
     dojo.xhrGet({
-        url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl+cacheKill(),
+        url: contextPath + "/SurveyAjax?what=status"+surveyLocaleUrl+surveySessionUrl+cacheKill(),
         handleAs:"json",
         timeout: ajaxTimeout,
         load: function(json){
@@ -1928,62 +1942,6 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 	}; // end fn
 }
 
-function popInfoInto(tr, theRow, theChild, immediate) {
-	showInPop("NOT USED.", tr, theChild); // empty
-	return; 
-	
-	//if(theRow.voteInfoText) {
-	//	showInPop(theRow.voteInfoText, tr, theChild, null, immediate);
-	//	return;
-	//}
-	showInPop("<i>" + stui.str("loading") + "</i>", tr, theChild);
-	var popShowingToken = getPopToken();
-	stdebug('Got token ' + popShowingToken);
-//	var what = WHAT_GETROW;
-	var ourUrl = contextPath + "/RefreshRow.jsp?what=" + WHAT_GETROW
-			+ "&xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
-			+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
-			+ "&voteinfo=t";
-	var errorHandler = function(err, ioArgs) {
-		console.log('Error in refreshRow: ' + err + ' response '
-				+ ioArgs.xhr.responseText);
-		showInPop(
-				stopIcon
-						+ " Couldn't reload this row- please refresh the page. <br>Error: "
-						+ err + "</td>", tr, theChild);
-		handleDisconnect("Could not refresh row:"+err, null)
-		return true;
-	};
-	var loadHandler = function(text) {
-		try {
-			if (text) {
-				theRow.voteInfoText = text;
-			} else {
-				theRow.voteInfoText = stopIcon + stui.noVotingInfo;
-			}
-			if(getPopToken()==popShowingToken) {
-				showInPop(theRow.voteInfoText, tr, theChild, null, true);
-//				stdebug("success with token " + popShowingToken);
-			} else { // else, something else happened meanwhile.
-//				stdebug("our token was " + popShowingToken + " but now at " + getPopToken() );
-			}
-		} catch (e) {
-			console.log("Error in ajax get ", e.message);
-			console.log(" response: " + text);
-			showInPop(stopIcon + " exception: " + e.message, tr, theChild, true);
-		}
-	};
-	var xhrArgs = {
-		url : ourUrl,
-		handleAs : "text",
-		load : loadHandler,
-		error : errorHandler
-	};
-	// window.xhrArgs = xhrArgs;
-	// console.log('xhrArgs = ' + xhrArgs);
-	queueXhr(xhrArgs);
-}
-
 
 function appendExample(parent, text) {
 	var div = document.createElement("div");
@@ -2317,15 +2275,6 @@ function updateRow(tr, theRow) {
 	if(!canModify) {
 		protoButton = null; // no voting at all.
 	}
-	
-	var doPopInfo = function(e) {
-		popInfoInto(tr,theRow,children[config.statuscell],false);
-		stStopPropagation(e); return false; 
-	};
-	var doPopInfoNow = function(e) {
-		popInfoInto(tr,theRow,children[config.statuscell],true);
-		stStopPropagation(e); return false; 
-	};
 	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
 	if(!children[config.statuscell].isSetup) {
@@ -4520,7 +4469,7 @@ function showV() {
  */
 function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
-    var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t";
+    var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t&automatic=t";
     var loadHandler = function(json){
         try {
 	    		if(json&&json.dataLoadTime) {
@@ -4836,7 +4785,7 @@ function loadAdminPanel() {
 					} else {
 						user.appendChild(createChunk("(anonymous)","div","adminUserUser"));
 					}
-					user.appendChild(createChunk("Last: " + cs.last + ", IP: " + cs.ip, "span","adminUserInfo"));
+					user.appendChild(createChunk("Last: " + cs.last  + "LastAction: " + cs.lastAction + ", IP: " + cs.ip + ", ttk:"+(parseInt(cs.timeTillKick)/1000).toFixed(1)+"s", "span","adminUserInfo"));
 					
 					frag2.appendChild(user);
 					

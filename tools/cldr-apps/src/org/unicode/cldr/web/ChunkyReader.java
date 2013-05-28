@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2012, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2013, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -208,13 +208,13 @@ public class ChunkyReader implements Runnable {
             // System.err.println("CR: Nothing found before " + value);
             return null; // sorry
         }
-
-        InputStream file;
+        BufferedReader br = null;
+        InputStream file = null;
         try {
             cache.clear();
             file = new FileInputStream(fileName);
             InputStreamReader reader = new InputStreamReader(file, "UTF-8");
-            Map<String, String> entry = new TreeMap<String, String>();
+            //Map<String, String> entry = new TreeMap<String, String>();
             if (fileName.length() > tooBig) {
                 long skipThis = fileName.length() - tooBig;
                 file.skip(skipThis);
@@ -224,7 +224,7 @@ public class ChunkyReader implements Runnable {
                 fakeEntry.addHeader("Logfile too big - skipping the first " + bigNum(skipThis) + " bytes");
                 cache.put(fakeEntry.getTime(), fakeEntry);
             }
-            BufferedReader br = new BufferedReader(reader, 65536);
+            br = new BufferedReader(reader, 65536);
             String line = null;
             Entry e = null;
             String lastField = null;
@@ -243,7 +243,7 @@ public class ChunkyReader implements Runnable {
                     if (lastField != null) {
                         e.addField(lastField, lastFieldValue.toString());
                     }
-                    lastFieldValue = new StringBuilder(); // TODO? reset?
+                    lastFieldValue.setLength(0);
                     lastField = null;
 
                     line = line.substring(fieldSep.length());
@@ -286,6 +286,7 @@ public class ChunkyReader implements Runnable {
                     lastFieldValue.append('\n').append(line);
                 }
             }
+            br.close();
             if (e != null && lastField != null) { // get the lastone.
                 e.addField(lastField, lastFieldValue.toString());
             }
@@ -294,6 +295,9 @@ public class ChunkyReader implements Runnable {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+        } finally {
+            if(br!=null) br.close();
+            if(file!=null) file.close();
         }
         for (Entry e : cache.values()) {
             if (e.getTime() < value) {

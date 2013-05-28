@@ -25,8 +25,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
-import org.unicode.cldr.test.CompactDecimalFormat;
 import org.unicode.cldr.util.Pair;
+
+import com.ibm.icu.text.CompactDecimalFormat;
 
 /**
  * Reads 'chunked' format as follows:

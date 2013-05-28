@@ -23,6 +23,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
+import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -152,7 +153,7 @@ public class ExampleGenerator {
 
     private PluralInfo pluralInfo;
 
-    private Map<Integer, Map<Count, Integer>> patternExamples;
+    private PluralSamples patternExamples;
 
     /**
      * For getting the end of the "background" style. Default is "</span>". It is
@@ -228,7 +229,6 @@ public class ExampleGenerator {
         coverageLevel = CoverageLevel2.getInstance(supplementalDataInfo, resolvedCldrFile.getLocaleID());
 
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
-        patternExamples = new HashMap<Integer, Map<Count, Integer>>();
     }
 
     public enum ExampleType {
@@ -1077,19 +1077,25 @@ public class ExampleGenerator {
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
             Count count = Count.valueOf(countValue);
-            if (type != ExampleType.ENGLISH &&
-                    !pluralInfo.getCountToExamplesMap().keySet().contains(count)) {
-                return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
-            }
-            Integer numberSample = getExampleForPattern(numberFormat, count);
+//            if (type != ExampleType.ENGLISH &&
+//                    !pluralInfo.getCountToExamplesMap().keySet().contains(count)) {
+//                return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
+//            }
+            Double numberSample = getExampleForPattern(numberFormat, count);
             if (numberSample == null) {
                 if (type == ExampleType.ENGLISH) {
                     int digits = numberFormat.getMinimumIntegerDigits();
                     return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
                 } else {
-                    return startItalicSymbol + "n/a" + endItalicSymbol;
+                    return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
                 }
             } else {
+                NumberInfo ni = new NumberInfo(numberSample);
+                if (ni.visibleFractionDigitCount > 0) {
+                    numberFormat = (DecimalFormat) numberFormat.clone(); // for safety
+                    numberFormat.setMinimumFractionDigits(ni.visibleFractionDigitCount);
+                    numberFormat.setMaximumFractionDigits(ni.visibleFractionDigitCount);
+                }
                 return formatNumber(numberFormat, numberSample);
             }
         }
@@ -1119,29 +1125,33 @@ public class ExampleGenerator {
      * @param count
      * @return
      */
-    private Integer getExampleForPattern(DecimalFormat format, Count count) {
-        int numDigits = format.getMinimumIntegerDigits();
-        int min = (int) Math.pow(10, numDigits - 1);
-        int max = min * 10;
-        Map<Count, Integer> examples = patternExamples.get(numDigits);
-        if (examples == null) {
-            patternExamples.put(numDigits, examples = new HashMap<Count, Integer>());
-            Set<Count> typesLeft = new HashSet<Count>(pluralInfo.getCountToExamplesMap().keySet());
-            // Add at most one example of each type.
-            for (int i = min; i < max; ++i) {
-                if (typesLeft.isEmpty()) break;
-                Count type = Count.valueOf(pluralInfo.getPluralRules().select(i));
-                if (!typesLeft.contains(type)) continue;
-                examples.put(type, i);
-                typesLeft.remove(type);
-            }
-            // Add zero as an example only if there is no other option.
-            if (min == 1) {
-                Count type = Count.valueOf(pluralInfo.getPluralRules().select(0));
-                if (!examples.containsKey(type)) examples.put(type, 0);
-            }
+    private Double getExampleForPattern(DecimalFormat format, Count count) {
+        if (patternExamples == null) {
+            patternExamples = PluralSamples.getInstance(cldrFile.getLocaleID());          
         }
-        return examples.get(count);
+        int numDigits = format.getMinimumIntegerDigits();
+        Map<Count, Double> samples = patternExamples.getSamples(numDigits);
+//        int min = (int) Math.pow(10, numDigits - 1);
+//        int max = min * 10;
+//        Map<Count, Integer> examples = patternExamples.get(numDigits);
+//        if (examples == null) {
+//            patternExamples.put(numDigits, examples = new HashMap<Count, Integer>());
+//            Set<Count> typesLeft = new HashSet<Count>(pluralInfo.getCountToExamplesMap().keySet());
+//            // Add at most one example of each type.
+//            for (int i = min; i < max; ++i) {
+//                if (typesLeft.isEmpty()) break;
+//                Count type = Count.valueOf(pluralInfo.getPluralRules().select(i));
+//                if (!typesLeft.contains(type)) continue;
+//                examples.put(type, i);
+//                typesLeft.remove(type);
+//            }
+//            // Add zero as an example only if there is no other option.
+//            if (min == 1) {
+//                Count type = Count.valueOf(pluralInfo.getPluralRules().select(0));
+//                if (!examples.containsKey(type)) examples.put(type, 0);
+//            }
+//        }
+        return samples.get(count);
     }
 
     private String handleCurrency(String xpath, String value, ExampleContext context, ExampleType type) {
@@ -1352,7 +1362,7 @@ public class ExampleGenerator {
 
     public static final Pattern PARAMETER = Pattern.compile("(\\{[0-9]\\})");
     public static final Pattern PARAMETER_SKIP0 = Pattern.compile("(\\{[1-9]\\})");
-    public static final Pattern ALL_DIGITS = Pattern.compile("(\\p{Nd}+)");
+    public static final Pattern ALL_DIGITS = Pattern.compile("(\\p{Nd}+(.\\p{Nd}+)?)");
 
     /**
      * Utility to format using a gmtHourString, gmtFormat, and an integer hours. We only need the hours because that's

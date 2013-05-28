@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -2580,6 +2581,7 @@ public class SupplementalDataInfo {
         private final PluralRules pluralRules;
         private final String pluralRulesString;
         private final Set<String> canonicalKeywords;
+        private final Set<Count> keywords;
 
         private PluralInfo(Map<Count, String> countToRule) {
             // now build rules
@@ -2594,6 +2596,12 @@ public class SupplementalDataInfo {
             }
             pluralRulesString = pluralRuleBuilder.toString();
             pluralRules = PluralRules.createRules(pluralRulesString);
+            
+            EnumSet<Count> _keywords = EnumSet.noneOf(Count.class);
+            for (String s : pluralRules.getKeywords()) {
+                _keywords.add(Count.valueOf(s));
+            }
+            keywords = Collections.unmodifiableSet(_keywords);
 
             Map<Count, List<Double>> countToExampleListRaw = new TreeMap<Count, List<Double>>();
             Map<Integer, Count> exampleToCountRaw = new TreeMap<Integer, Count>();
@@ -2773,6 +2781,10 @@ public class SupplementalDataInfo {
 
         public Set<String> getCanonicalKeywords() {
             return canonicalKeywords;
+        }
+
+        public Set<Count> getCounts() {
+            return keywords;      
         }
     }
 

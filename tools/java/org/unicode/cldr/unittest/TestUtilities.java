@@ -22,7 +22,10 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.StringId;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.CandidateInfo;
@@ -39,10 +42,32 @@ import com.ibm.icu.util.ULocale;
 public class TestUtilities extends TestFmwk {
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
     static TestInfo testInfo = TestInfo.getInstance();
+    private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final int STRING_ID_TEST_COUNT = 1024*16;
 
     public static void main(String[] args) {
         new TestUtilities().run(args);
+    }
+    
+    public void TestPluralSamples() {
+        checkPluralSamples("en");
+        checkPluralSamples("cs");
+        checkPluralSamples("ar");
+    }
+
+    private void checkPluralSamples(String locale) {
+        PluralSamples pluralSamples = PluralSamples.getInstance(locale);
+        Set<Count> counts = SUPPLEMENTAL_DATA_INFO.getPlurals(locale).getCounts();
+        for (int i = 1; i < 5; ++i) {
+            Map<Count, Double> samplesForDigits = pluralSamples.getSamples(i);
+            if (!counts.containsAll(samplesForDigits.keySet())) {
+                errln(locale + ": mismatch in samples, expected " + counts + ", got: " + samplesForDigits);
+            } else if (samplesForDigits.size() == 0) {
+                errln(locale + ": no sample for digit " + i);
+            } else {
+                logln(locale + " plural samples: " + samplesForDigits);
+            }
+        }
     }
 
     public static class StringIdException extends RuntimeException {

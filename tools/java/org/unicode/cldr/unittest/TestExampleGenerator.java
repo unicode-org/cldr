@@ -344,19 +344,19 @@ public class TestExampleGenerator extends TestFmwk {
         checkPathValue(
                 exampleGenerator,
                 "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@draft=\"unconfirmed\"]",
-                "EEEE d MMMMl y'x'G");
+                "EEEE d MMMMl y'x'G", null);
 
         for (String xpath : cldrFile.fullIterable()) {
             String value = cldrFile.getStringValue(xpath);
-            checkPathValue(exampleGenerator, xpath, value);
+            checkPathValue(exampleGenerator, xpath, value, null);
             if (xpath.contains("count=\"one\"")) {
                 String xpath2 = xpath.replace("count=\"one\"", "count=\"1\"");
-                checkPathValue(exampleGenerator, xpath2, value);
+                checkPathValue(exampleGenerator, xpath2, value, null);
             }
         }
     }
 
-    private void checkPathValue(ExampleGenerator exampleGenerator, String xpath, String value) {
+    private void checkPathValue(ExampleGenerator exampleGenerator, String xpath, String value, String expected) {
         Set<String> alreadySeen = new HashSet<String>();
         for (ExampleType type : ExampleType.values()) {
             for (Zoomed zoomed : Zoomed.values()) {
@@ -374,8 +374,16 @@ public class TestExampleGenerator extends TestFmwk {
                         if (text.contains("&lt;")) {
                             int x = 0; // for debugging
                         }
-                        text = exampleGenerator.getExampleHtml(xpath, value, zoomed, null, type);
-                        logln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text + "\t" + xpath);
+                        boolean skipLog = false;
+                        if (expected != null && type == ExampleType.NATIVE && zoomed == Zoomed.OUT) {
+                            String simplified = simplify(text, false);
+                            // redo for debugging
+                            text = exampleGenerator.getExampleHtml(xpath, value, zoomed, null, type);
+                            skipLog = !assertEquals("Example text", expected, simplified);
+                        }
+                        if (!skipLog) {
+                            logln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text + "\t" + xpath);
+                        }
                         alreadySeen.add(text);
                     }
                 } catch (Exception e) {
@@ -390,7 +398,7 @@ public class TestExampleGenerator extends TestFmwk {
             } else if (text.contains("Exception")) {
                 errln("getHelpHtml\t" + text);
             } else {
-                logln("getExampleHtml\t" + "\t" + text + "\t" + xpath);
+                logln("getExampleHtml(help)\t" + "\t" + text + "\t" + xpath);
             }
         } catch (Exception e) {
             if (false) {
@@ -398,5 +406,14 @@ public class TestExampleGenerator extends TestFmwk {
             }
             errln("getHelpHtml\t" + e.getMessage());
         }
+    }
+    
+    public void TestCzechMany() {
+        CLDRFile cldrFile = info.getCldrFactory().make("cs", true);
+        ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(),
+                CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        String path = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]" +
+        		"/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000000\"][@count=\"many\"]";
+        checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), "〖❬1,1❭ milionů〗");
     }
 }

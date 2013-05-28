@@ -503,7 +503,9 @@ public class ICUServiceBuilder {
         String key = (currencySymbol == null) ? ulocale + "/" + key1 + "/" + kind : ulocale + "/" + key1 + "/" + kind
             + "/" + currencySymbol;
         DecimalFormat result = (DecimalFormat) cacheNumberFormats.get(key);
-        if (result != null) return result;
+        if (result != null) {
+            return result;
+        }
 
         String pattern = kind == PATTERN ? key1 : getPattern(key1, kind);
 

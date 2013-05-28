@@ -37,10 +37,8 @@ import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
-import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
@@ -375,8 +373,7 @@ public class DataSection implements JSONString {
                 // ##6.2 example column. always present
                 if (options.contains(EPrintCellSet.doShowExample) && hasExamples) {
                     itemExample = uf.getExampleGenerator().getExampleHtml(xpath, value,
-                            zoomedIn ? ExampleGenerator.Zoomed.IN : ExampleGenerator.Zoomed.OUT, exampleContext,
-                            ExampleType.NATIVE);
+                            exampleContext, ExampleType.NATIVE);
                     if (itemExample != null) {
                         ctx.print("<td class='generatedexample' valign='top' align='" + ourAlign + "' dir='"
                                 + ctx.getDirectionForLocale() + "' >");
@@ -567,13 +564,8 @@ public class DataSection implements JSONString {
 
             @Override
             public String toJSONString() throws JSONException {
-                String example = getExample();
-                String inExample = getInExample();
-                if (inExample != null && inExample.equals(example)) {
-                    inExample = null; // omit if the same
-                }
                 JSONObject j = new JSONObject().put("valueHash", getValueHash()).put("rawValue", value)
-                        .put("value", getProcessedValue()).put("example", getExample()).put("inExample", getInExample())
+                        .put("value", getProcessedValue()).put("example", getExample())
                         .put("isOldValue", isOldValue).put("inheritFrom", inheritFrom)
                         .put("inheritFromDisplay", ((inheritFrom != null) ? inheritFrom.getDisplayName() : null))
                         .put("isFallback", isFallback).put("pClass", getPClass())
@@ -603,15 +595,7 @@ public class DataSection implements JSONString {
                 if (examplebuilder == null) {
                     return null;
                 } else {
-                    return getExampleBuilder().getExampleHtml(xpath, value, Zoomed.OUT, ExampleType.NATIVE);
-                }
-            }
-
-            private String getInExample() {
-                if (examplebuilder == null || !ExampleGenerator.hasDifferentZoomIn(xpath)) {
-                    return null;
-                } else {
-                    return getExampleBuilder().getExampleHtml(xpath, value, Zoomed.IN, ExampleType.NATIVE);
+                    return getExampleBuilder().getExampleHtml(xpath, value, ExampleType.NATIVE);
                 }
             }
 
@@ -1497,15 +1481,15 @@ public class DataSection implements JSONString {
             // Prime the Pump - Native must be called first.
             if (topCurrent != null) {
                 /* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), topCurrent.value,
-                        zoomedIn ? ExampleGenerator.Zoomed.IN : ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
+                        exampleContext, ExampleType.NATIVE);
             } else {
                 // no top item, so use NULL
                 /* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), null,
-                        zoomedIn ? ExampleGenerator.Zoomed.IN : ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.NATIVE);
+                        exampleContext, ExampleType.NATIVE);
             }
 
             baseExample = sm.getBaselineExample().getExampleHtml(xpath, getDisplayName(),
-                    zoomedIn ? ExampleGenerator.Zoomed.IN : ExampleGenerator.Zoomed.OUT, exampleContext, ExampleType.ENGLISH);
+                    exampleContext, ExampleType.ENGLISH);
             return baseExample;
         }
 
@@ -1749,14 +1733,10 @@ public class DataSection implements JSONString {
                 }
 
                 String displayExample = null;
-                String displayInExample = null;
                 String displayHelp = null;
                 ExampleBuilder b = getExampleBuilder();
                 if (b != null) {
-                    displayExample = b.getExampleHtml(xpath, displayName, Zoomed.OUT, ExampleType.ENGLISH);
-                    if (ExampleGenerator.hasDifferentZoomIn(xpath)) {
-                        displayInExample = b.getExampleHtml(xpath, displayName, Zoomed.OUT, ExampleType.ENGLISH);
-                    }
+                    displayExample = b.getExampleHtml(xpath, displayName, ExampleType.ENGLISH);
                     displayHelp = b.getHelpHtml(xpath, displayName);
                 }
                 String pathCode = "?";
@@ -1773,7 +1753,6 @@ public class DataSection implements JSONString {
                         .put("displayName", displayName)
                         .put("displayExample", displayExample)
                         .put("displayHelp", displayHelp)
-                        .put("displayInExample", displayInExample)
                         // .put("showstatus",
                         // (ph!=null)?ph.getSurveyToolStatus():null)
                         .put("statusAction", getStatusAction())

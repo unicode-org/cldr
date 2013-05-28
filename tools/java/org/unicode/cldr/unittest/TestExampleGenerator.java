@@ -8,7 +8,6 @@ import java.util.TreeSet;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
-import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
@@ -95,7 +94,7 @@ public class TestExampleGenerator extends TestFmwk {
                     ) {
                 continue;
             }
-            String example = exampleGenerator.getExampleHtml(path, value, Zoomed.IN);
+            String example = exampleGenerator.getExampleHtml(path, value);
             String javaEscapedStarred = "\"" + plainStarred.replace("\"", "\\\"") + "\",";
             if (example == null) {
                 if (!seen.contains(javaEscapedStarred)) {
@@ -103,14 +102,14 @@ public class TestExampleGenerator extends TestFmwk {
                 }
             } else {
                 if (path.equals("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"per\"]/unitPattern[@count=\"one\"]")) {
-                    String example2 = exampleGenerator.getExampleHtml(path, value, Zoomed.IN);
+                    String example2 = exampleGenerator.getExampleHtml(path, value);
                 }
                 String simplified = simplify(example, false);
 
                 if (simplified.contains("null")) {
                     if (true || !seen.contains(javaEscapedStarred)) {
                         errln("'null' in message:\t<" + value + ">\t" + simplified + "\t" + javaEscapedStarred);
-                        String example2 = exampleGenerator.getExampleHtml(path, value, Zoomed.IN); // for debugging
+                        String example2 = exampleGenerator.getExampleHtml(path, value); // for debugging
                     }
                 } else if (!simplified.startsWith("〖")) {
                     if (!seen.contains(javaEscapedStarred)) {
@@ -134,7 +133,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     private void checkValue(String message, String expected, ExampleGenerator exampleGenerator, String path) {
         String value = exampleGenerator.getCldrFile().getStringValue(path);
-        String actual = exampleGenerator.getExampleHtml(path, value, null);
+        String actual = exampleGenerator.getExampleHtml(path, value);
         assertEquals(message, expected, simplify(actual, false));
     }
 
@@ -188,7 +187,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     private void checkValue(ExampleGenerator exampleGenerator, String path, String expected) {
         String value = exampleGenerator.getCldrFile().getStringValue(path);
-        String result = simplify(exampleGenerator.getExampleHtml(path, value, Zoomed.IN), false);
+        String result = simplify(exampleGenerator.getExampleHtml(path, value), false);
         assertEquals("Ellipsis", expected, result);
     }
 
@@ -229,14 +228,14 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestLocaleDisplayPatterns() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         String actual = exampleGenerator.getExampleHtml("//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
-                "{0} [{1}]", Zoomed.IN);
+                "{0} [{1}]");
         assertEquals("localePattern example faulty",
                 "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>Afghanistan</span>]</div>" +
                         "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan</span>]</div>" +
                         "<div class='cldr_example'><span class='cldr_substituted'>usbeco</span> [<span class='cldr_substituted'>arabo, Afghanistan, Fuso orario: Africa/Addis_Ababa, Cifre indo-arabe</span>]</div>",
                         actual);
         actual = exampleGenerator.getExampleHtml("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator",
-                "{0}. {1}", Zoomed.IN);
+                "{0}. {1}");
         assertEquals("localeSeparator example faulty",
                 "<div class='cldr_example'><span class='cldr_substituted'>usbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan)</span></div>" +
                         "<div class='cldr_example'><span class='cldr_substituted'>usbeco (arabo</span>. <span class='cldr_substituted'>Afghanistan</span>. <span class='cldr_substituted'>Fuso orario: Africa/Addis_Ababa</span>. <span class='cldr_substituted'>Cifre indo-arabe)</span></div>",
@@ -246,7 +245,7 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestCurrencyFormats() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         String actual = exampleGenerator.getExampleHtml("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-                "¤ #0.00", Zoomed.IN);
+                "¤ #0.00");
         assertEquals("Currency format example faulty",
                 "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>5</span>,<span class='cldr_substituted'>43</span></div>" +
                         "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>123456</span>,<span class='cldr_substituted'>79</span></div>" +
@@ -259,7 +258,7 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = new ExampleGenerator(english, english,
                 CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         String actual = exampleGenerator.getExampleHtml("//ldml/numbers/symbols[@numberSystem=\"latn\"]/superscriptingExponent",
-                "x", Zoomed.IN);
+                "x");
         assertEquals("superscriptingExponent faulty",
                 "<div class='cldr_example'><span class='cldr_substituted'>1.23456789</span>x10<span class='cldr_substituted'><sup>5</sup></span></div>",
                 actual);
@@ -270,12 +269,12 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         for (String xpath : With.in(exampleGenerator.getCldrFile().iterator("//ldml/dates/timeZoneNames", CLDRFile.ldmlComparator))) {
             String value = exampleGenerator.getCldrFile().getStringValue(xpath);
-            String actual = exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
+            String actual = exampleGenerator.getExampleHtml(xpath, value, null, ExampleType.NATIVE);
             if (actual == null) {
                 if (!xpath.contains("singleCountries") && !xpath.contains("gmtZeroFormat")) {
                     errln("Null value for " + value + "\t" + xpath);
                     // for debugging
-                    exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
+                    exampleGenerator.getExampleHtml(xpath, value, null, ExampleType.NATIVE);
                 }
             } else {
                 logln(actual + "\t" + value + "\t" + xpath);
@@ -308,7 +307,7 @@ public class TestExampleGenerator extends TestFmwk {
             String xpath = testPair[0];
             String expected = testPair[1];
             String value = exampleGenerator.getCldrFile().getStringValue(xpath);
-            String actual = exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
+            String actual = exampleGenerator.getExampleHtml(xpath, value, null, ExampleType.NATIVE);
             assertEquals("specifics", expected, actual);
         }
     }
@@ -333,7 +332,7 @@ public class TestExampleGenerator extends TestFmwk {
             String xpath = testPair[0];
             String expected = testPair[1];
             String value = nativeCldrFile.getStringValue(xpath);
-            String actual = exampleGenerator.getExampleHtml(xpath, value, Zoomed.IN, null, ExampleType.NATIVE);
+            String actual = exampleGenerator.getExampleHtml(xpath, value, null, ExampleType.NATIVE);
             assertEquals("specifics", expected, actual);
         }
     }
@@ -359,38 +358,37 @@ public class TestExampleGenerator extends TestFmwk {
     private void checkPathValue(ExampleGenerator exampleGenerator, String xpath, String value, String expected) {
         Set<String> alreadySeen = new HashSet<String>();
         for (ExampleType type : ExampleType.values()) {
-            for (Zoomed zoomed : Zoomed.values()) {
-                try {
-                    String text = exampleGenerator.getExampleHtml(xpath, value, zoomed, null, type);
-                    if (text == null) continue;
-                    if (text.contains("Exception")) {
-                        errln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text);
-                    } else if (!alreadySeen.contains(text)) {
-                        if (text.contains("n/a")) {
-                            if (text.contains("&lt;")) {
-                                errln("Text not quoted correctly:" + "\t" + zoomed + "\t" + text + "\t" + xpath);
-                            }
-                        }
+            try {
+                String text = exampleGenerator.getExampleHtml(xpath, value, null, type);
+                if (text == null) continue;
+                if (text.contains("Exception")) {
+                    errln("getExampleHtml\t" + type + "\t" + text);
+                } else if (!alreadySeen.contains(text)) {
+                    if (text.contains("n/a")) {
                         if (text.contains("&lt;")) {
-                            int x = 0; // for debugging
+                            errln("Text not quoted correctly:" + "\t" + text + "\t" + xpath);
                         }
-                        boolean skipLog = false;
-                        if (expected != null && type == ExampleType.NATIVE && zoomed == Zoomed.OUT) {
-                            String simplified = simplify(text, false);
-                            // redo for debugging
-                            text = exampleGenerator.getExampleHtml(xpath, value, zoomed, null, type);
-                            skipLog = !assertEquals("Example text", expected, simplified);
-                        }
-                        if (!skipLog) {
-                            logln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + text + "\t" + xpath);
-                        }
-                        alreadySeen.add(text);
                     }
-                } catch (Exception e) {
-                    errln("getExampleHtml\t" + type + "\t" + zoomed + "\t" + e.getMessage());
+                    if (text.contains("&lt;")) {
+                        int x = 0; // for debugging
+                    }
+                    boolean skipLog = false;
+                    if (expected != null && type == ExampleType.NATIVE) {
+                        String simplified = simplify(text, false);
+                        // redo for debugging
+                        text = exampleGenerator.getExampleHtml(xpath, value, null, type);
+                        skipLog = !assertEquals("Example text", expected, simplified);
+                    }
+                    if (!skipLog) {
+                        logln("getExampleHtml\t" + type + "\t" + text + "\t" + xpath);
+                    }
+                    alreadySeen.add(text);
                 }
+            } catch (Exception e) {
+                    errln("getExampleHtml\t" + type + "\t" + e.getMessage());
             }
         }
+
         try {
             String text = exampleGenerator.getHelpHtml(xpath, value);
             if (text == null) {

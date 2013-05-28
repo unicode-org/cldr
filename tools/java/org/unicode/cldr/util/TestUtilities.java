@@ -29,7 +29,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.tool.GenerateAttributeList;
-import org.unicode.cldr.tool.ShowData;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -135,7 +134,7 @@ public class TestUtilities {
         for (String path : english) {
             String value = english.getStringValue(path);
             result.setLength(0);
-            String examples = englishExampleGenerator.getExampleHtml(path, null, ExampleGenerator.Zoomed.OUT);
+            String examples = englishExampleGenerator.getExampleHtml(path, null);
             if (examples != null)
                 result.append(examples).append("<hr>");
             String helpText = englishExampleGenerator.getHelpHtml(path, "@");

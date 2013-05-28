@@ -10,7 +10,6 @@ import java.util.BitSet;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -33,7 +32,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
@@ -43,10 +41,8 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.NumberInfo;
 import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -69,19 +65,6 @@ public class ExampleGenerator {
 
     private static SupplementalDataInfo supplementalDataInfo;
     private PathDescription pathDescription;
-
-    /**
-     * Zoomed status.
-     * 
-     * @author markdavis
-     * 
-     */
-    public enum Zoomed {
-        /** For the zoomed-out view. */
-        OUT,
-        /** For the zoomed-in view */
-        IN
-    };
 
     private final static boolean CACHING = false;
 
@@ -127,8 +110,6 @@ public class ExampleGenerator {
         calendar.set(1999, 9, 27, 13, 25, 59); // 1999-09-13 13:25:59
         DATE_SAMPLE2 = calendar.getTime();
     }
-
-    private Collator col;
 
     private CLDRFile cldrFile;
 
@@ -225,7 +206,6 @@ public class ExampleGenerator {
             }
         }
         icuServiceBuilder.setCldrFile(cldrFile);
-        col = Collator.getInstance(new ULocale(cldrFile.getLocaleID()));
         coverageLevel = CoverageLevel2.getInstance(supplementalDataInfo, resolvedCldrFile.getLocaleID());
 
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
@@ -247,8 +227,8 @@ public class ExampleGenerator {
         }
     }
 
-    public String getExampleHtml(String xpath, String value, Zoomed zoomed) {
-        return getExampleHtml(xpath, value, zoomed, null, null);
+    public String getExampleHtml(String xpath, String value) {
+        return getExampleHtml(xpath, value, null, null);
     }
 
     /**
@@ -260,16 +240,14 @@ public class ExampleGenerator {
      * The result is valid HTML.
      * 
      * @param xpath
-     * @param zoomed
-     *            status (IN, or OUT) Out is a longer version only called in Zoom mode. IN is called in both.
      * @return
      */
-    public String getExampleHtml(String xpath, String value, Zoomed zoomed, ExampleContext context, ExampleType type) {
+    public String getExampleHtml(String xpath, String value, ExampleContext context, ExampleType type) {
         String cacheKey;
         String result = null;
         try {
             if (CACHING) {
-                cacheKey = xpath + "," + value + "," + zoomed;
+                cacheKey = xpath + "," + value;
                 result = cache.get(cacheKey);
                 if (result != null) {
                     if (result == NONE) {
@@ -281,11 +259,9 @@ public class ExampleGenerator {
             // result is null at this point. Get the real value if we can.
             parts.set(xpath);
             if (parts.contains("dateRangePattern")) { // {0} - {1}
-                result = handleDateRangePattern(value, xpath, zoomed);
+                result = handleDateRangePattern(value, xpath);
             } else if (parts.contains("timeZoneNames")) {
                 result = handleTimeZoneName(xpath, value);
-            } else if (parts.contains("exemplarCharacters")) {
-                result = handleExemplarCharacters(value, zoomed);
             } else if (parts.contains("localeDisplayNames")) {
                 result = handleDisplayNames(xpath, parts, value);
             } else if (parts.contains("currency")) {
@@ -1173,7 +1149,7 @@ public class ExampleGenerator {
         return null;
     }
 
-    private String handleDateRangePattern(String value, String xpath, Zoomed zoomed) {
+    private String handleDateRangePattern(String value, String xpath) {
         String result;
         SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
         result = format(value, setBackground(dateFormat.format(DATE_SAMPLE)),
@@ -1241,24 +1217,6 @@ public class ExampleGenerator {
         String result = examples[0];
         for (int i = 1, len = examples.length ; i < len; i++) {
             result = addExampleResult(examples[i], result);
-        }
-        return result;
-    }
-
-    private String handleExemplarCharacters(String value, Zoomed zoomed) {
-        String result = null;
-        if (value != null) {
-            if (zoomed == Zoomed.IN) {
-                UnicodeSet unicodeSet = new UnicodeSet(value);
-                if (unicodeSet.size() < 500) {
-                    result = new PrettyPrinter()
-                    .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))
-                    .setSpaceComparator(col != null ? col : Collator.getInstance(ULocale.ROOT)
-                            .setStrength2(Collator.PRIMARY))
-                            .setCompressRanges(false)
-                            .format(unicodeSet);
-                }
-            }
         }
         return result;
     }
@@ -1676,20 +1634,6 @@ public class ExampleGenerator {
             currentColumn[0].setLength(0);
             currentColumn[1].setLength(0);
             column = 0;
-        }
-    }
-
-    /**
-     * Returns TRUE if Zoomed.IN results in a different value from Zoomed.OUT
-     * 
-     * @param xpath
-     * @return
-     */
-    public static boolean hasDifferentZoomIn(String xpath) {
-        if (xpath.startsWith("//ldml/characters")) {
-            return true;
-        } else {
-            return false;
         }
     }
 }

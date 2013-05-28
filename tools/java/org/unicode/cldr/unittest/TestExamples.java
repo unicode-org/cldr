@@ -79,8 +79,7 @@ public class TestExamples extends TestFmwk {
                 int x = 0; // for debuggin
             }
             String value = nativeFile.getStringValue(path);
-            String example = exampleGenerator.getExampleHtml(path, value, ExampleGenerator.Zoomed.OUT, exampleContext,
-                ExampleType.NATIVE);
+            String example = exampleGenerator.getExampleHtml(path, value, exampleContext, ExampleType.NATIVE);
             if (example == null) {
                 if (expectPathsWithExamples.get(path) != null) {
                     errln("Expected example for " + path);

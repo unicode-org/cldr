@@ -1920,10 +1920,8 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 		
 		newDiv.innerHTML = newHtml;
 		
-		if(item.inExample) {
-			appendExample(td, item.inExample);
-//		} else if(item.example) {
-//			appendExample(td, item.example);
+		if(item.example) {
+			appendExample(td, item.example);
 		}
 		
 		//return function(){ var d2 = div; return function(){ 	d2.className="d-item";  };}();
@@ -2042,10 +2040,8 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	listenToPop(null, tr, div, td.showFn);
 	td.appendChild(div);
 	
-	if(item.inExample) {
-		//addIcon(div,"i-example-zoom").onclick = div.onclick;
-	} else if(item.example && item.value != item.examples ) {
-		var example = appendExample(div,item.example);
+    if(item.example && item.value != item.examples ) {
+		appendExample(div,item.example);
 //		example.popParent = tr;
 //		listenToPop(null,tr,example,td.showFn);
 	}

@@ -3,7 +3,6 @@ package org.unicode.cldr.web;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
-import org.unicode.cldr.test.ExampleGenerator.Zoomed;
 import org.unicode.cldr.util.CLDRFile;
 
 public class ExampleBuilder {
@@ -17,12 +16,12 @@ public class ExampleBuilder {
         ec_n = new ExampleContext();
     }
 
-    synchronized String getExampleHtml(String xpath, String value, Zoomed zoomed, ExampleType type) {
+    synchronized String getExampleHtml(String xpath, String value, ExampleType type) {
         String s;
         if (type == ExampleType.ENGLISH) {
-            s = eg_e.getExampleHtml(xpath, value, zoomed, ec_e, type);
+            s = eg_e.getExampleHtml(xpath, value, ec_e, type);
         } else {
-            s = eg_n.getExampleHtml(xpath, value, zoomed, ec_n, type);
+            s = eg_n.getExampleHtml(xpath, value, ec_n, type);
         }
         // if(SurveyMain.isUnofficial) System.err.println(s + "  = geh + " +
         // xpath + ", " + value + ", " + zoomed + ", (ec)," + type);

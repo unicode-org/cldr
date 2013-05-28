@@ -591,7 +591,7 @@ public class CountItems {
             R2<List<String>, String> data = typeAndData.getValue();
             List<String> replacements = data.get0();
             if (!encompassed.contains(type)) continue;
-            if (replacements == null && replacements.size() != 1) continue;
+            if (replacements == null || replacements.size() != 1) continue;
             String replacement = replacements.get(0);
             if (macros.contains(replacement)) {
                 // we have a match, encompassed => replacement

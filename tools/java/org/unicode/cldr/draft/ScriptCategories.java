@@ -720,6 +720,7 @@ public class ScriptCategories {
                     // data.composeWith(set, currentData, composer);
                 }
             } catch (RuntimeException e) {
+                in.close();
                 throw (RuntimeException) new IllegalArgumentException("line: " + line).initCause(e);
             }
         }

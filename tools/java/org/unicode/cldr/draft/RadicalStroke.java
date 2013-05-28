@@ -59,11 +59,13 @@ public class RadicalStroke {
                     String[] items = radStrokeMatcher.group(2).split("\\s");
                     for (String item : items) {
                         if (!radDataMatcher.reset(item).matches()) {
+                            in.close();
                             throw new IllegalArgumentException("Bad line: " + line);
                         }
                         String radical = radDataMatcher.group(1);
                         Integer radicalChar = ScriptCategories.RADICAL_NUM2CHAR.get(radical);
                         if (radicalChar == null) {
+                            in.close();
                             throw new IllegalArgumentException("No radical value for <" + radical + ">");
                         }
                         charToRadical.put(cp, radicalChar);

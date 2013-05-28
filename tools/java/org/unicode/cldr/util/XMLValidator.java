@@ -242,7 +242,7 @@ public class XMLValidator {
                             buffer.append(tmp);
                             buffer.append("\n"); // Put in the newlines as well
                         }
-
+                        br.close();
                         DocumentBuilder docBuilder = dfactory
                             .newDocumentBuilder();
                         doc = docBuilder.newDocument();

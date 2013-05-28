@@ -105,6 +105,7 @@ public class RBNFWriter {
         if (options[SPEC].value.equals("true")) {
             out.println("</ldml>");
             out.close();
+            in.close();
             return;
         }
 
@@ -193,6 +194,7 @@ public class RBNFWriter {
             }
             line = in.readLine();
         }
+        in.close();
         out.println("            </ruleset>");
         out.println("        </rulesetGrouping>");
         out.println("    </rbnf>");

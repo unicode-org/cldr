@@ -408,12 +408,17 @@ public class TestExampleGenerator extends TestFmwk {
         }
     }
     
-    public void TestCzechMany() {
-        CLDRFile cldrFile = info.getCldrFactory().make("cs", true);
+    public void TestCompactPlurals() {
+        checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionů〗");
+        checkCompactExampleFor("pl", Count.other, "〖❬1,1❭ miliona〗");
+    }
+
+    private void checkCompactExampleFor(String localeID, Count many, String expected) {
+        CLDRFile cldrFile = info.getCldrFactory().make(localeID, true);
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(),
                 CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         String path = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]" +
-        		"/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000000\"][@count=\"many\"]";
-        checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), "〖❬1,1❭ milionů〗");
+        		"/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000000\"][@count=\"" + many + "\"]";
+        checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), expected);
     }
 }

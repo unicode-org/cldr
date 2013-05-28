@@ -127,6 +127,7 @@ public class OutdatedPaths {
         return result;
     }
 
+    @SuppressWarnings("resource")
     private DataInputStream openDataInput(String directory, String filename) throws FileNotFoundException {
         String dataFileName = filename;
         InputStream fileInputStream = directory == null

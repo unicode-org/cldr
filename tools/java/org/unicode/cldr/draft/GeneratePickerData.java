@@ -1748,6 +1748,7 @@ class GeneratePickerData {
             int codepoint = Integer.valueOf(codepoints[0], 16);
             emojiCharacters.add(codepoint);
         }
+        in.close();
         CATEGORYTABLE.add("Symbol", false, "Emoji", buttonComparator, Separation.ALL_ORDINARY, emojiCharacters);
     }
 

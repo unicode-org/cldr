@@ -128,6 +128,7 @@ public class ListNumbers {
             InputStreamReader reader = new InputStreamReader(is, "UTF-8");
             char[] buffer = new char[is.available() + 1];
             int i = reader.read(buffer);
+            reader.close();
             if (i >= buffer.length) {
                 // This should never happen. Summary of UTF-8 to UTF-16 conversion per codepoint:
                 // 1 byte -> 1 char, 2 bytes -> 1 char, 3 bytes -> 1 char, 4 bytes -> 2 chars.
@@ -167,6 +168,7 @@ public class ListNumbers {
             Formatter formatter = new Formatter(sb, Locale.US);
             formatter.format("%.3f", num);
             numStr = sb.toString();
+            formatter.close();
         }
         else {
             numStr = Long.toString(longVal);

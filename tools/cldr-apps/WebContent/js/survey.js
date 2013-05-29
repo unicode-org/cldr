@@ -3833,6 +3833,7 @@ function showV() {
 						frag.appendChild(createChunk(stui.str('section_help'),"p", "helpContent"));
 						frag.appendChild(createChunk(stui.str('section_info_'+surveyCurrentPage)));
 						flipper.flipTo(pages.other, frag);
+						hideLoader(null);
 					} else {
 						// (common case) this is an actual locale data page.
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));

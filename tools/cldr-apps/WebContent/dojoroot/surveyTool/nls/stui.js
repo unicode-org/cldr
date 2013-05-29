@@ -239,18 +239,17 @@ define({
 		
 		section_help: "Choose an item from the 'Subpages' menu to begin working with this section.",
 		
-        section_info_Core_Data:  "This section contains Core Data ...",
-        section_info_Locale_Display_Names:  "This section contains Locale Display Names ...",
-        section_info_DateTime:  "This section contains Date and Time  ...",
-        section_info_Timezones:  "This section contains Timezones ...",
-        section_info_Numbers:  "This section contains Numbers ...",
-        section_info_Units:  "This section contains Units ...",
-        section_info_Misc:  "This section contains various items ...",
-
+        section_info_Core_Data:  "The Core Data is vital for proper functioning of each locale. Because changes can disrupt the survey tool, data can only be changed via tickets. Please also review the <a href='http://www.unicode.org/repos/cldr-aux/charts/24/supplemental/language_plural_rules.html'>Plural Rules</a> for your locale: they are also vital.",
+        section_info_Locale_Display_Names:  "The Locale Display Names are used to format names of locales, languages, scripts, and regions (including countries).",
+        section_info_DateTime:  "The Date and Time data is used to format dates and times, including intervals (eg, 'Dec 10-12'). After completing this section, you should review the overall results with <b>Review: Date/Time</b>.",
+        section_info_Timezones:  "The Timezones data is used to display timezones in a variety of ways. They also contain a list of cities associated with timezones. After completing this section, you should review the overall results with <b>Review: Zones</b>.",
+        section_info_Numbers:  "The Numbers data is used to format numbers and currencies, including compact numbers (eg, '3M' for 3,000,000). After completing this section, you should review the overall results with <b>Review: Numbers</b>.",
+        section_info_Units:  "The Units is used for formatting measurements, such as '3 hours' or '4 kg'.",
+        section_info_Misc:  "The Miscellaneous data is used to some special purpose items, such as lists (eg, 'A, B, and C') and truncated strings (eg, 'supercalifrag…cious).",
 		
 		forumNewPostButton: "New Post (leaves this page)",
 		forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item, however it does (currently) leave the page you are on. Click 'view item' after submitting to return to this item.",
-		special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough.",
+		special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the <b>Review: Priority Items</b> to see all the errors, warnings, and missing items in one place.",
 
 		defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",
 		defaultContentChild_msg: "This locale, ${info.name}  supplies the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content</a></i> for <b><a class='notselected' href='#/${info.dcChild}'>${dcChildName}</a></b>. Please make sure that all the changes that you make here are appropriate for <b>${dcChildName}</b>. If there are multiple acceptable choices, please try to pick the one that would work for the most sublocales. ",           

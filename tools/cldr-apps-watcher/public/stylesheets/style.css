@@ -1,0 +1,102 @@
+/* @override http://127.0.0.1:3000/stylesheets/style.css */
+
+body {
+    margin:  1em;
+}
+
+h1 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+div.group {
+    border:  2px solid gray;
+    margin:  0.5em;
+    padding:  0.25em;
+}
+
+.group h3 {
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+.group > li {
+    list-style: none;
+    margin-left:  1em;
+    margin-bottom:  0.5em;
+    margin-right:  1em;
+}
+.group li::before {
+    float: left; 
+    margin-left:  -1em;
+}
+
+.group li.up {
+    background-color:  #dfd;
+}
+.group li.up::before {
+    content: '✓';
+    color:  #0F0;
+}
+
+.group li.down {
+    background-color:  #f00;
+    color: white;
+}
+.group li.down::before {
+    content:  'Ⓧ';
+    color:  #F00;
+}
+
+
+.group > li.unknown {
+    background-color: #e3b767;
+    color: black;
+}
+.group > li.unknown::before {
+    content:  '？';
+    color: orange;
+}
+
+
+.group > li.stealth {
+    background-color: silver;
+    color: white;
+}
+.group > li.stealth::before {
+    content:  '␕';
+    color: orange;
+    font-family: "Courier New", Courier, mono;
+}
+
+.group > li h4 {
+    margin: 0;
+}
+
+.group > li i.info {
+    margin-left:  0.5em;
+}
+
+#hosts > li {
+    width:  10em;
+    display:  inline-block;
+}
+
+#servers > li {
+    width:  15em;
+    display:  inline-block;
+}
+
+#servers li ul.links {
+    padding-left: 2em;
+    padding-right:  1em;
+    margin-top: 0;
+    margin-bottom: 0;
+    display: table-row;
+}
+
+#servers li ul.links li {
+    list-style-type: none;
+    display: table-cell;
+    padding-left: 1em;
+}

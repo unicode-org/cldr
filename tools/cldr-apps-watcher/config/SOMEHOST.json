@@ -1,0 +1,15 @@
+{
+    "SurveyWatcher": {
+        "servers": {
+            "someServer": {
+                "url":  "http://HOSTNAME:PORT/cldr-apps",
+                "vap": "SOMEVAP",
+                "stealth": false
+            }
+        },
+        "watcher": {
+            "polltime":  3600,
+            "dbpath": "mysql://user:pass@localhost/stwatcher"
+        }
+    }
+}

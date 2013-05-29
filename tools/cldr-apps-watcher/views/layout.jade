@@ -1,0 +1,13 @@
+doctype 5
+html
+  head
+    title= ui.title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='//ajax.googleapis.com/ajax/libs/dojo/1.9.0/dojo/dojo.js')
+    script(src='/javascripts/stwatcher-client.js')
+    script stwatcher_interval(#{watcher.polltime});
+        
+  body
+    block content
+
+//- block footer

@@ -31,7 +31,8 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 	<javaee:display-name>CLDR Web Applications</javaee:display-name>
 	<javaee:description>Applications used by the CLDR project (
-		http://www.unicode.org/cldr )</javaee:description>
+		http://www.unicode.org/cldr )
+	</javaee:description>
 	<servlet>
 		<servlet-name>SurveyMain</servlet-name>
 		<servlet-class>
@@ -40,16 +41,24 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet>
-	    <servlet-name>v</servlet-name>
-	    <jsp-file>/v.jsp</jsp-file>
+		<servlet-name>v</servlet-name>
+		<jsp-file>/v.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>helpHtml</servlet-name>
+		<jsp-file>/helpHtml.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SurveyMain</servlet-name>
 		<url-pattern>/survey/*</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-	    <servlet-name>v</servlet-name>
-	    <url-pattern>/v</url-pattern>
+		<servlet-name>v</servlet-name>
+		<url-pattern>/v</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>helpHtml</servlet-name>
+		<url-pattern>/help</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>/index.jsp</welcome-file>
@@ -103,9 +112,9 @@
 		<url-pattern>/*</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 	</filter-mapping>
-	
+
 	<context-param>
-	   <param-name>clearReferencesStopTimerThreads</param-name>
-	   <param-value>true</param-value>
+		<param-name>clearReferencesStopTimerThreads</param-name>
+		<param-value>true</param-value>
 	</context-param>
 </web-app>

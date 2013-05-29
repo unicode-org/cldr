@@ -1596,6 +1596,7 @@ dojo.ready(function() {
 		setLastShown(null);
 	}
 	
+	var deferHelp = {};
 	
 	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate) {
 //		if(hideIfLast&&lastShown==hideIfLast) {
@@ -1640,11 +1641,50 @@ dojo.ready(function() {
 
 		// Always have help (if available).
 		var theHelp = null;
-		if(tr&& tr.helpDiv) {
-			theHelp =  tr.helpDiv;
+		if(tr) {
+			var theRow = tr.theRow;
+			// this also marks this row as a 'help parent'
+			theHelp = createChunk("","div","helpHtml");
+				
+			if(theRow.xpstrid /*&& theRow.displayHelp*/) {
+				var deferHelpSpan = document.createElement('span');
+				theHelp.appendChild(deferHelpSpan);		
+
+				if(deferHelp[theRow.xpstrid]) {
+					deferHelpSpan.innerHTML = deferHelp[theRow.xpstrid];
+				} else {
+					deferHelpSpan.innerHTML = stui.str("loading_help");
+					
+					// load async
+					var url = contextPath + "/help?xpstrid="+theRow.xpstrid+"&_instance="+surveyRunningStamp;
+					var xhrArgs = {
+							url: url,
+							handleAs:"text",
+							load: function(html) {
+								deferHelp[theRow.xpstrid] = html;
+//								console.log("Got>> " + html);
+								deferHelpSpan.innerHTML = html;
+							},
+					};
+					queueXhr(xhrArgs);
+					// loader.
+				}
+				
+				
+//				tr.helpDiv.innerHTML += theRow.displayHelp;
+				
+				// extra attributes
+				if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
+					var extraHeading = createChunk( stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");
+					var extraContainer = createChunk("","div","extraAttributes");
+					appendExtraAttributes(extraContainer, theRow);
+					theHelp.appendChild(extraHeading);
+					theHelp.appendChild(extraContainer);
+				}
+			}
 		}
 		if(theHelp) {
-			td.appendChild(theHelp.cloneNode(true));
+			td.appendChild(theHelp);
 		}
 
 		if(str) { // If a simple string, clone the string
@@ -2078,21 +2118,6 @@ function updateRow(tr, theRow) {
 		if(item.value) {
 			tr.valueToItem[item.value] = item; // back link by value
 			tr.rawValueToItem[item.rawValue] = item; // back link by value
-		}
-	}
-	
-	if(!tr.helpDiv && theRow.displayHelp) {
-		// this also marks this row as a 'help parent'
-		tr.helpDiv = cloneAnon(dojo.byId("proto-help"));
-		tr.helpDiv.innerHTML += theRow.displayHelp;
-		
-		// extra attributes
-		if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
-			var extraHeading = createChunk( stui.str("extraAttribute_heading"), "h3", "extraAttribute_heading");
-			var extraContainer = createChunk("","div","extraAttributes");
-			appendExtraAttributes(extraContainer, theRow);
-			tr.helpDiv.appendChild(extraHeading);
-			tr.helpDiv.appendChild(extraContainer);
 		}
 	}
 	
@@ -3150,12 +3175,14 @@ function showV() {
 		 * @param postData optional - makes this a POST
 		 */
 		function myLoad(url, message, handler, postData, headers) {
-			console.log("Loading " + url + " for " + message);
+			var otime = new Date().getTime();
+			console.log("MyLoad: " + url + " for " + message);
 			var errorHandler = function(err, ioArgs){
 				console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
 				handleDisconnect("Could not fetch " + message + " - error " + err.name + " / " + err.message + "\n" + ioArgs.xhr.responseText + "\n url: " + url + "\n", null, "disconnect");
 			};
 			var loadHandler = function(json){
+				console.log("        "+url+" loaded in "+(new Date().getTime()-otime)+"ms");
 				try {
 					handler(json);
 				}catch(e) {

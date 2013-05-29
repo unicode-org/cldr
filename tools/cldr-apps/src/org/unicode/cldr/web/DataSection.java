@@ -1737,7 +1737,7 @@ public class DataSection implements JSONString {
                 ExampleBuilder b = getExampleBuilder();
                 if (b != null) {
                     displayExample = b.getExampleHtml(xpath, displayName, ExampleType.ENGLISH);
-                    displayHelp = b.getHelpHtml(xpath, displayName);
+                   // displayHelp = b.getHelpHtml(xpath, displayName);
                 }
                 String pathCode = "?";
                 PathHeader ph = getPathHeader();
@@ -1752,7 +1752,6 @@ public class DataSection implements JSONString {
                         .put("winningValue", winningValue)
                         .put("displayName", displayName)
                         .put("displayExample", displayExample)
-                        .put("displayHelp", displayHelp)
                         // .put("showstatus",
                         // (ph!=null)?ph.getSurveyToolStatus():null)
                         .put("statusAction", getStatusAction())

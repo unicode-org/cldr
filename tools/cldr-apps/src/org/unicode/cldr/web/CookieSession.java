@@ -209,7 +209,7 @@ public class CookieSession {
      *            True if the user is a guest.
      */
     
-    public CookieSession(boolean isGuest, String ip, String fromId) {
+    private CookieSession(boolean isGuest, String ip, String fromId) {
         this.ip = ip;
         if(fromId == null) {
             id = newId(isGuest);
@@ -218,9 +218,30 @@ public class CookieSession {
         }
         touch();
         synchronized (gHash) {
+            if(gHash.contains(id)) {
+                System.err.println("CookieSession.CookieSession() - dup id " + id);
+            }
             gHash.put(id, this);
         }
         if(DEBUG_INOUT) System.out.println("S: new " + id + " - " + user);
+    }
+
+    public static CookieSession newSession(boolean isGuest, String ip, String fromId) {
+        CookieSession rv = null;
+        synchronized (gHash) {
+            rv = gHash.get(fromId);
+            if(rv != null) {
+                System.err.println("Trying to create extant session " + rv);
+                if(!rv.ip.equals(ip)) {
+                    if(SurveyMain.isUnofficial()) System.out.println("IP changed from " + rv.ip + " to " + ip + " - " + rv);
+                    rv.ip = ip;
+                    rv.touch();
+                }
+            } else {
+                rv = new CookieSession(isGuest, ip, fromId);
+            }
+        }
+        return rv;
     }
 
     /**
@@ -614,7 +635,7 @@ public class CookieSession {
                 }
                 return true;
             } else {
-                if(DEBUG_INOUT && SurveyMain.isUnofficial()) {
+                if(false && DEBUG_INOUT && SurveyMain.isUnofficial()) {
                     System.out.println("User count OK. . limit="+limit+", count="+count);
                 }
                 return false;
@@ -639,7 +660,7 @@ public class CookieSession {
                     System.out.println("TOO MANY GUESTS. limit="+limit+", count="+count);
                 return true;
             } else {
-                if(DEBUG_INOUT && SurveyMain.isUnofficial())
+                if(false && DEBUG_INOUT && SurveyMain.isUnofficial())
                     System.out.println("Guest count OK. . limit="+limit+", count="+count);
                 return false;
             }

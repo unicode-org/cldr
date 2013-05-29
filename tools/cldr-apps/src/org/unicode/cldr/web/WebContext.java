@@ -2313,11 +2313,8 @@ public class WebContext implements Cloneable, Appendable {
             mySession = null; // throw it out.
         }
         
-        if (mySession != null && user != null) {
-           if(hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
-               loginRemember(user);
-           }
-        } else if (hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL)) {
+        if ((mySession==null || user==null)  && 
+                hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL)) {
            logout(); // zap cookies if some id/pw failed to work
         }
     
@@ -2361,7 +2358,7 @@ public class WebContext implements Cloneable, Appendable {
         
         
         if(mySession==null) {
-            mySession = new CookieSession(user == null, userIP(), httpSession.getId());
+            mySession = CookieSession.newSession(user == null, userIP(), httpSession.getId());
             if (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
                 // ctx.println("New session: " + mySession.id + "<br>");
             }
@@ -2392,6 +2389,14 @@ public class WebContext implements Cloneable, Appendable {
                         "' id='notselected'>Forgot&nbsp;Password?</a><br>";
             }
         }
+        if (mySession != null && mySession.user != null) {
+            if(hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
+                if(SurveyMain.isUnofficial()) {
+                    System.out.println("Remembering user: " + mySession.user);
+                }
+                loginRemember(mySession.user);
+            }
+         }   
         return message;
     }
 

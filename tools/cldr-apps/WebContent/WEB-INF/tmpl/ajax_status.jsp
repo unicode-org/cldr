@@ -51,12 +51,39 @@ var BUG_URL_BASE = '<%= SurveyMain.BUG_URL_BASE %>';
 <%
 
 String sessid = request.getParameter("s");
+HttpSession hsession = request.getSession(false);
+if(sessid == null) {
+	if(hsession != null) {
+		sessid = hsession.getId();
+		%><!-- httpsession: <%= sessid %> --><%
+	}
+} else {
+	%><!-- s=: <%= sessid %> , hsession: <%= ((hsession!=null)?hsession.getId():"null") %> --> <%
+}
+CookieSession mySession = null;
+UserRegistry.User myUser = null;
+if(sessid != null )  {
+	mySession = CookieSession.retrieveWithoutTouch(sessid);
+}
+if(mySession == null) {
+	sessid = null;
+} else {
+	sessid = mySession.id;
+	myUser = mySession.user;
+}
+%><%
 if(sessid!=null) {
 %>
 var surveySessionId='<%= sessid %>';
 <% } else { %>
 var surveySessionId=null;
-<% } %>
+<% }
+if(myUser!=null) {
+%>
+var surveyUser=<%= myUser.toJSONString() %>;
+<% } else { %>
+var surveyUser=null;
+<% }%>
 var warnIcon = "<%= WebContext.iconHtml(request,"warn","Test Warning") %>";
 var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";
 var WHAT_GETROW = "<%= SurveyAjax.WHAT_GETROW %>";

@@ -3604,15 +3604,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 DisputePageManager.doDisputed(ctx);
                 return;
             } else if (doWhat.equals("logout")) {
-                ctx.session.remove(); // zap!
-                HttpSession httpSession = ctx.request.getSession(false);
-                if (httpSession != null) {
-                    httpSession.removeAttribute(SURVEYTOOL_COOKIE_SESSION);
-                }
-
+                ctx.logout();
                 try {
-                    ctx.addCookie(QUERY_PASSWORD, "", 0);
-                    ctx.addCookie(QUERY_EMAIL, "", 0);
                     ctx.response.sendRedirect(ctx.jspLink("?logout=1"));
                     ctx.out.close();
                     ctx.close();

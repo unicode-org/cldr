@@ -989,14 +989,20 @@ function updateStatusBox(json) {
 			removeAllChildNodes(updateParts.visitors);
 			updateParts.visitors.appendChild(fragment);
 		}
-		if( json.timeTillKick && (json.timeTillKick>=0) && (json.timeTillKick < (60*1*1000) )) { // show countdown when 1 minute to go
-			var kmsg = "<b style='font-size: x-large; color: red;'>Your session will end if not active in about "+ (parseInt(json.timeTillKick)/1000).toFixed(0) + " seconds</b>";
+		
+		function standOutMessage(txt) {
+			return "<b style='font-size: x-large; color: red;'>" + txt + "</b>";
+		}
+		
+		// really don't care if guest user gets 'kicked'. Doesn't matter.
+		if( (surveyUser!==null) && json.timeTillKick && (json.timeTillKick>=0) && (json.timeTillKick < (60*1*1000) )) { // show countdown when 1 minute to go
+			var kmsg = "Your session will end if not active in about "+ (parseInt(json.timeTillKick)/1000).toFixed(0) + " seconds.";
 			console.log(kmsg);
-			updateSpecialHeader(kmsg);
-		} else if(( json.timeTillKick === 0) || (json.session_err)) {
-			var kmsg  = "<b style='font-size: x-large; color: red;'>Your session has been disconnected for inactivity.</b>";
+			updateSpecialHeader(standOutMessage(kmsg));
+		} else if((surveyUser!==null) && (( json.timeTillKick === 0) || (json.session_err))) {
+			var kmsg  = "Your session has been disconnected for inactivity.";
 			console.log(kmsg);
-			updateSpecialHeader(kmsg);
+			updateSpecialHeader(standOutMessage(kmsg));
 			disconnected=true;
   		    addClass(document.getElementsByTagName("body")[0], "disconnected");
 		} else if(json.status.specialHeader && json.status.specialHeader.length>0) {

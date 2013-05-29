@@ -144,7 +144,7 @@ survURL = '<%= survURL %>';
 <% if(ctx.session.user == null || UserRegistry.userIsLocked(ctx.session.user)) { %>
 surveyUser = null;
 <%} else { %>
-var surveyUser =  <%= ctx.session.user.toJSONString() %>;
+surveyUser =  <%= ctx.session.user.toJSONString() %>;
 <% } %>
   showV();
 </script>

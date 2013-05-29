@@ -3831,7 +3831,10 @@ function showV() {
 					} else if(surveyCurrentId=='!') {
 						var frag = document.createDocumentFragment();
 						frag.appendChild(createChunk(stui.str('section_help'),"p", "helpContent"));
-						frag.appendChild(createChunk(stui.str('section_info_'+surveyCurrentPage)));
+						var infoHtml = stui.str('section_info_'+surveyCurrentPage);
+						var infoChunk  = document.createElement("div");
+						infoChunk.innerHTML = infoHtml;
+						frag.appendChild(infoChunk);
 						flipper.flipTo(pages.other, frag);
 						hideLoader(null);
 					} else {

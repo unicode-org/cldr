@@ -564,11 +564,19 @@ public class DataSection implements JSONString {
 
             @Override
             public String toJSONString() throws JSONException {
-                JSONObject j = new JSONObject().put("valueHash", getValueHash()).put("rawValue", value)
-                        .put("value", getProcessedValue()).put("example", getExample())
-                        .put("isOldValue", isOldValue).put("inheritFrom", inheritFrom)
-                        .put("inheritFromDisplay", ((inheritFrom != null) ? inheritFrom.getDisplayName() : null))
-                        .put("isFallback", isFallback).put("pClass", getPClass())
+                // Commented out items are ones not currently used, but ones that were in the old ST so
+                // we may wish to use them in the future.  We don't pass them along in order to save resources.
+                // JCE: 2013-05-29
+                JSONObject j = new JSONObject()
+                        .put("valueHash", getValueHash())
+                        .put("rawValue", value)
+                        .put("value", getProcessedValue())
+                        .put("example", getExample())
+                        .put("isOldValue", isOldValue)
+//                        .put("inheritFrom", inheritFrom)
+//                        .put("inheritFromDisplay", ((inheritFrom != null) ? inheritFrom.getDisplayName() : null))
+//                        .put("isFallback", isFallback)
+                        .put("pClass", getPClass())
                         .put("tests", SurveyAjax.JSONWriter.wrap(this.tests));
                 Set<User> theVotes = getVotes();
                 if (theVotes != null && !theVotes.isEmpty()) {

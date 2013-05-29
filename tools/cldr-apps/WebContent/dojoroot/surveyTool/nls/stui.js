@@ -235,6 +235,19 @@ define({
 		special_oldvotes: "Import Old Votes",
 		section_general: "General Info",
 		section_forum: "Forum <i>(Leaves this page)</i>",
+		section_subpages: "Subpages",
+		
+		section_help: "Choose an item from the 'Subpages' menu to begin working with this section.",
+		
+        section_info_Core_Data:  "This section contains Core Data ...",
+        section_info_Locale_Display_Names:  "This section contains Locale Display Names ...",
+        section_info_DateTime:  "This section contains Date and Time  ...",
+        section_info_Timezones:  "This section contains Timezones ...",
+        section_info_Numbers:  "This section contains Numbers ...",
+        section_info_Units:  "This section contains Units ...",
+        section_info_Misc:  "This section contains various items ...",
+
+		
 		forumNewPostButton: "New Post (leaves this page)",
 		forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item, however it does (currently) leave the page you are on. Click 'view item' after submitting to return to this item.",
 		special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough.",

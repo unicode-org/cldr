@@ -907,13 +907,14 @@ function formatErrMsg(json, subkey) {
 	if(stui.str(json.err_code) == json.err_code) {
 		msg_str = "E_UNKNOWN";
 	}
- return stui.sub(msg_str,
-				{ json: json, what: stui.str('err_what_'+subkey), code: json.err_code,
-		surveyCurrentLocale: surveyCurrentLocale,
-		surveyCurrentId: surveyCurrentId,
-		surveyCurrentSection: surveyCurrentSection,
-		surveyCurrentPage: surveyCurrentPage
-				} );
+	return stui.sub(msg_str,
+			{
+				json: json, what: stui.str('err_what_'+subkey), code: json.err_code,
+				surveyCurrentLocale: surveyCurrentLocale,
+				surveyCurrentId: surveyCurrentId,
+				surveyCurrentSection: surveyCurrentSection,
+				surveyCurrentPage: surveyCurrentPage
+			} );
 }
 
 /**
@@ -3231,6 +3232,7 @@ function showV() {
 				return false;
 			} else if(json.err_code) {
 				var msg_fmt = formatErrMsg(json, subkey);
+				console.log(msg_fmt);
 				var loadingChunk;
 				flipper.flipTo(pages.loading, loadingChunk = createChunk(msg_fmt, "p", "errCodeMsg"));
 				var retryButton = createChunk(stui.str("loading_reloading"),"button");
@@ -3384,9 +3386,13 @@ function showV() {
 					setDisplayed(titlePageContainer, false);
 //					menubuttons.set(menubuttons.page, surveyCurrentPage); 
 				} else {
-					if(menuMap.pageToSection[window.surveyCurrentPage]) {
+					if(menuMap.sectionMap[window.surveyCurrentPage]) {
+						surveyCurrentSection = surveyCurrentPage; // section = page
+						menubuttons.set(menubuttons.section, menuMap.sectionMap[surveyCurrentSection].name);
+						setDisplayed(titlePageContainer, false); // will fix title later
+					} else if(menuMap.pageToSection[window.surveyCurrentPage]) {
 						var mySection = menuMap.pageToSection[window.surveyCurrentPage];
-						var myPage = mySection.pageMap[window.surveyCurrentPage];
+						//var myPage = mySection.pageMap[window.surveyCurrentPage];
 						surveyCurrentSection = mySection.id;
 						menubuttons.set(menubuttons.section, mySection.name);
 						setDisplayed(titlePageContainer, false); // will fix title later
@@ -3437,26 +3443,12 @@ function showV() {
 								label: aSection.name,
 								iconClass: "dijitMenuItemIcon",
 								onClick: function(){ 
-									var goTo = null;
-									// need to find  a valid page
-									
-									for(var k in aSection.pages) { // find first valid page
-										var disabled =  (effectiveCoverage()<parseInt(aSection.pages[k].levs[surveyCurrentLocale]));
-										if(!disabled && goTo == null) {
-											goTo = aSection.pages[k];
-											break;
-										}
-									}
-									if(goTo!=null) {
-										stdebug('clicky ' + goTo.id);
-										surveyCurrentId = ''; // no id if jumping pages
-										surveyCurrentPage = goTo.id;
+										surveyCurrentId = '!'; // no id if jumping pages
+										surveyCurrentPage = aSection.id;
 										surveyCurrentSpecial = '';
-										updateMenuTitles(menuMap);
+										updateMenus(menuMap);
+										//updateMenuTitles(menuMap);
 										reloadV();
-									} else {
-										stdebug('Nowhere to go, all pages disabled.');
-									}
 								},
 								disabled: true
 							});
@@ -3469,7 +3461,7 @@ function showV() {
 
 					menuMap.forumMenu = new MenuItem({
 						label: stui_str("section_forum"),
-						iconClass: "dijitMenuItemIcon",
+						iconClass: "dijitMenuItemIcon", // menu-chat
 						disabled: true,
 						onClick: function(){ 
 							// TODO:  make this a real section
@@ -3485,14 +3477,18 @@ function showV() {
 
 				var myPage = null;
 				var mySection = null;
-				if(surveyCurrentSpecial==null) {
+				if(surveyCurrentSpecial==null || surveyCurrentSpecial=='') {
 					// first, update display names
-					if(menuMap.pageToSection[window.surveyCurrentPage]) {
+					if(menuMap.sectionMap[window.surveyCurrentPage]) { // page is really a section
+						mySection = menuMap.sectionMap[surveyCurrentPage];
+						myPage = null;
+					} else if(menuMap.pageToSection[window.surveyCurrentPage]) {
 						mySection = menuMap.pageToSection[surveyCurrentPage];
 						myPage = mySection.pageMap[surveyCurrentPage];
+					}
+					if(mySection!==null) {
 						// update menus under 'page' - peer pages
-						
-						
+
 						if(!titlePageContainer.menus) {
 							titlePageContainer.menus = {};
 						}
@@ -3541,7 +3537,11 @@ function showV() {
 							titlePageContainer.menus[mySection.id] = showMenu;
 						}
 						
-						showMenu.set('label', myPage.name);
+						if(myPage !== null) {
+							showMenu.set('label', myPage.name);
+						} else {
+							showMenu.set('label', stui.str('section_subpages')); // no page selected
+						}
 						setDisplayed(showMenu, true);
 						setDisplayed(titlePageContainer, true); // will fix title later
 					}
@@ -3561,7 +3561,7 @@ function showV() {
 				}
 
 				
-				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),false);
+				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));
 			}
 
 			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {
@@ -3828,6 +3828,11 @@ function showV() {
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale)));
 						showPossibleProblems(flipper, pages.other, surveyCurrentLocale, surveySessionId, covName(effectiveCoverage()), covName(effectiveCoverage()));
 						showInPop2(stui.str("generalPageInitialGuidance"), null, null, null, true); /* show the box the first time */
+					} else if(surveyCurrentId=='!') {
+						var frag = document.createDocumentFragment();
+						frag.appendChild(createChunk(stui.str('section_help'),"p", "helpContent"));
+						frag.appendChild(createChunk(stui.str('section_info_'+surveyCurrentPage)));
+						flipper.flipTo(pages.other, frag);
 					} else {
 						// (common case) this is an actual locale data page.
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));

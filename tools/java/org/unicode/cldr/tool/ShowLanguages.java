@@ -20,6 +20,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -72,6 +73,8 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.NumberInfo;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
@@ -2234,15 +2237,30 @@ public class ShowLanguages {
                 rules += rules.length() == 0 ? "other:<i>everything</i>" : ";other:<i>everything else</i>";
                 rules = rules.replace(":", " → ").replace(";", ";<br>");
                 final String name = english.getName(locale);
-                final Map<PluralInfo.Count, String> typeToExamples = plurals.getCountToStringExamplesMap();
-                for (Count type : typeToExamples.keySet()) {
-                    final String examples = typeToExamples.get(type).toString().replace(";", ";<br>");
+                PluralRules pluralRules = plurals.getPluralRules();                
+                //final Map<PluralInfo.Count, String> typeToExamples = plurals.getCountToStringExamplesMap();
+                //final String examples = typeToExamples.get(type).toString().replace(";", ";<br>");
+                Set<Count> counts = plurals.getCounts();
+                for (PluralInfo.Count count : counts) {
+                    String keyword = count.toString();
+                        Collection<NumberInfo> exampleList = plurals.getPluralRules().getFractionSamples(keyword);
+                        StringBuilder examples = new StringBuilder();
+                        for (NumberInfo example : exampleList) {
+                            if (examples.length() != 0) {
+                                examples.append("; ");
+                            }
+                            examples.append(example);
+                        }
+                        String rule = pluralRules.getRules(keyword);
+                        rule = rule != null ? rule.replace(":", " → ") 
+                                : counts.size() == 1 ? "<i>everything</i>"
+                                        : "<i>everything else</i>";
                     tablePrinter.addRow()
                         .addCell(name)
                         .addCell(locale)
-                        .addCell(type)
-                        .addCell(examples)
-                        .addCell(rules)
+                        .addCell(count.toString())
+                        .addCell(examples.toString())
+                        .addCell(rule)
                         .finishRow();
                 }
             }

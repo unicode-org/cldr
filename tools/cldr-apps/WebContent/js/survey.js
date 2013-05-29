@@ -1423,9 +1423,16 @@ function showForumStuff(frag, forumDiv, tr) {
 		stStopPropagation(e);
 		return true;
 	});
+	
+	var loader2 = createChunk(stui.str("loading"),"i");
+	frag.appendChild(loader2);
 
-//	console.log("showingForumStuff: " + tr.forumDiv.forumPosts);
-	if(tr.forumDiv.forumPosts > 0) {
+	function havePosts(nrPosts) {
+		setDisplayed(loader2,false); // not needed
+		tr.forumDiv.forumPosts = nrPosts;
+		
+		if(nrPosts == 0) return; // nothing to do,
+		
 		var showButton = createChunk("Show " + tr.forumDiv.forumPosts  + " posts", "button", "forumShow");
 		
 		forumDiv.appendChild(showButton);
@@ -1515,11 +1522,26 @@ function showForumStuff(frag, forumDiv, tr) {
 		listenFor(showButton, "click", theListen);
 		listenFor(showButton, "mouseover", theListen);
 	}
+
+	// lazy load post count!
+	{
+		// load async
+		var ourUrl = tr.forumDiv.url + "&what=forum_count" + cacheKill() ;
+		var xhrArgs = {
+				url: ourUrl,
+				handleAs:"json",
+				load: function(json) {
+					if(json && json.forum_count !== undefined) {
+						havePosts(parseInt(json.forum_count));
+					} else {
+						console.log("Some error loading post count??");
+					}
+				},
+		};
+		queueXhr(xhrArgs);
+	}
 	
 	
-	//	if(tr.theRow.forumPosts > (-1)) {
-//		td.appendChild(document.createTextNode("Forum posts: " + tr.theRow.forumPosts ));
-//	}
 }
 
 // called when initially setting up the section
@@ -1653,7 +1675,7 @@ dojo.ready(function() {
 				if(deferHelp[theRow.xpstrid]) {
 					deferHelpSpan.innerHTML = deferHelp[theRow.xpstrid];
 				} else {
-					deferHelpSpan.innerHTML = stui.str("loading_help");
+					deferHelpSpan.innerHTML = "<i>"+stui.str("loading")+"</i>";
 					
 					// load async
 					var url = contextPath + "/help?xpstrid="+theRow.xpstrid+"&_instance="+surveyRunningStamp;
@@ -2328,19 +2350,13 @@ function updateRow(tr, theRow) {
 	children[config.codecell].appendChild(createChunk(codeStr));
 		if(tr.theTable.json.canModify) { // pointless if can't modify.
 	
-			if(theRow.forumPosts > 0) {
-				children[config.codecell].className = "d-code hasPosts";		
-			} else {
-				children[config.codecell].className = "d-code";			
-			}
+			children[config.codecell].className = "d-code";			
 	
 			
 			if(!tr.forumDiv) {
 				tr.forumDiv = document.createElement("div");
 				tr.forumDiv.className = "forumDiv";
 			}			
-			tr.forumDiv.forumPosts = theRow.forumPosts;
-			tr.forumDiv.forumUpdate = null;
 			
 			appendForumStuff(tr,theRow, tr.forumDiv);
 		}

@@ -186,6 +186,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_STATS_BYDAY = "stats_byday";
     public static final String WHAT_RECENT_ITEMS = "recent_items";
     public static final String WHAT_FORUM_FETCH = "forum_fetch";
+    public static final String WHAT_FORUM_COUNT = "forum_count";
     public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
     public static final Object WHAT_GET_MENUS = "menus";
 
@@ -579,7 +580,15 @@ public class SurveyAjax extends HttpServlet {
                         r.put("ret", str);
 
                         send(r, out);
-                    } else if (what.equals(WHAT_FORUM_FETCH)) {
+                    } else if (what.equals(WHAT_FORUM_COUNT)) {
+                        mySession.userDidAction();
+                        JSONWriter r = newJSONStatus(sm);
+                        r.put("what", what);
+                        CLDRLocale locale = CLDRLocale.getInstance(loc);
+                        int id = Integer.parseInt(xpath);
+                        r.put(what, sm.fora.postCountFor(locale,id));
+                        send(r, out);
+                    } else if (what.equals(WHAT_FORUM_FETCH)) {                        
                         mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
                         r.put("what", what);

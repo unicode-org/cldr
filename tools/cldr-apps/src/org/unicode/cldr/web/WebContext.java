@@ -2202,13 +2202,13 @@ public class WebContext implements Cloneable, Appendable {
      * set the session.
      */
     public String setSession() {
-        CookieSession.checkForExpiredSessions();
+        CookieSession.checkForExpiredSessions(); // make room
 
         if(this.session!=null) return "Internal error - session already set.";
         
         String message = null;
         // get the context
-        CookieSession mySession = null;
+        CookieSession mySession = null; // new session
         String myNum = field(SurveyMain.QUERY_SESSION);
         // get the uid
         String password = field(SurveyMain.QUERY_PASSWORD);
@@ -2374,7 +2374,8 @@ public class WebContext implements Cloneable, Appendable {
     
         if (httpSession != null) {
             httpSession.setAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION, mySession.id);
-            httpSession.setMaxInactiveInterval(CookieSession.Params.CLDR_USER_TIMEOUT.value() / 1000);
+            //httpSession.setMaxInactiveInterval(CookieSession.Params.CLDR_USER_TIMEOUT.value() / 1000);
+            httpSession.setMaxInactiveInterval(-1);
         }
     
         if (user != null) {

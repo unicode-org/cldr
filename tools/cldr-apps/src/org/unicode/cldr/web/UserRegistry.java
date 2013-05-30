@@ -15,6 +15,9 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,6 +33,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
@@ -41,6 +45,7 @@ import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.XMLFileReader;
@@ -64,6 +69,11 @@ import com.ibm.icu.util.ULocale;
  **/
 public class UserRegistry {
 
+    /**
+     * THrown to indicate the caller should log out.
+     * @author srl
+     *
+     */
     public class LogoutException extends Exception {
 
     }
@@ -202,6 +212,7 @@ public class UserRegistry {
     public static final String SQL_updateIntLoc = "INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)";
 
     private UserSettingsData userSettings;
+    private static final Charset UTF_8 = Charset.forName("UTF-8");
 
     /**
      * This nested class is the representation of an individual user. It may not
@@ -219,6 +230,18 @@ public class UserRegistry {
         public String intlocs = null;
         public String ip;
 
+        private String emailmd5 = null;
+
+        
+        public String getEmailHash() {
+            if(emailmd5 == null) {
+                String newHash = DigestUtils.md5Hex(email.trim().toLowerCase());
+                emailmd5 = newHash;
+                return newHash;
+            }
+            return emailmd5;
+        }
+        
         private UserSettings settings;
 
         /**
@@ -339,8 +362,8 @@ public class UserRegistry {
         private VoterInfo createVoterInfo() {
             // VoterInfo(Organization.google, Level.vetter, &quot;J.
             // Smith&quot;) },
-            VoteResolver.Organization o = this.computeVROrganization();
-            VoteResolver.Level l = this.computeVRLevel();
+            VoteResolver.Organization o = this.getOrganization();
+            VoteResolver.Level l = this.getLevel();
             Set<String> localesSet = new HashSet<String>();
             for (String s : tokenizeLocale(locales)) {
                 localesSet.add(s);
@@ -364,16 +387,6 @@ public class UserRegistry {
             return getVoterToInfo(id);
         }
 
-        /**
-         * Convert the level to a VoteResolver.Level
-         * 
-         * @return VoteResolver.Level format
-         * @deprecated use @getLevel instead
-         */
-        public VoteResolver.Level computeVRLevel() {
-            return getLevel();
-        }
-
         public synchronized VoteResolver.Level getLevel() {
             if (vr_level == null) {
                 vr_level = VoteResolver.Level.fromSTLevel(this.userlevel);
@@ -382,16 +395,6 @@ public class UserRegistry {
         }
 
         private VoteResolver.Level vr_level = null;
-
-        /**
-         * Convert the Organization into a VoteResolver.Organization
-         * 
-         * @return VoteResolver.Organization format
-         * @deprecated use @getOrganization instead
-         */
-        private VoteResolver.Organization computeVROrganization() {
-            return getOrganization();
-        }
 
         public synchronized VoteResolver.Organization getOrganization() {
             if (vr_org == null) {
@@ -464,6 +467,7 @@ public class UserRegistry {
         public String toJSONString() throws JSONException {
             return new JSONObject().
                     put("email", email).
+                    put("emailHash", getEmailHash()).
                     put("name", name).
                     put("userlevel", userlevel).
                     put("userlevelName", UserRegistry.levelAsStr(userlevel)).

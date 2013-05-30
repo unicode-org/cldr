@@ -281,7 +281,7 @@ var stui = {
 		error_restart: "(May be due to SurveyTool restart on server)", 	
 		error: "Disconnected: Error", "details": "Details...", 
 		disconnected: "Disconnected", 
-		startup: "Starting up..."
+		startup: "Starting up...",
 };
 
 var stuidebug_enabled=(window.location.search.indexOf('&stui_debug=')>-1);
@@ -373,8 +373,16 @@ function createLinkToFn(strid, fn, tag) {
  */
 function createUser(user) {
 	var div = createChunk(null,"div","adminUserUser");
-	div.appendChild(createChunk(stui_str("userlevel_"+user.userlevelname),"i","userlevel_"+user.userlevelname));
+	if(user.emailHash) {
+		var gravatar = document.createElement("img");
+		gravatar.src = 'http://www.gravatar.com/avatar/'+user.emailHash+'?d=identicon&r=g&s=32';
+		gravatar.title = 'gravatar - http://www.gravatar.com';
+		gravatar.align='laft';		
+		div.appendChild(gravatar);
+	}
+	div.appendChild(createChunk(stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),"i","userlevel_"+user.userlevelName.toLowerCase()));
 	div.appendChild(createChunk(user.name,"span","adminUserName"));
+	div.appendChild(createChunk(user.orgName + ' #'+user.id,"span","adminOrgName"));
 	div.appendChild(createChunk(user.email,"address","adminUserAddress"));
 	return div;
 }
@@ -5479,4 +5487,176 @@ function showRecent(divName, locale, user) {
 		
 	div.update();
 	});
+}
+
+// for the admin page
+function showUserActivity(list, tableRef) {
+	require([
+	         "dojo/ready",
+	         "dojo/dom",
+	         "dojo/dom-construct",
+	         "dojo/request",
+	         "dojo/number",
+	         "dojo/domReady!"
+	         ],
+	         // HANDLES
+	         function(
+	        		 ready,
+	        		 dom,
+	        		 dcons,
+	        		 request,
+	        		 dojoNumber
+	        ) { ready(function(){
+	        	
+	        	loadStui();
+	        	
+	        	window._userlist = list; // DEBUG
+	        	var table = dom.byId(tableRef);
+	        	
+	        	var rows = [];
+	        	var theadChildren = getTagChildren(table.getElementsByTagName("thead")[0].getElementsByTagName("tr")[0]);
+	        	
+	        	setDisplayed(theadChildren[1],false);
+	        	var rowById = [];
+	        	
+	        	for(var k in list ) {
+	        		var user = list[k];
+	        		//console.log("Info for user " + JSON.stringify(user));
+	        		var tr = dom.byId('u@' + user.id);
+	        		
+	        		rowById[user.id] = parseInt(k); // ?!
+
+	        		var rowChildren = getTagChildren(tr);
+	        		
+	        		removeAllChildNodes(rowChildren[1]); // org
+	        		removeAllChildNodes(rowChildren[2]); // name
+	        		
+	        		var theUser;
+		        	setDisplayed(rowChildren[1],false);
+	        		rowChildren[2].appendChild(theUser = createUser(user));
+	        		
+	        		rows.push( {user: user, tr: tr, userDiv: theUser, seen: rowChildren[5], stats: [], total: 0  } );
+	        	}
+	        	
+	        	window._rrowById = rowById;
+	        	
+	        	var loc2name={};
+        		request
+    			.get(contextPath + "/SurveyAjax?what=stats_bydayuserloc", {handleAs: 'json'})
+    			.then(function(json) {
+    				/*
+    				  COUNT: 1120,  DAY: 2013-04-30, LOCALE: km, LOCALE_NAME: khmer, SUBMITTER: 2
+    				  */
+    			//	console.log(JSON.stringify(json))
+    				var stats = json.stats_bydayuserloc;
+    				var header = stats.header;
+    				for(var k in stats.data) {
+    					var row = stats.data[k];
+    					var submitter = row[header.SUBMITTER];
+    					var submitterRow = rowById[submitter];
+    					if(submitterRow !== undefined) {
+    						var userRow = rows[submitterRow];
+    						
+//    						console.log(userRow.user.name + " = " + row);
+    						// Kotoistus-koordinaattori  = 292,2013-04-30,fi,3330,Finnish
+    						
+    						userRow.stats.push({day: row[header.DAY], count: row[header.COUNT], locale: row[header.LOCALE]});
+    						userRow.total = userRow.total + row[header.COUNT];
+    						loc2name[row[header.LOCALE]]=row[header.LOCALE_NAME];
+    					}
+    				}
+    				
+    				function appendMiniChart(userRow, count) {
+    					if(count > userRow.stats.length) {
+    						count = userRow.stats.length;
+    					}
+    					removeAllChildNodes(userRow.seenSub);
+						for(var k=0;k<count;k++) {
+							var theStat = userRow.stats[k];
+							var chartRow = createChunk('','div','chartRow');
+						
+							var chartDay = createChunk(theStat.day, 'span', 'chartDay');
+							var chartLoc = createChunk(theStat.locale, 'span', 'chartLoc');
+							chartLoc.title = loc2name[theStat.locale];
+							var chartCount = createChunk(dojoNumber.format(theStat.count), 'span', 'chartCount');
+
+							chartRow.appendChild(chartDay);
+							chartRow.appendChild(chartLoc);
+							chartRow.appendChild(chartCount);
+							
+							userRow.seenSub.appendChild(chartRow);
+						}
+						if(count < userRow.stats.length) {
+							chartRow.appendChild(document.createTextNode('...'));
+						}
+    				}
+    				
+    				for(var k in rows) {
+    					var userRow = rows[k];
+						if(userRow.total > 0) {
+							addClass(userRow.tr, "hadActivity");
+							userRow.tr.getElementsByClassName('recentActivity')[0].appendChild(document.createTextNode(' ('+dojoNumber.format(userRow.total)+')'));
+							
+							userRow.seenSub = document.createElement('div');
+							userRow.seenSub.className = 'seenSub';
+							userRow.seen.appendChild(userRow.seenSub);
+							
+							appendMiniChart(userRow, 3);
+							if(userRow.stats.length > 3) {
+								var chartMore, chartLess;
+								chartMore = createChunk('+', 'span','chartMore');
+								chartLess = createChunk('-', 'span','chartMore');
+								chartMore.onclick = (function(chartMore, chartLess, userRow) { 
+									return function () {
+										setDisplayed(chartMore, false);
+										setDisplayed(chartLess, true);
+										appendMiniChart(userRow, userRow.stats.length);
+										return false;
+									};})(chartMore, chartLess, userRow);
+								chartLess.onclick = (function(chartMore, chartLess, userRow) { 
+									return function () {
+										setDisplayed(chartMore, true);
+										setDisplayed(chartLess, false);
+										appendMiniChart(userRow, 3);
+										return false;
+									};})(chartMore, chartLess, userRow);
+								userRow.seen.appendChild(chartMore);
+								setDisplayed(chartLess, false);
+								userRow.seen.appendChild(chartLess);
+							}
+							
+						} else {
+							addClass(userRow.tr, "noActivity");
+						}
+    				}
+    			});
+
+   		/*
+   		 *  If we need any per item load:
+   		 *	        	// now lazy load each item.
+	        	var loadmore = null; 
+	        	var loadInterval = null;
+	        	var processRow = 0;
+	        	loadmore = function() {
+	        		console.log('loadmore r#' + processRow + '/' + rows.length);	
+    				window.clearTimeout(loadInterval);
+    				
+    				var row = rows[processRow];
+    				
+	        		request
+	        			.get(contextPath + "/SurveyAjax?what=recent_items&_="+1+"&user="+2+"&limit="+15, {handleAs: 'json'})
+	        			.then(function(json) {
+	        				console.log('..loaded');
+	        				// fetch next
+	        				if( (++processRow) < rows.length ) {
+	        					loadInterval = window.setTimeout(loadmore, 1000);
+	        				} else {
+	        					console.log('loadmore done');
+	        				}
+	        			});
+	        	};
+	        	loadInterval = window.setTimeout(loadmore, 1000);
+*/	        
+	        });
+		});
 }

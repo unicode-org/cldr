@@ -59,6 +59,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.tmatesoft.svn.core.SVNDepth;
@@ -2667,10 +2668,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("<input type='hidden' name='do' value='" + listName + "'>");
                     ctx.println("<input type='submit' name='doBtn' value='Do Action'>");
                 }
-                ctx.println("<table summary='User List' class='userlist' border='2'>");
-                ctx.println(" <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Action</th><th>Locales</th><th>Seen</th></tr>");
+                ctx.println("<table id='userListTable' summary='User List' class='userlist' border='2'>");
+                ctx.println("<thead> <tr><th></th><th>Organization / Level</th><th>Name/Email</th><th>Action</th><th>Locales</th><th>Seen</th></tr></thead><tbody>");
                 String oldOrg = null;
                 int locked = 0;
+                JSONArray shownUsers = new JSONArray();
                 while (rs.next()) {
                     int theirId = rs.getInt(1);
                     int theirLevel = rs.getInt(2);
@@ -2702,6 +2704,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         continue;
                     }
                     n++;
+                    
+                    shownUsers.put(reg.getInfo(theirId));
 
                     if ((just == null) && (!justme) && (!theirOrg.equals(oldOrg))) {
                         ctx.println("<tr class='heading' ><th class='partsection' colspan='6'><a name='" + theirOrg + "'><h4>"
@@ -2709,7 +2713,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         oldOrg = theirOrg;
                     }
 
-                    ctx.println("  <tr class='user" + theirLevel + "'>");
+                    ctx.println("  <tr id='u@"+theirId+"' class='user" + theirLevel + "'>");
 
                     if (areSendingMail && (theirLevel < UserRegistry.LOCKED)) {
                         ctx.print("<td class='framecell'>");
@@ -2870,11 +2874,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         printUserZoomLink(ctx, theirEmail, "");
                     }
 
-                    if (ctx.session.user.isAdminFor(reg.getInfo(theirId))) {
-                        ctx.println("<br><a href='" + ctx.context("upload.jsp?s=" + ctx.session.id + "&email=" + theirEmail)
-                                + "'>Upload XML...</a>");
-                    }
-
                     ctx.println("</td>");
 
                     // org, level
@@ -2963,6 +2962,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             ctx.println("    </select>");
                         } // end menu
                     }
+                    if (ctx.session.user.isAdminFor(reg.getInfo(theirId))) {
+                        ctx.println("<br><a href='" + ctx.context("upload.jsp?s=" + ctx.session.id + "&email=" + theirEmail)
+                                + "'>Upload XML...</a>");
+                    }
+                    ctx.println("<br><a class='recentActivity' href='"+ ctx.context("myvotes.jsp?user="+theirId) +"'>User Activity</a>");
                     ctx.println("</td>");
 
                     if (theirLevel <= UserRegistry.MANAGER) {
@@ -2990,7 +2994,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                     ctx.println("  </tr>");
                 }
-                ctx.println("</table>");
+                ctx.println("</tbody></table>");
+                
+                // now, serialize the list..
+                ctx.println("<script>var shownUsers = " + shownUsers.toString() + ";\r\nshowUserActivity(shownUsers, 'userListTable');\r\n</script>\n" );
 
                 if (hideUserList) {
                     ctx.println("</div>");

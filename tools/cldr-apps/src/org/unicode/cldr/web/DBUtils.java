@@ -9,6 +9,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.Driver;
@@ -24,6 +26,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.TreeMap;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -38,6 +41,7 @@ import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
 
@@ -1140,6 +1144,7 @@ public class DBUtils {
         JSONObject ret = new JSONObject();
         JSONObject header = new JSONObject();
         JSONArray data = new JSONArray();
+        //JSONArray rsm2 = new JSONArray();
 
         int hasxpath = -1;
         int haslocale = -1;
@@ -1151,6 +1156,7 @@ public class DBUtils {
             if (colname.equals("LOCALE"))
                 haslocale = i;
             header.put(colname, i - 1);
+           // rsm2.put(i-1, rsm.getColumnType(i));
         }
         int cn = cc;
         if (hasxpath >= 0) {
@@ -1162,6 +1168,7 @@ public class DBUtils {
         }
 
         ret.put("header", header);
+        //ret.put("types", rsm2);
 
         while (rs.next()) {
             JSONArray item = new JSONArray();
@@ -1185,10 +1192,18 @@ public class DBUtils {
                     }
                 }
                 if (v != null) {
-                    if (rsm.getColumnType(i) == java.sql.Types.LONGVARBINARY) {
+                    int type = rsm.getColumnType(i);
+                    switch(type) {
+                    case java.sql.Types.LONGVARBINARY:
                         String uni = DBUtils.getStringUTF8(rs, i);
                         item.put(uni);
-                    } else {
+                        break;
+                    case java.sql.Types.INTEGER:
+                    case java.sql.Types.TINYINT:
+                    case java.sql.Types.BIGINT:
+                        item.put(rs.getInt(i));
+                        break;
+                    default:
                         item.put(v);
                     }
                 } else {
@@ -1230,6 +1245,65 @@ public class DBUtils {
         }
     }
     
+    private Map<String,Reference<JSONObject>> cachedJsonQuery = new TreeMap<String,Reference<JSONObject>>();
+    
+    /**
+     * Run a query, caching the JSON response
+     * TODO: cache exceptions..
+     * @param id
+     * @param cacheAge
+     * @param query
+     * @param args
+     * @return
+     * @throws SQLException
+     * @throws IOException
+     * @throws JSONException
+     */
+    public static synchronized JSONObject queryToCachedJSON(String id, long cacheAge, String query, Object... args) throws SQLException, IOException, JSONException {
+        final boolean CDEBUG = true && SurveyMain.isUnofficial();
+        DBUtils instance = getInstance(); // don't want the cache to be static
+        Reference<JSONObject> ref = instance.cachedJsonQuery.get(id);
+        JSONObject result = null;
+        if(ref!=null) result = ref.get();
+        long now = System.currentTimeMillis();
+        if(CDEBUG) {
+            System.out.println("cachedjson: id "  + id + " ref=" + ref + "res?" + (result!=null));
+        }
+        if(result != null) {
+            long age = now - (Long)result.get("birth");
+            if(age  > cacheAge) {
+                if(CDEBUG) {
+                    System.out.println("cachedjson: id " + id + " expiring because age " + age +" > " + cacheAge);
+                }
+                result = null;
+            }
+        }
+        
+        if(result == null) { // have to fetch it
+            result = queryToJSON(query, args);
+            long queryms = System.currentTimeMillis()-now;
+            result.put("birth", (Long)now);
+            if(CDEBUG) {
+                System.out.println("cachedjson: id " + id + " fetched in " + queryms);
+            }
+            result.put("queryms", (Long)(queryms));
+            result.put("id",id);
+            ref = new WeakReference<JSONObject>(result);
+            instance.cachedJsonQuery.put(id, ref);
+        }
+        
+        return result;
+    }
+    
+    /**
+     * Get the first row of the first column.  Useful when the query is very simple, such as a count.
+     * @param obj
+     * @return the int
+     * @throws JSONException 
+     */
+    public static final int getFirstInt(JSONObject json) throws JSONException {
+        return json.getJSONArray("data").getJSONArray(0).getInt(0);
+     }
     /**
      * query to an array associative maps
      * @param string

@@ -1,5 +1,6 @@
+<%@page import="com.ibm.icu.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="utf-8"%><%@ page import="org.unicode.cldr.web.*"%><%@ page import="java.sql.*" %><%@ page import="com.ibm.icu.util.ULocale" %>
+    pageEncoding="utf-8"%><%@ page import="org.unicode.cldr.web.*"%><%@ page import="java.sql.*" %><%@ page import="org.json.*" %><%@ page import="com.ibm.icu.util.ULocale" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,13 +38,15 @@
 
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <!-- 	| <a class='notselected' href="statistics-org.jsp">by Organization</a> -->
-
+<i>This page does not auto-refresh, and is only calculated every few minutes.</i>
 <br>
 
 <%
 	int totalwidth = 800;
 	int totalhei = 600;
 	DBUtils dbUtils = DBUtils.getInstance();
+	
+	int totalItems = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_items", 1*60*1000, "select count(*) from cldr_votevalue where submitter is not null and last_mod > " + votesAfter));
 	Connection conn = dbUtils.getDBConnection();
 	if (conn == null) {
 		throw new InternalError(
@@ -55,25 +58,23 @@
 	<h1>SurveyTool Statistics: <%=title%></h1>
 	<i>Showing only votes cast after <%= SurveyMain.getVotesAfterDate() %></i><br/>
 
-	Total Items Submitted: <%=dbUtils
-						.sqlQuery(conn,
-								"select count(*) from cldr_votevalue where submitter is not null and last_mod > " + votesAfter + " ")%> <br/>
+    <%
+        String theSqlVet = "select  locale,count(*) as count from cldr_votevalue  where submitter is not null and last_mod > " + votesAfter + " "
+                    + limit + " group by locale ";
+            String theSqlData = theSqlVet;
+
+            String[][] submitsV = dbUtils.sqlQueryArrayArray(conn,
+                    theSqlVet);
+            String[][] submitsD = dbUtils.sqlQueryArrayArray(conn,
+                    theSqlData);
+
+            String[][] submits = StatisticsUtils.calcSubmits(submitsV,
+                    submitsD);
+    %>
+
+	Total Items Submitted: <%= DecimalFormat.getInstance(DecimalFormat.NUMBERSTYLE).format( totalItems)%> in <%= submits.length %> locales <br/>
 
 
-
-	<%
-		String theSqlVet = "select  locale,count(*) as count from cldr_votevalue  where submitter is not null and last_mod > " + votesAfter + " "
-					+ limit + " group by locale ";
-			String theSqlData = theSqlVet;
-
-			String[][] submitsV = dbUtils.sqlQueryArrayArray(conn,
-					theSqlVet);
-			String[][] submitsD = dbUtils.sqlQueryArrayArray(conn,
-					theSqlData);
-
-			String[][] submits = StatisticsUtils.calcSubmits(submitsV,
-					submitsD);
-	%>
 
 	<h2><%=title%></h2>
 	<table style='border: 1px solid black; cell-padding: 3px;'> 

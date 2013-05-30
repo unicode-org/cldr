@@ -71,10 +71,11 @@
         java.sql.ResultSet rs = null;
         java.sql.PreparedStatement stmt = null;
         String sql = "(none)";
+        String votesAfter = SurveyMain.getSQLVotesAfter();
         try {
             conn = DBUtils.getInstance().getDBConnection();
             synchronized (sm.reg) {
-                String q1 = "select cldr_votevalue.xpath, cldr_votevalue.value from cldr_votevalue where cldr_votevalue.submitter = ? and cldr_votevalue.value is not NULL  and cldr_votevalue.locale=?";
+                String q1 = "select cldr_votevalue.xpath, cldr_votevalue.value from cldr_votevalue where cldr_votevalue.submitter = ? and cldr_votevalue.value is not NULL  and cldr_votevalue.locale=? and cldr_votevalue.last_mod > " + votesAfter;
                 stmt = DBUtils.prepareStatementWithArgs(conn, sql = (q1), u,l.getBaseName());
                 rs = stmt.executeQuery();
                 

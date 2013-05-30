@@ -112,7 +112,8 @@ public class SurveyAjax extends HttpServlet {
 
         public static JSONObject wrap(UserRegistry.User u) throws JSONException {
             return new JSONObject().put("id", u.id).put("email", u.email).put("name", u.name).put("userlevel", u.userlevel)
-                    .put("userlevelname", u.computeVRLevel());
+                    .put("emailHash", u.getEmailHash())
+                    .put("userlevelName", u.getLevel());
         }
 
         public static JSONObject wrap(CheckCLDR check) throws JSONException {
@@ -184,6 +185,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_GETVV = "vettingviewer";
     public static final String WHAT_STATS_BYDAY = "stats_byday";
+    public static final String WHAT_STATS_BYDAYUSERLOC = "stats_bydayuserloc";
     public static final String WHAT_RECENT_ITEMS = "recent_items";
     public static final String WHAT_FORUM_FETCH = "forum_fetch";
     public static final String WHAT_FORUM_COUNT = "forum_count";
@@ -271,18 +273,29 @@ public class SurveyAjax extends HttpServlet {
                 sendNoSurveyMain(out);
             } else if (what == null) {
                 sendError(out, "Missing parameter: " + REQ_WHAT);
+            } else if(what.equals(WHAT_STATS_BYDAYUSERLOC)) {
+                String votesAfterString = SurveyMain.getVotesAfterString();
+                String votesAfterSQL = SurveyMain.getSQLVotesAfter();
+                JSONWriter r = newJSONStatus(sm);
+                JSONObject query = DBUtils.queryToCachedJSON(what, 5*60*1000, 
+                            "select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale as loc,count(*) as count from cldr_votevalue  where last_mod > " + votesAfterSQL + " group by submitter,loc,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc");
+                r.put(what, query);
+                r.put("after", votesAfterString);
+                send(r,out);
+                // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from cldr_votevalue group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
             } else if (what.equals(WHAT_STATS_BYDAY)) {
                 String votesAfterSQL = SurveyMain.getSQLVotesAfter();
                 String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
                 JSONObject query = DBUtils
-                        .queryToJSON("select count(*) as count ,last_mod from cldr_votevalue where last_mod > " + votesAfterSQL + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
+                        .queryToCachedJSON(what, (5*60*1000), "select count(*) as count ,last_mod from cldr_votevalue where last_mod > " + votesAfterSQL + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
                 r.put("byday", query);
                 r.put("after", votesAfterString);
                 send(r, out);
             } else if (what.equals(WHAT_MY_LOCALES)) {
+                String votesAfterSQL = SurveyMain.getSQLVotesAfter();
                 JSONWriter r = newJSONStatus(sm);
-                String q1 = "select count(*) as count, cldr_votevalue.locale as locale from cldr_votevalue WHERE cldr_votevalue.submitter=? AND cldr_votevalue.value is not NULL group by cldr_votevalue.locale order by cldr_votevalue.locale desc";
+                String q1 = "select count(*) as count, cldr_votevalue.locale as locale from cldr_votevalue WHERE cldr_votevalue.submitter=? AND cldr_votevalue.value is not NULL AND last_mod > " + votesAfterSQL + " group by cldr_votevalue.locale order by cldr_votevalue.locale desc";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())
@@ -297,6 +310,8 @@ public class SurveyAjax extends HttpServlet {
                 r.put("mine", query);
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
+                String votesAfterSQL = SurveyMain.getSQLVotesAfter();
+               // String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
                 int limit = 15;
                 try {
@@ -305,7 +320,7 @@ public class SurveyAjax extends HttpServlet {
                     limit = 15;
                 }
                 String q1 = "select cldr_votevalue.locale,cldr_xpaths.xpath,cldr_users.org, cldr_votevalue.value, cldr_votevalue.last_mod  from cldr_xpaths,cldr_votevalue,cldr_users  where ";
-                String q2 = "cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter  order by cldr_votevalue.last_mod desc limit ?";
+                String q2 = "cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter and cldr_votevalue.last_mod > " + votesAfterSQL + "  order by cldr_votevalue.last_mod desc limit ?";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())

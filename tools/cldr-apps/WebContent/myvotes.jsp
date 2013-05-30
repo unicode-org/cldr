@@ -32,9 +32,9 @@
 <!-- 	| <a class='notselected' href="statistics-org.jsp">by Organization</a> -->
 
 <br>
-
+<i>All items shown are for the current release, CLDR <%= SurveyMain.getNewVersion() %>. Votes before <%= SurveyMain.getVotesAfterDate() %> are not shown.</i>
 <hr>
-<h3>Recently submitted items for user <%= user %></h3>
+<h3>The most recently submitted items for user <%= user %></h3>
 
 <div id='submitItems'>
 </div>

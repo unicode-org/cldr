@@ -37,10 +37,6 @@ import java.util.TreeSet;
  */
 public class CldrResolver {
   /**
-   * 
-   */
-  public static final String UNDEFINED = "∅∅∅";
-  /**
    * The name of the code-fallback locale
    */
   public static final String CODE_FALLBACK = "code-fallback";
@@ -293,10 +289,10 @@ public class CldrResolver {
               // Do the comparison with distinguished paths to prevent errors
               // resulting from duplicate full paths but the same distinguished path
               if (!basePaths.contains(distinguishedPath) &&
-                      !ancestor.getStringValue(distinguishedPath).equals(UNDEFINED)) {
+                      !ancestor.getStringValue(distinguishedPath).equals(CldrUtility.NO_INHERITANCE_MARKER)) {
                   ResolverUtils.debugPrintln(
                           "Added UNDEFINED value for path: " + distinguishedPath, 4);
-                  resolved.add(distinguishedPath, UNDEFINED);
+                  resolved.add(distinguishedPath, CldrUtility.NO_INHERITANCE_MARKER);
               }
           }
       }

@@ -133,7 +133,7 @@ public class TestCldrResolver extends TestFmwk {
           if (!shouldIgnorePath(canonicalPath, cldrResolved)) {
             assertTrue("Path " + canonicalPath + " is present in tool resolved file for locale "
                 + locale + " but not in CLDR resolved file.",
-                cldrPaths.contains(canonicalPath) || toolResolved.get(canonicalPath).equals(CldrResolver.UNDEFINED));
+                cldrPaths.contains(canonicalPath) || toolResolved.get(canonicalPath).equals(CldrUtility.NO_INHERITANCE_MARKER));
           }
         }
       }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision: 8807 $"/>
+		<generation date="$Date: 2013-05-30 00:10 -0700 (Thu, 30 May 2013) $"/>
+		<language type="yi" /> 
+	</identity>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="provisional">{0} ({1})</localePattern>
+			<localeSeparator draft="provisional">{0}, {1}</localeSeparator>
+			<localeKeyTypePattern draft="provisional">{0}:‏ {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
+		<languages>
+			<language type="en" draft="provisional">ענגליש</language>
+			<language type="yi" draft="provisional">ייִדיש</language>
+		</languages>
+	</localeDisplayNames>
+	<layout>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters>[ א {אַ} {אָ} ב {בֿ} ג ד {דזש} ה ו {וּ} {וו} {וי} ז {זש} ח ט {טש} י {יִ} {יי} {ײַ} {כּ} כ ך ל מ ם נ ן ס ע {פּ} {פֿ} ף צ ץ ק ר ש {שׂ} {תּ} ת ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">[\u200E \u200F]</exemplarCharacters>
+		<exemplarCharacters type="index">[ א ב בֿ ג ד ה ו ז ח ט י כּ כ ל מ נ ס ע פּ פֿ צ ק ר ש שׂ תּ ת ]</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐ – — , ; \: ! ? . ' &quot; ( ) \[ \] / ״]</exemplarCharacters>
+	</characters>
+	<delimiters>
+		<quotationStart draft="contributed">&quot;</quotationStart>
+		<quotationEnd draft="contributed">&quot;</quotationEnd>
+		<alternateQuotationStart draft="contributed">'</alternateQuotationStart>
+		<alternateQuotationEnd draft="contributed">'</alternateQuotationEnd>
+	</delimiters>
+	<numbers>
+		<defaultNumberingSystem>latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native>latn</native>
+		</otherNumberingSystems>
+		<symbols numberSystem="latn">
+			<decimal draft="contributed">.</decimal>
+			<group draft="contributed">,</group>
+			<list draft="contributed">;</list>
+			<percentSign draft="contributed">%</percentSign>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">-</minusSign>
+			<exponential draft="contributed">E</exponential>
+			<perMille draft="contributed">‰</perMille>
+			<infinity draft="contributed">∞</infinity>
+			<nan draft="contributed">NaN</nan>
+		</symbols>
+	</numbers>
+</ldml>
+

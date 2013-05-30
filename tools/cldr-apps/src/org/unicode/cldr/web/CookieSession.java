@@ -35,7 +35,7 @@ import org.unicode.cldr.util.StandardCodes;
  * per-user basis. Instances are typically held by WebContext.session.
  */
 public class CookieSession {
-    static final boolean DEBUG_INOUT = true;
+    static final boolean DEBUG_INOUT = false;
     public String id;
     public String ip;
     public Hashtable<String, Object> stuff = new Hashtable<String, Object>(); // user data

@@ -2757,10 +2757,7 @@ public class DataSection implements JSONString {
 
                         // set up tests
                         myp.setShimTests(base_xpath, base_xpath_string, checkCldr, options);
-                    } else {
-                        System.err.println("Note: Not setting up shims.");
                     }
-
                 }
             }
         } // tz
@@ -2833,584 +2830,461 @@ public class DataSection implements JSONString {
 
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
             String workingCoverageLevel) {
-        // if (!ourSrc.isResolving()) throw new
-        // IllegalArgumentException("CLDRFile must be resolved");
-        try {
-            XPathParts xpp = new XPathParts(null, null);
-            // System.out.println("[] initting from pod " + locale +
-            // " with prefix " + xpathPrefix);
-            CLDRFile aFile = ourSrc;
-            STFactory stf = sm.getSTFactory();
-            CLDRFile oldFile = stf.getOldFile(locale);
-            diskFile = stf.getDiskFile(locale);
-            List<?> examplesResult = new ArrayList<Object>();
-            SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
-            long lastTime = -1;
-            String workPrefix = xpathPrefix;
-            long nextTime = -1;
-            int count = 0;
-            long countStart = 0;
-            if (SHOW_TIME) {
-                lastTime = countStart = System.currentTimeMillis();
-            }
+        XPathParts xpp = new XPathParts(null, null);
+        CLDRFile aFile = ourSrc;
+        STFactory stf = sm.getSTFactory();
+        CLDRFile oldFile = stf.getOldFile(locale);
+        diskFile = stf.getDiskFile(locale);
+        List<?> examplesResult = new ArrayList<Object>();
+        long lastTime = -1;
+        String workPrefix = xpathPrefix;
+        long nextTime = -1;
+        int count = 0;
+        long countStart = 0;
+        if (SHOW_TIME) {
+            lastTime = countStart = System.currentTimeMillis();
+        }
 
-            // TODO: if(pageId==null) return; // assertion
-            int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
-            // what to exclude under 'misc'
+        int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
 
-            CLDRFile vettedParent = null;
-            CLDRLocale parentLoc = locale.getParent();
-            if (parentLoc != null) {
-                XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /* finalData */, true);
-                vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(SurveyMain.supplementalDataDir);
-            }
-            Set<String> allXpaths;
+        CLDRFile vettedParent = null;
+        CLDRLocale parentLoc = locale.getParent();
+        if (parentLoc != null) {
+            XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /* finalData */, true);
+            vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(SurveyMain.supplementalDataDir);
+        }
+        Set<String> allXpaths;
 
-            // TODO: get rid of these
-            boolean excludeCurrencies = false;
-            boolean excludeCalendars = false;
-            boolean excludeGrego = false;
-            boolean excludeTimeZones = false;
-            boolean excludeMetaZones = false;
-            boolean excludeMost = false;
-            boolean doExcludeAlways = true;
-            boolean isReferences = false;
-            String continent = null;
-            Set<String> extraXpaths = null;
-            List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
+        String continent = null;
+        Set<String> extraXpaths = null;
+        List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
 
+        if (pageId != null) {
+            allXpaths = PathHeader.Factory.getCachedPaths(pageId.getSectionId(), pageId);
+            allXpaths.retainAll(stf.getPathsForFile(locale));
+        } else {
+            init(); // pay for the patterns
+            allXpaths = new HashSet<String>();
+            extraXpaths = new HashSet<String>();
+
+            /* ** Determine which xpaths to show */
             if (pageId != null) {
-                allXpaths = PathHeader.Factory.getCachedPaths(pageId.getSectionId(), pageId);
-                allXpaths.retainAll(stf.getPathsForFile(locale));
-            } else {
-                init(); // pay for the patterns
-                allXpaths = new HashSet<String>();
-                extraXpaths = new HashSet<String>();
-
-                /* ** Determine which xpaths to show */
-                if (pageId != null) {
-                    // use pageid, ignore the rest
-                } else if (xpathPrefix.equals("//ldml")) {
-                    excludeMost = true;
-                } else if (xpathPrefix.startsWith("//ldml/units")) {
-                    canName = false;
-                    excludeMost = false;
-                    doExcludeAlways = false;
-                } else if (xpathPrefix.startsWith("//ldml/numbers")) {
-                    if (-1 == xpathPrefix.indexOf("currencies")) {
-                        doExcludeAlways = false;
-                        excludeCurrencies = true; // =
-                                                  // "//ldml/numbers/currencies";
-                        canName = false; // sort numbers by code
-                    } else {
-                        canName = false; // because symbols are included
-                        // hackCurrencyDisplay = true;
+                // use pageid, ignore the rest
+            } else if (xpathPrefix.startsWith("//ldml/units")) {
+                canName = false;
+            } else if (xpathPrefix.startsWith("//ldml/numbers")) {
+                if (-1 == xpathPrefix.indexOf("currencies")) {
+                    canName = false; // sort numbers by code
+                } else {
+                    canName = false; // because symbols are included
+                    // hackCurrencyDisplay = true;
+                }
+            } else if (xpathPrefix.startsWith("//ldml/dates")) {
+                if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")) {
+                    // System.err.println("ZZ0");
+                } else if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
+                    int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
+                    if (continentStart > 0) {
+                        continent = xpathPrefix.substring(xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER) + 1);
                     }
-                } else if (xpathPrefix.startsWith("//ldml/dates")) {
-                    if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/zone")) {
-                        // System.err.println("ZZ0");
-                        excludeTimeZones = false;
-                    } else if (xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone")) {
-                        excludeMetaZones = false;
-                        int continentStart = xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER);
-                        if (continentStart > 0) {
-                            continent = xpathPrefix.substring(xpathPrefix.indexOf(DataSection.CONTINENT_DIVIDER) + 1);
-                        }
-                        if (false)
-                            System.err.println(xpathPrefix + ": -> continent " + continent);
-                        if (!xpathPrefix.contains("@type")) { // if it's not a
-                            // zoom-in..
-                            workPrefix = "//ldml/dates/timeZoneNames/metazone";
-                        }
-                        // System.err.println("ZZ1");
-                    } else {
-                        excludeTimeZones = true;
-                        excludeMetaZones = true;
-                        if (xpathPrefix.indexOf("gregorian") == -1) {
-                            excludeGrego = true;
-                            // nongreg
-                        } else {
-                        }
+                    if (DEBUG)
+                        System.err.println(xpathPrefix + ": -> continent " + continent);
+                    if (!xpathPrefix.contains("@type")) { // if it's not a
+                        // zoom-in..
+                        workPrefix = "//ldml/dates/timeZoneNames/metazone";
                     }
-                } else if (xpathPrefix.startsWith("//ldml/localeDisplayNames/types")) {
-                } else if (xpathPrefix.equals("//ldml/references")) {
-                    isReferences = true;
-                    canName = false; // disable 'view by name' for references
+                    // System.err.println("ZZ1");
                 }
-
-                isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
-                isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
-
-                /* ** Build the set of xpaths */
-                // iterate over everything in this prefix ..
-                Set<String> baseXpaths = new HashSet<String>();
-                for (Iterator<String> it = aFile.iterator(workPrefix); it.hasNext();) {
-                    String xpath = it.next();
-
-                    baseXpaths.add(xpath);
-                }
-
-                allXpaths.addAll(baseXpaths);
-                if (aFile.getSupplementalDirectory() == null) {
-                    throw new InternalError("?!! aFile hsa no supplemental dir!");
-                }
-                aFile.getExtraPaths(workPrefix, extraXpaths);
-                extraXpaths.removeAll(baseXpaths);
-                allXpaths.addAll(extraXpaths);
-
-                // // Process extra paths.
-                if (DEBUG)
-                    System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
-
+            } else if (xpathPrefix.equals("//ldml/references")) {
+                canName = false; // disable 'view by name' for references
             }
 
-            if (allXpaths == null)
-                return;
-            /* ** iterate over all xpaths */
-            for (String xpath : allXpaths) {
-                boolean confirmOnly = false;
-                if (xpath == null) {
-                    throw new InternalError("null xpath in allXpaths");
-                }
-                int xpid = sm.xpt.getByXpath(xpath);
-                if (pageId == null) {
-                    if (matcher != null && !matcher.matches(xpath, xpid)) {
-                        continue;
-                    }
-                    if (!xpath.startsWith(workPrefix)) {
-                        if (false && SurveyMain.isUnofficial())
-                            System.err.println("@@ BAD XPATH " + xpath);
-                        continue;
-                    } else if (aFile.isPathExcludedForSurvey(xpath)) {
-                        if (false && SurveyMain.isUnofficial())
-                            System.err.println("@@ excluded:" + xpath);
-                        continue;
-                    } else if (false) {
-                        System.err.println("allPath: " + xpath);
-                    }
-                }
-                boolean isExtraPath = extraXpaths != null && extraXpaths.contains(xpath); // 'extra'
-                // paths get
-                // shim
-                // treatment
-                // /*srl*/ if(xpath.indexOf("Adak")!=-1)
-                // /*srl*/ {ndebug=true;System.err.println("p] "+xpath +
-                // " - xtz = "+excludeTimeZones+"..");}
+            isCalendar = xpathPrefix.startsWith("//ldml/dates/calendars");
+            isMetazones = xpathPrefix.startsWith("//ldml/dates/timeZoneNames/metazone");
 
-                if (SHOW_TIME) {
-                    count++;
-                    nextTime = System.currentTimeMillis();
-                    if ((nextTime - lastTime) > 10000) {
-                        lastTime = nextTime;
-                        System.err.println("[] " + locale + ":" + xpathPrefix + " #" + count + ", or "
-                                + (((double) (System.currentTimeMillis() - countStart)) / count) + "ms per.");
-                    }
-                }
+            /* ** Build the set of xpaths */
+            // iterate over everything in this prefix ..
+            Set<String> baseXpaths = new HashSet<String>();
+            for (Iterator<String> it = aFile.iterator(workPrefix); it.hasNext();) {
+                String xpath = it.next();
 
-                if (pageId == null) {
-                    /* ** Skip unmatched things */
-                    if (doExcludeAlways && excludeAlways.matcher(xpath).matches()) {
-                        // if(ndebug && (xpath.indexOf("Adak")!=-1))
-                        // System.err.println("ns1 1 "+(System.currentTimeMillis()-nextTime)
-                        // + " " + xpath);
-                        continue;
-                    } else if (excludeMost && mostPattern.matcher(xpath).matches()) { // ONLY
-                                                                                      // used
-                                                                                      // in
-                                                                                      // non-PageId
-                                                                                      // use.
-                        // if(ndebug)
-                        // System.err.println("ns1 2 "+(System.currentTimeMillis()-nextTime)
-                        // + " " + xpath);
-                        continue;
-                    } else if (excludeCurrencies && (xpath.startsWith("//ldml/numbers/currencies/currency"))) {
-                        // if(ndebug)
-                        // System.err.println("ns1 3 "+(System.currentTimeMillis()-nextTime)
-                        // + " " + xpath);
-                        continue;
-                    } else if (excludeCalendars && (xpath.startsWith("//ldml/dates/calendars"))) {
-                        // if(ndebug)
-                        // System.err.println("ns1 4 "+(System.currentTimeMillis()-nextTime)
-                        // + " " + xpath);
-                        continue;
-                    } else if (excludeTimeZones && (xpath.startsWith("//ldml/dates/timeZoneNames/zone"))) {
-                        // if(ndebug && (xpath.indexOf("Adak")!=-1))
-                        // System.err.println("ns1 5 "+(System.currentTimeMillis()-nextTime)
-                        // + " " + xpath);
-                        continue;
-                        /*
-                         * } else if(exemplarCityOnly &&
-                         * (xpath.indexOf("exemplarCity")==-1)) { continue;
-                         */
-                    } else if (excludeMetaZones && (xpath.startsWith("//ldml/dates/timeZoneNames/metazone"))) {
-                        // if(ndebug&& (xpath.indexOf("Adak")!=-1))
-                        // System.err.println("ns1 6 "+(System.currentTimeMillis()-nextTime)
-                        // + " " + xpath);
-                        continue;
-                    } else if (!excludeCalendars && excludeGrego && (xpath.startsWith(SurveyMain.GREGO_XPATH))) {
-                        // if(ndebug)
-                        // System.err.println("ns1 7 "+(System.currentTimeMillis()-nextTime)
-                        // + " " + xpath);
-                        continue;
-                    } else if (continent != null && !continent.equals(sm.getMetazoneContinent(xpath))) {
-                        // if(false) System.err.println("Wanted " + continent
-                        // +" but got " + sm.getMetazoneContinent(xpath)
-                        // +" for " +
-                        // xpath);
-                        continue;
-                    }
-                }
-                // else if(false && continent != null) {
-                // System.err.println("Got " + continent +" for " + xpath);
-                // }
+                baseXpaths.add(xpath);
+            }
 
-                SurveyToolStatus ststats = SurveyToolStatus.READ_WRITE;
-                PathHeader ph = stf.getPathHeader(xpath);
-                if (ph != null) {
-                    ststats = stf.getPathHeader(xpath).getSurveyToolStatus();
-                }
+            allXpaths.addAll(baseXpaths);
+            if (aFile.getSupplementalDirectory() == null) {
+                throw new InternalError("?!! aFile hsa no supplemental dir!");
+            }
+            aFile.getExtraPaths(workPrefix, extraXpaths);
+            extraXpaths.removeAll(baseXpaths);
+            allXpaths.addAll(extraXpaths);
 
-                // boolean cc_skip =
-                // CheckCLDR.skipShowingInSurvey.matcher(xpath).matches();
-                // if (cc_skip != (ststats==SurveyToolStatus.HIDE ||
-                // ststats==SurveyToolStatus.DEPRECATED)) {
-                // System.err.println(xpath +
-                // " - skipShowingInSurvey="+cc_skip+", ph="+ststats);
-                // }
-                //
-                // if(cc_skip) continue;
+            // // Process extra paths.
+            if (DEBUG)
+                System.err.println("@@X@ base[" + workPrefix + "]: " + baseXpaths.size() + ", extra: " + extraXpaths.size());
 
-                if ((ststats == SurveyToolStatus.HIDE || ststats == SurveyToolStatus.DEPRECATED)) {
-                    // if(TRACE_TIME)
-                    // System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime)
-                    // + " " + xpath);
+        }
+
+        /* ** iterate over all xpaths */
+        for (String xpath : allXpaths) {
+            boolean confirmOnly = false;
+            if (xpath == null) {
+                throw new InternalError("null xpath in allXpaths");
+            }
+            int xpid = sm.xpt.getByXpath(xpath);
+            if (pageId == null) {
+                if (matcher != null && !matcher.matches(xpath, xpid)) {
                     continue;
                 }
-
-                String fullPath = aFile.getFullXPath(xpath);
-                // int xpath_id = src.xpt.getByXpath(fullPath);
-                int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
-                String baseXpath = sm.xpt.getById(base_xpath);
-
-                // Filter out data that is higher than the desired coverage
-                // level
-                int coverageValue = coverage.getIntLevel(baseXpath);
-                if (coverageValue > workingCoverageValue) {
-                    if (coverageValue <= Level.COMPREHENSIVE.getLevel()) {
-                        skippedDueToCoverage++;
-                    } // else: would never be shown, don't care
+                if (!xpath.startsWith(workPrefix)) {
+                    if (DEBUG && SurveyMain.isUnofficial())
+                        System.err.println("@@ BAD XPATH " + xpath);
                     continue;
+                } else if (aFile.isPathExcludedForSurvey(xpath)) {
+                    if (DEBUG && SurveyMain.isUnofficial())
+                        System.err.println("@@ excluded:" + xpath);
+                    continue;
+                } else if (DEBUG) {
+                    System.err.println("allPath: " + xpath);
                 }
+            }
+            boolean isExtraPath = extraXpaths != null && extraXpaths.contains(xpath); // 'extra'
+            // paths get
+            // shim
+            // treatment
+            // /*srl*/ if(xpath.indexOf("Adak")!=-1)
+            // /*srl*/ {ndebug=true;System.err.println("p] "+xpath +
+            // " - xtz = "+excludeTimeZones+"..");}
 
-                // sm.xpt.getPrettyPath(base_xpath);
-
-                if (fullPath == null) {
-                    if (isExtraPath) {
-                        fullPath = xpath; // (this is normal for 'extra' paths)
-                    } else {
-                        // System.err.println("Extrapath: " +isExtraPath +
-                        // ", base:"+baseXpath);
-
-                        // System.err.println("DP:P Error: fullPath of " + xpath
-                        // + " for locale " + locale + " returned null.");
-                        // continue;
-                        fullPath = xpath;
-                    }
+            if (SHOW_TIME) {
+                count++;
+                nextTime = System.currentTimeMillis();
+                if ((nextTime - lastTime) > 10000) {
+                    lastTime = nextTime;
+                    System.err.println("[] " + locale + ":" + xpathPrefix + " #" + count + ", or "
+                            + (((double) (System.currentTimeMillis() - countStart)) / count) + "ms per.");
                 }
+            }
 
-                if (TRACE_TIME)
-                    System.err.println("ns0  " + (System.currentTimeMillis() - nextTime));
-                String value = isExtraPath ? null : aFile.getStringValue(xpath);
-                if (value == null) {
-                    // value = "(NOTHING)"; /* This is set to prevent crashes..
-                    // */
-                    if(false) {
-                        System.err.println("warning: populatefrom " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
-                                + isExtraPath);
-                    }
-                    isExtraPath = true;
+            SurveyToolStatus ststats = SurveyToolStatus.READ_WRITE;
+            PathHeader ph = stf.getPathHeader(xpath);
+            if (ph != null) {
+                ststats = stf.getPathHeader(xpath).getSurveyToolStatus();
+            }
+
+            // boolean cc_skip =
+            // CheckCLDR.skipShowingInSurvey.matcher(xpath).matches();
+            // if (cc_skip != (ststats==SurveyToolStatus.HIDE ||
+            // ststats==SurveyToolStatus.DEPRECATED)) {
+            // System.err.println(xpath +
+            // " - skipShowingInSurvey="+cc_skip+", ph="+ststats);
+            // }
+            //
+            // if(cc_skip) continue;
+
+            if ((ststats == SurveyToolStatus.HIDE || ststats == SurveyToolStatus.DEPRECATED)) {
+                // if(TRACE_TIME)
+                // System.err.println("ns1 8 "+(System.currentTimeMillis()-nextTime)
+                // + " " + xpath);
+                continue;
+            }
+
+            String fullPath = aFile.getFullXPath(xpath);
+            // int xpath_id = src.xpt.getByXpath(fullPath);
+            int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
+            String baseXpath = sm.xpt.getById(base_xpath);
+
+            // Filter out data that is higher than the desired coverage
+            // level
+            int coverageValue = coverage.getIntLevel(baseXpath);
+            if (coverageValue > workingCoverageValue) {
+                if (coverageValue <= Level.COMPREHENSIVE.getLevel()) {
+                    skippedDueToCoverage++;
+                } // else: would never be shown, don't care
+                continue;
+            }
+
+            // sm.xpt.getPrettyPath(base_xpath);
+
+            if (fullPath == null) {
+                fullPath = xpath; // (this is normal for 'extra' paths)
+            }
+
+            if (TRACE_TIME)
+                System.err.println("ns0  " + (System.currentTimeMillis() - nextTime));
+            String value = isExtraPath ? null : aFile.getStringValue(xpath);
+            if (value == null) {
+                // value = "(NOTHING)"; /* This is set to prevent crashes..
+                // */
+                if (DEBUG) {
+                    System.err.println("warning: populatefrom " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
+                            + isExtraPath);
                 }
+                isExtraPath = true;
+            }
 
-                // determine 'alt' param
-                String alt = sm.xpt.altFromPathToTinyXpath(xpath, xpp);
+            // determine 'alt' param
+            String alt = sm.xpt.altFromPathToTinyXpath(xpath, xpp);
 
-                // System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
+            // System.err.println("n03  "+(System.currentTimeMillis()-nextTime));
 
-                /* FULL path processing (references.. alt proposed.. ) */
-                xpp.clear();
-                xpp.initialize(fullPath);
-                String lelement = xpp.getElement(-1);
-                xpp.findAttributeValue(lelement, LDMLConstants.ALT);
-                // String eRefs = xpp.findAttributeValue(lelement,
-                // LDMLConstants.REFERENCES);
-                String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
-                if (TRACE_TIME)
-                    System.err.println("n04  " + (System.currentTimeMillis() - nextTime));
+            /* FULL path processing (references.. alt proposed.. ) */
+            xpp.clear();
+            xpp.initialize(fullPath);
+            String lelement = xpp.getElement(-1);
+            xpp.findAttributeValue(lelement, LDMLConstants.ALT);
+            // String eRefs = xpp.findAttributeValue(lelement,
+            // LDMLConstants.REFERENCES);
+            String eDraft = xpp.findAttributeValue(lelement, LDMLConstants.DRAFT);
+            if (TRACE_TIME)
+                System.err.println("n04  " + (System.currentTimeMillis() - nextTime));
 
-                String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
-                String altProposed = typeAndProposed[1];
+            String typeAndProposed[] = LDMLUtilities.parseAlt(alt);
+            String altProposed = typeAndProposed[1];
 
-                // Now we are ready to add the data
+            // Now we are ready to add the data
 
-                // Load the 'data row' which represents one user visible row of
-                // options
-                // (may be nested in the case of alt types)
-                DataRow p = getDataRow(xpath);
+            // Load the 'data row' which represents one user visible row of
+            // options
+            // (may be nested in the case of alt types)
+            DataRow p = getDataRow(xpath);
 
-                if (oldFile != null) {
-                    p.oldValue = oldFile.getStringValue(xpath);
-                } else {
-                    p.oldValue = null;
-                }
-                Set<String> v = ballotBox.getValues(xpath);
-                if (v != null) {
-                    for (String avalue : v) {
-                        if (false && DEBUG)
-                            System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath);
-                        if (!avalue.equals(value)) {
-                            CandidateItem item2 = p.addItem(avalue);
-                            if (avalue != null && (checkCldr != null)/*
-                                                                      * &&(
-                                                                      * altProposed
-                                                                      * == null)
-                                                                      */) {
-                                List<CheckStatus> item2Result = new ArrayList<CheckStatus>();
-                                checkCldr.check(xpath, item2Result, avalue);
-                                // checkCldr.getExamples(xpath, isExtraPath ?
-                                // null : value, examplesResult);
-                                if (!item2Result.isEmpty()) {
-                                    item2.setTests(item2Result);
-                                }
+            if (oldFile != null) {
+                p.oldValue = oldFile.getStringValue(xpath);
+            } else {
+                p.oldValue = null;
+            }
+            Set<String> v = ballotBox.getValues(xpath);
+            if (v != null) {
+                for (String avalue : v) {
+                    if (DEBUG)
+                        System.err.println(" //val='" + avalue + "' vs " + value + " in " + xpath);
+                    if (!avalue.equals(value)) {
+                        CandidateItem item2 = p.addItem(avalue);
+                        if (avalue != null && (checkCldr != null)/*
+                                                                  * &&(
+                                                                  * altProposed
+                                                                  * == null)
+                                                                  */) {
+                            List<CheckStatus> item2Result = new ArrayList<CheckStatus>();
+                            checkCldr.check(xpath, item2Result, avalue);
+                            // checkCldr.getExamples(xpath, isExtraPath ?
+                            // null : value, examplesResult);
+                            if (!item2Result.isEmpty()) {
+                                item2.setTests(item2Result);
                             }
                         }
                     }
                 }
-                if (p.oldValue != null && !p.oldValue.equals(value) && (v == null || !v.contains(p.oldValue))) {
-                    CandidateItem oldItem = p.addItem(p.oldValue);
-                    oldItem.isOldValue = true;
+            }
+            if (p.oldValue != null && !p.oldValue.equals(value) && (v == null || !v.contains(p.oldValue))) {
+                CandidateItem oldItem = p.addItem(p.oldValue);
+                oldItem.isOldValue = true;
+            }
+
+            p.coverageValue = coverageValue;
+
+            // DataRow superP = p; // getDataRow(type); // the 'parent' row
+            // (sans alt) - may be the same object
+            // superP.coverageValue = coverageValue;
+
+            // if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
+            // if(superP!=p) {
+            // p.zoomOnly = superP.zoomOnly = true;
+            // }
+            // }
+            p.confirmOnly = confirmOnly;
+
+            if (isExtraPath) {
+                // Set up 'shim' tests, to display coverage
+                p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, options);
+                // System.err.println("Shimmed! "+xpath);
+            } else if (p.inheritedValue == null) {
+                p.updateInheritedValue(vettedParent);
+            }
+
+            // System.out.println("@@V "+type+"  v: " + value +
+            // " - base"+base_xpath+" , win: " + p.voteType);
+
+            // // Is this a toggle pair with another item?
+            // if(isToggleFor != null) {
+            // if(superP.toggleWith == null) {
+            // superP.updateToggle(fullPath, isToggleFor);
+            // }
+            // if(p.toggleWith == null) {
+            // p.updateToggle(fullPath, isToggleFor);
+            // }
+            // }
+
+            // Is it an attribute choice? (obsolete)
+            /*
+             * if(attributeChoice != null) { p.attributeChoice =
+             * attributeChoice; p.valuesList = p.attributeChoice.valuesList;
+             * 
+             * if(superP.attributeChoice == null) { superP.attributeChoice =
+             * p.attributeChoice; superP.valuesList = p.valuesList; } }
+             */
+
+            if (TRACE_TIME)
+                System.err.println("n05  " + (System.currentTimeMillis() - nextTime));
+
+            if ((p.getDisplayName() == null)) {
+                canName = false; // disable 'view by name' if not all have
+                // names.
+            }
+            if (TRACE_TIME)
+                System.err.println("n06  " + (System.currentTimeMillis() - nextTime));
+
+            // If it is draft and not proposed.. make it proposed-draft
+            if (((eDraft != null) && (!eDraft.equals("false"))) && (altProposed == null)) {
+                altProposed = SurveyMain.PROPOSED_DRAFT;
+            }
+
+            if (TRACE_TIME)
+                System.err.println("n06a  " + (System.currentTimeMillis() - nextTime));
+
+            CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+            if (TRACE_TIME)
+                System.err.println("n06b  " + (System.currentTimeMillis() - nextTime));
+            String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
+            if (TRACE_TIME)
+                System.err.println("n06c  " + (System.currentTimeMillis() - nextTime));
+            boolean isInherited = !(sourceLocale.equals(locale.toString()));
+            if (TRACE_TIME)
+                System.err.println("n06d  " + (System.currentTimeMillis() - nextTime));
+
+            // with xpath munging, attributeChoice items show up as code
+            // fallback. Correct it.
+            /*
+             * if(attributeChoice!=null && isInherited) {
+             * if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) { isInherited
+             * = false; sourceLocale = locale; } }
+             */
+            // ** IF it is inherited, do NOT add any Items.
+            if (isInherited && !isExtraPath) {
+                if (TRACE_TIME)
+                    System.err.println("n06da  [src:" + sourceLocale + " vs " + locale + ", sttus:" + sourceLocaleStatus + "] "
+                            + (System.currentTimeMillis() - nextTime));
+                if (!NOINHERIT)
+                    p.updateInheritedValue(vettedParent, checkCldr, options); // update
+                                                                              // the
+                                                                              // tests
+                if (TRACE_TIME)
+                    System.err.println("n06dc  " + (System.currentTimeMillis() - nextTime));
+                continue;
+            }
+            if (TRACE_TIME)
+                System.err.println("n06e  " + (System.currentTimeMillis() - nextTime));
+
+            if (TRACE_TIME)
+                System.err.println("n07  " + (System.currentTimeMillis() - nextTime));
+
+            // ?? simplify this.
+            if (altProposed == null) {
+                if (!isInherited) {
+                    // superP.hasInherited=false;
+                    // p.hasInherited=false;
+                } else {
+                    p.hasInherited = true;
                 }
-
-                p.coverageValue = coverageValue;
-
-                // DataRow superP = p; // getDataRow(type); // the 'parent' row
-                // (sans alt) - may be the same object
-                // superP.coverageValue = coverageValue;
-
-                // if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
-                // if(superP!=p) {
-                // p.zoomOnly = superP.zoomOnly = true;
-                // }
-                // }
-                p.confirmOnly = confirmOnly;
-
-                if (isExtraPath) {
-                    // Set up 'shim' tests, to display coverage
-                    p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, options);
-                    // System.err.println("Shimmed! "+xpath);
-                } else if (!isReferences) {
-                    if (p.inheritedValue == null) {
-                        p.updateInheritedValue(vettedParent);
-                    }
-                }
-
-                // System.out.println("@@V "+type+"  v: " + value +
-                // " - base"+base_xpath+" , win: " + p.voteType);
-
-                // // Is this a toggle pair with another item?
-                // if(isToggleFor != null) {
-                // if(superP.toggleWith == null) {
-                // superP.updateToggle(fullPath, isToggleFor);
-                // }
-                // if(p.toggleWith == null) {
-                // p.updateToggle(fullPath, isToggleFor);
-                // }
-                // }
-
-                // Is it an attribute choice? (obsolete)
-                /*
-                 * if(attributeChoice != null) { p.attributeChoice =
-                 * attributeChoice; p.valuesList = p.attributeChoice.valuesList;
-                 * 
-                 * if(superP.attributeChoice == null) { superP.attributeChoice =
-                 * p.attributeChoice; superP.valuesList = p.valuesList; } }
-                 */
-
-                // Some special cases.. a popup menu of values
-                if (p.prettyPath.startsWith("layout/inText")) {
-                    p.valuesList = LAYOUT_INTEXT_VALUES;
-                } else if (p.prettyPath.contains("numberingSystems") || p.prettyPath.contains("exemplarCharacters")
-                        || p.prettyPath.contains("indexCharacters")) {
-                    p.confirmOnly = true;
-                } else if (p.prettyPath.startsWith("layout/inList")) {
-                    p.valuesList = LAYOUT_INLIST_VALUES;
-                }
-
-                if (TRACE_TIME)
-                    System.err.println("n05  " + (System.currentTimeMillis() - nextTime));
-
-                if ((p.getDisplayName() == null)) {
-                    canName = false; // disable 'view by name' if not all have
-                    // names.
-                }
-                if (TRACE_TIME)
-                    System.err.println("n06  " + (System.currentTimeMillis() - nextTime));
-
-                // If it is draft and not proposed.. make it proposed-draft
-                if (((eDraft != null) && (!eDraft.equals("false"))) && (altProposed == null)) {
-                    altProposed = SurveyMain.PROPOSED_DRAFT;
-                }
-
-                if (TRACE_TIME)
-                    System.err.println("n06a  " + (System.currentTimeMillis() - nextTime));
-
-                CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
-                if (TRACE_TIME)
-                    System.err.println("n06b  " + (System.currentTimeMillis() - nextTime));
-                String sourceLocale = aFile.getSourceLocaleID(xpath, sourceLocaleStatus);
-                if (TRACE_TIME)
-                    System.err.println("n06c  " + (System.currentTimeMillis() - nextTime));
-                boolean isInherited = !(sourceLocale.equals(locale.toString()));
-                if (TRACE_TIME)
-                    System.err.println("n06d  " + (System.currentTimeMillis() - nextTime));
-
-                // with xpath munging, attributeChoice items show up as code
-                // fallback. Correct it.
-                /*
-                 * if(attributeChoice!=null && isInherited) {
-                 * if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) {
-                 * isInherited = false; sourceLocale = locale; } }
-                 */
-                // ** IF it is inherited, do NOT add any Items.
-                if (isInherited && !isExtraPath) {
-                    if (TRACE_TIME)
-                        System.err.println("n06da  [src:" + sourceLocale + " vs " + locale + ", sttus:" + sourceLocaleStatus
-                                + "] " + (System.currentTimeMillis() - nextTime));
-                    if (!isReferences) {
-                        if (TRACE_TIME)
-                            System.err.println("n06db  " + (System.currentTimeMillis() - nextTime));
-                        if (!NOINHERIT)
-                            p.updateInheritedValue(vettedParent, checkCldr, options); // update
-                                                                                      // the
-                                                                                      // tests
-                        if (TRACE_TIME)
-                            System.err.println("n06dc  " + (System.currentTimeMillis() - nextTime));
-                    }
-                    continue;
-                }
-                if (TRACE_TIME)
-                    System.err.println("n06e  " + (System.currentTimeMillis() - nextTime));
-
-                if (TRACE_TIME)
-                    System.err.println("n07  " + (System.currentTimeMillis() - nextTime));
-
-                // ?? simplify this.
-                if (altProposed == null) {
-                    if (!isInherited) {
-                        // superP.hasInherited=false;
-                        // p.hasInherited=false;
-                    } else {
-                        p.hasInherited = true;
+            } else {
+                if (!isInherited) {
+                    p.hasProps = true;
+                    if (altProposed != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
+                        p.hasMultipleProposals = true;
                     }
                 } else {
-                    if (!isInherited) {
-                        p.hasProps = true;
-                        if (altProposed != SurveyMain.PROPOSED_DRAFT) { // 'draft=true'
-                            p.hasMultipleProposals = true;
-                        }
-                    } else {
-                        // inherited, proposed
-                        // p.hasProps = true; // Don't mark as a proposal.
-                        // superP.hasProps = true;
-                        p.hasInherited = true;
-                    }
+                    // inherited, proposed
+                    // p.hasProps = true; // Don't mark as a proposal.
+                    // superP.hasProps = true;
+                    p.hasInherited = true;
                 }
-
-                CLDRLocale setInheritFrom = (isInherited) ? CLDRLocale.getInstance(sourceLocale) : null;
-
-                // if (isExtraPath) { // No real data items if it's an extra
-                // path.
-                // System.err.println("ExtraPath: "+xpath);
-                // continue;
-                // }
-
-                // ***** Set up Candidate Items *****
-                // These are the items users may choose between
-                //
-                if ((checkCldr != null)/* &&(altProposed == null) */) {
-                    if (TRACE_TIME)
-                        System.err.println("n07.1  (check) " + (System.currentTimeMillis() - nextTime));
-                    checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : value);
-                    if (TRACE_TIME)
-                        System.err.println("n07.2  (check) " + (System.currentTimeMillis() - nextTime));
-                    checkCldr.getExamples(xpath, isExtraPath ? null : value, examplesResult);
-                }
-                DataSection.DataRow.CandidateItem myItem = null;
-
-                /*
-                 * if(p.attributeChoice != null) { String newValue =
-                 * p.attributeChoice.valueOfXpath(fullPath); //
-                 * System.err.println("ac:"+fullPath+" -> " + newValue); value =
-                 * newValue; }
-                 */
-                if (TRACE_TIME)
-                    System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
-                myItem = p.addItem(value);
-
-                if (false) {
-                    System.err.println("Added item " + value + " - now items=" + p.items.size());
-                }
-                // if("gsw".equals(type)) System.err.println(myItem + " - # " +
-                // p.items.size());
-
-                if (!checkCldrResult.isEmpty()) {
-                    myItem.setTests(checkCldrResult);
-                    // set the parent
-                    checkCldrResult = new ArrayList<CheckStatus>(); // can't
-                    // reuse it
-                    // if
-                    // nonempty
-                }
-
-                if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
-                        && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
-                    // System.err.println("PWF diff: " + xpath + " vs " +
-                    // sourceLocaleStatus.pathWhereFound);
-                    myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
-                    // set up Pod alias-ness
-                    p.aliasFromLocale = sourceLocale;
-                    p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
-                }
-                myItem.inheritFrom = setInheritFrom;
-                if (setInheritFrom == null) {
-                    myItem.isFallback = false;
-                    myItem.isParentFallback = false;
-                }
-                // store who voted for what. [ this could be loaded at
-                // displaytime..]
-                // myItem.votes = sm.vet.gatherVotes(locale, xpath);
-
-                if (!examplesResult.isEmpty()) {
-                    // reuse the same ArrayList unless it contains something
-                    if (myItem.examples == null) {
-                        myItem.examples = new Vector<ExampleEntry>();
-                    }
-                    for (Iterator<?> it3 = examplesResult.iterator(); it3.hasNext();) {
-                        CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
-                        myItem.examples.add(addExampleEntry(new ExampleEntry(this, p, myItem, status)));
-                    }
-                    // myItem.examplesList = examplesResult;
-                    // examplesResult = new ArrayList(); // getExamples will
-                    // clear it.
-                }
-
-                // if ((eRefs != null) && (!isInherited)) {
-                // myItem.references = eRefs;
-                // }
-
             }
-            // aFile.close();
-        } finally {
+
+            CLDRLocale setInheritFrom = (isInherited) ? CLDRLocale.getInstance(sourceLocale) : null;
+
+            // if (isExtraPath) { // No real data items if it's an extra
+            // path.
+            // System.err.println("ExtraPath: "+xpath);
+            // continue;
+            // }
+
+            // ***** Set up Candidate Items *****
+            // These are the items users may choose between
+            //
+            if ((checkCldr != null)/* &&(altProposed == null) */) {
+                if (TRACE_TIME)
+                    System.err.println("n07.1  (check) " + (System.currentTimeMillis() - nextTime));
+                checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : value);
+                if (TRACE_TIME)
+                    System.err.println("n07.2  (check) " + (System.currentTimeMillis() - nextTime));
+                checkCldr.getExamples(xpath, isExtraPath ? null : value, examplesResult);
+            }
+            DataSection.DataRow.CandidateItem myItem = null;
+
+            /*
+             * if(p.attributeChoice != null) { String newValue =
+             * p.attributeChoice.valueOfXpath(fullPath); //
+             * System.err.println("ac:"+fullPath+" -> " + newValue); value =
+             * newValue; }
+             */
+            if (TRACE_TIME)
+                System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
+            myItem = p.addItem(value);
+
+            if (DEBUG) {
+                System.err.println("Added item " + value + " - now items=" + p.items.size());
+            }
+            // if("gsw".equals(type)) System.err.println(myItem + " - # " +
+            // p.items.size());
+
+            if (!checkCldrResult.isEmpty()) {
+                myItem.setTests(checkCldrResult);
+                // set the parent
+                checkCldrResult = new ArrayList<CheckStatus>(); // can't
+                // reuse it
+                // if
+                // nonempty
+            }
+
+            if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
+                    && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+                // System.err.println("PWF diff: " + xpath + " vs " +
+                // sourceLocaleStatus.pathWhereFound);
+                myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+                // set up Pod alias-ness
+                p.aliasFromLocale = sourceLocale;
+                p.aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
+            }
+            myItem.inheritFrom = setInheritFrom;
+            if (setInheritFrom == null) {
+                myItem.isFallback = false;
+                myItem.isParentFallback = false;
+            }
+            // store who voted for what. [ this could be loaded at
+            // displaytime..]
+            // myItem.votes = sm.vet.gatherVotes(locale, xpath);
+
+            if (!examplesResult.isEmpty()) {
+                // reuse the same ArrayList unless it contains something
+                if (myItem.examples == null) {
+                    myItem.examples = new Vector<ExampleEntry>();
+                }
+                for (Iterator<?> it3 = examplesResult.iterator(); it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                    myItem.examples.add(addExampleEntry(new ExampleEntry(this, p, myItem, status)));
+                }
+                // myItem.examplesList = examplesResult;
+                // examplesResult = new ArrayList(); // getExamples will
+                // clear it.
+            }
+
+            // if ((eRefs != null) && (!isInherited)) {
+            // myItem.references = eRefs;
+            // }
+
         }
+        // aFile.close();
     }
 
     void showSection(WebContext ctx, boolean canModify, String only_prefix_xpath, boolean zoomedIn) {

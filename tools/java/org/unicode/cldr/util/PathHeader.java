@@ -676,11 +676,11 @@ public class PathHeader implements Comparable<PathHeader> {
                 Map<PageId, SectionPage> pageToSectionPage = sectionToPageToSectionPage
                         .get(sectionId);
                 if (pageToSectionPage == null) {
-                    return null;
+                    return target;
                 }
                 SectionPage sectionPage = pageToSectionPage.get(page);
                 if (sectionPage == null) {
-                    return null;
+                    return target;
                 }
                 Set<String> set = sectionPageToPaths.getAll(sectionPage);
                 target.addAll(set);

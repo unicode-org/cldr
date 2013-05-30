@@ -2199,31 +2199,31 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     /**
-     * set the session.
+     * set the session. Only call this once.
      */
     public String setSession() {
-        CookieSession.checkForExpiredSessions(); // make room
+        if (request == null && session != null) {
+            return "using canned session"; // already set - for testing
+        }
 
         if(this.session!=null) return "Internal error - session already set.";
+  
+        CookieSession.checkForExpiredSessions(); // If a session has expired, remove it
         
-        String message = null;
-        // get the context
-        CookieSession mySession = null; // new session
-        String myNum = field(SurveyMain.QUERY_SESSION);
-        // get the uid
+        String message = null; // return message, explaining what happened with the session.
+        
+        String myNum = field(SurveyMain.QUERY_SESSION); // s
         String password = field(SurveyMain.QUERY_PASSWORD);
         if (password.isEmpty()) {
             password = field(SurveyMain.QUERY_PASSWORD_ALT);
         }
-        boolean letmein = SurveyMain.vap.equals(field("letmein"));
+        boolean letmein = SurveyMain.vap.equals(field("letmein")); // back door, using master password
         String email = field(SurveyMain.QUERY_EMAIL);
         if ("admin@".equals(email) && SurveyMain.vap.equals(password)) {
-            letmein = true; /*
-                             * don't require the DB password from admin, VAP is
-                             * ok
-                             */
+            letmein = true;
         }
-    
+
+        // if there was an email/password in the cookie, use that.
         {
             String myEmail = getCookieValue(SurveyMain.QUERY_EMAIL);
             String myPassword = getCookieValue(SurveyMain.QUERY_PASSWORD);
@@ -2234,93 +2234,67 @@ public class WebContext implements Cloneable, Appendable {
                 }
             }
         }
+        
         User user = null;
-        // /*srl*/ SurveyLog.logger.warning("isBusted: " + isBusted + ", reg: "
-        // + reg);
-    
-        // SurveyLog.logger.warning("reg.get  pw="+password+", email="+email+", lmi="+ctx.field("letmein")+", lmigood="+vap.equals(ctx.field("letmein")));
-
-        HttpSession httpSession = null;
-        
-        
+        // if an email/password given, try to fetch a user
         try {
             user = CookieSession.sm.reg.get(password, email, userIP(), letmein);
         } catch (LogoutException e) {
-            logout();
+            logout(); // failed login, so logout this session.
         }
         if (user != null) {
-            user.touch();
+            user.touch(); // mark this user as active.
         }
-        // SurveyLog.logger.warning("user= "+user);
+
+        HttpSession httpSession = request.getSession(true); // create httpsession
     
-        if (request == null && session != null) {
-            return "using canned session"; // already set - for testing
+        boolean idFromSession = false; // did the id come from the httpsession? (and why do we care?)
+        
+        if (myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) { // "0"- for testing
+            httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION); 
         }
-        if(request != null) {
-            httpSession = request.getSession(true);
-        }
-    
-        boolean idFromSession = false;
-        if (myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
-            httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
-        }
+        
+        // we just logged in- see if there's already a user session for this user..
         if (user != null) {
-            mySession = CookieSession.retrieveUser(user.email); // is this user already logged in?
-            if (mySession != null) {
-                if (null == CookieSession.retrieve(mySession.id)) { // double check- is the session still valid?
-                    mySession = null; // don't allow dead sessions to show up
+            session = CookieSession.retrieveUser(user.email); // is this user already logged in?
+            if (session != null) {
+                if (null == CookieSession.retrieve(session.id)) { // double check- is the session still valid?
+                    session = null; // don't allow dead sessions to show up
                                       // via the user list.
-                } else {
-                    // already had a session for this user.
-                    myNum = mySession.id;
                 }
             }
         }
     
         // Retreive a number from the httpSession if present
-        if ((httpSession != null) && (mySession == null) && ((myNum == null) || (myNum.length() == 0))) {
+        if ((httpSession != null) && (session == null)) {
             String aNum = (String) httpSession.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
-            if ((aNum != null) && (aNum.length() > 0)) {
-                myNum = aNum;
-                idFromSession = true;
+            if(aNum != null) {
+                session = CookieSession.retrieve(aNum);
+                if(CookieSession.DEBUG_INOUT) {
+                    System.err.println("From httpsession " + httpSession.getId() + " = ST session " + aNum + " = " + session);
+                }
+                if(session == null) {
+                    // user was logged out.
+                    // message = "You were disconnected.."; // doesn't add value, don't bother returning this.
+                }
             }
         }
     
-        if ((mySession == null) && (myNum != null) && (myNum.length() > 0)) {
-            mySession = CookieSession.retrieve(myNum);
-            if (mySession == null) {
-                idFromSession = false;
-            }
-            if ((mySession == null) && (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE))) {
-                if (user == null) {
-//                    message = "You were disconnected.";  //  Don't think this adds any value.
-                }
-                // message = message + ")</i><br>";
-            }
-        }
-        if ((idFromSession == false) && (httpSession != null) && (mySession != null)) { 
-            String aNum = (String) httpSession.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
-            if ((aNum != null) && (mySession.id.equals(aNum))) {
-                idFromSession = true; // it would have matched.
-            } else {
-                // ctx.println("[Confused? cs="+aNum +", s=" + mySession.id +
-                // "]");
-            }
-        }
-        // Can go from anon -> logged in.
-        // can NOT go from one logged in account to another.
-        if ((mySession != null) && (mySession.user != null) && (user != null) && (mySession.user.id != user.id)) {
-            mySession = null; // throw it out.
+        if(session!=null && session.user!=null && user!=null && user.id != session.user.id) {
+            session = null; // user was already logged in as 'session.user', replacing this with 'user'
         }
         
-        if ((mySession==null || user==null)  && 
-                hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL)) {
+        if ((user==null)  && 
+              (  hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL))) {
+            if(CookieSession.DEBUG_INOUT) {
+                System.out.println("Logging out - mySession="+session+",user="+user+", and had em/pw");
+            }
            logout(); // zap cookies if some id/pw failed to work
         }
     
-        if (mySession == null && user == null) {
-            mySession = CookieSession.checkForAbuseFrom(userIP(), SurveyMain.BAD_IPS, request.getHeader("User-Agent"));
-            if (mySession != null) {
+        if (session == null && user == null) {
+            session = CookieSession.checkForAbuseFrom(userIP(), SurveyMain.BAD_IPS, request.getHeader("User-Agent"));
+            if (session != null) {
                 println("<h1>Note: Your IP, " + userIP() + " has been throttled for making " + SurveyMain.BAD_IPS.get(userIP())
                         + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag.</h1>");
                 flush();
@@ -2333,54 +2307,51 @@ public class WebContext implements Cloneable, Appendable {
                 return "Bad IP.";
             }
         }
-        if(false) System.out.println("mySession="+mySession);
-
         
+        if(CookieSession.DEBUG_INOUT) System.out.println("Session Now="+session + ", user="+user);
+
         // guest?
         if(letmein || (user!=null && UserRegistry.userIsTC(user))) {
             // allow in administrator or TC.
-        } else if ((user!=null) && (mySession == null)) { // user trying to log in- 
+        } else if ((user!=null) && (session == null)) { // user trying to log in- 
             if (CookieSession.tooManyUsers()){
                 System.err.println("Refused login for " + email+ " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
                 return "We are swamped with about " + CookieSession.getUserCount() + " people using the SurveyTool right now! Please try back in a little while.";
             }
-        } else if (mySession==null || (mySession.user==null)) { // guest user
+        } else if (session==null || (session.user==null)) { // guest user
             if(CookieSession.tooManyGuests()) {
-                if(mySession!=null) {
-                    System.err.println("Logged-out guest  " + mySession.id + " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
-                    mySession.remove(); // remove guests at this point
+                if(session!=null) {
+                    System.err.println("Logged-out guest  " + session.id + " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
+                    session.remove(); // remove guests at this point
+                    session  = null;
                 }
                 logout(); // clear session cookie
                 return "We have too many people browsing the CLDR Data on the Survey Tool. Please try again later when the load has gone down.";
             }
         }
-        
-        
-        
-        if(mySession==null) {
-            mySession = CookieSession.newSession(user == null, userIP(), httpSession.getId());
+
+        // New up a session, if we don't already have one.
+        if(session==null) {
+            session = CookieSession.newSession(user == null, userIP(), httpSession.getId());
             if (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
                 // ctx.println("New session: " + mySession.id + "<br>");
             }
-            idFromSession = false;
         }
-        session = mySession;
-    
-        if (!idFromSession) { // suppress 's' if cookie was valid
-            addQuery(SurveyMain.QUERY_SESSION, mySession.id);
+
+        // should we add "&s=.#####" to the URL?
+        if (httpSession.isNew()) { // If it's a new session..
+            addQuery(SurveyMain.QUERY_SESSION+"__", session.id);
         } else {
             // ctx.println("['s' suppressed]");
         }
     
-        if (httpSession != null) {
-            httpSession.setAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION, mySession.id);
-            //httpSession.setMaxInactiveInterval(CookieSession.Params.CLDR_USER_TIMEOUT.value() / 1000);
-            httpSession.setMaxInactiveInterval(-1);
-        }
-    
+        // store the session id in the HttpSession
+        httpSession.setAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION, session.id);
+        //httpSession.setMaxInactiveInterval(CookieSession.Params.CLDR_USER_TIMEOUT.value() / 1000);
+        httpSession.setMaxInactiveInterval(-1); // never expire
+
         if (user != null) {
-            session.setUser(user); // this will replace any existing session
-                                       // by this user.
+            session.setUser(user); // this will replace any existing session by this user.
             session.user.ip = userIP();
         } else {
             if ((email != null) && (email.length() > 0) && (session.user == null)) {
@@ -2390,12 +2361,13 @@ public class WebContext implements Cloneable, Appendable {
                         "' id='notselected'>Forgot&nbsp;Password?</a><br>";
             }
         }
-        if (mySession != null && mySession.user != null) {
+        // processs the 'remember me'
+        if (session != null && session.user != null) {
             if(hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
                 if(SurveyMain.isUnofficial()) {
-                    System.out.println("Remembering user: " + mySession.user);
+                    System.out.println("Remembering user: " + session.user);
                 }
-                loginRemember(mySession.user);
+                loginRemember(session.user);
             }
          }   
         return message;
@@ -2418,6 +2390,9 @@ public class WebContext implements Cloneable, Appendable {
         HttpSession session = request.getSession(false); // dont create
         if(session!=null) {
             String sessionId = (String)session.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
+            if(CookieSession.DEBUG_INOUT) {
+                System.err.println("logout() of session " + session.getId() + " and cookieSession " + sessionId);
+            }
             if(sessionId!=null) {
                 CookieSession sess = CookieSession.retrieveWithoutTouch(sessionId);
                 if(sess != null) {

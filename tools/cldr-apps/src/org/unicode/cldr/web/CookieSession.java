@@ -35,7 +35,7 @@ import org.unicode.cldr.util.StandardCodes;
  * per-user basis. Instances are typically held by WebContext.session.
  */
 public class CookieSession {
-    private static final boolean DEBUG_INOUT = false;
+    static final boolean DEBUG_INOUT = true;
     public String id;
     public String ip;
     public Hashtable<String, Object> stuff = new Hashtable<String, Object>(); // user data
@@ -216,14 +216,14 @@ public class CookieSession {
         } else {
             id = fromId;
         }
-        touch();
+        if(DEBUG_INOUT) System.out.println("S: new " + id + " - " + user);
         synchronized (gHash) {
             if(gHash.contains(id)) {
                 System.err.println("CookieSession.CookieSession() - dup id " + id);
             }
             gHash.put(id, this);
+            touch();
         }
-        if(DEBUG_INOUT) System.out.println("S: new " + id + " - " + user);
     }
 
     public static CookieSession newSession(boolean isGuest, String ip, String fromId) {

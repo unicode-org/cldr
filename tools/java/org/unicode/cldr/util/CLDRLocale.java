@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import com.ibm.icu.text.LocaleDisplayNames;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -140,7 +141,12 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         
         @Override
         public String getDisplayName(CLDRLocale cldrLocale) {
-            if(file!=null) return file.getName(cldrLocale.toLanguageTag());
+            if(file!=null) return file.getName(cldrLocale.toLanguageTag(), true, null);
+            return super.getDisplayName(cldrLocale);
+        }
+
+        public String getDisplayName(CLDRLocale cldrLocale, boolean onlyConstructCompound, Transform<String, String> altPicker) {
+            if(file!=null) return file.getName(cldrLocale.toLanguageTag(), onlyConstructCompound, altPicker);
             return super.getDisplayName(cldrLocale);
         }
 

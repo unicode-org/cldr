@@ -2226,7 +2226,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return getName(localeOrTZID, onlyConstructCompound, null);
     }
     
-    public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound,
+    /**
+     * For use in getting short names.
+     */
+    public static final Transform<String, String> SHORT_ALTS = new Transform<String, String>() {
+        public String transform(String source) {
+          return "short";
+        }
+      };
+
+      /**
+       * Returns the name of the given bcp47 identifier. Note that extensions must
+       * be specified using the old "\@key=type" syntax.
+       * @param localeOrTZID the locale or timezone ID
+       * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British English"
+       * @param altPicker Used to select particular alts. For example, SHORT_ALTS can be used to get "English (U.K.)"
+       * instead of "English (United Kingdom)"
+       * @return
+       */
+    public synchronized String getName(String localeOrTZID, 
+            boolean onlyConstructCompound,
             Transform<String,String> altPicker) {
         return getName(localeOrTZID, onlyConstructCompound,
                 getWinningValue("//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),

@@ -36,6 +36,7 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 
 /**
  * Provides access to various codes used by CLDR: RFC 3066, ISO 4217, Olson
@@ -372,27 +373,45 @@ public class StandardCodes {
         return platform_locale_level;
     }
 
+    public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
+        return getLocaleCoverageLevel(organization, desiredLocale, new Output<LocaleCoverageType>());
+    }
+    
+    public enum LocaleCoverageType {explicit, parent, star, undetermined}
+    
     /**
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
      * A locale of "*" in the data means "everything else".
      */
-    public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
+    public Level getLocaleCoverageLevel(String organization, String desiredLocale, Output<LocaleCoverageType> coverageType) {
         synchronized (StandardCodes.class) {
             if (platform_locale_level == null) {
                 loadPlatformLocaleStatus();
             }
         }
-        if (organization == null) return Level.UNDETERMINED;
+        coverageType.value = LocaleCoverageType.undetermined;
+        if (organization == null) {
+            return Level.UNDETERMINED;
+        }
         Map<String, Level> locale_status = platform_locale_level.get(organization);
-        if (locale_status == null) return Level.UNDETERMINED;
+        if (locale_status == null) {
+            return Level.UNDETERMINED;
+        }
         // see if there is a parent
+        String originalLocale = desiredLocale;
         while (desiredLocale != null) {
             Level status = locale_status.get(desiredLocale);
-            if (status != null && status != Level.UNDETERMINED) return status;
+            if (status != null && status != Level.UNDETERMINED) {
+                coverageType.value = originalLocale == desiredLocale ? LocaleCoverageType.explicit : LocaleCoverageType.parent; 
+                return status;
+            }
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
         }
         Level status = locale_status.get("*");
-        if (status != null && status != Level.UNDETERMINED) return status;
+        if (status != null && status != Level.UNDETERMINED) {
+            coverageType.value = LocaleCoverageType.star;
+            return status;
+        }
         return Level.UNDETERMINED;
     }
 

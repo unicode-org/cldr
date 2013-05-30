@@ -1009,6 +1009,23 @@ public class PathHeader implements Comparable<PathHeader> {
                     return catFromTerritory.transform(territory);
                 }
             });
+            functionMap.put("timezoneSorting", new Transform<String, String>() {
+                public String transform(String source) {
+                    final List<String> codeValues = Arrays.asList(
+                            "generic-long", 
+                            "generic-short", 
+                            "standard-long", 
+                            "standard-short", 
+                            "daylight-long", 
+                            "daylight-short");
+                    if (codeValues.contains(source)) {
+                        order = codeValues.indexOf(source);
+                    } else {
+                        order = codeValues.size();
+                    }
+                    return source;
+                }
+            });
             functionMap.put("metazone", new Transform<String, String>() {
 
                 public String transform(String source) {

@@ -15,7 +15,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			available at <http://www.itu.int/opb/publications.aspx?parent=T-SP&view=T-SP2>
 		2.	World Telephone Numbering Guide <http://www.wtng.info/>
 		
-		Special cases below: 001, AC, AQ, AS, GU, PS, VA, YT
+		Special cases below: 001, AC, AQ, AS, GU, PS, VA, XK, YT
 		Unknown telephoneCountryCode for territories: BV, EH, GS, HM, MF, PN, UM
 		-->
 	
@@ -799,6 +799,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<codesByTerritory territory="WS">	<!-- Samoa -->
 			<telephoneCountryCode code="685"/>
 		</codesByTerritory>
+        <codesByTerritory territory="XK">   <!-- Kosovo -->
+            <telephoneCountryCode code="377"/> <!-- mobile phone networks -->
+            <telephoneCountryCode code="381"/> <!--  official (Serbia), used for landlines -->
+            <telephoneCountryCode code="386"/> <!--  mobile phone networks, partial (Slovenia) -->
+        </codesByTerritory>
 		<codesByTerritory territory="YE">	<!-- Yemen -->
 			<telephoneCountryCode code="967"/>	<!-- (originally just for Yemen Arab Republic, before merge) -->
 		</codesByTerritory>

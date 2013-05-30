@@ -1026,6 +1026,16 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
+            
+            functionMap.put("numericSort", new Transform<String, String>() {
+                // Probably only works well for small values, like -5 through +4.
+                public String transform(String source) {
+                    Integer pos = Integer.valueOf(source)+5;
+                    suborder = new SubstringOrder(pos.toString());
+                    return source;
+                }
+            });
+            
             functionMap.put("metazone", new Transform<String, String>() {
 
                 public String transform(String source) {

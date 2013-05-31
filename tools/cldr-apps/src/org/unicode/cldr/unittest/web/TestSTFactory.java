@@ -319,8 +319,16 @@ public class TestSTFactory extends TestFmwk {
         final XPathParts xpp2 = new XPathParts(null, null);
         final Map<String, String> attrs = new TreeMap<String, String>();
         final Map<String, UserRegistry.User> users = new TreeMap<String, UserRegistry.User>();
+        final Map<String,String> vars = new TreeMap<String,String>();
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
             public void handlePathValue(String path, String value) {
+                
+                if(value!=null && value.startsWith("$")) {
+                    String varName = value.substring(1);
+                    value = vars.get(varName);
+                    logln(" $"+varName+" == '"+value+"'");
+                }
+                
                 xpp.clear();
                 xpp.initialize(path);
                 attrs.clear();
@@ -356,6 +364,12 @@ public class TestSTFactory extends TestFmwk {
                         logln(name + " = " + u);
                         users.put(name, u);
                     }
+                } else if (elem.equals("setvar")) {
+                    final String id = attrs.get("id");
+                    final CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                    final String xvalue = fac.make(locale, true).getStringValue(xpath);
+                    vars.put(id, xvalue);
+                    logln("$"+id+" = '"+xvalue+"' from " + locale+":"+xpath);
                 } else if (elem.equals("vote") || elem.equals("unvote")) {
                     UserRegistry.User u = users.get(attrs.get("name"));
                     if (u == null) {

@@ -539,6 +539,54 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         // }
 
         /**
+         * Utility class for testing values
+         * @author srl
+         *
+         */
+        private class ValueChecker {
+            private final String path;
+            HashSet<String> allValues = new HashSet<String>(8); // 16 is
+            // probably too
+            // many values
+            HashSet<String> badValues = new HashSet<String>(8); // 16 is
+                        // probably too
+                        // many values
+            
+            LinkedList<CheckCLDR.CheckStatus> result = null;
+            TestResultBundle testBundle = null;
+
+            ValueChecker(String path) {
+                this.path = path;
+            }
+            
+            boolean canUseValue(String value) {
+                if(value==null || allValues.contains(value)) {
+                    return true;
+                } else if(badValues.contains(value)) {
+                    return false;
+                } else {
+                    if(testBundle==null) {
+                        testBundle = getDiskTestBundle(locale);
+                        result = new LinkedList<CheckCLDR.CheckStatus>();
+                    } else {
+                        result.clear();
+                    }
+                    
+                    testBundle.check(path, result, value);
+                    if(false)  System.out.println("Checking result of " + path + " = " + value + " := haserr " + CheckCLDR.CheckStatus.hasError(result));
+                    if (CheckCLDR.CheckStatus.hasError(result)) {
+                        badValues.add(value);
+                        return false;
+                    } else {
+                        allValues.add(value);
+                        return true; // OK
+                    }
+                }
+            }
+            
+        }
+        
+        /**
          * Create or update a VoteResolver for this item
          * 
          * @param userToVoteMap
@@ -559,12 +607,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.clear(); // reuse
             }
 
-            HashSet<String> allValues = new HashSet<String>(8); // 16 is
-                                                                // probably too
-                                                                // many values
-            HashSet<String> badValues = new HashSet<String>(8); // 16 is
-                                                                // probably too
-                                                                // many values
+            ValueChecker vc = new ValueChecker(path);
 
             // Set established locale
             r.setEstablishedFromLocale(locale);
@@ -577,56 +620,29 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // set prior release (if present)
             final String lastValue = anOldFile.getStringValue(path);
             final Status lastStatus = getStatus(anOldFile, path, lastValue);
-            if (lastValue != null) {
-                allValues.add(lastValue);
+            if(vc.canUseValue(lastValue)) {
+                r.setLastRelease(lastValue, lastValue == null ? Status.missing : lastStatus); /* add the last release value */
+            } else {
+                r.setLastRelease(null, Status.missing); /* missing last release value  due to error. */
             }
-            r.setLastRelease(lastValue, lastValue == null ? Status.missing : lastStatus); /*
-                                                                                           * add
-                                                                                           * the
-                                                                                           * last
-                                                                                           * release
-                                                                                           * value
-                                                                                           */
 
             // set current Trunk value (if present)
             final String currentValue = diskData.getValueAtDPath(path);
             final Status currentStatus = getStatus(diskFile, path, currentValue);
-            if (currentValue != null) {
-                allValues.add(currentValue);
-                r.setTrunk(currentValue, currentValue == null ? Status.missing : currentStatus); /*
-                                                                                                  * add
-                                                                                                  * the
-                                                                                                  * current
-                                                                                                  * value
-                                                                                                  * .
-                                                                                                  */
+            if (vc.canUseValue(currentValue)) {
+                r.setTrunk(currentValue, currentStatus);
+                r.add(currentValue);
             }
-            r.add(currentValue);
 
             // add each vote
             if (userToVoteMap != null && !userToVoteMap.isEmpty()) {
-                TestResultBundle q = null;
                 for (Map.Entry<User, String> e : userToVoteMap.entrySet()) {
                     String v = e.getValue();
 
-                    if (badValues.contains(v))
-                        continue;
-
-                    if (!allValues.contains(v)) {
-                        if (q == null) {
-                            q = getDiskTestBundle(locale);
-                        }
-                        LinkedList<CheckCLDR.CheckStatus> result = new LinkedList<CheckCLDR.CheckStatus>();
-                        q.check(path, result, v);
-                        if(false)  System.out.println("Checking result of " + path + " = " + v + " := haserr " + CheckCLDR.CheckStatus.hasError(result));
-                        if (CheckCLDR.CheckStatus.hasError(result)) {
-                            badValues.add(v);
-                            continue; // skip this value
-                        }
+                    if(vc.canUseValue(v)) {
+                        r.add(v, // user's vote
+                                e.getKey().id); // user's id
                     }
-                    allValues.add(v);
-                    r.add(v, // user's vote
-                            e.getKey().id); // user's id
                 }
             }
             return r;

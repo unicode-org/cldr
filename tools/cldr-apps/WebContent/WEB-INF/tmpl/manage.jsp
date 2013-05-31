@@ -19,7 +19,7 @@ String helpName = subCtx.getString("helpName");
         if(subCtx.session.user != null)  {
             boolean haveCookies = (subCtx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&subCtx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
             if(!haveCookies && !subCtx.hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
-                subCtx.println(" <a class='notselected' href='"+subCtx.url()+subCtx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'><b>Remember Me!</b></a>");
+                subCtx.println(" <a class='notselected' href='"+subCtx.url()+subCtx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'><b>Log me in automatically next time</b></a>");
             }
             SurveyMain.printMenu(subCtx, doWhat, "listu", "My&nbsp;Account", SurveyMain.QUERY_DO);
             %>

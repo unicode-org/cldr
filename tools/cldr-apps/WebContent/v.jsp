@@ -39,6 +39,7 @@ if(SurveyMain.isBusted!=null) {
                   </script>
     </head>
     <body>
+        <img src="<%= request.getContextPath() %>/STLogo.png" align=right>
         <div id='st_err'></div>
         <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
         
@@ -55,16 +56,19 @@ if(SurveyMain.isBusted!=null) {
             </h1></noscript>
               If you are not redirected in a few seconds, you can click: <a id='redir' href='<%= url %>'>here</a> to retry, or <a id='redir2' href='<%= survURL %>'>here</a>.
               <script type="application/javascript">
-                            document.getElementById("redir").href = '<%= url %>' + document.location.search +  document.location.hash;
-
-                               dojo.ready(function(){
+              var newUrl = '<%= url %>' + document.location.search +  document.location.hash;
+              var survURL = '<%= survURL %>';
+                            document.getElementById("redir").href = newUrl;
+                           var dstatus = document.getElementById('st_err');
+                           dstatus.appendChild(document.createElement('br'));
+                           dstatus.appendChild(document.createTextNode('.'));
+                           dojo.ready(function(){
+                               dstatus.appendChild(document.createTextNode('.'));
                             	   window.setTimeout(function(){
-                            		    document.write('<title>CLDR SurveyTool | Please Wait..</title>');
-                            		    document.write('    <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />');
-                            		    document.write('<img src="<%= request.getContextPath() %>/STLogo.png" align=right>');
-                            		    document.write('<h1>CLDR SurveyTool | Please Wait</h1><hr>');
-                            		    document.write('<i class="loadingMsg">Loading…</i>');
-                            		    dojo.xhrGet({url: '<%= survURL %>', load: function() {   window.location.reload(true); if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
+                                       dstatus.appendChild(document.createTextNode('.'));
+                            		    dojo.xhrGet({url: survURL, load: function(data) {   
+                            		        dstatus.appendChild(document.createTextNode('Loaded  '+data.length + ' bytes from SurveyTool. Reloading this page..')); window.location.reload(true);
+                            		        if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
                             	   }, 2000);
                            	   });
 
@@ -174,7 +178,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
             Back to Locales
         </button>
         <button id='ariRetryBtn'  data-dojo-type="dijit/form/Button" type="button" onClick="ariRetry()">
-            <b>Try Again</b>
+            <b>Reload</b>
         </button>
     </div>
 </div>

@@ -62,7 +62,7 @@ String helpName = ctx.getString("helpName");
     		ctx.println("<span class='user_email'>&lt;"+ctx.session.user.email + "&gt;</span> <span class='user_name'>"+ctx.session.user.name +
     		        "</span> <span class='user_org'>(" + ctx.session.user.org + ")</span> ");
     		if(!haveCookies && !ctx.hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
-    			ctx.println(" <a class='notselected' href='"+ctx.url()+ctx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'><b>Remember Me!</b></a>");
+    			ctx.println(" <a class='notselected' href='"+ctx.url()+ctx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'><b>Log me in automatically next time</b></a>");
     		}
     		ctx.print(" | ");
     		String cookieMessage = haveCookies?"<!-- and Forget Me-->":"";

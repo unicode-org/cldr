@@ -13,7 +13,7 @@
    	  <div id='small_login_show' class='small_login_hot'>
 		<label for="email"> Email:</label><input id="email" name="email" /> <br/>
         <label for="pw"> Password:</label> <input id="pw" type="password"            name="pw" /> <br/>
-        <label for="save_cook"> Keep Me Logged In?</label> <input id="<%= SurveyMain.QUERY_SAVE_COOKIE %>" type="checkbox"            name="save_cookie" /> <br/>
+        <label for="save_cook"> Log me in automatically next time?</label> <input id="<%= SurveyMain.QUERY_SAVE_COOKIE %>" type="checkbox"            name="save_cookie" /> <br/>
 		<%-- to allow non-JS login simply add:
 		
 					<input type="submit" value="Login" />

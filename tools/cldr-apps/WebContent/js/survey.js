@@ -3286,15 +3286,16 @@ function showV() {
 		
 		
 		window.ariRetry = function() {
-			if(didUnbust) {
+//			if(didUnbust) {
+				ariDialog.hide();
 				flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_reloading"), "i", "loadingMsg"));
 				window.location.reload(true);
-			} else {
-				flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_retrying"), "i", "loadingMsg"));
-				unbust(); // low level unbust
-				ariDialog.hide(); // hide abort, retry, ignore dialog
-				reloadV(); // may end right up busted, but oh well
-			}
+//			} else {
+//				flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_retrying"), "i", "loadingMsg"));
+//				unbust(); // low level unbust
+//				ariDialog.hide(); // hide abort, retry, ignore dialog
+//				reloadV(); // may end right up busted, but oh well
+//			}
 		};
 		
 		window.showARIDialog = function(why, json, word, oneword, p) {

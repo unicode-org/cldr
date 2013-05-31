@@ -961,6 +961,86 @@ public class PathHeader implements Comparable<PathHeader> {
                     return result != null ? result : UCharacter.toTitleCase(source, null);
                 }
             });
+
+            functionMap.put("calField", new Transform<String, String>() {
+                public String transform(String source) {
+                    String[] fields = source.split(":",3);
+                    order = 0;
+                    final List<String> widthValues = Arrays.asList(
+                            "wide", "abbreviated", "short", "narrow");
+                    final List<String> calendarFieldValues = Arrays.asList(
+                            "Eras", 
+                            "Quarters", 
+                            "Months", 
+                            "Days", 
+                            "DayPeriods",
+                            "Formats");
+                    final List<String> calendarFormatTypes = Arrays.asList(
+                            "Standard", 
+                            "Flexible", 
+                            "Intervals");
+                    final List<String> calendarContextTypes = Arrays.asList(
+                            "none", 
+                            "format", 
+                            "stand-alone");
+                    final List<String> calendarFormatSubtypes = Arrays.asList(
+                            "date", 
+                            "time", 
+                            "dateTime",
+                            "fallback");
+
+                    Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
+                            .put("DayPeriods", "Day Periods")
+                            .put("format", "Formatting Context")
+                            .put("stand-alone", "Standalone Context")
+                            .put("none", "")
+                            .put("date", "Date Formats")
+                            .put("time", "Time Formats")
+                            .put("dateTime", "Date & Time Combination Formats")
+                            .freeze();
+
+                    if (calendarFieldValues.contains(fields[0])) {
+                        order = calendarFieldValues.indexOf(fields[0]) * 100;
+                    } else {
+                        order = calendarFieldValues.size() * 100;
+                    }
+                    
+                    if (fields[0].equals("Formats")) {
+                        if (calendarFormatTypes.contains(fields[1])) {
+                            order += calendarFormatTypes.indexOf(fields[1]) * 10;
+                        } else {
+                            order += calendarFormatTypes.size() * 10;    
+                        }
+                        if (calendarFormatSubtypes.contains(fields[2])) {
+                            order += calendarFormatSubtypes.indexOf(fields[2]);
+                        } else {
+                            order += calendarFormatSubtypes.size();    
+                        }
+                    } else {
+                        if (widthValues.contains(fields[1])) {
+                            order += widthValues.indexOf(fields[1]) * 10;
+                        } else {
+                            order += widthValues.size() * 10;    
+                        }                        
+                        if (calendarContextTypes.contains(fields[2])) {
+                            order += calendarContextTypes.indexOf(fields[2]);
+                        } else {
+                            order += calendarContextTypes.size();    
+                        }                        
+                    }   
+
+                    String [] fixedFields = new String[fields.length];
+                    for (int i = 0 ; i < fields.length ; i++) {
+                        String s = fixNames.get(fields[i]);
+                        fixedFields[i] = s != null ? s : fields[i];
+                    }
+                   
+                    return fixedFields[0] + 
+                            " - " + fixedFields[1] + 
+                            (fixedFields[2].length() > 0 ? " - " + fixedFields[2] : "");
+                }
+            });
+
             functionMap.put("titlecase", new Transform<String, String>() {
                 public String transform(String source) {
                     return UCharacter.toTitleCase(source, null);

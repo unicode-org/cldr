@@ -141,7 +141,7 @@ define({
 		pClass_fallback_code: "This item is an untranslated code.",
 		pClass_fallback_root: "This item is inherited from the root locale.",
 		pClass_loser: "This is a proposed item which is not currently winning.",
-		pClass_fallback: "This item is inherited from ${inheritFromDisplay}.",
+		pClass_fallback: "This item is inherited.", //  ${inheritFromDisplay}.", - removed in r8801
 		pClassExplain_desc: "This area shows the item's status.",
 
 		xpath_desc: "This is the XPath denoting the currently clicked item. For more information, see http://cldr.unicode.org (click to select)",

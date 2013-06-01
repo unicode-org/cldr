@@ -15,11 +15,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST user name NMTOKEN #REQUIRED>
 <!ATTLIST user org CDATA #REQUIRED>
 <!ATTLIST user level NMTOKEN #REQUIRED>
+<!ATTLIST user locales CDATA #REQUIRED>
 
 <!ELEMENT vote (#PCDATA) >
 <!ATTLIST vote locale CDATA #REQUIRED>
 <!ATTLIST vote xpath CDATA #REQUIRED>
 <!ATTLIST vote name NMTOKEN #REQUIRED>
+<!ATTLIST vote exception ( true | false ) #IMPLIED>
 
 <!ELEMENT unvote EMPTY >
 <!ATTLIST unvote locale CDATA #REQUIRED>

@@ -2,15 +2,34 @@
 <!DOCTYPE TestSTFactory SYSTEM "TestSTFactory.dtd">
 <TestSTFactory>
     	<!--  these items are read sequentially.  -->
-	
+
+    <echo> test permission  </echo>
+    <setvar id="af_fr" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" />
+    <setvar id="en_fr" locale="en" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" />
+    <setvar id="de_fr" locale="de" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" />
+    
+    <verify status="approved" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >$af_fr</verify>
+    <verify status="approved" locale="en" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >$en_fr</verify>
+    <verify status="approved" locale="de" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >$de_fr</verify>
+
+    <user name="v_af_only" org="afrigen" level="vetter" locales="af"/>
+    <user name="tc_af_only" org="afrigen" level="tc" locales="af"/>
+    
+    <vote exception="true" name="v_af_only" locale="de" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">the price of tea in china</vote>
+    <verify status="approved" locale="de" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >$de_fr</verify>
+    <vote exception="false" name="v_af_only" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">the price of tea in china</vote>
+    <verify status="approved" locale="af" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >the price of tea in china</verify>
+    <vote exception="false" name="tc_af_only" locale="el" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']">the price of tea in greece</vote>
+    <verify status="approved" locale="el" xpath="//ldml/localeDisplayNames/languages/language[@type='fr']" >the price of tea in greece</verify>
+    	
 	<!--  the 'name' is the real name of the user, and is also used as a handle later. 
 		 level can be any member of VoteResolver.Level and org is any of VoteResolver.Organization  -->
 	<echo>setting up users</echo>
-	<user name="A" org="afrigen" level="vetter"/>
-	<user name="B" org="breton" level="vetter"/>
-    <user name="C" org="cherokee" level="vetter"/>
-    <user name="D" org="guest" level="street"/>
-    <user name="E" org="afrigen" level="tc"/>
+	<user name="A" org="afrigen" level="vetter" locales="*"/>
+	<user name="B" org="breton" level="vetter" locales="*"/>
+    <user name="C" org="cherokee" level="vetter" locales="*"/>
+    <user name="D" org="guest" level="street" locales="*"/>
+    <user name="E" org="afrigen" level="tc" locales="*"/>
     
     	
 	<!--  Vote for an item. We choose und to avoid other conflicting data.  --> 
@@ -85,5 +104,7 @@
     <verify status="contributed" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">$oldSeparatorPattern</verify>
     <vote name="E" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">{1} na {0}</vote>
     <verify status="approved" locale="zh_Hant" xpath="//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator">{1} na {0}</verify>
-	
+
+    
+    
 </TestSTFactory>

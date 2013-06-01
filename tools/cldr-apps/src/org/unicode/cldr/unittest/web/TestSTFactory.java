@@ -344,6 +344,7 @@ public class TestSTFactory extends TestFmwk {
                 if (elem.equals("user")) {
                     String name = attrs.get("name");
                     String org = attrs.get("org");
+                    String locales = attrs.get("locales");
                     VoteResolver.Level level = VoteResolver.Level.valueOf(attrs.get("level").toLowerCase());
 
                     String email = name + "@" + org + ".example.com";
@@ -355,7 +356,8 @@ public class TestSTFactory extends TestFmwk {
                         proto.org = org;
                         proto.password = fac.sm.reg.makePassword(proto.email);
                         proto.userlevel = level.getSTLevel();
-
+                        proto.locales = UserRegistry.normalizeLocaleList(locales);
+                        System.err.println("locale list was  " + proto.locales);
                         u = fac.sm.reg.newUser(null, proto);
                     }
                     if (u == null) {
@@ -379,14 +381,29 @@ public class TestSTFactory extends TestFmwk {
                     CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     value = value.trim();
+                    boolean needException = false;
+                    if(attrs.containsKey("exception") && attrs.get("exception").equals("true")) {
+                        needException = true;
+                    }
                     if (elem.equals("unvote")) {
                         value = null;
                     }
                     try {
                         box.voteForValue(u, xpath, value);
+                        if(needException) {
+                            errln("Expected exceptoin, didn't get one");
+                        }
                     } catch (InvalidXPathException e) {
                         // TODO Auto-generated catch block
                         errln("Error: invalid xpath exception " + xpath  + " : " + e);
+                    } catch (IllegalArgumentException iae) {
+                        if(needException == true) {
+                            logln("Caught expected: " + iae);
+                        } else {
+                            iae.printStackTrace();
+                            errln("Unexpected exceptoin: " + iae);
+                            throw iae;
+                        }
                     }
                     logln(u + " " + elem + "d for " + xpath + " = " + value);
                 } else if (elem.equals("verify")) {

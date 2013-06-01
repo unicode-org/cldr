@@ -70,11 +70,26 @@ import com.ibm.icu.util.ULocale;
 public class UserRegistry {
 
     /**
-     * THrown to indicate the caller should log out.
+     * Special constant for specifying access to all locales.
+     */
+    public static final String ALL_LOCALES = "*";
+    public static final String ALL_LOCALES_LIST[] = {ALL_LOCALES}; 
+    /**
+     * Special constant for specifying access to no locales. Used with intlocs (not with locale access)
+     */
+    public static final String NO_LOCALES = "none";
+
+    /**
+     * Thrown to indicate the caller should log out.
      * @author srl
      *
      */
     public class LogoutException extends Exception {
+
+        /**
+         * 
+         */
+        private static final long serialVersionUID = 8960959307439428532L;
 
     }
 
@@ -283,7 +298,7 @@ public class UserRegistry {
         }
 
         public String toString() {
-            return email + "(" + org + ")-" + levelAsStr(userlevel) + "#" + userlevel + " - " + name;
+            return email + "(" + org + ")-" + levelAsStr(userlevel) + "#" + userlevel + " - " + name + ", locs="+locales;
         }
 
         public String toHtml(User forUser) {
@@ -328,18 +343,25 @@ public class UserRegistry {
                 if (intlocs == null || intlocs.length() == 0) {
                     return null;
                 } else {
-                    if (intlocs.equals("none")) {
+                    if (intlocs.equalsIgnoreCase(NO_LOCALES)) {
                         return new String[0];
                     }
+                    if(isAllLocales(intlocs)) return null; // all = null
                     return tokenizeLocale(intlocs);
                 }
             } else if (userIsStreet(this)) {
+                if(isAllLocales(locales)) return null; // all = null
                 return tokenizeLocale(locales);
             } else {
                 return new String[0];
             }
         }
 
+        /**
+         * @deprecated CLDR15 was a while ago.
+         * @param locale
+         * @return
+         */
         public final boolean userIsSpecialForCLDR15(CLDRLocale locale) {
             return false;
         }
@@ -365,8 +387,10 @@ public class UserRegistry {
             VoteResolver.Organization o = this.getOrganization();
             VoteResolver.Level l = this.getLevel();
             Set<String> localesSet = new HashSet<String>();
-            for (String s : tokenizeLocale(locales)) {
-                localesSet.add(s);
+            if(!isAllLocales(locales)) {
+                for (String s : tokenizeLocale(locales)) {
+                    localesSet.add(s);
+                }
             }
             VoterInfo v = new VoterInfo(o, l, this.name, localesSet);
             return v;
@@ -712,7 +736,7 @@ public class UserRegistry {
                     u.email = rs.getString(3);
                     u.userlevel = rs.getInt(4);
                     u.intlocs = rs.getString(5);
-                    u.locales = rs.getString(6);
+                    u.locales = normalizeLocaleList(rs.getString(6));
                     u.last_connect = rs.getTimestamp(7);
                     u.password = rs.getString(8);
                     // queryIdStmt =
@@ -828,7 +852,7 @@ public class UserRegistry {
             }
             // First, try to query it back from the DB.
             rs = pstmt.executeQuery();
-            if (!rs.next()) {
+            if (!rs.next()) { // user was not found.
                 throw new UserRegistry.LogoutException();
             }
             User u = new UserRegistry.User(rs.getInt(1));
@@ -986,11 +1010,34 @@ public class UserRegistry {
         }
     }
 
-    static String normalizeLocaleList(String list) {
+    /**
+     * validate an interest locale list. 
+     * @param list
+     * @return
+     */
+    static String validateIntlocList(String list) {
         list = list.trim();
+        StringBuilder sb = new StringBuilder();
+        for (CLDRLocale l : tokenizeValidCLDRLocale(list)) {
+            if (sb.length() > 0) {
+                sb.append(' ');
+            }
+            sb.append(l.getBaseName());
+        }
+        return sb.toString();
+    }
+
+    public static String normalizeLocaleList(String list) {
+        if(list==null) {
+            return "";
+        }
+        list = list.trim();
+        if(list.contains(ALL_LOCALES)) {
+            return ALL_LOCALES;
+        }
         if (list.length() > 0) {
-            if (list.equals("none")) {
-                return "none";
+            if (list.equals(NO_LOCALES)) {
+                return "";
             }
             Set<String> s = new TreeSet<String>();
             for (String l : UserRegistry.tokenizeLocale(list)) {
@@ -1101,23 +1148,15 @@ public class UserRegistry {
     }
 
     String setLocales(WebContext ctx, int theirId, String theirEmail, String newLocales, boolean intLocs) {
-        if (!intLocs && !ctx.session.user.isAdminFor(getInfo(theirId))) { // Note-
-                                                                          // we
-                                                                          // dont'
-                                                                          // check
-                                                                          // that
-                                                                          // a
-                                                                          // TC
-                                                                          // isn't
-                                                                          // modifying
-                                                                          // an
-                                                                          // Admin's
-                                                                          // locale.
+        if (!intLocs && !ctx.session.user.isAdminFor(getInfo(theirId))) { // will make sure other user is at or below userlevel
             return ("[Permission Denied]");
         }
 
-        newLocales = normalizeLocaleList(newLocales);
-
+        if(!intLocs) {
+            newLocales = normalizeLocaleList(newLocales);
+        } else {
+            newLocales = validateIntlocList(newLocales);
+        }
         String orgConstraint = null;
         String msg = "";
         if (ctx.session.user.userlevel == ADMIN) {
@@ -1128,7 +1167,7 @@ public class UserRegistry {
         Connection conn = null;
         PreparedStatement ps = null;
         try {
-            String normalizedLocales = validateLocaleList(newLocales);
+            final String normalizedLocales = newLocales;
             conn = DBUtils.getInstance().getDBConnection();
             String theSql = "UPDATE " + CLDR_USERS + " SET " + (intLocs ? "intlocs" : "locales") + "=? WHERE id=" + theirId
                     + " AND email='" + theirEmail + "' " + orgConstraint;
@@ -1288,7 +1327,7 @@ public class UserRegistry {
             updateInfoStmt.setInt(2, theirId);
             updateInfoStmt.setString(3, theirEmail);
 
-            logger.info("Attempt user UPDATE by " + ctx.session.user.email + ": " + type.toString() + " = " + value);
+            logger.info("Attempt user UPDATE by " + ctx.session.user.email + ": " + type.toString() + " = " +  ((type!=InfoType.INFO_PASSWORD)?value:"********") );
             int n = updateInfoStmt.executeUpdate();
             conn.commit();
             userModified(theirId);
@@ -1657,6 +1696,9 @@ public class UserRegistry {
     }
 
     static boolean localeMatchesLocaleList(String localeList, CLDRLocale locale) {
+        if(isAllLocales(localeList)) {
+            return true;
+        }
         String localeArray[] = tokenizeLocale(localeList);
         return localeMatchesLocaleList(localeArray, locale);
     }
@@ -1700,6 +1742,9 @@ public class UserRegistry {
             return null; // empty = ALL
         if (false || userIsExactlyManager(u))
             return null; // manager can edit all
+        if(isAllLocales(u.locales)) {
+            return null; // all
+        }
         String localeArray[] = tokenizeLocale(u.locales);
         if (localeMatchesLocaleList(localeArray, locale)) {
             return null;
@@ -1713,37 +1758,48 @@ public class UserRegistry {
     }
 
     public static final ModifyDenial countUserVoteForLocaleWhy(User u, CLDRLocale locale) {
+    // must not have a null user                                                                                                                                                                                                            
         if (u == null)
-            return ModifyDenial.DENY_NULL_USER; // no user, no dice
+            return ModifyDenial.DENY_NULL_USER;
+
+        // can't vote in a readonly locale                                                                                                                                                                                                  
         if (STFactory.isReadOnlyLocale(locale))
             return ModifyDenial.DENY_LOCALE_READONLY;
 
+        // user must have street level perms                                                                                                                                                                                                
         if (!userIsStreet(u))
-            return ModifyDenial.DENY_NO_RIGHTS; // at least street level
-        CLDRLocale isAliasTo = sm.isLocaleAliased(locale);
-        if (isAliasTo != null) {
+            return ModifyDenial.DENY_NO_RIGHTS; // at least street level                                                                                                                                                                    
+
+        // locales that are aliases can't be modified.                                                                                                                                                                                      
+        if(sm.isLocaleAliased(locale) != null) {
             return ModifyDenial.DENY_ALIASLOCALE;
         }
+
+        // locales that are default content parents can't be modified.                                                                                                                                                                      
         CLDRLocale dcParent = sm.getSupplementalDataInfo().getBaseFromDefaultContent(locale);
         if (dcParent != null) {
-            return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent
-                                                     // locale or a pure alias.
+            return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent                                                                                                                                                               
+                                                     // locale or a pure alias.                                                                                                                                                             
         }
-        if (userIsAdmin(u))
-            return null; // Admin can modify all
-        if (userIsTC(u))
-            return null; // TC can modify all
-        if (userIsTC(u))
-            return null; // TC (or manager) can modify all
-        if (locale.getLanguage().equals("und")) { // all user accounts can write
-                                                  // to und.
+        // admin, TC, and manager can always modify.                                                                                                                                                                                        
+        if (userIsAdmin(u) ||
+            userIsTC(u) ||
+            userIsExactlyManager(u))
+            return null;
+
+        // the 'und' locale and sublocales can always be modified                                                                                                                                                                           
+        if (locale.getLanguage().equals("und")) {
             return null;
         }
 
+        // unrestricted experts can modify all                                                                                                                                                                                              
         if ((u.locales == null) && userIsExpert(u))
-            return null; // empty = ALL
-        if (false || userIsExactlyManager(u))
-            return null; // manager can edit all
+            return null; // empty = ALL                                                                                                                                                                                                     
+
+        // User has a wildcard (*) - can modify all.                                                                                                                                                                                        
+        if(isAllLocales(u.locales)) {
+            return null;
+        }
         String localeArray[] = tokenizeLocale(u.locales);
         if (localeMatchesLocaleList(localeArray, locale)) {
             return null;
@@ -1754,55 +1810,26 @@ public class UserRegistry {
 
     // TODO: speedup. precalculate list of locales on user load.
     public static final ModifyDenial userCanModifyLocaleWhy(User u, CLDRLocale locale) {
-        if (u == null)
-            return ModifyDenial.DENY_NULL_USER; // no user, no dice
-        if (STFactory.isReadOnlyLocale(locale))
-            return ModifyDenial.DENY_LOCALE_READONLY;
+        final ModifyDenial denyCountVote = countUserVoteForLocaleWhy(u, locale);
 
-        if (!userIsStreet(u))
-            return ModifyDenial.DENY_NO_RIGHTS; // at least street level
-        if (SurveyMain.isPhaseReadonly())
-            return ModifyDenial.DENY_LOCALE_READONLY; // readonly = locked for
-                                                      // ALL
-        CLDRLocale isAliasTo = sm.isLocaleAliased(locale);
-        if (isAliasTo != null) {
-            return ModifyDenial.DENY_ALIASLOCALE;
+    // If we don't count the votes, modify is prohibited.                                                                                                                                                                               
+        if (denyCountVote != null) {
+            return denyCountVote;
         }
-        CLDRLocale dcParent = sm.getSupplementalDataInfo().getBaseFromDefaultContent(locale);
-        if (dcParent != null) {
-            return ModifyDenial.DENY_DEFAULTCONTENT; // it's a defaultcontent
-                                                     // locale or a pure alias.
-        }
-        if (userIsAdmin(u))
-            return null; // Admin can modify all
-        if (userIsTC(u))
-            return null; // TC can modify all
-        if ((SurveyMain.phase() == SurveyMain.Phase.VETTING_CLOSED)) {
-        }
-        if (userIsTC(u))
-            return null; // TC (or manager) can modify all
+
+        // We add more restrictions                                                                                                                                                                                                         
+
+        // Admin and TC users can always modify, even in closed state.                                                                                                                                                                      
+    if (userIsAdmin(u) || userIsTC(u))
+            return null;
+
+        // Otherwise, if closed, deny                                                                                                                                                                                                       
         if (SurveyMain.isPhaseClosed())
             return ModifyDenial.DENY_PHASE_CLOSED;
-        if (SurveyMain.isPhaseSubmit() && !userIsStreet(u))
-            return ModifyDenial.DENY_NO_RIGHTS;
-        if (SurveyMain.isPhaseVetting() && !userIsStreet(u))
-            return ModifyDenial.DENY_NO_RIGHTS;
-        if (locale.getLanguage().equals("und")) { // all user accounts can write
-                                                  // to und.
-            return null;
-        }
+        if (SurveyMain.isPhaseReadonly())
+            return ModifyDenial.DENY_PHASE_READONLY;
 
-        // if(SurveyMain.phaseVetting && !userIsStreet(u)) return false;
-        if ((u.locales == null) && userIsExpert(u))
-            return null; // empty = ALL
-        if (false || userIsExactlyManager(u))
-            return null; // manager can edit all
-        String localeArray[] = tokenizeLocale(u.locales);
-        if (userCanModifyLocale(localeArray, locale)) {
-            return null;
-        } else {
-            return ModifyDenial.DENY_LOCALE_LIST;
-        }
+        return null;
     }
 
     private static boolean userCanModifyLocale(String[] localeArray, CLDRLocale locale) {
@@ -1879,8 +1906,18 @@ public class UserRegistry {
      * Invalid user ID, representing NO USER.
      */
     public static final int NO_USER = -1;
+    
+    public static final boolean isAllLocales(String localeList) {
+        return (localeList!=null) && (localeList.contains(ALL_LOCALES) || localeList.trim().equals("all"));
+    }
 
+    /*
+     * Split into an array. Will return {} if no locales match, or {ALL_LOCALES}==ALL_LOCALES_LIST if it matches all locales
+     */
     static String[] tokenizeLocale(String localeList) {
+        if(isAllLocales(localeList)) {
+            throw new IllegalArgumentException("Don't call this function with '" + ALL_LOCALES + "' - " + localeList);
+        }
         if ((localeList == null) || ((localeList = localeList.trim()).length() == 0)) {
             // System.err.println("TKL: null input");
             return new String[0];
@@ -1895,6 +1932,9 @@ public class UserRegistry {
      * @return
      */
     static CLDRLocale[] tokenizeCLDRLocale(String localeList) {
+        if(isAllLocales(localeList)) {
+            throw new IllegalArgumentException("Don't call this function with '" + ALL_LOCALES + "' - " + localeList);
+        }
         if ((localeList == null) || ((localeList = localeList.trim()).length() == 0)) {
             // System.err.println("TKL: null input");
             return new CLDRLocale[0];
@@ -1915,8 +1955,11 @@ public class UserRegistry {
      * @return
      */
     static Set<CLDRLocale> tokenizeValidCLDRLocale(String localeList) {
+        if(isAllLocales(localeList)) {
+            throw new IllegalArgumentException("Don't call this function with '" + ALL_LOCALES + "' - " + localeList);
+        }
         Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
-        if (localeList == null || localeList.equals("all"))
+        if (localeList == null || isAllLocales(localeList))
             return s; // empty
         Set<CLDRLocale> topLocs = SurveyMain.getTopLocalesSet();
         CLDRLocale locs[] = tokenizeCLDRLocale(localeList);
@@ -1932,21 +1975,14 @@ public class UserRegistry {
         return s;
     }
 
-    static String validateLocaleList(String list) {
-        StringBuilder sb = new StringBuilder();
-        for (CLDRLocale l : tokenizeValidCLDRLocale(list)) {
-            if (sb.length() > 0) {
-                sb.append(' ');
-            }
-            sb.append(l.getBaseName());
-        }
-        return sb.toString();
-    }
-
+    
     /**
      * take a locale string and convert it to HTML.
      */
     static String prettyPrintLocale(String localeList) {
+        if(isAllLocales(localeList)) {
+            return ("* (<i title='" + localeList + "'>all locales</i>)");
+        }
         // System.err.println("TKL: ppl - " + localeList);
         Set<CLDRLocale> localeArray = tokenizeValidCLDRLocale(localeList);
         String ret = "";
@@ -2115,6 +2151,9 @@ public class UserRegistry {
                     u.email = rs.getString(4);
                     u.org = rs.getString(5);
                     u.locales = rs.getString(6);
+                    if(isAllLocales(u.locales)) {
+                        u.locales = ALL_LOCALES;
+                    }
                     u.intlocs = rs.getString(7);
                     u.last_connect = rs.getTimestamp(8);
 

@@ -20,12 +20,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%currency60" value="(AUD|CAD|CHF|DKK|HKD|IDR|KRW|MXN|NOK|PLN|SAR|SEK|THB|TRY|TWD|ZAR)"/>
 		<coverageVariable key="%currency60_EU" value="(CZK|HUF|LTL|LVL)"/>
 		<coverageVariable key="%currency80" value="(AED|AFN|ALL|AMD|ANG|AOA|ARS|AWG|AZN|BAM|BBD|BDT|BGN|BHD|BIF|BMD|BND|BOB|BSD|BTN|BWP|BYR|BZD|CDF|CLP|COP|CRC|CUC|CUP|CVE|CZK|DJF|DOP|DZD|EGP|ERN|ETB|FJD|FKP|GEL|GHS|GIP|GMD|GNF|GTQ|GYD|HNL|HRK|HTG|HUF|ILS|IQD|IRR|ISK|JMD|JOD|KES|KGS|KHR|KMF|KPW|KWD|KYD|KZT|LAK|LBP|LKR|LRD|LTL|LVL|LYD|MAD|MDL|MGA|MKD|MMK|MNT|MOP|MRO|MUR|MVR|MWK|MYR|MZN|NAD|NGN|NIO|NPR|NZD|OMR|PAB|PEN|PGK|PHP|PKR|PYG|QAR|RON|RSD|RWF|SBD|SCR|SDG|SGD|SHP|SLL|SOS|SRD|SSP|STD|SYP|SZL|TJS|TMT|TND|TOP|TTD|TZS|UAH|UGX|UYU|UZS|VEF|VND|VUV|WST|XCD|XAF|XOF|XPF|YER|ZMW)"/>
-		<coverageVariable key="%dateFormatItems" value="(EEEd|(H|h)(ms?)?|M|MEd|MMM|MMMEd|MMMMEd|MMMMd|MMMd|Md|d|ms|y|yM|yMEd|yMMM|yMMMEd|yMMMM|yQ|yQQQ)"/>
+		<coverageVariable key="%dateFormatItems" value="((d|Ed|EEEEd)|((Gy|y|yyyy)?(M|Md|MEd|MEEEEd|MMM|MMMd|MMMEd|MMMEEEEd|MMMM|MMMMd|MMMMEd|MMMMEEEEd))|((Gy|y|yyyy)(QQQ|QQQQ)?))"/>
+		<coverageVariable key="%timeFormatItems" value="(E?(H|h)(ms?)?|ms)"/>
 		<coverageVariable key="%dayFieldTypes" value="(era|year|month|week|day|weekday|hour|minute|second|dayperiod|zone)"/>
 		<coverageVariable key="%dayTypes" value="(sun|mon|tue|wed|thu|fri|sat)"/>
 		<coverageVariable key="%devaLanguages" value="(mr|ne)"/>
 		<coverageVariable key="%exemplarTypes" value="(auxiliary|index|punctuation)"/>
-		<coverageVariable key="%intervalFormatItems" value="(d|(h|H)m?v?|y|y?(M(MM)?)(E?d)?|y?MMMM)"/>
+		<coverageVariable key="%intervalFormatDateItems" value="(d|y|y?(M(MM)?)(E?d)?|y?MMMM)"/>
+		<coverageVariable key="%intervalFormatTimeItems" value="((h|H)m?v?)"/>
 		<coverageVariable key="%islamicCalendarTerritories" value="(AE|AF|BH|DJ|DZ|EG|EH|ER|IL|IQ|IR|JO|KM|KW|LB|LY|MA|MR|OM|PS|QA|SA|SD|SY|TN|YE)"/>
 		<coverageVariable key="%language30" value="und"/>
 		<coverageVariable key="%language40" value="(de(_(AT|CH))?|en(_(AU|CA|GB|US))?|es(_(ES|419|MX))?|fr(_(CA|CH))?|it|ja|pt(_(BR|PT))?|ru|zh(_(Hans|Hant))?)"/>
@@ -263,13 +265,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='%currency60_EU']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='%currency60_EU']/symbol[@alt='narrow']"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%timeFormatItems']"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="TH" value="80" match="dates/calendars/calendar[@type='buddhist']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="%islamicCalendarTerritories" value="80" match="dates/calendars/calendar[@type='islamic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="JP" value="80" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel inTerritory="TW" value="80" match="dates/calendars/calendar[@type='roc']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatItems']/greatestDifference[@id='[^']++']"/>
-		<coverageLevel value="60" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatItems']/greatestDifference[@id='[^']++']"/>
+		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='[^']++']"/>
+		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatTimeItems']/greatestDifference[@id='[^']++']"/>
+		<coverageLevel value="60" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='[^']++']"/>
 		<coverageLevel value="60" match="dates/fields/field[@type='(year|month|week)']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/%metazoneTypes"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='%metazone60_stdonly']/long/standard"/>
@@ -284,7 +288,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='%numberingSystem80'][@key='numbers']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
-		<coverageLevel value="80" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='day']/relative[@type='(-3|-2|2|3)']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='%dayTypes']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/%metazoneTypes"/>

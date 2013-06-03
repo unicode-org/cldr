@@ -34,14 +34,12 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules.NumberInfo;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
@@ -331,9 +329,12 @@ public class ExampleGenerator {
     }
 
     private String handleFormatUnit(UnitLength unitLength, Count count, String value) {
-        NumberInfo amount = getBest(count);
+        Double amount = getBest(count);
+        if (amount == null) {
+            return "n/a";
+        }
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
-        return format(value, backgroundStartSymbol + numberFormat.format(amount.source) + backgroundEndSymbol);
+        return format(value, backgroundStartSymbol + numberFormat.format(amount) + backgroundEndSymbol);
     }
 
     public String handleCompoundUnit(UnitLength unitLength, Count count, String value) {
@@ -359,9 +360,12 @@ public class ExampleGenerator {
          */
 
         // we want to get a number that works for the count passed in.
-        NumberInfo amount = getBest(count);
+        Double amount = getBest(count);
+        if (amount == null) {
+            return "n/a";
+        }
         String unit1 = backgroundStartSymbol + getFormattedUnit("length-meter", unitLength, amount) + backgroundEndSymbol;
-        String unit2 = backgroundStartSymbol + getFormattedUnit("duration-second", unitLength, new NumberInfo(1.0), "").trim() + backgroundEndSymbol;
+        String unit2 = backgroundStartSymbol + getFormattedUnit("duration-second", unitLength, 1.0, "").trim() + backgroundEndSymbol;
         // TODO fix hack
         String form = this.pluralInfo.getPluralRules().select(amount);
         String perPath = "//ldml/units/unitLength" + unitLength.typeString
@@ -370,14 +374,15 @@ public class ExampleGenerator {
         return format(getValueFromFormat(perPath, form), unit1, unit2);
     }
 
-    private NumberInfo getBest(Count count) {
-        Collection<NumberInfo> samples = this.pluralInfo.getPluralRules().getFractionSamples(count.name());
-        NumberInfo best = null;
-        for (NumberInfo x : samples) {
+    private Double getBest(Count count) {
+        Collection<Double> samples = pluralInfo.getPluralRules().getSamples(count.name());
+        Double best = null;
+        for (Double x : samples) {
             if (best == null) {
                 best = x;
-            } else if (x.fractionalDigits != 0) {
-                best = x;
+            } else if (Math.round(x) != x) {
+                // Use fractions if possible.
+                return x;
             }
         }
         return best;
@@ -526,15 +531,11 @@ public class ExampleGenerator {
     }
 
     private String getFormattedUnit(String unitType, UnitLength unitWidth, double unitAmount) {
-        return getFormattedUnit(unitType, unitWidth, new NumberInfo(unitAmount));
-    }
-
-    private String getFormattedUnit(String unitType, UnitLength unitWidth, NumberInfo numberInfo) {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
-        return getFormattedUnit(unitType, unitWidth, numberInfo, numberFormat.format(numberInfo.source));
+        return getFormattedUnit(unitType, unitWidth, unitAmount, numberFormat.format(unitAmount));
     }
 
-    private String getFormattedUnit(String unitType, UnitLength unitWidth, NumberInfo unitAmount, String formattedUnitAmount) {
+    private String getFormattedUnit(String unitType, UnitLength unitWidth, double unitAmount, String formattedUnitAmount) {
         String form = this.pluralInfo.getPluralRules().select(unitAmount);
         String pathFormat = "//ldml/units/unitLength" + unitWidth.typeString 
                 + "/unit[@type=\"{0}\"]/unitPattern[@count=\"{1}\"]";
@@ -1053,10 +1054,6 @@ public class ExampleGenerator {
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
             Count count = Count.valueOf(countValue);
-//            if (type != ExampleType.ENGLISH &&
-//                    !pluralInfo.getCountToExamplesMap().keySet().contains(count)) {
-//                return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
-//            }
             Double numberSample = getExampleForPattern(numberFormat, count);
             if (numberSample == null) {
                 if (type == ExampleType.ENGLISH) {
@@ -1066,11 +1063,12 @@ public class ExampleGenerator {
                     return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
                 }
             } else {
-                NumberInfo ni = new NumberInfo(numberSample);
-                if (ni.visibleFractionDigitCount > 0) {
+                String temp = String.valueOf(numberSample);
+                int fractionLength = temp.endsWith(".0") ? 0 : temp.length() - temp.indexOf('.') - 1;
+                if (fractionLength > 0) {
                     numberFormat = (DecimalFormat) numberFormat.clone(); // for safety
-                    numberFormat.setMinimumFractionDigits(ni.visibleFractionDigitCount);
-                    numberFormat.setMaximumFractionDigits(ni.visibleFractionDigitCount);
+                    numberFormat.setMinimumFractionDigits(fractionLength);
+                    numberFormat.setMaximumFractionDigits(fractionLength);
                 }
                 return formatNumber(numberFormat, numberSample);
             }

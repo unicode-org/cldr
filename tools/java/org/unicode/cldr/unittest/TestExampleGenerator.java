@@ -217,12 +217,18 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestMiscPatterns() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
-        checkValue("At least", "〖❬99❭+〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
-        checkValue("Range", "〖❬99❭-❬144❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
+        checkValue("At least", "〖⩾❬99❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
+        checkValue("Range", "〖❬99❭–❬144❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
         //        String actual = exampleGenerator.getExampleHtml(
         //                "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",
         //                "at least {0}", Zoomed.IN);
         //        assertEquals("Invalid format", "<div class='cldr_example'>at least 99</div>", actual);
+    }
+
+    public void TestPluralSamples() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("sv");
+        String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-centimeter\"]/unitPattern[@count=\"one\"]";
+        checkValue("Number should be one", "〖❬1❭ cm〗", exampleGenerator, path);
     }
 
     public void TestLocaleDisplayPatterns() {
@@ -247,9 +253,9 @@ public class TestExampleGenerator extends TestFmwk {
         String actual = exampleGenerator.getExampleHtml("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                 "¤ #0.00");
         assertEquals("Currency format example faulty",
-                "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>5</span>,<span class='cldr_substituted'>43</span></div>" +
-                        "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>123456</span>,<span class='cldr_substituted'>79</span></div>" +
-                        "<div class='cldr_example'>-XXX\u00A0<span class='cldr_substituted'>123456</span>,<span class='cldr_substituted'>79</span></div>",
+                "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>5,43</span></div>" +
+                        "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>123456,79</span></div>" +
+                        "<div class='cldr_example'>-XXX\u00A0<span class='cldr_substituted'>123456,79</span></div>",
                         actual);
     }
 
@@ -321,8 +327,8 @@ public class TestExampleGenerator extends TestFmwk {
                 {
                     "//ldml/numbers/percentFormats[@numberSystem=\"latn\"]/percentFormatLength/percentFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                     "<div class='cldr_example'><span class='cldr_substituted'>5</span>%</div>" +
-                            "<div class='cldr_example'><span class='cldr_substituted'>12</span>,<span class='cldr_substituted'>345</span>,<span class='cldr_substituted'>679</span>%</div>" +
-                            "<div class='cldr_example'>-<span class='cldr_substituted'>12</span>,<span class='cldr_substituted'>345</span>,<span class='cldr_substituted'>679</span>%</div>"
+                            "<div class='cldr_example'><span class='cldr_substituted'>12,345</span>,<span class='cldr_substituted'>679</span>%</div>" +
+                            "<div class='cldr_example'>-<span class='cldr_substituted'>12,345</span>,<span class='cldr_substituted'>679</span>%</div>"
                 }
         };
         final CLDRFile nativeCldrFile = info.getEnglish();

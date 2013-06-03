@@ -706,7 +706,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
 
             if (isUnofficial() && (ctx.hasTestPassword() || ctx.hasAdminPassword())
-                    && ctx.field("action").equals("new_and_login")) {
+                    && ctx.field("action").equals("new_and_login")) { // accessed from createAndLogin.jsp
                 ctx.println("<hr>");
                 String real = ctx.field("real").trim();
                 if (real.isEmpty() || real.equals("REALNAME")) {
@@ -729,7 +729,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     String randomPass = UserRegistry.makePassword(null);
                     u.name = newRealName.toString() + "_TESTER_";
                     u.email = newRealName + "." + randomEmail.trim();
-                    u.locales = ctx.field("new_locales").trim();
+                    String newLocales = ctx.field("new_locales").trim();
+                    newLocales = UserRegistry.normalizeLocaleList(newLocales);
+                    if(newLocales.isEmpty()) newLocales="und";
+                    u.locales = newLocales;
                     u.password = randomPass;
                     u.userlevel = ctx.fieldInt("new_userlevel", -1);
                     if(u.userlevel <= 0) {
@@ -1755,6 +1758,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String new_name = ctx.field("new_name");
         String new_email = ctx.field("new_email");
         String new_locales = ctx.field("new_locales");
+        new_locales = UserRegistry.normalizeLocaleList(new_locales);
+        if(new_locales.isEmpty()) new_locales = "und";
         String new_org = ctx.field("new_org");
         int new_userlevel = ctx.fieldInt("new_userlevel", -1);
 
@@ -2789,8 +2794,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                 if (theirLocales == null) {
                                     theirLocales = "";
                                 }
-                                ctx.println("<label>Locales: (space separated) <input name='" + LIST_ACTION_SETLOCALES + theirTag
+                                ctx.println("<label>Locales: (space separated) <input id='" + LIST_ACTION_SETLOCALES + theirTag +"' name='" + LIST_ACTION_SETLOCALES + theirTag
                                         + "' value='" + theirLocales + "'></label>");
+                                ctx.println("<button onclick=\"{document.getElementById('"+ LIST_ACTION_SETLOCALES + theirTag + "').value='*'; return false;}\" >All Locales</button>");
                             } else if (UserRegistry.userCanDeleteUser(ctx.session.user, theirId, theirLevel)) {
                                 // change of other stuff.
                                 UserRegistry.InfoType type = UserRegistry.InfoType.fromAction(action);

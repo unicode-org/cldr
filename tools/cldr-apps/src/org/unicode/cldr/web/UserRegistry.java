@@ -1028,13 +1028,13 @@ public class UserRegistry {
     }
 
     public static String normalizeLocaleList(String list) {
+        if(isAllLocales(list)) {
+            return ALL_LOCALES;
+        }
         if(list==null) {
             return "";
         }
         list = list.trim();
-        if(list.contains(ALL_LOCALES)) {
-            return ALL_LOCALES;
-        }
         if (list.length() > 0) {
             if (list.equals(NO_LOCALES)) {
                 return "";
@@ -1154,6 +1154,7 @@ public class UserRegistry {
 
         if(!intLocs) {
             newLocales = normalizeLocaleList(newLocales);
+            if(newLocales.isEmpty()) newLocales="und";
         } else {
             newLocales = validateIntlocList(newLocales);
         }
@@ -2477,11 +2478,15 @@ public class UserRegistry {
                     if (theirEmail.length() > 0)
                         out.print(" name=\"" + SurveyMain.xmlescape(theirName) + "\"");
                     out.print(" " + "org=\"" + orgMunged + "\" locales=\"");
-                    String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
-                    for (int i = 0; i < theirLocalesList.length; i++) {
-                        if (i > 0)
-                            out.print(" ");
-                        out.print(theirLocalesList[i]);
+                    if(UserRegistry.isAllLocales(theirLocales)) {
+                        out.print('*');
+                    } else {
+                        String theirLocalesList[] = UserRegistry.tokenizeLocale(theirLocales);
+                        for (int i = 0; i < theirLocalesList.length; i++) {
+                            if (i > 0)
+                                out.print(" ");
+                            out.print(theirLocalesList[i]);
+                        }
                     }
                     out.println("\"/>");
                 }

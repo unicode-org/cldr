@@ -7,6 +7,7 @@ define({
 
 		loadingMsg_desc: "Current loading status",
 		loading_reloading: "Force Reloading Page",
+		loading_reload: "Reload",
 		loading_retrying: "Retrying",
 		loading_nocontent: "This locale cannot be displayed.",
 		loadingOneRow: "loading....",
@@ -285,6 +286,7 @@ define({
 		E_BAD_SECTION: "An error occured while trying to ${what}, the server could not find what was requested. \nPerhaps the URL is incorrect?",
 		E_BAD_LOCALE: "While trying to ${what}, the server told us that the locale, '${surveyCurrentLocale}',\n does not exist. It is either mistyped or has not been added to the SurveyTool.",
 		E_NOT_STARTED: "While trying to ${what}, the server told us that it's not quite ready yet. Please wait a bit, and try reloading this page.",
+		E_SPECIAL_SECTION: "An error occured while trying to ${what}, the server said that those items aren't visible in the SurveyTool.\nPerhaps the URL is incorrect or an item was deprected?",
 		"": ""})
 //		"mt-MT": false
 

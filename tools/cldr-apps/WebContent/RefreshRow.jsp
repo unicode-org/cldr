@@ -84,7 +84,14 @@
 				}
 			}
 			if(pageId == null && xpath == null && strid!=null) {
-				xp = mySession.sm.xpt.getByStringID(strid);
+				try {
+				    				xp = mySession.sm.xpt.getByStringID(strid);
+				} catch(Throwable t) {
+                    JSONWriter r = new JSONWriter(out).object().
+                            key("err").value("Exception getting stringid " + strid).
+                            key("err_code").value("E_BAD_SECTION").endObject();
+                    return;
+				}
                 if(xp!=null) {
                 	try {
 	                	pageId = mySession.sm.getSTFactory().getPathHeader(xp).getPageId(); // section containing
@@ -169,6 +176,15 @@
 					    dsets.put(PathHeaderSort.name,section.createDisplaySet(SortMode.getInstance(PathHeaderSort.name),null)); // the section creates the sort
 					}
 							
+					if(pageId!=null) {
+						if(pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
+	                        JSONWriter r = new JSONWriter(out).object().
+	                                key("err").value("Items not visible - page " + pageId + " section " + pageId.getSectionId()).
+	                                key("err_code").value("E_SPECIAL_SECTION").endObject();
+	                        return;
+						}
+					}
+					
 					try {
 						JSONWriter r = new JSONWriter(out).object()
 								.key("stro").value(STFactory.isReadOnlyLocale(ctx.getLocale()))

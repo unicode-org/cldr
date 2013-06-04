@@ -3587,7 +3587,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         whyBad = "NULL from PathHeader";
                     } else if (ph.getSurveyToolStatus() == SurveyToolStatus.HIDE
                             || ph.getSurveyToolStatus() == SurveyToolStatus.DEPRECATED) {
-                        whyBad = "PathHeader status: " + ph.getSurveyToolStatus().name();
+                        whyBad = "This item's PathHeader status is: " + ph.getSurveyToolStatus().name();
                     } else {
                         ctx.response.sendRedirect(ctx.vurl(CLDRLocale.getInstance(ctx.field("_")), ph.getPageId(), strid, null));
                         return; // exit
@@ -4297,8 +4297,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     // SurveyLog.logException(t, ctx);
                 }
                 ctx.println("<div class='ferrbox'> " + ctx.iconHtml("stop", "bad xpath")
-                        + " Invalid/unusable String ID in URL: <span class='loser' title='" + xpath + " " + whyBad + "'>" + strid
-                        + "</span>.</div>");
+                        + " Sorry, the string ID in your URL can't be shown: <span class='loser' title='" + xpath + " " + whyBad + "'>" + strid
+                        + "</span><br>The XPath involved is: <tt>"+xpath+"</tt><br> and the reason is: " + whyBad+".</div>");
                 which = xMAIN;
                 return;
             }

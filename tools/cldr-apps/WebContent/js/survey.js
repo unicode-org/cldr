@@ -3249,7 +3249,7 @@ function showV() {
 				console.log(msg_fmt);
 				var loadingChunk;
 				flipper.flipTo(pages.loading, loadingChunk = createChunk(msg_fmt, "p", "errCodeMsg"));
-				var retryButton = createChunk(stui.str("loading_reloading"),"button");
+				var retryButton = createChunk(stui.str("loading_reload"),"button");
 				loadingChunk.appendChild(retryButton);
 				retryButton.onclick = function() { 	window.location.reload(true); };
 				return false;
@@ -4324,7 +4324,7 @@ function showV() {
 
 					var loadingChunk;
 					flipper.flipTo(pages.loading, loadingChunk = createChunk(msg_fmt, "p", "errCodeMsg"));
-					var retryButton = createChunk(stui.str("loading_reloading"),"button");
+					var retryButton = createChunk(stui.str("loading_reload"),"button");
 					loadingChunk.appendChild(retryButton);
 					retryButton.onclick = function() { 	window.location.reload(true); };
 					showLoader(theDiv.loader);

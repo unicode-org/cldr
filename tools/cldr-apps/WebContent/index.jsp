@@ -1,4 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/2001/REC-xhtml11-20010531/DTD/xhtml11-flat.dtd">
+<%@page import="org.unicode.cldr.test.ExampleGenerator.HelpMessages"%>
 <%@ page contentType="text/html; charset=UTF-8" import="org.unicode.cldr.web.*" %>
 <%@ page import="javax.servlet.http.Cookie" %>
 <html>
@@ -33,7 +34,7 @@
 		<h1>CLDR Web Applications</h1>
 		<ul>
 			<li><strong><a href="survey/">CLDR Survey Tool
-			</a></strong> - <a href="http://www.unicode.org/cldr/wiki?SurveyToolHelp">(Help)</a><br /></li>
+			</a></strong> - <a href='<%= SurveyMain.GENERAL_HELP_URL %>'>(Instructions)</a><br /></li>
             <li><strong><a href="about.jsp">About this Installation…</a></strong></li>
             <li><strong><a href="browse.jsp">Browse Codes and Data</a></strong></li>
 		</ul>

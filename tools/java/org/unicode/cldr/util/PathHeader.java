@@ -51,16 +51,16 @@ public class PathHeader implements Comparable<PathHeader> {
          */
         DEPRECATED,
         /**
-         * Hide. Can be overriden in Phase.getAction()
+         * Hide. Can be overridden in Phase.getAction()
          */
         HIDE,
         /**
          * Don't allow Change box (except TC), instead show ticket. But allow
-         * votes. Can be overriden in Phase.getAction()
+         * votes. Can be overridden in Phase.getAction()
          */
         READ_ONLY,
         /**
-         * Allow change box and votes. Can be overriden in Phase.getAction()
+         * Allow change box and votes. Can be overridden in Phase.getAction()
          */
         READ_WRITE
     }
@@ -474,7 +474,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 .of(new TreeMap<SectionPage, Set<String>>(),
                         HashSet.class);
         private static CLDRFile                               englishFile;
-        private Set<String> matchersFound = new HashSet();
+        private Set<String> matchersFound = new HashSet<String>();
 
 
         /**
@@ -1104,6 +1104,37 @@ public class PathHeader implements Comparable<PathHeader> {
                         order = codeValues.size();
                     }
                     return source;
+                }
+            });
+
+            functionMap.put("tzdpField", new Transform<String, String>() {
+                public String transform(String source) {
+                    Map<String, String> fieldNames = Builder.with(new HashMap<String, String>())
+                            .put("regionFormat", "Region Format - Generic")
+                            .put("regionFormat-standard", "Region Format - Standard")
+                            .put("regionFormat-daylight", "Region Format - Daylight")
+                            .put("gmtFormat", "GMT Format")
+                            .put("hourFormat", "GMT Hours/Minutes Format")
+                            .put("gmtZeroFormat", "GMT Zero Format")
+                            .put("fallbackFormat", "Location Fallback Format")
+                            .freeze();
+                    final List<String> fieldOrder = Arrays.asList(
+                            "regionFormat", 
+                            "regionFormat-standard",
+                            "regionFormat-daylight",
+                            "gmtFormat", 
+                            "hourFormat", 
+                            "gmtZeroFormat",
+                            "fallbackFormat");
+                    
+                    if (fieldOrder.contains(source)) {
+                        order = fieldOrder.indexOf(source);
+                    } else {
+                        order = fieldOrder.size();
+                    }
+                    
+                    String result = fieldNames.get(source);
+                    return result == null ? source : result;
                 }
             });
             

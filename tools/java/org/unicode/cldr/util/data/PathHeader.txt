@@ -75,8 +75,8 @@
 //ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; &timezoneSorting($3-$2)
 //ldml/dates/timeZoneNames/zone[@type="%A"]/%E/%E           ; Timezones ; Overrides ; $1 ; &timezoneSorting($3-$2)
 
-//ldml/dates/timeZoneNames/%E[@type="%A"]                   ; Timezones ; Timezone Display Patterns ; null ; $1-$2
-//ldml/dates/timeZoneNames/%E                               ; Timezones ; Timezone Display Patterns ; null ; $1
+//ldml/dates/timeZoneNames/%E[@type="%A"]                   ; Timezones ; Timezone Display Patterns ; null ; &tzdpField($1-$2)
+//ldml/dates/timeZoneNames/%E                               ; Timezones ; Timezone Display Patterns ; null ; &tzdpField($1)
 
 
 ### Numbers

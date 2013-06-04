@@ -82,7 +82,7 @@ public class SurveyLog {
         gBaseDir = homeFile;
     }
 
-    public static synchronized void logException(Throwable t, String what, WebContext ctx) {
+    public static synchronized void logException(final Throwable exception, String what, WebContext ctx) {
         long nextTimePost = System.currentTimeMillis();
         StringBuilder sb = new StringBuilder();
         sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n').append(FIELD_SEP)
@@ -93,6 +93,7 @@ public class SurveyLog {
             sb.append(FIELD_SEP).append(LogField.CTX).append(' ').append(ctx).append('\n');
         }
         sb.append(FIELD_SEP).append(LogField.LOGSITE).append(' ').append(StackTracker.currentStack()).append('\n');
+        Throwable t = exception;
         while (t != null) {
             sb.append(FIELD_SEP).append(LogField.MESSAGE).append(' ').append(t.toString()).append(' ').append(t.getMessage())
                     .append('\n');
@@ -132,6 +133,10 @@ public class SurveyLog {
 
         // then, to screen
         logger.severe(sb.toString());
+        
+        if(exception instanceof OutOfMemoryError) {
+            SurveyMain.markBusted(exception); // would cause infinite recursion if busted() was called
+        }
     }
 
     private static ChunkyReader cr = null;

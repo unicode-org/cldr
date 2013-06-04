@@ -6495,30 +6495,55 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             busted(what, t, getThrowableStack(t));
         }
     }
+    
+    /**
+     * mark as busted, with no special logging. This is called by the SurveyLog to make sure an out of memory marks things as down.
+     * @param t
+     */
+    public static void markBusted(Throwable t) {
+        markBusted(t.toString(), t, StackTracker.stackToString(t.getStackTrace(), 0));
+    }
 
+    /**
+     * log that the survey tool is down.
+     * @param what
+     * @param t
+     * @param stack
+     */
     protected static void busted(String what, Throwable t, String stack) {
         if (t != null) {
-            SurveyLog.logException(t, what /* , ignore stack */);
+            SurveyLog.logException(t, what /* , ignore stack - fetched from exception */);
         }
         SurveyLog.logger.warning("SurveyTool " + SurveyMain.getCurrevStr() + " busted: " + what + " ( after " + pages + "html+" + xpages + "xml pages served,  "
                 + getGuestsAndUsers() + ")");
-        try {
-            throw new InternalError("broke here");
-        } catch (InternalError e) {
-            e.printStackTrace();
-        }
+        System.err.println("Busted at stack: \n" + StackTracker.currentStack());
+        markBusted(what, t, stack);
+        SurveyLog.logger.severe(what);
+    }
+
+    /**
+     * Mark busted, but don't log it
+     * @param what
+     * @param t
+     * @param stack
+     */
+    public static void markBusted(String what, Throwable t, String stack) {
+        SurveyLog.warnOnce("******************** SurveyTool is down (busted) ********************");
         if (!isBusted()) { // Keep original failure message.
             isBusted = what;
             if (stack == null) {
-                stack = "(no stack)\n";
+                if(t != null) {
+                    stack = StackTracker.stackToString(t.getStackTrace(), 0);
+                } else {
+                    stack = "(no stack)\n";
+                }
             }
             isBustedStack = stack + "\n" + "[" + new Date().toGMTString() + "] ";
             isBustedThrowable = t;
             isBustedTimer = new ElapsedTimer();
         } else {
-            SurveyLog.logger.warning("[was already busted, not overriding old message.]");
+            SurveyLog.warnOnce("[was already busted, not overriding old message.]");
         }
-        SurveyLog.logger.severe(what);
     }
 
     private void appendLog(WebContext ctx, String what) {

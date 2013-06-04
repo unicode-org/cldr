@@ -214,18 +214,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="40" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='%contextTypes']/quarterWidth[@type='%allWidths']/quarter[@type='[^']++']"/>
 		<coverageLevel value="40" match="dates/fields/field[@type='%dayFieldTypes']/displayName"/>
 		<coverageLevel value="40" match="dates/fields/field[@type='day']/relative[@type='(-1|0|1)']"/>
-        <coverageLevel inLanguage="yi" value="40" match="dates/calendars/calendar[@type='hebrew']/eras/eraAbbr/era[@type='0']"/>
-        <coverageLevel inLanguage="yi" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='[^']++']"/>
-        <coverageLevel inLanguage="yi" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='7'][@yeartype='leap']"/>
-        <coverageLevel inLanguage="yi" value="40" match="dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="40" match="dates/calendars/calendar[@type='chinese']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="%chineseCalendarTerritories" value="40" match="dates/calendars/calendar[@type='chinese']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="EG" value="40" match="dates/calendars/calendar[@type='coptic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="ET" value="40" match="dates/calendars/calendar[@type='ethiopic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
-		<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/eras/eraAbbr/era[@type='0']"/>
-		<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='[^']++']"/>
-		<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='7'][@yeartype='leap']"/>
-		<coverageLevel inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
+		<coverageLevel inLanguage="yi" inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/eras/eraAbbr/era[@type='0']"/>
+		<coverageLevel inLanguage="yi" inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='[^']++']"/>
+		<coverageLevel inLanguage="yi" inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%wideAbbr']/month[@type='7'][@yeartype='leap']"/>
+		<coverageLevel inLanguage="yi" inTerritory="IL" value="40" match="dates/calendars/calendar[@type='hebrew']/dateFormats/dateFormatLength[@type='[^']++']/dateFormat%stdPattern"/>
 		<coverageLevel inTerritory="IN" value="40" match="dates/calendars/calendar[@type='indian']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel inTerritory="IN" value="40" match="dates/calendars/calendar[@type='indian']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>
 		<coverageLevel inTerritory="%islamicCalendarTerritories" value="40" match="dates/calendars/calendar[@type='islamic']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='[^']++']"/>

@@ -63,18 +63,26 @@ public class CoverageLevel2 {
         @Override
         public boolean find(String item, Object context) {
             LocaleSpecificInfo localeSpecificInfo = (LocaleSpecificInfo) context;
-            if (ci.inLanguageSet != null
-                && !ci.inLanguageSet.contains(localeSpecificInfo.targetLanguage)) {
+            // Modified the logic to handle the case where we want specific languages and specific territories.
+            // Any match in language script or territory will succeed when multiple items are present.
+            boolean lstOK = false;
+            if (ci.inLanguageSet == null && ci.inScriptSet == null && ci.inTerritorySet == null) {
+                lstOK = true;
+            } else if (ci.inLanguageSet != null
+                && ci.inLanguageSet.contains(localeSpecificInfo.targetLanguage)) {
+                lstOK = true;
+            } else if (ci.inScriptSet != null
+                && CollectionUtilities.containsSome(ci.inScriptSet, localeSpecificInfo.cvi.targetScripts)) {
+                lstOK = true;
+            } else if (ci.inTerritorySet != null
+                && CollectionUtilities.containsSome(ci.inTerritorySet, localeSpecificInfo.cvi.targetTerritories)) {
+                lstOK = true;
+            }
+            
+            if (!lstOK) {
                 return false;
             }
-            if (ci.inScriptSet != null
-                && CollectionUtilities.containsNone(ci.inScriptSet, localeSpecificInfo.cvi.targetScripts)) {
-                return false;
-            }
-            if (ci.inTerritorySet != null
-                && CollectionUtilities.containsNone(ci.inTerritorySet, localeSpecificInfo.cvi.targetTerritories)) {
-                return false;
-            }
+            
             boolean result = super.find(item, context); // also sets matcher in RegexFinder
             if (!result) {
                 return false;

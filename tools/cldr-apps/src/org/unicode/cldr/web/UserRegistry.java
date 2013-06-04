@@ -2447,7 +2447,7 @@ public class UserRegistry {
                     out.println("\t<!-- No results -->");
                     return 0;
                 }
-                String lastOrg = null;
+                VoteResolver.Organization lastOrg = null;
                 while (rs.next()) {
                     int theirId = rs.getInt(1);
                     int theirLevel = rs.getInt(2);
@@ -2456,20 +2456,13 @@ public class UserRegistry {
                     String theirOrg = rs.getString(5);
                     String theirLocales = rs.getString(6);
 
-                    String orgMunged = theirOrg;
-                    try {
-                        orgMunged = VoteResolver.Organization.fromString(theirOrg).name();
-                    } catch (NullPointerException iae) {
-                        SurveyLog.warnOnce("UserRegistry: Writing Illegal/unknown org: " + theirOrg);
-                    } catch (IllegalArgumentException iae) {
+                    VoteResolver.Organization theOrg = computeVROrganization(theirOrg);
+                    if(theOrg == null) {
                         SurveyLog.warnOnce("UserRegistry: Writing Illegal/unknown org: " + theirOrg);
                     }
-                    if (orgMunged == null || orgMunged.length() <= 0) {
-                        orgMunged = theirOrg;
-                    }
-                    if (!orgMunged.equals(lastOrg)) {
+                    if (!theOrg.equals(lastOrg)) {
                         out.println("<!-- " + SurveyMain.xmlescape(theirOrg) + " -->");
-                        lastOrg = orgMunged;
+                        lastOrg = theOrg;
                     }
                     out.print("\t<user id=\"" + theirId + "\" ");
                     if (theirEmail.length() > 0)
@@ -2477,7 +2470,7 @@ public class UserRegistry {
                     out.print("level=\"" + UserRegistry.levelAsStr(theirLevel).toLowerCase() + "\"");
                     if (theirEmail.length() > 0)
                         out.print(" name=\"" + SurveyMain.xmlescape(theirName) + "\"");
-                    out.print(" " + "org=\"" + orgMunged + "\" locales=\"");
+                    out.print(" " + "org=\"" + theOrg + "\" locales=\"");
                     if(UserRegistry.isAllLocales(theirLocales)) {
                         out.print('*');
                     } else {

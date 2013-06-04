@@ -37,8 +37,10 @@ import org.unicode.cldr.util.StandardCodes.LocaleCoverageType;
 import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.dev.util.XEquivalenceClass;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Utility;
@@ -58,6 +60,13 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  */
 public class VettingViewer<T> {
+
+    private static final String CONNECT_PREFIX = "₍_";
+    private static final String CONNECT_SUFFIX = "₎";
+
+    private static final String TH_AND_STYLES = "<th class='tv-th' style='text-align:left'>";
+
+    private static final String SPLIT_CHAR = "\uFFFE";
 
     private static final boolean SUPPRESS = true;
 
@@ -418,8 +427,6 @@ public class VettingViewer<T> {
     private final CLDRFile oldEnglishFile;
     private final UsersChoice<T> userVoteStatus;
     private final SupplementalDataInfo supplementalDataInfo;
-    private final Relation<String, String> localeToDefaultContents = Relation.of(new HashMap<String, Set<String>>(),
-            LinkedHashSet.class);
     private final String lastVersionTitle;
     private final String currentWinningTitle;
     private final PathDescription pathDescription;
@@ -458,10 +465,6 @@ public class VettingViewer<T> {
         this.supplementalDataInfo = supplementalDataInfo;
         this.defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
 
-        for (String defaultContentLocale : defaultContentLocales) {
-            localeToDefaultContents.put(LocaleIDParser.getParent(defaultContentLocale), defaultContentLocale);
-        }
-
         this.lastVersionTitle = lastVersionTitle;
         this.currentWinningTitle = currentWinningTitle;
         Map<String, List<Set<String>>> starredPaths = new HashMap();
@@ -471,6 +474,7 @@ public class VettingViewer<T> {
                 PathDescription.ErrorHandling.CONTINUE);
         errorChecker = new DefaultErrorStatus(cldrFactory);
     }
+
 
     class WritingInfo implements Comparable<WritingInfo> {
         final PathHeader codeOutput;
@@ -905,29 +909,31 @@ public class VettingViewer<T> {
         }
     }
 
-//    public static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
-//        Set<String> hackHasVotes = new HashSet(Arrays.asList(
-//                "da de el en en_GB es es_419 ja kn kovi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK"
-//                // "af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
-//                // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
-//                .split("\\s")));
-//
-//        @Override
-//        public boolean is(String localeId) {
-//            return hackHasVotes.contains(localeId);
-//        }
-//    };
+    //    public static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
+    //        Set<String> hackHasVotes = new HashSet(Arrays.asList(
+    //                "da de el en en_GB es es_419 ja kn kovi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK"
+    //                // "af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
+    //                // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
+    //                .split("\\s")));
+    //
+    //        @Override
+    //        public boolean is(String localeId) {
+    //            return hackHasVotes.contains(localeId);
+    //        }
+    //    };
 
     public static final class LocalesWithExplicitLevel implements Predicate<String> {
-        private final String org;        
-        public LocalesWithExplicitLevel(Organization org) {  
+        private final String org;
+        private final Level desiredLevel;        
+        public LocalesWithExplicitLevel(Organization org, Level level) {  
             this.org = org.toString();
+            this.desiredLevel = level;
         }
         @Override
         public boolean is(String localeId) {
             Output<LocaleCoverageType> output = new Output<LocaleCoverageType>();
             Level level = StandardCodes.make().getLocaleCoverageLevel(org, localeId, output);
-            return output.value == StandardCodes.LocaleCoverageType.explicit;
+            return desiredLevel == level && output.value == StandardCodes.LocaleCoverageType.explicit;
         }
     };
 
@@ -936,16 +942,19 @@ public class VettingViewer<T> {
         try {
 
             output
-            .append("<p>The following summarizes the Priority Items across locales, using the default coverage level for your organization for each locale. Before using, please read the instructions at <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority Items Summary</a>.</p>\n");
-            // Gather the relevant paths
-            // each one will be marked with the choice that it triggered.
-            Counter<Choice> problemCounter = new Counter<Choice>();
-
-            output.append("<table class='tvs-table'>\n");
+            .append("<p>The following summarizes the Priority Items across locales, " +
+                    "using the default coverage levels for your organization for each locale. " +
+                    "Before using, please read the instructions at " +
+                    "<a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/vetting-summary'>Priority " +
+                    "Items Summary</a>.</p>\n");
 
             StringBuilder headerRow = new StringBuilder();
-            headerRow.append("<tr class='tvs-tr'>");
-            headerRow.append("<th class='tv-th' style='text-align:left'>Locale</th>");
+            headerRow
+            .append("<tr class='tvs-tr'>")
+            .append(TH_AND_STYLES)
+            .append("Locale</th>")
+            .append(TH_AND_STYLES)
+            .append("Codes</th>");
             for (Choice choice : choices) {
                 headerRow.append("<th class='tv-th'>");
                 choice.appendDisplay("", headerRow);
@@ -954,115 +963,198 @@ public class VettingViewer<T> {
             headerRow.append("</tr>\n");
             String header = headerRow.toString();
 
-            Map<String, String> sortedNames = new TreeMap(Collator.getInstance());
-
-            // TODO Fix HACK
-            // We are going to ignore the predicate for now, just using the locales that have explicit coverage.
-            // in that locale.
-            includeLocale = new LocalesWithExplicitLevel((Organization) organization);
-
-            for (String localeID : cldrFactory.getAvailable()) {
-                if (defaultContentLocales.contains(localeID)
-                        || localeID.equals("en")
-                        || !includeLocale.is(localeID)) {
-                    continue;
-                }
-
-                sortedNames.put(getName(localeID, localeToDefaultContents), localeID);
+            for (Level level : Level.values()) {
+                writeSummaryTable(output, header, level, choices, organization);
             }
-
-            char lastChar = ' ';
-            for (Entry<String, String> entry : sortedNames.entrySet()) {
-                System.out.println(entry);
-                String name = entry.getKey();
-                String localeID = entry.getValue();
-                // Initialize
-
-                CLDRFile sourceFile = cldrFactory.make(localeID, true);
-
-                CLDRFile lastSourceFile = null;
-                try {
-                    lastSourceFile = cldrFactoryOld.make(localeID, true);
-                } catch (Exception e) {
-                }
-
-                problemCounter.clear();
-                Level level = Level.MODERN;
-                if (organization != null) {
-                    level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
-                }
-                getFileInfo(sourceFile, lastSourceFile, null, problemCounter, choices, localeID, true, organization,
-                        level);
-
-                char nextChar = name.charAt(0);
-                if (lastChar != nextChar) {
-                    output.append(header);
-                    lastChar = nextChar;
-                }
-
-                output.append("<tr>");
-                output.append("<th class='tv-th' style='text-align:left'>" +
-                        "<a target='CLDR-ST-LOCALE' href='" + baseUrl + "?_=")
-                        .append(localeID)
-                        .append("&x=r_vetting&p_covlev=default'>")
-                        .append(TransliteratorUtilities.toHTML.transform(name.replace('\uFFFE', ' ')))
-                        .append("</a></th>\n");
-                for (Choice choice : choices) {
-                    long count = problemCounter.get(choice);
-                    output.append("<td class='tvs-count'>");
-                    // if (choice == Choice.weLost) {
-                    // output.append("<i>n/a</i>");
-                    // } else {
-                    output.append(nf.format(count));
-                    // }
-                    output.append("</td>\n");
-                }
-                output.append("</tr>\n");
-
-                if (output instanceof Writer) {
-                    ((Writer) output).flush();
-                }
-            }
-            output.append(header);
-            output.append("</table>");
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // dang'ed checked exceptions
         }
 
     }
 
-    LanguageTagParser ltp = new LanguageTagParser();
+    private void writeSummaryTable(Appendable output, String header, Level desiredLevel, 
+            EnumSet<Choice> choices, T organization) throws IOException {
 
-    private String getName(String localeID, Relation<String, String> localeToDefaultContents) {
-        String localeIDs = localeID;
-        Set<String> contents = localeToDefaultContents.get(localeID);
-        if (contents != null) {
-            for (String item : contents) {
-                localeIDs += ", " + item;
+        Counter<Choice> totalProblemCounter = new Counter<Choice>();
+        Map<String, String> sortedNames = new TreeMap(Collator.getInstance());
+
+        // Gather the relevant paths
+        // Each one will be marked with the choice that it triggered.
+
+        // TODO Fix HACK
+        // We are going to ignore the predicate for now, just using the locales that have explicit coverage.
+        // in that locale.
+        LocalesWithExplicitLevel includeLocale = new LocalesWithExplicitLevel((Organization) organization, desiredLevel);
+
+        for (String localeID : cldrFactory.getAvailable()) {
+            if (defaultContentLocales.contains(localeID)
+                    || localeID.equals("en")
+                    || !includeLocale.is(localeID)) {
+                continue;
+            }
+
+            sortedNames.put(getName(localeID), localeID);
+        }
+        if (sortedNames.isEmpty()) {
+            return;
+        }
+
+        output.append("<h2>Level: ").append(desiredLevel.toString()).append("</h2>");
+        output.append("<table class='tvs-table'>\n");
+        Counter<Choice> problemCounter = new Counter<Choice>();
+        char lastChar = ' ';
+        for (Entry<String, String> entry : sortedNames.entrySet()) {
+            System.out.println(entry);
+            String name = entry.getKey();
+            String localeID = entry.getValue();
+            // Initialize
+
+            CLDRFile sourceFile = cldrFactory.make(localeID, true);
+
+            CLDRFile lastSourceFile = null;
+            try {
+                lastSourceFile = cldrFactoryOld.make(localeID, true);
+            } catch (Exception e) {
+            }
+
+            problemCounter.clear();
+            Level level = Level.MODERN;
+            if (organization != null) {
+                level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
+            }
+            getFileInfo(sourceFile, lastSourceFile, null, problemCounter, choices, localeID, true, organization,
+                    level);
+
+            char nextChar = name.charAt(0);
+            if (lastChar != nextChar) {
+                output.append(header);
+                lastChar = nextChar;
+            }
+
+            writeSummaryRow(output, choices, problemCounter, name, localeID);
+            totalProblemCounter.addAll(problemCounter);
+
+            if (output instanceof Writer) {
+                ((Writer) output).flush();
             }
         }
-//        ltp.set(localeID);
-//        String name = oldEnglishFile.getName(CLDRFile.LANGUAGE_NAME, ltp.getLanguage());
-//        String script = ltp.getScript();
-//        String region = ltp.getRegion();
-//        if (script.isEmpty()) {
-//            if (region.isEmpty()) {
-//                // nothing
-//            } else {
-//                name += " (" + oldEnglishFile.getName(CLDRFile.TERRITORY_NAME, region) + ")";
-//            }
-//        } else {
-//            if (region.isEmpty()) {
-//                name += " (" + oldEnglishFile.getName(CLDRFile.SCRIPT_NAME, script) + ")";
-//            } else {
-//                name += " (" + oldEnglishFile.getName(CLDRFile.SCRIPT_NAME, script)
-//                        + ", " + oldEnglishFile.getName(CLDRFile.TERRITORY_NAME, region) + ")";
-//            }
-//        }
-        String name = englishFile.getName(localeID, true, CLDRFile.SHORT_ALTS);
+        output.append(header);
+        writeSummaryRow(output, choices, totalProblemCounter, "Total", null);
+        output.append("</table>");
+    }
 
-        name += "\uFFFE[" + localeIDs + "]";
+    private void writeSummaryRow(Appendable output, EnumSet<Choice> choices, Counter<Choice> problemCounter, 
+            String name, String localeID) throws IOException {
+        output
+        .append("<tr>")
+        .append(TH_AND_STYLES);
+        if (localeID == null) {
+            output
+            .append("<i>")
+            .append(name)
+            .append("</i>")
+            .append("</th>")
+            .append(TH_AND_STYLES);
+        } else {
+            String[] names = name.split(SPLIT_CHAR);
+            output
+            .append("<a target='CLDR-ST-LOCALE' href='" + baseUrl + "?_=")
+            .append(localeID)
+            .append("&x=r_vetting&p_covlev=default'>")
+            .append(TransliteratorUtilities.toHTML.transform(names[0]))
+            .append("</a>")
+            .append("</th>")
+            .append(TH_AND_STYLES)
+            .append("<code>")
+            .append(names[1])
+            .append("</code>");
+        }
+        output.append("</th>\n");
+        for (Choice choice : choices) {
+            long count = problemCounter.get(choice);
+            output.append("<td class='tvs-count'>");
+            // if (choice == Choice.weLost) {
+            // output.append("<i>n/a</i>");
+            // } else {
+            output.append(nf.format(count));
+            // }
+            output.append("</td>\n");
+        }
+        output.append("</tr>\n");
+    }
+
+    LanguageTagParser ltp = new LanguageTagParser();
+
+    private String getName(String localeID) {
+        Set<String> contents = supplementalDataInfo.getEquivalentsForLocale(localeID);
+        // put in special character that can be split on later
+        String name = englishFile.getName(localeID, true, CLDRFile.SHORT_ALTS) + SPLIT_CHAR + gatherCodes(contents); 
         return name;
+    }
+
+    /**
+     * Collapse the names
+     {en_Cyrl, en_Cyrl_US} => en_Cyrl(_US)
+     {en_GB, en_Latn_GB} => en(_Latn)_GB
+     {en, en_US, en_Latn, en_Latn_US} => en(_Latn)(_US)
+     {az_IR, az_Arab, az_Arab_IR} => az_IR, az_Arab(_IR)
+     */
+    public static String gatherCodes(Set<String> contents) {
+        Set<Set<String>> source = new LinkedHashSet<Set<String>>();
+        for (String s : contents) {
+            source.add(new LinkedHashSet(Arrays.asList(s.split("_"))));
+        }
+        Set<Set<String>> oldSource = new LinkedHashSet<Set<String>>();
+
+        do {
+            // exchange source/target
+            oldSource.clear();
+            oldSource.addAll(source);
+            source.clear();
+            Set<String> last = null;
+            for (Set<String> ss : oldSource) {
+                if (last == null) {
+                    last = ss;
+                } else {
+                    if (ss.containsAll(last)) {
+                        last = combine(last,ss);
+                    } else {
+                        source.add(last);
+                        last = ss;
+                    }
+                }
+            }
+            source.add(last);
+        } while (oldSource.size() != source.size());
+        
+        StringBuilder b = new StringBuilder();
+        for (Set<String> stringSet : source) {
+            if (b.length() != 0) {
+                b.append(", ");
+            }
+            String sep = "";
+            for (String string : stringSet) {
+                if (string.startsWith(CONNECT_PREFIX)) {
+                    b.append(string + CONNECT_SUFFIX);
+                } else {
+                    b.append(sep + string);
+                }
+                sep = "_";
+            }
+        }
+        return b.toString();
+    }
+
+    private static Set<String> combine(Set<String> last, Set<String> ss) {
+        LinkedHashSet<String> result = new LinkedHashSet<String>();
+        for (String s : ss) {
+            if (last.contains(s)) {
+                result.add(s);
+            } else {
+                result.add(CONNECT_PREFIX + s);
+            }
+        }
+        return result;
     }
 
     static final RegexLookup<String> missingOk = new RegexLookup<String>()
@@ -1531,16 +1623,16 @@ public class VettingViewer<T> {
     static final String myOutputDir = CldrUtility.TMP_DIRECTORY + "dropbox/mark/vetting/";
 
     public static void main(String[] args) throws IOException {
+        String fileFilter = args.length == 0 ? ".*" : args[0];
         Timer timer = new Timer();
         timer.start();
-        final String version = "2.0.1";
+        final String version = "23.0";
         final String lastMain = "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-" +
-                version +
-                "/common/main";
+                version + "/common/main";
 
-        Factory cldrFactory = Factory.make(CURRENT_MAIN, ".*");
+        Factory cldrFactory = Factory.make(CURRENT_MAIN, fileFilter);
         cldrFactory.setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
-        Factory cldrFactoryOld = Factory.make(lastMain, ".*");
+        Factory cldrFactoryOld = Factory.make(lastMain, fileFilter);
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
                 .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
         CheckCLDR.setDisplayInformation(cldrFactory.make("en", true));
@@ -1676,7 +1768,7 @@ public class VettingViewer<T> {
             // tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);
             // break;
         case summary:
-            System.out.println(tableView.getName("zh_Hant_HK", tableView.localeToDefaultContents));
+            System.out.println(tableView.getName("zh_Hant_HK"));
             tableView.generateSummaryHtmlErrorTables(out, choiceSet, null, organization);
             break;
         }

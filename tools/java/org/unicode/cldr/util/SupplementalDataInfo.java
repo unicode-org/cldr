@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -26,6 +27,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
@@ -35,6 +37,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.dev.util.XEquivalenceClass;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -3158,5 +3161,143 @@ public class SupplementalDataInfo {
 
     public String getDefaultScript(String baseLanguage) {
         return baseLanguageToDefaultScript.get(baseLanguage);
+    }
+    
+    private XEquivalenceClass<String, String> equivalentLocales = null;
+    
+    public Set<String> getEquivalentsForLocale(String localeId) {
+        if (equivalentLocales == null) {
+            equivalentLocales = getEquivalentsForLocale();
+        }
+        Set<String> result = new TreeSet(LENGTH_FIRST);
+        result.add(localeId);
+        Set<String> equiv = equivalentLocales.getEquivalences(localeId);
+//        if (equiv == null) {
+//            result.add(localeId);
+//            return result;
+//        }
+        if (equiv != null) {
+            result.addAll(equivalentLocales.getEquivalences(localeId));
+        }
+        Map<String, String> likely = getLikelySubtags();
+        String newMax = LikelySubtags.maximize(localeId, likely);
+        if (newMax != null) {
+            result.add(newMax);
+            newMax = LikelySubtags.minimize(localeId, likely, true);
+            if (newMax != null) {
+                result.add(newMax);
+            }
+            newMax = LikelySubtags.minimize(localeId, likely, false);
+            if (newMax != null) {
+                result.add(newMax);
+            }
+        }
+
+//        if (result.size() == 1) {
+//            LanguageTagParser ltp = new LanguageTagParser().set(localeId);
+//            if (ltp.getScript().isEmpty()) {
+//                String ds = getDefaultScript(ltp.getLanguage());
+//                if (ds != null) {
+//                    ltp.setScript(ds);
+//                    result.add(ltp.toString());
+//                }
+//            }
+//        }
+        return result;
+    }
+    
+    public final static class LengthFirstComparator<T> implements Comparator<T> {
+        public int compare(T a, T b) {
+            String as = a.toString();
+            String bs = b.toString();
+            if (as.length() < bs.length())
+                return -1;
+            if (as.length() > bs.length())
+                return 1;
+            return as.compareTo(bs);
+        }
+    }
+
+    public static final LengthFirstComparator LENGTH_FIRST = new LengthFirstComparator();
+    
+    private synchronized XEquivalenceClass<String, String> getEquivalentsForLocale() {
+        SupplementalDataInfo sdi = this;
+        Relation<String, String> localeToDefaultContents = Relation.of(new HashMap<String, Set<String>>(),
+                LinkedHashSet.class);
+
+        Set<String> dcl = sdi.getDefaultContentLocales();
+        Map<String, String> likely = sdi.getLikelySubtags();
+        XEquivalenceClass<String, String> locales = new XEquivalenceClass<String, String>();
+        LanguageTagParser ltp = new LanguageTagParser();
+        Set<String> temp = new HashSet<String>();
+        for (Entry<String, String> entry : likely.entrySet()) {
+            String source = entry.getKey();
+            if (source.startsWith("und")) {
+                continue;
+            }
+            for (String s : getCombinations(source, ltp, likely, temp)) {
+                locales.add(source, s);
+            }
+            for (String s : getCombinations(entry.getValue(), ltp, likely, temp)) {
+                locales.add(source, s);
+            }
+        }
+//        Set<String> sorted = new TreeSet(locales.getExplicitItems());
+//        for (String s : sorted) {
+//            System.out.println(locales.getEquivalences(s));
+//        }
+        for (String defaultContentLocale : dcl) {
+            if (defaultContentLocale.startsWith("zh")) {
+                int x = 0;
+            }
+            Set<String> set = locales.getEquivalences(defaultContentLocale);
+
+            String parent = LocaleIDParser.getSimpleParent(defaultContentLocale);
+            if (!set.contains(parent)) {
+                localeToDefaultContents.put(parent, defaultContentLocale);
+                //System.out.println("Mismatch " + parent + ", " + set);
+            }
+            if (parent.contains("_")) {
+                continue;
+            }
+            // only base locales after this point
+            String ds = sdi.getDefaultScript(parent);
+            if (ds != null) {
+                ltp.set(parent);
+                ltp.setScript(ds);
+                String trial = ltp.toString();
+                if (!set.contains(trial)) {
+                    //System.out.println("Mismatch " + trial + ", " + set);
+                    localeToDefaultContents.put(parent, trial);
+                }
+            }
+        }
+        return locales;
+    }
+
+    private Set<String> getCombinations(String source, LanguageTagParser ltp, Map<String, String> likely, 
+            Set<String> locales) {
+        locales.clear();
+        
+        String max = LikelySubtags.maximize(source, likely);
+        locales.add(max);
+        
+        ltp.set(source);
+        ltp.setScript("");
+        String trial = ltp.toString();
+        String newMax = LikelySubtags.maximize(trial, likely);
+        if (newMax.equals(max)) {
+            locales.add(trial);
+        }
+        
+        ltp.set(source);
+        ltp.setRegion("");
+        trial = ltp.toString();
+        newMax = LikelySubtags.maximize(trial, likely);
+        if (newMax.equals(max)) {
+            locales.add(trial);
+        }
+        
+        return locales;
     }
 }

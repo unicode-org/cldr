@@ -1,8 +1,10 @@
 package org.unicode.cldr.tool;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -141,9 +143,11 @@ public class LikelySubtags {
             ltp.setRegion(region = "");
         }
         if (variants.size() != 0) {
+            variants = new ArrayList(variants); // make copy
             ltp.setVariants(Collections.EMPTY_SET);
         }
         if (extensions.size() != 0) {
+            extensions = new LinkedHashMap(extensions);
             ltp.setExtensions(Collections.EMPTY_MAP);
         }
 

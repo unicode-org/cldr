@@ -19,6 +19,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -36,6 +37,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
+import org.unicode.cldr.util.VettingViewer;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -50,8 +52,97 @@ import com.ibm.icu.text.UnicodeSet;
 public class TestSupplementalInfo extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
 
+    private static final SupplementalDataInfo SUPPLEMENTAL = testInfo.getSupplementalDataInfo();
+
     public static void main(String[] args) {
         new TestSupplementalInfo().run(args);
+    }
+
+    public void TestLikelyCode(){
+        Map<String, String> likely = SUPPLEMENTAL.getLikelySubtags();
+        String[][] tests = {
+                {"it_AQ", "it_Latn_AQ"},
+                {"it_Arab", "it_Arab_IT"},
+                {"az_Cyrl", "az_Cyrl_AZ"},
+        };
+        for (String[] pair : tests) {
+            String newMax = LikelySubtags.maximize(pair[0], likely);
+            assertEquals("Likely", pair[1], newMax);
+        }
+
+    }
+    public void TestEquivalentLocales() {
+        Set<Set<String>> seen = new HashSet();
+        Set<String> toTest = new TreeSet(testInfo.getCldrFactory().getAvailable());
+        toTest.addAll(SUPPLEMENTAL.getLikelySubtags().keySet());
+        toTest.addAll(SUPPLEMENTAL.getLikelySubtags().values());
+        toTest.addAll(SUPPLEMENTAL.getDefaultContentLocales());
+        LanguageTagParser ltp = new LanguageTagParser();
+        main:
+            for (String locale : toTest) {
+                if (locale.startsWith("und") || locale.equals("root")) {
+                    continue;
+                }
+                Set<String> s = SUPPLEMENTAL.getEquivalentsForLocale(locale);
+                if (seen.contains(s)) {
+                    continue;
+                }
+                //System.out.println(s + " => " + VettingViewer.gatherCodes(s));
+                
+                List<String> ss = new ArrayList<String>(s);
+                String last = ss.get(ss.size()-1);
+                String language = ltp.set(last).getLanguage();
+                String script = ltp.set(last).getScript();
+                String region = ltp.set(last).getRegion();
+                if (!script.isEmpty() && !region.isEmpty()) {
+                    String noScript = ltp.setScript("").toString();
+                    String noRegion = ltp.setScript(script).setRegion("").toString();
+                    switch(s.size()) {
+                    case 1: // ok if already maximized and strange script/country, eg it_Arab_JA
+                        continue main;
+                    case 2: // ok if adds default country/script, eg {en_Cyrl, en_Cyrl_US} or {en_GB, en_Latn_GB}
+                        String first = ss.get(0);
+                        if (first.equals(noScript) || first.equals(noRegion)) {
+                            continue main;
+                        }
+                        break;
+                    case 3: // ok if different script in different country, eg {az_IR, az_Arab, az_Arab_IR}
+                        if (noScript.equals(ss.get(0)) && noRegion.equals(ss.get(1))) {
+                            continue main;
+                        }
+                        break;
+                    case 4: // ok if all combinations, eg {en, en_US, en_Latn, en_Latn_US}
+                        if (language.equals(ss.get(0))  && noScript.equals(ss.get(1)) && noRegion.equals(ss.get(2))) {
+                            continue main;
+                        }
+                        break;
+                    }
+                }
+                errln("Strange size or composition:\t" + s + " \t" + showLocaleParts(s));
+                seen.add(s);
+            }
+    }
+
+    private String showLocaleParts(Set<String> s) {
+        LanguageTagParser ltp = new LanguageTagParser();
+        Set<String> b = new LinkedHashSet<String>();
+        for (String ss : s) {
+            ltp.set(ss);
+            addName(CLDRFile.LANGUAGE_NAME,ltp.getLanguage(), b);
+            addName(CLDRFile.SCRIPT_NAME,ltp.getScript(), b);
+            addName(CLDRFile.TERRITORY_NAME,ltp.getRegion(), b);
+        }
+        return CollectionUtilities.join(b, "; ");
+    }
+
+    private void addName(int languageName, String code, Set<String> b) {
+        if (code.isEmpty()) {
+            return;
+        }
+        String name = testInfo.getEnglish().getName(languageName, code);
+        if (!code.equals(name)) {
+            b.add(code + "=" + name);
+        }
     }
 
     public void TestDefaultScriptCompleteness() {
@@ -59,7 +150,7 @@ public class TestSupplementalInfo extends TestFmwk {
         main:
             for (String locale : testInfo.getCldrFactory().getAvailableLanguages()) {
                 if (!locale.contains("_") && !"root".equals(locale)) {
-                    String defaultScript = testInfo.getSupplementalDataInfo().getDefaultScript(locale);
+                    String defaultScript = SUPPLEMENTAL.getDefaultScript(locale);
                     if (defaultScript != null) {
                         continue;
                     }
@@ -83,7 +174,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestTimeData() {
-        Map<String, PreferredAndAllowedHour> timeData = testInfo.getSupplementalDataInfo().getTimeData();
+        Map<String, PreferredAndAllowedHour> timeData = SUPPLEMENTAL.getTimeData();
         Set<String> regionsSoFar = new HashSet<String>();
         for (Entry<String, PreferredAndAllowedHour> e : timeData.entrySet()) {
             String region = e.getKey();
@@ -104,7 +195,7 @@ public class TestSupplementalInfo extends TestFmwk {
     public void TestAliases() {
         testInfo.getStandardCodes();
         Map<String, Map<String, Map<String, String>>> bcp47Data = StandardCodes.getLStreg();
-        Map<String, Map<String, R2<List<String>, String>>> aliases = testInfo.getSupplementalDataInfo()
+        Map<String, Map<String, R2<List<String>, String>>> aliases = SUPPLEMENTAL
                 .getLocaleAliasInfo();
 
         for (Entry<String, Map<String, R2<List<String>, String>>> typeMap : aliases.entrySet()) {
@@ -125,7 +216,7 @@ public class TestSupplementalInfo extends TestFmwk {
                     }
                     Map<String, String> data = codeData.getValue();
                     if (data.containsKey("Deprecated")
-                            && testInfo.getSupplementalDataInfo().getCLDRLanguageCodes().contains(code)) {
+                            && SUPPLEMENTAL.getCLDRLanguageCodes().contains(code)) {
                         errln("supplementalMetadata.xml: alias is missing <languageAlias type=\"" + code + "\" ... /> "
                                 + "\t" + data);
                     }
@@ -178,8 +269,8 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestTerritoryContainment() {
-        Relation<String, String> map = testInfo.getSupplementalDataInfo().getTerritoryToContained(false);
-        Relation<String, String> mapCore = testInfo.getSupplementalDataInfo().getContainmentCore();
+        Relation<String, String> map = SUPPLEMENTAL.getTerritoryToContained(false);
+        Relation<String, String> mapCore = SUPPLEMENTAL.getContainmentCore();
         Set<String> mapItems = new LinkedHashSet<String>();
         // get all the items
         for (String item : map.keySet()) {
@@ -261,7 +352,7 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public void TestMacrolanguages() {
         Set<String> languageCodes = testInfo.getStandardCodes().getAvailableCodes("language");
-        Map<String, Map<String, R2<List<String>, String>>> typeToTagToReplacement = testInfo.getSupplementalDataInfo()
+        Map<String, Map<String, R2<List<String>, String>>> typeToTagToReplacement = SUPPLEMENTAL
                 .getLocaleAliasInfo();
         Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get("language");
 
@@ -346,7 +437,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestPopulation() {
-        Set<String> languages = testInfo.getSupplementalDataInfo().getLanguagesForTerritoriesPopulationData();
+        Set<String> languages = SUPPLEMENTAL.getLanguagesForTerritoriesPopulationData();
         Relation<String, String> baseToLanguages = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
         for (String language : languages) {
@@ -357,7 +448,7 @@ public class TestSupplementalInfo extends TestFmwk {
             // add basic data, basically just for wo!
             // if there are primary scripts, they must include script (if not empty)
             Set<String> primaryScripts = Collections.emptySet();
-            Map<Type, BasicLanguageData> basicData = testInfo.getSupplementalDataInfo().getBasicLanguageDataMap(base);
+            Map<Type, BasicLanguageData> basicData = SUPPLEMENTAL.getBasicLanguageDataMap(base);
             if (basicData != null) {
                 BasicLanguageData s = basicData.get(BasicLanguageData.Type.primary);
                 if (s != null) {
@@ -396,9 +487,9 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestCompleteness() {
-        if (testInfo.getSupplementalDataInfo().getSkippedElements().size() > 0) {
+        if (SUPPLEMENTAL.getSkippedElements().size() > 0) {
             logln("SupplementalDataInfo API doesn't support: "
-                    + testInfo.getSupplementalDataInfo().getSkippedElements().toString());
+                    + SUPPLEMENTAL.getSkippedElements().toString());
         }
     }
 
@@ -442,11 +533,11 @@ public class TestSupplementalInfo extends TestFmwk {
 
         for (String territory : testInfo.getStandardCodes().getGoodAvailableCodes("territory")) {
             /* "EU" behaves like a country for purposes of this test */
-            if ((testInfo.getSupplementalDataInfo().getContained(territory) != null) && !territory.equals("EU")) {
+            if ((SUPPLEMENTAL.getContained(territory) != null) && !territory.equals("EU")) {
                 territoriesWithoutModernCurrencies.remove(territory);
                 continue;
             }
-            Set<CurrencyDateInfo> currencyInfo = testInfo.getSupplementalDataInfo().getCurrencyDateInfo(territory);
+            Set<CurrencyDateInfo> currencyInfo = SUPPLEMENTAL.getCurrencyDateInfo(territory);
             if (currencyInfo == null) {
                 continue; // error, but will pick up below.
             }
@@ -538,7 +629,7 @@ public class TestSupplementalInfo extends TestFmwk {
                         + "\t" + currency + "\t" + name + "\t" + nonModernCurrencyCodes.getAll(currency));
                 for (Pair<String, CurrencyDateInfo> pair : nonModernCurrencyCodes.getAll(currency)) {
                     final String territory = pair.getFirst();
-                    Set<CurrencyDateInfo> currencyInfo = testInfo.getSupplementalDataInfo().getCurrencyDateInfo(
+                    Set<CurrencyDateInfo> currencyInfo = SUPPLEMENTAL.getCurrencyDateInfo(
                             territory);
                     for (CurrencyDateInfo dateInfo : currencyInfo) {
                         if (dateInfo.getEnd().compareTo(NOW) < 0) {
@@ -574,8 +665,8 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public void TestDayPeriods() {
         int count = 0;
-        for (String locale : testInfo.getSupplementalDataInfo().getDayPeriodLocales()) {
-            DayPeriodInfo dayPeriod = testInfo.getSupplementalDataInfo().getDayPeriods(locale);
+        for (String locale : SUPPLEMENTAL.getDayPeriodLocales()) {
+            DayPeriodInfo dayPeriod = SUPPLEMENTAL.getDayPeriods(locale);
             logln(locale + "\t" + testInfo.getEnglish().getName(locale) + "\t" + dayPeriod);
             count += dayPeriod.getPeriodCount();
         }
@@ -608,7 +699,7 @@ public class TestSupplementalInfo extends TestFmwk {
      * Verify that we have a default script for every CLDR base language
      */
     public void TestDefaultScripts() {
-        SupplementalDataInfo supp = testInfo.getSupplementalDataInfo();
+        SupplementalDataInfo supp = SUPPLEMENTAL;
         Map<String, String> likelyData = supp.getLikelySubtags();
         Map<String,String> baseToDefaultContentScript = new HashMap<String,String>();
         for (CLDRLocale locale : supp.getDefaultContentCLDRLocales()) {

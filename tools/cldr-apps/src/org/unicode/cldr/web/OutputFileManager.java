@@ -1117,6 +1117,8 @@ public class OutputFileManager {
                     }
 
                     // SurveyLog.logger.warning("Finished writing " + loc);
+                } catch (InterruptedException ie) {
+                    SurveyLog.logger.warning("Interrupted while running Updater - goodbye: " + ie);
                 } catch (SQLException e) {
                     SurveyLog.logException(e);
                     SurveyLog.logger.warning("While running Updater: " + DBUtils.unchainSqlException(e));

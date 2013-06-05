@@ -2081,7 +2081,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 //		listenToPop(null,tr,example,td.showFn);
 	}
 	
-	if(tr.canModify) {
+	if(tr.canChange) {
 	    var oldClassName = span.className = span.className + " editableHere";
 	    ///span.title = span.title  + " " + stui_str("clickToChange");
 	    var ieb = null;
@@ -2318,7 +2318,7 @@ function updateRow(tr, theRow) {
 	var statusAction = tr.statusAction = parseStatusAction(theRow.statusAction);
 	var canModify = tr.canModify =  tr.theTable.json.canModify && statusAction.vote;
     var ticketOnly = tr.ticketOnly = tr.theTable.json.canModify && statusAction.ticket;
-    var canChange = tr.canChange = canModify && statusAction.change;
+    /* var canChange = */ tr.canChange = canModify && statusAction.change;
     if(!theRow || !theRow.xpid) {
 		tr.innerHTML="<td><i>ERROR: missing row</i></td>";
 		return;

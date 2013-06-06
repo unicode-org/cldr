@@ -13,27 +13,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 		<collations  validSubLocales="et_EE">
 			<collation type="standard" >
-				<rules>
-					<reset before="primary">T</reset>
-					<p>š</p>
-					<t>Š</t>
-					<p>z</p>
-					<t>Z</t>
-					<p>ž</p>
-					<t>Ž</t>
-					<reset>v</reset>
-					<s>w</s>
-					<t>W</t>
-					<reset before="primary">X</reset>
-					<p>õ</p>
-					<t>Õ</t>
-					<p>ä</p>
-					<t>Ä</t>
-					<p>ö</p>
-					<t>Ö</t>
-					<p>ü</p>
-					<t>Ü</t>
-				</rules>
+				<cr><![CDATA[
+					&[before 1]T<š<<<Š<z<<<Z<ž<<<Ž
+					&v<<w<<<W
+					&[before 1]X<õ<<<Õ<ä<<<Ä<ö<<<Ö<ü<<<Ü
+				]]></cr>
 			</collation>
 		</collations>
 </ldml>

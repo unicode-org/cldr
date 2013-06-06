@@ -14,15 +14,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<collations validSubLocales="pa_Arab pa_Arab_PK pa_Guru pa_Guru_IN">
 			<collation type="standard" references="Punjabi University: Punjabi-English Dictionary ISBN:8173800960">
 				<settings normalization="on" reorder="Guru Deva Beng Gujr Orya Taml Telu Knda Mlym Sinh Arab"/>
-				<rules>
-					<reset>ੱ</reset>
-						<s>ੰ</s>
-						<s>ਂ</s>
-						<s>ਁ</s>
-						<s>਼</s>
-			        	<reset>ੜ</reset>
-            					<p>੍</p>
-    				</rules>
+				<cr><![CDATA[
+					&ੱ<<ੰ<<ਂ<<ਁ<<਼
+			        	&ੜ<੍
+    				]]></cr>
 			</collation>
 		</collations>
 </ldml>

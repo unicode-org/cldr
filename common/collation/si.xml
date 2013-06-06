@@ -14,23 +14,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations validSubLocales="si_LK">
 		<collation type="standard" references="Sri Lanka standard 1134 Part 1 - 2007 edition - Sri Lanka Standards Institution">
 			<settings normalization="on" reorder="Sinh Deva Beng Guru Gujr Orya Taml Telu Knda Mlym"/>
-			<rules>
-				<reset>ඖ</reset>
-				<p>ං</p>
-				<p>ඃ</p>
-				<reset>ඥ</reset>
-				<p>ඤ</p>
-			</rules>
+			<cr><![CDATA[
+				&ඖ<ං<ඃ
+				&ඥ<ඤ
+			]]></cr>
 		</collation>
 		<collation type="dictionary" references="Sri Lanka standard 1134 Part 1 - 2007 edition - Sri Lanka Standards Institution">
 			<settings normalization="on" reorder="Sinh Deva Beng Guru Gujr Orya Taml Telu Knda Mlym"/>
-			<rules>
-				<reset>ඖ</reset>
-				<p>ං</p>
-				<p>ඃ</p>
-				<reset>ජ්ඤ</reset>
-				<s>ඥ</s>
-			</rules>
+			<cr><![CDATA[
+				&ඖ<ං<ඃ
+				&ජ්ඤ<<ඥ
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

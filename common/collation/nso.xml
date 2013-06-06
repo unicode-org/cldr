@@ -13,17 +13,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations validSubLocales="nso_ZA">
 		<collation type="standard" >
-			<rules>
-				<reset>E</reset>
-				<p>ê</p>
-				<t>Ê</t>
-				<reset>O</reset>
-				<p>ô</p>
-				<t>Ô</t>
-				<reset>S</reset>
-				<p>š</p>
-				<t>Š</t>
-			</rules>
+			<cr><![CDATA[
+				&E<ê<<<Ê
+				&O<ô<<<Ô
+				&S<š<<<Š
+			]]></cr>
 		</collation  >
 	</collations>
 </ldml>

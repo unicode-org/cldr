@@ -15,15 +15,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 		<collations>
 			<collation type="standard" >
-				<rules>
-					<reset>A</reset>
-					<pc>&#x20;&#x21;&#x22;&#x23;&#x24;&#x25;&#x26;&#x27;&#x28;&#x29;&#x2a;&#x2b;&#x2c;&#x2d;&#x2e;&#x2f;</pc>
-					<pc>0123456789&#x3a;&#x3b;&#x3c;&#x3d;&#x3e;&#x3f;&#x40;</pc>
-					<pc>ABCDEFGHIJKLMNOPQRSTUVWXYZ</pc>
-					<pc>&#x5b;&#x5c;&#x5d;&#x5e;&#x5f;&#x60;</pc>					
-					<pc>abcdefghijklmnopqrstuvwxyz</pc>
-					<pc>&#x7b;&#x7c;&#x7d;&#x7e;&#x7f;</pc>					
-				</rules>
+				<cr><![CDATA[
+					&A<*\u0020\u0021\u0022\u0023\u0024\u0025\u0026\u0027\u0028\u0029\u002a\u002b\u002c\u002d\u002e\u002f
+					<*0123456789\u003a\u003b\u003c\u003d\u003e\u003f\u0040<*ABCDEFGHIJKLMNOPQRSTUVWXYZ
+					<*\u005b\u005c\u005d\u005e\u005f\u0060<*abcdefghijklmnopqrstuvwxyz<*\u007b\u007c\u007d\u007e\u007f
+				]]></cr>
 			</collation>
 		</collations>
 </ldml>

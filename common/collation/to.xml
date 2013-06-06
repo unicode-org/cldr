@@ -13,42 +13,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations validSubLocales="to_TO">
         <collation type="standard">
-            <rules>
-                <reset>n</reset>
-                    <p>ng</p>
-                    <t>Ng</t>
-                    <t>NG</t>
-                    <t>ŋ</t>
-                    <t>Ŋ</t>
-                <reset>z</reset>
-                    <p>ʻ</p>
-                    <t>ʽ</t>
-                <reset>a</reset>
-                    <s>á</s>
-                    <t>Á</t>
-                    <s>ā</s>
-                    <t>Ā</t>
-                <reset>e</reset>
-                    <s>é</s>
-                    <t>É</t>
-                    <s>ē</s>
-                    <t>Ē</t>
-                <reset>i</reset>
-                    <s>í</s>
-                    <t>Í</t>
-                    <s>ī</s>
-                    <t>Ī</t>
-                <reset>o</reset>
-                    <s>ó</s>
-                    <t>Ó</t>
-                    <s>ō</s>
-                    <t>Ō</t>
-                <reset>u</reset>
-                    <s>ú</s>
-                    <t>Ú</t>
-                    <s>ū</s>
-                    <t>Ū</t>
-            </rules>
+            <cr><![CDATA[
+                &n<ng<<<Ng<<<NG<<<ŋ<<<Ŋ
+                &z<ʻ<<<ʽ
+                &a<<á<<<Á<<ā<<<Ā
+                &e<<é<<<É<<ē<<<Ē
+                &i<<í<<<Í<<ī<<<Ī
+                &o<<ó<<<Ó<<ō<<<Ō
+                &u<<ú<<<Ú<<ū<<<Ū
+            ]]></cr>
         </collation>
     </collations>
 </ldml>

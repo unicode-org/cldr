@@ -13,40 +13,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations  validSubLocales="cy_GB">
 		<collation type="standard" references="http://www.evertype.com/alphabets/welsh.pdf">
-                	<rules>
-				<reset>C</reset>
-					<p>ch</p>
-					<t>Ch</t>
-					<t>CH</t>
-				<reset>D</reset>
-					<p>dd</p>
-					<t>Dd</t>
-					<t>DD</t>
-				<reset>F</reset>
-					<p>ff</p>
-					<t>Ff</t>
-					<t>FF</t>
-				<reset>G</reset>
-					<p>ng</p>
-					<t>Ng</t>
-					<t>NG</t>
-				<reset>L</reset>
-					<p>ll</p>
-					<t>Ll</t>
-					<t>LL</t>
-				<reset>P</reset>
-					<p>ph</p>
-					<t>Ph</t>
-					<t>PH</t>
-				<reset>R</reset>
-					<p>rh</p>
-					<t>Rh</t>
-					<t>RH</t>
-				<reset>T</reset>
-					<p>th</p>
-					<t>Th</t>
-					<t>TH</t>
-			</rules>
+                	<cr><![CDATA[
+				&C<ch<<<Ch<<<CH
+				&D<dd<<<Dd<<<DD
+				&F<ff<<<Ff<<<FF
+				&G<ng<<<Ng<<<NG
+				&L<ll<<<Ll<<<LL
+				&P<ph<<<Ph<<<PH
+				&R<rh<<<Rh<<<RH
+				&T<th<<<Th<<<TH
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

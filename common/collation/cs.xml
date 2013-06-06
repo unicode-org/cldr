@@ -16,219 +16,161 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<settings normalization="on"/>
 				<!-- root search, suppress contractions for Thai, Lao -->
 				<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
-				<rules>
-					<!-- root search rules for Symbols -->
-					<reset>=</reset>
-					<p>≠</p>
-					<!-- root search rules for Arabic, Hebrew -->
-					<reset>ا</reset>	<!-- 0627 ARABIC LETTER ALEF -->
-							<t>ﺎ</t><t>ﺍ</t>	<!-- FE8E, FE8D: FINAL FORM, ISOLATED FORM -->
-						<s>آ</s>		<!-- 0622 ARABIC LETTER ALEF WITH MADDA ABOVE -->
-							<t>ﺂ</t><t>ﺁ</t>	<!-- FE82, FE81: FINAL FORM, ISOLATED FORM -->
-						<s>أ</s>		<!-- 0623 ARABIC LETTER ALEF WITH HAMZA ABOVE -->
-							<t>ﺄ</t><t>ﺃ</t>	<!-- FE84, FE83: FINAL FORM, ISOLATED FORM -->
-						<s>إ</s>		<!-- 0625 ARABIC LETTER ALEF WITH HAMZA BELOW -->
-							<t>ﺈ</t><t>ﺇ</t>	<!-- FE88, FE87: FINAL FORM, ISOLATED FORM -->
-					<reset>و</reset>	<!-- 0648 ARABIC LETTER WAW -->
-							<t>ۥ</t>	<!-- 06E5: SMALL WAW -->
-							<t>ﻮ</t><t>ﻭ</t>	<!-- FEEE, FEED: FINAL FORM, ISOLATED FORM -->
-						<s>ؤ</s>		<!-- 0624 ARABIC LETTER WAW WITH HAMZA ABOVE -->
-							<t>ﺆ</t><t>ﺅ</t>	<!-- FE86, FE85: FINAL FORM, ISOLATED FORM -->
-					<reset>ي</reset>	<!-- 064A ARABIC LETTER YEH -->
-							<t>ۦ</t>	<!-- 06E6: ARABIC SMALL YEH -->
-							<t>ﻳ</t><t>ﻴ</t><t>ﻲ</t><t>ﻱ</t>	<!-- FEF3, FEF4, FEF2, FEF1: INITIAL FORM, MEDIAL FORM, FINAL FORM, ISOLATED FORM -->
-						<s>ئ</s>		<!-- 0626 ARABIC LETTER YEH WITH HAMZA ABOVE -->
-							<t>ﺋ</t><t>ﺌ</t><t>ﺊ</t><t>ﺉ</t>	<!-- FE8B, FE8C, FE8A, FE89: INITIAL FORM, MEDIAL FORM. FINAL FORM, ISOLATED FORM -->
-						<s>ى</s>		<!-- 0649 ARABIC LETTER ALEF MAKSURA -->
-							<t>ﯨ</t><t>ﯩ</t>	<!-- FBE8, FBE9: UIGHUR KAZAKH KIRGHIZ ALEF MAKSURA INITIAL FORM, MEDIAL FORM -->
-							<t>ﻰ</t><t>ﻯ</t>	<!-- FEF0, FEEF: FINAL FORM, ISOLATED FORM -->
-					<reset>ه</reset>	<!-- 0647 ARABIC LETTER HEH -->
-							<t>ﻫ</t><t>ﻬ</t><t>ﻪ</t><t>ﻩ</t>	<!-- FEEB, FEEC, FEEA, FEE9: INITIAL FORM, MEDIAL FORM, FINAL FORM;, ISOLATED FORM -->
-						<s>ة</s>		<!-- 0629 ARABIC LETTER TEH MARBUTA -->
-							<t>ﺔ</t><t>ﺓ</t>	<!-- FE94, FE93: FINAL FORM, ISOLATED FORM -->
-					<reset><last_primary_ignorable/></reset>
-						<s>׳</s>	<!-- 05F3 HEBREW PUNCTUATION GERESH -->
-						<s>״</s>	<!-- 05F4 HEBREW PUNCTUATION GERSHAYIM -->
-						<s>ـ</s>	<!-- 0640 ARABIC TATWEEL -->
-						<!-- Don't need explicit entries for 064B - 0652 ARABIC FATHATAN - ARABIC SUKUN;
-						these are already ignorable at level 1, and are not involved in contractions -->
-						<s>ฺ</s>	<!-- 0E3A THAI CHARACTER PHINTHU -->
-					<!-- root search rules for modern Korean jamos -->
-					<!-- Korean modern complex consonants, decompose: x(L) = CHOSEONG x, x(T) = JONGSEONG x -->
-					<reset>ᄀ</reset>	<!-- 1100 KIYEOK(L) = 11A8 KIYEOK(T) -->
-						<i>ᆨ</i>
-					<reset>ᄀᄀ</reset>	<!-- 1100 KIYEOK(L) + 1100 KIYEOK(L) = 1101 SSANGKIYEOK(L) = 11A9 SSANGKIYEOK(T) -->
-						<i>ᄁ</i>
-						<i>ᆩ</i>
-					<reset>ᄀᄉ</reset>	<!-- 1100 KIYEOK(L) + 1109 SIOS(L) = 11AA KIYEOK-SIOS(T) -->
-						<i>ᆪ</i>
-					<reset>ᄂ</reset>	<!-- 1102 NIEUN(L) = 11AB NIEUN(T) -->
-						<i>ᆫ</i>
-					<reset>ᄂᄌ</reset>	<!-- 1102 NIEUN(L) + 110C CIEUC(L) = 11AC NIEUN-CIEUC(T), also archaic 115C NIEUN-CIEUC(L) -->
-						<i>ᆬ</i>
-					<reset>ᄂᄒ</reset>	<!-- 1102 NIEUN(L) + 1112 HIEUH(L) = 11AD NIEUN-HIEUH(T), also archaic 115D NIEUN-HIEUH(L) -->
-						<i>ᆭ</i>
-					<reset>ᄃ</reset>	<!-- 1103 TIKEUT(L) = 11AE TIKEUT(T) -->
-						<i>ᆮ</i>
-					<reset>ᄃᄃ</reset>	<!-- 1103 TIKEUT(L) + 1103 TIKEUT(L) = 1104 SSANGTIKEUT(L) -->
-						<i>ᄄ</i>
-					<reset>ᄅ</reset>	<!-- 1105 RIEUL(L) = 11AF RIEUL(T) -->
-						<i>ᆯ</i>
-					<reset>ᄅᄀ</reset>	<!-- 1105 RIEUL(L) + 1100 KIYEOK(L) = 11B0 RIEUL-KIYEOK(T) -->
-						<i>ᆰ</i>
-					<reset>ᄅᄆ</reset>	<!-- 1105 RIEUL(L) + 1106 MIEUM(L) = 11B1 RIEUL-MIEUM(T) -->
-						<i>ᆱ</i>
-					<reset>ᄅᄇ</reset>	<!-- 1105 RIEUL(L) + 1107 PIEUP(L) = 11B2 RIEUL-PIEUP(T) -->
-						<i>ᆲ</i>
-					<reset>ᄅᄉ</reset>	<!-- 1105 RIEUL(L) + 1109 SIOS(L) = 11B3 RIEUL-SIOS(T) -->
-						<i>ᆳ</i>
-					<reset>ᄅᄐ</reset>	<!-- 1105 RIEUL(L) + 1110 THIEUTH(L) = 11B4 RIEUL-THIEUTH(T) -->
-						<i>ᆴ</i>
-					<reset>ᄅᄑ</reset>	<!-- 1105 RIEUL(L) + 1111 PHIEUPH(L) = 11B5 RIEUL-PHIEUPH(T) -->
-						<i>ᆵ</i>
-					<reset>ᄅᄒ</reset>	<!-- 1105 RIEUL(L) + 1112 HIEUH(L) = 11B6 RIEUL-HIEUH(T), also archic 111A RIEUL-HIEUH(L) -->
-						<i>ᆶ</i>
-					<reset>ᄆ</reset>	<!-- 1106 MIEUM(L) = 11B7 MIEUM(T) -->
-						<i>ᆷ</i>
-					<reset>ᄇ</reset>	<!-- 1107 PIEUP(L) = 11B8 PIEUP(T) -->
-						<i>ᆸ</i>
-					<reset>ᄇᄇ</reset>	<!-- 1107 PIEUP(L) + 1107 PIEUP(L) = 1108 SSANGPIEUP(L) -->
-						<i>ᄈ</i>
-					<reset>ᄇᄉ</reset>	<!-- 1107 PIEUP(L) + 1109 SIOS(L) = 11B9 PIEUP-SIOS(T), also archaic 1121 PIEUP-SIOS(L) -->
-						<i>ᆹ</i>
-					<reset>ᄉ</reset>	<!-- 1109 SIOS(L) = 11BA SIOS(T) -->
-						<i>ᆺ</i>
-					<reset>ᄉᄉ</reset>	<!-- 1109 SIOS(L) + 1109 SIOS(L) = 110A SSANGSIOS(L) = 11BB SSANGSIOS(T) -->
-						<i>ᄊ</i>
-						<i>ᆻ</i>
-					<reset>ᄋ</reset>	<!-- 110B IEUNG(L) = 11BC IEUNG(T) -->
-						<i>ᆼ</i>
-					<reset>ᄌ</reset>	<!-- 110C CIEUC(L) = 11BD CIEUC(T) -->
-						<i>ᆽ</i>
-					<reset>ᄌᄌ</reset>	<!-- 110C CIEUC(L) + 110C CIEUC(L) = 110D SSANGCIEUC(L) -->
-						<i>ᄍ</i>
-					<reset>ᄎ</reset>	<!-- 110E CHIEUCH(L) = 11BE CHIEUCH(T) -->
-						<i>ᆾ</i>
-					<reset>ᄏ</reset>	<!-- 110F KHIEUKH(L) = 11BF KHIEUKH(T) -->
-						<i>ᆿ</i>
-					<reset>ᄐ</reset>	<!-- 1110 THIEUTH(L) = 11C0 THIEUTH(T) -->
-						<i>ᇀ</i>
-					<reset>ᄑ</reset>	<!-- 1111 PHIEUPH(L) = 11C1 PHIEUPH(T) -->
-						<i>ᇁ</i>
-					<reset>ᄒ</reset>	<!-- 1112 HIEUH(L) = 11C2 HIEUH(T) -->
-						<i>ᇂ</i>
-					<!-- Korean modern complex vowels, decompose -->
-					<reset>ᅡᅵ</reset>	<!-- 1161 A(V) + 1175 I(V) = 1162 AE(V) -->
-						<i>ᅢ</i>
-					<reset>ᅣᅵ</reset>	<!-- 1163 YA(V) + 1175 I(V) = 1164 YAE(V) -->
-						<i>ᅤ</i>
-					<reset>ᅥᅵ</reset>	<!-- 1165 EO(V) + 1175 I(V) = 1166 E(V) -->
-						<i>ᅦ</i>
-					<reset>ᅧᅵ</reset>	<!-- 1167 YEO(V) + 1175 I(V) = 1168 YE(V) -->
-						<i>ᅨ</i>
-					<reset>ᅩᅡ</reset>	<!-- 1169 O(V) + 1161 A(V) = 116A WA(V) -->
-						<i>ᅪ</i>
-					<reset>ᅩᅡᅵ</reset>	<!-- 1169 O(V) + 1161 A(V) + 1175 I(V) = 116B WAE(V) -->
-						<i>ᅫ</i>
-					<reset>ᅩᅵ</reset>	<!-- 1169 O(V) + 1175 I(V) = 116C OE(V) -->
-						<i>ᅬ</i>
-					<reset>ᅮᅴ</reset>	<!-- 116E U(V) + 1174 YI(V) = 116F WEO(V) -->
-						<i>ᅯ</i>
-					<reset>ᅮᅴᅵ</reset>	<!-- 116E U(V) + 1174 YI(V) + 1175 I(V) = 1170 WE(V) -->
-						<i>ᅰ</i>
-					<reset>ᅮᅵ</reset>	<!-- 116E U(V) + 1175 I(V) = 1171 WI(V) -->
-						<i>ᅱ</i>
-					<!-- Above are the standard root search collator rules. -->
-					<!-- Below are the rules specific to cs. -->
-					<!-- These rules have more primary differences than the standard collation below. -->
-					<reset>A</reset>
-						<p>á</p>
-						<t>Á</t>
-					<reset>C</reset>
-						<p>č</p>
-						<t>Č</t>
-					<reset>D</reset>
-						<p>ď</p>
-						<t>Ď</t>
-					<reset>E</reset>
-						<p>é</p>
-						<t>É</t>
-						<p>ě</p>
-						<t>Ě</t>
-					<reset>I</reset>
-						<p>í</p>
-						<t>Í</t>
-					<reset>N</reset>
-						<p>ň</p>
-						<t>Ň</t>
-					<reset>O</reset>
-						<p>ó</p>
-						<t>Ó</t>
-					<reset>R</reset>
-						<p>ř</p>
-						<t>Ř</t>
-					<reset>S</reset>
-						<p>š</p>
-						<t>Š</t>
-					<reset>T</reset>
-						<p>ť</p>
-						<t>Ť</t>
-					<reset>U</reset>
-						<p>ú</p>
-						<t>Ú</t>
-						<p>ů</p>
-						<t>Ů</t>
-					<reset>Y</reset>
-						<p>ý</p>
-						<t>Ý</t>
-					<reset>Z</reset>
-						<p>ž</p>
-						<t>Ž</t>
-				</rules>
+				<cr><![CDATA[
+					# root search rules for Symbols
+					&'='<≠
+					# root search rules for Arabic, Hebrew
+					&ا	# 0627 ARABIC LETTER ALEF
+							<<<ﺎ<<<ﺍ	# FE8E, FE8D: FINAL FORM, ISOLATED FORM
+						<<آ		# 0622 ARABIC LETTER ALEF WITH MADDA ABOVE
+							<<<ﺂ<<<ﺁ	# FE82, FE81: FINAL FORM, ISOLATED FORM
+						<<أ		# 0623 ARABIC LETTER ALEF WITH HAMZA ABOVE
+							<<<ﺄ<<<ﺃ	# FE84, FE83: FINAL FORM, ISOLATED FORM
+						<<إ		# 0625 ARABIC LETTER ALEF WITH HAMZA BELOW
+							<<<ﺈ<<<ﺇ	# FE88, FE87: FINAL FORM, ISOLATED FORM
+					&و	# 0648 ARABIC LETTER WAW
+							<<<ۥ	# 06E5: SMALL WAW
+							<<<ﻮ<<<ﻭ	# FEEE, FEED: FINAL FORM, ISOLATED FORM
+						<<ؤ		# 0624 ARABIC LETTER WAW WITH HAMZA ABOVE
+							<<<ﺆ<<<ﺅ	# FE86, FE85: FINAL FORM, ISOLATED FORM
+					&ي	# 064A ARABIC LETTER YEH
+							<<<ۦ	# 06E6: ARABIC SMALL YEH
+							<<<ﻳ<<<ﻴ<<<ﻲ<<<ﻱ	# FEF3, FEF4, FEF2, FEF1: INITIAL FORM, MEDIAL FORM, FINAL FORM, ISOLATED FORM
+						<<ئ		# 0626 ARABIC LETTER YEH WITH HAMZA ABOVE
+							<<<ﺋ<<<ﺌ<<<ﺊ<<<ﺉ	# FE8B, FE8C, FE8A, FE89: INITIAL FORM, MEDIAL FORM. FINAL FORM, ISOLATED FORM
+						<<ى		# 0649 ARABIC LETTER ALEF MAKSURA
+							<<<ﯨ<<<ﯩ	# FBE8, FBE9: UIGHUR KAZAKH KIRGHIZ ALEF MAKSURA INITIAL FORM, MEDIAL FORM
+							<<<ﻰ<<<ﻯ	# FEF0, FEEF: FINAL FORM, ISOLATED FORM
+					&ه	# 0647 ARABIC LETTER HEH
+							<<<ﻫ<<<ﻬ<<<ﻪ<<<ﻩ	# FEEB, FEEC, FEEA, FEE9: INITIAL FORM, MEDIAL FORM, FINAL FORM;, ISOLATED FORM
+						<<ة		# 0629 ARABIC LETTER TEH MARBUTA
+							<<<ﺔ<<<ﺓ	# FE94, FE93: FINAL FORM, ISOLATED FORM
+					&[last primary ignorable]<<׳	# 05F3 HEBREW PUNCTUATION GERESH
+
+						<<״	# 05F4 HEBREW PUNCTUATION GERSHAYIM
+						<<ـ	# 0640 ARABIC TATWEEL
+						# Don't need explicit entries for 064B - 0652 ARABIC FATHATAN - ARABIC SUKUN;
+						# these are already ignorable at level 1, and are not involved in contractions
+						<<ฺ	# 0E3A THAI CHARACTER PHINTHU
+					# root search rules for modern Korean jamos
+					# Korean modern complex consonants, decompose: x(L) = CHOSEONG x, x(T) = JONGSEONG x
+					&ᄀ	# 1100 KIYEOK(L) = 11A8 KIYEOK(T)
+						=ᆨ
+					&ᄀᄀ	# 1100 KIYEOK(L) + 1100 KIYEOK(L) = 1101 SSANGKIYEOK(L) = 11A9 SSANGKIYEOK(T)
+						=ᄁ=ᆩ
+					&ᄀᄉ	# 1100 KIYEOK(L) + 1109 SIOS(L) = 11AA KIYEOK-SIOS(T)
+						=ᆪ
+					&ᄂ	# 1102 NIEUN(L) = 11AB NIEUN(T)
+						=ᆫ
+					&ᄂᄌ	# 1102 NIEUN(L) + 110C CIEUC(L) = 11AC NIEUN-CIEUC(T), also archaic 115C NIEUN-CIEUC(L)
+						=ᆬ
+					&ᄂᄒ	# 1102 NIEUN(L) + 1112 HIEUH(L) = 11AD NIEUN-HIEUH(T), also archaic 115D NIEUN-HIEUH(L)
+						=ᆭ
+					&ᄃ	# 1103 TIKEUT(L) = 11AE TIKEUT(T)
+						=ᆮ
+					&ᄃᄃ	# 1103 TIKEUT(L) + 1103 TIKEUT(L) = 1104 SSANGTIKEUT(L)
+						=ᄄ
+					&ᄅ	# 1105 RIEUL(L) = 11AF RIEUL(T)
+						=ᆯ
+					&ᄅᄀ	# 1105 RIEUL(L) + 1100 KIYEOK(L) = 11B0 RIEUL-KIYEOK(T)
+						=ᆰ
+					&ᄅᄆ	# 1105 RIEUL(L) + 1106 MIEUM(L) = 11B1 RIEUL-MIEUM(T)
+						=ᆱ
+					&ᄅᄇ	# 1105 RIEUL(L) + 1107 PIEUP(L) = 11B2 RIEUL-PIEUP(T)
+						=ᆲ
+					&ᄅᄉ	# 1105 RIEUL(L) + 1109 SIOS(L) = 11B3 RIEUL-SIOS(T)
+						=ᆳ
+					&ᄅᄐ	# 1105 RIEUL(L) + 1110 THIEUTH(L) = 11B4 RIEUL-THIEUTH(T)
+						=ᆴ
+					&ᄅᄑ	# 1105 RIEUL(L) + 1111 PHIEUPH(L) = 11B5 RIEUL-PHIEUPH(T)
+						=ᆵ
+					&ᄅᄒ	# 1105 RIEUL(L) + 1112 HIEUH(L) = 11B6 RIEUL-HIEUH(T), also archic 111A RIEUL-HIEUH(L)
+						=ᆶ
+					&ᄆ	# 1106 MIEUM(L) = 11B7 MIEUM(T)
+						=ᆷ
+					&ᄇ	# 1107 PIEUP(L) = 11B8 PIEUP(T)
+						=ᆸ
+					&ᄇᄇ	# 1107 PIEUP(L) + 1107 PIEUP(L) = 1108 SSANGPIEUP(L)
+						=ᄈ
+					&ᄇᄉ	# 1107 PIEUP(L) + 1109 SIOS(L) = 11B9 PIEUP-SIOS(T), also archaic 1121 PIEUP-SIOS(L)
+						=ᆹ
+					&ᄉ	# 1109 SIOS(L) = 11BA SIOS(T)
+						=ᆺ
+					&ᄉᄉ	# 1109 SIOS(L) + 1109 SIOS(L) = 110A SSANGSIOS(L) = 11BB SSANGSIOS(T)
+						=ᄊ=ᆻ
+					&ᄋ	# 110B IEUNG(L) = 11BC IEUNG(T)
+						=ᆼ
+					&ᄌ	# 110C CIEUC(L) = 11BD CIEUC(T)
+						=ᆽ
+					&ᄌᄌ	# 110C CIEUC(L) + 110C CIEUC(L) = 110D SSANGCIEUC(L)
+						=ᄍ
+					&ᄎ	# 110E CHIEUCH(L) = 11BE CHIEUCH(T)
+						=ᆾ
+					&ᄏ	# 110F KHIEUKH(L) = 11BF KHIEUKH(T)
+						=ᆿ
+					&ᄐ	# 1110 THIEUTH(L) = 11C0 THIEUTH(T)
+						=ᇀ
+					&ᄑ	# 1111 PHIEUPH(L) = 11C1 PHIEUPH(T)
+						=ᇁ
+					&ᄒ	# 1112 HIEUH(L) = 11C2 HIEUH(T)
+						=ᇂ
+					# Korean modern complex vowels, decompose
+					&ᅡᅵ	# 1161 A(V) + 1175 I(V) = 1162 AE(V)
+						=ᅢ
+					&ᅣᅵ	# 1163 YA(V) + 1175 I(V) = 1164 YAE(V)
+						=ᅤ
+					&ᅥᅵ	# 1165 EO(V) + 1175 I(V) = 1166 E(V)
+						=ᅦ
+					&ᅧᅵ	# 1167 YEO(V) + 1175 I(V) = 1168 YE(V)
+						=ᅨ
+					&ᅩᅡ	# 1169 O(V) + 1161 A(V) = 116A WA(V)
+						=ᅪ
+					&ᅩᅡᅵ	# 1169 O(V) + 1161 A(V) + 1175 I(V) = 116B WAE(V)
+						=ᅫ
+					&ᅩᅵ	# 1169 O(V) + 1175 I(V) = 116C OE(V)
+						=ᅬ
+					&ᅮᅴ	# 116E U(V) + 1174 YI(V) = 116F WEO(V)
+						=ᅯ
+					&ᅮᅴᅵ	# 116E U(V) + 1174 YI(V) + 1175 I(V) = 1170 WE(V)
+						=ᅰ
+					&ᅮᅵ	# 116E U(V) + 1175 I(V) = 1171 WI(V)
+						=ᅱ
+					# Above are the standard root search collator rules.
+					# Below are the rules specific to cs.
+					# These rules have more primary differences than the standard collation below.
+					&A<á<<<Á
+					&C<č<<<Č
+					&D<ď<<<Ď
+					&E<é<<<É<ě<<<Ě
+					&I<í<<<Í
+					&N<ň<<<Ň
+					&O<ó<<<Ó
+					&R<ř<<<Ř
+					&S<š<<<Š
+					&T<ť<<<Ť
+					&U<ú<<<Ú<ů<<<Ů
+					&Y<ý<<<Ý
+					&Z<ž<<<Ž
+				]]></cr>
 			</collation>
 			<collation type="standard" references="Ivan Poldauf: Velký česko-anglický slovník ISBN 80-902180-3">
-				<rules>
-					<reset>C</reset>
-					<p>č</p>
-					<t>Č</t>
-					<reset>H</reset>
-					<p>ch</p>
-					<t>cH</t>
-					<t>Ch</t>
-					<t>CH</t>
-					<reset>R</reset>
-					<p>ř</p>
-					<t>Ř</t>
-					<reset>S</reset>
-					<p>š</p>
-					<t>Š</t>
-					<reset>Z</reset>
-					<p>ž</p>
-					<t>Ž</t>
-				</rules>
+				<cr><![CDATA[
+					&C<č<<<Č
+					&H<ch<<<cH<<<Ch<<<CH
+					&R<ř<<<Ř
+					&S<š<<<Š
+					&Z<ž<<<Ž
+				]]></cr>
 			</collation>
 			<collation type="digits-after" draft="unconfirmed" >
-				<rules>
-					<reset>C</reset>
-					<p>č</p>
-					<t>Č</t>
-					<reset>H</reset>
-					<p>ch</p>
-					<t>cH</t>
-					<t>Ch</t>
-					<t>CH</t>
-					<reset>R</reset>
-					<p>ř</p>
-					<t>Ř</t>
-					<reset>S</reset>
-					<p>š</p>
-					<t>Š</t>
-					<reset>Z</reset>
-					<p>ž</p>
-					<t>Ž</t>
-					<reset><last_non_ignorable/></reset>
-					<pc>0123456789</pc>
-				</rules>
+				<cr><![CDATA[
+					&C<č<<<Č
+					&H<ch<<<cH<<<Ch<<<CH
+					&R<ř<<<Ř
+					&S<š<<<Š
+					&Z<ž<<<Ž
+					&[last regular]<*0123456789
+				]]></cr>
 			</collation  >
 		</collations>
 </ldml>

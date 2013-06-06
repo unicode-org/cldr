@@ -14,10 +14,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations validSubLocales="sr_Latn_RS sr_Latn_BA sr_Latn_ME sr_Latn_XK">
 		<collation type="search">
-			<rules><import source="hr" type="search"/></rules>
+			<import source="hr" type="search"/>
 		</collation>
 		<collation type="standard">
-			<rules><import source="hr"/></rules>
+			<import source="hr"/>
 		</collation>
 	</collations>
 </ldml>

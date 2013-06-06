@@ -1304,7 +1304,7 @@ $Date$
 <!ATTLIST collations draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, optimize?, rules?, special*)) >
+<!ELEMENT collation (alias | (base?, import*, settings?, suppress_contractions?, optimize?, (cr* | rules?), special*)) >
 <!ATTLIST collation type NMTOKEN "standard" >
 <!ATTLIST collation draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST collation standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -1314,6 +1314,10 @@ $Date$
 <!ATTLIST collation visibility ( internal | external ) "external" > 
 
 <!ELEMENT base (alias|special) >
+
+<!ELEMENT import EMPTY >
+<!ATTLIST import source CDATA #REQUIRED >
+<!ATTLIST import type CDATA #IMPLIED >
 
 <!ELEMENT settings (special*) >
 <!ATTLIST settings strength             ( primary | secondary | tertiary | quaternary | identical ) #IMPLIED >
@@ -1333,53 +1337,53 @@ $Date$
 
 <!ELEMENT optimize ( #PCDATA | cp )* >
 
-<!ELEMENT rules (alias | ( ( reset | import ), ( reset | import | p | pc |  s | sc | t | tc | q | qc | i | ic | x)* )) >
+<!ELEMENT cr #PCDATA>
 
-<!ELEMENT reset ( #PCDATA | cp  | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* >
+<!-- The rules element and all of its sub-elements are deprecated. Use the cr element instead, with ICU syntax. -->
+
+<!ELEMENT rules (alias | ( ( reset | import ), ( reset | import | p | pc |  s | sc | t | tc | q | qc | i | ic | x)* )) > <!-- deprecated -->
+
+<!ELEMENT reset ( #PCDATA | cp  | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable | last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* > <!-- deprecated -->
 <!ATTLIST reset before NMTOKEN #IMPLIED >
 
-<!ELEMENT import EMPTY >
-<!ATTLIST import source CDATA #REQUIRED >
-<!ATTLIST import type CDATA #IMPLIED >
+<!ELEMENT p  ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT p  ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT pc ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT pc ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT s  ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT s  ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT sc ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT sc ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT t  ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT t  ( #PCDATA  | cp | last_variable )* >
-
-<!ELEMENT tc ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT tc ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
 <!ELEMENT q  ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
 <!ELEMENT qc ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT i  ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT i  ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT ic ( #PCDATA  | cp | last_variable )* >
+<!ELEMENT ic ( #PCDATA  | cp | last_variable )* > <!-- deprecated -->
 
-<!ELEMENT x (context?, (  p | pc |  s | sc | t | tc | q | qc | i | ic )*, extend? )  >
+<!ELEMENT x (context?, (  p | pc |  s | sc | t | tc | q | qc | i | ic )*, extend? )  > <!-- deprecated -->
 
-<!ELEMENT extend ( #PCDATA | cp )* >
+<!ELEMENT extend ( #PCDATA | cp )* > <!-- deprecated -->
 
-<!ELEMENT context (  #PCDATA | cp )* >
+<!ELEMENT context (  #PCDATA | cp )* > <!-- deprecated -->
 
-<!ELEMENT first_variable EMPTY >
-<!ELEMENT last_variable EMPTY >
-<!ELEMENT first_tertiary_ignorable EMPTY >
-<!ELEMENT last_tertiary_ignorable EMPTY >
-<!ELEMENT first_secondary_ignorable EMPTY >
-<!ELEMENT last_secondary_ignorable EMPTY >
-<!ELEMENT first_primary_ignorable EMPTY >
-<!ELEMENT last_primary_ignorable EMPTY >
-<!ELEMENT first_non_ignorable EMPTY >
-<!ELEMENT last_non_ignorable EMPTY >
-<!ELEMENT first_trailing EMPTY >
-<!ELEMENT last_trailing EMPTY >
+<!ELEMENT first_variable EMPTY > <!-- deprecated -->
+<!ELEMENT last_variable EMPTY > <!-- deprecated -->
+<!ELEMENT first_tertiary_ignorable EMPTY > <!-- deprecated -->
+<!ELEMENT last_tertiary_ignorable EMPTY > <!-- deprecated -->
+<!ELEMENT first_secondary_ignorable EMPTY > <!-- deprecated -->
+<!ELEMENT last_secondary_ignorable EMPTY > <!-- deprecated -->
+<!ELEMENT first_primary_ignorable EMPTY > <!-- deprecated -->
+<!ELEMENT last_primary_ignorable EMPTY > <!-- deprecated -->
+<!ELEMENT first_non_ignorable EMPTY > <!-- deprecated -->
+<!ELEMENT last_non_ignorable EMPTY > <!-- deprecated -->
+<!ELEMENT first_trailing EMPTY > <!-- deprecated -->
+<!ELEMENT last_trailing EMPTY > <!-- deprecated -->
 
 <!-- ######################################################### -->
 

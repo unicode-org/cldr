@@ -13,33 +13,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations validSubLocales="aa_DJ aa_ER aa_ET">
 		<collation type="standard" >
-			<rules>
-				<reset>B</reset>
-				<p>t</p>
-				<t>T</t>
-				<p>s</p>
-				<t>S</t>
-				<p>e</p>
-				<t>E</t>
-				<reset>C</reset>
-				<p>k</p>
-				<t>K</t>
-				<p>x</p>
-				<t>X</t>
-				<p>i</p>
-				<t>I</t>
-				<reset>D</reset>
-				<p>q</p>
-				<t>Q</t>
-				<p>r</p>
-				<t>R</t>
-				<reset>G</reset>
-				<p>o</p>
-				<t>O</t>
-				<reset>W</reset>
-				<p>h</p>
-				<t>H</t>
-			</rules>
+			<cr><![CDATA[
+				&B<t<<<T<s<<<S<e<<<E
+				&C<k<<<K<x<<<X<i<<<I
+				&D<q<<<Q<r<<<R
+				&G<o<<<O
+				&W<h<<<H
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

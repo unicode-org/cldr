@@ -14,11 +14,9 @@ For terms of use, see http://www.unicode.org/copyright.html
         <collations validSubLocales="hy_AM">
             <collation type="standard" >
             	<settings reorder="Armn"/>
-                <rules>
-                    <reset>ք</reset>
-                    <p>և</p>
-                    <t>Եւ</t>
-                </rules>
+                <cr><![CDATA[
+                    &ք<և<<<Եւ
+                ]]></cr>
             </collation>
         </collations>
 </ldml>

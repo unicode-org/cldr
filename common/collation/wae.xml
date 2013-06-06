@@ -13,28 +13,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations validSubLocales="wae_CH">
 		<collation type="standard" draft="unconfirmed">
-			<rules>
-				<reset>á</reset>
-					<i>aa</i>
-				<reset>ã</reset>
-					<i>ää</i>
-				<reset>é</reset>
-					<i>ee</i>
-				<reset>í</reset>
-					<i>ii</i>
-				<reset>ó</reset>
-					<i>oo</i>
-				<reset>õ</reset>
-					<i>öö</i>
-				<reset>č</reset>
-					<i>ch</i>
-				<reset>š</reset>
-					<i>sch</i>
-				<reset>ú</reset>
-					<i>uu</i>
-				<reset>ũ</reset>
-					<i>üü</i>
-			</rules>
+			<cr><![CDATA[
+				&á=aa
+				&ã=ää
+				&é=ee
+				&í=ii
+				&ó=oo
+				&õ=öö
+				&č=ch
+				&š=sch
+				&ú=uu
+				&ũ=üü
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

@@ -14,36 +14,29 @@ For terms of use, see http://www.unicode.org/copyright.html
         <collations validSubLocales="th_TH">
                 <collation type="standard" references="ISO/IEC 14651, Annex C, C.2.1 Thai ordering principles">
                         <settings normalization="on" alternate="shifted" reorder="Thai"/>
-                        <rules>
-                                <!--
-                                        The following tailoring is an adjustment of the
-                                        DUCET collation order for PAIYANNOI, MAIYAMOK,
-                                        NIKHAHIT, LAKKHANGYAO, and PHINTHU. This gives
-                                        a sort order as defined in the Royal Institute
-                                        Dictionary 2542 B.E. Edition (1999 A.D.).
-                                -->
-                                <reset before="primary">๚</reset>
-                                <p>ฯ</p>	 <!-- should be "variable" -->
-                                <reset>๛</reset>
-                                <p>ๆ</p> <!-- should be "variable" -->
-                                <reset>๎</reset>
-                                <s>์</s>
-								<reset before="primary">ะ</reset>
-								<p>ํ</p>
-                                <reset>า</reset>
-                                <t>ๅ</t>
-								<reset>าํ</reset>
-								<t>ํา</t>
-								<t>ำ</t>
-								<reset>ๅํ</reset>
-								<t>ํๅ</t>
-                                <reset>ไ</reset>
-                                <p>ฺ</p>
-                                <!-- consider: order pali virama as secondary different from yammacan (another old virama)
-                                <reset>๎</reset>
-                                <s>ฺ</s>
-								-->
-                        </rules>
+                        <cr><![CDATA[
+                                #
+                                #        The following tailoring is an adjustment of the
+                                #        DUCET collation order for PAIYANNOI, MAIYAMOK,
+                                #        NIKHAHIT, LAKKHANGYAO, and PHINTHU. This gives
+                                #        a sort order as defined in the Royal Institute
+                                #        Dictionary 2542 B.E. Edition (1999 A.D.).
+                                #
+                                &[before 1]๚<ฯ	 # should be "variable"
+
+                                &๛<ๆ # should be "variable"
+
+                                &๎<<์
+								&[before 1]ะ<ํ
+                                &า<<<ๅ
+								&าํ<<<ํา<<<ำ
+								&ๅํ<<<ํๅ
+                                &ไ<ฺ
+                                # consider: order pali virama as secondary different from yammacan (another old virama)
+                                # &๎
+                                # <<ฺ
+                                #
+                        ]]></cr>
                 </collation>
         </collations>
 </ldml>

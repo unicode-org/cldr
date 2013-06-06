@@ -13,105 +13,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 		<collations  validSubLocales="sq_AL sq_MK sq_XK">
 			<collation type="standard" >
-				<rules>
-					<reset before="primary">D</reset>
-					<p>ç</p>
-					<t>Ç</t>
-					<reset before="primary">E</reset>
-					<p>dh</p>
-					<t>Dh</t>
-					<t>DH</t>
-					<reset before="primary">F</reset>
-					<p>ë</p>
-					<t>Ë</t>
-					<reset before="primary">H</reset>
-					<p>gj</p>
-					<t>Gj</t>
-					<t>GJ</t>
-					<reset before="primary">M</reset>
-					<p>ll</p>
-					<t>Ll</t>
-					<t>LL</t>
-					<reset before="primary">O</reset>
-					<p>nj</p>
-					<t>Nj</t>
-					<t>NJ</t>
-					<reset before="primary">S</reset>
-					<p>rr</p>
-					<t>Rr</t>
-					<t>RR</t>
-					<reset before="primary">T</reset>
-					<p>sh</p>
-					<t>Sh</t>
-					<t>SH</t>
-					<reset before="primary">U</reset>
-					<p>th</p>
-					<t>Th</t>
-					<t>TH</t>
-					<reset before="primary">Y</reset>
-					<p>xh</p>
-					<t>Xh</t>
-					<t>XH</t>
-					<reset before="primary">Ʒ</reset>
-					<p>zh</p>
-					<t>Zh</t>
-					<t>ZH</t>
-				</rules>
+				<cr><![CDATA[
+					&[before 1]D<ç<<<Ç
+					&[before 1]E<dh<<<Dh<<<DH
+					&[before 1]F<ë<<<Ë
+					&[before 1]H<gj<<<Gj<<<GJ
+					&[before 1]M<ll<<<Ll<<<LL
+					&[before 1]O<nj<<<Nj<<<NJ
+					&[before 1]S<rr<<<Rr<<<RR
+					&[before 1]T<sh<<<Sh<<<SH
+					&[before 1]U<th<<<Th<<<TH
+					&[before 1]Y<xh<<<Xh<<<XH
+					&[before 1]Ʒ<zh<<<Zh<<<ZH
+				]]></cr>
 			</collation  >
 			<collation draft="unconfirmed" alt="proposed" type="standard" >
-				<rules>
-					<reset before="primary">D</reset>
-					<p>ç</p>
-					<t>Ç</t>
-					<reset before="primary">E</reset>
-					<p>dh</p>
-					<t>dH</t>
-					<t>Dh</t>
-					<t>DH</t>
-					<reset before="primary">F</reset>
-					<p>ë</p>
-					<t>Ë</t>
-					<reset before="primary">H</reset>
-					<p>gj</p>
-					<t>gJ</t>
-					<t>Gj</t>
-					<t>GJ</t>
-					<reset before="primary">M</reset>
-					<p>ll</p>
-					<t>lL</t>
-					<t>Ll</t>
-					<t>LL</t>
-					<reset before="primary">O</reset>
-					<p>nj</p>
-					<t>nJ</t>
-					<t>Nj</t>
-					<t>NJ</t>
-					<reset before="primary">S</reset>
-					<p>rr</p>
-					<t>rR</t>
-					<t>Rr</t>
-					<t>RR</t>
-					<reset before="primary">T</reset>
-					<p>sh</p>
-					<t>sH</t>
-					<t>Sh</t>
-					<t>SH</t>
-					<reset before="primary">U</reset>
-					<p>th</p>
-					<t>tH</t>
-					<t>Th</t>
-					<t>TH</t>
-					<reset before="primary">Y</reset>
-					<p>xh</p>
-					<t>xH</t>
-					<t>Xh</t>
-					<t>XH</t>
-					<reset before="primary">Ʒ</reset>
-					<p>zh</p>
-					<t>zH</t>
-					<t>Zh</t>
-					<t>ZH</t>
-				</rules>
+				<cr><![CDATA[
+					&[before 1]D<ç<<<Ç
+					&[before 1]E<dh<<<dH<<<Dh<<<DH
+					&[before 1]F<ë<<<Ë
+					&[before 1]H<gj<<<gJ<<<Gj<<<GJ
+					&[before 1]M<ll<<<lL<<<Ll<<<LL
+					&[before 1]O<nj<<<nJ<<<Nj<<<NJ
+					&[before 1]S<rr<<<rR<<<Rr<<<RR
+					&[before 1]T<sh<<<sH<<<Sh<<<SH
+					&[before 1]U<th<<<tH<<<Th<<<TH
+					&[before 1]Y<xh<<<xH<<<Xh<<<XH
+					&[before 1]Ʒ<zh<<<zH<<<Zh<<<ZH
+				]]></cr>
 			</collation  >
 		</collations>
 </ldml>

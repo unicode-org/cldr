@@ -22,11 +22,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			Й 0418 0306 CYRILLIC CAPITAL LETTER SHORT I
 			й 0438 0306 CYRILLIC SMALL LETTER SHORT I
 			-->
-			<rules>
-			    <reset>Г</reset>
-			        <p>ґ</p>
-			        <t>Ґ</t>
-			</rules>
+			<cr><![CDATA[
+			    &Г<ґ<<<Ґ
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

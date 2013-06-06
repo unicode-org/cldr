@@ -14,25 +14,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations  validSubLocales="or_IN">
 		<collation type="standard" references="Grundy: The Concise Oriya-English Dictionary ISBN:8120616995">
 			<settings normalization="on" reorder="Orya Deva Beng Guru Gujr Taml Telu Knda Mlym Sinh"/>
-			<rules>
-			<!--
-				The following tailoring is an adjustment of the
-				DUCET collation order for CANDRABINDU, ANUSVARA,
-				and VISARGA. Instead of being sorted with secondary
-				weights, they are collated on primary level between
-				the independent vowels and the consonants.
-			-->
-				<reset>ଔ</reset>
-					<p>ଁ</p>
-					<p>ଂ</p>
-					<p>ଃ</p>
-			<!-- KSSA is sorted after HA. -->
-				<reset>ହ</reset>
-					<p>କ୍ଷ</p>        
-			<!-- YYA is secondary different from YA. -->
-				<reset>ଯ</reset>
-					<s>ୟ</s>
-			</rules>
+			<cr><![CDATA[
+			#
+			#	The following tailoring is an adjustment of the
+			#	DUCET collation order for CANDRABINDU, ANUSVARA,
+			#	and VISARGA. Instead of being sorted with secondary
+			#	weights, they are collated on primary level between
+			#	the independent vowels and the consonants.
+			# 
+				&ଔ<ଁ<ଂ<ଃ
+			# KSSA is sorted after HA.
+				&ହ<କ୍ଷ
+			# YYA is secondary different from YA.
+				&ଯ<<ୟ
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

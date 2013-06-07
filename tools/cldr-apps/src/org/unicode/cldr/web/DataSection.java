@@ -1802,7 +1802,7 @@ public class DataSection implements JSONString {
 
         @Override
         public Level getCoverageLevel() {
-            return coverage.getLevel(getXpath());
+            return sm.getSupplementalDataInfo().getCoverageLevel(getXpath(),locale.getBaseName());
         }
 
         /**
@@ -2527,7 +2527,6 @@ public class DataSection implements JSONString {
     private PageId pageId;
     private CLDRFile diskFile;
     
-    private final CoverageLevel2 coverage;
 
     DataSection(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher, String ptype) {
         this.locale = loc;
@@ -2541,7 +2540,6 @@ public class DataSection implements JSONString {
         intgroup = loc.getLanguage(); // calculate interest group
         ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
         this.pageId = pageId;
-        coverage = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(), loc.getBaseName());
     }
 
     void addDataRow(DataRow p) {
@@ -2732,7 +2730,7 @@ public class DataSection implements JSONString {
                     }
                     // Filter out data that is higher than the desired coverage
                     // level
-                    int coverageValue = coverage.getIntLevel(base_xpath_string);
+                    int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(base_xpath_string,locale.getBaseName());
                     if (coverageValue > workingCoverageValue) {
                         if (coverageValue <= 100) {
                             // KEEP COUNT OF FILTERED ITEMS
@@ -2996,7 +2994,7 @@ public class DataSection implements JSONString {
 
             // Filter out data that is higher than the desired coverage
             // level
-            int coverageValue = coverage.getIntLevel(baseXpath);
+            int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(baseXpath, locale.getBaseName());
             if (coverageValue > workingCoverageValue) {
                 if (coverageValue <= Level.COMPREHENSIVE.getLevel()) {
                     skippedDueToCoverage++;

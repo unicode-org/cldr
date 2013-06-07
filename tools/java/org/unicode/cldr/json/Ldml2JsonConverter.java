@@ -211,12 +211,8 @@ public class Ldml2JsonConverter {
     private void mapPathsToSections(CLDRFile file, String pathPrefix, SupplementalDataInfo sdi)
         throws IOException, ParseException {
 
-        ULocale uloc = null;
         String locID = file.getLocaleID();
-        if (!CLDRFile.isSupplementalName(locID)) {
-            uloc = new ULocale(locID);
-        }
-        
+       
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Set<String> activeNumberingSystems = new TreeSet<String>();
@@ -238,8 +234,8 @@ public class Ldml2JsonConverter {
                 fullPath = path;
             }
 
-            if (uloc != null && path.startsWith("//ldml/") && !path.contains("/identity")) {
-                cv = sdi.getCoverageValue(path, uloc);
+            if (!CLDRFile.isSupplementalName(locID) && path.startsWith("//ldml/") && !path.contains("/identity")) {
+                cv = sdi.getCoverageValue(path, locID);
             }
             if (cv > coverageValue) {
                 continue;

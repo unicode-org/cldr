@@ -2073,6 +2073,29 @@ public class SupplementalDataInfo {
     }
 
     /**
+     * Used to get the coverage value for a path. This is generally the most
+     * efficient way for tools to get coverage.
+     * 
+     * @param xpath
+     * @param loc
+     * @return
+     */
+    public Level getCoverageLevel(String xpath, String loc) {
+        Level result = null;
+        result = coverageCache.get(loc + ":" + xpath);
+        if (result == null) {
+            CoverageLevel2 cov = localeToCoverageLevelInfo.get(loc);
+            if (cov == null) {
+                cov = CoverageLevel2.getInstance(this, loc);
+                localeToCoverageLevelInfo.put(loc, cov);
+            }
+
+            result = cov.getLevel(xpath);
+            coverageCache.put(loc+":"+xpath, result);
+        }
+        return result;
+    }
+    /**
      * Used to get the coverage value for a path. Note, it is more efficient to create
      * a CoverageLevel2 for a language, and keep it around.
      * 
@@ -2080,14 +2103,8 @@ public class SupplementalDataInfo {
      * @param loc
      * @return
      */
-    public int getCoverageValue(String xpath, ULocale loc) {
-        CoverageLevel2 cov = localeToCoverageLevelInfo.get(loc);
-        if (cov == null) {
-            cov = CoverageLevel2.getInstance(this, loc.getBaseName());
-            localeToCoverageLevelInfo.put(loc, cov);
-        }
-
-        return cov.getIntLevel(xpath);
+    public int getCoverageValue(String xpath, String loc) {
+        return getCoverageLevel(xpath,loc).getLevel();
     }
 
     private RegexLookup<Level> coverageLookup = null;
@@ -2455,7 +2472,8 @@ public class SupplementalDataInfo {
     private Map<String, PluralInfo> localeToPluralInfo = new LinkedHashMap<String, PluralInfo>();
     private Map<String, PluralInfo> localeToOrdinalInfo = new LinkedHashMap<String, PluralInfo>();
     private Map<String, DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String, DayPeriodInfo>();
-    private Map<ULocale, CoverageLevel2> localeToCoverageLevelInfo = new LinkedHashMap<ULocale, CoverageLevel2>();
+    private Map<String, CoverageLevel2> localeToCoverageLevelInfo = new LinkedHashMap<String, CoverageLevel2>();
+    private static Map<String, Level> coverageCache = new HashMap<String, Level>();
     private transient String lastPluralLocales = "root";
     private transient boolean lastPluralWasOrdinal = false;
     private transient Map<Count, String> lastPluralMap = new LinkedHashMap<Count, String>();

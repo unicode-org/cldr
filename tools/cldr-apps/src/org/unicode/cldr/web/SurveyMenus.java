@@ -139,14 +139,13 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
             public synchronized int getCoverageLevel(CLDRLocale loc) {
                 Integer ret = levs.get(loc);
                 if (ret == null) {
-                    CoverageLevel2 coverage = CoverageLevel2.getInstance(sdi, loc.getBaseName());
                     // ElapsedTimer et = new ElapsedTimer("Cov for " + loc +
                     // " "+displayName + ":"+pageDisplayName);
                     int min = Level.OPTIONAL.getLevel();
                     Iterable<String> iter = getPagePaths();
                     if (iter != null) {
                         for (String xp : iter) {
-                            int l = coverage.getIntLevel(xp);
+                            int l = sdi.getCoverageValue(xp, loc.getBaseName());
                             if (l < min) {
                                 min = l;
                             }

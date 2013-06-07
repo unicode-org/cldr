@@ -91,17 +91,14 @@ public class GenerateCoverageLevels {
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
         Set<R3<Level, String, Inheritance>> items = new TreeSet<R3<Level, String, Inheritance>>(new RowComparator());
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(
-            SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
             }
-            String fullPath = cldrFile.getFullXPath(path);
             String source = cldrFile.getSourceLocaleID(path, null);
             Inheritance inherited = !source.equals(locale) ? Inheritance.inherited : Inheritance.actual;
 
-            Level level = coverageLevel.getLevel(path);
+            Level level = supplementalData.getCoverageLevel(path,locale);
 
             items.add(Row.of(level, path, inherited));
         }
@@ -495,9 +492,7 @@ public class GenerateCoverageLevels {
         Status status = new Status();
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(
-            SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
-
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -509,7 +504,7 @@ public class GenerateCoverageLevels {
                 ? Inheritance.inherited
                 : Inheritance.actual;
 
-            Level level = coverageLevel.getLevel(fullPath);
+            Level level = sdi.getCoverageLevel(fullPath,locale);
             if (inherited == Inheritance.actual) {
                 levelData.found.add(level, 1);
             } else {

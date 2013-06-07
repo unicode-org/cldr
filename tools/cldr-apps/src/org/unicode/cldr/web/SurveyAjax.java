@@ -929,7 +929,7 @@ public class SurveyAjax extends HttpServlet {
                                 
                                     CLDRFile baseF = sm.getBaselineFile();
                                 
-                                    CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
+                                    //CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
                                     
                                     Set<String> validPaths = fac.getPathsForFile(locale);
                                     
@@ -948,7 +948,7 @@ public class SurveyAjax extends HttpServlet {
                                             bad++;
                                             continue;
                                         }
-                                        if(cov.getIntLevel(xpathString) > Level.COMPREHENSIVE.getLevel()) {
+                                        if( sm.getSupplementalDataInfo().getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                                             //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
                                             bad++;
                                             continue; // out of coverage

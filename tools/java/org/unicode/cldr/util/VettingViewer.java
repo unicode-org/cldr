@@ -762,7 +762,6 @@ public class VettingViewer<T> {
             EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
             T user, Level usersLevel) {
 
-        CoverageLevel2 coverage = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
         Status status = new Status();
         errorChecker.initErrorStatus(sourceFile);
         Matcher altProposed = ALT_PROPOSED.matcher("");
@@ -800,7 +799,7 @@ public class VettingViewer<T> {
                 continue;
             }
 
-            Level level = coverage.getLevel(path);
+            Level level = supplementalDataInfo.getCoverageLevel(path,sourceFile.getLocaleID());
 
             // skip anything above the requested level
             if (level.compareTo(usersLevel) > 0) {
@@ -1004,7 +1003,6 @@ public class VettingViewer<T> {
         Counter<Choice> problemCounter = new Counter<Choice>();
         char lastChar = ' ';
         for (Entry<String, String> entry : sortedNames.entrySet()) {
-            System.out.println(entry);
             String name = entry.getKey();
             String localeID = entry.getValue();
             // Initialize

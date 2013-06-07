@@ -55,9 +55,8 @@ public class TestCoverageLevel extends TestFmwk {
 
     private static void getStarred(boolean longForm, String... locales) {
         Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         for (String locale : locales) {
-            CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(
-                    SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
             CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
 
             // HashMap<Row.R2<Level,
@@ -85,7 +84,7 @@ public class TestCoverageLevel extends TestFmwk {
                 // if (path.contains("ethiopic")) {
                 // System.out.println("?");
                 // }
-                Level level = coverageLevel2.getLevel(path);
+                Level level = sdi.getCoverageLevel(path,locale);
 
                 // R2<Level, Level> key = Row.of(level, newLevel);
                 String starredPath = pathStarrer.set(path);
@@ -273,9 +272,8 @@ public class TestCoverageLevel extends TestFmwk {
         String path = "//ldml/numbers/currencies/currency[@type=\"USD\"]/symbol[@alt=\"narrow\"]";
         String value = testInfo.getEnglish().getStringValue(path);
         assertEquals("Narrow $", "$", value);
-        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(
-                SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), "en");
-        Level level = coverageLevel2.getLevel(path);
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        Level level = sdi.getCoverageLevel(path,"en");
         assertEquals("Narrow $", Level.BASIC, level);
     }
 
@@ -305,7 +303,7 @@ public class TestCoverageLevel extends TestFmwk {
         if (logKnownIssue("5712", "Finish enabling more comprehensive tests")) {
             return;
         }
-        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(testInfo.getSupplementalDataInfo(), "en");
+        SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         Relation<Row.R3,String>bad = Relation.of(new TreeMap<Row.R3,Set<String>>(), TreeSet.class);
         Relation<Row.R3,String>all = Relation.of(new TreeMap<Row.R3,Set<String>>(), TreeSet.class);
@@ -320,7 +318,7 @@ public class TestCoverageLevel extends TestFmwk {
                 String code = ph.getCode();
                 R3<SectionId, PageId, String> row = Row.of(section, page, header);
                 all.put(row, code);
-                Level coverageLevel = coverageLevel2.getLevel(path);
+                Level coverageLevel = sdi.getCoverageLevel(path,"en");
 
                 if (coverageLevel.compareTo(Level.MODERN) <= 0) {
                     continue;

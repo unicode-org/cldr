@@ -223,7 +223,6 @@ public class TestPathHeader extends TestFmwk {
     public void TestCoverage() {
         Map<Row.R2<SectionId, PageId>, Counter<Level>> data = new TreeMap<Row.R2<SectionId, PageId>, Counter<Level>>();
         CLDRFile cldrFile = english;
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(supplemental,cldrFile.getLocaleID());
         XPathParts parts = new XPathParts();
         for (String path : cldrFile.fullIterable()) {
             boolean deprecated = supplemental.hasDeprecatedItem("ldml", parts.set(path));
@@ -231,7 +230,7 @@ public class TestPathHeader extends TestFmwk {
                 errln("Deprecated path in English: " + path);
                 continue;
             }
-            Level level = coverageLevel.getLevel(path);
+            Level level = supplemental.getCoverageLevel(path, cldrFile.getLocaleID());
             PathHeader p = pathHeaderFactory.fromPath(path);
             SurveyToolStatus status = p.getSurveyToolStatus();
 
@@ -274,7 +273,6 @@ public class TestPathHeader extends TestFmwk {
 
     public void TestAFile() {
         final String localeId = "en";
-        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(supplemental,localeId);
         Counter<Level> counter = new Counter<Level>();
         Map<String, PathHeader> uniqueness = new HashMap<String, PathHeader>();
         Set<String> alreadySeen = new HashSet<String>();
@@ -297,7 +295,7 @@ public class TestPathHeader extends TestFmwk {
                     } else {
                         counter.clear();
                         for (String s : cachedPaths) {
-                            Level coverage = coverageLevel.getLevel(s);
+                            Level coverage = supplemental.getCoverageLevel(s,localeId);
                             counter.add(coverage, 1);
                         }
                         String countString = "";

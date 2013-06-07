@@ -11,7 +11,6 @@ import org.apache.tools.ant.Task;
 import org.unicode.cldr.ant.CLDRBuild.Paths;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
-import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -162,13 +161,6 @@ public abstract class CLDRConverterTool {
         return main;
     }
 
-    private CoverageLevel2 coverageLevel = null;
-
-    private void initCoverageLevel(
-        String localeName, boolean exemplarsContainA_Z, String supplementalDir) {
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(supplementalDir);
-        coverageLevel = CoverageLevel2.getInstance(sdi, localeName);
-    }
 
     /**
      * Computes the convertible xpaths by walking through the xpathList given and applying the rules
@@ -219,6 +211,7 @@ public abstract class CLDRConverterTool {
 
         ArrayList<String> myXPathList = new ArrayList<String>(xpathList.size());
         StandardCodes sc = StandardCodes.make();
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(supplementalDir);
         // iterator of xpaths of the current CLDR file being processed
         // this map only contains xpaths of the leaf nodes
         for (int i = 0; i < xpathList.size(); i++) {
@@ -230,7 +223,6 @@ public abstract class CLDRConverterTool {
             for (int j = 0; j < pathList.size(); j++) {
                 Object obj = pathList.get(j);
                 if (obj instanceof CLDRBuild.CoverageLevel) {
-                    initCoverageLevel(localeName, exemplarsContainA_Z, supplementalDir);
                     CLDRBuild.CoverageLevel level = (CLDRBuild.CoverageLevel) obj;
                     if (level.locales != null) {
                         List<String> localeList = Arrays.asList(level.locales.split("\\s+"));
@@ -248,7 +240,7 @@ public abstract class CLDRConverterTool {
                     Level cv = Level.get(level.level);
                     // only include the xpaths that have the coverage level at least the coverage
                     // level specified by the locale
-                    if (coverageLevel.getLevel(xpath).compareTo(cv) <= 0) {
+                    if (sdi.getCoverageLevel(xpath,localeName).compareTo(cv) <= 0) {
                         String draftVal = attr.get(LDMLConstants.DRAFT);
                         if (level.draft != null) {
                             if (draftVal == null

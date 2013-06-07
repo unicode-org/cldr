@@ -116,7 +116,6 @@ public class ExampleGenerator {
     }
 
     private CLDRFile englishFile;
-    private CoverageLevel2 coverageLevel;
     Matcher URLMatcher = URL_PATTERN.matcher("");
 
     private Map<String, String> cache = new HashMap<String, String>();
@@ -204,7 +203,6 @@ public class ExampleGenerator {
             }
         }
         icuServiceBuilder.setCldrFile(cldrFile);
-        coverageLevel = CoverageLevel2.getInstance(supplementalDataInfo, resolvedCldrFile.getLocaleID());
 
         pluralInfo = supplementalDataInfo.getPlurals(PluralType.cardinal, cldrFile.getLocaleID());
     }
@@ -1405,7 +1403,7 @@ public class ExampleGenerator {
 
         // now get the description
 
-        Level level = coverageLevel.getLevel(xpath);
+        Level level = supplementalDataInfo.getCoverageLevel(xpath,cldrFile.getLocaleID());
         String description = pathDescription.getDescription(xpath, value, level, null);
         if (description == null || description.equals("SKIP")) {
             return null;

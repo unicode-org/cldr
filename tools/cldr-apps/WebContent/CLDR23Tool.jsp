@@ -17,7 +17,7 @@
                     ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.READ_ONLY) {
                 if(user==null || !UserRegistry.userIsTC(user)) return false;
             }
-            if(sm.getSupplementalDataInfo().getCoverageValue(xpath, locale.toULocale())>org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) return false;
+            if(sm.getSupplementalDataInfo().getCoverageValue(xpath, locale.getBaseName())>org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) return false;
             return true;
         }
 %>

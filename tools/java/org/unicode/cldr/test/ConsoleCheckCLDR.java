@@ -411,7 +411,6 @@ public class ConsoleCheckCLDR {
                 continue;
             }
 
-            CoverageLevel2 coverageLevelGetter = CoverageLevel2.getInstance(supplementalDataInfo, localeID);
 
             // generate HTML if asked for
             if (ErrorFile.generated_html_directory != null) {
@@ -462,7 +461,7 @@ public class ConsoleCheckCLDR {
                     continue;
                 }
                 if (coverageLevel != null) {
-                    Level currentLevel = coverageLevelGetter.getLevel(path);
+                    Level currentLevel = supplementalDataInfo.getCoverageLevel(path, localeID);
                     if (currentLevel.compareTo(coverageLevel) > 0) {
                         continue;
                     }

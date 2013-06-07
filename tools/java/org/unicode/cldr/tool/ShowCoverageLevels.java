@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import java.util.EnumMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Level;
@@ -23,14 +22,13 @@ public class ShowCoverageLevels {
 
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
-            CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(testInfo.getSupplementalDataInfo(), locale);
             for (String path : cldrFileToCheck) {
                 String fullPath = cldrFileToCheck.getFullXPath(path);
                 if (fullPath == null) {
                     continue;
                 }
                 try {
-                    Level level = coverageLevel2.getLevel(fullPath);
+                    Level level = testInfo.getSupplementalDataInfo().getCoverageLevel(fullPath,locale);
                     values.put(level, path);
                 } catch (Exception e) {
                     String value = cldrFileToCheck.getStringValue(path);

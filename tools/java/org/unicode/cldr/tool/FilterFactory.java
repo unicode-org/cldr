@@ -127,11 +127,10 @@ public class FilterFactory extends Factory {
         int minLevel = StandardCodes.make()
             .getLocaleCoverageLevel(organization, rawFile.getLocaleID())
             .getLevel();
-        ULocale locale = new ULocale(rawFile.getLocaleID());
         for (String xpath : rawFile) {
             // Locale metadata shouldn't be stripped.
             if (xpath.startsWith("//ldml/identity")) continue;
-            int level = supplementalData.getCoverageValue(xpath, locale);
+            int level = supplementalData.getCoverageValue(xpath, rawFile.getLocaleID());
             if (level > minLevel) {
                 rawFile.remove(xpath);
             }

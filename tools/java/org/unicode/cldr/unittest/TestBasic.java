@@ -257,7 +257,6 @@ public class TestBasic extends TestFmwk {
             CLDRFile file = cldrFactory.make(locale, resolved);
             if (file.isNonInheriting())
                 continue;
-            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(testInfo.getSupplementalDataInfo(), locale);
             logln(locale + "\t-\t" + english.getName(locale));
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {
@@ -267,7 +266,7 @@ public class TestBasic extends TestFmwk {
                 }
                 // collect abstracted paths
                 String abstractPath = abstractPathTransform.transform(path);
-                Level level = coverageLevel.getLevel(path);
+                Level level = testInfo.getSupplementalDataInfo().getCoverageLevel(path,locale);
                 if (level == Level.OPTIONAL) {
                     level = Level.COMPREHENSIVE;
                 }

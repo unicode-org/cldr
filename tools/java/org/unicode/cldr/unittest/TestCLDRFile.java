@@ -92,15 +92,13 @@ public class TestCLDRFile extends TestFmwk {
     static class LocaleInfo {
         final String locale;
         final CLDRFile cldrFile;
-        final CoverageLevel2 coverageLevel;
         final Set<String> paths = new HashSet<String>();
 
         LocaleInfo(String locale) {
             this.locale = locale;
             cldrFile = cldrFactory.make(locale, true);
-            coverageLevel = CoverageLevel2.getInstance(sdi,locale);
             for (String path : cldrFile.fullIterable()) {
-                Level level = coverageLevel.getLevel(path);
+                Level level = sdi.getCoverageLevel(path,locale);
                 if (level.compareTo(Level.MODERN) > 0) {
                     continue;
                 }
@@ -357,7 +355,6 @@ public class TestCLDRFile extends TestFmwk {
         PathHeader.Factory phf = PathHeader.getFactory(cldrFactory.make("en", true));
         for (String locale : Arrays.asList("de", "de_AT", "en", "nl")) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
-            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, locale);
 
             //CLDRFile parentFile = cldrFactory.make(LocaleIDParser.getParent(locale), true);
             CLDRFile cldrFileUnresolved = cldrFactory.make(locale, false);
@@ -392,7 +389,7 @@ public class TestCLDRFile extends TestFmwk {
                 if (topValue != null) {
                     if (CldrUtility.equals(topValue, baileyValue)) {
                         countSuperfluous.add(topValue);
-                    } else if (coverageLevel.getLevel(path).compareTo(Level.MODERN) > 0) {
+                    } else if (sdi.getCoverageLevel(path,locale).compareTo(Level.MODERN) > 0) {
                         countExtraLevel.add(topValue);
                     }                        
                     countOrdinary.add(topValue);

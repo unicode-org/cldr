@@ -231,7 +231,7 @@
 			String baseNoAlt = cs.sm.xpt.removeAlt(base);
 			int root_xpath_id = cs.sm.xpt.getByXpath(baseNoAlt);
 			
-			int coverageValue = sdi.getCoverageValue(base, loc.toULocale());
+			int coverageValue = sdi.getCoverageValue(base, loc.getBaseName());
 
 			String result = "";
 			String resultStyle = "";

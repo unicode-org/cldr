@@ -429,8 +429,9 @@ public class WritePluralRules {
 
     static String[][] overrides = {
         {"gu,mr,kn,am,fa", "one: n within 0..1"},
-        {"ta,te,kk,uz,ky,hu,az,ka,mn,tr", "one: n is 1"},
+        {"ta,te,uz,ky,hu,az,ka,mn,tr", "one: n is 1"},
         {"bn", "one: n within 0..1"},
+        {"kk", "one: n is 1"},
         {"en,ca,de,et,fi,gl,it,nl,sw,ur", "one: j is 1"},
         {"sv", "one: j is 1 or f is 1"},
         {"pt", "one: n is 1 or f is 1"},
@@ -488,7 +489,7 @@ public class WritePluralRules {
                 "few: j mod 10 in 2..4 and j mod 100 not in 12..14;  " +
         "many: j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14"},
         {"zu", "one: n within 0..1"},
-        {"mk", "one: n mod 10 in 0..1 and n mod 100 not in 0,11 or f mod 10 is 1 and f mod 10 is not 11"},
+        {"mk", "one: j mod 10 is 1 or f mod 10 is 1"},
         {"pa", "one: n in 0..1"},
     };
 

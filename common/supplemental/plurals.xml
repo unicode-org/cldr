@@ -110,7 +110,9 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="one">n in 0..1 or n in 11..99</pluralRule>
         </pluralRules>
         <pluralRules locales="gv">
-            <pluralRule count="one">n mod 10 in 1..2 or n mod 20 is 0</pluralRule>
+            <pluralRule count="one">n mod 10 is 1</pluralRule>
+            <pluralRule count="two">n mod 10 is 2</pluralRule>
+            <pluralRule count="few">n mod 100 in 0,20,40,60</pluralRule>
         </pluralRules>
         <pluralRules locales="gd">
             <pluralRule count="one">n in 1,11</pluralRule>

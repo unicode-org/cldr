@@ -120,7 +120,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
         @Override
         public int compareTo(SubstringOrder other) {
-            int diff = alphabetic.compare(mainOrder, other.mainOrder);
+            int diff = alphabeticCompare(mainOrder, other.mainOrder);
             if (diff != 0) {
                 return diff;
             }
@@ -399,7 +399,7 @@ public class PathHeader implements Comparable<PathHeader> {
             if (0 != (result = headerOrder - other.headerOrder)) {
                 return result;
             }
-            if (0 != (result = alphabetic.compare(header, other.header))) {
+            if (0 != (result = alphabeticCompare(header, other.header))) {
                 return result;
             }
             if (0 != (result = codeOrder - other.codeOrder)) {
@@ -418,10 +418,10 @@ public class PathHeader implements Comparable<PathHeader> {
                 return -1; // if codeSuborder == null (and other.codeSuborder !=
                 // null), it is greater
             }
-            if (0 != (result = alphabetic.compare(code, other.code))) {
+            if (0 != (result = alphabeticCompare(code, other.code))) {
                 return result;
             }
-            if (0 != (result = alphabetic.compare(originalPath, other.originalPath))) {
+            if (0 != (result = alphabeticCompare(originalPath, other.originalPath))) {
                 return result;
             }
             return 0;
@@ -502,7 +502,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 return true;
             }
         }
-        
+
         /**
          * Use only when trying to find unmatched patterns
          */
@@ -1004,7 +1004,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     } else {
                         order = calendarFieldValues.size() * 100;
                     }
-                    
+
                     if (fields[0].equals("Formats")) {
                         if (calendarFormatTypes.contains(fields[1])) {
                             order += calendarFormatTypes.indexOf(fields[1]) * 10;
@@ -1034,7 +1034,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         String s = fixNames.get(fields[i]);
                         fixedFields[i] = s != null ? s : fields[i];
                     }
-                   
+
                     return fixedFields[0] + 
                             " - " + fixedFields[1] + 
                             (fixedFields[2].length() > 0 ? " - " + fixedFields[2] : "");
@@ -1126,18 +1126,18 @@ public class PathHeader implements Comparable<PathHeader> {
                             "hourFormat", 
                             "gmtZeroFormat",
                             "fallbackFormat");
-                    
+
                     if (fieldOrder.contains(source)) {
                         order = fieldOrder.indexOf(source);
                     } else {
                         order = fieldOrder.size();
                     }
-                    
+
                     String result = fieldNames.get(source);
                     return result == null ? source : result;
                 }
             });
-            
+
             functionMap.put("numericSort", new Transform<String, String>() {
                 // Probably only works well for small values, like -5 through +4.
                 public String transform(String source) {
@@ -1146,7 +1146,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
-            
+
             functionMap.put("metazone", new Transform<String, String>() {
 
                 public String transform(String source) {
@@ -1399,4 +1399,13 @@ public class PathHeader implements Comparable<PathHeader> {
     }
 
     private static final List<String> COUNTS = Arrays.asList("zero", "one", "two", "few", "many", "other");
+
+    private static int alphabeticCompare(String aa, String bb) {
+        // workaround for ICU threading issue http://bugs.icu-project.org/trac/ticket/10215
+        while (true) {
+            try {
+                return alphabetic.compare(aa, bb);
+            } catch (ArrayIndexOutOfBoundsException e) {}
+        }
+    }
 }

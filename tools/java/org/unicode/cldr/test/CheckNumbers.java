@@ -54,8 +54,6 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
     private static Pattern ALLOWED_INTEGER = Pattern.compile("1(0+)");
     private static Pattern COMMA_ABUSE = Pattern.compile(",[0#]([^0#]|$)");
-    private static final String decimalFormatXpath =
-        "//ldml/numbers/decimalFormats[@numberSystem=\"%s\"]/decimalFormatLength[@type=\"%s\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"%s\"][@count=\"%s\"]";
 
     /**
      * A MessageFormat string. For display, anything variable that contains strings that might have BIDI
@@ -105,7 +103,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         // Do a quick check on the currencyMatch, to make sure that it is a proper UnicodeSet
         if (path.indexOf("/currencyMatch") >= 0) {
             try {
-                UnicodeSet s = new UnicodeSet(value);
+                new UnicodeSet(value);
             } catch (Exception e) {
                 result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                     .setSubtype(Subtype.invalidCurrencyMatchSet)
@@ -114,82 +112,91 @@ public class CheckNumbers extends FactoryCheckCLDR {
             }
             return this;
         }
-        // quick bail from all other cases
-        if (path.indexOf("/numbers") < 0) return this;
 
-        // Here is the main test. Notice that we pick up any exceptions, so that we can
-        // give a reasonable error message.
-        try {
-
-            if (path.indexOf("defaultNumberingSystem") >= 0 || path.indexOf("otherNumberingSystems") >= 0) {
-                if (!validNumberingSystems.contains(value)) {
-                    result.add(new CheckStatus()
-                        .setCause(this)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.illegalNumberingSystem)
-                        .setMessage("Invalid numbering system: " + value));
-
-                }
-            }
-
-            if (path.indexOf("/pattern") >= 0 
-                    && path.indexOf("/patternDigit") < 0
-                    && path.indexOf("=\"range\"") < 0) {
-
-                // This if is meant to detect if we are examining compact decimal format patterns.
-                // as far as I can tell, only compact decimal format patterns both
-                // use the count attribute and are in /numbers/decimalFormats.
-                if (path.indexOf("/numbers/decimalFormats") >= 0
-                    && path.indexOf("[@count=") >= 0
-                    && !isValidPattern(value)) {
-                    result.add(new CheckStatus().setCause(this)
-                        .setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.illegalCharactersInNumberPattern)
-                        .setMessage("Bad pattern {0}", new Object[] { value }));
-                }
-                checkPattern(path, fullPath, value, result, false);
-            }
-            // if (path.indexOf("/currencies") >= 0 && path.endsWith("/symbol")) {
-            // checkCurrencyFormats(path, fullPath, value, result);
-            // }
-
-            // for the numeric cases, make sure the pattern is canonical
-            NumericType type = NumericType.getNumericType(path);
-            if (type == NumericType.NOT_NUMERIC) {
-                return this; // skip
-            }
-
-            // check all
-            if (FORBIDDEN_NUMERIC_PATTERN_CHARS.containsSome(value)) {
-                UnicodeSet chars = new UnicodeSet().addAll(value);
-                chars.retainAll(FORBIDDEN_NUMERIC_PATTERN_CHARS);
+        if (path.indexOf("defaultNumberingSystem") >= 0 || path.indexOf("otherNumberingSystems") >= 0) {
+            if (!validNumberingSystems.contains(value)) {
                 result.add(new CheckStatus()
                     .setCause(this)
                     .setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.illegalCharactersInNumberPattern)
-                    .setMessage("Pattern contains forbidden characters: \u200E{0}\u200E",
-                        new Object[] { chars.toPattern(false) }));
-            }
+                    .setSubtype(Subtype.illegalNumberingSystem)
+                    .setMessage("Invalid numbering system: " + value));
 
-            // get the final type
-            XPathParts parts = new XPathParts().set(path);
-            String lastType = parts.getAttributeValue(-1, "type");
-            int zeroCount = 0;
-            // it can only be null or an integer of the form 10+
-            if (lastType != null && !lastType.equals("standard")) {
-                Matcher matcher = ALLOWED_INTEGER.matcher(lastType);
-                if (matcher.matches()) {
-                    zeroCount = matcher.end(1) - matcher.start(1); // number of ascii zeros
-                } else {
+            }
+        }
+
+        // quick bail from all other cases
+        NumericType type = NumericType.getNumericType(path);
+        if (type == NumericType.NOT_NUMERIC) {
+            return this; // skip
+        }
+
+        // Make sure currency patterns contain a currency symbol
+        if (type == NumericType.CURRENCY) {
+            String[] currencyPatterns = value.split(";", 2);
+            for (int i = 0; i < currencyPatterns.length; i++) {
+                if (currencyPatterns[i].indexOf("\u00a4") < 0)
                     result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.badNumericType)
-                        .setMessage("The type of a numeric pattern must be missing or of the form 10...."));
-                }
+                        .setSubtype(Subtype.currencyPatternMissingCurrencySymbol)
+                        .setMessage("Currency formatting pattern must contain a currency symbol."));
             }
+        }
 
-            // Check for consistency in short/long decimal formats.
-            if (parts.containsElement("decimalFormatLength") && parts.containsAttribute("count")) {
-                checkDecimalFormatConsistency(parts, path, value, result);
+        // Make sure percent formatting patterns contain a percent symbol
+        if (type == NumericType.PERCENT) {
+            if (value.indexOf("%") < 0)
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.percentPatternMissingPercentSymbol)
+                    .setMessage("Percentage formatting pattern must contain a % symbol."));
+        }
+
+        // check all
+        if (FORBIDDEN_NUMERIC_PATTERN_CHARS.containsSome(value)) {
+            UnicodeSet chars = new UnicodeSet().addAll(value);
+            chars.retainAll(FORBIDDEN_NUMERIC_PATTERN_CHARS);
+            result.add(new CheckStatus()
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.illegalCharactersInNumberPattern)
+                .setMessage("Pattern contains forbidden characters: \u200E{0}\u200E",
+                    new Object[] { chars.toPattern(false) }));
+        }
+
+        // get the final type
+        XPathParts parts = new XPathParts().set(path);
+        String lastType = parts.getAttributeValue(-1, "type");
+        int zeroCount = 0;
+        // it can only be null or an integer of the form 10+
+        if (lastType != null && !lastType.equals("standard")) {
+            Matcher matcher = ALLOWED_INTEGER.matcher(lastType);
+            if (matcher.matches()) {
+                zeroCount = matcher.end(1) - matcher.start(1); // number of ascii zeros
+            } else {
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                    .setSubtype(Subtype.badNumericType)
+                    .setMessage("The type of a numeric pattern must be missing or of the form 10...."));
+            }
+        }
+
+        // Check the validity of the pattern. If this check fails, all other checks
+        // after it will fail, so exit early.
+        UnicodeSet illegalChars = findUnquotedChars(type, value);
+        if (illegalChars != null) {
+            result.add(new CheckStatus().setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.illegalCharactersInNumberPattern)
+                .setMessage("Pattern contains characters that must be escaped or removed: {0}", new Object[] { illegalChars }));
+            return this;
+        }
+
+        // Tests that assume that the value is a valid number pattern.
+        // Notice that we pick up any exceptions, so that we can
+        // give a reasonable error message.
+        try {
+            if (type == NumericType.DECIMAL_ABBREVIATED) {
+                // Check for consistency in short/long decimal formats.
+                checkDecimalFormatConsistency(parts, path, value, result, type);
+            } else {
+                checkPattern(path, fullPath, value, result, false);
             }
 
             // Check for sane usage of grouping separators.
@@ -211,24 +218,6 @@ public class CheckNumbers extends FactoryCheckCLDR {
                         .setMessage("Value should be \u200E{0}\u200E", new Object[] { pattern }));
                 }
             }
-            // Make sure currency patterns contain a currency symbol
-            if (type == NumericType.CURRENCY) {
-                String[] currencyPatterns = value.split(";", 2);
-                for (int i = 0; i < currencyPatterns.length; i++) {
-                    if (currencyPatterns[i].indexOf("\u00a4") < 0)
-                        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.currencyPatternMissingCurrencySymbol)
-                            .setMessage("Currency formatting pattern must contain a currency symbol."));
-                }
-            }
-
-            // Make sure percent formatting patterns contain a percent symbol
-            if (type == NumericType.PERCENT) {
-                if (value.indexOf("%") < 0)
-                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                        .setSubtype(Subtype.percentPatternMissingPercentSymbol)
-                        .setMessage("Percentage formatting pattern must contain a % symbol."));
-            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -240,18 +229,41 @@ public class CheckNumbers extends FactoryCheckCLDR {
         return this;
     }
 
-    private static boolean isValidPattern(String value) {
-        int firstIdx = value.indexOf("0");
-        if (firstIdx == -1) {
-            return false;
+    /**
+     * Looks for any unquoted non-pattern characters in the specified string
+     * which would make the pattern invalid.
+     * @param type the type of the pattern
+     * @param value the string containing the number pattern
+     * @return the set of unquoted chars in the pattern
+     */
+    private static UnicodeSet findUnquotedChars(NumericType type, String value) {
+        UnicodeSet chars = new UnicodeSet();
+        UnicodeSet allowedChars = null;
+        // Allow the digits 1-9 here because they're already checked in another test.
+        if (type == NumericType.DECIMAL_ABBREVIATED) {
+            allowedChars = new UnicodeSet("[0-9]");
+        } else {
+            allowedChars = new UnicodeSet("[0-9#@.,E+]");
         }
-        int lastIdx = value.lastIndexOf("0");
-        for (int i = firstIdx + 1; i < lastIdx; i++) {
-            if (value.charAt(i) != '0') {
-                return false;
+        for (String subPattern : value.split(";")) {
+            // Any unquoted non-special chars are allowed in front of or behind the numerical
+            // symbols, but not in between, e.g. " 0000" is okay but "0 000" is not.
+            int firstIdx = -1;
+            for (int i = 0, len = subPattern.length() ; i < len ; i++) {
+                char c = subPattern.charAt(i);
+                if (c == '0' || c == '#') {
+                    firstIdx = i;
+                    break;
+                }
             }
+            if (firstIdx == -1) {
+                continue;
+            }
+            int lastIdx = Math.max(subPattern.lastIndexOf("0"), subPattern.lastIndexOf('#'));
+            chars.addAll(subPattern.substring(firstIdx, lastIdx));
         }
-        return true;
+        chars.removeAll(allowedChars);
+        return chars.size() > 0 ? chars : null;
     }
 
     /**
@@ -273,7 +285,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
         return this;
     }
 
-    private void checkDecimalFormatConsistency(XPathParts parts, String path, String value, List<CheckStatus> result) {
+    private void checkDecimalFormatConsistency(XPathParts parts, String path, String value,
+            List<CheckStatus> result, NumericType type) {
         // Look for duplicates of decimal formats with the same number
         // system and type.
         // Decimal formats of the same type should have the same number
@@ -296,7 +309,8 @@ public class CheckNumbers extends FactoryCheckCLDR {
         for (Count count : otherCounts) {
             parts.setAttribute("pattern", "count", count.toString());
             String otherPattern = resolvedFile.getWinningValue(parts.toString());
-            if (otherPattern == null) continue;
+            // Ignore the type="other" pattern if not present or invalid.
+            if (otherPattern == null || findUnquotedChars(type, otherPattern) != null) continue;
             format = new DecimalFormat(otherPattern);
             if (format.getMinimumIntegerDigits() != numIntegerDigits) {
                 PathHeader pathHeader = pathHeaderFactory.fromPath(parts.toString());

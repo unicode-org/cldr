@@ -2474,7 +2474,7 @@ public class SupplementalDataInfo {
     private Map<String, PluralInfo> localeToOrdinalInfo = new LinkedHashMap<String, PluralInfo>();
     private Map<String, DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String, DayPeriodInfo>();
     private Map<String, CoverageLevel2> localeToCoverageLevelInfo = new ConcurrentHashMap<String, CoverageLevel2>();
-    private static Map<String, Level> coverageCache = new ConcurrentHashMap<String, Level>();
+    private Map<String, Level> coverageCache = new ConcurrentHashMap<String, Level>();
     private transient String lastPluralLocales = "root";
     private transient boolean lastPluralWasOrdinal = false;
     private transient Map<Count, String> lastPluralMap = new LinkedHashMap<Count, String>();

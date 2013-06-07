@@ -278,6 +278,9 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
             System.out.println(info.toOverview());
 
             out.println("<h3>" + integral + "</h3>");
+            if (integral == Integral.fraction) {
+                out.println("<p><i>This table has not yet been updated to capture the new types of plural fraction behavior.</i></p>");
+            }
             out.println("<table class='pluralComp'>");
             int lastCount = -1;
             int lastCount01 = -1;

@@ -34,6 +34,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
+import org.unicode.cldr.tool.WritePluralRules.SamplePatterns;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CldrUtility;
@@ -2224,15 +2225,22 @@ public class ShowLanguages {
             pw.println("<h2>" + CldrUtility.getDoubleLinkedText("rules", "1. " + section1) + "</h2>");
 
             final TablePrinter tablePrinter = new TablePrinter()
-                .addColumn("Language Name", "class='source'", null, "class='source'", true).setSortPriority(0)
+                .addColumn("Name", "class='source'", null, "class='source'", true).setSortPriority(0)
                 .setBreakSpans(true).setRepeatHeader(true)
                 .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
                 .addColumn("Category", "class='target'", null, "class='target'", true).setBreakSpans(true)
                 .addColumn("Examples", "class='target'", null, "class='target'", true)
-                .addColumn("Rules", "class='target'", null, "class='target'", true);
+                .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true)
+                .addColumn("Rules", "class='target'", null, "class='target' nowrap", true);
+
+            Map<ULocale, SamplePatterns> samples = WritePluralRules.getLocaleToSamplePatterns();
 
             for (String locale : supplementalDataInfo.getPluralLocales()) {
                 final PluralInfo plurals = supplementalDataInfo.getPlurals(locale);
+                ULocale locale2 = new ULocale(locale);
+                final SamplePatterns samplePatterns = CldrUtility.get(samples, locale2);
+                NumberFormat nf = NumberFormat.getInstance(locale2);
+
                 String rules = plurals.getRules();
                 rules += rules.length() == 0 ? "other:<i>everything</i>" : ";other:<i>everything else</i>";
                 rules = rules.replace(":", " → ").replace(";", ";<br>");
@@ -2245,21 +2253,41 @@ public class ShowLanguages {
                     String keyword = count.toString();
                         Collection<NumberInfo> exampleList = plurals.getPluralRules().getFractionSamples(keyword);
                         StringBuilder examples = new StringBuilder();
+                        int itemCount = 0;
                         for (NumberInfo example : exampleList) {
+                            ++itemCount;
                             if (examples.length() != 0) {
                                 examples.append("; ");
                             }
                             examples.append(example);
                         }
                         String rule = pluralRules.getRules(keyword);
-                        rule = rule != null ? rule.replace(":", " → ") 
+                        rule = rule != null ? rule.replace(":", " → ")
+                                .replace(" and ", " and<br>&nbsp;&nbsp;")
+                                .replace(" or ", " or<br>")
                                 : counts.size() == 1 ? "<i>everything</i>"
                                         : "<i>everything else</i>";
+                        String sample = counts.size() == 1 ? "<i>no plural differences</i>" 
+                                : "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
+                        if (samplePatterns != null) {
+                            String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, keyword);
+                            if (samplePattern != null) {
+                                // TODO use localized number
+                                NumberInfo numb = exampleList.iterator().next();
+                                nf.setMaximumFractionDigits(numb.visibleFractionDigitCount);
+                                nf.setMinimumFractionDigits(numb.visibleFractionDigitCount);
+                                sample = samplePattern
+                                        .replace('\u00A0', '\u0020')
+                                        .replace("{0}", nf.format(numb.source))
+                                        .replace(". ", ".<br>");
+                            }
+                        }
                     tablePrinter.addRow()
                         .addCell(name)
                         .addCell(locale)
                         .addCell(count.toString())
                         .addCell(examples.toString())
+                        .addCell(sample)
                         .addCell(rule)
                         .finishRow();
                 }

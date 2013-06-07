@@ -79,7 +79,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">n mod 100 in 11..19</pluralRule>
         </pluralRules>
         <pluralRules locales="mk">
-            <pluralRule count="one">n mod 10 in 0..1 and n mod 100 not in 0,11 or f mod 10 is 1 and f mod 10 is not 11</pluralRule>
+            <pluralRule count="one">j mod 10 is 1 or f mod 10 is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="cy">
             <pluralRule count="zero">n is 0</pluralRule>

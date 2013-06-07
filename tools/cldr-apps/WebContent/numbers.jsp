@@ -279,8 +279,8 @@ if (!LOCALES.contains(selectedLocale)) {
 boolean isEdit = request.getParameter("edit") != null;
 
 String type = request.getParameter("type");
-if (type== null) {
-    type=SPELLOUT_RULES;
+if (type == null) {
+    type = SPELLOUT_RULES;
 }
 String errorMsg = null;
 String rulesStr = request.getParameter("rules");
@@ -290,7 +290,9 @@ if (!isEdit || rulesStr == null || rulesStr.length() <= 0) {
     }
     catch (Exception e) {
         if (errorMsg == null) {
+            // The standard default rules can not be loaded? That is bad. Is ICU okay?
             errorMsg = e.getMessage();
+            org.unicode.cldr.web.SurveyLog.logException(e);
         }
         rulesStr = "";
     }

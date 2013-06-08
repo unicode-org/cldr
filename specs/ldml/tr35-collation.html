@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">04-08</span></td>
+			<td>2013-<span class="changed">06-07</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -460,26 +460,37 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 
 <h2><a name="Collation_Tailorings" href="#Collation_Tailorings">3 Collation Tailorings</a></h2>
+        <p class="reviewnote">This draft removes the XML collation syntax, often without leaving "removed" markers.
+        New or modified text is highlighted.
+        For a detailed comparison see the <i><a href="http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">CLDR 23 version of this document</a></i>.</p>
+        <p class="reviewnote">Please ignore minor style and wording issues for now.
+        This chapter has other, more significant problems and needs to be mostly rewritten, scheduled for CLDR 24.</p>
 	<p class="dtd">&lt;!ELEMENT collations (alias | (default*, collation*, special*)) &gt;</p>
 	<p>This element of the LDML format
-	contains one or more collation elements, distinguished by type.
-	Each collation contains rules that specify a certain sort-order, as a tailoring 
-	of the root order.</p>
+	contains one or more <span class="element">collation</span> elements, distinguished by type.
+	Each <span class="element">collation</span> contains
+	<span class="changed">elements with parametric settings,
+	or</span> rules that specify a certain sort order, as a tailoring of the root order,
+	<span class="changed">or both</span>.</p>
 
     <p>To allow implementations in reduced memory environments to use CJK sorting,
     there are also short forms of each of these collation sequences.
     These provide for the most common characters in common use,
     and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
 
-  <p>There are two syntaxes for specifying collation rules:
+  <p class="removed">There are two syntaxes for specifying collation rules:
   the <em>basic collation syntax</em> and the <em>XML collation syntax</em>.
   Both have the same functionality.
   The LDML files use the XML format, but the basic format is simpler to read, and will often be used in examples.
   Implementations of LDML, such as [<a href="tr35.html#ICUCollation">ICUCollation</a>], may choose to use the basic collation syntax as their native syntax.</p>
   <p class="note"><b>Note:</b></p>
 	<ul>
-	  <li class="note">There is an on-line demonstration of collation at [<a href="tr35.html#LocaleExplorer">LocaleExplorer</a>] that uses the basic syntax. (Pick the locale and scroll 
-	    to &quot;Collation Rules&quot;, near the end.)</li>
+	  <li class="note">There is an on-line demonstration of collation at [<a href="tr35.html#LocaleExplorer">LocaleExplorer</a>] <span class="removed">that uses the basic syntax</span>.
+	    (Pick the locale and scroll to &quot;Collation Rules&quot;, near the end.)</li>
+	  <li class="note changed">In CLDR 23 and before, LDML collation files used an XML format.
+	    Starting with CLDR 24, the XML collation syntax is deprecated and no longer used.
+	    See the <i><a href="http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">CLDR 23 version of this document</a></i>
+	    for details about the XML collation syntax.</li>
   </ul>
 <h3><a name="Collation_Version" href="#Collation_Version">3.1 Version</a></h3>
 	<p>The version attribute is used in case a specific version of the UCA is to be specified. It is optional, and is specified if the results are to be identical 
@@ -491,28 +502,40 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		for version 3.1.1 of the UCA, for version 3.2 of Unicode. This was changed by decision of the UTC, 
 		so that dual versions were no longer necessary. So for UCA 4.0 and beyond, the version just has a single number.</p>
 	</blockquote>
+
 	<h3><a name="Collation_Element" href="#Collation_Element">3.2 Collation Element</a></h3>
-	<p class="dtd">&lt;!ELEMENT collation (alias | (base?, settings?, suppress_contractions?, optimize?, rules?, special*)) &gt;</p>
+	<p class="dtd">&lt;!ELEMENT collation (alias | (base?, <span class="changed">import*,</span> settings?, suppress_contractions?, optimize?, <span class="changed">(cr* | rules?)</span>, special*)) &gt;</p>
 	<p>The tailoring syntax is designed to be independent of the actual weights used in any particular UCA table. That way the same rules can 
-  be applied to UCA versions over time, even if the underlying weights change. The following illustrates the overall  structure of a collation with the XML syntax:</p>
-	<p><code>&lt;collation&gt;<br>
-&nbsp;&lt;settings caseLevel=&quot;<span style="color: blue">on</span>&quot;/&gt;<br>
-&nbsp;&lt;rules&gt;<br>
-	<font color="green">&nbsp; </font>&lt;reset&gt;<span style="color: blue">c</span>&lt;reset&gt;	</code><br>
-	<code>&nbsp;&nbsp;&lt;p&gt;<span style="color: blue">k</span>&lt;/p<font color="green">&gt;</font></code><code><font color="green"><br>
-    </font>&nbsp;&lt;/rules&gt;<br>
-    &lt;/collation&gt;</code></p>
-	<p>The basic syntax corresponding to this would be:</p>
-	<p>[caseLevel on]<br>     &amp; c &lt; k</p>
+  be applied to UCA versions over time, even if the underlying weights change.
+  The following illustrates the overall structure of a <span class="element">collation</span> <span class="removed">with the XML syntax</span>:</p>
+	<pre class="changed">&lt;collation&gt;
+  &lt;settings caseLevel=&quot;on&quot;/&gt;
+  &lt;cr&gt;&lt;![CDATA[
+    &amp;c &lt; k
+  ]]&gt;&lt;/cr&gt;
+&lt;/collation&gt;</pre>
+	<p class="removed">The basic syntax corresponding to this would be:</p>
+	<p class="removed">[caseLevel on]<br>     &amp; c &lt; k</p>
 <p>The optional base element <code>&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;</code>, contains an alias element that points to another data source that 
 	defines a <i>base </i>collation. If present, it indicates that the settings and rules in the collation are modifications applied on <i>top of the</i> respective 
 	elements in the base collation. That is, any successive settings, where present, override what is in the base as described in <a href="#Setting_Options">Setting 
 	Options</a>. Any successive rules are concatenated to the end of the rules in the base. The results of multiple rules applying to the same characters is covered 
 	in <a href="#Orderings">Orderings</a>.</p>
+
 <h3><a name="Setting_Options" href="#Setting_Options">3.3 Setting Options</a></h3>
-	<p>In XML syntax, these are attributes of &lt;settings&gt;. For example, &lt;setting strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary weights. In basic syntax, these are of the form [<em>keyword</em> <em>value</em>].</p>
-	<p>If the attribute is not present, the CLDR default (or the default for the locale, if there is one) is used. That  default is listed in bold italics. Where there is a UCA default that is different, it is listed in bold with (<strong>UCA default</strong>). Note that the default value for a locale may be different than the default value for the attribute, so the defaults here are <em>not</em> defaults for the corresponding keywords. </p>
-<p>The Example cells include an LDML example followed by the same example in basic syntax.</p>
+	<p><span class="removed">In XML syntax, these</span>
+	<span class="changed">The following parametric settings</span> are attributes of &lt;settings&gt;.
+	For example, &lt;setting strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary weights.
+	In <span class="changed">rule</span> syntax, these are of the form [<em>keyword</em> <em>value</em>].</p>
+	<p>If the attribute is not present, the CLDR default (or the default for the locale, if there is one) is used.
+	That  default is listed in bold italics.
+	Where there is a UCA default that is different, it is listed in bold with (<strong>UCA default</strong>).
+	Note that the default value for a locale may be different than the default value for the attribute,
+	so the defaults here are <em>not</em> defaults for the corresponding keywords.</p>
+  <p>The Example cells include <span class="removed">an LDML example followed by the same example in basic syntax</span>
+  <span class="changed"><span class="element">settings</span> attributes as well as rule syntax</span>.
+  In LDML files, parametric settings should be specified via <span class="element">settings</span> attributes,
+  rather than in the rules.</p>
 	<table>
     <caption><a name="Collation_Settings" href="#Collation_Settings">Collation Settings</a></caption>
 		<tr>
@@ -744,30 +767,42 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   <p><strong>Variable Top (vt) </strong>bears more explanation. Users may want to include more or fewer characters as Variable. For example, someone could want to restrict the Variable characters to just include space marks. In that case, variableTop would be set to U+1680 (see <a href="http://unicode.org/charts/collation/chart_Variable.html">UCA Variable chart</a>). Alternatively, someone could want more of the Common characters in them, and include characters up to (but not including '0'), by setting variableTop to be U+20BA (in Unicode 6.2; see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).</p>
   <p>The effect of these settings is to customize to ignore different sets of characters when comparing strings. For example, the locale identifier "de-u-ka-shifted-vt-0024" is requesting  settings appropriate for German, including German sorting conventions, and that '$' and characters sorting below it are ignored in sorting.
   </p>
+
   <h3><a name="Rules" href="#Rules">3.4 Collation Rule Syntax</a></h3>
-  <p class="dtd">&lt;!ELEMENT rules (alias | ( reset, ( reset | p | pc | s | sc | t | tc | i | ic | x)* )) &gt;</p>
-	<p>The goal for the collation rule syntax is to have clearly expressed rules with a concise format, that parallels the basic syntax as much as possible.&nbsp; 
-	The rule syntax uses abbreviated element names for primary (level 1), secondary (level 2), tertiary (level 3), and identical, to be as short as possible. The 
-	reason for this is because the tailorings for CJK characters are quite large (tens of thousands of elements), and the extra overhead would have been considerable. 
-	Other elements and attributes do not occur as frequently, and have longer names.</p>
+  <p class="dtd"><span class="changed">&lt;!ELEMENT cr #PCDATA &gt;</span></p>
+	<p>The goal for the collation rule syntax is to have clearly expressed rules with a concise format<span class="removed">, that parallels the basic syntax as much as possible.
+	The rule syntax uses abbreviated element names for primary (level 1), secondary (level 2), tertiary (level 3), and identical, to be as short as possible.
+	The reason for this is because the tailorings for CJK characters are quite large (tens of thousands of elements),
+	and the extra overhead would have been considerable. 
+	Other elements and attributes do not occur as frequently, and have longer names</span>.
+	<span class="changed">The CLDR rule syntax is a subset of the [<a href="tr35.html#ICUCollation">ICUCollation</a>] syntax.</span></p>
 	<blockquote>
-		<p><b>Note: </b>The rules are stated in terms of actions that cause characters to change their ordering relative to other characters. This is for 
-		stability; assigning characters specific weights would not work, since the exact weight assignment in UCA (or ISO 14651) is not required for conformance 
-		— only the relative ordering of the weights. In addition, stating rules in terms of relative order is much less sensitive to changes over time in the UCA 
-		itself.</p>
+		<p><b>Note: </b>The rules are stated in terms of actions that cause characters to change their ordering relative to other characters.
+		This is for stability; assigning characters specific weights would not work,
+		since the exact weight assignment <span class="removed">in UCA (or ISO 14651)</span> is not required for conformance 
+		— only the relative ordering of the weights.
+		In addition, stating rules in terms of relative order is much less sensitive to changes over time
+		in the <span class="changed">root order</span>.</p>
 	</blockquote>
+
 	<h3><a name="Orderings" href="#Orderings">3.5 Orderings</a></h3>
-	<p>The following are the normal ordering actions used for the bulk of characters. Each rule contains a string of ordered characters that starts with an anchor 
-	point or a reset value. The reset value is an absolute point in the UCA that determines the order of other characters. For example, the rule &amp; a &lt; g, places 
-	&quot;g&quot; after &quot;a&quot; in a tailored UCA: the &quot;a&quot; does not change place. Logically, subsequent rule after a reset indicates a change to the ordering (and comparison 
-	strength) of the characters in the UCA. For example, the UCA has the following sequence (abbreviated for illustration):</p>
+	<p>The following are the normal ordering actions used for the bulk of characters.
+	Each rule contains a string of ordered characters that starts with an anchor point or a reset value.
+	The reset value is an absolute point in the <span class="changed">root order</span> that determines the order of other characters.
+	For example, the rule &amp; a &lt; g, places 
+	&quot;g&quot; after &quot;a&quot; <span class="removed">in a tailored UCA</span>: the &quot;a&quot; does not change place.
+	Logically, subsequent rule after a reset indicates a change to the ordering (and comparison 
+	strength) of the characters in the <span class="changed">root order</span>.
+	For example, the <span class="changed">root order</span> has the following sequence (abbreviated for illustration):</p>
 	<blockquote>
 		<p>... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub> Á &lt;<sub>1</sub> æ &lt;<sub>3</sub> 
 	Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...</p>
 	</blockquote>
-	<p>Whenever a character is inserted into the UCA sequence, it is inserted at the first point where the strength difference will not disturb the other characters 
-	in the UCA. For example, &amp; a &lt; g puts <i>g</i> in the above sequence with a strength of L1. Thus the <i>g</i> must go in after any lower strengths,&nbsp; as 
-	follows:</p>
+	<p>Whenever a character is inserted into the <span class="changed">root</span> sequence,
+	it is inserted at the first point where the strength difference will not disturb the other characters 
+	in the <span class="changed">root order</span>.
+	For example, &amp; a &lt; g puts <i>g</i> in the above sequence with a strength of L1.
+	Thus the <i>g</i> must go in after any lower strengths,&nbsp; as follows:</p>
 	<blockquote>
 		<p>... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub> Á 
 		<b><font color="red">&lt;<sub>1</sub> g </font></b>&lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ 
@@ -787,13 +822,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...</p>
 	</blockquote>
 	<p>Since resets always work on the existing state, the rule entries must be in the proper order. A character or sequence may occur multiple times; each subsequent 
-	occurrence causes a different change. The following shows the result of serially applying a three rules.</p>
+	occurrence causes a different change. The following shows the result of serially applying three rules.</p>
 	<table>
 		<tr>
 			<th>&nbsp;</th>
-			<th>Basic Syntax&nbsp; </th>
+			<th><span class="changed">Rules</span></th>
 			<th>Result</th>
-			<th>Comment&nbsp; </th>
+			<th>Comment</th>
 		</tr>
 		<tr>
 			<td>1</td>
@@ -820,7 +855,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	<p><i>Example:</i></p>
 	<table>
 		<tr>
-			<th>Basic Syntax</th>
+			<th><span class="changed">Rules</span></th>
 			<th>Equivalent Atomic Rules</th>
 		</tr>
 		<tr>
@@ -837,75 +872,60 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	</table>
 	<p>In the case of expansion sequence syntax, the equivalent atomic sequence can be derived by first transforming the expansion sequence syntax into normal expansion 
 	syntax. (See <a href="#Expansions">Expansions</a>.)</p>
-	<p><span class="dtd">&lt;!ELEMENT reset ( #PCDATA | cp | ... )* &gt;<br>
+	<p class="removed"><span class="dtd">&lt;!ELEMENT reset ( #PCDATA | cp | ... )* &gt;<br>
 	&lt;!ELEMENT p ( #PCDATA | cp | last_variable )* &gt;<br>
 	</span>(Elements pc, s, sc, t, tc, i, and ic have the same structure as p.)</p>
+	<span class="changed">A reset is followed by one or more relations.</span>
 	<table>
 		<caption>Specifying Collation Ordering</caption>
 		<tr>
-			<th>Basic Symbol</th>
-			<th>Basic Example</th>
-			<th>XML Symbol</th>
-			<th>XML Example</th>
+			<th><span class="changed">Relation Operator</span></th>
+			<th><span class="removed">Basic</span> Example</th>
 			<th>Description</th>
 		</tr>
 		<tr>
 			<td><code>&amp;&nbsp; </code></td>
 			<td><code>&amp; Z&nbsp; </code></td>
-			<td><code>&lt;reset&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">Z</span>&lt;/reset&gt;</code></td>
 			<td>Do not change the ordering of Z, but place subsequent characters relative to it.</td>
 		</tr>
 		<tr>
 			<td><code>&lt;&nbsp; </code></td>
 			<td><code>&amp; a<br>
 			&lt; b&nbsp; </code></td>
-			<td><code>&lt;p&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">a</span>&lt;reset&gt;<br>
-			&lt;p&gt;<span style="color: blue">b</span>&lt;/p&gt;</code></td>
 			<td>Make &#39;b&#39; sort after &#39;a&#39;, as a <i>primary</i> (base-character) difference</td>
 		</tr>
 		<tr>
 			<td><code>&lt;&lt;&nbsp; </code></td>
 			<td><code>&amp; a<br>
 			&lt;&lt; ä&nbsp; </code></td>
-			<td><code>&lt;s&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">a</span>&lt;reset&gt;<br>
-			&lt;s&gt;<span style="color: blue">ä</span>&lt;/s&gt;</code></td>
 			<td>Make &#39;ä&#39; sort after &#39;a&#39; as a <i>secondary</i> (accent) difference</td>
 		</tr>
 		<tr>
 			<td><code>&lt;&lt;&lt;&nbsp; </code></td>
 			<td><code>&amp; a<br>
 			&lt;&lt;&lt; A&nbsp; </code></td>
-			<td><code>&lt;t&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">a</span>&lt;reset&gt;<br>
-			&lt;t&gt;<span style="color: blue">A</span>&lt;/t&gt;</code></td>
 			<td>Make &#39;A&#39; sort after &#39;a&#39; as a <i>tertiary</i> (case/variant) difference</td>
 		</tr>
 		<tr>
 			<td><code>=&nbsp; </code></td>
 			<td><code>&amp; v<br>
 			= w&nbsp; </code></td>
-			<td><code>&lt;i&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">v</span>&lt;reset&gt;<br>
-			&lt;i&gt;<span style="color: blue">w</span>&lt;/i&gt;</code></td>
 			<td>Make &#39;w&#39; sort <i>identically</i> to &#39;v&#39;</td>
 		</tr>
 	</table>
-	<p>Resets only need to be at the start of a sequence, to position the characters relative a character that is in the UCA (or has already occurred in the tailoring). 
+	<p class="removed">Resets only need to be at the start of a sequence, to position the characters relative a character that is in the UCA (or has already occurred in the tailoring). 
 	For example: &lt;reset&gt;z&lt;/reset&gt;&lt;p&gt;a&lt;/p&gt;&lt;p&gt;b&lt;/p&gt;&lt;p&gt;c&lt;/p&gt;&lt;p&gt;d&lt;/p&gt;.</p>
-	<p>Some additional elements are provided to save space with large tailorings. The addition of a &#39;c&#39; to the element name indicates that each of the characters 
-	in the contents of that element are to be handled as if they were separate elements with the corresponding strength. In the basic syntax, these are expressed by adding a * to the operation.</p>
+	<p>Some additional <span class="changed">operators</span> are provided to save space with large tailorings.
+	The addition of a <span class="changed">*</span> to the <span class="changed">relation operator</span>
+	indicates that each of the <span class="changed">following single</span> characters
+	<span class="removed">in the contents of that element</span> are to be handled as if they were separate <span class="changed">relations</span> with the corresponding strength.
+	<span class="removed">In the basic syntax, these are expressed by adding a * to the operation.</span></p>
 	<table>
     <caption>Abbreviating Ordering Specifications</caption>
 		<tr>
-		  <th>Basic Symbol</th>
-		  <th>Basic Example</th>
+		  <th><span class="changed">Relation Operator</span></th>
+		  <th><span class="removed">Basic</span> Example</th>
 		  <th>Equivalent</th>
-			<th>XML Symbol</th>
-			<th>XML Example</th>
-			<th>Equivalent</th>
 		</tr>
 		<tr>
 		  <td><code>&lt;*</code></td>
@@ -913,11 +933,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   &lt;* <span style="color: blue">bcd</span>&nbsp;</code></td>
 		  <td><code>&amp; <span style="color: blue">a</span><br>
   &lt; <span style="color: blue">b </span>&lt;<span style="color: blue"> c </span>&lt;<span style="color: blue"> d</span>&nbsp;</code></td>
-		  <td><code>&lt;pc&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">a</span>&lt;reset&gt;<br>
-          </code><code>&lt;pc&gt;<span style="color: blue">bcd</span>&lt;/pc&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">a</span>&lt;reset&gt;<br>
-          </code><code>&lt;p&gt;<span style="color: blue">b</span>&lt;/p&gt;&lt;p&gt;<span style="color: blue">c</span>&lt;/p&gt;&lt;p&gt;<span style="color: blue">d</span>&lt;/p&gt;</code></td>
 		</tr>
 		<tr>
 		  <td><code>&lt;&lt;</code><code>*</code></td>
@@ -925,11 +940,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   &lt;&lt;*<span style="color: blue"> àáâã</span></code></td>
 		  <td><code>&amp;<span style="color: blue"> a</span><br>
   &lt;&lt;<span style="color: blue"> à </span>&lt;&lt; <span style="color: blue">á </span>&lt;&lt; <span style="color: blue">âã</span></code></td>
-		  <td><code>&lt;sc&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">a</span>&lt;reset&gt;<br>
-          </code><code>&lt;sc&gt;<span style="color: blue">àáâã</span>&lt;/sc&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">a</span>&lt;reset&gt;<br>
-          </code><code>&lt;s&gt;<span style="color: blue">à</span>&lt;/s&gt;&lt;s&gt;<span style="color: blue">á</span>&lt;/s&gt;&lt;s&gt;<span style="color: blue">â</span>&lt;/s&gt;&lt;s&gt;ã&lt;/s&gt;</code></td>
 		</tr>
 		<tr>
 		  <td><code>&lt;&lt;&lt;</code><code>*</code></td>
@@ -937,11 +947,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   &lt;&lt;&lt;* <span style="color: blue">PｐＰ</span></code></td>
 		  <td><code>&amp;<span style="color: blue"> p</span><br>
   &lt;&lt;&lt; <span style="color: blue">P</span> &lt;&lt;&lt; <span style="color: blue">ｐ</span> &lt;&lt;&lt; <span style="color: blue">Ｐ</span></code></td>
-		  <td><code>&lt;tc&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">p</span>&lt;reset&gt;<br>
-          </code><code>&lt;tc&gt;<span style="color: blue">PｐＰ</span>&lt;/tc&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">p</span>&lt;reset&gt;<br>
-          </code><code>&lt;t&gt;<span style="color: blue">P</span>&lt;/t&gt;&lt;t&gt;<span style="color: blue">ｐ</span>&lt;/t&gt;&lt;t&gt;<span style="color: blue">Ｐ</span>&lt;/t&gt;</code></td>
 		</tr>
 		<tr>
 		  <td><code>=*</code></td>
@@ -949,11 +954,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	      =* <span style="color: blue">VwW</span></code></td>
 		  <td><code>&amp;<span style="color: blue"> v</span><br>
 		    = <span style="color: blue">V </span>= <span style="color: blue">w </span>= <span style="color: blue">W</span></code></td>
-		  <td><code>&lt;ic&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">v</span>&lt;reset&gt;<br>
-          </code><code>&lt;ic&gt;<span style="color: blue">VwW</span>&lt;/ic&gt;</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">v</span>&lt;reset&gt;<br>
-          </code><code>&lt;i&gt;<span style="color: blue">V</span>&lt;/i&gt;&lt;i&gt;<span style="color: blue">w</span>&lt;/i&gt;&lt;i&gt;<span style="color: blue">W</span>&lt;/i&gt;</code></td>
 		</tr>
 	</table>
 <h3><a name="Contractions" href="#Contractions">3.6 Contractions</a></h3>
@@ -962,65 +962,56 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	<table>
 		<caption>Specifying Contractions</caption>
 		<tr>
-			<th>Basic Example</th>
-			<th>XML Example</th>
+			<th><span class="removed">Basic</span> Example</th>
 			<th>Description</th>
 		</tr>
 		<tr>
 			<td><code>&amp; k<br>
 			&lt; ch</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">k</span>&lt;/reset&gt;<br>
-			&lt;p&gt;<span style="color: blue">ch</span>&lt;/p&gt;</code></td>
 			<td>Make the sequence &#39;ch&#39; sort after &#39;k&#39;, as a primary (base-character) difference</td>
 		</tr>
 	</table>
+
 	<h3><a name="Expansions" href="#Expansions">3.7 Expansions</a></h3>
-	<p class="dtd">&lt;!ELEMENT x (context?, ( p | pc | s | sc | t | tc | i | ic )*, extend? ) &gt;</p>
-	<p>There are two ways to handle expansions (where a character sorts as a sequence) with both the basic syntax and the XML syntax. The first method is to reset 
-	to the sequence of characters. This is called <i>sequence expansion syntax. </i>The second is to use the extension sequence. Both are equivalent in practice 
-	(unless the reset sequence happens to be a contraction). This is called <i>normal expansion syntax</i>.</p>
+	<p class="dtd removed">&lt;!ELEMENT x (context?, ( p | pc | s | sc | t | tc | i | ic )*, extend? ) &gt;</p>
+	<p>There are two ways to handle expansions (where a character sorts as a sequence) <span class="removed">with both the basic syntax and the XML syntax</span>.
+	The first method is to reset to the sequence of characters.
+	This is called <i>sequence expansion syntax.</i>
+	The second is to use the extension sequence. This is called <i>normal expansion syntax</i>.
+	Both are equivalent in practice (unless the reset sequence happens to be a contraction).</p>
 	<table>
 		<caption>Specifying Expansions</caption>
 		<tr>
-			<th>Basic</th>
-			<th>XML</th>
+			<th><span class="changed">Rules</span></th>
 			<th>Description</th>
 		</tr>
 		<tr>
 			<td><code>&amp; c <br>
 			&lt;&lt; k / h</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">c</span>&lt;/reset&gt;<br>
-			&lt;x&gt;&lt;s&gt;<span style="color: blue">k</span>&lt;/s&gt; &lt;extend&gt;<span style="color: blue">h</span>&lt;/extend&gt;&lt;/x&gt;</code></td>
 			<td><i>normal expansion syntax:<br>
 			</i>Make &#39;k&#39; sort after the sequence &#39;ch&#39;; thus &#39;k&#39; will behave as if it expands to a character after &#39;c&#39; followed by an &#39;h&#39;.</td>
 		</tr>
 		<tr>
 			<td><code>&amp; ch<br>
 			&lt;&lt; k</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">ch</span>&lt;/reset&gt;<br>
-			&lt;s&gt;<span style="color: blue">k</span>&lt;/s&gt;</code></td>
 			<td><i>sequence expansion syntax:<br>
 			</i>Make &#39;k&#39; sort after the sequence &#39;ch&#39;; thus &#39;k&#39; will behave as if it expands to a character after &#39;c&#39; followed by an &#39;h&#39;.
 			<p><i>(unless &#39;ch&#39; is defined beforehand as a contraction).</i></p>
 			</td>
 		</tr>
 	</table>
-	<p>If an <code>&lt;extend&gt;</code> element is necessary, it requires the rule to be embedded in an &lt;x&gt; element.</p>
+	<p class="removed">If an <code>&lt;extend&gt;</code> element is necessary, it requires the rule to be embedded in an &lt;x&gt; element.</p>
 	<p>The sequence expansion syntax can be quite tricky, so it should be avoided where possible. In particular:</p>
 	<ul>
-		<li>The expansion is <i>only</i> in effect up to — but not including — the first primary rule. Thus<br>
-		<code>&nbsp; &lt;reset&gt;<span style="COLOR: blue">ch</span>&lt;/reset&gt;<br>
-&nbsp; &lt;s&gt;<span style="color: blue">x</span>&lt;/x&gt;<br>
-&nbsp; &lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;<br>
-&nbsp; &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;<br>
-		</code>is the same as<br>
-		<code>&nbsp; &lt;reset&gt;<span style="COLOR: blue">c</span>&lt;/reset&gt;<br>
-&nbsp; &lt;x&gt;&lt;s&gt;<span style="color: blue">x</span>&lt;/s&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
-&nbsp; &lt;x&gt;&lt;t&gt;<span style="color: blue">y</span>&lt;/t&gt;&lt;extend&gt;<span style="COLOR: blue">h</span>&lt;/extend&gt;&lt;/x&gt;<br>
-&nbsp; &lt;p&gt;<span style="color: blue">z</span>&lt;/p&gt;</code></li>
-		<li>In accordance with the UCA, all strings are interpreted as being in NFD form. In other rules, this has no effect, but syntax such as <code>&lt;reset&gt;</code><b>ä</b><code>&lt;/reset&gt;</code>, 
-		the <b>ä</b> will be treated as two characters <b>a +&nbsp; ¨</b>, <i>unless</i> the <b>ä</b> has previously been used as a contraction. Thus the <b>¨</b> 
-		will be used as an expansion for following characters (up to the next primary).</li>
+		<li>The expansion is <i>only</i> in effect up to — but not including — the first primary rule. Thus
+		<pre class="changed">&amp;ch &lt;&lt; x &lt;&lt;&lt; y &lt; z</pre>
+		is the same as
+		<pre class="changed">&amp;c &lt;&lt; x/h &lt;&lt;&lt; y/h &lt; z</pre></li>
+		<li>In accordance with the UCA, all strings are interpreted as being in NFD form.
+		In other rules, this has no effect, but syntax such as <code class="changed">&amp;</code><b>ä</b>, 
+		the <b>ä</b> will be treated as two characters <b>a +&nbsp; ¨</b>,
+		<i>unless</i> the <b>ä</b> has previously been used as a contraction. Thus the <b>¨</b> 
+		will be used as an <span class="changed">extension</span> for following characters (up to the next primary).</li>
 	</ul>
 	<p>Each extension replaces the one before it; it does not append to it. So </p>
 	<blockquote>
@@ -1064,82 +1055,50 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			&amp; x&lt;&lt;&lt; X</td>
 		</tr>
 	</table>
+
 	<h3><a name="Context_Before" href="#Context_Before">3.8 Context Before</a></h3>
 	<p>The context before a character can affect how it is ordered, such as in Japanese. This could be expressed with a combination of contractions and expansions, 
-	but is faster using a context. (The actual weights produced are different, but the resulting string comparisons are the same.) If a context element occurs, 
-	it must be the first item in the rule, and requires an &lt;x&gt; element.</p>
-	<p>For example, suppose that &quot;-&quot; is sorted like the previous vowel. Then one could have rules that take &quot;a-&quot;, &quot;e-&quot;, and so on. However, that means that every 
-	time a very common character (a, e, ...) is encountered, a system will slow down as it looks for possible contractions. An alternative is to indicate that when 
-	&quot;-&quot; is encountered,<i> </i>and it comes after an &#39;a&#39;, it sorts 
+	but is faster using a context. (The actual weights produced are different, but the resulting string comparisons are the same.)
+	<span class="removed">If a context element occurs, it must be the first item in the rule, and requires an &lt;x&gt; element.</span></p>
+	<p>For example, suppose that &quot;-&quot; is sorted like the previous vowel.
+	Then one could have rules that take &quot;a-&quot;, &quot;e-&quot;, and so on.
+	However, that means that every time a very common character (a, e, ...) is encountered,
+	a system will slow down as it looks for possible contractions. An alternative is to indicate that when 
+	&quot;-&quot; is encountered, and it comes after an &#39;a&#39;, it sorts 
 	like an &#39;a&#39;, and so on. </p>
 	<table>
 		<caption>Specifying Previous Context</caption>
 		<tr>
-			<th>Basic</th>
-			<th>XML</th>
+			<th><span class="changed">Rules</span></th>
 		</tr>
 		<tr>
 			<td><code>&amp; a &lt;&lt;&lt; a | -&nbsp; <br>
 			&amp; e &lt;&lt;&lt; e | -&nbsp;&nbsp; <br>
 			...</code></td>
-			<td><code>&lt;reset&gt;<span style="color: #0000FF">a</span>&lt;/reset&gt;&lt;x&gt;&lt;context&gt;<span style="color: #0000FF">a</span>&lt;/context&gt;&lt;s&gt;<span style="color: #0000FF">-</span>&lt;/s&gt;&lt;/x&gt;<br>
-			&lt;reset&gt;<span style="color: #0000FF">e</span>&lt;/reset&gt;&lt;x&gt;&lt;context&gt;<span style="color: #0000FF">e</span>&lt;/context&gt;&lt;s&gt;<span style="color: #0000FF">-</span>&lt;/s&gt;&lt;/x&gt;<br>
-			...</code></td>
 		</tr>
 	</table>
-	<p>Both the context and extend elements can occur in an &lt;x&gt; element. For example, the following are allowed:</p>
-	<ul>
-		<li><code>&lt;x&gt;&lt;context&gt;<span style="color: blue">abc</span>&lt;/context&gt;&lt;p&gt;<span style="color: blue">def</span>&lt;/p&gt;&lt;extend&gt;<span style="color: blue">ghi</span>&lt;/extend&gt;&lt;/x&gt;</code></li>
-		<li><code>&lt;x&gt;&lt;p&gt;<span style="color: blue">def</span>&lt;/p&gt;&lt;extend&gt;<span style="color: blue">ghi</span>&lt;/extend&gt;&lt;/x&gt;</code></li>
-		<li><code>&lt;x&gt;&lt;context&gt;<span style="color: blue">abc</span>&lt;/context&gt;&lt;p&gt;<span style="color: blue">def</span>&lt;/p&gt;&lt;/x&gt;</code></li>
+	<p>Both the context and extend elements can occur in <span class="changed">a relation</span>.
+	For example, the following are allowed:</p>
+	<ul class="changed">
+		<li><code>&lt; abc | def / ghi</code></li>
+		<li><code>&lt; def / ghi</code></li>
+		<li><code>&lt; abc | def</code></li>
 	</ul>
 	<h3><a name="Placing_Characters_Before_Others" href="#Placing_Characters_Before_Others">3.9 Placing Characters Before Others</a></h3>
 	<p>There are certain circumstances where characters need to be placed before a given character, rather than after. This is the case with Pinyin, for example, 
 	where certain accented letters are positioned before the base letter. That is accomplished with the following syntax.</p>
-	<table>
-		<caption>Placing Characters <i>Before</i> Others</caption>
-		<tr>
-			<th>Item</th>
-			<th>Options</th>
-			<th>Basic Example&nbsp; </th>
-			<th>XML Example</th>
-		</tr>
-		<tr>
-			<td>before </td>
-			<td>primary<br>
-			secondary<br>
-			tertiary</td>
-			<td><code>&amp; [before 2] a<br>
-			&lt;&lt; à</code></td>
-			<td><code>&lt;reset before=&quot;<span style="color: blue; ">secondary</span>&quot;&gt;<span style="color: blue">a</span>&lt;/reset&gt;<br>
-			&lt;s&gt;<span style="color: blue">à</span>&lt;/s&gt;</code></td>
-		</tr>
-	</table>
-	<p>It is an error if the strength of the before relation is not identical to the relation after the reset. Thus the following are errors, since the value of 
-	the <i>before</i> attribute does not agree with the relation &lt;s&gt;.</p>
-	<table>
-		<tr>
-			<th>Basic Example&nbsp; </th>
-			<th>XML Example</th>
-			<th></th>
-		</tr>
-		<tr>
-			<td><code>&amp; [before 2] a<br>
-			&lt; à</code></td>
-			<td><code>&lt;reset before=&quot;<span style="color: blue; ">primary</span>&quot;&gt;<span style="color: blue">a</span>&lt;/reset&gt;<br>
-			&lt;s&gt;<span style="color: blue">à</span>&lt;/s&gt;</code></td>
-			<td><code>Error</code></td>
-		</tr>
-		<tr>
-			<td><code>&amp; [before 2] a<br>
-			&lt;&lt;&lt; à</code></td>
-			<td><code>&lt;reset before=&quot;<span style="color: blue; ">tertiary</span>&quot;&gt;<span style="color: blue">a</span>&lt;/reset&gt;<br>
-			&lt;s&gt;<span style="color: blue">à</span>&lt;/s&gt;</code></td>
-			<td><code>Error</code></td>
-		</tr>
-	</table>
+	<pre>&amp;[before 2] a &lt;&lt; à</pre>
+	<p class="changed">The before-strength can be 1 (primary), 2 (secondary), or 3 (tertiary).</p>
+	<p>It is an error if the strength of the <span class="changed">reset-before differs from the strength of the immediately following relation</span>.
+	Thus the following are errors<span class="removed">, since the value of 
+	the <i>before</i> attribute does not agree with the relation &lt;s&gt;</span>.</p>
+	<ul class="changed">
+		<li><code>&amp;[before 2] a &lt; à # error</code></li>
+		<li><code>&amp;[before 2] a &lt;&lt;&lt; à # error</code></li>
+	</ul>
+
 	<h3><a name="Logical_Reset_Positions" href="#Logical_Reset_Positions">3.10 Logical Reset Positions</a></h3>
-	<p class="dtd">&lt;!ELEMENT reset ( ... | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable 
+	<p class="dtd removed">&lt;!ELEMENT reset ( ... | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable 
 	| last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* 
 	&gt;</p>
 	<p>The CLDR table (based on UCA) has the following overall structure for weights, going from low to high.</p>
@@ -1224,78 +1183,68 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		for example, after the last primary ignorable.</p>
 	</blockquote>
 	<p>Here is an example of the syntax:</p>
-	<table>
-		<caption>Sample Logical Position</caption>
-		<tr>
-			<th>Basic</th>
-			<th>XML</th>
-		</tr>
-		<tr>
-			<td><code>&amp; [first tertiary ignorable]<br>
-			&lt;&lt; à </code></td>
-			<td><code>&lt;reset&gt;&lt;first_tertiary_ignorable/&gt;&lt;/reset&gt;<br>
-			&lt;s&gt;<span style="color: blue">à</span>&lt;/s&gt;</code></td>
-		</tr>
-	</table>
-	<p>For example, to make a character be a secondary ignorable, one can make it be immediately after (at a secondary level) a specific character (like a combining 
-	dieresis), or one can make it be immediately after the last secondary ignorable.</p>
-	<p>The <i>last-variable</i> element indicates the &quot;highest&quot; character that is treated as punctuation with alternate handling. Unlike the other logical positions, 
-	it can be reset as well as referenced. For example, it can be reset to be just above spaces if all visible punctuation are to be treated as having distinct 
+	<pre>&amp; [first tertiary ignorable] &lt;&lt; à </pre>
+	<p>For example, to make a character be a secondary ignorable,
+	one can make it be immediately after (at a secondary level) a specific character (like a combining diaeresis),
+	or one can make it be immediately after the last secondary ignorable.</p>
+
+	<p>The <code class="changed">[last variable]</code> indicates the &quot;highest&quot; character
+	that is treated as punctuation with alternate handling.
+	Unlike the other logical positions, it can be reset as well as referenced.
+	For example, it can be reset to be just above spaces if all visible punctuation are to be treated as having distinct 
 	primary values.</p>
 	<table>
-		<caption>Specifying Last-Variable</caption>
+		<caption class="changed">Specifying the Position of <code>[last variable]</code></caption>
 		<tr>
 			<th>Attribute</th>
 			<th>Options</th>
-			<th>Basic Example&nbsp; </th>
-			<th>XML Example</th>
+			<th>Example</th>
 		</tr>
 		<tr>
 			<td rowspan="3">variableTop</td>
 			<td><font color="#000000">at</font></td>
 			<td><code>&amp; x<br>
-			= [last variable]</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">x</span>&lt;/reset&gt;<br>
-			&lt;i&gt;&lt;last_variable/&gt;&lt;/i&gt;</code></td>
+			= [<span class="changed">variable top</span>]</code></td>
 		</tr>
 		<tr>
 			<td><font color="#000000">after</font></td>
 			<td><code>&amp; x<br>
-			&lt; [last variable]</code></td>
-			<td><code>&lt;reset&gt;<span style="color: blue">x</span>&lt;/reset&gt;<br>
-			&lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;</code></td>
+			&lt; [<span class="changed">variable top</span>]</code></td>
 		</tr>
 		<tr>
 			<td><font color="#000000">before</font></td>
 			<td><code>&amp; [before 1] x<br>
-			&lt; [last variable]</code></td>
-			<td><code>&lt;reset before=&quot;<span style="color: blue">primary</span>&quot;&gt;<span style="color: blue">x</span>&lt;/reset&gt;<br>
-			&lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;</code></td>
+			&lt; [<span class="changed">variable top</span>]</code></td>
 		</tr>
 	</table>
-	<p>The default value for <i>last-variable</i> is  the highest punctuation mark, thus below symbols. The value can be further changed by using the variable-top setting. This takes effect, however, after the rules have been built, and does not affect any characters that are reset relative to the last-variable value when the rules are being built. The variable-top setting might also be changed via a runtime parameter. That also does not effect the rules. </p>
-<p>The <code>&lt;last_variable/&gt;</code> cannot occur inside an &lt;x&gt; element, nor can there be any element content. Thus there can be no &lt;context&gt; or &lt;extend&gt; or 
+	<p>The default value for <code class="changed">[last variable]</code> is  the highest punctuation mark, thus below symbols.
+	The value can be further changed by using the variable-top setting.
+	This takes effect, however, after the rules have been built,
+	and does not affect any characters that are reset relative to the <code class="changed">[last variable]</code> value when the rules are being built.
+	The variable-top setting might also be changed via a runtime parameter. That also does not effect the rules.</p>
+<p class="removed">The <code>&lt;last_variable/&gt;</code> cannot occur inside an &lt;x&gt; element, nor can there be any element content. Thus there can be no &lt;context&gt; or &lt;extend&gt; or 
 text data in the rule. For example, the following are all disallowed:</p>
-	<ul>
+	<ul class="removed">
 		<li><code>&lt;x&gt;&lt;context&gt;<span style="color: blue">a</span>&lt;/context&gt;&lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;&lt;/x&gt;</code></li>
 		<li><code>&lt;x&gt;&lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;&lt;extend&gt;<span style="color: blue">a</span>&lt;/extend&gt;&lt;/x&gt;</code></li>
 		<li><code>&lt;p&gt;&lt;last_variable/&gt;<span style="color: blue">a</span>&lt;/p&gt;</code></li>
 		<li><code>&lt;p&gt;<span style="color: blue">a</span>&lt;last_variable/&gt;&lt;/p&gt;</code>	</li>
 	</ul>
+
 	<h3><a name="Special_Purpose_Commands" href="#Special_Purpose_Commands">3.11 Special-Purpose Commands</a></h3>
-	<p>&lt;!ELEMENT import EMPTY &gt;<br>
+	<p class="dtd">&lt;!ELEMENT import EMPTY &gt;<br>
     &lt;!ATTLIST import source CDATA #REQUIRED &gt;<br>
     &lt;!ATTLIST import type CDATA #IMPLIED &gt;</p>
 	<p>The import command imports rules from another collation. This allows for better maintenance and smaller rule sizes. The source is the locale of the source, and the type is the type (if any). If the source is &quot;locale&quot; it is the same locale. The type is defaulted to &quot;standard&quot;.</p>
 	<p><em>Example:</em></p>
-	<p><code>&lt;import source=&quot;de&quot; type=&quot;phonebook&quot;/&gt;</code></p>
+	<pre>&lt;import source=&quot;de&quot; type=&quot;phonebook&quot;/&gt;</pre>
     <table>
       <caption>
         Special-Purpose Commands
       </caption>
       <tr>
-        <th>Basic</th>
-        <th>XML</th>
+        <th class="changed">Rule Syntax</th>
+        <th class="changed">Sub-Element of <span class="element">collation</span> (preferred)</th>
       </tr>
       <tr>
         <td>[suppress contractions [Љ-ґ]]</td>
@@ -1316,44 +1265,30 @@ text data in the rule. For example, the following are all disallowed:</p>
   <p><i>Example:</i></p>
 	<p>The following is a simple example that combines portions of different tailorings for illustration. For more 
 	complete examples, see the actual locale data: <a href="http://unicode.org/repos/cldr/trunk/common/collation/ja.xml">Japanese</a>, <a href="http://unicode.org/repos/cldr/trunk/common/collation/zh.xml">Chinese</a>, <a href="http://unicode.org/repos/cldr/trunk/common/collation/sv.xml">Swedish</a>, and  <a href="http://unicode.org/repos/cldr/trunk/common/collation/de.xml">German</a> (type=&quot;phonebook&quot;) are particularly illustrative.</p>
-<pre>&lt;collation&gt;
+<pre class="changed">&lt;collation&gt;
   &lt;settings caseLevel=&quot;<span style="color: blue">on</span>&quot;/&gt;
-  &lt;rules&gt;
-        &lt;reset&gt;<span style="color: blue">Z</span>&lt;/reset&gt;
-        &lt;p&gt;<span style="color: blue">æ</span>&lt;/p&gt;
-        &lt;t&gt;<span style="color: blue">Æ</span>&lt;/t&gt;
-        &lt;p&gt;<span style="color: blue">å</span>&lt;/p&gt;
-        &lt;t&gt;<span style="color: blue">Å</span>&lt;/t&gt;
-        &lt;t&gt;<span style="color: blue">aa</span>&lt;/t&gt;
-        &lt;t&gt;<span style="color: blue">aA</span>&lt;/t&gt;
-        &lt;t&gt;<span style="color: blue">Aa</span>&lt;/t&gt;
-        &lt;t&gt;<span style="color: blue">AA</span>&lt;/t&gt;
-        &lt;p&gt;<span style="color: blue">ä</span>&lt;/p&gt;
-        &lt;t&gt;<span style="color: blue">Ä</span>&lt;/t&gt;
-        &lt;p&gt;<span style="color: blue">ö</span>&lt;/p&gt;
-        &lt;t&gt;<span style="color: blue">Ö</span>&lt;/t&gt;
-        &lt;s&gt;<span style="color: blue">ű</span>&lt;/s&gt;
-        &lt;t&gt;<span style="color: blue">Ű</span>&lt;/t&gt;
-        &lt;p&gt;<span style="color: blue">ő</span>&lt;/p&gt;
-        &lt;t&gt;<span style="color: blue">Ő</span>&lt;/t&gt;
-        &lt;s&gt;<span style="color: blue">ø</span>&lt;/s&gt;
-        &lt;t&gt;<span style="color: blue">Ø</span>&lt;/t&gt;
-        &lt;reset&gt;<span style="color: blue">V</span>&lt;/reset&gt;
-        &lt;tc&gt;<span style="color: blue">wW</span>&lt;/tc&gt;
-        &lt;reset&gt;<span style="color: blue">Y</span>&lt;/reset&gt;
-        &lt;tc&gt;<span style="color: blue">üÜ</span>&lt;/tc&gt;
-        &lt;reset&gt;&lt;last_non_ignorable/&gt;&lt;/reset&gt;
-<span style="color:green">        &lt;!-- following is equivalent to &lt;p&gt;亜&lt;/p&gt;&lt;p&gt;唖&lt;/p&gt;&lt;p&gt;娃&lt;/p&gt;... --&gt;
-</span>        &lt;pc&gt;<span style="color: blue">亜唖娃阿哀愛挨姶逢葵茜穐悪握渥旭葦芦</span>&lt;/pc&gt;
-        &lt;pc&gt;<span style="color: blue">鯵梓圧斡扱</span>&lt;/pc&gt;
-  &lt;/rules&gt;
+  &lt;cr&gt;&lt;![CDATA[
+    &amp;Z
+    &lt; æ &lt;&lt;&lt; Æ
+    &lt; å &lt;&lt;&lt; Å &lt;&lt;&lt; aa &lt;&lt;&lt; aA &lt;&lt;&lt; Aa &lt;&lt;&lt; AA
+    &lt; ä &lt;&lt;&lt; Ä
+    &lt; ö &lt;&lt;&lt; Ö &lt;&lt; ű &lt;&lt;&lt; Ű
+    &lt; ő &lt;&lt;&lt; Ő &lt;&lt; ø &lt;&lt;&lt; Ø
+    &amp;V &lt;&lt;&lt;* wW
+    &amp;Y &lt;&lt;&lt;* üÜ
+    &amp;[last non-ignorable]
+    <span style="color:green"># The following is equivalent to &lt;亜&lt;唖&lt;娃...</span>
+    &lt;* 亜唖娃阿哀愛挨姶逢葵茜穐悪握渥旭葦芦
+    &lt;* 鯵梓圧斡扱
+  ]]&gt;&lt;/cr&gt;
 &lt;/collation&gt;</pre>
+
 	<h3><a name="Script_Reordering" href="#Script_Reordering">3.12 Collation Reordering</a></h3>
 <p>Collation reordering allows scripts and certain other defined blocks of characters to be moved relative to each other parametrically, without changing the detailed rules for all the characters involved. This reordering is done on top of any specific ordering rules within the script or block currently in effect. Reordering can specify groups to be placed at the start and/or the end of the collation order. For example, to reorder Greek characters before Latin characters, and digits afterwards (but before other scripts), the following can be used:</p>
 <table >
   <tr>
-    <th>Basic syntax</th>
-    <th>XML</th>
+    <th><span class="changed">Rule</span> Syntax</th>
+    <th class="changed">Sub-Element of <span class="element">collation</span> (preferred)</th>
     <th>Locale Identifier</th>
   </tr>
   <tr>
@@ -1362,7 +1297,9 @@ text data in the rule. For example, the following are all disallowed:</p>
     <td><code>en-u-kr-grek-latn-digit</code></td>
   </tr>
 </table>
-<p>In each case, a sequence of <em><strong>reorder_codes</strong></em> is used, separated by spaces for Basic and XML syntax, and by hyphens for locale identifiers.</p>
+<p>In each case, a sequence of <em><strong>reorder_codes</strong></em> is used,
+separated by spaces <span class="removed">for basic and XML syntax</span> <span class="changed">in the settings attribute and in rule syntax</span>,
+and by hyphens in locale identifiers.</p>
 <p>A <strong><em>reorder_code</em></strong> is any of the following special codes:</p>
 <ol>
   <li><strong>space, punct, symbol, currency, digit</strong> - core groups of characters below 'a'</li>
@@ -1519,7 +1456,7 @@ This is used to modify the collation element.</p>
 
 <p>Note the special case weights when s = 0. They ensure the construction of well-formed case and tertiay weights. For details, see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</p>
 <h5>Tailored Strings</h5>
-<p>Characters and strings that are tailored (e.g., via LDML/XML collation syntax or basic collation syntax)
+<p>Characters and strings that are tailored <span class="removed">(e.g., via LDML/XML collation syntax or basic collation syntax)</span>
 have case values computed from their UCD properties.
 A known limitation of the tailoring is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;.</p>
 <ol>

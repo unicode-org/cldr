@@ -32,7 +32,7 @@ import com.ibm.icu.util.ULocale;
 
 public class DateTimeFormats {
     private static final String TIMES_24H_TITLE = "Times 24h";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final String DEBUG_SKELETON = "y";
     private static final ULocale DEBUG_LIST_PATTERNS = ULocale.JAPANESE; // or null;
 

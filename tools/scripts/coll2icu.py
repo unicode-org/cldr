@@ -117,6 +117,7 @@ replacements = (
   ("<last_variable/>", "[last variable]"),
   ("<first_non_ignorable/>", "[first regular]"),
   ("<last_non_ignorable/>", "[last regular]"),
+  ("<last_non_ignorable />", "[last regular]"),
   ("<first_trailing/>", "[first trailing]"),
   ("<last_trailing/>", "[last trailing]")
 )

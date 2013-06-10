@@ -1337,7 +1337,7 @@ $Date$
 
 <!ELEMENT optimize ( #PCDATA | cp )* >
 
-<!ELEMENT cr #PCDATA>
+<!ELEMENT cr ( #PCDATA )>
 
 <!-- The rules element and all of its sub-elements are deprecated. Use the cr element instead, with ICU syntax. -->
 

@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">04-08</span></td>
+			<td>2013-<span class="changed">06-09</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -461,7 +461,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
   <p>The <em>index</em> characters are a set of characters for use as a UI "index", that is, a list of clickable characters (or character sequences)
   that allow the user to see a segment of a larger "target" list. For details see the
-  <a href="tr35-collation.html#Collation_Indexes">Unicode LDML: Collation</a> document.</p>
+  <a href="tr35-collation.html#Collation_Indexes">Unicode LDML: Collation</a> document.<span class="changed"> The index set may only contain characters
+  whose lowercase versions are in the main and auxiliary exemplar sets, though for cased languages the index exemplars are typically in uppercase.
+  Characters from the auxiliary exemplar set may be necessary in the index set if it needs to properly handle items such as names which may require characters
+  not included in the main exemplar set.</span></p>
 
   <p>Here is a sample of the XML structure:</p>
 
@@ -496,16 +499,17 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   set of reasonably frequent characters for the language.</p>
 
   <p>The ordering of the characters in the set is irrelevant, but for readability in the XML file the characters should be in sorted order according to the
-  locale's conventions. The set should only contain lower case characters (except for the special case of Turkish and similar languages, where the dotted
-  capital I should be included); the upper case letters are to be mechanically added when the set is used. For more information on casing, see the discussion
-  of Special Casing in the Unicode Character Database.</p>
+  locale's conventions. The <span class="changed">main and auxiliary </span>sets should only contain lower case characters (except for the special case of
+  Turkish and similar languages, where the dotted capital I should be included); the upper case letters are to be mechanically added when the set is used.
+  For more information on casing, see the discussion of Special Casing in the Unicode Character Database.</p>
 
 <h4>Restrictions</h4>
   
 
   <ol>
-    <li>The sets are normally restricted to those letters with a specific <a href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script </a>character
-    property (that is, not the values Common or Inherited) or required <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a>
+    <li>The <span class="changed">main, auxiliary and index </span>sets are normally restricted to those letters with a specific
+    <a href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script </a>character property (that is, not the values Common or Inherited) or required
+    <a href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a>
     characters (such as a non-joiner), or combining marks, or the <a href="http://www.unicode.org/Public/UNIDATA/auxiliary/WordBreakProperty.txt">Word_Break</a> 
     properties <a name="Katakana" href="#Katakana">Katakana</a>, <a name="ALetter" href="#ALetter">ALetter</a>, or <a name="MidLetter" href="#MidLetter">MidLetter</a>.</li>
 

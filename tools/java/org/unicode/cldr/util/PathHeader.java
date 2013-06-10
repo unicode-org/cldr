@@ -1280,6 +1280,24 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
+            functionMap.put("numberFormat", new Transform<String, String>() {
+                public String transform(String source) {
+                    final List<String> fieldOrder = Arrays.asList(
+                            "standard-decimal", 
+                            "standard-currency",
+                            "standard-currency-accounting",
+                            "standard-percent", 
+                            "standard-scientific");
+
+                    if (fieldOrder.contains(source)) {
+                        order = fieldOrder.indexOf(source);
+                    } else {
+                        order = fieldOrder.size();
+                    }
+
+                    return source;
+                }
+            });
 
             functionMap.put("localePattern", new Transform<String, String>() {
                 public String transform(String source) {

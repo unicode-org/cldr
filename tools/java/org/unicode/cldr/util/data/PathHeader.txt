@@ -82,7 +82,7 @@
 ### Numbers
 
 //ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols when using &numberingSystem($1) ; &number($2)
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns when using &numberingSystem($2) ; &number($5-$1)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns when using &numberingSystem($2) ; &numberFormat($5-$1)
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns when using &numberingSystem($1) ; &count(currencies-$2)
 //ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns when using &numberingSystem($1) ; $2
 

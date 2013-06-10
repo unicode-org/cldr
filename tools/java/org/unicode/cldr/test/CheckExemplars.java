@@ -34,7 +34,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         "[[:Hangul_Syllable_Type=LVT:][:Hangul_Syllable_Type=LV:]]").freeze();
 
     public static final UnicodeSet AlwaysOK = new UnicodeSet(
-        "[[[:Nd:][:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]-[:C:] - [_]] [\u066A-\u066C]" +
+        "[[[:Nd:][:script=common:][:script=inherited:]-[:Default_Ignorable_Code_Point:]-[:C:] - [_]] [\u05BE \u05F3 \u066A-\u066C]" +
             "[[؉][་ །༌][ཱ]‎‎{য়}য়]" + // TODO Fix this Hack
             "]").freeze(); // [\\u200c-\\u200f] [:script=common:][:script=inherited:]
 

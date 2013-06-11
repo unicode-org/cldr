@@ -58,6 +58,12 @@ public class TestCLDRUtils extends TestFmwk {
                 "English (United States, Computer)", 
                 "English (U.S., Computer)");
 
+        checkNames(english,new ULocale( "en_US_POSIX").toLanguageTag(), 
+                "U.S. English (Computer)", 
+                "U.S. English (Computer)",
+                "English (United States, Computer)", 
+                "English (U.S., Computer)");
+
         checkNames(english, "en_HK", 
                 "English (Hong Kong SAR China)", 
                 "English (Hong Kong)",
@@ -75,8 +81,12 @@ public class TestCLDRUtils extends TestFmwk {
 
         checkNames(english, "el_POLYTON", 
                 "Greek (Polytonic)");
+        
+        checkNames(english, new ULocale("el__POLYTON").toLanguageTag(), 
+                "Greek (Polytonic)");
 
         CLDRFile french = TestInfo.getInstance().getCldrFactory().make("fr", true);
+        
         checkNames(french, "en_US_POSIX", 
                 "anglais américain (informatique)", 
                 "anglais américain (informatique)",
@@ -92,14 +102,14 @@ public class TestCLDRUtils extends TestFmwk {
      * @param otherNames: combinedShort, uncombinedLong, uncombinedShort
      */
     private void checkNames(CLDRFile french, String locale, String combinedLong, String... otherNames) {
-        assertEquals("Test variant formatting", combinedLong, french.getName(locale));
+        assertEquals("Test variant formatting combinedLong "+locale, combinedLong, french.getName(locale));
         String combinedShort = otherNames.length > 0 ? otherNames[0] : combinedLong;
         String uncombinedLong = otherNames.length > 1 ? otherNames[1] : combinedLong;
         String uncombinedShort = otherNames.length > 2 ? otherNames[2] : uncombinedLong;
         
-        assertEquals("Test variant formatting", combinedShort, french.getName(locale, false, SHORT_ALT_PICKER));
-        assertEquals("Test variant formatting", uncombinedLong, french.getName(locale,true));
-        assertEquals("Test variant formatting", uncombinedShort, french.getName(locale,true, SHORT_ALT_PICKER));
+        assertEquals("Test variant formatting combinedShort "+locale, combinedShort, french.getName(locale, false, SHORT_ALT_PICKER));
+        assertEquals("Test variant formatting uncombinedLong "+locale, uncombinedLong, french.getName(locale,true));
+        assertEquals("Test variant formatting uncombinedShort "+locale, uncombinedShort, french.getName(locale,true, SHORT_ALT_PICKER));
     }
 
     public void TestEmptyCLDRFile() {
@@ -159,14 +169,17 @@ public class TestCLDRUtils extends TestFmwk {
                 if (elem.equals("format")) {
                     String type = attrs.get("type");
                     String result = null;
+                    boolean combined = Boolean.parseBoolean(attrs.get("combined"));
+                    Transform<String,String> picker = attrs.get("alt").equalsIgnoreCase("short")?SHORT_ALT_PICKER:null;
                     if(type.equals("region")) {
                         result = locale.getDisplayCountry(engFormat);
                     } else if(type.equals("all")) {
-                        result = locale.getDisplayName(engFormat);
+                        result = locale.getDisplayName(engFormat, combined, picker);
                     } else {
                         errln("Unknown test type: " + type);
                         return;
                     }                    
+                    
 
                     if(result==null) {
                         errln("Null result!");

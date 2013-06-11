@@ -2141,6 +2141,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound,
             String localeKeyTypePattern, String localePattern, String localeSeparator,
             Transform<String,String> altPicker) {
+
+        // Hack - support BCP47 ids
+        if(localeOrTZID.contains("-") &&  !localeOrTZID.contains("@") && !localeOrTZID.contains("_")) {
+            localeOrTZID = ULocale.forLanguageTag(localeOrTZID).toString().replace("__", "_");
+        }
+        
         boolean isCompound = localeOrTZID.contains("_");
         String name = isCompound && onlyConstructCompound ? null : getName(LANGUAGE_NAME, localeOrTZID, altPicker);
         // TODO - handle arbitrary combinations

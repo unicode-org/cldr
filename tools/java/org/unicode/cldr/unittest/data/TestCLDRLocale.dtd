@@ -14,5 +14,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT format (#PCDATA) >
 <!ATTLIST format type NMTOKEN #REQUIRED>
 <!ATTLIST format locale CDATA #REQUIRED>
+<!ATTLIST format combined ( true | false )  #REQUIRED>
+<!ATTLIST format alt (short | long)  #REQUIRED>
 
 <!ELEMENT echo (#PCDATA) >

@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
+
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
@@ -23,6 +25,8 @@ import com.ibm.icu.util.ULocale;
 public final class CLDRLocale implements Comparable<CLDRLocale> {
     public interface NameFormatter {
         String getDisplayName(CLDRLocale cldrLocale);
+
+        String getDisplayName(CLDRLocale cldrLocale, boolean onlyConstructCompound, Transform<String, String> altPicker);
 
         String getDisplayLanguage(CLDRLocale cldrLocale);
 
@@ -98,6 +102,11 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public String getDisplayLanguage(CLDRLocale cldrLocale) {
             return ldn.languageDisplayName(cldrLocale.getLanguage());
         }
+
+        @Override
+        public String getDisplayName(CLDRLocale cldrLocale, boolean onlyConstructCompound, Transform<String, String> altPicker) {
+            return getDisplayName(cldrLocale);
+        }
     }
 
     /**
@@ -145,6 +154,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
             return super.getDisplayName(cldrLocale);
         }
 
+        @Override
         public String getDisplayName(CLDRLocale cldrLocale, boolean onlyConstructCompound, Transform<String, String> altPicker) {
             if(file!=null) return file.getName(cldrLocale.toLanguageTag(), onlyConstructCompound, altPicker);
             return super.getDisplayName(cldrLocale);
@@ -476,6 +486,10 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     public String getDisplayName() {
         return getDisplayName(getDefaultFormatter());
     }
+    
+    public String getDisplayName(boolean combined, Transform<String,String> picker) {
+        return getDisplayName(getDefaultFormatter(),  combined, picker);
+    }
 
     /**
      * These functions wrap calls to the displayLocale, but are provided to supply an interface that looks similar to
@@ -553,5 +567,9 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     public interface SublocaleProvider {
         public Set<CLDRLocale> subLocalesOf(CLDRLocale forLocale);
+    }
+
+    public String getDisplayName(NameFormatter engFormat, boolean combined, Transform<String, String> picker) {
+        return engFormat.getDisplayName(this, combined, picker);
     }
 }

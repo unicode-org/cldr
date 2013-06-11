@@ -2,7 +2,10 @@ package org.unicode.cldr.icu;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.XMLFileReader;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
@@ -16,6 +19,8 @@ import org.xml.sax.XMLReader;
  * @author jchye
  */
 public class MapperUtils {
+    private static final Pattern VERSION_PATTERN = Pattern.compile("\\$Revision:\\s*(\\d+)\\s*\\$");
+
     /**
      * Parses an XML file.
      * 
@@ -38,6 +43,20 @@ public class MapperUtils {
             System.err.println("Error loading " + inputFile.getAbsolutePath());
             e.printStackTrace();
         }
+    }
+
+    public static String formatVersion(String value) {
+        Matcher versionMatcher = VERSION_PATTERN.matcher(value);
+        int versionNum;
+        if (!versionMatcher.find()) {
+            int failPoint = RegexUtilities.findMismatch(versionMatcher, value);
+            String show = value.substring(0, failPoint) + "☹" + value.substring(failPoint);
+            System.err.println("Warning: no version match with: " + show);
+            versionNum = 0;
+        } else {
+            versionNum = Integer.parseInt(versionMatcher.group(1));
+        }
+        return "2.0." + (versionNum / 100) + "." + (versionNum % 100);
     }
 
     /**

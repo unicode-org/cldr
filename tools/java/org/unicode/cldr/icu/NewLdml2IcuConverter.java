@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -59,7 +59,8 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         postalCodeData,
         supplementalData,
         windowsZones,
-        keyTypeData;
+        keyTypeData,
+        collation;
     }
 
     private static final Options options = new Options(
@@ -87,6 +88,10 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     private String sourceDir;
     private String destinationDir;
     private IcuDataSplitter splitter;
+    // Either localeArg or locales will be non-null, but not both.
+    // Used to convert files in main and collation.
+    private String localeArg;
+    private Set<String> locales;
 
     /**
      * Maps ICU paths to the directories they should end up in.
@@ -163,37 +168,49 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             debugXPath = debugXPath.replaceAll("=([^\\]\"]++)\\]", "=\"$1\"\\]");
         }
 
+        Factory specialFactory = null;
+        Option option = options.get("specialsdir");
+        if (option.doesOccur()) {
+            specialFactory = Factory.make(option.getValue(), ".*");
+        }
+
+        // Get list of locales if defined.
+        if (getLocalesMap() != null && getLocalesMap().size() > 0) {
+            locales = new HashSet<String>();
+            for (String filename : getLocalesMap().keySet()) {
+                // Remove ".xml" from the end.
+                locales.add(filename.substring(0, filename.length() - 4));
+            }
+        }
+
+        if (extraArgs.size() > 0) {
+            localeArg = extraArgs.iterator().next();
+        }
+
         // Process files.
         switch (type) {
         case locales:
             // Generate locale data.
             SupplementalDataInfo supplementalDataInfo = null;
-            Option option = options.get("supplementaldir");
+            option = options.get("supplementaldir");
             if (option.doesOccur()) {
                 supplementalDataInfo = SupplementalDataInfo.getInstance(options.get("supplementaldir").getValue());
             } else {
                 throw new IllegalArgumentException("Supplemental directory must be specified.");
             }
 
-            Factory specialFactory = null;
-            option = options.get("specialsdir");
-            if (option.doesOccur()) {
-                specialFactory = Factory.make(option.getValue(), ".*");
-            }
-
             // LocalesMap passed in from ant
-            List<String> locales = new ArrayList<String>();
+            String[] localeList;
             Factory factory = null;
-            if (getLocalesMap() != null && getLocalesMap().size() > 0) {
-                for (String filename : getLocalesMap().keySet()) {
-                    // Remove ".xml" from the end.
-                    locales.add(filename.substring(0, filename.length() - 4));
-                }
+            if (locales != null) {
                 factory = Factory.make(sourceDir, ".*", DraftStatus.contributed);
-                Collections.sort(locales);
-            } else if (extraArgs.size() > 0) {
-                factory = Factory.make(sourceDir, extraArgs.iterator().next(), DraftStatus.contributed);
-                locales.addAll(factory.getAvailable());
+                localeList = new String[locales.size()];
+                locales.toArray(localeList);
+                Arrays.sort(localeList);
+            } else if (localeArg != null) {
+                factory = Factory.make(sourceDir, localeArg, DraftStatus.contributed);
+                localeList = new String[factory.getAvailable().size()];
+                factory.getAvailable().toArray(localeList);
             } else {
                 throw new IllegalArgumentException("No files specified!");
             }
@@ -202,10 +219,14 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             LocaleMapper mapper = new LocaleMapper(factory, specialFactory,
                 supplementalDataInfo, options.get("filter").doesOccur(), organization);
             mapper.setDebugXPath(debugXPath);
-            processLocales(mapper, locales);
+            processLocales(mapper, localeList);
             break;
         case keyTypeData:
             processBcp47Data();
+            break;
+        case collation:
+            CollationMapper colMapper = new CollationMapper(sourceDir, specialFactory);
+            processCollation(colMapper);
             break;
         default: // supplemental data
             processSupplemental(type, options.get("cldrVersion").getValue(), debugXPath);
@@ -268,13 +289,41 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         }
     }
 
-    private void processLocales(LocaleMapper mapper, List<String> locales) {
+    private void processLocales(LocaleMapper mapper, String[] locales) {
         for (String locale : locales) {
             long time = System.currentTimeMillis();
             IcuData icuData = mapper.fillFromCLDR(locale);
             writeIcuData(icuData, destinationDir);
             System.out.println("Converted " + locale + ".xml in " +
                 (System.currentTimeMillis() - time) + "ms");
+        }
+    }
+
+    private void processCollation(CollationMapper mapper) {
+        File dir = new File(sourceDir);
+        for (String filename : dir.list()) {
+            if (!filename.endsWith(".xml")) continue;
+            String locale = filename.substring(0, filename.length() - 4);
+            if (!localeMatches(locale)) continue;
+            System.out.println("Converting " + locale + "...");
+            List<IcuData> dataList = mapper.fillFromCldr(locale);
+            for (IcuData data : dataList) {
+              // Sub locales that don't match the filter may be in the list
+              // even if their parent matches.
+              if (!localeMatches(data.getName())) continue;
+              writeIcuData(data, destinationDir);
+            }
+        }
+    }
+
+    private boolean localeMatches(String locale) {
+        if (locales != null) {  // if running from ICU build
+            return locales.contains(locale);
+        } else if (localeArg != null) {  // if running converter directly
+            return locale.matches(localeArg);
+        } else {
+            throw new IllegalArgumentException(
+                    "Missing locale list. Please provide a list of locales or a regex.");
         }
     }
 

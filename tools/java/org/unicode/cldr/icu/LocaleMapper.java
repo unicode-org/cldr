@@ -20,7 +20,6 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
-import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
 
@@ -41,7 +40,6 @@ public class LocaleMapper extends LdmlMapper {
     private static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");
     private static final Pattern TERRITORY_XPATH = Pattern.compile(
         "//ldml/localeDisplayNames/territories/territory\\[@type=\"(\\w+)\"]");
-    private static final Pattern VERSION_PATTERN = Pattern.compile("\\$Revision:\\s*(\\d+)\\s*\\$");
     private static final Pattern RB_DATETIMEPATTERN = Pattern.compile(
         "/calendar/(\\w++)/DateTimePatterns");
 
@@ -273,7 +271,9 @@ public class LocaleMapper extends LdmlMapper {
         }
 
         IcuData icuData = new IcuData("common/main/" + locale + ".xml", locale, true, enumMap);
-        icuData.setHasSpecial(hasSpecial);
+        if (hasSpecial) {
+            icuData.setFileComment("ICU <specials> source: <path>/common/main/" + locale + ".xml");
+        }
         fillIcuData(pathValueMap, comparator, icuData);
 
         // More hacks
@@ -406,19 +406,8 @@ public class LocaleMapper extends LdmlMapper {
         }
 
         // <version number="$Revision: 5806 $"/>
-        String versionPath = cldrResolved.getFullXPath("//ldml/identity/version");
-        Matcher versionMatcher = VERSION_PATTERN.matcher(versionPath);
-        int versionNum;
-        if (!versionMatcher.find()) {
-            int failPoint = RegexUtilities.findMismatch(versionMatcher, versionPath);
-            String show = versionPath.substring(0, failPoint) + "☹" + versionPath.substring(failPoint);
-            System.err.println("Warning: no version match with: " + show);
-            versionNum = 0;
-        } else {
-            versionNum = Integer.parseInt(versionMatcher.group(1));
-        }
-        String versionValue = "2.0." + (versionNum / 100) + "." + (versionNum % 100);
-        icuData.add("/Version", versionValue);
+        String version = cldrResolved.getFullXPath("//ldml/identity/version");
+        icuData.add("/Version", MapperUtils.formatVersion(version));
 
         // PaperSize:intvector{ 279, 216, }
         String localeID = cldrResolved.getLocaleID();

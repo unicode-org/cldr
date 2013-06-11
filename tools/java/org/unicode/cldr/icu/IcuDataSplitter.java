@@ -110,11 +110,11 @@ public class IcuDataSplitter {
         }
         // Remove all files that only contain version info.
         Iterator<Entry<String, IcuData>> iterator = splitData.entrySet().iterator();
-        boolean hasSpecial = icuData.hasSpecial();
+        String comment = icuData.getFileComment();
         while (iterator.hasNext()) {
             Entry<String, IcuData> entry = iterator.next();
             IcuData data = entry.getValue();
-            data.setHasSpecial(hasSpecial);
+            data.setFileComment(comment);
             if (entry.getKey().equals(fallbackDir)) continue;
             if (data.size() == 1 && data.containsKey(VERSION_PATH)) {
                 // Comment copied from ResourceSplitter:

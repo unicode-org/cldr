@@ -90,9 +90,9 @@ public class IcuTextWriter {
         // Append the header.
         String header = getHeader().replace("%source%", icuData.getSourceFile());
         out.print(header);
-        if (icuData.hasSpecial()) {
+        if (icuData.getFileComment() != null) {
             out.println("/**");
-            out.println(" *  ICU <specials> source: <path>/xml/main/" + name + ".xml");
+            out.append(" * ").append(icuData.getFileComment()).println();
             out.println(" */");
         }
 
@@ -163,6 +163,7 @@ public class IcuTextWriter {
         String[] firstArray;
         boolean wasSingular = false;
         boolean quote = !IcuData.isIntRbPath(rbPath);
+        boolean isSequence = rbPath.endsWith("/Sequence");
         if (values.size() == 1) {
             if ((firstArray = values.get(0)).length == 1 && !mustBeArray(rbPath)) {
                 String value = firstArray[0];
@@ -172,7 +173,7 @@ public class IcuTextWriter {
                 int maxWidth = 84 - Math.min(4, numTabs) * TAB.length();
                 if (value.length() <= maxWidth) {
                     // Single value for path: don't add newlines.
-                    appendQuoted(value, quote, out);
+                    appendValue(value, quote, out);
                     wasSingular = true;
                 } else {
                     // Value too long to fit in one line, so wrap.
@@ -183,14 +184,14 @@ public class IcuTextWriter {
                         end = goodBreak(value, i + maxWidth);
                         String part = value.substring(i, end);
                         out.append(pad);
-                        appendQuoted(part, quote, out).println();
+                        appendValue(part, quote, out).println();
                     }
                 }
             } else {
                 // Only one array for the rbPath, so don't add an extra set of braces.
                 final String pad = Utility.repeat(TAB, numTabs);
                 out.println();
-                appendArray(pad, firstArray, quote, out);
+                appendArray(pad, firstArray, quote, isSequence, out);
             }
         } else {
             final String pad = Utility.repeat(TAB, numTabs);
@@ -198,12 +199,12 @@ public class IcuTextWriter {
             for (String[] valueArray : values) {
                 if (valueArray.length == 1) {
                     // Single-value array: print normally.
-                    appendArray(pad, valueArray, quote, out);
+                    appendArray(pad, valueArray, quote, isSequence, out);
                 } else {
                     // Enclose this array in braces to separate it from other
                     // values.
                     out.append(pad).println("{");
-                    appendArray(pad + TAB, valueArray, quote, out);
+                    appendArray(pad + TAB, valueArray, quote, isSequence, out);
                     out.append(pad).println("}");
                 }
             }
@@ -224,15 +225,20 @@ public class IcuTextWriter {
             rbPath.startsWith("/calendarPreferenceData") || rbPath.startsWith("/metazoneInfo");
     }
 
-    private static PrintWriter appendArray(String padding, String[] valueArray, boolean quote, PrintWriter out) {
+    private static PrintWriter appendArray(String padding, String[] valueArray,
+            boolean quote, boolean isSequence, PrintWriter out) {
         for (String value : valueArray) {
             out.append(padding);
-            appendQuoted(quoteInside(value), quote, out).println(",");
+            appendValue(quoteInside(value), quote, out);
+            if (!isSequence) {
+                out.print(",");
+            }
+            out.println();
         }
         return out;
     }
 
-    private static PrintWriter appendQuoted(String value, boolean quote, PrintWriter out) {
+    private static PrintWriter appendValue(String value, boolean quote, PrintWriter out) {
         if (quote) {
             return out.append('"').append(value).append('"');
         } else {
@@ -319,3 +325,4 @@ public class IcuTextWriter {
         return i - 1;
     }
 }
+ 

@@ -16,7 +16,7 @@ class IcuData {
     private String sourceFile;
     private String name;
     private Map<String, List<String[]>> rbPathToValues;
-    private boolean hasSpecial;
+    private String comment;
     private Map<String, String> enumMap;
 
     /**
@@ -84,17 +84,18 @@ class IcuData {
         return name;
     }
 
-    public void setHasSpecial(boolean hasSpecial) {
-        this.hasSpecial = hasSpecial;
-    }
-
     /**
-     * @return true if special data is included in this IcuData, false by default
+     * Sets a comment to be placed above the data structure.
+     * @param comment
      */
-    public boolean hasSpecial() {
-        return hasSpecial;
+    public void setFileComment(String comment) {
+        this.comment = comment;
     }
 
+    public String getFileComment() {
+        return comment;
+    }
+    
     /**
      * The RB path,value pair actually has an array as the value. So when we
      * add to it, add to a list.
@@ -127,6 +128,12 @@ class IcuData {
         for (String[] values : valueList) {
             add(path, values);
         }
+    }
+
+    public void replace(String path, String[] values) {
+        List<String[]> list = new ArrayList<String[]>(1);
+        rbPathToValues.put(path, list);
+        list.add(normalizeValues(path, values));
     }
 
     private String[] normalizeValues(String rbPath, String[] values) {

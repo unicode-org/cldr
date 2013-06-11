@@ -30,7 +30,8 @@ def GetIndent(s):
 # substring replacements
 replacements = (
   # White space and syntax characters must be quoted.
-  ("<reset> </reset>", "&' '"),  # can't just replace all "> <"
+  # Using '\\u0020' rather than just ' ' for clarity.
+  ("<reset> </reset>", "&'\\u0020'"),  # can't just replace all "> <"
   (">!<", ">'!'<"),
   ('>"<', ">'\\\"'<"),
   (">&quot;<", ">'\\\"'<"),
@@ -79,12 +80,12 @@ replacements = (
   # obscure, and some tools do not handle noncharacters well
   (u"\uFDD0", u"\\uFDD0"),
   # fi.xml resets contain a space
-  (u" ̵</reset>", u"'\u0020'̵"),
+  (u" ̵</reset>", u"'\\u0020'̵"),
   # fa.xml <sc> with non-NFD_Inert chars
   (u"<sc>\u0650\u064f\u064b\u064d\u064c</sc>", u"<<\u0650<<\u064f<<\u064b<<\u064d<<\u064c"),
   # ml.xml strings contain spaces
-  (u" </s>", u"' '"),
-  (u" </reset>", u"' '"),
+  (u" </s>", u"'\\u0020'"),
+  (u" </reset>", u"'\\u0020'"),
   # vi.xml <sc> with non-NFD_Inert chars
   (u"<sc>\u0309\u0303\u0301\u0323</sc>", u"<<\u0309<<\u0303<<\u0301<<\u0323"),
   # Convert XML elements into ICU syntax.

@@ -3185,8 +3185,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     private Collection<String> getRawExtraPathsPrivate(Collection<String> toAddTo) {
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
         // units
-        final Set<Count> pluralCounts = supplementalData.getPlurals(PluralType.cardinal, getLocaleID())
-                .getCountToExamplesMap().keySet();
+        final Set<Count> pluralCounts = supplementalData
+                .getPlurals(PluralType.cardinal, getLocaleID())
+                .getCounts();
         if (pluralCounts.size() != 1) {
             // we get all the root paths with count
             addPluralCounts(toAddTo, pluralCounts, this);

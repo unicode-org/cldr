@@ -78,7 +78,9 @@ replacements = (
   (u"\u200D", u"\\u200D"),
   (u"\u3000", u"\\u3000"),
   # obscure, and some tools do not handle noncharacters well
-  (u"\uFDD0", u"\\uFDD0"),
+  (u"\uFDD0", u"'\\uFDD0'"),
+  # The old ICU collation rule parser seems to need more escaping than it should.
+  (u"≠", u"'≠'"),
   # fi.xml resets contain a space
   (u" ̵</reset>", u"'\\u0020'̵"),
   # fa.xml <sc> with non-NFD_Inert chars

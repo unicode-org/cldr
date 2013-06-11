@@ -95,6 +95,9 @@ replacements = (
   ("<pc>0123456789&#x3a;&#x3b;&#x3c;&#x3d;&#x3e;&#x3f;&#x40;</pc>", "<*0-'@'"),
   ("<pc>&#x5b;&#x5c;&#x5d;&#x5e;&#x5f;&#x60;</pc>", "<*'['-'`'"),
   ("<pc>&#x7b;&#x7c;&#x7d;&#x7e;&#x7f;</pc>", "<*'{'-'\u007F'"),
+  # CJK parenthesized resets
+  ("<reset>(", "&'('"),
+  (")</reset>", "')'"),
   # Convert XML elements into ICU syntax.
   ("><!--", "> #"),  # add a space before an inline comment
   ("<!--", "#"),

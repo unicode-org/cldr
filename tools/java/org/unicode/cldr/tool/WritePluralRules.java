@@ -339,9 +339,10 @@ public class WritePluralRules {
         {"ky", "one", "Сиздин дүкөнчүлөө картыңызда {0} X бар. Аны сатып алайын дейсизби?"},
         {"ky", "other", "Сиздин дүкөнчүлөө картыңызда {0} X бар. Аларды сатып алайын дейсизби?"},
         {"lo", "other", "{0} ມື້"},
-        {"lt", "few", "{0} dienos"},
-        {"lt", "one", "{0} diena"},
-        {"lt", "other", "{0} dienų"},
+        {"lt", "one", "{0} obuolys"},
+        {"lt", "few", "{0} obuoliai"},
+        {"lt", "many", "{0} obuolio"},
+        {"lt", "other", "{0} obuolių"},
         {"lv", "one", "{0} diennakts"},
         {"lv", "other", "{0} diennaktis"},
         {"lv", "zero", "{0} diennakšu"},
@@ -495,6 +496,8 @@ public class WritePluralRules {
         {"zu", "one: n within 0..1"},
         {"mk", "one: j mod 10 is 1 or f mod 10 is 1"},
         {"pa", "one: n in 0..1"},
+        {"lt", "one: n mod 10 is 1 and n mod 100 not in 11..19; " +
+                "few: n mod 10 in 2..9 and n mod 100 not in 11..19; " +
+                "many: f is not 0"},
     };
-
 }

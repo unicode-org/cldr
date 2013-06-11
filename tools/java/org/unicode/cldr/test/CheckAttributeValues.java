@@ -86,12 +86,12 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
                         // ok, keep going
                     } else {
                         final Count countValue = PluralInfo.Count.valueOf(attributeValue);
-                        if (!pluralInfo.getCountToExamplesMap().keySet().contains(countValue) 
+                        if (!pluralInfo.getCounts().contains(countValue) 
                                 && !isPluralException(countValue, locale)) {
                             result.add(new CheckStatus()
                             .setCause(this).setMainType(CheckStatus.errorType).setSubtype(Subtype.illegalPlural)
                             .setMessage("Illegal plural value {0}; must be one of: {1}",
-                                    new Object[] { countValue, pluralInfo.getCountToExamplesMap().keySet() }));
+                                    new Object[] { countValue, pluralInfo.getCounts() }));
                         }
                     }
                 }

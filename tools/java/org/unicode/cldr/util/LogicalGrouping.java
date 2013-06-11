@@ -102,7 +102,7 @@ public class LogicalGrouping {
         } else if (path.indexOf("[@count=") > 0) {
             // Get all plural forms of this xpath.
             PluralInfo pluralInfo = getPluralInfo(cldrFile);
-            Set<Count> pluralTypes = pluralInfo.getCountToExamplesMap().keySet();
+            Set<Count> pluralTypes = pluralInfo.getCounts();
             parts.set(path);
             String lastElement = parts.getElement(-1);
             for (Count count : pluralTypes) {

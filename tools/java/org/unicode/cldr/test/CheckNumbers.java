@@ -85,7 +85,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(
             getFactory().getSupplementalDirectory());
         PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
-        pluralTypes = pluralInfo.getCountToExamplesMap().keySet();
+        pluralTypes = pluralInfo.getCounts();
         validNumberingSystems = supplementalData.getNumberingSystems();
 
         return this;

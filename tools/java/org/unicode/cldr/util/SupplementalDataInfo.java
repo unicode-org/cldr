@@ -47,6 +47,7 @@ import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.NumberInfo;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
@@ -1019,7 +1020,7 @@ public class SupplementalDataInfo {
 
         addDefaultScripts();
         baseLanguageToDefaultScript = CldrUtility.protectCollection(baseLanguageToDefaultScript);
-        
+
         numericTerritoryMapping.freeze();
         alpha3TerritoryMapping.freeze();
 
@@ -2618,7 +2619,7 @@ public class SupplementalDataInfo {
             }
             pluralRulesString = pluralRuleBuilder.toString();
             pluralRules = PluralRules.createRules(pluralRulesString);
-            
+
             EnumSet<Count> _keywords = EnumSet.noneOf(Count.class);
             for (String s : pluralRules.getKeywords()) {
                 _keywords.add(Count.valueOf(s));
@@ -2646,75 +2647,88 @@ public class SupplementalDataInfo {
             // add fractional samples
             Map<Count, String> countToStringExampleRaw = new TreeMap<Count, String>();
             int fractionValue = fractStart + fractDecrement;
-            for (Count type : typeToExamples2.keySet()) {
-                UnicodeSet uset = typeToExamples2.get(type);
-                int sample = uset.getRangeStart(0);
-                if (sample == 0 && uset.size() > 1) { // pick non-zero if possible
-                    UnicodeSet temp = new UnicodeSet(uset);
-                    temp.remove(0);
-                    sample = temp.getRangeStart(0);
-                }
-                Integer sampleInteger = sample;
-                exampleToCountRaw.put(sampleInteger, type);
-
+            StringBuilder b = new StringBuilder();
+            for (Count type : keywords) {
                 final ArrayList<Double> arrayList = new ArrayList<Double>();
-                arrayList.add((double) sample);
-
-                // add fractional examples
-                fractionValue -= fractDecrement;
-                if (fractionValue < 0) {
-                    fractionValue += 100;
-                }
-                final double fraction = (sample + (fractionValue / 100.0d));
-                Count fracType = Count.valueOf(pluralRules.select(fraction));
+                UnicodeSet uset = typeToExamples2.get(type);
                 boolean addCurrentFractionalExample = false;
+                Double fraction = null;
+                
+                if (uset == null) {
+                    Collection<NumberInfo> samples = pluralRules.getFractionSamples(type.name());
+                    for (NumberInfo n : samples) {
+                        arrayList.add(n.source);
+                        if (b.length() != 0) {
+                            b.append(", ");
+                        }
+                        b.append(n.source);
+                    }
+                } else {
+                    int sample = uset.getRangeStart(0);
+                    if (sample == 0 && uset.size() > 1) { // pick non-zero if possible
+                        UnicodeSet temp = new UnicodeSet(uset);
+                        temp.remove(0);
+                        sample = temp.getRangeStart(0);
+                    }
+                    Integer sampleInteger = sample;
+                    exampleToCountRaw.put(sampleInteger, type);
 
-                if (fracType == Count.other) {
-                    otherFractions.add(fraction);
-                    if (otherFractionalExamples.length() != 0) {
-                        otherFractionalExamples += ", ";
+                    arrayList.add((double) sample);
+                    // add fractional examples
+                    fractionValue -= fractDecrement;
+                    if (fractionValue < 0) {
+                        fractionValue += 100;
                     }
-                    otherFractionalExamples += nf.format(fraction);
-                } else if (fracType == type) {
-                    arrayList.add(fraction);
-                    addCurrentFractionalExample = true;
-                } // else we ignore it
+                    fraction = (sample + (fractionValue / 100.0d));
+                    Count fracType = Count.valueOf(pluralRules.select(fraction));
 
-                StringBuilder b = new StringBuilder();
-                int limit = uset.getRangeCount();
-                int count = 0;
-                boolean addEllipsis = false;
-                for (int i = 0; i < limit; ++i) {
-                    if (count > 5) {
-                        addEllipsis = true;
-                        break;
+                    if (fracType == Count.other) {
+                        otherFractions.add(fraction);
+                        if (otherFractionalExamples.length() != 0) {
+                            otherFractionalExamples += ", ";
+                        }
+                        otherFractionalExamples += nf.format(fraction);
+                    } else if (fracType == type) {
+                        arrayList.add(fraction);
+                        addCurrentFractionalExample = true;
+                    } // else we ignore it
+
+                    countToExampleListRaw.put(type, arrayList);
+                    
+                    // create string form
+                    int limit = uset.getRangeCount();
+                    int count = 0;
+                    boolean addEllipsis = false;
+                    for (int i = 0; i < limit; ++i) {
+                        if (count > 5) {
+                            addEllipsis = true;
+                            break;
+                        }
+                        int start = uset.getRangeStart(i);
+                        int end = uset.getRangeEnd(i);
+                        if (b.length() != 0) {
+                            b.append(", ");
+                        }
+                        if (start == end) {
+                            b.append(start);
+                            ++count;
+                        } else if (start + 1 == end) {
+                            b.append(start).append(", ").append(end);
+                            count += 2;
+                        } else {
+                            b.append(start).append('-').append(end);
+                            count += 2;
+                        }
                     }
-                    int start = uset.getRangeStart(i);
-                    int end = uset.getRangeEnd(i);
-                    if (b.length() != 0) {
-                        b.append(", ");
-                    }
-                    if (start == end) {
-                        b.append(start);
-                        ++count;
-                    } else if (start + 1 == end) {
-                        b.append(start).append(", ").append(end);
-                        count += 2;
-                    } else {
-                        b.append(start).append('-').append(end);
-                        count += 2;
+                    if (addCurrentFractionalExample) {
+                        if (b.length() != 0) {
+                            b.append(", ");
+                        }
+                        b.append(nf.format(fraction)).append("...");
+                    } else if (addEllipsis) {
+                        b.append("...");
                     }
                 }
-                if (addCurrentFractionalExample) {
-                    if (b.length() != 0) {
-                        b.append(", ");
-                    }
-                    b.append(nf.format(fraction)).append("...");
-                } else if (addEllipsis) {
-                    b.append("...");
-                }
-
-                countToExampleListRaw.put(type, arrayList);
                 countToStringExampleRaw.put(type, b.toString());
             }
             final String baseOtherExamples = countToStringExampleRaw.get(Count.other);
@@ -2786,6 +2800,10 @@ public class SupplementalDataInfo {
         }
 
         public Count getCount(double exampleCount) {
+            return Count.valueOf(pluralRules.select(exampleCount));
+        }
+
+        public Count getCount(PluralRules.NumberInfo exampleCount) {
             return Count.valueOf(pluralRules.select(exampleCount));
         }
 
@@ -3181,9 +3199,9 @@ public class SupplementalDataInfo {
     public String getDefaultScript(String baseLanguage) {
         return baseLanguageToDefaultScript.get(baseLanguage);
     }
-    
+
     private XEquivalenceClass<String, String> equivalentLocales = null;
-    
+
     public Set<String> getEquivalentsForLocale(String localeId) {
         if (equivalentLocales == null) {
             equivalentLocales = getEquivalentsForLocale();
@@ -3191,10 +3209,10 @@ public class SupplementalDataInfo {
         Set<String> result = new TreeSet(LENGTH_FIRST);
         result.add(localeId);
         Set<String> equiv = equivalentLocales.getEquivalences(localeId);
-//        if (equiv == null) {
-//            result.add(localeId);
-//            return result;
-//        }
+        //        if (equiv == null) {
+        //            result.add(localeId);
+        //            return result;
+        //        }
         if (equiv != null) {
             result.addAll(equivalentLocales.getEquivalences(localeId));
         }
@@ -3212,19 +3230,19 @@ public class SupplementalDataInfo {
             }
         }
 
-//        if (result.size() == 1) {
-//            LanguageTagParser ltp = new LanguageTagParser().set(localeId);
-//            if (ltp.getScript().isEmpty()) {
-//                String ds = getDefaultScript(ltp.getLanguage());
-//                if (ds != null) {
-//                    ltp.setScript(ds);
-//                    result.add(ltp.toString());
-//                }
-//            }
-//        }
+        //        if (result.size() == 1) {
+        //            LanguageTagParser ltp = new LanguageTagParser().set(localeId);
+        //            if (ltp.getScript().isEmpty()) {
+        //                String ds = getDefaultScript(ltp.getLanguage());
+        //                if (ds != null) {
+        //                    ltp.setScript(ds);
+        //                    result.add(ltp.toString());
+        //                }
+        //            }
+        //        }
         return result;
     }
-    
+
     public final static class LengthFirstComparator<T> implements Comparator<T> {
         public int compare(T a, T b) {
             String as = a.toString();
@@ -3238,7 +3256,7 @@ public class SupplementalDataInfo {
     }
 
     public static final LengthFirstComparator LENGTH_FIRST = new LengthFirstComparator();
-    
+
     private synchronized XEquivalenceClass<String, String> getEquivalentsForLocale() {
         SupplementalDataInfo sdi = this;
         Relation<String, String> localeToDefaultContents = Relation.of(new HashMap<String, Set<String>>(),
@@ -3261,10 +3279,10 @@ public class SupplementalDataInfo {
                 locales.add(source, s);
             }
         }
-//        Set<String> sorted = new TreeSet(locales.getExplicitItems());
-//        for (String s : sorted) {
-//            System.out.println(locales.getEquivalences(s));
-//        }
+        //        Set<String> sorted = new TreeSet(locales.getExplicitItems());
+        //        for (String s : sorted) {
+        //            System.out.println(locales.getEquivalences(s));
+        //        }
         for (String defaultContentLocale : dcl) {
             if (defaultContentLocale.startsWith("zh")) {
                 int x = 0;
@@ -3297,10 +3315,10 @@ public class SupplementalDataInfo {
     private Set<String> getCombinations(String source, LanguageTagParser ltp, Map<String, String> likely, 
             Set<String> locales) {
         locales.clear();
-        
+
         String max = LikelySubtags.maximize(source, likely);
         locales.add(max);
-        
+
         ltp.set(source);
         ltp.setScript("");
         String trial = ltp.toString();
@@ -3308,7 +3326,7 @@ public class SupplementalDataInfo {
         if (newMax.equals(max)) {
             locales.add(trial);
         }
-        
+
         ltp.set(source);
         ltp.setRegion("");
         trial = ltp.toString();
@@ -3316,7 +3334,7 @@ public class SupplementalDataInfo {
         if (newMax.equals(max)) {
             locales.add(trial);
         }
-        
+
         return locales;
     }
 }

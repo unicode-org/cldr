@@ -102,7 +102,6 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
-import org.unicode.cldr.web.SurveyLog.LogField;
 import org.unicode.cldr.web.SurveyThread.SurveyTask;
 import org.unicode.cldr.web.UserRegistry.InfoType;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
@@ -5971,7 +5970,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
         SurveyLog.logger.info("------- SurveyTool ready for requests after " + setupTime + "/"+uptime+". Memory in use: " + usedK() + "----------------------------\n\n\n");
         isSetup = true;
-        SurveyLog.logEvent(LogField.SURVEY_UP);
     }
 
     public synchronized File getVetdir() {
@@ -6087,7 +6085,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public void destroy() {
-        SurveyLog.logEvent(SurveyLog.LogField.SURVEY_SHUTDOWN);
         ElapsedTimer destroyTimer = new ElapsedTimer("SurveyTool destroy()");
         CLDRProgressTask progress = openProgress("shutting down");
         try {
@@ -6544,8 +6541,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             isBustedStack = stack + "\n" + "[" + new Date().toGMTString() + "] ";
             isBustedThrowable = t;
             isBustedTimer = new ElapsedTimer();
-            
-            SurveyLog.logEvent(LogField.SURVEY_BUSTED);
         } else {
             SurveyLog.warnOnce("[was already busted, not overriding old message.]");
         }

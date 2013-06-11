@@ -90,6 +90,11 @@ replacements = (
   (u" </reset>", u"'\\u0020'"),
   # vi.xml <sc> with non-NFD_Inert chars
   (u"<sc>\u0309\u0303\u0301\u0323</sc>", u"<<\u0309<<\u0303<<\u0301<<\u0323"),
+  # en_US_POSIX needs a lot of quoting.
+  ("<pc>&#x20;&#x21;&#x22;&#x23;&#x24;&#x25;&#x26;&#x27;&#x28;&#x29;&#x2a;&#x2b;&#x2c;&#x2d;&#x2e;&#x2f;</pc>", "<*'\\u0020'-'/'"),
+  ("<pc>0123456789&#x3a;&#x3b;&#x3c;&#x3d;&#x3e;&#x3f;&#x40;</pc>", "<*0-'@'"),
+  ("<pc>&#x5b;&#x5c;&#x5d;&#x5e;&#x5f;&#x60;</pc>", "<*'['-'`'"),
+  ("<pc>&#x7b;&#x7c;&#x7d;&#x7e;&#x7f;</pc>", "<*'{'-'\u007F'"),
   # Convert XML elements into ICU syntax.
   ("><!--", "> #"),  # add a space before an inline comment
   ("<!--", "#"),
@@ -185,16 +190,6 @@ def ConvertFile(src, dest):
           stop_comment = True
 
         # Convert XML syntax to ICU syntax.
-        while True:
-          # Convert a Numeric Character Reference to \\uhhhh.
-          i = line.find("&#x")
-          if i < 0: break
-          limit = line.find(";", i + 3)
-          cp = line[i + 3:limit]
-          while len(cp) < 4: cp = "0" + cp
-          assert len(cp) == 4  # not handling supplementary code points
-          line = line[:i] + "\\u" + cp + line[limit + 1:]
-
         if "<context>" in line:
           # Swap context & relation:
           #   <x><context>カ</context><i>ー</i></x>
@@ -207,6 +202,16 @@ def ConvertFile(src, dest):
 
         for (xml, icu) in replacements:
           line = line.replace(xml, icu)
+
+        while True:
+          # Convert a Numeric Character Reference to \\uhhhh.
+          i = line.find("&#x")
+          if i < 0: break
+          limit = line.find(";", i + 3)
+          cp = line[i + 3:limit]
+          while len(cp) < 4: cp = "0" + cp
+          assert len(cp) == 4  # not handling supplementary code points
+          line = line[:i] + "\\u" + cp + line[limit + 1:]
 
         # Start/continue/finish concatenation, and output.
         if partial and finish_partial:

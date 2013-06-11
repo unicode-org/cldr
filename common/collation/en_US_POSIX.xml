@@ -16,9 +16,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<collations>
 			<collation type="standard" >
 				<cr><![CDATA[
-					&A<*\u0020\u0021\u0022\u0023\u0024\u0025\u0026\u0027\u0028\u0029\u002a\u002b\u002c\u002d\u002e\u002f
-					<*0123456789\u003a\u003b\u003c\u003d\u003e\u003f\u0040<*ABCDEFGHIJKLMNOPQRSTUVWXYZ
-					<*\u005b\u005c\u005d\u005e\u005f\u0060<*abcdefghijklmnopqrstuvwxyz<*\u007b\u007c\u007d\u007e\u007f
+					&A<*'\u0020'-'/'<*0-'@'<*ABCDEFGHIJKLMNOPQRSTUVWXYZ<*'['-'`'<*abcdefghijklmnopqrstuvwxyz
+					<*'{'-'\u007F'
 				]]></cr>
 			</collation>
 		</collations>

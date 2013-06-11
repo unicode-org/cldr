@@ -155,7 +155,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 </head>
 <body class='claro'>
 
-<div data-dojo-type="dijit/Dialog" data-dojo-id="ariDialog" title="Disconnected from Survey Tool"
+<div data-dojo-type="dijit/Dialog" data-dojo-id="ariDialog" title="CLDR Survey Tool"
     execute="" data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">
 
     <div id='ariContent' class="dijitDialogPaneContentArea">
@@ -164,6 +164,9 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
             This page is still loading. 
         </p>
         <h3 id='ariSub'>Details:</h3>
+        <p id='ariSubMessage'>
+            This page is still loading. 
+        </p>
         <p id='ariScroller'>
         </p>
     </div>

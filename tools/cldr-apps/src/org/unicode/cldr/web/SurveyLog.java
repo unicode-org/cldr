@@ -64,12 +64,12 @@ public class SurveyLog {
     public static final String RECORD_SEP = "!!!***!!! ";
     public static final String FIELD_SEP = "*** ";
 
-    enum LogField {
-        SURVEY_EXCEPTION, DATE, UPTIME, CTX, LOGSITE, MESSAGE, STACK, SQL, REVISION
+    public enum LogField {
+        SURVEY_EXCEPTION, SURVEY_UP, SURVEY_SHUTDOWN, SURVEY_BUSTED, DATE, UPTIME, CTX, LOGSITE, MESSAGE, STACK, SQL, REVISION
     };
 
     private static File gBaseDir = null;
-
+    private static String gBaseDirStack = null;
     /**
      * Set the logging to happen inside the ST dir
      * 
@@ -77,74 +77,114 @@ public class SurveyLog {
      */
     public static void setDir(File homeFile) {
         if (gBaseDir != null) {
-            throw new InternalError("Error: setDir() was already called once.");
+            throw new InternalError("Error: setDir() was already called once, was at: ." + gBaseDirStack);
         }
+        gBaseDirStack= StackTracker.currentStack();
         gBaseDir = homeFile;
+    }
+    
+    private static final class LogEntry {
+        StringBuilder sb = new StringBuilder();
+        
+        LogEntry() {
+        }
+        
+        public LogEntry appendGeneral() {
+            long nextTimePost = System.currentTimeMillis();
+            appendLine(FIELD_SEP, LogField.DATE,nextTimePost,new Date());
+            appendLine(FIELD_SEP, LogField.UPTIME, SurveyMain.uptime);
+            return this;
+        }
+        
+        public LogEntry appendLine(Object... args) {
+            boolean first = true;
+            for(Object o : args) {
+                if(first) {
+                    first=false;
+                } else {
+                    sb.append(' ');
+                }
+                sb.append(o);
+            }
+            sb.append('\n');
+            return this;
+        }
+        
+        public CharSequence write() {
+            synchronized(SurveyLog.class) {
+                File baseDir = gBaseDir;
+                if (baseDir == null || !baseDir.isDirectory()) {
+                    setDir(new File("."));
+                    System.err.println(SurveyLog.class.getName() + " Warning: Storing exception.log in " + gBaseDir.getAbsolutePath()
+                            + "/exception.log");
+                }
+                try {
+                    File logFile = new File(baseDir, "exception.log");
+                    OutputStream file = new FileOutputStream(logFile, true); // Append
+                    PrintWriter pw = new PrintWriter(new OutputStreamWriter(file, "UTF-8"));
+                    pw.append(sb);
+                    pw.close();
+                    file.close();
+                } catch (IOException ioe) {
+                    logger.severe("Err: " + ioe + " trying to write log entry!");
+                    ioe.printStackTrace();
+                }
+            }
+            return sb;
+        }
     }
 
     public static synchronized void logException(final Throwable exception, String what, WebContext ctx) {
-        long nextTimePost = System.currentTimeMillis();
-        StringBuilder sb = new StringBuilder();
-        sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n').append(FIELD_SEP)
-                .append(LogField.DATE).append(' ').append(nextTimePost).append(' ').append(new Date()).append('\n')
-                .append(FIELD_SEP) .append(LogField.REVISION).append(' ').append(SurveyMain.getCurrevStr()).append(' ').append(SurveyMain.getNewVersion()).append(' ').append(CLDRConfig.getInstance().getPhase()).append(' ').append(CLDRConfig.getInstance().getEnvironment()).append('\n')
-                .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
-        if (ctx != null) {
-            sb.append(FIELD_SEP).append(LogField.CTX).append(' ').append(ctx).append('\n');
+        LogEntry le = new LogEntry();
+        le.appendLine(RECORD_SEP, LogField.SURVEY_EXCEPTION, what)
+            .appendGeneral();
+        if(SurveyMain.isSetup && !SurveyMain.isBusted()) {
+            le.appendLine(FIELD_SEP, LogField.REVISION, SurveyMain.getCurrevStr(),SurveyMain.getNewVersion(),CLDRConfig.getInstance().getPhase(),CLDRConfig.getInstance().getEnvironment());
         }
-        sb.append(FIELD_SEP).append(LogField.LOGSITE).append(' ').append(StackTracker.currentStack()).append('\n');
+        if (ctx != null) {
+            le.appendLine(FIELD_SEP, LogField.CTX, ctx);
+        }
+        le.appendLine(FIELD_SEP, LogField.LOGSITE, StackTracker.currentStack());
         Throwable t = exception;
         while (t != null) {
-            sb.append(FIELD_SEP).append(LogField.MESSAGE).append(' ').append(t.toString()).append(' ').append(t.getMessage())
-                    .append('\n');
-            sb.append(FIELD_SEP).append(LogField.STACK).append(' ').append(StackTracker.stackToString(t.getStackTrace(), 0))
-                    .append('\n');
+            le.appendLine(FIELD_SEP, LogField.MESSAGE, t.toString(), t.getMessage());
+            le.appendLine(FIELD_SEP, LogField.STACK, StackTracker.stackToString(t.getStackTrace(), 0));
+                    ;
             if (t instanceof SQLException) {
                 SQLException se = ((SQLException) t);
-                sb.append(FIELD_SEP).append(LogField.SQL).append(' ').append('#').append(se.getErrorCode()).append(' ')
-                        .append(se.getSQLState()).append('\n');
+                le.appendLine(FIELD_SEP, LogField.SQL, "#"+se.getErrorCode(),se.getSQLState());
                 t = se.getNextException();
             } else {
                 t = t.getCause();
             }
         }
 
-        // First, log to file
-        // TODO move into chunkyreader
-        File baseDir = gBaseDir;
-        if (baseDir == null || !baseDir.isDirectory()) {
-            setDir(new File("."));
-            System.err.println(SurveyLog.class.getName() + " Warning: Storing exception.log in " + gBaseDir.getAbsolutePath()
-                    + "/exception.log");
+        logger.severe(le.write().toString());
+        if(SurveyMain.isSetup) {
+            getChunkyReader().nudge();
         }
-        try {
-            File logFile = new File(baseDir, "exception.log");
-            OutputStream file = new FileOutputStream(logFile, true); // Append
-            PrintWriter pw = new PrintWriter(new OutputStreamWriter(file, "UTF-8"));
-            pw.append(sb);
-            pw.close();
-            file.close();
-        } catch (IOException ioe) {
-            logger.severe("Err: " + ioe + " trying to log exceptions!");
-            ioe.printStackTrace();
-        }
-
-        getChunkyReader().nudge();
-
         // then, to screen
-        logger.severe(sb.toString());
         
         if(exception instanceof OutOfMemoryError) {
             SurveyMain.markBusted(exception); // would cause infinite recursion if busted() was called
         }
+        
     }
 
+    /**
+     * @param event
+     */
+    public static void logEvent(LogField event) {
+        new LogEntry().appendLine(RECORD_SEP, event).appendGeneral().write();
+        if(SurveyMain.isSetup) 
+             getChunkyReader().nudge();
+    }
+    
     private static ChunkyReader cr = null;
 
     public static synchronized ChunkyReader getChunkyReader() {
         if (cr == null) {
-            cr = new ChunkyReader(new File(CLDRConfig.getInstance().getProperty("CLDRHOME"), "exception.log"), RECORD_SEP
-                    + LogField.SURVEY_EXCEPTION.name(), FIELD_SEP, LogField.DATE.name());
+            cr = new ChunkyReader(new File(CLDRConfig.getInstance().getProperty("CLDRHOME"), "exception.log"), RECORD_SEP, FIELD_SEP, LogField.DATE.name());
         }
         return cr;
     }

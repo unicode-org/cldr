@@ -811,8 +811,12 @@ function ariRetry() {
  * @param why
  * @param json
  * @param word
+ * @param what - what we were doing
  */
-function handleDisconnect(why, json, word) {
+function handleDisconnect(why, json, word, what) {
+	if(!what) {
+		what = "unknown";
+	}
 	if(!word) {
 		word = "error"; // assume it's an error except for a couple of cases.
 	}
@@ -856,7 +860,7 @@ function handleDisconnect(why, json, word) {
 				subDiv.appendChild(detailsButton);
 				oneword.details = detailsButton;
 				p.appendChild(subDiv);
-				showARIDialog(why, json, word, oneword, subDiv);
+				showARIDialog(why, json, word, oneword, subDiv, what);
 			}
 		}
 		if(json) {
@@ -911,13 +915,23 @@ var lastJsonStatus = null;
 
 
 function formatErrMsg(json, subkey) {
-	var msg_str = json.err_code;
-	if(stui.str(json.err_code) == json.err_code) {
-		msg_str = "E_UNKNOWN";
+	if(!subkey) {
+		subkey = "unknown";
+	}
+	var theCode = "E_UNKNOWN";
+	if(json && json.session_err) {
+		theCode = "E_SESSION_DISCONNECTED";
+	}
+	var msg_str = theCode;
+	if(json && json.err_code) {
+		msg_str = theCode = json.err_code;
+		if(stui.str(json.err_code) == json.err_code) {
+			msg_str = "E_UNKNOWN";
+		}
 	}
 	return stui.sub(msg_str,
 			{
-				json: json, what: stui.str('err_what_'+subkey), code: json.err_code,
+				json: json, what: stui.str('err_what_'+subkey), code: theCode,
 				surveyCurrentLocale: surveyCurrentLocale,
 				surveyCurrentId: surveyCurrentId,
 				surveyCurrentSection: surveyCurrentSection,
@@ -938,7 +952,7 @@ function updateStatusBox(json) {
 		if(json.err_code == "E_NOT_STARTED") {
 			trySurveyLoad();
 		}
-		handleDisconnect(formatErrMsg(json, 'status'), json, "disconnected");
+		handleDisconnect(json.err_code, json, "disconnected", "status");
 	} else if (json.SurveyOK==0) {
 		console.log('json.surveyOK==0');
 		trySurveyLoad();
@@ -1002,17 +1016,25 @@ function updateStatusBox(json) {
 			return "<b style='font-size: x-large; color: red;'>" + txt + "</b>";
 		}
 		
+		if(window.kickMe) {
+			json.timeTillKick = 0;
+		} else if(window.kickMeSoon) {
+			json.timeTillKick = 5000;
+		}
+		
 		// really don't care if guest user gets 'kicked'. Doesn't matter.
 		if( (surveyUser!==null) && json.timeTillKick && (json.timeTillKick>=0) && (json.timeTillKick < (60*1*1000) )) { // show countdown when 1 minute to go
 			var kmsg = "Your session will end if not active in about "+ (parseInt(json.timeTillKick)/1000).toFixed(0) + " seconds.";
 			console.log(kmsg);
 			updateSpecialHeader(standOutMessage(kmsg));
 		} else if((surveyUser!==null) && (( json.timeTillKick === 0) || (json.session_err))) {
-			var kmsg  = "Your session has been disconnected for inactivity.";
+			var kmsg  = stui.str("ari_sessiondisconnect_message");
 			console.log(kmsg);
 			updateSpecialHeader(standOutMessage(kmsg));
 			disconnected=true;
   		    addClass(document.getElementsByTagName("body")[0], "disconnected");
+  		    if(!json.session_err) json.session_err = "disconnected";
+  		    handleDisconnect(kmsg,json,"status");
 		} else if(json.status.specialHeader && json.status.specialHeader.length>0) {
 			updateSpecialHeader(json.status.specialHeader);
 		} else {
@@ -3298,7 +3320,7 @@ function showV() {
 //			}
 		};
 		
-		window.showARIDialog = function(why, json, word, oneword, p) {
+		window.showARIDialog = function(why, json, word, oneword, p, what) {
 			console.log('showARIDialog');
 			p.parentNode.removeChild(p);
 			
@@ -3307,7 +3329,18 @@ function showV() {
 			}
 			
 			// setup with why
-			updateIf('ariMessage', stui.str('ari_message'));
+			var ari_message;
+			
+			if(json && json.session_err) {
+				ari_message = stui_str("ari_sessiondisconnect_message");
+			} else {
+				ari_message = stui.str('ari_message');
+			}
+			
+			var ari_submessage = formatErrMsg(json, what);
+			
+			updateIf('ariMessage', ari_message);
+			updateIf('ariSubMessage', ari_submessage);
 			updateIf('ariScroller',window.location + '\n' + why);
 			// TODO: update  ariMain and ariRetryBtn
 			

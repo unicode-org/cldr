@@ -712,7 +712,10 @@ function handleChangedLocaleStamp(stamp,name) {
         }
 	} else {
 		for(i in showers) {
-			showers[i]();
+			var fn = showers[i];
+			if(fn) {
+				fn();
+			}
 		}
 	}
 	stdebug("Reloaded due to change: " + stamp);
@@ -3772,11 +3775,21 @@ function showV() {
 			});
 		}
 		
+		var isLoading = false;
+		
 		/**
 		 * This is the main entrypoint to the 'new' view system, based in /v.jsp
 		 * @method reloadV
 		 */
 		window.reloadV = function reloadV() {
+			
+			if(disconnected) {
+				unbust();
+			}
+			
+			isLoading = false;
+			showers[flipper.get(pages.data).id]=function(){ console.log("reloadV()'s shower - ignoring reload request, we are in the middle of a load!"); };
+			
 			// assume parseHash was already called, if we are taking input from the hash
 			ariDialog.hide();
 
@@ -3856,7 +3869,11 @@ function showV() {
 			var shower = null;
 
 			shower = function() {
-
+				if(isLoading) {
+					console.log("reloadV inner shower: already isLoading, exitting.");
+					return;
+				}
+				isLoading = true;
 				var theDiv = flipper.get(pages.data);
 				var theTable = theDiv.theTable;
 
@@ -3876,6 +3893,7 @@ function showV() {
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale)));
 						showPossibleProblems(flipper, pages.other, surveyCurrentLocale, surveySessionId, covName(effectiveCoverage()), covName(effectiveCoverage()));
 						showInPop2(stui.str("generalPageInitialGuidance"), null, null, null, true); /* show the box the first time */
+						isLoading=false;
 					} else if(surveyCurrentId=='!') {
 						var frag = document.createDocumentFragment();
 						frag.appendChild(createChunk(stui.str('section_help'),"p", "helpContent"));
@@ -3885,12 +3903,15 @@ function showV() {
 						frag.appendChild(infoChunk);
 						flipper.flipTo(pages.other, frag);
 						hideLoader(null);
+						isLoading=false;
+
 					} else {
 						// (common case) this is an actual locale data page.
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
 							
 						myLoad(url, "section", function(json) {
+							isLoading=false;
 							showLoader(theDiv.loader,stui.loading2);
 							if(!verifyJson(json, 'section')) {
 								return;
@@ -3938,6 +3959,7 @@ function showV() {
 				} else if(surveyCurrentSpecial =='oldvotes') {
 					var url = contextPath + "/SurveyAjax?what=oldvotes&_="+surveyCurrentLocale+"&s="+surveySessionId+"&"+cacheKill();
 					myLoad(url, "(loading oldvotes " + surveyCurrentLocale + ")", function(json) {
+						isLoading=false;
 						showLoader(null,stui.loading2);
 						if(!verifyJson(json, 'oldvotes')) {
 							return;
@@ -4272,6 +4294,7 @@ function showV() {
 					var url = contextPath + "/SurveyAjax?what=mail&s="+surveySessionId+"&fetchAll=true&"+cacheKill();
 					myLoad(url, "(loading mail " + surveyCurrentLocale + ")", function(json) {
 						hideLoader(null,stui.loading2);
+						isLoading=false;
 						if(!verifyJson(json, 'mail')) {
 							return;
 						} else {
@@ -4350,6 +4373,7 @@ function showV() {
 				} else if(surveyCurrentSpecial == 'none') {
 					//for now - redurect
 					hideLoader(null);
+					isLoading=false;
 					window.location = survURL; // redirect home
 				} else {
 					var msg_fmt = stui.sub("v_bad_special_msg",
@@ -4361,11 +4385,14 @@ function showV() {
 					loadingChunk.appendChild(retryButton);
 					retryButton.onclick = function() { 	window.location.reload(true); };
 					showLoader(theDiv.loader);
+					isLoading=false;
 				}
 			}; // end shower
 
 			shower(); // first load
-			flipper.get(pages.data).shower = shower;
+//			flipper.get(pages.data).shower = shower;
+			
+			// set up the "show-er" function so that if this locale gets reloaded, the page will load again
 			showers[flipper.get(pages.data).id]=shower;
 
 		};  // end reloadV

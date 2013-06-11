@@ -2647,8 +2647,8 @@ public class SupplementalDataInfo {
             // add fractional samples
             Map<Count, String> countToStringExampleRaw = new TreeMap<Count, String>();
             int fractionValue = fractStart + fractDecrement;
-            StringBuilder b = new StringBuilder();
             for (Count type : keywords) {
+                StringBuilder b = new StringBuilder();
                 final ArrayList<Double> arrayList = new ArrayList<Double>();
                 UnicodeSet uset = typeToExamples2.get(type);
                 boolean addCurrentFractionalExample = false;

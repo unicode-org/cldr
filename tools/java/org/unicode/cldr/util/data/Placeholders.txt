@@ -83,7 +83,7 @@
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; V=TIMEZONE_SPECIFIC_NON_LOCATION_SHORT_FORCED PDT
 
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Day-Of-Week"] ; {0}=BASE_FORMAT January 23; {1}=APPEND_FIELD_FORMAT Monday
-^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Timezone"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT Pacific Time
+^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Timezone"] ; {0}=BASE_FORMAT 12:30; {1}=APPEND_FIELD_FORMAT Pacific Time
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Era"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT A.D.
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Year"] ; {0}=BASE_FORMAT Monday, January 23; {1}=APPEND_FIELD_FORMAT 1992
 

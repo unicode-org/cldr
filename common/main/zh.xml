@@ -2352,6 +2352,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yQQQ">y年第Q季度</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">{1}{0}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">

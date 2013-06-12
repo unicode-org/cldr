@@ -33,6 +33,9 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.PatternPlaceholders;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
+import org.unicode.cldr.util.PatternPlaceholders.PlaceholderStatus;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -135,6 +138,34 @@ public class TestPathHeader extends TestFmwk {
             for (PathHeader p : sorted) {
                 logln(locale + "\t" + p + "\t" + p.getOriginalPath());
             }
+        }
+    }
+
+    static final String APPEND_TIMEZONE = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
+    static final String APPEND_TIMEZONE_END = "/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
+    
+    public void TestAppendTimezone() {
+        CLDRFile cldrFile = info.getEnglish();
+        CoverageLevel2 coverageLevel = CoverageLevel2.getInstance("en");
+        assertEquals("appendItem:Timezone", Level.MODERATE, coverageLevel.getLevel(APPEND_TIMEZONE));
+        
+        PathHeader ph = pathHeaderFactory.fromPath(APPEND_TIMEZONE);
+        assertEquals("appendItem:Timezone pathheader", "Timezone", ph.getCode());
+        
+        PathDescription pathDescription = new PathDescription(supplemental, english, null, null,
+                PathDescription.ErrorHandling.CONTINUE);
+        String description = pathDescription.getDescription(APPEND_TIMEZONE, "tempvalue", null, null);
+        assertTrue("appendItem:Timezone pathDescription", description.contains("“Timezone”"));
+        
+        PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();
+        PlaceholderStatus status = patternPlaceholders.getStatus(APPEND_TIMEZONE);
+        assertEquals("appendItem:Timezone placeholders", PlaceholderStatus.REQUIRED, status);
+        
+        Map<String, PlaceholderInfo> placeholderInfo = patternPlaceholders.get(APPEND_TIMEZONE);
+        PlaceholderInfo placeholderInfo2 = placeholderInfo.get("{1}");
+        if (assertNotNull("appendItem:Timezone placeholders", placeholderInfo2)) {
+            assertEquals("appendItem:Timezone placeholders", "APPEND_FIELD_FORMAT", placeholderInfo2.name);
+            assertEquals("appendItem:Timezone placeholders", "Pacific Time", placeholderInfo2.example);
         }
     }
 
@@ -271,7 +302,7 @@ public class TestPathHeader extends TestFmwk {
         }
     }
 
-    public void TestAFile() {
+    public void Test00AFile() {
         final String localeId = "en";
         Counter<Level> counter = new Counter<Level>();
         Map<String, PathHeader> uniqueness = new HashMap<String, PathHeader>();
@@ -288,7 +319,12 @@ public class TestPathHeader extends TestFmwk {
                     if (!badZonePages.contains(page) && page != PageId.Unknown) {
                         errln("Null pages for: " + section + "\t" + page);
                     }
+                } else if (section == SectionId.Special && page == PageId.Unknown) {
+                    // skip
+                } else if (section == SectionId.Timezones && page == PageId.UnknownT) {
+                    // skip
                 } else {
+                    
                     int count2 = cachedPaths.size();
                     if (count2 == 0) {
                         errln("Missing pages for: " + section + "\t" + page);
@@ -445,9 +481,9 @@ public class TestPathHeader extends TestFmwk {
                 oldStatus = SurveyToolStatus.HIDE;
             }
 
-            if (tempSTS != oldStatus && oldStatus != SurveyToolStatus.READ_WRITE) {
+            if (tempSTS != oldStatus && oldStatus != SurveyToolStatus.READ_WRITE && !path.endsWith(APPEND_TIMEZONE_END)) {
                 if (!differentStar.contains(starred)) {
-                    errln("Different from old:\t" + oldStatus + "\t" + surveyToolStatus + "\t"
+                    errln("Different from old:\t" + oldStatus + "\tnew:\t" + surveyToolStatus + "\t"
                             + path);
                     differentStar.add(starred);
                 }

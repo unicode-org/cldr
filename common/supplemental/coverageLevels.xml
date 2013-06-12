@@ -260,6 +260,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="60" match="numbers/currencies/currency[@type='%currency60']/symbol[@alt='narrow']"/>
 		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='%currency60_EU']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel inTerritory="EU" value="60" match="numbers/currencies/currency[@type='%currency60_EU']/symbol[@alt='narrow']"/>
+		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/appendItems/appendItem[@request='Timezone']"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%timeFormatItems']"/>
 		<coverageLevel value="60" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>

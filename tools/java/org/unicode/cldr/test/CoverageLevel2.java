@@ -1,5 +1,7 @@
 package org.unicode.cldr.test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -9,9 +11,11 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CldrUtility.Output;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.RegexFinder;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -148,7 +152,18 @@ public class CoverageLevel2 {
             return Level.UNDETERMINED;
         }
         synchronized (lookup) { // synchronize on the class, since the Matchers are changed during the matching process
-            Level result = lookup.get(path, myInfo, null);
+            Level result;
+            if (false) { // for testing
+                Output<String[]> checkItems = new Output();
+                CldrUtility.Output<Finder> matcherFound = new Output<Finder>();
+                List<String> failures = new ArrayList();
+                result = lookup.get(path, myInfo, checkItems, matcherFound, failures);
+                for (String s : failures) {
+                    System.out.println(s);
+                }
+            } else {
+                result = lookup.get(path, myInfo, null);
+            }
             return result == null ? Level.OPTIONAL : result;
         }
     }

@@ -271,6 +271,14 @@ public class TestExampleGenerator extends TestFmwk {
 
     }
 
+    public void TestFallbackFormat() {
+        ExampleGenerator exampleGenerator = new ExampleGenerator(info.getEnglish(), info.getEnglish(),
+                CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        String actual = exampleGenerator.getExampleHtml("//ldml/dates/timeZoneNames/fallbackFormat",
+                "{1} [{0}]");
+        assertEquals("fallbackFormat faulty", "〖❬Central Time❭ [❬Cancun❭]〗", simplify(actual, false));
+    }
+
     public void Test4897() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
         for (String xpath : With.in(exampleGenerator.getCldrFile().iterator("//ldml/dates/timeZoneNames", CLDRFile.ldmlComparator))) {
@@ -411,7 +419,7 @@ public class TestExampleGenerator extends TestFmwk {
             errln("getHelpHtml\t" + e.getMessage());
         }
     }
-    
+
     public void TestCompactPlurals() {
         checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionů〗");
         checkCompactExampleFor("pl", Count.other, "〖❬1,1❭ miliona〗");

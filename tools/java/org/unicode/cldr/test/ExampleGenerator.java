@@ -937,15 +937,9 @@ public class ExampleGenerator {
             result = addExampleResult(
                     format(value, setBackground(cldrFile.getWinningValue(EXEMPLAR_CITY_LOS_ANGELES))), result);
         } else if (parts.contains("fallbackFormat")) { // {1} ({0})
-            if (value == null) {
-                return result;
-            }
-            String timeFormat = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat"));
-            String us = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "US"));
-            // ldml/dates/timeZoneNames/zone[@type="America/Los_Angeles"]/exemplarCity
-            String LosAngeles = setBackground(cldrFile.getWinningValue(EXEMPLAR_CITY_LOS_ANGELES));
-            result = format(value, LosAngeles, us);
-            result = format(timeFormat, result);
+            String central = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/metazone[@type=\"America_Central\"]/long/generic"));
+            String cancun = setBackground(cldrFile.getWinningValue("//ldml/dates/timeZoneNames/zone[@type=\"America/Cancun\"]/exemplarCity"));
+            result = format(value, cancun, central);
         } else if (parts.contains("gmtFormat")) { // GMT{0}
             result = getGMTFormat(null, value, -8);
         } else if (parts.contains("hourFormat")) { // +HH:mm;-HH:mm

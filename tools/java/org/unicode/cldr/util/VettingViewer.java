@@ -1699,10 +1699,10 @@ public class VettingViewer<T> {
                 Organization.google);
         System.out.println(timer.getDuration() / NANOSECS + " secs");
 
-        timer.start();
-        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.summary,
-                Organization.ibm);
-        System.out.println(timer.getDuration() / NANOSECS + " secs");
+//        timer.start();
+//        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.summary,
+//                Organization.ibm);
+//        System.out.println(timer.getDuration() / NANOSECS + " secs");
 
         // // check that the choices work.
         // for (Choice choice : choiceSet) {

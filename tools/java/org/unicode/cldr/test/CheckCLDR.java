@@ -537,6 +537,7 @@ abstract public class CheckCLDR {
             charactersNotInMainOrAuxiliaryExemplars, asciiCharactersNotInMainOrAuxiliaryExemplars,
 
             narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
+            inconsistentDatePattern, missingDatePattern,
             illegalDatePattern, missingMainExemplars, discouragedCharactersInTranslation, mustNotStartOrEndWithSpace,
             illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, badNumericType,
             percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,

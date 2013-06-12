@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -24,16 +26,19 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.UnicodeProperty.PatternMatcher;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
@@ -47,6 +52,9 @@ public class CheckDates extends FactoryCheckCLDR {
     PatternMatcher m;
     DateTimePatternGenerator.FormatParser formatParser = new DateTimePatternGenerator.FormatParser();
     DateTimePatternGenerator dateTimePatternGenerator = DateTimePatternGenerator.getEmptyInstance();
+    private CoverageLevel2 coverageLevel;
+
+    private Level requiredLevel;
 
     static String[] samples = {
         // "AD 1970-01-01T00:00:00Z",
@@ -155,6 +163,10 @@ public class CheckDates extends FactoryCheckCLDR {
         if (decimal != null) {
             flexInfo.checkFlexibles(DECIMAL_XPATH, decimal, DECIMAL_XPATH);
         }
+
+        String localeID = getCldrFileToCheck().getLocaleID();
+        coverageLevel = CoverageLevel2.getInstance(localeID);
+        requiredLevel = CoverageLevel2.getRequiredLevel(localeID, options);
 
         // load gregorian appendItems
         for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]"); it.hasNext();) {
@@ -701,11 +713,12 @@ public class CheckDates extends FactoryCheckCLDR {
                 }
             }
 
-
             DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
-//            if (path.contains("gregorian")) {
-//                checkValue(dateTimeLength, dateOrTime, value, result);
-//            }
+
+            if (calendar.equals("gregorian")) {
+                checkValue(dateTimeLength, dateOrTime, value, result);
+            }
+
             style += dateTimeLength.ordinal();
             // do regex match with skeletonCanonical but report errors using skeleton; they have corresponding field lengths
             if (!dateTimePatterns[style].matcher(skeletonCanonical).matches()
@@ -748,79 +761,94 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     enum DateOrTime {date, time}
-
-    private void checkValue(DateTimeLengths dateTimeLength, DateOrTime dateOrTime, String value, List<CheckStatus> result) {
-      String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"";
-      String suffix = "\"]";
-        /*  Ticket #4936 
+    static final Map<DateOrTime, Relation<DateTimeLengths, String>> STOCK_PATTERNS 
+    = new EnumMap<DateOrTime,Relation<DateTimeLengths, String>>(DateOrTime.class); 
+    // 
+    private static void add(Map<DateOrTime, Relation<DateTimeLengths, String>> stockPatterns, 
+            DateOrTime dateOrTime, DateTimeLengths dateTimeLength, String... keys) {
+        Relation<DateTimeLengths, String> rel = STOCK_PATTERNS.get(dateOrTime);
+        if (rel == null) {
+            STOCK_PATTERNS.put(dateOrTime, rel = Relation.of(new EnumMap<DateTimeLengths,Set<String>>(DateTimeLengths.class), LinkedHashSet.class));
+        }
+        rel.putAll(dateTimeLength, Arrays.asList(keys));
+    }
+    /*  Ticket #4936 
 value(short time) = value(hm) or value(Hm)
 value(medium time) = value(hms) or value(Hms)
 value(long time) = value(medium time+z)
 value(full time) = value(medium time+zzzz)
-         */
-        String key1 = null;
-        String key2 = null;
-        switch(dateOrTime) {
-        case time:
-            switch (dateTimeLength) {
-            case SHORT: 
-                key1 = "hm"; key2 = "Hm";
-                break;
-            case MEDIUM:
-                key1 = "hms"; key2 = "Hms";
-                break;
-            case LONG:
-                key1 = "hmsz"; key2 = "Hmsz";
-                break;
-            case FULL:
-                key1 = "hmszzzz"; key2 = "Hmszzzz";
-                break;
+     */
+    static {
+        add(STOCK_PATTERNS, DateOrTime.time, DateTimeLengths.SHORT, "hm", "Hm");
+        add(STOCK_PATTERNS, DateOrTime.time, DateTimeLengths.MEDIUM, "hms", "Hms");
+        add(STOCK_PATTERNS, DateOrTime.time, DateTimeLengths.LONG, "hms*z", "Hms*z");
+        add(STOCK_PATTERNS, DateOrTime.time, DateTimeLengths.FULL, "hms*zzzz", "Hms*zzzz");
+        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.SHORT, "yMd");
+        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.MEDIUM, "yMMMd");
+        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.LONG, "yMMMMd");
+        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.FULL, "yMMMMEd");
+    }
+
+    static final String AVAILABLE_PREFIX = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"";
+    static final String AVAILABLE_SUFFIX = "\"]";
+    static final String APPEND_TIMEZONE = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
+
+    private void checkValue(DateTimeLengths dateTimeLength, DateOrTime dateOrTime, String value, List<CheckStatus> result) {
+        Set<String> keys = STOCK_PATTERNS.get(dateOrTime).get(dateTimeLength);
+        StringBuilder b = new StringBuilder();
+        boolean onlyNulls = true;
+        int countMismatches = 0;
+        boolean coverageLevelToLow = false;
+        String timezonePattern = null;
+        for (String key : keys) {
+            int star = key.indexOf('*');
+            boolean hasStar = star >= 0;
+            String base = !hasStar ? key : key.substring(0,star);
+            String xpath = AVAILABLE_PREFIX + base + AVAILABLE_SUFFIX;
+            String value1 = getCldrFileToCheck().getStringValue(xpath);
+            if (value1 != null) {
+                onlyNulls = false;
+                if (hasStar) {
+                    String zone = key.substring(star+1);
+                    timezonePattern = getResolvedCldrFileToCheck().getStringValue(APPEND_TIMEZONE);
+                    value1 = MessageFormat.format(timezonePattern, value1, zone);
+                }
+                if (equalsExceptWidth(value,value1)) {
+                    return;
+                }
+            } else if (requiredLevel.compareTo(coverageLevel.getLevel(xpath)) < 0) {
+                coverageLevelToLow = true;
             }
-            break;
-        case date:
-            /*  Ticket #4936 
-            value(short date) = value(yMd)
-            value(medium date) = value(yMMMd) or value(yMd)
-            value(long date) =value(yMMMd) width adjusted
-            value(full date) = value(yMMMdE) width adjusted   
-            */
-            switch (dateTimeLength) {
-            case SHORT: 
-                key1 = "yMd"; key2 = null;
-                break;
-            case MEDIUM:
-                key1 = "yMMMd"; key2 = "yMd";
-                break;
-            case LONG:
-                key1 = "yMMMd"; key2 = null;
-                break;
-            case FULL:
-                key1 = "yMMMdE"; key2 = null;
-                break;
+            add(b, base, value1);
+            countMismatches++;
+        }
+        if (!onlyNulls) {
+            if (timezonePattern != null) {
+                b.append(" (with appendZonePattern: “" + timezonePattern + "”)");
             }
-            break;
+            String msg = countMismatches != 1 
+                    ? "{1}-{0} → “{2}” didn't match any of the corresponding flexible patterns: [{3}]. One or the others needs to be changed."
+                            : "{1}-{0} → “{2}” didn't match the corresponding flexible pattern: {3}. One or the other needs to be changed.";
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.inconsistentDatePattern)
+                    .setMessage(msg, 
+                            dateTimeLength, dateOrTime, value, b));
+        } else if (!coverageLevelToLow) {
+            String msg = countMismatches != 1 
+                    ? "{1}-{0} → “{2}” doesn't have corresponding flexible patterns {3}, which need to be added."
+                            : "{1}-{0} → “{2}” doesn't have the corresponding flexible pattern {3}, which needs to be added.";
+            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                    .setSubtype(Subtype.missingDatePattern)
+                    .setMessage(msg, 
+                            dateTimeLength, dateOrTime, value, CollectionUtilities.join(keys, ", ")));
         }
-        String value1 = getCldrFileToCheck().getStringValue(prefix + key1 + suffix);
-        if (equalsExceptWidth(value,value1)
-                || value1 == null) {
-            return;
+    }
+
+    private void add(StringBuilder b, String key, String value1) {
+        if (b.length() != 0) {
+            b.append(" or ");
         }
-        if (key2 == null) {
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                    .setSubtype(Subtype.illegalDatePattern)
-                    .setMessage("{0} {1} {2} didn't match {3} => {4}", 
-                            dateTimeLength, dateOrTime, value, key1, value1));
-            return;
-        }
-        String value2 = getCldrFileToCheck().getStringValue(prefix + key1 + suffix);
-        if (equalsExceptWidth(value,value2)
-                || value2 == null) {
-            return;
-        }
-        result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
-                .setSubtype(Subtype.illegalDatePattern)
-                .setMessage("{0} {1} {2} didn't match {3} => {4} or {5} => {6}", 
-                        dateTimeLength, dateOrTime, value, key1, value1, key2, value2));
+        b.append(key + (value1 == null ? " - missing" : " → “" + value1 + "”"));
     }
 
     private boolean equalsExceptWidth(String value1, String value2) {
@@ -829,7 +857,7 @@ value(full time) = value(medium time+zzzz)
         } else if (value2 == null) {
             return false;
         }
-        
+
         List<Object> items1 = new ArrayList(formatParser.set(value1).getItems()); // clone
         List<Object> items2 = formatParser.set(value2).getItems();
         if (items1.size() != items2.size()) {

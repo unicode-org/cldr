@@ -198,7 +198,7 @@ public class ConsoleCheckCLDR {
             subtypeFilter = EnumSet.noneOf(Subtype.class);
             Matcher m = Pattern.compile(subtypeFilterString).matcher("");
             for (Subtype value : Subtype.values()) {
-                if (m.reset(value.toString()).find()) {
+                if (m.reset(value.toString()).find() || m.reset(value.name()).find()) {
                     subtypeFilter.add(value);
                 }
             }

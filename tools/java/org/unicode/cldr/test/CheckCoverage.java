@@ -127,7 +127,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
         if (false && Phase.FINAL_TESTING == getPhase()) {
             requiredLevel = Level.POSIX;
         } else {
-            requiredLevel = coverageLevel.getRequiredLevel(localeID, options);
+            requiredLevel = CoverageLevel2.getRequiredLevel(localeID, options);
         }
         if (DEBUG) {
             System.out.println("requiredLevel: " + requiredLevel);

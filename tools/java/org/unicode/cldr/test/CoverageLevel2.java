@@ -136,7 +136,7 @@ public class CoverageLevel2 {
      * @see CldrUtility#SUPPLEMENTAL_DIRECTORY
      */
     public static CoverageLevel2 getInstance(String locale) {
-        return new CoverageLevel2(SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY), locale);
+        return new CoverageLevel2(SupplementalDataInfo.getInstance(), locale);
     }
 
     public static CoverageLevel2 getInstance(SupplementalDataInfo sdi, String locale) {

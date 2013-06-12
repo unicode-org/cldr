@@ -30,6 +30,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexUtilities;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -165,7 +166,8 @@ public class CheckDates extends FactoryCheckCLDR {
         }
 
         String localeID = getCldrFileToCheck().getLocaleID();
-        coverageLevel = CoverageLevel2.getInstance(localeID);
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+        coverageLevel = CoverageLevel2.getInstance(sdi,localeID);
         requiredLevel = CoverageLevel2.getRequiredLevel(localeID, options);
 
         // load gregorian appendItems

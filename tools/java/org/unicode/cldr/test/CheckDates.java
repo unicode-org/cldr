@@ -785,8 +785,8 @@ value(full time) = value(medium time+zzzz)
         add(STOCK_PATTERNS, DateOrTime.time, DateTimeLengths.FULL, "hms*zzzz", "Hms*zzzz");
         add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.SHORT, "yMd");
         add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.MEDIUM, "yMMMd");
-        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.LONG, "yMMMMd");
-        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.FULL, "yMMMMEd");
+        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.LONG, "yMMMMd", "yMMMd");
+        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.FULL, "yMMMMEd", "yMMMd");
     }
 
     static final String AVAILABLE_PREFIX = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"";
@@ -845,6 +845,9 @@ value(full time) = value(medium time+zzzz)
     }
 
     private void add(StringBuilder b, String key, String value1) {
+        if (value1 == null) {
+            return;
+        }
         if (b.length() != 0) {
             b.append(" or ");
         }

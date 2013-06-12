@@ -1260,6 +1260,9 @@ public class DBUtils {
      * @throws JSONException
      */
     public static synchronized JSONObject queryToCachedJSON(String id, long cacheAge, String query, Object... args) throws SQLException, IOException, JSONException {
+        if(SurveyMain.isSetup==false ||  SurveyMain.isBusted()) {
+            return null;
+        }
         final boolean CDEBUG = true && SurveyMain.isUnofficial();
         DBUtils instance = getInstance(); // don't want the cache to be static
         Reference<JSONObject> ref = instance.cachedJsonQuery.get(id);

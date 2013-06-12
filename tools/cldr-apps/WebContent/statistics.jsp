@@ -1,3 +1,4 @@
+<%@page import="com.ibm.icu.text.CompactDecimalFormat"%>
 <%@page import="com.ibm.icu.dev.util.ElapsedTimer"%>
 <%@page import="com.ibm.icu.text.DecimalFormat,com.ibm.icu.text.NumberFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -47,7 +48,7 @@
 	int totalhei = 600;
 	DBUtils dbUtils = DBUtils.getInstance();
 	
-    int totalItems = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_items", 1*60*1000, "select count(*) from cldr_votevalue where submitter is not null and last_mod > " + votesAfter));
+    int totalItems = StatisticsUtils.getTotalItems();
     int totalSubmitters = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_submitters", 1*60*1000, "select count(distinct submitter) from cldr_votevalue where last_mod > " + votesAfter));
 	Connection conn = dbUtils.getDBConnection();
 	if (conn == null) {
@@ -75,6 +76,7 @@
             
             NumberFormat fmt = DecimalFormat.getInstance(DecimalFormat.NUMBERSTYLE);
     %>
+
 
 	Total Items Submitted: <%= fmt.format( totalItems) %> in <%= fmt.format(submits.length) %> locales by <%= fmt.format(totalSubmitters)  %> submitters. <br/>
 

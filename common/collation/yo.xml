@@ -14,21 +14,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations validSubLocales="yo_NG">
 		<collation type="standard" references="Nigeria University Press: A dictionary of the Yoruba language ISBN 978-030-760-5">
 			<settings normalization="on"/>
-                	<rules>
-				<reset>E</reset>
-					<p>ẹ</p>
-					<t>Ẹ</t>
-				<reset>G</reset>
-					<p>gb</p>
-					<t>Gb</t>
-					<t>GB</t>
-				<reset>O</reset>
-					<p>ọ</p>
-					<t>Ọ</t>
-				<reset>S</reset>
-					<p>ṣ</p>
-					<t>Ṣ</t>
-			</rules>
+                	<cr><![CDATA[
+				&E<ẹ<<<Ẹ
+				&G<gb<<<Gb<<<GB
+				&O<ọ<<<Ọ
+				&S<ṣ<<<Ṣ
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

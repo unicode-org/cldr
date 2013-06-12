@@ -13,32 +13,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 		<collations  validSubLocales="lv_LV">
 			<collation type="standard" references="Dzintra Kalniņa: Latvian-English Dictionary ISBN 9984-700-52-6">
-				<rules>
-					<reset before="primary">D</reset>
-					<p>č</p>
-					<t>Č</t>
-					<reset before="primary">H</reset>
-					<p>ģ</p>
-					<t>Ģ</t>
-					<reset before="primary">L</reset>
-					<p>ķ</p>
-					<t>Ķ</t>
-					<reset before="primary">M</reset>
-					<p>ļ</p>
-					<t>Ļ</t>
-					<reset before="primary">O</reset>
-					<p>ņ</p>
-					<t>Ņ</t>
-					<reset before="primary">S</reset>
-					<p>ŗ</p>
-					<t>Ŗ</t>
-					<reset before="primary">T</reset>
-					<p>š</p>
-					<t>Š</t>
-					<reset before="primary">Ʒ</reset>
-					<p>ž</p>
-					<t>Ž</t>
-				</rules>
+				<cr><![CDATA[
+					&[before 1]D<č<<<Č
+					&[before 1]H<ģ<<<Ģ
+					&[before 1]L<ķ<<<Ķ
+					&[before 1]M<ļ<<<Ļ
+					&[before 1]O<ņ<<<Ņ
+					&[before 1]S<ŗ<<<Ŗ
+					&[before 1]T<š<<<Š
+					&[before 1]Ʒ<ž<<<Ž
+				]]></cr>
 			</collation>
 		</collations>
 </ldml>

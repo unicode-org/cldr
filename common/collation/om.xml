@@ -13,26 +13,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations  validSubLocales="om_ET om_KE">
 		<collation type="standard" >
-			<rules>
-				<reset>Z</reset>
-				<p>ch</p>
-				<t>Ch</t>
-				<t>CH</t>
-				<p>dh</p>
-				<t>Dh</t>
-				<t>DH</t>
-				<p>kh</p>
-				<t>Kh</t>
-				<t>KH</t>
-				<p>ny</p>
-				<t>Ny</t>
-				<t>NY</t>
-				<p>ph</p>
-				<t>Ph</t>
-				<t>PH</t>
-				<p>sh</p>
-				<t>Sh</t>
-			</rules>
+			<cr><![CDATA[
+				&Z<ch<<<Ch<<<CH<dh<<<Dh<<<DH<kh<<<Kh<<<KH<ny<<<Ny<<<NY<ph<<<Ph<<<PH<sh<<<Sh
+			]]></cr>
 		</collation  >
 	</collations>
 </ldml>

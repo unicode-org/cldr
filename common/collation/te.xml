@@ -14,19 +14,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations  validSubLocales="te_IN">
 		<collation type="standard" references="Brown: Telugu-English Dictionary ISBN:8120600371">
 			<settings normalization="on" reorder="Telu Deva Beng Guru Gujr Orya Taml Knda Mlym Sinh"/>
-			<rules>
-			<!--
-			The following tailoring is an adjustment of the
-			DUCET collation order for CANDRABINDU, ANUSVARA,
-			and VISARGA. Instead of being sorted with secondary
-			weights, they are collated on primary level between
-			the independent vowels and the consonants.
-			-->
-				<reset>ఔ</reset>
-					<p>ఁ</p>
-					<p>ం</p>
-					<p>ః</p>
-			</rules>
+			<cr><![CDATA[
+			#
+			# The following tailoring is an adjustment of the
+			# DUCET collation order for CANDRABINDU, ANUSVARA,
+			# and VISARGA. Instead of being sorted with secondary
+			# weights, they are collated on primary level between
+			# the independent vowels and the consonants.
+			# 
+				&ఔ<ఁ<ం<ః
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

@@ -13,14 +13,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 		<collations validSubLocales="fil_PH">
 			<collation type="standard" references="http://std.dkuug.dk/jtc1/sc2/wg2/docs/N2300.htm (N2165)">
-				<rules>
-					<reset>N</reset>
-                    <p>ñ</p>
-                    <t>Ñ</t>
-                    <p>ng</p>
-                    <t>Ng</t>
-                    <t>NG</t>
-				</rules>
+				<cr><![CDATA[
+					&N<ñ<<<Ñ<ng<<<Ng<<<NG
+				]]></cr>
 			</collation>
 		</collations>
 </ldml>

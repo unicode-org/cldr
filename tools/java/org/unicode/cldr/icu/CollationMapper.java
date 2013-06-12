@@ -21,7 +21,7 @@ import com.ibm.icu.text.MessageFormat;
  * Converts CLDR collation files to the ICU format.
  * @author jchye
  */
-class CollationMapper {
+public class CollationMapper {
     private static Pattern SPECIALS_PATH = Pattern.compile("//ldml/special/icu:([\\w_]++)\\[@icu:([\\w_]++)=\"([^\"]++)\"]");
     private String sourceDir;
     private Factory specialFactory;
@@ -47,7 +47,7 @@ class CollationMapper {
     /**
      * @return CLDR data converted to an ICU-friendly format
      */
-    public List<IcuData> fillFromCldr(String locale) {
+    public IcuData fillFromCldr(String locale, List<IcuData> subLocaleList) {
         List<IcuData> dataList = new ArrayList<IcuData>();
         IcuData icuData = new IcuData("common/collation/" + locale + ".xml", locale, true);
         CollationHandler handler = new CollationHandler(icuData);
@@ -66,14 +66,15 @@ class CollationMapper {
                 }
             }
         }
-        dataList.add(icuData);
 
-        String[] subLocales = handler.getSubLocales();
-        // TODO(jchye): Enable this when NewLdml2IcuConverter handles the colfiles build target.
-        //for (String subLocale : subLocales) {
-        //    //dataList.add(fillSubLocale(locale, subLocale));
-        //}
-        return dataList;
+        if (subLocaleList != null) {
+            String[] subLocales = handler.getSubLocales();
+            // TODO(jchye): Enable this when NewLdml2IcuConverter handles the colfiles build target.
+            //for (String subLocale : subLocales) {
+            //    //subLocaleList.add(fillSubLocale(locale, subLocale));
+            //}
+        }
+        return icuData;
     }
 
     /**

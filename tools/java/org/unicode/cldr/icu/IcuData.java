@@ -11,7 +11,7 @@ import java.util.Set;
 /**
  * Wrapper class for converted ICU data which RB paths to values.
  */
-class IcuData {
+public class IcuData {
     private boolean hasFallback;
     private String sourceFile;
     private String name;

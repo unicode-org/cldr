@@ -13,10 +13,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations validSubLocales="af_NA af_ZA">
 		<collation type="standard">
-			<rules>
-				<reset>N</reset>
-				<t>ŉ</t>
-			</rules>
+			<cr><![CDATA[
+				&N<<<ŉ
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

@@ -13,51 +13,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<collations validSubLocales="ee_GH ee_TG">
 		<collation type="standard" >
-			<rules>
-				<reset>̌</reset>
-				<s>̂</s>
-				<reset>D</reset>
-				<p>dz</p>
-				<t>Dz</t>
-				<t>DZ</t>
-				<p>ɖ</p>
-				<t>Ɖ</t>
-				<reset>E</reset>
-				<p>ɛ</p>
-				<t>Ɛ</t>
-				<reset>F</reset>
-				<p>ƒ</p>
-				<t>Ƒ</t>
-				<reset>G</reset>
-				<p>gb</p>
-				<t>Gb</t>
-				<t>GB</t>
-				<p>ɣ</p>
-				<t>Ɣ</t>
-				<reset>H</reset>
-				<p>x</p>
-				<t>X</t>
-				<reset>K</reset>
-				<p>kp</p>
-				<t>Kp</t>
-				<t>KP</t>
-				<reset>N</reset>
-				<p>ny</p>
-				<t>Ny</t>
-				<t>NY</t>
-				<p>ŋ</p>
-				<t>Ŋ</t>
-				<reset>O</reset>
-				<p>ɔ</p>
-				<t>Ɔ</t>
-				<reset>T</reset>
-				<p>ts</p>
-				<t>Ts</t>
-				<t>TS</t>
-				<reset>V</reset>
-				<p>ʋ</p>
-				<t>Ʋ</t>
-			</rules>
+			<cr><![CDATA[
+				&̌<<̂
+				&D<dz<<<Dz<<<DZ<ɖ<<<Ɖ
+				&E<ɛ<<<Ɛ
+				&F<ƒ<<<Ƒ
+				&G<gb<<<Gb<<<GB<ɣ<<<Ɣ
+				&H<x<<<X
+				&K<kp<<<Kp<<<KP
+				&N<ny<<<Ny<<<NY<ŋ<<<Ŋ
+				&O<ɔ<<<Ɔ
+				&T<ts<<<Ts<<<TS
+				&V<ʋ<<<Ʋ
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

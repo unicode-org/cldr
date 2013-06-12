@@ -14,26 +14,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<collations  validSubLocales="fa_IR">
 			<collation type="standard" >
 				<settings normalization="on" reorder="Arab"/>
-				<rules>
-					<reset>َ</reset>
-					<sc>ًٌٍُِ</sc>
-					<reset before="primary">ا</reset>
-					<p>آ</p>
-					<reset>ا</reset>
-					<s>ٱ</s>
-					<p>ء</p>
-					<sc>أٲإٳؤ</sc>
-					<s>یٔ</s>
-					<t>ىٔ</t>
-					<t>ئ</t>
-					<reset>ک</reset>
-					<sc>ڪګكڬڭڮ</sc>
-					<reset>ۏ</reset>
-					<p>ه</p>
-					<sc>ەہةۃۀھ</sc>
-					<reset>ی</reset>
-					<sc>ىےيېۑۍێ</sc>
-				</rules>
+				<cr><![CDATA[
+					&َ<<ِ<<ُ<<ً<<ٍ<<ٌ
+					&[before 1]ا<آ
+					&ا<<ٱ<ء<<*أٲإٳؤ<<یٔ<<<ىٔ<<<ئ
+					&ک<<*ڪګكڬڭڮ
+					&ۏ<ه<<*ەہةۃۀھ
+					&ی<<*ىےيېۑۍێ
+				]]></cr>
 			</collation  >
 		</collations>
 </ldml>

@@ -25,11 +25,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				Ў 0423 0306 CYRILLIC CAPITAL LETTER SHORT U
 				ў 0443 0306 CYRILLIC SMALL LETTER SHORT U
 			-->
-			<rules>
-			    <reset>Е</reset>
-			        <p>ё</p>
-			        <t>Ё</t>
-			</rules>
+			<cr><![CDATA[
+			    &Е<ё<<<Ё
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

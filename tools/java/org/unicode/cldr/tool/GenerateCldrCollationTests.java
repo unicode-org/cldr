@@ -5,21 +5,19 @@
  */
 package org.unicode.cldr.tool;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.icu.ICUResourceWriter;
-import org.unicode.cldr.icu.ICUResourceWriter.Resource;
-import org.unicode.cldr.icu.LDML2ICUConverter;
-import org.unicode.cldr.util.LDMLUtilities;
+import org.unicode.cldr.icu.CollationMapper;
+import org.unicode.cldr.icu.IcuData;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -30,7 +28,7 @@ public class GenerateCldrCollationTests {
     String sourceDir;
     Set validLocales = new TreeSet();
     Map<String, Object> ulocale_rules = new TreeMap(GenerateCldrTests.ULocaleComparator);
-    Map locale_types_rules = new TreeMap();
+    Map<String, Map> locale_types_rules = new TreeMap<String, Map>();
     Map collation_collation = new HashMap();
     RuleBasedCollator emptyCollator = (RuleBasedCollator) Collator.getInstance(new ULocale(""));
 
@@ -113,62 +111,37 @@ public class GenerateCldrCollationTests {
 
     private void getCollationRules(String locale) throws Exception {
         System.out.println("Loading collation:\t" + locale);
-        Document doc = LDMLUtilities.getFullyResolvedLDML(sourceDir, locale, false, false, false, false);
-        Node node = LDMLUtilities.getNode(doc, "//ldml/collations");
-        LDML2ICUConverter cnv = new LDML2ICUConverter();
+        CollationMapper mapper = new CollationMapper(sourceDir, null);
         StringBuilder stringBuilder = new StringBuilder();
-        ICUResourceWriter.ResourceTable resource = (ICUResourceWriter.ResourceTable) cnv.parseCollations(node, null,
-            stringBuilder, false);
-        Map types_rules = new TreeMap();
-        locale_types_rules.put(locale, types_rules);
-        for (Resource current = (resource == null ? null : resource.first); current != null; current = current.next) {
-            if (current.name == null) {
-                Log.logln("Collation: null name found in " + locale);
-                continue;
+        TreeMap<String, RuleBasedCollator> types_rules = new TreeMap<String, RuleBasedCollator>();
+        List<IcuData> validSubLocales = new ArrayList<IcuData>();
+        IcuData icuData = mapper.fillFromCldr(locale, validSubLocales);
+        for (String rbPath : icuData.keySet()) {
+            if (!rbPath.endsWith("/Sequence")) continue;
+            // remove the \ u's, because they blow up
+            stringBuilder.setLength(0);
+            for (String line : icuData.get(rbPath).get(0)) {
+                stringBuilder.append(line);
             }
-            if (current instanceof ICUResourceWriter.ResourceTable) {
-                ICUResourceWriter.ResourceTable table = (ICUResourceWriter.ResourceTable) current;
-                for (Resource current2 = table.first; current2 != null; current2 = current2.next) {
-                    if (current2 instanceof ICUResourceWriter.ResourceString) {
-                        ICUResourceWriter.ResourceString foo = (ICUResourceWriter.ResourceString) current2;
-                        // System.out.println("\t" + foo.name + ", " + foo.val);
-                        /*
-                         * skip since the utilities have the wrong value
-                         * if (current.name.equals("validSubLocales")) {
-                         * // skip since it is wrong
-                         * log.println("Valid Sub Locale: " + foo.name);
-                         * validLocales.add(foo.name);
-                         * } else
-                         */
-                        if (foo.name.equals("Sequence")) {
-                            // remove the \ u's, because they blow up
-                            String rules = fromHex.transliterate(foo.val);
-                            RuleBasedCollator fixed = generateCollator(locale, current.name, foo.name, rules);
-                            if (fixed != null) {
-                                Log.logln("Rules for: " + locale + ", " + current.name);
-                                Log.logln(rules);
-                                if (!rules.equals(foo.val)) {
-                                    Log.logln("Original Rules from Ram: ");
-                                    Log.logln(foo.val);
-                                }
-                                types_rules.put(current.name, fixed);
-                            }
-                        }
-                    }
+            String originalRules = stringBuilder.toString();
+            String rules = fromHex.transliterate(originalRules);
+            String name = rbPath.split("/")[2];
+            RuleBasedCollator fixed = generateCollator(locale, name, rules);
+            if (fixed != null) {
+                Log.logln("Rules for: " + locale + ", " + name);
+                Log.logln(rules);
+                if (!rules.equals(originalRules)) {
+                    Log.logln("Original Rules from Ram: ");
+                    Log.logln(originalRules);
                 }
+                types_rules.put(name, fixed);
             }
-            // current.write(System.out,0,false);
-        }
-        // now get the valid sublocales
-        Document doc2 = LDMLUtilities.parse(sourceDir + locale + ".xml", false);
-        Node colls = LDMLUtilities.getNode(doc2, "//ldml/collations");
-        String validSubLocales = LDMLUtilities.getAttributeValue(colls, "validSubLocales");
-        if (validSubLocales != null) {
-            String items[] = new String[100]; // allocate plenty
-            com.ibm.icu.impl.Utility.split(validSubLocales, ' ', items);
-            for (int i = 0; items[i].length() != 0; ++i) {
-                Log.logln("Valid Sub Locale: " + items[i]);
-                validLocales.add(items[i]);
+            locale_types_rules.put(locale, types_rules);
+            
+            // now get the valid sublocales
+            for(IcuData subLocale : validSubLocales) {
+                Log.logln("Valid Sub Locale: " + subLocale.getName());
+                validLocales.add(subLocale.getName());
             }
         }
     }
@@ -179,7 +152,7 @@ public class GenerateCldrCollationTests {
      * @param foo
      * @param rules
      */
-    private RuleBasedCollator generateCollator(String locale, String current, String foo, String rules) {
+    private RuleBasedCollator generateCollator(String locale, String current, String rules) {
         RuleBasedCollator fixed = null;
         try {
             if (rules.equals(""))
@@ -195,7 +168,7 @@ public class GenerateCldrCollationTests {
                 }
             }
         } catch (Exception e) {
-            Log.logln("***Cannot create collator from: " + locale + ", " + current + ", " + foo + ", " + rules);
+            Log.logln("***Cannot create collator from: " + locale + ", " + current + ", " + rules);
             e.printStackTrace(Log.getLog());
             RuleBasedCollator coll = (RuleBasedCollator) Collator.getInstance(new ULocale(locale));
             String oldrules = coll.getRules();

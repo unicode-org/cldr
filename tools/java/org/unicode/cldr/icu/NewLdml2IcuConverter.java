@@ -306,8 +306,10 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             String locale = filename.substring(0, filename.length() - 4);
             if (!localeMatches(locale)) continue;
             System.out.println("Converting " + locale + "...");
-            List<IcuData> dataList = mapper.fillFromCldr(locale);
-            for (IcuData data : dataList) {
+            List<IcuData> subLocales = new ArrayList<IcuData>();
+            IcuData icuData = mapper.fillFromCldr(locale, subLocales);
+            writeIcuData(icuData, destinationDir);
+            for (IcuData data : subLocales) {
               // Sub locales that don't match the filter may be in the list
               // even if their parent matches.
               if (!localeMatches(data.getName())) continue;

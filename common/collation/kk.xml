@@ -23,17 +23,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				Й 0418 0306 CYRILLIC CAPITAL LETTER SHORT I
 				й 0438 0306 CYRILLIC SMALL LETTER SHORT I
 			-->
-			<rules>
-				<reset>Е</reset>
-					<p>ё</p>
-					<t>Ё</t>
-				<reset>Ұ</reset>
-					<p>ү</p>
-					<t>Ү</t>
-				<reset before="primary">ь</reset>
-					<p>і</p>
-					<t>І</t>
-			</rules>
+			<cr><![CDATA[
+				&Е<ё<<<Ё
+				&Ұ<ү<<<Ү
+				&[before 1]ь<і<<<І
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

@@ -1313,6 +1313,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             for (String extraCode : extraCodes) {
                 addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
             }
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "GB", "GB", "short");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "HK", "HK", "short");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "MO", "MO", "short");
 
@@ -1329,6 +1330,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"1\"]", "CE", "variant");
             addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNarrow/era[@type=\"0\"]", "BCE", "variant");
             addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNarrow/era[@type=\"1\"]", "CE", "variant");
+
+            addFallbackCode("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", "", "accounting");
 
             for (int i = 0; i < keyDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(

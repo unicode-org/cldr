@@ -709,6 +709,11 @@ public class WebContext implements Cloneable, Appendable {
      */
     public String vurl(CLDRLocale loc, PageId page, String strid, String queryAppend) {
         StringBuilder sb = new StringBuilder(request.getContextPath());
+        return WebContext.appendContextVurl(sb, loc, page, strid, queryAppend).toString();
+    }
+    
+    public static StringBuilder appendContextVurl(StringBuilder sb, CLDRLocale loc, PageId page, String strid, String queryAppend) {
+        
         sb.append("/v");
         if(queryAppend!=null && !queryAppend.isEmpty()) {
             sb.append(queryAppend);
@@ -728,9 +733,10 @@ public class WebContext implements Cloneable, Appendable {
             sb.append('/');
             sb.append(strid);
         }
-        return sb.toString();
+        
+        return sb;
     }
-    
+
     public void redirectToVurl(String vurl) {
         println("<a class='vredirect' href='"+vurl+"'>Redirecting to " +vurl+"</a>");
         println("<script type='text/javascript'>window.location=' " +vurl + "/'+window.location.hash.substring(1);</script>");

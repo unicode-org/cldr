@@ -18,9 +18,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.Map;
 import java.util.Set;
 import java.util.TimerTask;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
 
 import javax.servlet.ServletException;
@@ -46,6 +48,7 @@ import org.tmatesoft.svn.core.wc.SVNWCClient;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
@@ -1354,4 +1357,41 @@ public class OutputFileManager {
             }
         }
     }
+    
+    // statistics helpers
+    private static Map<CLDRLocale,Pair<String,String>> localeNameCache = new ConcurrentHashMap<CLDRLocale, Pair<String,String>>();
+    
+    public static Pair<String,String> statGetLocaleDisplayName(CLDRLocale loc) {
+        Pair<String,String> ret = localeNameCache.get(loc), toAdd = null;
+        if(ret==null) {
+            toAdd = ret = new Pair<String,String>();
+        }
+        // note, may concurrently modify this object- that's OK.
+        if(ret.getFirst()==null) {
+            // use baseline data
+            ret.setFirst(loc.getDisplayName( false, null));
+        }
+        if(ret.getSecond()==null) {
+            // uses 'on disk' (old) data.
+            ret.setSecond("<span class='olddata'>"+CookieSession.sm.getDiskFactory().make(loc.getBaseName(), true).getName(loc.toLanguageTag())+"</span>");
+        }
+        // needed to add it
+        if(toAdd !=null) {
+            localeNameCache.put(loc, toAdd);
+        }
+        return ret;
+    }
+    
+    // update the cache
+    public static void updateLocaleDisplayName(CLDRFile f, CLDRLocale l) {
+        Pair<String,String> ret = statGetLocaleDisplayName(l);
+        String newValue = (f.getName(l.getBaseName()));
+        if(SurveyMain.isUnofficial()) {
+            if(!newValue.equals(ret.getSecond())) {
+                System.out.println("Setting: "  + newValue + " insteadof " + ret.getSecond() + " for " + ret.getFirst());
+            }
+        }
+        ret.setSecond(newValue);
+    }
+    
 }

@@ -549,14 +549,14 @@ div.adminException span.adminExceptionHeader {
 	background: url(stop.png) no-repeat 0 top;
 }
 
- span.adminExceptionDate {
+span.adminExceptionDate {
 	white-space: nowrap;
 	font: small "Lucida Grande", Lucida, Verdana, sans-serif;
 	float: right;
 	display: block
 }
 
-span.adminThreadState_RUNNABLE {
+span.adminThreadse_RUNNABLE {
 	background-color: lime;
 }
 
@@ -782,6 +782,74 @@ table.data tr.r0 {
 table.list {
 	border-collapse: collapse;
 	display: inline;
+}
+
+table#statisticsTable {
+    border-collapse: collapse;
+}
+
+table#statisticsTable thead th {
+    font-weight: bold;
+    border-bottom: 1px solid gray
+}
+
+table#statisticsTable td.locid {
+    font: bold small "Courier New", Courier, mono;
+    text-align: right;
+}
+
+table#statisticsTable a {
+    text-decoration: none;
+}
+
+table#statisticsTable td.locname a,
+table#statisticsTable td.selfname.dirltr a {
+    padding-left:  18px;
+}
+
+table#statisticsTable td.selfname.dirrtl a {
+    padding-right:  18px;
+}
+
+
+table#statisticsTable td.locname a:hover {
+    background: url(zoom.png) no-repeat;
+    text-decoration: underline;
+}
+
+table#statisticsTable td.selfname.dirltr a:hover
+{
+    background: url(dnah.png) left no-repeat;
+    text-decoration: underline;
+}
+table#statisticsTable td.selfname.dirrtl a:hover
+{
+    background: url(hand.png) right no-repeat;
+    text-decoration: underline;
+}
+
+table#statisticsTable .olddata {
+    opacity: .8;
+    color: #1561b7;
+}
+
+table#statisticsTable .olddata:hover {
+    color: red;
+}
+
+table#statisticsTable tbody tr.r0 {
+    
+}
+table#statisticsTable tbody tr.r1 {
+    background-color: #d2eee1;
+}
+
+table#statisticsTable tbody tr:hover {
+    background-color: #ecd290;
+}
+
+table#statisticsTable td.count {
+    text-align: right;
 }
 
 div.minimenu {
@@ -2104,7 +2172,7 @@ div.helpHtml table {
     border-collapse: collapse;
 }
 
-div.helpHtml td,th {
+div.helpHtml td,div.helpHtml td th {
     border: 1px solid black;
     padding: 3px;
 }

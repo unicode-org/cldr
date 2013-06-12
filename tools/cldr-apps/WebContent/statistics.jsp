@@ -1,4 +1,5 @@
-<%@page import="com.ibm.icu.text.DecimalFormat"%>
+<%@page import="com.ibm.icu.dev.util.ElapsedTimer"%>
+<%@page import="com.ibm.icu.text.DecimalFormat,com.ibm.icu.text.NumberFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="utf-8"%><%@ page import="org.unicode.cldr.web.*"%><%@ page import="java.sql.*" %><%@ page import="org.json.*" %><%@ page import="com.ibm.icu.util.ULocale" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,7 +39,7 @@
 
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <!-- 	| <a class='notselected' href="statistics-org.jsp">by Organization</a> -->
-<i>This page does not auto-refresh, and is only calculated every few minutes.</i>
+<i>This page does not auto-refresh, and is only calculated every few minutes. <br>Also, the translated names may be out of date, as they are currently using the previous-version data.</i>
 <br>
 
 <%
@@ -46,7 +47,8 @@
 	int totalhei = 600;
 	DBUtils dbUtils = DBUtils.getInstance();
 	
-	int totalItems = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_items", 1*60*1000, "select count(*) from cldr_votevalue where submitter is not null and last_mod > " + votesAfter));
+    int totalItems = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_items", 1*60*1000, "select count(*) from cldr_votevalue where submitter is not null and last_mod > " + votesAfter));
+    int totalSubmitters = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_submitters", 1*60*1000, "select count(distinct submitter) from cldr_votevalue where last_mod > " + votesAfter));
 	Connection conn = dbUtils.getDBConnection();
 	if (conn == null) {
 		throw new InternalError(
@@ -70,29 +72,56 @@
 
             String[][] submits = StatisticsUtils.calcSubmits(submitsV,
                     submitsD);
+            
+            NumberFormat fmt = DecimalFormat.getInstance(DecimalFormat.NUMBERSTYLE);
     %>
 
-	Total Items Submitted: <%= DecimalFormat.getInstance(DecimalFormat.NUMBERSTYLE).format( totalItems)%> in <%= submits.length %> locales <br/>
+	Total Items Submitted: <%= fmt.format( totalItems) %> in <%= fmt.format(submits.length) %> locales by <%= fmt.format(totalSubmitters)  %> submitters. <br/>
 
 
 
 	<h2><%=title%></h2>
-	<table style='border: 1px solid black; cell-padding: 3px;'> 
-		<tr><th>Locale</th><th>Data</th>
-		<%
-			for (String[] r : submits) {
-		%>
-			
-	<tr>
-		<th style='background-color: #ddd; text-align: left;'><a href='survey?_=<%=r[0]%>'><%=r[0] + ": " + new ULocale(r[0]).getDisplayName()%></a></th>
-		<td><%=r[1]%></td>
-	</tr>
-	<%
+	<table id='statisticsTable'>
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>ID</th>
+				<th colspan='2'>Locale</th>
+				<th>Items</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%
+			ElapsedTimer localeTimer = new ElapsedTimer();
+				int rank = 0;
+			    for (String[] r : submits) {
+			    	CLDRLocale thisLoc = CLDRLocale.getInstance(r[0]);
+			    	Pair<String,String> name = CookieSession.sm.outputFileManager.statGetLocaleDisplayName(thisLoc);
+			    	String baseName = name.getFirst(); /* thisLoc.getDisplayName( false, null) */
+			    	String selfName =  name.getSecond(); //CookieSession.sm.getDiskFactory().make(r[0], true).getName(r[0])
+			    	
+			    	StringBuilder selfLink = WebContext.appendContextVurl(new StringBuilder(request.getContextPath()), thisLoc, PathHeader.PageId.Languages, 
+			    			  CookieSession.sm.xpt.getStringIDString("//ldml/localeDisplayNames/languages/language[@type=\""+thisLoc.getLanguage()+"\"]"),
+			    			  "");
+			%>
+			<tr class='r<%= rank%2 %>'>
+				<td class='rank'><%=fmt.format(++rank) %></td>
+				<td class='locid'><%= r[0] %></td>
+				<td class='locname'>
+				    <a
+					href='survey?_=<%=r[0]%>'><%= baseName %></a>
+					           </td>
+                               <td dir='<%= CookieSession.sm.getHTMLDirectionFor(thisLoc) %>' class='selfname dir<%= CookieSession.sm.getHTMLDirectionFor(thisLoc)  %>'><a href='<%= selfLink %>'><%= selfName %></a></td>
+				<td class='count'><%=fmt.format(Integer.parseInt(r[1]))%></td>
+			</tr>
+			<%
 		}
+	   if(SurveyMain.isUnofficial()) System.err.println("Locale list calculated  " + localeTimer);
 	%>
+		</tbody>
 	</table>
-	
-<%
+
+	<%
 		if (submits != null && submits.length > 0) {
 			
 			if(submits.length>20) { %><hr/><i>(Note: Top 20 of <%= submits.length %> shown on graph.)</i><% 

@@ -1222,6 +1222,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 pld = new PerLocaleData(locale);
                 rLocales.put(locale, pld);
                 locales.put(locale, (new SoftReference<PerLocaleData>(pld)));
+                // update the locale display name cache.
+                sm.outputFileManager.updateLocaleDisplayName(pld.getFile(true),locale);
             } else {
                 rLocales.put(locale, pld); // keep it in the lru
             }

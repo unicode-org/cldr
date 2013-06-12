@@ -717,7 +717,7 @@ public class CheckDates extends FactoryCheckCLDR {
 
             DateTimeLengths dateTimeLength = DateTimeLengths.valueOf(len.toUpperCase(Locale.ENGLISH));
 
-            if (calendar.equals("gregorian")) {
+            if (calendar.equals("gregorian") && !"root".equals(getCldrFileToCheck().getLocaleID())) {
                 checkValue(dateTimeLength, dateOrTime, value, result);
             }
 
@@ -788,7 +788,7 @@ value(full time) = value(medium time+zzzz)
         add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.SHORT, "yMd");
         add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.MEDIUM, "yMMMd");
         add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.LONG, "yMMMMd", "yMMMd");
-        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.FULL, "yMMMMEd", "yMMMd");
+        add(STOCK_PATTERNS, DateOrTime.date, DateTimeLengths.FULL, "yMMMMEd", "yMMMEd");
     }
 
     static final String AVAILABLE_PREFIX = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"";
@@ -800,14 +800,17 @@ value(full time) = value(medium time+zzzz)
         StringBuilder b = new StringBuilder();
         boolean onlyNulls = true;
         int countMismatches = 0;
-        boolean coverageLevelToLow = false;
+        boolean errorOnMissing = false;
         String timezonePattern = null;
+        Set<String> bases = new LinkedHashSet<String>();
         for (String key : keys) {
             int star = key.indexOf('*');
             boolean hasStar = star >= 0;
             String base = !hasStar ? key : key.substring(0,star);
+            bases.add(base);
             String xpath = AVAILABLE_PREFIX + base + AVAILABLE_SUFFIX;
             String value1 = getCldrFileToCheck().getStringValue(xpath);
+            // String localeFound = getCldrFileToCheck().getSourceLocaleID(xpath, null);  && !localeFound.equals("root") && !localeFound.equals("code-fallback")
             if (value1 != null) {
                 onlyNulls = false;
                 if (hasStar) {
@@ -818,8 +821,14 @@ value(full time) = value(medium time+zzzz)
                 if (equalsExceptWidth(value,value1)) {
                     return;
                 }
-            } else if (requiredLevel.compareTo(coverageLevel.getLevel(xpath)) < 0) {
-                coverageLevelToLow = true;
+            } else {
+                // Example, if the requiredLevel for the locale is moderate, 
+                // and the level for the path is modern, then we'll skip the error,
+                // but if the level for the path is basic, then we won't
+                Level pathLevel = coverageLevel.getLevel(xpath);
+                if (requiredLevel.compareTo(pathLevel) >= 0) {
+                    errorOnMissing = true;
+                }
             }
             add(b, base, value1);
             countMismatches++;
@@ -829,20 +838,22 @@ value(full time) = value(medium time+zzzz)
                 b.append(" (with appendZonePattern: “" + timezonePattern + "”)");
             }
             String msg = countMismatches != 1 
-                    ? "{1}-{0} → “{2}” didn't match any of the corresponding flexible patterns: [{3}]. One or the others needs to be changed."
-                            : "{1}-{0} → “{2}” didn't match the corresponding flexible pattern: {3}. One or the other needs to be changed.";
+                    ? "{1}-{0} → “{2}” didn't match any of the corresponding flexible skeletons: [{3}]. This or the flexible patterns needs to be changed."
+                            : "{1}-{0} → “{2}” didn't match the corresponding flexible skeleton: {3}. This or the flexible pattern needs to be changed.";
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
                     .setSubtype(Subtype.inconsistentDatePattern)
                     .setMessage(msg, 
                             dateTimeLength, dateOrTime, value, b));
-        } else if (!coverageLevelToLow) {
-            String msg = countMismatches != 1 
-                    ? "{1}-{0} → “{2}” doesn't have corresponding flexible patterns {3}, which need to be added."
-                            : "{1}-{0} → “{2}” doesn't have the corresponding flexible pattern {3}, which needs to be added.";
-            result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.missingDatePattern)
-                    .setMessage(msg, 
-                            dateTimeLength, dateOrTime, value, CollectionUtilities.join(keys, ", ")));
+        } else {
+            if (errorOnMissing) {
+                String msg = countMismatches != 1 
+                        ? "{1}-{0} → “{2}” doesn't have at least one value for a corresponding flexible skeleton {3}, which needs to be added."
+                                : "{1}-{0} → “{2}” doesn't have a value for the corresponding flexible skeleton {3}, which needs to be added.";
+                result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.missingDatePattern)
+                        .setMessage(msg, 
+                                dateTimeLength, dateOrTime, value, CollectionUtilities.join(bases, ", ")));
+            }
         }
     }
 

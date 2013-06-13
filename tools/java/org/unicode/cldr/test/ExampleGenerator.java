@@ -625,8 +625,16 @@ public class ExampleGenerator {
     }
 
     private String handleAppendItems(XPathParts parts, String value) {
+        String request = parts.getAttributeValue(-1, "request");
+        if (!"Timezone".equals(request)) {
+            return null;
+        }
+        String calendar = parts.getAttributeValue(3, "type");
 
-        return null;
+        SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendar, 0, DateFormat.MEDIUM, null);
+        String zone = cldrFile.getStringValue("//ldml/dates/timeZoneNames/gmtZeroFormat");
+        String result = format(value, setBackground(sdf.format(DATE_SAMPLE)), setBackground(zone));
+        return result;
     }
 
     class IntervalFormat {

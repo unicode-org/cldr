@@ -19,9 +19,11 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -48,7 +50,7 @@ import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 
-public class TestPathHeader extends TestFmwk {
+public class TestPathHeader extends TestFmwkPlus {
     public static void main(String[] args) {
         new TestPathHeader().run(args);
     }
@@ -143,6 +145,8 @@ public class TestPathHeader extends TestFmwk {
 
     static final String APPEND_TIMEZONE = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
     static final String APPEND_TIMEZONE_END = "/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
+    static final String BEFORE_PH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"ms\"]";
+    static final String AFTER_PH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"d\"]/greatestDifference[@id=\"d\"]";
     
     public void TestAppendTimezone() {
         CLDRFile cldrFile = info.getEnglish();
@@ -151,7 +155,12 @@ public class TestPathHeader extends TestFmwk {
         
         PathHeader ph = pathHeaderFactory.fromPath(APPEND_TIMEZONE);
         assertEquals("appendItem:Timezone pathheader", "Timezone", ph.getCode());
-        
+        // check that they are in the right place (they weren't before!)
+        PathHeader phBefore = pathHeaderFactory.fromPath(BEFORE_PH);
+        PathHeader phAfter = pathHeaderFactory.fromPath(AFTER_PH);
+        assertTrue(phBefore, LEQ, ph);
+        assertTrue(ph, LEQ, phAfter);
+
         PathDescription pathDescription = new PathDescription(supplemental, english, null, null,
                 PathDescription.ErrorHandling.CONTINUE);
         String description = pathDescription.getDescription(APPEND_TIMEZONE, "tempvalue", null, null);
@@ -167,6 +176,10 @@ public class TestPathHeader extends TestFmwk {
             assertEquals("appendItem:Timezone placeholders", "APPEND_FIELD_FORMAT", placeholderInfo2.name);
             assertEquals("appendItem:Timezone placeholders", "Pacific Time", placeholderInfo2.example);
         }
+        ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFile, CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        String example = eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE));
+        String result = TestExampleGenerator.simplify(example, false);
+        assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❭〗", result);
     }
 
     public void TestOptional() {

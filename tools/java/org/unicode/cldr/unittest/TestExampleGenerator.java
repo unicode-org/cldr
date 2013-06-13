@@ -191,7 +191,7 @@ public class TestExampleGenerator extends TestFmwk {
         assertEquals("Ellipsis", expected, result);
     }
 
-    private String simplify(String exampleHtml, boolean internal) {
+    public static String simplify(String exampleHtml, boolean internal) {
         return internal ? "〖" + exampleHtml
                 .replace("", "❬")
                 .replace("", "❭") + "〗"

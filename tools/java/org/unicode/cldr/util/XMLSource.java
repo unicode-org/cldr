@@ -1308,14 +1308,20 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // "false");
             // }
 
-            String[] extraCodes = { "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES", "es_MX", "fr_CA",
-                "fr_CH", "nl_BE", "pt_BR", "pt_PT", "zh_Hans", "zh_Hant" };
+            String[] extraCodes = { "ar_001", "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES", "es_MX",
+                                    "fr_CA", "fr_CH", "nl_BE", "pt_BR", "pt_PT", "zh_Hans", "zh_Hant" };
             for (String extraCode : extraCodes) {
                 addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
             }
+
+            addFallbackCode(CLDRFile.SCRIPT_NAME, "Hans", "Hans", "stand-alone");
+            addFallbackCode(CLDRFile.SCRIPT_NAME, "Hant", "Hant", "stand-alone");
+
             addFallbackCode(CLDRFile.TERRITORY_NAME, "GB", "GB", "short");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "HK", "HK", "short");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "MO", "MO", "short");
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "PS", "PS", "short");
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "US", "US", "short");
 
             addFallbackCode(CLDRFile.TERRITORY_NAME, "CD", "CD", "variant"); // add other geopolitical items
             addFallbackCode(CLDRFile.TERRITORY_NAME, "CG", "CG", "variant");

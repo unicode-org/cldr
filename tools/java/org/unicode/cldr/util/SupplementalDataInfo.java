@@ -2921,6 +2921,40 @@ public class SupplementalDataInfo {
         return territoryToCurrencyDateInfo.getAll(territory);
     }
 
+    /**
+     * Returns the ISO4217 currency code of the default currency for a given
+     * territory. The default currency is the first one listed which is legal
+     * tender at the present moment. 
+     * 
+     * @param territory
+     * @return
+     */
+    public String getDefaultCurrency(String territory) {
+
+        Set<CurrencyDateInfo> targetCurrencyInfo = getCurrencyDateInfo(territory);
+        String result = "XXX";
+        Date now = new Date();
+        for (CurrencyDateInfo cdi : targetCurrencyInfo) {
+            if (cdi.getStart().before(now) && cdi.getEnd().after(now) && cdi.isLegalTender()) {
+                result = cdi.getCurrency();
+                break;
+            }
+        }
+        return result;
+    }
+    
+    /**
+     * Returns the ISO4217 currency code of the default currency for a given
+     * CLDRLocale. The default currency is the first one listed which is legal
+     * tender at the present moment. 
+     * 
+     * @param territory
+     * @return
+     */
+    public String getDefaultCurrency(CLDRLocale loc) {
+        return getDefaultCurrency(loc.getCountry());
+    }
+    
     public Map<String, Set<TelephoneCodeInfo>> getTerritoryToTelephoneCodeInfo() {
         return territoryToTelephoneCodeInfo;
     }

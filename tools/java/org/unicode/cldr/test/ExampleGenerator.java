@@ -18,6 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
@@ -268,7 +269,11 @@ public class ExampleGenerator {
                 } else if (parts.contains("miscPatterns")) {
                     result = handleMiscPatterns(parts, value);
                 } else if (parts.contains("numbers")) {
-                    result = handleDecimalFormat(parts, value, type);
+                    if (parts.contains("currencyFormat")) {
+                        result = handleCurrencyFormat(parts,value,type);
+                    } else {
+                        result = handleDecimalFormat(parts, value, type);
+                    }
                 }
             } else if (parts.getElement(2).contains("symbols")) {
                 result = handleNumberSymbol(parts, value);
@@ -1042,6 +1047,43 @@ public class ExampleGenerator {
         }
     }
 
+    /**
+     * Creates examples for currency formats.
+     * 
+     * @param value
+     * @return
+     */
+    private String handleCurrencyFormat(XPathParts parts, String value, ExampleType type) {
+
+        CLDRLocale loc;
+        String territory = "US";
+        if (ExampleType.NATIVE.equals(type)) {
+            loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
+            territory = loc.getCountry();
+            if (territory == null || territory.length() == 0) {
+                loc = supplementalDataInfo.getDefaultContentFromBase(loc);
+                territory = loc.getCountry();
+            }
+            if (territory == null || territory.length() == 0) {
+                territory = "US";
+            }
+        }
+
+        String currency = supplementalDataInfo.getDefaultCurrency(territory);
+        String checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
+        String currencySymbol = cldrFile.getWinningValue(checkPath);
+        String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
+
+        DecimalFormat df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol,numberSystem);
+        df.applyPattern(value);
+        
+        double sampleAmount = 1295.00;
+        String example = formatNumber(df, sampleAmount);
+        example = addExampleResult(formatNumber(df, -sampleAmount), example);
+
+        return example;
+    }
+    
     /**
      * Creates examples for decimal formats.
      * 

@@ -460,6 +460,10 @@ public class ICUServiceBuilder {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(currency, CURRENCY, currencySymbol, null);
     }
+    public DecimalFormat getCurrencyFormat(String currency, String currencySymbol, String numberSystem) {
+        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
+        return _getNumberFormat(currency, CURRENCY, currencySymbol, numberSystem);
+    }
 
     public DecimalFormat getLongCurrencyFormat(String currency) {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);

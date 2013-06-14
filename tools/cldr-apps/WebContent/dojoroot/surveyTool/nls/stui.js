@@ -62,6 +62,8 @@ define({
 		missing: "Missing",
 
 
+                adminDeadThreadsHeader: "Deadlocked Threads!",
+
 		admin_settings: "Settings",
 		admin_settings_desc: "Survey tool settings",
 		adminSettingsChangeTemp: "Temporary change:",

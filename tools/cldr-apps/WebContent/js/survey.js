@@ -4950,18 +4950,35 @@ function loadAdminPanel() {
 				var frag2 = document.createDocumentFragment();
 				removeAllChildNodes(stack);
 				stack.innerHTML = stui.str("adminClickToViewThreads");
+				deadThreads={};
 				if(json.threads.dead) {
-					frag2.appendChild(json.threads.dead.toString(),"span","adminDeadThreads");
-					// TODO
+					var header =createChunk(stui.str("adminDeadThreadsHeader"), "div", "adminDeadThreadsHeader");
+					var deadul = createChunk("","ul","adminDeadThreads");
+					for(var jj=0;jj<json.threads.dead.length;jj++) {
+						var theThread = json.threads.dead[jj];
+						var deadLi = createChunk("#"+theThread.id, "li");
+						//deadLi.appendChild(createChunk(theThread.text,"pre"));
+						deadThreads[theThread.id] = theThread.text;
+						deadul.appendChild(deadLi);
+					}
+					header.appendChild(deadul);
+					stack.appendChild(header);
 				}
 				for(id in json.threads.all) {
 					var t = json.threads.all[id];
 					var thread = createChunk(null,"div","adminThread");
-					thread.appendChild(createChunk(id,"span","adminThreadId"));
+					var tid;
+					thread.appendChild(tid=createChunk(id,"span","adminThreadId"));
+					if(deadThreads[id]) {
+						tid.className = tid.className+" deadThread";
+					}
 					thread.appendChild(createChunk(t.name,"span","adminThreadName"));
 					thread.appendChild(createChunk(stui.str(t.state),"span","adminThreadState_"+t.state));
 					thread.onclick=(function (t,id){return (function() {
 						stack.innerHTML = "<b>"+id+":"+t.name+"</b>\n";
+						if(deadThreads[id]) {
+							stack.appendChild(createChunk(deadThreads[id],"pre","deadThreadInfo"));
+						}
 						stack.appendChild(createChunk("\n\n{{{\n","span","textForTrac"));
 						for(var q in t.stack) {
 							stack.innerHTML = stack.innerHTML + t.stack[q] + "\n";
@@ -4970,7 +4987,7 @@ function loadAdminPanel() {
 					});})(t,id);
 					frag2.appendChild(thread);
 				}
-				
+
 				removeAllChildNodes(u);
 				u.appendChild(frag2);
 			}

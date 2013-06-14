@@ -12,6 +12,7 @@
     </head>
     
     <body>
+    <a href="survey">Return to the SurveyTool</a> |     <a href="index.jsp">CLDR Web Applications</a>
                 <img src="STLogo.png" align="right" border="0" title="[logo]" alt="[logo]" />
 
 <%
@@ -95,7 +96,7 @@ CLDRLocale loc = CLDRLocale.getInstance(pageLocale);
 </script>
 <table>
 <tr>
-<td>
+<td style='border-right: 1px solid gray'>
 What is... <input id='whatis' onchange="lookup_whatis()" style='font-size: x-large;'>
 </td>
 <td>
@@ -114,6 +115,22 @@ enter a value and hit the tab key to begin
 <div id='whatis_answer'>
 </div>
 <hr>
+
+<div class="helpHtml" style='margin: 2em'>
+<h4>Instructions:</h4>
+<b>What Is...</b>:  Enter a code or a portion of a name in the "What Is" field, such as "jgo" or "English", and press the Tab key.  A list of matching codes will be shown.
+
+<p>
+
+<b>XPath Calculator</b>:  
+
+Enter an XPath, such as <tt>//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator</tt> into the XPath field, and press the Tab key. 
+Or, enter an XPath strid, such as <tt>1d142c4be7841aa7</tt> into the XPath strid field and press the Tab key.  
+
+The other fields (if applicable) will be filled in.
+
+
+</div>
 
 </body>
 </html>

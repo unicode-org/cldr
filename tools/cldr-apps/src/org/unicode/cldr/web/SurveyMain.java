@@ -3428,33 +3428,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         ctx.includeFragment("manage.jsp");
 
-        ctx.println("<h4>Coverage</h4>");
-        ctx.print("<blockquote>");
-        ctx.println("<p class='hang'>For more information on coverage, see "
-                + "<a href='http://www.unicode.org/cldr/data/docs/web/survey_tool.html#Coverage'>Coverage Help</a></p>");
-        // String lev = showListPref(ctx, PREF_COVLEV, "Coverage Level",
-        // PREF_COVLEV_LIST);
-        String lev = ctx.showCoverageSetting();
 
-        /*
-         * if(false) { // currently not doing effective coverages
-         * if(lev.equals("default")) { ctx.print("&nbsp;"); ctx.print("&nbsp;");
-         * showListPref(ctx,PREF_COVTYP, "Coverage Type", ctx.getLocaleTypes(),
-         * true); } else { ctx.print("&nbsp;"); ctx.print(
-         * "&nbsp;<span class='deactivated'>Coverage Type: <b>n/a</b></span><br>"
-         * ); }
-         * ctx.println("<br>(Current effective coverage level: <tt class='codebox'>"
-         * + ctx.defaultPtype()+"</tt>)<p>"); }
-         */
-        ctx.println("<br/>Current coverage level: <tt class='codebox'>" + lev + "</tt>.<br>");
-        if (!ctx.settings().persistent()) {
-            ctx.println("<i>Note: Your coverage level won't be saved, you are not logged in.</i><br/>");
-        } else {
-            ctx.println("(Your coverage level will be saved for the next time you log in.)<br/>");
-        }
-        ctx.println("</blockquote>");
-
-        ctx.print("<hr>");
+/*        ctx.print("<hr>");
 
         if (UserRegistry.userIsTC(ctx.session.user)) {
             showTogglePref(ctx, PREF_DELETEZOOMOUT, "Show delete controls when not zoomed in:");
@@ -3478,7 +3453,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             ctx.println("</div>");
         }
-
+*/
         //
         // // Dummy, pointless boolean toggle.
         // if(isUnofficial) {

@@ -510,6 +510,35 @@ span.adminExceptionUptime {
 	margin-top: 0;
 }
 
+
+.deadThread, .adminDeadThreadsHeader, ul.adminDeadThreads {
+    background-color: red;
+    color: black;
+}
+.adminDeadThreadsHeader {
+    padding-left: 30px;
+    margin:0;
+    white-space: nowrap;
+    background: url(stop.png) no-repeat 0 top;
+    display: block;
+}
+
+ul.adminDeadThreads {
+    display: inline;
+    padding-left: 40px;
+    margin:0;
+    margin-bottom: 1em;
+}
+
+ul.adminDeadThreads li {
+    display: inline;
+    padding-left: 0.25em;
+}
+
+.adminThreadStack {
+    vertical-align: top;
+}
+
 pre.adminExceptionLogsite {
     padding-left:  20px;
     background: url(conf2.png) no-repeat 0 top;
@@ -1378,13 +1407,22 @@ table.sqlbox form {
 .manageSubpages {
 	padding-left: 2em;
 	display: block;
+	width: 50em;
 }
 
 .manageSubpages a,
 .manageSubpages b {
-	list-style: inside;
-	display: list-item;
-	list-style-type: disc;
+    display:  block;
+    border-radius: 5px;
+    border:  1px solid gray;
+    padding: 0.25em;
+    color:  blue;
+}
+
+.manageSubpages a:hover,
+.manageSubpages b:hover {
+    background: silver;
+    color: red;
 }
 
 .ferrbox {

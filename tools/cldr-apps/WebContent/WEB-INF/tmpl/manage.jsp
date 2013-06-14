@@ -1,7 +1,5 @@
 <%@ include file="/WEB-INF/jspf/stcontext.jspf"%><!--  manage.jsp begin -->
 
-<h3>Subpages</h3>
-
 <%
 WebContext subCtx = new WebContext(ctx);
 subCtx.removeQuery("do");
@@ -17,17 +15,30 @@ String helpName = subCtx.getString("helpName");
     <div class='manageSubpages'>
 <%
         if(subCtx.session.user != null)  {
-            boolean haveCookies = (subCtx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&subCtx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
-            if(!haveCookies && !subCtx.hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
-                subCtx.println(" <a class='notselected' href='"+subCtx.url()+subCtx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'><b>Log me in automatically next time</b></a>");
+           %> <h3>My Account</h3>
+           <div id='myUser'></div>
+           <script>
+            dojo.byId('myUser').appendChild(createUser( <%= subCtx.session.user.toJSONString() %> ));
+           </script>
+           
+           <%
+           boolean haveCookies = (subCtx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&subCtx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
+            if(false && !haveCookies && !subCtx.hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
+                subCtx.println(" <a class='notselected' href='"+subCtx.url()+subCtx.urlConnector()+SurveyMain.QUERY_SAVE_COOKIE+"=iva'>Log me in automatically next time</a>");
             }
-            SurveyMain.printMenu(subCtx, doWhat, "listu", "My&nbsp;Account", SurveyMain.QUERY_DO);
             %>
-                    <a href='<%= request.getContextPath() %>/v#oldvotes' class='notselected'>Import my Old Votes (pre-CLDR <%= SurveyMain.getNewVersion() %>)</a>
-            <%
-            subCtx.print("<a href='"+ctx.context("myvotes.jsp?user="+subCtx.session.user.id)+"&s="+subCtx.session.id+"'>My&nbsp;Recent&nbsp;Activity</a>");
+            <a href='?do=listu'>My Account Settings</a>
+              <a href='<%= request.getContextPath()   %>/lock.jsp?email=<%= subCtx.session.user.email %>'>Permanently disable my account! (account lock)</a>
+              
+              <h3>My Votes</h3>
+              <a href='<%= request.getContextPath() %>/v#oldvotes' >Import my Old Votes (from CLDR <%= SurveyMain.getOldVersion() %> and prior) </a>
+              <a href='<%= ctx.context("myvotes.jsp?user="+subCtx.session.user.id)+"&s="+subCtx.session.id %>'>See My&nbsp;Recent&nbsp;Activity</a>
+                <a  href='<%= subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id %>'>Upload an XML file as my votes (bulk upload)</a>
+                <a  href='<%= subCtx.jspUrl("vsummary.jsp"  )+ "&amp;s=" + subCtx.session.id %>'>Priority Items Summary</a>
+            
+            <h3>My Organization (<%= subCtx.session.user.getOrganization().getDisplayName() %>)</h3><%
             if(UserRegistry.userIsTC(subCtx.session.user)) {
-                SurveyMain.printMenu(subCtx, doWhat, "list", "Manage&nbsp;" + subCtx.session.user.org + "&nbsp;Users", SurveyMain.QUERY_DO);
+                SurveyMain.printMenu(subCtx, doWhat, "list", "Manage&nbsp;Users", SurveyMain.QUERY_DO);
                 // subCtx.print(" | ");
                 //              if(this.phase()==Phase.VETTING || this.phase() == Phase.SUBMIT) {
             } else {
@@ -51,21 +62,19 @@ String helpName = subCtx.getString("helpName");
                 subCtx.println("<br/><b class='selected'> you have been granted extended privileges for the CLDR "+subCtx.sm.getNewVersion()+" vetting period.</b><br>");
             }
             %>
-  <a href='<%= request.getContextPath()   %>/lock.jsp?email=<%= subCtx.session.user.email %>'>Permanently disable my account! (account lock)</a>
+         <h3>Forum</h3>
+              <%= ctx.sm.fora.mainFeedIcon(ctx) %>
           <%
         }
-        if(subCtx.sm.dbUtils.hasDataSource()) {
-            subCtx.println("<a class='notselected' href='"+subCtx.jspUrl("statistics.jsp")+"'>Statistics</a>");
-        }
-        if((subCtx.session!=null&&subCtx.session.user!=null)) {
-            subCtx.println("<a class='notselected' href='"+subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id+"'>Upload&nbsp;XML</a>");
-        }
-        if(subCtx.session!=null&&subCtx.session.user!=null /*&& subCtx.session.user.userlevel<UserRegistry.LOCKED*/) {
-            subCtx.println("<a class='notselected' href='"+subCtx.jspUrl("vsummary.jsp"  ) +"'>Priority&nbsp;Items&nbsp;Summary</a>");
-        }
-        subCtx.flush();
-     %>
-  <%= ctx.sm.fora.mainFeedIcon(ctx) %>
+          subCtx.flush();
+         %>
+         
+         <h3>Informational</h3>
+<%     if(subCtx.sm.dbUtils.hasDataSource()) { %>
+            <a href="<%= subCtx.context("statistics.jsp") %>"/>Overall SurveyTool Statistics</a>
+         <% } %>
+            <a href="<%= subCtx.context("about.jsp") %>"/>About the SurveyTool Installation</a>
+            <a href="<%= subCtx.context("browse.jsp") %>"/>Lookup a code or an xpath</a>
       </div>  
      
 

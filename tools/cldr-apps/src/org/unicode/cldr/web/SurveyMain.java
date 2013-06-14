@@ -3090,11 +3090,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 if (justme) {
                     ctx.println("<hr>");
                     // Is the 'interest locales' list relevant?
-                    String mainLocs[] = UserRegistry.tokenizeLocale(ctx.session.user.locales);
-                    if (mainLocs.length == 0) {
+                    if(ctx.session.user.userlevel <= UserRegistry.EXPERT) {
                         boolean intlocs_change = (ctx.field("intlocs_change").length() > 0);
 
-                        ctx.println("<h4>Notify me about these locale groups:</h4>");
+                        ctx.println("<h4>Notify me about these locale groups (just the language names, no underscores or dashes):</h4>");
 
                         if (intlocs_change) {
                             if (ctx.field("intlocs_change").equals("t")) {

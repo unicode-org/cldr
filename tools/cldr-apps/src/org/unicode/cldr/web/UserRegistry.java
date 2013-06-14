@@ -1794,7 +1794,7 @@ public class UserRegistry {
         }
 
         // unrestricted experts can modify all                                                                                                                                                                                              
-        if ((u.locales == null) && userIsExpert(u))
+        if ((u.locales==null || isAllLocales(u.locales)) && userIsExpert(u))
             return null; // empty = ALL                                                                                                                                                                                                     
 
         // User has a wildcard (*) - can modify all.                                                                                                                                                                                        

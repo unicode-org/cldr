@@ -5,19 +5,75 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.Factory;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
+import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
 
-public class TestPaths extends TestFmwk {
+public class TestPaths extends TestFmwkPlus {
     static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) {
         new TestPaths().run(args);
+    }
+
+    public void VerifyEnglishVsRoot() {
+        Set<String> rootPaths = CollectionUtilities.addAll(testInfo.getCldrFactory().make("root", true).iterator(), new HashSet<String>());
+        Set<String> englishPaths = CollectionUtilities.addAll(testInfo.getEnglish().iterator(), new HashSet<String>());
+        englishPaths.removeAll(rootPaths);
+        if (englishPaths.size() == 0) {
+            return;
+        }
+        Factory phf = PathHeader.getFactory(testInfo.getEnglish());
+        Status status = new Status();
+        Set<PathHeader> suspiciousPaths = new TreeSet();
+        Set<PathHeader> errorPaths = new TreeSet();
+        XPathParts parts = new XPathParts();
+        Set<String> SKIP_VARIANT = new HashSet(Arrays.asList(
+                "ps-variant", "ug-variant", "ky-variant", "az-short", "Arab-variant", "am-variant", "pm-variant"));
+        for (String path : englishPaths) {
+            String source = testInfo.getEnglish().getSourceLocaleID(path, status);
+            // skip aliases, other counts
+            if (!status.pathWhereFound.equals(path) || path.contains("[@count=\"one\"]")) {
+                continue;
+            }
+            PathHeader ph = phf.fromPath(path);
+            if (ph.getSectionId() == SectionId.Special 
+                    || ph.getCode().endsWith("-name-other")) {
+                continue;
+            }
+            if (path.contains("@alt") 
+                    && !SKIP_VARIANT.contains(ph.getCode()) 
+                    && ph.getPageId() != PageId.Alphabetic_Information) {
+                errorPaths.add(ph);
+            } else {
+                suspiciousPaths.add(ph);
+            }
+        }
+        if (errorPaths.size() != 0) {
+            errln("Error: paths in English but not root:" + getPaths(errorPaths));
+        }
+        logln("Suspicious: paths in English but not root:" + getPaths(suspiciousPaths));
+    }
+
+    private String getPaths(Set<PathHeader> altPaths) {
+        StringBuilder b = new StringBuilder();
+        for (PathHeader path : altPaths) {
+            b.append("\n\t\t").append(path).append(":\t").append(testInfo.getEnglish().getStringValue(path.getOriginalPath()));
+        }
+        return b.toString();
     }
 
     public void TestGetFullPath() {
@@ -87,7 +143,7 @@ public class TestPaths extends TestFmwk {
 
     private Collection<String> getLocalesToTest() {
         return params.inclusion < 5 ? Arrays.asList("root", "en", "ja", "ar")
-            : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages()
-                : testInfo.getCldrFactory().getAvailable();
+                : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages()
+                        : testInfo.getCldrFactory().getAvailable();
     }
 }

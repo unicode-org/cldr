@@ -10,20 +10,20 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestFmwkPlus extends TestFmwk {
 
-    public <T, V, R extends TestRelation<T, V>> void assertTrue(String message, T arg0, R relation, V... args) {
-        assertRelation(message, true, arg0, relation, args);
+    public <T, V, R extends TestRelation<T, V>> boolean assertTrue(String message, T arg0, R relation, V... args) {
+        return assertRelation(message, true, arg0, relation, args);
     }
 
-    public <T, V, R extends TestRelation<T, V>> void assertFalse(String message, T arg0, R relation, V... args) {
-        assertRelation(message, false, arg0, relation, args);
+    public <T, V, R extends TestRelation<T, V>> boolean assertFalse(String message, T arg0, R relation, V... args) {
+        return assertRelation(message, false, arg0, relation, args);
     }
 
-    public <T, V, R extends TestRelation<T, V>> void assertTrue(T arg0, R relation, V... args) {
-        assertRelation(null, true, arg0, relation, args);
+    public <T, V, R extends TestRelation<T, V>> boolean assertTrue(T arg0, R relation, V... args) {
+        return assertRelation(null, true, arg0, relation, args);
     }
 
-    public <T, V, R extends TestRelation<T, V>> void assertFalse(T arg0, R relation, V... args) {
-        assertRelation(null, false, arg0, relation, args);
+    public <T, V, R extends TestRelation<T, V>> boolean assertFalse(T arg0, R relation, V... args) {
+        return assertRelation(null, false, arg0, relation, args);
     }
 
     public <T, V, R extends TestRelation<T, V>> boolean assertRelation(String message, boolean expected, T arg0, R relation, V... args) {
@@ -154,7 +154,7 @@ public class TestFmwkPlus extends TestFmwk {
             if (bs.length != 0) {
                 throw new IllegalArgumentException("Should only have 1 argument");
             }
-            return a.size() != 0;
+            return a.size() == 0;
         }
         @Override
         public String toString() {
@@ -191,7 +191,7 @@ public class TestFmwkPlus extends TestFmwk {
             return "is identical to";
         }
     };
-
+    
     public static TestRelation CONTAINS_US = new TestRelation<UnicodeSet, Object>() {
         @Override
         public boolean isTrue(UnicodeSet a, Object... bs) {

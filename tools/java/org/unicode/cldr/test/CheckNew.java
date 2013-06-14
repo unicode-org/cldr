@@ -5,10 +5,16 @@ import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 
 public class CheckNew extends CheckCLDR {
 
     private OutdatedPaths outdatedPaths = new OutdatedPaths();
+    private CLDRFile english;
+
+    public CheckNew(Factory factory) {
+        english = factory.make("en", true);
+    }
 
     @Override
     public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
@@ -36,10 +42,14 @@ public class CheckNew extends CheckCLDR {
 
         // we skip if certain other errors are present
         if (hasCoverageError(result)) return this;
+        
+        String englishValue = english.getStringValue(path);
+        String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
 
         result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
             .setSubtype(Subtype.modifiedEnglishValue)
-            .setMessage("The English value for this field changed, but the value for the locale didn't. "));
+            .setMessage("The English value for this field changed from “{0}” to “{1}’, but the corresponding value for your locale didn't change.",
+                    oldEnglishValue, englishValue));
 
         return this;
     }

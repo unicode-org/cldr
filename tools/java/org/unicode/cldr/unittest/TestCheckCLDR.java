@@ -18,6 +18,7 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckConsistentCasing;
 import org.unicode.cldr.test.CheckForExemplars;
 import org.unicode.cldr.test.CheckNames;
+import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -288,5 +289,24 @@ public class TestCheckCLDR extends TestFmwk {
         xpath = "//ldml/localeDisplayNames/currencies/currency[@type=\"afa\"]/name";
         c.check(xpath, xpath, "Afghan Afghani (1927-2002)", options, possibleErrors);
         assertEquals("Currencies are allowed to have dates", 0, possibleErrors.size());
+    }
+    
+    public void TestCheckNew() {
+        String path = "//ldml/localeDisplayNames/territories/territory[@type=\"AX\"]";
+        CheckCLDR c = new CheckNew(testInfo.getCldrFactory());
+        List<CheckStatus> result = new ArrayList();
+        Map<String, String> options = new HashMap();
+        c.setCldrFileToCheck(testInfo.getCldrFactory().make("fr", true), options, result);
+        c.check(path, path, "foobar", options, result);
+        boolean ok = false;
+        for (CheckStatus status : result) {
+            if (status.getSubtype() != Subtype.modifiedEnglishValue) {
+                continue;
+            }
+            assertEquals(null, "The English value for this field changed from “Aland Islands” to “Åland Islands’, but the corresponding value for your locale didn't change.",
+                    status.getMessage());
+            return;
+        }
+        errln("No failure message.");
     }
 }

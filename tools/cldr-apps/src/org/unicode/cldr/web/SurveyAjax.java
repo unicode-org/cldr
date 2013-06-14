@@ -1106,7 +1106,7 @@ public class SurveyAjax extends HttpServlet {
             if (loc != null && SurveyMain.getLocalesSet().contains(loc)) {
                 r.put("localeStampName", loc.getDisplayName());
                 r.put("localeStampId", loc);
-                r.put("localeStamp", sm.getSTFactory().stampForLocale(loc).current());
+                r.put("localeStamp", sm.getSTFactory().mintLocaleStamp(loc).current());
             }
         }
     }

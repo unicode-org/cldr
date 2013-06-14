@@ -346,117 +346,122 @@ public class MailSender implements Runnable {
         }
         
         SurveyLog.warnOnce("MailSender: processing mail queue");
-        Thread.currentThread().setName("SurveyTool Periodic Mail Sender: queue size " + messageQueue.size());
-        if(SurveyMain.isUnofficial()) {
-            int countLeft = DBUtils.sqlCount(COUNTLEFTSQL); 
-            if(countLeft > 0) {
-                if(DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
-            }
-        }
-        
-        Connection conn = null;
-        PreparedStatement s = null, s2=null;
-        ResultSet rs = null;
-        Throwable badException = null;
+        String oldName = Thread.currentThread().getName();
         try {
-            DBUtils db = DBUtils.getInstance();
-            conn = db.getDBConnection();
-            conn.setAutoCommit(false);
-            java.sql.Timestamp sqlnow = db.sqlNow();
-            s = db.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id " + (DBUtils.db_Mysql?"limit 1":""));
-            s.setInt(1, lastIdProcessed);
-            rs = s.executeQuery();
-            
-            if(rs.first()==false) {
-                if(lastIdProcessed > 0) {
-                    if(DEBUG) {
-                        System.out.println("reset lastidprocessed to -1");
-                    }
-                    lastIdProcessed = -1;
+            Thread.currentThread().setName("SurveyTool Periodic Mail Sender: queue size " + messageQueue.size());
+            if(SurveyMain.isUnofficial()) {
+                int countLeft = DBUtils.sqlCount(COUNTLEFTSQL); 
+                if(countLeft > 0) {
+                    if(DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
                 }
-                return; // nothing to do
             }
             
-            Properties env = getProperties();
-            
-            Session ourSession = Session.getInstance(env, null);
-            if(DEBUG) {
-                ourSession.setDebug(true);
-            }
-            
+            Connection conn = null;
+            PreparedStatement s = null, s2=null;
+            ResultSet rs = null;
+            Throwable badException = null;
             try {
+                DBUtils db = DBUtils.getInstance();
+                conn = db.getDBConnection();
+                conn.setAutoCommit(false);
+                java.sql.Timestamp sqlnow = db.sqlNow();
+                s = db.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id " + (DBUtils.db_Mysql?"limit 1":""));
+                s.setInt(1, lastIdProcessed);
+                rs = s.executeQuery();
                 
-                
-                lastIdProcessed = rs.getInt("id"); // update ID
-                if(DEBUG) System.out.println("Processing id " + lastIdProcessed);
-                MimeMessage ourMessage = new MimeMessage(ourSession);
-                
-                // from - sending user or surveytool
-                Integer from = rs.getInt("sender");
-                UserRegistry.User fromUser = getUser(from);
-                
-                if(from>1) {
-                    ourMessage.setFrom(new InternetAddress(fromUser.email,fromUser.name + " (SurveyTool)"));
-                } else {
-                    ourMessage.setFrom(new InternetAddress("surveytool@unicode.org", "CLDR SurveyTool"));
+                if(rs.first()==false) {
+                    if(lastIdProcessed > 0) {
+                        if(DEBUG) {
+                            System.out.println("reset lastidprocessed to -1");
+                        }
+                        lastIdProcessed = -1;
+                    }
+                    return; // nothing to do
                 }
                 
-                // to
-                Integer to = rs.getInt("user");
-                UserRegistry.User toUser = getUser(to);
-                if(to>1) {
-                    ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(toUser.email, toUser.name));
-                } else {
-                    ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress("surveytool@unicode.org", "CLDR SurveyTool"));
+                Properties env = getProperties();
+                
+                Session ourSession = Session.getInstance(env, null);
+                if(DEBUG) {
+                    ourSession.setDebug(true);
                 }
                 
-    //            if (mailFromAddress != null) {
-    //                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName + " (CLDR)") };
-    //                ourMessage.setReplyTo(replyTo);
-    //            }
+                try {
+                    
+                    
+                    lastIdProcessed = rs.getInt("id"); // update ID
+                    if(DEBUG) System.out.println("Processing id " + lastIdProcessed);
+                    MimeMessage ourMessage = new MimeMessage(ourSession);
+                    
+                    // from - sending user or surveytool
+                    Integer from = rs.getInt("sender");
+                    UserRegistry.User fromUser = getUser(from);
+                    
+                    if(from>1) {
+                        ourMessage.setFrom(new InternetAddress(fromUser.email,fromUser.name + " (SurveyTool)"));
+                    } else {
+                        ourMessage.setFrom(new InternetAddress("surveytool@unicode.org", "CLDR SurveyTool"));
+                    }
+                    
+                    // to
+                    Integer to = rs.getInt("user");
+                    UserRegistry.User toUser = getUser(to);
+                    if(to>1) {
+                        ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(toUser.email, toUser.name));
+                    } else {
+                        ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress("surveytool@unicode.org", "CLDR SurveyTool"));
+                    }
+                    
+        //            if (mailFromAddress != null) {
+        //                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName + " (CLDR)") };
+        //                ourMessage.setReplyTo(replyTo);
+        //            }
+        
+                    ourMessage.setSubject(DBUtils.getStringUTF8(rs, "subject"));
+                    ourMessage.setText((SurveyMain.isUnofficial()?" == UNOFFICIAL SURVEYTOOL  - This message was sent from a TEST machine== \n":"")+DBUtils.getStringUTF8(rs, "text") + footer);
     
-                ourMessage.setSubject(DBUtils.getStringUTF8(rs, "subject"));
-                ourMessage.setText((SurveyMain.isUnofficial()?" == UNOFFICIAL SURVEYTOOL  - This message was sent from a TEST machine== \n":"")+DBUtils.getStringUTF8(rs, "text") + footer);
-
-                if(env.getProperty("CLDR_SMTP", null) != null) {
-                    Transport.send(ourMessage);
-                } else {
-                    SurveyLog.warnOnce("Pretending to send mail - CLDR_SMTP is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
+                    if(env.getProperty("CLDR_SMTP", null) != null) {
+                        Transport.send(ourMessage);
+                    } else {
+                        SurveyLog.warnOnce("Pretending to send mail - CLDR_SMTP is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
+                    }
+                    
+                    if(DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
+                    
+                    rs.updateTimestamp("sent_date", sqlnow);
+                    if(DEBUG) System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
+                    rs.updateRow();
+                    if(DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
+                    conn.commit();
+                    if(DEBUG) System.out.println("Mail: comitted: #id " + lastIdProcessed + " to " + toUser);
+                } catch (MessagingException mx) {
+                    if(SurveyMain.isUnofficial()) {
+                        SurveyLog.logException(mx, "Trying to process mail id#"+lastIdProcessed);
+                    }
+                    badException = mx;
+                } catch (UnsupportedEncodingException e) {
+                    if(SurveyMain.isUnofficial()) {
+                        SurveyLog.logException(e, "Trying to process mail id#"+lastIdProcessed);
+                    }
+                    badException = e;
                 }
                 
-                if(DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
-                
-                rs.updateTimestamp("sent_date", sqlnow);
-                if(DEBUG) System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
-                rs.updateRow();
-                if(DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
-                conn.commit();
-                if(DEBUG) System.out.println("Mail: comitted: #id " + lastIdProcessed + " to " + toUser);
-            } catch (MessagingException mx) {
-                if(SurveyMain.isUnofficial()) {
-                    SurveyLog.logException(mx, "Trying to process mail id#"+lastIdProcessed);
+                if(badException != null) {
+                    int badCount = 0;
+                    rs.updateInt("try_count",(badCount = ( rs.getInt("try_count")+1)));
+                    rs.updateString("audit", badException.getMessage() + badException.getCause());
+                    rs.updateTimestamp("try_date", sqlnow);
+                    rs.updateRow();
+                    conn.commit();
+                    if(DEBUG) System.out.println("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed  + "  - " + badException.getCause());
                 }
-                badException = mx;
-            } catch (UnsupportedEncodingException e) {
-                if(SurveyMain.isUnofficial()) {
-                    SurveyLog.logException(e, "Trying to process mail id#"+lastIdProcessed);
-                }
-                badException = e;
+            } catch(SQLException se) {
+                SurveyLog.logException(se, "processing mail");
+            } finally {
+                DBUtils.close(rs, s, s2, conn);
             }
-            
-            if(badException != null) {
-                int badCount = 0;
-                rs.updateInt("try_count",(badCount = ( rs.getInt("try_count")+1)));
-                rs.updateString("audit", badException.getMessage() + badException.getCause());
-                rs.updateTimestamp("try_date", sqlnow);
-                rs.updateRow();
-                conn.commit();
-                if(DEBUG) System.out.println("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed  + "  - " + badException.getCause());
-            }
-        } catch(SQLException se) {
-            SurveyLog.logException(se, "processing mail");
         } finally {
-            DBUtils.close(rs, s, s2, conn);
+            Thread.currentThread().setName(oldName);
         }
     }
 

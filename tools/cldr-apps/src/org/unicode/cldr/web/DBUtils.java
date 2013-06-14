@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -1245,7 +1246,7 @@ public class DBUtils {
         }
     }
     
-    private Map<String,Reference<JSONObject>> cachedJsonQuery = new TreeMap<String,Reference<JSONObject>>();
+    private Map<String,Reference<JSONObject>> cachedJsonQuery = new ConcurrentHashMap<String,Reference<JSONObject>>();
     
     /**
      * Run a query, caching the JSON response
@@ -1259,10 +1260,11 @@ public class DBUtils {
      * @throws IOException
      * @throws JSONException
      */
-    public static synchronized JSONObject queryToCachedJSON(String id, long cacheAge, String query, Object... args) throws SQLException, IOException, JSONException {
+    public static JSONObject queryToCachedJSON(String id, long cacheAge, String query, Object... args) throws SQLException, IOException, JSONException {
         if(SurveyMain.isSetup==false ||  SurveyMain.isBusted()) {
             return null;
         }
+        
         final boolean CDEBUG = true && SurveyMain.isUnofficial();
         DBUtils instance = getInstance(); // don't want the cache to be static
         Reference<JSONObject> ref = instance.cachedJsonQuery.get(id);

@@ -22,6 +22,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
@@ -294,7 +295,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private CLDRLocale locale;
         private CLDRFile oldFile;
         private boolean readonly;
-        private MutableStamp stamp = MutableStamp.getInstance();
+        private MutableStamp stamp = null;
 
         /**
          * The held XMLSource.
@@ -320,7 +321,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             sm.xpt.loadXPaths(diskData);
             diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
             pathsForFile = phf.pathsForFile(diskFile);
-
+            
             if (checkHadVotesSometimeThisRelease) {
                 votesSometimeThisRelease = loadVotesSometimeThisRelease(locale);
                 if (votesSometimeThisRelease == null) {
@@ -330,6 +331,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                                                               // anymore.
                 }
             }
+            stamp = mintLocaleStamp(locale);
         }
 
         public final Stamp getStamp() {
@@ -933,7 +935,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         public TestResultBundle getTestResultData(Map<String, String> options) {
-            return gTestCache.getBundle(locale, options);
+            synchronized(gTestCache) {
+                return gTestCache.getBundle(locale, options);
+            }
         }
 
         public Set<String> getPathsForFile() {
@@ -1128,7 +1132,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public static final boolean isReadOnlyLocale(CLDRLocale loc) {
         return SurveyMain.getReadOnlyLocales().contains(loc);
     }
-
     /**
      * Is this a locale that can't be modified?
      * 
@@ -1189,10 +1192,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return get(locale);
     }
 
-    public Stamp stampForLocale(CLDRLocale locale) {
-        return get(locale).getStamp();
-    }
-
     /**
      * Per locale map
      */
@@ -1200,6 +1199,44 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     private LruMap<CLDRLocale, PerLocaleData> rLocales = new LruMap<CLDRLocale, PerLocaleData>(5);
 
+    private Map<CLDRLocale, MutableStamp> localeStamps = new ConcurrentHashMap<CLDRLocale, MutableStamp>(SurveyMain.getLocales().length);
+        
+    /**
+     * Peek at the stamp (changetime) for a locale. May be null, meaning we don't know what the stamp is.
+     * If the locale has gone out of scope (GC) it will return the old stamp, rather than 
+     * @param loc
+     * @return
+     */
+    public Stamp peekLocaleStamp(CLDRLocale loc) {
+        MutableStamp ms = localeStamps.get(loc);
+        return ms;
+    }
+
+
+    /**
+     * Return changetime. 
+     * @param locale
+     * @return
+     */
+    public MutableStamp mintLocaleStamp(CLDRLocale locale) {
+        MutableStamp s  = localeStamps.get(locale);
+        if(s==null) {
+            s = MutableStamp.getInstance();
+            localeStamps.put(locale, s);
+        }
+        return s;
+    }
+
+
+    /**
+     * Get the locale stamp, loading the locale if not loaded.
+     * @param loc
+     * @return
+     */
+    public Stamp getLocaleStamp(CLDRLocale loc) {
+        return get(loc).getStamp();
+    }
+    
     /**
      * Fetch a locale from the per locale data, create if not there.
      * 
@@ -1681,14 +1718,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     /**
+     * get the bundle for testing against on-disk data.
      * @return
      */
-    private synchronized TestResultBundle getDiskTestBundle(CLDRLocale locale) {
-        TestResultBundle q;
-        q = gDiskTestCache.getBundle(locale, basicOptions); // only if we
-                                                            // really, really
-                                                            // need it
-        return q;
+    private TestResultBundle getDiskTestBundle(CLDRLocale locale) {
+        synchronized(gDiskTestCache) {
+            TestResultBundle q;
+            q = gDiskTestCache.getBundle(locale, basicOptions);
+            return q;
+        }
     }
 
     /**

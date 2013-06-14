@@ -494,10 +494,11 @@ public class VettingViewer<T> {
         }
 
         public String getUrl(String locale) {
-            return baseUrl + "?_="
-                    + locale
-                    + "&strid="
-                    + StringId.getHexId(codeOutput.getOriginalPath());
+            return codeOutput.getUrl(baseUrl, locale);
+//            return baseUrl + "?_="
+//            + locale
+//            + "&strid="
+//            + StringId.getHexId(codeOutput.getOriginalPath());
             // String menu = PathUtilities.xpathToMenu(path);
             // String url = baseUrl + "?_=" + locale + "&amp;=" + menu;
             // return url;

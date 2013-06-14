@@ -1426,4 +1426,23 @@ public class PathHeader implements Comparable<PathHeader> {
             } catch (ArrayIndexOutOfBoundsException e) {}
         }
     }
+    
+    public enum BaseUrl {
+        //http://st.unicode.org/smoketest/survey?_=af&strid=55053dffac611328
+        //http://st.unicode.org/cldr-apps/survey?_=en&strid=3cd31261bf6738e1
+        SMOKE("http://st.unicode.org/smoketest/survey"),
+        PRODUCTION("http://st.unicode.org/cldr-apps/survey");
+        final String base;
+        private BaseUrl(String url) {
+            base = url;
+        }
+    }
+    
+    public String getUrl(BaseUrl baseUrl, String locale) {
+        return getUrl(baseUrl.base, locale);
+    }
+    
+    public String getUrl(String baseUrl, String locale) {
+        return baseUrl + "?_=" + locale + "&strid=" + StringId.getHexId(getOriginalPath());
+    }
 }

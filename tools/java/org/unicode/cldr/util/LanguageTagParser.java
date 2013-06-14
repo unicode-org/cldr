@@ -179,7 +179,12 @@ public class LanguageTagParser {
 
         // each time we fetch a token, we check for length from 1..8, and all alphanum
         StringTokenizer st = new StringTokenizer(languageTag, separator);
-        String subtag = getSubtag(st);
+        String subtag;
+        try {
+            subtag = getSubtag(st);
+        } catch (Exception e1) {
+            throw new IllegalArgumentException("Illegal language tag: " + languageTag, e1);
+        }
 
         // check for private use (x-...) and return if so
         if (subtag.equalsIgnoreCase("x")) {
@@ -199,13 +204,13 @@ public class LanguageTagParser {
             if (subtag.length() == 4 && ALPHA.containsAll(subtag)) {
                 script = subtag;
                 script = script.substring(0, 1).toUpperCase(Locale.ENGLISH)
-                    + script.substring(1).toLowerCase(Locale.ENGLISH);
+                        + script.substring(1).toLowerCase(Locale.ENGLISH);
                 subtag = getSubtag(st); // prepare for next
             }
 
             // check for region, 2 letters or 3 digits
             if (subtag.length() == 2 && ALPHA.containsAll(subtag)
-                || subtag.length() == 3 && DIGIT.containsAll(subtag)) {
+                    || subtag.length() == 3 && DIGIT.containsAll(subtag)) {
                 region = subtag.toUpperCase(Locale.ENGLISH);
                 subtag = getSubtag(st); // prepare for next
             }
@@ -238,7 +243,7 @@ public class LanguageTagParser {
 
     private boolean isValidVariant(String subtag) {
         return subtag != null && ALPHANUM.containsAll(subtag)
-            && (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0)));
+                && (subtag.length() > 4 || subtag.length() == 4 && DIGIT.contains(subtag.charAt(0)));
     }
 
     /**
@@ -404,7 +409,7 @@ public class LanguageTagParser {
     public static Set<Fields> LANGUAGE_SCRIPT = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.SCRIPT));
     public static Set<Fields> LANGUAGE_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE, Fields.REGION));
     public static Set<Fields> LANGUAGE_SCRIPT_REGION = Collections.unmodifiableSet(EnumSet.of(Fields.LANGUAGE,
-        Fields.SCRIPT, Fields.REGION));
+            Fields.SCRIPT, Fields.REGION));
 
     public String toString(Set<Fields> selection) {
         String result = language;

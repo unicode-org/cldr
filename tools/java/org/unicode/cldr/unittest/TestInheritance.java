@@ -817,4 +817,19 @@ public class TestInheritance extends TestFmwk {
         }
         return result.toString();
     }
+    
+    public void TestLanguageTagParser() {
+        LanguageTagParser ltp = new LanguageTagParser();
+        ltp.set("en-Cyrl-US");
+        assertEquals(null, "en", ltp.getLanguage());
+        assertEquals(null, "en_Cyrl", ltp.getLanguageScript());
+        assertEquals(null, "Cyrl", ltp.getScript());
+        assertEquals(null, "US", ltp.getRegion());
+        try {
+            ltp.set("$");
+            assertFalse("expected exception", true);
+        } catch (Exception e) {
+            logln(e.getMessage());
+        }
+    }
 }

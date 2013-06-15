@@ -282,6 +282,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='%territory80']([@alt='%shortVariant'])?"/>
 		<coverageLevel value="80" match="localeDisplayNames/keys/key[@type='(calendar|collation|currency|numbers)']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='(ducet|search)'][@key='collation']"/>
+		<coverageLevel inTerritory="EU" value="80" match="localeDisplayNames/types/type[@type='eor'][@key='collation']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='%numberingSystem80'][@key='numbers']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>

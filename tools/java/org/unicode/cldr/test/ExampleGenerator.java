@@ -511,7 +511,8 @@ public class ExampleGenerator {
     public enum DurationType {
         NORMAL(""), 
         DURATION("[@type=\"duration\"]"), 
-        DURATION_SHORT("[@type=\"duration-short\"]");
+        DURATION_SHORT("[@type=\"duration-short\"]"),
+        DURATION_NARROW("[@type=\"duration-narrow\"]");
         final String typeString;
         DurationType(String typeString) {
             this.typeString = typeString;
@@ -520,8 +521,8 @@ public class ExampleGenerator {
 
     public enum UnitLength {
         LONG(DurationType.DURATION), 
-        SHORT(DurationType.DURATION),
-        NARROW(DurationType.DURATION);
+        SHORT(DurationType.DURATION_SHORT),
+        NARROW(DurationType.DURATION_NARROW);
         final String typeString;
         final DurationType durationType;
         UnitLength(DurationType duration) {
@@ -529,7 +530,13 @@ public class ExampleGenerator {
             durationType = duration;
         }
         public static UnitLength from(String listPatternType) {
-            return listPatternType.equals("duration") ? UnitLength.LONG : UnitLength.SHORT;
+            if ( listPatternType.equals("duration") ) {
+                return UnitLength.LONG;
+            } else if ( listPatternType.equals("duration-narrow")) {
+                return UnitLength.NARROW;
+            } else {
+                return UnitLength.SHORT;
+            }
         }
     }
 

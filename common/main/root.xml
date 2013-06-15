@@ -3743,10 +3743,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="duration">
-			<alias source="locale" path="../listPattern"/>
+			<alias source="locale" path="../listPattern[@type='duration-short']"/>
 		</listPattern>
 		<listPattern type="duration-short">
 			<alias source="locale" path="../listPattern"/>
+		</listPattern>
+		<listPattern type="duration-narrow">
+			<alias source="locale" path="../listPattern[@type='duration-short']"/>
 		</listPattern>
 	</listPatterns>
 	<posix>

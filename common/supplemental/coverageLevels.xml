@@ -308,7 +308,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsOther']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='per']/compoundUnitPattern"/>
-		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-short)?']/listPatternPart[@type='(2|start|middle|end)']"/>
+		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="100" match="characters/stopwords/stopwordList[@type='[^']++']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>

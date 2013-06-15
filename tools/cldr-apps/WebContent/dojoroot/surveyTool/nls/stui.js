@@ -154,7 +154,7 @@ define({
 		lastReleaseStatus_msg: "${0} Last Release Value ",
 		lastReleaseStatus1_msg: "",
 		
-		dataPageInitialGuidance: "Welcome to the SurveyTool.<br>Be sure to read the <a href='http://cldr.unicode.org/index/survey-tool'>Instructions</a> carefully.  To vote for items:<br><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear in this area.</li><li>To vote for an existing item, click on the round circle (<input type='radio'>).</li><li> To vote for a value not already shown, click on any other text item to change it.</li></ol>",
+		dataPageInitialGuidance: "Welcome to the SurveyTool.<br>Be sure to read the <a href='http://cldr.unicode.org/index/survey-tool'>Instructions</a> carefully.  To vote for items:<br><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear for that row.</li><li>To vote for an existing item in the Proposed or Others column of that row, click on the <input type='radio'> for that item.</li><li> To vote for a value not already shown in that row, click on any other text item in the Proposed or Others column of that row. A new editing box will open, and you can enter a new value; you will automatically be voting for it once you hit RETURN on your keyboard.</li><li>To abstain (including retracting a vote), click on the <input type='radio'> in the Abstain column.</li><li>Don’t worry about incorrect values that aren't winning (eg in the Proposed column). They will disappear later on.</li></ol>",
 		generalPageInitialGuidance: "This area will show details of items as you work with the SurveyTool. <p> You may resize this pane by dragging the dividers.",
 		
 		loginGuidance: "You may not make any changes, you are not logged in.",

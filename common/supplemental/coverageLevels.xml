@@ -202,7 +202,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="US" value="30" match="dates/timeZoneNames/metazone[@type='%metazone30_US']/long/%metazoneTypes"/>
 		<coverageLevel inTerritory="GB" value="30" match="dates/timeZoneNames/zone[@type='Europe/London']/(long|short)/daylight"/>
 		<coverageLevel inTerritory="IE" value="30" match="dates/timeZoneNames/zone[@type='Europe/Dublin']/(long|short)/daylight"/>
-		<coverageLevel value="40" match="localeDisplayNames/languages/language[@type='%language40']"/>
+		<coverageLevel value="40" match="localeDisplayNames/languages/language[@type='%language40']([@alt='%shortVariant'])?"/>
 		<coverageLevel value="40" match="localeDisplayNames/scripts/script[@type='%script40']([@alt='(variant|stand-alone)'])?"/>
 		<coverageLevel value="40" match="localeDisplayNames/territories/territory[@type='%territory40']"/>
 		<coverageLevel value="40" match="localeDisplayNames/codePatterns/codePattern[@type='(language|script|territory)']"/>

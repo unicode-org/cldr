@@ -96,8 +96,8 @@ public class TestLocale extends TestFmwk {
         assertEquals("Extended language translation", "Simplified Chinese", testInfo.getEnglish().getName("zh_Hans"));
         assertEquals("Extended language translation", "Simplified Chinese (Singapore)",
             testInfo.getEnglish().getName("zh_Hans_SG"));
-        assertEquals("Extended language translation", "U.S. English", testInfo.getEnglish().getName("en-US"));
-        assertEquals("Extended language translation", "U.S. English (Arabic)",
+        assertEquals("Extended language translation", "American English", testInfo.getEnglish().getName("en-US"));
+        assertEquals("Extended language translation", "American English (Arabic)",
             testInfo.getEnglish().getName("en-Arab-US"));
     }
 

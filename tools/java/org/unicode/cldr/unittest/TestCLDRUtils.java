@@ -53,13 +53,13 @@ public class TestCLDRUtils extends TestFmwk {
         CLDRFile english = TestInfo.getInstance().getEnglish();
 
         checkNames(english, "en_US_POSIX", 
-                "U.S. English (Computer)", 
+                "American English (Computer)", 
                 "U.S. English (Computer)",
                 "English (United States, Computer)", 
                 "English (U.S., Computer)");
 
         checkNames(english,new ULocale( "en_US_POSIX").toLanguageTag(), 
-                "U.S. English (Computer)", 
+                "American English (Computer)", 
                 "U.S. English (Computer)",
                 "English (United States, Computer)", 
                 "English (U.S., Computer)");
@@ -72,7 +72,7 @@ public class TestCLDRUtils extends TestFmwk {
 
         checkNames(english, "en_GB", 
                 "British English", 
-                "British English",
+                "U.K. English",
                 "English (United Kingdom)", 
                 "English (U.K.)");
 
@@ -89,7 +89,7 @@ public class TestCLDRUtils extends TestFmwk {
         
         checkNames(french, "en_US_POSIX", 
                 "anglais américain (informatique)", 
-                "anglais américain (informatique)",
+                "en_US (informatique)",
                 "anglais (États-Unis, informatique)", 
                 "anglais (É-U, informatique)");
     }

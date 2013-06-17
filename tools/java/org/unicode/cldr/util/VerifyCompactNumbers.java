@@ -29,8 +29,6 @@ import com.ibm.icu.util.ULocale;
 
 public class VerifyCompactNumbers {
 
-    static final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-
     final static Options myOptions = new Options();
 
     enum MyOptions {
@@ -66,6 +64,7 @@ public class VerifyCompactNumbers {
         Factory factory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
 
+        SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
         Set<String> defaultContentLocales = sdi.getDefaultContentLocales();
         NumberFormat enf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
         enf.setGroupingUsed(false);
@@ -146,6 +145,7 @@ public class VerifyCompactNumbers {
             ULocale locale2 = new ULocale(locale);
             NumberFormat nf = NumberFormat.getInstance(locale2);
             // nf.setMaximumFractionDigits(0);
+            SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
             PluralInfo pluralInfo = sdi.getPlurals(locale);
             String[] debugOriginals = null;
             CompactDecimalFormat cdf = BuildIcuCompactDecimalFormat.build(cldrFile, debugCreationErrors,

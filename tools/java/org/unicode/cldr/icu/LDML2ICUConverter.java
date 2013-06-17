@@ -5720,6 +5720,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
                 if (rulesetType.equals(LDMLConstants.LENIENT_PARSE)) {
                     rs.val = Utility.escape(loc.getFile().getStringValue(aPath).replace(LARROW, '<')
                         .replace(RARROW, '>'));
+                    System.out.println("val " + rs.val);
                 } else {
                     rs.val = ruleValue + radixString + decExpString + ": "
                         + Utility.escape(loc.getFile().getStringValue(aPath).replace(LARROW, '<').replace(RARROW, '>'));

@@ -60,7 +60,9 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         supplementalData,
         windowsZones,
         keyTypeData,
-        collation;
+        brkitr,
+        collation,
+        rbnf;
     }
 
     private static final Options options = new Options(
@@ -169,9 +171,16 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         }
 
         Factory specialFactory = null;
+        File specialsDir = null;
         Option option = options.get("specialsdir");
         if (option.doesOccur()) {
-            specialFactory = Factory.make(option.getValue(), ".*");
+            if (type == Type.rbnf) {
+                specialsDir = new File(option.getValue());
+            } else {
+                specialFactory = Factory.make(option.getValue(), ".*");
+            }
+        } else if (type == Type.brkitr) {
+            specialFactory = Factory.make(sourceDir, ".*");
         }
 
         // Get list of locales if defined.
@@ -224,9 +233,23 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         case keyTypeData:
             processBcp47Data();
             break;
+        case brkitr:
+            BreakIteratorMapper brkMapper = new BreakIteratorMapper(specialFactory);
+            for (String locale : specialFactory.getAvailable()) {
+                IcuData data = brkMapper.fillFromCldr(locale);
+                writeIcuData(data, destinationDir);
+            }
+            break;
         case collation:
             CollationMapper colMapper = new CollationMapper(sourceDir, specialFactory);
             processCollation(colMapper);
+            break;
+        case rbnf:
+            RbnfMapper rbnfMapper = new RbnfMapper(new File(sourceDir), specialsDir);
+            for (String locale : getFilteredLocales()) {
+                IcuData data = rbnfMapper.fillFromCldr(locale);
+                writeIcuData(data, destinationDir);
+            }
             break;
         default: // supplemental data
             processSupplemental(type, options.get("cldrVersion").getValue(), debugXPath);
@@ -300,10 +323,8 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     }
 
     private void processCollation(CollationMapper mapper) {
-        File dir = new File(sourceDir);
-        for (String filename : dir.list()) {
-            if (!filename.endsWith(".xml")) continue;
-            String locale = filename.substring(0, filename.length() - 4);
+        List<String> locales = getFilteredLocales();
+        for (String locale : locales) {
             if (!localeMatches(locale)) continue;
             System.out.println("Converting " + locale + "...");
             List<IcuData> subLocales = new ArrayList<IcuData>();
@@ -327,6 +348,21 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             throw new IllegalArgumentException(
                     "Missing locale list. Please provide a list of locales or a regex.");
         }
+    }
+
+    /**
+     * Returns the list of locale files in the source directory that match the
+     * set of locales required for conversion.
+     */
+    public List<String> getFilteredLocales() {
+        List<String> locales = new ArrayList<String>();
+        for (String filename : new File(sourceDir).list()) {
+            if (!filename.endsWith(".xml")) continue;
+            String locale = filename.substring(0, filename.length() - 4);
+            if (!localeMatches(locale)) continue;
+            locales.add(locale);
+        }
+        return locales;
     }
 
     /**

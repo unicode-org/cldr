@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
 import org.unicode.cldr.tool.WritePluralRules.SamplePatterns;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PluralSnapshot;
@@ -23,8 +24,7 @@ import com.ibm.icu.util.ULocale;
 
 public class ShowPlurals {
     
-    static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-            .getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
     
     public static void printPlurals(CLDRFile english, String localeFilter, PrintWriter index) throws IOException {
         String section1 = "Rules";

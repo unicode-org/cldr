@@ -39,6 +39,7 @@ import com.ibm.icu.util.ULocale;
  * categories, eg for the Survey tool.
  */
 public class PathHeader implements Comparable<PathHeader> {
+    public static final String SECTION_LINK = "<a target='CLDR_ST-SECTION' href='";
     static boolean UNIFORM_CONTINENTS = true;
 
     /**
@@ -1443,6 +1444,23 @@ public class PathHeader implements Comparable<PathHeader> {
     }
     
     public String getUrl(String baseUrl, String locale) {
-        return baseUrl + "?_=" + locale + "&strid=" + StringId.getHexId(getOriginalPath());
+        return getUrl(baseUrl, locale, getOriginalPath());
+    }
+    
+    public static String getUrl(String baseUrl, String locale, String path) {
+        return baseUrl + "?_=" + locale + "&strid=" + StringId.getHexId(path);
+    }
+    
+    // eg http://st.unicode.org/cldr-apps/survey?_=fr&x=Locale%20Name%20Patterns
+    public static String getPageUrl(String baseUrl, String localeId, PageId subsection) {
+        return baseUrl + "?_=" + localeId + "&x=" + subsection;
+    }
+    
+    public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
+        String value = file.getStringValue(path);
+        if (value == null) {
+            return null;
+        }
+        return SECTION_LINK + PathHeader.getUrl(baseUrl, file.getLocaleID(), path)+ "'><em>view</em></a>";
     }
 }

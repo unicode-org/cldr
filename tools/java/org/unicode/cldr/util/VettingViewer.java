@@ -1512,7 +1512,7 @@ public class VettingViewer<T> {
     }
 
     private String getPageUrl(String localeId, PageId subsection) {
-        return baseUrl + "?_=" + localeId + "&x=" + subsection;
+        return PathHeader.getPageUrl(baseUrl, localeId, subsection);
     }
 
     private void startTable(Set<Choice> choices, Appendable output) throws IOException {

@@ -12,6 +12,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
@@ -22,7 +23,8 @@ import com.ibm.icu.text.PluralRules.NumberInfo;
 import com.ibm.icu.util.ULocale;
 
 public class WritePluralRules {
-    static final SupplementalDataInfo sInfo = TestAll.TestInfo.getInstance().getSupplementalDataInfo();
+    static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
+
     public static void main(String[] args) {
         Relation<PluralRules,String> rulesToLocales = Relation.of(new TreeMap<PluralRules,Set<String>>(new PluralRulesComparator()), TreeSet.class);
         for (String locale : sInfo.getPluralLocales(PluralType.cardinal)) {

@@ -811,22 +811,21 @@ public class VettingViewer<T> {
 
             problems.clear();
             htmlMessage.setLength(0);
-            boolean haveError = false;
-
             String oldValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
-            if (oldValue != null && !oldValue.equals(value)) {
-                problems.add(Choice.changedOldValue);
-                problemCounter.increment(Choice.changedOldValue);
-            }
 
+            if (choices.contains(Choice.changedOldValue)) {
+                if (oldValue != null && !oldValue.equals(value)) {
+                    problems.add(Choice.changedOldValue);
+                    problemCounter.increment(Choice.changedOldValue);
+                }
+            }
             VoteStatus voteStatus = userVoteStatus.getStatusForUsersOrganization(sourceFile, path, user);
 
             MissingStatus missingStatus = getMissingStatus(sourceFile, path, status, latin);
-            if (missingStatus == MissingStatus.ABSENT) {
+            if (choices.contains(Choice.missingCoverage) && missingStatus == MissingStatus.ABSENT) {
                 problems.add(Choice.missingCoverage);
                 problemCounter.increment(Choice.missingCoverage);
             }
-
             boolean itemsOkIfVoted = SUPPRESS
                     && voteStatus == VoteStatus.ok;
 
@@ -836,7 +835,7 @@ public class VettingViewer<T> {
                 // data submission,
                 // so see if the value changed.
                 // String lastValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
-                if (CharSequences.equals(value, oldValue)) {
+                if (CharSequences.equals(value, oldValue) && choices.contains(Choice.englishChanged)) {
                     // check to see if we voted
                     problems.add(Choice.englishChanged);
                     problemCounter.increment(Choice.englishChanged);
@@ -849,33 +848,37 @@ public class VettingViewer<T> {
             Choice choice = errorStatus == ErrorChecker.Status.error ? Choice.error
                     : errorStatus == ErrorChecker.Status.warning ? Choice.warning
                             : null;
-            if (choice == Choice.error
-                    || choice == Choice.warning
+            if (choice == Choice.error && choices.contains(Choice.error)
                     && (!itemsOkIfVoted
                             || !OK_IF_VOTED.containsAll(subtypes))) {
                 problems.add(choice);
                 appendToMessage(statusMessage, htmlMessage);
                 problemCounter.increment(choice);
-                haveError = true;
+            } else if (choice == Choice.warning && choices.contains(Choice.warning)
+                    && (!itemsOkIfVoted
+                            || !OK_IF_VOTED.containsAll(subtypes))) {
+                problems.add(choice);
+                appendToMessage(statusMessage, htmlMessage);
+                problemCounter.increment(choice);
             }
 
-            if (path.contains("Urumqi")) {
-                int x = 3;
-            }
             switch (voteStatus) {
             case losing:
-                problems.add(Choice.weLost);
-                problemCounter.increment(Choice.weLost);
+                if (choices.contains(Choice.weLost)) {
+                    problems.add(Choice.weLost);
+                    problemCounter.increment(Choice.weLost);
+                }
                 // String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
                 // appendToMessage(usersValue, testMessage);
                 break;
             case disputed:
-                problems.add(Choice.hasDispute);
-                problemCounter.increment(Choice.hasDispute);
+                if (choices.contains(Choice.hasDispute)) {
+                    problems.add(Choice.hasDispute);
+                    problemCounter.increment(Choice.hasDispute);
+                }
                 break;
             case provisionalOrWorse:
-                if (missingStatus == MissingStatus.PRESENT) {
-                    MissingStatus debug = getMissingStatus(sourceFile, path, status, false);
+                if (missingStatus == MissingStatus.PRESENT && choices.contains(Choice.notApproved)) {
                     problems.add(Choice.notApproved);
                     problemCounter.increment(Choice.notApproved);
                 }
@@ -883,9 +886,6 @@ public class VettingViewer<T> {
             }
 
             if (!problems.isEmpty()) {
-                if (problems.size() > 1) {
-                    int x = 1;
-                }
                 // showAll ||
                 // if (showAll && problems.isEmpty()) {
                 // problems.add(Choice.other);
@@ -909,19 +909,6 @@ public class VettingViewer<T> {
         }
     }
 
-    //    public static final Predicate<String> HackIncludeLocalesWithVotes = new Predicate<String>() {
-    //        Set<String> hackHasVotes = new HashSet(Arrays.asList(
-    //                "da de el en en_GB es es_419 ja kn kovi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK"
-    //                // "af am ar bg bn ca cs da de el en en_GB es es_419 et eu fa fi fil fr fr_CA gl gu he hi hr hu id is it ja kn ko lt lv ml mr ms nb nl pl pt pt_PT ro ru sk sl sr sv sw ta te th tr uk ur vi zh zh_Hant zh_Hant_HK ee zh_Hans_SG zh_Hans_MO zh_Hans_HK kk wae kea cy ku si br"
-    //                // "af am ar ar_AE ar_JO bg bn bo br ca cs cy da de de_AT ee el en_GB en_HK en_SG es es_419 es_AR es_PY es_UY et eu fa fi fil fr fr_CA fur gl gu he hi hr hu id is it kea kk kn ko ksh ku lt lv mk ml mr ms nb nl nn pa pl pt pt_PT ro ru sah si sk sl sr sv sw ta te th to tr uk ur vi wae zh zh_Hans_HK zh_Hans_MO zh_Hans_SG zh_Hant zh_Hant_HK zh_Hant_MO"
-    //                .split("\\s")));
-    //
-    //        @Override
-    //        public boolean is(String localeId) {
-    //            return hackHasVotes.contains(localeId);
-    //        }
-    //    };
-
     public static final class LocalesWithExplicitLevel implements Predicate<String> {
         private final String org;
         private final Level desiredLevel;        
@@ -932,8 +919,20 @@ public class VettingViewer<T> {
         @Override
         public boolean is(String localeId) {
             Output<LocaleCoverageType> output = new Output<LocaleCoverageType>();
-            Level level = StandardCodes.make().getLocaleCoverageLevel(org, localeId, output);
-            return desiredLevel == level && output.value == StandardCodes.LocaleCoverageType.explicit;
+            // For admin - return true if SOME organization has explicit coverage for the locale
+            // TODO: Make admin pick up any locale that has a vote
+            if (org.equals(Organization.surveytool.toString())) {
+                for ( Organization checkorg : Organization.values()) {
+                    StandardCodes.make().getLocaleCoverageLevel(checkorg.toString(), localeId, output);
+                    if (output.value == StandardCodes.LocaleCoverageType.explicit) {
+                        return true;
+                    }
+                }
+                return false;
+            } else {
+                Level level = StandardCodes.make().getLocaleCoverageLevel(org, localeId, output);
+                return desiredLevel == level && output.value == StandardCodes.LocaleCoverageType.explicit;
+            }
         }
     };
 
@@ -963,8 +962,12 @@ public class VettingViewer<T> {
             headerRow.append("</tr>\n");
             String header = headerRow.toString();
 
-            for (Level level : Level.values()) {
-                writeSummaryTable(output, header, level, choices, organization);
+            if (organization.equals(Organization.surveytool)) {
+                writeSummaryTable(output, header, Level.COMPREHENSIVE, choices, organization);
+            } else {
+                for (Level level : Level.values()) {
+                    writeSummaryTable(output, header, level, choices, organization);
+                }
             }
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // dang'ed checked exceptions
@@ -983,7 +986,7 @@ public class VettingViewer<T> {
 
         // TODO Fix HACK
         // We are going to ignore the predicate for now, just using the locales that have explicit coverage.
-        // in that locale.
+        // in that locale, or allow all locales for admin@
         LocalesWithExplicitLevel includeLocale = new LocalesWithExplicitLevel((Organization) organization, desiredLevel);
 
         for (String localeID : cldrFactory.getAvailable()) {
@@ -999,6 +1002,9 @@ public class VettingViewer<T> {
             return;
         }
 
+        EnumSet<Choice> thingsThatRequireOldFile = EnumSet.of(Choice.englishChanged,Choice.missingCoverage,Choice.changedOldValue);
+        EnumSet<Choice> ourChoicesThatRequireOldFile = choices.clone();
+        ourChoicesThatRequireOldFile.retainAll(thingsThatRequireOldFile);
         output.append("<h2>Level: ").append(desiredLevel.toString()).append("</h2>");
         output.append("<table class='tvs-table'>\n");
         Counter<Choice> problemCounter = new Counter<Choice>();
@@ -1011,11 +1017,12 @@ public class VettingViewer<T> {
             CLDRFile sourceFile = cldrFactory.make(localeID, true);
 
             CLDRFile lastSourceFile = null;
-            try {
-                lastSourceFile = cldrFactoryOld.make(localeID, true);
-            } catch (Exception e) {
+            if (!ourChoicesThatRequireOldFile.isEmpty()) {
+                try {
+                    lastSourceFile = cldrFactoryOld.make(localeID, true);
+                } catch (Exception e) {
+                }
             }
-
             problemCounter.clear();
             Level level = Level.MODERN;
             if (organization != null) {
@@ -1101,7 +1108,7 @@ public class VettingViewer<T> {
     public static String gatherCodes(Set<String> contents) {
         Set<Set<String>> source = new LinkedHashSet<Set<String>>();
         for (String s : contents) {
-            source.add(new LinkedHashSet(Arrays.asList(s.split("_"))));
+            source.add(new LinkedHashSet<String>(Arrays.asList(s.split("_"))));
         }
         Set<Set<String>> oldSource = new LinkedHashSet<Set<String>>();
 
@@ -1417,7 +1424,7 @@ public class VettingViewer<T> {
                 PageId subsection = entry0.getKey().get1();
                 final Set<WritingInfo> rows = entry0.getValue();
 
-                String url = rows.iterator().next().getUrl(localeId);
+                rows.iterator().next().getUrl(localeId);
                 // http://kwanyin.unicode.org/cldr-apps/survey?_=ur&x=scripts
                 // http://unicode.org/cldr-apps/survey?_=ur&x=scripts
 

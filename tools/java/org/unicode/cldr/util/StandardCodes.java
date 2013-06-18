@@ -494,12 +494,14 @@ public class StandardCodes {
                     platform_locale_level.put(organization, locale_status = new TreeMap());
                 }
                 locale_status.put(locale, status);
-                String scriptLoc = parser.getLanguageScript();
-                if (locale_status.get(scriptLoc) == null)
-                    locale_status.put(scriptLoc, status);
-                String lang = parser.getLanguage();
-                if (locale_status.get(lang) == null)
-                    locale_status.put(lang, status);
+                if (!locale.equals("*")) {
+                    String scriptLoc = parser.getLanguageScript();
+                    if (locale_status.get(scriptLoc) == null)
+                        locale_status.put(scriptLoc, status);
+                    String lang = parser.getLanguage();
+                    if (locale_status.get(lang) == null)
+                        locale_status.put(lang, status);
+                }
             }
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Internal Error").initCause(e);

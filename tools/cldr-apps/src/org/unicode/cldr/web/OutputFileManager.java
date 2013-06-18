@@ -56,6 +56,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
 
 public class OutputFileManager {
 
+    private static boolean DEBUG = false;
     private static final String XML_SUFFIX = ".xml";
     private SurveyMain sm;
 
@@ -1386,7 +1387,7 @@ public class OutputFileManager {
     public static void updateLocaleDisplayName(CLDRFile f, CLDRLocale l) {
         Pair<String,String> ret = statGetLocaleDisplayName(l);
         String newValue = (f.getName(l.getBaseName()));
-        if(SurveyMain.isUnofficial()) {
+        if(DEBUG) {
             if(!newValue.equals(ret.getSecond())) {
                 System.out.println("Setting: "  + newValue + " insteadof " + ret.getSecond() + " for " + ret.getFirst());
             }

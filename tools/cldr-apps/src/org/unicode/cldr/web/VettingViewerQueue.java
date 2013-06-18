@@ -301,6 +301,13 @@ public class VettingViewerQueue {
                     });
 
                     EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
+                    if (usersOrg.equals(VoteResolver.Organization.surveytool)) {
+                        choiceSet = EnumSet.of(
+                                VettingViewer.Choice.error,
+                                VettingViewer.Choice.warning,
+                                VettingViewer.Choice.hasDispute,
+                                VettingViewer.Choice.notApproved);
+                    }
 
                     if (locale.toString().length() > 0) {
                         vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true);
@@ -450,14 +457,20 @@ public class VettingViewerQueue {
     public void writeVettingViewerOutput(CLDRLocale locale, String baseUrl, StringBuffer aBuffer,
             VoteResolver.Organization usersOrg, Level usersLevel, final String st_org) {
         SurveyMain sm = CookieSession.sm;
-        VettingViewer vv = new VettingViewer<VoteResolver.Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
-                sm.getOldFactory(), getUsersChoice(sm), "CLDR " + sm.getOldVersion(), "Winning " + sm.getNewVersion());
+        VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
+                sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
         vv.setBaseUrl(baseUrl);
         // progress.update("Got VettingViewer");
         // statusCode = Status.PROCESSING;
-        final long start = System.currentTimeMillis();
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
+        if (usersOrg.equals(VoteResolver.Organization.surveytool)) {
+            choiceSet = EnumSet.of(
+                    VettingViewer.Choice.error,
+                    VettingViewer.Choice.warning,
+                    VettingViewer.Choice.hasDispute,
+                    VettingViewer.Choice.notApproved);
+        }
 
         if (locale != SUMMARY_LOCALE) {
             vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true);

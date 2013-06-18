@@ -262,13 +262,17 @@ public final class FileUtilities {
     }
 
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory) {
-        copyFile(class1, sourceFile, targetDirectory, sourceFile);
+        copyFile(class1, sourceFile, targetDirectory, sourceFile, null);
     }
 
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName) {
+        copyFile(class1, sourceFile, targetDirectory, sourceFile, null);
+    }
+    
+    public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName, String[] replacementList) {
         try {
             PrintWriter out = BagFormatter.openUTF8Writer(targetDirectory, newName);
-            FileUtilities.appendFile(class1, sourceFile, out);
+            FileUtilities.appendFile(class1, sourceFile, FileUtilities.UTF8, replacementList, out);
             out.close();
         } catch (IOException e) {
             throw new IllegalArgumentException(e); // dang'd checked exceptions

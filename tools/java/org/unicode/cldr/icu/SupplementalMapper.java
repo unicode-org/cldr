@@ -15,6 +15,10 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.icu.RegexManager.CldrArray;
+import org.unicode.cldr.icu.RegexManager.Function;
+import org.unicode.cldr.icu.RegexManager.PathValueInfo;
+import org.unicode.cldr.icu.RegexManager.RegexResult;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -35,7 +39,7 @@ import com.ibm.icu.util.TimeZone;
  * A mapper that converts supplemental LDML data from CLDR to the ICU data
  * structure.
  */
-public class SupplementalMapper extends LdmlMapper {
+public class SupplementalMapper {
     private static final Map<String, String> enumMap = Builder.with(new HashMap<String, String>())
         .put("sun", "1").put("mon", "2").put("tues", "3").put("wed", "4")
         .put("thu", "5").put("fri", "6").put("sat", "7").get();
@@ -47,6 +51,8 @@ public class SupplementalMapper extends LdmlMapper {
     private int fifoCounter;
     private String inputDir;
     private String cldrVersion;
+    private RegexManager regexMapper;
+    private String debugXPath;
 
     private enum DateFieldType {
         from, to
@@ -75,7 +81,7 @@ public class SupplementalMapper extends LdmlMapper {
                     // dates correctly, so use a regular string comparison.
                     return arg0.compareTo(arg1);
                 }
-            } else if (matches(WEEKDATA, arg0, arg1, matchers)) {
+            } else if (RegexManager.matches(WEEKDATA, arg0, arg1, matchers)) {
                 // Sort weekData elements ourselves because ldmlComparator
                 // sorts firstDay after minDays.
                 String elem0 = matchers[0].group(1);
@@ -103,7 +109,6 @@ public class SupplementalMapper extends LdmlMapper {
      *            in supplementalData conversion.
      */
     private SupplementalMapper(String inputDir, String cldrVersion) {
-        super("ldml2icu_supplemental.txt");
         this.inputDir = inputDir;
         this.cldrVersion = cldrVersion;
     }
@@ -111,7 +116,8 @@ public class SupplementalMapper extends LdmlMapper {
     public static SupplementalMapper create(String inputDir, String cldrVersion) {
         SupplementalMapper mapper = new SupplementalMapper(inputDir, cldrVersion);
         // Handlers for functions in regex file.
-        mapper.addFunction("date", new Function(2) {
+        RegexManager manager = new RegexManager("ldml2icu_supplemental.txt");
+        manager.addFunction("date", new Function(2) {
             /**
              * args[0] = value
              * args[1] = type (i.e. from/to)
@@ -122,7 +128,7 @@ public class SupplementalMapper extends LdmlMapper {
                 return getSeconds(args[0], dft);
             }
         });
-        mapper.addFunction("algorithm", new Function(1) {
+        manager.addFunction("algorithm", new Function(1) {
             @Override
             protected String run(String... args) {
                 // Insert % into numberingSystems descriptions.
@@ -141,7 +147,7 @@ public class SupplementalMapper extends LdmlMapper {
         // args[0] = number to be converted
         // args[2] = an (optional) additional exponent offset,
         // e.g. -2 for converting percentages into fractions.
-        mapper.addFunction("exp", new Function(2) {
+        manager.addFunction("exp", new Function(2) {
             @Override
             protected String run(String... args) {
                 double value = Double.parseDouble(args[0]);
@@ -168,6 +174,7 @@ public class SupplementalMapper extends LdmlMapper {
                 return sign + exponent + Math.round(value * 100000);
             }
         });
+        mapper.regexMapper = manager;
         return mapper;
     }
 
@@ -190,7 +197,7 @@ public class SupplementalMapper extends LdmlMapper {
             if (outputName.equals("metadata")) category = "supplementalMetadata";
             loadValues(category, pathValueMap);
         }
-        addFallbackValues(pathValueMap);
+        regexMapper.addFallbackValues(pathValueMap);
         IcuData icuData = new IcuData(category + ".xml", outputName, false, enumMap);
         for (String rbPath : pathValueMap.keySet()) {
             CldrArray values = pathValueMap.get(rbPath);
@@ -215,7 +222,7 @@ public class SupplementalMapper extends LdmlMapper {
         XMLSource source = new LinkedXMLSource();
         CLDRFile cldrFile = CLDRFile.loadFromFile(new File(inputDir, inputFile),
             category, DraftStatus.contributed, source);
-        RegexLookup<RegexResult> pathConverter = getPathConverter();
+        RegexLookup<RegexResult> pathConverter = regexMapper.getPathConverter();
         fifoCounter = 0; // Helps to keep unsorted rb paths in order.
         for (String xpath : cldrFile) {
             Output<Finder> matcher = new Output<Finder>();
@@ -223,7 +230,7 @@ public class SupplementalMapper extends LdmlMapper {
             List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
             RegexResult regexResult = pathConverter.get(fullPath, null, null, matcher, debugResults);
             if (regexResult == null) {
-                printLookupResults(fullPath, debugResults);
+                RegexManager.printLookupResults(fullPath, debugResults);
                 continue;
             }
             if (debugResults != null) {
@@ -280,7 +287,7 @@ public class SupplementalMapper extends LdmlMapper {
         if (rbPath.contains("<FIFO>")) {
             rbPath = rbPath.replace("<FIFO>", '<' + numberFormat.format(fifoCounter) + '>');
         }
-        CldrArray cldrArray = getCldrArray(rbPath, pathValueMap);
+        CldrArray cldrArray = RegexManager.getCldrArray(rbPath, pathValueMap);
         cldrArray.put(xpath, values, groupKey);
     }
 
@@ -478,5 +485,21 @@ public class SupplementalMapper extends LdmlMapper {
         public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
             throw new UnsupportedOperationException();
         }
+    }
+
+    /**
+     * Sets xpath to monitor for debugging purposes.
+     * @param debugXPath
+     */
+    public void setDebugXPath(String debugXPath) {
+        this.debugXPath = debugXPath;
+    }
+
+    /**
+     * @param xpath
+     * @return true if the xpath is to be debugged
+     */
+    boolean isDebugXPath(String xpath) {
+        return debugXPath == null ? false : xpath.startsWith(debugXPath);
     }
 }

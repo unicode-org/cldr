@@ -11,6 +11,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.ant.CLDRConverterTool.Alias;
+import org.unicode.cldr.icu.RegexManager.CldrArray;
+import org.unicode.cldr.icu.RegexManager.PathValueInfo;
+import org.unicode.cldr.icu.RegexManager.RegexResult;
 import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -28,7 +31,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
  * 
  * @author jchye
  */
-public class LocaleMapper extends LdmlMapper {
+public class LocaleMapper {
     public static final String ALIAS_PATH = "/\"%%ALIAS\"";
 
     /**
@@ -49,6 +52,8 @@ public class LocaleMapper extends LdmlMapper {
     private Factory unresolvedFactory;
     private Factory resolvedFactory;
     private Factory specialFactory;
+    private RegexManager manager;
+    private String debugXPath;
 
     private Set<String> deprecatedTerritories;
 
@@ -82,20 +87,20 @@ public class LocaleMapper extends LdmlMapper {
         @Override
         public int compare(String arg0, String arg1) {
             Matcher[] matchers = new Matcher[2];
-            if (matches(CURRENCY_FORMAT, arg0, arg1, matchers)) {
+            if (RegexManager.matches(CURRENCY_FORMAT, arg0, arg1, matchers)) {
                 // Use ldml ordering except that symbol should be first.
                 int index0 = getIndexOf(CURRENCY_ORDER, matchers[0].group(1));
                 int index1 = getIndexOf(CURRENCY_ORDER, matchers[1].group(1));
                 return index0 - index1;
-            } else if (matches(DATE_OR_TIME_FORMAT, arg0, arg1, matchers)) {
+            } else if (RegexManager.matches(DATE_OR_TIME_FORMAT, arg0, arg1, matchers)) {
                 int compareValue = matchers[0].group(1).compareTo(matchers[1].group(1));
                 if (compareValue != 0) return -compareValue;
-            } else if (matches(CONTEXT_TRANSFORM, arg0, arg1, matchers)) {
+            } else if (RegexManager.matches(CONTEXT_TRANSFORM, arg0, arg1, matchers)) {
                 // Sort uiListOrMenu before stand-alone.
                 if (matchers[0].group(1).equals(matchers[1].group(1))) {
                     return -matchers[0].group(2).compareTo(matchers[1].group(2));
                 }
-            } else if (matches(MONTH_PATTERN, arg0, arg1, matchers)) {
+            } else if (RegexManager.matches(MONTH_PATTERN, arg0, arg1, matchers)) {
                 // Sort leap year types after normal month types.
                 String matchGroup0 = matchers[0].group(1);
                 String matchGroup1 = matchers[1].group(1);
@@ -142,7 +147,7 @@ public class LocaleMapper extends LdmlMapper {
     public LocaleMapper(Factory factory, Factory specialFactory,
         SupplementalDataInfo supplementalDataInfo, boolean useAltValues,
         String organization) {
-        super("ldml2icu_locale.txt");
+        manager = new RegexManager("ldml2icu_locale.txt");
         unresolvedFactory = resolvedFactory = factory;
         // If filtering is required, filter all unresolved CLDRFiles for use in
         // fillFromCldr(). We don't filter the resolved CLDRFiles by organization
@@ -195,7 +200,7 @@ public class LocaleMapper extends LdmlMapper {
     public IcuData fillFromCLDR(String locale) {
         Set<String> deprecatedTerritories = getDeprecatedTerritories();
         CLDRFile resolvedCldr = resolvedFactory.make(locale, true);
-        RegexLookup<RegexResult> pathConverter = getPathConverter(resolvedCldr);
+        RegexLookup<RegexResult> pathConverter = manager.getPathConverter(resolvedCldr);
 
         // First pass through the unresolved CLDRFile to get all icu paths.
         CLDRFile cldr = unresolvedFactory.make(locale, false);
@@ -233,7 +238,7 @@ public class LocaleMapper extends LdmlMapper {
         }
 
         // Add fallback paths if necessary.
-        addFallbackValues(resolvedCldr, pathValueMap);
+        manager.addFallbackValues(resolvedCldr, pathValueMap);
 
         // Add special values to file.
         boolean hasSpecial = hasSpecialFile(locale);
@@ -252,13 +257,13 @@ public class LocaleMapper extends LdmlMapper {
             Matcher matcher = RB_DATETIMEPATTERN.matcher(rbPath);
             if (matcher.matches()) {
                 String calendar = matcher.group(1);
-                CldrArray valueList = getCldrArray(rbPath, pathValueMap);
+                CldrArray valueList = RegexManager.getCldrArray(rbPath, pathValueMap);
                 // Create a dummy xpath to sort the value in front of the other date time formats.
                 String basePath = "//ldml/dates/calendars/calendar[@type=\"" + calendar + "\"]/dateTimeFormats";
                 String mediumFormatPath = basePath
                     + "/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
                 valueList.add(basePath,
-                    getStringValue(resolvedCldr, mediumFormatPath),
+                    RegexManager.getStringValue(resolvedCldr, mediumFormatPath),
                     null);
             }
         }
@@ -311,7 +316,7 @@ public class LocaleMapper extends LdmlMapper {
 
         IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", from, true);
         System.out.println("aliased " + from + " to " + to);
-        RegexLookup<RegexResult> pathConverter = getPathConverter();
+        RegexLookup<RegexResult> pathConverter = manager.getPathConverter();
         if (xpath == null) {
             Map<String, CldrArray> pathValueMap = new HashMap<String, CldrArray>();
             addMatchesForPath(xpath, null, null, pathConverter, pathValueMap);
@@ -350,7 +355,7 @@ public class LocaleMapper extends LdmlMapper {
         RegexResult result = lookup.get(fullPath, null, null, matcherFound, debugResults);
         if (debugResults != null) {
             if (result == null) {
-                printLookupResults(fullPath, debugResults);
+                RegexManager.printLookupResults(fullPath, debugResults);
             } else {
                 System.out.println(fullPath + " successfully matched");
             }
@@ -384,7 +389,7 @@ public class LocaleMapper extends LdmlMapper {
             String rbPath = info.processRbPath(arguments);
             // Don't add additional paths at this stage.
             if (validRbPaths != null && !validRbPaths.contains(rbPath)) continue;
-            CldrArray valueList = getCldrArray(rbPath, pathValueMap);
+            CldrArray valueList = RegexManager.getCldrArray(rbPath, pathValueMap);
             List<String> values = info.processValues(arguments, cldrFile, xpath);
             String baseXPath = info.processXPath(arguments, xpath);
             String groupKey = info.processGroupKey(arguments);
@@ -514,4 +519,19 @@ public class LocaleMapper extends LdmlMapper {
         return typeMap.get(region);
     }
 
+    /**
+     * Sets xpath to monitor for debugging purposes.
+     * @param debugXPath
+     */
+    public void setDebugXPath(String debugXPath) {
+        this.debugXPath = debugXPath;
+    }
+
+    /**
+     * @param xpath
+     * @return true if the xpath is to be debugged
+     */
+    boolean isDebugXPath(String xpath) {
+        return debugXPath == null ? false : xpath.startsWith(debugXPath);
+    }
 }

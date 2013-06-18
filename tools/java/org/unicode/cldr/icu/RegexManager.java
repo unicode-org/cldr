@@ -30,7 +30,12 @@ import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 
-public abstract class LdmlMapper {
+/**
+ * A class for loading and managing the xpath converters used to map CLDR data
+ * to ICU.
+ * @author jchye
+ */
+class RegexManager {
     private static final Pattern SEMI = Pattern.compile("\\s*+;\\s*+");
     private static final Pattern FUNCTION_PATTERN = Pattern.compile("\\&(\\w++)\\(([^\\)]++)\\)");
     private static final Pattern QUOTES = Pattern.compile("\"([^\"]++)\"");
@@ -39,14 +44,14 @@ public abstract class LdmlMapper {
     // Matches arguments with or without enclosing quotes.
     private static final Pattern ARGUMENT = Pattern.compile("[<\"]?\\$(\\d)[\">]?");
 
-    private String debugXPath;
-    private Map<String, Function> functionMap = new HashMap<String, Function>();
+    private static Map<String, Function> functionMap = new HashMap<String, Function>();
+
     private String converterFile;
     private Map<String, RegexResult> unprocessedMatchers;
     private Map<String, String> xpathVariables;
     private VariableReplacer cldrVariables;
 
-    protected static class FullMatcher extends RegexFinder {
+    static class FullMatcher extends RegexFinder {
         public FullMatcher(String pattern) {
             super(pattern);
         }
@@ -60,7 +65,7 @@ public abstract class LdmlMapper {
      * Wrapper class for functions that need to be performed on CLDR values as
      * part of the ICU conversion,
      */
-    protected static abstract class Function {
+    static abstract class Function {
         int maxArgs;
 
         /**
@@ -68,7 +73,7 @@ public abstract class LdmlMapper {
          *            the maximum number of args that can be passed to this function,
          *            or a negative number if there is no limit.
          */
-        protected Function(int maxArgs) {
+        Function(int maxArgs) {
             this.maxArgs = maxArgs;
         }
 
@@ -92,13 +97,13 @@ public abstract class LdmlMapper {
          * 
          * @return the resultant string
          */
-        protected abstract String run(String... args);
+        abstract String run(String... args);
     }
 
     /**
      * A wrapper class for storing and working with the unprocessed path-value pairs of a RegexResult.
      */
-    protected class PathValueInfo {
+    static class PathValueInfo {
         private String rbPath;
         private String valueArg;
         private String groupKey;
@@ -255,7 +260,7 @@ public abstract class LdmlMapper {
         }
     }
 
-    class RegexResult implements Iterable<PathValueInfo> {
+    static class RegexResult implements Iterable<PathValueInfo> {
 
         private Set<PathValueInfo> unprocessed;
 
@@ -274,7 +279,7 @@ public abstract class LdmlMapper {
         }
     }
 
-    class CldrArray {
+    static class CldrArray {
         // Map of xpaths to values and group key.
         private Map<String, R2<List<String>, String>> map;
 
@@ -354,7 +359,7 @@ public abstract class LdmlMapper {
     /**
      * Converts a list into an Array.
      */
-    protected static String[] toArray(List<String> list) {
+    static String[] toArray(List<String> list) {
         String[] array = new String[list.size()];
         list.toArray(array);
         return array;
@@ -367,7 +372,7 @@ public abstract class LdmlMapper {
         }
     };
 
-    protected Map<String, Function> addFunction(String fnName, Function function) {
+    Map<String, Function> addFunction(String fnName, Function function) {
         functionMap.put(fnName, function);
         return functionMap;
     }
@@ -384,25 +389,9 @@ public abstract class LdmlMapper {
      *            array is not guaranteed to be filled if matches() returns false
      * @return true if both strings successfully matched the pattern
      */
-    protected static boolean matches(Pattern pattern, String arg0, String arg1, Matcher[] matchers) {
+    static boolean matches(Pattern pattern, String arg0, String arg1, Matcher[] matchers) {
         return (matchers[0] = pattern.matcher(arg0)).matches()
             && (matchers[1] = pattern.matcher(arg1)).matches();
-    }
-
-    /**
-     * Sets xpath to monitor for debugging purposes.
-     * @param debugXPath
-     */
-    public void setDebugXPath(String debugXPath) {
-        this.debugXPath = debugXPath;
-    }
-
-    /**
-     * @param xpath
-     * @return true if the xpath is to be debugged
-     */
-    protected boolean isDebugXPath(String xpath) {
-        return debugXPath == null ? false : xpath.startsWith(debugXPath);
     }
 
     /**
@@ -411,7 +400,7 @@ public abstract class LdmlMapper {
      * @param xpath
      * @param results
      */
-    protected void printLookupResults(String xpath, List<String> results) {
+    static void printLookupResults(String xpath, List<String> results) {
         if (results == null) return;
         System.out.println("Debugging " + xpath + ":");
         int[] haltPos = new int[results.size()];
@@ -432,7 +421,7 @@ public abstract class LdmlMapper {
      * @param xpath
      * @return the value of the specified xpath (fallback or otherwise)
      */
-    protected static String getStringValue(CLDRFile cldrFile, String xpath) {
+    static String getStringValue(CLDRFile cldrFile, String xpath) {
         String value = cldrFile.getStringValue(xpath);
         // HACK: DAIP doesn't currently make spaces in currency formats non-breaking.
         // Remove this when fixed.
@@ -446,7 +435,7 @@ public abstract class LdmlMapper {
     RegexLookup<RegexResult> xpathConverter;
 
     // One FallbackInfo object for every type of rbPath.
-    protected class FallbackInfo implements Iterable<R3<Finder, String, List<String>>> {
+    class FallbackInfo implements Iterable<R3<Finder, String, List<String>>> {
         // Fallback info in the order: xpath matcher, fallback xpath, fallback values.
         private List<R3<Finder, String, List<String>>> fallbackItems;
         private List<Integer> argsUsed; // list of args used by the rb pattern
@@ -515,7 +504,7 @@ public abstract class LdmlMapper {
      * 
      * @param converterFile
      */
-    protected LdmlMapper(String converterFile) {
+    RegexManager(String converterFile) {
         this.converterFile = converterFile;
         unprocessedMatchers = new HashMap<String, RegexResult>();
     }
@@ -524,7 +513,7 @@ public abstract class LdmlMapper {
      * @return a RegexLookup for matching rb paths that may require fallback
      *         values.
      */
-    protected RegexLookup<FallbackInfo> getFallbackConverter() {
+    RegexLookup<FallbackInfo> getFallbackConverter() {
         if (fallbackConverter == null) {
             loadConverters();
         }
@@ -534,15 +523,16 @@ public abstract class LdmlMapper {
     /**
      * @return a RegexLookup for matching xpaths
      */
-    protected RegexLookup<RegexResult> getPathConverter() {
+    RegexLookup<RegexResult> getPathConverter() {
         if (xpathConverter == null) {
             loadConverters();
         }
         return xpathConverter;
     }
 
-    protected RegexLookup<RegexResult> getPathConverter(CLDRFile cldrFile) {
+    RegexLookup<RegexResult> getPathConverter(CLDRFile cldrFile) {
         RegexLookup<RegexResult> basePathConverter = getPathConverter();
+
         RegexLookup<RegexResult> processedPathConverter = new RegexLookup<RegexResult>()
             .setPatternTransform(regexTransform);
         cldrVariables = new VariableReplacer();
@@ -724,7 +714,7 @@ public abstract class LdmlMapper {
         fallbackConverter.add(new FullMatcher(rbPattern.toString()), info);
     }
 
-    protected void addFallbackValues(Map<String, CldrArray> pathValueMap) {
+    void addFallbackValues(Map<String, CldrArray> pathValueMap) {
         addFallbackValues(null, pathValueMap);
     }
 
@@ -734,7 +724,7 @@ public abstract class LdmlMapper {
      * 
      * @param pathValueMap
      */
-    protected void addFallbackValues(CLDRFile cldrFile, Map<String, CldrArray> pathValueMap) {
+    void addFallbackValues(CLDRFile cldrFile, Map<String, CldrArray> pathValueMap) {
         RegexLookup<FallbackInfo> fallbackConverter = getFallbackConverter();
         for (String rbPath : pathValueMap.keySet()) {
             Output<String[]> arguments = new Output<String[]>();
@@ -767,7 +757,7 @@ public abstract class LdmlMapper {
         }
     }
 
-    protected CldrArray getCldrArray(String key, Map<String, CldrArray> pathValueMap) {
+    static CldrArray getCldrArray(String key, Map<String, CldrArray> pathValueMap) {
         CldrArray cldrArray = pathValueMap.get(key);
         if (cldrArray == null) {
             cldrArray = new CldrArray();

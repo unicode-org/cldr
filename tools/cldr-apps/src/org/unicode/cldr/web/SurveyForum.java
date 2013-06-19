@@ -93,6 +93,19 @@ public class SurveyForum {
 
         return s.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\"", "&quot;");
     }
+    
+    /**
+     * Oops. HTML escaped into the DB
+     * @param s
+     * @return
+     */
+    public static String HTMLUnsafe(String s) {
+        return s.replaceAll("<p>","\n")
+                    .replaceAll("&quot;", "\"")
+                    .replaceAll("&gt;", ">")
+                    .replaceAll("&lt;", "<")
+                    .replaceAll("&amp;","&");
+    }
 
     Hashtable numToName = new Hashtable();
     Hashtable nameToNum = new Hashtable();
@@ -528,7 +541,7 @@ public class SurveyForum {
                         + "====\n\n"
                         + text;
 
-                MailSender.getInstance().queue(ctx.userId(), cc_emails, bcc_emails, subject, body, ctx.getLocale(), base_xpath, postId );
+                MailSender.getInstance().queue(ctx.userId(), cc_emails, bcc_emails, HTMLUnsafe(subject), HTMLUnsafe(body), ctx.getLocale(), base_xpath, postId );
 
                 //System.err.println(et.toString() + " - # of users:" + emailCount);
 

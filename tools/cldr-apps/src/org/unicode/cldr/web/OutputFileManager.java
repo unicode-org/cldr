@@ -62,7 +62,7 @@ public class OutputFileManager {
 
     public OutputFileManager(SurveyMain surveyMain) {
         this.sm = surveyMain;
-
+        
         File vxmlDir = null;
         SVNInfo i = null;
         try {
@@ -1007,6 +1007,9 @@ public class OutputFileManager {
 
             @Override
             public void run() {
+                if(sm.isBusted() || !sm.isSetup) {
+                    return;
+                }
                 // System.err.println("spinner hot...ac="+SurveyThread.activeCount());
                 // if(SurveyThread.activeCount()>1) {
                 // return;
@@ -1362,6 +1365,10 @@ public class OutputFileManager {
     // statistics helpers
     private static Map<CLDRLocale,Pair<String,String>> localeNameCache = new ConcurrentHashMap<CLDRLocale, Pair<String,String>>();
     
+    // for the statistics page - wrap locale ids in an <old data> span to show they were from the previous revision
+    private static final String OLD_DATA_BEGIN = "<span class='olddata'>"; 
+    private static final String OLD_DATA_END = "</span>";
+    
     public static Pair<String,String> statGetLocaleDisplayName(CLDRLocale loc) {
         Pair<String,String> ret = localeNameCache.get(loc), toAdd = null;
         if(ret==null) {
@@ -1374,7 +1381,7 @@ public class OutputFileManager {
         }
         if(ret.getSecond()==null) {
             // uses 'on disk' (old) data.
-            ret.setSecond("<span class='olddata'>"+CookieSession.sm.getDiskFactory().make(loc.getBaseName(), true).getName(loc.toLanguageTag())+"</span>");
+            ret.setSecond(OLD_DATA_BEGIN+CookieSession.sm.getDiskFactory().make(loc.getBaseName(), true).getName(loc.toLanguageTag())+OLD_DATA_END);
         }
         // needed to add it
         if(toAdd !=null) {

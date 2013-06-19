@@ -2013,11 +2013,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         allUsers++;
                         continue;
                     }
-                    CLDRLocale theirLocales[] = UserRegistry.tokenizeCLDRLocale(theirLocaleList);
-                    if ((theirLocales == null) || (theirLocales.length == 0)) {
+                    if(UserRegistry.isAllLocales(theirLocaleList)) {
                         // all.
                         allUsers++;
                     } else {
+                        CLDRLocale theirLocales[] = UserRegistry.tokenizeCLDRLocale(theirLocaleList);
                         // int hitList[] = new int[theirLocales.length]; // # of
                         // times each is used
                         Set<CLDRLocale> theirSet = new HashSet<CLDRLocale>(); // set
@@ -2867,6 +2867,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                         }
                                     }
                                 }
+                            } else if(theirId == ctx.session.user.id) {
+                                ctx.println("<i>You can't change that setting on your own account.</i>");
+                            } else {
+                                ctx.println("<i>No changes can be made to this user.</i>");
                             }
                             // ctx.println("Change to " + action);
                         } else {
@@ -5916,13 +5920,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             progress.update("Making your Survey Tool happy..");
 
-            if(isBusted == null) {
+            if(isBusted == null) { // don't do these if we are already busted
                 MailSender.getInstance();
+                if (!CldrUtility.getProperty("CLDR_NOUPDATE", false)) {
+                    getOutputFileManager().addUpdateTasks();
+                }
+            } else {
+                progress.update("Not loading mail or output file manager- - SurveyTool already busted.");
             }
             
-            if (!CldrUtility.getProperty("CLDR_NOUPDATE", false)) {
-                getOutputFileManager().addUpdateTasks();
-            }
         } catch (Throwable t) {
             t.printStackTrace();
             SurveyLog.logException(t, "StartupThread");
@@ -5942,8 +5948,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             CLDRConfig cconfig = CLDRConfig.getInstance();
             SurveyLog.logger.info("Phase: " + cconfig.getPhase()  + " " + getNewVersion() + ",  environment: " + cconfig.getEnvironment() + " " + getCurrevStr());
         }
-        SurveyLog.logger.info("------- SurveyTool ready for requests after " + setupTime + "/"+uptime+". Memory in use: " + usedK() + "----------------------------\n\n\n");
-        isSetup = true;
+        if(!isBusted()) {
+            SurveyLog.logger.info("------- SurveyTool ready for requests after " + setupTime + "/"+uptime+". Memory in use: " + usedK() + "----------------------------\n\n\n");
+            isSetup = true;
+        } else {
+            SurveyLog.logger.info("------- SurveyTool FAILED TO STARTUP, " + setupTime + "/"+uptime+". Memory in use: " + usedK() + "----------------------------\n\n\n");
+        }
     }
 
     public synchronized File getVetdir() {

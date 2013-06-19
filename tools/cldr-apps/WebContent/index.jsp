@@ -36,7 +36,13 @@
 		<h1>CLDR Web Applications</h1>
 		<ul>
 			<li><strong><a href="survey/">CLDR Survey Tool
-			</a></strong> - <a href='<%= SurveyMain.GENERAL_HELP_URL %>'>(Instructions)</a><br />
+			</a></strong> - <a href='<%= SurveyMain.GENERAL_HELP_URL %>'>(Instructions)</a>
+			<% if(SurveyMain.isBusted()) {		%>
+			  <span style='color: red;'>offline</span>
+            <% } else if(!SurveyMain.isSetup) { %>
+              <span style='color: green;'>starting..</span>
+              <% } %>
+			<br />
 			<%
 			   int numServed = StatisticsUtils.getTotalItems();
 			if(numServed>0) {

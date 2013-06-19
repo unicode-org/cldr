@@ -4,10 +4,12 @@
 <%
 String vap = request.getParameter("vap");
 if(vap==null ||
+    SurveyMain.isBusted() ||
+    !SurveyMain.isSetup ||
     vap.length()==0 ||
     	!SurveyMain.isUnofficial() || 
 			(!SurveyMain.vap.equals(vap) && !vap.equals(SurveyMain.testpw))  ) {
-	response.sendRedirect("http://cldr.unicode.org");
+	response.sendRedirect(request.getContextPath() + "index.jsp");
 	return;
 }
 	

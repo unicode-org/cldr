@@ -1265,7 +1265,7 @@ public class DBUtils {
             return null;
         }
         
-        final boolean CDEBUG = true && SurveyMain.isUnofficial();
+        final boolean CDEBUG = false && SurveyMain.isUnofficial();
         DBUtils instance = getInstance(); // don't want the cache to be static
         Reference<JSONObject> ref = instance.cachedJsonQuery.get(id);
         JSONObject result = null;

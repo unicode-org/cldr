@@ -283,9 +283,7 @@ public class TestPathHeader extends TestFmwkPlus {
             if (hidePathHeader  != hideCoverage) {
                 String message = "PathHeader: " + status + ", Coverage: " + level + ": " + path;
                 if (hidePathHeader && !hideCoverage) {
-                    if (!logKnownIssue("6185", message)) {
                         errln(message);
-                    }
                 } else if (!hidePathHeader && hideCoverage) {
                     logln(message);
                 } 

@@ -1,11 +1,13 @@
 package org.unicode.cldr.unittest;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -23,6 +25,34 @@ public class TestExampleGenerator extends TestFmwk {
 
     public static void main(String[] args) {
         new TestExampleGenerator().run(args);
+    }
+
+    public void testCurrency() {
+        String[][] tests = {
+                {"fr", "one", "〖❬1,23 ❭value-one〗〖❬0,00 ❭value-one〗", "〖❬1,23❭_❬dollar des États-Unis❭〗〖❬1,23❭_❬euro❭〗〖❬0,00❭_❬dollar des États-Unis❭〗〖❬0,00❭_❬euro❭〗"},
+                {"fr", "other", "〖❬2,34 ❭value-other〗〖❬3,45 ❭value-other〗", "〖❬2,34❭_❬dollars des États-Unis❭〗〖❬2,34❭_❬euros❭〗〖❬3,45❭_❬dollars des États-Unis❭〗〖❬3,45❭_❬euros❭〗"},
+                {"en", "one", "〖❬1 ❭Bermudan dollar〗", "〖❬1❭ ❬US dollar❭〗〖❬1❭ ❬euro❭〗"},
+                {"en", "other", "〖❬1.23 ❭Bermudan dollars〗〖❬0.00 ❭Bermudan dollars〗", "〖❬1.23❭ ❬US dollars❭〗〖❬1.23❭ ❬euros❭〗〖❬0.00❭ ❬US dollars❭〗〖❬0.00❭ ❬euros❭〗"},
+        };
+        String sampleCurrencyPatternPrefix = "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"";
+        String sampleCurrencyPrefix = "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"";
+        String sampleTemplateSuffix = 	"\"]";
+        ExampleContext context = null;
+
+        for (String[] row : tests) {
+            ExampleType type = row[0].equals("en") ? ExampleType.ENGLISH : ExampleType.NATIVE;
+            ExampleGenerator exampleGenerator = getExampleGenerator(row[0]);
+            String value = "value-" + row[1];
+
+            String path = sampleCurrencyPrefix + row[1] + sampleTemplateSuffix;
+            String result = simplify(exampleGenerator.getExampleHtml(path, value, context , type), false);
+            assertEquals(row[0] + "-" + row[1] + "-BMD", row[2], result);
+
+            value = "{0}_{1}";
+            path = sampleCurrencyPatternPrefix + row[1] + sampleTemplateSuffix;
+            result = simplify(exampleGenerator.getExampleHtml(path, value, context , type), false);
+            assertEquals(row[0] + "-" + row[1] + "-pat", row[3], result);
+        }
     }
 
     static final Set<String> OK_TO_MISS_EXAMPLES = new HashSet<String>(Arrays.asList(
@@ -80,6 +110,9 @@ public class TestExampleGenerator extends TestFmwk {
             ));
 
     public void TestAllPaths() {
+        if (logKnownIssue("6342", "In our tests, make sure that either we have an example for every path, or that the path is on an exception list.")) {
+            return;   
+        }
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
         PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<String>();
@@ -128,7 +161,10 @@ public class TestExampleGenerator extends TestFmwk {
     public void TestUnits() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
         checkValue("Duration hm", "〖5:37〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/durationUnit[@type=\"hm\"]/durationUnitPattern");
-        checkValue("Length m", "〖❬1.99❭ m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-m\"]/unitPattern[@count=\"other\"]");
+        checkValue("Length m", "〖❬1❭ meter〗", exampleGenerator, "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"]");
+        checkValue("Length m", "〖❬0.5❭ meters〗", exampleGenerator, "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
+        checkValue("Length m", "〖❬0.5❭ m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
+        checkValue("Length m", "〖❬0.5❭m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
     }
 
     private void checkValue(String message, String expected, ExampleGenerator exampleGenerator, String path) {
@@ -141,10 +177,10 @@ public class TestExampleGenerator extends TestFmwk {
         String[][] tests = {
                 {"LONG", "one", "〖❬1 meter❭ per ❬second❭〗"},
                 {"SHORT", "one", "〖❬1 m❭/❬sec❭〗"},
-                {"NARROW", "one", "〖❬1 m❭/❬s❭〗"},
-                {"LONG", "other", "〖❬1.99 meters❭ per ❬second❭〗"},
-                {"SHORT", "other", "〖❬1.99 m❭/❬sec❭〗"},
-                {"NARROW", "other", "〖❬1.99 m❭/❬s❭〗"},
+                {"NARROW", "one", "〖❬1m❭/❬s❭〗"},
+                {"LONG", "other", "〖❬0.5 meters❭ per ❬second❭〗"},
+                {"SHORT", "other", "〖❬0.5 m❭/❬sec❭〗"},
+                {"NARROW", "other", "〖❬0.5m❭/❬s❭〗"},
         };
         checkCompoundUnits("en", tests);
         // reenable these after Arabic has meter translated
@@ -157,17 +193,22 @@ public class TestExampleGenerator extends TestFmwk {
     private void checkCompoundUnits(String locale, String[][] tests) {
         ExampleGenerator exampleGenerator = getExampleGenerator(locale);
         for (String[] pair : tests) {
-            String actual = exampleGenerator.handleCompoundUnit(
-                    UnitLength.valueOf(pair[0]), Count.valueOf(pair[1]), "");
+            String actual = exampleGenerator.handleCompoundUnit(UnitLength.valueOf(pair[0]), Count.valueOf(pair[1]), "");
             assertEquals("CompoundUnit", pair[2], simplify(actual, true));
         }
     }
 
+    HashMap<String, ExampleGenerator> ExampleGeneratorCache = new HashMap<String, ExampleGenerator>();
+
     private ExampleGenerator getExampleGenerator(String locale) {
-        final CLDRFile nativeCldrFile = info.getCldrFactory().make(locale, true);
-        ExampleGenerator exampleGenerator = new ExampleGenerator(nativeCldrFile,
-                info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-        return exampleGenerator;
+        ExampleGenerator result = ExampleGeneratorCache.get(locale);
+        if (result == null) {
+            final CLDRFile nativeCldrFile = info.getCldrFactory().make(locale, true);
+            result = new ExampleGenerator(nativeCldrFile,
+                    info.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            ExampleGeneratorCache.put(locale, result);
+        }
+        return result;
     }
 
     public void TestEllipsis() {
@@ -191,16 +232,21 @@ public class TestExampleGenerator extends TestFmwk {
         assertEquals("Ellipsis", expected, result);
     }
 
+    public static String simplify(String exampleHtml) {
+        return simplify(exampleHtml, false);
+    }
+
     public static String simplify(String exampleHtml, boolean internal) {
-        return internal ? "〖" + exampleHtml
-                .replace("", "❬")
-                .replace("", "❭") + "〗"
-                : exampleHtml
-                .replace("<div class='cldr_example'>", "〖")
-                .replace("</div>", "〗")
-                .replace("<span class='cldr_substituted'>", "❬")
-                .replace("</span>", "❭")
-                ;
+        return exampleHtml == null ? null 
+                : internal ? "〖" + exampleHtml
+                        .replace("", "❬")
+                        .replace("", "❭") + "〗"
+                        : exampleHtml
+                        .replace("<div class='cldr_example'>", "〖")
+                        .replace("</div>", "〗")
+                        .replace("<span class='cldr_substituted'>", "❬")
+                        .replace("</span>", "❭")
+                        ;
     }
 
     public void TestClip() {
@@ -250,13 +296,10 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestCurrencyFormats() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
-        String actual = exampleGenerator.getExampleHtml("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
-                "¤ #0.00");
-        assertEquals("Currency format example faulty",
-                "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>5,43</span></div>" +
-                        "<div class='cldr_example'>XXX\u00A0<span class='cldr_substituted'>123456,79</span></div>" +
-                        "<div class='cldr_example'>-XXX\u00A0<span class='cldr_substituted'>123456,79</span></div>",
-                        actual);
+        String actual = simplify(exampleGenerator.getExampleHtml(
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                "¤ #0.00"));
+        assertEquals("Currency format example faulty", "〖US$ ❬1295,00❭〗〖-US$ ❬1295,00❭〗", actual);
     }
 
     public void TestSymbols() {
@@ -299,20 +342,13 @@ public class TestExampleGenerator extends TestFmwk {
     public void Test4528() {
         String[][] testPairs = {
                 { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/displayName[@count=\"other\"]",
-                    "<div class='cldr_example'><span class='cldr_substituted'>2,00 </span>dollari delle Bermuda</div>" +
-                            "<div class='cldr_example'><span class='cldr_substituted'>1,20 </span>dollari delle Bermuda</div>" +
-                            "<div class='cldr_example'><span class='cldr_substituted'>2,07 </span>dollari delle Bermuda</div>"
+                    "〖❬1,23 ❭dollari delle Bermuda〗〖❬0,00 ❭dollari delle Bermuda〗"
                 },
-                {
-                    "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"other\"]",
-                    "<div class='cldr_example'><span class='cldr_substituted'>2,00</span> <span class='cldr_substituted'>dollari statunitensi</span></div>"
-                            +
-                            "<div class='cldr_example'><span class='cldr_substituted'>1,20</span> <span class='cldr_substituted'>dollari statunitensi</span></div>"
-                            +
-                            "<div class='cldr_example'><span class='cldr_substituted'>2,07</span> <span class='cldr_substituted'>dollari statunitensi</span></div>"
+                { "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/unitPattern[@count=\"other\"]",
+                    "〖❬1,23❭ ❬dollari statunitensi❭〗〖❬1,23❭ ❬euro❭〗〖❬0,00❭ ❬dollari statunitensi❭〗〖❬0,00❭ ❬euro❭〗"
                 },
                 { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol",
-                    "<div class='cldr_example'>BMD<span class='cldr_substituted'> 123.456,79</span></div>"
+                    "〖BMD❬ 123.456,79❭〗"
                 },
         };
 
@@ -321,7 +357,7 @@ public class TestExampleGenerator extends TestFmwk {
             String xpath = testPair[0];
             String expected = testPair[1];
             String value = exampleGenerator.getCldrFile().getStringValue(xpath);
-            String actual = exampleGenerator.getExampleHtml(xpath, value, null, ExampleType.NATIVE);
+            String actual = simplify(exampleGenerator.getExampleHtml(xpath, value, null, ExampleType.NATIVE));
             assertEquals("specifics", expected, actual);
         }
     }
@@ -399,7 +435,7 @@ public class TestExampleGenerator extends TestFmwk {
                     alreadySeen.add(text);
                 }
             } catch (Exception e) {
-                    errln("getExampleHtml\t" + type + "\t" + e.getMessage());
+                errln("getExampleHtml\t" + type + "\t" + e.getMessage());
             }
         }
 
@@ -430,7 +466,7 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish(),
                 CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         String path = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]" +
-        		"/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000000\"][@count=\"" + many + "\"]";
+                "/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000000\"][@count=\"" + many + "\"]";
         checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), expected);
     }
 }

@@ -6,10 +6,12 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.ChoiceFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -41,6 +43,8 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.NumberInfo;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
@@ -213,13 +217,13 @@ public class ExampleGenerator {
     };
 
     public static class ExampleContext {
-        private List<Double> exampleCount;
+        private Collection<NumberInfo> exampleCount;
 
-        public void setExampleCount(List<Double> exampleCount2) {
+        public void setExampleCount(Collection<NumberInfo> exampleCount2) {
             this.exampleCount = exampleCount2;
         }
 
-        public List<Double> getExampleCount() {
+        public Collection<NumberInfo> getExampleCount() {
             return exampleCount;
         }
     }
@@ -373,7 +377,8 @@ public class ExampleGenerator {
         String form = this.pluralInfo.getPluralRules().select(amount);
         String perPath = "//ldml/units/unitLength" + unitLength.typeString
                 + "/compoundUnit[@type=\"per\"]"
-                + "/unitPattern[@count=\"" + count + "\"]";
+                + "/compoundUnitPattern";
+      //ldml/units/unitLength[@type="long"]/compoundUnit[@type="per"]/compoundUnitPattern
         return format(getValueFromFormat(perPath, form), unit1, unit2);
     }
 
@@ -708,12 +713,23 @@ public class ExampleGenerator {
         return df.format(new Date(time));
     }
 
+    static final List<NumberInfo> CURRENCY_SAMPLES = Arrays.asList(
+            new NumberInfo(1.23), 
+            new NumberInfo(0), 
+            new NumberInfo(2.34),
+            new NumberInfo(3.45),
+            new NumberInfo(5.67),
+            new NumberInfo(1)
+            );
+
     private String formatCountValue(String xpath, XPathParts parts, String value, ExampleContext context,
             ExampleType type) {
         if (!parts.containsAttribute("count")) { // no examples for items that don't format
             return null;
         }
         final PluralInfo plurals = supplementalDataInfo.getPlurals(cldrFile.getLocaleID());
+        PluralRules pluralRules = plurals.getPluralRules();
+
         String unitType = parts.getAttributeValue(-2, "type");
         if (unitType == null) {
             unitType = "USD"; // sample for currency pattern
@@ -722,39 +738,88 @@ public class ExampleGenerator {
         final boolean isCurrency = !parts.contains("units");
 
         Count count = null;
-        final List<Double> exampleCount;
-        if (type != ExampleType.ENGLISH) {
-            String countString = parts.getAttributeValue(-1, "count");
-            if (countString == null) {
-                // count = Count.one;
-                return null;
-            } else {
-                try {
-                    count = Count.valueOf(countString);
-                } catch (Exception e) {
-                    return null; // counts like 0
-                }
-            }
-            exampleCount = plurals.getCountToExamplesMap().get(count);
-            if (context != null) {
-                context.setExampleCount(exampleCount);
-            }
+        final List<NumberInfo> exampleCount = new ArrayList();
+        exampleCount.addAll(CURRENCY_SAMPLES);
+        String countString = parts.getAttributeValue(-1, "count");
+        if (countString == null) {
+            // count = Count.one;
+            return null;
         } else {
-            exampleCount = context.getExampleCount();
+            try {
+                count = Count.valueOf(countString);
+            } catch (Exception e) {
+                return null; // counts like 0
+            }
+        }
+
+        // we used to just get the samples for the given keyword, but that doesn't work well any more.
+        exampleCount.addAll(pluralRules.getFractionSamples());
+        if (context != null) {
+            context.setExampleCount(exampleCount);
         }
         String result = "";
-        for (double example : exampleCount) {
-            // first see if there is a unit pattern in this type.
-            if (type == ExampleType.ENGLISH) {
-                count = plurals.getCount(example);
-            }
-            if (value == null) {
-                // String clippedPath = parts.toString(-1);
-                // clippedPath += "/" + parts.getElement(-1);
-                String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
-                value = cldrFile.getStringValue(fallbackPath);
-            }
+        DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(unitType);
+        int decimalCount = currencyFormat.getMinimumFractionDigits();
 
+        // we will cycle until we have (at most) two examples.
+        Set<NumberInfo> examplesSeen = new HashSet();
+        int maxCount = 2;
+        main:
+            // If we are a currency, we will try to see if we can set the decimals to match.
+            // but if nothing works, we will just use a plain sample.
+            for (int phase = 0; phase < 2; ++phase) {
+                int check = 0;
+                for (NumberInfo example : exampleCount) {
+                    // we have to first see whether we have a currency. If so, we have to see if the count works.
+
+                    if (isCurrency && phase == 0) {
+                        example = new NumberInfo(example.source, decimalCount);
+                    }
+                    // skip if we've done before (can happen because of the currency reset)
+                    if (examplesSeen.contains(example)) {
+                        continue;
+                    }
+                    examplesSeen.add(example);
+                    // skip if the count isn't appropriate
+                    if (!pluralRules.select(example).equals(count.toString())) {
+                        continue;
+                    }
+
+                    if (value == null) {
+                        String fallbackPath = cldrFile.getCountPathWithFallback(xpath, count, true);
+                        value = cldrFile.getStringValue(fallbackPath);
+                    }
+                    String resultItem;
+
+                    resultItem = formatCurrency(value, type, unitType, isPattern, isCurrency, count, example);
+                    // now add to list
+                    result = addExampleResult(resultItem, result);
+                    if (isPattern) {
+                        String territory = getDefaultTerritory(type);
+                        String currency = supplementalDataInfo.getDefaultCurrency(territory);
+                        if (currency.equals(unitType)) {
+                            currency = "EUR";
+                            if (currency.equals(unitType)) {
+                                currency = "JAY";
+                            }
+                        }
+                        resultItem = formatCurrency(value, type, currency, isPattern, isCurrency, count, example);
+                        // now add to list
+                        result = addExampleResult(resultItem, result);
+
+                    }
+                    if (--maxCount < 1) {
+                        break main;
+                    }
+                }
+            }
+        return result.isEmpty() ? null : result;
+    }
+
+    private String formatCurrency(String value, ExampleType type, String unitType, final boolean isPattern, final boolean isCurrency, Count count,
+            NumberInfo example) {
+        String resultItem;
+        {
             // If we have a pattern, get the unit from the count
             // If we have a unit, get the pattern from the count
             // English is special; both values are retrieved based on the count.
@@ -775,45 +840,26 @@ public class ExampleGenerator {
                 unitPattern = setBackgroundExceptMatch(unitPattern, PARAMETER_SKIP0);
             }
 
+
             MessageFormat unitPatternFormat = new MessageFormat(unitPattern);
+
 
             // get the format for the currency
             // TODO fix this for special currency overrides
 
             DecimalFormat unitDecimalFormat = icuServiceBuilder.getNumberFormat(1); // decimal
-            // Map arguments = new HashMap();
+            unitDecimalFormat.setMaximumFractionDigits(example.visibleFractionDigitCount);
+            unitDecimalFormat.setMinimumFractionDigits(example.visibleFractionDigitCount);
 
-            if (isCurrency) {
-                DecimalFormat currencyFormat = icuServiceBuilder.getCurrencyFormat(unitType);
-                int decimalCount = currencyFormat.getMinimumFractionDigits();
-
-                final boolean isInteger = example == Math.round(example);
-                if (!isInteger && decimalCount == 0) continue; // don't display integers for fractions
-
-                // int currentCount = isInteger ? 0 : decimalCount;
-                unitDecimalFormat.setMaximumFractionDigits(decimalCount);
-                unitDecimalFormat.setMinimumFractionDigits(decimalCount);
-
-                // finally, format the result
-            } else {
-                unitDecimalFormat.setMinimumFractionDigits(0);
-            }
-
+            String formattedNumber = unitDecimalFormat.format(example.source);
             unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);
+            resultItem = unitPattern.replace("{0}", formattedNumber).replace("{1}", unitName);
 
-            // arguments.put("quantity", example);
-            // arguments.put("unit", value);
-            String resultItem = unitPatternFormat.format(new Object[] { example, unitName });
-            // resultItem = setBackground(resultItem).replace(unitName, backgroundEndSymbol + unitName +
-            // backgroundStartSymbol);
             if (isPattern) {
                 resultItem = invertBackground(resultItem);
             }
-
-            // now add to list
-            result = addExampleResult(resultItem, result);
         }
-        return result;
+        return resultItem;
     }
 
     private String addExampleResult(String resultItem, String resultToAddTo) {
@@ -835,13 +881,11 @@ public class ExampleGenerator {
     }
 
     private String getUnitName(String unitType, final boolean isCurrency, Count count) {
-        String unitName;
         String unitNamePath = cldrFile.getCountPathWithFallback(isCurrency
-                ? "//ldml/numbers/currencies/currency[@type=\"USD\"]/displayName"
+                ? "//ldml/numbers/currencies/currency[@type=\"" + unitType + "\"]/displayName"
                         : "//ldml/units/unit[@type=\"" + unitType + "\"]/unitPattern",
                         count, true);
-        unitName = cldrFile.getWinningValue(unitNamePath);
-        return unitName;
+        return cldrFile.getWinningValue(unitNamePath);
     }
 
     private String handleNumberSymbol(XPathParts parts, String value) {
@@ -1062,6 +1106,24 @@ public class ExampleGenerator {
      */
     private String handleCurrencyFormat(XPathParts parts, String value, ExampleType type) {
 
+        String territory = getDefaultTerritory(type);
+
+        String currency = supplementalDataInfo.getDefaultCurrency(territory);
+        String checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
+        String currencySymbol = cldrFile.getWinningValue(checkPath);
+        String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
+
+        DecimalFormat df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol,numberSystem);
+        df.applyPattern(value);
+
+        double sampleAmount = 1295.00;
+        String example = formatNumber(df, sampleAmount);
+        example = addExampleResult(formatNumber(df, -sampleAmount), example);
+
+        return example;
+    }
+
+    private String getDefaultTerritory(ExampleType type) {
         CLDRLocale loc;
         String territory = "US";
         if (ExampleType.NATIVE.equals(type)) {
@@ -1075,22 +1137,9 @@ public class ExampleGenerator {
                 territory = "US";
             }
         }
-
-        String currency = supplementalDataInfo.getDefaultCurrency(territory);
-        String checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
-        String currencySymbol = cldrFile.getWinningValue(checkPath);
-        String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
-
-        DecimalFormat df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol,numberSystem);
-        df.applyPattern(value);
-        
-        double sampleAmount = 1295.00;
-        String example = formatNumber(df, sampleAmount);
-        example = addExampleResult(formatNumber(df, -sampleAmount), example);
-
-        return example;
+        return territory;
     }
-    
+
     /**
      * Creates examples for decimal formats.
      * 
@@ -1154,26 +1203,26 @@ public class ExampleGenerator {
         }
         int numDigits = format.getMinimumIntegerDigits();
         Map<Count, Double> samples = patternExamples.getSamples(numDigits);
-//        int min = (int) Math.pow(10, numDigits - 1);
-//        int max = min * 10;
-//        Map<Count, Integer> examples = patternExamples.get(numDigits);
-//        if (examples == null) {
-//            patternExamples.put(numDigits, examples = new HashMap<Count, Integer>());
-//            Set<Count> typesLeft = new HashSet<Count>(pluralInfo.getCountToExamplesMap().keySet());
-//            // Add at most one example of each type.
-//            for (int i = min; i < max; ++i) {
-//                if (typesLeft.isEmpty()) break;
-//                Count type = Count.valueOf(pluralInfo.getPluralRules().select(i));
-//                if (!typesLeft.contains(type)) continue;
-//                examples.put(type, i);
-//                typesLeft.remove(type);
-//            }
-//            // Add zero as an example only if there is no other option.
-//            if (min == 1) {
-//                Count type = Count.valueOf(pluralInfo.getPluralRules().select(0));
-//                if (!examples.containsKey(type)) examples.put(type, 0);
-//            }
-//        }
+        //        int min = (int) Math.pow(10, numDigits - 1);
+        //        int max = min * 10;
+        //        Map<Count, Integer> examples = patternExamples.get(numDigits);
+        //        if (examples == null) {
+        //            patternExamples.put(numDigits, examples = new HashMap<Count, Integer>());
+        //            Set<Count> typesLeft = new HashSet<Count>(pluralInfo.getCountToExamplesMap().keySet());
+        //            // Add at most one example of each type.
+        //            for (int i = min; i < max; ++i) {
+        //                if (typesLeft.isEmpty()) break;
+        //                Count type = Count.valueOf(pluralInfo.getPluralRules().select(i));
+        //                if (!typesLeft.contains(type)) continue;
+        //                examples.put(type, i);
+        //                typesLeft.remove(type);
+        //            }
+        //            // Add zero as an example only if there is no other option.
+        //            if (min == 1) {
+        //                Count type = Count.valueOf(pluralInfo.getPluralRules().select(0));
+        //                if (!examples.containsKey(type)) examples.put(type, 0);
+        //            }
+        //        }
         return samples.get(count);
     }
 

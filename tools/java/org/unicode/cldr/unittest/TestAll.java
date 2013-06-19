@@ -39,6 +39,8 @@ public class TestAll extends TestGroup {
                         "org.unicode.cldr.unittest.TestInheritance",
                         "org.unicode.cldr.unittest.TestOutdatedPaths",
                         "org.unicode.cldr.unittest.TestCoverageLevel",
+                        "org.unicode.cldr.unittest.TestExampleGenerator",
+                       
                 },
                 "All tests in CLDR");
     }

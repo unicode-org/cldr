@@ -1458,8 +1458,8 @@ function showForumStuff(frag, forumDiv, tr) {
 	frag.appendChild(newButton);
 	
 	listenFor(newButton, "click", function(e) {
-		window.blur(); // submit anything unsubmitted
-		window.location = tr.forumDiv.postUrl;
+		//window.blur(); // submit anything unsubmitted
+		window.open(tr.forumDiv.postUrl);
 		stStopPropagation(e);
 		return true;
 	});
@@ -3516,7 +3516,7 @@ function showV() {
 						disabled: true,
 						onClick: function(){ 
 							// TODO:  make this a real section
-							window.location = survURL + '?forum=' + locmap.getLanguage(surveyCurrentLocale);
+							window.open(survURL + '?forum=' + locmap.getLanguage(surveyCurrentLocale));
 						}
 					});
 					menuSection.addChild(menuMap.forumMenu);

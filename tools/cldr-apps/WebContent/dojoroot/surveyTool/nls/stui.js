@@ -237,7 +237,7 @@ define({
 		"v-title_desc": "This area shows the date before which votes are considered “old”.",
 		special_oldvotes: "Import Old Votes",
 		section_general: "General Info",
-		section_forum: "Forum <i>(Leaves this page)</i>",
+		section_forum: "Forum",
 		section_subpages: "Subpages",
 		
 		section_help: "Choose an item from the 'Subpages' menu to begin working with this section.",
@@ -250,8 +250,8 @@ define({
         section_info_Units:  "The Units is used for formatting measurements, such as '3 hours' or '4 kg'.",
         section_info_Misc:  "The Miscellaneous data is used to some special purpose items, such as lists (eg, 'A, B, and C') and truncated strings (eg, 'supercalifrag…cious').",
 		
-		forumNewPostButton: "New Post (leaves this page)",
-		forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item, however it does (currently) leave the page you are on. Click 'view item' after submitting to return to this item.",
+		forumNewPostButton: "New Post",
+		forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item, in a new window. Click 'view item' after submitting to return to this item.",
 		special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Review: Priority Items to see all the errors, warnings, and missing items in one place.",
 
 		defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",

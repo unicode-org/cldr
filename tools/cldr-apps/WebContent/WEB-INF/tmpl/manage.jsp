@@ -34,8 +34,10 @@ String helpName = subCtx.getString("helpName");
               <a href='<%= request.getContextPath() %>/v#oldvotes' >Import my Old Votes (from CLDR <%= SurveyMain.getOldVersion() %> and prior) </a>
               <a href='<%= ctx.context("myvotes.jsp?user="+subCtx.session.user.id)+"&s="+subCtx.session.id %>'>See My&nbsp;Recent&nbsp;Activity</a>
                 <a  href='<%= subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id %>'>Upload an XML file as my votes (bulk upload)</a>
-                <a  href='<%= subCtx.jspUrl("vsummary.jsp"  )+ "&amp;s=" + subCtx.session.id %>'>Priority Items Summary</a>
-            
+                
+                <% if(UserRegistry.userCanUseVettingSummary(subCtx.session.user)) { %>
+                    <a  href='<%= subCtx.jspUrl("vsummary.jsp"  )+ "&amp;s=" + subCtx.session.id %>'>Priority Items Summary</a>
+                <% } %>        
             <h3>My Organization (<%= subCtx.session.user.getOrganization().getDisplayName() %>)</h3><%
             if(UserRegistry.userIsTC(subCtx.session.user)) {
                 SurveyMain.printMenu(subCtx, doWhat, "list", "Manage&nbsp;Users", SurveyMain.QUERY_DO);

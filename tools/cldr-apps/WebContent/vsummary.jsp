@@ -14,6 +14,11 @@ if(!SurveyMain.isSetup ||
 	return;
 }
 
+if(!UserRegistry.userCanUseVettingSummary(cs.user)) {
+    response.sendRedirect(request.getContextPath()+"/survey?msg=no_access");
+    return;
+}
+
 String doneurl = (request.getContextPath()+request.getServletPath())+"?s="+sid;
 String vloaded = doneurl+"&vloaded=t";
 boolean isVloaded = request.getParameter("vloaded")!=null;

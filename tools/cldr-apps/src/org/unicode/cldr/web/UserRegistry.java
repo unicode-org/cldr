@@ -1657,6 +1657,15 @@ public class UserRegistry {
             return false;
         return ((u != null) && userIsStreet(u));
     }
+    
+    /**
+     * Can the user use the vetting summary page?
+     * @param u
+     * @return
+     */
+    public static final boolean userCanUseVettingSummary(User u) {
+        return (u!=null) && ( /* userIsExactlyManager(u) || */ userIsTC(u) );
+    }
 
     // TODO: move to CLDRLocale
     static final boolean localeMatchesLocale(CLDRLocale smallLocale, CLDRLocale bigLocale) {

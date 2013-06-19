@@ -288,7 +288,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="dates/fields/field[@type='%dayTypes']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/%metazoneTypes"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80_stdonly']/long/standard"/>
-		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='(Africa|America|Antarctica|Asia|Australia|Atlantic|Europe|Indian|Pacific)/[^']++']/exemplarCity"/>
+		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='(Africa|America|Antarctica|Arctic|Asia|Australia|Atlantic|Europe|Indian|Pacific)/[^']++']/exemplarCity"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='Europe/(Dublin|London)']/(long|short)/daylight"/>
 		<coverageLevel value="80" match="numbers/symbols[@numberSystem='latn']/%numberSymbols80"/>
 		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/%numberSymbols80"/>

@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.VettingViewer;
+import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
@@ -185,12 +186,19 @@ public class VettingViewerQueue {
             if (locale.toString().length() == 0) {
                 isSummary = true;
                 maxn = 0;
-                // use the hack set
-
-                for (CLDRLocale l : sm.getLocalesSet()) {
-                    if (getLocalesWithVotes(st_org).is(l.toString())) {
-                        maxn += baseMax;
-                    }
+                List<Level> levelsToCheck = new ArrayList<Level>();
+                if (usersOrg.equals(Organization.surveytool)) {
+                    levelsToCheck.add(Level.COMPREHENSIVE);
+                } else {
+                    levelsToCheck.addAll(Arrays.asList(Level.values()));
+                }
+                for ( Level lv : levelsToCheck) {
+                    LocalesWithExplicitLevel lwe = new LocalesWithExplicitLevel(usersOrg,lv);
+                    for (CLDRLocale l : SurveyMain.getLocalesSet()) {
+                        if (lwe.is(l.toString())) {
+                            maxn += baseMax;
+                        }
+                    }                       
                 }
             } else {
                 maxn = baseMax;

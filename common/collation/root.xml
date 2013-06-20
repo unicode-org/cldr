@@ -185,7 +185,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<<Ↄ # U+2183
 				<<ꜿ # U+A73F
 				<<<Ꜿ # U+A73E
-				<<ʗ # U+0297
 				&d
 				<<ᴅ # U+1D05
 				<<ᴆ # U+1D06
@@ -280,6 +279,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ʯ # U+02AF
 				&i
 				<<ı # U+0131
+				<<<𝚤 # U+1D6A4
 				<<ɪ # U+026A
 				<<<ᶦ # U+1DA6
 				<<ꟾ # U+A7FE
@@ -297,6 +297,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ᵼ # U+1D7C
 				&j
 				<<ȷ # U+0237
+				<<< 	𝚥 # U+1D6A5
 				<<ᴊ # U+1D0A
 				<<ɉ # U+0249
 				<<<Ɉ # U+0248
@@ -365,7 +366,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ɰ # U+0270
 				<<<ᶭ # U+1DAD
 				&n
-				<<ⁿ # U+207F
 				<<ŉ # U+0149
 				<<ɴ # U+0274
 				<<<ᷡ # U+1DE1
@@ -433,14 +433,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ɸ # U+0278
 				<<<ᶲ # U+1DB2
 				<<ⱷ # U+2C77
-				&q<<ꝗ # U+A757
+				&q
+				<<ꝗ # U+A757
 				<<<Ꝗ # U+A756
 				<<ꝙ # U+A759
 				<<<Ꝙ # U+A758
 				<<ʠ # U+02A0
 				<<ɋ # U+024B
 				<<<Ɋ # U+024A
-				&r<<ʀ # U+0280
+				&r
+				<<ʀ # U+0280
 				<<<ᷢ # U+1DE2
 				<<<Ʀ # U+01A6
 				<<ꝛ # U+A75B
@@ -470,7 +472,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ꝶ # U+A776
 				<<ꝝ # U+A75D
 				<<<Ꝝ # U+A75C
-				&s<<ꜱ # U+A731
+				&s
+				<<ꜱ # U+A731
 				<<ᵴ # U+1D74
 				<<ᶊ # U+1D8A
 				<<ʂ # U+0282
@@ -487,7 +490,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ʅ # U+0285
 				<<ᶘ # U+1D98
 				<<ʆ # U+0286
-				&t<<ᴛ # U+1D1B
+				&t
+				<<ᴛ # U+1D1B
 				<<ŧ # U+0167
 				<<<Ŧ # U+0166
 				<<ⱦ # U+2C66
@@ -502,7 +506,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ȶ # U+0236
 				<<ꝷ # U+A777
 				<<ʇ # U+0287
-				&u<<ᴜ # U+1D1C
+				&u
+				<<ᴜ # U+1D1C
 				<<<ᶸ # U+1DB8
 				<<ᴝ # U+1D1D
 				<<<ᵙ # U+1D59
@@ -516,7 +521,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<<Ʊ # U+01B1
 				<<<ᶷ # U+1DB7
 				<<ᵿ # U+1D7F
-				&v<<ᴠ # U+1D20
+				&v
+				<<ᴠ # U+1D20
 				<<ꝟ # U+A75F
 				<<<Ꝟ # U+A75E
 				<<ᶌ # U+1D8C
@@ -530,14 +536,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ʌ # U+028C
 				<<<Ʌ # U+0245
 				<<<ᶺ # U+1DBA
-				&w<<ᴡ # U+1D21
+				&w
+				<<ᴡ # U+1D21
 				<<ⱳ # U+2C73
 				<<<Ⱳ # U+2C72
 				<<ʍ # U+028D
 				<<ƿ # U+01BF
 				<<<Ƿ # U+01F7
-				&x<<ᶍ # U+1D8D
-				&y<<ʏ # U+028F
+				&x
+				<<ᶍ # U+1D8D
+				&y
+				<<ʏ # U+028F
 				<<ɏ # U+024F
 				<<<Ɏ # U+024E
 				<<ƴ # U+01B4
@@ -547,7 +556,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ʎ # U+028E
 				<<ȝ # U+021D
 				<<<Ȝ # U+021C
-				&z<<ᴢ # U+1D22
+				&z
+				<<ᴢ # U+1D22
 				<<ƶ # U+01B6
 				<<<Ƶ # U+01B5
 				<<ᵶ # U+1D76
@@ -576,21 +586,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<<ƺ # U+01BA
 				<<ʓ # U+0293
 				# Thorn
-				&þ<<ꝥ # U+A765
+				&þ
+				<<ꝥ # U+A765
 				<<<Ꝥ # U+A764
 				<<ꝧ # U+A767
 				<<<Ꝧ # U+A766
 				# Digraphs
+				&ae<<ᴁ<<ᴂ<<<ᵆ # U+1D01, U+1D02, and U+1D46
 				&dʑ<<ʥ # U+02A5
 				&dʒ<<ʤ # U+02A4
 				&hv<<ƕ<<<Ƕ # U+0195 and U+01F6
 				&lʒ<<ɮ # U+026E
 				&oe<<ɶ<<ᴔ # U+0276 and U+1D14
-				&ue<<ᵫ # U+1D6B
 				&tɕ<<ʨ # U+02A8
+				&ue<<ᵫ # U+1D6B
 
 				# Letters and modifiers not associated with a specific first or second 
-				#	level letter are ignored.
+				# level letter are ignored.
 				&[last tertiary ignorable]
 				=ʻ # U+02BB
 				=ʽ # U+02BD
@@ -645,15 +657,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				=ǁ # U+01C1
 				=ǂ # U+01C2
 				=ǃ # U+01C3
+				=ʗ # U+0297
 				=ʘ # U+0298
 				=ʬ # U+02AC
 				=ʭ # U+02AD
 				# Greek
-				&σ<<ς # U+03C2
+				&γ
+				<<ᴦ # U+1D26
+				&λ
+				<<ᴧ # U+1D27
+				&π
+				<<ᴨ # U+1D28
+				&ρ
+				<<ᴩ # U+1D29
+				&ψ
+				<<ᴪ # U+1D2A
 				# Cyrillic
 				&ђ
 				<<ѓ # U+0453
 				<<<Ѓ # U+0403
+				&й
+				<ҋ # U+048B
+				<<<Ҋ # U+048A
+				&л
+				<<ᴫ # U+1D2B
 				&ћ
 				<<ќ # U+045C
 				<<<Ќ # U+040C

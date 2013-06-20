@@ -47,12 +47,14 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Editors</td>
-			<td><a href="https://plus.google.com/114199149796022210033?rel=author">Mark Davis</a> (<a href="mailto:markdavis@google.com">markdavis@google.com</a>)
+			<td><a href="https://plus.google.com/114199149796022210033?rel=author">Mark Davis</a>
+			(<a href="mailto:markdavis@google.com">markdavis@google.com</a>),
+			<a href="https://plus.google.com/117587389715494866571?rel=author" class="changed">Markus Scherer</a>,
 			and other CLDR committee members</td>
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">06-07</span></td>
+			<td>2013-<span class="changed">06-20</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -125,6 +127,9 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <h2><a name="Contents" href="#Contents">Contents of Part 5, Collation</a></h2>
 	<ul class="toc">
 		<li>1 <a href="#CLDR_Collation">CLDR Collation</a></li>
+                  <ul class="toc">
+                    <li class="changed">1.1 <a href="#CLDR_Collation_Algorithm">CLDR Collation Algorithm</a></li>
+                  </ul>
 		<li>2 <a href="#Root_Collation">Root Collation</a>
                   <ul class="toc">
                     <li>2.1 <a href="#Root_Data_Files">Root Collation Data Files</a></li>
@@ -167,17 +172,118 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   with common modifications applied in the CLDR root collation,
   and further tailored for language and style as needed.</p>
 
+<h3 class="changed"><a name="CLDR_Collation_Algorithm" href="#CLDR_Collation_Algorithm">1.1 CLDR Collation Algorithm</a></h3>
+<p class="reviewnote">This whole section is new for CLDR 24.</p>
+<p>The CLDR collation algorithm is an extension of the <a href="http://www.unicode.org/reports/tr10/#Main_Algorithm">Unicode Collation Algorithm</a>.</p>
+
+<h4><a name="Algorithm_FFFE" href="#Algorithm_FFFE">U+FFFE</a></h4>
+
+<p>U+FFFE maps to a CE with special minimal weights on all levels,
+including case, quaternary and identical levels &mdash; which may require special code for those levels.
+Its primary weight is not "variable": U+FFFE must not become ignorable in alternate handling.
+This allows for <a href="http://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a>
+within code point space.
+For example, when sorting names in a database,
+a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>.
+These strings would sort properly, without ever comparing the last part of a last name
+with the first part of another first name.</p>
+
+<p>For backwards secondary level sorting,
+text <i>segments</i> separated by U+FFFE are processed in forward segment order,
+and <i>within</i> each segment the secondary weights are compared backwards.
+This is so that such combined strings are processed consistently with concatenating their sort keys.</p>
+
+<h4><a name="Context_Sensitive_Mappings" href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a></h4>
+
+<p>Contraction matching, as in the UCA, starts from the first character of the contraction string.
+It slows down processing of that first character even when none of its contractions matches.
+In some cases, it is preferrable to change such contractions to mappings with a prefix (context before a character),
+so that complex processing is done only when the less-frequently occurring trailing character is encountered.</p>
+
+<p>For example, the DUCET contains contractions for several variants of L· (L followed by middle dot).
+Collating ASCII text is slowed down by contraction matching starting with L/l.
+In the CLDR root collation, these contractions are replaced by prefix mappings (L|·)
+which are triggered only when the middle dot is encountered.
+CLDR also uses prefix rules in the Japanese tailoring,
+for processing of Hiragana/Katakana length and iteration marks.</p>
+
+<p>The mapping is conditional on the prefix match but does not change the mappings for the preceding text.
+As a result, a contraction mapping for "px" can be replaced by a prefix rule "p|x" only if
+px maps to the collation elements for p followed by the collation elements for "x if after p".
+In the DUCET, L· maps to CE(L) followed by a special secondary CE (which differs from CE(·) when · is not preceded by L).
+In the CLDR root collation, L has no context-sensitive mappings,
+but · maps to that special secondary CE if preceded by L.</p>
+
+<p>A prefix mapping for p|x behaves mostly like the contraction px,
+except when there is a contraction that overlaps with the prefix,
+for example one for "op".
+A contraction matches only new text (and consumes it),
+while a prefix matches only already-consumed text.</p>
+<ul>
+  <li>With mappings for "op" and "px", only the first contraction matches in text "opx".
+    (It consumes the "op" characters, and there is no context-sensitive mapping for x.)</li>
+  <li>With mappings for "op" and "p|x", both the contraction and the prefix rule match in text "opx".
+    (The prefix always matches already-consumed characters, regardless of whether they mapped as part of contractions.)</li>
+</ul>
+
+<p>Note: Matching of discontiguous contractions should be implemented without rewriting the text
+(unlike in the [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>] algorithm specification),
+so that prefix matching is predictable.
+(It should also help with contraction matching performance.)
+An implementation that does rewrite the text, as in the UCA, will get different results
+for some (unusual) combinations of contractions, prefix rules, and input text.</p>
+
+<p>Prefix matching uses a simple longest-match algorithm (op|c wins over p|c).
+It is recommended that prefix rules be limited to mappings where both the prefix string and the mapped string
+begin with an NFC boundary (that is, with a normalization starter that does not combine backwards).
+(In op|ch both o and c should be starters (ccc=0) and NFC_QC=Yes.)
+Otherwise, prefix matching would be affected by canonical reordering and discontiguous matching,
+like contractions.
+Prefix matching is thus always contiguous.</p>
+
+<p>A character can have mappings with both prefixes (context before) and contraction suffixes.
+Prefixes are matched first. This is to keep them reasonably implementable:
+When there is a mapping with both a prefix and a contraction suffix (like in Japanese: ぐ|ゞ),
+then the matching needs to go in both directions.
+The contraction might involve discontiguous matching,
+which needs complex text iteration and handling of skipped combining marks,
+and will consume the matching suffix.
+Prefix matching should be first because, regardless of whether there is a match,
+the implementation will always return to the original text index (right after the prefix)
+from where it will start to look at all of the contractions for that prefix.</p>
+
+<p>If there is a mapping for p|c where c is a single character, and text "...pc...",
+then the p|c mapping should "win" over any contractions that start with c but do not have the prefix.</p>
+
+<p>Consider the following mappings.</p>
+<ol>
+  <li>p → CE(p)</li>
+  <li>h → CE(h)</li>
+  <li>c → CE(c)</li>
+  <li>ch → CE(d)</li>
+  <li>p|c → CE(u)</li>
+  <li>p|ci → CE(v)</li>
+</ol>
+
+<p>With these, text collates like this:</p>
+<ul>
+  <li>pc → CE(p)CE(u)</li>
+  <li>pci → CE(p)CE(v)</li>
+  <li>pch → CE(p)CE(u)CE(h)</li>
+</ul>
+
+<p>However, if the mapping p|c → CE(u) is missing, then text "pch" maps to CE(p)CE(d).</p>
+
+
 <h2><a name="Root_Collation" href="#Root_Collation">2 Root Collation</a></h2>
   <p>The CLDR root collation order
-  is based on the UCA default table defined in
+  is based on the <span class="removed">UCA default table</span> <span class="changed"><a href="http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">Default Unicode Collation Element Table (DUCET)</a></span> defined in
   <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
   It is used by all other locales by default, or as the base for their tailorings.
   (For a chart view of the UCA, see Collation Chart [<a href="tr35.html#UCAChart">UCAChart</a>].)</p>
   <p>Starting with CLDR 1.9,
-  CLDR uses modified tables for the root collation order</p>
-
-  <!-- TODO: merge the previous remaining paragraph (Starting with CLDR 1.9, ...) with the following one. -->
-  <p>The root locale ordering is tailored in the following ways:</p>
+  CLDR uses modified tables for the root collation order.
+  The root locale ordering is tailored in the following ways:</p>
 
   <h3><a name="grouping_classes_of_characters" href="#grouping_classes_of_characters">Grouping classes of characters</a></h3>
   <p>As of Version 6.1.0, the DUCET puts characters into the following ordering:</p>
@@ -246,31 +352,32 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     This allows the reliable specification of a range,
     such as &ldquo;Sch&rdquo; ≤ X ≤ &ldquo;Sch\uFFFF&rdquo;,
     to include all strings starting with &quot;sch&quot; or equivalent.</p>
-    <p><strong>U+FFFE: </strong>This code point produces a CE with special minimal weights on all levels,
-    regardless of alternate handling.
+    <p><strong>U+FFFE: </strong>This code point produces a CE with special minimal weights on all levels.
+    <span class="removed">regardless of alternate handling.
     This allows for <a href="http://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging Sort Keys</a>
     within code point space.
     For example, when sorting names in a database,
     a sortable string can be formed with <em>last_name</em> + '\uFFFE' + <em>first_name</em>.
     These strings would sort properly, without ever comparing the last part of a last name
-    with the first part of another first name.</p>
+    with the first part of another first name.<br></span>
+    <span class="changed">For details see the <i><a href="#Algorithm_FFFE">CLDR Collation Algorithm</a></i> above.</span></p>
   </blockquote>
-  <!-- TODO(CLDR 24): p class="changed">UCA (beginning with version 6.3) also maps <strong>U+FFFD</strong>
+  <p class="changed">UCA (beginning with version 6.3) also maps <strong>U+FFFD</strong>
   to a special collation element with a very high primary weight,
   so that it is reliably non-<a href="http://www.unicode.org/reports/tr10/#Variable_Weighting">variable</a>,
-  for use with <a href="http://www.unicode.org/reports/tr10/#Handling_Illformed">ill-formed code unit sequences</a>.</p-->
+  for use with <a href="http://www.unicode.org/reports/tr10/#Handling_Illformed">ill-formed code unit sequences</a>.</p>
   <p>In CLDR, so as to maintain the special collation elements,
-  <strong>U+FFFE<!-- TODO(CLDR 24): span class="changed">D</span-->..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
-  That is, neither can occur in a collation rule: for example, the following rules are illegal:</p>
-  <p><code>&amp; \uFFFF &lt; x</code></p>
-  <p><code>&amp; x &lt;\uFFFF</code><br>
+  <strong>U+FFF<span class="changed">D</span>..U+FFFF</strong> are not further tailorable, and nothing can tailor to them.
+  That is, neither can occur in a collation rule. For example, the following rules are illegal:</p>
+  <p><code>&amp;\uFFFF &lt; x</code></p>
+  <p><code>&amp;x &lt;\uFFFF</code><br>
   </p>
 
 <p class="note"><b>Note:</b></p>
   <ul>
-    <li class="note">Java uses an early version of the basic collation syntax, but has not been updated recently.
-    It does not support any of the basic syntax marked with [...],
-    and its default table is not the DUCET.</li>
+    <li class="note">Java uses an early version of <span class="removed">the basic</span> <span class="changed">this</span> collation syntax, but has not been updated recently.
+    It does not support any of the <span class="removed">basic</span> syntax marked with [...],
+    and its default table is not the DUCET <span class="changed">nor the CLDR root collation</span>.</li>
   </ul>
 
 <h3><a name="Root_Data_Files" href="#Root_Data_Files">2.1 Root Collation Data Files</a></h3>
@@ -280,14 +387,25 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <p>Comments with DUCET-style weights in files other than allkeys_CLDR.txt
   use the weights defined in allkeys_CLDR.txt.</p>
   <ul>
-    <li> <strong>allkeys_CLDR</strong> -
-    A file that provides a remapping of UCA DUCET weights for use with CLDR. </li>
+    <li><strong>allkeys_CLDR</strong> -
+    A file that provides a remapping of UCA DUCET weights for use with CLDR.</li>
     <li><strong>FractionalUCA</strong> -
-    A file that provides a remapping of UCA DUCET weights for use with CLDR.
-    The weight values are also modified to provide variable-width weights for compression. 
+      A file that provides a remapping of UCA DUCET weights for use with CLDR.
+      The weight values are <span class="removed">also modified to provide variable-width weights for compression.</span>
+      <span class="changed">modified:</span>
+      <ul class="changed">
+        <li>The weights have variable length, with 1..4 bytes each.</li>
+        <li>There are tailoring gaps between adjacent weights,
+          so that a number of characters can be tailored to sort between any two root collation elements.</li>
+        <li>There are collation elements with primary weights at the boundaries between reordering groups and Unicode scripts,
+          so that tailoring around the first or last primary of a group/script results in new collation elements
+          that sort and reorder together with that group or script.</li>
+        <li>Also, there is data that defines the primary weight ranges for parametric group and script reordering.</li>
+      </ul>
+      <span class="changed">An implementation may modify the weights further to fit the needs of its data structures.</span>
     </li>
     <li><strong>UCA_Rules</strong> -
-    A file that provides the information in FractionalUCA as a set of comparison rules,
+    <span class="removed">A file that provides the information in FractionalUCA as a set of comparison rules,
     for use with CLDR and other environments.
     These rules provide the relative values for different characters without being tied to particular weights.
     There may be some minor differences in the resulting ordering compared to the allkeys_CLDR. 
@@ -295,12 +413,19 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     The tertiary difference (for the syntax &lt;&lt;&lt;) is produced
     by incrementing the tertiary weight on the first CE.
     This may not correspond to how tertiary differences are distributed
-    across the two CEs by the DUCET.
-    </li>
+    across the two CEs by the DUCET.</span>
+    <br><span class="changed">A file that specifies the root collation order
+    in the form of <a href="#Collation_Tailorings">tailoring rules</a>.
+    This is only an approximation of the FractionalUCA data,
+    since the rule syntax cannot express every detail of the collation elements.
+    For example, in the DUCET and in FractionalUCA, tertiary differences are usually expressed
+    with special tertiary weights on all collation elements of an expansion,
+    while a typical from-rules builder will modify the tertiary weight of only one of the collation elements.</span></li>
     <li><strong>CollationTest_CLDR</strong> - The CLDR versions of the CollationTest files,
       which use the tailorings for CLDR.
       For information on the format, see
-      <a href="http://www.unicode.org/Public/UCA/latest/CollationTest.html">CollationTest.html</a> in the <a href="http://www.unicode.org/reports/tr10/#Data10">UCA data directory</a>.
+      <a href="http://www.unicode.org/Public/UCA/latest/CollationTest.html">CollationTest.html</a>
+      in the <a href="http://www.unicode.org/reports/tr10/#Data10">UCA data directory</a>.
       <ul>
         <li>CollationTest_CLDR_NON_IGNORABLE.txt</li>
         <li>CollationTest_CLDR_SHIFTED.txt</li>
@@ -317,7 +442,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <h4>allkeys_CLDR.txt</h4>
   <p>This file defines CLDR’s tailoring of the DUCET,
   as described in <i>Section 2, <a href="#Root_Collation">Root Collation</a></i>.</p>
-  <p>The format is similar to that of allkeys.txt,
+  <p>The format is similar to that of <a href="http://www.unicode.org/reports/tr10/#File_Format">allkeys.txt</a>,
   although there may be some differences in whitespace.</p>
 
 <h4>FractionalUCA.txt</h4>
@@ -347,12 +472,13 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <pre>006C | 00B7; [, DB A9, 05]</pre>
   <blockquote> This example indicates  that if U+00B7 appears immediately after U+006C,
   it is given the corresponding collation element instead.
-  This syntax is equivalent to the following contraction, but is more efficient.</blockquote>
+  This syntax is <span class="changed">roughly</span> equivalent to the following contraction, but is more efficient.
+  <span class="changed">For details see the specification of <i><a href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a></i> above.</span></blockquote>
   <pre>006C 00B7; <em>CE(006C)</em> [, DB A9, 05]</pre>
   <blockquote>
     <p>Single-byte primary weights are given to particularly frequent characters,
     such as space, digits, and a-z.
-    Most characters are given two-byte weights,
+    <span class="removed">Most</span> <span class="changed">More frequent</span> characters are given two-byte weights,
     while relatively infrequent characters are given three-byte weights.
     For example:</p>
   </blockquote>
@@ -454,8 +580,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   </blockquote>
 
 <h4>UCA_Rules.txt</h4>
-  <p>The format for this file uses the CLDR
-  <i>basic collation syntax</i>,
+  <p>The format for this file uses the CLDR <span class="removed">basic</span> collation syntax,
   see <i>Section 3, <a href="#Collation_Tailorings">Collation Tailorings</a></i>.</p>
 
 
@@ -1057,9 +1182,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	</table>
 
 	<h3><a name="Context_Before" href="#Context_Before">3.8 Context Before</a></h3>
-	<p>The context before a character can affect how it is ordered, such as in Japanese. This could be expressed with a combination of contractions and expansions, 
+	<p class="removed">The context before a character can affect how it is ordered, such as in Japanese. This could be expressed with a combination of contractions and expansions, 
 	but is faster using a context. (The actual weights produced are different, but the resulting string comparisons are the same.)
-	<span class="removed">If a context element occurs, it must be the first item in the rule, and requires an &lt;x&gt; element.</span></p>
+	If a context element occurs, it must be the first item in the rule, and requires an &lt;x&gt; element.</p>
+	<p class="changed">A relation string can have a prefix (context before)
+	which makes the mapping from the relation string to its tailored position
+	conditional on the string occurring after that prefix.
+	For details see the specification of <i><a href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a></i>.</p>
 	<p>For example, suppose that &quot;-&quot; is sorted like the previous vowel.
 	Then one could have rules that take &quot;a-&quot;, &quot;e-&quot;, and so on.
 	However, that means that every time a very common character (a, e, ...) is encountered,
@@ -1072,8 +1201,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<th><span class="changed">Rules</span></th>
 		</tr>
 		<tr>
-			<td><code>&amp; a &lt;&lt;&lt; a | -&nbsp; <br>
-			&amp; e &lt;&lt;&lt; e | -&nbsp;&nbsp; <br>
+			<td><code>&amp; a &lt;&lt;&lt; a | '-'<br>
+			&amp; e &lt;&lt;&lt; e | '-'<br>
 			...</code></td>
 		</tr>
 	</table>

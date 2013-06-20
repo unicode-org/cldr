@@ -78,7 +78,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             "Write locale data to one file instead of splitting into separate directories. For debugging")
         .add("type", 't', "\\w+", null, "The type of file to be generated")
         .add("xpath", 'x', ".*", null, "An optional xpath to debug the regexes with")
-        .add("cldrVersion", 'c', ".*", "21.0", "The version of the CLDR data, used purely for supplementalData output.")
+        .add("cldrVersion", 'c', ".*", null, "The version of the CLDR data (DEPRECATED).")
         .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
         .add("organization", 'o', ".*", null, "The organization to filter the data for");
 
@@ -252,7 +252,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             }
             break;
         default: // supplemental data
-            processSupplemental(type, options.get("cldrVersion").getValue(), debugXPath);
+            processSupplemental(type, debugXPath);
         }
     }
 
@@ -264,7 +264,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         }
     }
 
-    private void processSupplemental(Type type, String cldrVersion, String debugXPath) {
+    private void processSupplemental(Type type, String debugXPath) {
         IcuData icuData;
         if (type == Type.plurals) {
             PluralsMapper mapper = new PluralsMapper(sourceDir);
@@ -273,7 +273,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             DayPeriodsMapper mapper = new DayPeriodsMapper(sourceDir);
             icuData = mapper.fillFromCldr();
         } else {
-            SupplementalMapper mapper = SupplementalMapper.create(sourceDir, cldrVersion);
+            SupplementalMapper mapper = SupplementalMapper.create(sourceDir);
             if (debugXPath != null) {
                 mapper.setDebugXPath(debugXPath);
             }

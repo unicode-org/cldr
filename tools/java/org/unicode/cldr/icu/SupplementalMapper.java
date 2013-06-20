@@ -50,7 +50,6 @@ public class SupplementalMapper {
 
     private int fifoCounter;
     private String inputDir;
-    private String cldrVersion;
     private RegexManager regexMapper;
     private String debugXPath;
 
@@ -104,17 +103,13 @@ public class SupplementalMapper {
      * 
      * @param inputDir
      *            the directory that the input files are in
-     * @param cldrVersion
-     *            the version of CLDR for output purposes. Only used
-     *            in supplementalData conversion.
      */
-    private SupplementalMapper(String inputDir, String cldrVersion) {
+    private SupplementalMapper(String inputDir) {
         this.inputDir = inputDir;
-        this.cldrVersion = cldrVersion;
     }
 
-    public static SupplementalMapper create(String inputDir, String cldrVersion) {
-        SupplementalMapper mapper = new SupplementalMapper(inputDir, cldrVersion);
+    public static SupplementalMapper create(String inputDir) {
+        SupplementalMapper mapper = new SupplementalMapper(inputDir);
         // Handlers for functions in regex file.
         RegexManager manager = new RegexManager("ldml2icu_supplemental.txt");
         manager.addFunction("date", new Function(2) {
@@ -205,7 +200,7 @@ public class SupplementalMapper {
         }
         // Hack to add the CLDR version
         if (outputName.equals("supplementalData")) {
-            icuData.add("/cldrVersion", cldrVersion);
+            icuData.add("/cldrVersion", CLDRFile.GEN_VERSION);
         }
         return icuData;
     }

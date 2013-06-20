@@ -218,7 +218,7 @@ public class CookieSession {
         }
         if(DEBUG_INOUT) System.out.println("S: new " + id + " - " + user);
         synchronized (gHash) {
-            if(gHash.contains(id)) {
+            if(gHash.containsKey(id)) {
                 System.err.println("CookieSession.CookieSession() - dup id " + id);
             }
             gHash.put(id, this);

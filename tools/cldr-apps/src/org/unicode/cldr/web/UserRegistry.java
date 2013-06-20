@@ -1188,11 +1188,6 @@ public class UserRegistry {
             } else {
                 msg = msg + " [locales set]";
 
-                if (!normalizedLocales.equals(newLocales)) {
-                    msg = msg + " <br>You requested: <strike>" + newLocales + "</strike> <br> Valid locale list: "
-                            + prettyPrintLocale(normalizedLocales) + "<br>";
-                }
-
                 msg = msg + updateIntLocs(theirId, conn);
                 /*
                  * if(intLocs) { return updateIntLocs(theirId); }

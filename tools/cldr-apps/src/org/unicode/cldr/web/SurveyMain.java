@@ -958,7 +958,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.println("<h1>SQL Console (" + DBUtils.getDBKind() + ")</h1>");
         ctx.println("Welcome to " + DBUtils.db_driver);
 
-        if ((dbUtils.dbDir == null) || (isBusted != null)) { // This may or may
+        if (isBusted != null) { // This may or may
                                                              // not work. Survey
                                                              // Tool is busted,
                                                              // can we attempt
@@ -4602,22 +4602,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static final String DATAROW_JSP_DEFAULT = "datarow_short.jsp";
 
     public static final String QUERY_VALUE_SUFFIX = "_v";
-
-    public synchronized String baselineFileGetStringValue(String xpath) {
-        String res = gBaselineHash.get(xpath);
-        if (res == null) {
-            res = getBaselineFile().getStringValue(xpath);
-            if (res == null) {
-                res = NULL_STRING;
-            }
-            gBaselineHash.put(xpath, res);
-        }
-        if (res == NULL_STRING) {
-            return null;
-        } else {
-            return res;
-        }
-    }
 
     public synchronized ExampleGenerator getBaselineExample() {
         if (gBaselineExample == null) {

@@ -327,7 +327,7 @@ public class MailSender implements Runnable {
     public static final String footer = "\n----------\n"
             + "This email was generated automatically as part of the CLDR survey process\n"
             + "http://www.unicode.org/cldr\n"
-            + "If you have any questions about it,\nplease contact your organization's CLDR Technical Committee member,\nor: surveytool@unicode.org\n"
+            + "If you have any questions about it,\nplease contact your organization's CLDR Technical Committee member,\nor: surveytool at unicode.org\n"
             + "TO UNSUBSCRIBE: You must permanently disable your account to stop receiving these emails. See: <http://st.unicode.org/cldr-apps/lock.jsp>";
 
       private Properties getProperties() {
@@ -397,10 +397,12 @@ public class MailSender implements Runnable {
                     Integer from = rs.getInt("sender");
                     UserRegistry.User fromUser = getUser(from);
                     
-                    if(from>1) {
+                    String all_from = env.getProperty("CLDR_FROM", "set_CLDR_FROM_in_cldr.properties@example.com");
+                    
+                    if(false && from>1) { // ticket:6334 - don't use individualized From: messages
                         ourMessage.setFrom(new InternetAddress(fromUser.email,fromUser.name + " (SurveyTool)"));
                     } else {
-                        ourMessage.setFrom(new InternetAddress("surveytool@unicode.org", "CLDR SurveyTool"));
+                        ourMessage.setFrom(new InternetAddress(all_from, "CLDR SurveyTool"));
                     }
                     
                     // to
@@ -409,7 +411,7 @@ public class MailSender implements Runnable {
                     if(to>1) {
                         ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(toUser.email, toUser.name));
                     } else {
-                        ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress("surveytool@unicode.org", "CLDR SurveyTool"));
+                        ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(all_from, "CLDR SurveyTool"));
                     }
                     
         //            if (mailFromAddress != null) {

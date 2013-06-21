@@ -282,6 +282,7 @@ var stui = {
 		error: "Disconnected: Error", "details": "Details...", 
 		disconnected: "Disconnected", 
 		startup: "Starting up...",
+		ari_sessiondisconnect_message: "Your session has been disconnected.",
 };
 
 var stuidebug_enabled=(window.location.search.indexOf('&stui_debug=')>-1);
@@ -1031,13 +1032,13 @@ function updateStatusBox(json) {
 			console.log(kmsg);
 			updateSpecialHeader(standOutMessage(kmsg));
 		} else if((surveyUser!==null) && (( json.timeTillKick === 0) || (json.session_err))) {
-			var kmsg  = stui.str("ari_sessiondisconnect_message");
+			var kmsg  = stui_str("ari_sessiondisconnect_message");
 			console.log(kmsg);
 			updateSpecialHeader(standOutMessage(kmsg));
 			disconnected=true;
   		    addClass(document.getElementsByTagName("body")[0], "disconnected");
   		    if(!json.session_err) json.session_err = "disconnected";
-  		    handleDisconnect(kmsg,json,"status");
+  		    handleDisconnect(kmsg,json,"Your session has been disconnected.");
 		} else if(json.status.specialHeader && json.status.specialHeader.length>0) {
 			updateSpecialHeader(json.status.specialHeader);
 		} else {

@@ -722,7 +722,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         }
                     }
                     u.org = ctx.field("new_org").trim();
-                    String randomEmail = UserRegistry.makePassword(null) + "@" + UserRegistry.makePassword(null).substring(0, 4)
+                    String randomEmail = UserRegistry.makePassword(null) + "@" + UserRegistry.makePassword(null).substring(0, 4).replace('.', '0')
                             + "." + u.org.replaceAll("_","-") + ".example.com";
                     // String randomName =
                     // UserRegistry.makePassword(null).substring(0,5);

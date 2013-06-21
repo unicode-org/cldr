@@ -14,46 +14,33 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import javax.mail.Address;
-import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import org.apache.commons.io.comparator.LastModifiedFileComparator;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.StackTracker;
 
 /**
  * Helper class. Sends mail with a simple interface
  */
 public class MailSender implements Runnable {
-    private static final int countLimit = 25;
-    private static final int sendDelay = 5000;
-    
     private static final String CLDR_MAIL = "cldr_mail";
     
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
@@ -176,8 +163,8 @@ public class MailSender implements Runnable {
             if(DBUtils.db_Derby) {
                 SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
             } else {
-                int firstTime = SurveyMain.isUnofficial()?5:500;  // for official use, give some time for ST to settle before starting on mail s ending.
-                int eachTime = SurveyMain.isUnofficial()?6:45; // 63;
+                int firstTime = SurveyMain.isUnofficial()?5:60;  // for official use, give some time for ST to settle before starting on mail s ending.
+                int eachTime = 6; /* Check for outbound mail every 6 seconds */  // SurveyMain.isUnofficial()?6:45; // 63;
                 periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
                 System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = " + db.sqlCount(COUNTLEFTSQL));
             }
@@ -348,9 +335,9 @@ public class MailSender implements Runnable {
         SurveyLog.warnOnce("MailSender: processing mail queue");
         String oldName = Thread.currentThread().getName();
         try {
-            Thread.currentThread().setName("SurveyTool Periodic Mail Sender: queue size " + messageQueue.size());
+            int countLeft = DBUtils.sqlCount(COUNTLEFTSQL); 
+            Thread.currentThread().setName("SurveyTool MailSender: waiting count="+countLeft);
             if(SurveyMain.isUnofficial()) {
-                int countLeft = DBUtils.sqlCount(COUNTLEFTSQL); 
                 if(countLeft > 0) {
                     if(DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
                 }
@@ -413,15 +400,23 @@ public class MailSender implements Runnable {
                     } else {
                         ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(all_from, "CLDR SurveyTool"));
                     }
-                    
+
+                    String theFrom = "";
+                    if(from>=1) {
+                        ourMessage.addHeader("X-SurveyTool-From-User-Id", Integer.toString(from));
+                        theFrom = "This message is being sent to you on behalf of " + fromUser.name + "\" <"+fromUser.email+"> (" + fromUser.getOrganization().getDisplayName() + ") - user #"+from + " \n"; 
+                    }
+                    ourMessage.addHeader("X-SurveyTool-To-User-Id", Integer.toString(to));                    
+                    ourMessage.addHeader("X-SurveyTool-Queue-Id", Integer.toString(lastIdProcessed));
+
         //            if (mailFromAddress != null) {
         //                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName + " (CLDR)") };
         //                ourMessage.setReplyTo(replyTo);
         //            }
-        
+                    final String header = SurveyMain.isUnofficial()?" == UNOFFICIAL SURVEYTOOL  - This message was sent from a TEST machine== \n":"";
                     ourMessage.setSubject(DBUtils.getStringUTF8(rs, "subject"));
-                    ourMessage.setText((SurveyMain.isUnofficial()?" == UNOFFICIAL SURVEYTOOL  - This message was sent from a TEST machine== \n":"")+DBUtils.getStringUTF8(rs, "text") + footer);
-    
+                    ourMessage.setText(header+theFrom+DBUtils.getStringUTF8(rs, "text") + footer);
+                    
                     if(env.getProperty("CLDR_SMTP", null) != null) {
                         Transport.send(ourMessage);
                     } else {
@@ -466,6 +461,4 @@ public class MailSender implements Runnable {
             Thread.currentThread().setName(oldName);
         }
     }
-
-    BlockingDeque<MimeMessage> messageQueue = new LinkedBlockingDeque<MimeMessage>();
 }

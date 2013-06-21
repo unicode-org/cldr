@@ -3562,7 +3562,7 @@ function showV() {
 							
 							for(var k in mySection.pages) { // use given order
 								(function(aPage) {
-									var pageMenu = new MenuItem({
+									var pageMenu = aPage.menuItem =  new MenuItem({
 										label: aPage.name,
 										iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
 //										checked:   (aPage.id == surveyCurrentPage),
@@ -3586,7 +3586,7 @@ function showV() {
 							
 							showMenu = theButton;
 							
-							titlePageContainer.menus[mySection.id] = showMenu;
+							titlePageContainer.menus[mySection.id] = mySection.pagesMenu = showMenu;
 						}
 						
 						if(myPage !== null) {
@@ -3604,16 +3604,27 @@ function showV() {
 
 				menuMap.setCheck(menuMap.section_general,  (surveyCurrentPage == '' && (surveyCurrentSpecial=='' || surveyCurrentSpecial==null)),false);
 
-				// update section menus  (surveyCurrentSection == aSection.id)
+				// Update the status of the items in the Section menu
 				for(var j in menuMap.sections) {
 					var aSection = menuMap.sections[j];
 					// need to see if any items are visible @ current coverage
 					stdebug("for " + aSection.name + " minLev["+surveyCurrentLocale+"] = "+ aSection.minLev[surveyCurrentLocale]);
 					menuMap.setCheck(aSection.menuItem,  (surveyCurrentSection == aSection.id),effectiveCoverage()<aSection.minLev[surveyCurrentLocale]);
+					
+					// update the items in that section's Page menu
+					if(surveyCurrentSection == aSection.id) {
+						for(var k in aSection.pages ) {
+							var aPage = aSection.pages[k];
+							if(!aPage.menuItem) {
+								console.log("Odd - " + aPage.id + " has no menuItem");
+							} else {
+								menuMap.setCheck(aPage.menuItem,  (aPage.id == surveyCurrentPage),  (effectiveCoverage()<parseInt(aPage.levs[surveyCurrentLocale])));
+							}
+						}
+					}
 				}
-
 				
-				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));
+				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));				
 			}
 
 			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {

@@ -10,6 +10,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.VersionInfo;
 
 public class SimpleXMLSource extends XMLSource {
@@ -113,6 +116,7 @@ public class SimpleXMLSource extends XMLSource {
         }
     }
 
+    
     @Override
     public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
         // build a Relation mapping value to paths, if needed
@@ -121,11 +125,11 @@ public class SimpleXMLSource extends XMLSource {
                 VALUE_TO_PATH = new Relation(new ConcurrentHashMap(), HashSet.class);
                 for (Iterator<String> it = iterator(); it.hasNext();) {
                     String path = it.next();
-                    String value = getValueAtDPath(path);
+                    String value = normalize(getValueAtDPath(path));
                     VALUE_TO_PATH.put(value, path);
                 }
             }
-            Set<String> paths = VALUE_TO_PATH.getAll(valueToMatch);
+            Set<String> paths = VALUE_TO_PATH.getAll(normalize(valueToMatch));
             if (paths == null) {
                 return;
             }
@@ -140,6 +144,38 @@ public class SimpleXMLSource extends XMLSource {
                 }
             }
         }
+    }
+
+    static final Normalizer2 NFKCCF = Normalizer2.getNFKCCasefoldInstance();
+    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]]").freeze();
+
+    private String normalize(String valueToMatch) {
+        return replace(NON_ALPHANUM, NFKCCF.normalize(valueToMatch), "");
+    }
+
+    public String replace(UnicodeSet unicodeSet, String valueToMatch, String substitute) {
+        StringBuilder b = null; // delay creating until needed
+        for (int i = 0; i < valueToMatch.length(); ++i) {
+            int cp = valueToMatch.codePointAt(i);
+            if (unicodeSet.contains(cp)) {
+                if (b == null) {
+                    b = new StringBuilder();
+                    b.append(valueToMatch.substring(0, i)); // copy the start
+                }
+                if (substitute.length() != 0) {
+                    b.append(substitute);
+                }
+            } else if (b != null) {
+                b.appendCodePoint(cp);
+            }
+            if (cp > 0xFFFF) { // skip end of supplemental character
+                ++i;
+            }
+        }
+        if (b != null) {
+            valueToMatch = b.toString();
+        }
+        return valueToMatch;
     }
 
     public void setDtdVersionInfo(VersionInfo dtdVersionInfo) {

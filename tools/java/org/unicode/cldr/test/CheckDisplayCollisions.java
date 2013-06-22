@@ -128,7 +128,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                         // Set codes = new TreeSet(s);
                         // codes.remove(code); // don't show self
 
-                        CheckStatus item = new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
+                        CheckStatus item = new CheckStatus().setCause(this)
+                                .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.displayCollision)
                             .setCheckOnSubmit(false)
                             .setMessage("Can't have same translation as {0}", new Object[] { codes.toString() });
@@ -259,7 +260,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             CheckStatus.Type thisErrorType;
             // Specifically allow display collisions during the submission phase only, so that
             // we don't prevent people from entering stuff properly.
-            if ( getPhase() == Phase.SUBMISSION ) {
+            // Also only do warnings during the build phase, so that SmokeTest will build.
+            if ( getPhase() == Phase.SUBMISSION || getPhase() == Phase.BUILD ) {
                 thisErrorType = CheckStatus.warningType;
             } else {
                 thisErrorType = CheckStatus.errorType;
@@ -299,7 +301,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
 
             }
-            CheckStatus item = new CheckStatus().setCause(this).setMainType(thisErrorType)
+            CheckStatus item = new CheckStatus().setCause(this)
+                    .setMainType(thisErrorType)
                 .setSubtype(Subtype.displayCollision)
                 .setCheckOnSubmit(false)
                 .setMessage(message, new Object[] { collidingTypes.toString() });

@@ -19,6 +19,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -344,7 +346,8 @@ public class CheckDates extends FactoryCheckCLDR {
                     PathHeader pathHeader = pathHeaderFactory.fromPath(path2);
                     others.add(pathHeader.getHeaderCode());
                 }
-                CheckStatus.Type statusType = CheckStatus.errorType;
+                CheckStatus.Type statusType = getPhase() == Phase.SUBMISSION || getPhase() == Phase.BUILD 
+                        ? CheckStatus.warningType : CheckStatus.errorType;
                 result.add(new CheckStatus()
                 .setCause(this)
                 .setMainType(statusType)

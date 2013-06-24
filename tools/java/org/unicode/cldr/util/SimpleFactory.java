@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
@@ -19,6 +20,7 @@ public class SimpleFactory extends Factory {
      */
     private static final int CACHE_LIMIT = 15;
 
+    private volatile CLDRFile result;  // used in handleMake
     private File sourceDirectories[];
     private String matchString;
     private Set<String> localeList = new TreeSet<String>();
@@ -26,8 +28,8 @@ public class SimpleFactory extends Factory {
     private Map<String, CLDRFile>[] resolvedCache = new Map[DraftStatus.values().length];
     {
         for (int i = 0; i < mainCache.length; ++i) {
-            mainCache[i] = new LruMap<String, CLDRFile>(CACHE_LIMIT);
-            resolvedCache[i] = new LruMap<String, CLDRFile>(CACHE_LIMIT);
+            mainCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
+            resolvedCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
         }
     }
 
@@ -114,8 +116,14 @@ public class SimpleFactory extends Factory {
     public CLDRFile handleMake(String localeName, boolean resolved, DraftStatus minimalDraftStatus) {
         Map<String, CLDRFile> cache = resolved ? resolvedCache[minimalDraftStatus.ordinal()]
             : mainCache[minimalDraftStatus.ordinal()];
-        CLDRFile result = cache.get(localeName);
-        if (result == null) {
+        // Use double-check idiom.
+        result = cache.get(localeName);
+        if (result != null) return result;
+        synchronized(cache) {
+            // Check cache twice to ensure that CLDRFile is only loaded once
+            // even with multiple threads.
+            result = cache.get(localeName);
+            if (result != null) return result;
             if (resolved) {
                 result = new CLDRFile(makeResolvingSource(localeName, minimalDraftStatus));
             } else {
@@ -128,8 +136,8 @@ public class SimpleFactory extends Factory {
             if (result != null) {
                 cache.put(localeName, result);
             }
+            return result;
         }
-        return result;
     }
 
     /**

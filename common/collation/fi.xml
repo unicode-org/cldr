@@ -12,7 +12,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="fi" /> 
 	</identity>
 		<collations  validSubLocales="fi_FI">
-            <default type="phonebook"/>
+            <defaultCollation>phonebook</defaultCollation>
 			<collation type="search" >
 				<settings normalization="on"/>
 				<!-- root search, suppress contractions for Thai, Lao -->

@@ -122,8 +122,6 @@ public class CollationMapper {
                 isShort = attr.getValue("alt") != null;
                 properties.clear();
                 rules.clear();
-            } else if (qName.equals("default")) { // TODO: deprecate default element
-                icuData.add("/collations/default", attr.getValue("type"));
             } else if (qName.equals("version")) {
                 icuData.add("/Version", MapperUtils.formatVersion(attr.getValue("number")));
             }
@@ -157,7 +155,9 @@ public class CollationMapper {
         @Override
         public void endElement(String uri, String localName, String qName) throws SAXException {
             // collationType will only be null if the draft status is insufficient.
-            if (collationType == null) {
+            if (qName.equals("defaultCollation")) { // TODO: deprecate default element
+                icuData.add("/collations/default", currentText.toString());
+            } else if (collationType == null) {
                 currentText.setLength(0);
                 return;
             }

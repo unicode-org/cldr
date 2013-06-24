@@ -12,7 +12,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="sv"/> 
 	</identity>
 	<collations validSubLocales="sv_AX sv_FI sv_SE">
-		<default type="reformed"/>
+		<defaultCollation>reformed</defaultCollation>
 		<collation type="search" >
 			<settings normalization="on"/>
 			<!-- root search, suppress contractions for Thai, Lao -->

@@ -63,9 +63,9 @@ $Date$
 <!ATTLIST alias draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST alias alt NMTOKENS #IMPLIED >
 
-<!ELEMENT default (special*) >
-<!ATTLIST default type NMTOKEN #IMPLIED > <!-- only used in collation, to be deprecated -->
-<!ATTLIST default choice NMTOKEN #IMPLIED > <!-- deprecated -->
+<!ELEMENT default (special*) > <!-- deprecated -->
+<!ATTLIST default type NMTOKEN #IMPLIED >
+<!ATTLIST default choice NMTOKEN #IMPLIED >
 <!ATTLIST default draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST default references CDATA #IMPLIED >
 <!ATTLIST default alt NMTOKENS #IMPLIED >
@@ -1299,10 +1299,12 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT collations (alias | (default*, collation*, special*)) >
+<!ELEMENT collations (alias | (default*, defaultCollation*, collation*, special*)) >
 <!ATTLIST collations version NMTOKEN #IMPLIED >
 <!ATTLIST collations draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT defaultCollation ( #PCDATA ) >
 
 <!ELEMENT collation (alias | (base?, import*, settings?, suppress_contractions?, optimize?, (cr* | rules?), special*)) >
 <!ATTLIST collation type NMTOKEN "standard" >

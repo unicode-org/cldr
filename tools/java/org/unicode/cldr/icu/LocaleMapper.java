@@ -17,7 +17,7 @@ import org.unicode.cldr.icu.RegexManager.RegexResult;
 import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility.Output;
+import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;

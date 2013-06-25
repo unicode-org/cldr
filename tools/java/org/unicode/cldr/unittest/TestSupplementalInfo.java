@@ -36,7 +36,9 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.VettingViewer;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -58,6 +60,36 @@ public class TestSupplementalInfo extends TestFmwk {
         new TestSupplementalInfo().run(args);
     }
 
+    public void TestDigitPlurals() {
+        String[][] tests = {
+                {"en", "one", "1", "1"},
+                {"en", "one", "2", ""},
+                {"en", "one", "3", ""},
+                {"en", "one", "4", ""},
+                {"en", "other", "1", "0, 2-9"},
+                {"en", "other", "2", "10-99"},
+                {"en", "other", "3", "100-999"},
+                {"en", "other", "4", "1000-9999"},
+                {"ru", "one", "1", "1"},
+                {"ru", "one", "2", "21, 31, 41, 51, 61, 71, 81, 91"},
+                {"ru", "one", "3", "101, 121, 131, 141, 151, 161, 171, 181, 191, 201, 221, 231, 241, 251, 261, 271, …"},
+                {"ru", "one", "4", "1001, 1021, 1031, 1041, 1051, 1061, 1071, 1081, 1091, 1101, 1121, 1131, 1141, 1151, 1161, 1171, …"},
+                {"ru", "many", "1", "0, 5-9"},
+                {"ru", "many", "2", "10-20, 25-30, 35-40, 45-50, 55-60, 65-70, 75-80, 85-90, …"},
+                {"ru", "many", "3", "100, 105-120, 125-130, 135-140, 145-150, 155-160, 165-170, 175-180, 185-190, …"},
+                {"ru", "many", "4", "1000, 1005-1020, 1025-1030, 1035-1040, 1045-1050, 1055-1060, 1065-1070, 1075-1080, 1085-1090, …"},
+        };
+        for (String[] row : tests) {
+            PluralInfo plurals = SUPPLEMENTAL.getPlurals(row[0]);
+            UnicodeSet uset = plurals.getSamples9999(Count.valueOf(row[1]), Integer.parseInt(row[2]));
+            StringBuilder b = new StringBuilder();
+            boolean needElipsis = PluralInfo.appendIntRanges(uset, 15, b);
+            if (needElipsis) {
+                b.append(", …");
+            }
+            assertEquals(CollectionUtilities.join(row, ", "), row[3], b.toString());
+        }
+    }
     public void TestLikelyCode(){
         Map<String, String> likely = SUPPLEMENTAL.getLikelySubtags();
         String[][] tests = {

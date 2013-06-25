@@ -18,7 +18,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CldrUtility.Output;
+import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.RegexLookup;

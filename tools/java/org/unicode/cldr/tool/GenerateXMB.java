@@ -35,7 +35,7 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CldrUtility.Output;
+import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -1074,7 +1074,7 @@ public class GenerateXMB {
 
             Relation<String, String> reasonsToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
             Set<String> missingDescriptions = new TreeSet<String>();
-            CldrUtility.Output<String[]> pathArguments = new CldrUtility.Output<String[]>();
+            Output<String[]> pathArguments = new Output<String[]>();
 
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance("en");
             RegexLookup<Boolean> coverageAllow = new RegexLookup<Boolean>()

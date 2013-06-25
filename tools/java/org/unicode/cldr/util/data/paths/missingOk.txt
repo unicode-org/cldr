@@ -13,6 +13,7 @@
 //ldml/localeDisplayNames/variants/variant[@type="%A"] ; ok
 //ldml/dates/calendars/calendar[@type="%A"]/.*/default ; ok
 //ldml/dates/calendars/calendar[@type="%A"]/fields/field[@type="day"]/relative[@type="-?2"]; ok
+//ldml/numbers/decimalFormats[@numberSystem="%A"]/decimalFormatLength[@type="%A"]/decimalFormat[@type="standard"]/pattern[@type="%A"][@count="%A"] ; compact
 
 # TODO check why these are not copied into locales
 //ldml/characters/ellipsis ; ok

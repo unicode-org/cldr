@@ -920,19 +920,6 @@ public class CldrUtility {
         }
     }
 
-    /**
-     * Simple struct-like class for output parameters.
-     * 
-     * @param <T>
-     *            The type of the parameter.
-     */
-    public static final class Output<T> {
-        public T value;
-
-        public String toString() {
-            return value == null ? "null" : value.toString();
-        }
-    }
 
     // static final class HandlingTransform implements Transform<String, Handling> {
     // @Override

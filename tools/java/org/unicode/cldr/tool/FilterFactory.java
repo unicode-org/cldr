@@ -23,6 +23,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -291,7 +292,7 @@ public class FilterFactory extends Factory {
         @Override
         public void modifyFile(CLDRFile file) {
             if (xpathLookup.size() > 0) {
-                CldrUtility.Output<String[]> arguments = new CldrUtility.Output<String[]>();
+                Output<String[]> arguments = new Output<String[]>();
                 for (String xpath : file) {
                     String newValue = xpathLookup.get(xpath, null, arguments, null, null);
                     if (newValue != null) {

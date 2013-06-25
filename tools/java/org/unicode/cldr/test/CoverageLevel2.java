@@ -11,7 +11,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CldrUtility.Output;
+import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
@@ -155,7 +155,7 @@ public class CoverageLevel2 {
             Level result;
             if (false) { // for testing
                 Output<String[]> checkItems = new Output();
-                CldrUtility.Output<Finder> matcherFound = new Output<Finder>();
+                Output<Finder> matcherFound = new Output<Finder>();
                 List<String> failures = new ArrayList();
                 result = lookup.get(path, myInfo, checkItems, matcherFound, failures);
                 for (String s : failures) {

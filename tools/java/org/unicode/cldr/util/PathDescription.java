@@ -12,7 +12,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.CldrUtility.Output;
+import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 
 import com.ibm.icu.text.MessageFormat;

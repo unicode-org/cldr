@@ -347,7 +347,8 @@ public class CheckDates extends FactoryCheckCLDR {
                     others.add(pathHeader.getHeaderCode());
                 }
                 CheckStatus.Type statusType = getPhase() == Phase.SUBMISSION || getPhase() == Phase.BUILD 
-                        ? CheckStatus.warningType : CheckStatus.errorType;
+                        ? CheckStatus.warningType 
+                                : CheckStatus.errorType;
                 result.add(new CheckStatus()
                 .setCause(this)
                 .setMainType(statusType)

@@ -28,12 +28,16 @@ import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.OutdatedPaths;
+import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.ShowLocaleCoverage;
+import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StandardCodes.LocaleCoverageType;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -74,9 +78,6 @@ public class VettingViewer<T> {
     private static final double NANOSECS = 1000000000.0;
     private static final boolean TESTING = CldrUtility.getProperty("TEST", false);
     private static final boolean SHOW_ALL = CldrUtility.getProperty("SHOW", true);
-    private static final String LOCALE = CldrUtility.getProperty("LOCALE", "af");
-    private static final String CURRENT_MAIN = CldrUtility.getProperty("MAIN",
-            "/Users/markdavis/workspace/cldr/common/main");
 
     public static final Pattern ALT_PROPOSED = Pattern.compile("\\[@alt=\"[^\"]*proposed");
 
@@ -868,8 +869,11 @@ public class VettingViewer<T> {
                     problems.add(Choice.weLost);
                     problemCounter.increment(Choice.weLost);
                 }
-                // String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
-                // appendToMessage(usersValue, testMessage);
+                 String usersValue = userVoteStatus.getWinningValueForUsersOrganization(sourceFile, path, user);
+                 if (usersValue != null) {
+                     usersValue = "Losing value: <" + TransliteratorUtilities.toHTML.transform(usersValue) + ">";
+                     appendToMessage(usersValue, htmlMessage);
+                 }
                 break;
             case disputed:
                 if (choices.contains(Choice.hasDispute)) {
@@ -1163,28 +1167,66 @@ public class VettingViewer<T> {
         return result;
     }
 
-    static final RegexLookup<String> missingOk = new RegexLookup<String>()
-            .setPatternTransform(
-                    RegexLookup.RegexFinderTransformPath)
+    public enum MissingOK {ok, latin, alias, compact}
+    public static Transform<String, MissingOK> MISSING_STATUS_TRANSFORM = new Transform<String,MissingOK>() {
+        public MissingOK transform(String source) {
+            return MissingOK.valueOf(source);
+        }
+    };
+    
+    static final RegexLookup<MissingOK> missingOk = new RegexLookup<MissingOK>()
+            .setPatternTransform(RegexLookup.RegexFinderTransformPath)
+            .setValueTransform(MISSING_STATUS_TRANSFORM)
                     .loadFromFile(
                             VettingViewer.class,
                             "data/paths/missingOk.txt");
 
-    private static boolean isMissingOk(String path, boolean latin, boolean aliased) {
-        String value = missingOk.get(path);
+    private static boolean isMissingOk(CLDRFile sourceFile, String path, boolean latin, boolean aliased) {
+        Output<String[]> arguments = new Output();
+        MissingOK value = missingOk.get(path,null,arguments);
         if (value == null) {
             return false;
         }
-        if (value.equals("ok")) {
-            return true;
+        switch(value) {
+        case ok: return true;
+        case latin: return latin;
+        case alias: return aliased;
+        case compact: 
+            // special processing for compact numbers
+            if (path.contains("[@count=\"other\"]")) {
+                return false; // the 'other' class always counts as missing
+            }
+            String otherPath = "//ldml/numbers/decimalFormats[@numberSystem=\"" + arguments.value[1]
+            		+ "\"]/decimalFormatLength[@type=\"" + arguments.value[2]
+                    + "\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"" + arguments.value[3]
+                    + "\"][@count=\"other\"]";
+            String otherValue = sourceFile.getWinningValue(otherPath);
+            if (otherValue == null) {
+                return false; // something's wrong, bail
+            }
+            int digits = countZeros(otherValue);
+            if (digits > 4) { // we can only handle to 4 digits
+                return false;
+            }
+            // if there are no possible Count values for this many digits, then it is ok to be missing.
+            Count c = Count.valueOf(arguments.value[4]);
+            SupplementalDataInfo supplementalDataInfo2 = SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
+            PluralInfo plurals = supplementalDataInfo2.getPlurals(sourceFile.getLocaleID());
+            UnicodeSet uset = plurals.getSamples9999(c, digits);
+            return uset.isEmpty(); // ok if no samples
+            // TODO: handle fractions
+        default: throw new IllegalArgumentException();
         }
-        if (value.equals("latin")) {
-            return latin;
+    }
+    
+    private static int countZeros(String otherValue) {
+        int result = 0;
+        for (int i = 0; i < otherValue.length(); ++i) {
+            if (otherValue.charAt(i) == '0') {
+                ++result;
+            }
         }
-        if (value.equals("alias")) {
-            return aliased;
-        }
-        throw new IllegalArgumentException();
+        return result;
     }
 
     public enum MissingStatus {
@@ -1207,7 +1249,7 @@ public class VettingViewer<T> {
         boolean isAliased = path.equals(status.pathWhereFound);
 
         if (value == null) {
-            result = isMissingOk(path, latin, isAliased) ? MissingStatus.MISSING_OK : MissingStatus.ABSENT;
+            result = isMissingOk(sourceFile, path, latin, isAliased) ? MissingStatus.MISSING_OK : MissingStatus.ABSENT;
         } else {
             String localeFound = sourceFile.getSourceLocaleID(path, status);
 
@@ -1217,7 +1259,7 @@ public class VettingViewer<T> {
                     || localeFound.equals(XMLSource.CODE_FALLBACK_ID)
                     // || voteStatus == VoteStatus.provisionalOrWorse
                     ) {
-                result = isMissingOk(path, latin, isAliased) 
+                result = isMissingOk(sourceFile, path, latin, isAliased) 
                         || sourceFile.getLocaleID().equals("en") ? MissingStatus.ROOT_OK : MissingStatus.ABSENT;
             } else if (isAliased) {
                 result = MissingStatus.PRESENT;
@@ -1626,10 +1668,29 @@ public class VettingViewer<T> {
      * @param args
      * @throws IOException
      */
-    static final String myOutputDir = CldrUtility.TMP_DIRECTORY + "dropbox/mark/vetting/";
+    final static Options myOptions = new Options();
+
+    enum MyOptions {
+        filter(".*", ".*", "Filter files"),
+        locale(".*", "af", "Single locale for testing"),
+        source(".*", CldrUtility.TMP2_DIRECTORY + "/vxml/common/main",
+            "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
+        verbose(null, null, "verbose debugging messages"),
+        output(".*", CldrUtility.TMP_DIRECTORY + "dropbox/mark/vetting/", "filter the raw files (non-summary, mostly for debugging)"), ;
+        // boilerplate
+        final Option option;
+
+        MyOptions(String argumentPattern, String defaultArgument, String helpText) {
+            option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
+        }
+    }
 
     public static void main(String[] args) throws IOException {
-        String fileFilter = args.length == 0 ? ".*" : args[0];
+        myOptions.parse(MyOptions.source, args, true);
+        String fileFilter = MyOptions.filter.option.getValue();
+        String myOutputDir = MyOptions.output.option.getValue();
+        String LOCALE = MyOptions.locale.option.getValue();
+        String CURRENT_MAIN = MyOptions.source.option.getValue();
         Timer timer = new Timer();
         timer.start();
         final String version = "23.0";
@@ -1648,8 +1709,8 @@ public class VettingViewer<T> {
         UsersChoice<Organization> usersChoice = new UsersChoice<Organization>() {
             // Fake values for now
             public String getWinningValueForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
-                if (path.contains("AFN")) {
-                    return "dummy ‘losing’ value";
+                if (path.contains("USD")) {
+                    return "&dummy ‘losing’ value";
                 }
                 return null; // assume we didn't vote on anything else.
             }
@@ -1658,8 +1719,8 @@ public class VettingViewer<T> {
             public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, Organization user) {
                 String usersValue = getWinningValueForUsersOrganization(cldrFile, path, user);
                 String winningValue = cldrFile.getWinningValue(path);
-                if (CharSequences.equals(usersValue, winningValue)) {
-                    return VoteStatus.ok;
+                if (usersValue != null && !CharSequences.equals(usersValue, winningValue)) {
+                    return VoteStatus.losing;
                 }
                 String fullPath = cldrFile.getFullXPath(path);
                 if (fullPath.contains("AMD") || fullPath.contains("unconfirmed") || fullPath.contains("provisional")) {
@@ -1699,11 +1760,11 @@ public class VettingViewer<T> {
         // System.out.println(timer.getDuration() / NANOSECS + " secs");
 
         timer.start();
-        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.newCode, null);
+        writeFile(myOutputDir, tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.newCode, null);
         System.out.println(timer.getDuration() / NANOSECS + " secs");
 
         timer.start();
-        writeFile(tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.summary,
+        writeFile(myOutputDir, tableView, choiceSet, "", localeStringID, userNumericID, usersLevel, CodeChoice.summary,
                 Organization.google);
         System.out.println(timer.getDuration() / NANOSECS + " secs");
 
@@ -1730,7 +1791,7 @@ public class VettingViewer<T> {
         summary
     }
 
-    private static void writeFile(VettingViewer<Organization> tableView, final EnumSet<Choice> choiceSet,
+    private static void writeFile(String myOutputDir, VettingViewer<Organization> tableView, final EnumSet<Choice> choiceSet,
             String name, String localeStringID, int userNumericID,
             Level usersLevel,
             CodeChoice newCode, Organization organization)

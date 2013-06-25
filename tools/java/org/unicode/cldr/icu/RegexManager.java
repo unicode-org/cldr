@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility.Output;
+import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;

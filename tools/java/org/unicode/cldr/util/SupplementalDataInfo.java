@@ -51,6 +51,7 @@ import com.ibm.icu.text.PluralRules.NumberInfo;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
@@ -2605,6 +2606,8 @@ public class SupplementalDataInfo {
         private final String pluralRulesString;
         private final Set<String> canonicalKeywords;
         private final Set<Count> keywords;
+        private final Map<Count, UnicodeSet> countToIntegerSamples9999;
+        private final Map<Count, UnicodeSet[]> countToDigitToIntegerSamples9999;
 
         private PluralInfo(Map<Count, String> countToRule) {
             // now build rules
@@ -2628,14 +2631,11 @@ public class SupplementalDataInfo {
 
             Map<Count, List<Double>> countToExampleListRaw = new TreeMap<Count, List<Double>>();
             Map<Integer, Count> exampleToCountRaw = new TreeMap<Integer, Count>();
-            Map<Count, UnicodeSet> typeToExamples2 = new TreeMap<Count, UnicodeSet>();
-
-            for (int i = 0; i < 1000; ++i) {
-                Count type = Count.valueOf(pluralRules.select(i));
-                UnicodeSet uset = typeToExamples2.get(type);
-                if (uset == null) typeToExamples2.put(type, uset = new UnicodeSet());
-                uset.add(i);
-            }
+            
+            Output<Map<Count, UnicodeSet[]>> output = new Output();
+            countToIntegerSamples9999 = setIntegerSamples(output);
+            countToDigitToIntegerSamples9999 = output.value;
+            
             // double check
             // if (!targetKeywords.equals(typeToExamples2.keySet())) {
             // throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " + this);
@@ -2650,7 +2650,7 @@ public class SupplementalDataInfo {
             for (Count type : keywords) {
                 StringBuilder b = new StringBuilder();
                 final ArrayList<Double> arrayList = new ArrayList<Double>();
-                UnicodeSet uset = typeToExamples2.get(type);
+                UnicodeSet uset = countToIntegerSamples9999.get(type);
                 boolean addCurrentFractionalExample = false;
                 Double fraction = null;
                 
@@ -2696,30 +2696,7 @@ public class SupplementalDataInfo {
                     countToExampleListRaw.put(type, arrayList);
                     
                     // create string form
-                    int limit = uset.getRangeCount();
-                    int count = 0;
-                    boolean addEllipsis = false;
-                    for (int i = 0; i < limit; ++i) {
-                        if (count > 5) {
-                            addEllipsis = true;
-                            break;
-                        }
-                        int start = uset.getRangeStart(i);
-                        int end = uset.getRangeEnd(i);
-                        if (b.length() != 0) {
-                            b.append(", ");
-                        }
-                        if (start == end) {
-                            b.append(start);
-                            ++count;
-                        } else if (start + 1 == end) {
-                            b.append(start).append(", ").append(end);
-                            count += 2;
-                        } else {
-                            b.append(start).append('-').append(end);
-                            count += 2;
-                        }
-                    }
+                    boolean addEllipsis = appendIntRanges(uset, 5, b);
                     if (addCurrentFractionalExample) {
                         if (b.length() != 0) {
                             b.append(", ");
@@ -2787,6 +2764,89 @@ public class SupplementalDataInfo {
             canonicalKeywords = Collections.unmodifiableSet(temp);
         }
 
+        public static boolean appendIntRanges(UnicodeSet uset, int itemLimit, StringBuilder b) {
+            int count = 0;
+            int limit = uset.getRangeCount();
+            boolean addEllipsis = false;
+            for (int i = 0; i < limit; ++i) {
+                if (count > itemLimit) {
+                    addEllipsis = true;
+                    break;
+                }
+                int start = uset.getRangeStart(i);
+                int end = uset.getRangeEnd(i);
+                if (b.length() != 0) {
+                    b.append(", ");
+                }
+                if (start == end) {
+                    b.append(start);
+                    ++count;
+                } else if (start + 1 == end) {
+                    b.append(start).append(", ").append(end);
+                    count += 2;
+                } else {
+                    b.append(start).append('-').append(end);
+                    count += 2;
+                }
+            }
+            return addEllipsis;
+        }
+
+        private Map<Count, UnicodeSet> setIntegerSamples(Output<Map<Count, UnicodeSet[]>> other) {
+            // Create the integer counts
+            Map<Count, UnicodeSet> countToIntegerSamples9999;
+            Map<Count, UnicodeSet[]> countToDigitToIntegerSamples9999;
+            countToIntegerSamples9999 = new EnumMap<Count, UnicodeSet>(Count.class);
+            countToDigitToIntegerSamples9999 = new EnumMap<Count, UnicodeSet[]>(Count.class);
+            for (int i = 0; i < 10000; ++i) {
+                Count type = Count.valueOf(pluralRules.select(i));
+                UnicodeSet uset = countToIntegerSamples9999.get(type);
+                if (uset == null) {
+                    countToIntegerSamples9999.put(type, uset = new UnicodeSet());
+                }
+                uset.add(i);
+                int digit;
+                if (i > 999) {
+                    digit = 4;
+                } else if (i > 99) {
+                    digit = 3;
+                } else if (i > 9) {
+                    digit = 2;
+                } else {
+                    digit = 1;
+                }
+                UnicodeSet[] map = countToDigitToIntegerSamples9999.get(type);
+                if (map == null) {
+                    countToDigitToIntegerSamples9999.put(type, map = new UnicodeSet[5]);
+                }
+                if (map[digit] == null) {
+                    map[digit] = new UnicodeSet();
+                }
+                map[digit].add(i);
+            }
+            for (Count count : Count.values()) {
+                UnicodeSet uset = countToIntegerSamples9999.get(count);
+                if (uset == null) {
+                    countToIntegerSamples9999.put(count, UnicodeSet.EMPTY);
+                } else {
+                    uset.freeze();
+                }
+                UnicodeSet[] map = countToDigitToIntegerSamples9999.get(count);
+                if (map == null) {
+                    countToDigitToIntegerSamples9999.put(count, map = new UnicodeSet[5]);
+                }
+                for (int i = 0; i < map.length; ++i) {
+                    if (map[i] == null) {
+                        map[i] = UnicodeSet.EMPTY;
+                    } else {
+                        map[i].freeze();
+                    }
+                }
+            }
+            other.value = countToDigitToIntegerSamples9999;
+            return countToIntegerSamples9999;
+        }
+
         public String toString() {
             return countToExampleList + "; " + exampleToCount + "; " + pluralRules;
         }
@@ -2825,6 +2885,25 @@ public class SupplementalDataInfo {
 
         public Set<Count> getCounts() {
             return keywords;      
+        }
+        
+        /**
+         * Return the integer samples from 0 to 9999. For simplicity and compactness, this is a UnicodeSet, but
+         * the interpretation is simply as a list of integers. UnicodeSet.EMPTY is returned if there are none.
+         * @param c
+         * @return
+         */
+        public UnicodeSet getSamples9999(Count c) {
+            return countToIntegerSamples9999.get(c);
+        }
+        /**
+         * Return the integer samples for the specified digit, eg 1 => 0..9. For simplicity and compactness, this is a UnicodeSet, but
+         * the interpretation is simply as a list of integers.
+         * @param c
+         * @return
+         */
+        public UnicodeSet getSamples9999(Count c, int digit) {
+            return countToDigitToIntegerSamples9999.get(c)[digit];
         }
     }
 

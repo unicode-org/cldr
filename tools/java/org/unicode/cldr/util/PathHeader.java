@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.CldrUtility.Output;
+import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.With.SimpleIterator;
 

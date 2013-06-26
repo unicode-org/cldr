@@ -41,39 +41,39 @@ class FlexibleDateFromCLDR {
 
     static List<String> tests = Arrays.asList(new String[] {
 
-        "HHmmssSSSvvvv", // 'complete' time
-        "HHmm",
-        "HHmmvvvv",
-        "HHmmss",
-        "HHmmssSSSSS",
-        "HHmmssvvvv",
+            "HHmmssSSSvvvv", // 'complete' time
+            "HHmm",
+            "HHmmvvvv",
+            "HHmmss",
+            "HHmmssSSSSS",
+            "HHmmssvvvv",
 
-        "MMMd",
-        "Md",
+            "MMMd",
+            "Md",
 
-        "YYYYD", // (maybe?)
+            "YYYYD", // (maybe?)
 
-        "yyyyww",
-        "yyyywwEEE",
+            "yyyyww",
+            "yyyywwEEE",
 
-        "yyyyQQQQ",
-        "yyyyMM",
+            "yyyyQQQQ",
+            "yyyyMM",
 
-        "yyyyMd",
-        "yyyyMMMd",
-        "yyyyMMMEEEd",
+            "yyyyMd",
+            "yyyyMMMd",
+            "yyyyMMMEEEd",
 
-        "GyyyyMMMd",
-        "GyyyyMMMEEEd", // 'complete' date
+            "GyyyyMMMd",
+            "GyyyyMMMEEEd", // 'complete' date
 
-        "YYYYwEEE", // year, week of year, weekday
-        "yyyyDD", // year, day of year
-        "yyyyMMFE", // year, month, nth day of week in month
-        // misc
-        "eG", "dMMy", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
-        "MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
-        "GEEEEyyyyMMddHHmmss",
-        "GuuuuQMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
+            "YYYYwEEE", // year, week of year, weekday
+            "yyyyDD", // year, day of year
+            "yyyyMMFE", // year, month, nth day of week in month
+            // misc
+            "eG", "dMMy", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
+            "MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
+            "GEEEEyyyyMMddHHmmss",
+            "GuuuuQMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
     });
 
     public void set(CLDRFile cldrFile) {
@@ -183,25 +183,36 @@ class FlexibleDateFromCLDR {
             switch (patternInfo.status) {
             case PatternInfo.CONFLICT:
                 failureMap.put(path, "Conflicting Patterns: \"" + value + "\"\t&\t\"" + patternInfo.conflictingPattern
-                    + "\"");
+                        + "\"");
                 break;
             }
         } catch (RuntimeException e) {
             failureMap.put(path, e.getMessage());
         }
-        String skeleton = (String) parts.set(path).findAttributeValue("dateFormatItem", "id"); // the skeleton
-        String strippedPattern = gen.getSkeleton(value); // the pattern stripped of literals
-        if (skeleton != null) {
-            if (skeleton.indexOf('H') >= 0 || skeleton.indexOf('k') >= 0) { // if skeleton uses 24-hour time
-                if (strippedPattern.indexOf('h') >= 0 || strippedPattern.indexOf('K') >= 0) { // but pattern uses 12...
-                    failureMap.put(path, "Skeleton uses 24-hour cycle (H,k) but pattern uses 12-hour (h,K)");
-                }
-            } else if (skeleton.indexOf('h') >= 0 || skeleton.indexOf('K') >= 0) { // if skeleton uses 12-hour time
-                if (strippedPattern.indexOf('H') >= 0 || strippedPattern.indexOf('k') >= 0) { // but pattern uses 24...
-                    failureMap.put(path, "Skeleton uses 12-hour cycle (h,K) but pattern uses 24-hour (H,k)");
+        String failure = checkValueAgainstSkeleton(path, value);
+        if (failure != null) {
+            failureMap.put(path, failure);
+        }
+    }
+
+    public String checkValueAgainstSkeleton(String path, String value) {
+        String failure = null;
+        if (path.contains("dateFormatItem")) {
+            String skeleton = (String) parts.set(path).findAttributeValue("dateFormatItem", "id"); // the skeleton
+            if (skeleton != null) {
+                String strippedPattern = gen.getSkeleton(value); // the pattern stripped of literals
+                if (skeleton.indexOf('H') >= 0 || skeleton.indexOf('k') >= 0) { // if skeleton uses 24-hour time
+                    if (strippedPattern.indexOf('h') >= 0 || strippedPattern.indexOf('K') >= 0) { // but pattern uses 12...
+                        failure = "Skeleton uses 24-hour cycle (H,k) but pattern uses 12-hour (h,K)";
+                    }
+                } else if (skeleton.indexOf('h') >= 0 || skeleton.indexOf('K') >= 0) { // if skeleton uses 12-hour time
+                    if (strippedPattern.indexOf('H') >= 0 || strippedPattern.indexOf('k') >= 0) { // but pattern uses 24...
+                        failure = "Skeleton uses 12-hour cycle (h,K) but pattern uses 24-hour (H,k)";
+                    }
                 }
             }
         }
+        return failure;
     }
 
     DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();

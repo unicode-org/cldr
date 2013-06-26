@@ -183,6 +183,7 @@ define({
 		voteInfo_winningItem_desc: "This mark shows the item which is currently winning.",
 		voteInfo_winningKey_desc: "This mark shows the item which is currently winning.",
 		voteInfo_perValue_desc: "This shows the state and voters for a particular item.",
+		voteInfo_moreInfo: "Click here for a full explanation of the icons and their meanings.",
 		// CheckCLDR.StatusAction 
 		StatusAction_msg:              "Item was not submitted: ${0}",
 		StatusAction_ALLOW:            "(Actually, it was allowed.)", // shouldn't happen

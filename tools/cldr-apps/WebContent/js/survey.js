@@ -2330,6 +2330,12 @@ function updateRow(tr, theRow) {
 
 			
 			tr.voteDiv.appendChild(kdiv);
+
+			var link = createChunk(stui.str("voteInfo_moreInfo"),"a", null);
+			var theUrl = "http://cldr.unicode.org/index/survey-tool/guide#TOC-Key";
+			link.href = theUrl;
+			tr.voteDiv.appendChild(link);
+
 		}
 
 		// done with voteresolver table

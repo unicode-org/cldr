@@ -2579,6 +2579,191 @@ public class SupplementalDataInfo {
         lastPluralMap.clear();
     }
 
+    public static class SampleList {
+        public static final SampleList EMPTY = new SampleList().freeze();
+
+        private UnicodeSet uset = new UnicodeSet();
+        private List<NumberInfo> fractions = new ArrayList<NumberInfo>(0);
+
+        public String toString() {
+            return toString(6,3);
+        }
+
+        public String toString(int intLimit, int fractionLimit) {
+            StringBuilder b = new StringBuilder();
+            int intCount = 0;
+            int fractionCount = 0;
+            int limit = uset.getRangeCount();
+            for (int i = 0; i < limit; ++i) {
+                if (intCount >= intLimit) {
+                    b.append(", …");
+                    break;
+                }
+                if (b.length() != 0) {
+                    b.append(", ");
+                }
+                int start = uset.getRangeStart(i);
+                int end = uset.getRangeEnd(i);
+                if (start == end) {
+                    b.append(start);
+                    ++intCount;
+                } else if (start + 1 == end) {
+                    b.append(start).append(", ").append(end);
+                    intCount += 2;
+                } else {
+                    b.append(start).append('-').append(end);
+                    intCount += 2;
+                }
+            }
+            if (fractions.size() > 0) {
+                for (int i = 0; i < fractions.size(); ++i) {
+                    if (fractionCount >= fractionLimit) {
+                        break;
+                    }
+                    if (b.length() != 0) {
+                        b.append(", ");
+                    }
+                    b.append(fractions.get(i));
+                    ++fractionCount;
+                }
+                b.append(", …");
+            }
+            return b.toString();
+        }
+
+        public int getRangeStart(int index) {
+            return uset.getRangeStart(index);
+        }
+
+        public int intSize() {
+            return uset.size();
+        }
+
+        public SampleList remove(int i) {
+            uset.remove(i);
+            return this;
+        }
+
+        public SampleList add(int i) {
+            uset.add(i);
+            return this;
+        }
+
+        public SampleList freeze() {
+            uset.freeze();
+            if (fractions instanceof ArrayList) {
+                fractions = Collections.unmodifiableList(fractions);
+            }
+            return this;
+        }
+
+        public void add(NumberInfo i) {
+            fractions.add(i);
+        }
+        public int fractionSize() {
+            return fractions.size();
+        }
+    }
+
+    public static class CountSampleList {
+        private final Map<Count, SampleList> countToIntegerSamples9999;
+        private final Map<Count, SampleList[]> countToDigitToIntegerSamples9999;
+        CountSampleList(PluralRules pluralRules, Set<Count> keywords) {
+            // Create the integer counts
+            countToIntegerSamples9999 = new EnumMap<Count, SampleList>(Count.class);
+            countToDigitToIntegerSamples9999 = new EnumMap<Count, SampleList[]>(Count.class);
+            for (Count c : keywords) {
+                countToIntegerSamples9999.put(c, new SampleList());
+                SampleList[] row = new SampleList[5];
+                countToDigitToIntegerSamples9999.put(c, row);
+                for (int i = 1; i < 5; ++i) {
+                    row[i] = new SampleList();
+                }
+            }
+            for (int ii = 0; ii < 10000; ++ii) {
+                int i = ii;
+                int digit;
+                if (i > 999) {
+                    digit = 4;
+                } else if (i > 99) {
+                    digit = 3;
+                } else if (i > 9) {
+                    digit = 2;
+                } else {
+                    digit = 1;
+                }
+                Count count = Count.valueOf(pluralRules.select(i));
+                addSimple(countToIntegerSamples9999, i, count);
+                addDigit(countToDigitToIntegerSamples9999, i, count, digit);
+                if (haveFractions(keywords, digit)) {
+                    continue;
+                }
+                for (int f = 0; f < 30; ++f) {
+                    NumberInfo ni = new NumberInfo(i + f/10.0d, f < 10 ? 1 : 2, f);
+                    count = Count.valueOf(pluralRules.select(ni));
+                    addSimple(countToIntegerSamples9999, ni, count);
+                    addDigit(countToDigitToIntegerSamples9999, ni, count, digit);
+                }
+            }
+            // HACK for Breton
+            addSimple(countToIntegerSamples9999, 1000000, Count.valueOf(pluralRules.select(1000000)));
+
+            for (Count count : keywords) {
+                SampleList uset = countToIntegerSamples9999.get(count);
+                uset.freeze();
+                SampleList[] map = countToDigitToIntegerSamples9999.get(count);
+                for (int i = 1; i < map.length; ++i) {
+                    map[i].freeze();
+                }
+            }
+        }
+
+        private boolean haveFractions(Set<Count> keywords, int digit) {
+            for (Count c : keywords) {
+                int size = countToDigitToIntegerSamples9999.get(c)[digit].fractionSize();
+                if (size < MAX_COLLECTED_FRACTION) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        static final int MAX_COLLECTED_FRACTION = 5;
+        
+        private boolean addDigit(Map<Count, SampleList[]> countToDigitToIntegerSamples9999, NumberInfo i, Count count, int digit) {
+            return addFraction(i, countToDigitToIntegerSamples9999.get(count)[digit]);
+        }
+
+        private boolean addFraction(NumberInfo i, SampleList sampleList) {
+            if (sampleList.fractionSize() < MAX_COLLECTED_FRACTION) {
+                sampleList.add(i);
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        private boolean addSimple(Map<Count, SampleList> countToIntegerSamples9999, NumberInfo i, Count count) {
+            return addFraction(i, countToIntegerSamples9999.get(count));
+        }
+
+        private void addDigit(Map<Count, SampleList[]> countToDigitToIntegerSamples9999, int i, Count count, int digit) {
+            countToDigitToIntegerSamples9999.get(count)[digit].add(i);
+        }
+
+        private void addSimple(Map<Count, SampleList> countToIntegerSamples9999, int i, Count count) {
+            countToIntegerSamples9999.get(count).add(i);
+        }
+
+        public SampleList get(Count type) {
+            return countToIntegerSamples9999.get(type);
+        }
+
+        public SampleList get(Count c, int digit) {
+            return countToDigitToIntegerSamples9999.get(c)[digit];
+        }
+    }
+
     /**
      * Immutable class with plural info for different locales
      * 
@@ -2606,8 +2791,7 @@ public class SupplementalDataInfo {
         private final String pluralRulesString;
         private final Set<String> canonicalKeywords;
         private final Set<Count> keywords;
-        private final Map<Count, UnicodeSet> countToIntegerSamples9999;
-        private final Map<Count, UnicodeSet[]> countToDigitToIntegerSamples9999;
+        private final CountSampleList countSampleList;
 
         private PluralInfo(Map<Count, String> countToRule) {
             // now build rules
@@ -2628,14 +2812,13 @@ public class SupplementalDataInfo {
                 _keywords.add(Count.valueOf(s));
             }
             keywords = Collections.unmodifiableSet(_keywords);
+            countSampleList = new CountSampleList(pluralRules, keywords);
 
             Map<Count, List<Double>> countToExampleListRaw = new TreeMap<Count, List<Double>>();
             Map<Integer, Count> exampleToCountRaw = new TreeMap<Integer, Count>();
-            
-            Output<Map<Count, UnicodeSet[]>> output = new Output();
-            countToIntegerSamples9999 = setIntegerSamples(output);
-            countToDigitToIntegerSamples9999 = output.value;
-            
+
+            Output<Map<Count, SampleList[]>> output = new Output();
+
             // double check
             // if (!targetKeywords.equals(typeToExamples2.keySet())) {
             // throw new IllegalArgumentException ("Problem in plurals " + targetKeywords + ", " + this);
@@ -2650,63 +2833,63 @@ public class SupplementalDataInfo {
             for (Count type : keywords) {
                 StringBuilder b = new StringBuilder();
                 final ArrayList<Double> arrayList = new ArrayList<Double>();
-                UnicodeSet uset = countToIntegerSamples9999.get(type);
-                boolean addCurrentFractionalExample = false;
-                Double fraction = null;
-                
-                if (uset == null) {
-                    Collection<NumberInfo> samples = pluralRules.getFractionSamples(type.name());
-                    for (NumberInfo n : samples) {
-                        arrayList.add(n.source);
-                        if (b.length() != 0) {
-                            b.append(", ");
-                        }
-                        b.append(n.source);
-                    }
-                } else {
-                    int sample = uset.getRangeStart(0);
-                    if (sample == 0 && uset.size() > 1) { // pick non-zero if possible
-                        UnicodeSet temp = new UnicodeSet(uset);
-                        temp.remove(0);
-                        sample = temp.getRangeStart(0);
-                    }
-                    Integer sampleInteger = sample;
-                    exampleToCountRaw.put(sampleInteger, type);
-
-                    arrayList.add((double) sample);
-                    // add fractional examples
-                    fractionValue -= fractDecrement;
-                    if (fractionValue < 0) {
-                        fractionValue += 100;
-                    }
-                    fraction = (sample + (fractionValue / 100.0d));
-                    Count fracType = Count.valueOf(pluralRules.select(fraction));
-
-                    if (fracType == Count.other) {
-                        otherFractions.add(fraction);
-                        if (otherFractionalExamples.length() != 0) {
-                            otherFractionalExamples += ", ";
-                        }
-                        otherFractionalExamples += nf.format(fraction);
-                    } else if (fracType == type) {
-                        arrayList.add(fraction);
-                        addCurrentFractionalExample = true;
-                    } // else we ignore it
-
-                    countToExampleListRaw.put(type, arrayList);
-                    
-                    // create string form
-                    boolean addEllipsis = appendIntRanges(uset, 5, b);
-                    if (addCurrentFractionalExample) {
-                        if (b.length() != 0) {
-                            b.append(", ");
-                        }
-                        b.append(nf.format(fraction)).append("...");
-                    } else if (addEllipsis) {
-                        b.append("...");
-                    }
-                }
-                countToStringExampleRaw.put(type, b.toString());
+                SampleList uset = countSampleList.get(type);
+                //                boolean addCurrentFractionalExample = false;
+                //                Double fraction = null;
+                //
+                //                if (uset == null) {
+                //                    Collection<NumberInfo> samples = pluralRules.getFractionSamples(type.name());
+                //                    for (NumberInfo n : samples) {
+                //                        arrayList.add(n.source);
+                //                        if (b.length() != 0) {
+                //                            b.append(", ");
+                //                        }
+                //                        b.append(n.source);
+                //                    }
+                //                } else {
+                //                    int sample = uset.getRangeStart(0);
+                //                    if (sample == 0 && uset.size() > 1) { // pick non-zero if possible
+                //                        SampleList temp = new SampleList();
+                //                        temp.remove(0);
+                //                        sample = temp.getRangeStart(0);
+                //                    }
+                //                    Integer sampleInteger = sample;
+                //                    exampleToCountRaw.put(sampleInteger, type);
+                //
+                //                    arrayList.add((double) sample);
+                //                    // add fractional examples
+                //                    fractionValue -= fractDecrement;
+                //                    if (fractionValue < 0) {
+                //                        fractionValue += 100;
+                //                    }
+                //                    fraction = (sample + (fractionValue / 100.0d));
+                //                    Count fracType = Count.valueOf(pluralRules.select(fraction));
+                //
+                //                    if (fracType == Count.other) {
+                //                        otherFractions.add(fraction);
+                //                        if (otherFractionalExamples.length() != 0) {
+                //                            otherFractionalExamples += ", ";
+                //                        }
+                //                        otherFractionalExamples += nf.format(fraction);
+                //                    } else if (fracType == type) {
+                //                        arrayList.add(fraction);
+                //                        addCurrentFractionalExample = true;
+                //                    } // else we ignore it
+                //
+                //                    countToExampleListRaw.put(type, arrayList);
+                //
+                //                    // create string form
+                //                    boolean addEllipsis = uset.toString(5, 2);
+                //                    if (addCurrentFractionalExample) {
+                //                        if (b.length() != 0) {
+                //                            b.append(", ");
+                //                        }
+                //                        b.append(nf.format(fraction)).append("...");
+                //                    } else if (addEllipsis) {
+                //                        b.append("...");
+                //                    }
+                //                }
+                countToStringExampleRaw.put(type, uset.toString(5,5));
             }
             final String baseOtherExamples = countToStringExampleRaw.get(Count.other);
             String otherExamples = (baseOtherExamples == null ? "" : baseOtherExamples + "; ")
@@ -2764,88 +2947,6 @@ public class SupplementalDataInfo {
             canonicalKeywords = Collections.unmodifiableSet(temp);
         }
 
-        public static boolean appendIntRanges(UnicodeSet uset, int itemLimit, StringBuilder b) {
-            int count = 0;
-            int limit = uset.getRangeCount();
-            boolean addEllipsis = false;
-            for (int i = 0; i < limit; ++i) {
-                if (count > itemLimit) {
-                    addEllipsis = true;
-                    break;
-                }
-                int start = uset.getRangeStart(i);
-                int end = uset.getRangeEnd(i);
-                if (b.length() != 0) {
-                    b.append(", ");
-                }
-                if (start == end) {
-                    b.append(start);
-                    ++count;
-                } else if (start + 1 == end) {
-                    b.append(start).append(", ").append(end);
-                    count += 2;
-                } else {
-                    b.append(start).append('-').append(end);
-                    count += 2;
-                }
-            }
-            return addEllipsis;
-        }
-
-        private Map<Count, UnicodeSet> setIntegerSamples(Output<Map<Count, UnicodeSet[]>> other) {
-            // Create the integer counts
-            Map<Count, UnicodeSet> countToIntegerSamples9999;
-            Map<Count, UnicodeSet[]> countToDigitToIntegerSamples9999;
-            countToIntegerSamples9999 = new EnumMap<Count, UnicodeSet>(Count.class);
-            countToDigitToIntegerSamples9999 = new EnumMap<Count, UnicodeSet[]>(Count.class);
-            for (int i = 0; i < 10000; ++i) {
-                Count type = Count.valueOf(pluralRules.select(i));
-                UnicodeSet uset = countToIntegerSamples9999.get(type);
-                if (uset == null) {
-                    countToIntegerSamples9999.put(type, uset = new UnicodeSet());
-                }
-                uset.add(i);
-                int digit;
-                if (i > 999) {
-                    digit = 4;
-                } else if (i > 99) {
-                    digit = 3;
-                } else if (i > 9) {
-                    digit = 2;
-                } else {
-                    digit = 1;
-                }
-                UnicodeSet[] map = countToDigitToIntegerSamples9999.get(type);
-                if (map == null) {
-                    countToDigitToIntegerSamples9999.put(type, map = new UnicodeSet[5]);
-                }
-                if (map[digit] == null) {
-                    map[digit] = new UnicodeSet();
-                }
-                map[digit].add(i);
-            }
-            for (Count count : Count.values()) {
-                UnicodeSet uset = countToIntegerSamples9999.get(count);
-                if (uset == null) {
-                    countToIntegerSamples9999.put(count, UnicodeSet.EMPTY);
-                } else {
-                    uset.freeze();
-                }
-                UnicodeSet[] map = countToDigitToIntegerSamples9999.get(count);
-                if (map == null) {
-                    countToDigitToIntegerSamples9999.put(count, map = new UnicodeSet[5]);
-                }
-                for (int i = 0; i < map.length; ++i) {
-                    if (map[i] == null) {
-                        map[i] = UnicodeSet.EMPTY;
-                    } else {
-                        map[i].freeze();
-                    }
-                }
-            }
-            other.value = countToDigitToIntegerSamples9999;
-            return countToIntegerSamples9999;
-        }
 
         public String toString() {
             return countToExampleList + "; " + exampleToCount + "; " + pluralRules;
@@ -2886,15 +2987,15 @@ public class SupplementalDataInfo {
         public Set<Count> getCounts() {
             return keywords;      
         }
-        
+
         /**
          * Return the integer samples from 0 to 9999. For simplicity and compactness, this is a UnicodeSet, but
          * the interpretation is simply as a list of integers. UnicodeSet.EMPTY is returned if there are none.
          * @param c
          * @return
          */
-        public UnicodeSet getSamples9999(Count c) {
-            return countToIntegerSamples9999.get(c);
+        public SampleList getSamples9999(Count c) {
+            return countSampleList.get(c);
         }
         /**
          * Return the integer samples for the specified digit, eg 1 => 0..9. For simplicity and compactness, this is a UnicodeSet, but
@@ -2902,8 +3003,13 @@ public class SupplementalDataInfo {
          * @param c
          * @return
          */
-        public UnicodeSet getSamples9999(Count c, int digit) {
-            return countToDigitToIntegerSamples9999.get(c)[digit];
+        public SampleList getSamples9999(Count c, int digit) {
+            return countSampleList.get(c, digit);
+        }
+
+        public boolean hasSamples(Count c, int digits) {
+            SampleList samples = countSampleList.get(c, digits);
+            return samples.fractionSize() > 0 || samples.intSize() > 0;
         }
     }
 
@@ -3021,7 +3127,7 @@ public class SupplementalDataInfo {
         }
         return result;
     }
-    
+
     /**
      * Returns the ISO4217 currency code of the default currency for a given
      * CLDRLocale. The default currency is the first one listed which is legal
@@ -3033,7 +3139,7 @@ public class SupplementalDataInfo {
     public String getDefaultCurrency(CLDRLocale loc) {
         return getDefaultCurrency(loc.getCountry());
     }
-    
+
     public Map<String, Set<TelephoneCodeInfo>> getTerritoryToTelephoneCodeInfo() {
         return territoryToTelephoneCodeInfo;
     }

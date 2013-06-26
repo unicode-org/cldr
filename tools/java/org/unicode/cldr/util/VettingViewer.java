@@ -1212,8 +1212,7 @@ public class VettingViewer<T> {
             Count c = Count.valueOf(arguments.value[4]);
             SupplementalDataInfo supplementalDataInfo2 = SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
             PluralInfo plurals = supplementalDataInfo2.getPlurals(sourceFile.getLocaleID());
-            UnicodeSet uset = plurals.getSamples9999(c, digits);
-            return uset.isEmpty(); // ok if no samples
+            return !plurals.hasSamples(c, digits); // ok if no samples
             // TODO: handle fractions
         default: throw new IllegalArgumentException();
         }

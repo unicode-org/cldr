@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -36,6 +37,8 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -60,36 +63,160 @@ public class TestSupplementalInfo extends TestFmwk {
         new TestSupplementalInfo().run(args);
     }
 
-    public void TestDigitPlurals() {
+    public void TestDigitPluralCases() {
         String[][] tests = {
                 {"en", "one", "1", "1"},
                 {"en", "one", "2", ""},
                 {"en", "one", "3", ""},
                 {"en", "one", "4", ""},
-                {"en", "other", "1", "0, 2-9"},
-                {"en", "other", "2", "10-99"},
-                {"en", "other", "3", "100-999"},
-                {"en", "other", "4", "1000-9999"},
-                {"ru", "one", "1", "1"},
-                {"ru", "one", "2", "21, 31, 41, 51, 61, 71, 81, 91"},
-                {"ru", "one", "3", "101, 121, 131, 141, 151, 161, 171, 181, 191, 201, 221, 231, 241, 251, 261, 271, …"},
-                {"ru", "one", "4", "1001, 1021, 1031, 1041, 1051, 1061, 1071, 1081, 1091, 1101, 1121, 1131, 1141, 1151, 1161, 1171, …"},
-                {"ru", "many", "1", "0, 5-9"},
-                {"ru", "many", "2", "10-20, 25-30, 35-40, 45-50, 55-60, 65-70, 75-80, 85-90, …"},
-                {"ru", "many", "3", "100, 105-120, 125-130, 135-140, 145-150, 155-160, 165-170, 175-180, 185-190, …"},
-                {"ru", "many", "4", "1000, 1005-1020, 1025-1030, 1035-1040, 1045-1050, 1055-1060, 1065-1070, 1075-1080, 1085-1090, …"},
+                {"en", "other", "1", "0, 2-9, 0.0, 0.1, 0.2, …"},
+                {"en", "other", "2", "10-99, 10.0, 10.1, 10.2, …"},
+                {"en", "other", "3", "100-999, 100.0, 100.1, 100.2, …"},
+                {"en", "other", "4", "1000-9999, 1000.0, 1000.1, 1000.2, …"},
+                {"hr", "one", "1", "1, 0.1, 2.10, 1.1, …"},
+                {"hr", "one", "2", "21, 31, 41, 51, 61, 71, …, 10.1, 12.10, 11.1, …"},
+                {"hr", "one", "3", "101, 121, 131, 141, 151, 161, …, 100.1, 102.10, 101.1, …"},
+                {"hr", "one", "4", "1001, 1021, 1031, 1041, 1051, 1061, …, 1000.1, 1002.10, 1001.1, …"},
+                {"hr", "few", "1", "2-4, 0.2, 0.3, 0.4, …"},
+                {"hr", "few", "2", "22-24, 32-34, 42-44, …, 10.2, 10.3, 10.4, …"},
+                {"hr", "few", "3", "102-104, 122-124, 132-134, …, 100.2, 100.3, 100.4, …"},
+                {"hr", "few", "4", "1002-1004, 1022-1024, 1032-1034, …, 1000.2, 1000.3, 1000.4, …"},
+                {"hr", "other", "1", "0, 5-9, 0.0, 0.5, 0.6, …"},
+                {"hr", "other", "2", "10-20, 25-30, 35-40, …, 10.0, 10.5, 10.6, …"},
+                {"hr", "other", "3", "100, 105-120, 125-130, 135-140, …, 100.0, 100.5, 100.6, …"},
+                {"hr", "other", "4", "1000, 1005-1020, 1025-1030, 1035-1040, …, 1000.0, 1000.5, 1000.6, …"},
         };
         for (String[] row : tests) {
             PluralInfo plurals = SUPPLEMENTAL.getPlurals(row[0]);
-            UnicodeSet uset = plurals.getSamples9999(Count.valueOf(row[1]), Integer.parseInt(row[2]));
-            StringBuilder b = new StringBuilder();
-            boolean needElipsis = PluralInfo.appendIntRanges(uset, 15, b);
-            if (needElipsis) {
-                b.append(", …");
-            }
-            assertEquals(CollectionUtilities.join(row, ", "), row[3], b.toString());
+            SampleList uset = plurals.getSamples9999(Count.valueOf(row[1]), Integer.parseInt(row[2]));
+            assertEquals(row[0] + ", " + row[1] + ", " + row[2], row[3], uset.toString());
         }
     }
+
+    public void TestDigitPluralCompleteness() {
+        String[][] exceptionStrings = {
+                // defaults
+                {"*", "zero", "0,00,000,0000"},
+                {"*", "one", "0"},
+                {"*", "two", "0,00,000,0000"},
+                {"*", "few", "0,00,000,0000"},
+                {"*", "many", "0,00,000,0000"},
+                {"*", "other", "0,00,000,0000"},
+                // others
+                {"mo", "other", "00,000,0000"}, // 
+                {"ro", "other", "00,000,0000"}, // 
+                {"cs", "few", "0"}, // j in 2..4
+                {"sk", "few", "0"}, // j in 2..4
+                {"da", "one", "0,00,000,0000"}, // j is 1 or f is 1
+                {"is", "one", "0,00,000,0000"}, // j is 1 or f is 1
+                {"sv", "one", "0,00,000,0000"}, // j is 1 or f is 1
+                {"he", "two", "0"}, // j is 2
+                {"ru", "one", "0,00,000,0000"}, // j mod 10 is 1 and j mod 100 is not 11
+                {"uk", "one", "0,00,000,0000"}, // j mod 10 is 1 and j mod 100 is not 11
+                {"bs", "one", "0,00,000,0000"}, // j mod 10 is 1 and j mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11
+                {"hr", "one", "0,00,000,0000"}, // j mod 10 is 1 and j mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11
+                {"sh", "one", "0,00,000,0000"}, // j mod 10 is 1 and j mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11
+                {"sr", "one", "0,00,000,0000"}, // j mod 10 is 1 and j mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11
+                {"mk", "one", "0,00,000,0000"}, // j mod 10 is 1 or f mod 10 is 1
+                {"sl", "one", "0,000,0000"},    // j mod 100 is 1
+                {"sl", "two", "0,000,0000"},    // j mod 100 is 2
+                {"he", "many", "00,000,0000"},  // j not in 0..10 and j mod 10 is 0
+                {"tzm", "one", "0,00"}, // n in 0..1 or n in 11..99
+                {"gd", "one", "0,00"},  // n in 1,11
+                {"gd", "two", "0,00"},  // n in 2,12
+                {"shi", "few", "0,00"}, // n in 2..10
+                {"gd", "few", "0,00"},  // n in 3..10,13..19
+                {"ga", "few", "0"}, // n in 3..6
+                {"ga", "many", "0,00"}, // n in 7..10
+                {"ar", "zero", "0"},    // n is 0
+                {"cy", "zero", "0"},    // n is 0
+                {"ksh", "zero", "0"},   // n is 0
+                {"lag", "zero", "0"},   // n is 0
+                {"pt", "one", "0,00,000,0000"}, // n is 1 or f is 1
+                {"ar", "two", "0"}, // n is 2
+                {"cy", "two", "0"}, // n is 2
+                {"ga", "two", "0"}, // n is 2
+                {"iu", "two", "0"}, // n is 2
+                {"kw", "two", "0"}, // n is 2
+                {"naq", "two", "0"},    // n is 2
+                {"se", "two", "0"}, // n is 2
+                {"sma", "two", "0"},    // n is 2
+                {"smi", "two", "0"},    // n is 2
+                {"smj", "two", "0"},    // n is 2
+                {"smn", "two", "0"},    // n is 2
+                {"sms", "two", "0"},    // n is 2
+                {"cy", "few", "0"}, // n is 3
+                {"cy", "many", "0"},    // n is 6
+                {"br", "many", ""}, // n is not 0 and n mod 1000000 is 0
+                {"gv", "one", "0,00,000,0000"}, // n mod 10 is 1
+                {"be", "one", "0,00,000,0000"}, // n mod 10 is 1 and n mod 100 is not 11
+                {"lv", "one", "0,00,000,0000"}, // n mod 10 is 1 and n mod 100 is not 11 or v is 2 and f mod 10 is 1 and f mod 100 is not 11 or v is not 2 and f mod 10 is 1
+                {"br", "one", "0,00,000,0000"}, // n mod 10 is 1 and n mod 100 not in 11,71,91
+                {"lt", "one", "0,00,000,0000"}, // n mod 10 is 1 and n mod 100 not in 11..19
+        };
+        // parse out the exceptions
+        Map<PluralInfo, Relation<Count,Integer>> exceptions = new HashMap();
+        Relation<Count, Integer> fallback = Relation.of(new EnumMap<Count, Set<Integer>>(Count.class), TreeSet.class);
+        for (String[] row : exceptionStrings) {
+            Relation<Count,Integer> countToDigits;
+            if (row[0].equals("*")) {
+                countToDigits = fallback;
+            } else {
+                PluralInfo plurals = SUPPLEMENTAL.getPlurals(row[0]);
+                countToDigits = exceptions.get(plurals);
+                if (countToDigits == null) {
+                    exceptions.put(plurals, countToDigits = Relation.of(new EnumMap<Count, Set<Integer>>(Count.class), TreeSet.class));
+                }
+            }
+            Count c = Count.valueOf(row[1]);
+            for (String digit : row[2].split(",")) {
+                // "99" is special, just to have the result be non-empty
+                countToDigits.put(c, digit.length());
+            }
+        }
+        Set<PluralInfo> seen = new HashSet();
+        Set<String> sorted = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
+        Relation<String,String> ruleToExceptions = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        
+        for (String locale : sorted) {
+            PluralInfo plurals = SUPPLEMENTAL.getPlurals(locale);
+            if (seen.contains(plurals)) { // skip identicals
+                continue;
+            }
+            Relation<Count, Integer> countToDigits = exceptions.get(plurals);
+            if (countToDigits == null) {
+                countToDigits = fallback;
+            }
+            for (Count c : plurals.getCounts()) {
+                List<String> compose = new ArrayList<String>();
+                boolean needLine = false;
+                Set<Integer> digitSet = countToDigits.get(c);
+                if (digitSet == null) {
+                    digitSet = fallback.get(c);
+                }
+                for (int digits = 1; digits < 5; ++digits) {
+                    boolean expected = digitSet.contains(digits);
+                    boolean hasSamples = plurals.hasSamples(c, digits);
+                    if (hasSamples) {
+                        compose.add(Utility.repeat("0", digits));
+                    }
+                    if (!assertEquals(locale + ", " + digits + ", " + c, expected, hasSamples)) {
+                        needLine = true;
+                    }
+                }
+                if (needLine) {
+                    String countRules = plurals.getPluralRules().getRules(c.toString());
+                    ruleToExceptions.put(
+                            countRules == null ? "" : countRules, 
+                            "{\"" + locale + "\", \"" + c + "\", \"" + CollectionUtilities.join(compose, ",") + "\"},");
+                }
+            }
+        }
+        for (Entry<String, String> entry : ruleToExceptions.entrySet()) {
+            System.out.println(entry.getValue() + "\t// " + entry.getKey());
+        }
+    }
+
     public void TestLikelyCode(){
         Map<String, String> likely = SUPPLEMENTAL.getLikelySubtags();
         String[][] tests = {
@@ -120,7 +247,7 @@ public class TestSupplementalInfo extends TestFmwk {
                     continue;
                 }
                 //System.out.println(s + " => " + VettingViewer.gatherCodes(s));
-                
+
                 List<String> ss = new ArrayList<String>(s);
                 String last = ss.get(ss.size()-1);
                 String language = ltp.set(last).getLanguage();

@@ -1,3 +1,5 @@
+<%@page import="com.ibm.icu.text.DateFormat"%>
+<%@page import="com.ibm.icu.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
     import="org.unicode.cldr.util.*,java.util.*,java.sql.Connection,java.sql.Timestamp"
@@ -16,9 +18,12 @@
 Bold = available, Shaded = missing.
 
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
+<%
+DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, SurveyMain.BASELINE_LOCALE);
 
+%>
 
-
+(timezone is <%= SurveyMain.defaultTimezoneInfo() %>)<br/>
 
 <%
 SurveyMain sm = CookieSession.sm;
@@ -57,7 +62,7 @@ boolean flip=false;
 			<th>
 			<%=loc%>
 			</th>
-			<td><%= locTime %></td>
+			<td><%= df.format(locTime) %></td>
 			<%
 			    int j=0;
 							for(OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {

@@ -1879,7 +1879,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         showAddUser(ctx);
 
-        ctx.println("        <i>Showing only votes cast after " + SurveyMain.getVotesAfterDate() + "</i><br/>");
+        ctx.println("        <i>Showing only votes cast after " + SurveyMain.getVotesAfterDate() + "-" + SurveyMain.defaultTimezoneInfo()+ "</i><br/>");
         ctx.print("<br>");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool in</b></a><hr>");
         String org = ctx.session.user.org;
@@ -7094,6 +7094,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     @Override
     public void writeExternal(ObjectOutput arg0) throws IOException {
         STFactory.unimp(); // do not call
+    }
+    
+    /**
+     * Format and display the system's default timezone.
+     * @return
+     */
+    public static String defaultTimezoneInfo() {
+        return new SimpleDateFormat("VVVV: ZZZZ", SurveyMain.BASELINE_LOCALE).format(System.currentTimeMillis());
     }
 
 }

@@ -2631,8 +2631,18 @@ public class SupplementalDataInfo {
             return b.toString();
         }
 
+        public int getRangeCount() {
+            return uset.getRangeCount();
+        }
         public int getRangeStart(int index) {
             return uset.getRangeStart(index);
+        }
+        public int getRangeEnd(int index) {
+            return uset.getRangeEnd(index);
+        }
+
+        public List<NumberInfo> getFractions() {
+            return fractions;
         }
 
         public int intSize() {

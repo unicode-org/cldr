@@ -3,6 +3,7 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,6 +16,7 @@ import org.unicode.cldr.util.PluralSnapshot;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
@@ -23,9 +25,9 @@ import com.ibm.icu.text.PluralRules.NumberInfo;
 import com.ibm.icu.util.ULocale;
 
 public class ShowPlurals {
-    
+
     static SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
-    
+
     public static void printPlurals(CLDRFile english, String localeFilter, PrintWriter index) throws IOException {
         String section1 = "Rules";
         String section2 = "Comparison";
@@ -34,15 +36,15 @@ public class ShowPlurals {
         final String title = "Language Plural Rules";
         final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
         ShowLanguages.showContents(pw, "rules", "Rules", "comparison", "Comparison");
-        printPlurals(english, localeFilter, pw);
-        appendBlanksForScrolling(pw);
+        printPluralTable(english, localeFilter, pw);
 
         pw.append("<h2>" + CldrUtility.getDoubleLinkedText("comparison", "2. " + section2) + "</h2>\n");
         pw.append("<p style='text-align:left'>The plural forms are abbreviated by first letter, with 'x' for 'other'. "
-            +
-            "If values are made redundant by explicit 0 and 1, they are underlined. " +
-            "The fractional and integral results are separated for clarity.</p>\n");
+                +
+                "If values are made redundant by explicit 0 and 1, they are underlined. " +
+                "The fractional and integral results are separated for clarity.</p>\n");
         PluralSnapshot.writeTables(english, pw);
+        appendBlanksForScrolling(pw);
         pw.close();
     }
 
@@ -53,17 +55,17 @@ public class ShowPlurals {
             throw new IllegalArgumentException(e);
         }
     }
-    
-    public static void printPlurals(CLDRFile english, String localeFilter, Appendable appendable) throws IOException {
+
+    public static void printPluralTable(CLDRFile english, String localeFilter, Appendable appendable) throws IOException {
 
         final TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("Name", "class='source'", null, "class='source'", true).setSortPriority(0)
-            .setBreakSpans(true).setRepeatHeader(true)
-            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-            .addColumn("Category", "class='target'", null, "class='target'", true).setBreakSpans(true)
-            .addColumn("Examples", "class='target'", null, "class='target'", true)
-            .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true)
-            .addColumn("Rules", "class='target'", null, "class='target' nowrap", true);
+        .addColumn("Name", "class='source'", null, "class='source'", true).setSortPriority(0)
+        .setBreakSpans(true).setRepeatHeader(true)
+        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+        .addColumn("Category", "class='target'", null, "class='target'", true).setBreakSpans(true)
+        .addColumn("Examples", "class='target'", null, "class='target'", true)
+        .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true)
+        .addColumn("Rules", "class='target'", null, "class='target' nowrap", true);
 
         Map<ULocale, SamplePatterns> samples = WritePluralRules.getLocaleToSamplePatterns();
 
@@ -86,48 +88,66 @@ public class ShowPlurals {
             Set<Count> counts = plurals.getCounts();
             for (PluralInfo.Count count : counts) {
                 String keyword = count.toString();
-                    Collection<NumberInfo> exampleList = plurals.getPluralRules().getFractionSamples(keyword);
-                    StringBuilder examples = new StringBuilder();
-                    int itemCount = 0;
-                    for (NumberInfo example : exampleList) {
-                        ++itemCount;
-                        if (examples.length() != 0) {
-                            examples.append("; ");
+                SampleList exampleList = plurals.getSamples9999(count);
+                String examples = exampleList.toString();
+                //                    StringBuilder examples = new StringBuilder();
+                //                    int itemCount = 0;
+                //                    for (NumberInfo example : exampleList) {
+                //                        ++itemCount;
+                //                        if (examples.length() != 0) {
+                //                            examples.append("; ");
+                //                        }
+                //                        examples.append(example);
+                //                    }
+                String rule = pluralRules.getRules(keyword);
+                rule = rule != null ? rule.replace(":", " → ")
+                        .replace(" and ", " and<br>&nbsp;&nbsp;")
+                        .replace(" or ", " or<br>")
+                        : counts.size() == 1 ? "<i>everything</i>"
+                                : "<i>everything else</i>";
+                        String sample = counts.size() == 1 ? "<i>no plural differences</i>" 
+                                : "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
+                        if (samplePatterns != null) {
+                            String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, keyword);
+                            if (samplePattern != null) {
+                                if (exampleList.getRangeCount() > 0) {
+                                    int intSample = exampleList.getRangeStart(0);
+                                    sample = getSample(new NumberInfo(intSample), samplePattern, nf);
+                                } else {
+                                    sample = "";
+                                }
+                                List<NumberInfo> fractions = exampleList.getFractions();
+                                if (fractions.size() != 0) {
+                                    NumberInfo numb = fractions.iterator().next();
+                                    if (sample.length() != 0) {
+                                        sample += "<br>";
+                                    }
+                                    sample += getSample(numb, samplePattern, nf);
+                                }
+                            }
                         }
-                        examples.append(example);
-                    }
-                    String rule = pluralRules.getRules(keyword);
-                    rule = rule != null ? rule.replace(":", " → ")
-                            .replace(" and ", " and<br>&nbsp;&nbsp;")
-                            .replace(" or ", " or<br>")
-                            : counts.size() == 1 ? "<i>everything</i>"
-                                    : "<i>everything else</i>";
-                    String sample = counts.size() == 1 ? "<i>no plural differences</i>" 
-                            : "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
-                    if (samplePatterns != null) {
-                        String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, keyword);
-                        if (samplePattern != null) {
-                            // TODO use localized number
-                            NumberInfo numb = exampleList.iterator().next();
-                            nf.setMaximumFractionDigits(numb.visibleFractionDigitCount);
-                            nf.setMinimumFractionDigits(numb.visibleFractionDigitCount);
-                            sample = samplePattern
-                                    .replace('\u00A0', '\u0020')
-                                    .replace("{0}", nf.format(numb.source))
-                                    .replace(". ", ".<br>");
-                        }
-                    }
-                tablePrinter.addRow()
-                    .addCell(name)
-                    .addCell(locale)
-                    .addCell(count.toString())
-                    .addCell(examples.toString())
-                    .addCell(sample)
-                    .addCell(rule)
-                    .finishRow();
+                        tablePrinter.addRow()
+                        .addCell(name)
+                        .addCell(locale)
+                        .addCell(count.toString())
+                        .addCell(examples.toString())
+                        .addCell(sample)
+                        .addCell(rule)
+                        .finishRow();
             }
         }
         appendable.append(tablePrinter.toTable()).append('\n');
+    }
+
+    private static String getSample(NumberInfo numb, String samplePattern, NumberFormat nf) {
+        String sample;
+        nf.setMaximumFractionDigits(numb.visibleFractionDigitCount);
+        nf.setMinimumFractionDigits(numb.visibleFractionDigitCount);
+        sample = samplePattern
+                .replace('\u00A0', '\u0020')
+                .replace("{0}", nf.format(numb.source))
+                .replace(". ", ".<br>");
+        return sample;
     }
 
 }

@@ -255,7 +255,7 @@ public class VerifyCompactNumbers {
             out.append("<h3>Plural Rules</h3>");
             out.append("<p>To correct problems in plural rules below, please go to " +
             		"<a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/cldr-spec/plural-rules'>Plural Rules</a>.</p>");
-            ShowPlurals.printPlurals(cldrFile, locale, out);
+            ShowPlurals.printPluralTable(cldrFile, locale, out);
             ShowPlurals.appendBlanksForScrolling(out);
             showErrors(errors, out);
             showErrors(debugCreationErrors, out);

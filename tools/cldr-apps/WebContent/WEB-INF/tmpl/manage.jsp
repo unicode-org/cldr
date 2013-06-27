@@ -31,7 +31,9 @@ String helpName = subCtx.getString("helpName");
               <a href='<%= request.getContextPath()   %>/lock.jsp?email=<%= subCtx.session.user.email %>'>Permanently disable my account! (account lock)</a>
               
               <h3>My Votes</h3>
-              <a href='<%= request.getContextPath() %>/v#oldvotes' >Import my Old Votes (from CLDR <%= SurveyMain.getOldVersion() %> and prior) </a>
+              <% if(subCtx.session.user.canImportOldVotes()) { %>
+                  <a href='<%= request.getContextPath() %>/v#oldvotes' >Import my Old Votes (from CLDR <%= SurveyMain.getOldVersion() %> and prior) </a>
+              <% } %>
               <a href='<%= ctx.context("myvotes.jsp?user="+subCtx.session.user.id)+"&s="+subCtx.session.id %>'>See My&nbsp;Recent&nbsp;Activity</a>
                 <a  href='<%= subCtx.jspUrl("upload.jsp"  )+ "&amp;s=" + subCtx.session.id %>'>Upload an XML file as my votes (bulk upload)</a>
                 

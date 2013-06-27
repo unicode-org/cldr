@@ -38,6 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.json.JSONWriter;
+import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.unittest.web.TestAll;
 import org.unicode.cldr.unittest.web.TestSTFactory;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -499,6 +500,10 @@ public class UserRegistry {
                     put("orgName", vrOrg().displayName).
                     put("id", id).
                     toString();
+        }
+
+        public boolean canImportOldVotes() {
+            return UserRegistry.userIsVetter(this) && (CLDRConfig.getInstance().getPhase() == Phase.SUBMISSION);
         }
     }
 

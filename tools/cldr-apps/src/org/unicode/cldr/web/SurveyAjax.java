@@ -63,7 +63,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
  * 
  */
 public class SurveyAjax extends HttpServlet {
-    public static final String E_NO_ACCESS = "E_NO_ACCESS";
+    public static final String E_NO_ACCESS = "E_NO_PERMISSION";
     final boolean DEBUG = false; //  || SurveyLog.isDebug();
     public final static String WHAT_MY_LOCALES = "mylocales";
 
@@ -667,7 +667,7 @@ public class SurveyAjax extends HttpServlet {
                             r.put("locmap", getJSONLocMap(sm));
 
                             // any special messages?
-                            if(mySession.user!=null) {
+                            if(mySession.user!=null && mySession.user.canImportOldVotes()) {
                                 // old votes?
                                 String oldVotesPref = "oldVoteRemind"+sm.getNewVersion();
                                 String oldVoteRemind = mySession.settings().get(oldVotesPref, null);
@@ -771,6 +771,10 @@ public class SurveyAjax extends HttpServlet {
 
                         if(mySession.user==null) {
                             r.put("err", "Must be logged in");
+                            r.put("err_code", "E_NOT_LOGGED_IN");
+                        } else if (!mySession.user.canImportOldVotes()) {
+                            r.put("err", "No permission to do this (may not be the right SurveyTool phase)");
+                            r.put("err_code", "E_NO_PERMISSION");
                         } else {
                             JSONObject oldvotes = new JSONObject();
                         

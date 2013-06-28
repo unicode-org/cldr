@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
+import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
@@ -101,7 +102,22 @@ public class DisplayAndInputProcessor {
 
     void init(CLDRLocale locale) {
         isPosix = locale.toString().indexOf("POSIX") >= 0;
-        col = Collator.getInstance(locale.toULocale());
+        ICUServiceBuilder isb = null;
+        try {
+            isb = ICUServiceBuilder.forLocale(locale);
+        } catch (Exception e) {
+        }
+
+        if (isb != null) {
+            try {
+                col = isb.getRuleBasedCollator();
+            } catch (Exception e) {
+                col = Collator.getInstance(ULocale.ROOT);
+            }
+        } else {
+            col= Collator.getInstance(ULocale.ROOT);
+        }
+        
         spaceCol = Collator.getInstance(locale.toULocale());
         if ( spaceCol instanceof RuleBasedCollator ) {
             ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);

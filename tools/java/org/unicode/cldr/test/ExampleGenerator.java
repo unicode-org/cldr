@@ -59,6 +59,8 @@ import com.ibm.icu.util.ULocale;
  * 
  */
 public class ExampleGenerator {
+    private static final String ALT_STAND_ALONE = "[@alt=\"stand-alone\"]";
+
     private static final String EXEMPLAR_CITY_LOS_ANGELES = "//ldml/dates/timeZoneNames/zone[@type=\"America/Los_Angeles\"]/exemplarCity";
 
     private static final boolean SHOW_ERROR = false;
@@ -1317,39 +1319,58 @@ public class ExampleGenerator {
                     result = cldrFile.getConstructedBaileyValue(xpath, null, null);
                 }
             } else {
-                Map<String, String> likely = supplementalDataInfo.getLikelySubtags();
-                String nameType = parts.getElement(3);
-                String tag = "language".equals(nameType) ? type : "und_" + type;
-                String max = LikelySubtags.maximize(tag, likely);
-                if (max == null) {
-                    return null;
-                }
-                LanguageTagParser ltp = new LanguageTagParser().set(max);
-                String language = ltp.getLanguage();
-                String languageName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language));  
-                String script = ltp.getScript();
-                String scriptName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.SCRIPT_NAME, script));  
-                String territory = ltp.getRegion();
-                String territoryName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.TERRITORY_NAME, territory));  
                 value = setBackground(value);
-                if (nameType.equals("language")) {
-                    languageName = value;
-                } else if (nameType.equals("script")) {
-                    scriptName = value;
+                List<String> examples = new ArrayList<String>();
+                String nameType = parts.getElement(3);
+
+                Map<String, String> likely = supplementalDataInfo.getLikelySubtags();
+                String alt = parts.getAttributeValue(-1, "alt");
+                boolean isStandAloneValue = "stand-alone".equals(alt);
+                if (!isStandAloneValue) {
+                    // only do this if the value is not a stand-alone form
+                    String tag = "language".equals(nameType) ? type : "und_" + type;
+                    String max = LikelySubtags.maximize(tag, likely);
+                    if (max == null) {
+                        return null;
+                    }
+                    LanguageTagParser ltp = new LanguageTagParser().set(max);
+                    String languageName = null;
+                    String scriptName = null;
+                    String territoryName = null;
+                    if (nameType.equals("language")) {
+                        languageName = value;
+                    } else if (nameType.equals("script")) {
+                        scriptName = value;
+                    } else {
+                        territoryName = value;
+                    }
+                    if (languageName == null) {
+                        languageName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, ltp.getLanguage()));  
+                    }
+                    if (scriptName == null) {
+                        scriptName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.SCRIPT_NAME, ltp.getScript()));
+                    }
+                    if (territoryName == null) {
+                        territoryName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.TERRITORY_NAME, ltp.getRegion()));  
+                    }
+                    String localePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
+                    String localeSeparator = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
+                    String scriptTerritory = format(localeSeparator, scriptName, territoryName);
+                    examples.add(invertBackground(format(localePattern, languageName, territoryName)));
+                    examples.add(invertBackground(format(localePattern, languageName, scriptName)));
+                    examples.add(invertBackground(format(localePattern, languageName, scriptTerritory)));
                 } else {
-                    territoryName = value;
+                    int x = 0; // debugging
                 }
-                String localePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
-                String localeSeparator = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
-                String scriptTerritory = format(localeSeparator, scriptName, territoryName);
-                String[] examples = new String[5];
-                examples[0] = invertBackground(format(localePattern, languageName, territoryName));
-                examples[1] = invertBackground(format(localePattern, languageName, scriptName));
-                examples[2] = invertBackground(format(localePattern, languageName, scriptTerritory));
-                examples[3] = invertBackground(format(localePattern, languageName, scriptTerritory));
-                String codePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"" + nameType + "\"]");
-                examples[4] = invertBackground(format(codePattern, value));
-                result = formatExampleList(examples);
+                if (isStandAloneValue || cldrFile.getStringValue(xpath + ALT_STAND_ALONE) == null) {
+                    // only do this if either it is a stand-alone form,
+                    // or it isn't and there is no separate stand-alone form
+                    String codePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"" + nameType + "\"]");
+                    examples.add(invertBackground(format(codePattern, value)));
+                } else {
+                    int x = 0; // debugging
+                }
+                result = formatExampleList(examples.toArray(new String[examples.size()]));
             }
         }
         return result;

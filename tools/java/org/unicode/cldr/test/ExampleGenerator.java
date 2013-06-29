@@ -19,10 +19,12 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PluralSamples;
@@ -378,7 +380,7 @@ public class ExampleGenerator {
         String perPath = "//ldml/units/unitLength" + unitLength.typeString
                 + "/compoundUnit[@type=\"per\"]"
                 + "/compoundUnitPattern";
-      //ldml/units/unitLength[@type="long"]/compoundUnit[@type="per"]/compoundUnitPattern
+        //ldml/units/unitLength[@type="long"]/compoundUnit[@type="per"]/compoundUnitPattern
         return format(getValueFromFormat(perPath, form), unit1, unit2);
     }
 
@@ -1271,12 +1273,18 @@ public class ExampleGenerator {
     private String handleDisplayNames(String xpath, XPathParts parts, String value) {
         String result = null;
         if (parts.contains("codePatterns")) {
+            //ldml/localeDisplayNames/codePatterns/codePattern[@type="language"]
+            //ldml/localeDisplayNames/codePatterns/codePattern[@type="script"]
+            //ldml/localeDisplayNames/codePatterns/codePattern[@type="territory"]
             String type = parts.getAttributeValue(-1, "type");
             result = format(value, setBackground(
                     type.equals("language") ? "ace"
                             : type.equals("script") ? "Avst"
                                     : type.equals("territory") ? "057" : "CODE"));
         } else if (parts.contains("localeDisplayPattern")) {
+            //ldml/localeDisplayNames/localeDisplayPattern/localePattern
+            //ldml/localeDisplayNames/localeDisplayPattern/localeSeparator
+            //ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern
             String element = parts.getElement(-1);
             value = setBackground(value);
             String localeKeyTypePattern = getLocaleDisplayPattern("localeKeyTypePattern", element, value);
@@ -1296,7 +1304,11 @@ public class ExampleGenerator {
                         localeKeyTypePattern, localePattern, localeSeparator));
             }
             result = formatExampleList(examples);
-/*        } else if (parts.contains("languages")) { // unneeded since ST shows the constructed bailey value 
+        } else if (!parts.contains("types")) {
+            //ldml/localeDisplayNames/languages/language[@type="ar"]
+            //ldml/localeDisplayNames/scripts/script[@type="Arab"]
+            //ldml/localeDisplayNames/territories/territory[@type="CA"]
+            //ldml/localeDisplayNames/types/type[@type="arabext"][@key="numbers"]
             String type = parts.getAttributeValue(-1, "type");
             if (type.contains("_")) {
                 if (value != null && !value.equals(type)) {
@@ -1304,6 +1316,40 @@ public class ExampleGenerator {
                 } else {
                     result = cldrFile.getConstructedBaileyValue(xpath, null, null);
                 }
+            } else {
+                Map<String, String> likely = supplementalDataInfo.getLikelySubtags();
+                String nameType = parts.getElement(3);
+                String tag = "language".equals(nameType) ? type : "und_" + type;
+                String max = LikelySubtags.maximize(tag, likely);
+                if (max == null) {
+                    return null;
+                }
+                LanguageTagParser ltp = new LanguageTagParser().set(max);
+                String language = ltp.getLanguage();
+                String languageName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language));  
+                String script = ltp.getScript();
+                String scriptName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.SCRIPT_NAME, script));  
+                String territory = ltp.getRegion();
+                String territoryName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.TERRITORY_NAME, territory));  
+                value = setBackground(value);
+                if (nameType.equals("language")) {
+                    languageName = value;
+                } else if (nameType.equals("script")) {
+                    scriptName = value;
+                } else {
+                    territoryName = value;
+                }
+                String localePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
+                String localeSeparator = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
+                String scriptTerritory = format(localeSeparator, scriptName, territoryName);
+                String[] examples = new String[5];
+                examples[0] = invertBackground(format(localePattern, languageName, territoryName));
+                examples[1] = invertBackground(format(localePattern, languageName, scriptName));
+                examples[2] = invertBackground(format(localePattern, languageName, scriptTerritory));
+                examples[3] = invertBackground(format(localePattern, languageName, scriptTerritory));
+                String codePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"" + nameType + "\"]");
+                examples[4] = invertBackground(format(codePattern, value));
+                result = formatExampleList(examples);
             }
 */        }
         return result;
@@ -1540,6 +1586,22 @@ public class ExampleGenerator {
 
     public synchronized String getHelpHtml(String xpath, String value) {
         return getHelpHtml(xpath, value, false);
+    }
+
+    public static String simplify(String exampleHtml) {
+        return simplify(exampleHtml, false);
+    }
+    public static String simplify(String exampleHtml, boolean internal) {
+        return exampleHtml == null ? null 
+                : internal ? "〖" + exampleHtml
+                        .replace("", "❬")
+                        .replace("", "❭") + "〗"
+                        : exampleHtml
+                        .replace("<div class='cldr_example'>", "〖")
+                        .replace("</div>", "〗")
+                        .replace("<span class='cldr_substituted'>", "❬")
+                        .replace("</span>", "❭")
+                        ;
     }
 
     HelpMessages helpMessages;

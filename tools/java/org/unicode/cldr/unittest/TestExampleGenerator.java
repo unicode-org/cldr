@@ -45,12 +45,12 @@ public class TestExampleGenerator extends TestFmwk {
             String value = "value-" + row[1];
 
             String path = sampleCurrencyPrefix + row[1] + sampleTemplateSuffix;
-            String result = simplify(exampleGenerator.getExampleHtml(path, value, context , type), false);
+            String result = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value, context , type), false);
             assertEquals(row[0] + "-" + row[1] + "-BMD", row[2], result);
 
             value = "{0}_{1}";
             path = sampleCurrencyPatternPrefix + row[1] + sampleTemplateSuffix;
-            result = simplify(exampleGenerator.getExampleHtml(path, value, context , type), false);
+            result = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value, context , type), false);
             assertEquals(row[0] + "-" + row[1] + "-pat", row[3], result);
         }
     }
@@ -137,7 +137,7 @@ public class TestExampleGenerator extends TestFmwk {
                 if (path.equals("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"per\"]/unitPattern[@count=\"one\"]")) {
                     String example2 = exampleGenerator.getExampleHtml(path, value);
                 }
-                String simplified = simplify(example, false);
+                String simplified = ExampleGenerator.simplify(example, false);
 
                 if (simplified.contains("null")) {
                     if (true || !seen.contains(javaEscapedStarred)) {
@@ -170,7 +170,7 @@ public class TestExampleGenerator extends TestFmwk {
     private void checkValue(String message, String expected, ExampleGenerator exampleGenerator, String path) {
         String value = exampleGenerator.getCldrFile().getStringValue(path);
         String actual = exampleGenerator.getExampleHtml(path, value);
-        assertEquals(message, expected, simplify(actual, false));
+        assertEquals(message, expected, ExampleGenerator.simplify(actual, false));
     }
 
     public void TestCompoundUnit() {
@@ -194,7 +194,7 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = getExampleGenerator(locale);
         for (String[] pair : tests) {
             String actual = exampleGenerator.handleCompoundUnit(UnitLength.valueOf(pair[0]), Count.valueOf(pair[1]), "");
-            assertEquals("CompoundUnit", pair[2], simplify(actual, true));
+            assertEquals("CompoundUnit", pair[2], ExampleGenerator.simplify(actual, true));
         }
     }
 
@@ -228,25 +228,12 @@ public class TestExampleGenerator extends TestFmwk {
 
     private void checkValue(ExampleGenerator exampleGenerator, String path, String expected) {
         String value = exampleGenerator.getCldrFile().getStringValue(path);
-        String result = simplify(exampleGenerator.getExampleHtml(path, value), false);
+        String result = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value), false);
         assertEquals("Ellipsis", expected, result);
     }
 
     public static String simplify(String exampleHtml) {
-        return simplify(exampleHtml, false);
-    }
-
-    public static String simplify(String exampleHtml, boolean internal) {
-        return exampleHtml == null ? null 
-                : internal ? "〖" + exampleHtml
-                        .replace("", "❬")
-                        .replace("", "❭") + "〗"
-                        : exampleHtml
-                        .replace("<div class='cldr_example'>", "〖")
-                        .replace("</div>", "〗")
-                        .replace("<span class='cldr_substituted'>", "❬")
-                        .replace("</span>", "❭")
-                        ;
+        return ExampleGenerator.simplify(exampleHtml, false);
     }
 
     public void TestClip() {
@@ -319,7 +306,7 @@ public class TestExampleGenerator extends TestFmwk {
                 CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         String actual = exampleGenerator.getExampleHtml("//ldml/dates/timeZoneNames/fallbackFormat",
                 "{1} [{0}]");
-        assertEquals("fallbackFormat faulty", "〖❬Central Time❭ [❬Cancun❭]〗", simplify(actual, false));
+        assertEquals("fallbackFormat faulty", "〖❬Central Time❭ [❬Cancun❭]〗", ExampleGenerator.simplify(actual, false));
     }
 
     public void Test4897() {
@@ -424,7 +411,7 @@ public class TestExampleGenerator extends TestFmwk {
                     }
                     boolean skipLog = false;
                     if (expected != null && type == ExampleType.NATIVE) {
-                        String simplified = simplify(text, false);
+                        String simplified = ExampleGenerator.simplify(text, false);
                         // redo for debugging
                         text = exampleGenerator.getExampleHtml(xpath, value, null, type);
                         skipLog = !assertEquals("Example text", expected, simplified);

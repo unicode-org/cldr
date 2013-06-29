@@ -294,6 +294,7 @@ public class ConsoleCheckCLDR {
         System.out.println("organization: " + organization);
         System.out.println("show examples: " + SHOW_EXAMPLES);
         System.out.println("phase: " + phase);
+        System.out.println("path filter: " + pathFilterString);
         System.out.println("coverage level: " + coverageLevel);
         System.out.println("checking dates: " + checkFlexibleDates);
         System.out.println("only check-on-submit: " + checkOnSubmit);
@@ -457,7 +458,7 @@ public class ConsoleCheckCLDR {
             paths.clear();
             // CollectionUtilities.addAll(file.iterator(pathFilter), paths);
             for (String path : file.fullIterable()) {
-                if (pathFilter != null && pathFilter.reset(path).matches()) {
+                if (pathFilter != null && !pathFilter.reset(path).find()) {
                     continue;
                 }
                 if (coverageLevel != null) {
@@ -533,8 +534,8 @@ public class ConsoleCheckCLDR {
                 String example = "";
 
                 if (SHOW_EXAMPLES) {
-                    example = exampleGenerator.getExampleHtml(path, value, exampleContext,
-                            ExampleType.NATIVE);
+                    example = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, value, exampleContext,
+                            ExampleType.NATIVE));
                     showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, value, fullPath, example,
                             exampleContext);
                     // continue; // don't show problems
@@ -673,8 +674,8 @@ public class ConsoleCheckCLDR {
                     if (pathFilter != null && !pathFilter.reset(path).matches()) continue;
                     String fullPath = file.getStringValue(path);
                     if (fullPath != null) continue;
-                    String example = exampleGenerator.getExampleHtml(path, null, 
-                            exampleContext, ExampleType.NATIVE);
+                    String example = ExampleGenerator.simplify(exampleGenerator.getExampleHtml(path, null, 
+                            exampleContext, ExampleType.NATIVE));
                     showExamples(checkCldr, prettyPath, localeID, exampleGenerator, path, null, fullPath, example,
                             exampleContext);
                 }
@@ -1417,8 +1418,8 @@ public class ConsoleCheckCLDR {
             String englishExample = null;
             final String englishPathValue = path == null ? null : getEnglishPathValue(path);
             if (SHOW_EXAMPLES && path != null) {
-                englishExample = getExampleGenerator().getExampleHtml(path, englishPathValue,
-                        exampleContext, ExampleType.ENGLISH);
+                englishExample = ExampleGenerator.simplify(getExampleGenerator().getExampleHtml(path, englishPathValue,
+                        exampleContext, ExampleType.ENGLISH));
             }
             englishExample = englishExample == null ? "" : englishExample;
             String cleanPrettyPath = path == null ? null : prettyPath; // prettyPathMaker.getOutputForm(prettyPath);

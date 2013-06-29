@@ -1296,7 +1296,7 @@ public class ExampleGenerator {
                         localeKeyTypePattern, localePattern, localeSeparator));
             }
             result = formatExampleList(examples);
-        } else if (parts.contains("languages")) {
+/*        } else if (parts.contains("languages")) { // unneeded since ST shows the constructed bailey value 
             String type = parts.getAttributeValue(-1, "type");
             if (type.contains("_")) {
                 if (value != null && !value.equals(type)) {
@@ -1305,7 +1305,7 @@ public class ExampleGenerator {
                     result = cldrFile.getConstructedBaileyValue(xpath, null, null);
                 }
             }
-        }
+*/        }
         return result;
     }
 

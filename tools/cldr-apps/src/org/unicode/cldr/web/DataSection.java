@@ -66,6 +66,7 @@ import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 
 import com.ibm.icu.text.Collator;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -127,6 +128,7 @@ public class DataSection implements JSONString {
             private String valueHash = null;
             public boolean isOldValue = false;
             private String dv = null;
+            public boolean isBailey = false; // is this the fallback value?
 
             public String getProcessedValue() {
                 if (value == null)
@@ -573,6 +575,7 @@ public class DataSection implements JSONString {
                         .put("value", getProcessedValue())
                         .put("example", getExample())
                         .put("isOldValue", isOldValue)
+                        .put("isBailey", isBailey)
 //                        .put("inheritFrom", inheritFrom)
 //                        .put("inheritFromDisplay", ((inheritFrom != null) ? inheritFrom.getDisplayName() : null))
 //                        .put("isFallback", isFallback)
@@ -1604,21 +1607,11 @@ public class DataSection implements JSONString {
         }
 
         /**
-         * Calculate the item from the vetted parent locale, without any tests
-         * 
-         * @param vettedParent
-         *            CLDRFile for the parent locale, resolved with vetting on
-         */
-        void updateInheritedValue(CLDRFile vettedParent) {
-            updateInheritedValue(vettedParent, null, null);
-        }
-
-        /**
          * Calculate the item from the vetted parent locale, possibly including
          * tests
          * 
          * @param vettedParent
-         *            CLDRFile for the parent locale, resolved with vetting on
+         *            CLDRFile for the parent locale, resolved with vetting on ( really just the current )
          * @param checkCldr
          *            The tests to use
          * @param options
@@ -1642,40 +1635,48 @@ public class DataSection implements JSONString {
             }
 
             if ((vettedParent != null) && (inheritedValue == null)) {
-                String value = vettedParent.getStringValue(xpath);
+                //String value = vettedParent.getStringValue(xpath);
+                Output<String> pathWhereFound = new Output<String>();
+                Output<String> localeWhereFound = new Output<String>();
+                String value = vettedParent.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
                 if (TRACE_TIME)
                     System.err.println("@@1:" + (System.currentTimeMillis() - lastTime));
 
-                if (value != null && !items.containsKey(value)) {
+                if (value == null) {
+                    // no inherited value
+                } else if (!items.containsKey(value)) {
                     inheritedValue = addItem(value);
                     if (TRACE_TIME)
                         System.err.println("@@2:" + (System.currentTimeMillis() - lastTime));
                     inheritedValue.isParentFallback = true;
 
-                    CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
+                    //CLDRFile.Status sourceLocaleStatus = new CLDRFile.Status();
                     if (TRACE_TIME)
                         System.err.println("@@3:" + (System.currentTimeMillis() - lastTime));
-                    String sourceLocale = vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
+                    String sourceLocale = localeWhereFound.value; // WAS: vettedParent.getSourceLocaleID(xpath, sourceLocaleStatus);
                     if (TRACE_TIME)
                         System.err.println("@@4:" + (System.currentTimeMillis() - lastTime));
 
                     inheritedValue.inheritFrom = CLDRLocale.getInstance(sourceLocale);
 
-                    if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
-                            && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
-                        inheritedValue.pathWhereFound = sourceLocaleStatus.pathWhereFound;
+                    if (/*sourceLocaleStatus != null && sourceLocaleStatus. */ pathWhereFound.value != null
+                            && !/*sourceLocaleStatus.*/pathWhereFound.value.equals(xpath)) {
+                        inheritedValue.pathWhereFound = pathWhereFound.value;
                         if (TRACE_TIME)
                             System.err.println("@@5:" + (System.currentTimeMillis() - lastTime));
 
                         // set up Pod alias-ness
                         aliasFromLocale = sourceLocale;
-                        aliasFromXpath = sm.xpt.xpathToBaseXpathId(sourceLocaleStatus.pathWhereFound);
+                        aliasFromXpath = sm.xpt.xpathToBaseXpathId(pathWhereFound.value);
                         if (TRACE_TIME)
                             System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
                     }
 
+                    inheritedValue.isBailey  = true;
                     inheritedValue.isFallback = true;
-                } else {
+                } else { // item already contained
+                    CandidateItem otherItem = items.get(value);
+                    otherItem.isBailey = true;
                     // throw new InternalError("could not get inherited value: "
                     // + xpath);
                 }
@@ -2200,7 +2201,7 @@ public class DataSection implements JSONString {
     private static int n = 0;
     static final Pattern NAME_TYPE_PATTERN = Pattern.compile("[a-zA-Z0-9]+|.*exemplarCity.*");
 
-    private static final boolean NOINHERIT = true;
+//    private static final boolean NOINHERIT = true;
 
     // private static Pattern noisePattern;
 
@@ -2845,12 +2846,12 @@ public class DataSection implements JSONString {
 
         int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
 
-        CLDRFile vettedParent = null;
-        CLDRLocale parentLoc = locale.getParent();
-        if (parentLoc != null) {
-            XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /* finalData */, true);
-            vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(SurveyMain.supplementalDataDir);
-        }
+//        CLDRFile vettedParent = null;
+//        CLDRLocale parentLoc = locale.getParent();
+//        if (parentLoc != null) {
+//            XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /* finalData */, true);
+//            vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(SurveyMain.supplementalDataDir);
+//        }
         Set<String> allXpaths;
 
         String continent = null;
@@ -3098,7 +3099,7 @@ public class DataSection implements JSONString {
                 p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, options);
                 // System.err.println("Shimmed! "+xpath);
             } else if (p.inheritedValue == null) {
-                p.updateInheritedValue(vettedParent);
+                p.updateInheritedValue(ourSrc, null, null);
             }
 
             // System.out.println("@@V "+type+"  v: " + value +
@@ -3163,8 +3164,8 @@ public class DataSection implements JSONString {
                 if (TRACE_TIME)
                     System.err.println("n06da  [src:" + sourceLocale + " vs " + locale + ", sttus:" + sourceLocaleStatus + "] "
                             + (System.currentTimeMillis() - nextTime));
-                if (!NOINHERIT)
-                    p.updateInheritedValue(vettedParent, checkCldr, options); // update
+                //if (!NOINHERIT)
+                //    p.updateInheritedValue(vettedParent, checkCldr, options); // update
                                                                               // the
                                                                               // tests
                 if (TRACE_TIME)

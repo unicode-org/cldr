@@ -1558,11 +1558,13 @@ public class WebContext implements Cloneable, Appendable {
                 println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Checking cache';</script>");
                 flush();
             }
-            // section = getExistingSection(prefix, ptype);
-            // if((section != null) && (!section.isValid())) {
-            // section = null;
-            // loadString = "data was re-loaded due to a new user submission.";
-            // }
+            if(false) {
+                 section = getExistingSection(prefix, ptype);
+                 if((section != null)/* && (!section.isValid())*/) {
+                 section = null;
+                 loadString = "data was re-loaded due to a new user submission.";
+                 }
+            }
             if (section == null) {
                 CLDRProgressTask progress = null;
                 progress = sm.openProgress("Loading");

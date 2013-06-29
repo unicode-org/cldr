@@ -2475,6 +2475,19 @@ function updateRow(tr, theRow) {
 	removeAllChildNodes(children[config.proposedcell]); // win
 	children[config.proposedcell].dir = tr.theTable.json.dir;
 	tr.proposedcell = children[config.proposedcell];
+	if(theRow.items && theRow.winningVhash == "") {
+		// find the bailey value
+		var theBaileyValue = null;
+		for(var k in theRow.items) {
+			if(theRow.items[k].isBailey) {
+				theBaileyValue = k;
+			}
+		}
+		if(theBaileyValue !== null) {
+			theRow.winningVhash = theBaileyValue;
+			theRow.items[theBaileyValue].pClass = "fallback";
+		}
+	}
 	if(theRow.items&&theRow.winningVhash) {
 		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
 	} else {

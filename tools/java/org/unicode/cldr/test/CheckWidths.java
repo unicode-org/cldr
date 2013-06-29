@@ -96,7 +96,9 @@ public class CheckWidths extends CheckCLDR {
                 }
                 break;
             }
-            double percent = (int) (Math.abs(100 * valueMeasure / warningReference - 100.0d) + 0.49999d);
+            // the 115 is so that we don't show small percentages
+            // the /10 ...*10 is to round to multiples of 10% percent
+            double percent = (int) (Math.abs(115 * valueMeasure / warningReference - 100.0d)/10 + 0.49999d)*10;
             result.add(new CheckStatus().setCause(cause)
                     .setMainType(errorType)
                     .setSubtype(subtype)
@@ -183,7 +185,7 @@ public class CheckWidths extends CheckCLDR {
             })
             // Catch -future/past Narrow units  and allow much wider values
             .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
-                    new Limit(10 * EM, 20 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
             })
             // Catch special units and allow a bit wider
             .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGER + "\"]/unitPattern", new Limit[] {

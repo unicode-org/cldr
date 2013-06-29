@@ -1351,7 +1351,7 @@ public class ExampleGenerator {
                 examples[4] = invertBackground(format(codePattern, value));
                 result = formatExampleList(examples);
             }
-*/        }
+        }
         return result;
     }
 

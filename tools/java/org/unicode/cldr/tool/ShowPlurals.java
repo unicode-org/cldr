@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
-import org.unicode.cldr.tool.WritePluralRules.SamplePatterns;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
@@ -67,7 +67,7 @@ public class ShowPlurals {
         .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true)
         .addColumn("Rules", "class='target'", null, "class='target' nowrap", true);
 
-        Map<ULocale, SamplePatterns> samples = WritePluralRules.getLocaleToSamplePatterns();
+        Map<ULocale, org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
 
         for (String locale : supplementalDataInfo.getPluralLocales()) {
             if (localeFilter != null && !localeFilter.equals(locale)) {

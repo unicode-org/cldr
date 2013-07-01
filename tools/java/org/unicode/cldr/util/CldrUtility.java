@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -1335,4 +1336,11 @@ public class CldrUtility {
         return collection.contains(key);
     }
 
+    public static <E extends Enum<E>> EnumSet<E> toEnumSet(Class classValue, Collection<String> stringValues) {
+        EnumSet result = EnumSet.noneOf(classValue);
+        for (String s : stringValues) {
+            result.add(Enum.valueOf(classValue,s));
+        }
+        return result;
+    }
 }

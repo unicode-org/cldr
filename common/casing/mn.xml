@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!--
-Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2013 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -13,13 +12,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<metadata>
 		<casingData>
-			<casingItem type="era-abbr">lowercase</casingItem>
-			<casingItem type="era-name">lowercase</casingItem>
-			<casingItem type="era-narrow">lowercase</casingItem>
+			<casingItem type="calendar_field">titlecase</casingItem>
+			<casingItem type="displayName">titlecase</casingItem>
+			<casingItem type="displayName_count">lowercase</casingItem>
+			<casingItem type="era_abbr">titlecase</casingItem>
+			<casingItem type="era_name">lowercase</casingItem>
+			<casingItem type="era_narrow">lowercase</casingItem>
 			<casingItem type="language">lowercase</casingItem>
-			<casingItem type="quarter-format-wide">lowercase</casingItem>
-			<casingItem type="quarter-standalone-wide">lowercase</casingItem>
+			<casingItem type="metazone_long">titlecase</casingItem>
+			<casingItem type="quarter_abbreviated">titlecase</casingItem>
+			<casingItem type="script">lowercase</casingItem>
+			<casingItem type="symbol">titlecase</casingItem>
+			<casingItem type="tense">titlecase</casingItem>
 			<casingItem type="territory">titlecase</casingItem>
+			<casingItem type="type">lowercase</casingItem>
+			<casingItem type="zone_exemplarCity">titlecase</casingItem>
+			<casingItem type="zone_long">titlecase</casingItem>
 		</casingData>
 	</metadata>
 </ldml>

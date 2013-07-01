@@ -1,7 +1,6 @@
 package org.unicode.cldr.test;
 
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -48,21 +47,15 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         locale = cldrFileToCheck.getLocaleID();
-
-        Map<String, CasingType> casing = casingInfo.getLocaleCasing(locale);
-        if (casing == null) {
+        types = casingInfo.getLocaleCasing(locale);
+        if (types == null) {
             possibleErrors.add(new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.warningType)
                 .setSubtype(Subtype.incorrectCasing)
                 .setMessage("Could not load casing info for {0}", locale));
             hasCasingInfo = false;
-        } else {
-            for (int i = 0; i < typeNames.length; i++) {
-                types[i] = casing.get(typeNames[i]);
-                if (types[i] == null) types[i] = CasingType.other;
-            }
-            hasCasingInfo = casing.size() > 0;
         }
+        hasCasingInfo = types.size() > 0;
         return this;
     }
 
@@ -75,9 +68,9 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
         String locale2 = getCldrFileToCheck().getSourceLocaleID(path, null);
         if (locale2.equals(locale) && value != null && value.length() > 0) {
-            int index = getIndex(path);
-            if (index >= 0) {
-                checkConsistentCasing(index, path, fullPath, value, options, result);
+            Category category = getCategory(path);
+            if (category != null) {
+                checkConsistentCasing(category, path, fullPath, value, options, result);
             }
         }
         return this;
@@ -133,83 +126,74 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
 
         /**
          * Return true if either is other, or they are identical.
-         * 
-         * @param ft
-         * @param firstLetterType
-         * @return
          */
-        public static boolean works(CasingType a, CasingType b) {
-            return a == b || a == CasingType.other || b == CasingType.other;
+        public boolean worksWith(CasingType otherType) {
+            return otherType == null || this == otherType || this == CasingType.other || otherType == CasingType.other;
         }
     }
 
-    static final RegexLookup<Integer> pathToBucket = new RegexLookup<Integer>()
-        .add("//ldml/localeDisplayNames/languages/language", 0)
-        .add("//ldml/localeDisplayNames/scripts/script", 1)
-        .add("//ldml/localeDisplayNames/territories/territory", 2)
-        .add("//ldml/localeDisplayNames/variants/variant", 3)
-        .add("//ldml/localeDisplayNames/keys/key", 30)
-        .add("//ldml/localeDisplayNames/types/type", 4)
-        .add("//ldml/dates/calendars/calendar.*/months.*narrow", 5)
-        .add("//ldml/dates/calendars/calendar.*/months.*format", 6)
-        .add("//ldml/dates/calendars/calendar.*/months", 7)
-        .add("//ldml/dates/calendars/calendar.*/days.*narrow", 8)
-        .add("//ldml/dates/calendars/calendar.*/days.*format", 9)
-        .add("//ldml/dates/calendars/calendar.*/days", 10)
-        .add("//ldml/dates/calendars/calendar.*/eras/eraNarrow", 11)
-        .add("//ldml/dates/calendars/calendar.*/eras/eraAbbr", 12)
-        .add("//ldml/dates/calendars/calendar.*/eras/", 13)
-        .add("//ldml/dates/calendars/calendar.*/quarters.*narrow", 14)
-        .add("//ldml/dates/calendars/calendar.*/quarters.*abbreviated", 15)
-        .add("//ldml/dates/calendars/calendar.*/quarters.*format", 16)
-        .add("//ldml/dates/calendars/calendar.*/quarters", 17)
-        .add("//ldml/.*/relative", 28)
-        .add("//ldml/dates/fields", 18)
-        .add("//ldml/dates/timeZoneNames/zone.*/exemplarCity", 19)
-        .add("//ldml/dates/timeZoneNames/zone.*/short", 20)
-        .add("//ldml/dates/timeZoneNames/zone", 21)
-        .add("//ldml/dates/timeZoneNames/metazone.*/commonlyUsed", 22) // just to remove them from the other cases
-        .add("//ldml/dates/timeZoneNames/metazone.*/short", 23)
-        .add("//ldml/dates/timeZoneNames/metazone", 24)
-        .add("//ldml/numbers/currencies/currency.*/symbol", 25)
-        .add("//ldml/numbers/currencies/currency.*/displayName.*@count", 26)
-        .add("//ldml/numbers/currencies/currency.*/displayName", 27)
-        .add("//ldml/units/unit.*/unitPattern.*(past|future)", 28)
-        .add("//ldml/units/unit.*/unitPattern", 29)
+    static final RegexLookup<Category> pathToBucket = new RegexLookup<Category>()
+        .add("//ldml/localeDisplayNames/languages/language", Category.language)
+        .add("//ldml/localeDisplayNames/scripts/script", Category.script)
+        .add("//ldml/localeDisplayNames/territories/territory", Category.territory)
+        .add("//ldml/localeDisplayNames/variants/variant", Category.variant)
+        .add("//ldml/localeDisplayNames/keys/key", Category.key)
+        .add("//ldml/localeDisplayNames/types/type", Category.type)
+        .add("//ldml/dates/calendars/calendar.*/months.*narrow", Category.month_narrow)
+        .add("//ldml/dates/calendars/calendar.*/months.*format", Category.month_format_except_narrow)
+        .add("//ldml/dates/calendars/calendar.*/months", Category.month_standalone_except_narrow)
+        .add("//ldml/dates/calendars/calendar.*/days.*narrow", Category.day_narrow)
+        .add("//ldml/dates/calendars/calendar.*/days.*format", Category.day_format_except_narrow)
+        .add("//ldml/dates/calendars/calendar.*/days", Category.day_standalone_except_narrow)
+        .add("//ldml/dates/calendars/calendar.*/eras/eraNarrow", Category.era_narrow)
+        .add("//ldml/dates/calendars/calendar.*/eras/eraAbbr", Category.era_abbr)
+        .add("//ldml/dates/calendars/calendar.*/eras/", Category.era_name)
+        .add("//ldml/dates/calendars/calendar.*/quarters.*narrow", Category.quarter_narrow)
+        .add("//ldml/dates/calendars/calendar.*/quarters.*abbreviated", Category.quarter_abbreviated)
+        .add("//ldml/dates/calendars/calendar.*/quarters.*format", Category.quarter_format_wide)
+        .add("//ldml/dates/calendars/calendar.*/quarters", Category.quarter_standalone_wide)
+        .add("//ldml/.*/relative", Category.tense)
+        .add("//ldml/dates/fields", Category.calendar_field)
+        .add("//ldml/dates/timeZoneNames/zone.*/exemplarCity", Category.zone_exemplarCity)
+        .add("//ldml/dates/timeZoneNames/zone.*/short", Category.zone_short)
+        .add("//ldml/dates/timeZoneNames/zone", Category.zone_long)
+        .add("//ldml/dates/timeZoneNames/metazone.*/commonlyUsed", Category.NOT_USED) // just to remove them from the other cases
+        .add("//ldml/dates/timeZoneNames/metazone.*/short", Category.metazone_long)
+        .add("//ldml/dates/timeZoneNames/metazone", Category.metazone_long)
+        .add("//ldml/numbers/currencies/currency.*/symbol", Category.symbol)
+        .add("//ldml/numbers/currencies/currency.*/displayName.*@count", Category.displayName_count)
+        .add("//ldml/numbers/currencies/currency.*/displayName", Category.displayName)
+        .add("//ldml/units/unit.*/unitPattern.*(past|future)", Category.tense)
+        .add("//ldml/units/unit.*/unitPattern", Category.unit_pattern)
     // ldml/localeDisplayNames/keys/key[@type=".*"]
     // ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
     // ldml/localeDisplayNames/transformNames/transformName[@type=".*"]
     ;
 
-    public static final int LIMIT_COUNT = 31;
+    Map<Category, CasingType> types = new EnumMap<Category, CasingType>(Category.class);
 
-    CasingType[] types = new CasingType[LIMIT_COUNT];
-
-    public static String NOT_USED = "NOT_USED";
-
-    public static String[] typeNames = new String[] {
-        "language", "script", "territory", "variant", "type",
-        "month-narrow", "month-format-except-narrow", "month-standalone-except-narrow",
-        "day-narrow", "day-format-except-narrow", "day-standalone-except-narrow",
-        "era-narrow", "era-abbr", "era-name",
-        "quarter-narrow", "quarter-abbreviated", "quarter-format-wide", "quarter-standalone-wide",
-        "calendar-field",
-        "zone-exemplarCity", "zone-short", "zone-long",
+    public enum Category {
+        language, script, territory, variant, type,
+        month_narrow, month_format_except_narrow, month_standalone_except_narrow,
+        day_narrow, day_format_except_narrow, day_standalone_except_narrow,
+        era_narrow, era_abbr, era_name,
+        quarter_narrow, quarter_abbreviated, quarter_format_wide, quarter_standalone_wide,
+        calendar_field,
+        zone_exemplarCity, zone_short, zone_long,
         NOT_USED,
-        "metazone-short", "metazone-long",
-        "symbol",
-        "displayName-count", "displayName",
-        "tense", "unit-pattern",
-        "key"
-    };
+        metazone_short, metazone_long,
+        symbol,
+        displayName_count, displayName,
+        tense, unit_pattern,
+        key;
+    }
 
     // //ldml/numbers/currencies/currency[@type="ADP"]/displayName
     // //ldml/numbers/currencies/currency[@type="RON"]/displayName[@count="other"]
     // //ldml/numbers/currencies/currency[@type="BYB"]/symbol
 
-    static int getIndex(String path) {
-        Integer bucket = pathToBucket.get(path);
-        return bucket == null ? -1 : bucket;
+    static Category getCategory(String path) {
+        return pathToBucket.get(path);
     }
 
     /**
@@ -219,21 +203,18 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
      *            the resolved CLDRFile to calculate casing information from
      * @return
      */
-    public static Map<String, CasingType> getSamples(CLDRFile resolved) {
-        Counter<CasingType>[] counters = new Counter[LIMIT_COUNT];
+    public static Map<Category, CasingType> getSamples(CLDRFile resolved) {
+        // Use EnumMap instead of an array for type safety.
+        Map<Category, Counter<CasingType>> counters = new EnumMap<Category, Counter<CasingType>>(Category.class);
 
-        for (int i = 0; i < LIMIT_COUNT; ++i) {
-            counters[i] = new Counter<CasingType>();
+        for (Category category : Category.values()) {
+            counters.put(category, new Counter<CasingType>());
         }
         PathStarrer starrer = new PathStarrer();
-        Set<String> items = new TreeSet<String>(CLDRFile.ldmlComparator);
-        Iterator<String> it = resolved.iterator();
-        CollectionUtilities.addAll(it, items);
-        items.addAll(resolved.getExtraPaths());
         boolean isRoot = "root".equals(resolved.getLocaleID());
         Set<String> missing = !DEBUG ? null : new TreeSet<String>();
 
-        for (String path : items) {
+        for (String path : resolved) {
             if (!isRoot) {
                 String locale2 = resolved.getSourceLocaleID(path, null);
                 if (locale2.equals("root") || locale2.equals("code-fallback")) {
@@ -244,36 +225,36 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             if (!winningPath.equals(path)) {
                 continue;
             }
-            int i = getIndex(path);
-            if (i >= 0) {
+            Category category = getCategory(path);
+            if (category != null) {
                 String value = resolved.getStringValue(path);
                 if (value == null || value.length() == 0) continue;
                 CasingType ft = CasingType.from(value);
-                counters[i].add(ft, 1);
+                counters.get(category).add(ft, 1);
             } else if (DEBUG) {
                 String starred = starrer.set(path);
                 missing.add(starred);
             }
         }
 
-        CasingType[] types = new CasingType[LIMIT_COUNT];
-        Map<String, CasingType> info = new HashMap();
-        for (int i = 0; i < LIMIT_COUNT; ++i) {
-            long countLower = counters[i].getCount(CasingType.lowercase);
-            long countUpper = counters[i].getCount(CasingType.titlecase);
-            long countOther = counters[i].getCount(CasingType.other);
+        Map<Category, CasingType> info = new EnumMap<Category, CasingType>(Category.class);
+        for (Category category : Category.values()) {
+            if (category == Category.NOT_USED) continue;
+            Counter<CasingType> counter = counters.get(category);
+            long countLower = counter.getCount(CasingType.lowercase);
+            long countUpper = counter.getCount(CasingType.titlecase);
+            long countOther = counter.getCount(CasingType.other);
+            CasingType type;
             if (countLower + countUpper == 0) {
-                types[i] = CasingType.other;
+                type = CasingType.other;
             } else if (countLower >= countUpper * MIN_FACTOR && countLower >= countOther) {
-                types[i] = CasingType.lowercase;
+                type = CasingType.lowercase;
             } else if (countUpper >= countLower * MIN_FACTOR && countUpper >= countOther) {
-                types[i] = CasingType.titlecase;
+                type = CasingType.titlecase;
             } else {
-                types[i] = CasingType.other;
+                type = CasingType.other;
             }
-            if (!typeNames[i].equals(CheckConsistentCasing.NOT_USED)) {
-                info.put(typeNames[i], types[i]);
-            }
+            info.put(category, type);
         }
         if (DEBUG && missing.size() != 0) {
             System.out.println("Paths skipped:\n" + CollectionUtilities.join(missing, "\n"));
@@ -281,15 +262,15 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         return info;
     }
 
-    private void checkConsistentCasing(int i, String path, String fullPath, String value,
+    private void checkConsistentCasing(Category category, String path, String fullPath, String value,
         Map<String, String> options, List<CheckStatus> result) {
         CasingType ft = CasingType.from(value);
-        if (!CasingType.works(ft, types[i])) {
+        if (!ft.worksWith(types.get(category))) {
             result.add(new CheckStatus().setCause(this)
                 .setMainType(CheckStatus.warningType)
                 .setSubtype(Subtype.incorrectCasing) // typically warningType or errorType
                 .setMessage("The first letter of 〈{0}〉 is {1}, which differs from the majority of this type: {2}",
-                    value, ft, types[i])); // the message; can be MessageFormat with arguments
+                    value, ft, types.get(category))); // the message; can be MessageFormat with arguments
         }
     }
 }

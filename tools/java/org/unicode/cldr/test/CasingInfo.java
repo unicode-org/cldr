@@ -3,6 +3,7 @@ package org.unicode.cldr.test;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckConsistentCasing.CasingType;
+import org.unicode.cldr.test.CheckConsistentCasing.Category;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
@@ -36,18 +38,15 @@ import com.ibm.icu.text.UnicodeSet;
 public class CasingInfo {
     private static final Options options = new Options(
         "This program is used to generate casing files for locales.")
-        .add("locales", ".*", "A regex of the locales to generate casing information for")
+        .add("locales", ".*", ".*", "A regex of the locales to generate casing information for")
         .add("summary", null,
             "generates a summary of the casing for all locales that had casing generated for this run");
-
-    private Map<String, Map<String, CasingType>> casing;
-    private Map<String, Boolean> localeUsesCasing;
+    private Map<String, Map<Category, CasingType>> casing;
     private File casingDir;
 
     public CasingInfo(String dir) {
         this.casingDir = new File(dir);
         casing = CldrUtility.newConcurrentHashMap();
-        localeUsesCasing = CldrUtility.newConcurrentHashMap();
     }
 
     /**
@@ -63,7 +62,8 @@ public class CasingInfo {
      * @param localeID
      * @return
      */
-    public Map<String, CasingType> getLocaleCasing(String localeID) {
+    public Map<Category, CasingType> getLocaleCasing(String localeID) {
+        // Check if the localeID contains casing first.
         // If there isn't a casing file available for the locale,
         // recurse over the locale's parents until something is found.
         if (!casing.containsKey(localeID)) {
@@ -105,7 +105,7 @@ public class CasingInfo {
     /**
      * Calculates casing information about all languages from the locale data.
      */
-    private void generateCasingInformation(String localePattern) {
+    private Map<String, Boolean> generateCasingInformation(String localePattern) {
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
         Set<String> defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
         String sourceDirectory = CldrUtility.checkValidDirectory(CldrUtility.MAIN_DIRECTORY);
@@ -113,6 +113,8 @@ public class CasingInfo {
         Set<String> locales = new LinkedHashSet<String>(cldrFactory.getAvailable());
         locales.removeAll(defaultContentLocales); // Skip all default content locales
         UnicodeSet allCaps = new UnicodeSet("[:Lu:]");
+        Map<String, Boolean> localeUsesCasing = new HashMap<String, Boolean>();
+        LocaleIDParser parser = new LocaleIDParser();
 
         for (String localeID : locales) {
             if (CLDRFile.isSupplementalName(localeID)) continue;
@@ -121,22 +123,19 @@ public class CasingInfo {
             // (unless it's pt_PT, which we do want).
             // Keep regional locales only if there isn't already a locale for its script,
             // e.g. keep zh_Hans_HK because zh_Hans is a default locale.
-            int underscorePos = localeID.indexOf('_');
-            if (underscorePos > 0) {
-                int underscorePos2 = localeID.indexOf('_', underscorePos + 1);
-                if (localeID.length() - underscorePos == 3 && !localeID.equals("pt_PT") ||
-                    underscorePos2 > 0 && locales.contains(localeID.substring(0, underscorePos2))) {
-                    System.out.println("Skipping regional locale " + localeID);
-                    continue;
-                }
+            parser.set(localeID);
+            if (parser.getRegion().length() > 0 && !localeID.equals("pt_PT")) {
+                System.out.println("Skipping regional locale " + localeID);
+                continue;
             }
 
             // Save casing information about the locale.
             CLDRFile file = cldrFactory.make(localeID, true);
             UnicodeSet examplars = file.getExemplarSet("", WinningChoice.NORMAL);
             localeUsesCasing.put(localeID, examplars.containsSome(allCaps));
-            casing.put(localeID, CheckConsistentCasing.getSamples(file));
+            createCasingXml(localeID, CheckConsistentCasing.getSamples(file));
         }
+        return localeUsesCasing;
     }
 
     /**
@@ -144,7 +143,7 @@ public class CasingInfo {
      * 
      * @param outputFile
      */
-    private void createCasingSummary(String outputFile) {
+    private void createCasingSummary(String outputFile, Map<String, Boolean> localeUsesCasing) {
         PrintWriter out;
         try {
             out = new PrintWriter(outputFile);
@@ -155,13 +154,12 @@ public class CasingInfo {
 
         // Header
         out.print(",");
-        String[] typeNames = CheckConsistentCasing.typeNames;
-        for (int i = 0; i < typeNames.length; i++) {
-            out.print("," + typeNames[i]);
+        for (Category category : Category.values()) {
+            out.print("," + category.toString().replace('_', '-'));
         }
         out.println();
         out.print("Locale ID,Case");
-        for (int i = 0; i < CheckConsistentCasing.LIMIT_COUNT; i++) {
+        for (int i = 0; i < Category.values().length; i++) {
             out.print("," + i);
         }
         out.println();
@@ -172,9 +170,9 @@ public class CasingInfo {
             out.print(localeID);
             out.print(",");
             out.print(localeUsesCasing.get(localeID) ? "Y" : "N");
-            Map<String, CasingType> types = casing.get(localeID);
-            for (int i = 0; i < typeNames.length; i++) {
-                CasingType value = types.get(typeNames[i]);
+            Map<Category, CasingType> types = casing.get(localeID);
+            for (Category category : Category.values()) {
+                CasingType value = types.get(category);
                 out.print("," + value == null ? null : value.toString().charAt(0));
             }
             out.println();
@@ -184,47 +182,36 @@ public class CasingInfo {
     }
 
     /**
-     * Writes all casing information in memory to files in XML format.
+     * Writes casing information for the specified locale to XML format.
      */
-    private void createCasingXml() {
-        File outputDir = casingDir;
-        if (!outputDir.exists()) {
-            outputDir.mkdir();
+    private void createCasingXml(String localeID, Map<Category, CasingType> localeCasing) {
+        // Load any existing overrides over casing info.
+        CasingHandler handler = loadFromXml(localeID);
+        Map<Category, CasingType> overrides = handler == null ?
+                new EnumMap<Category, CasingType>(Category.class) : handler.getOverrides();
+        localeCasing.putAll(overrides);
+
+        XMLSource source = new SimpleXMLSource(localeID);
+        for (Category category : Category.values()) {
+            if (category == Category.NOT_USED) continue;
+            CasingType type = localeCasing.get(category);
+            if (overrides.containsKey(category)) {
+                String path = MessageFormat.format("//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]", category);
+                source.putValueAtPath(path, type.toString());
+            } else if (type != CasingType.other) {
+                String path = "//ldml/metadata/casingData/casingItem[@type=\"" + category + "\"]";
+                source.putValueAtPath(path, type.toString());
+            }
         }
+        CLDRFile cldrFile = new CLDRFile(source);
+        File casingFile = new File(CldrUtility.GEN_DIRECTORY + "/casing", localeID + ".xml");
 
-        Set<String> locales = casing.keySet();
-        String[] typeNames = CheckConsistentCasing.typeNames;
-        for (String localeID : locales) {
-            Map<String, CasingType> localeCasing = casing.get(localeID);
-            // Load any existing overrides over casing info.
-            CasingHandler handler = loadFromXml(localeID);
-            Map<String, CasingType> overrides = handler == null ?
-                    new HashMap<String, CasingType>() : handler.getOverrides();
-            localeCasing.putAll(overrides);
-
-            XMLSource source = new SimpleXMLSource(localeID);
-            for (int i = 0; i < typeNames.length; i++) {
-                String typeName = typeNames[i];
-                if (typeName.equals(CheckConsistentCasing.NOT_USED)) continue;
-                CasingType type = localeCasing.get(typeName);
-                if (overrides.containsKey(typeName)) {
-                    String path = MessageFormat.format("//ldml/metadata/casingData/casingItem[@type=\"{0}\"][@override=\"true\"]", typeName);
-                    source.putValueAtPath(path, type.toString());
-                } else if (type != CasingType.other) {
-                    String path = "//ldml/metadata/casingData/casingItem[@type=\"" + typeName + "\"]";
-                    source.putValueAtPath(path, type.toString());
-                }
-            }
-            CLDRFile cldrFile = new CLDRFile(source);
-            File casingFile = new File(casingDir, localeID + ".xml");
-
-            try {
-                PrintWriter out = new PrintWriter(casingFile);
-                cldrFile.write(out);
-                out.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            PrintWriter out = new PrintWriter(casingFile);
+            cldrFile.write(out);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -237,12 +224,10 @@ public class CasingInfo {
     public static void main(String[] args) {
         CasingInfo casingInfo = new CasingInfo();
         options.parse(args, true);
-        casingInfo.generateCasingInformation(options.get("locales").getValue());
+        Map<String, Boolean> localeUsesCasing = casingInfo.generateCasingInformation(options.get("locales").getValue());
         if (options.get("summary").doesOccur()) {
-            casingInfo.createCasingSummary(args[0]);
+            casingInfo.createCasingSummary(args[0], localeUsesCasing);
         }
-        // Create all casing files needed for CLDR checks.
-        casingInfo.createCasingXml();
     }
 
     /**
@@ -251,19 +236,19 @@ public class CasingInfo {
     private class CasingHandler extends XMLFileReader.SimpleHandler {
         private Pattern localePattern = Pattern.compile("//ldml/identity/language\\[@type=\"(\\w+)\"\\]");
         private String localeID;
-        private Map<String, CasingType> caseMap = new HashMap<String, CasingType>();
-        private Map<String, CasingType> overrideMap = new HashMap<String, CasingType>();
+        private Map<Category, CasingType> caseMap = new EnumMap<Category, CasingType>(Category.class);
+        private Map<Category, CasingType> overrideMap = new EnumMap<Category, CasingType>(Category.class);
 
         @Override
         public void handlePathValue(String path, String value) {
             // Parse casing info.
             if (path.contains("casingItem")) {
                 XPathParts parts = new XPathParts().set(path);
-                String type = parts.getAttributeValue(-1, "type");
+                Category category = Category.valueOf(parts.getAttributeValue(-1, "type").replace('-', '_'));
                 CasingType casingType = CasingType.valueOf(value);
-                caseMap.put(type, casingType);
+                caseMap.put(category, casingType);
                 if (Boolean.valueOf(parts.getAttributeValue(-1, "override"))) {
-                    overrideMap.put(type, casingType);
+                    overrideMap.put(category, casingType);
                 }
             } else {
                 // Parse the locale that the casing is for.
@@ -274,11 +259,11 @@ public class CasingInfo {
             }
         }
 
-        public void addParsedResult(Map<String, Map<String, CasingType>> map) {
+        public void addParsedResult(Map<String, Map<Category, CasingType>> map) {
             map.put(localeID, caseMap);
         }
 
-        public Map<String, CasingType> getOverrides() {
+        public Map<Category, CasingType> getOverrides() {
             return overrideMap;
         }
     }

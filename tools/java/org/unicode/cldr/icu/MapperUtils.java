@@ -74,7 +74,7 @@ public class MapperUtils {
             versionNum /= 100;
             numDots++;
         }
-        return (numDots > 1 ? "2" : "2.0") + version;
+        return (numDots > 2 ? "2" : "2.0") + version;
     }
 
     /**

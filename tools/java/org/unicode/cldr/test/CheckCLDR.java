@@ -346,6 +346,8 @@ abstract public class CheckCLDR {
                     if (item.getSubtype() != Subtype.dateSymbolCollision
                         && item.getSubtype() != Subtype.displayCollision) {
                         return ValueStatus.ERROR;
+                    } else {
+                        return ValueStatus.WARNING;
                     }
                 } else if (type.equals(CheckStatus.Type.Warning)) {
                     previous = ValueStatus.WARNING;

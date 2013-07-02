@@ -56,7 +56,7 @@
      ; /territoryContainment/grouping ; values=$1
 
 //supplementalData/weekData/minDays[@count="(%N)"][@territories="(%W)"] ; /weekData/$2:intvector    ; values=$1 ; fallback=1
-//supplementalData/weekData/firstDay[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1
+//supplementalData/weekData/firstDay[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 ; fallback=2
 //supplementalData/weekData/weekendStart[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 0 ; fallback=7 0
 //supplementalData/weekData/weekendEnd[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 86400000 ; fallback=1 86400000
 

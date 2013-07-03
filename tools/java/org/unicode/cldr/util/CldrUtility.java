@@ -134,7 +134,7 @@ public class CldrUtility {
     public static final String UTIL_DATA_DIR = FileUtilities.getRelativeFileName(
         CldrUtility.class, "data/");
 
-    public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new
+    public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", "/Users/jchye/tweaks/")); // new
                                                                                                     // File(Utility.getProperty("CLDR_DIR",
                                                                                                     // null)).getPath();
                                                                                                     // // get up to

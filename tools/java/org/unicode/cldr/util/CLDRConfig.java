@@ -46,8 +46,8 @@ public class CLDRConfig extends Properties {
             }
             if (INSTANCE == null) {
                 INSTANCE = new CLDRConfig();
-                CldrUtility.checkValidDirectory(INSTANCE.getProperty("CLDR_DIR"),
-                    "You have to set -DCLDR_DIR=<validdirectory>");
+//                CldrUtility.checkValidDirectory(INSTANCE.getProperty("CLDR_DIR"),
+//                    "You have to set -DCLDR_DIR=<validdirectory>");
             }
         }
         return INSTANCE;

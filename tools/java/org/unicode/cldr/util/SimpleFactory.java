@@ -18,7 +18,7 @@ public class SimpleFactory extends Factory {
      * Larger numbers are tolerable if more memory is available.
      * This constant may be moved to CldrUtilities in future if needed.
      */
-    private static final int CACHE_LIMIT = 15;
+    private static final int CACHE_LIMIT = 5;
 
     private volatile CLDRFile result;  // used in handleMake
     private File sourceDirectories[];

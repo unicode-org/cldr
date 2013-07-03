@@ -1340,11 +1340,13 @@ ldml alternate attributeOrder attributes blockingItems calendarPreference calend
         <deprecated>
             <!-- items deprecated in ldml.dtd, ldmlSupplemental.dtd -->
             <deprecatedItems attributes="draft" values="true false"/>
-            <deprecatedItems elements="monthNames monthAbbr dayNames dayAbbr localizedPatternChars week yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern default"/>
+            <deprecatedItems elements="monthNames monthAbbr dayNames dayAbbr localizedPatternChars week yesexpr noexpr measurement hoursFormat abbreviationFallback preferenceOrdering dateRangePattern"/>
+            <!-- default type="pinyin" (replaced by defaultCollation), see CLDR ticket #5679 -->
+            <deprecatedItems elements="default"/>
             <deprecatedItems type="ldml" elements="minDays firstDay weekendStart weekendEnd"/>
             <deprecatedItems attributes="standard time"/> <!-- 'count' was probably in a different dtd -->
             <deprecatedItems elements="variant" attributes="type" values="BOKMAL NYNORSK AALAND POLYTONI"/>
-            <deprecatedItems elements="abbreviationFallback default hoursFormat localizedPatternChars mapping preferenceOrdering" attributes="type"/>
+            <deprecatedItems elements="abbreviationFallback hoursFormat localizedPatternChars mapping preferenceOrdering" attributes="type"/>
             <deprecatedItems elements="inList" attributes="casing"/>
             <deprecatedItems elements="symbol" attributes="choice"/>
             <deprecatedItems type="supplementalData" elements="alternate"/>
@@ -1355,7 +1357,8 @@ ldml alternate attributeOrder attributes blockingItems calendarPreference calend
             <deprecatedItems elements="calendar" attributes="type" values="civil-arabic thai-buddhist"/>
             <deprecatedItems elements="exemplarCharacters" attributes="type" values="currencySymbol"/>
             <deprecatedItems elements="decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup" attributes="numberSystem"/>
-            <deprecatedItems elements="q qc"/>
+            <!-- collation rules element (replaced by cr) and its sub-elements, see CLDR ticket #5551 -->
+            <deprecatedItems elements="rules reset p pc s sc t tc q qc i ic x extend context first_variable last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing"/>
             <deprecatedItems elements="fallback"/>
             <deprecatedItems type="ldml" elements="references"/>
             <deprecatedItems elements="commonlyUsed"/>
@@ -1369,7 +1372,6 @@ ldml alternate attributeOrder attributes blockingItems calendarPreference calend
             <deprecatedItems type="supplementalData" elements="timezoneData zoneFormatting zoneItem"/>
             <deprecatedItems type="ldml" elements="settings" attributes="private"/>
             <deprecatedItems type="ldml" elements="orientation" attributes="characters lines"/>
-            <deprecatedItems type="ldml" elements="default" attributes="choice"/>
             <deprecatedItems elements="singleCountries"/>
             <deprecatedItems type="supplementalData" elements="coverageAdditions languageCoverage scriptCoverage territoryCoverage currencyCoverage timezoneCoverage"/>
             <deprecatedItems elements="fallbackRegionFormat"/>

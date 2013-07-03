@@ -155,7 +155,7 @@ public class CollationMapper {
         @Override
         public void endElement(String uri, String localName, String qName) throws SAXException {
             // collationType will only be null if the draft status is insufficient.
-            if (qName.equals("defaultCollation")) { // TODO: deprecate default element
+            if (qName.equals("defaultCollation")) {
                 icuData.add("/collations/default", currentText.toString());
             } else if (collationType == null) {
                 currentText.setLength(0);

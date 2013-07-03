@@ -1299,7 +1299,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT collations (alias | (default*, defaultCollation*, collation*, special*)) >
+<!ELEMENT collations (alias | (defaultCollation?, default*, collation*, special*)) >
 <!ATTLIST collations version NMTOKEN #IMPLIED >
 <!ATTLIST collations draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >

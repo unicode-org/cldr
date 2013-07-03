@@ -120,6 +120,10 @@ public abstract class Factory implements SublocaleProvider {
         return make(currentLocaleID, true, madeWithMinimalDraftStatus);
     }
 
+    public static XMLSource makeResolvingSource(List<XMLSource> sources) {
+        return new ResolvingSource(sources);
+    }
+
     /**
      * Temporary wrapper for creating an XMLSource. This is a hack and should
      * only be used in the Survey Tool for now.

@@ -1315,7 +1315,7 @@ $Date$
 <!ATTLIST collation validSubLocales CDATA #IMPLIED >
 <!ATTLIST collation visibility ( internal | external ) "external" > 
 
-<!-- ELEMENT base (alias|special) -- collations/collation/base removed, see CLDR ticket #6332 -->
+<!-- ELEMENT base (alias|special) - collations/collation/base removed, see CLDR ticket #6332 -->
 
 <!ELEMENT import EMPTY >
 <!ATTLIST import source CDATA #REQUIRED >

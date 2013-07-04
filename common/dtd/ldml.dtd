@@ -1306,7 +1306,7 @@ $Date$
 
 <!ELEMENT defaultCollation ( #PCDATA ) >
 
-<!ELEMENT collation (alias | (base?, import*, settings?, suppress_contractions?, optimize?, (cr* | rules?), special*)) >
+<!ELEMENT collation (alias | (import*, settings?, suppress_contractions?, optimize?, (cr* | rules?), special*)) >
 <!ATTLIST collation type NMTOKEN "standard" >
 <!ATTLIST collation draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST collation standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -1315,7 +1315,7 @@ $Date$
 <!ATTLIST collation validSubLocales CDATA #IMPLIED >
 <!ATTLIST collation visibility ( internal | external ) "external" > 
 
-<!ELEMENT base (alias|special) >
+<!-- ELEMENT base (alias|special) -- collations/collation/base removed, see CLDR ticket #6332 -->
 
 <!ELEMENT import EMPTY >
 <!ATTLIST import source CDATA #REQUIRED >

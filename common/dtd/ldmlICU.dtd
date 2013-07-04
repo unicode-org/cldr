@@ -9,31 +9,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 -->
 
 <!-- ######################################################### -->
-<!-- These elements are common to almost all elements defined  -->
+<!-- The alias, default, special and cp elements are already defined in ldml.dtd. Defining them here as well would break locale conversion.  -->
 <!-- ######################################################### -->
-
-<!ELEMENT alias  (special*) >
-<!ATTLIST alias source NMTOKEN #REQUIRED >
-<!ATTLIST alias path CDATA #IMPLIED>
-<!ATTLIST alias draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST alias alt NMTOKENS #IMPLIED >
-
-<!ELEMENT default (special*) > <!-- deprecated -->
-<!ATTLIST default type NMTOKEN #IMPLIED >
-<!ATTLIST default choice NMTOKEN #IMPLIED >
-<!ATTLIST default draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
-<!ATTLIST default references CDATA #IMPLIED >
-<!ATTLIST default alt NMTOKENS #IMPLIED >
-
-<!ELEMENT special ANY >
-
-<!-- This element can occur anywhere there may be localizable data -->
-<!ELEMENT cp (special*) >
-<!ATTLIST cp hex NMTOKEN #REQUIRED >
-
-
-<!-- ######################################################### -->
-
 
 <!--  ICU Specific elements                                    -->
 <!-- ######################################################### -->

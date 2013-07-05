@@ -153,7 +153,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
      *            TODO
      * @return
      */
-    public T get(String source, Object context, Output<String[]> arguments,
+    public synchronized T get(String source, Object context, Output<String[]> arguments,
         Output<Finder> matcherFound, List<String> failures) {
         for (R2<Finder, T> entry : entries.values()) {
             Finder matcher = entry.get0();

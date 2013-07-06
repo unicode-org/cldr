@@ -85,7 +85,7 @@ public class DisplayAndInputProcessor {
 
     private Collator spaceCol;
 
-    private PrettyPrinter pp;
+    private PrettyPrinter pp = null;
 
     final private CLDRLocale locale;
     private boolean isPosix;
@@ -95,32 +95,46 @@ public class DisplayAndInputProcessor {
      * 
      * @param cldrFileToCheck
      */
+    public DisplayAndInputProcessor(CLDRFile cldrFileToCheck, boolean needsCollator) {
+        init(this.locale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID()),needsCollator);
+    }
+
     public DisplayAndInputProcessor(CLDRFile cldrFileToCheck) {
-        init(this.locale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID()));
+        init(this.locale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID()),true);
     }
 
-    void init(CLDRLocale locale) {
+    void init(CLDRLocale locale, boolean needsCollator) {
         isPosix = locale.toString().indexOf("POSIX") >= 0;
-        col = Collator.getInstance(locale.toULocale());
-        spaceCol = Collator.getInstance(locale.toULocale());
-        if ( spaceCol instanceof RuleBasedCollator ) {
-            ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
+        if (needsCollator) {
+            col = Collator.getInstance(locale.toULocale());
+            spaceCol = Collator.getInstance(locale.toULocale());
+            if (spaceCol instanceof RuleBasedCollator) {
+                ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
+            }
+            pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
+                    .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
+                    .setCompressRanges(true)
+                    .setToQuote(new UnicodeSet(TO_QUOTE))
+                    .setOrdering(col)
+                    .setSpaceComparator(spaceCol);
         }
-        pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
-            .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
-            .setCompressRanges(true)
-            .setToQuote(new UnicodeSet(TO_QUOTE))
-            .setOrdering(col)
-            .setSpaceComparator(spaceCol);
     }
 
+    /**
+     * Constructor, taking locale.
+     * 
+     * @param locale
+     */
+    public DisplayAndInputProcessor(ULocale locale, boolean needsCollator) {
+        init(this.locale = CLDRLocale.getInstance(locale), needsCollator);
+    }
     /**
      * Constructor, taking locale.
      * 
      * @param locale
      */
     public DisplayAndInputProcessor(ULocale locale) {
-        init(this.locale = CLDRLocale.getInstance(locale));
+        init(this.locale = CLDRLocale.getInstance(locale), true);
     }
 
     /**
@@ -128,8 +142,16 @@ public class DisplayAndInputProcessor {
      * 
      * @param locale
      */
+    public DisplayAndInputProcessor(CLDRLocale locale, boolean needsCollator) {
+        init(this.locale = locale, needsCollator);
+    }
+    /**
+     * Constructor, taking locale.
+     * 
+     * @param locale
+     */
     public DisplayAndInputProcessor(CLDRLocale locale) {
-        init(this.locale = locale);
+        init(this.locale = locale, true);
     }
 
     /**
@@ -437,6 +459,9 @@ public class DisplayAndInputProcessor {
 
     public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter,
         ExemplarType exemplarType) {
+        if (prettyPrinter == null) {
+            return exemplar.toString();
+        }
         String value;
         prettyPrinter.setCompressRanges(exemplar.size() > 100);
         value = exemplar.toPattern(false);

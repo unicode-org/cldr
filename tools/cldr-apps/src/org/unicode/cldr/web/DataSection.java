@@ -3676,7 +3676,7 @@ public class DataSection implements JSONString {
      */
     private DisplayAndInputProcessor getProcessor() {
         if (processor == null) {
-            processor = new DisplayAndInputProcessor(SurveyMain.BASELINE_LOCALE);
+            processor = new DisplayAndInputProcessor(SurveyMain.BASELINE_LOCALE,false);
         }
         return processor;
     }

@@ -3362,9 +3362,9 @@ function showV() {
 			
 			var ari_submessage = formatErrMsg(json, what);
 			
-			updateIf('ariMessage', ari_message);
-			updateIf('ariSubMessage', ari_submessage);
-			updateIf('ariScroller',window.location + '\n' + why);
+			updateIf('ariMessage', ari_message.replace(/\n/g,"<br>"));
+			updateIf('ariSubMessage', ari_submessage.replace(/\n/g,"<br>"));
+			updateIf('ariScroller',window.location + '<br>' + why.replace(/\n/g,"<br>"));
 			// TODO: update  ariMain and ariRetryBtn
 			
 			ariDialog.show();
@@ -4641,9 +4641,9 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         			onSuccess(theRow);
         		} else {
         	        tr.className = "ferrbox";
-        	        tr.innerHTML="No content found "+tr.rowHash+ "  while  loading";
+//        	        tr.innerHTML="No content found "+tr.rowHash+ "  while  loading"; // this just obscures the row
         	        console.log("could not find " + tr.rowHash + " in " + json);
-        	        onFailure("no content");
+        	        onFailure("refreshRow2: Could not refresh this single row: Server failed to return xpath #"+theRow.xpid+" for locale "+surveyCurrentLocale);
         		}
            }catch(e) {
                console.log("Error in ajax post [refreshRow2] ",e.message);
@@ -4766,7 +4766,10 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 						}
 						//tr.className = 'vother';
 						myUnDefer();
-					}, myUnDefer); // end refresh-loaded-fcn
+					}, function(err) {
+						myUnDefer();
+						handleDisconnect(err, json);
+					}); // end refresh-loaded-fcn
 					// end: async
 				} else {
 					// Did not submit. Show errors, etc

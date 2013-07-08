@@ -587,7 +587,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             
         }
         
-        private static final boolean ERRORS_ALLOWED_IN_VETTING = false;
+        private static final boolean ERRORS_ALLOWED_IN_VETTING = true;
         
         /**
          * Create or update a VoteResolver for this item

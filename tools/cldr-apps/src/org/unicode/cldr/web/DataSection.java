@@ -35,26 +35,24 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
-import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
+import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -2867,9 +2865,9 @@ public class DataSection implements JSONString {
             extraXpaths = new HashSet<String>();
 
             /* ** Determine which xpaths to show */
-            if (pageId != null) {
+            /* if (pageId != null) {
                 // use pageid, ignore the rest
-            } else if (xpathPrefix.startsWith("//ldml/units")) {
+            } else */ if (xpathPrefix.startsWith("//ldml/units")) {
                 canName = false;
             } else if (xpathPrefix.startsWith("//ldml/numbers")) {
                 if (-1 == xpathPrefix.indexOf("currencies")) {
@@ -2903,12 +2901,7 @@ public class DataSection implements JSONString {
 
             /* ** Build the set of xpaths */
             // iterate over everything in this prefix ..
-            Set<String> baseXpaths = new HashSet<String>();
-            for (Iterator<String> it = aFile.iterator(workPrefix); it.hasNext();) {
-                String xpath = it.next();
-
-                baseXpaths.add(xpath);
-            }
+            Set<String> baseXpaths = stf.getPathsForFile(locale, xpathPrefix);
 
             allXpaths.addAll(baseXpaths);
             if (aFile.getSupplementalDirectory() == null) {

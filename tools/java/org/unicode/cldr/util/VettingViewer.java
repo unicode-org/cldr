@@ -65,7 +65,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class VettingViewer<T> {
 
-    private static boolean SHOW_SUBTYPES = CldrUtility.getProperty("SHOW_SUBTYPES", "false").equals(true);
+    private static boolean SHOW_SUBTYPES = true; // CldrUtility.getProperty("SHOW_SUBTYPES", "false").equals("true");
 
     private static final String CONNECT_PREFIX = "₍_";
     private static final String CONNECT_SUFFIX = "₎";

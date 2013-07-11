@@ -4,7 +4,8 @@ var running = true;
 
 //// a few util functions
 var surveyRunningStamp = 0;
-var contextPath="(TODO, fix this)";
+var surveyUser = {};
+var contextPath="../smoketest";
 var surveyLocaleUrl=contextPath;
 var disconnected = true;
 var BASELINE_LANGUAGE_NAME='English';
@@ -139,14 +140,15 @@ function appendAdminPanel(survey,config,adminStuff) {
 	}
 	
 	
-	function createUser(user) {
+
+/*	function createUser(user) {
 		var div = createChunk(null,"div","adminUserUser");
 		div.appendChild(createChunk(stui.str("userlevel_"+user.userlevelname),"i","userlevel_"+user.userlevelname));
 		div.appendChild(createChunk(user.name,"span","adminUserName"));
 		div.appendChild(createChunk(user.email,"address","adminUserAddress"));
 		return div;
 	}
-	
+*/	
 	addAdminPanel("admin_users", function(div) {
 		var frag = document.createDocumentFragment();
 		
@@ -169,6 +171,9 @@ function appendAdminPanel(survey,config,adminStuff) {
 					var user = createChunk(null,"div","adminUser");
 					user.appendChild(createChunk("Session: " + sess, "span","adminUserSession"));
 					if(cs.user) {
+					    if(cs.user.userlevelName === undefined) {
+						cs.user.userlevelName = cs.user.userlevelname;
+					    }
 						user.appendChild(createUser(cs.user));
 					} else {
 						user.appendChild(createChunk("(anonymous)","div","adminUserUser"));
@@ -697,6 +702,125 @@ function appendConsole(surveyConsoles, survey) {
 	doUpdates(survey, config,div2);
 }
 
+
+function surveyUpdater() {
+    console.log('surveyUpdater loading');
+    require(["dojo/query", "dojo/request", "dojo/dom", "dojo/dom-construct", "dojox/form/BusyButton", 
+	     "dojo/window", "dojox/widget/Standby", "dijit/form/Select",
+	     "dojo/domReady!"],
+	    function surveyUpdater2(query,request,dom, dcons, BusyButton, win, Standby, Select) {
+	function setText(node, text) {
+	    var node2 = query(node);
+	    if(node2==null) return node;
+	    node2 = node2[0]; // it's a list
+	    
+	    var textNode = document.createTextNode(text);
+	    while(node2.firstChild != null) {
+		node2.removeChild(node2.firstChild);
+	    }
+	    node2.appendChild(textNode);
+	}
+	
+	var updateBox = dom.byId('updateBox');
+	var updateStatus = dom.byId('updateStatus');
+	var updateFrame = dom.byId('updateFrame');
+	setText('#updateStatus', 'Loading..');
+	var standby = new Standby({target:dom.byId('basic')});
+	document.body.appendChild(standby.domNode);
+	standby.startup();
+	var updWatch = -1;
+	var doUpdate = null;
+	function doStop() { 
+	    standby.hide();
+	    if(updWatch != -1) {
+		clearInterval(updWatch);
+		updWatch = -1;
+	    }
+	    if(doUpdate) {
+		doUpdate.cancel();
+	    }
+	    updateFrame.className = '';
+	}
+
+	function doRequest(input, fn) {
+	    request
+		.post(surveyconfig.updater.jsonURL, {data: JSON.stringify(input),
+						     handleAs: 'json'})
+		.then(function(json) {
+		    window._JSON = json; // DEBUGGING
+		    if(json.err) {
+			setText("#updateStatus", 'err='+json.err);
+			doStop();
+		    } else {
+			fn(json);
+		    }
+			})
+		.otherwise(function(err) {
+		    setText('#updateStatus', 'error: ' + err);
+		    doStop();
+		});
+	}
+	doRequest(
+	    {what: 'status'},
+	    function(json) {
+		if(json.ready) {
+		    setText("#updateStatus", "Ready to update - choose an action and click Perform Action.");
+		    var opts = [ { label: "reload this page", value: "nochoice", selected: true } ];
+		    for(var k in json.options) {
+			opts.push({label: json.options[k], value: k});
+		    }
+		    var choiceMenu = new Select({ name: "choiceMenu", options: opts });
+		    choiceMenu.placeAt(dojo.byId("updateBox"));
+		    doUpdate = new BusyButton({
+			id: 'updateButton',
+			label: 'Perform Action',
+			busyLabel: 'Processing...'
+		    });
+		    doUpdate.on("click", function(e) {
+			updateFrame.className='active';
+			doUpdate.makeBusy();
+			if(choiceMenu.get("value")=="nochoice") {
+			    console.log("Nothing to do");
+			    doUpdate.cancel();
+			    doStop();
+			    
+
+			    document.location.reload(false); // argh
+			    return true;
+			}
+			standby.show();
+			setText('#updateTxt', "Running command...");
+			doRequest({what: 'update', type: choiceMenu.get("value")},
+			 function(json2) {
+			     setText('#updateStatus', json2.result);
+
+			     updWatch = setInterval(function() {
+				 doRequest({what: 'readlog', pid: json2.pid},
+				   function(json3) {
+				       if(json3.running) {
+					   setText('#updateStatus', 'pid ' + json2.pid + ' running' );
+				       } else {
+					   setText('#updateStatus', 'pid ' + json2.pid + ' Done.' );
+					   doStop();
+				       }
+
+				       setText('#updateTxt', json3.txt);
+				       win.scrollIntoView("updateStatus");
+				   });
+			     }, 5000);
+
+
+			 });
+		    });
+		    doUpdate.placeAt(updateBox);
+		    
+		} else {
+		    setText("#updateStatus", "Not ready to update.");
+		}
+	    });
+    });
+}
+
 function surveyConsoles() {
 	if(!window.surveyconfig) {
 		alert('Error- surveyconfig not defined!');
@@ -710,5 +834,8 @@ function surveyConsoles() {
 				appendConsole(surveyConsoles,survey);
 			}
 		});
+
+	    surveyUpdater();
 	}
 }
+

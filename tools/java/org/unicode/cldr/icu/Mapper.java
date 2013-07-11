@@ -98,4 +98,11 @@ public abstract class Mapper {
      * Returns the set of all CLDR locales available for conversion.
      */
     public abstract Collection<String> getAvailable();
+
+    /**
+     * Generates a makefile from the list of locales converted by this mapper.
+     * @param aliases any aliases that were created apart from this mapper
+     * @return the generated makefile
+     */
+    public abstract Makefile generateMakefile(Collection<String> aliases);
 }

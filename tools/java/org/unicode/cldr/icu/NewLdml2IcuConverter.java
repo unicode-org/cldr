@@ -42,6 +42,8 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  * @author jchye
  */
 public class NewLdml2IcuConverter extends CLDRConverterTool {
+    private static final String ALIAS_PATH = "/\"%%ALIAS\"";
+
     static final boolean DEBUG = true;
 
     static final Pattern SEMI = Pattern.compile("\\s*+;\\s*+");
@@ -79,7 +81,9 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         .add("type", 't', "\\w+", null, "The type of file to be generated")
         .add("xpath", 'x', ".*", null, "An optional xpath to debug the regexes with")
         .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
-        .add("organization", 'o', ".*", null, "The organization to filter the data for");
+        .add("organization", 'o', ".*", null, "The organization to filter the data for")
+        .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
+                "The value to set should be the name of the makefile.");
 
     private static final String LOCALES_DIR = "locales";
 
@@ -249,6 +253,10 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
         if (mapper != null) {
             convert(mapper);
+            option = options.get("makefile");
+            if (option.doesOccur()) {
+                generateMakefile(mapper, option.getValue());
+            }
         }
     }
 
@@ -321,6 +329,129 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             System.out.println("Converted " + icuData.getName() + ".xml in " +
                     (System.currentTimeMillis() - time) + "ms");
         }
+    }
+
+    /**
+     * Generates makefiles for files generated from the specified mapper.
+     * @param mapper
+     * @param makefileName
+     */
+    private void generateMakefile(Mapper mapper, String makefileName) {
+        // Generate aliases and makefiles for main directory.
+        Set<String> aliases = writeSyntheticFiles(mapper.getGenerated(), destinationDir);
+        Makefile makefile = mapper.generateMakefile(aliases);
+        writeMakefile(makefile, destinationDir, makefileName);
+        if (splitter == null) return;
+
+        // Generate aliases and locales for remaining directories if a splitter was used.
+        for (String dir : splitter.getTargetDirs()) {
+            File outputDir = new File(destinationDir, "../" + dir);
+            aliases = writeSyntheticFiles(splitter.getDirSources(dir), outputDir.getAbsolutePath());
+            makefile = splitter.generateMakefile(aliases, outputDir.getName());
+            writeMakefile(makefile, outputDir.getAbsolutePath(), makefileName);
+        }
+    }
+
+    /**
+     * Creates all synthetic files needed by the makefile in the specified output directory.
+     * @param sources the set of source files that have already been generated
+     * @param outputDir
+     * @return
+     */
+    private Set<String> writeSyntheticFiles(Set<String> sources, String outputDir) {
+        Set<String> targets = new HashSet<String>();
+        if (aliasDeprecates != null) {
+            if (aliasDeprecates.emptyLocaleList != null) {
+                for (String locale : aliasDeprecates.emptyLocaleList) {
+                    IcuData icuData = createEmptyFile(locale);
+                    System.out.println("Empty locale created: " + locale);
+                    targets.add(locale);
+                    writeIcuData(icuData, outputDir);
+                }
+            }
+            if (aliasDeprecates.aliasList != null) {
+                for (Alias alias : aliasDeprecates.aliasList) {
+                    try {
+                        writeAlias(alias, outputDir, sources, targets);
+                    } catch (IOException e) {
+                        System.err.println("Error writing alias " + alias.from + "-" + alias.to);
+                        System.exit(-1);
+                    }
+                }
+            }
+        }
+        return targets;
+    }
+
+    /**
+     * Writes a makefile to the specified directory and filename.
+     */
+    private void writeMakefile(Makefile makefile, String outputDir, String makefileName) {
+        try {
+            makefile.print(outputDir, makefileName);
+        } catch (IOException e) {
+            System.err.println("Error while writing makefile for " + outputDir);
+        }
+    }
+
+    /**
+     * Creates an empty IcuData object to act as a placeholder for the specified alias target locale.
+     */
+    public IcuData createEmptyFile(String locale) {
+        IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", locale, true);
+        icuData.setFileComment("generated alias target");
+        icuData.add("/___", "");
+        return icuData;
+    }
+
+    /**
+     * Creates any synthetic files required for the specified alias.
+     * @param alias
+     * @param outputDir
+     * @param sources the set of sources in the output directory
+     * @param aliasTargets the alias targets already created in the output directory
+     * @throws IOException
+     */
+    private void writeAlias(Alias alias, String outputDir,
+        Set<String> sources, Set<String> aliasTargets) throws IOException {
+        String from = alias.from;
+        String to = alias.to;
+        // Add synthetic destination file for alias if necessary.
+        if (!sources.contains(to) && !aliasTargets.contains(to)) {
+            System.out.println(to + " not found, creating empty file in " + outputDir);
+            IcuTextWriter.writeToFile(createEmptyFile(alias.to), outputDir);
+            aliasTargets.add(to);
+        }
+
+        if (from == null || to == null) {
+            throw new IllegalArgumentException("Malformed alias - no 'from' or 'to': from=\"" +
+                from + "\" to=\"" + to + "\"");
+        }
+
+        if (sources.contains(from)) {
+            throw new IllegalArgumentException(
+                    "Can't be both a synthetic alias locale and a real xml file - "
+                    + "consider using <aliasLocale locale=\"" + from + "\"/> instead. ");
+        }
+
+        String rbPath = alias.rbPath;
+        String value = alias.value;
+        if ((rbPath == null) != (value == null)) {
+            throw new IllegalArgumentException("Incomplete alias specification for " +
+                    from + "-"  + to + ": both rbPath (" + 
+                    rbPath + ") and value (" + value + ") must be specified");
+        }
+
+        IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", from, true);
+        System.out.println("aliased " + from + " to " + to);
+        if (rbPath == null) {
+            icuData.add(ALIAS_PATH, to);
+        } else {
+            icuData.add(rbPath, value);
+        }
+
+        IcuTextWriter.writeToFile(icuData, outputDir);
+        aliasTargets.add(alias.from);
     }
 
     public static void main(String[] args) throws IOException {

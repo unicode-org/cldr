@@ -1,6 +1,7 @@
 package org.unicode.cldr.icu;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,7 +11,6 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.ant.CLDRConverterTool.Alias;
 import org.unicode.cldr.icu.RegexManager.CldrArray;
 import org.unicode.cldr.icu.RegexManager.PathValueInfo;
 import org.unicode.cldr.icu.RegexManager.RegexResult;
@@ -32,8 +32,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
  * @author jchye
  */
 public class LocaleMapper extends Mapper {
-    public static final String ALIAS_PATH = "/\"%%ALIAS\"";
-
     /**
      * Map for converting enums to their integer values.
      */
@@ -288,47 +286,6 @@ public class LocaleMapper extends Mapper {
         return new IcuData[]{ icuData };
     }
 
-    /**
-     * Creates an IcuData object for an aliased locale.
-     * NOTE: this method is not currently used because the -w parameter in
-     * LDML2ICUConverter already writes aliases. When we get around to deprecating
-     * the LDML2ICUConverter, use this to write aliases instead..
-     */
-    public IcuData fillFromCldr(Alias alias) {
-        // TODO: is this method actually needed?
-        String from = alias.from;
-        String to = alias.to;
-        String xpath = alias.xpath;
-        if (!getAvailable().contains(to)) {
-            System.err.println(to + " doesn't exist, skipping alias " + from);
-            return null;
-        }
-
-        if (from == null || to == null) {
-            System.err.println("Malformed alias - no 'from' or 'to': from=\"" +
-                from + "\" to=\"" + to + "\"");
-            return null;
-        }
-
-        if (to.indexOf('@') != -1 && xpath == null) {
-            System.err.println("Malformed alias - '@' but no xpath: from=\"" +
-                from + "\" to=\"" + to + "\"");
-            return null;
-        }
-
-        IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", from, true);
-        System.out.println("aliased " + from + " to " + to);
-        RegexLookup<RegexResult> pathConverter = manager.getPathConverter();
-        if (xpath == null) {
-            Map<String, CldrArray> pathValueMap = new HashMap<String, CldrArray>();
-            addMatchesForPath(xpath, null, null, pathConverter, pathValueMap);
-            fillIcuData(pathValueMap, comparator, icuData);
-        } else {
-            icuData.add("/\"%%ALIAS\"", to.substring(0, to.indexOf('@')));
-        }
-        return icuData;
-    }
-
     private void fillIcuData(Map<String, CldrArray> pathValueMap,
         Comparator<String> comparator, IcuData icuData) {
         // Convert values to final data structure.
@@ -535,5 +492,14 @@ public class LocaleMapper extends Mapper {
      */
     boolean isDebugXPath(String xpath) {
         return debugXPath == null ? false : xpath.startsWith(debugXPath);
+    }
+
+    @Override
+    public Makefile generateMakefile(Collection<String> aliases) {
+        Makefile makefile = new Makefile("GENRB");
+        makefile.addSyntheticAlias(aliases);
+        makefile.addAliasSource();
+        makefile.addSource(sources);
+        return makefile;
     }
 }

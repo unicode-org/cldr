@@ -229,4 +229,27 @@ public class CollationMapper extends Mapper {
     public Collection<String> getAvailable() {
         return MapperUtils.getNames(sourceDir);
     }
+
+    @Override
+    public Makefile generateMakefile(Collection<String> aliases) {
+        Makefile makefile = new Makefile("COLLATION");
+        makefile.addSyntheticAlias(aliases);
+        makefile.addAliasSource();
+        // Split sources into locales and sublocales.
+        List<String> subLocales = new ArrayList<String>();
+        List<String> locales = new ArrayList<String>();
+        locales.add("$(COLLATION_EMPTY_SOURCE)");
+        for (String source : sources) {
+            if (validSubLocales.contains(source)) {
+                subLocales.add(source);
+            } else {
+                locales.add(source);
+            }
+        }
+        makefile.addEntry("COLLATION_EMPTY_SOURCE",
+                "Empty locales, used for validSubLocale fallback.",
+                subLocales);
+        makefile.addSource(locales);
+        return makefile;
+    }
 }

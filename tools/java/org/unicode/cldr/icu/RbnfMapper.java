@@ -1,9 +1,7 @@
 package org.unicode.cldr.icu;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.xml.sax.Attributes;
@@ -119,5 +117,14 @@ public class RbnfMapper extends Mapper {
     @Override
     public Collection<String> getAvailable() {
         return MapperUtils.getNames(sourceDir);
+    }
+
+    @Override
+    public Makefile generateMakefile(Collection<String> aliases) {
+        Makefile makefile = new Makefile("RBNF");
+        makefile.addSyntheticAlias(aliases);
+        makefile.addAliasSource();
+        makefile.addSource(sources);
+        return makefile;
     }
 }

@@ -2,9 +2,12 @@ package org.unicode.cldr.icu;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,10 +24,12 @@ import com.ibm.icu.text.MessageFormat;
  * Converts CLDR collation files to the ICU format.
  * @author jchye
  */
-public class CollationMapper {
+public class CollationMapper extends Mapper {
     private static Pattern SPECIALS_PATH = Pattern.compile("//ldml/special/icu:([\\w_]++)\\[@icu:([\\w_]++)=\"([^\"]++)\"]");
     private String sourceDir;
     private Factory specialFactory;
+    private Set<String> validSubLocales = new HashSet<String>();
+
     // Some settings have to be converted to numbers.
     private Map<String, String> settingsMap = Builder.with(new HashMap<String, String>())
             .put("primary", "1")
@@ -47,34 +52,38 @@ public class CollationMapper {
     /**
      * @return CLDR data converted to an ICU-friendly format
      */
-    public IcuData fillFromCldr(String locale, List<IcuData> subLocaleList) {
+    @Override
+    public IcuData[] fillFromCldr(String locale) {
         List<IcuData> dataList = new ArrayList<IcuData>();
-        IcuData icuData = new IcuData("common/collation/" + locale + ".xml", locale, true);
-        CollationHandler handler = new CollationHandler(icuData);
+        IcuData mainLocale = new IcuData("common/collation/" + locale + ".xml", locale, true);
+        CollationHandler handler = new CollationHandler(mainLocale);
         File file = new File(sourceDir, locale + ".xml");
         MapperUtils.parseFile(file, handler);
+        dataList.add(mainLocale);
+
+        String[] subLocales = handler.getSubLocales();
+        if (subLocales != null) {
+            for (String subLocale : subLocales) {
+                dataList.add(fillSubLocale(locale, subLocale));
+                validSubLocales.add(subLocale);
+            }
+        }
+
         if (hasSpecialFile(locale)) {
             CLDRFile specialFile = specialFactory.make(locale, false);
-            icuData.setFileComment("ICU <specials> source: <path>/xml/collation/" + locale + ".xml");
+            mainLocale.setFileComment("ICU <specials> source: <path>/xml/collation/" + locale + ".xml");
             for (String path : specialFile) {
                 String fullPath = specialFile.getFullXPath(path);
                 Matcher matcher = SPECIALS_PATH.matcher(fullPath);
                 if (matcher.matches()) {
-                    icuData.add(
+                    mainLocale.add(
                             MessageFormat.format("/{0}:process({1})", matcher.group(1), matcher.group(2)),
                             matcher.group(3));
                 }
             }
         }
 
-        if (subLocaleList != null) {
-            String[] subLocales = handler.getSubLocales();
-            // TODO(jchye): Enable this when NewLdml2IcuConverter handles the colfiles build target.
-            //for (String subLocale : subLocales) {
-            //    //subLocaleList.add(fillSubLocale(locale, subLocale));
-            //}
-        }
-        return icuData;
+        return MapperUtils.toArray(dataList);
     }
 
     /**
@@ -84,7 +93,7 @@ public class CollationMapper {
      * @return
      */
     private IcuData fillSubLocale(String locale, String subLocale) {
-        IcuData icuData = new IcuData("common/collation/" + subLocale + ".xml", subLocale, true);
+        IcuData icuData = new IcuData("icu-config.xml & build.xml", subLocale, true);
         icuData.setFileComment("validSubLocale of \"" + locale + "\"");
         icuData.add("/___", "");
         return icuData;
@@ -122,16 +131,18 @@ public class CollationMapper {
                 isShort = attr.getValue("alt") != null;
                 properties.clear();
                 rules.clear();
+            } else if (qName.equals("collations")) {
+                String validSubLocales = attr.getValue("validSubLocales");
+                if (validSubLocales != null) {
+                    subLocales = validSubLocales.split("\\s++");
+                }
             } else if (qName.equals("version")) {
                 icuData.add("/Version", MapperUtils.formatVersion(attr.getValue("number")));
             }
             if (collationType == null) return;
 
             // Collation-specific elements.
-            if (qName.equals("collations")) {
-                String validSubLocales = attr.getValue("validSubLocales");
-                subLocales = validSubLocales == null ? new String[0] : validSubLocales.split("\\s++");
-            } else if (qName.equals("settings")) {
+            if (qName.equals("settings")) {
                 for (int i = 0 ; i < attr.getLength(); i++) {
                     String name = attr.getLocalName(i);
                     String value = attr.getValue(i);
@@ -212,5 +223,10 @@ public class CollationMapper {
         public String[] getSubLocales() {
             return subLocales;
         }
+    }
+
+    @Override
+    public Collection<String> getAvailable() {
+        return MapperUtils.getNames(sourceDir);
     }
 }

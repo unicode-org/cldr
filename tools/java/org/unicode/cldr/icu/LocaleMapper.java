@@ -31,7 +31,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
  * 
  * @author jchye
  */
-public class LocaleMapper {
+public class LocaleMapper extends Mapper {
     public static final String ALIAS_PATH = "/\"%%ALIAS\"";
 
     /**
@@ -165,6 +165,7 @@ public class LocaleMapper {
     /**
      * @return the set of locales available for processing by this mapper
      */
+    @Override
     public Set<String> getAvailable() {
         return unresolvedFactory.getAvailable();
     }
@@ -197,7 +198,8 @@ public class LocaleMapper {
      * @param locale
      * @return the filled IcuData object
      */
-    public IcuData fillFromCLDR(String locale) {
+    @Override
+    public IcuData[] fillFromCldr(String locale) {
         Set<String> deprecatedTerritories = getDeprecatedTerritories();
         CLDRFile resolvedCldr = resolvedFactory.make(locale, true);
         RegexLookup<RegexResult> pathConverter = manager.getPathConverter(resolvedCldr);
@@ -283,7 +285,7 @@ public class LocaleMapper {
 
         // More hacks
         hackAddExtras(resolvedCldr, locale, icuData);
-        return icuData;
+        return new IcuData[]{ icuData };
     }
 
     /**

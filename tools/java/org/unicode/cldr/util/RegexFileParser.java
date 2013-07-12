@@ -36,8 +36,8 @@ public class RegexFileParser {
         VariableReplacer variables = new VariableReplacer();
 
         @Override
-        public void add(String variable, String variableName) {
-            variables.add(variable, variableName);
+        public void add(String variableName, String value) {
+            variables.add(variableName, value);
         }
 
         @Override

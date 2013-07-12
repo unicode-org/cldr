@@ -3,15 +3,11 @@ package org.unicode.cldr.icu;
 import java.io.File;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,13 +17,13 @@ import org.unicode.cldr.icu.RegexManager.PathValueInfo;
 import org.unicode.cldr.icu.RegexManager.RegexResult;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XPathParts;
+
 import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
-import org.unicode.cldr.util.SimpleXMLSource;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -213,15 +209,15 @@ public class SupplementalMapper {
      *            the output map
      */
     private void loadValues(String category, Map<String, CldrArray> pathValueMap) {
-        String inputFile = category + ".xml";
-        XMLSource source = new LinkedXMLSource();
-        CLDRFile cldrFile = CLDRFile.loadFromFile(new File(inputDir, inputFile),
-            category, DraftStatus.contributed, source);
+        String inputFile = new File(inputDir, category + ".xml").getAbsolutePath();
+        List<Pair<String, String>> contents = new ArrayList<Pair<String, String>>();
+        XMLFileReader.loadPathValues(inputFile, contents, true);
         RegexLookup<RegexResult> pathConverter = regexMapper.getPathConverter();
         fifoCounter = 0; // Helps to keep unsorted rb paths in order.
-        for (String xpath : cldrFile) {
+        XPathParts parts = new XPathParts();
+        for (Pair<String, String> pair : contents) {
             Output<Finder> matcher = new Output<Finder>();
-            String fullPath = cldrFile.getFullXPath(xpath);
+            String fullPath = parts.set(pair.getFirst()).toString();
             List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
             RegexResult regexResult = pathConverter.get(fullPath, null, null, matcher, debugResults);
             if (regexResult == null) {
@@ -232,8 +228,9 @@ public class SupplementalMapper {
                 System.out.println(fullPath + " successfully matched");
             }
             String[] arguments = matcher.value.getInfo();
+            String cldrValue = pair.getSecond();
             for (PathValueInfo info : regexResult) {
-                List<String> values = info.processValues(arguments, cldrFile, xpath);
+                List<String> values = info.processValues(arguments, cldrValue);
                 // Check if there are any arguments that need splitting for the rbPath.
                 String groupKey = info.processGroupKey(arguments);
                 String baseXPath = info.processXPath(arguments, fullPath);
@@ -409,77 +406,6 @@ public class SupplementalMapper {
             numHyphens++;
         }
         return numHyphens;
-    }
-
-    /**
-     * Iterating through this XMLSource will return the xpaths in the order
-     * that they were parsed from the XML file.
-     */
-    private class LinkedXMLSource extends SimpleXMLSource {
-        private Map<String, String> xpath_value;
-        private Map<String, String> xpath_fullXPath;
-        private Comments comments;
-
-        public LinkedXMLSource() {
-            super("");
-            xpath_value = new LinkedHashMap<String, String>();
-            xpath_fullXPath = new HashMap<String, String>();
-            comments = new Comments();
-        }
-
-        @Override
-        public XMLSource freeze() {
-            locked = true;
-            return this;
-        }
-
-        @Override
-        public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
-            xpath_fullXPath.put(distinguishingXPath, fullxpath);
-        }
-
-        @Override
-        public void putValueAtDPath(String distinguishingXPath, String value) {
-            xpath_value.put(distinguishingXPath, value);
-        }
-
-        @Override
-        public void removeValueAtDPath(String distinguishingXPath) {
-            xpath_value.remove(distinguishingXPath);
-        }
-
-        @Override
-        public String getValueAtDPath(String path) {
-            return xpath_value.get(path);
-        }
-
-        @Override
-        public String getFullPathAtDPath(String xpath) {
-            String result = (String) xpath_fullXPath.get(xpath);
-            if (result != null) return result;
-            if (xpath_value.get(xpath) != null) return xpath; // we don't store duplicates
-            return null;
-        }
-
-        @Override
-        public Comments getXpathComments() {
-            return comments;
-        }
-
-        @Override
-        public void setXpathComments(Comments comments) {
-            this.comments = comments;
-        }
-
-        @Override
-        public Iterator<String> iterator() {
-            return Collections.unmodifiableSet(xpath_value.keySet()).iterator();
-        }
-
-        @Override
-        public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
-            throw new UnsupportedOperationException();
-        }
     }
 
     /**

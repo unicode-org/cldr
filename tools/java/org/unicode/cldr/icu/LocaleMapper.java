@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.icu.RegexManager.CldrArray;
 import org.unicode.cldr.icu.RegexManager.PathValueInfo;
 import org.unicode.cldr.icu.RegexManager.RegexResult;
+import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -263,7 +264,7 @@ public class LocaleMapper extends Mapper {
                 String mediumFormatPath = basePath
                     + "/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
                 valueList.add(basePath,
-                    RegexManager.getStringValue(resolvedCldr, mediumFormatPath),
+                    getStringValue(resolvedCldr, mediumFormatPath),
                     null);
             }
         }
@@ -344,16 +345,32 @@ public class LocaleMapper extends Mapper {
             cldrFile, xpath, matcher);
         if (regexResult == null) return;
         String[] arguments = matcher.value.getInfo();
+        String cldrValue = getStringValue(cldrFile, xpath);
         for (PathValueInfo info : regexResult) {
             String rbPath = info.processRbPath(arguments);
             // Don't add additional paths at this stage.
             if (validRbPaths != null && !validRbPaths.contains(rbPath)) continue;
             CldrArray valueList = RegexManager.getCldrArray(rbPath, pathValueMap);
-            List<String> values = info.processValues(arguments, cldrFile, xpath);
+            List<String> values = info.processValues(arguments, cldrValue);
             String baseXPath = info.processXPath(arguments, xpath);
             String groupKey = info.processGroupKey(arguments);
             valueList.put(baseXPath, values, groupKey);
         }
+    }
+
+    /**
+     * @param cldrFile
+     * @param xpath
+     * @return the value of the specified xpath (fallback or otherwise)
+     */
+    private String getStringValue(CLDRFile cldrFile, String xpath) {
+        String value = cldrFile.getStringValue(xpath);
+        // HACK: DAIP doesn't currently make spaces in currency formats non-breaking.
+        // Remove this when fixed.
+        if (NumericType.getNumericType(xpath) == NumericType.CURRENCY) {
+            value = value.replace(' ', '\u00A0');
+        }
+        return value;
     }
 
     /**

@@ -1428,7 +1428,7 @@ $Date$
 <!ATTLIST segmentations validSubLocales CDATA #IMPLIED >
 <!ATTLIST segmentations references CDATA #IMPLIED >
 
-<!ELEMENT segmentation ( alias | (variables?, segmentRules?) | special*) >
+<!ELEMENT segmentation ( alias | (variables?, segmentRules?, exceptions?) | special*) >
 <!ATTLIST segmentation type NMTOKEN #REQUIRED >
 <!ATTLIST segmentation draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 <!ATTLIST segmentation alt NMTOKENS #IMPLIED >
@@ -1450,6 +1450,11 @@ $Date$
 <!ATTLIST rule draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 <!ATTLIST rule alt NMTOKENS #IMPLIED >
 <!ATTLIST rule references CDATA #IMPLIED >
+
+<!ELEMENT exceptions ( exception* ) >
+
+<!ELEMENT exception ( #PCDATA ) >
+<!ATTLIST exception draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 
 <!ELEMENT rbnf ( alias | rulesetGrouping*) >
 

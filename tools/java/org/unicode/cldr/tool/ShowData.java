@@ -29,6 +29,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
+import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.ExtractCollationRules;
@@ -43,6 +44,8 @@ import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
@@ -86,7 +89,7 @@ public class ShowData {
 
     static CLDRFile english;
 
-    static Set locales;
+    static Set<String> locales;
 
     static Factory cldrFactory, oldCldrFactory;
 
@@ -139,30 +142,40 @@ public class ShowData {
             Map<PathHeader, Relation<String, String>> pathHeaderToValuesToLocale = new TreeMap();
             
             Set<String> defaultContents = testInfo.getSupplementalDataInfo().getDefaultContentLocales();
-
-            for (Iterator it = locales.iterator(); it.hasNext();) {
-                String locale = (String) it.next();
+            
+            // get all the locales in a group (with same written language)
+            Relation<String,String> parentToChildren = Relation.of(new TreeMap<String,Set<String>>(),TreeSet.class);
+            LanguageTagParser ltp = new LanguageTagParser();
+            for (String locale : locales) {
                 if (defaultContents.contains(locale)) {
                     continue;
                 }
                 if (locale.startsWith("supplem") || locale.startsWith("character"))
                     continue;
-
-                // showCollation(collationFactory, locale, collationRules);
-                // if (true) continue;
-
+                String writtenLanguage = ltp.set(locale).getLanguageScript();
+                parentToChildren.put(writtenLanguage, locale);
+            }
+            
+            for (Entry<String, Set<String>> group : parentToChildren.keyValuesSet()) {
+                String locale = group.getKey();
+                Set<String> children = group.getValue();
+                Map<String, Row.R2<CLDRFile,CLDRFile>> sublocales = new TreeMap();
+                
                 boolean doResolved = localeIDParser.set(locale).getRegion().length() == 0;
                 String languageSubtag = localeIDParser.getLanguage();
                 boolean isLanguageLocale = locale.equals(languageSubtag);
 
-                CLDRFile file = (CLDRFile) cldrFactory.make(locale, doResolved);
+                CLDRFile file = cldrFactory.make(locale, true);
+                for (String s : children) {
+                    if (!s.equals(locale)) {
+                        sublocales.put(s, 
+                                Row.of(oldCldrFactory.make(locale, false), 
+                                cldrFactory.make(locale, false)));
+                    }
+                }
                 if (file.isNonInheriting())
                     continue; // for now, skip supplementals
-                boolean showParent = !isLanguageLocale;
-                if (showParent) {
-                    parent = (CLDRFile) cldrFactory.make(
-                            LocaleIDParser.getParent(locale), true);
-                }
+                
                 boolean showLast = true;
                 CLDRFile lastCldrFile = null;
                 if (showLast) {
@@ -224,33 +237,6 @@ public class ShowData {
                         + "</script>",
                         headerAndFooter);
                 pw.println(headerAndFooter[0]);
-                // pw.println("<html><head>");
-                // pw.println("<meta http-equiv='Content-Type' content='text/html;
-                // charset=utf-8'>");
-                // pw.println("<style type='text/css'>");
-                // pw.println("<!--");
-                // pw.println(".e {background-color: #EEEEEE}");
-                // pw.println(".i {background-color: #FFFFCC}");
-                // pw.println(".v {background-color: #FFFF00}");
-                // pw.println(".a {background-color: #9999FF}");
-                // pw.println(".ah {background-color: #FF99FF}");
-                // pw.println(".h {background-color: #FF9999}");
-                // pw.println(".n {color: #999999}");
-                // pw.println(".g {background-color: #99FF99}");
-                // pw.println("-->");
-                // pw.println("</style>");
-                // pw.println("<script>");
-                // pw.println("if (location.href.split('?')[1].split(',')[0]=='hide')
-                // {");
-                // pw.println("document.write('<style>');");
-                // pw.println("document.write('.xx {display:none}');");
-                // pw.println("document.write('</style>');");
-                // pw.println("}");
-                // pw.println("</script>");
-                // pw.println("<title>" + getName(locale) + "</title>");
-                // pw.println("</head><body>");
-                // pw.println("<h1>" + getName(locale) + " (" + file.getDtdVersion() +
-                // ")</h1>");
                 showLinks(pw, locale);
                 showChildren(pw, locale);
                 if (doResolved) {
@@ -266,13 +252,15 @@ public class ShowData {
                         + "<th>Header</th>"
                         + "<th>Code</th>"
                         + (showEnglish ? "<th>English</th>" : "")
-                        + (showParent ? "<th>Parent</th>" : "")
                         + "<th>Native</th>"
                         + (showLast ? "<th>Last Release</th>" : "")
                         + "<tr>");
 
                 int count = 0;
                 PathHeader oldParts = null;
+                
+                Relation<R2<String, String>,String> childValueToLocales = Relation.of(
+                        new TreeMap<R2<String, String>,Set<String>>(), TreeSet.class);
                 for (PathHeader prettyPath : prettySet) {
                     String path = prettyPath.getOriginalPath();
                     boolean zeroOutEnglish = path.indexOf("/references") < 0;
@@ -290,15 +278,27 @@ public class ShowData {
 
                     StringBuffer tempDraftRef = new StringBuffer();
                     String value = file.getStringValue(path);
-//                    String fullPath = file.getFullXPath(path);
-//                    String nda = getNda(skipList, nonDistinguishingAttributes, file,
-//                            path, fullPath, tempDraftRef);
-//                    String draftRef = tempDraftRef.toString();
-//                    if (nda.length() != 0) {
-//                        if (value.length() != 0)
-//                            value += "; ";
-//                        value += nda;
-//                    }
+                    String lastValue = null;
+                    boolean lastNonEmpty = false;
+                    boolean lastEquals = false;
+                    if (lastCldrFile != null) {
+                        lastValue = lastCldrFile.getStringValue(path);
+                        lastNonEmpty = lastValue != null;
+                        if (CldrUtility.equals(lastValue, value)) {
+                            lastValue = null;
+                            lastEquals = true;
+                        }
+                    } 
+
+                    for (Entry<String, R2<CLDRFile, CLDRFile>> s : sublocales.entrySet()) {
+                        String oldChildValue = s.getValue().get0().getStringValue(path);
+                        String newChildValue = s.getValue().get1().getStringValue(path);
+                        if (CldrUtility.equals(oldChildValue, lastValue) && CldrUtility.equals(newChildValue, value)) {
+                            continue;
+                        }
+                        R2<String, String> row = Row.of(oldChildValue, newChildValue);
+                        childValueToLocales.put(row, s.getKey());
+                    }
 
                     String englishValue = null;
                     String englishFullPath = null;
@@ -308,47 +308,8 @@ public class ShowData {
                     if (showEnglish
                             && null != (englishValue = english.getStringValue(path))) {
                         englishFullPath = english.getFullXPath(path);
-//                        String englishNda = null;
-//                        englishNda = getNda(skipList, nonDistinguishingAttributes, file,
-//                                path, englishFullPath, tempDraftRef);
-//                        if (englishNda.length() != 0) {
-//                            if (englishValue.length() != 0)
-//                                englishValue += "; ";
-//                            englishValue += englishNda;
-//                        }
                     }
 
-                    String parentFullPath = null;
-                    String parentValue = null;
-                    if (showParent
-                            && (null != (parentValue = parent.getStringValue(path)))) {
-                        parentFullPath = parent.getFullXPath(path);
-//                        String parentNda = null;
-//                        parentNda = getNda(skipList, nonDistinguishingAttributes, parent,
-//                                path, parentFullPath, tempDraftRef);
-//                        if (parentNda.length() != 0) {
-//                            if (parentValue.length() != 0)
-//                                parentValue += "; ";
-//                            parentValue += parentNda;
-//                        }
-                    }
-                    String lastValue = null;
-                    boolean lastEquals = false;
-                    boolean lastNonEmpty = false;
-                    if (lastCldrFile != null) {
-                        lastValue = lastCldrFile.getStringValue(path);
-                        lastNonEmpty = lastValue != null;
-                        if (CldrUtility.equals(lastValue, value)) {
-                            lastValue = "=";
-                            lastEquals = true;
-                        }
-                    } 
-                    //                    prettyPath = TransliteratorUtilities.toHTML
-                    //                        .transliterate(prettyPath.getOutputForm(prettyPath));
-                    //                    String[] pathParts = prettyPath.split("[|]");
-                    // count the <td>'s and pad
-                    // int countBreaks = Utility.countInstances(prettyPath, "</td><td>");
-                    // prettyPath += Utility.repeat("</td><td>", 3-countBreaks);
                     String statusClass = isAliased ? (isInherited ? " class='ah'"
                             : " class='a'") : (isInherited ? " class='h'" : "");
 
@@ -378,7 +339,6 @@ public class ShowData {
                             // + "</td><td>" +
                             // TransliteratorUtilities.toHTML.transliterate(lastElement)
                             + showValue(showEnglish, englishValue, value)
-                            + showValue(showParent, parentValue, value)
                             + (value == null ? "</td><td></i>n/a</i>" 
                                     : "</td><td class='v'" + DataShower.getBidiStyle(value) + ">" + DataShower.getPrettyValue(value))
                                     + showValue(showLast, lastValue, value)

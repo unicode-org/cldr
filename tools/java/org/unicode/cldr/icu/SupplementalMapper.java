@@ -36,6 +36,7 @@ import com.ibm.icu.util.TimeZone;
  * structure.
  */
 public class SupplementalMapper {
+    private static final Pattern ARRAY_INDEX = Pattern.compile("(/[^\\[]++)(?:\\[(\\d++)\\])?$");
     private static final Map<String, String> enumMap = Builder.with(new HashMap<String, String>())
         .put("sun", "1").put("mon", "2").put("tues", "3").put("wed", "4")
         .put("thu", "5").put("fri", "6").put("sat", "7").get();
@@ -193,6 +194,28 @@ public class SupplementalMapper {
         for (String rbPath : pathValueMap.keySet()) {
             CldrArray values = pathValueMap.get(rbPath);
             icuData.addAll(rbPath, values.sortValues(supplementalComparator));
+        }
+        // Final pass through IcuData object to clean up fallback values.
+        // Assume one value per fallback path.
+        for (String rbPath : icuData) {
+            List<String[]> values = icuData.get(rbPath);
+            for (int i = 0, len = values.size(); i < len; i++) {
+                String[] valueArray = values.get(i);
+                if (valueArray.length != 1) continue;
+                String value = valueArray[0];
+                Matcher matcher = ARRAY_INDEX.matcher(value);
+                if (!matcher.find()) continue;
+                String replacePath = matcher.group(1);
+                List<String[]> replaceValues = icuData.get(replacePath);
+                if (replaceValues == null) {
+                    throw new RuntimeException(replacePath + " is missing from IcuData object.");
+                }
+                int replaceIndex = matcher.groupCount() > 1 ? Integer.valueOf(matcher.group(2)) : 0;
+                if (replaceIndex >= replaceValues.size()) {
+                    throw new RuntimeException(replaceIndex + " out of range of values in " + replacePath);
+                }
+                values.set(i, replaceValues.get(replaceIndex));
+            }
         }
         // Hack to add the CLDR version
         if (outputName.equals("supplementalData")) {

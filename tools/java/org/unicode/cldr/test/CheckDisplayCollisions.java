@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,12 +19,6 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.dev.util.XEquivalenceMap;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.util.TimeZone;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
@@ -118,7 +111,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 ? "WARNING: Can't have same translation as {0}. This will become an error during the Vetting phase."
                         : "Can't have same translation as {0}";
         Matcher currentAttributesToIgnore = attributesToIgnore;
-
+        Set<String> paths;
         if (myType == Type.DECIMAL_FORMAT) {
             if (!path.contains("[@count=") || "0".equals(value)) {
                 return this;
@@ -130,10 +123,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     "/pattern\\[@type=(?!\"" + type + "\")\"\\d+\"].*").matcher(path);
             currentAttributesToIgnore = compactNumberAttributesToIgnore;
             message = "Can't have same number pattern as {0}";
+            paths = getPathsWithExactValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore);
+        } else {
+            paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore);
         }
-        Set<String> paths = getPathsWithValue(getResolvedCldrFileToCheck(),
-                path, value, myType, myPrefix, matcher, currentAttributesToIgnore);
-
         // Group exemplar cities and territories together for display collisions.
         if (myType == Type.TERRITORY || myType == Type.ZONE) {
             Type otherType = myType == Type.TERRITORY ? Type.ZONE : Type.TERRITORY;
@@ -295,6 +288,20 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         paths.remove(cleanPath);
         return paths;
     }
+
+    private Set<String> getPathsWithExactValue(CLDRFile file, String path,
+            String value, Type myType,
+            String myPrefix, Matcher matcher, Matcher currentAttributesToIgnore) {
+            Set<String> result = new TreeSet<String>();
+            Set<String> paths = getPathsWithValue(file, path, value, myType, myPrefix, matcher, currentAttributesToIgnore);
+            // Since getPathsWithValue might return some paths that aren't an exact match, we remove those here.
+            for (String pathName : paths) {
+               if (file.getWinningValue(pathName) == value) {
+                   result.add(pathName);
+               }
+            }
+            return result;
+        }
 
     private boolean isCodeFallback(String dpath) {
         String locale = getResolvedCldrFileToCheck().getSourceLocaleID(dpath, null);

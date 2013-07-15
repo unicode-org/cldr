@@ -51,7 +51,18 @@ public class SupplementalMapper {
     private String debugXPath;
 
     private enum DateFieldType {
-        from, to
+        from, to;
+
+        public static DateFieldType toEnum(String value) {
+            value = value.toLowerCase();
+            if (value.equals("from") || value.equals("start")) {
+                return from;
+            } else if (value.equals("to") || value.equals("end")) {
+                return to;
+            } else {
+                throw new IllegalArgumentException(value + " is not a valid date field type");
+            }
+        }
     };
 
     /**
@@ -116,7 +127,7 @@ public class SupplementalMapper {
              */
             @Override
             protected String run(String... args) {
-                DateFieldType dft = args[1].contains("from") ? DateFieldType.from : DateFieldType.to;
+                DateFieldType dft = DateFieldType.toEnum(args[1].trim());
                 return getSeconds(args[0], dft);
             }
         });
@@ -352,10 +363,8 @@ public class SupplementalMapper {
         SimpleDateFormat format = new SimpleDateFormat();
         if (count == 2) {
             format.applyPattern("yyyy-MM-dd");
-        } else if (count == 1) {
-            format.applyPattern("yyyy-MM");
         } else {
-            format.applyPattern("yyyy");
+            throw new RuntimeException("Tried to parse invalid date: " + dateStr);
         }
         TimeZone timezone = TimeZone.getTimeZone("GMT");
         format.setTimeZone(timezone);
@@ -363,13 +372,6 @@ public class SupplementalMapper {
         Calendar calendar = new GregorianCalendar();
         calendar.setTimeZone(timezone);
         calendar.setTime(date);
-        // Fix dates with the month or day missing.
-        if (count < 2) {
-            if (count == 0) { // yyyy
-                setDateField(calendar, Calendar.MONTH, type);
-            }
-            setDateField(calendar, Calendar.DAY_OF_MONTH, type);
-        }
         switch (type) {
         case from: {
             // Set the times for to fields to the beginning of the day.
@@ -392,30 +394,6 @@ public class SupplementalMapper {
     }
 
     /**
-     * Sets a field in a calendar to either the first or last value of the field.
-     * 
-     * @param calendar
-     * @param field
-     *            the calendar field to be set
-     * @param type
-     *            from/to date field type
-     */
-    private static void setDateField(Calendar calendar, int field, DateFieldType type) {
-        int value;
-        switch (type) {
-        case to: {
-            value = calendar.getActualMaximum(field);
-            break;
-        }
-        default: {
-            value = calendar.getActualMinimum(field);
-            break;
-        }
-        }
-        calendar.set(field, value);
-    }
-
-    /**
      * Counts the number of hyphens in a string.
      * 
      * @param str
@@ -423,7 +401,7 @@ public class SupplementalMapper {
      */
     private static int countHyphens(String str) {
         // Hyphens in front are actually minus signs.
-        int lastPos = 1;
+        int lastPos = 0;
         int numHyphens = 0;
         while ((lastPos = str.indexOf('-', lastPos + 1)) > -1) {
             numHyphens++;

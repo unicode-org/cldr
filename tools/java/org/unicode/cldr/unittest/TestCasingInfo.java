@@ -9,7 +9,7 @@ public class TestCasingInfo extends TestFmwk {
         new TestCasingInfo().run(args);
     }
 
-    public void TestGetLocaleCasing() {
+    public void TestGetLocaleCasing(){
         CasingInfo casingInfo = new CasingInfo();
         assertNull("Casing info shouldn't exist for imaginary locale",
             casingInfo.getLocaleCasing("xyz"));
@@ -20,7 +20,7 @@ public class TestCasingInfo extends TestFmwk {
         assertNotEquals("pt_PT is a special case and should not default to pt",
             casingInfo.getLocaleCasing("pt"), casingInfo.getLocaleCasing("pt_PT"));
         assertNotEquals("Script variants should have their own casing",
-            casingInfo.getLocaleCasing("ku"), casingInfo.getLocaleCasing("ku_Latn"));
+            casingInfo.getLocaleCasing("uz"), casingInfo.getLocaleCasing("uz_Latn"));
         assertEquals("Casing for regional variants of a script should be the same as the script variant",
             casingInfo.getLocaleCasing("zh_Hant_TW"), casingInfo.getLocaleCasing("zh_Hant"));
     }

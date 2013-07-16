@@ -6,6 +6,7 @@ import java.util.List;
 import org.unicode.cldr.icu.NewLdml2IcuConverter;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
@@ -21,7 +22,8 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transform;
 
 /**
- * Tests the parts of the Ldml2IcuConverter that uses lists of regexes to convert values to ICU.
+ * Tests the parts of the Ldml2IcuConverter that uses RegexLookups to convert values to ICU.
+ * Data that is converted using other methods isn't tested here.
  * @author jchye
  */
 public class TestLdml2ICU extends TestFmwk {
@@ -39,10 +41,9 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     enum ExclusionType {
-        UNUSED,
+        UNCONVERTED,
         IGNORE, // May be converted or not, but we don't care
-        WARNING,
-        VALUE;
+        WARNING;
         public static Transform<String, Pair<ExclusionType, String>> TRANSFORM = new Transform<String, Pair<ExclusionType, String>>() {
             public Pair<ExclusionType, String> transform(String source) {
                 String value = null;
@@ -91,11 +92,7 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     public void TestLanguageInfo() {
-        try {
         checkSupplementalRegexes("languageInfo");
-        } catch(Exception e) { 
-            e.printStackTrace();
-        }
     }
 
     public void TestLikelySubtags() {
@@ -185,8 +182,14 @@ public class TestLdml2ICU extends TestFmwk {
         }
 
         if (lookup.get(xpath) == null) {
-            assertTrue("CLDR xpath  <" + xpath + "> with value <" + value + "> was not converted to ICU.", exclusionType == ExclusionType.UNUSED || exclusionType == ExclusionType.IGNORE);
-        } else if (exclusionType == ExclusionType.UNUSED) {
+            String errorMessage = "CLDR xpath  <" + xpath + "> with value <" + value + "> was not converted to ICU.";
+            if (exclusionType == null) {
+                errln(errorMessage);
+            } else if (exclusionType == ExclusionType.WARNING) {
+                warnln(errorMessage);
+            }
+        } else if (exclusionType == ExclusionType.UNCONVERTED) {
+            exclusions.get(xpath);
             warnln("CLDR xpath <" + xpath + "> is in the exclusions list but was matched.");
         }
     }
@@ -196,7 +199,7 @@ public class TestLdml2ICU extends TestFmwk {
      * @param name the name of the XML file to be converted (minus the extension)
      */
     private void checkLocaleRegexes(String locale) {
-        CLDRFile plain = info.getCldrFactory().make(locale, false);
+        CLDRFile plain = info.getCldrFactory().make(locale, false, DraftStatus.contributed);
         RegexLookup<Object> lookup = loadRegexes("ldml2icu_locale.txt");
         for (String xpath : plain) {
             String fullPath = CLDRFile.getNondraftNonaltXPath(plain.getFullXPath(xpath));

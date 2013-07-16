@@ -220,11 +220,9 @@ public class CheckNumbers extends FactoryCheckCLDR {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.illegalNumberFormat)
-                .setMessage("Error in creating number format {0}; {1}",
-                    new Object[] { e.getClass().getName(), e }));
+                .setMessage(e.getMessage()));
         }
         return this;
     }

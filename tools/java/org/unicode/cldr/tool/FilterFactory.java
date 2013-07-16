@@ -16,15 +16,17 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Factory for filtering CLDRFiles by organization and replacing certain values.
@@ -98,6 +100,7 @@ public class FilterFactory extends Factory {
 
         filterAltValues(rawFile);
         filterCoverage(rawFile);
+        removeRedundantPaths(rawFile);
         return rawFile;
     }
 
@@ -130,11 +133,51 @@ public class FilterFactory extends Factory {
             .getLevel();
         for (String xpath : rawFile) {
             // Locale metadata shouldn't be stripped.
-            if (xpath.startsWith("//ldml/identity")) continue;
             int level = supplementalData.getCoverageValue(xpath, rawFile.getLocaleID());
             if (level > minLevel) {
                 rawFile.remove(xpath);
             }
+        }
+    }
+
+    /**
+     * Removes paths with duplicate values that can be found elsewhere in the file.
+     * @param rawFile
+     */
+    private void removeRedundantPaths(CLDRFile rawFile) {
+        if (organization == null || rawFile.getLocaleID().equals("root")) return;
+
+        String parent = LocaleIDParser.getParent(rawFile.getLocaleID());
+        CLDRFile resolvedParent = rawFactory.make(parent, true);
+        List<String> duplicatePaths = new ArrayList<String>();
+        XPathParts parts = new XPathParts();
+        for (String xpath : rawFile) {
+            if (xpath.startsWith("//ldml/identity")) continue;
+            String value = rawFile.getStringValue(xpath);
+            // Remove count="x" if the value is equivalent to count="other".
+            if (xpath.contains("[@count=")) {
+                parts.set(xpath);
+                String count = parts.getAttributeValue(-1, "count");
+                if (!count.equals("other")) {
+                    parts.setAttribute(-1, "count", "other");
+                    String otherPath = parts.toString();
+                    if (value.equals(rawFile.getStringValue(otherPath))) {
+                        duplicatePaths.add(xpath);
+                        continue;
+                    }
+                }
+            }
+            // Remove xpaths with values also found in the parent.
+            String sourceLocale = resolvedParent.getSourceLocaleID(xpath, null);
+            if (!sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) {
+                String parentValue = resolvedParent.getStringValue(xpath);
+                if (value.equals(parentValue)) {
+                    duplicatePaths.add(xpath);
+                }
+            }
+        }
+        for (String xpath : duplicatePaths) {
+            rawFile.remove(xpath);
         }
     }
 
@@ -392,7 +435,7 @@ public class FilterFactory extends Factory {
     private static final Options options = new Options(
         "Filters CLDR XML files according to orgnizational coverage levels and an " +
             "input file of replacement values/xpaths.")
-        .add("org", 'o', ".*", "google", "The organization that the filtering is for")
+        .add("org", 'o', ".*", "google", "The organization that the filtering is for. If set, also removes duplicate paths.")
         .add("locales", 'l', ".*", ".*", "A regular expression indicating the locales to be filtered");
 
     /**

@@ -44,7 +44,7 @@ public class TestAll extends TestGroup {
                         "org.unicode.cldr.unittest.TestOutdatedPaths",
                         "org.unicode.cldr.unittest.TestCoverageLevel",
                         "org.unicode.cldr.unittest.TestExampleGenerator",
-                        "org.unicode.cldr.unittest.TestLdml2Icu",
+                        "org.unicode.cldr.unittest.TestLdml2ICU",
                 },
                 "All tests in CLDR");
     }

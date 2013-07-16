@@ -1352,11 +1352,19 @@ public class ExampleGenerator {
                     if (territoryName == null) {
                         territoryName = cldrFile.getStringValue(CLDRFile.getKey(CLDRFile.TERRITORY_NAME, ltp.getRegion()));  
                     }
+                    languageName = languageName.replace('(', '[').replace(')',']').replace('（', '［').replace('）','］');
+                    scriptName = scriptName.replace('(', '[').replace(')',']').replace('（', '［').replace('）','］');
+                    territoryName = territoryName.replace('(', '[').replace(')',']').replace('（', '［').replace('）','］');
+
                     String localePattern = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localePattern");
                     String localeSeparator = cldrFile.getStringValue("//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator");
                     String scriptTerritory = format(localeSeparator, scriptName, territoryName);
-                    examples.add(invertBackground(format(localePattern, languageName, territoryName)));
-                    examples.add(invertBackground(format(localePattern, languageName, scriptName)));
+                    if (!nameType.equals("script")) {
+                        examples.add(invertBackground(format(localePattern, languageName, territoryName)));
+                    }
+                    if (!nameType.equals("territory")) {
+                        examples.add(invertBackground(format(localePattern, languageName, scriptName)));
+                    }
                     examples.add(invertBackground(format(localePattern, languageName, scriptTerritory)));
                 } else {
                     int x = 0; // debugging

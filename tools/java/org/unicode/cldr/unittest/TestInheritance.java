@@ -24,6 +24,8 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
@@ -46,7 +48,7 @@ public class TestInheritance extends TestFmwk {
 
     static TestInfo testInfo = TestInfo.getInstance();
 
-    private static boolean DEBUG = CldrUtility.getProperty("DEBUG", true);
+    private static boolean DEBUG = CldrUtility.getProperty("DEBUG", false);
 
     private static String fileMatcher = CldrUtility.getProperty("FILE", ".*");
 
@@ -69,6 +71,29 @@ public class TestInheritance extends TestFmwk {
         }
 
         LanguageTagParser ltp = new LanguageTagParser();
+        
+        Relation<String,String> languageLocalesSeen = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+
+        
+        Set<String> testOrg = testInfo.getStandardCodes().getLocaleCoverageLocales("google");
+        ChainedMap.M4<String,OfficialStatus,String,Boolean> languageToOfficialChildren 
+        = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<OfficialStatus, Object>(), new TreeMap<String, Object>(), Boolean.class);
+        for (String language : dataInfo.getLanguagesForTerritoriesPopulationData()) {
+            for (String territory : dataInfo.getTerritoriesForPopulationData(language)) {
+                if (SKIP_TERRITORIES.contains(territory)) {
+                    continue;
+                }
+                PopulationData data = dataInfo.getLanguageAndTerritoryPopulationData(language, territory);
+                OfficialStatus status = data.getOfficialStatus();
+                if (data.getOfficialStatus() != OfficialStatus.unknown) {
+                    String locale = clean(language + "_" + territory);
+                    String lang = clean(ltp.set(locale).getLanguage());
+                    languageToOfficialChildren.put(lang, status, locale, Boolean.TRUE);
+                    languageLocalesSeen.put(lang,locale);
+                }
+            }
+        }
+        
         Relation<String,String> languageToChildren = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             String lang = ltp.set(locale).getLanguage();
@@ -78,56 +103,38 @@ public class TestInheritance extends TestFmwk {
             lang = clean(lang);
             locale = clean(locale);
             if (!lang.equals(locale)) {
-                languageToChildren.put(lang, locale);
-            }
-        }
-        Set<String> testOrg = testInfo.getStandardCodes().getLocaleCoverageLocales("google");
-        Relation<String,String> languageToOfficialChildren = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        for (String language : dataInfo.getLanguagesForTerritoriesPopulationData()) {
-            for (String territory : dataInfo.getTerritoriesForPopulationData(language)) {
-                if (SKIP_TERRITORIES.contains(territory)) {
-                    continue;
-                }
-                PopulationData data = dataInfo.getLanguageAndTerritoryPopulationData(language, territory);
-                if (data.getOfficialStatus().compareTo(OfficialStatus.de_facto_official) >= 0) {
-                    String locale = clean(language + "_" + territory);
-                    String lang = clean(ltp.set(locale).getLanguage());
-                    languageToOfficialChildren.put(lang, locale);
+                Set<String> localesSeen = languageLocalesSeen.get(lang);
+                if (localesSeen == null || !localesSeen.contains(locale)) {
+                    languageToOfficialChildren.put(lang, OfficialStatus.unknown, locale, Boolean.TRUE);
                 }
             }
         }
+
         Set<String> languages = new TreeSet(languageToChildren.keySet());
         languages.addAll(languageToOfficialChildren.keySet());
-        System.out.println("language\tjoint\tchildrenNotOfficial\tofficialNotChildren");
-        for (String language : languages) {
-            if (!testOrg.contains(language)) {
-                continue;
+        if (DEBUG) {
+            System.out.print("\ncode\tlanguage");
+            for (OfficialStatus status : OfficialStatus.values()) {
+                System.out.print("\tNo\t" + status);
             }
-            Set<String> children = languageToChildren.get(language);
-            Set<String> officialChildren = languageToOfficialChildren.get(language);
-            if (children == null) {
-                children = Collections.EMPTY_SET;
+            System.out.println();
+            for (String language : languages) {
+                if (!testOrg.contains(language)) {
+                    continue;
+                }
+                System.out.print(language + "\t" + testInfo.getEnglish().getName(language));
+
+                M3<OfficialStatus, String, Boolean> officialChildren = languageToOfficialChildren.get(language);
+                for (OfficialStatus status : OfficialStatus.values()) {
+                    Map<String, Boolean> children = officialChildren.get(status);
+                    if (children == null) {
+                        System.out.print("\t" + 0 + "\t");
+                    } else {
+                        System.out.print("\t" + children.size() + "\t" + show(children.keySet(), false));
+                    }
+                }
+                System.out.println();
             }
-            if (officialChildren == null) {
-                officialChildren = Collections.EMPTY_SET;
-            }
-            Set<String> joint = new TreeSet<String>(children);
-            joint.retainAll(officialChildren);
-
-            Set<String> childrenNotOfficial = new TreeSet<String>(children);
-            childrenNotOfficial.removeAll(officialChildren);
-
-            Set<String> officialNotChildren = new TreeSet<String>(officialChildren);
-            officialNotChildren.removeAll(children);
-
-            System.out.println(language 
-                    + "\t" + testInfo.getEnglish().getName(language)
-                    + "\t" + joint.size()
-                    + "\t" + show(joint, false) 
-                    + "\t" + childrenNotOfficial.size()
-                    + "\t" + show(childrenNotOfficial, true) 
-                    + "\t" + officialNotChildren.size()
-                    + "\t" + show(officialNotChildren, false));
         }
     }
 
@@ -172,7 +179,7 @@ public class TestInheritance extends TestFmwk {
         LanguageTagParser ltp = new LanguageTagParser().set(lang);
         String ls = ltp.getLanguageScript();
         //if (defaultContents.contains(ls)) {
-            ltp.setScript("");
+        ltp.setScript("");
         //}
         return ltp.toString();
     }

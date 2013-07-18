@@ -1,6 +1,8 @@
 package org.unicode.cldr.tool;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -18,11 +20,15 @@ public class CountryCodeConverter {
     private static final boolean SHOW_SKIP = CldrUtility.getProperty("SHOW_SKIP", false);
 
     private static Map<String, String> nameToCountryCode = new TreeMap(new UTF16.StringComparator(true, true, 0));
+    private static Set<String> parseErrors = new LinkedHashSet<String>();
 
     public static String getCodeFromName(String display) {
         String trial = display.trim().toLowerCase(Locale.ENGLISH);
         if (trial.startsWith("\"") && trial.endsWith("\"")) {
             trial = trial.substring(1, trial.length() - 2);
+        }
+        if (trial.startsWith("the ")) {
+            trial = trial.substring(4);
         }
         String result = nameToCountryCode.get(trial);
         if ("skip".equals(result)) {
@@ -71,24 +77,39 @@ public class CountryCodeConverter {
             addName(ULocale.getDisplayCountry("und-" + country, "en"), country);
         }
         StandardCodes sc = StandardCodes.make();
-        for (String country : sc.getGoodAvailableCodes("territory")) {
+        Set<String> goodAvailableCodes = sc.getGoodAvailableCodes("territory");
+        
+        for (String country : goodAvailableCodes) {
             String description = (String) sc.getFullData("territory", country).get(0);
             if (country.equals("057")) continue;
             addName(description, country);
         }
-        FileUtilities.handleFile("external/alternate_country_names.txt", new FileUtilities.LineHandler() {
-            public boolean handle(String line) {
-                if (line.trim().length() == 0) {
-                    return true; // don't show skips
-                }
-                String[] pieces = line.split(";");
-                addName(pieces[2].trim(), pieces[0].trim());
-                return true;
-            }
-        });
+        FileUtilities.handleFile("external/alternate_country_names.txt", new MyHandler(goodAvailableCodes));
         nameToCountryCode = CldrUtility.protectCollection(nameToCountryCode);
+        parseErrors = Collections.unmodifiableSet(parseErrors);
     }
 
+    static class MyHandler implements FileUtilities.LineHandler {
+        private Set<String> goodAvailableCodes;
+
+        public MyHandler(Set<String> goodAvailableCodes) {
+            this.goodAvailableCodes = goodAvailableCodes;
+        }
+
+        public boolean handle(String line) {
+            if (line.trim().length() == 0) {
+                return true; // don't show skips
+            }
+            String[] pieces = line.split(";");
+            String country = pieces[0].trim();
+            if (!goodAvailableCodes.contains(country)) {
+                
+            }
+            addName(pieces[2].trim(), country);
+            return true;
+        }
+    }
+    
     static void addName(String key, String code) {
         addName2(key, code);
         String trial = reverseComma(key);
@@ -99,6 +120,9 @@ public class CountryCodeConverter {
 
     private static void addName2(String key, String code) {
         key = key.toLowerCase(Locale.ENGLISH);
+        if (key.startsWith("the ")) {
+            key = key.substring(4);
+        }
         String old = nameToCountryCode.get(key);
         if (old != null && !code.equals(old)) {
             System.err.println("Conflict!!" + key + "\t" + old + "\t" + code);
@@ -106,4 +130,9 @@ public class CountryCodeConverter {
         }
         nameToCountryCode.put(key, code);
     }
+    
+    public static Set<String> getParseErrors() {
+        return parseErrors;
+    }
+
 }

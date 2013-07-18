@@ -20,6 +20,8 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.print.attribute.standard.MediaSize.Engineering;
+
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
@@ -29,15 +31,20 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.DayPeriodInfo;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
+import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
@@ -52,10 +59,13 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestSupplementalInfo extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
+
+    private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
 
     private static final SupplementalDataInfo SUPPLEMENTAL = testInfo.getSupplementalDataInfo();
 
@@ -177,7 +187,7 @@ public class TestSupplementalInfo extends TestFmwk {
         Set<PluralInfo> seen = new HashSet();
         Set<String> sorted = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
         Relation<String,String> ruleToExceptions = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-        
+
         for (String locale : sorted) {
             PluralInfo plurals = SUPPLEMENTAL.getPlurals(locale);
             if (seen.contains(plurals)) { // skip identicals
@@ -208,7 +218,7 @@ public class TestSupplementalInfo extends TestFmwk {
                     String countRules = plurals.getPluralRules().getRules(c.toString());
                     ruleToExceptions.put(
                             countRules == null ? "" : countRules, 
-                            "{\"" + locale + "\", \"" + c + "\", \"" + CollectionUtilities.join(compose, ",") + "\"},");
+                                    "{\"" + locale + "\", \"" + c + "\", \"" + CollectionUtilities.join(compose, ",") + "\"},");
                 }
             }
         }
@@ -335,19 +345,100 @@ public class TestSupplementalInfo extends TestFmwk {
     public void TestTimeData() {
         Map<String, PreferredAndAllowedHour> timeData = SUPPLEMENTAL.getTimeData();
         Set<String> regionsSoFar = new HashSet<String>();
+        Set<String> current24only = new HashSet<String>();
+        Set<String> current12preferred = new HashSet<String>();
+
+        boolean haveWorld = false;
         for (Entry<String, PreferredAndAllowedHour> e : timeData.entrySet()) {
             String region = e.getKey();
+            if (region.equals("001")) {
+                haveWorld = true;
+            }
+            regionsSoFar.add(region);
             PreferredAndAllowedHour preferredAndAllowedHour = e.getValue();
             if (!preferredAndAllowedHour.allowed.contains(preferredAndAllowedHour.preferred)) {
                 errln(region + ": " + preferredAndAllowedHour.allowed + "must contain"
                         + preferredAndAllowedHour.preferred);
             }
-            for (Character c : preferredAndAllowedHour.allowed) {
-                if (!PreferredAndAllowedHour.HOURS.contains(c)) {
-                    errln(region + ": illegal character in " + preferredAndAllowedHour.allowed + ". It contains " + c
-                            + " which is not in " + PreferredAndAllowedHour.HOURS);
+            //            for (HourStyle c : preferredAndAllowedHour.allowed) {
+            //                if (!PreferredAndAllowedHour.HOURS.contains(c)) {
+            //                    errln(region + ": illegal character in " + preferredAndAllowedHour.allowed + ". It contains " + c
+            //                            + " which is not in " + PreferredAndAllowedHour.HOURS);
+            //                }
+            //            }
+            if (preferredAndAllowedHour.allowed.size() == 1 
+                    && preferredAndAllowedHour.allowed.contains(HourStyle.H)) {
+                current24only.add(region);
+            }
+            if (preferredAndAllowedHour.preferred == HourStyle.h) {
+                current12preferred.add(region);
+            }
+        }
+        Set<String> missing = new TreeSet<String>(STANDARD_CODES.getGoodAvailableCodes(CodeType.territory));
+        missing.removeAll(regionsSoFar);
+        for (Iterator<String> it = missing.iterator(); it.hasNext();) {
+            if (!StandardCodes.isCountry(it.next())) {
+                it.remove();
+            }
+        }
+
+        // if we don't have 001, then we can't miss any regions
+        if (!missing.isEmpty()) {
+            if (haveWorld) {
+                logln("Missing regions: " + missing);
+            } else {
+                errln("Missing regions: " + missing);
+            }
+        }
+
+        // The feedback gathered from our translators is that the following use 24 hour time ONLY:
+        Set<String> only24lang = new TreeSet<String>(Arrays.asList(("sq, br, bu, ca, hr, cs, da, de, nl, et, eu, fi, " +
+                "fr, gl, he, is, id, it, nb, pt, ro, ru, sr, sk, sl, sv, tr, hy").split(",\\s*")));
+        Set<String> only24region = new TreeSet();
+        Set<String> either24or12region = new TreeSet();
+
+        // get all countries where official or de-facto official
+        // add them two one of two lists, based on the above list of languages
+        for (String language : SUPPLEMENTAL.getLanguagesForTerritoriesPopulationData()) {
+            boolean a24lang = only24lang.contains(language);
+            for (String region : SUPPLEMENTAL.getTerritoriesForPopulationData(language)) {
+                PopulationData pop = SUPPLEMENTAL.getLanguageAndTerritoryPopulationData(language, region);
+                if (pop.getOfficialStatus().compareTo(OfficialStatus.de_facto_official) < 0) {
+                    continue;
+                }
+                if (a24lang) {
+                    only24region.add(region);
+                } else {
+                    either24or12region.add(region);
                 }
             }
+        }
+        // if we have a case like CA, where en uses 12/24 but fr uses 24, remove it for safety
+        only24region.removeAll(either24or12region);
+        // also remove all the regions where 'h' is preferred
+        only24region.removeAll(current12preferred);
+        // now verify
+        if (!current24only.containsAll(only24region)) {
+            Set<String> missing24only = new TreeSet(only24region);
+            missing24only.removeAll(current24only);
+
+            errln("24-hour-only doesn't include needed items:\n" 
+                    + " add " + CldrUtility.join(missing24only, " ")
+                    + "\n\t\t"
+                    + CldrUtility.join(missing24only, "\n\t\t", new NameCodeTransform(testInfo.getEnglish(), CLDRFile.TERRITORY_NAME)));
+        }
+    }
+
+    public static class NameCodeTransform implements StringTransform {
+        private final CLDRFile file;
+        private final int codeType;
+        public NameCodeTransform(CLDRFile file, int code) {
+            this.file = file;
+            this.codeType = code;
+        }
+        @Override
+        public String transform(String code) {
+            return file.getName(codeType, code) + " [" + code + "]";
         }
     }
 
@@ -510,7 +601,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestMacrolanguages() {
-        Set<String> languageCodes = testInfo.getStandardCodes().getAvailableCodes("language");
+        Set<String> languageCodes = STANDARD_CODES.getAvailableCodes("language");
         Map<String, Map<String, R2<List<String>, String>>> typeToTagToReplacement = SUPPLEMENTAL
                 .getLocaleAliasInfo();
         Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get("language");
@@ -676,21 +767,21 @@ public class TestSupplementalInfo extends TestFmwk {
      */
     public void TestCurrency() {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
-        Set<String> currencyCodes = testInfo.getStandardCodes().getGoodAvailableCodes("currency");
+        Set<String> currencyCodes = STANDARD_CODES.getGoodAvailableCodes("currency");
         Relation<String, Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes = Relation.of(
                 new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
                 TreeSet.class);
         Relation<String, Pair<String, CurrencyDateInfo>> modernCurrencyCodes = Relation.of(
                 new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(),
                 TreeSet.class);
-        Set<String> territoriesWithoutModernCurrencies = new TreeSet<String>(testInfo.getStandardCodes()
+        Set<String> territoriesWithoutModernCurrencies = new TreeSet<String>(STANDARD_CODES
                 .getGoodAvailableCodes(
                         "territory"));
         Map<String, Date> currencyFirstValid = new TreeMap<String, Date>();
         Map<String, Date> currencyLastValid = new TreeMap<String, Date>();
         territoriesWithoutModernCurrencies.remove("ZZ");
 
-        for (String territory : testInfo.getStandardCodes().getGoodAvailableCodes("territory")) {
+        for (String territory : STANDARD_CODES.getGoodAvailableCodes("territory")) {
             /* "EU" behaves like a country for purposes of this test */
             if ((SUPPLEMENTAL.getContained(territory) != null) && !territory.equals("EU")) {
                 territoriesWithoutModernCurrencies.remove(territory);

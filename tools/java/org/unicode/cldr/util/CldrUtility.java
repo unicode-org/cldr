@@ -568,32 +568,29 @@ public class CldrUtility {
         return a;
     }
 
-    public static String join(Collection c, String separator) {
+    public static <T> String join(Collection<T> c, String separator) {
+        return join(c, separator, null);
+    }
+    public static String join(Object[] c, String separator) {
+        return join(c, separator, null);
+    }
+    
+    public static <T> String join(Collection<T> c, String separator, Transform<T,String> transform) {
         StringBuffer output = new StringBuffer();
         boolean isFirst = true;
-        for (Object item : c) {
+        for (T item : c) {
             if (isFirst) {
                 isFirst = false;
             } else {
                 output.append(separator);
             }
-            output.append(item == null ? item : item.toString());
+            output.append(transform != null ? transform.transform(item) : item == null ? item : item.toString());
         }
         return output.toString();
     }
 
-    public static String join(Object[] c, String separator) {
-        StringBuffer output = new StringBuffer();
-        boolean isFirst = true;
-        for (Object item : c) {
-            if (isFirst) {
-                isFirst = false;
-            } else {
-                output.append(separator);
-            }
-            output.append(item == null ? item : item.toString());
-        }
-        return output.toString();
+    public static <T> String join(T[] c, String separator, Transform<T,String> transform) {
+        return join(Arrays.asList(c), separator, transform);
     }
 
     /**

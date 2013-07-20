@@ -128,14 +128,20 @@ For terms of use, see http://www.unicode.org/copyright.html
         <pluralRules locales="ca de en et fi gl it nl sw ur yi">
             <pluralRule count="one">j is 1</pluralRule>
         </pluralRules>
-        <pluralRules locales="da sv">
-            <pluralRule count="one">j is 1 or f is 1</pluralRule>
+        <pluralRules locales="sv">
+            <pluralRule count="one">j is 1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="da">
+            <pluralRule count="one">j is 1 or t is not 0 and n within 0..2</pluralRule>
         </pluralRules>
         <pluralRules locales="is">
-            <pluralRule count="one">j mod 10 is 1 and j mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11</pluralRule>
+            <pluralRule count="one">t is 0 and i mod 10 is 1 and i mod 100 is not 11 or t is not 0</pluralRule>
         </pluralRules>
         <pluralRules locales="pt">
-            <pluralRule count="one">n is 1 or f is 1</pluralRule>
+            <pluralRule count="one">j is 1 or f is 1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="pt_PT">
+            <pluralRule count="one">n is 1 or t is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="am bn fa gu hi kn mr zu">
             <pluralRule count="one">n within 0..1</pluralRule>
